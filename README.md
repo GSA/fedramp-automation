@@ -1,4 +1,4 @@
-![FedRAMP Logo](./assets/FedRAMP_LOGO.png "FedRAMP Logo")
+<img src='./assets/FedRAMP_LOGO.png' alt="FedRAMP Logo" width="76" height="94">
 ## Federal Risk and Authorization Management Program (FedRAMP) Automation
 
 ### November 27, 2019
