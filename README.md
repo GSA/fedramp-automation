@@ -1,4 +1,4 @@
-<h2><img src='./assets/FedRAMP_LOGO.png' alt="FedRAMP" width="76" height="94"><br />Federal Risk and Authorization Management Program (FedRAMP) Automation</h2>
+<table><tr><td><img src='./assets/FedRAMP_LOGO.png' alt="FedRAMP" width="76" height="94"></td><td><h2>Federal Risk and Authorization Management Program (FedRAMP) Automation</h2></td></tr></table>
 
 ### November 27, 2019
 
