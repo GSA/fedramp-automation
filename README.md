@@ -1,4 +1,4 @@
-![FedRAMP Logo](https://github.com/gsa/fedramp-automation/assets/img/icon48.png "FedRAMP Logo")
+![FedRAMP Logo](./assets/FedRAMP_LOGO.png "FedRAMP Logo")
 ## Federal Risk and Authorization Management Program (FedRAMP) Automation
 
 ### November 27, 2019
@@ -24,7 +24,7 @@ NIST and FedRAMP just released [OSCAL Milestone 2](https://github.com/usnistgov/
 **FedRAMP Wants Your Technical Feedback!**<br />
 Are you well versed in XML, JSON, or YAML? If so, FedRAMP wants your feedback on the below content. For the below items, please provide comments either via email to info@fedramp.gov, as a comment to an existing issue, or as a new issue via GitHub within the FedRAMP-SSP repository [add link once repo is established]. 
 - **FedRAMP OSCAL Registry:** This will serve as the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The draft for public comment is available here[need link].
-- **Guidance Document:** Modeling a FedRAMP SSP in OSCAL: This document enables tool developers to generate OSCAL-based SSP files that are fully compliant with FedRAMP’s extensions, defined identifiers, and acceptable values. The draft for public comment is available here[need link].
+- **Guidance Document:** Modeling a FedRAMP SSP in OSCAL: This document enables tool developers to generate OSCAL-based SSP files that are fully compliant with FedRAMP’s extensions, defined identifiers, and acceptable values. The draft for public comment is available [here](https://github.com/GSA/fedramp-automation/raw/master/content/Modeling_a_FedRAMP-SSP_in_OSCAL.pdf).
 - **OSCAL-based FedRAMP SSP Template:** The template file is pre-populated with FedRAMP extensions and defined-identifiers where practical. It also includes some sample data, and is the basis for the guidance document above.  The draft for public comment is available in both XML and JSON formats here[need link].
 - **FedRAMP Baselines:** The FedRAMP baselines for High, Moderate, Low, and Tailored for Low Impact-Software as a Service (LI-SaaS) in OSCAL (XML, JSON, and YAML formats) are available here. 
 
