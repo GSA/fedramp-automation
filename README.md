@@ -20,7 +20,7 @@ Please ask questions or provide feedback on the items above above either via ema
 
 ## Dependencies
 
-FedRAMP's work is based on NIST's [OSCAL 1.0.0-Milestone2 release](https://github.com/usnistgov/OSCAL/releases/tag/v1.0.0-milestone2), and requires an understanding of the core OSCAL syntax, as well as NIST-provided resources to functon correctly.
+FedRAMP's work is based on NIST's [OSCAL 1.0.0-Milestone2 release](https://github.com/usnistgov/OSCAL/releases/tag/v1.0.0-milestone2), and requires an understanding of the core OSCAL syntax, as well as NIST-provided resources to function correctly.
 
 The following NIST resources are available:
 - **NIST's Main OSCAL Site:** [https://pages.nist.gov/OSCAL/](https://pages.nist.gov/OSCAL/)
