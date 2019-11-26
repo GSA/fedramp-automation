@@ -34,7 +34,7 @@ The following NIST resources are available:
 
 NIST offers a complete package containing the NIST OSCAL converters, syntax validation tools, 800-53 and FedRAMP baselines content is available for download in both [ZIP](https://github.com/usnistgov/OSCAL/releases/download/v1.0.0-milestone2/oscal-1.0.0-milestone2.zip) and [BZ2](https://github.com/usnistgov/OSCAL/releases/download/v1.0.0-milestone2/oscal-1.0.0-milestone2.tar.bz2) formats. 
 
-Please ask questions or provide feedback on the above NIST dependencie either via email to [oscal@nist.gov](oscal@nist.gov), as a comment to an existing issue, or as a new issue via the [NIST OSCAL GitHub site](https://github.com/usnistgov/OSCAL/issues).
+Please ask questions or provide feedback on the above NIST dependencie either via email to [oscal@nist.gov](mailto:oscal@nist.gov), as a comment to an existing issue, or as a new issue via the [NIST OSCAL GitHub site](https://github.com/usnistgov/OSCAL/issues).
 
 
 ### FedRAMP looks forward to receiving your comments and sharing additional progress.
