@@ -378,7 +378,7 @@
             "ns" : "fedramp",
             "value" : "MegaIaaS",
             "remarks" : "Notes about this system" },
-          "party-id" : "party-3ip",
+          "party-id" : "party-eip",
           "date-authorized" : "2018-11-27",
           "remarks" : "Overall notes about the inheritance of controls from this system" },
         "authorization-boundary" : 

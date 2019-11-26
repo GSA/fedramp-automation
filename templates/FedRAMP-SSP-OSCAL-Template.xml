@@ -391,7 +391,7 @@
          <annotation name="system-name" id="leveraged-01-name" ns="fedramp" value="MegaIaaS">
             <remarks><p>Notes about this system</p></remarks>
          </annotation>
-         <party-id>party-3ip</party-id>
+         <party-id>party-eip</party-id>
          <date-authorized>2018-11-27</date-authorized>
          <remarks><p>Overall notes about the inheritance of controls from this system</p></remarks>
       </leveraged-authorization>
