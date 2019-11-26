@@ -142,10 +142,10 @@
             <phone>202-555-1212</phone>
          </person>
       </party>
-      <party id="party-bip">
+      <party id="party-eip">
          <org>
-            <org-name>[SAMPLE]Big IaaS Provider</org-name>
-            <short-name>B.I.P.</short-name>
+            <org-name>[SAMPLE]Example IaaS Provider</org-name>
+            <short-name>E.I.P.</short-name>
             <remarks>
                <p>Underlying service provider. Leveraged Authorization.</p>
             </remarks>
@@ -391,7 +391,7 @@
          <annotation name="system-name" id="leveraged-01-name" ns="fedramp" value="MegaIaaS">
             <remarks><p>Notes about this system</p></remarks>
          </annotation>
-         <party-id>party-bip</party-id>
+         <party-id>party-eip</party-id>
          <date-authorized>2018-11-27</date-authorized>
          <remarks><p>Overall notes about the inheritance of controls from this system</p></remarks>
       </leveraged-authorization>

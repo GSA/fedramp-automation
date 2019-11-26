@@ -128,10 +128,10 @@
               "telephone-numbers" : 
               { "number" : "202-555-1212" } } },
           
-          { "id" : "party-bip",
+          { "id" : "party-eip",
             "org" : 
-            { "org-name" : "[SAMPLE]Big IaaS Provider",
-              "short-name" : "B.I.P.",
+            { "org-name" : "[SAMPLE]Example IaaS Provider",
+              "short-name" : "E.I.P.",
               "remarks" : "Underlying service provider. Leveraged Authorization." } },
           
           { "id" : "person-001",
@@ -378,7 +378,7 @@
             "ns" : "fedramp",
             "value" : "MegaIaaS",
             "remarks" : "Notes about this system" },
-          "party-id" : "party-bip",
+          "party-id" : "party-eip",
           "date-authorized" : "2018-11-27",
           "remarks" : "Overall notes about the inheritance of controls from this system" },
         "authorization-boundary" : 
