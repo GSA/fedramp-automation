@@ -15,7 +15,8 @@ The FedRAMP PMO is releasing the following files for public review and comment:
 - **OSCAL-based FedRAMP SSP Template:** The template file is pre-populated with FedRAMP extensions and defined-identifiers where practical. It also includes some sample data, and is the basis for the guidance document above. The draft for public comment is available in both [XML](https://github.com/GSA/fedramp-automation/raw/master/templates/FedRAMP-SSP-OSCAL-Template.xml) and [JSON](https://github.com/GSA/fedramp-automation/raw/master/templates/FedRAMP-SSP-OSCAL-Template.json) formats.
 - **FedRAMP Baselines:** The FedRAMP baselines for High, Moderate, Low, and Tailored for Low Impact-Software as a Service (LI-SaaS) in OSCAL (XML, JSON, and YAML formats) are available [here](https://github.com/usnistgov/OSCAL/tree/master/content/fedramp.gov). 
 
-Please ask questions or provide feedback on the items above above either via email to [oscal@nist.gov](oscal@nist.gov), as a comment to an existing issue, or as a new issue via the [NIST OSCAL GitHub site](https://github.com/usnistgov/OSCAL/issues).
+Please ask questions or provide feedback on the items above above either via email to [info@fedramp.gov](mailto:info@fedramp.gov), as a comment to an existing [issue](https://github.com/GSA/fedramp-automation/issues), or as a new [issue](https://github.com/GSA/fedramp-automation/issues).
+
 
 ## Dependencies
 
