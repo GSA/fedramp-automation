@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fedramp-values xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+    <metadata>
+        <title>FedRAMP Definitions and Accepted Values</title>
+        <title-short>FedRAMP Values</title-short>
+        <description><p>This provides the FedRAMP acceptable values in a machine-readable format.</p></description>
+        <author>Brian J. Ruf, CISSP, CCSP, PMP</author>
+        <last-modified>2019-11-19Z</last-modified>
+    </metadata>
+
+    <baselines>
+        <file id="high"     href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline-resolved-profile_catalog.xml" />
+        <file id="moderate" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline-resolved-profile_catalog.xml" />
+        <file id="low"      href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline-resolved-profile_catalog.xml" />
+    </baselines>
+
+    <nist name="nist-800-53r4">https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml</nist>
+
+    <security-sensitivity-level>
+        <value id="low"      label="Low"      label-short="L" />
+        <value id="moderate" label="Moderate" label-short="M" />
+        <value id="high"     label="High"     label-short="H" />
+    </security-sensitivity-level>
+
+    <privacy-sensitive>
+        <value id="yes" label="Privacy Sensitive"     label-short="Yes" />
+        <value id="no"  label="Not Privacy Sensitive" label-short="No" />
+    </privacy-sensitive>
+
+    <answers>
+        <value id="yes" label="Yes" label-short="Y" />
+        <value id="no"  label="No"  label-short="N" />
+    </answers>
+
+    <levels>
+        <value id="low"      label="Low"      label-short="L" />
+        <value id="moderate" label="Moderate" label-short="M" />
+        <value id="high"     label="High"     label-short="H" />
+    </levels>
+
+    <authorization-type>
+        <value id="fedramp-jab"     label="FedRAMP JAB P-ATO"            label-short="JAB" />
+        <value id="fedramp-agency"  label="FedRAMP Agency ATO"           label-short="Agency" />
+        <value id="fedramp-li-saas" label="FedRAMP Tailored for LI-SaaS" label-short="LI-SaaS" />
+    </authorization-type>
+
+    <service-model>
+        <value id="saas"  label="Software as a Service"       label-short="SaaS" />
+        <value id="paas"  label="Platform as a Service"       label-short="PaaS" />
+        <value id="iaas"  label="Infrastructure as a Service" label-short="IaaS" />
+        <value id="other" label="Other"                       label-short="Other" />
+    </service-model>
+
+    <deployment-model>
+        <value id="public"                label="Public"                    label-short="Public" />
+        <value id="private"               label="Private"                   label-short="Private" />
+        <value id="community-usgov-only"  label="Government Only Community" label-short="USG Community" />
+        <value id="hybrid"                label="Hybrid"                    label-short="Hybrid" />
+    </deployment-model>
+
+    <system-status>
+        <value id="operational"              label="Operational"                label-short="Operational" />
+        <value id="under-development"        label="Under Development"          label-short="Development" />
+        <value id="under-major-modification" label="Major Modification"         label-short="Major Mod." />
+        <value id="disposition"              label="Alternative Implementation" label-short="Alternative" />
+        <value id="other"                    label="Other"                      label-short="Other" />
+    </system-status>
+
+    <user-type>
+        <value id="internal" label="Internal" label-short="I" />
+        <value id="external" label="External" label-short="E" />
+    </user-type>
+
+    <privilege-type>
+        <value id="P"   label="Privileged"        label-short="P" />
+        <value id="NP"  label="Non-Privileged"    label-short="NP" />
+        <value id="NLA" label="No Logical Access" label-short="NLA" />
+    </privilege-type>
+
+    <user-sensitivity>
+        <value id="high-risk" label="High Risk"      label-short="High" />
+        <value id="severe"    label="Severe"         label-short="Sev." />
+        <value id="moderate"  label="Moderate"       label-short="Mod." />
+        <value id="limited"   label="Limited"        label-short="Lim." />
+        <value id="na"        label="Not Applicable" label-short="N/A" />
+    </user-sensitivity>
+
+    <interconnection-direction>
+        <value id="incoming" label="Incoming" label-short="In" />
+        <value id="outgoing" label="Outgoing" label-short="Out" />
+    </interconnection-direction>
+
+    <interconnection-security>
+        <value id="ipsec"                label="Incoming" label-short="In" />
+        <value id="vpn"                  label="Outgoing" label-short="Out" />
+        <value id="ssl"                  label="Outgoing" label-short="Out" />
+        <value id="certificate"          label="Outgoing" label-short="Out" />
+        <value id="secure-file-transfer" label="Outgoing" label-short="Out" />
+        <value id="other"                label="Other" label-short="Out" />
+    </interconnection-security>
+
+    <component-type>
+        <value id="software"   label="Software"   label-short="S/W" />
+        <value id="hardware"   label="Hardware"   label-short="H/W" />
+        <value id="service"    label="Service"    label-short="Svc" />
+        <value id="policy"     label="Policy"     label-short="Pol" />
+        <value id="process"    label="Process"    label-short="Pros" />
+        <value id="procedure"  label="Procedure"  label-short="Proc" />
+        <value id="plan"       label="Plan"       label-short="Plan" />
+        <value id="guidance"   label="Guidance"   label-short="Guide" />
+        <value id="standard"   label="Standard"   label-short="Std" />
+        <value id="validation" label="Validation" label-short="Val" />
+        <value id="customer"   label="Customer"   label-short="Cust" />
+        <value id="*"          label="Any Other"  label-short="*" />
+    </component-type>
+
+    <asset-type>
+        <value id="os"               label="Operating System"        label-short="OS" />
+        <value id="database"         label="Database"                label-short="DB" />
+        <value id="web-server"       label="Service"                 label-short="Web" />
+        <value id="dns-server"       label="Policy"                  label-short="DNS" />
+        <value id="email-server"     label="Process"                 label-short="eMail" />
+        <value id="directory-server" label="Procedure"               label-short="LDAP" />
+        <value id="pbx"              label="Private Branch Exchange" label-short="PBX" />
+        <value id="firewall"         label="Firewall"                label-short="FW" />
+        <value id="router"           label="Router"                  label-short="Rtr" />
+        <value id="switch"           label="Switch"                  label-short="Swtch" />
+        <value id="storage-array"    label="Storage Array"           label-short="Store" />
+        <value id="*"                label="Any Other"               label-short="*" />
+    </asset-type>
+
+    <implementation-status>
+        <value id="implemented" label="Implemented"                label-short="Implemented" />
+        <value id="partial"     label="Partially Implemented"      label-short="Partial" />
+        <value id="planned"     label="Planned"                    label-short="Planned" />
+        <value id="alternative" label="Alternative Implementation" label-short="Alternative" />
+        <value id="na"          label="Not Applicable"             label-short="N/A" />
+    </implementation-status>
+
+    <control-origination>
+        <value id="sp-corporate"        label="Service Provider (Corporate)"       label-short="SP Corporate" />
+        <value id="sp-system"           label="Service Provider (System Specific)" label-short="SP System" />
+        <value id="customer-configured" label="Configured by Customer"             label-short="Cust. Configured" />
+        <value id="customer-provided"   label="Provided by Customer"               label-short="Cust. Provided" />
+        <value id="inherited"           label="Inherited"                          label-short="Inherited"/>
+    </control-origination>
+
+    <citation-tye>
+        <value id="law"        label="Law or Statute"             label-short="Law" />
+        <value id="regulation" label="Regulation or Directive"    label-short="Regulation" />
+        <value id="standard"   label="Industry Standard"          label-short="Standard" />
+        <value id="guidance"   label="Guidance"                   label-short="Guidance" />
+        <value id="pii"        label="Privacy Impact Information" label-short="P.I.I."/>
+    </citation-tye>
+
+    <resource-tye>
+        <value id="policy"    label="Polciy"                    label-short="Policy" />
+        <value id="procedure" label="Procedure"                 label-short="Procedure" />
+        <value id="guide"     label="Guidance Document"         label-short="Guidance" />
+        <value id="pia"       label="Privacy Impact Assessment" label-short="P.I.A." />
+        <value id="rob"       label="Rules of Behavior"         label-short="R.O.B."/>
+        <value id="plan"      label="Plan"                      label-short="PLan"/>
+    </resource-tye>
+
+</fedramp-values>
