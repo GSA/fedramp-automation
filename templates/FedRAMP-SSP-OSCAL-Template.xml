@@ -9,54 +9,54 @@
       <last-modified>2019-10-21T00:00:00.00-04:00</last-modified>
       <version>0.0</version>
       <oscal-version>1.0-Milestone2</oscal-version>
-      <prop name="marking" ns="fedramp">Controlled Unclassified Information</prop>
+      <prop name="marking" ns="https://fedramp.gov/ns/oscal">Controlled Unclassified Information</prop>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
-      <role id="role-ssp-by">
+      <role id="prepared-by">
          <title>Prepared By</title>
          <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
       </role>
-      <role id="role-ssp-for">
+      <role id="prepared-for">
          <title>Prepared For</title>
          <desc>The organization for which this SSP was prepared. Typically the CSP.</desc>
       </role>
-      <role id="role-ssp-approver">
+      <role id="content-approver">
          <title>System Security Plan Approval</title>
          <desc>The individual or individuals within the CSP authorized to take responsibility for the accuracy of this SSP.</desc>
       </role>
-      <role id="role-system-owner">
+      <role id="system-owner">
          <title>Information System Owner</title>
          <desc>The individual within the CSP who is ultimately accountable for everything related to this system.</desc>
       </role>
-      <role id="role-system-ao">
+      <role id="authorizing-official">
          <title>Authorizing Official</title>
          <desc>The individual or individuals who must grant this system an authorization to operate.</desc>
       </role>
-      <role id="role-system-poc-manager">
+      <role id="system-poc-management">
          <title>Information System Management Point of Contact (POC)</title>
          <desc>The highest level manager who responsible for system operation on behalf of the System Owner.</desc>
       </role>
-      <role id="role-system-poc-technical">
+      <role id="system-poc-technical">
          <title>Information System Technical Point of Contact</title>
          <desc>The individual or individuals leading the technical operation of the system.</desc>
       </role>
-      <role id="role-system-poc-general">
+      <role id="system-poc-other">
          <title>General Point of Contact (POC)</title>
          <desc>A general point of contact for the system, designated by the system owner.</desc>
       </role>
-      <role id="role-system-isso">
+      <role id="information-system-security-officer">
          <title>System Information System Security Officer (or Equivalent)</title>
          <desc>The individual accountable for the security posture of the system on behalf of the system owner.</desc>
       </role>
-      <role id="role-system-ao-poc">
+      <role id="authorizing-official-poc">
          <title>Authorizing Official's Point of Contact</title>
          <desc>The individual representing the authorizing official.</desc>
       </role>
-      <role id="role-system-privacy-officer">
+      <role id="privacy-poc">
          <title>Privacy Official's Point of Contact</title>
          <desc>The individual responsible for the privacy threshold analysis and if necessary the privacy impact assessment.</desc>
       </role>
-      <role id="role-ica-1">
+      <role id="ica-1">
          <title>[REPLACE]Role of ICA Signatory</title>
          <desc>The role of the individual who signed the ICA.</desc>
          <remarks>
@@ -71,25 +71,25 @@
          <title>Administrative responsibility an inventory item within the system.</title>
       </role>
       <!-- The following role definitions are samples and may be modified or deleted -->
-      <role id="role-admin-unix">
+      <role id="admin-unix">
          <title>[SAMPLE]Unix Administrator</title>
          <desc>This is a sample role.</desc>
       </role>
-      <role id="role-admin-client">
+      <role id="admin-client">
          <title>[SAMPLE]Client Administrator</title>
          <desc>This is a sample role.</desc>
       </role>
-      <role id="role-program-director">
+      <role id="program-director">
          <title>[SAMPLE]Program Director</title>
          <desc>This is a sample role.</desc>
       </role>
       <!-- The following parties must be present, with the provided ID. -->
       <!-- Change the content as needed; however, do not change the ID. -->
-      <party id="party-csp">
+      <party id="csp">
          <org>
             <org-name>Cloud Service Provider (CSP) Name</org-name>
             <short-name>CSP Acronym/Short Name</short-name>
-            <address>
+            <address type='work'>
                <addr-line>Suite 0000</addr-line>
                <addr-line>1234 Some Street</addr-line>
                <city>Haven</city>
@@ -102,11 +102,11 @@
             </remarks>
          </org>
       </party>
-      <party id="party-fedramp-pmo">
+      <party id="fedramp-pmo">
          <org>
             <org-name>Federal Risk and Authorization Management Program: Program Management Office</org-name>
             <short-name>FedRAMP PMO</short-name>
-            <address>
+            <address type='work'>
                <addr-line>1800 F St. NW</addr-line>
                <addr-line></addr-line>
                <city>Washington</city>
@@ -118,13 +118,13 @@
             <url>https://fedramp.gov</url>
          </org>
       </party>
-      <party id="party-fedramp-jab">
+      <party id="fedramp-jab">
          <org>
             <org-name>Federal Risk and Authorization Management Program: Joint Authorization Board</org-name>
             <short-name>FedRAMP JAB</short-name>
          </org>
       </party>
-      <party id="party-external">
+      <party id="external">
          <org>
             <org-name>External Organization</org-name>
             <short-name>External</short-name>
@@ -134,15 +134,16 @@
          </org>
       </party>
       <!-- The following parties are samples, and may be modified or removed -->
-      <party id="party-ica-1">
+      <party id="ica-1">
          <person>
             <person-name>[SAMPLE]ICA POC's Name</person-name>
             <org-name>[SAMPLE]Remote System Org Name</org-name>
             <email>person@ica.org.example</email>
             <phone>202-555-1212</phone>
+            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="party-eip">
+      <party id="eip">
          <org>
             <org-name>[SAMPLE]Example IaaS Provider</org-name>
             <short-name>E.I.P.</short-name>
@@ -151,11 +152,11 @@
             </remarks>
          </org>
       </party>
-      <party id="person-001">
+      <party id="person-1">
          <person>
             <person-name>[SAMPLE]Person Name 1</person-name>
-            <org-id>party-csp</org-id>
-            <address>
+            <org-id>csp</org-id>
+            <address type='work'>
                <addr-line>Address Line</addr-line>
                <city>City</city>
                <state>ST</state>
@@ -164,14 +165,14 @@
             </address>
             <email>name@org.domain</email>
             <phone></phone>
-            <prop name="title" ns="fedramp">Individual's Title</prop>
+            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="person-002">
+      <party id="person-2">
          <person>
             <person-name>[SAMPLE]Person Name 2</person-name>
-            <org-id>party-csp</org-id>
-            <address>
+            <org-id>csp</org-id>
+            <address type='work'>
                <addr-line>Address Line</addr-line>
                <city>City</city>
                <state>ST</state>
@@ -180,59 +181,78 @@
             </address>
             <email>name@org.domain</email>
             <phone></phone>
-            <prop name="title" ns="fedramp">Individual's Title</prop>
+            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="person-003">
+      <party id="person-3">
          <person>
             <person-name>[SAMPLE]Person Name 3</person-name>
-            <org-id>party-csp</org-id>
+            <org-id>csp</org-id>
+            <address type='work'>
+               <addr-line>Address Line</addr-line>
+               <city>City</city>
+               <state>ST</state>
+               <postal-code>00000</postal-code>
+               <country>US</country>
+            </address>
             <email>name@org.domain</email>
             <phone></phone>
-            <prop name="title" ns="fedramp">Individual's Title</prop>
+            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="person-003">
+      <party id="person-4">
          <person>
-            <person-name>Name 2</person-name>
-            <org-id>party-csp</org-id>
+            <person-name>[SAMPLE]Person Name 4</person-name>
+            <org-id>csp</org-id>
+            <address type='work'>
+               <addr-line>Address Line</addr-line>
+               <city>City</city>
+               <state>ST</state>
+               <postal-code>00000</postal-code>
+               <country>US</country>
+            </address>
             <email>name@org.domain</email>
             <phone></phone>
-            <prop name="title" ns="fedramp">Individual's Title</prop>
+            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="person-004">
-         <person>
-            <person-name>[[SAMPLE]Person Name 4</person-name>
-            <org-id>party-csp</org-id>
-            <email>name@org.domain</email>
-            <phone></phone>
-            <prop name="title" ns="fedramp">Individual's Title</prop>
-         </person>
-      </party>
-      <party id="person-005">
+      <party id="person-5">
          <person>
             <person-name>[SAMPLE]Person Name 5</person-name>
-            <org-id>party-csp</org-id>
+            <org-id>csp</org-id>
+            <address type='work'>
+               <addr-line>Address Line</addr-line>
+               <city>City</city>
+               <state>ST</state>
+               <postal-code>00000</postal-code>
+               <country>US</country>
+            </address>
             <email>name@org.domain</email>
             <phone></phone>
-            <prop name="title" ns="fedramp">Individual's Title</prop>
+            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="person-006">
+      <party id="person-6">
          <person>
             <person-name>[SAMPLE]Person Name 6</person-name>
-            <org-id>party-csp</org-id>
+            <org-name>Agency Name</org-name>
+            <address type='work'>
+               <addr-line>Address Line</addr-line>
+               <city>City</city>
+               <state>ST</state>
+               <postal-code>00000</postal-code>
+               <country>US</country>
+            </address>
             <email>name@org.domain</email>
-            <phone></phone>
-            <prop name="title" ns="fedramp">Individual's Title</prop>
+            <phone type='mobile'>000-000-0000</phone>
+            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="person-007">
+      <party id="person-7">
          <person>
             <person-name>[SAMPLE]Person Name 7</person-name>
             <org-name>CSP Name</org-name>
-            <address>
+            <address type='work'>
                <addr-line>Suite 0000</addr-line>
                <addr-line>1234 Some Street</addr-line>
                <city>Haven</city>
@@ -240,67 +260,68 @@
                <postal-code>00000</postal-code>
             </address>
             <email>name@org.domain</email>
-            <phone>000-000-0000</phone>
-            <prop name="title" ns="fedramp">Individual's Title</prop>
+            <phone type='office'>000-000-0000</phone>
+            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="party-it-dept">
+      <party id="it-department">
          <org>
             <org-name>[SAMPLE] IT Department</org-name>
          </org>
       </party>
-      <party id="party-sec-team">
+      <party id="security-team">
          <org>
             <org-name>[SAMPLE]Security Team</org-name>
          </org>
       </party>
       <!-- Page ii -->
-      <responsible-party role-id="role-ssp-by">
+      <responsible-party role-id="prepared-by">
          <!-- Exacty one -->
-         <party-id>party-csp</party-id>
+         <party-id>csp</party-id>
       </responsible-party>
-      <responsible-party role-id="role-ssp-for">
+      <responsible-party role-id="prepared-for">
          <!-- Exacty one -->
-         <party-id>partycsp</party-id>
+         <party-id>csp</party-id>
       </responsible-party>
       <!-- Page vi -->
-      <responsible-party role-id="role-ssp-approver">
+      <responsible-party role-id="content-approver">
          <!-- one or more-->
-         <party-id>person-001</party-id>
-         <party-id>person-002</party-id>
+         <party-id>person-1</party-id>
+         <party-id>person-2</party-id>
       </responsible-party>
       <!-- Section 3 System Owner-->
-      <responsible-party role-id="role-system-owner">
+      <responsible-party role-id="system-owner">
          <!-- Exacty one -->
-         <party-id>person-001</party-id>
+         <party-id>person-1</party-id>
       </responsible-party>
       <!-- Section 4 - Authorizing Officials -->
-      <responsible-party role-id="role-system-ao">
+      <responsible-party role-id="authorizing-official">
          <!-- one or more-->
-         <party-id>party-fedramp-jab</party-id>
+         <party-id>fedramp-jab</party-id>
+         <party-id>person-6</party-id>
       </responsible-party>
       <!-- Section 5 - Other Designated Contacts -->
-      <responsible-party role-id="role-system-poc-manager">
+      <responsible-party role-id="system-poc-management">
          <!-- Exacty one -->
-         <party-id>person-003</party-id>
+         <party-id>person-3</party-id>
       </responsible-party>
-      <responsible-party role-id="role-system-poc-technical">
+      <responsible-party role-id="system-poc-technical">
          <!-- Exacty one -->
-         <party-id>person-004</party-id>
+         <party-id>person-4</party-id>
       </responsible-party>
       <!-- Section 6 - Assignment of Security Responsibility -->
-      <responsible-party role-id="role-system-isso">
+      <responsible-party role-id="information-system-security-officer">
          <!-- Exacty one -->
-         <party-id>person-005</party-id>
+         <party-id>person-5</party-id>
       </responsible-party>
-      <responsible-party role-id="role-system-ao-poc">
+      <responsible-party role-id="authorizing-official-poc">
          <!-- Exacty one -->
-         <party-id>person-006</party-id>
+         <party-id>person-6</party-id>
       </responsible-party>
       <!-- Attachment X - Privacy Threshold Analysis (PTA) POC -->
-      <responsible-party role-id="role-system-privacy-officer">
+      <responsible-party role-id="privacy-poc">
          <!-- Exacty one -->
-         <party-id>person-007</party-id>
+         <party-id>person-7</party-id>
       </responsible-party>
       <remarks>
          <p>This OSCAL-based FedRAMP SSP Template can be used for the FedRAMP Low, Moderate, and High baselines.</p>
@@ -326,37 +347,38 @@
          <p>Describe the purpose and functions of this system here.</p>
       </description>
       <!-- FedRAMP Authorizatoin Type: fedramp-jab, fedramp-agency, or fedramp-li-saas -->
-      <prop name="authorization-type" ns="fedramp">fedramp-agency</prop>
+      <prop name="authorization-type" ns="https://fedramp.gov/ns/oscal">fedramp-agency</prop>
       <!-- Section 2.3 Digital Identity Determination and Attachment 3, Digital Identity Worksheet -->
-      <prop name="security-eauth-level" class="security-eauth" ns="fedramp">moderate</prop>
+      <!-- 1 = low, 2= moderate, 3 = high  -->
+      <prop name="security-eauth-level" class="security-eauth" ns="https://fedramp.gov/ns/oscal">2</prop>
       <!-- Attachment 3, Digital Identity Worksheet: Additional Detail - Not Required -->
-      <prop name="security-eauth-ial" class="security-eauth" ns="fedramp">moderate</prop>
-      <prop name="security-eauth-aal" class="security-eauth" ns="fedramp">moderate</prop>
-      <prop name="security-eauth-fal" class="security-eauth" ns="fedramp">moderate</prop>
+      <prop name="identity-assurance-level">2</prop>
+      <prop name="authenticator-assurance-level">2</prop>
+      <prop name="federation-assurance-level">2</prop>
       <!-- Table 8-1 Service Layers Represented in this SSP -->
-      <annotation name="service-model" ns="fedramp" value="saas">
+      <annotation name="cloud-service-model" value="saas">
          <remarks><p>Remarks are required if service model is "other". Optional otherwise.</p></remarks>
       </annotation>
       <!-- Table 8-2 Cloud Deployment Model Represented in this SSP -->
-      <annotation name="deployment-model" ns="fedramp" value="community-usgov-only">
-         <remarks><p>Remarks are required if deployment model is "hybrid". Optional otherwise.</p></remarks>
+      <annotation name="cloud-deployment-model" value="government-only-cloud">
+         <remarks><p>Remarks are required if deployment model is "hybrid-cloud" or "other". Optional otherwise.</p></remarks>
       </annotation>
       <!-- Table 2-1 Security Categorization and 2-4 Baseline Security Configuration -->
       <security-sensitivity-level>low</security-sensitivity-level>
       <!-- Table 2-2, Table 15-9, and Attachment 4 -->
       <system-information>
          <!-- Attachment 4, PTA/PIA Designation -->
-         <prop name="privacy-sensitive" class="pta" ns="fedramp">yes</prop>
+         <prop name="privacy-sensitive">yes</prop>
          <!-- Attachment 4, PTA Qualifying Questions -->
          <!--Does the ISA collect, maintain, or share PII in any identifiable form? -->
-         <prop name="pta-1" class="pta" ns="fedramp">yes</prop>
+         <prop name="pta-1" class="pta" ns="https://fedramp.gov/ns/oscal">yes</prop>
          <!--Does the ISA collect, maintain, or share PII information from or about the public? -->
-         <prop name="pta-2" class="pta" ns="fedramp">yes</prop>
+         <prop name="pta-2" class="pta" ns="https://fedramp.gov/ns/oscal">yes</prop>
          <!--Has a Privacy Impact Assessment ever been performed for the ISA? -->
-         <prop name="pta-3" class="pta" ns="fedramp">yes</prop>
+         <prop name="pta-3" class="pta" ns="https://fedramp.gov/ns/oscal">yes</prop>
          <!--Is there a Privacy Act System of Records Notice (SORN) for this ISA system? (If so, please specify the SORN ID.) -->
-         <prop name="pta-4" class="pta" ns="fedramp">no</prop>
-         <prop name="pta-sorn-id" class="pta" ns="fedramp">[No SORN ID]</prop>
+         <prop name="pta-4" class="pta" ns="https://fedramp.gov/ns/oscal">no</prop>
+         <prop name="sorn-id" class="pta" ns="https://fedramp.gov/ns/oscal">[No SORN ID]</prop>
          <information-type name="Information Type Name" id="info-01">
             <description>
                <p>A description of the information.</p>
@@ -365,14 +387,17 @@
             <confidentiality-impact>
                <base>fips-199-moderate</base>
                <selected>fips-199-moderate</selected>
+               <adjustment-justification><p>Required if the base and selected values do not match.</p></adjustment-justification>
             </confidentiality-impact>
             <integrity-impact>
                <base>fips-199-moderate</base>
                <selected>fips-199-moderate</selected>
+               <adjustment-justification><p>Required if the base and selected values do not match.</p></adjustment-justification>
             </integrity-impact>
             <availability-impact>
                <base>fips-199-moderate</base>
                <selected>fips-199-moderate</selected>
+               <adjustment-justification><p>Required if the base and selected values do not match.</p></adjustment-justification>
             </availability-impact>
          </information-type>
       </system-information>
@@ -388,10 +413,10 @@
       </status>
       <!-- Table 8-3 Leveraged Authorizations (Typically 0 or 1) -->
       <leveraged-authorization id="lva-1" name="NCName">
-         <annotation name="system-name" id="leveraged-01-name" ns="fedramp" value="MegaIaaS">
+         <annotation name="system-name" id="leveraged-01-name" ns="https://fedramp.gov/ns/oscal" value="ExampleIaaS">
             <remarks><p>Notes about this system</p></remarks>
          </annotation>
-         <party-id>party-eip</party-id>
+         <party-id>eip</party-id>
          <date-authorized>2018-11-27</date-authorized>
          <remarks><p>Overall notes about the inheritance of controls from this system</p></remarks>
       </leveraged-authorization>
@@ -400,7 +425,7 @@
          <description><p>A holistic, top-level explanation of the FedRAMP authorization boundary.</p></description>
          <diagram id="sys-boundary-1">
             <description><p>A diagram-specific explanation.</p></description>
-            <link href="#diag-boundary-1"/>
+            <link href="#diag-boundary-1" rel="diagram"/>
             <caption>Authorization Boundary Diagram</caption>
          </diagram>
       </authorization-boundary>
@@ -409,7 +434,7 @@
          <description><p>A holistic, top-level explanation of the network architecture.</p></description>
          <diagram id="sys-network-1">
             <description><p>A diagram-specific explanation.</p></description>
-            <link href="#diag-network-1"/>
+            <link href="#diag-network-1" rel="diagram"/>
             <caption>Network Diagram</caption>
          </diagram>
       </network-architecture>
@@ -418,24 +443,24 @@
          <description><p>A holistic, top-level explanation of the system's data flows.</p></description>
          <diagram id="sys-dataflow-1">
             <description><p>A diagram-specific explanation.</p></description>
-            <link href="#diag-dataflow-1"/>
+            <link href="#diag-dataflow-1" rel="diagram"/>
             <caption>Data Flow Diagram</caption>
          </diagram>
       </data-flow>
    </system-characteristics>
    <system-implementation>
       <!-- Section 9.3 Types of Users - Internal and External Personnel Counts -->
-      <prop name="users-internal" ns="fedramp">0</prop>
-      <prop name="users-external" ns="fedramp">0</prop>
-      <prop name="users-internal-future" ns="fedramp">0</prop>
-      <prop name="users-external-future" ns="fedramp">0</prop>
+      <prop name="users-internal" ns="https://fedramp.gov/ns/oscal">0</prop>
+      <prop name="users-external" ns="https://fedramp.gov/ns/oscal">0</prop>
+      <prop name="users-internal-future" ns="https://fedramp.gov/ns/oscal">0</prop>
+      <prop name="users-external-future" ns="https://fedramp.gov/ns/oscal">0</prop>
       <!-- Section 9.3, Table 9-1. Personnel Roles and Privileges -->
       <user id="sys-role-1">
          <title>[SAMPLE]Unix System Administrator</title>
-         <prop name="user-type" ns="fedramp">internal</prop>
-         <prop name="privilege-type" ns="fedramp">P</prop>
-         <prop name="sensitivity-level" ns="fedramp">moderate</prop>
-         <role-id>role-admin-unix</role-id>
+         <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal">high</prop>
+         <annotation name="privilege-level" value="privileged" />
+         <annotation name="type" value="internal" />
+         <role-id>admin-unix</role-id>
          <authorized-privilege name="Full administrative access (root)">
             <function-performed>Add/remove users and hardware</function-performed>
             <function-performed>install and configure software</function-performed>
@@ -445,10 +470,10 @@
       </user>
       <user id="sys-role-2">
          <title>[SAMPLE]Client Administrator</title>
-         <prop name="user-type" ns="fedramp">external</prop>
-         <prop name="privilege-type" ns="fedramp">NP</prop>
-         <prop name="sensitivity-level" ns="fedramp">na</prop>
-         <role-id>role-external</role-id>
+         <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal">moderate</prop>
+         <annotation name="privilege-level" value="non-privileged" />
+         <annotation name="type" value="external" />
+         <role-id>external</role-id>
          <authorized-privilege name="Portal administration">
             <function-performed>Add/remove client users</function-performed>
             <function-performed>Create, modify and delete client applications</function-performed>
@@ -456,64 +481,98 @@
       </user>
       <user id="sys-role-3">
          <title>[SAMPLE]Program Director</title>
-         <prop name="user-type" ns="fedramp">internal</prop>
-         <prop name="privilege-type" ns="fedramp">NLA</prop>
-         <prop name="sensitivity-level" ns="fedramp">limited</prop>
-         <role-id>role-admin-unix</role-id>
-         <authorized-privilege name="Full administrative access (root)">
-            <function-performed>Add/remove users and hardware</function-performed>
-            <function-performed>install and configure software</function-performed>
-            <function-performed>OS updates, patches and hotfixes</function-performed>
-            <function-performed>perform backups</function-performed>
+         <prop name="sensitivity" ns="https://fedramp.gov/ns/oscal">limited</prop>
+         <annotation name="privilege-level" value="no-logical-access" />
+         <annotation name="type" value="internal" />
+         <role-id>program-director</role-id>
+         <authorized-privilege name="Administrative Access Approver">
+            <function-performed>Approves access requests for administrative accounts.</function-performed>
+         </authorized-privilege>
+         <authorized-privilege name="Access Approver">
+            <function-performed>Approves access requests for administrative accounts.</function-performed>
          </authorized-privilege>
       </user>
-      <component id="comp-system" name="This System" component-type="system" >
+      <component id="system" name="This System" component-type="system" >
          <description><p>The entire system as depicted in the system authorization boundary</p></description>
          <status state="operational" />
       </component>
-      <component id="comp-customer" name="Customer" component-type="customer" >
+      <component id="customer" name="Customer" component-type="customer" >
          <description><p>Customer's Responsibility</p></description>
          <status state="other" />
       </component>
-      <component id="comp-fedramp-authorized-provider-1" name="[Provider System's Name]" component-type="service" >
+      <component id="fedramp-authorized-provider-1" name="[Provider System's Name]" component-type="service" >
          <description><p>A FedRAMP-authorized system, from which this system inherits controls.</p></description>
-         <prop name="authorization-date" ns="fedramp">2019-01-01T00:00:00.00-00:00</prop>
+         <prop name="authorization-date" ns="https://fedramp.gov/ns/oscal">2019-01-01T00:00:00.00-00:00</prop>
          <status state="operational" />
       </component>
-      <component id="comp-fips-module-1" name="[SAMPLE]Module Name" component-type="validation">
+      <component id="fips-module-1" name="[SAMPLE]Module Name" component-type="validation">
          <description><p>[SAMPLE]FIPS 140-2 Validated Module</p></description>
-         <prop name="cert-no" ns="fedramp">0000</prop>
+         <prop name="cert-no" ns="https://fedramp.gov/ns/oscal">0000</prop>
          <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/0000" />
          <status state="operational" />
       </component>
-      <component id="comp-validated-product-1" 
+      <component id="validated-product-1" 
          name="[SAMPLE]Product Name" component-type="software" >
          <description><p>FUNCTION: Describe typical component function.</p></description>
-         <prop name="asset-type" ns="fedramp">Simple description</prop>
-         <prop name="scan-type" ns="fedramp">os</prop>
-         <prop name="vendor-name" ns="fedramp">Vendor Name</prop>
-         <prop name="model" ns="fedramp">Model No</prop>
-         <prop name="version" ns="fedramp">Version Number</prop>
-         <prop name="patch-level" ns="fedramp">Patch Level</prop>
-         <prop name="validation-link" ns="fedramp">comp-fips-module-1</prop>
+         <prop name="asset-type">os</prop>
+         <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">infrastructure</prop>
+         <prop name="vendor-name" ns="https://fedramp.gov/ns/oscal">Vendor Name</prop>
+         <prop name="model">Model Number</prop>
+         <prop name="version">Version Number</prop>
+         <prop name="patch-level">Patch Level</prop>
+         <prop name="validation" ns="https://fedramp.gov/ns/oscal">fips-module-1</prop>
          <status state="operational" />
          <remarks><p>COMMENTS: Provide other comments as needed.</p></remarks>
       </component>
-      <component id="comp-router-1" 
+      <component id="router-1" 
          name="[SAMPLE]Product" component-type="hardware" >
          <description><p>FUNCTION: Describe typical component function.</p></description>
-         <prop name="asset-type" ns="fedramp">Simple description</prop>
-         <prop name="scan-type" ns="fedramp">inf</prop>
-         <prop name="vendor-name" ns="fedramp">Vendor Name</prop>
-         <prop name="model" ns="fedramp">Model #</prop>
-         <prop name="version" ns="fedramp">Version Number</prop>
+         <prop name="asset-type">database</prop>
+         <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">infrastructure</prop>
+         <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">database</prop>
+         <prop name="vendor-name" ns="https://fedramp.gov/ns/oscal">Vendor Name</prop>
+         <prop name="model">Model Number</prop>
+         <prop name="version">Version Number</prop>
          <status state="operational" />
+         <responsible-role role-id="asset-administrator">
+            <party-id>it-department</party-id>
+         </responsible-role>
+         <responsible-role role-id="asset-owner">
+            <party-id>person-2</party-id>
+         </responsible-role>
          <remarks><p>COMMENTS: Provide other comments as needed.</p></remarks>
       </component>
+      <component id="comp-1" name="OS Sample" component-type="os">
+         <description><p>None</p></description>
+         <prop name="asset-type">os</prop>
+         <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">infrastructure</prop>
+         <annotation name="baseline-configuration-name" value="Baseline Config. Name" />
+         <annotation name="allows-authenticated-scan"  value="yes" />
+         <status state="operational" />
+      </component>
+      <component id="comp-2" name="Database Sample" component-type="software">
+         <description><p>None</p></description>
+         <prop name="asset-type">database</prop>
+         <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">database</prop>
+         <annotation name="baseline-configuration-name" value="Baseline Config. Name" />
+         <annotation name="allows-authenticated-scan"  value="yes" />
+         <status state="operational" />
+      </component>
+      <component id="comp-3" name="Database Sample" component-type="software">
+         <description><p>None</p></description>
+         <prop name="asset-type">appliance</prop>
+         <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">web</prop>
+         <annotation name="baseline-configuration-name" value="Baseline Config. Name" />
+         <annotation name="allows-authenticated-scan"  value="no">
+            <remarks><p>Vendor appliance. No admin-level access.</p></remarks>
+         </annotation>
+         <status state="operational" />
+      </component>
+      
       <!-- Section 10.2, Table 10-1. Ports, Protocols and Services -->
       <service id="svc-1" name="ServiceName">
-         <prop name="title" ns="fedramp">[SAMPLE]Service Name</prop>
-         <prop name="used-by" ns="fedramp">What uses this service?</prop>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">[SAMPLE]Service Name</prop>
+         <prop name="used-by" ns="https://fedramp.gov/ns/oscal">What uses this service?</prop>
          <protocol name="http">
             <port-range start="80" end="80" transport="TCP"/>
          </protocol>
@@ -525,64 +584,150 @@
       <!-- Section 11 Table 11-1 System Interconnections and  Section 13 Table 13-3 CA-3 Authorized Connections -->
       <interconnection id="ica-1">
          <remote-system-name>[EXAMPLE]Authorized Connection Information System Name</remote-system-name>
-         <prop name="service-processor" ns="fedramp">[SAMPLE]Telco Name</prop>
-         <prop name="ip-address-local" ns="fedramp">10.1.1.1</prop>
-         <prop name="ip-address-remote" ns="fedramp">10.2.2.2</prop>
-         <prop name="direction" ns="fedramp">incoming</prop>
-         <prop name="direction" ns="fedramp">outgoing</prop>
-         <prop name="information" ns="fedramp">Describe the information being transmitted.</prop>
-         <prop name="port" ns="fedramp" >80</prop>
-         <prop name="circuit" ns="fedramp" >1</prop>
-         <annotation name="connection-security" ns="fedramp" value="ipsec">
+         <prop name="service-processor" ns="https://fedramp.gov/ns/oscal">[SAMPLE]Telco Name</prop>
+         <prop name="ip-address-local" ns="https://fedramp.gov/ns/oscal">10.1.1.1</prop>
+         <prop name="ip-address-remote" ns="https://fedramp.gov/ns/oscal">10.2.2.2</prop>
+         <prop name="direction" ns="https://fedramp.gov/ns/oscal">incoming-outgoing</prop>
+         <prop name="information" ns="https://fedramp.gov/ns/oscal">Describe the information being transmitted.</prop>
+         <prop name="port" ns="https://fedramp.gov/ns/oscal" >80</prop>
+         <prop name="circuit" ns="https://fedramp.gov/ns/oscal" >1</prop>
+         <annotation name="connection-security" ns="https://fedramp.gov/ns/oscal" value="ipsec">
             <remarks><p>If "other", remarks are required. Optional otherwise.</p></remarks>
          </annotation>
-         <responsible-party role-id="role-ica-1">
-            <party-id>party-ica-1</party-id>
+         <link href="#cit-isa-1" rel="agreement" />
+         <responsible-party role-id="isa-poc-remote">
+            <party-id>ica-1</party-id>
          </responsible-party>
          <remarks><p>Optional notes about this interconnection</p></remarks>
       </interconnection>
       <system-inventory>
-         <inventory-item id="inv-1" asset-id="unique-asset-ID">
-            <description><p>If needed, describe this instance.</p></description>
-            <prop name="address-ipv4" ns="fedramp">0.0.0.0</prop>
-            <prop name="address-ipv6" ns="fedramp">0000:0000:0000:0000</prop>
-            <prop name="address-mac" ns="fedramp">00:00:00:00:00:00</prop>
-            <prop name="virtual" ns="fedramp">no</prop>
-            <prop name="public" ns="fedramp">no</prop>
-            <prop name="dns" ns="fedramp">dns.name</prop>
-            <prop name="url" ns="fedramp">uniform.resource.locator</prop>
-            <prop name="netbios" ns="fedramp">netbios-name</prop>
-            <prop name="baseline-name" ns="fedramp">Baseline Configuration Name</prop>
-            <prop name="location" ns="fedramp">Physical location of Asset</prop>
-            <prop name="patch-level" ns="fedramp">Patch-Level</prop>
-            <annotation name="scan-authenticated" ns="fedramp" value="no">
+         <inventory-item id="inv-1" asset-id="unique-asset-id">
+            <description><p>Flat-File Example (No implemented-component).</p></description>
+            <prop name="ipv4-address">1.1.1.1</prop>
+            <prop name="ipv6-address">0000:0000:0000:0000</prop>
+            <prop name="virtual">no</prop>
+            <prop name="public">no</prop>
+            <prop name="fqdn">dns.name</prop>
+            <prop name="uri">uniform.resource.identifier</prop>
+            <prop name="netbios-name">netbios-name</prop>
+            <prop name="mac-address">00:00:00:00:00:00</prop>
+            <prop name="software-name">software-name</prop>
+            <prop name="version">V 0.0.0</prop>
+            <prop name="asset-type">os</prop>
+            <prop name="vendor-name" ns="https://fedramp.gov/ns/oscal">Vendor Name</prop>
+            <prop name="model">Model Number</prop>
+            <prop name="patch-level">Patch-Level</prop>
+            <prop name="serial-number">Serial #</prop>
+            <prop name="asset-tag">Asset Tag</prop>
+            <prop name="vlan-id">VLAN Identifier</prop>
+            <prop name="network-id">Network Identifier</prop>
+            <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">infrastructure</prop>
+            <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">database</prop>
+            <prop name="validation" ns="https://fedramp.gov/ns/oscal">component-id</prop>
+            <annotation name="allows-authenticated-scan"  value="no">
+               <remarks><p>If no, explain why. If yes, omit remarks field.</p></remarks>
+            </annotation>
+            <annotation name="baseline-configuration-name" value="Baseline Config. Name" />
+            <annotation name="physical-location" value="Physical location of Asset" />
+            <annotation name="is-scanned" value="yes">
+               <remarks><p>If no, explain why. If yes, omit remarks field.</p></remarks>
+            </annotation>
+            <annotation name="function" value="Required brief, text-based description.">
+               <remarks><p>Optional, longer, formatted description.</p></remarks>
+            </annotation>
+            <responsible-party role-id="asset-owner">
+               <party-id>person-7</party-id>
+            </responsible-party>
+            <responsible-party role-id="asset-administrator">
+               <party-id>it-dept</party-id>
+            </responsible-party>
+            <remarks><p>COMMENTS: Additional information about this item.</p></remarks>
+         </inventory-item>
+         <inventory-item id="inv-2" asset-id="unique-asset-ID">
+            <description><p>Component Inventory Example</p></description>
+            <prop name="ipv4-address">2.2.2.2</prop>
+            <prop name="ipv6-address">0000:0000:0000:0000</prop>
+            <prop name="mac-address">00:00:00:00:00:00</prop>
+            <prop name="virtual">no</prop>
+            <prop name="public">no</prop>
+            <prop name="fqdn">dns.name</prop>
+            <prop name="uri">uniform.resource.locator</prop>
+            <prop name="netbios-name">netbios-name</prop>
+            <prop name="patch-level">Patch-Level</prop>
+            <annotation name="baseline-configuration-name" value="Baseline Configuration Name" />
+            <annotation name="physical-location" value="Physical location of Asset" />
+            <annotation name="scan-authenticated" ns="https://fedramp.gov/ns/oscal" value="no">
                <remarks><p>If no, explain why. If yes, omit remark.</p></remarks>
             </annotation>
-            <annotation name="scan-latest" ns="fedramp" value="yes">
+            <annotation name="scan-latest" ns="https://fedramp.gov/ns/oscal" value="yes">
                <remarks><p>If no, explain why. If yes, omit remark.</p></remarks>
             </annotation>
             <responsible-party role-id="asset-owner">
-               <party-id>party-it-dept</party-id>
+               <party-id>person-1</party-id>
             </responsible-party>
-            <responsible-party role-id="asset-admin">
-               <party-id>party-it-dept</party-id>
+            <responsible-party role-id="asset-administrator">
+               <party-id>it-department</party-id>
             </responsible-party>
-            <implemented-component component-id="comp-router-1" />
+            <implemented-component component-id="router-1" />
             <remarks><p>COMMENTS: If needed, provide additional information about this inventory item.</p></remarks>
          </inventory-item>
+
+         <inventory-item id="inv-3" asset-id="unique-asset-id">
+            <description><p>None.</p></description>
+            <prop name="ipv4-address">3.3.3.3</prop>
+            <annotation name="is-scanned" value="yes" />
+            <implemented-component component-id="comp-1" />
+         </inventory-item>
+         <inventory-item id="inv-4" asset-id="unique-asset-id">
+            <description><p>None.</p></description>
+            <prop name="ipv4-address">4.4.4.4</prop>
+            <annotation name="is-scanned" value="yes" />
+            <implemented-component component-id="comp-2" />
+         </inventory-item>
+         <inventory-item id="inv-5" asset-id="unique-asset-id">
+            <description><p>None.</p></description>
+            <prop name="ipv4-address">5.5.5.5</prop>
+            <annotation name="is-scanned" value="yes" />
+            <implemented-component component-id="comp-3" />
+         </inventory-item>
+         <inventory-item id="inv-6" asset-id="unique-asset-id">
+            <description><p>None.</p></description>
+            <prop name="ipv4-address">6.6.6.6</prop>
+            <annotation name="is-scanned" value="no">
+               <remarks><p>Asset wasn't running at time of scan.</p></remarks>
+            </annotation>
+            <implemented-component component-id="comp-1" />
+         </inventory-item>
+         <inventory-item id="inv-7" asset-id="unique-asset-id">
+            <description><p>None.</p></description>
+            <prop name="ipv4-address">7.7.7.7</prop>
+            <annotation name="is-scanned" value="yes" />
+            <implemented-component component-id="comp-2" />
+         </inventory-item>
+         <inventory-item id="inv-8" asset-id="unique-asset-id">
+            <description><p>None.</p></description>
+            <prop name="ipv4-address">8.8.8.8</prop>
+            <annotation name="is-scanned" value="no">
+               <remarks><p>Asset wasn't running at time of scan.</p></remarks>
+            </annotation>
+            <implemented-component component-id="comp-3" />
+         </inventory-item>
+         
       </system-inventory>
    </system-implementation>
    <!-- Section 13 -->
    <control-implementation>
-      <description><p>Required by OSAL. FedRAMP does not require any specific information here.</p></description>
+      <description>
+         <p>FedRAMP SSP Template Section 13</p>
+         <p>This description field is required by OSCAL. FedRAMP does not require any specific information here.</p>
+      </description>
       <implemented-requirement control-id="ac-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
          <set-param param-id="ac-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
@@ -593,49 +738,34 @@
             <value>[specify frequency]</value>
          </set-param>
          <statement statement-id="ac-1_stmt.a">
-            <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
-               <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
+            <description><p>Describe how Part a is satisfied.</p></description>
          </statement>
          <statement statement-id="ac-1_stmt.b.1">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
-               <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
+            <description><p>Describe how Part b-1 is satisfied.</p></description>
          </statement>
          <statement statement-id="ac-1_stmt.b.2">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
-               <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
+            <description><p>Describe how Part b-2 is satisfied.</p></description>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ac-2">
-         <prop name="implementation-status">partial</prop>
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="control-origination">customer-configured</prop>
-         <prop name="inherited">lva-1</prop>
-         <prop name="planned-completion-date" ns="fedramp">Completion Date</prop>
-         <prop name="leveraged-authorization-id" ns="fedramp">lva-1</prop>
-         <annotation name="partial" ns="fedramp">
-            <remarks><p>Describe the portion of the control that is not satisfied.</p></remarks>
-         </annotation>
-         <annotation name="planned" ns="fedramp">
+         <prop name="leveraged-authorization-id" ns="https://fedramp.gov/ns/oscal">lva-1</prop>
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">Completion Date</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <annotation name="na" ns="fedramp">
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="partial">
+            <remarks><p>Describe the portion of the control that is not satisfied.</p></remarks>
+         </annotation>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="not-applicable">
             <remarks><p>Describe the justification for marking this control Not Applicable.</p></remarks>
          </annotation>
-         <annotation name="customer-responsibility" ns="fedramp">
-            <remarks><p>Describe any customer-requirements for satisfying this control.</p></remarks>
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="customer-configured">
+            <remarks><p>Describe any customer-configured requirements for satisfying this control.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-admin-unix" />
-         <responsible-role role-id="role-program-director" />
+         <responsible-role role-id="admin-unix" />
+         <responsible-role role-id="program-director" />
          <set-param param-id="ac-2_prm_1">
             <value>[SAMPLE]privileged, non-privileged</value>
          </set-param>
@@ -651,639 +781,623 @@
          <statement statement-id="ac-2_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
             <!-- Inherited -->
-            <by-component component-id="comp-fedramp-authorized-provider-1">
+            <by-component component-id="fedramp-authorized-provider-1">
                <description><p>For the portion inherited from an underlying FedRAMP-authorized provider, describe <strong>what</strong> is inherited.</p></description>
             </by-component>
             <!-- Customer Responsibility -->
-            <by-component component-id="comp-customer">
+            <by-component component-id="customer">
                <description><p>For the portion of the control that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="at-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="at-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="at-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="at-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
-            <description><p>Ignore.</p></description>
+         <statement statement-id="at-1_stmt.a">
+            <description><p>Component-based Approach</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
-               <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
+            <by-component component-id="system">
+               <description><p>Describe how Part a is satisfied.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="at-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
-               <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
+            <by-component component-id="system">
+               <description><p>Describe how Part b-1 is satisfied.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="at-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
-               <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
+            <by-component component-id="system">
+               <description><p>Describe how Part b-2 is satisfied.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="au-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="au-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="au-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="au-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="au-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="au-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="au-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ca-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="ca-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="ca-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="ca-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="ca-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="ca-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="ca-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="cm-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="cm-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="cm-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="cm-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="cm-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="cm-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="cm-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="cp-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="cp-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="cp-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="cp-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="cp-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="cp-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="cp-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ia-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="ia-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="ia-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="ia-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="ia-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="ia-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="ia-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ir-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="ir-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="ir-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="ir-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="ir-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="ir-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="ir-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ma-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="ma-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="ma-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="ma-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="ma-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="ma-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="ma-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="mp-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="mp-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="mp-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="mp-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="mp-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="mp-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="mp-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="pe-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="pe-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="pe-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="pe-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="pe-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="pe-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="pe-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="pl-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="pl-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="pl-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="pl-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="pl-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="pl-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="pl-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ps-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="ps-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="ps-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="ps-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="ps-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="ps-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="ps-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="ra-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="ra-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="ra-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="ra-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="ra-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="ra-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="ra-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="sa-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="sa-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="sa-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="sa-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="sa-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="sa-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="sa-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="sc-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="sc-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="sc-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="sc-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="sc-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="sc-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="sc-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
       </implemented-requirement>
       <implemented-requirement control-id="si-1">
-         <prop name="implementation-status">planned</prop>
-         <prop name="control-origination">sp-system</prop>
-         <prop name="planned-completion-date" ns="fedramp">2020-11-27Z</prop>
-         <annotation name="planned" ns="fedramp">
+         <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks><p>Describe the plan to complete the implementation.</p></remarks>
          </annotation>
-         <responsible-role role-id="role-program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
+         <responsible-role role-id="program-director" />
+         <set-param param-id="si-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_2">
+         <set-param param-id="si-1_prm_2">
             <value>[specify frequency]</value>
          </set-param>
-         <set-param param-id="ac-1_prm_3">
+         <set-param param-id="si-1_prm_3">
             <value>[specify frequency]</value>
          </set-param>
-         <statement statement-id="ac-1_stmt.a">
+         <statement statement-id="si-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1">
+         <statement statement-id="si-1_stmt.b.1">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2">
+         <statement statement-id="si-1_stmt.b.2">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
-            <by-component component-id="comp-system">
+            <by-component component-id="system">
                <description><p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
             </by-component>
          </statement>
@@ -1292,49 +1406,50 @@
    <!-- Table 15-1 Names of Provided Attachments -->
    <back-matter>
       <!-- Section 12, Table 12-1, Table 12-2 -->
-      <citation id="cit-fedramp-1">
+      <citation id="fedramp-1">
          <target>https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx</target>
          <title>FedRAMP Applicable Laws and Regulations</title>
       </citation>
-      <citation id="cit-fedramp-2">
+      <citation id="fedramp-2">
          <target>https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf</target>
          <title>FedRAMP Master Acronym and Glossary</title>
       </citation>
       <citation id="cit-1">
          <target>https://domain.example/path/to/document.pdf</target>
          <title>[SAMPLE]Name or Title of Document</title>
-         <prop name="type" ns="fedramp">law</prop>
-         <prop name="ref-id" ns="fedramp">Identification Number</prop>
-         <prop name="publication" ns="fedramp">Publication Date</prop>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">law</prop>
+         <prop name="ref-id" ns="https://fedramp.gov/ns/oscal">Identification Number</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Publication Date</prop>
       </citation>
       <citation id="cit-2">
          <target>https://domain.example/path/to/document.pdf</target>
          <title>[SAMPLE]Privacy-Related Law Citation</title>
-         <prop name="type" ns="fedramp">law</prop>
-         <prop name="type" ns="fedramp">pii</prop>
-         <prop name="ref-id" ns="fedramp">Identification Number</prop>
-         <prop name="publication" ns="fedramp">Publication Date</prop>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">law</prop>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">pii</prop>
+         <prop name="ref-id" ns="https://fedramp.gov/ns/oscal">Identification Number</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Publication Date</prop>
       </citation>
       <citation id="cit-3">
          <target>https://domain.example/path/to/document.pdf</target>
          <title>[SAMPLE]Regulation Citation</title>
-         <prop name="type" ns="fedramp">regulation</prop>
-         <prop name="ref-id" ns="fedramp">Identification Number</prop>
-         <prop name="publication" ns="fedramp">Publication Date</prop>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">regulation</prop>
+         <prop name="ref-id" ns="https://fedramp.gov/ns/oscal">Identification Number</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Publication Date</prop>
       </citation>
       <citation id="cit-isa-1">
          <title>[SAMPLE]Interconnection Security Agreement Title</title>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
       </citation>
       <resource id="logo-csp">
          <desc>CSP Logo</desc>
-         <!-- Add rlink and/or base64 -->
-         <!--<rlink href="./logo.png" media-type="image/png" />-->
+         <!-- Use rlink and/or base64 -->
+         <rlink href="./logo.png" media-type="image/png" />
          <base64>00000000</base64>
       </resource>
       <resource id="logo-fedramp">
          <desc>FedRAMP Logo</desc>
+         <rlink href="" />
          <base64 filename="FedRAMP PRIMARY LOGO.png">
 wolQTkcNChoKAAAADUlIRFIAAALDuwAAA8KwCAYAAADCoGnCu1UAAAAJcEhZcwAALiMAAC4jAXjC
 pT92AAAgAElEQVR4w5rDrMK9ecK4JVV5w6/Dv8Kuw7MYIFHDqDZ0RxzCmMKcw4BuFRwYRMKIYG5U
@@ -2579,124 +2694,138 @@ AAAAAMKAw6wDAAAAAADCsg8AAAAAAMKdw7PDvwFZw7luNnvClQDDpgAAAABJRU5Ewq5CYMKC
       </resource>
       <resource id="logo-3pao">
          <desc>CSP Logo</desc>
-         <!-- Add rlink and/or base64 -->
-         <!--<rlink href="./logo.png" media-type="image/png" />-->
+         <!-- Use rlink and/or base64 -->
+         <rlink href="./logo.png" media-type="image/png" />
          <base64>00000000</base64>
       </resource>
       <!-- Section 9.2, Figure 9-1 Authorization Boundary Diagram (graphic) -->
       <resource id="diag-boundary-1">
          <desc>The primary authorization boundary diagram.</desc>
-         <!-- Add rlink and/or base64 -->
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <!-- Section 9.4, Figure 9-2 Network Diagram (graphic) -->
       <resource id="diag-network-1">
          <desc>The primary network diagram.</desc>
-         <!-- Add rlink and/or base64 -->
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <!-- Section 10, Figure 10-1 Data Flow Diagram (graphic) -->
       <resource id="diag-dataflow-1">
          <desc>The primary data flow diagram.</desc>
-         <!-- Add rlink and/or base64 -->
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <!-- Table 15-1 Attachments -->
       <resource id="att-policy-1">
          <desc>Policy document</desc>
-         <prop name="type" ns="fedramp">policy</prop>
-         <prop name="title" ns="fedramp">Document Title</prop>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
-         <!-- Add rlink and/or base64 -->
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">policy</prop>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-policy-2">
          <desc>Policy document</desc>
-         <prop name="type" ns="fedramp">policy</prop>
-         <prop name="title" ns="fedramp">Document Title</prop>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
-         <!-- Add rlink and/or base64 -->
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">policy</prop>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-procedure-1">
          <desc>Procedure document</desc>
-         <prop name="type" ns="fedramp">procedure</prop>
-         <prop name="title" ns="fedramp">Document Title</prop>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
-         <!-- Add rlink and/or base64 -->
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">procedure</prop>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-procedure-2">
          <desc>Procedure document</desc>
-         <prop name="type" ns="fedramp">procedure</prop>
-         <prop name="title" ns="fedramp">Document Title</prop>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
-         <!-- Add rlink and/or base64 -->
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">procedure</prop>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-guide-user">
          <desc>User's Guide</desc>
-         <prop name="type" ns="fedramp">guide</prop>
-         <prop name="title" ns="fedramp">Document Title</prop>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
-         <!-- Add rlink and/or base64 -->
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">guide</prop>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-pia">
          <desc>Privacy Impact Analysis</desc>
-         <prop name="title" ns="fedramp">Document Title</prop>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
-         <!-- Add rlink and/or base64 -->
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-rob">
          <desc>Rules of Behavior</desc>
-         <prop name="type" ns="fedramp">rob</prop>
-         <prop name="title" ns="fedramp">Document Title</prop>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
-         <!-- Add rlink and/or base64 -->
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">rob</prop>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-plan-cp">
          <desc>Contingency Plan (CP)</desc>
-         <prop name="type" ns="fedramp">plan</prop>
-         <prop name="title" ns="fedramp">Document Title</prop>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
-         <!-- Add rlink and/or base64 -->
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">plan</prop>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-plan-cm">
          <desc>Configuration Management (CM) Plan</desc>
-         <prop name="type" ns="fedramp">plan</prop>
-         <prop name="title" ns="fedramp">Document Title</prop>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
-         <!-- Add rlink and/or base64 -->
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">plan</prop>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-plan-ir">
          <desc>Incident Response (IR) Plan</desc>
-         <prop name="type" ns="fedramp">plan</prop>
-         <prop name="title" ns="fedramp">Document Title</prop>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
-         <!-- Add rlink and/or base64 -->
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">plan</prop>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-separation-duties">
          <desc>Separation of Duties Matrix</desc>
-         <prop name="title" ns="fedramp">Document Title</prop>
-         <prop name="publication" ns="fedramp">Document Date</prop>
-         <prop name="version" ns="fedramp">Document Version</prop>
-         <!-- Add rlink and/or base64 -->
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="https://sample" />
          <base64>00000000</base64>
       </resource>
    </back-matter>
