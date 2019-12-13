@@ -3,10 +3,9 @@
 ### Based on the Open Security Controls Assessment Language (OSCAL)
 
 
-## November 27, 2019
+## December  16, 2019
 
 The FedRAMP Program Management Office (PMO) has drafted FedRAMP-specific extensions and guidance to ensure our stakeholders can fully express a FedRAMP System Security Plan (SSP) using NIST's [OSCAL SSP syntax](https://pages.nist.gov/OSCAL/documentation/schema/ssp/).
-
 
 ## We Want Your Feedback!
 The FedRAMP PMO is releasing the following files for public review and comment:
@@ -17,7 +16,6 @@ The FedRAMP PMO is releasing the following files for public review and comment:
 
 Please ask questions or provide feedback on the items above above either via email to [info@fedramp.gov](mailto:info@fedramp.gov), as a comment to an existing [issue](https://github.com/GSA/fedramp-automation/issues), or as a new [issue](https://github.com/GSA/fedramp-automation/issues).
 
-
 ## Dependencies
 
 FedRAMP's work is based on NIST's [OSCAL 1.0.0-Milestone2 release](https://github.com/usnistgov/OSCAL/releases/tag/v1.0.0-milestone2), and requires an understanding of the core OSCAL syntax, as well as NIST-provided resources to function correctly.
@@ -26,7 +24,6 @@ The following NIST resources are available:
 - **NIST's Main OSCAL Site:** [https://pages.nist.gov/OSCAL/](https://pages.nist.gov/OSCAL/)
 - **NIST's OSCAL GitHub Repository:** [https://github.com/usnistgov/OSCAL](https://github.com/usnistgov/OSCAL)
 - **OSCAL Workshop Training Slides:** Provided at an October workshop hosted by the NIST OSCAL Team. The early portions of the deck provide an overview, with more technical details beginning on slide 52. [https://pages.nist.gov/OSCAL/downloads/OSCAL-workshop-20191105.pdf](https://pages.nist.gov/OSCAL/downloads/OSCAL-workshop-20191105.pdf)
-
 
 - **Content Converters:** The converters accurately convert OSCAL catalog, profile, and SSP content from [XML to JSON](https://github.com/usnistgov/OSCAL/tree/master/json/convert) format and [JSON to XML](https://github.com/usnistgov/OSCAL/tree/master/xml/convert). 
 
