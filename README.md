@@ -1,4 +1,4 @@
-<img src='./assets/FedRAMP_LOGO.png' alt="FedRAMP" width="76" height="94"><br />
+<img src='assets/FedRAMP_LOGO.png' alt="FedRAMP" width="76" height="94"><br />
 # Federal Risk and Authorization Management Program (FedRAMP) Automation
 ### Based on the Open Security Controls Assessment Language (OSCAL)
 
