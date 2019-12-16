@@ -3,7 +3,7 @@
 ### Based on the Open Security Controls Assessment Language (OSCAL)
 
 
-## November 27, 2019
+## December 17, 2019
 
 The FedRAMP Program Management Office (PMO) has drafted FedRAMP-specific extensions and guidance to ensure our stakeholders can fully express a FedRAMP System Security Plan (SSP) using NIST's [OSCAL SSP syntax](https://pages.nist.gov/OSCAL/documentation/schema/ssp/).
 
