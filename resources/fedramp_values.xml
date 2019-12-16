@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fedramp-values xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+    <metadata>
+        <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values [DRAFT]</title>
+        <title-short>FedRAMP Data Values (DRAFT)</title-short>
+        <last-modified>2019-12-15Z</last-modified>
+        <version>DRAFT</version>
+        <author>FedRAMP PMO</author>
+        <description>This EXPERIMENTAL and DRAFT file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
+    </metadata>
+
+    <baselines>
+        <file id="fedramp_high_profile.xml"      name="FedRAMP High Baseline Profile (XML)"      href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml" />
+        <file id="fedramp_moderate_profile.xml"  name="FedRAMP Moderate Baseline Profile (XML)"  href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml" />
+        <file id="fedramp_low_profile.xml"       name="FedRAMP Low Baseline Profile (XML)"       href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline_profile.xml" />
+        <file id="fedramp_high_profile.json"     name="FedRAMP High Baseline Profile (JSON)"     href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_HIGH-baseline_profile.json" />
+        <file id="fedramp_moderate_profile.json" name="FedRAMP Moderate Baseline Profile (JSON)" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_MODERATE-baseline_profile.json" />
+        <file id="fedramp_low_profile.json"      name="FedRAMP Low Baseline Profile (JSON)"      href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_LOW-baseline_profile.json" />
+    </baselines>
+
+    <resolved-baselines>
+        <file id="fedramp_high_resolved.xml"      name="FedRAMP High Baseline Resolved Profile Catalog (XML)"      href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline-resolved-profile_catalog.xml" />
+        <file id="fedramp_moderate_resolved.xml"  name="FedRAMP Moderate Baseline Resolved Profile Catalog (XML)"  href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline-resolved-profile_catalog.xml" />
+        <file id="fedramp_low_resolved.xml"       name="FedRAMP Low Baseline Resolved Profile Catalog (XML)"       href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline-resolved-profile_catalog.xml" />
+        <file id="fedramp_high_resolved.json"     name="FedRAMP High Baseline Resolved Profile Catalog (JSON)"     href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_HIGH-baseline-resolved-profile_catalog.json" />
+        <file id="fedramp_moderate_resolved.json" name="FedRAMP Moderate Baseline Resolved Profile Catalog (JSON)" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_MODERATE-baseline-resolved-profile_catalog.json" />
+        <file id="fedramp_low_resolved.json"      name="FedRAMP Low Baseline Resolved Profile Catalog (JSON)"      href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_LOW-baseline-resolved-profile_catalog.json" />
+    </resolved-baselines>
+
+    <catalogs>
+        <file id="nist_sp-800-53_rev4_catalog.xml"  name="NIST SP 800-63, Rev 4 (XML)"  href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml" />
+        <file id="nist_sp-800-53_rev4_catalog.json" name="NIST SP 800-63, Rev 4 (JSON)" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/json/NIST_SP-800-53_rev4_catalog.json" />
+        <file id="fedramp_catalog.xml"              name="FedRAMP (XML)"                href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_catalog.xml" />
+        <file id="fedramp_catalog.json"             name="FedRAMP (JSON)"               href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_catalog.json" />
+    </catalogs>
+
+    <oscal-extensions>
+        <ns name="FedRAMP" ns="https://fedramp.gov/ns/oscal" />
+    </oscal-extensions>
+
+    <system-identifiers>
+        <identifier-type name="FedRAMP" type="http://fedramp.gov"           source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <identifier-type name="rfc4122" type="https://ietf.org/rfc/rfc4122" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </system-identifiers>
+
+    <eauth-levels>
+        <value id="1" label="Low"      short-label="L" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="2" label="Moderate" short-label="M" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="3" label="High"     short-label="H" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </eauth-levels>
+
+    <authorization-type>
+        <value id="fedramp-jab"     label="FedRAMP JAB P-ATO"            short-label="JAB"     source="https://fedramp.gov/ns/oscal" />
+        <value id="fedramp-agency"  label="FedRAMP Agency ATO"           short-label="Agency"  source="https://fedramp.gov/ns/oscal" />
+        <value id="fedramp-li-saas" label="FedRAMP Tailored for LI-SaaS" short-label="LI-SaaS" source="https://fedramp.gov/ns/oscal" />
+    </authorization-type>
+
+    <service-model>
+        <value id="saas"  label="Software as a Service"       short-label="SaaS"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="paas"  label="Platform as a Service"       short-label="PaaS"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="iaas"  label="Infrastructure as a Service" short-label="IaaS"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="other" label="Other"                       short-label="Other" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </service-model>
+    
+    <deployment-model>
+        <value id="public-cloud"          label="Public Cloud"    short-label="Public"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="private-cloud"         label="Private Cloud"   short-label="Private"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="community-cloud"       label="Community Cloud" short-label="Community" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="government-only-cloud" label="Government Only" short-label="USG-Only"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="hybrid-cloud"          label="Hybrid"          short-label="Hybrid"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="other"                 label="Other"           short-label="Other"     source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </deployment-model>
+    
+    <security-impact-level>
+        <value id="fips-199-low"      label="Low"      short-label="L" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="fips-199-moderate" label="Moderate" short-label="M" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="fips-199-high"     label="High"     short-label="H" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </security-impact-level>
+    
+    <privacy-sensitive>
+        <value id="yes" label="Privacy Sensitive"     short-label="Yes" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="no"  label="Not Privacy Sensitive" short-label="No"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </privacy-sensitive>
+    
+    <privacy-impact-assessment>
+        <value id="yes" label="Yes" short-label="Yes" source="https://fedramp.gov/ns/oscal" />
+        <value id="no"  label="No"  short-label="No"  source="https://fedramp.gov/ns/oscal" />
+    </privacy-impact-assessment>
+    
+    <security-sensitivity-level>
+        <value id="low"      label="Low"      short-label="L" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="moderate" label="Moderate" short-label="M" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="high"     label="High"     short-label="H" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </security-sensitivity-level>
+
+    <allowed-information-types>
+        <value id="https://doi.org/10.6028/NIST.SP.800-60v2r1"  label="NIST SP 800-60, Volume 2, Revision 1" short-label="SP 800-60 V2R1" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </allowed-information-types>
+
+    <system-status>
+        <value id="operational"              label="Operational"                short-label="Operational" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="under-development"        label="Under Development"          short-label="Development" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="under-major-modification" label="Major Modification"         short-label="Major Mod."  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="disposition"              label="Alternative Implementation" short-label="Alternative" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="other"                    label="Other"                      short-label="Other"       source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </system-status>
+
+    <component-status>
+        <value id="operational"              label="Operational"                short-label="Operational" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="under-development"        label="Under Development"          short-label="Development" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="under-major-modification" label="Major Modification"         short-label="Major Mod."  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="disposition"              label="Alternative Implementation" short-label="Alternative" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="other"                    label="Other"                      short-label="Other"       source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </component-status>
+    
+    <user-type>
+        <value id="internal"       label="Internal"       short-label="I" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="external"       label="External"       short-label="E" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="general-public" label="General Public" short-label="P" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </user-type>
+
+    <privilege-type>
+        <value id="privileged"        label="Privileged"        short-label="P"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="non-privileged"    label="Non-Privileged"    short-label="NP"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="no-logical-access" label="No Logical Access" short-label="NLA" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </privilege-type>
+
+    <user-sensitivity>
+        <value id="high-risk"      label="High Risk"      short-label="High" source="https://fedramp.gov/ns/oscal" />
+        <value id="severe"         label="Severe"         short-label="Sev." source="https://fedramp.gov/ns/oscal" />
+        <value id="moderate"       label="Moderate"       short-label="Mod." source="https://fedramp.gov/ns/oscal" />
+        <value id="limited"        label="Limited"        short-label="Lim." source="https://fedramp.gov/ns/oscal" />
+        <value id="not-applicable" label="Not Applicable" short-label="N/A"  source="https://fedramp.gov/ns/oscal" />
+    </user-sensitivity>
+
+    <interconnection-direction>
+        <value id="incoming"          label="Incoming"       short-label="In"     source="https://fedramp.gov/ns/oscal" />
+        <value id="outgoing"          label="Outgoing"       short-label="Out"    source="https://fedramp.gov/ns/oscal" />
+        <value id="incoming-outgoing" label="Bi-Directional" short-label="In/Out" source="https://fedramp.gov/ns/oscal" />
+    </interconnection-direction>
+
+    <interconnection-security>
+        <value id="ipsec"                label="IPsec"                   short-label="IPsec" source="https://fedramp.gov/ns/oscal" />
+        <value id="vpn"                  label="Virtual Private Network" short-label="VPN"   source="https://fedramp.gov/ns/oscal" />
+        <value id="ssl"                  label="Secure Socket Layer"     short-label="SSL"   source="https://fedramp.gov/ns/oscal" />
+        <value id="certificate"          label="Certificate"             short-label="Cert"  source="https://fedramp.gov/ns/oscal" />
+        <value id="secure-file-transfer" label="Secure File Transfer"    short-label="SFT"   source="https://fedramp.gov/ns/oscal" />
+        <value id="other"                label="Other"                   short-label="Other" source="https://fedramp.gov/ns/oscal" />
+    </interconnection-security>
+    
+    <component-type>
+        <value id="software"   label="Software"     short-label="S/W"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="hardware"   label="Hardware"     short-label="H/W"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="service"    label="Service"      short-label="Svc"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="policy"     label="Policy"       short-label="Pol"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="process"    label="Process"      short-label="Pros"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="procedure"  label="Procedure"    short-label="Proc"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="plan"       label="Plan"         short-label="Plan"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="guidance"   label="Guidance"     short-label="Guide" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="standard"   label="Standard"     short-label="Std"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="validation" label="Validation"   short-label="Val"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="system"     label="This System"  short-label="Sys"   source="https://fedramp.gov/ns/oscal" />
+        <value id="customer"   label="The Customer" short-label="Cust"  source="https://fedramp.gov/ns/oscal" />
+        <value id="*"          label="Any Other"    short-label="*"     source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </component-type>
+    
+    <asset-type>
+        <value id="os"               label="Operating System"        short-label="OS"    source="https://fedramp.gov/ns/oscal" />
+        <value id="database"         label="Database"                short-label="DB"    source="https://fedramp.gov/ns/oscal" />
+        <value id="web-server"       label="Service"                 short-label="Web"   source="https://fedramp.gov/ns/oscal" />
+        <value id="dns-server"       label="Policy"                  short-label="DNS"   source="https://fedramp.gov/ns/oscal" />
+        <value id="email-server"     label="Process"                 short-label="eMail" source="https://fedramp.gov/ns/oscal" />
+        <value id="directory-server" label="Procedure"               short-label="LDAP"  source="https://fedramp.gov/ns/oscal" />
+        <value id="pbx"              label="Private Branch Exchange" short-label="PBX"   source="https://fedramp.gov/ns/oscal" />
+        <value id="firewall"         label="Firewall"                short-label="FW"    source="https://fedramp.gov/ns/oscal" />
+        <value id="router"           label="Router"                  short-label="Rtr"   source="https://fedramp.gov/ns/oscal" />
+        <value id="switch"           label="Switch"                  short-label="Swtch" source="https://fedramp.gov/ns/oscal" />
+        <value id="storage-array"    label="Storage Array"           short-label="Store" source="https://fedramp.gov/ns/oscal" />
+        <value id="*"                label="Any Other"               short-label="*"     source="https://fedramp.gov/ns/oscal" />
+    </asset-type>
+    
+    <scan-type>
+        <value id="infrastructure" label="Infrastructure and Operating System Scan" short-label="Inf./OS" source="https://fedramp.gov/ns/oscal" />
+        <value id="database"       label="Database Scan"                            short-label="DB"      source="https://fedramp.gov/ns/oscal" />
+        <value id="web"            label="Web Scan"                                 short-label="Web"     source="https://fedramp.gov/ns/oscal" />
+    </scan-type>
+    
+    <control-implementation-status>
+        <value id="implemented"    label="Implemented"                short-label="Implemented" source="https://fedramp.gov/ns/oscal" />
+        <value id="partial"        label="Partially Implemented"      short-label="Partial"     source="https://fedramp.gov/ns/oscal" />
+        <value id="planned"        label="Planned"                    short-label="Planned"     source="https://fedramp.gov/ns/oscal" />
+        <value id="alternative"    label="Alternative Implementation" short-label="Alternative" source="https://fedramp.gov/ns/oscal" />
+        <value id="not-applicable" label="Not Applicable"             short-label="N/A"         source="https://fedramp.gov/ns/oscal" />
+    </control-implementation-status>
+    
+    <control-origination>
+        <value id="sp-corporate"        label="Service Provider (Corporate)"       short-label="SP Corporate"     source="https://fedramp.gov/ns/oscal" />
+        <value id="sp-system"           label="Service Provider (System Specific)" short-label="SP System"        source="https://fedramp.gov/ns/oscal" />
+        <value id="customer-configured" label="Configured by Customer"             short-label="Cust. Configured" source="https://fedramp.gov/ns/oscal" />
+        <value id="customer-provided"   label="Provided by Customer"               short-label="Cust. Provided"   source="https://fedramp.gov/ns/oscal" />
+        <value id="inherited"           label="Inherited"                          short-label="Inherited"        source="https://fedramp.gov/ns/oscal" />
+    </control-origination>
+
+    <citation-tye>
+        <value id="law"        label="Law or Statute"             short-label="Law"        source="https://fedramp.gov/ns/oscal" />
+        <value id="regulation" label="Regulation or Directive"    short-label="Regulation" source="https://fedramp.gov/ns/oscal" />
+        <value id="standard"   label="Industry Standard"          short-label="Standard"   source="https://fedramp.gov/ns/oscal" />
+        <value id="guidance"   label="Guidance"                   short-label="Guidance"   source="https://fedramp.gov/ns/oscal" />
+        <value id="pii"        label="Privacy Impact Information" short-label="P.I.I."     source="https://fedramp.gov/ns/oscal" />
+    </citation-tye>
+    
+    <resource-tye>
+        <value id="policy"    label="Polciy"                    short-label="Policy"    source="https://fedramp.gov/ns/oscal" />
+        <value id="procedure" label="Procedure"                 short-label="Procedure" source="https://fedramp.gov/ns/oscal" />
+        <value id="guide"     label="Guidance Document"         short-label="Guidance"  source="https://fedramp.gov/ns/oscal" />
+        <value id="pia"       label="Privacy Impact Assessment" short-label="P.I.A."    source="https://fedramp.gov/ns/oscal" />
+        <value id="rob"       label="Rules of Behavior"         short-label="R.O.B."    source="https://fedramp.gov/ns/oscal" />
+        <value id="plan"      label="Plan"                      short-label="PLan"      source="https://fedramp.gov/ns/oscal" />
+    </resource-tye>
+
+    <hash>
+        <value id="SHA-224"    label="SHA-224"    short-label="SHA-224"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="SHA-256"    label="SHA-256"    short-label="SHA-256"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="SHA-384"    label="SHA-384"    short-label="SHA-384"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="SHA-512"    label="SHA-512"    short-label="SHA-512"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="RIPEMD-160" label="RIPEMD-160" short-label="RIPEMD-160" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </hash>
+
+
+    <yes-no-answers>
+        <value id="yes" label="Yes" short-label="Y" />
+        <value id="no"  label="No"  short-label="N" />
+    </yes-no-answers>
+
+    <levels>
+        <value id="low"      label="Low"      short-label="L" />
+        <value id="moderate" label="Moderate" short-label="M" />
+        <value id="high"     label="High"     short-label="H" />
+    </levels>
+
+</fedramp-values>
