@@ -1,10 +1,10 @@
 
   { "catalog" : 
-    { "id" : "d0197f73-083e-4954-aee3-b4115c1cc38b",
+    { "id" : "0a8a1cf0-d22d-4a80-9f57-08483cdd6f37",
       "metadata" : 
       { "title" : "FedRAMP High Baseline [RESOLVED]",
         "published" : "2019-12-17T00:00:00.000-05:00",
-        "last-modified" : "2019-12-17T00:19:26.000000-05:00",
+        "last-modified" : "2019-12-17T00:35:46.000000-05:00",
         "version" : "1.2",
         "oscal-version" : "1.0.0-milestone2",
         "roles" : 
@@ -11353,7 +11353,7 @@
                       { "id" : "ca-7.fr_smt.1",
                         "name" : "item",
                         "properties" : 
-                        { "label" : "Requirement 1" },
+                        { "label" : "Requirement 1:" },
                         "prose" : "Operating System Scans: at least monthly" },
                       
                       { "id" : "ca-7.fr_smt.2",

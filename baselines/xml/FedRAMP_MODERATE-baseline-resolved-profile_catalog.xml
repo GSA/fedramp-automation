@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0" id="5e66a3ff-466f-442c-ab47-af1f3d8c7702">
+<catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0" id="7723d8ef-9667-4ae5-8316-0ce2d81a67d0">
   <metadata>
     <title>FedRAMP Moderate Baseline [RESOLVED]</title>
     <published>2019-12-17T00:00:00.000-05:00</published>
-    <last-modified>2019-12-17T00:18:50.000000-05:00</last-modified>
+    <last-modified>2019-12-17T00:35:11.000000-05:00</last-modified>
     <version>1.2</version>
     <oscal-version>1.0.0-milestone2</oscal-version>
     <role id="prepared-by">
@@ -6394,7 +6394,7 @@
         <prop name="label">CA-7 Req</prop>
         <part id="ca-7.fr_smt" name="statement">
           <part id="ca-7.fr_smt.1" name="item">
-            <prop name="label">Requirement 1</prop>
+            <prop name="label">Requirement 1:</prop>
             <p>Operating System Scans: at least monthly</p>
           </part>
           <part id="ca-7.fr_smt.2" name="item">

@@ -1,10 +1,10 @@
 
   { "catalog" : 
-    { "id" : "ff940a3b-76ff-4ab7-935f-a2e5acbe98a0",
+    { "id" : "c08ce481-4da2-4071-9fc3-4ccaffb1b7cf",
       "metadata" : 
       { "title" : "FedRAMP Low Baseline [RESOLVED]",
         "published" : "2019-12-17T00:00:00.000-05:00",
-        "last-modified" : "2019-12-17T00:18:26.000000-05:00",
+        "last-modified" : "2019-12-17T00:34:48.000000-05:00",
         "version" : "1.2",
         "oscal-version" : "1.0.0-milestone2",
         "roles" : 
@@ -5641,7 +5641,7 @@
                     { "id" : "ca-7.fr_smt.1",
                       "name" : "item",
                       "properties" : 
-                      { "label" : "Requirement 1" },
+                      { "label" : "Requirement 1:" },
                       "prose" : "Operating System Scans: at least monthly" },
                     
                     { "id" : "ca-7.fr_smt.2",
