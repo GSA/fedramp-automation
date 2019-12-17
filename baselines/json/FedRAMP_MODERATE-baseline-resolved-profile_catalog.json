@@ -1,10 +1,10 @@
 
   { "catalog" : 
-    { "id" : "5e66a3ff-466f-442c-ab47-af1f3d8c7702",
+    { "id" : "7723d8ef-9667-4ae5-8316-0ce2d81a67d0",
       "metadata" : 
       { "title" : "FedRAMP Moderate Baseline [RESOLVED]",
         "published" : "2019-12-17T00:00:00.000-05:00",
-        "last-modified" : "2019-12-17T00:18:50.000000-05:00",
+        "last-modified" : "2019-12-17T00:35:11.000000-05:00",
         "version" : "1.2",
         "oscal-version" : "1.0.0-milestone2",
         "roles" : 
@@ -9387,7 +9387,7 @@
                       { "id" : "ca-7.fr_smt.1",
                         "name" : "item",
                         "properties" : 
-                        { "label" : "Requirement 1" },
+                        { "label" : "Requirement 1:" },
                         "prose" : "Operating System Scans: at least monthly" },
                       
                       { "id" : "ca-7.fr_smt.2",
