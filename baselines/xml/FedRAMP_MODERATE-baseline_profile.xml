@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" id="uuid-87ae6162-8387-4418-8df2-c2673f73886c">
+<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" id="uuid-87ae6162-8387-4418-8df2-c2673f73886d">
 	<metadata>
 		<title>FedRAMP Moderate Baseline</title>
-		<published>2019-11-27T00:00:00.000-05:00</published>
-		<last-modified>2019-11-25T10:00:00.000-05:00</last-modified>
+		<published>2019-12-17T00:00:00.000-05:00</published>
+		<last-modified>2019-12-16T10:00:00.000-05:00</last-modified>
 		<version>1.2</version>
 		<oscal-version>1.0.0-milestone2</oscal-version>
 		
@@ -356,7 +356,7 @@
 			<call control-id="si-16"/>
 		</include>
 	</import>
-	<import href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_catalog.xml">
+	<import href="https://raw.githubusercontent.com/gsa/fedramp-automation/master/baselines/xml/FedRAMP_catalog.xml">
 		<include>
 			<call control-id="ac-8.fr"/>
 			<call control-id="ca-7.fr"/>

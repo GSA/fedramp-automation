@@ -61,7 +61,7 @@
             <prop name="label">CA-7 Req</prop>
             <part id="ca-7.fr_smt" name="statement">
                <part id="ca-7.fr_smt.1" name="item">
-                  <prop name="label">Requirement 1</prop>
+                  <prop name="label">Requirement 1:</prop>
                   <p>Operating System Scans: at least monthly</p>
                </part>
                <part id="ca-7.fr_smt.2" name="item">

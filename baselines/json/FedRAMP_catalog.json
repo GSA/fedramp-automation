@@ -86,7 +86,7 @@
                   { "id" : "ca-7.fr_smt.1",
                     "name" : "item",
                     "properties" : 
-                    { "label" : "Requirement 1" },
+                    { "label" : "Requirement 1:" },
                     "prose" : "Operating System Scans: at least monthly" },
                   
                   { "id" : "ca-7.fr_smt.2",
