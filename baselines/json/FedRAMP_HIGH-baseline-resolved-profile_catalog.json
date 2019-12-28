@@ -7477,7 +7477,7 @@
                         "name" : "item",
                         "properties" : 
                         { "label" : "Requirement:" },
-                        "prose" : "Coordination between service provider and consumer shall be documented and accepted by the JAB\/AO. In multi-tennant environments, capability and means for providing review, analysis, and reporting to consumer for data pertaining to consumer shall be documented." } } ] },
+                        "prose" : "Coordination between service provider and consumer shall be documented and accepted by the JAB\/AO. In multi-tenant environments, capability and means for providing review, analysis, and reporting to consumer for data pertaining to consumer shall be documented." } } ] },
                 
                 { "id" : "au-6_gdn",
                   "name" : "guidance",
