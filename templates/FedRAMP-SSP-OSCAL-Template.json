@@ -1000,11 +1000,101 @@
               { "description" : "Ignore.",
                 "by-components" : 
                 { "system" : 
-                  { "description" : "For the portion of the control satisfied by the service provider, describe **how** the control is met." },
+                  { "description" : "For the portion of part a satisfied by the service provider, describe **how** the control is met." },
                   "fedramp-authorized-provider-1" : 
                   { "description" : "For the portion inherited from an underlying FedRAMP-authorized provider, describe **what** is inherited." },
                   "customer" : 
-                  { "description" : "For the portion of the control that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } } } },
+                  { "description" : "For the portion of part a that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } },
+              "ac-2_stmt.b" : 
+              { "description" : "Ignore.",
+                "by-components" : 
+                { "system" : 
+                  { "description" : "For the portion of part b satisfied by the service provider, describe **how** the control is met." },
+                  "fedramp-authorized-provider-1" : 
+                  { "description" : "For the portion inherited from an underlying FedRAMP-authorized provider, describe **what** is inherited." },
+                  "customer" : 
+                  { "description" : "For the portion of part b that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } },
+              "ac-2_stmt.c" : 
+              { "description" : "Ignore.",
+                "by-components" : 
+                { "system" : 
+                  { "description" : "For the portion of part c satisfied by the service provider, describe **how** the control is met." },
+                  "fedramp-authorized-provider-1" : 
+                  { "description" : "For the portion inherited from an underlying FedRAMP-authorized provider, describe **what** is inherited." },
+                  "customer" : 
+                  { "description" : "For the portion of part c that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } },
+              "ac-2_stmt.d" : 
+              { "description" : "Ignore.",
+                "by-components" : 
+                { "system" : 
+                  { "description" : "For the portion of part d satisfied by the service provider, describe **how** the control is met." },
+                  "fedramp-authorized-provider-1" : 
+                  { "description" : "For the portion inherited from an underlying FedRAMP-authorized provider, describe **what** is inherited." },
+                  "customer" : 
+                  { "description" : "For the portion of part d that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } },
+              "ac-2_stmt.e" : 
+              { "description" : "Ignore.",
+                "by-components" : 
+                { "system" : 
+                  { "description" : "For the portion of part e satisfied by the service provider, describe **how** the control is met." },
+                  "fedramp-authorized-provider-1" : 
+                  { "description" : "For the portion inherited from an underlying FedRAMP-authorized provider, describe **what** is inherited." },
+                  "customer" : 
+                  { "description" : "For the portion of part e that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } },
+              "ac-2_stmt.f" : 
+              { "description" : "Ignore.",
+                "by-components" : 
+                { "system" : 
+                  { "description" : "For the portion of part f satisfied by the service provider, describe **how** the control is met." },
+                  "fedramp-authorized-provider-1" : 
+                  { "description" : "For the portion inherited from an underlying FedRAMP-authorized provider, describe **what** is inherited." },
+                  "customer" : 
+                  { "description" : "For the portion of part f that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } },
+              "ac-2_stmt.g" : 
+              { "description" : "Ignore.",
+                "by-components" : 
+                { "system" : 
+                  { "description" : "For the portion of part g satisfied by the service provider, describe **how** the control is met." },
+                  "fedramp-authorized-provider-1" : 
+                  { "description" : "For the portion inherited from an underlying FedRAMP-authorized provider, describe **what** is inherited." },
+                  "customer" : 
+                  { "description" : "For the portion of part g that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } },
+              "ac-2_stmt.h" : 
+              { "description" : "Ignore.",
+                "by-components" : 
+                { "system" : 
+                  { "description" : "For the portion of part h satisfied by the service provider, describe **how** the control is met." },
+                  "fedramp-authorized-provider-1" : 
+                  { "description" : "For the portion inherited from an underlying FedRAMP-authorized provider, describe **what** is inherited." },
+                  "customer" : 
+                  { "description" : "For the portion of part h that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } },
+              "ac-2_stmt.i" : 
+              { "description" : "Ignore.",
+                "by-components" : 
+                { "system" : 
+                  { "description" : "For the portion of part i satisfied by the service provider, describe **how** the control is met." },
+                  "fedramp-authorized-provider-1" : 
+                  { "description" : "For the portion inherited from an underlying FedRAMP-authorized provider, describe **what** is inherited." },
+                  "customer" : 
+                  { "description" : "For the portion of part i that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } },
+              "ac-2_stmt.j" : 
+              { "description" : "Ignore.",
+                "by-components" : 
+                { "system" : 
+                  { "description" : "For the portion of part j satisfied by the service provider, describe **how** the control is met." },
+                  "fedramp-authorized-provider-1" : 
+                  { "description" : "For the portion inherited from an underlying FedRAMP-authorized provider, describe **what** is inherited." },
+                  "customer" : 
+                  { "description" : "For the portion of part j that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } },
+              "ac-2_stmt.k" : 
+              { "description" : "Ignore.",
+                "by-components" : 
+                { "system" : 
+                  { "description" : "For the portion of part k satisfied by the service provider, describe **how** the control is met." },
+                  "fedramp-authorized-provider-1" : 
+                  { "description" : "For the portion inherited from an underlying FedRAMP-authorized provider, describe **what** is inherited." },
+                  "customer" : 
+                  { "description" : "For the portion of part k that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix." } } } } },
           
           { "control-id" : "at-1",
             "properties" : 
