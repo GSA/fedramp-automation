@@ -1,5 +1,5 @@
 ---
-name: OSCAL-based FedRAMP SSP Feedback
+name: Feedback - OSCAL-based FedRAMP SSP
 about: Provide feedback about any of the OSCAL-based FedRAMP SSP files published for
   public comment
 title: ''
@@ -16,7 +16,7 @@ assignees: brianrufgsa
 
 * **This relates to ...**
   - [ ] the **FedRAMP OSCAL Registry** (Excel File)
-  - [ ] the **Modeling a FedRAMP SSP in OSCAL Guide** (PDF)
+  - [ ] the **Guide to OSCAL-based FedRAMP System Security Plans** (PDF)
   - [ ] the **FedRAMP SSP OSCAL Template** (JSON Format)
   - [ ] the **FedRAMP SSP OSCAL Template** (XML Format)
   - [ ] **General/Overall**

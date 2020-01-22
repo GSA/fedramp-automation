@@ -1,5 +1,5 @@
 ---
-name: Action Items (FedRAMP PMO Use Only)
+name: PMO Action Items (FedRAMP PMO Use Only)
 about: Capture action items intended for follow-up by the FedRAMP PMO.
 title: ''
 labels: ''
@@ -16,7 +16,7 @@ assignees: brianrufgsa
 
 **This relates to ...**
   - [ ] the **FedRAMP OSCAL Registry** (Excel File)
-  - [ ] the **Modeling a FedRAMP SSP in OSCAL Guide** (PDF)
+  - [ ] the **Guide to OSCAL-based FedRAMP System Security Plans** (PDF)
   - [ ] the **FedRAMP SSP OSCAL Template** (JSON Format)
   - [ ] the **FedRAMP SSP OSCAL Template** (XML Format)
   - [ ] **General/Overall**
