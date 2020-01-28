@@ -1,11 +1,10 @@
 ---
-name: OSCAL-based FedRAMP SSP Feedback
+name: Feedback - OSCAL-based FedRAMP SSP
 about: Provide feedback about any of the OSCAL-based FedRAMP SSP files published for
   public comment
 title: ''
 labels: ''
 assignees: brianrufgsa
-
 ---
 
 * **This is a ...**
@@ -16,7 +15,7 @@ assignees: brianrufgsa
 
 * **This relates to ...**
   - [ ] the **FedRAMP OSCAL Registry** (Excel File)
-  - [ ] the **Modeling a FedRAMP SSP in OSCAL Guide** (PDF)
+  - [ ] the **Guide to OSCAL-based FedRAMP System Security Plans** (PDF)
   - [ ] the **FedRAMP SSP OSCAL Template** (JSON Format)
   - [ ] the **FedRAMP SSP OSCAL Template** (XML Format)
   - [ ] **General/Overall**
@@ -25,18 +24,16 @@ assignees: brianrufgsa
 NOTE: For feedback related to the OSCAL syntax itself, please create or add to an [issue in the NIST OSCAL Repository](https://github.com/usnistgov/OSCAL/issues).
 
 * **Where, exactly?**
+
   - For the registry, please indicate the tab and cell, or other clear identifier
   - For the guide, please indicate the section number and printed page number (lower right corner)
   - For the XML and JSON files, please indicate the line number, field id, or other clear identifier
 
 
-
-* **What is your feedback?**
-
-
-
-* **What action would you like to see from the FedRAMP PMO?**
+### What action would you like to see from the FedRAMP PMO on this issue:
 
 
 
-* **Other information** (e.g. detailed explanation, related issues, suggestions how to fix, links for us to have context, eg. slack, gitter, etc)
+### Additional Information:
+Such as a detailed explanation, related issues, suggestions for how to resolve, or links for us to have context.
+
