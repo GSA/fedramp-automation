@@ -210,7 +210,7 @@
     </citation-tye>
     
     <resource-tye>
-        <value id="policy"    label="Polciy"                    short-label="Policy"    source="https://fedramp.gov/ns/oscal" />
+        <value id="policy"    label="Policy"                    short-label="Policy"    source="https://fedramp.gov/ns/oscal" />
         <value id="procedure" label="Procedure"                 short-label="Procedure" source="https://fedramp.gov/ns/oscal" />
         <value id="guide"     label="Guidance Document"         short-label="Guidance"  source="https://fedramp.gov/ns/oscal" />
         <value id="pia"       label="Privacy Impact Assessment" short-label="P.I.A."    source="https://fedramp.gov/ns/oscal" />

@@ -811,7 +811,7 @@
             "value": [
                 {
                     "id": "policy",
-                    "label": "Polciy",
+                    "label": "Policy",
                     "short-label": "Policy",
                     "source": "https://fedramp.gov/ns/oscal"
                 },
