@@ -2239,7 +2239,7 @@
           <title>AU-6 Additional FedRAMP Requirements and Guidance</title>
           <part id="au-6_fr_smt.1" name="item">
             <prop name="label">Requirement:</prop>
-            <p>Coordination between service provider and consumer shall be documented and accepted by the JAB/AO. In multi-tenant environments, capability and means for providing review, analysis, and reporting to consumer for data pertaining to consumer shall be documented.</p>
+            <p>Coordination between service provider and consumer shall be documented and accepted by the JAB/AO. In multi-tennant environments, capability and means for providing review, analysis, and reporting to consumer for data pertaining to consumer shall be documented.</p>
           </part>
         </part>
       </part>
