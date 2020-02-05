@@ -26,7 +26,7 @@
           "contact" : 
           { "party-ids" : "fedramp" } } },
       "imports" : 
-      { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/nist.gov\/SP800-53\/rev4\/xml\/NIST_SP-800-53_rev4_catalog.xml",
+      { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/nist.gov\/SP800-53\/rev4\/json\/NIST_SP-800-53_rev4_catalog.json",
         "include" : 
         { "id-selectors" : 
           [ 
@@ -1222,3 +1222,4 @@
                   "properties" : 
                   { "label" : "Guidance:" },
                   "prose" : "See US-CERT Incident Response Reporting Guidelines." } } } } ] } } }
+

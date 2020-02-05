@@ -1,10 +1,10 @@
 
   { "catalog" : 
-    { "id" : "eeffbf3f-a798-49f7-9382-c13a7586eb7e",
+    { "id" : "uuid-bab7bf4e-a439-4b18-b633-68f842fc0a47",
       "metadata" : 
       { "title" : "FedRAMP Low Baseline [RESOLVED]",
         "published" : "2020-02-02T00:00:00.000-05:00",
-        "last-modified" : "2020-01-28T14:26:08.000000-05:00",
+        "last-modified" : "2020-02-05T17:01:18.000000-05:00",
         "version" : "1.2",
         "oscal-version" : "1.0.0-milestone2",
         "roles" : 
