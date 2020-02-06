@@ -728,15 +728,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <set-parameter param-id="ac-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ac-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ac-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ac-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ac-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ac-1_stmt.a">
             <!-- Service Provider Responsibility -->
             <description><p>Describe how Part a is satisfied.</p></description>
@@ -766,18 +766,18 @@
          </annotation>
          <responsible-role role-id="admin-unix" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ac-2_prm_1">
+         <set-parameter param-id="ac-2_prm_1">
             <value>[SAMPLE]privileged, non-privileged</value>
-         </set-param>
-         <set-param param-id="ac-2_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ac-2_prm_2">
             <value>[SAMPLE]all</value>
-         </set-param>
-         <set-param param-id="ac-2_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ac-2_prm_3">
             <value>[SAMPLE]The Access Control Procedure</value>
-         </set-param>
-         <set-param param-id="ac-2_prm_4">
+         </set-parameter>
+         <set-parameter param-id="ac-2_prm_4">
             <value>[SAMPLE]annually</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ac-2_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -951,15 +951,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="at-1_prm_1">
+         <set-parameter param-id="at-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="at-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="at-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="at-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="at-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="at-1_stmt.a">
             <description><p>Component-based Approach</p></description>
             <!-- Service Provider Responsibility -->
@@ -989,15 +989,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="au-1_prm_1">
+         <set-parameter param-id="au-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="au-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="au-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="au-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="au-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="au-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1027,15 +1027,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ca-1_prm_1">
+         <set-parameter param-id="ca-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ca-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ca-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ca-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ca-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ca-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1065,15 +1065,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="cm-1_prm_1">
+         <set-parameter param-id="cm-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="cm-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="cm-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="cm-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="cm-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="cm-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1103,15 +1103,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="cp-1_prm_1">
+         <set-parameter param-id="cp-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="cp-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="cp-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="cp-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="cp-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="cp-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1141,15 +1141,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ia-1_prm_1">
+         <set-parameter param-id="ia-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ia-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ia-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ia-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ia-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ia-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1179,15 +1179,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ir-1_prm_1">
+         <set-parameter param-id="ir-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ir-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ir-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ir-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ir-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ir-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1217,15 +1217,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ma-1_prm_1">
+         <set-parameter param-id="ma-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ma-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ma-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ma-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ma-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ma-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1255,15 +1255,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="mp-1_prm_1">
+         <set-parameter param-id="mp-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="mp-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="mp-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="mp-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="mp-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="mp-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1293,15 +1293,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="pe-1_prm_1">
+         <set-parameter param-id="pe-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="pe-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="pe-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="pe-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="pe-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="pe-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1331,15 +1331,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="pl-1_prm_1">
+         <set-parameter param-id="pl-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="pl-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="pl-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="pl-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="pl-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="pl-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1369,15 +1369,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ps-1_prm_1">
+         <set-parameter param-id="ps-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ps-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ps-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ps-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ps-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ps-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1407,15 +1407,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ra-1_prm_1">
+         <set-parameter param-id="ra-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ra-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ra-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ra-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ra-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ra-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1445,15 +1445,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="sa-1_prm_1">
+         <set-parameter param-id="sa-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="sa-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="sa-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="sa-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="sa-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="sa-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1483,15 +1483,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="sc-1_prm_1">
+         <set-parameter param-id="sc-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="sc-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="sc-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="sc-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="sc-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="sc-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1521,15 +1521,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="si-1_prm_1">
+         <set-parameter param-id="si-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="si-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="si-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="si-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="si-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="si-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
