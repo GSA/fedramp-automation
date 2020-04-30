@@ -5,11 +5,28 @@
    xsi:schemaLocation="https://raw.githubusercontent.com/usnistgov/OSCAL/master/xml/schema/oscal_ssp_schema.xsd">
    <metadata>
       <title>FedRAMP System Security Plan (SSP)</title>
-      <published>2019-10-21T00:00:00.00-04:00</published>
-      <last-modified>2019-10-21T00:00:00.00-04:00</last-modified>
+      <published>2020-07-01T00:00:00.00-04:00</published>
+      <last-modified>2020-07-01T00:00:00.00-04:00</last-modified>
       <version>0.0</version>
-      <oscal-version>1.0-Milestone2</oscal-version>
-      <prop name="marking" ns="https://fedramp.gov/ns/oscal">Controlled Unclassified Information</prop>
+      <oscal-version>1.0-Milestone3</oscal-version>
+      <revision-history>
+         <revision>
+            <published>2019-06-01T00:00:00.00-04:00</published>
+            <version>1.0</version>
+            <oscal-version>1.0-Milestone3</oscal-version>
+            <prop name="party-id" ns="https://fedramp.gov/ns/oscal">csp</prop>
+            <remarks><p>Initial publication.</p></remarks>
+         </revision>
+         <revision>
+            <published>2020-06-01T00:00:00.00-04:00</published>
+            <version>2.0</version>
+            <oscal-version>1.0-Milestone3</oscal-version>
+            <prop name="party-id" ns="https://fedramp.gov/ns/oscal">csp</prop>
+            <remarks><p>Updated for annual assessment.</p></remarks>
+         </revision>
+         <!-- Additional revision assemblies as needed. -->
+      </revision-history>
+      <prop name="marking">Controlled Unclassified Information</prop>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <role id="prepared-by">
@@ -32,6 +49,10 @@
          <title>Authorizing Official</title>
          <desc>The individual or individuals who must grant this system an authorization to operate.</desc>
       </role>
+      <role id="authorizing-official-poc">
+         <title>Authorizing Official's Point of Contact</title>
+         <desc>The individual representing the authorizing official.</desc>
+      </role>
       <role id="system-poc-management">
          <title>Information System Management Point of Contact (POC)</title>
          <desc>The highest level manager who responsible for system operation on behalf of the System Owner.</desc>
@@ -48,27 +69,51 @@
          <title>System Information System Security Officer (or Equivalent)</title>
          <desc>The individual accountable for the security posture of the system on behalf of the system owner.</desc>
       </role>
-      <role id="authorizing-official-poc">
-         <title>Authorizing Official's Point of Contact</title>
-         <desc>The individual representing the authorizing official.</desc>
-      </role>
       <role id="privacy-poc">
          <title>Privacy Official's Point of Contact</title>
          <desc>The individual responsible for the privacy threshold analysis and if necessary the privacy impact assessment.</desc>
-      </role>
-      <role id="ica-1">
-         <title>[REPLACE]Role of ICA Signatory</title>
-         <desc>The role of the individual who signed the ICA.</desc>
-         <remarks>
-            <p>Remove this role if there are no ICAs.</p>
-            <p>Duplicate this role using -2, -3, etc. Update the title as needed.</p>
-         </remarks>
       </role>
       <role id="asset-owner">
          <title>Owner of an inventory item within the system.</title>
       </role>
       <role id="asset-administrator">
          <title>Administrative responsibility an inventory item within the system.</title>
+      </role>
+      <role id="isa-poc-local">
+         <title>ICA POC (Local)</title>
+         <desc>The point of contact for an interconnection on behalf of this system.</desc>
+         <remarks>
+            <p>Remove this role if there are no ICAs.</p>
+         </remarks>
+      </role>
+      <role id="isa-poc-remote">
+         <title>ICA POC (Remote)</title>
+         <desc>The point of contact for an interconnection on behalf of this external system to which this system connects.</desc>
+         <remarks>
+            <p>Remove this role if there are no ICAs.</p>
+         </remarks>
+      </role>
+      <role id="isa-authorizing-official-local">
+         <title>ICA Signatory (Local)</title>
+         <desc>Responsible for signing an interconnection security agreement on behalf of this system.</desc>
+         <remarks>
+            <p>Remove this role if there are no ICAs.</p>
+         </remarks>
+      </role>
+      <role id="isa-authorizing-official-remote">
+         <title>ICA Signatory (Remote)</title>
+         <desc>Responsible for signing an interconnection security agreement on behalf of the external system to which this system connects.</desc>
+         <remarks>
+            <p>Remove this role if there are no ICAs.</p>
+         </remarks>
+      </role>
+      <role id="consultant">
+         <title>Consultant</title>
+         <desc>Any consultants involved with developing or maintaining this content.</desc>
+      </role>
+      <role id="cloud-service-provider">
+         <title>Cloud Service Provider</title>
+         <short-name>CSP</short-name>
       </role>
       <!-- The following role definitions are samples and may be modified or deleted -->
       <role id="admin-unix">
@@ -83,20 +128,44 @@
          <title>[SAMPLE]Program Director</title>
          <desc>This is a sample role.</desc>
       </role>
+      
+      <location id="location-1">
+         <address type='work'>
+            <addr-line>Suite 0000</addr-line>
+            <addr-line>1234 Some Street</addr-line>
+            <city>Haven</city>
+            <state>ME</state>
+            <postal-code>00000</postal-code>
+            <country>US</country>
+         </address>
+         <remarks><p>The CSP's HQ, or the address of the system owner's primary business location.</p></remarks>
+      </location>
+      <location id="location-2">
+         <address>
+            <addr-line>2222 Main Street</addr-line>
+            <city>Anywhere</city>
+            <state>--</state>
+            <postal-code>00000-0000</postal-code>
+         </address>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">primary-data-center</prop>
+      </location>
+      <location id="location-3">
+         <address>
+            <addr-line>3333 Small Road</addr-line>
+            <city>Anywhere</city>
+            <state>--</state>
+            <postal-code>00000-0000</postal-code>
+         </address>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">backup-data-center</prop>
+      </location>
+      
       <!-- The following parties must be present, with the provided ID. -->
       <!-- Change the content as needed; however, do not change the ID. -->
       <party id="csp">
          <org>
             <org-name>Cloud Service Provider (CSP) Name</org-name>
             <short-name>CSP Acronym/Short Name</short-name>
-            <address type='work'>
-               <addr-line>Suite 0000</addr-line>
-               <addr-line>1234 Some Street</addr-line>
-               <city>Haven</city>
-               <state>ME</state>
-               <postal-code>00000</postal-code>
-               <country>US</country>
-            </address>
+            <location-id>location-1</location-id>
             <remarks>
                <p>Replace sample CSP information.</p>
             </remarks>
@@ -274,6 +343,11 @@
             <org-name>[SAMPLE]Security Team</org-name>
          </org>
       </party>
+
+      <responsible-party role-id="cloud-service-provider">
+         <!-- Exacty one -->
+         <party-id>csp</party-id>
+      </responsible-party>
       <!-- Page ii -->
       <responsible-party role-id="prepared-by">
          <!-- Exacty one -->
@@ -328,15 +402,19 @@
          <p>A template for FedRAMP Tailored, Appendix B requires syntax that has not yet been developed.</p>
       </remarks>
    </metadata>
-   <!-- Link this SSP to the appropriate FedRAMP baseline 
-   FedRAMP HIGH Baseline: 
-   <import-profile href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml"/>
-   FedRAMP MODERATE Baseline:
-   <import-profile href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml"/>
-   FedRAMP LOW Baseline: 
-   <import-profile href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline_profile.xml"/>
-   -->
-   <import-profile href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml"/>
+   <!-- ====================================================
+      Link this SSP to the appropriate FedRAMP baseline using ONE of the import statements below.
+      NOTE: This points to a resource at the end of this file with links to both the XML and JSON
+            versions of the baseline. Tools must select the appropriate link 
+      FedRAMP HIGH Baseline: 
+      <import-profile href="#fedramp-high-baseline"/>
+      FedRAMP MODERATE Baseline:
+      <import-profile href="#fedramp-moderate-baseline"/>
+      FedRAMP LOW Baseline: 
+      <import-profile href="#fedramp-low-baseline"/>
+   ==================================================== -->
+   <import-profile href="#fedramp-moderate-baseline"/>
+
    <system-characteristics>
       <!-- Table 1-1 Information System Name and Title -->
       <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
@@ -379,7 +457,8 @@
          <!--Is there a Privacy Act System of Records Notice (SORN) for this ISA system? (If so, please specify the SORN ID.) -->
          <prop name="pta-4" class="pta" ns="https://fedramp.gov/ns/oscal">no</prop>
          <prop name="sorn-id" class="pta" ns="https://fedramp.gov/ns/oscal">[No SORN ID]</prop>
-         <information-type name="Information Type Name" id="info-01">
+         <information-type id="info-01">
+            <title>Information Type Name</title>
             <description>
                <p>A description of the information.</p>
             </description>
@@ -412,7 +491,8 @@
          <remarks><p>Remarks are required if status/state is "other". Optional otherwise.</p></remarks>
       </status>
       <!-- Table 8-3 Leveraged Authorizations (Typically 0 or 1) -->
-      <leveraged-authorization id="lva-1" name="NCName">
+      <leveraged-authorization id="lva-1">
+         <title>Name of Leveraged System</title>
          <annotation name="system-name" id="leveraged-01-name" ns="https://fedramp.gov/ns/oscal" value="ExampleIaaS">
             <remarks><p>Notes about this system</p></remarks>
          </annotation>
@@ -461,7 +541,8 @@
          <annotation name="privilege-level" value="privileged" />
          <annotation name="type" value="internal" />
          <role-id>admin-unix</role-id>
-         <authorized-privilege name="Full administrative access (root)">
+         <authorized-privilege>
+            <title>Full administrative access (root)</title>
             <function-performed>Add/remove users and hardware</function-performed>
             <function-performed>install and configure software</function-performed>
             <function-performed>OS updates, patches and hotfixes</function-performed>
@@ -474,7 +555,8 @@
          <annotation name="privilege-level" value="non-privileged" />
          <annotation name="type" value="external" />
          <role-id>external</role-id>
-         <authorized-privilege name="Portal administration">
+         <authorized-privilege>
+            <title>Portal administration</title>
             <function-performed>Add/remove client users</function-performed>
             <function-performed>Create, modify and delete client applications</function-performed>
          </authorized-privilege>
@@ -485,34 +567,40 @@
          <annotation name="privilege-level" value="no-logical-access" />
          <annotation name="type" value="internal" />
          <role-id>program-director</role-id>
-         <authorized-privilege name="Administrative Access Approver">
+         <authorized-privilege>
+            <title>Administrative Access Approver</title>
             <function-performed>Approves access requests for administrative accounts.</function-performed>
          </authorized-privilege>
-         <authorized-privilege name="Access Approver">
+         <authorized-privilege>
+            <title>Access Approver</title>
             <function-performed>Approves access requests for administrative accounts.</function-performed>
          </authorized-privilege>
       </user>
-      <component id="system" name="This System" component-type="system" >
+      <component id="system" component-type="system" >
+         <title>This System</title>
          <description><p>The entire system as depicted in the system authorization boundary</p></description>
          <status state="operational" />
       </component>
-      <component id="customer" name="Customer" component-type="customer" >
+      <component id="customer" component-type="customer" >
+         <title>Customer</title>
          <description><p>Customer's Responsibility</p></description>
          <status state="other" />
       </component>
-      <component id="fedramp-authorized-provider-1" name="[Provider System's Name]" component-type="service" >
+      <component id="fedramp-authorized-provider-1" component-type="service" >
+         <title>[Provider System's Name]</title>
          <description><p>A FedRAMP-authorized system, from which this system inherits controls.</p></description>
          <prop name="authorization-date" ns="https://fedramp.gov/ns/oscal">2019-01-01T00:00:00.00-00:00</prop>
          <status state="operational" />
       </component>
-      <component id="fips-module-1" name="[SAMPLE]Module Name" component-type="validation">
+      <component id="fips-module-1" component-type="validation">
+         <title>[SAMPLE]Module Name</title>
          <description><p>[SAMPLE]FIPS 140-2 Validated Module</p></description>
          <prop name="cert-no" ns="https://fedramp.gov/ns/oscal">0000</prop>
          <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/0000" />
          <status state="operational" />
       </component>
-      <component id="validated-product-1" 
-         name="[SAMPLE]Product Name" component-type="software" >
+      <component id="validated-product-1" component-type="software" >
+         <title>[SAMPLE]Product Name</title>
          <description><p>FUNCTION: Describe typical component function.</p></description>
          <prop name="asset-type">os</prop>
          <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">infrastructure</prop>
@@ -524,8 +612,8 @@
          <status state="operational" />
          <remarks><p>COMMENTS: Provide other comments as needed.</p></remarks>
       </component>
-      <component id="router-1" 
-         name="[SAMPLE]Product" component-type="hardware" >
+      <component id="router-1" component-type="hardware" >
+         <title>[SAMPLE]Product</title>
          <description><p>FUNCTION: Describe typical component function.</p></description>
          <prop name="asset-type">database</prop>
          <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">infrastructure</prop>
@@ -542,7 +630,8 @@
          </responsible-role>
          <remarks><p>COMMENTS: Provide other comments as needed.</p></remarks>
       </component>
-      <component id="comp-1" name="OS Sample" component-type="os">
+      <component id="comp-1" component-type="os">
+         <title>OS Sample</title>
          <description><p>None</p></description>
          <prop name="asset-type">os</prop>
          <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">infrastructure</prop>
@@ -550,7 +639,8 @@
          <annotation name="allows-authenticated-scan"  value="yes" />
          <status state="operational" />
       </component>
-      <component id="comp-2" name="Database Sample" component-type="software">
+      <component id="comp-2" component-type="software">
+         <title>Database Sample</title>
          <description><p>None</p></description>
          <prop name="asset-type">database</prop>
          <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">database</prop>
@@ -558,7 +648,8 @@
          <annotation name="allows-authenticated-scan"  value="yes" />
          <status state="operational" />
       </component>
-      <component id="comp-3" name="Database Sample" component-type="software">
+      <component id="comp-3" component-type="software">
+         <title>Appliance Sample</title>
          <description><p>None</p></description>
          <prop name="asset-type">appliance</prop>
          <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">web</prop>
@@ -570,7 +661,8 @@
       </component>
       
       <!-- Section 10.2, Table 10-1. Ports, Protocols and Services -->
-      <service id="svc-1" name="ServiceName">
+      <service id="svc-1">
+         <title>ServiceName</title>
          <prop name="title" ns="https://fedramp.gov/ns/oscal">[SAMPLE]Service Name</prop>
          <prop name="used-by" ns="https://fedramp.gov/ns/oscal">What uses this service?</prop>
          <protocol name="http">
@@ -728,15 +820,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ac-1_prm_1">
+         <set-parameter param-id="ac-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ac-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ac-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ac-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ac-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ac-1_stmt.a">
             <!-- Service Provider Responsibility -->
             <description><p>Describe how Part a is satisfied.</p></description>
@@ -766,18 +858,18 @@
          </annotation>
          <responsible-role role-id="admin-unix" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ac-2_prm_1">
+         <set-parameter param-id="ac-2_prm_1">
             <value>[SAMPLE]privileged, non-privileged</value>
-         </set-param>
-         <set-param param-id="ac-2_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ac-2_prm_2">
             <value>[SAMPLE]all</value>
-         </set-param>
-         <set-param param-id="ac-2_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ac-2_prm_3">
             <value>[SAMPLE]The Access Control Procedure</value>
-         </set-param>
-         <set-param param-id="ac-2_prm_4">
+         </set-parameter>
+         <set-parameter param-id="ac-2_prm_4">
             <value>[SAMPLE]annually</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ac-2_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -801,15 +893,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="at-1_prm_1">
+         <set-parameter param-id="at-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="at-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="at-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="at-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="at-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="at-1_stmt.a">
             <description><p>Component-based Approach</p></description>
             <!-- Service Provider Responsibility -->
@@ -839,15 +931,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="au-1_prm_1">
+         <set-parameter param-id="au-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="au-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="au-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="au-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="au-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="au-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -877,15 +969,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ca-1_prm_1">
+         <set-parameter param-id="ca-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ca-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ca-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ca-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ca-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ca-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -915,15 +1007,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="cm-1_prm_1">
+         <set-parameter param-id="cm-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="cm-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="cm-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="cm-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="cm-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="cm-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -953,15 +1045,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="cp-1_prm_1">
+         <set-parameter param-id="cp-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="cp-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="cp-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="cp-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="cp-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="cp-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -991,15 +1083,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ia-1_prm_1">
+         <set-parameter param-id="ia-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ia-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ia-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ia-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ia-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ia-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1029,15 +1121,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ir-1_prm_1">
+         <set-parameter param-id="ir-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ir-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ir-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ir-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ir-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ir-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1067,15 +1159,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ma-1_prm_1">
+         <set-parameter param-id="ma-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ma-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ma-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ma-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ma-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ma-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1105,15 +1197,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="mp-1_prm_1">
+         <set-parameter param-id="mp-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="mp-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="mp-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="mp-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="mp-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="mp-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1143,15 +1235,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="pe-1_prm_1">
+         <set-parameter param-id="pe-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="pe-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="pe-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="pe-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="pe-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="pe-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1181,15 +1273,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="pl-1_prm_1">
+         <set-parameter param-id="pl-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="pl-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="pl-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="pl-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="pl-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="pl-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1219,15 +1311,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ps-1_prm_1">
+         <set-parameter param-id="ps-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ps-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ps-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ps-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ps-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ps-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1257,15 +1349,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="ra-1_prm_1">
+         <set-parameter param-id="ra-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="ra-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="ra-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="ra-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="ra-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="ra-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1295,15 +1387,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="sa-1_prm_1">
+         <set-parameter param-id="sa-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="sa-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="sa-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="sa-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="sa-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="sa-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1333,15 +1425,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="sc-1_prm_1">
+         <set-parameter param-id="sc-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="sc-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="sc-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="sc-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="sc-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="sc-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1371,15 +1463,15 @@
          </annotation>
          <annotation name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system" />
          <responsible-role role-id="program-director" />
-         <set-param param-id="si-1_prm_1">
+         <set-parameter param-id="si-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
-         </set-param>
-         <set-param param-id="si-1_prm_2">
+         </set-parameter>
+         <set-parameter param-id="si-1_prm_2">
             <value>[specify frequency]</value>
-         </set-param>
-         <set-param param-id="si-1_prm_3">
+         </set-parameter>
+         <set-parameter param-id="si-1_prm_3">
             <value>[specify frequency]</value>
-         </set-param>
+         </set-parameter>
          <statement statement-id="si-1_stmt.a">
             <description><p>Ignore.</p></description>
             <!-- Service Provider Responsibility -->
@@ -1406,49 +1498,53 @@
    <!-- Table 15-1 Names of Provided Attachments -->
    <back-matter>
       <!-- Section 12, Table 12-1, Table 12-2 -->
-      <citation id="fedramp-1">
-         <target>https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx</target>
+      <resource id="fedramp-1">
          <title>FedRAMP Applicable Laws and Regulations</title>
-      </citation>
-      <citation id="fedramp-2">
-         <target>https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf</target>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>fedramp-citations</prop>
+         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" />
+      </resource>
+      <resource id="fedramp-2">
          <title>FedRAMP Master Acronym and Glossary</title>
-      </citation>
-      <citation id="cit-1">
-         <target>https://domain.example/path/to/document.pdf</target>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>fedramp-acronyms</prop>
+         <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf" />
+      </resource>
+      <resource id="cit-1">
          <title>[SAMPLE]Name or Title of Document</title>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">law</prop>
-         <prop name="ref-id" ns="https://fedramp.gov/ns/oscal">Identification Number</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Publication Date</prop>
-      </citation>
-      <citation id="cit-2">
-         <target>https://domain.example/path/to/document.pdf</target>
+         <doc-id type="doi">Identification Number</doc-id>
+         <rlink href="https://domain.example/path/to/document.pdf" />
+      </resource>
+      <resource id="cit-2">
          <title>[SAMPLE]Privacy-Related Law Citation</title>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">law</prop>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">pii</prop>
-         <prop name="ref-id" ns="https://fedramp.gov/ns/oscal">Identification Number</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Publication Date</prop>
-      </citation>
-      <citation id="cit-3">
-         <target>https://domain.example/path/to/document.pdf</target>
+         <doc-id type="doi">Identification Number</doc-id>
+         <rlink href="https://domain.example/path/to/document.pdf" />
+      </resource>
+      <resource id="cit-3">
          <title>[SAMPLE]Regulation Citation</title>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">regulation</prop>
-         <prop name="ref-id" ns="https://fedramp.gov/ns/oscal">Identification Number</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Publication Date</prop>
-      </citation>
-      <citation id="cit-isa-1">
+         <doc-id type="doi">Identification Number</doc-id>
+         <rlink href="https://domain.example/path/to/document.pdf" />
+      </resource>
+      <resource id="cit-isa-1">
          <title>[SAMPLE]Interconnection Security Agreement Title</title>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
-      </citation>
+      </resource>
       <resource id="logo-csp">
          <desc>CSP Logo</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">csp-logo</prop>
          <!-- Use rlink and/or base64 -->
          <rlink href="./logo.png" media-type="image/png" />
          <base64>00000000</base64>
       </resource>
       <resource id="logo-fedramp">
          <desc>FedRAMP Logo</desc>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>fedramp-logo</prop>
          <rlink href="" />
          <base64 filename="FedRAMP PRIMARY LOGO.png">
 wolQTkcNChoKAAAADUlIRFIAAALDuwAAA8KwCAYAAADCoGnCu1UAAAAJcEhZcwAALiMAAC4jAXjC
@@ -2694,6 +2790,7 @@ AAAAAMKAw6wDAAAAAADCsg8AAAAAAMKdw7PDvwFZw7luNnvClQDDpgAAAABJRU5Ewq5CYMKC
       </resource>
       <resource id="logo-3pao">
          <desc>CSP Logo</desc>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>consulting-3pao-logo</prop>
          <!-- Use rlink and/or base64 -->
          <rlink href="./logo.png" media-type="image/png" />
          <base64>00000000</base64>
@@ -2827,6 +2924,21 @@ AAAAAMKAw6wDAAAAAADCsg8AAAAAAMKdw7PDvwFZw7luNnvClQDDpgAAAABJRU5Ewq5CYMKC
          <!-- Use rlink and/or base64 -->
          <rlink href="https://sample" />
          <base64>00000000</base64>
+      </resource>
+      <resource id="fedramp-high-baseline">
+         <title>FedRAMP High Baseline</title>
+         <rlink media-type="application/json" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_HIGH-baseline_profile.json" />
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml" />
+      </resource>
+      <resource id="fedramp-moderate-baseline">
+         <title>FedRAMP Moderate Baseline</title>
+         <rlink media-type="application/json" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_MODERATE-baseline_profile.json" />
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml" />
+      </resource>
+      <resource id="fedramp-low-baseline">
+         <title>FedRAMP Low Baseline</title>
+         <rlink media-type="application/json" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_LOW-baseline_profile.json" />
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline_profile.xml" />
       </resource>
    </back-matter>
 </system-security-plan>
