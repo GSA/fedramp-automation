@@ -16,9 +16,15 @@ assignees: brianrufgsa
 
 * **This relates to ...**
   - [ ] the **FedRAMP OSCAL Registry** (Excel File)
-  - [ ] the **Modeling a FedRAMP SSP in OSCAL Guide** (PDF)
-  - [ ] the **FedRAMP SSP OSCAL Template** (JSON Format)
-  - [ ] the **FedRAMP SSP OSCAL Template** (XML Format)
+  - [ ] the **Guide to OSCAL-based FedRAMP Content** (PDF)
+  - [ ] the **Guide to OSCAL-based FedRAMP System Security Plans (SSP)** (PDF)
+  - [ ] the **Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP)** (PDF)
+  - [ ] the **Guide to OSCAL-based FedRAMP Security Assessment Reports (SAR)** (PDF)
+  - [ ] the **Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&M)** (PDF)
+  - [ ] the **FedRAMP SSP OSCAL Template** (JSON or XML Format)
+  - [ ] the **FedRAMP SAP OSCAL Template** (JSON or XML Format)
+  - [ ] the **FedRAMP SAR OSCAL Template** (JSON or XML Format)
+  - [ ] the **FedRAMP POA&M OSCAL Template** (JSON or XML Format)
   - [ ] **General/Overall**
   - [ ] **Other**
 
@@ -27,7 +33,7 @@ NOTE: For feedback related to the OSCAL syntax itself, please create or add to a
 * **Where, exactly?**
   - For the registry, please indicate the tab and cell, or other clear identifier
   - For the guide, please indicate the section number and printed page number (lower right corner)
-  - For the XML and JSON files, please indicate the line number, field id, or other clear identifier
+  - For the OSCAL files, please indicate XML or JSON; and indicate the line number, field id, or other clear location identifier
 
 
 
