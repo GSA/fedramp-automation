@@ -203,6 +203,21 @@
          </org>
       </party>
       <!-- The following parties are samples, and may be modified or removed -->
+      <party id="party-1">
+         <org>
+            <org-name>Name of Consulting Org</org-name>
+            <short-name>NOCO</short-name>
+            <address type='work'>
+               <addr-line>3333 Corporate Way</addr-line>
+               <city>Washington</city>
+               <state>DC</state>
+               <postal-code></postal-code>
+               <country>US</country>
+            </address>
+            <email>poc@consulting.sample</email>
+            <url>https://consulting.sample</url>
+         </org>
+      </party>
       <party id="ica-1">
          <person>
             <person-name>[SAMPLE]ICA POC's Name</person-name>
@@ -351,7 +366,7 @@
       <!-- Page ii -->
       <responsible-party role-id="prepared-by">
          <!-- Exacty one -->
-         <party-id>csp</party-id>
+         <party-id>party-1</party-id>
       </responsible-party>
       <responsible-party role-id="prepared-for">
          <!-- Exacty one -->
@@ -833,6 +848,14 @@
             <!-- Service Provider Responsibility -->
             <description><p>Describe how Part a is satisfied.</p></description>
          </statement>
+         <statement statement-id="ac-1_stmt.a.1">
+            <link href="#att-policy-1" rel="policy" />
+            <remarks><p>This identifies a policy (attached in resources) that satisfies this control.</p></remarks>
+         </statement>
+         <statement statement-id="ac-1_stmt.a.2">
+            <link href="#att-process-1" rel="process" />
+            <remarks><p>This identifies a process (attached in resources) that satisfies this control.</p></remarks>
+         </statement>
          <statement statement-id="ac-1_stmt.b.1">
             <description><p>Describe how Part b-1 is satisfied.</p></description>
          </statement>
@@ -1058,6 +1081,14 @@
             <by-component component-id="system">
                <description><p>Describe how Part a is satisfied.</p></description>
             </by-component>
+         </statement>
+         <statement statement-id="at-1_stmt.a.1">
+            <link href="#att-policy-1" rel="policy" />
+            <remarks><p>This identifies a policy (attached in resources) that satisfies this control.</p></remarks>
+         </statement>
+         <statement statement-id="at-1_stmt.a.2">
+            <link href="#att-process-1" rel="process" />
+            <remarks><p>This identifies a process (attached in resources) that satisfies this control.</p></remarks>
          </statement>
          <statement statement-id="at-1_stmt.b.1">
             <description><p>Ignore.</p></description>
@@ -1687,16 +1718,24 @@
       </resource>
       <resource id="logo-csp">
          <desc>CSP Logo</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">prepared-for-logo</prop>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">csp-logo</prop>
          <!-- Use rlink and/or base64 -->
          <rlink href="./logo.png" media-type="image/png" />
+         <base64>00000000</base64>
+      </resource>
+      <resource id="logo-party-1">
+         <desc>Preparer Logo</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">prepared-by-logo</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="./party-1-logo.png" media-type="image/png" />
          <base64>00000000</base64>
       </resource>
       <resource id="logo-fedramp">
          <desc>FedRAMP Logo</desc>
          <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>fedramp-logo</prop>
          <rlink href="" />
-         <base64 filename="FedRAMP PRIMARY LOGO.png">
+         <base64 filename="FedRAMP_LOGO.png">
 wolQTkcNChoKAAAADUlIRFIAAALDuwAAA8KwCAYAAADCoGnCu1UAAAAJcEhZcwAALiMAAC4jAXjC
 pT92AAAgAElEQVR4w5rDrMK9ecK4JVV5w6/Dv8Kuw7MYIFHDqDZ0RxzCmMKcw4BuFRwYRMKIYG5U
 BBrCjcKGIQJGISjCk8KoYDQaTVDDohwFwr0qIBgjTnHCiMKgwqDCojHCiijDoMKII8KDM1wHwrjC
@@ -2939,8 +2978,8 @@ AAAAAMKAw6wDAAAAAADCsg8AAAAAAMKdw7PDvwFZw7luNnvClQDDpgAAAABJRU5Ewq5CYMKC
          </base64>
       </resource>
       <resource id="logo-3pao">
-         <desc>CSP Logo</desc>
-         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>consulting-3pao-logo</prop>
+         <desc>3PAO Logo</desc>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>3pao-logo</prop>
          <!-- Use rlink and/or base64 -->
          <rlink href="./logo.png" media-type="image/png" />
          <base64>00000000</base64>
@@ -2949,8 +2988,9 @@ AAAAAMKAw6wDAAAAAADCsg8AAAAAAMKdw7PDvwFZw7luNnvClQDDpgAAAABJRU5Ewq5CYMKC
       <resource id="diag-boundary-1">
          <desc>The primary authorization boundary diagram.</desc>
          <!-- Use rlink and/or base64 -->
-         <rlink href="https://sample" />
+         <rlink href="./boundary.png" />
          <base64>00000000</base64>
+         <remarks><p>This should be referenced in the system-characteristics/authorization-boundary/diagram/link/@href flag using a value of "#diag-boundary-1"</p></remarks>
       </resource>
       <!-- Section 9.4, Figure 9-2 Network Diagram (graphic) -->
       <resource id="diag-network-1">
@@ -2968,68 +3008,71 @@ AAAAAMKAw6wDAAAAAADCsg8AAAAAAMKdw7PDvwFZw7luNnvClQDDpgAAAABJRU5Ewq5CYMKC
       </resource>
       <!-- Table 15-1 Attachments -->
       <resource id="att-policy-1">
+         <title>Policy Title</title>
          <desc>Policy document</desc>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">policy</prop>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
          <!-- Use rlink and/or base64 -->
-         <rlink href="https://sample" />
+         <rlink href="./sample_policy.pdf" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-policy-2">
+         <title>Policy Title</title>
          <desc>Policy document</desc>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">policy</prop>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
          <!-- Use rlink and/or base64 -->
-         <rlink href="https://sample" />
+         <rlink href="./sample_policy.pdf" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-procedure-1">
+         <title>Procedure Title</title>
          <desc>Procedure document</desc>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">procedure</prop>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
          <!-- Use rlink and/or base64 -->
-         <rlink href="https://sample" />
+         <rlink href="./sample_procedure.pdf" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-procedure-2">
+         <title>Procedure Title</title>
          <desc>Procedure document</desc>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">procedure</prop>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
          <!-- Use rlink and/or base64 -->
-         <rlink href="https://sample" />
+         <rlink href="./sample_procedure.pdf" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-guide-user">
+         <title>User's Guide</title>
          <desc>User's Guide</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">user-guide</prop>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">guide</prop>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
          <!-- Use rlink and/or base64 -->
-         <rlink href="https://sample" />
+         <rlink href="./sample_guide.pdf" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-pia">
-         <desc>Privacy Impact Analysis</desc>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
+         <title>Privacy Impact Assessment</title>
+         <desc>Privacy Impact Assessment</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">privacy-impact-assessment</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
          <!-- Use rlink and/or base64 -->
-         <rlink href="" />
+         <rlink href="./pia.docx" />
          <base64>00000000</base64>
       </resource>
       <resource id="att-rob">
+         <title>Document Title</title>
          <desc>Rules of Behavior</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">rules-of-behavior</prop>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">rob</prop>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
          <!-- Use rlink and/or base64 -->
@@ -3037,9 +3080,9 @@ AAAAAMKAw6wDAAAAAADCsg8AAAAAAMKdw7PDvwFZw7luNnvClQDDpgAAAABJRU5Ewq5CYMKC
          <base64>00000000</base64>
       </resource>
       <resource id="att-plan-cp">
+         <title>Document Title</title>
          <desc>Contingency Plan (CP)</desc>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">plan</prop>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
          <!-- Use rlink and/or base64 -->
@@ -3047,9 +3090,9 @@ AAAAAMKAw6wDAAAAAADCsg8AAAAAAMKdw7PDvwFZw7luNnvClQDDpgAAAABJRU5Ewq5CYMKC
          <base64>00000000</base64>
       </resource>
       <resource id="att-plan-cm">
+         <title>Document Title</title>
          <desc>Configuration Management (CM) Plan</desc>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">plan</prop>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
          <!-- Use rlink and/or base64 -->
@@ -3057,9 +3100,9 @@ AAAAAMKAw6wDAAAAAADCsg8AAAAAAMKdw7PDvwFZw7luNnvClQDDpgAAAABJRU5Ewq5CYMKC
          <base64>00000000</base64>
       </resource>
       <resource id="att-plan-ir">
+         <title>Document Title</title>
          <desc>Incident Response (IR) Plan</desc>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">plan</prop>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
          <!-- Use rlink and/or base64 -->
@@ -3067,8 +3110,8 @@ AAAAAMKAw6wDAAAAAADCsg8AAAAAAMKdw7PDvwFZw7luNnvClQDDpgAAAABJRU5Ewq5CYMKC
          <base64>00000000</base64>
       </resource>
       <resource id="att-separation-duties">
+         <title>Separation of Duties Matrix</title>
          <desc>Separation of Duties Matrix</desc>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
          <!-- Use rlink and/or base64 -->
