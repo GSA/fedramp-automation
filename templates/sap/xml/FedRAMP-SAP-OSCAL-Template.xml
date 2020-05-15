@@ -328,155 +328,191 @@
       </remarks>
    </metadata>
    <!-- Link this SSP to the appropriate FedRAMP baseline -->
+   <import-ssp href="../ssp/FedRAMP-SSP-OSCAL-Template.xml">
+      <remarks>
+         <p>FedRAMP prefers relative links.</p>
+         <p>This may point to a resource using a URI fragment.</p>
+         <p>If no OSCAL-based SSP exists, this must point to a resource, which must include the <code>no-oscal-ssp</code> conformity tag.</p>
+      </remarks>
+   </import-ssp>
+   <objectives>
+      <controls>
+         <description>
+            <p>Include all controls in the baseline.</p>
+            <p>Then exclude any specific controls if necessary.</p>
+            <p>Provide rationale/justification for control exclusion here.</p>
+         </description>
+         <all />
+         <exclude-control control-id="ac-1" />
+      </controls>
+      <control-objectives>
+         <description><p>Includes all objectives for all in-scope controls as defined in the controls assembly.</p></description>
+         <all />
+      </control-objectives>
+      <objective id="sap-obj-1">
+         <control-link control-id="ac-2" />
+         <part name="objective">
+            <title>SAP Inserted Objective</title>
+            <prop name="lable">AC-2 SAP-1</prop>
+         </part>
+      </objective>
+   </objectives>
+   <assessment-subject>
+      <include-subject name="component">
+         <description><p>A description of the included component.</p></description>
+         <all />
+      </include-subject>
+      <include-subject name="inventory-item">
+         <description><p>A brief description of the included inventory.</p></description>
+         <id-ref id="inv-1" type="inventory-item" />
+         <!--<all />-->
+      </include-subject>
+      <include-subject name="inventory-item">
+         <description><p>Subnets to Test.</p></description>
+         <id-ref id="ssp-subnet-1" type="inventory-item" />
+         <id-ref id="ssp-subnet-2" type="inventory-item" />
+         <id-ref id="sap-subnet-1" type="inventory-item" />
+         <!--<all />-->
+      </include-subject>
+
+      <include-subject name="location">
+         <description>
+            <p>A description of the location.</p>
+            <p>Provide a summary of the components in-use at this location.</p>
+         </description>
+         <id-ref id="location-2" type="location" />
+      </include-subject>
+      <include-subject name="location">
+         <description><p>A description of the included location.</p></description>
+         <id-ref id="location-3" type="location" />
+      </include-subject>
+
+      <include-subject name="user-type">
+         <description><p>A description of the included user type.</p></description>
+         <all />
+      </include-subject>
+      
+      <exclude-subject name="inventory-item">
+         <description><p>Exclude identified Windows laptop from scans.</p></description>
+         <id-ref type="inventory-item" id="sap-inventory-1"/>
+      </exclude-subject>
+      
+      <local-definitions>
+         <inventory-item id="sap-inventory-1" asset-id="none">
+            <description><p>A Windows laptop, not defined in the SSP inventory.</p></description>
+            <prop name="ipv4-address">10.1.1.99</prop>
+            <prop name="virtual">no</prop>
+            <prop name="public">no</prop>
+            <prop name="fqdn">dns.name</prop>
+            <prop name="mac-address">00:00:00:00:00:00</prop>
+            <prop name="software-name">Windows 10</prop>
+            <prop name="version">V 0.0.0</prop>
+            <prop name="asset-type">os</prop>
+            <!-- Use any needed prop/annotation allowed in an SSP inventory-item  -->
+         </inventory-item>
+         <inventory-item id="sap-subnet-1" asset-id="none">
+            <description><p>A known subnet, which is not defined in the SSP inventory.</p></description>
+            <prop name="ipv4-address">10.20.30.0/24</prop>
+            <!-- Use any needed prop/annotation allowed in an SSP inventory-item  -->
+         </inventory-item>
+      </local-definitions>
+   </assessment-subject>
     
-    <import-ssp href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.xml" />
-    <objectives>
-        <controls>
-            <description><p>Include all controls in the SSP's baseline, except as explicitly excluded elsewhere.</p></description>
-            <prop name="OSCAL-extension" ns="http://csrc.nist.gov/ns/oscal/1.0" id="test" class="test" />
-            <annotation name="OSCAL-extension" ns="http://csrc.nist.gov/ns/oscal/1.0" value="OSCAL Extension" id="test"><remarks><p>OSCAL Extension</p></remarks></annotation>
-            <all />
-            <exclude-control control-id="ac-1" />
-        </controls>
-        <control-objectives>
-            <description><p>Includes all objectives for all in-scope controls as defined in the controls assembly.</p></description>
-            <all />
-        </control-objectives>
-        <objective id="sap-obj-1">
-            <control-link control-id="ac-2" />
-            <part name="objective">
-                <title>SAP Inserted Objective</title>
-                <prop name="lable">AC-2 SAP-1</prop>
-            </part>
-        </objective>
-    </objectives>
-    <assessment-subject>
-        <include-subject name="components">
-            <description><p>A description of the included components.</p></description>
-            <all />
-        </include-subject>
-        <include-subject name="inventory-items">
-            <description><p>A description of the included inventory-items.</p></description>
-            <all />
-        </include-subject>
-        <include-subject name="locations">
-            <description><p>A description of the included locaitons.</p></description>
-            <all />
-        </include-subject>
-        <include-subject name="users">
-            <description><p>A description of the included users.</p></description>
-            <all />
-        </include-subject>
-        
-        <exclude-subject name="inventory-items">
-            <description><p>Exclude identified Windows laptop from scans.</p></description>
-            <id-ref type="inventory-item" id="sap-inventory-1"/>
-        </exclude-subject>
+   <assets >
+      <tools>
+         <component id="tool-1" component-type="software">
+             <title>XYZ Vulnerability Scanning Tool</title>
+             <description></description>
+             <prop name="vendor">Vendor Name</prop>
+             <prop name="name">Tool Name</prop>
+             <prop name="version">1.2.3</prop>
+             <status state="operational" />
+         </component>
+      </tools>
+      
+      <origination>
+         <title>Assessment Laptop</title>
+         <prop name="ipv4-address">10.10.10.10</prop>
+      </origination>
+      
+      <prop name="results-delivery">10 business days after completion of assessment</prop>
+      <annotation name="disclosure">
+         <remarks><p>This is a disclosure statement that would appear in the rules of engagement.</p></remarks>
+      </annotation>
+      <annotation name="limitation">
+         <remarks>
+            <p><b>Limitation of Liability</b></p>
+            <p>This is a limitation statement, such as a liability limitation, that would appear in the rules of engagement.</p>
+         </remarks>
+      </annotation>
+   </assets>
 
-        <local-definitions>
-            <inventory-item id="sap-inventory-1" asset-id="none">
-                <description><p>A Windows laptop, which is not defined in the SSP inventory.</p></description>
-                <prop name="ipv4-address">10.1.1.99</prop>
-            </inventory-item>
-        </local-definitions>
-    </assessment-subject>
-    
-    <assets >
-        <tools>
-            <component id="tool-1" component-type="software">
-                <title>XYZ Vulnerability Scanning Tool</title>
-                <description></description>
-                <prop name="vendor">Vendor Name</prop>
-                <prop name="name">Tool Name</prop>
-                <prop name="version">1.2.3</prop>
-                <status state="operational" />
-            </component>
-        </tools>
-        
-        <origination>
-            <title>Assessment Laptop</title>
-            <prop name="ipv4-address">10.10.10.10</prop>
-        </origination>
-
-        <prop name="results-delivery">10 business days after completion of assessment</prop>
-        <annotation name="disclosure">
-            <remarks><p>This is a disclosure statement that would appear in the rules of engagement.</p></remarks>
-        </annotation>
-        <annotation name="limitation">
-            <remarks>
-                <p><b>Limitation of Liability</b></p>
-                <p>This is a limitation statement, such as a liability limitation, that would appear in the rules of engagement.</p>
-            </remarks>
-        </annotation>
-
-    </assets>
-
-    <assessment-activities>
-        <test-method id="tm-1">
-            <title></title>
-        </test-method>
-        <schedule>
-            <task>
-                <title>Task 1</title>
-                <description><p>Plan</p></description>
-                <start>2020-06-01T00:00:00Z</start>
-                <end>2020-06-15T00:00:00Z</end>
-            </task>
-        </schedule>
-        <include-activity>
-            <title>Social Engineering</title>
-            <description></description>
-        </include-activity>
-    </assessment-activities>
+   <assessment-activities>
+      <test-method id="tm-1">
+         <title></title>
+      </test-method>
+      <schedule>
+         <task>
+            <title>Task 1</title>
+            <description><p>Plan</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+      </schedule>
+      <include-activity>
+         <title>Social Engineering</title>
+         <description></description>
+      </include-activity>
+   </assessment-activities>
 
    <back-matter>
-      <!-- Section 12, Table 12-1, Table 12-2 -->
+      <resource id="ssp-information">
+         <title>System's Full Name</title>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>no-oscal-ssp</prop>
+         <prop name="title-short" ns="https://fedramp.gov/ns/oscal">SFN</prop>
+         <prop name="system-id" ns="https://fedramp.gov/ns/oscal">FR00000000</prop>
+         <prop name="baseline-resource-id" ns="https://fedramp.gov/ns/oscal">fedramp-moderate-baseline</prop>
+      </resource>
+      <resource id="ssp-ref">
+         <title>[System Name] [FIPS-199 Level] SSP</title>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">ssp</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">SSP Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">SSP Version</prop>
+         <rlink media-type="application/xml" href="../ssp/CSP_System_SSP.xml" />
+         <rlink media-type="application/json" href="../ssp/CSP_System_SSP.json" />
+         <remarks><p>Normally a FedRAMP CSP is responsible for delivering their own SSP; however, if the 3PAO wishes to attach the SSP version they referenced for the assessment, they may do so here and reference it from the import-ssp statement.</p></remarks>
+      </resource>
       <resource id="fedramp-1">
          <title>FedRAMP Applicable Laws and Regulations</title>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>fedramp-citations</prop>
          <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" />
       </resource>
       <resource id="fedramp-2">
          <title>FedRAMP Master Acronym and Glossary</title>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>fedramp-acronyms</prop>
          <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf" />
-      </resource>
-      <resource id="cit-1">
-         <title>[SAMPLE]Name or Title of Document</title>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">law</prop>
-         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Publication Date</prop>
-         <doc-id type="doi">Identification Number</doc-id>
-         <rlink href="https://domain.example/path/to/document.pdf" />
-      </resource>
-      <resource id="cit-2">
-         <title>[SAMPLE]Privacy-Related Law Citation</title>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">law</prop>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">pii</prop>
-         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Publication Date</prop>
-         <doc-id type="doi">Identification Number</doc-id>
-         <rlink href="https://domain.example/path/to/document.pdf" />
-      </resource>
-      <resource id="cit-3">
-         <title>[SAMPLE]Regulation Citation</title>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">regulation</prop>
-         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Publication Date</prop>
-         <doc-id type="doi">Identification Number</doc-id>
-         <rlink href="https://domain.example/path/to/document.pdf" />
-      </resource>
-      <resource id="cit-isa-1">
-         <title>[SAMPLE]Interconnection Security Agreement Title</title>
-         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
-         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
       </resource>
       <resource id="logo-csp">
          <desc>CSP Logo</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">prepared-for-logo</prop>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">csp-logo</prop>
          <!-- Use rlink and/or base64 -->
          <rlink href="./logo.png" media-type="image/png" />
          <base64>00000000</base64>
-         <remarks><p>Use logo from linked SSP if possible. Only include here if needed.</p></remarks>
+      </resource>
+      <resource id="logo-3pao">
+         <desc>3PAO Logo</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">prepared-by-logo</prop>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>3pao-logo</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="./logo.png" media-type="image/png" />
+         <base64>00000000</base64>
       </resource>
       <resource id="logo-fedramp">
          <desc>FedRAMP Logo</desc>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>fedramp-logo</prop>
          <rlink href="" />
-         <base64 filename="FedRAMP PRIMARY LOGO.png">
+         <base64 filename="FedRAMP_LOGO.png">
 wolQTkcNChoKAAAADUlIRFIAAALDuwAAA8KwCAYAAADCoGnCu1UAAAAJcEhZcwAALiMAAC4jAXjC
 pT92AAAgAElEQVR4w5rDrMK9ecK4JVV5w6/Dv8Kuw7MYIFHDqDZ0RxzCmMKcw4BuFRwYRMKIYG5U
 BBrCjcKGIQJGISjCk8KoYDQaTVDDohwFwr0qIBgjTnHCiMKgwqDCojHCiijDoMKII8KDM1wHwrjC
@@ -1718,30 +1754,21 @@ AAAAwrIPAAAAAMKAw6wDAAAAAADCsg8AAAAAAMOIPgAAAAAAIMO7AAAAAADCgMOsAwAAAAAAwrIP
 AAAAAMKAw6wDAAAAAADCsg8AAAAAAMKdw7PDvwFZw7luNnvClQDDpgAAAABJRU5Ewq5CYMKC
          </base64>
       </resource>
-      <resource id="logo-3pao">
-         <desc>CSP Logo</desc>
-         <!-- Use rlink and/or base64 -->
-         <rlink href="./logo.png" media-type="image/png" />
-         <base64>00000000</base64>
+      <resource id="fedramp-high-baseline">
+         <title>FedRAMP High Baseline</title>
+         <rlink media-type="application/json" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_HIGH-baseline_profile.json" />
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml" />
       </resource>
-      <!-- Section 9.2, Figure 9-1 Authorization Boundary Diagram (graphic) -->
-      <resource id="diag-boundary-1">
-         <desc>The primary authorization boundary diagram.</desc>
-         <!-- Use rlink and/or base64 -->
-         <rlink href="https://sample" />
-         <base64>00000000</base64>
-         <remarks><p>Only attach if different from the version in the linked SSP.</p></remarks>
+      <resource id="fedramp-moderate-baseline">
+         <title>FedRAMP Moderate Baseline</title>
+         <rlink media-type="application/json" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_MODERATE-baseline_profile.json" />
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml" />
       </resource>
-      <!-- Table xx Attachments -->
-      <resource id="att-policy-1">
-         <desc>Policy document</desc>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">policy</prop>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Document Title</prop>
-         <prop name="publication" ns="https://fedramp.gov/ns/oscal">Document Date</prop>
-         <prop name="version" ns="https://fedramp.gov/ns/oscal">Document Version</prop>
-         <!-- Use rlink and/or base64 -->
-         <rlink href="https://sample" />
-         <base64>00000000</base64>
+      <resource id="fedramp-low-baseline">
+         <title>FedRAMP Low Baseline</title>
+         <rlink media-type="application/json" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_LOW-baseline_profile.json" />
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline_profile.xml" />
       </resource>
+      
    </back-matter>
 </assessment-plan>
