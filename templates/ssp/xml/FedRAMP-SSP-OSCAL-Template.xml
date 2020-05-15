@@ -147,7 +147,9 @@
             <state>--</state>
             <postal-code>00000-0000</postal-code>
          </address>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">PDC1</prop>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">primary-data-center</prop>
+         <remarks><p>For a primary or alternate data center, briefly summarize the components at this location.</p></remarks>
       </location>
       <location id="location-3">
          <address>
@@ -156,9 +158,10 @@
             <state>--</state>
             <postal-code>00000-0000</postal-code>
          </address>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">backup-data-center</prop>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">ADC1</prop>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">alternate-data-center</prop>
+         <remarks><p>For a primary or alternate data center, briefly summarize the components at this location.</p></remarks>
       </location>
-      
       <!-- The following parties must be present, with the provided ID. -->
       <!-- Change the content as needed; however, do not change the ID. -->
       <party id="csp">
