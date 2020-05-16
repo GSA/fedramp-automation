@@ -364,13 +364,16 @@
       </include-subject>
       <include-subject name="inventory-item">
          <description><p>A brief description of the included inventory.</p></description>
+         <all />
+      </include-subject>
+      <include-subject name="inventory-item">
+         <description><p>A brief description of the included inventory.</p></description>
          <id-ref id="inv-1" type="inventory-item" />
-         <!--<all />-->
       </include-subject>
       <include-subject name="inventory-item">
          <description><p>Subnets to Test.</p></description>
-         <id-ref id="ssp-subnet-1" type="inventory-item" />
-         <id-ref id="ssp-subnet-2" type="inventory-item" />
+         <id-ref id="subnet-1" type="inventory-item" />
+         <id-ref id="subnet-2" type="inventory-item" />
          <id-ref id="sap-subnet-1" type="inventory-item" />
          <!--<all />-->
       </include-subject>
@@ -408,12 +411,28 @@
             <prop name="software-name">Windows 10</prop>
             <prop name="version">V 0.0.0</prop>
             <prop name="asset-type">os</prop>
+            <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">infrastructure</prop>
             <!-- Use any needed prop/annotation allowed in an SSP inventory-item  -->
          </inventory-item>
-         <inventory-item id="sap-subnet-1" asset-id="none">
+         <inventory-item id="subnet-3" asset-id="none">
             <description><p>A known subnet, which is not defined in the SSP inventory.</p></description>
-            <prop name="ipv4-address">10.20.30.0/24</prop>
+            <prop name="ipv4-subnet">10.20.30.0/24</prop>
             <!-- Use any needed prop/annotation allowed in an SSP inventory-item  -->
+         </inventory-item>
+         <inventory-item id="sap-inventory-2" asset-id="none">
+            <description>
+               <p>A network appliance, not defined in the SSP inventory.</p>
+            </description>
+            <prop name="ipv4-address">10.1.2.99</prop>
+            <prop name="virtual">no</prop>
+            <prop name="public">no</prop>
+            <prop name="fqdn">dns.name</prop>
+            <prop name="mac-address">00:00:00:00:00:00</prop>
+            <prop name="version">V 0.0.0</prop>
+            <prop name="asset-type">infrastructure</prop>
+            <!-- simply insert the scan-type property into this assembly  -->
+            <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">infrastructure</prop>
+            <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">web</prop>
          </inventory-item>
       </local-definitions>
    </assessment-subject>
@@ -451,6 +470,22 @@
       <test-method id="tm-1">
          <title></title>
       </test-method>
+
+      <test-method id="wat-1">
+         <title>Web Application Test</title>
+         <prop name="type">web-application</prop>
+         <prop name="login-url">https://service.offering.com/login</prop>
+         <prop name="login-id">test-user</prop>
+         <prop name="inventory-item-id">inv-10</prop>
+      </test-method>
+      <test-method id="wat-2">
+         <title>Web Application Test</title>
+         <prop name="type">web-application</prop>
+         <prop name="login-url">https://admin-portal.offering.com/login</prop>
+         <prop name="login-id">test-admin</prop>
+         <prop name="inventory-item-id">inv-11</prop>
+      </test-method>
+      
       <schedule>
          <task>
             <title>Task 1</title>

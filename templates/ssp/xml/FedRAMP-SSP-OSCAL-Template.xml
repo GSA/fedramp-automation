@@ -671,6 +671,7 @@
          <description><p>None</p></description>
          <prop name="asset-type">appliance</prop>
          <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">web</prop>
+         <prop name="login-url">https://admin.offering.com/login</prop>
          <annotation name="baseline-configuration-name" value="Baseline Config. Name" />
          <annotation name="allows-authenticated-scan"  value="no">
             <remarks><p>Vendor appliance. No admin-level access.</p></remarks>
@@ -822,6 +823,18 @@
             </annotation>
             <implemented-component component-id="comp-3" />
          </inventory-item>
+         
+         <inventory-item id="subnet-1" asset-id="10.10.10.0">
+            <description><p>IPv4 Production Subnet.</p></description>
+            <prop name="ipv4-subnet">10.10.10.0/24</prop>
+            <annotation name="is-scanned" value="yes" />
+         </inventory-item>
+         <inventory-item id="subnet-2" asset-id="10.10.10.0">
+            <description><p>IPv4 Management Subnet.</p></description>
+            <prop name="ipv4-subnet">10.10.20.0/24</prop>
+            <annotation name="is-scanned" value="yes" />
+         </inventory-item>
+         
          
       </system-inventory>
    </system-implementation>
