@@ -33,7 +33,7 @@ NOTE: For feedback related to the OSCAL syntax itself, please create or add to a
 * **Where, exactly?**
   - For the registry, please indicate the tab and cell, or other clear identifier
   - For the guide, please indicate the section number and printed page number (lower right corner)
-  - For the OSCAL files, please indicate XML or JSON; and indicate the line number, field id, or other clear location identifier
+  - For the OSCAL XML or JSON files, please indicate XML or JSON; and indicate the line number, field id, or other clear location identifier
 
 
 
