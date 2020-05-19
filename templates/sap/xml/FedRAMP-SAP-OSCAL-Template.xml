@@ -11,6 +11,7 @@
       <prop name="marking">Controlled Unclassified Information</prop>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
+      <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
       <role id="prepared-by">
          <title>Prepared By</title>
          <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
@@ -20,88 +21,67 @@
          <desc>The organization for which this SSP was prepared. Typically the CSP.</desc>
       </role>
       <role id="content-approver">
-         <title>System Security Plan Approval</title>
-         <desc>The individual or individuals within the CSP authorized to take responsibility for the accuracy of this SSP.</desc>
+         <title>Security Assessment Plan Approval</title>
+         <desc>The individual or individuals accountable for the accuracy of this SAP.</desc>
       </role>
-      <role id="system-owner">
-         <title>Information System Owner</title>
-         <desc>The individual within the CSP who is ultimately accountable for everything related to this system.</desc>
+      <role id="assessor">
+         <title>Assessment Organization</title>
+         <desc>The organization performing the assessment.</desc>
       </role>
-      <role id="authorizing-official">
-         <title>Authorizing Official</title>
-         <desc>The individual or individuals who must grant this system an authorization to operate.</desc>
+      <role id="assessment-team">
+         <title>Assessment Team</title>
+         <desc>The individual or individuals performing the assessment.</desc>
       </role>
-      <role id="system-poc-management">
-         <title>Information System Management Point of Contact (POC)</title>
-         <desc>The highest level manager who responsible for system operation on behalf of the System Owner.</desc>
+      <role id="assessment-lead">
+         <title>Assessment Lead</title>
+         <desc>The individual leading the assessment activities.</desc>
       </role>
-      <role id="system-poc-technical">
-         <title>Information System Technical Point of Contact</title>
-         <desc>The individual or individuals leading the technical operation of the system.</desc>
+      <role id="penetration-test-team">
+         <title>Penetration Test Team</title>
+         <desc>The individual or individuals performing the penetration test.</desc>
       </role>
-      <role id="system-poc-other">
-         <title>General Point of Contact (POC)</title>
-         <desc>A general point of contact for the system, designated by the system owner.</desc>
+      <role id="penetration-test-lead">
+         <title>Penetration Test Lead</title>
+         <desc>The individual leading the penetration test activities.</desc>
       </role>
-      <role id="information-system-security-officer">
-         <title>System Information System Security Officer (or Equivalent)</title>
-         <desc>The individual accountable for the security posture of the system on behalf of the system owner.</desc>
+      <role id="assessment-executive">
+         <title>Assessment Organization's Managerial POC</title>
+         <desc>The management-level POC within the assessor's organization accountable for the organization's assessment performance.</desc>
       </role>
-      <role id="authorizing-official-poc">
-         <title>Authorizing Official's Point of Contact</title>
-         <desc>The individual representing the authorizing official.</desc>
+      <role id="csp-assessment-poc">
+         <title>CSP POCs During Testing</title>
+         <desc>At least three CSP testing points of contact must be identified in a FedRAMP SAP.</desc>
       </role>
-      <role id="privacy-poc">
-         <title>Privacy Official's Point of Contact</title>
-         <desc>The individual responsible for the privacy threshold analysis and if necessary the privacy impact assessment.</desc>
+      <role id="csp-operations-center">
+         <title>CSP Operations POC</title>
+         <desc>An operations center role, such as a SOC or NOC.</desc>
       </role>
-      <role id="ica-1">
-         <title>[REPLACE]Role of ICA Signatory</title>
-         <desc>The role of the individual who signed the ICA.</desc>
-         <remarks>
-            <p>Remove this role if there are no ICAs.</p>
-            <p>Duplicate this role using -2, -3, etc. Update the title as needed.</p>
-         </remarks>
+      <role id="csp-end-of-testing-poc">
+         <title>CSP's End of Testing Notification POC</title>
+         <desc>A role for an individual within the CSP to be notified by the assessor when testing is complete.</desc>
       </role>
-      <role id="asset-owner">
-         <title>Owner of an inventory item within the system.</title>
+      <role id="csp-results-poc">
+         <title>CSP Results POCs </title>
+         <desc>A role for the individuals within the CSP who are to receive the assessment results.</desc>
       </role>
-      <role id="asset-administrator">
-         <title>Administrative responsibility an inventory item within the system.</title>
+      <role id="hold">
+         <title></title>
+         <desc>T.</desc>
       </role>
-      <!-- The following role definitions are samples and may be modified or deleted -->
-      <role id="admin-unix">
-         <title>[SAMPLE]Unix Administrator</title>
-         <desc>This is a sample role.</desc>
-      </role>
-      <role id="admin-client">
-         <title>[SAMPLE]Client Administrator</title>
-         <desc>This is a sample role.</desc>
-      </role>
-      <role id="program-director">
-         <title>[SAMPLE]Program Director</title>
-         <desc>This is a sample role.</desc>
-      </role>
+      
+      <location id="sap-location-1">
+         <address type='work'>
+            <addr-line>Suite 0000</addr-line>
+            <addr-line>1234 Some Street</addr-line>
+            <city>Haven</city>
+            <state>ME</state>
+            <postal-code>00000</postal-code>
+            <country>US</country>
+         </address>
+         <remarks><p>The assessor's HQ, or the address of the assessment team's primary business location.</p></remarks>
+      </location>
+      
       <!-- The following parties must be present, with the provided ID. -->
-      <!-- Change the content as needed; however, do not change the ID. -->
-      <party id="csp">
-         <org>
-            <org-name>Cloud Service Provider (CSP) Name</org-name>
-            <short-name>CSP Acronym/Short Name</short-name>
-            <address type='work'>
-               <addr-line>Suite 0000</addr-line>
-               <addr-line>1234 Some Street</addr-line>
-               <city>Haven</city>
-               <state>ME</state>
-               <postal-code>00000</postal-code>
-               <country>US</country>
-            </address>
-            <remarks>
-               <p>Replace sample CSP information.</p>
-            </remarks>
-         </org>
-         <prop name="compliance" ns="https://fedramp.gov/ns/oscal">csp</prop>
-      </party>
       <party id="fedramp-pmo">
          <org>
             <org-name>Federal Risk and Authorization Management Program: Program Management Office</org-name>
@@ -124,131 +104,99 @@
             <short-name>FedRAMP JAB</short-name>
          </org>
       </party>
-      <party id="external">
+
+      <!-- The following parties may be added, modified, or removed using any unique ID. -->
+      <party id="assessment-org">
          <org>
-            <org-name>External Organization</org-name>
-            <short-name>External</short-name>
+            <org-name>Assessment Organization Name</org-name>
+            <short-name>Acronym/Short Name</short-name>
+            <location-id>sap-location-1</location-id>
+            <url>https://assesor.web.site</url>
+            <prop name="iso-iec-17020-identifier" ns='https://fedramp.gov/ns/oscal'>0000.00</prop>
             <remarks>
-               <p>Generic placeholder for any external organization</p>
+               <p>Replace sample 3PAO information.</p>
+               <p>If the assessor is A2LA Certified, include the ISO/IEC-17020 </p>
             </remarks>
          </org>
       </party>
+
       <!-- The following parties are samples, and may be modified or removed -->
-      <party id="ica-1">
-         <person>
-            <person-name>[SAMPLE]ICA POC's Name</person-name>
-            <org-name>[SAMPLE]Remote System Org Name</org-name>
-            <email>person@ica.org.example</email>
-            <phone>202-555-1212</phone>
-            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-         </person>
-      </party>
-      <party id="eip">
-         <org>
-            <org-name>[SAMPLE]Example IaaS Provider</org-name>
-            <short-name>E.I.P.</short-name>
-            <remarks>
-               <p>Underlying service provider. Leveraged Authorization.</p>
-            </remarks>
-         </org>
-      </party>
-      <party id="person-1">
+      <party id="sap-person-1">
          <person>
             <person-name>[SAMPLE]Person Name 1</person-name>
-            <org-id>csp</org-id>
+            <org-id>assessor</org-id>
             <address type='work'>
-               <addr-line>Address Line</addr-line>
-               <city>City</city>
-               <state>ST</state>
-               <postal-code>00000</postal-code>
-               <country>US</country>
+               <addr-line>Office 1-A</addr-line>
             </address>
+            <location-id>sap-location-1</location-id>
             <email>name@org.domain</email>
-            <phone></phone>
+            <phone>202-000-0001</phone>
             <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="person-2">
+      <party id="sap-person-2">
          <person>
             <person-name>[SAMPLE]Person Name 2</person-name>
-            <org-id>csp</org-id>
+            <org-id>assessment-org</org-id>
             <address type='work'>
-               <addr-line>Address Line</addr-line>
-               <city>City</city>
-               <state>ST</state>
-               <postal-code>00000</postal-code>
-               <country>US</country>
+               <addr-line>Office 2-B</addr-line>
             </address>
+            <location-id>sap-location-1</location-id>
             <email>name@org.domain</email>
-            <phone></phone>
-            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+            <phone>202-000-0002</phone>
          </person>
       </party>
-      <party id="person-3">
+      <party id="sap-person-3">
          <person>
             <person-name>[SAMPLE]Person Name 3</person-name>
-            <org-id>csp</org-id>
+            <org-id>assessment-org</org-id>
             <address type='work'>
-               <addr-line>Address Line</addr-line>
-               <city>City</city>
-               <state>ST</state>
-               <postal-code>00000</postal-code>
-               <country>US</country>
+               <addr-line>Office 3-C</addr-line>
             </address>
+            <location-id>sap-location-1</location-id>
             <email>name@org.domain</email>
-            <phone></phone>
-            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+            <phone>202-000-0003</phone>
          </person>
       </party>
-      <party id="person-4">
+      <party id="sap-person-4">
          <person>
             <person-name>[SAMPLE]Person Name 4</person-name>
-            <org-id>csp</org-id>
+            <org-id>assessment-org</org-id>
             <address type='work'>
-               <addr-line>Address Line</addr-line>
-               <city>City</city>
-               <state>ST</state>
-               <postal-code>00000</postal-code>
-               <country>US</country>
+               <addr-line>Office 4-D</addr-line>
             </address>
+            <location-id>sap-location-1</location-id>
             <email>name@org.domain</email>
-            <phone></phone>
-            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+            <phone>202-000-0004</phone>
          </person>
       </party>
-      <party id="person-5">
+      <party id="sap-person-5">
          <person>
             <person-name>[SAMPLE]Person Name 5</person-name>
-            <org-id>csp</org-id>
+            <org-id>assessor</org-id>
             <address type='work'>
-               <addr-line>Address Line</addr-line>
-               <city>City</city>
-               <state>ST</state>
-               <postal-code>00000</postal-code>
-               <country>US</country>
+               <addr-line>Office 5-E</addr-line>
             </address>
+            <location-id>sap-location-1</location-id>
             <email>name@org.domain</email>
-            <phone></phone>
+            <phone>202-000-0005</phone>
             <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="person-6">
+      <party id="sap-person-6">
          <person>
             <person-name>[SAMPLE]Person Name 6</person-name>
             <org-name>Agency Name</org-name>
             <address type='work'>
-               <addr-line>Address Line</addr-line>
-               <city>City</city>
-               <state>ST</state>
-               <postal-code>00000</postal-code>
-               <country>US</country>
+               <addr-line>Office 6-F</addr-line>
             </address>
+            <location-id>sap-location-1</location-id>
             <email>name@org.domain</email>
             <phone type='mobile'>000-000-0000</phone>
             <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="person-7">
+      <party id="sap-person-7">
          <person>
             <person-name>[SAMPLE]Person Name 7</person-name>
             <org-name>CSP Name</org-name>
@@ -264,73 +212,97 @@
             <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
-      <party id="it-department">
-         <org>
-            <org-name>[SAMPLE] IT Department</org-name>
-         </org>
-      </party>
-      <party id="security-team">
-         <org>
-            <org-name>[SAMPLE]Security Team</org-name>
-         </org>
-      </party>
-      <!-- Page ii -->
       <responsible-party role-id="prepared-by">
          <!-- Exacty one -->
-         <party-id>csp</party-id>
+         <party-id>assessor</party-id>
       </responsible-party>
       <responsible-party role-id="prepared-for">
          <!-- Exacty one -->
          <party-id>csp</party-id>
+         <remarks>
+            <p>This is the ID for the CSP in the SSP.</p>
+            <p>If no OSCAL-based SSP exists, create a CSP party in the SAP.</p>
+         </remarks>
       </responsible-party>
       <!-- Page vi -->
       <responsible-party role-id="content-approver">
          <!-- one or more-->
          <party-id>person-1</party-id>
-         <party-id>person-2</party-id>
       </responsible-party>
-      <!-- Section 3 System Owner-->
-      <responsible-party role-id="system-owner">
+      <!-- Assessing Organization (3PAO) -->
+      <responsible-party role-id="assessor">
          <!-- Exacty one -->
-         <party-id>person-1</party-id>
+         <party-id>assessment-org</party-id>
       </responsible-party>
-      <!-- Section 4 - Authorizing Officials -->
-      <responsible-party role-id="authorizing-official">
+      <!-- Assessment Team -->
+      <responsible-party role-id="assessment-team">
          <!-- one or more-->
-         <party-id>fedramp-jab</party-id>
-         <party-id>person-6</party-id>
+         <party-id>sap-person-2</party-id>
+         <party-id>sap-person-3</party-id>
+         <party-id>sap-person-4</party-id>
+         <party-id>sap-person-5</party-id>
       </responsible-party>
       <!-- Section 5 - Other Designated Contacts -->
-      <responsible-party role-id="system-poc-management">
+      <responsible-party role-id="assessment-lead">
          <!-- Exacty one -->
-         <party-id>person-3</party-id>
+         <party-id>sap-person-2</party-id>
       </responsible-party>
-      <responsible-party role-id="system-poc-technical">
+      <responsible-party role-id="penetration-test-team">
+         <!-- one or more-->
+         <party-id>sap-person-2</party-id>
+         <party-id>sap-person-6</party-id>
+         <party-id>sap-person-7</party-id>
+      </responsible-party>
+      <responsible-party role-id="penetration-test-lead">
          <!-- Exacty one -->
-         <party-id>person-4</party-id>
+         <party-id>sap-person-2</party-id>
       </responsible-party>
-      <!-- Section 6 - Assignment of Security Responsibility -->
-      <responsible-party role-id="information-system-security-officer">
+      <responsible-party role-id="assessment-executive">
          <!-- Exacty one -->
-         <party-id>person-5</party-id>
+         <party-id>sap-person-1</party-id>
       </responsible-party>
-      <responsible-party role-id="authorizing-official-poc">
+      <responsible-party role-id="csp-operations-center">
          <!-- Exacty one -->
-         <party-id>person-6</party-id>
+         <party-id>soc</party-id>
+         <remarks>
+            <p>The party-id should reference a party in the SSP.</p>
+            <p>If an appropriate party does not exist in the SSP, the SAP tool should add a party to the SAP, or have the CSP add the party to the SSP..</p>
+            <p>The SAP tool should not modify the SSP.</p>
+         </remarks>
       </responsible-party>
-      <!-- Attachment X - Privacy Threshold Analysis (PTA) POC -->
-      <responsible-party role-id="privacy-poc">
+      <responsible-party role-id="csp-assessment-poc">
+         <!-- At least three -->
+         <party-id>person-1</party-id>
+         <party-id>person-2</party-id>
+         <party-id>soc</party-id>
+         <remarks>
+            <p>There should be at least three CSP Assessment POCs.</p>
+            <p>At least one sould be available 24x7 during assessment activities.</p>
+            <p>At least one should be an operaitons center, such a SOC or NOC.</p>
+            <p>The party-id should reference a party in the SSP.</p>
+            <p>If an appropriate party does not exist in the SSP, the SAP tool should add a party to the SAP, or have the CSP add the party to the SSP..</p>
+            <p>The SAP tool should not modify the SSP.</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="csp-end-of-testing-poc">
          <!-- Exacty one -->
-         <party-id>person-7</party-id>
+         <party-id>person-2</party-id>
       </responsible-party>
+      <responsible-party role-id="csp-results-poc">
+         <!-- One or more -->
+         <party-id>person-1</party-id>
+         <party-id>person-2</party-id>
+      </responsible-party>
+      
       <remarks>
          <p>This OSCAL-based FedRAMP SAP Template can be used for the FedRAMP initial or annual assessment planning.</p>
       </remarks>
    </metadata>
-   <!-- Link this SSP to the appropriate FedRAMP baseline -->
+
+   <!-- Link this SAP to the SSP -->
    <import-ssp href="../ssp/FedRAMP-SSP-OSCAL-Template.xml">
       <remarks>
-         <p>FedRAMP prefers the path to the SSP is relative to the location of this SAP file. Absolute links will likely not work when FedRAMP tools import the content.</p>
+         <p>FedRAMP prefers the path for the SSP be relative to the location of this SAP file. Absolute links will likely not work when FedRAMP tools import the content.</p>
          <p>This may point to a back-matter resource using a URI fragment.</p>
          <p>If no OSCAL-based SSP exists, this must be a URI fragment pointing to a special back-matter resource. The resource must include the <code>no-oscal-ssp</code> conformity tag.</p>
       </remarks>
@@ -504,24 +476,31 @@
       <tools>
          <component id="tool-1" component-type="software">
              <title>XYZ Vulnerability Scanning Tool</title>
-             <description></description>
+             <description><p>Describe the purpose of the tool here.</p></description>
              <prop name="vendor">Vendor Name</prop>
              <prop name="name">Tool Name</prop>
              <prop name="version">1.2.3</prop>
              <status state="operational" />
          </component>
+         <component id="tool-2" component-type="software">
+            <title>XYZ Database Scanning Tool</title>
+            <description><p>Describe the purpose of the tool here.</p></description>
+            <prop name="vendor">Vendor Name</prop>
+            <prop name="name">Tool Name</prop>
+            <prop name="version">1.2.3</prop>
+            <status state="operational" />
+         </component>
       </tools>
       
       <origination>
-         <title>Assessment Laptop</title>
+         <title>Assessment Addresses</title>
          <prop name="ipv4-address">10.10.10.10</prop>
+         <prop name="ipv4-address">10.10.10.11</prop>
+         <prop name="ipv4-address">10.10.10.12</prop>
       </origination>
       
       <prop name="results-delivery">10 business days after completion of assessment</prop>
 
-      <annotation name="disclosure">
-         <remarks><p>This is a disclosure statement that would appear in the rules of engagement.</p></remarks>
-      </annotation>
       <annotation name="limitation">
          <remarks>
             <p><b>Limitation of Liability</b></p>
@@ -559,13 +538,72 @@
             <p>For onsite control assessment, [CSP Name]  personnel will be available should the [3PAO Name] staff determine that either after hours work, or weekend work, is necessary to support the security assessment.</p>
          </part>
       </part>
+
+      <part name="methodology">
+         <prop name='sampling' ns='https://fedramp.gov/ns/oscal'>no</prop>
+         <p>[3PAO Name] will perform an assessment of the Information System Abbreviation security controls using the methodology described in NIST SP 800-53A.  [3PAO Name] will use FedRAMP test procedures to evaluate the security controls.  Contained in Excel worksheets, these test procedures contain the test objectives and associated test cases to determine if a control is effectively implemented and operating as intended.  The results of the testing shall be recorded in the worksheets (provided in Appendix B) along with information that notes whether the control (or control enhancement) is satisfied or not.</p>
+         <p>[3PAO Name] data gathering activities will consist of the following:</p>
+         <ul>
+            <li>Request [CSP Name] provide FedRAMP required documentation</li>
+            <li>Request any follow-up documentation, files, or information needed that is not provided in FedRAMP required documentation</li>
+            <li>Travel to the [CSP Name] sites as necessary to inspect systems and meet with [CSP Name] staff</li>
+            <li>Obtain information through the use of security testing tools</li>
+         </ul>
+         <p>Security controls will be verified using one or more of the following assessment methods:</p>
+         <ul>
+            <li>Examine: the IA will review, analyze, inspect, or observe one or more assessment artifacts as specified in the attached test cases</li>
+            <li>Interview: the IA will conduct discussions with individuals within the organization to facilitate assessor understanding, achieve clarification, or obtain evidence</li>
+            <li>Technical Tests: the IA will perform technical tests, including penetration testing, on system components using automated and manual methods</li>
+         </ul>
+         <p>[3PAO Name] [ will | will not ] use sampling when performing this assessment.</p>
+      </part>
+
+      <part name="disclosures">
+         <part name="disclosure">
+            <prop name="sort-id">001</prop>
+            <p>Any testing will be performed according to terms and conditions designed to minimize risk exposure that could occur during security testing.</p>
+         </part>
+         <part name="disclosure">
+            <prop name="sort-id">002</prop>
+            <p>A disclosure statement</p>
+         </part>
+      </part>
+
+      <part name="liability-limitations">
+         <part name="liability-limitation">
+            <prop name="sort-id">001</prop>
+            <p>[3PAO Name], and its stated partners, shall not be held liable to [CSP Name] for any and all liabilities, claims, or damages arising out of or relating to the security vulnerability testing portion of this agreement, howsoever caused and regardless of the legal theory asserted, including breach of contract or warranty, tort, strict liability, statutory liability, or otherwise.</p>
+         </part>
+         <part name="liability-limitation">
+            <prop name="sort-id">002</prop>
+            <p>[CSP Name] acknowledges that there are limitations inherent in the methodologies implemented, and the assessment of security and vulnerability relating to information technology is an uncertain process based on past experiences, currently available information, and the anticipation of reasonable threats at the time of the analysis.  There is no assurance that an analysis of this nature will identify all vulnerabilities or propose exhaustive and operationally viable recommendations to mitigate all exposure.</p>
+         </part>
+      </part>
+      
    </assets>
 
    <assessment-activities>
-      <test-method id="tm-1">
-         <title></title>
+      <test-method id="mt-0">
+         <title>Title of the Manual Test</title>
+         <description><p>Description of the manual test</p></description>
+         <prop name="type">manual</prop>
       </test-method>
-
+      <test-method id="mt-1">
+         <title>[SAMPLE]Forceful Browsing</title>
+         <description><p>We will login as a customer and try to see if we can gain access to the Network Administrator and Database Administrator privileges and authorizations by navigating to different views and manually forcing the browser to various URLs</p></description>
+         <prop name="type">manual</prop>
+      </test-method>
+      <test-method id="mt-3">
+         <title>[SAMPLE]CAPTCHA</title>
+         <description><p>We will test the CAPTCHA function on the web form manually</p></description>
+         <prop name="type">manual</prop>
+      </test-method>
+      <test-method id="mt-4">
+         <title>[SAMPLE]OCSP</title>
+         <description><p>We will manually test to see if OCSP is validating certificates.</p></description>
+         <prop name="type">manual</prop>
+      </test-method>
+      
       <test-method id="wat-1">
          <title>Web Application Test</title>
          <prop name="type">web-application</prop>
@@ -596,16 +634,134 @@
       
       <schedule>
          <task>
-            <title>Task 1</title>
-            <description><p>Plan</p></description>
+            <title>Prepare Test Plan</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Meeting to Review Test Plan</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Test Plan Update</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Review CSP Documentation</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Conduct Interviews of CSP Staff</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Perform Testing</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Vulnerability Analysis and Threat Assessment</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Risk Exposure Table Development</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Complete Draft SAR</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Draft SAR Delivered to CSP</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Issue Resolution Meeting</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Complete Final Version of SAR</title>
+            <description><p>optional</p></description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task>
+            <title>Send Final Version of SAR to CSP and ISSO</title>
+            <description><p>optional</p></description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
          </task>
       </schedule>
+
       <include-activity>
-         <title>Social Engineering</title>
-         <description></description>
+         <description><p>Port scans and other network service interaction and queries</p></description>
       </include-activity>
+      <include-activity>
+         <description><p>Network sniffing, traffic monitoring, traffic analysis, and host discovery</p></description>
+      </include-activity>
+      <include-activity>
+         <description><p>Attempted logins or other use of systems, with any account name/password</p></description>
+      </include-activity>
+      <include-activity>
+         <description><p>Attempted structured query language (SQL) injection and other forms of input parameter testing</p></description>
+      </include-activity>
+      <include-activity>
+         <description><p>Use of exploit code for leveraging discovered vulnerabilities</p></description>
+      </include-activity>
+      <include-activity>
+         <description><p>Password cracking via capture and scanning of authentication databases</p></description>
+      </include-activity>
+      <include-activity>
+         <description><p>Spoofing or deceiving servers regarding network traffic</p></description>
+      </include-activity>
+      <include-activity>
+         <description><p>Altering running system configuration except where denial of service would result</p></description>
+      </include-activity>
+      <include-activity>
+         <description><p>Adding user accounts</p></description>
+      </include-activity>
+      
+      <exclude-activity>
+         <description><p>Changes to assigned user passwords</p></description>
+      </exclude-activity>
+      <exclude-activity>
+         <description><p>Modification of user files or system files</p></description>
+      </exclude-activity>
+      <exclude-activity>
+         <description><p>Telephone modem probes and scans (active and passive)</p></description>
+      </exclude-activity>
+      <exclude-activity>
+         <description><p>Intentional viewing of [CSP Name] staff email, Internet caches, and/or personnel cookie files</p></description>
+      </exclude-activity>
+      <exclude-activity>
+         <description><p>Denial of service attacks</p></description>
+      </exclude-activity>
+      <exclude-activity>
+         <description><p>Exploits that will introduce new weaknesses to the system</p></description>
+      </exclude-activity>
+      <exclude-activity>
+         <description><p>Intentional introduction of malicious code (viruses, Trojans, worms, etc.)</p></description>
+      </exclude-activity>
    </assessment-activities>
 
    <back-matter>
