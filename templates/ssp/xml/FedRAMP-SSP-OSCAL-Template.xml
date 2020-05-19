@@ -39,7 +39,7 @@
       </role>
       <role id="content-approver">
          <title>System Security Plan Approval</title>
-         <desc>The individual or individuals within the CSP authorized to take responsibility for the accuracy of this SSP.</desc>
+         <desc>The individual or individuals accountable for the accuracy of this SSP.</desc>
       </role>
       <role id="system-owner">
          <title>Information System Owner</title>
@@ -251,7 +251,7 @@
                <country>US</country>
             </address>
             <email>name@org.domain</email>
-            <phone></phone>
+            <phone>202-000-0001</phone>
             <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
@@ -267,7 +267,7 @@
                <country>US</country>
             </address>
             <email>name@org.domain</email>
-            <phone></phone>
+            <phone>202-000-0002</phone>
             <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
@@ -283,7 +283,7 @@
                <country>US</country>
             </address>
             <email>name@org.domain</email>
-            <phone></phone>
+            <phone>202-000-0003</phone>
             <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
@@ -299,7 +299,7 @@
                <country>US</country>
             </address>
             <email>name@org.domain</email>
-            <phone></phone>
+            <phone>202-000-0004</phone>
             <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
@@ -315,7 +315,7 @@
                <country>US</country>
             </address>
             <email>name@org.domain</email>
-            <phone></phone>
+            <phone>202-000-0005</phone>
             <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
@@ -331,7 +331,7 @@
                <country>US</country>
             </address>
             <email>name@org.domain</email>
-            <phone type='mobile'>000-000-0000</phone>
+            <phone type='mobile'>000-000-0006</phone>
             <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
@@ -347,7 +347,7 @@
                <postal-code>00000</postal-code>
             </address>
             <email>name@org.domain</email>
-            <phone type='office'>000-000-0000</phone>
+            <phone type='office'>000-000-0007</phone>
             <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
          </person>
       </party>
