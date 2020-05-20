@@ -285,11 +285,11 @@
          </remarks>
       </responsible-party>
       <responsible-party role-id="csp-end-of-testing-poc">
-         <!-- Exacty one -->
+         <!-- One or More -->
          <party-id>person-2</party-id>
       </responsible-party>
       <responsible-party role-id="csp-results-poc">
-         <!-- One or more -->
+         <!-- One or More -->
          <party-id>person-1</party-id>
          <party-id>person-2</party-id>
       </responsible-party>
@@ -322,14 +322,40 @@
       <control-objectives>
          <description><p>Includes all objectives for all in-scope controls as defined in the controls assembly.</p></description>
          <all />
+         <exclude-objective objective-id="ac-2.2_obj.1" />
       </control-objectives>
-      <objective id="sap-obj-1">
-         <control-link control-id="ac-2" />
+      
+      <objective id="sap-obj-1" control-id="ac-2">
          <part name="objective">
             <title>SAP Inserted Objective</title>
-            <prop name="lable">AC-2 SAP-1</prop>
+            <prop name="label">AC-2[SAP][1]</prop>
+            <p>Custom assessment objective for this control.</p>
          </part>
+         <assessment-method method-id="sap-am-1" />
+         <assessment-method method-id="sap-am-2" />
+         <assessment-method method-id="sap-am-3" />
       </objective>
+
+      <method id="sap-am-1">
+         <prop name="method">EXAMINE</prop>
+         <part name="objects">
+            <p>Unusual policy</p>
+            <p>Unexpected procedure addressing client access</p>
+         </part>
+      </method>
+      <method id="sap-am-2">
+         <prop name="method">INTERVIEW</prop>
+         <part name="objects">
+            <p>Organizational personnel responsible for Unexpected Procedure</p>
+         </part>
+      </method>
+      <method id="sap-am-3">
+         <prop name="method">TEST</prop>
+         <part name="objects">
+            <p>Cutting Edge Technology Product</p>
+         </part>
+      </method>
+      
    </objectives>
 
    <!--  === WHAT TO EXPLICITLY INCLUDE AND EXCLUDE FROM THE ASSESSMENT ===  -->
@@ -791,13 +817,19 @@
          <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>fedramp-acronyms</prop>
          <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf" />
       </resource>
-      <resource id="logo-csp">
-         <desc>CSP Logo</desc>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">prepared-for-logo</prop>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">csp-logo</prop>
+      <resource id="sap-signatures">
+         <desc>Signed SAP</desc>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>signed-sap</prop>
          <!-- Use rlink and/or base64 -->
-         <rlink href="./logo.png" media-type="image/png" />
-         <base64>00000000</base64>
+         <rlink href="./signed-sap.pdf" media-type="application/pdf" />
+         <base64 filename="sap.pdf" media-type="application/pdf">00000000</base64>
+      </resource>
+      <resource id="pen-test-plan">
+         <desc>Penetration Test Plan</desc>
+         <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>penetration-test-plan</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="./pen_test_plan.pdf" media-type="application/pdf" />
+         <base64 filename="pen_test_plan.pdf" media-type="application/pdf">00000000</base64>
       </resource>
       <resource id="logo-3pao">
          <desc>3PAO Logo</desc>

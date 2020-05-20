@@ -128,6 +128,9 @@
          <title>[SAMPLE]Program Director</title>
          <desc>This is a sample role.</desc>
       </role>
+      <role id="fedramp">
+         <title>Federal Risk and Authorization Management Program (FedRAMP)</title>
+      </role>
       
       <location id="location-1">
          <address type='work'>
@@ -414,6 +417,10 @@
       <responsible-party role-id="privacy-poc">
          <!-- Exacty one -->
          <party-id>person-7</party-id>
+      </responsible-party>
+      <responsible-party role-id="fedramp">
+         <party-id>fedramp-pmo</party-id>
+         <party-id>fedramp-jab</party-id>
       </responsible-party>
       <remarks>
          <p>This OSCAL-based FedRAMP SSP Template can be used for the FedRAMP Low, Moderate, and High baselines.</p>
