@@ -1,410 +1,457 @@
 
   { "profile" : 
-    { "id" : "uuid-3ae02e88-e68f-434a-8ec6-83dbefadf304",
+    { "id" : "uuid-27cd2fd9-411d-4cc8-b152-98f12e0c93e3",
       "metadata" : 
       { "title" : "FedRAMP Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
-        "published" : "2019-11-27T00:00:00.000-05:00",
-        "last-modified" : "2019-11-24T10:00:00.000-05:00",
+        "published" : "2020-02-02T00:00:00.000-05:00",
+        "last-modified" : "2020-06-01T10:00:00.000-05:00",
         "version" : "1.2",
-        "oscal-version" : "1.0.0-milestone2",
+        "oscal-version" : "1.0.0-milestone3",
         "roles" : 
-        { "id" : "author",
-          "title" : "Author" },
+        [ 
+          { "id" : "author",
+            "title" : "Author" } ],
         "parties" : 
-        { "id" : "fedramp",
-          "org" : 
-          { "org-name" : "Federal Risk and Authorization Management Program (FedRAMP)",
-            "email-addresses" : "info@fedramp.gov",
-            "URLs" : "https:\/\/fedramp.gov" } },
+        [ 
+          { "id" : "fedramp",
+            "org" : 
+            { "org-name" : "Federal Risk and Authorization Management Program (FedRAMP)",
+              "email-addresses" : 
+              [ "info@fedramp.gov" ],
+              "URLs" : 
+              [ "https:\/\/fedramp.gov" ] } } ],
         "responsible-parties" : 
         { "author" : 
-          { "party-ids" : "fedramp" } },
+          { "party-ids" : 
+            [ "fedramp" ] } },
         "remarks" : "This is a DRAFT OSCAL profile intended to reflect the FedRAMP Tailored Baseline for Low Impact Software as a Service (LI-SaaS). Currently this reflects FedRAMP's parameters, additional requirements\/guidance, and control designations (Fed, NSO, Attest, etc.) Assessment objectives and actions have not been vetted and may not align. This also has not been peer reviewed. Use with caution. FedRAMP is not responsible for inaccuracies resulting from the use of this draft profile." },
       "imports" : 
-      { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/nist.gov\/SP800-53\/rev4\/xml\/NIST_SP-800-53_rev4_catalog.xml",
-        "include" : 
-        { "id-selectors" : 
-          [ 
-            { "control-id" : "ac-1" },
-            
-            { "control-id" : "ac-2" },
-            
-            { "control-id" : "ac-3" },
-            
-            { "control-id" : "ac-7" },
-            
-            { "control-id" : "ac-8" },
-            
-            { "control-id" : "ac-14" },
-            
-            { "control-id" : "ac-17" },
-            
-            { "control-id" : "ac-18" },
-            
-            { "control-id" : "ac-19" },
-            
-            { "control-id" : "ac-20" },
-            
-            { "control-id" : "ac-22" },
-            
-            { "control-id" : "at-1" },
-            
-            { "control-id" : "at-2" },
-            
-            { "control-id" : "at-3" },
-            
-            { "control-id" : "at-4" },
-            
-            { "control-id" : "au-1" },
-            
-            { "control-id" : "au-2" },
-            
-            { "control-id" : "au-3" },
-            
-            { "control-id" : "au-4" },
-            
-            { "control-id" : "au-5" },
-            
-            { "control-id" : "au-6" },
-            
-            { "control-id" : "au-8" },
-            
-            { "control-id" : "au-9" },
-            
-            { "control-id" : "au-11" },
-            
-            { "control-id" : "au-12" },
-            
-            { "control-id" : "ca-1" },
-            
-            { "control-id" : "ca-2" },
-            
-            { "control-id" : "ca-2.1" },
-            
-            { "control-id" : "ca-3" },
-            
-            { "control-id" : "ca-5" },
-            
-            { "control-id" : "ca-6" },
-            
-            { "control-id" : "ca-7" },
-            
-            { "control-id" : "ca-9" },
-            
-            { "control-id" : "cm-1" },
-            
-            { "control-id" : "cm-2" },
-            
-            { "control-id" : "cm-4" },
-            
-            { "control-id" : "cm-6" },
-            
-            { "control-id" : "cm-7" },
-            
-            { "control-id" : "cm-8" },
-            
-            { "control-id" : "cm-10" },
-            
-            { "control-id" : "cm-11" },
-            
-            { "control-id" : "cp-1" },
-            
-            { "control-id" : "cp-2" },
-            
-            { "control-id" : "cp-3" },
-            
-            { "control-id" : "cp-4" },
-            
-            { "control-id" : "cp-9" },
-            
-            { "control-id" : "cp-10" },
-            
-            { "control-id" : "ia-1" },
-            
-            { "control-id" : "ia-2" },
-            
-            { "control-id" : "ia-2.1" },
-            
-            { "control-id" : "ia-2.12" },
-            
-            { "control-id" : "ia-4" },
-            
-            { "control-id" : "ia-5" },
-            
-            { "control-id" : "ia-5.1" },
-            
-            { "control-id" : "ia-5.11" },
-            
-            { "control-id" : "ia-6" },
-            
-            { "control-id" : "ia-7" },
-            
-            { "control-id" : "ia-8" },
-            
-            { "control-id" : "ia-8.1" },
-            
-            { "control-id" : "ia-8.2" },
-            
-            { "control-id" : "ia-8.3" },
-            
-            { "control-id" : "ia-8.4" },
-            
-            { "control-id" : "ir-1" },
-            
-            { "control-id" : "ir-2" },
-            
-            { "control-id" : "ir-4" },
-            
-            { "control-id" : "ir-5" },
-            
-            { "control-id" : "ir-6" },
-            
-            { "control-id" : "ir-7" },
-            
-            { "control-id" : "ir-8" },
-            
-            { "control-id" : "ir-9" },
-            
-            { "control-id" : "ma-1" },
-            
-            { "control-id" : "ma-2" },
-            
-            { "control-id" : "ma-4" },
-            
-            { "control-id" : "ma-5" },
-            
-            { "control-id" : "mp-1" },
-            
-            { "control-id" : "mp-2" },
-            
-            { "control-id" : "mp-6" },
-            
-            { "control-id" : "mp-7" },
-            
-            { "control-id" : "pe-1" },
-            
-            { "control-id" : "pe-2" },
-            
-            { "control-id" : "pe-3" },
-            
-            { "control-id" : "pe-6" },
-            
-            { "control-id" : "pe-8" },
-            
-            { "control-id" : "pe-12" },
-            
-            { "control-id" : "pe-13" },
-            
-            { "control-id" : "pe-14" },
-            
-            { "control-id" : "pe-15" },
-            
-            { "control-id" : "pe-16" },
-            
-            { "control-id" : "pl-1" },
-            
-            { "control-id" : "pl-2" },
-            
-            { "control-id" : "pl-4" },
-            
-            { "control-id" : "ps-1" },
-            
-            { "control-id" : "ps-2" },
-            
-            { "control-id" : "ps-3" },
-            
-            { "control-id" : "ps-4" },
-            
-            { "control-id" : "ps-5" },
-            
-            { "control-id" : "ps-6" },
-            
-            { "control-id" : "ps-7" },
-            
-            { "control-id" : "ps-8" },
-            
-            { "control-id" : "ra-1" },
-            
-            { "control-id" : "ra-2" },
-            
-            { "control-id" : "ra-3" },
-            
-            { "control-id" : "ra-5" },
-            
-            { "control-id" : "sa-1" },
-            
-            { "control-id" : "sa-2" },
-            
-            { "control-id" : "sa-3" },
-            
-            { "control-id" : "sa-4" },
-            
-            { "control-id" : "sa-4.10" },
-            
-            { "control-id" : "sa-5" },
-            
-            { "control-id" : "sa-9" },
-            
-            { "control-id" : "sc-1" },
-            
-            { "control-id" : "sc-5" },
-            
-            { "control-id" : "sc-7" },
-            
-            { "control-id" : "sc-12" },
-            
-            { "control-id" : "sc-13" },
-            
-            { "control-id" : "sc-15" },
-            
-            { "control-id" : "sc-20" },
-            
-            { "control-id" : "sc-21" },
-            
-            { "control-id" : "sc-22" },
-            
-            { "control-id" : "sc-39" },
-            
-            { "control-id" : "si-1" },
-            
-            { "control-id" : "si-2" },
-            
-            { "control-id" : "si-3" },
-            
-            { "control-id" : "si-4" },
-            
-            { "control-id" : "si-5" },
-            
-            { "control-id" : "si-12" } ] } },
+      [ 
+        { "href" : "#nist-sp-800-53-r4",
+          "include" : 
+          { "id-selectors" : 
+            [ 
+              { "control-id" : "ac-1" },
+              
+              { "control-id" : "ac-2" },
+              
+              { "control-id" : "ac-3" },
+              
+              { "control-id" : "ac-7" },
+              
+              { "control-id" : "ac-8" },
+              
+              { "control-id" : "ac-14" },
+              
+              { "control-id" : "ac-17" },
+              
+              { "control-id" : "ac-18" },
+              
+              { "control-id" : "ac-19" },
+              
+              { "control-id" : "ac-20" },
+              
+              { "control-id" : "ac-22" },
+              
+              { "control-id" : "at-1" },
+              
+              { "control-id" : "at-2" },
+              
+              { "control-id" : "at-3" },
+              
+              { "control-id" : "at-4" },
+              
+              { "control-id" : "au-1" },
+              
+              { "control-id" : "au-2" },
+              
+              { "control-id" : "au-3" },
+              
+              { "control-id" : "au-4" },
+              
+              { "control-id" : "au-5" },
+              
+              { "control-id" : "au-6" },
+              
+              { "control-id" : "au-8" },
+              
+              { "control-id" : "au-9" },
+              
+              { "control-id" : "au-11" },
+              
+              { "control-id" : "au-12" },
+              
+              { "control-id" : "ca-1" },
+              
+              { "control-id" : "ca-2" },
+              
+              { "control-id" : "ca-2.1" },
+              
+              { "control-id" : "ca-3" },
+              
+              { "control-id" : "ca-5" },
+              
+              { "control-id" : "ca-6" },
+              
+              { "control-id" : "ca-7" },
+              
+              { "control-id" : "ca-9" },
+              
+              { "control-id" : "cm-1" },
+              
+              { "control-id" : "cm-2" },
+              
+              { "control-id" : "cm-4" },
+              
+              { "control-id" : "cm-6" },
+              
+              { "control-id" : "cm-7" },
+              
+              { "control-id" : "cm-8" },
+              
+              { "control-id" : "cm-10" },
+              
+              { "control-id" : "cm-11" },
+              
+              { "control-id" : "cp-1" },
+              
+              { "control-id" : "cp-2" },
+              
+              { "control-id" : "cp-3" },
+              
+              { "control-id" : "cp-4" },
+              
+              { "control-id" : "cp-9" },
+              
+              { "control-id" : "cp-10" },
+              
+              { "control-id" : "ia-1" },
+              
+              { "control-id" : "ia-2" },
+              
+              { "control-id" : "ia-2.1" },
+              
+              { "control-id" : "ia-2.12" },
+              
+              { "control-id" : "ia-4" },
+              
+              { "control-id" : "ia-5" },
+              
+              { "control-id" : "ia-5.1" },
+              
+              { "control-id" : "ia-5.11" },
+              
+              { "control-id" : "ia-6" },
+              
+              { "control-id" : "ia-7" },
+              
+              { "control-id" : "ia-8" },
+              
+              { "control-id" : "ia-8.1" },
+              
+              { "control-id" : "ia-8.2" },
+              
+              { "control-id" : "ia-8.3" },
+              
+              { "control-id" : "ia-8.4" },
+              
+              { "control-id" : "ir-1" },
+              
+              { "control-id" : "ir-2" },
+              
+              { "control-id" : "ir-4" },
+              
+              { "control-id" : "ir-5" },
+              
+              { "control-id" : "ir-6" },
+              
+              { "control-id" : "ir-7" },
+              
+              { "control-id" : "ir-8" },
+              
+              { "control-id" : "ir-9" },
+              
+              { "control-id" : "ma-1" },
+              
+              { "control-id" : "ma-2" },
+              
+              { "control-id" : "ma-4" },
+              
+              { "control-id" : "ma-5" },
+              
+              { "control-id" : "mp-1" },
+              
+              { "control-id" : "mp-2" },
+              
+              { "control-id" : "mp-6" },
+              
+              { "control-id" : "mp-7" },
+              
+              { "control-id" : "pe-1" },
+              
+              { "control-id" : "pe-2" },
+              
+              { "control-id" : "pe-3" },
+              
+              { "control-id" : "pe-6" },
+              
+              { "control-id" : "pe-8" },
+              
+              { "control-id" : "pe-12" },
+              
+              { "control-id" : "pe-13" },
+              
+              { "control-id" : "pe-14" },
+              
+              { "control-id" : "pe-15" },
+              
+              { "control-id" : "pe-16" },
+              
+              { "control-id" : "pl-1" },
+              
+              { "control-id" : "pl-2" },
+              
+              { "control-id" : "pl-4" },
+              
+              { "control-id" : "ps-1" },
+              
+              { "control-id" : "ps-2" },
+              
+              { "control-id" : "ps-3" },
+              
+              { "control-id" : "ps-4" },
+              
+              { "control-id" : "ps-5" },
+              
+              { "control-id" : "ps-6" },
+              
+              { "control-id" : "ps-7" },
+              
+              { "control-id" : "ps-8" },
+              
+              { "control-id" : "ra-1" },
+              
+              { "control-id" : "ra-2" },
+              
+              { "control-id" : "ra-3" },
+              
+              { "control-id" : "ra-5" },
+              
+              { "control-id" : "sa-1" },
+              
+              { "control-id" : "sa-2" },
+              
+              { "control-id" : "sa-3" },
+              
+              { "control-id" : "sa-4" },
+              
+              { "control-id" : "sa-4.10" },
+              
+              { "control-id" : "sa-5" },
+              
+              { "control-id" : "sa-9" },
+              
+              { "control-id" : "sc-1" },
+              
+              { "control-id" : "sc-5" },
+              
+              { "control-id" : "sc-7" },
+              
+              { "control-id" : "sc-12" },
+              
+              { "control-id" : "sc-13" },
+              
+              { "control-id" : "sc-15" },
+              
+              { "control-id" : "sc-20" },
+              
+              { "control-id" : "sc-21" },
+              
+              { "control-id" : "sc-22" },
+              
+              { "control-id" : "sc-39" },
+              
+              { "control-id" : "si-1" },
+              
+              { "control-id" : "si-2" },
+              
+              { "control-id" : "si-3" },
+              
+              { "control-id" : "si-4" },
+              
+              { "control-id" : "si-5" },
+              
+              { "control-id" : "si-12" } ] } } ],
       "merge" : 
       { "combine" : 
         { "method" : "keep" },
         "as-is" : true },
       "modify" : 
-      { "settings" : 
+      { "parameter-settings" : 
         { "ac-22_prm_1" : 
           { "constraints" : 
-            { "detail" : "at least quarterly" } },
+            [ 
+              { "detail" : "at least quarterly" } ] },
           "au-5_prm_2" : 
           { "constraints" : 
-            { "detail" : "organization-defined actions to be taken (overwrite oldest record)" } },
+            [ 
+              { "detail" : "organization-defined actions to be taken (overwrite oldest record)" } ] },
           "au-6_prm_1" : 
           { "constraints" : 
-            { "detail" : "at least weekly" } },
+            [ 
+              { "detail" : "at least weekly" } ] },
           "ca-2_prm_1" : 
           { "constraints" : 
-            { "detail" : "at least annually" } },
+            [ 
+              { "detail" : "at least annually" } ] },
           "ca-2_prm_2" : 
           { "constraints" : 
-            { "detail" : "individuals or roles to include FedRAMP PMO" } },
+            [ 
+              { "detail" : "individuals or roles to include FedRAMP PMO" } ] },
           "ca-3_prm_1" : 
           { "constraints" : 
-            { "detail" : "at least annually and on input from FedRAMP" } },
+            [ 
+              { "detail" : "at least annually and on input from FedRAMP" } ] },
           "ca-5_prm_1" : 
           { "constraints" : 
-            { "detail" : "at least monthly" } },
+            [ 
+              { "detail" : "at least monthly" } ] },
           "ca-6_prm_1" : 
           { "constraints" : 
-            { "detail" : "at least every three years or when a significant change occurs" } },
+            [ 
+              { "detail" : "at least every three years or when a significant change occurs" } ] },
           "ca-7_prm_4" : 
           { "constraints" : 
-            { "detail" : "to meet Federal and FedRAMP requirements (See additional guidance)" } },
+            [ 
+              { "detail" : "to meet Federal and FedRAMP requirements (See additional guidance)" } ] },
           "ca-7_prm_5" : 
           { "constraints" : 
-            { "detail" : "to meet Federal and FedRAMP requirements (See additional guidance)" } },
+            [ 
+              { "detail" : "to meet Federal and FedRAMP requirements (See additional guidance)" } ] },
           "cm-6_prm_1" : 
           { "constraints" : 
-            { "detail" : "see CM-6(a) Additional FedRAMP Requirements and Guidance" } },
+            [ 
+              { "detail" : "see CM-6(a) Additional FedRAMP Requirements and Guidance" } ] },
           "cm-8_prm_2" : 
           { "constraints" : 
-            { "detail" : "at least monthly" } },
+            [ 
+              { "detail" : "at least monthly" } ] },
           "cp-9_prm_1" : 
           { "constraints" : 
-            { "detail" : "daily incremental; weekly full" } },
+            [ 
+              { "detail" : "daily incremental; weekly full" } ] },
           "cp-9_prm_2" : 
           { "constraints" : 
-            { "detail" : "daily incremental; weekly full" } },
+            [ 
+              { "detail" : "daily incremental; weekly full" } ] },
           "cp-9_prm_3" : 
           { "constraints" : 
-            { "detail" : "daily incremental; weekly full" } },
+            [ 
+              { "detail" : "daily incremental; weekly full" } ] },
           "ir-6_prm_1" : 
           { "constraints" : 
-            { "detail" : "US-CERT incident reporting timelines as specified in NIST Special Publication 800-61 (as amended)" } },
+            [ 
+              { "detail" : "US-CERT incident reporting timelines as specified in NIST Special Publication 800-61 (as amended)" } ] },
           "pe-2_prm_1" : 
           { "constraints" : 
-            { "detail" : "at least annually" } },
+            [ 
+              { "detail" : "at least annually" } ] },
           "pe-3_prm_2" : 
           { "constraints" : 
-            { "detail" : "CSP defined physical access control systems\/devices AND guards" } },
+            [ 
+              { "detail" : "CSP defined physical access control systems\/devices AND guards" } ] },
           "pe-3_prm_6" : 
           { "constraints" : 
-            { "detail" : "in all circumstances within restricted access area where the information system resides" } },
+            [ 
+              { "detail" : "in all circumstances within restricted access area where the information system resides" } ] },
           "pe-3_prm_8" : 
           { "constraints" : 
-            { "detail" : "at least annually" } },
+            [ 
+              { "detail" : "at least annually" } ] },
           "pe-3_prm_9" : 
           { "constraints" : 
-            { "detail" : "at least annually" } },
+            [ 
+              { "detail" : "at least annually" } ] },
           "pe-6_prm_1" : 
           { "constraints" : 
-            { "detail" : "at least monthly" } },
+            [ 
+              { "detail" : "at least monthly" } ] },
           "pe-8_prm_1" : 
           { "constraints" : 
-            { "detail" : "for a minimum of one (1) year" } },
+            [ 
+              { "detail" : "for a minimum of one (1) year" } ] },
           "pe-8_prm_2" : 
           { "constraints" : 
-            { "detail" : "at least monthly" } },
+            [ 
+              { "detail" : "at least monthly" } ] },
           "pe-14_prm_1" : 
           { "constraints" : 
-            { "detail" : "consistent with American Society of Heating, Refrigerating and Air-conditioning Engineers (ASHRAE) document entitled Thermal Guidelines for Data Processing Environments" } },
+            [ 
+              { "detail" : "consistent with American Society of Heating, Refrigerating and Air-conditioning Engineers (ASHRAE) document entitled Thermal Guidelines for Data Processing Environments" } ] },
           "pe-14_prm_2" : 
           { "constraints" : 
-            { "detail" : "continuously" } },
+            [ 
+              { "detail" : "continuously" } ] },
           "pe-16_prm_1" : 
           { "constraints" : 
-            { "detail" : "all information system components" } },
+            [ 
+              { "detail" : "all information system components" } ] },
           "pl-2_prm_2" : 
           { "constraints" : 
-            { "detail" : "at least annually" } },
+            [ 
+              { "detail" : "at least annually" } ] },
           "ps-3_prm_1" : 
           { "constraints" : 
-            { "detail" : "For national security clearances; a reinvestigation is required during the 5th year for top secret security clearance, the 10th year for secret security clearance, and 15th year for confidential security clearance. For moderate risk law enforcement and high impact public trust level, a reinvestigation is required during the 5th year. There is no reinvestigation for other moderate risk positions or any low risk positions." } },
+            [ 
+              { "detail" : "For national security clearances; a reinvestigation is required during the 5th year for top secret security clearance, the 10th year for secret security clearance, and 15th year for confidential security clearance. For moderate risk law enforcement and high impact public trust level, a reinvestigation is required during the 5th year. There is no reinvestigation for other moderate risk positions or any low risk positions." } ] },
           "ra-3_prm_2" : 
           { "constraints" : 
-            { "detail" : "security assessment report" } },
+            [ 
+              { "detail" : "security assessment report" } ] },
           "ra-3_prm_3" : 
           { "constraints" : 
-            { "detail" : "at least every three (3) years or when a significant change occurs" } },
+            [ 
+              { "detail" : "at least every three (3) years or when a significant change occurs" } ] },
           "ra-3_prm_5" : 
           { "constraints" : 
-            { "detail" : "at least every three (3) years or when a significant change occurs" } },
+            [ 
+              { "detail" : "at least every three (3) years or when a significant change occurs" } ] },
           "ra-5_prm_1" : 
           { "constraints" : 
-            { "detail" : "monthly operating system\/infrastructure; monthly web applications and databases" } },
+            [ 
+              { "detail" : "monthly operating system\/infrastructure; monthly web applications and databases" } ] },
           "ra-5_prm_2" : 
           { "constraints" : 
-            { "detail" : "[high-risk vulnerabilities mitigated within thirty (30) days from date of discovery; moderate-risk vulnerabilities mitigated within ninety (90) days from date of discovery; low risk vulnerabilities mitigated within one hundred and eighty (180) days from date of discovery." } },
+            [ 
+              { "detail" : "[high-risk vulnerabilities mitigated within thirty (30) days from date of discovery; moderate-risk vulnerabilities mitigated within ninety (90) days from date of discovery; low risk vulnerabilities mitigated within one hundred and eighty (180) days from date of discovery." } ] },
           "sa-9_prm_1" : 
           { "constraints" : 
-            { "detail" : "FedRAMP Security Controls Baseline(s) if Federal information is processed or stored within the external system" } },
+            [ 
+              { "detail" : "FedRAMP Security Controls Baseline(s) if Federal information is processed or stored within the external system" } ] },
           "sa-9_prm_2" : 
           { "constraints" : 
-            { "detail" : "Federal\/FedRAMP Continuous Monitoring requirements must be met for external systems where Federal information is processed or stored" } },
+            [ 
+              { "detail" : "Federal\/FedRAMP Continuous Monitoring requirements must be met for external systems where Federal information is processed or stored" } ] },
           "sc-13_prm_1" : 
           { "constraints" : 
-            { "detail" : "FIPS-validated or NSA-approved cryptography" } },
+            [ 
+              { "detail" : "FIPS-validated or NSA-approved cryptography" } ] },
           "si-2_prm_1" : 
           { "constraints" : 
-            { "detail" : "within 30 days of release of updates" } },
+            [ 
+              { "detail" : "within 30 days of release of updates" } ] },
           "si-3_prm_1" : 
           { "constraints" : 
-            { "detail" : "at least weekly" } },
+            [ 
+              { "detail" : "at least weekly" } ] },
           "si-3_prm_2" : 
           { "constraints" : 
-            { "detail" : "to include endpoints" } },
+            [ 
+              { "detail" : "to include endpoints" } ] },
           "si-3_prm_3" : 
           { "constraints" : 
-            { "detail" : "to include alerting administrator or defined security personnel" } } },
+            [ 
+              { "detail" : "to include alerting administrator or defined security personnel" } ] } },
         "alterations" : 
         [ 
           { "control-id" : "ac-1",
@@ -414,11 +461,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ac-2",
             "removals" : 
@@ -441,22 +490,27 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              { "id" : "ac-2_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AC-2 Additional FedRAMP Requirements and Guidance",
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
                 "parts" : 
-                { "id" : "ac-2_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Parts (b), (c), (d), (e), (i), (j), and (k) are excluded from FedRAMP Tailored for LI-SaaS." } } } },
+                [ 
+                  { "id" : "ac-2_fr",
+                    "name" : "item",
+                    "title" : "AC-2 Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "ac-2_fr_gdn.1",
+                        "name" : "guidance",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Guidance:" } ],
+                        "prose" : "Parts (b), (c), (d), (e), (i), (j), and (k) are excluded from FedRAMP Tailored for LI-SaaS." } ] } ] } ] },
           
           { "control-id" : "ac-3",
             "removals" : 
@@ -465,11 +519,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "ac-7",
             "removals" : 
@@ -478,21 +534,22 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              [ 
-                { "ns" : "fedramp",
-                  "class" : "tailored-designation",
-                  "nso" : "" },
-                
-                { "ns" : "fedramp",
-                  "class" : "tailored-designation",
-                  "attest" : "" } ],
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO for non-privileged users. Attestation for privileged users related to multi-factor identification and authentication." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" },
+                  
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO for non-privileged users. Attestation for privileged users related to multi-factor identification and authentication." } ] } ] },
           
           { "control-id" : "ac-8",
             "removals" : 
@@ -501,16 +558,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "fed" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "FED - This is related to agency data and agency policy solution." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "FED" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "FED - This is related to agency data and agency policy solution." } ] } ] },
           
           { "control-id" : "ac-14",
             "removals" : 
@@ -519,16 +578,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "fed" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "FED - This is related to agency data and agency policy solution." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "FED" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "FED - This is related to agency data and agency policy solution." } ] } ] },
           
           { "control-id" : "ac-17",
             "removals" : 
@@ -537,11 +598,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "ac-18",
             "removals" : 
@@ -550,16 +613,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "nso" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO - All access to Cloud SaaS are via web services and\/or API.  The device accessed from or whether via wired or wireless connection is out of scope.  Regardless of device accessed from, must utilize approved remote access methods (AC-17), secure communication with strong encryption (SC-13), key management (SC-12), and multi-factor authentication for privileged access (IA-2[1])." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO - All access to Cloud SaaS are via web services and\/or API.  The device accessed from or whether via wired or wireless connection is out of scope.  Regardless of device accessed from, must utilize approved remote access methods (AC-17), secure communication with strong encryption (SC-13), key management (SC-12), and multi-factor authentication for privileged access (IA-2[1])." } ] } ] },
           
           { "control-id" : "ac-19",
             "removals" : 
@@ -568,16 +633,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "nso" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO - All access to Cloud SaaS are via web service and\/or API.  The device accessed from is out of the scope.  Regardless of device accessed from, must utilize approved remote access methods (AC-17), secure communication with strong encryption (SC-13), key management (SC-12), and multi-factor authentication for privileged access (IA-2 [1])." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO - All access to Cloud SaaS are via web service and\/or API.  The device accessed from is out of the scope.  Regardless of device accessed from, must utilize approved remote access methods (AC-17), secure communication with strong encryption (SC-13), key management (SC-12), and multi-factor authentication for privileged access (IA-2 [1])." } ] } ] },
           
           { "control-id" : "ac-20",
             "removals" : 
@@ -586,11 +653,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ac-22",
             "removals" : 
@@ -599,11 +668,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "at-1",
             "removals" : 
@@ -612,11 +683,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "at-2",
             "removals" : 
@@ -625,11 +698,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "at-3",
             "removals" : 
@@ -638,11 +713,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "at-4",
             "removals" : 
@@ -651,11 +728,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "au-1",
             "removals" : 
@@ -664,11 +743,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "au-2",
             "removals" : 
@@ -677,11 +758,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "au-3",
             "removals" : 
@@ -690,11 +773,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "au-4",
             "removals" : 
@@ -703,16 +788,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "nso" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO - Loss of availability of the audit data has been determined to have little or no impact to government business\/mission needs." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO - Loss of availability of the audit data has been determined to have little or no impact to government business\/mission needs." } ] } ] },
           
           { "control-id" : "au-5",
             "removals" : 
@@ -721,11 +808,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "au-6",
             "removals" : 
@@ -734,11 +823,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "au-8",
             "removals" : 
@@ -747,11 +838,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "au-9",
             "removals" : 
@@ -760,11 +853,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "au-11",
             "removals" : 
@@ -773,16 +868,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "nso" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO - Loss of availability of the audit data has been determined as little or no impact to government business\/mission needs." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO - Loss of availability of the audit data has been determined as little or no impact to government business\/mission needs." } ] } ] },
           
           { "control-id" : "au-12",
             "removals" : 
@@ -791,11 +888,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ca-1",
             "removals" : 
@@ -804,11 +903,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ca-2",
             "removals" : 
@@ -817,22 +918,27 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              { "id" : "ca-2_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-2 Additional FedRAMP Requirements and Guidance",
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
                 "parts" : 
-                { "id" : "ca-2_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Annual Assessment Guidance [https:\/\/www.fedramp.gov\/documents\/](https:\/\/www.fedramp.gov\/documents\/)" } } } },
+                [ 
+                  { "id" : "ca-2_fr",
+                    "name" : "item",
+                    "title" : "CA-2 Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "ca-2_fr_gdn.1",
+                        "name" : "guidance",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Guidance:" } ],
+                        "prose" : "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Annual Assessment Guidance [https:\/\/www.fedramp.gov\/documents\/](https:\/\/www.fedramp.gov\/documents\/)" } ] } ] } ] },
           
           { "control-id" : "ca-2.1",
             "removals" : 
@@ -841,11 +947,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ca-3",
             "removals" : 
@@ -854,16 +962,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: There are connection(s) to external systems.  Connections (if any) shall be authorized and must:\n\t\t\t\t\t1) Identify the interface\/connection.\n\t\t\t\t\t2) Detail what data is involved and its sensitivity.\n\t\t\t\t\t3) Determine whether the connection is one-way or bi-directional.\n\t\t\t\t\t4) Identify how the connection is secured." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: There are connection(s) to external systems.  Connections (if any) shall be authorized and must:\n\t\t\t\t\t1) Identify the interface\/connection.\n\t\t\t\t\t2) Detail what data is involved and its sensitivity.\n\t\t\t\t\t3) Determine whether the connection is one-way or bi-directional.\n\t\t\t\t\t4) Identify how the connection is secured." } ] } ] },
           
           { "control-id" : "ca-5",
             "removals" : 
@@ -872,16 +982,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Attestation - for compliance with FedRAMP Tailored LI-SaaS Continuous Monitoring Requirements." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Attestation - for compliance with FedRAMP Tailored LI-SaaS Continuous Monitoring Requirements." } ] } ] },
           
           { "control-id" : "ca-6",
             "removals" : 
@@ -890,22 +1002,27 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              { "id" : "ca-6_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-6(c) Additional FedRAMP Requirements and Guidance",
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
                 "parts" : 
-                { "id" : "ca-6_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Significant change is defined in NIST Special Publication 800-37 Revision 1, Appendix F. The service provider describes the types of changes to the information system or the environment of operations that would impact the risk posture. The types of changes are approved and accepted by the Authorizing Official." } } } },
+                [ 
+                  { "id" : "ca-6_fr",
+                    "name" : "item",
+                    "title" : "CA-6(c) Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "ca-6_fr_gdn.1",
+                        "name" : "guidance",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Guidance:" } ],
+                        "prose" : "Significant change is defined in NIST Special Publication 800-37 Revision 1, Appendix F. The service provider describes the types of changes to the information system or the environment of operations that would impact the risk posture. The types of changes are approved and accepted by the Authorizing Official." } ] } ] } ] },
           
           { "control-id" : "ca-7",
             "removals" : 
@@ -914,29 +1031,35 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              { "id" : "ca-7_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-7 Additional FedRAMP Requirements and Guidance",
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
                 "parts" : 
                 [ 
-                  { "id" : "ca-7_fr_gdn.1",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "CSPs must provide evidence of closure and remediation of high vulnerabilities within the timeframe for standard POA&M updates." },
-                  
-                  { "id" : "ca-7_fr_gdn.2",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Continuous Monitoring Strategy Guide [https:\/\/www.fedramp.gov\/documents\/](https:\/\/www.fedramp.gov\/documents\/)" } ] } } },
+                  { "id" : "ca-7_fr",
+                    "name" : "item",
+                    "title" : "CA-7 Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "ca-7_fr_gdn.1",
+                        "name" : "guidance",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Guidance:" } ],
+                        "prose" : "CSPs must provide evidence of closure and remediation of high vulnerabilities within the timeframe for standard POA&M updates." },
+                      
+                      { "id" : "ca-7_fr_gdn.2",
+                        "name" : "guidance",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Guidance:" } ],
+                        "prose" : "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Continuous Monitoring Strategy Guide [https:\/\/www.fedramp.gov\/documents\/](https:\/\/www.fedramp.gov\/documents\/)" } ] } ] } ] },
           
           { "control-id" : "ca-9",
             "removals" : 
@@ -945,16 +1068,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: There are connection(s) to external systems.  Connections (if any) shall be authorized and must:\n\t\t\t\t\t1) Identify the interface\/connection.\n\t\t\t\t\t2) Detail what data is involved and its sensitivity.\n\t\t\t\t\t3) Determine whether the connection is one-way or bi-directional.\n\t\t\t\t\t4) Identify how the connection is secured." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: There are connection(s) to external systems.  Connections (if any) shall be authorized and must:\n\t\t\t\t\t1) Identify the interface\/connection.\n\t\t\t\t\t2) Detail what data is involved and its sensitivity.\n\t\t\t\t\t3) Determine whether the connection is one-way or bi-directional.\n\t\t\t\t\t4) Identify how the connection is secured." } ] } ] },
           
           { "control-id" : "cm-1",
             "removals" : 
@@ -963,11 +1088,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "cm-2",
             "removals" : 
@@ -976,11 +1103,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "cm-4",
             "removals" : 
@@ -989,11 +1118,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "cm-6",
             "removals" : 
@@ -1002,41 +1133,47 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              [ 
-                { "name" : "comment",
-                  "ns" : "fedramp",
-                  "class" : "tailored-designation",
-                  "prose" : "Required - Specifically include details of least functionality." },
-                
-                { "id" : "cm-6_fr",
-                  "name" : "item",
-                  "ns" : "fedramp",
-                  "title" : "CM-6(a) Additional FedRAMP Requirements and Guidance",
-                  "parts" : 
-                  [ 
-                    { "id" : "cm-6_fr_smt.1",
-                      "name" : "item",
-                      "properties" : 
-                      { "label" : "Requirement 1:" },
-                      "prose" : "The service provider shall use the Center for Internet Security guidelines (Level 1) to establish configuration settings or establishes its own configuration settings if USGCB is not available. " },
-                    
-                    { "id" : "cm-6_fr_smt.2",
-                      "name" : "item",
-                      "properties" : 
-                      { "label" : "Requirement 2:" },
-                      "prose" : "The service provider shall ensure that checklists for configuration settings are Security Content Automation Protocol (SCAP) ([http:\/\/scap.nist.gov\/](http:\/\/scap.nist.gov\/)) validated or SCAP compatible (if validated checklists are not available)." },
-                    
-                    { "id" : "cm-6_fr_gdn.1",
-                      "name" : "guidance",
-                      "properties" : 
-                      { "label" : "Guidance:" },
-                      "prose" : "Information on the USGCB checklists can be found at: [https:\/\/csrc.nist.gov\/Projects\/United-States-Government-Configuration-Baseline](https:\/\/csrc.nist.gov\/Projects\/United-States-Government-Configuration-Baseline)." } ] } ] } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Required - Specifically include details of least functionality." },
+                  
+                  { "id" : "cm-6_fr",
+                    "name" : "item",
+                    "title" : "CM-6(a) Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "cm-6_fr_smt.1",
+                        "name" : "item",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Requirement 1:" } ],
+                        "prose" : "The service provider shall use the Center for Internet Security guidelines (Level 1) to establish configuration settings or establishes its own configuration settings if USGCB is not available. " },
+                      
+                      { "id" : "cm-6_fr_smt.2",
+                        "name" : "item",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Requirement 2:" } ],
+                        "prose" : "The service provider shall ensure that checklists for configuration settings are Security Content Automation Protocol (SCAP) ([http:\/\/scap.nist.gov\/](http:\/\/scap.nist.gov\/)) validated or SCAP compatible (if validated checklists are not available)." },
+                      
+                      { "id" : "cm-6_fr_gdn.1",
+                        "name" : "guidance",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Guidance:" } ],
+                        "prose" : "Information on the USGCB checklists can be found at: [https:\/\/csrc.nist.gov\/Projects\/United-States-Government-Configuration-Baseline](https:\/\/csrc.nist.gov\/Projects\/United-States-Government-Configuration-Baseline)." } ] } ] } ] },
           
           { "control-id" : "cm-7",
             "removals" : 
@@ -1045,11 +1182,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "cm-8",
             "removals" : 
@@ -1058,22 +1197,27 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              { "id" : "cm-8_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CM-8 Additional FedRAMP Requirements and Guidance",
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
                 "parts" : 
-                { "id" : "cm-8_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "Must be provided at least monthly or when there is a change." } } } },
+                [ 
+                  { "id" : "cm-8_fr",
+                    "name" : "item",
+                    "title" : "CM-8 Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "cm-8_fr_smt.1",
+                        "name" : "item",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Requirement:" } ],
+                        "prose" : "Must be provided at least monthly or when there is a change." } ] } ] } ] },
           
           { "control-id" : "cm-10",
             "removals" : 
@@ -1082,16 +1226,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "nso" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO- Not directly related to protection of the data." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO- Not directly related to protection of the data." } ] } ] },
           
           { "control-id" : "cm-11",
             "removals" : 
@@ -1100,16 +1246,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "nso" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO - Boundary is specific to SaaS environment; all access is via web services; users' machine or internal network are not contemplated.  External services (SA-9), internal connection (CA-9), remote access (AC-17), and secure access (SC-12 and SC-13), and privileged authentication (IA-2[1]) are considerations." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO - Boundary is specific to SaaS environment; all access is via web services; users' machine or internal network are not contemplated.  External services (SA-9), internal connection (CA-9), remote access (AC-17), and secure access (SC-12 and SC-13), and privileged authentication (IA-2[1]) are considerations." } ] } ] },
           
           { "control-id" : "cp-1",
             "removals" : 
@@ -1118,11 +1266,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "cp-2",
             "removals" : 
@@ -1131,16 +1281,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "nso" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO - Loss of availability of the SaaS has been determined as little or no impact to government business\/mission needs." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO - Loss of availability of the SaaS has been determined as little or no impact to government business\/mission needs." } ] } ] },
           
           { "control-id" : "cp-3",
             "removals" : 
@@ -1149,16 +1301,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "nso" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO - Loss of availability of the SaaS has been determined as little or no impact to government business\/mission needs." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO - Loss of availability of the SaaS has been determined as little or no impact to government business\/mission needs." } ] } ] },
           
           { "control-id" : "cp-4",
             "removals" : 
@@ -1167,16 +1321,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "nso" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO - Loss of availability of the SaaS has been determined as little or no impact to government business\/mission needs." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO - Loss of availability of the SaaS has been determined as little or no impact to government business\/mission needs." } ] } ] },
           
           { "control-id" : "cp-9",
             "removals" : 
@@ -1185,41 +1341,51 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              { "id" : "cp-9_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CP-9 Additional FedRAMP Requirements and Guidance",
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
                 "parts" : 
                 [ 
-                  { "id" : "cp-9_fr_smt.1",
+                  { "id" : "cp-9_fr",
                     "name" : "item",
-                    "properties" : 
-                    { "label" : "Requirement:" },
-                    "prose" : "The service provider shall determine what elements of the cloud environment require the Information System Backup control. The service provider shall determine how Information System Backup is going to be verified and appropriate periodicity of the check." },
-                  
-                  { "id" : "cp-9_fr_smt.a",
-                    "name" : "item",
-                    "properties" : 
-                    { "label" : "CP-9(a) Requirement:" },
-                    "prose" : "The service provider maintains at least three backup copies of user-level information (at least one of which is available online)." },
-                  
-                  { "id" : "cp-9_fr_smt.b",
-                    "name" : "item",
-                    "properties" : 
-                    { "label" : "CP-9(b)Requirement:" },
-                    "prose" : "The service provider maintains at least three backup copies of system-level information (at least one of which is available online)." },
-                  
-                  { "id" : "cp-9_fr_smt.c",
-                    "name" : "item",
-                    "properties" : 
-                    { "label" : "CP-9(c)Requirement:" },
-                    "prose" : "The service provider maintains at least three backup copies of information system documentation including security information (at least one of which is available online)." } ] } } },
+                    "title" : "CP-9 Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "cp-9_fr_smt.1",
+                        "name" : "item",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Requirement:" } ],
+                        "prose" : "The service provider shall determine what elements of the cloud environment require the Information System Backup control. The service provider shall determine how Information System Backup is going to be verified and appropriate periodicity of the check." },
+                      
+                      { "id" : "cp-9_fr_smt.a",
+                        "name" : "item",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "CP-9(a) Requirement:" } ],
+                        "prose" : "The service provider maintains at least three backup copies of user-level information (at least one of which is available online)." },
+                      
+                      { "id" : "cp-9_fr_smt.b",
+                        "name" : "item",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "CP-9(b)Requirement:" } ],
+                        "prose" : "The service provider maintains at least three backup copies of system-level information (at least one of which is available online)." },
+                      
+                      { "id" : "cp-9_fr_smt.c",
+                        "name" : "item",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "CP-9(c)Requirement:" } ],
+                        "prose" : "The service provider maintains at least three backup copies of information system documentation including security information (at least one of which is available online)." } ] } ] } ] },
           
           { "control-id" : "cp-10",
             "removals" : 
@@ -1228,16 +1394,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "nso" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO - Loss of availability of the SaaS has been determined as little or no impact to government business\/mission needs." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO - Loss of availability of the SaaS has been determined as little or no impact to government business\/mission needs." } ] } ] },
           
           { "control-id" : "ia-1",
             "removals" : 
@@ -1246,11 +1414,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ia-2",
             "removals" : 
@@ -1259,21 +1429,22 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              [ 
-                { "ns" : "fedramp",
-                  "class" : "tailored-designation",
-                  "nso" : "" },
-                
-                { "ns" : "fedramp",
-                  "class" : "tailored-designation",
-                  "attest" : "" } ],
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO for non-privileged users. Attestation for privileged users related to multi-factor identification and authentication - specifically include description of management of service accounts." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" },
+                  
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO for non-privileged users. Attestation for privileged users related to multi-factor identification and authentication - specifically include description of management of service accounts." } ] } ] },
           
           { "control-id" : "ia-2.1",
             "removals" : 
@@ -1282,11 +1453,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "ia-2.12",
             "removals" : 
@@ -1295,28 +1468,31 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              [ 
-                { "name" : "comment",
-                  "ns" : "fedramp",
-                  "class" : "tailored-designation",
-                  "prose" : "Condition: Must document and assess for privileged users. May attest to this control for non-privileged users. FedRAMP requires a minimum of multi-factor authentication for all Federal privileged users, if acceptance of PIV credentials is not supported.  The implementation status and details of how this control is implemented must be clearly defined by the CSP." },
-                
-                { "id" : "ia-2.12_fr",
-                  "name" : "item",
-                  "ns" : "fedramp",
-                  "title" : "IA-2 (12) Additional FedRAMP Requirements and Guidance",
-                  "parts" : 
-                  { "id" : "ia-2.12_fr_gdn.1",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "Include Common Access Card (CAC), i.e., the DoD technical implementation of PIV\/FIPS 201\/HSPD-12." } } ] } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Must document and assess for privileged users. May attest to this control for non-privileged users. FedRAMP requires a minimum of multi-factor authentication for all Federal privileged users, if acceptance of PIV credentials is not supported.  The implementation status and details of how this control is implemented must be clearly defined by the CSP." },
+                  
+                  { "id" : "ia-2.12_fr",
+                    "name" : "item",
+                    "title" : "IA-2 (12) Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "ia-2.12_fr_gdn.1",
+                        "name" : "guidance",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Guidance:" } ],
+                        "prose" : "Include Common Access Card (CAC), i.e., the DoD technical implementation of PIV\/FIPS 201\/HSPD-12." } ] } ] } ] },
           
           { "control-id" : "ia-4",
             "removals" : 
@@ -1325,11 +1501,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ia-5",
             "removals" : 
@@ -1338,11 +1516,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ia-5.1",
             "removals" : 
@@ -1351,11 +1531,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ia-5.11",
             "removals" : 
@@ -1364,21 +1546,22 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              [ 
-                { "ns" : "fedramp",
-                  "class" : "tailored-designation",
-                  "fed" : "" },
-                
-                { "ns" : "fedramp",
-                  "class" : "tailored-designation",
-                  "conditional" : "" } ],
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "FED - for Federal privileged users. Condition - Must document and assess for privileged users. May attest to this control for non-privileged users." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "FED" },
+                  
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "FED - for Federal privileged users. Condition - Must document and assess for privileged users. May attest to this control for non-privileged users." } ] } ] },
           
           { "control-id" : "ia-6",
             "removals" : 
@@ -1387,11 +1570,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "ia-7",
             "removals" : 
@@ -1400,11 +1585,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ia-8",
             "removals" : 
@@ -1413,11 +1600,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ia-8.1",
             "removals" : 
@@ -1426,16 +1615,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Must document and assess for privileged users. May attest to this control for non-privileged users. FedRAMP requires a minimum of multi-factor authentication for all Federal privileged users, if acceptance of PIV credentials is not supported.  The implementation status and details of how this control is implemented must be clearly defined by the CSP." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Must document and assess for privileged users. May attest to this control for non-privileged users. FedRAMP requires a minimum of multi-factor authentication for all Federal privileged users, if acceptance of PIV credentials is not supported.  The implementation status and details of how this control is implemented must be clearly defined by the CSP." } ] } ] },
           
           { "control-id" : "ia-8.2",
             "removals" : 
@@ -1444,16 +1635,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Must document and assess for privileged users. May attest to this control for non-privileged users. FedRAMP requires a minimum of multi-factor authentication for all Federal privileged users, if acceptance of PIV credentials is not supported.  The implementation status and details of how this control is implemented must be clearly defined by the CSP." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Must document and assess for privileged users. May attest to this control for non-privileged users. FedRAMP requires a minimum of multi-factor authentication for all Federal privileged users, if acceptance of PIV credentials is not supported.  The implementation status and details of how this control is implemented must be clearly defined by the CSP." } ] } ] },
           
           { "control-id" : "ia-8.3",
             "removals" : 
@@ -1462,11 +1655,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ia-8.4",
             "removals" : 
@@ -1475,11 +1670,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ir-1",
             "removals" : 
@@ -1488,11 +1685,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ir-2",
             "removals" : 
@@ -1501,11 +1700,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ir-4",
             "removals" : 
@@ -1514,22 +1715,27 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              { "id" : "ir-4_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IR-4 Additional FedRAMP Requirements and Guidance",
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
                 "parts" : 
-                { "id" : "ir-4_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "The service provider ensures that individuals conducting incident handling meet personnel security requirements commensurate with the criticality\/sensitivity of the information being processed, stored, and transmitted by the information system." } } } },
+                [ 
+                  { "id" : "ir-4_fr",
+                    "name" : "item",
+                    "title" : "IR-4 Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "ir-4_fr_smt.1",
+                        "name" : "item",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Requirement:" } ],
+                        "prose" : "The service provider ensures that individuals conducting incident handling meet personnel security requirements commensurate with the criticality\/sensitivity of the information being processed, stored, and transmitted by the information system." } ] } ] } ] },
           
           { "control-id" : "ir-5",
             "removals" : 
@@ -1538,11 +1744,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ir-6",
             "removals" : 
@@ -1551,22 +1759,27 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              { "id" : "ir-6_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IR-6 Additional FedRAMP Requirements and Guidance",
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
                 "parts" : 
-                { "id" : "ir-6_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "Report security incident information according to FedRAMP Incident Communications Procedure." } } } },
+                [ 
+                  { "id" : "ir-6_fr",
+                    "name" : "item",
+                    "title" : "IR-6 Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "ir-6_fr_smt.1",
+                        "name" : "item",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Requirement:" } ],
+                        "prose" : "Report security incident information according to FedRAMP Incident Communications Procedure." } ] } ] } ] },
           
           { "control-id" : "ir-7",
             "removals" : 
@@ -1575,11 +1788,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ir-8",
             "removals" : 
@@ -1588,16 +1803,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Attestation - Specifically attest to US-CERT compliance." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Attestation - Specifically attest to US-CERT compliance." } ] } ] },
           
           { "control-id" : "ir-9",
             "removals" : 
@@ -1606,16 +1823,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Attestation - Specifically describe information spillage response processes." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Attestation - Specifically describe information spillage response processes." } ] } ] },
           
           { "control-id" : "ma-1",
             "removals" : 
@@ -1624,11 +1843,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ma-2",
             "removals" : 
@@ -1637,16 +1858,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "ma-4",
             "removals" : 
@@ -1655,11 +1878,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ma-5",
             "removals" : 
@@ -1668,16 +1893,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "mp-1",
             "removals" : 
@@ -1686,11 +1913,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "mp-2",
             "removals" : 
@@ -1699,16 +1928,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "mp-6",
             "removals" : 
@@ -1717,16 +1948,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "mp-7",
             "removals" : 
@@ -1735,16 +1968,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "pe-1",
             "removals" : 
@@ -1753,11 +1988,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "pe-2",
             "removals" : 
@@ -1766,16 +2003,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "pe-3",
             "removals" : 
@@ -1784,16 +2023,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "pe-6",
             "removals" : 
@@ -1802,16 +2043,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "pe-8",
             "removals" : 
@@ -1820,16 +2063,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "pe-12",
             "removals" : 
@@ -1838,16 +2083,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "pe-13",
             "removals" : 
@@ -1856,16 +2103,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "pe-14",
             "removals" : 
@@ -1874,28 +2123,31 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              [ 
-                { "name" : "comment",
-                  "ns" : "fedramp",
-                  "class" : "tailored-designation",
-                  "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." },
-                
-                { "id" : "pe-14_fr",
-                  "name" : "item",
-                  "ns" : "fedramp",
-                  "title" : "PE-14(a) Additional FedRAMP Requirements and Guidance",
-                  "parts" : 
-                  { "id" : "pe-14_fr_smt.a",
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." },
+                  
+                  { "id" : "pe-14_fr",
                     "name" : "item",
-                    "properties" : 
-                    { "label" : "(a) Requirement:" },
-                    "prose" : "The service provider measures temperature at server inlets and humidity levels by dew point." } } ] } },
+                    "title" : "PE-14(a) Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "pe-14_fr_smt.a",
+                        "name" : "item",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "(a) Requirement:" } ],
+                        "prose" : "The service provider measures temperature at server inlets and humidity levels by dew point." } ] } ] } ] },
           
           { "control-id" : "pe-15",
             "removals" : 
@@ -1904,16 +2156,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "pe-16",
             "removals" : 
@@ -1922,16 +2176,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS." } ] } ] },
           
           { "control-id" : "pl-1",
             "removals" : 
@@ -1940,11 +2196,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "pl-2",
             "removals" : 
@@ -1953,11 +2211,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "pl-4",
             "removals" : 
@@ -1966,11 +2226,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ps-1",
             "removals" : 
@@ -1979,11 +2241,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ps-2",
             "removals" : 
@@ -1992,11 +2256,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "fed" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "FED" } ] } ] },
           
           { "control-id" : "ps-3",
             "removals" : 
@@ -2005,11 +2271,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "ps-4",
             "removals" : 
@@ -2018,11 +2286,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ps-5",
             "removals" : 
@@ -2031,11 +2301,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ps-6",
             "removals" : 
@@ -2044,11 +2316,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ps-7",
             "removals" : 
@@ -2057,16 +2331,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Attestation - Specifically stating that any third-party security personnel are treated as CSP employees." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Attestation - Specifically stating that any third-party security personnel are treated as CSP employees." } ] } ] },
           
           { "control-id" : "ps-8",
             "removals" : 
@@ -2075,11 +2351,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ra-1",
             "removals" : 
@@ -2088,11 +2366,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "ra-2",
             "removals" : 
@@ -2101,11 +2381,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "ra-3",
             "removals" : 
@@ -2114,29 +2396,35 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              { "id" : "ra-3_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "RA-3 Additional FedRAMP Requirements and Guidance",
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
                 "parts" : 
                 [ 
-                  { "id" : "ra-3_fr_gdn.1",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "Significant change is defined in NIST Special Publication 800-37 Revision 1, Appendix F" },
-                  
-                  { "id" : "ra-3_fr_smt.d",
+                  { "id" : "ra-3_fr",
                     "name" : "item",
-                    "properties" : 
-                    { "label" : "RA-3 (d) Requirement:" },
-                    "prose" : "Include all Authorizing Officials; for JAB authorizations to include FedRAMP." } ] } } },
+                    "title" : "RA-3 Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "ra-3_fr_gdn.1",
+                        "name" : "guidance",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Guidance:" } ],
+                        "prose" : "Significant change is defined in NIST Special Publication 800-37 Revision 1, Appendix F" },
+                      
+                      { "id" : "ra-3_fr_smt.d",
+                        "name" : "item",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "RA-3 (d) Requirement:" } ],
+                        "prose" : "Include all Authorizing Officials; for JAB authorizations to include FedRAMP." } ] } ] } ] },
           
           { "control-id" : "ra-5",
             "removals" : 
@@ -2145,36 +2433,44 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              [ 
-                { "id" : "ra-5_fr_smt.a",
-                  "name" : "item",
-                  "title" : "RA-5(a) Additional FedRAMP Requirements and Guidance",
-                  "properties" : 
-                  { "label" : "RA-5 (a)Requirement:" },
-                  "prose" : "An accredited independent assessor scans operating systems\/infrastructure, web applications, and databases once annually." },
-                
-                { "id" : "ra-5_fr_smt.e",
-                  "name" : "item",
-                  "title" : "RA-5(e) Additional FedRAMP Requirements and Guidance",
-                  "properties" : 
-                  { "label" : "RA-5 (e)Requirement:" },
-                  "prose" : "To include all Authorizing Officials; for JAB authorizations to include FedRAMP." },
-                
-                { "id" : "ra-5_fr",
-                  "name" : "item",
-                  "ns" : "fedramp",
-                  "title" : "RA-5 Additional FedRAMP Requirements and Guidance",
-                  "parts" : 
-                  { "id" : "ra-5_fr_gdn.1",
-                    "name" : "guidance",
+            [ 
+              { "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
+                "parts" : 
+                [ 
+                  { "id" : "ra-5_fr_smt.a",
+                    "name" : "item",
+                    "title" : "RA-5(a) Additional FedRAMP Requirements and Guidance",
                     "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "**See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents> Vulnerability Scanning Requirements** ([https:\/\/www.FedRAMP.gov\/documents\/](https:\/\/www.FedRAMP.gov\/documents\/))" } } ] } },
+                    [ 
+                      { "name" : "label",
+                        "value" : "RA-5 (a)Requirement:" } ],
+                    "prose" : "An accredited independent assessor scans operating systems\/infrastructure, web applications, and databases once annually." },
+                  
+                  { "id" : "ra-5_fr_smt.e",
+                    "name" : "item",
+                    "title" : "RA-5(e) Additional FedRAMP Requirements and Guidance",
+                    "properties" : 
+                    [ 
+                      { "name" : "label",
+                        "value" : "RA-5 (e)Requirement:" } ],
+                    "prose" : "To include all Authorizing Officials; for JAB authorizations to include FedRAMP." },
+                  
+                  { "id" : "ra-5_fr",
+                    "name" : "item",
+                    "title" : "RA-5 Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "ra-5_fr_gdn.1",
+                        "name" : "guidance",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Guidance:" } ],
+                        "prose" : "**See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents> Vulnerability Scanning Requirements** ([https:\/\/www.FedRAMP.gov\/documents\/](https:\/\/www.FedRAMP.gov\/documents\/))" } ] } ] } ] },
           
           { "control-id" : "sa-1",
             "removals" : 
@@ -2183,11 +2479,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "sa-2",
             "removals" : 
@@ -2196,11 +2494,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "sa-3",
             "removals" : 
@@ -2209,11 +2509,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "sa-4",
             "removals" : 
@@ -2222,11 +2524,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "sa-4.10",
             "removals" : 
@@ -2235,11 +2539,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "sa-5",
             "removals" : 
@@ -2248,11 +2554,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "sa-9",
             "removals" : 
@@ -2261,11 +2569,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "sc-1",
             "removals" : 
@@ -2274,11 +2584,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "sc-5",
             "removals" : 
@@ -2287,16 +2599,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: If availability is a requirement, define protections in place as per control requirement." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: If availability is a requirement, define protections in place as per control requirement." } ] } ] },
           
           { "control-id" : "sc-7",
             "removals" : 
@@ -2305,11 +2619,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "sc-12",
             "removals" : 
@@ -2318,22 +2634,27 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" },
-              "parts" : 
-              { "id" : "sc-12_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SC-12 Additional FedRAMP Requirements and Guidance",
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ],
                 "parts" : 
-                { "id" : "sc-12_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Federally approved cryptography." } } } },
+                [ 
+                  { "id" : "sc-12_fr",
+                    "name" : "item",
+                    "title" : "SC-12 Additional FedRAMP Requirements and Guidance",
+                    "parts" : 
+                    [ 
+                      { "id" : "sc-12_fr_gdn.1",
+                        "name" : "guidance",
+                        "properties" : 
+                        [ 
+                          { "name" : "label",
+                            "value" : "Guidance:" } ],
+                        "prose" : "Federally approved cryptography." } ] } ] } ] },
           
           { "control-id" : "sc-13",
             "removals" : 
@@ -2342,16 +2663,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "conditional" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Condition: If implementing need to detail how they meet it or don't meet it." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "CONDITIONAL" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Condition: If implementing need to detail how they meet it or don't meet it." } ] } ] },
           
           { "control-id" : "sc-15",
             "removals" : 
@@ -2360,16 +2683,18 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "nso" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "NSO - Not directly related to the security of the SaaS." } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "NSO" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "NSO - Not directly related to the security of the SaaS." } ] } ] },
           
           { "control-id" : "sc-20",
             "removals" : 
@@ -2378,11 +2703,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "sc-21",
             "removals" : 
@@ -2391,11 +2718,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "sc-22",
             "removals" : 
@@ -2404,11 +2733,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "sc-39",
             "removals" : 
@@ -2417,11 +2748,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "si-1",
             "removals" : 
@@ -2430,11 +2763,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "si-2",
             "removals" : 
@@ -2443,11 +2778,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "si-3",
             "removals" : 
@@ -2456,11 +2793,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "si-4",
             "removals" : 
@@ -2469,11 +2808,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "assess" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ASSESS" } ] } ] },
           
           { "control-id" : "si-5",
             "removals" : 
@@ -2482,11 +2823,13 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" } } },
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ] } ] },
           
           { "control-id" : "si-12",
             "removals" : 
@@ -2495,13 +2838,70 @@
               
               { "name-ref" : "assessment" } ],
             "additions" : 
-            { "position" : "ending",
-              "properties" : 
-              { "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "attest" : "" },
-              "parts" : 
-              { "name" : "comment",
-                "ns" : "fedramp",
-                "class" : "tailored-designation",
-                "prose" : "Attestation - Specifically related to US-CERT and FedRAMP communications procedures." } } } ] } } }
+            [ 
+              { "position" : "ending",
+                "properties" : 
+                [ 
+                  { "name" : "method",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "value" : "ATTEST" } ],
+                "parts" : 
+                [ 
+                  { "name" : "guidance",
+                    "class" : "FedRAMP-Tailored-LI-SaaS",
+                    "prose" : "Attestation - Specifically related to US-CERT and FedRAMP communications procedures." } ] } ] } ] },
+      "back-matter" : 
+      { "resources" : 
+        [ 
+          { "id" : "fedramp-1",
+            "title" : "FedRAMP Applicable Laws and Regulations",
+            "properties" : 
+            [ 
+              { "name" : "conformity",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "fedramp-citations" } ],
+            "rlinks" : 
+            [ 
+              { "href" : "https:\/\/www.fedramp.gov\/assets\/resources\/templates\/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" } ] },
+          
+          { "id" : "fedramp-2",
+            "title" : "FedRAMP Master Acronym and Glossary",
+            "properties" : 
+            [ 
+              { "name" : "conformity",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "fedramp-acronyms" } ],
+            "rlinks" : 
+            [ 
+              { "href" : "https:\/\/www.fedramp.gov\/assets\/resources\/documents\/FedRAMP_Master_Acronym_and_Glossary.pdf" } ] },
+          
+          { "id" : "logo-fedramp",
+            "desc" : "FedRAMP Logo",
+            "properties" : 
+            [ 
+              { "name" : "conformity",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "fedramp-logo" } ],
+            "rlinks" : 
+            [ 
+              { "href" : "https:\/\/www.fedramp.gov\/assets\/img\/logo-main-fedramp.png" } ] },
+          
+          { "id" : "nist-sp-800-53-r4",
+            "title" : "NIST Special Publication (SP) 800-53",
+            "properties" : 
+            [ 
+              { "name" : "version",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "Revision 4" } ],
+            "rlinks" : 
+            [ 
+              { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/nist.gov\/SP800-53\/rev4\/json\/NIST_SP-800-53_rev4_catalog.json",
+                "media-type" : "application\/xml" } ] },
+          
+          { "id" : "fedramp-low-baseline",
+            "title" : "FedRAMP Low Baseline",
+            "rlinks" : 
+            [ 
+              { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/fedramp.gov\/json\/FedRAMP_LOW-baseline_profile.xml",
+                "media-type" : "application\/xml" } ] } ] } } }
+
