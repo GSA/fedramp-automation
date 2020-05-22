@@ -9,7 +9,7 @@
         <version>TEST</version>
         <oscal-version>1.0.0-milestone3</oscal-version>
     </metadata>
-    <import-ap href="" />
+    <import-ap href="#attached-sap" />
     <objectives>
         <controls>
             <description><p>Include all controls in the SSP's baseline, except as explicitly excluded elsewhere.</p></description>
@@ -22,8 +22,7 @@
             <description><p>Includes all objectives for all in-scope controls as defined in the controls assembly.</p></description>
             <all />
         </control-objectives>
-        <objective id="sap-obj-1">
-            <control-link control-id="ac-2" />
+        <objective id="sap-obj-1" control-id="ac-2">
             <part name="objective">
                 <title>SAP Inserted Objective</title>
                 <prop name="lable">AC-2 SAP-1</prop>
@@ -128,5 +127,15 @@
         <resource id="eid-1">
             <prop name="type">evidence</prop>
         </resource>
+        <resource id="sap-ref">
+            <title>[System Name] [FIPS-199 Level] SAP</title>
+            <prop name="type" ns="https://fedramp.gov/ns/oscal">sap</prop>
+            <prop name="publication" ns="https://fedramp.gov/ns/oscal">SAP Date</prop>
+            <prop name="version" ns="https://fedramp.gov/ns/oscal">SAP Version</prop>
+            <rlink media-type="application/xml" href="../sap/CSP_System_SAP.xml" />
+            <rlink media-type="application/json" href="../sap/CSP_System_SAP.json" />
+            <base64 filename="CSP_System_SAP.xml" media-type="application/xml">00000000</base64>
+        </resource>
+        
     </back-matter>
 </assessment-results>

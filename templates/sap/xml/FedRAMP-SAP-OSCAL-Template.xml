@@ -805,7 +805,7 @@
          <prop name="version" ns="https://fedramp.gov/ns/oscal">SSP Version</prop>
          <rlink media-type="application/xml" href="../ssp/CSP_System_SSP.xml" />
          <rlink media-type="application/json" href="../ssp/CSP_System_SSP.json" />
-         <remarks><p>Normally a FedRAMP CSP is responsible for delivering their own SSP; however, if the 3PAO wishes to attach the SSP version they referenced for the assessment, they may do so here and reference it from the import-ssp statement.</p></remarks>
+         <remarks><p>Do not attach the SSP. This should be delivered by the CSP.</p></remarks>
       </resource>
       <resource id="fedramp-1">
          <title>FedRAMP Applicable Laws and Regulations</title>
