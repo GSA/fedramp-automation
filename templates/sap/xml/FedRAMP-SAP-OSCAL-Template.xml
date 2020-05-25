@@ -14,11 +14,11 @@
       <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
       <role id="prepared-by">
          <title>Prepared By</title>
-         <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
+         <desc>The organization that prepared this SAP.</desc>
       </role>
       <role id="prepared-for">
          <title>Prepared For</title>
-         <desc>The organization for which this SSP was prepared. Typically the CSP.</desc>
+         <desc>The organization for which this SAP was prepared. Typically the CSP.</desc>
       </role>
       <role id="content-approver">
          <title>Security Assessment Plan Approval</title>
@@ -277,10 +277,10 @@
          <party-id>soc</party-id>
          <remarks>
             <p>There should be at least three CSP Assessment POCs.</p>
-            <p>At least one sould be available 24x7 during assessment activities.</p>
-            <p>At least one should be an operaitons center, such a SOC or NOC.</p>
+            <p>At least one should be available 24x7 during assessment activities.</p>
+            <p>At least one should be an operations center, such a SOC or NOC.</p>
             <p>The party-id should reference a party in the SSP.</p>
-            <p>If an appropriate party does not exist in the SSP, the SAP tool should add a party to the SAP, or have the CSP add the party to the SSP..</p>
+            <p>If an appropriate party does not exist in the SSP, the SAP tool should add a party to the SAP, or have the CSP add the party to the SSP.</p>
             <p>The SAP tool should not modify the SSP.</p>
          </remarks>
       </responsible-party>
