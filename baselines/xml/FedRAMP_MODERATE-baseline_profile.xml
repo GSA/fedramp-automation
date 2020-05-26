@@ -10461,26 +10461,30 @@
       </alter>
    </modify>
    <back-matter>
-		    <resource id="fedramp-1">
-			      <title>FedRAMP Applicable Laws and Regulations</title>
-			      <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-citations</prop>
-			      <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
-		    </resource>
-		    <resource id="fedramp-2">
-			      <title>FedRAMP Master Acronym and Glossary</title>
-			      <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-acronyms</prop>
-			      <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
-		    </resource>
-		    <resource id="logo-fedramp">
-			      <desc>FedRAMP Logo</desc>
-			      <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-logo</prop>
-			      <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
-		    </resource>
-		    <resource id="nist-sp-800-53-r4">
-			      <title>NIST Special Publication (SP) 800-53</title>
-			      <prop name="version" ns="https://fedramp.gov/ns/oscal">Revision 4</prop>
-			      <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
-		    </resource>
-	  </back-matter>
+      <resource id="fedramp-1">
+         <title>FedRAMP Applicable Laws and Regulations</title>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-citations</prop>
+         <prop name="keep">always</prop>
+         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
+      </resource>
+         <resource id="fedramp-2">
+         <title>FedRAMP Master Acronym and Glossary</title>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-acronyms</prop>
+         <prop name="keep">always</prop>
+         <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
+      </resource>
+      <resource id="logo-fedramp">
+         <desc>FedRAMP Logo</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-logo</prop>
+         <prop name="keep">always</prop>
+         <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
+      </resource>
+      <resource id="nist-sp-800-53-r4">
+         <title>NIST Special Publication (SP) 800-53</title>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">Revision 4</prop>
+         <prop name="keep">always</prop>
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
+      </resource>
+   </back-matter>
 </profile>
 >>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide

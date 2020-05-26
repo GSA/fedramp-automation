@@ -13233,7 +13233,10 @@
             [ 
               { "name" : "conformity",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                "value" : "fedramp-citations" } ],
+                "value" : "fedramp-citations" },
+              
+              { "name" : "keep",
+                "value" : "always" } ],
             "rlinks" : 
             [ 
               { "href" : "https:\/\/www.fedramp.gov\/assets\/resources\/templates\/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" } ] },
@@ -13244,7 +13247,10 @@
             [ 
               { "name" : "conformity",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                "value" : "fedramp-acronyms" } ],
+                "value" : "fedramp-acronyms" },
+              
+              { "name" : "keep",
+                "value" : "always" } ],
             "rlinks" : 
             [ 
               { "href" : "https:\/\/www.fedramp.gov\/assets\/resources\/documents\/FedRAMP_Master_Acronym_and_Glossary.pdf" } ] },
@@ -13255,7 +13261,10 @@
             [ 
               { "name" : "conformity",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                "value" : "fedramp-logo" } ],
+                "value" : "fedramp-logo" },
+              
+              { "name" : "keep",
+                "value" : "always" } ],
             "rlinks" : 
             [ 
               { "href" : "https:\/\/www.fedramp.gov\/assets\/img\/logo-main-fedramp.png" } ] },
@@ -13266,10 +13275,18 @@
             [ 
               { "name" : "version",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                "value" : "Revision 4" } ],
+                "value" : "Revision 4" },
+              
+              { "name" : "keep",
+                "value" : "always" } ],
             "rlinks" : 
             [ 
               { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/nist.gov\/SP800-53\/rev4\/json\/NIST_SP-800-53_rev4_catalog.json",
+<<<<<<< HEAD
                 "media-type" : "application\/xml" } ] } ] } } }
 >>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
+=======
+                "media-type" : "application\/json\/" } ] } ] } } }
+
+>>>>>>> Updated Baselines and Templates
 

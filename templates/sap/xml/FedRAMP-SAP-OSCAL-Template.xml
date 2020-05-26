@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-   id="UUID-SAP-TEMPLATE">
+   id="UUID-FedRAMP-SAP-TEMPLATE-1.0">
    <metadata>
-       <title>FedRAMP Security Assessment Plan (SAP)</title>
+      <title>[System Name] FedRAMP Security Assessment Plan (SAP)</title>
        <published>2020-06-01T00:00:00Z</published>
        <last-modified>2020-06-01T00:00:00Z</last-modified>
        <version>0.0.0</version>
@@ -796,7 +796,13 @@
          <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>no-oscal-ssp</prop>
          <prop name="title-short" ns="https://fedramp.gov/ns/oscal">SFN</prop>
          <prop name="system-id" ns="https://fedramp.gov/ns/oscal">FR00000000</prop>
-         <prop name="baseline-resource-id" ns="https://fedramp.gov/ns/oscal">fedramp-moderate-baseline</prop>
+         <prop name="import-profile" ns="https://fedramp.gov/ns/oscal">#fedramp-moderate-baseline</prop>
+         <prop name="purpose" ns="https://fedramp.gov/ns/oscal">Briefly state the system's purpose. This will appear in the SAR.</prop>
+         <prop name="description" ns="https://fedramp.gov/ns/oscal">Briefly describe the system. This will appear in the SAR.</prop>
+         <remarks>
+            <p>Only include this resource if no OSCAL-based SSP is available.</p>
+            <p>Delete it otherwise.</p>
+         </remarks>
       </resource>
       <resource id="ssp-ref">
          <title>[System Name] [FIPS-199 Level] SSP</title>
@@ -805,7 +811,10 @@
          <prop name="version" ns="https://fedramp.gov/ns/oscal">SSP Version</prop>
          <rlink media-type="application/xml" href="../ssp/CSP_System_SSP.xml" />
          <rlink media-type="application/json" href="../ssp/CSP_System_SSP.json" />
-         <remarks><p>Do not attach the SSP. This should be delivered by the CSP.</p></remarks>
+         <remarks>
+            <p>Use this to point to an OSCAL-based SSP.</p>
+            <p>Do not attach the SSP. This should be delivered by the CSP.</p>
+         </remarks>
       </resource>
       <resource id="fedramp-1">
          <title>FedRAMP Applicable Laws and Regulations</title>
