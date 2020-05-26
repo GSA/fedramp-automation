@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-   id="SSP-sample"
+<system-security-plan 
+   xmlns="http://csrc.nist.gov/ns/oscal/1.0"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="https://raw.githubusercontent.com/usnistgov/OSCAL/master/xml/schema/oscal_ssp_schema.xsd">
+   xsi:schemaLocation="https://raw.githubusercontent.com/usnistgov/OSCAL/master/xml/schema/oscal_ssp_schema.xsd"
+   id="UUID-FedRAMP-SSP-TEMPLATE-1.1">
    <metadata>
       <title>FedRAMP System Security Plan (SSP)</title>
       <published>2020-07-01T00:00:00.00-04:00</published>
@@ -40,6 +41,10 @@
       <role id="content-approver">
          <title>System Security Plan Approval</title>
          <desc>The individual or individuals accountable for the accuracy of this SSP.</desc>
+      </role>
+      <role id="cloud-service-provider">
+         <title>Cloud Service Provider</title>
+         <short-name>CSP</short-name>
       </role>
       <role id="system-owner">
          <title>Information System Owner</title>
@@ -111,10 +116,6 @@
          <title>Consultant</title>
          <desc>Any consultants involved with developing or maintaining this content.</desc>
       </role>
-      <role id="cloud-service-provider">
-         <title>Cloud Service Provider</title>
-         <short-name>CSP</short-name>
-      </role>
       <!-- The following role definitions are samples and may be modified or deleted -->
       <role id="admin-unix">
          <title>[SAMPLE]Unix Administrator</title>
@@ -165,8 +166,8 @@
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">alternate-data-center</prop>
          <remarks><p>For a primary or alternate data center, briefly summarize the components at this location.</p></remarks>
       </location>
-      <!-- The following parties must be present, with the provided ID. -->
-      <!-- Change the content as needed; however, do not change the ID. -->
+      <!-- The following parties must be present. Preserving the ID is no longer required. -->
+      <!-- Change the content as needed. -->
       <party id="csp">
          <org>
             <org-name>Cloud Service Provider (CSP) Name</org-name>
@@ -177,6 +178,8 @@
             </remarks>
          </org>
       </party>
+      <!-- The following parties must be present. Preserving the ID is no longer required. -->
+      <!-- Do not change the FedRAMP PMO and JAB information unless instructed to do so by the FedRAMP PMO. -->
       <party id="fedramp-pmo">
          <org>
             <org-name>Federal Risk and Authorization Management Program: Program Management Office</org-name>
@@ -199,6 +202,7 @@
             <short-name>FedRAMP JAB</short-name>
          </org>
       </party>
+      <!-- The following parties are samples, and may be modified or removed -->
       <party id="external">
          <org>
             <org-name>External Organization</org-name>
@@ -208,7 +212,6 @@
             </remarks>
          </org>
       </party>
-      <!-- The following parties are samples, and may be modified or removed -->
       <party id="party-1">
          <org>
             <org-name>Name of Consulting Org</org-name>

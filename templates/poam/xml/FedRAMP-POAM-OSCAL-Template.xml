@@ -1,19 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://csrc.nist.gov/ns/oscal/1.0 oscal_poam_metaschema.xsd"
-    id="UUID-xx">
+    id="UUID-FedRAMP-POAM-TEMPLATE-1.0">
     
     <metadata>
-        <title>Test File</title>
-        <last-modified>2020-05-03T00:00:00Z</last-modified>
-        <version></version>
-        <oscal-version></oscal-version>
+        <title>[System Name] FedRAMP Plan of Action and Milestones (POA&amp;M)</title>
+        <published>2020-06-01T00:00:00Z</published>
+        <last-modified>2020-06-01T00:00:00Z</last-modified>
+        <version>0.0.0</version>
+        <oscal-version>1.0.0-milestone3</oscal-version>
+
+        <prop name="marking">Controlled Unclassified Information</prop>
+
+        <!-- The following role definitions are required by FedRAMP -->
+        <!-- Do not change the ID's or titles. -->
+        <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
+        <role id="cloud-service-provider">
+            <title>Cloud Service Provider</title>
+            <short-name>CSP</short-name>
+        </role>
+        <role id="prepared-by">
+            <title>Prepared By</title>
+            <desc>The primary individual responsible for maintaining the POA&AMP;M for this system. Typically the CSP's ISSO.</desc>
+        </role>
+        <role id="prepared-for">
+            <title>Prepared For</title>
+            <desc>The organization for which this POA&AMP;M was prepared. Typically the CSP.</desc>
+        </role>
+        <role id="information-system-security-officer">
+            <title>System Information System Security Officer (or Equivalent)</title>
+            <desc>The individual accountable for the security posture of the system on behalf of the system owner.</desc>
+        </role>
+        
+        <!-- The following parties must be present. Preserving the ID is no longer required. -->
+        <!-- Change the content as needed. -->
+        <party id="csp">
+            <org>
+                <org-name>Cloud Service Provider (CSP) Name</org-name>
+                <short-name>CSP Acronym/Short Name</short-name>
+                <location-id>location-1</location-id>
+                <remarks>
+                    <p>Replace sample CSP information.</p>
+                </remarks>
+            </org>
+        </party>
+        <!-- The following parties must be present. Preserving the ID is no longer required. -->
+        <!-- Do not change the FedRAMP PMO and JAB information unless instructed to do so by the FedRAMP PMO. -->
+        <party id="fedramp-pmo">
+            <org>
+                <org-name>Federal Risk and Authorization Management Program: Program Management Office</org-name>
+                <short-name>FedRAMP PMO</short-name>
+                <address type='work'>
+                    <addr-line>1800 F St. NW</addr-line>
+                    <addr-line></addr-line>
+                    <city>Washington</city>
+                    <state>DC</state>
+                    <postal-code></postal-code>
+                    <country>US</country>
+                </address>
+                <email>info@fedramp.gov</email>
+                <url>https://fedramp.gov</url>
+            </org>
+        </party>
+        <party id="fedramp-jab">
+            <org>
+                <org-name>Federal Risk and Authorization Management Program: Joint Authorization Board</org-name>
+                <short-name>FedRAMP JAB</short-name>
+            </org>
+        </party>
+
+        <!-- The following parties are samples, and may be modified or removed -->
+        <party id="person-1">
+            <person>
+                <person-name>[SAMPLE]Person Name 1</person-name>
+                <org-id>csp</org-id>
+                <address type='work'>
+                    <addr-line>Address Line</addr-line>
+                    <city>City</city>
+                    <state>ST</state>
+                    <postal-code>00000</postal-code>
+                    <country>US</country>
+                </address>
+                <email>name@org.domain</email>
+                <phone>202-000-0001</phone>
+                <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+            </person>
+        </party>
+        <party id="person-2">
+            <person>
+                <person-name>[SAMPLE]Person Name 2</person-name>
+                <org-id>csp</org-id>
+                <address type='work'>
+                    <addr-line>Address Line</addr-line>
+                    <city>City</city>
+                    <state>ST</state>
+                    <postal-code>00000</postal-code>
+                    <country>US</country>
+                </address>
+                <email>name@org.domain</email>
+                <phone>202-000-0002</phone>
+                <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+            </person>
+        </party>        
+
     </metadata>
     <import-ssp href="" />
     
     <results>
-        <title></title>
-        <description></description>
+        <title>POA&AMP;M Items</title>
+        <description>These are the POA&amp;M items for this system.</description>
         <start>2020-06-01T00:00:00.0Z</start>
         <end>2020-06-01T00:00:00.0Z</end>
         <finding id="v-1">
@@ -24,6 +118,29 @@
     </results>
     
     <back-matter>
+        <resource id="ssp-information">
+            <title>System's Full Name</title>
+            <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>no-oscal-ssp</prop>
+            <prop name="title-short" ns="https://fedramp.gov/ns/oscal">SFN</prop>
+            <prop name="system-id" ns="https://fedramp.gov/ns/oscal">FR00000000</prop>
+            <prop name="import-profile" ns="https://fedramp.gov/ns/oscal">#fedramp-moderate-baseline</prop>
+            <remarks>
+                <p>Include this resource if no OSCAL-based SSP is available, or if making a monthly POA&amp;M deliverable without an attached OSCAL-based SSP.</p>
+                <p>Delete it otherwise.</p>
+            </remarks>
+        </resource>
+        <resource id="ssp-ref">
+            <title>[System Name] [FIPS-199 Level] SSP</title>
+            <prop name="type" ns="https://fedramp.gov/ns/oscal">ssp</prop>
+            <prop name="publication" ns="https://fedramp.gov/ns/oscal">SSP Date</prop>
+            <prop name="version" ns="https://fedramp.gov/ns/oscal">SSP Version</prop>
+            <rlink media-type="application/xml" href="../ssp/CSP_System_SSP.xml" />
+            <rlink media-type="application/json" href="../ssp/CSP_System_SSP.json" />
+            <remarks>
+                <p>Use this to point to an OSCAL-based SSP. Typically used when delivering the POA&amp;M as part of an initial or annual assessment.</p>
+                <p>Although OSCAL enables the SSP to be Base64-encoded and embedded as a resource, FedRAMP recommends keeping the SSP and POA&amp;M as separate files.</p>
+            </remarks>
+        </resource>
         
     </back-matter>
 </plan-of-action-and-milestones>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <assessment-results xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-    id="UUID-SAR-TEMPLATE">
+    id="UUID-FedRAMP-SAR-TEMPLATE-1.0">
     
    <metadata>
-       <title>FedRAMP Security Assessment Report (SAR)</title>
+       <title>[System Name] FedRAMP Security Assessment Report (SAR)</title>
        <published>2020-06-01T00:00:00Z</published>
        <last-modified>2020-06-01T00:00:00Z</last-modified>
        <version>0.0.0</version>
