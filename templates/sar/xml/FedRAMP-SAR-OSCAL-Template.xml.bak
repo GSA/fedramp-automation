@@ -420,36 +420,22 @@
 
    <results id="results-2">
       <title>2020 Annual Assessment</title>
-      <description><p>Brief assessment description.</p></description>
+      <description/>
       <start>2020-03-01T00:00:00Z</start>
       <end>2020-03-12T00:00:00Z</end>
       <finding id="finding-1">
-         <title>TCW Objective</title>
-         <description><p>An overall statement about the system's satisfaction of this objective.</p></description>
+         <title/>
+         <description/>
          <date-time-stamp>2020-03-01T10:11:12Z</date-time-stamp>
          <objective-status objective-id="ac-1.1_obj.1">
-            <satisfaction system="https://fedramp.gov">satisfied</satisfaction>
-            <implementation-status>implemented</implementation-status>
+            <satisfaction/>
+            <implementation-status/>
          </objective-status>
          <observation id="ob-1">
-            <title>[EXAMPLE]AC Policy</title>
+            <title/>
             <description>
-               <p>[EXAMPLE]The AC policy had all the required elements, except it was missing any indication of management commitment.</p>
-            </description>
-            <observation-type>implementation-statement</observation-type>
-            <reference ref-id="ac-1_imp.01" type="implementation-statement"/>
-            <relevant-evidence resource-id="eid-1" type="observation">
-               <description>
-                  <p>This describes the evidence, and adds relevant detail.</p>
-                  <p>For example, if interview notes, this could cite the exact portion of the
-                     notes.</p>
-               </description>
-            </relevant-evidence>
-         </observation>
-         <observation id="ob-2">
-            <title>AC Policy</title>
-            <description>
-               <p>[EXAMPLE]The AC policy reviewed was newer than the one cited in the SSP.</p>
+               <p>The AC procedure's title, date, and version in the SSP do not match the actual
+                  procedure in use.</p>
             </description>
             <observation-type>implementation-statement</observation-type>
             <reference ref-id="ac-1_imp.01" type="implementation-statement"/>
@@ -471,8 +457,6 @@
             </risk-statement>
             <risk-status>open</risk-status>
          </risk>
-         <party-id>sar-person-1</party-id>
-         <party-id>sar-person-2</party-id>
       </finding>
    </results>
    <results id="results-1">
@@ -484,14 +468,15 @@
          <title/>
          <description/>
          <date-time-stamp>2019-03-01T10:11:12Z</date-time-stamp>
-         <objective-status objective-id="ac-1.1_obj.2">
+         <objective-status objective-id="ac-1.1_obj.1">
             <satisfaction/>
             <implementation-status/>
          </objective-status>
          <observation id="ob-1">
-            <title>[EXAMPLE]AC Policy</title>
+            <title/>
             <description>
-               <p>[EXAMPLE]The AC policy had all the required elements, except it was missing any indication of management commitment.</p>
+               <p>The AC procedure's title, date, and version in the SSP do not match the actual
+                  procedure in use.</p>
             </description>
             <observation-type>implementation-statement</observation-type>
             <reference ref-id="ac-1_imp.01" type="implementation-statement"/>
@@ -513,7 +498,6 @@
             </risk-statement>
             <risk-status>open</risk-status>
          </risk>
-         <party-id>sar-person-1</party-id>
       </finding>
    </results>
    <results id="results-0">
@@ -525,14 +509,15 @@
          <title/>
          <description/>
          <date-time-stamp>2018-03-01T10:11:12Z</date-time-stamp>
-         <objective-status objective-id="ac-1.1_obj.3">
+         <objective-status objective-id="ac-1.1_obj.1">
             <satisfaction/>
             <implementation-status/>
          </objective-status>
          <observation id="ob-1">
-            <title>[EXAMPLE]AC Policy</title>
+            <title/>
             <description>
-               <p>[EXAMPLE]The AC policy had all the required elements, except it was missing any indication of management commitment.</p>
+               <p>The AC procedure's title, date, and version in the SSP do not match the actual
+                  procedure in use.</p>
             </description>
             <observation-type>implementation-statement</observation-type>
             <reference ref-id="ac-1_imp.01" type="implementation-statement"/>
@@ -554,22 +539,12 @@
             </risk-statement>
             <risk-status>open</risk-status>
          </risk>
-         <party-id>sar-person-2</party-id>
       </finding>
    </results>
 
    <back-matter>
       <resource id="eid-1">
-         <title>[EXAMPLE]Interview Notes</title>
          <prop name="type">evidence</prop>
-         <rlink media-type="application/msword" href="./evidence/interview-notes.docx"></rlink>
-         <base64 media-type="application/msword" filename="interview-notes.docx">00000000</base64>
-      </resource>
-      <resource id="eid-2">
-         <title>[EXAMPLE]Screen Shot</title>
-         <prop name="type">evidence</prop>
-         <rlink media-type="image/jpeg" href="./evidence/screen-shot.jpg"></rlink>
-         <base64 media-type="image/jpg" filename="screen-shot.jpg">00000000</base64>
       </resource>
       <resource id="logo-fedramp">
          <desc>FedRAMP Logo</desc>
