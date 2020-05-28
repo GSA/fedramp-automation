@@ -437,7 +437,8 @@
                <p>[EXAMPLE]The AC policy had all the required elements, except it was missing any indication of management commitment.</p>
             </description>
             <observation-type>implementation-statement</observation-type>
-            <reference ref-id="ac-1_imp.01" type="implementation-statement"/>
+            <reference ref-id="ac-1_stmt.a" type="implementation-statement" />
+            <reference ref-id="person-7" type="party" />
             <relevant-evidence resource-id="eid-1" type="observation">
                <description>
                   <p>This describes the evidence, and adds relevant detail.</p>
@@ -465,16 +466,196 @@
             <title>Risk Title</title>
             <description>
                <p>This is a description of the identified risk.</p>
+               <p>TCW: Identified Risk.</p>
+               <p>Scans: Vulnerability Description.</p>
+               <p>Pen Test: Risk Description.</p>
+               <p>RET: Description.</p>
             </description>
+            
+            <prop name="likelihood" class='initial' ns="https://fedramp.gov/ns/oscal">high</prop>
+            <prop name="impact" class='initial' ns="https://fedramp.gov/ns/oscal">moderate</prop>
+            
             <risk-statement>
                <p>This is a statement about the identified risk.</p>
+               <p>TCW: Risk Statement..</p>
+               <p>Scans: N/A.</p>
+               <p>Pen Risk Statement.</p>
+               <p>RET: Risk Statement.</p>
             </risk-statement>
+            
+            <remediation id="rem-1" type="recommendation">
+               <title></title>
+               <description>
+                  <p>A description of the recommended remediation.</p>
+                  <p>TCW: Assessor's recommended remediation (type='recommendation').</p>
+                  <p>Scans: Tool's recommended remediation (type='recommendation')</p>
+                  <p>Pen Test: Assessor's recommended remediation (type='recommendation')</p>
+                  <p>RET: Assessor's recommended remediation (type='recommendation').</p>
+                  <p>POA&amp;M: CSP's intended remediation (no type flag).</p>
+               </description>
+               <id-ref id="assessor" type="party" />
+            </remediation>
+            
+            <risk-status>open</risk-status>
+         </risk>         <party-id>sar-person-1</party-id>
+         <party-id>sar-person-2</party-id>
+      </finding>
+      <finding id="finding-2">
+         <title>AU-2</title>
+         <description><p>An overall statement about the system's satisfaction of this objective.</p></description>
+         <date-time-stamp>2020-03-01T10:11:12Z</date-time-stamp>
+         <objective-status objective-id="au-2.a_obj.2">
+            <satisfaction system="https://fedramp.gov">satisfied</satisfaction>
+            <implementation-status>implemented</implementation-status>
+         </objective-status>
+         <observation id="ob-1">
+            <title>[EXAMPLE]AC Policy</title>
+            <description>
+               <p>[EXAMPLE]The AC policy had all the required elements, except it was missing any indication of management commitment.</p>
+            </description>
+            <observation-type>implementation-statement</observation-type>
+            <reference ref-id="au-2_stmt.a" type="implementation-statement" />
+            <reference ref-id="" type="" />
+            <relevant-evidence resource-id="eid-1" type="observation">
+               <description>
+                  <p>This describes the evidence, and adds relevant detail.</p>
+                  <p>For example, if interview notes, this could cite the exact portion of the
+                     notes.</p>
+               </description>
+            </relevant-evidence>
+         </observation>
+         <observation id="ob-2">
+            <title>AC Policy</title>
+            <description>
+               <p>[EXAMPLE]The AC policy reviewed was newer than the one cited in the SSP.</p>
+            </description>
+            <observation-type>implementation-statement</observation-type>
+            <reference ref-id="ac-1_imp.01" type="implementation-statement"/>
+            <target>
+               <inventory-item-id>inv-1</inventory-item-id>
+               <inventory-item-id>inv-2</inventory-item-id>
+            </target>
+            <target>
+               <component-id>comp-1</component-id>
+            </target>
+            <relevant-evidence resource-id="eid-1" type="observation">
+               <description>
+                  <p>This describes the evidence, and adds relevant detail.</p>
+                  <p>For example, if interview notes, this could cite the exact portion of the
+                     notes.</p>
+               </description>
+            </relevant-evidence>
+         </observation>
+         <risk id="risk-2">
+            <title>Risk Title</title>
+            <description>
+               <p>This is a description of the identified risk.</p>
+               <p>TCW: Identified Risk.</p>
+               <p>Scans: Vulnerability Description.</p>
+               <p>Pen Test: Risk Description.</p>
+               <p>RET: Description.</p>
+            </description>
+
+            <prop name="likelihood" class='initial' ns="https://fedramp.gov/ns/oscal">moderate</prop>
+            <prop name="impact" class='initial' ns="https://fedramp.gov/ns/oscal">low</prop>
+            
+            <risk-statement>
+               <p>This is a statement about the identified risk.</p>
+               <p>TCW: Risk Statement..</p>
+               <p>Scans: N/A.</p>
+               <p>Pen Risk Statement.</p>
+               <p>RET: Risk Statement.</p>
+            </risk-statement>
+
+            <remediation id="rem-1" type="recommendation">
+               <title></title>
+               <description>
+                  <p>A description of the recommended remediation.</p>
+                  <p>TCW: Assessor's recommended remediation (type='recommendation').</p>
+                  <p>Scans: Tool's recommended remediation (type='recommendation')</p>
+                  <p>Pen Test: Assessor's recommended remediation (type='recommendation')</p>
+                  <p>RET: Assessor's recommended remediation (type='recommendation').</p>
+                  <p>POA&amp;M: CSP's intended remediation (no type flag).</p>
+               </description>
+               <id-ref id="assessor" type="party" />
+            </remediation>
+            
             <risk-status>open</risk-status>
          </risk>
          <party-id>sar-person-1</party-id>
          <party-id>sar-person-2</party-id>
       </finding>
-   </results>
+      <finding id="finding-3">
+         <title>Scanner Tool Finding</title>
+         <description><p>An example scanner tool finding.</p></description>
+         <date-time-stamp>2020-03-01T10:11:12Z</date-time-stamp>
+         <observation id="ob-3-1">
+            <description>
+               <p>[EXAMPLE].</p>
+            </description>
+            <prop name="authenticated-scan">yes</prop>
+            <observation-type>vulnerability</observation-type>
+            <reference ref-id="tool-1" type="tool" />
+            <target>
+               <inventory-item-id>inv-1</inventory-item-id>
+               <inventory-item-id>inv-2</inventory-item-id>
+               <inventory-item-id>inv-3</inventory-item-id>
+            </target>
+            <target>
+               <component-id>comp-1</component-id>
+            </target>
+            <relevant-evidence resource-id="raw-scan-1" type="vulnerability">
+               <description>
+                  <p>Scanner tool output.</p>
+               </description>
+            </relevant-evidence>
+         </observation>
+         <risk id="risk-3-1">
+            <title>Vulnerability Title</title>
+            <description>
+               <p>This is a description of the vulnerability provided by the tool.</p>
+            </description>
+            
+            <prop name="vulnerability-id" class="scanner-name">VulID-001</prop>
+            <prop name="source-id" class="scanner-namme">Plugin-ID</prop>
+            <prop name="iavm-severity" class="scanner-namme"></prop>
+            <prop name="AV" class="CVSSv3.1" ns="">network</prop>
+            
+            <prop name="vulnerability-id" class="CVE">CVE-2020-00000</prop>
+
+            <prop name="impact" >tool-provided-severity</prop>
+            <prop name="likelihood" class='initial' ns="https://fedramp.gov/ns/oscal">high</prop>
+            <prop name="impact" class='initial' ns="https://fedramp.gov/ns/oscal">high</prop>
+            
+            <risk-statement>
+               <p>This is a statement about the identified risk as provided by the tool.</p>
+               <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
+            </risk-statement>
+            
+            <remediation id="rem-3-1" type="recommendation">
+               <title>Tool's Recommendation</title>
+               <description>
+                  <p>A description of the recommended remediation as provided by the tool.</p>
+               </description>
+               <id-ref id="tool-1" type="tool" />
+            </remediation>
+            <remediation id="rem-3-2" type="recommendation">
+               <title>Assessor's Recommendation</title>
+               <description>
+                  <p>A description of the recommended remediation as provided by the assessor.</p>
+               </description>
+               <id-ref id="assessor" type="party" />
+               <remarks>
+                  <p>The assessor may add their recommendation in addition to the tool's recommendation, or if no tool recommendation is provided.</p>
+                  <p>The assessor should leave the tool recommendation, even if adding their own.</p>
+               </remarks>
+            </remediation>
+            
+            <risk-status>open</risk-status>
+         </risk>
+         <party-id>sar-person-1</party-id>
+         <party-id>sar-person-2</party-id>
+      </finding>   </results>
    <results id="results-1">
       <title>2019 Annual Assessment</title>
       <description/>
