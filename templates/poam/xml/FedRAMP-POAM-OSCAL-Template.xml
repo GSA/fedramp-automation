@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-   id="UUID-FedRAMP-POAM-TEMPLATE-1.0">
+   uuid="03f53e84-8945-4510-9aeb-2d806305cba3">
 
    <metadata>
       <title>[System Name] FedRAMP Plan of Action and Milestones (POA&amp;M)</title>
@@ -105,14 +105,14 @@
    </metadata>
    <import-ssp href=""/>
 
-   <results>
+   <results uuid="uuid-1">
       <title>POA&amp;M Items</title>
       <description>
          <p>These are the POA&amp;M items for this system.</p>
       </description>
       <start>2020-06-01T00:00:00.0Z</start>
       <end>2020-06-01T00:00:00.0Z</end>
-      <finding id="v-1">
+      <finding uuid="0be71cd3-f850-47db-836f-14511edbd90e">
          <title/>
          <description/>
          <date-time-stamp>2020-06-01T00:00:00.0Z</date-time-stamp>
