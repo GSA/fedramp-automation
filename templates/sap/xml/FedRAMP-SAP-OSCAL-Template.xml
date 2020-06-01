@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="b4c6ca0c-3079-481a-a82c-67667a70e34d">
+   
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Plan (SAP)</title>
       <published>2020-06-01T00:00:00Z</published>
@@ -43,23 +44,23 @@
          <title>Penetration Test Lead</title>
          <desc>The individual leading the penetration test activities.</desc>
       </role>
-      <role id="x_assessment-executive">
+      <role id="assessment-executive">
          <title>Assessment Organization's Managerial POC</title>
          <desc>The management-level POC within the assessor's organization accountable for the organization's assessment performance.</desc>
       </role>
-      <role id="x_csp-assessment-poc">
+      <role id="csp-assessment-poc">
          <title>CSP POCs During Testing</title>
          <desc>At least three CSP testing points of contact must be identified in a FedRAMP SAP.</desc>
       </role>
-      <role id="x_csp-operations-center">
+      <role id="csp-operations-center">
          <title>CSP Operations POC</title>
          <desc>An operations center role, such as a SOC or NOC.</desc>
       </role>
-      <role id="x_csp-end-of-testing-poc">
+      <role id="csp-end-of-testing-poc">
          <title>CSP's End of Testing Notification POC</title>
          <desc>A role for an individual within the CSP to be notified by the assessor when testing is complete.</desc>
       </role>
-      <role id="x_csp-results-poc">
+      <role id="csp-results-poc">
          <title>CSP Results POCs </title>
          <desc>A role for the individuals within the CSP who are to receive the assessment results.</desc>
       </role>
@@ -68,7 +69,9 @@
          <desc>T.</desc>
       </role>
 
-      <location uuid="93b16ee0-60ce-4e21-a1a4-3caa065fbdd9">
+
+      <location uuid="2ba201ac-8ee9-4a1d-812a-a755591a3963">
+         <title>Assessor's HQ</title>
          <address type="work">
             <addr-line>Suite 0000</addr-line>
             <addr-line>1234 Some Street</addr-line>
@@ -82,176 +85,168 @@
                location.</p>
          </remarks>
       </location>
-
-
-      <!-- The following parties may be added, modified, or removed using any unique ID. -->
-      <party uuid="49f73135-efab-4275-9a79-003656ad890a">
-         <org>
-            <org-name>Assessment Organization Name</org-name>
-            <short-name>Acronym/Short Name</short-name>
-            <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
-            <url>https://assesor.web.site</url>
-            <prop name="iso-iec-17020-identifier" ns="https://fedramp.gov/ns/oscal">0000.00</prop>
-            <remarks>
-               <p>Replace sample 3PAO information.</p>
-               <p>If the assessor is A2LA Certified, include the ISO/IEC-17020 </p>
-            </remarks>
-         </org>
+      
+      <party uuid="49f73135-efab-4275-9a79-003656ad890a" type="organization">
+         <party-name>Assessment Organization Name</party-name>
+         <short-name>Acronym/Short Name</short-name>
+         <prop name="iso-iec-17020-identifier" ns="https://fedramp.gov/ns/oscal">0000.00</prop>
+         <link href="https://assesor.web.site" rel="home-page" />
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <remarks>
+            <p>Replace sample 3PAO information.</p>
+            <p>If the assessor is A2LA Certified, include the ISO/IEC-17020 </p>
+         </remarks>
       </party>
       
-      <!-- The following parties are samples, and may be modified or removed -->
-      <party uuid="f4568fda-c6d2-4640-adec-0012015af7d0">
-         <person>
-            <person-name>[SAMPLE]Person Name 1</person-name>
-            <org-id>assessor</org-id>
-            <address type="work">
-               <addr-line>Office 1-A</addr-line>
-            </address>
-            <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
-            <email>name@org.domain</email>
-            <phone>202-000-0001</phone>
-            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-         </person>
+      <party uuid="f4568fda-c6d2-4640-adec-0012015af7d0" type="person">
+         <party-name>[SAMPLE]Person Name 1</party-name>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+         <address type="work">
+            <addr-line>Office 1-A</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone>202-000-0001</phone>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
       </party>
-      <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe">
-         <person>
-            <person-name>[SAMPLE]Person Name 2</person-name>
-            <org-id>49f73135-efab-4275-9a79-003656ad890a</org-id>
-            <address type="work">
-               <addr-line>Office 2-B</addr-line>
-            </address>
-            <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
-            <email>name@org.domain</email>
-            <phone>202-000-0002</phone>
-         </person>
+      <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
+         <party-name>[SAMPLE]Person Name 2</party-name>
+         <address type="work">
+            <addr-line>Office 2-B</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone>202-000-0002</phone>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
       </party>
-      <party uuid="bcf47707-49e4-4acc-bf43-e63156046390">
-         <person>
-            <person-name>[SAMPLE]Person Name 3</person-name>
-            <org-id>49f73135-efab-4275-9a79-003656ad890a</org-id>
-            <address type="work">
-               <addr-line>Office 3-C</addr-line>
-            </address>
-            <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
-            <email>name@org.domain</email>
-            <phone>202-000-0003</phone>
-         </person>
+      <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person">
+         <party-name>[SAMPLE]Person Name 3</party-name>
+         <address type="work">
+            <addr-line>Office 3-C</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone>202-000-0003</phone>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
       </party>
-      <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9">
-         <person>
-            <person-name>[SAMPLE]Person Name 4</person-name>
-            <org-id>49f73135-efab-4275-9a79-003656ad890a</org-id>
-            <address type="work">
-               <addr-line>Office 4-D</addr-line>
-            </address>
-            <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
-            <email>name@org.domain</email>
-            <phone>202-000-0004</phone>
-         </person>
+      <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person">
+         <party-name>[SAMPLE]Person Name 4</party-name>
+         <address type="work">
+            <addr-line>Office 4-D</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone>202-000-0004</phone>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
       </party>
-      <party uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3">
-         <person>
-            <person-name>[SAMPLE]Person Name 5</person-name>
-            <org-id>assessor</org-id>
-            <address type="work">
-               <addr-line>Office 5-E</addr-line>
-            </address>
-            <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
-            <email>name@org.domain</email>
-            <phone>202-000-0005</phone>
-            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-         </person>
+      <party uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3" type="person">
+         <party-name>[SAMPLE]Person Name 5</party-name>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+         <address type="work">
+            <addr-line>Office 5-E</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone>202-000-0005</phone>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
       </party>
-      <party uuid="ca9fca9c-4a8a-4487-8242-0a06d6fbed1f">
-         <person>
-            <person-name>[SAMPLE]Person Name 6</person-name>
-            <org-name>Agency Name</org-name>
-            <address type="work">
-               <addr-line>Office 6-F</addr-line>
-            </address>
-            <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
-            <email>name@org.domain</email>
-            <phone type="mobile">000-000-0000</phone>
-            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-         </person>
+      <party uuid="ca9fca9c-4a8a-4487-8242-0a06d6fbed1f" type="person">
+         <party-name>[SAMPLE]Person Name 6</party-name>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+         <address type="work">
+            <addr-line>Office 6-F</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone type="mobile">000-000-0000</phone>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
       </party>
-      <party uuid="877e5bdc-07c3-45da-a2b4-35367a9a0cd0">
-         <person>
-            <person-name>[SAMPLE]Person Name 7</person-name>
-            <org-name>CSP Name</org-name>
-            <address type="work">
-               <addr-line>Suite 0000</addr-line>
-               <addr-line>1234 Some Street</addr-line>
-               <city>Haven</city>
-               <state>ME</state>
-               <postal-code>00000</postal-code>
-            </address>
-            <email>name@org.domain</email>
-            <phone type="office">000-000-0000</phone>
-            <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-         </person>
+      <party uuid="877e5bdc-07c3-45da-a2b4-35367a9a0cd0" type="person">
+         <party-name>[SAMPLE]Person Name 7</party-name>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+         <address type="work">
+            <addr-line>Suite 0000</addr-line>
+            <addr-line>1234 Some Street</addr-line>
+            <city>Haven</city>
+            <state>ME</state>
+            <postal-code>00000</postal-code>
+         </address>
+         <email>name@org.domain</email>
+         <phone type="office">000-000-0000</phone>
       </party>
       <responsible-party role-id="prepared-by">
-         <!-- Exacty one -->
          <party-uuid>49f73135-efab-4275-9a79-003656ad890a</party-uuid>
-      </responsible-party>
-      <responsible-party role-id="prepared-for">
-         <!-- Exacty one -->
-         <party-uuid>295f4810-9add-4d64-b28e-06eccd0b6a33</party-uuid>
          <remarks>
-            <p>This is the ID for the CSP in the SSP.</p>
-            <p>If no OSCAL-based SSP exists, create a CSP party in the SAP.</p>
+            <p>Exactly one party</p>
+            <p>This is the assessor.</p>
          </remarks>
       </responsible-party>
-      <!-- Page vi -->
+      <responsible-party role-id="prepared-for">
+         <party-uuid>295f4810-9add-4d64-b28e-06eccd0b6a33</party-uuid>
+         <remarks>
+            <p>Exactly one party.</p>
+            <p>This is the UUID for the CSP in the SSP.</p>
+            <p>If no OSCAL-based SSP exists, create a CSP party in the SAP, and provide that UUID here.</p>
+         </remarks>
+      </responsible-party>
       <responsible-party role-id="content-approver">
-         <!-- one or more-->
          <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+         <remarks>
+            <p>One ore more parties</p>
+         </remarks>
       </responsible-party>
-      <!-- Assessing Organization (3PAO) -->
       <responsible-party role-id="assessor">
-         <!-- Exacty one -->
          <party-uuid>49f73135-efab-4275-9a79-003656ad890a</party-uuid>
+         <remarks>
+            <p>Exactly one party</p>
+            <p>Assessment Organization (3PAO)</p>
+         </remarks>
       </responsible-party>
-      <!-- Assessment Team -->
       <responsible-party role-id="assessment-team">
-         <!-- one or more-->
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
          <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
          <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
          <party-uuid>9135b789-a40c-4a20-9be6-fab23c0ab0f3</party-uuid>
+         <remarks>
+            <p>One or more parties</p>
+         </remarks>
       </responsible-party>
-      <!-- Section 5 - Other Designated Contacts -->
       <responsible-party role-id="assessment-lead">
-         <!-- Exacty one -->
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <remarks>
+            <p>Exactly one party</p>
+         </remarks>
       </responsible-party>
       <responsible-party role-id="penetration-test-team">
-         <!-- one or more-->
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
          <party-uuid>ca9fca9c-4a8a-4487-8242-0a06d6fbed1f</party-uuid>
          <party-uuid>877e5bdc-07c3-45da-a2b4-35367a9a0cd0</party-uuid>
+         <remarks>
+            <p>One or more partys</p>
+         </remarks>
       </responsible-party>
       <responsible-party role-id="penetration-test-lead">
-         <!-- Exacty one -->
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <remarks>
+            <p>Exactly one party</p>
+         </remarks>
       </responsible-party>
-      <responsible-party role-id="x_assessment-executive">
-         <!-- Exacty one -->
+      <responsible-party role-id="assessment-executive">
          <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+         <remarks>
+            <p>Exactly one party</p>
+         </remarks>
       </responsible-party>
-      <responsible-party role-id="x_csp-operations-center">
-         <!-- Exacty one -->
+      <responsible-party role-id="csp-operations-center">
          <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
          <remarks>
-            <p>The party-uuid should reference a party in the SSP.</p>
+            <p>Exactly one party</p>
+            <p>The party-uuid should observation-source a party in the SSP.</p>
             <p>If an appropriate party does not exist in the SSP, the SAP tool should add a party to
                the SAP, or have the CSP add the party to the SSP..</p>
             <p>The SAP tool should not modify the SSP.</p>
          </remarks>
       </responsible-party>
-      <responsible-party role-id="x_csp-assessment-poc">
-         <!-- At least three -->
+      <responsible-party role-id="csp-assessment-poc">
          <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
          <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
@@ -259,20 +254,24 @@
             <p>There should be at least three CSP Assessment POCs.</p>
             <p>At least one should be available 24x7 during assessment activities.</p>
             <p>At least one should be an operations center, such a SOC or NOC.</p>
-            <p>The party-uuid should reference a party in the SSP or SAP.</p>
+            <p>The party-uuid should observation-source a party in the SSP or SAP.</p>
             <p>If an appropriate party does not exist in the SSP or SAP, the SAR tool should add a
                party to the SAR.</p>
             <p>The SAP tool should not modify the SSP.</p>
          </remarks>
       </responsible-party>
-      <responsible-party role-id="x_csp-end-of-testing-poc">
-         <!-- One or More -->
+      <responsible-party role-id="csp-end-of-testing-poc">
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <remarks>
+            <p>One or more parties</p>
+         </remarks>
       </responsible-party>
-      <responsible-party role-id="x_csp-results-poc">
-         <!-- One or More -->
+      <responsible-party role-id="csp-results-poc">
          <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <remarks>
+            <p>One or more parties</p>
+         </remarks>
       </responsible-party>
       
       <remarks>
@@ -281,9 +280,9 @@
       </remarks>
    </metadata>
 
-   <!-- Link this SAP to the SSP -->
    <import-ssp href="../ssp/FedRAMP-SSP-OSCAL-Template.xml">
       <remarks>
+         <p>Link the SAP to the SSP.</p>
          <p>FedRAMP prefers the path for the SSP be relative to the location of this SAP file.
             Absolute links will likely not work when FedRAMP tools import the content.</p>
          <p>This may point to a back-matter resource using a URI fragment.</p>
@@ -293,7 +292,6 @@
       </remarks>
    </import-ssp>
 
-   <!--  === THE APPLICABLE ASSESSMENT OBJECTIVES FROM THE CONTROL BASELINE ===  -->
    <objectives>
       <controls>
          <description>
@@ -344,20 +342,24 @@
          </part>
       </method>
 
+      <remarks>
+         <p>THIS DEFINES THE APPLICABLE ASSESSMENT OBJECTIVES FROM THE CONTROL BASELINE</p>
+      </remarks>
    </objectives>
 
    <!--  === WHAT TO EXPLICITLY INCLUDE AND EXCLUDE FROM THE ASSESSMENT ===  -->
    <assessment-subjects>
-      <!--  === WHAT TO INCLUDE ===  -->
-      <!-- COMPONENTS -->
       <include-subject name="component">
          <description>
             <p>A description of the included component.</p>
          </description>
          <all/>
+         <remarks>
+            <p>This section identifies what to include.</p>
+            <p>This is focused on components.</p>
+         </remarks>
       </include-subject>
 
-      <!-- INVENTORY ITEMS -->
       <include-subject name="inventory-item">
          <description>
             <p>A brief description of the included inventory.</p>
@@ -368,31 +370,38 @@
          <description>
             <p>A brief description of the included inventory.</p>
          </description>
-         <subject-reference uuid="9c04e165-4827-407d-9aa3-25a487de1c65" type="inventory-item"/>
+         <subject-reference uuid-ref="9c04e165-4827-407d-9aa3-25a487de1c65" type="inventory-item"/>
       </include-subject>
       <include-subject name="inventory-item">
          <description>
             <p>Subnets to Test. The first two are defined in the SSP. The Third is defined in the SAP.</p>
          </description>
-         <subject-reference uuid="adbf512b-3246-4519-a16a-c26cb4928054" type="inventory-item"/>
-         <subject-reference uuid="20fb9371-2d68-498c-bb6e-2f43898cfde9" type="inventory-item"/>
-         <subject-reference uuid="59406025-116a-4fee-84c3-932a9968de54" type="inventory-item"/>
+         <subject-reference uuid-ref="adbf512b-3246-4519-a16a-c26cb4928054" type="inventory-item"/>
+         <subject-reference uuid-ref="20fb9371-2d68-498c-bb6e-2f43898cfde9" type="inventory-item"/>
+         <subject-reference uuid-ref="59406025-116a-4fee-84c3-932a9968de54" type="inventory-item"/>
          <!--<all />-->
+         <remarks>
+            <p>This section identifies what to include.</p>
+            <p>This is focused on inventory-items.</p>
+         </remarks>
       </include-subject>
 
-      <!-- LOCATIONS -->
       <include-subject name="location">
          <description>
             <p>A description of the location.</p>
             <p>Provide a summary of the components in-use at this location.</p>
          </description>
-         <subject-reference uuid="be666612-9ce8-4afb-9fb0-a2f71fc0c53c" type="location"/>
+         <subject-reference uuid-ref="be666612-9ce8-4afb-9fb0-a2f71fc0c53c" type="location"/>
       </include-subject>
       <include-subject name="location">
          <description>
             <p>A description of the included location.</p>
          </description>
-         <subject-reference uuid="be666612-9ce8-4afb-9fb0-a2f71fc0c53c" type="location"/>
+         <subject-reference uuid-ref="be666612-9ce8-4afb-9fb0-a2f71fc0c53c" type="location"/>
+         <remarks>
+            <p>This section identifies what to include.</p>
+            <p>This is focused on locations.</p>
+         </remarks>
       </include-subject>
 
       <!-- USERS (ROLES) -->
@@ -410,7 +419,7 @@
          <description>
             <p>A description of the included users or user types.</p>
          </description>
-         <subject-reference uuid="ce1a3dbc-2bf5-4899-9fcf-090e299533bb" type="user"/>
+         <subject-reference uuid-ref="ce1a3dbc-2bf5-4899-9fcf-090e299533bb" type="user"/>
          <remarks>
             <p>This refers to user assemblies identified in the system-implementation section of the
                SSP. </p>
@@ -422,7 +431,11 @@
          <description>
             <p>Exclude identified Windows laptop from scans.</p>
          </description>
-         <subject-reference type="inventory-item" uuid="0f9049ed-a01f-484a-b70d-b1894fd196b8"/>
+         <subject-reference type="inventory-item" uuid-ref="0f9049ed-a01f-484a-b70d-b1894fd196b8"/>
+         <remarks>
+            <p>This section identifies what to exclude.</p>
+            <p>This is focused on inventory-items.</p>
+         </remarks>
       </exclude-subject>
 
       <!--  === LOCAL DEFINITIONS: When SSP content is missing or incorrect (Components, Inventory Items, User Types (put Locations in metadata) ===  -->
@@ -503,7 +516,7 @@
       </local-definitions>
 
       <remarks>
-         <p>All id-refs cited in the include-subject and exclude-subject point to items in the
+         <p>All uuid-refs cited in the include-subject and exclude-subject point to items in the
             imported SSP, this SAP, or both.</p>
          <p>If the assessor needs to create or correct SSP content, the SAP tool should create that
             content in the SAP, not the SSP, so it is attributable to the assessor. (The assessor
@@ -944,7 +957,7 @@
       </resource>
       <resource uuid="7c30125f-c056-4888-9f1a-7ed1b6a1b638">
          <title>[System Name] [FIPS-199 Level] SSP</title>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">ssp</prop>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">system-security-plan</prop>
          <prop name="publication" ns="https://fedramp.gov/ns/oscal">SSP Date</prop>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">SSP Version</prop>
          <rlink media-type="application/xml" href="../ssp/CSP_System_SSP.xml"/>
@@ -970,10 +983,19 @@
       </resource>
       <resource uuid="671dcc43-fb4d-4d93-b321-88beb2844673">
          <desc>Signed SAP</desc>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">signed-sap</prop>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">signature</prop>
          <!-- Use rlink and/or base64 -->
          <rlink href="./signed-sap.pdf" media-type="application/pdf"/>
          <base64 filename="sap.pdf" media-type="application/pdf">00000000</base64>
+         <remarks>
+            <p>FedRAMP is formulating guidelines for handling digital/electronic signatures in OSCAL, and welcome feedback on solutions.</p>
+            <p>For now, FedRAMP recommends one of the following:</p>
+            <ul>
+               <li>Render the OSCAL SAP content as a PDF that is digitally signed and attached.</li>
+               <li>Render the OSCAL SAP content as a printed page that is physically signed, scanned, and attached.</li>
+            </ul>
+            <p>If your organization prefers another approach, please seek prior approval from the FedRAMP PMO.</p>
+         </remarks>
       </resource>
       <resource uuid="8e8d05e4-0d47-4bf9-bbf0-b7070d60a671">
          <desc>Penetration Test Plan</desc>
