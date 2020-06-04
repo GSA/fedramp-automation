@@ -791,7 +791,15 @@
             <end>2020-06-15T00:00:00Z</end>
          </task>
          <task uuid="aa5344be-18c4-4529-8937-0f4b873b8fcd">
-            <title>Perform Testing</title>
+            <title>Perform Assessment Testing</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="8937348c-5ebb-40bd-a8eb-faff99af156e">
+            <title>Perform Penetration Testing</title>
             <description>
                <p>optional description here</p>
             </description>
@@ -971,15 +979,13 @@
          <title>FedRAMP Applicable Laws and Regulations</title>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-citations</prop>
          <rlink
-            href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"
-         />
+            href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" />
       </resource>
       <resource uuid="07145a97-2dd1-4efc-bb10-a8bc93e05342">
          <title>FedRAMP Master Acronym and Glossary</title>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-acronyms</prop>
          <rlink
-            href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"
-         />
+            href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf" />
       </resource>
       <resource uuid="671dcc43-fb4d-4d93-b321-88beb2844673">
          <desc>Signed SAP</desc>
@@ -1015,26 +1021,22 @@
       <resource uuid="031a32be-f9ef-45a0-994e-20eb58456dee">
          <desc>FedRAMP Logo</desc>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-logo</prop>
-         <rlink href="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png"
-         />
+         <rlink href="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png" />
       </resource>
       <resource uuid="fedramp-high-baseline">
          <title>FedRAMP High Baseline</title>
          <rlink media-type="application/xml"
-            href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/baselines/xml/FedRAMP_HIGH-baseline_profile.xml"
-         />
+            href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/baselines/xml/FedRAMP_HIGH-baseline_profile.xml" />
       </resource>
       <resource uuid="fedramp-moderate-baseline">
          <title>FedRAMP Moderate Baseline</title>
          <rlink media-type="application/xml"
-            href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/baselines/xml/FedRAMP_MODERATE-baseline_profile.xml"
-         />
+            href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/baselines/xml/FedRAMP_MODERATE-baseline_profile.xml" />
       </resource>
       <resource uuid="fedramp-low-baseline">
          <title>FedRAMP Low Baseline</title>
          <rlink media-type="application/xml"
-            href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/baselines/xml/FedRAMP_LOW-baseline_profile.xml"
-         />
+            href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/baselines/xml/FedRAMP_LOW-baseline_profile.xml" />
       </resource>
    </back-matter>
 </assessment-plan>
