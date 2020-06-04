@@ -375,24 +375,291 @@
          <prop name="ipv4-address">10.10.10.10</prop>
       </origination>
 
-      <prop name="results-delivery">10 business days after completion of assessment</prop>
-      <annotation name="disclosure">
-         <remarks>
-            <p>This is a disclosure statement that would appear in the rules of engagement.</p>
-         </remarks>
-      </annotation>
-      <annotation name="limitation">
-         <remarks>
-            <p><b>Limitation of Liability</b></p>
-            <p>This is a limitation statement, such as a liability limitation, that would appear in
-               the rules of engagement.</p>
-         </remarks>
-      </annotation>
+      <prop name="recommend-authorization" ns="https://fedramp.gov/ns/oscal">yes</prop>
+      <part name="authorization-statements">
+         <part name="authorization-statement">
+            <prop name="sort-id">001</prop>
+            <p>Priority levels were established based on [describe].</p>
+         </part>
+         <part name="authorization-statement">
+            <prop name="sort-id">002</prop>
+            <p>Notes and other information the assessor may wish to provide related to a continued authorization recommendation.</p>
+         </part>
+         <part name="authorization-statement">
+            <prop name="sort-id">999</prop>
+            <p>[3PAO Name] attests that the SAR from the [system name] [initial | annual] 
+               assessment testing provides a complete assessment of the applicable FedRAMP 
+               controls as stipulated in the SAP. Evidence to validate the successful implementation 
+               of the various security controls has been collected and validated. Based on the 
+               remaining risks, and continuous improvements of security related processes and 
+               controls, [3PAO Name] recommends a continued authorization be granted for 
+               the [system name].</p>
+         </part>
+      </part>
 
    </assets>
-
-   <assessment-activities/>
-
+   
+   <assessment-activities>
+      <test-method uuid="2715174e-9355-4775-bea4-4068e59e916b">
+         <title>Title of the Manual Test</title>
+         <description>
+            <p>Description of the manual test</p>
+         </description>
+         <prop name="type">manual</prop>
+      </test-method>
+      <test-method uuid="3ba68918-80ef-4846-89e0-9f1def7e5223">
+         <title>[SAMPLE]Forceful Browsing</title>
+         <description>
+            <p>We will login as a customer and try to see if we can gain access to the Network
+               Administrator and Database Administrator privileges and authorizations by navigating
+               to different views and manually forcing the browser to various URLs</p>
+         </description>
+         <prop name="type">manual</prop>
+      </test-method>
+      <test-method uuid="2233cf20-282a-4967-ab07-a4b7d1ae3a4b">
+         <title>[SAMPLE]CAPTCHA</title>
+         <description>
+            <p>We will test the CAPTCHA function on the web form manually</p>
+         </description>
+         <prop name="type">manual</prop>
+      </test-method>
+      <test-method uuid="f818a896-3438-409f-a2a4-583a56fa41b4">
+         <title>[SAMPLE]OCSP</title>
+         <description>
+            <p>We will manually test to see if OCSP is validating certificates.</p>
+         </description>
+         <prop name="type">manual</prop>
+      </test-method>
+      
+      <test-method uuid="315b3118-3d2e-420b-b4fb-5acf13b08381">
+         <title>Web Application Test</title>
+         <prop name="type">web-application</prop>
+         <prop name="login-url">https://service.offering.com/login</prop>
+         <prop name="login-id">test-user</prop>
+         <prop name="inventory-item-id">inv-10</prop>
+      </test-method>
+      <test-method uuid="64142a6f-d8d4-47c6-8bb1-a0e33f17664d">
+         <title>Web Application Test</title>
+         <prop name="type">web-application</prop>
+         <prop name="login-url">https://admin-portal.offering.com/login</prop>
+         <prop name="login-id">test-admin</prop>
+         <prop name="inventory-item-id">inv-11</prop>
+      </test-method>
+      
+      <test-method uuid="dc858ece-b430-485d-886c-3a812bb77b13">
+         <title>Role Based Test</title>
+         <prop name="type">role-based</prop>
+         <prop name="login-id">test-user</prop>
+         <prop name="user-id">sys-role-1</prop>
+      </test-method>
+      <test-method uuid="74830d19-2820-4487-bd1d-91d8656b7eb0">
+         <title>Role Based Test</title>
+         <prop name="type">role-based</prop>
+         <prop name="login-id">test-admin</prop>
+         <prop name="user-id">sys-role-2</prop>
+      </test-method>
+      
+      <schedule>
+         <task uuid="17030aaf-7712-4228-8607-a5a97a785efa">
+            <title>Prepare Test Plan</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="b65e7779-bd3d-4a49-9de5-3122c290792f">
+            <title>Meeting to Review Test Plan</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="b8389553-f0f7-4ae9-9331-203608222770">
+            <title>Test Plan Update</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="e1890486-a9f0-4388-b2bc-34fb6c623686">
+            <title>Review CSP Documentation</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="172d4ba2-3362-4e3b-9379-a65a50e399bf">
+            <title>Conduct Interviews of CSP Staff</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="aa5344be-18c4-4529-8937-0f4b873b8fcd">
+            <title>Perform Assessment Testing</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="8937348c-5ebb-40bd-a8eb-faff99af156e">
+            <title>Perform Penetration Testing</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="7f2a5095-5f53-461b-b12f-3d649f6d7a6c">
+            <title>Vulnerability Analysis and Threat Assessment</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="4f90df2a-c94c-494f-9999-0695a4dbe9ca">
+            <title>Risk Exposure Table Development</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task  uuid="0378802d-1288-4305-9eaf-bec8ee1a138c">
+            <title>Complete Draft SAR</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="2a04884f-6b75-4133-857b-ded12e12b38c">
+            <title>Draft SAR Delivered to CSP</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="933b1eea-6ec3-4fbf-850a-33c8f5c44225">
+            <title>Issue Resolution Meeting</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="7f377a32-5012-4d76-becf-9f70d6a9f104">
+            <title>Complete Final Version of SAR</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="45e2af99-bebf-4a2b-ad6f-b325e910aa12">
+            <title>Send Final Version of SAR to CSP and ISSO</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+      </schedule>
+      
+      <include-activity uuid="320326a9-5b04-411c-b1d3-3a1397cd31fc">
+         <description>
+            <p>Port scans and other network service interaction and queries</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="ff14cbb5-5607-4cb7-b211-acf6a1c1044b">
+         <description>
+            <p>Network sniffing, traffic monitoring, traffic analysis, and host discovery</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="e6d7577a-f656-4690-a042-ab8b2693bec0">
+         <description>
+            <p>Attempted logins or other use of systems, with any account name/password</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="51c36191-62a0-4dd7-a254-3fe861beaa51">
+         <description>
+            <p>Attempted structured query language (SQL) injection and other forms of input
+               parameter testing</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="110e8a53-53b9-4717-954d-436782603d94">
+         <description>
+            <p>Use of exploit code for leveraging discovered vulnerabilities</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="d4a8ac08-5c10-419c-a38a-b143bf34172a">
+         <description>
+            <p>Password cracking via capture and scanning of authentication databases</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="14b07a59-426f-4118-9f06-b9662152dd65">
+         <description>
+            <p>Spoofing or deceiving servers regarding network traffic</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="068edc97-dcc9-4179-964e-410273fb3f14">
+         <description>
+            <p>Altering running system configuration except where denial of service would result</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="a50c1bef-a288-4445-ace5-63fc747911f3">
+         <description>
+            <p>Adding user accounts</p>
+         </description>
+      </include-activity>
+      
+      <exclude-activity uuid="e4c19c9e-883f-478a-a519-f4d80ac03a79">
+         <description>
+            <p>Changes to assigned user passwords</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="cfec0189-1cac-4d3a-9c4b-6fdf2a1c8dc8">
+         <description>
+            <p>Modification of user files or system files</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="b9fa9d84-a62c-468b-9b13-807015cdc00a">
+         <description>
+            <p>Telephone modem probes and scans (active and passive)</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="abf9ecc6-1dbe-4659-9694-60b9670bede9">
+         <description>
+            <p>Intentional viewing of [CSP Name] staff email, Internet caches, and/or personnel
+               cookie files</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="2c72c778-e2ce-4fee-b4e0-a182d3134c93">
+         <description>
+            <p>Denial of service attacks</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="8d9de95b-ac7c-4192-af80-2cc7f7f27d0b">
+         <description>
+            <p>Exploits that will introduce new weaknesses to the system</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="e615929e-c1c3-4419-8e39-e6185a0fe1c3">
+         <description>
+            <p>Intentional introduction of malicious code (viruses, Trojans, worms, etc.)</p>
+         </description>
+      </exclude-activity>
+   </assessment-activities>
+   
+   
    <results uuid="af0c8632-e994-48a7-924e-2354b6abace7">
       <title>2020 Annual Assessment</title>
       <description><p>Brief assessment description.</p></description>
@@ -607,6 +874,40 @@
                </description>
             </relevant-evidence>
          </observation>
+         
+         <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+            <title>Operational Requirement</title>
+            <description><p>Provide the justification for the operational requirement.</p></description>
+            <prop name="conformity" ns="https://fedramp.gov/ns/oscal">operational-requirement</prop>
+            <observation-method>EXAMINE</observation-method>
+            <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61">
+               <description><p>A screen shot showing the system impact when patch is applied.</p></description>
+            </relevant-evidence>
+            <relevant-evidence href="https://vendor.site/article/describing/something.htm">
+               <description><p>Vendor detail describing why this happens.</p></description>
+            </relevant-evidence>
+         </observation>
+
+         <observation uuid="46209140-8263-4e74-b3c9-cead4ffed22c">
+            <title>False Positive</title>
+            <description><p>Describe the false positive here.</p></description>
+            <prop name="conformity" ns="https://fedramp.gov/ns/oscal">false-positive</prop>
+            <observation-method>EXAMINE</observation-method>
+            <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61">
+               <description><p>A screen shot showing the setting is correct</p></description>
+            </relevant-evidence>
+            <relevant-evidence href="https://vendor.site/article/describing/something.htm">
+               <description><p>Vendor detail describing why this happens.</p></description>
+            </relevant-evidence>
+         </observation>
+         
+         <observation uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a">
+            <title>Risk Adjustment</title>
+            <description><p>Describe the risk adjustment justification here.</p></description>
+            <prop name="conformity" ns="https://fedramp.gov/ns/oscal">risk-adjustment</prop>
+            <observation-method>EXAMINE</observation-method>
+         </observation>
+         
          <risk uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
             <title>Vulnerability Title</title>
             <description>
@@ -616,19 +917,35 @@
             <risk-metric name="vulnerability-id" system="scanner-name">VulID-001</risk-metric>
             <risk-metric name="plugin-id"        system="scanner-namme">Plugin-ID</risk-metric>
             <risk-metric name="iavm-severity"    system="scanner-namme"></risk-metric>
-            <risk-metric name="AV"               system="CVSSv3.1">network</risk-metric>
-            
+           
             <risk-metric name="vulnerability-id" system="CVE">CVE-2020-00000</risk-metric>
+            <risk-metric name="impact"                     system="scanner-name">high</risk-metric>
 
-            <risk-metric name="impact"     class="initial" system="scanner-name">high</risk-metric>
-            <risk-metric name="likelihood" class='initial' system="https://fedramp.gov">high</risk-metric>
-            <risk-metric name="impact"     class='initial' system="https://fedramp.gov">high</risk-metric>
+            <risk-metric name="likelihood" class="initial" system="https://fedramp.gov">high</risk-metric>
+            <risk-metric name="impact"     class="initial" system="https://fedramp.gov">high</risk-metric>
             <risk-metric name="priority"                   system="https://fedramp.gov">1</risk-metric>
             
+            <risk-metric name="operational-requirement"     system="https://fedramp.gov" />
+            <risk-metric name="false-positive"              system="https://fedramp.gov" />
+
+            <risk-metric name="risk-adjustment"             system="https://fedramp.gov" />
+            <risk-metric name="impact"     class="residual" system="https://fedramp.gov">high</risk-metric>
+            <risk-metric name="likelihood" class="residual" system="https://fedramp.gov">high</risk-metric>
+
+            <risk-metric name="AV"               system="CVSSv3.1">network</risk-metric>
+
             <risk-statement>
                <p>This is a statement about the identified risk as provided by the tool.</p>
                <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
             </risk-statement>
+            
+            <mitigating-factor uuid="260d3c0a-fc2e-4627-9fb9-a003acdc4b14">
+               <description><p>Describe mitigating factor</p></description>
+            </mitigating-factor>            
+            
+            <mitigating-factor uuid="fd061039-e9b0-4b4c-a78b-ca024d411174" implementation-uuid="46f4c261-e488-4fb5-84d6-6a61dd30c3d7">
+               <description><p>Describe why the cited implementation statement justifies lowering the risk.</p></description>
+            </mitigating-factor>            
             
             <remediation uuid="a3106e23-8b79-4b1b-abf4-74f16c51ad0c" type="recommendation">
                <title>Tool's Recommendation</title>
@@ -648,13 +965,104 @@
                   <p>The assessor should leave the tool recommendation, even if adding their own.</p>
                </remarks>
             </remediation>
+            <remediation uuid="752f9b0d-70ea-4576-98f7-fb3bb12524b9" type="actual">
+               <title>CSP's Action to Remediate</title>
+               <description>
+                  <p>Describe what action(s) the CSP took to close the risk.</p>
+               </description>
+               <remediation-origin type="party" uuid-ref="8793d839-c174-4b8a-9131-07459e226fe5" />
+               <remarks>
+                  <p>Recommended and planned remediation entries should remain. Simply add the "actual" remediation.</p>
+                  <p>The remediation-origin should identify the UUID for the CSP as defined in the SSP.</p>
+               </remarks>
+            </remediation>
             
             <risk-status>open</risk-status>
          </risk>
          <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
       </finding>
+
+
+      <finding uuid="b56edab1-8cdc-45f9-8589-35f1bd7b3348">
+         <title>[EXAMPLE]Spear Phishing Results</title>
+         <description><p>The Results of the spear phishing test.</p></description>
+         <date-time-stamp>2020-03-01T10:11:12Z</date-time-stamp>
+         <observation uuid="21b26801-2e00-4e59-979c-bf2a4ed93920">
+            <description>
+               <p>[EXAMPLE]Spear phishing test yielded a 22% click rate.</p>
+               <p>[EXAMPLE]The target threshold was below 20%.</p>
+            </description>
+            <observation-method>TEST</observation-method>
+            <observation-type>finding</observation-type>
+            <origin uuid-ref="8937348c-5ebb-40bd-a8eb-faff99af156e" type="task" />
+            <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
+               <description>
+                  <p>Spear Phishing Report.</p>
+               </description>
+            </relevant-evidence>
+         </observation>
+         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <remarks>
+            <p>When reporting a result for a test such as the spear phishing activity, a risk assembly is required if the result is to be reported in the Risk Exposure Table.</p>
+         </remarks>
+      </finding>
+      
+      <finding uuid="b56edab1-8cdc-45f9-8589-35f1bd7b3348">
+         <title>[EXAMPLE]Penetration Test Result</title>
+         <description><p>A finding from penetration testing activities.</p></description>
+         <date-time-stamp>2020-03-01T10:11:12Z</date-time-stamp>
+         <observation uuid="21b26801-2e00-4e59-979c-bf2a4ed93920">
+            <description>
+               <p>[EXAMPLE]Describe the finding.</p>
+            </description>
+            <observation-method>TEST</observation-method>
+            <observation-type>finding</observation-type>
+            <origin uuid-ref="8937348c-5ebb-40bd-a8eb-faff99af156e" type="task" />
+            <relevant-evidence href="#e552fb72-d662-4c01-b2d7-4dcb2086bb07">
+               <description>
+                  <p>Penetration Test Report.</p>
+               </description>
+            </relevant-evidence>
+         </observation>
+         <risk uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07">
+            <title>Risk Title</title>
+            <description>
+               <p>This is a description of the issue found by the penetration testing team.</p>
+            </description>
+            
+            <risk-metric name="likelihood" class='initial' system="https://fedramp.gov">high</risk-metric>
+            <risk-metric name="impact"     class='initial' system="https://fedramp.gov">high</risk-metric>
+            <risk-metric name="priority"                   system="https://fedramp.gov">1</risk-metric>
+            
+            <risk-statement>
+               <p>This is a statement about the identified risk identified by penetraton testing.</p>
+            </risk-statement>
+            
+            <remediation uuid="69344d05-937e-40f4-9c3f-9aa8702ad99d" type="recommendation">
+               <title>Assessor's Recommendation</title>
+               <description>
+                  <p>A description of the recommended remediation as provided by the assessor.</p>
+               </description>
+               <remediation-origin type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a" />
+               <remarks>
+                  <p>The assessor may add their recommendation.</p>
+               </remarks>
+            </remediation>
+            
+            <risk-status>open</risk-status>
+         </risk>
+         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <remarks>
+            <p>If a penetration test result is positive, such as to say the SOC detected the activities appropriately, no risk is required.</p>
+            <p>If a penetration test result identifies a vulnerability or deficiency, the risk assembly is required.</p>
+         </remarks>
+      </finding>
+
    </results>
+
    <results uuid="cfa9b157-540e-456b-980d-efa789e50ace">
       <title>2019 Annual Assessment</title>
       <description/>
@@ -666,6 +1074,7 @@
          <date-time-stamp>2019-03-01T10:11:12Z</date-time-stamp>
       </finding>
    </results>
+
    <results uuid="d755e7fd-346d-40f0-b538-1b1da1aa5821">
       <title>Initial (2018) Assessment</title>
       <description/>
@@ -750,6 +1159,18 @@
          <prop name="type" ns="https://fedramp.gov/ns/oscal">evidence</prop>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">raw-tool-output</prop>
          <rlink media-type="text/csv" href="./scans/raw_tool_output.csv"></rlink>
+         <remarks>
+            <p>A SAR tool could use either an rlink or base64 field.</p>
+            <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
+            <p>There may be more than one rlink.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
+         </remarks>
+      </resource>
+      <resource uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07">
+         <title>Penetration Test Report</title>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">penetration-test-report</prop>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">report</prop>
+         <rlink media-type="application/pdf" href="./pen_test_report.pdf"></rlink>
          <remarks>
             <p>A SAR tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
