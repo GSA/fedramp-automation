@@ -953,6 +953,10 @@
                   <p>A description of the recommended remediation as provided by the tool.</p>
                </description>
                <remediation-origin type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e" />
+               <remarks>
+                  <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
+                  <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
+               </remarks>
             </remediation>
             <remediation uuid="69344d05-937e-40f4-9c3f-9aa8702ad99d" type="recommendation">
                <title>Assessor's Recommendation</title>
@@ -963,21 +967,25 @@
                <remarks>
                   <p>The assessor may add their recommendation in addition to the tool's recommendation, or if no tool recommendation is provided.</p>
                   <p>The assessor should leave the tool recommendation, even if adding their own.</p>
-               </remarks>
-            </remediation>
-            <remediation uuid="752f9b0d-70ea-4576-98f7-fb3bb12524b9" type="actual">
-               <title>CSP's Action to Remediate</title>
-               <description>
-                  <p>Describe what action(s) the CSP took to close the risk.</p>
-               </description>
-               <remediation-origin type="party" uuid-ref="8793d839-c174-4b8a-9131-07459e226fe5" />
-               <remarks>
-                  <p>Recommended and planned remediation entries should remain. Simply add the "actual" remediation.</p>
-                  <p>The remediation-origin should identify the UUID for the CSP as defined in the SSP.</p>
+                  <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
+                  <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
                </remarks>
             </remediation>
             
             <risk-status>open</risk-status>
+            <closure-actions>
+               <p>Describe what action(s) the CSP took to close the risk.</p>
+               <p>Normally the closure-actions field is only present when the risk-status is "closed".</p>
+               <p>If the risk-status field is set to "open" this field is ignored.</p>
+               <p>[EXAMPLE]Applied patch. Vulnerability no longer found in subsequent scan.</p>
+            </closure-actions>
+            <remediation-tracking>
+               <tracking-entry uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
+                  <date-time-stamp>2020-07-07T00:00:00Z</date-time-stamp>
+                  <title>Closed</title>
+                  <description />
+               </tracking-entry>
+            </remediation-tracking>
          </risk>
          <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
