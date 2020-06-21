@@ -1125,8 +1125,8 @@
          <title>[EXAMPLE]AC Policy</title>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">artifact</prop>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">policy</prop>
-         <prop name="version">2.1</prop>
-         <prop name="publication">2018-11-11T00:00:00Z</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">2.1</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">2018-11-11T00:00:00Z</prop>
          <rlink media-type="application/pdf" href="./artifacts/AC_Policy.pdf"></rlink>
          <base64 media-type="application/pdf" filename="AC_Policy.pdf">00000000</base64>
          <remarks>
@@ -1178,7 +1178,7 @@
          <title>Penetration Test Report</title>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">penetration-test-report</prop>
          <prop name="type" ns="https://fedramp.gov/ns/oscal">report</prop>
-         <rlink media-type="application/pdf" href="./pen_test_report.pdf"></rlink>
+         <rlink media-type="application/pdf" href="./pen_test_report.pdf" />
          <remarks>
             <p>A SAR tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
