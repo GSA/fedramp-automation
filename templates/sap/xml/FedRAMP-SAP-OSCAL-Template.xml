@@ -184,7 +184,7 @@
          <party-uuid>295f4810-9add-4d64-b28e-06eccd0b6a33</party-uuid>
          <remarks>
             <p>Exactly one party.</p>
-            <p>This is the UUID for the CSP in the SSP.</p>
+            <p>This is the UUID for the CSP in the imported SSP.</p>
             <p>If no OSCAL-based SSP exists, create a CSP party in the SAP, and provide that UUID here.</p>
          </remarks>
       </responsible-party>
@@ -515,7 +515,7 @@
          </user>
       </local-definitions>
 
-<!--      <remarks>
+      <remarks>
          <p>All uuid-refs cited in the include-subject and exclude-subject point to items in the
             imported SSP, this SAP, or both.</p>
          <p>If the assessor needs to create or correct SSP content, the SAP tool should create that
@@ -536,7 +536,7 @@
             <li>Locations: metadata</li>
          </ul>
       </remarks>
--->   </assessment-subjects>
+   </assessment-subjects>
 
    <assets>
       <tools>
@@ -633,7 +633,7 @@
             along with information that notes whether the control (or control enhancement) is
             satisfied or not.</p>
          <p>[3PAO Name] data gathering activities will consist of the following:</p>
-<!--         <ul>
+         <ul>
             <li>Request [CSP Name] provide FedRAMP required documentation</li>
             <li>Request any follow-up documentation, files, or information needed that is not
                provided in FedRAMP required documentation</li>
@@ -641,9 +641,9 @@
                Name] staff</li>
             <li>Obtain information through the use of security testing tools</li>
          </ul>
--->         <p>Security controls will be verified using one or more of the following assessment
+         <p>Security controls will be verified using one or more of the following assessment
             methods:</p>
-<!--         <ul>
+         <ul>
             <li>Examine: the IA will review, analyze, inspect, or observe one or more assessment
                artifacts as specified in the attached test cases</li>
             <li>Interview: the IA will conduct discussions with individuals within the organization
@@ -651,7 +651,7 @@
             <li>Technical Tests: the IA will perform technical tests, including penetration testing,
                on system components using automated and manual methods</li>
          </ul>
--->         <p>[3PAO Name] [ will | will not ] use sampling when performing this assessment.</p>
+         <p>[3PAO Name] [ will | will not ] use sampling when performing this assessment.</p>
       </part>
 
       <part name="disclosures">
@@ -993,7 +993,7 @@
          <!-- Use rlink and/or base64 -->
          <rlink href="./signed-sap.pdf" media-type="application/pdf"/>
          <base64 filename="sap.pdf" media-type="application/pdf">00000000</base64>
-<!--         <remarks>
+         <remarks>
             <p>FedRAMP is formulating guidelines for handling digital/electronic signatures in OSCAL, and welcome feedback on solutions.</p>
             <p>For now, FedRAMP recommends one of the following:</p>
             <ul>
@@ -1002,7 +1002,7 @@
             </ul>
             <p>If your organization prefers another approach, please seek prior approval from the FedRAMP PMO.</p>
          </remarks>
--->      </resource>
+      </resource>
       <resource uuid="8e8d05e4-0d47-4bf9-bbf0-b7070d60a671">
          <desc>Penetration Test Plan</desc>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">penetration-test-plan</prop>

@@ -14,9 +14,9 @@
             "oscal-version" : "1.0-Milestone3",
             "properties" : 
             [ 
-              { "name" : "party-id",
+              { "name" : "party-uuid",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                "value" : "csp" } ],
+                "value" : "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" } ],
             "remarks" : "Initial publication." },
           
           { "published" : "2020-06-01T00:00:00.00-04:00",

@@ -14,7 +14,7 @@
             <published>2019-06-01T00:00:00.00-04:00</published>
             <version>1.0</version>
             <oscal-version>1.0-Milestone3</oscal-version>
-            <prop name="party-id" ns="https://fedramp.gov/ns/oscal">csp</prop>
+            <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
             <remarks>
                <p>Initial publication.</p>
             </remarks>
