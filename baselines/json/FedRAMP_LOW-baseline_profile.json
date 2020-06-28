@@ -1,6 +1,6 @@
 
   { "profile" : 
-    { "id" : "uuid-2bb4b4e9-b350-4ce3-9dec-6768214e4f2f",
+    { "uuid" : "4678df89-bdc1-4804-bdfd-0bb1fc5bba1a",
       "metadata" : 
       { "title" : "FedRAMP Low Baseline",
 <<<<<<< HEAD
@@ -17,24 +17,51 @@
           { "id" : "parpared-by",
             "title" : "Document creator" },
           
-          { "id" : "contact",
-            "title" : "Contact Information" } ],
+          { "id" : "fedramp-pmo",
+            "title" : "The FedRAMP Program Management Office (PMO)",
+            "short-name" : "CSP" },
+          
+          { "id" : "fedramp-jab",
+            "title" : "The FedRAMP Joint Authorization Board (JAB)",
+            "short-name" : "CSP" } ],
         "parties" : 
         [ 
-          { "id" : "fedramp-pmo",
-            "org" : 
-            { "org-name" : "Federal Risk and Authorization Management Program (FedRAMP)",
-              "email-addresses" : 
-              [ "info@fedramp.gov" ],
-              "URLs" : 
-              [ "https:\/\/fedramp.gov" ] } } ],
+          { "uuid" : "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d",
+            "type" : "organization",
+            "party-name" : "Federal Risk and Authorization Management Program: Program Management Office",
+            "short-name" : "FedRAMP PMO",
+            "links" : 
+            [ 
+              { "href" : "https:\/\/fedramp.gov",
+                "rel" : "homepage",
+                "text" : "" } ],
+            "addresses" : 
+            [ 
+              { "type" : "work",
+                "postal-address" : 
+                [ "1800 F St. NW",
+                  "" ],
+                "city" : "Washington",
+                "state" : "DC",
+                "postal-code" : "",
+                "country" : "US" } ],
+            "email-addresses" : 
+            [ "info@fedramp.gov" ] },
+          
+          { "uuid" : "ca9ba80e-1342-4bfd-b32a-abac468c24b4",
+            "type" : "organization",
+            "party-name" : "Federal Risk and Authorization Management Program: Joint Authorization Board",
+            "short-name" : "FedRAMP JAB" } ],
         "responsible-parties" : 
         { "prepared-by" : 
-          { "party-ids" : 
-            [ "fedramp-pmo" ] },
-          "contact" : 
-          { "party-ids" : 
-            [ "fedramp-pmo" ] } } },
+          { "party-uuids" : 
+            [ "4aa7b203-318b-4cde-96cf-feaeffc3a4b7" ] },
+          "fedramp-pmo" : 
+          { "party-uuids" : 
+            [ "4aa7b203-318b-4cde-96cf-feaeffc3a4b7" ] },
+          "fedramp-jab" : 
+          { "party-uuids" : 
+            [ "ca9ba80e-1342-4bfd-b32a-abac468c24b4" ] } } },
       "imports" : 
 <<<<<<< HEAD
       { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/nist.gov\/SP800-53\/rev4\/json\/NIST_SP-800-53_rev4_catalog.json",
@@ -292,7 +319,7 @@
             { "control-id" : "si-16" } ] } },
 =======
       [ 
-        { "href" : "#nist-sp-800-53-r4",
+        { "href" : "#ad005eae-cc63-4e64-9109-3905a9a825e4",
           "include" : 
           { "id-selectors" : 
             [ 
@@ -13227,7 +13254,7 @@
       "back-matter" : 
       { "resources" : 
         [ 
-          { "id" : "fedramp-1",
+          { "uuid" : "985475ee-d4d6-4581-8fdf-d84d3d8caa48",
             "title" : "FedRAMP Applicable Laws and Regulations",
             "properties" : 
             [ 
@@ -13241,7 +13268,7 @@
             [ 
               { "href" : "https:\/\/www.fedramp.gov\/assets\/resources\/templates\/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" } ] },
           
-          { "id" : "fedramp-2",
+          { "uuid" : "1a23a771-d481-4594-9a1a-71d584fa4123",
             "title" : "FedRAMP Master Acronym and Glossary",
             "properties" : 
             [ 
@@ -13255,7 +13282,7 @@
             [ 
               { "href" : "https:\/\/www.fedramp.gov\/assets\/resources\/documents\/FedRAMP_Master_Acronym_and_Glossary.pdf" } ] },
           
-          { "id" : "logo-fedramp",
+          { "uuid" : "a2381e87-3d04-4108-a30b-b4d2f36d001f",
             "desc" : "FedRAMP Logo",
             "properties" : 
             [ 
@@ -13269,7 +13296,7 @@
             [ 
               { "href" : "https:\/\/www.fedramp.gov\/assets\/img\/logo-main-fedramp.png" } ] },
           
-          { "id" : "nist-sp-800-53-r4",
+          { "uuid" : "ad005eae-cc63-4e64-9109-3905a9a825e4",
             "title" : "NIST Special Publication (SP) 800-53",
             "properties" : 
             [ 
@@ -13281,11 +13308,15 @@
                 "value" : "always" } ],
             "rlinks" : 
             [ 
+<<<<<<< HEAD
               { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/nist.gov\/SP800-53\/rev4\/json\/NIST_SP-800-53_rev4_catalog.json",
 <<<<<<< HEAD
                 "media-type" : "application\/xml" } ] } ] } } }
 >>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
 =======
+=======
+              { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/v1.0.0-milestone3\/content\/nist.gov\/SP800-53\/rev4\/json\/NIST_SP-800-53_rev4_catalog.json",
+>>>>>>> Updated baselines and Registry
                 "media-type" : "application\/json\/" } ] } ] } } }
 
 >>>>>>> Updated Baselines and Templates
