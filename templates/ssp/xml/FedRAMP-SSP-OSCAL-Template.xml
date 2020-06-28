@@ -142,46 +142,55 @@
       </role>
 
       <location uuid="27b78960-59ef-4619-82b0-ae20b9c709ac">
+         <title>CSP HQ</title>
          <address type="work">
             <addr-line>Suite 0000</addr-line>
             <addr-line>1234 Some Street</addr-line>
             <city>Haven</city>
             <state>ME</state>
             <postal-code>00000</postal-code>
-            <country>US</country>
          </address>
          <remarks>
-            <p>The CSP's HQ, or the address of the system owner's primary business location.</p>
+            <p>There must be one location identifying the CSP's primary business address, such as the CSP's HQ, or the address of the system owner's primary business location.</p>
          </remarks>
       </location>
       <location uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+         <title>Primary Data Center</title>
          <address>
             <addr-line>2222 Main Street</addr-line>
             <city>Anywhere</city>
             <state>--</state>
             <postal-code>00000-0000</postal-code>
          </address>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">PDC1</prop>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">data-center</prop>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">primary-data-center</prop>
          <remarks>
-            <p>For a primary or alternate data center, briefly summarize the components at this
-               location.</p>
+            <p>There must be one location for each data center.</p>
+            <p>There must be at least two data centers.</p>
+            <p>For a data center, briefly summarize the components at this location.</p>
+            <p>All data centers must have a conformity tag of "data-center".</p>
+            <p>A primary data center must also have a conformity tag of "primary-data-center".</p>
          </remarks>
       </location>
       <location uuid="ad321514-7b9f-4374-8409-efb18eea6e5d">
+         <title>Secondary Data Center</title>
          <address>
             <addr-line>3333 Small Road</addr-line>
             <city>Anywhere</city>
             <state>--</state>
             <postal-code>00000-0000</postal-code>
          </address>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">ADC1</prop>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">data-center</prop>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">alternate-data-center</prop>
          <remarks>
-            <p>For a primary or alternate data center, briefly summarize the components at this
-               location.</p>
+            <p>There must be one location for each data center.</p>
+            <p>There must be at least two data centers.</p>
+            <p>For a data center, briefly summarize the components at this location.</p>
+            <p>All data centers must have a conformity tag of "data-center"</p>
+            <p>An alternate or backup data center must also have a conformity tag of "alternate-data-center".</p>
          </remarks>
       </location>
+      
       <!-- The following parties must be present. Preserving the ID is no longer required. -->
       <!-- Change the content as needed. -->
       <party uuid="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" type="organization">
@@ -192,6 +201,7 @@
             <p>Replace sample CSP information.</p>
          </remarks>
       </party>
+      
       <!-- The following parties must be present. Preserving the ID is no longer required. -->
       <!-- Do not change the FedRAMP PMO and JAB information unless instructed to do so by the FedRAMP PMO. -->
       <party uuid="77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d" type="organization">
@@ -207,17 +217,33 @@
             <country>US</country>
          </address>
          <email>info@fedramp.gov</email>
+         <remarks>
+            <p>This party entry must be present in a FedRAMP SSP.</p>
+            <p>The uuid may be different; however, the uuid must be associated with the "fedramp-pmo" role in the responsible-party assemblies.</p>
+         </remarks>
       </party>
       <party uuid="49017ec3-9f51-4dbd-9253-858c2b1295fd" type="organization">
          <party-name>Federal Risk and Authorization Management Program: Joint Authorization Board</party-name>
          <short-name>FedRAMP JAB</short-name>
+         <remarks>
+            <p>This party entry must be present in a FedRAMP SSP.</p>
+            <p>The uuid may be different; however, the uuid must be associated with the "fedramp-jab" role in the responsible-party assemblies.</p>
+         </remarks>
       </party>
+      
       <!-- The following parties are samples, and may be modified or removed -->
       <party uuid="78992555-4a99-4eaa-868c-f2c249679dd3" type="organization">
          <party-name>External Organization</party-name>
          <short-name>External</short-name>
          <remarks>
-            <p>Generic placeholder for any external organization</p>
+            <p>Generic placeholder for any external organization.</p>
+         </remarks>
+      </party>
+      <party uuid="f595397b-cbe4-4a87-8c86-9bff91c4e7fd" type="organization">
+         <party-name>Agency Name</party-name>
+         <short-name>A.N.</short-name>
+         <remarks>
+            <p>Generic placeholder for an authorizing agency.</p>
          </remarks>
       </party>
       <party uuid="8e3d39da-4851-4d2a-adb5-4b5585ded952" type="organization">
@@ -233,6 +259,7 @@
          </address>
          <email>poc@consulting.sample</email>
       </party>
+      
       <party uuid="80361ec4-bfce-4b5c-85c8-313d6ebd220b" type="organization">
          <party-name>[SAMPLE]Remote System Org Name</party-name>
       </party>
@@ -253,16 +280,13 @@
       <party uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6" type="person">
          <party-name>[SAMPLE]Person Name 1</party-name>
          <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-         <address type="work">
-            <addr-line>Address Line</addr-line>
-            <city>City</city>
-            <state>ST</state>
-            <postal-code>00000</postal-code>
-            <country>US</country>
+         <address>
+            <addr-line>Mailstop A-1</addr-line>
          </address>
          <email>name@org.domain</email>
          <phone>202-000-0001</phone>
          <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>         
+         <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
       </party>
       <party uuid="36b8d6c0-3b25-42cc-b529-cf4066145cdd" type="person">
          <party-name>[SAMPLE]Person Name 2</party-name>
@@ -332,7 +356,7 @@
          </address>
          <email>name@org.domain</email>
          <phone>202-000-0006</phone>
-         <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>         
+         <member-of-organization>78992555-4a99-4eaa-868c-f2c249679dd3</member-of-organization>         
       </party>
       <party uuid="db234cb7-1776-425c-9ac4-b067c1723011" type="person">
          <party-name>[SAMPLE]Person Name 7</party-name>
@@ -356,13 +380,17 @@
       </party>
 
       <responsible-party role-id="cloud-service-provider">
-         <!-- Exacty one -->
          <party-uuid>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
+         <remarks>
+            <p>Exactly one</p>
+         </remarks>
       </responsible-party>
       <!-- Page ii -->
       <responsible-party role-id="prepared-by">
-         <!-- Exacty one -->
          <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
+         <remarks>
+            <p>Exactly one</p>
+         </remarks>
       </responsible-party>
       <responsible-party role-id="prepared-for">
          <!-- Exacty one -->
@@ -370,49 +398,66 @@
       </responsible-party>
       <!-- Page vi -->
       <responsible-party role-id="content-approver">
-         <!-- one or more-->
          <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
          <party-uuid>36b8d6c0-3b25-42cc-b529-cf4066145cdd</party-uuid>
+         <remarks>
+            <p>One or more</p>
+         </remarks>
       </responsible-party>
-      <!-- Section 3 System Owner-->
       <responsible-party role-id="system-owner">
-         <!-- Exacty one -->
          <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
+         <remarks>
+            <p>Exactly one</p>
+         </remarks>
       </responsible-party>
-      <!-- Section 4 - Authorizing Officials -->
       <responsible-party role-id="authorizing-official">
-         <!-- one or more-->
          <party-uuid>49017ec3-9f51-4dbd-9253-858c2b1295fd</party-uuid>
          <party-uuid>4fded5fd-7a65-47ea-bd76-df57c46e27d1</party-uuid>
+         <remarks>
+            <p>One or more</p>
+         </remarks>
       </responsible-party>
-      <!-- Section 5 - Other Designated Contacts -->
       <responsible-party role-id="system-poc-management">
-         <!-- Exacty one -->
          <party-uuid>0cec09d9-20c6-470b-9ffc-85763375880b</party-uuid>
+         <remarks>
+            <p>Exactly one</p>
+         </remarks>
       </responsible-party>
       <responsible-party role-id="system-poc-technical">
-         <!-- Exacty one -->
          <party-uuid>f75e21f6-43d8-46ab-890d-7f2eebc5a830</party-uuid>
+         <remarks>
+            <p>Exactly one</p>
+         </remarks>
       </responsible-party>
-      <!-- Section 6 - Assignment of Security Responsibility -->
       <responsible-party role-id="information-system-security-officer">
-         <!-- Exacty one -->
          <party-uuid>132953a9-640c-46f7-9de9-3fa15ec99361</party-uuid>
+         <remarks>
+            <p>Exactly one</p>
+         </remarks>
       </responsible-party>
       <responsible-party role-id="authorizing-official-poc">
-         <!-- Exacty one -->
          <party-uuid>4fded5fd-7a65-47ea-bd76-df57c46e27d1</party-uuid>
+         <remarks>
+            <p>Exactly one</p>
+         </remarks>
       </responsible-party>
-      <!-- Attachment X - Privacy Threshold Analysis (PTA) POC -->
       <responsible-party role-id="privacy-poc">
-         <!-- Exacty one -->
          <party-uuid>db234cb7-1776-425c-9ac4-b067c1723011</party-uuid>
+         <remarks>
+            <p>Exactly one</p>
+         </remarks>
       </responsible-party>
       <responsible-party role-id="fedramp-pmo">
          <party-uuid>77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d</party-uuid>
+         <remarks>
+            <p>Exactly one</p>
+         </remarks>
       </responsible-party>
       <responsible-party role-id="fedramp-jab">
          <party-uuid>49017ec3-9f51-4dbd-9253-858c2b1295fd</party-uuid>
+         <remarks>
+            <p>Exactly one</p>
+         </remarks>
       </responsible-party>
       <remarks>
          <p>This OSCAL-based FedRAMP SSP Template can be used for the FedRAMP Low, Moderate, and
@@ -485,7 +530,7 @@
             <description>
                <p>A description of the information.</p>
             </description>
-            <information-type-id system="nist">C.2.4.1</information-type-id>
+            <information-type-id system="https://doi.org/10.6028/NIST.SP.800-60v2r1">C.2.4.1</information-type-id>
             <confidentiality-impact>
                <base>fips-199-moderate</base>
                <selected>fips-199-moderate</selected>
@@ -625,7 +670,7 @@
          </description>
          <status state="other"/>
       </component>
-      <component uuid="b7364f67-bf65-4df2-b756-4b9c6b1c4a52" component-type="service">
+      <component uuid="b7364f67-bf65-4df2-b756-4b9c6b1c4a52" component-type="leveraged-authorization">
          <title>[Provider System's Name]</title>
          <description>
             <p>A FedRAMP-authorized system, from which this system inherits controls.</p>
@@ -741,10 +786,10 @@
       <!-- Section 11 Table 11-1 System Interconnections and  Section 13 Table 13-3 CA-3 Authorized Connections -->
       <component uuid="2812ef51-61e7-4505-afbb-da5a073a2a5b" component-type="interconnection">
          <title>[EXAMPLE]Authorized Connection Information System Name</title>
-         <description></description>
+         <description><p>Briefly describe the interconnection.</p></description>
          <prop name="service-processor" ns="https://fedramp.gov/ns/oscal">[SAMPLE]Telco Name</prop>
-         <prop name="ip-address-local" ns="https://fedramp.gov/ns/oscal">10.1.1.1</prop>
-         <prop name="ip-address-remote" ns="https://fedramp.gov/ns/oscal">10.2.2.2</prop>
+         <prop name="ipv4-address" class="local" ns="https://fedramp.gov/ns/oscal">10.1.1.1</prop>
+         <prop name="ipv4-address" class="remote" ns="https://fedramp.gov/ns/oscal">10.2.2.2</prop>
          <prop name="direction" ns="https://fedramp.gov/ns/oscal">incoming-outgoing</prop>
          <prop name="information" ns="https://fedramp.gov/ns/oscal">Describe the information being transmitted.</prop>
          <prop name="port" ns="https://fedramp.gov/ns/oscal">80</prop>
@@ -757,7 +802,16 @@
          <link href="#9d6cf2b4-8e88-4040-a33c-7bc206553a1a" rel="agreement"/>
          <status state="operational" />
          <responsible-role role-id="isa-poc-remote">
-            <party-uuid>80361ec4-bfce-4b5c-85c8-313d6ebd220b</party-uuid>
+            <party-uuid>09ad840f-aa79-43aa-9f22-25182c2ab11b</party-uuid>
+         </responsible-role>
+         <responsible-role role-id="isa-poc-local">
+            <party-uuid>09ad840f-aa79-43aa-9f22-25182c2ab11b</party-uuid>
+         </responsible-role>
+         <responsible-role role-id="isa-authorizing-official-remote">
+            <party-uuid>09ad840f-aa79-43aa-9f22-25182c2ab11b</party-uuid>
+         </responsible-role>
+         <responsible-role role-id="isa-authorizing-official-local">
+            <party-uuid>09ad840f-aa79-43aa-9f22-25182c2ab11b</party-uuid>
          </responsible-role>
          <remarks>
             <p>Optional notes about this interconnection</p>
