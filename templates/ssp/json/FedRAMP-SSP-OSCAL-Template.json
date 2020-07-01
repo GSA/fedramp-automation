@@ -134,6 +134,7 @@
         "locations" : 
         [ 
           { "uuid" : "27b78960-59ef-4619-82b0-ae20b9c709ac",
+            "title" : "CSP HQ",
             "address" : 
             { "type" : "work",
               "postal-address" : 
@@ -141,11 +142,11 @@
                 "1234 Some Street" ],
               "city" : "Haven",
               "state" : "ME",
-              "postal-code" : "00000",
-              "country" : "US" },
-            "remarks" : "The CSP's HQ, or the address of the system owner's primary business location." },
+              "postal-code" : "00000" },
+            "remarks" : "There must be one location identifying the CSP's primary business address, such as the CSP's HQ, or the address of the system owner's primary business location." },
           
           { "uuid" : "16adcc8d-65d8-4583-80d3-9cf007744fec",
+            "title" : "Primary Data Center",
             "address" : 
             { "postal-address" : 
               [ "2222 Main Street" ],
@@ -154,16 +155,17 @@
               "postal-code" : "00000-0000" },
             "properties" : 
             [ 
-              { "name" : "title",
+              { "name" : "conformity",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                "value" : "PDC1" },
+                "value" : "data-center" },
               
               { "name" : "conformity",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                 "value" : "primary-data-center" } ],
-            "remarks" : "For a primary or alternate data center, briefly summarize the components at this\n               location." },
+            "remarks" : "There must be one location for each data center.\\n\\nThere must be at least two data centers.\\n\\nFor a data center, briefly summarize the components at this location.\\n\\nAll data centers must have a conformity tag of \\\"data-center\\\".\\n\\nA primary data center must also have a conformity tag of \\\"primary-data-center\\\"." },
           
           { "uuid" : "ad321514-7b9f-4374-8409-efb18eea6e5d",
+            "title" : "Secondary Data Center",
             "address" : 
             { "postal-address" : 
               [ "3333 Small Road" ],
@@ -172,14 +174,14 @@
               "postal-code" : "00000-0000" },
             "properties" : 
             [ 
-              { "name" : "title",
+              { "name" : "conformity",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                "value" : "ADC1" },
+                "value" : "data-center" },
               
               { "name" : "conformity",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                 "value" : "alternate-data-center" } ],
-            "remarks" : "For a primary or alternate data center, briefly summarize the components at this\n               location." } ],
+            "remarks" : "There must be one location for each data center.\\n\\nThere must be at least two data centers.\\n\\nFor a data center, briefly summarize the components at this location.\\n\\nAll data centers must have a conformity tag of \\\"data-center\\\"\\n\\nAn alternate or backup data center must also have a conformity tag of \\\"alternate-data-center\\\"." } ],
         "parties" : 
         [ 
           { "uuid" : "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb",
@@ -209,18 +211,26 @@
                 "postal-code" : "",
                 "country" : "US" } ],
             "email-addresses" : 
-            [ "info@fedramp.gov" ] },
+            [ "info@fedramp.gov" ],
+            "remarks" : "This party entry must be present in a FedRAMP SSP.\\n\\nThe uuid may be different; however, the uuid must be associated with the \\\"fedramp-pmo\\\" role in the responsible-party assemblies." },
           
           { "uuid" : "49017ec3-9f51-4dbd-9253-858c2b1295fd",
             "type" : "organization",
             "party-name" : "Federal Risk and Authorization Management Program: Joint Authorization Board",
-            "short-name" : "FedRAMP JAB" },
+            "short-name" : "FedRAMP JAB",
+            "remarks" : "This party entry must be present in a FedRAMP SSP.\\n\\nThe uuid may be different; however, the uuid must be associated with the \\\"fedramp-jab\\\" role in the responsible-party assemblies." },
           
           { "uuid" : "78992555-4a99-4eaa-868c-f2c249679dd3",
             "type" : "organization",
             "party-name" : "External Organization",
             "short-name" : "External",
-            "remarks" : "Generic placeholder for any external organization" },
+            "remarks" : "Generic placeholder for any external organization." },
+          
+          { "uuid" : "f595397b-cbe4-4a87-8c86-9bff91c4e7fd",
+            "type" : "organization",
+            "party-name" : "Agency Name",
+            "short-name" : "A.N.",
+            "remarks" : "Generic placeholder for an authorizing agency." },
           
           { "uuid" : "8e3d39da-4851-4d2a-adb5-4b5585ded952",
             "type" : "organization",
@@ -278,20 +288,17 @@
                 "value" : "Individual's Title" } ],
             "addresses" : 
             [ 
-              { "type" : "work",
-                "postal-address" : 
-                [ "Address Line" ],
-                "city" : "City",
-                "state" : "ST",
-                "postal-code" : "00000",
-                "country" : "US" } ],
+              { "postal-address" : 
+                [ "Mailstop A-1" ] } ],
             "email-addresses" : 
             [ "name@org.domain" ],
             "telephone-numbers" : 
             [ 
               { "number" : "202-000-0001" } ],
             "member-of-organizations" : 
-            [ "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" ] },
+            [ "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" ],
+            "location-uuids" : 
+            [ "27b78960-59ef-4619-82b0-ae20b9c709ac" ] },
           
           { "uuid" : "36b8d6c0-3b25-42cc-b529-cf4066145cdd",
             "type" : "person",
@@ -416,7 +423,7 @@
             [ 
               { "number" : "202-000-0006" } ],
             "member-of-organizations" : 
-            [ "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" ] },
+            [ "78992555-4a99-4eaa-868c-f2c249679dd3" ] },
           
           { "uuid" : "db234cb7-1776-425c-9ac4-b067c1723011",
             "type" : "person",
@@ -453,45 +460,57 @@
         "responsible-parties" : 
         { "cloud-service-provider" : 
           { "party-uuids" : 
-            [ "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" ] },
+            [ "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" ],
+            "remarks" : "Exactly one" },
           "prepared-by" : 
           { "party-uuids" : 
-            [ "3360e343-9860-4bda-9dfc-ff427c3dfab6" ] },
+            [ "3360e343-9860-4bda-9dfc-ff427c3dfab6" ],
+            "remarks" : "Exactly one" },
           "prepared-for" : 
           { "party-uuids" : 
             [ "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" ] },
           "content-approver" : 
           { "party-uuids" : 
             [ "3360e343-9860-4bda-9dfc-ff427c3dfab6",
-              "36b8d6c0-3b25-42cc-b529-cf4066145cdd" ] },
+              "36b8d6c0-3b25-42cc-b529-cf4066145cdd" ],
+            "remarks" : "One or more" },
           "system-owner" : 
           { "party-uuids" : 
-            [ "3360e343-9860-4bda-9dfc-ff427c3dfab6" ] },
+            [ "3360e343-9860-4bda-9dfc-ff427c3dfab6" ],
+            "remarks" : "Exactly one" },
           "authorizing-official" : 
           { "party-uuids" : 
             [ "49017ec3-9f51-4dbd-9253-858c2b1295fd",
-              "4fded5fd-7a65-47ea-bd76-df57c46e27d1" ] },
+              "4fded5fd-7a65-47ea-bd76-df57c46e27d1" ],
+            "remarks" : "One or more" },
           "system-poc-management" : 
           { "party-uuids" : 
-            [ "0cec09d9-20c6-470b-9ffc-85763375880b" ] },
+            [ "0cec09d9-20c6-470b-9ffc-85763375880b" ],
+            "remarks" : "Exactly one" },
           "system-poc-technical" : 
           { "party-uuids" : 
-            [ "f75e21f6-43d8-46ab-890d-7f2eebc5a830" ] },
+            [ "f75e21f6-43d8-46ab-890d-7f2eebc5a830" ],
+            "remarks" : "Exactly one" },
           "information-system-security-officer" : 
           { "party-uuids" : 
-            [ "132953a9-640c-46f7-9de9-3fa15ec99361" ] },
+            [ "132953a9-640c-46f7-9de9-3fa15ec99361" ],
+            "remarks" : "Exactly one" },
           "authorizing-official-poc" : 
           { "party-uuids" : 
-            [ "4fded5fd-7a65-47ea-bd76-df57c46e27d1" ] },
+            [ "4fded5fd-7a65-47ea-bd76-df57c46e27d1" ],
+            "remarks" : "Exactly one" },
           "privacy-poc" : 
           { "party-uuids" : 
-            [ "db234cb7-1776-425c-9ac4-b067c1723011" ] },
+            [ "db234cb7-1776-425c-9ac4-b067c1723011" ],
+            "remarks" : "Exactly one" },
           "fedramp-pmo" : 
           { "party-uuids" : 
-            [ "77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d" ] },
+            [ "77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d" ],
+            "remarks" : "Exactly one" },
           "fedramp-jab" : 
           { "party-uuids" : 
-            [ "49017ec3-9f51-4dbd-9253-858c2b1295fd" ] } },
+            [ "49017ec3-9f51-4dbd-9253-858c2b1295fd" ],
+            "remarks" : "Exactly one" } },
         "remarks" : "This OSCAL-based FedRAMP SSP Template can be used for the FedRAMP Low, Moderate, and\n            High baselines.\\n\\nGuidance for OSCAL-based FedRAMP Tailored content has not yet been developed." },
       "import-profile" : 
       { "href" : "#890170c3-d4fa-4d25-ab96-8e4bf7cc237c" },
@@ -568,7 +587,7 @@
               "title" : "Information Type Name",
               "description" : "A description of the information.",
               "information-type-ids" : 
-              { "nist" : 
+              { "https:\/\/doi.org\/10.6028\/NIST.SP.800-60v2r1" : 
                 { "id" : "C.2.4.1" } },
               "confidentiality-impact" : 
               { "base" : "fips-199-moderate",
@@ -726,7 +745,7 @@
             "status" : 
             { "state" : "other" } },
           "b7364f67-bf65-4df2-b756-4b9c6b1c4a52" : 
-          { "component-type" : "service",
+          { "component-type" : "leveraged-authorization",
             "title" : "[Provider System's Name]",
             "description" : "A FedRAMP-authorized system, from which this system inherits controls.",
             "properties" : 
@@ -919,19 +938,21 @@
           "2812ef51-61e7-4505-afbb-da5a073a2a5b" : 
           { "component-type" : "interconnection",
             "title" : "[EXAMPLE]Authorized Connection Information System Name",
-            "description" : "",
+            "description" : "Briefly describe the interconnection.",
             "properties" : 
             [ 
               { "name" : "service-processor",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                 "value" : "[SAMPLE]Telco Name" },
               
-              { "name" : "ip-address-local",
+              { "name" : "ipv4-address",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "class" : "local",
                 "value" : "10.1.1.1" },
               
-              { "name" : "ip-address-remote",
+              { "name" : "ipv4-address",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "class" : "remote",
                 "value" : "10.2.2.2" },
               
               { "name" : "direction",
@@ -965,7 +986,16 @@
             "responsible-roles" : 
             { "isa-poc-remote" : 
               { "party-ids" : 
-                [ "80361ec4-bfce-4b5c-85c8-313d6ebd220b" ] } },
+                [ "09ad840f-aa79-43aa-9f22-25182c2ab11b" ] },
+              "isa-poc-local" : 
+              { "party-ids" : 
+                [ "09ad840f-aa79-43aa-9f22-25182c2ab11b" ] },
+              "isa-authorizing-official-remote" : 
+              { "party-ids" : 
+                [ "09ad840f-aa79-43aa-9f22-25182c2ab11b" ] },
+              "isa-authorizing-official-local" : 
+              { "party-ids" : 
+                [ "09ad840f-aa79-43aa-9f22-25182c2ab11b" ] } },
             "remarks" : "Optional notes about this interconnection" } },
         "system-inventory" : 
         { "inventory-items" : 
