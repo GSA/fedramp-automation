@@ -11,7 +11,7 @@ Of course each of these guides has an accompanying OSCAL file in XML and JSON fo
 ## We Want Your Feedback!
 
 The FedRAMP PMO is releasing the following files for public review and comment:
-- **FedRAMP OSCAL Registry (Updated):** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The draft for public comment is available [here](./raw/master/documents/FedRAMP_OSCAL_Registry.xlsx).
+- **FedRAMP OSCAL Registry (Updated):** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The draft for public comment is available [here](./documents/FedRAMP_OSCAL_Registry.xlsx).
 
 - **Implementation Guides:** These documents enables tool developers to generate OSCAL-based FedRAMP deliverabes that are fully compliant with FedRAMP’s extensions, defined identifiers, conformity tags, and acceptable values. The drafts for public comment are available [here](./documents/).
 
