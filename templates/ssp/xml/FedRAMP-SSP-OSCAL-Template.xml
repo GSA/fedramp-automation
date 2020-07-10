@@ -663,21 +663,6 @@
          </description>
          <status state="operational"/>
       </component>
-      <component uuid="cae07d12-8566-443a-95de-7596b9cac953" component-type="customer">
-         <title>Customer</title>
-         <description>
-            <p>Customer's Responsibility</p>
-         </description>
-         <status state="other"/>
-      </component>
-      <component uuid="b7364f67-bf65-4df2-b756-4b9c6b1c4a52" component-type="leveraged-authorization">
-         <title>[Provider System's Name]</title>
-         <description>
-            <p>A FedRAMP-authorized system, from which this system inherits controls.</p>
-         </description>
-         <prop name="authorization-date" ns="https://fedramp.gov/ns/oscal">2019-01-01T00:00:00.00-00:00</prop>
-         <status state="operational"/>
-      </component>
       <component uuid="95beec7e-6f82-4aaa-8211-969cd7c1f1ab" component-type="validation">
          <title>[SAMPLE]Module Name</title>
          <description>
@@ -766,7 +751,6 @@
          <status state="operational"/>
       </component>
 
-      <!-- Section 10.2, Table 10-1. Ports, Protocols and Services -->
       <!-- ****** SERVICES ARE NOW COMPONENTS WITH type='service' -->
       <component uuid="d5841417-de4c-4d84-ab3c-39dd1fd32a96" component-type="service">
          <title>[SAMPLE]Service Name</title>
@@ -781,6 +765,10 @@
          <protocol name="https">
             <port-range start="443" end="443" transport="TCP"/>
          </protocol>
+         <remarks>
+            <p>Section 10.2, Table 10-1. Ports, Protocols and Services</p>
+            <p><b>SERVICES ARE NOW COMPONENTS WITH type='service'</b></p>
+         </remarks>
       </component>
       
       <!-- Section 11 Table 11-1 System Interconnections and  Section 13 Table 13-3 CA-3 Authorized Connections -->
