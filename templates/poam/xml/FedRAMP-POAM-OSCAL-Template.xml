@@ -145,7 +145,7 @@
          <description><p>An instance of the above component.</p></description>
          <prop name="ipv4-address">10.10.10.10</prop>
          <prop name="fqdn">host.domain.cloud</prop>
-         <implemented-component component-id="a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0" use="runs-software" />
+         <implemented-component component-uuid="a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0" use="runs-software" />
          <remarks>
             <p>Uses the same syntax as SSP inventory-items.</p>
          </remarks>
@@ -156,7 +156,7 @@
       </remarks>
    </local-definitions>
 
-   <results uuid="77638952-cb0a-44e5-ac31-f0d0d29f1bb1">
+   <poam-items>
       <title>Current POA&amp;M Items</title>
       <description>
          <p>These are the current POA&amp;M items for this system.</p>
@@ -164,7 +164,7 @@
       <start>2020-06-01T00:00:00.0Z</start>
       <end>2020-06-01T00:00:00.0Z</end>
 
-      <finding uuid="0be71cd3-f850-47db-836f-14511edbd90e">
+      <poam-item uuid="0be71cd3-f850-47db-836f-14511edbd90e">
          <title>[EXAMPLE]POA&amp;M Item</title>
          <description/>
          <prop name="POAM-ID" ns="https://fedramp.gov/ns/oscal">V-1</prop>
@@ -193,9 +193,9 @@
             <p>The FedRAMP Extension, "POAM-ID" captures the traditional CSP-assigned unique POA&amp;M identifier.</p>
             <p>The date-time-stamp identifies the date of discovery. FedRAMP is concerned with the date information. The time information is desirable and should be included where available. The time may be all zeros if unavailable.</p>
          </remarks>
-      </finding>
+      </poam-item>
 
-      <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+      <poam-item uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
          <title>[EXAMPLE]Infrastructure Scan Unique Vulnerability</title>
          <description><p>An example set of infrastructure scan findings.</p></description>
          <prop name="POAM-ID" ns="https://fedramp.gov/ns/oscal">V-2</prop>
@@ -352,13 +352,13 @@
          </risk>
          <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
-      </finding>
+      </poam-item> 
 
       <remarks>
          <p>One finding per POA&amp;M item.</p>
          <p>The start and end dates may be the same for a POA&amp;M, and must represent the effective date of the information presented.</p>
       </remarks>
-   </results>
+   </poam-items>
 
    <back-matter>
       <resource uuid="a78f7e4c-a27a-4b1e-901b-ebfecf2b0301">
@@ -413,23 +413,26 @@
          <rlink href="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png"
          />
       </resource>
-      <resource uuid="fedramp-high-baseline">
+      <resource uuid="9f1aae37-7359-411f-86c1-768aaab85e63">
          <title>FedRAMP High Baseline</title>
-         <rlink media-type="application/xml"
-            href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/baselines/xml/FedRAMP_HIGH-baseline_profile.xml"
-         />
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml" />
+         <remarks>
+            <p>Pointer to High baseline content in OSCAL.</p>
+         </remarks>
       </resource>
-      <resource uuid="fedramp-moderate-baseline">
+      <resource uuid="890170c3-d4fa-4d25-ab96-8e4bf7cc237c">
          <title>FedRAMP Moderate Baseline</title>
-         <rlink media-type="application/xml"
-            href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/baselines/xml/FedRAMP_MODERATE-baseline_profile.xml"
-         />
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml" />
+         <remarks>
+            <p>Pointer to Moderate baseline content in OSCAL.</p>
+         </remarks>
       </resource>
-      <resource uuid="fedramp-low-baseline">
+      <resource uuid="2acaf846-5496-4d36-8565-9a15b48aef2c">
          <title>FedRAMP Low Baseline</title>
-         <rlink media-type="application/xml"
-            href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/baselines/xml/FedRAMP_LOW-baseline_profile.xml"
-         />
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_LOW-baseline_profile.xml" />
+         <remarks>
+            <p>Pointer to Low baseline content in OSCAL.</p>
+         </remarks>
       </resource>
    </back-matter>
 
