@@ -697,6 +697,9 @@
          <prop name="patch-level">Patch Level</prop>
          <prop name="validation" ns="https://fedramp.gov/ns/oscal">fips-module-1</prop>
          <status state="operational"/>
+         <responsible-role role-id="admin-unix">
+            <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
+         </responsible-role>
          <remarks>
             <p>COMMENTS: Provide other comments as needed.</p>
          </remarks>
