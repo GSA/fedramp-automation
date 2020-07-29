@@ -168,7 +168,7 @@
          <title>[EXAMPLE]POA&amp;M Item</title>
          <description/>
          <prop name="POAM-ID" ns="https://fedramp.gov/ns/oscal">V-1</prop>
-         <date-time-stamp>2020-06-01T00:00:00Z</date-time-stamp>
+         <collected>2020-06-01T00:00:00Z</collected>
          <observation uuid="0aa54106-8a63-4953-ac0d-30ff91f8d4ab">
             <description></description>
             <observation-method>TEST</observation-method>
@@ -199,7 +199,7 @@
          <title>[EXAMPLE]Infrastructure Scan Unique Vulnerability</title>
          <description><p>An example set of infrastructure scan findings.</p></description>
          <prop name="POAM-ID" ns="https://fedramp.gov/ns/oscal">V-2</prop>
-         <date-time-stamp>2020-03-01T10:11:12Z</date-time-stamp>
+         <collected>2020-03-01T10:11:12Z</collected>
          <observation uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52">
             <description>
                <p>[EXAMPLE]Scanner Output.</p>

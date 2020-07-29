@@ -2,7 +2,7 @@
 # Federal Risk and Authorization Management Program (FedRAMP) Automation
 ### Based on the Open Security Controls Assessment Language (OSCAL)
 
-## July 1, 2020
+## August 1, 2020
 
 The FedRAMP Program Management Office (PMO) has drafted FedRAMP-specific extensions and guidance to ensure our stakeholders can fully express a FedRAMP Security Assessment Plan(SAP), Security Assessment Report (SAR), and Plan of Action and Milestones (POA&M) using NIST's [OSCAL SSP syntax](https://pages.nist.gov/OSCAL/documentation/). We have also updated our guidance for expressing a FedRAMP System Security Plan (SSP), as well as the FedRAMP OSCAL Registry. 
 
@@ -36,7 +36,7 @@ The following NIST resources are available:
 
 - **Content Converters:** The converters accurately convert OSCAL catalog, profile, SSP, SAP, SAR, and POA&M content from [XML to JSON](https://github.com/usnistgov/OSCAL/tree/master/json/convert) and [JSON to XML](https://github.com/usnistgov/OSCAL/tree/master/xml/convert). 
 
-- **NIST’s 800-53 & 53A Revision 4:** NIST is also providing SP 800-53 and 800-53A, Revision 4 content as well as the NIST High, Moderate, and Low baselines in OSCAL (XML, JSON, and YAML formats) [here](https://github.com/usnistgov/OSCAL/tree/master/content/nist.gov/SP800-53/rev4). 
+- **NIST SP 800-53 & 53A Revision 4 in OSCAL:** NIST is also providing SP 800-53 and 800-53A, Revision 4 content as well as the NIST High, Moderate, and Low baselines in OSCAL (XML, JSON, and YAML formats) [here](https://github.com/usnistgov/OSCAL/tree/master/content/nist.gov/SP800-53/rev4). 
 
 NIST offers a complete package containing the NIST OSCAL converters, syntax validation tools, 800-53 and FedRAMP baselines content is available for download in both [ZIP](https://github.com/usnistgov/OSCAL/releases/download/v1.0.0-milestone3/oscal-1.0.0-milestone3.zip) and [BZ2](https://github.com/usnistgov/OSCAL/releases/download/v1.0.0-milestone3/oscal-1.0.0-milestone3.tar.bz2) formats. 
 
