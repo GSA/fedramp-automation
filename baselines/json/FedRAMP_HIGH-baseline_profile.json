@@ -1734,6 +1734,14 @@
           { "constraints" : 
             [ 
               { "detail" : "information processing, information data, AND information services" } ] },
+          "sa-9.5_prm_2" : 
+          { "constraints" : 
+            [ 
+              { "detail" : "US\/US Territories or geographic locations where there is US jurisdiction" } ] },
+          "sa-9.5_prm_3" : 
+          { "constraints" : 
+            [ 
+              { "detail" : "ALL HIGH Impact Data, Systems, or Services" } ] },
           "sa-10_prm_1" : 
           { "constraints" : 
             [ 
