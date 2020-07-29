@@ -1,6 +1,6 @@
 
   { "catalog" : 
-    { "uuid" : "71545c68-05fe-44de-9862-917882197e99",
+    { "uuid" : "4824945d-54c4-4b5a-b756-2c41d5a8e4ae",
       "metadata" : 
       { "title" : "FedRAMP High Baseline",
         "published" : "2020-06-01T00:00:00.000-04:00",
@@ -10,7 +10,7 @@
         "properties" : 
         [ 
           { "name" : "resolution-timestamp",
-            "value" : "2020-07-28T20:03:46.247-04:00" } ],
+            "value" : "2020-07-29T11:04:51.335-04:00" } ],
         "links" : 
         [ 
           { "href" : "FedRAMP_HIGH-baseline_profile.xml",
