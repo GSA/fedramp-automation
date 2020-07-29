@@ -184,13 +184,12 @@
               { "use" : "runs-software" } },
             "remarks" : "Uses the same syntax as SSP inventory-items." } },
         "remarks" : "Define one component for each scanning tool referenced by a POA&M entry.\\n\\nDefine components or inventory-items when no OSCAL-based SSP exists, or is not delivered with the POA&M." },
-      "results" : 
-      { "uuid" : "77638952-cb0a-44e5-ac31-f0d0d29f1bb1",
-        "title" : "Current POA&M Items",
+      "poam-items" : 
+      { "title" : "Current POA&M Items",
         "description" : "These are the current POA&M items for this system.",
         "start" : "2020-06-01T00:00:00.0Z",
         "end" : "2020-06-01T00:00:00.0Z",
-        "findings" : 
+        "poam-item-group" : 
         [ 
           { "uuid" : "0be71cd3-f850-47db-836f-14511edbd90e",
             "title" : "[EXAMPLE]POA&M Item",
@@ -200,7 +199,7 @@
               { "name" : "POAM-ID",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                 "value" : "V-1" } ],
-            "date-time-stamp" : "2020-06-01T00:00:00Z",
+            "collected" : "2020-06-01T00:00:00Z",
             "observations" : 
             [ 
               { "uuid" : "0aa54106-8a63-4953-ac0d-30ff91f8d4ab",
@@ -243,7 +242,7 @@
               { "name" : "POAM-ID",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                 "value" : "V-2" } ],
-            "date-time-stamp" : "2020-03-01T10:11:12Z",
+            "collected" : "2020-03-01T10:11:12Z",
             "observations" : 
             [ 
               { "uuid" : "63fd3d97-26c9-4d4c-8d24-9fbc482b7f52",
@@ -560,23 +559,26 @@
             [ 
               { "href" : "https:\/\/github.com\/GSA\/fedramp-automation\/raw\/master\/assets\/FedRAMP_LOGO.png" } ] },
           
-          { "uuid" : "fedramp-high-baseline",
+          { "uuid" : "9f1aae37-7359-411f-86c1-768aaab85e63",
             "title" : "FedRAMP High Baseline",
             "rlinks" : 
             [ 
-              { "href" : "https:\/\/raw.githubusercontent.com\/GSA\/fedramp-automation\/master\/baselines\/xml\/FedRAMP_HIGH-baseline_profile.xml",
-                "media-type" : "application\/xml" } ] },
+              { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/v1.0.0-milestone3\/content\/fedramp.gov\/xml\/FedRAMP_HIGH-baseline_profile.xml",
+                "media-type" : "application\/xml" } ],
+            "remarks" : "Pointer to High baseline content in OSCAL." },
           
-          { "uuid" : "fedramp-moderate-baseline",
+          { "uuid" : "890170c3-d4fa-4d25-ab96-8e4bf7cc237c",
             "title" : "FedRAMP Moderate Baseline",
             "rlinks" : 
             [ 
-              { "href" : "https:\/\/raw.githubusercontent.com\/GSA\/fedramp-automation\/master\/baselines\/xml\/FedRAMP_MODERATE-baseline_profile.xml",
-                "media-type" : "application\/xml" } ] },
+              { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/v1.0.0-milestone3\/content\/fedramp.gov\/xml\/FedRAMP_MODERATE-baseline_profile.xml",
+                "media-type" : "application\/xml" } ],
+            "remarks" : "Pointer to Moderate baseline content in OSCAL." },
           
-          { "uuid" : "fedramp-low-baseline",
+          { "uuid" : "2acaf846-5496-4d36-8565-9a15b48aef2c",
             "title" : "FedRAMP Low Baseline",
             "rlinks" : 
             [ 
-              { "href" : "https:\/\/raw.githubusercontent.com\/GSA\/fedramp-automation\/master\/baselines\/xml\/FedRAMP_LOW-baseline_profile.xml",
-                "media-type" : "application\/xml" } ] } ] } } }
+              { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/v1.0.0-milestone3\/content\/fedramp.gov\/xml\/FedRAMP_LOW-baseline_profile.xml",
+                "media-type" : "application\/xml" } ],
+            "remarks" : "Pointer to Low baseline content in OSCAL." } ] } } }

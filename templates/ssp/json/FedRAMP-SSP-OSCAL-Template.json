@@ -583,7 +583,7 @@
               "value" : "[No SORN ID]" } ],
           "information-types" : 
           [ 
-            { "id" : "info-01",
+            { "uuid" : "06ecba4f-db96-4491-a3a2-7febfa227435",
               "title" : "Information Type Name",
               "description" : "A description of the information.",
               "information-type-ids" : 
@@ -659,6 +659,13 @@
           { "name" : "users-external-future",
             "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
             "value" : "0" } ],
+        "leveraged-authorizations" : 
+        [ 
+          { "uuid" : "5a9c98ab-8e5e-433d-a7bd-515c07cd1497",
+            "title" : "Name of Underlying System",
+            "party-uuid" : "f0bc13a4-3303-47dd-80d3-380e159c8362",
+            "date-authorized" : "2015-01-01",
+            "remarks" : "The leveraged-authorizaton assembly is supposed to have a required uuid flag instead of an optional id flag. This will be fixed in the syntax shortly.\\n\\nUse one leveraged-authorization assembly for each underlying system. (In the legacy world, these may be general support systems." } ],
         "users" : 
         { "9cb0fab0-78bd-44ba-bcb8-3e9801cc952f" : 
           { "title" : "[SAMPLE]Unix System Administrator",
@@ -738,23 +745,6 @@
             "description" : "The entire system as depicted in the system authorization boundary",
             "status" : 
             { "state" : "operational" } },
-          "cae07d12-8566-443a-95de-7596b9cac953" : 
-          { "component-type" : "customer",
-            "title" : "Customer",
-            "description" : "Customer's Responsibility",
-            "status" : 
-            { "state" : "other" } },
-          "b7364f67-bf65-4df2-b756-4b9c6b1c4a52" : 
-          { "component-type" : "leveraged-authorization",
-            "title" : "[Provider System's Name]",
-            "description" : "A FedRAMP-authorized system, from which this system inherits controls.",
-            "properties" : 
-            [ 
-              { "name" : "authorization-date",
-                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                "value" : "2019-01-01T00:00:00.00-00:00" } ],
-            "status" : 
-            { "state" : "operational" } },
           "95beec7e-6f82-4aaa-8211-969cd7c1f1ab" : 
           { "component-type" : "validation",
             "title" : "[SAMPLE]Module Name",
@@ -801,6 +791,10 @@
                 "value" : "fips-module-1" } ],
             "status" : 
             { "state" : "operational" },
+            "responsible-roles" : 
+            { "admin-unix" : 
+              { "party-uuids" : 
+                [ "3360e343-9860-4bda-9dfc-ff427c3dfab6" ] } },
             "remarks" : "COMMENTS: Provide other comments as needed." },
           "1541015b-6d19-42cb-a991-624cc082ed4d" : 
           { "component-type" : "hardware",
@@ -832,10 +826,10 @@
             { "state" : "operational" },
             "responsible-roles" : 
             { "asset-administrator" : 
-              { "party-ids" : 
+              { "party-uuids" : 
                 [ "b306f5af-b93a-4a7f-a2b2-37a44fc92a79" ] },
               "asset-owner" : 
-              { "party-ids" : 
+              { "party-uuids" : 
                 [ "36b8d6c0-3b25-42cc-b529-cf4066145cdd" ] } },
             "remarks" : "COMMENTS: Provide other comments as needed." },
           "6617f60b-8bac-422d-9939-94f43ddc0f7a" : 
@@ -934,7 +928,8 @@
                 [ 
                   { "start" : 443,
                     "end" : 443,
-                    "transport" : "TCP" } ] } ] },
+                    "transport" : "TCP" } ] } ],
+            "remarks" : "Section 10.2, Table 10-1. Ports, Protocols and Services\\n\\n**SERVICES ARE NOW COMPONENTS WITH type='service'**" },
           "2812ef51-61e7-4505-afbb-da5a073a2a5b" : 
           { "component-type" : "interconnection",
             "title" : "[EXAMPLE]Authorized Connection Information System Name",
@@ -985,16 +980,16 @@
             { "state" : "operational" },
             "responsible-roles" : 
             { "isa-poc-remote" : 
-              { "party-ids" : 
+              { "party-uuids" : 
                 [ "09ad840f-aa79-43aa-9f22-25182c2ab11b" ] },
               "isa-poc-local" : 
-              { "party-ids" : 
+              { "party-uuids" : 
                 [ "09ad840f-aa79-43aa-9f22-25182c2ab11b" ] },
               "isa-authorizing-official-remote" : 
-              { "party-ids" : 
+              { "party-uuids" : 
                 [ "09ad840f-aa79-43aa-9f22-25182c2ab11b" ] },
               "isa-authorizing-official-local" : 
-              { "party-ids" : 
+              { "party-uuids" : 
                 [ "09ad840f-aa79-43aa-9f22-25182c2ab11b" ] } },
             "remarks" : "Optional notes about this interconnection" } },
         "system-inventory" : 
@@ -1005,7 +1000,7 @@
               "properties" : 
               [ 
                 { "name" : "ipv4-address",
-                  "value" : "1.1.1.1" },
+                  "value" : "10.1.1.1" },
                 
                 { "name" : "ipv6-address",
                   "value" : "0000:0000:0000:0000" },
@@ -1103,7 +1098,7 @@
               "properties" : 
               [ 
                 { "name" : "ipv4-address",
-                  "value" : "2.2.2.2" },
+                  "value" : "10.2.2.2" },
                 
                 { "name" : "ipv6-address",
                   "value" : "0000:0000:0000:0000" },
@@ -1162,7 +1157,7 @@
               "properties" : 
               [ 
                 { "name" : "ipv4-address",
-                  "value" : "3.3.3.3" } ],
+                  "value" : "10.3.3.3" } ],
               "annotations" : 
               [ 
                 { "name" : "is-scanned",
@@ -1176,7 +1171,7 @@
               "properties" : 
               [ 
                 { "name" : "ipv4-address",
-                  "value" : "4.4.4.4" } ],
+                  "value" : "10.4.4.4" } ],
               "annotations" : 
               [ 
                 { "name" : "is-scanned",
@@ -1190,7 +1185,7 @@
               "properties" : 
               [ 
                 { "name" : "ipv4-address",
-                  "value" : "5.5.5.5" } ],
+                  "value" : "10.5.5.5" } ],
               "annotations" : 
               [ 
                 { "name" : "is-scanned",
@@ -1204,7 +1199,7 @@
               "properties" : 
               [ 
                 { "name" : "ipv4-address",
-                  "value" : "6.6.6.6" } ],
+                  "value" : "10.6.6.6" } ],
               "annotations" : 
               [ 
                 { "name" : "is-scanned",
@@ -1219,7 +1214,7 @@
               "properties" : 
               [ 
                 { "name" : "ipv4-address",
-                  "value" : "7.7.7.7" } ],
+                  "value" : "10.7.7.7" } ],
               "annotations" : 
               [ 
                 { "name" : "is-scanned",
@@ -1233,7 +1228,7 @@
               "properties" : 
               [ 
                 { "name" : "ipv4-address",
-                  "value" : "8.8.8.8" } ],
+                  "value" : "10.8.8.8" } ],
               "annotations" : 
               [ 
                 { "name" : "is-scanned",
@@ -1285,9 +1280,6 @@
               { "name" : "control-origination",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                 "value" : "sp-system" } ],
-            "responsible-roles" : 
-            { "program-director" : 
-              {  } },
             "parameter-settings" : 
             { "ac-1_prm_1" : 
               { "value" : "[replace with list of personnel or roles]" },
@@ -1298,7 +1290,11 @@
             "statements" : 
             { "ac-1_stmt.a" : 
               { "uuid" : "fb4d039a-dc4f-46f5-9c1f-f6343eaf69bc",
-                "description" : "Describe how Part a is satisfied." },
+                "by-components" : 
+                { "60f92bcf-f353-4236-9803-2a5d417555f4" : 
+                  { "uuid" : "3f5612a4-cd1d-4c47-8cae-75d2eaa332cd",
+                    "description" : "Describe how Part a is satisfied within the system." } },
+                "remarks" : "The specified component is the system itself.\\n\\nAny control implementation response that can not be associated with another component is associated with the component representing the system." },
               "ac-1_stmt.a.1" : 
               { "uuid" : "0afdccce-b5ed-4127-ae19-cfbdd17d775e",
                 "links" : 
@@ -1326,10 +1322,6 @@
             "control-id" : "ac-2",
             "properties" : 
             [ 
-              { "name" : "leveraged-authorization-id",
-                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                "value" : "lva-1" },
-              
               { "name" : "planned-completion-date",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                 "value" : "Completion Date" } ],
@@ -1375,7 +1367,7 @@
             "statements" : 
             { "ac-2_stmt.a" : 
               { "uuid" : "24a85abb-25ad-4686-850c-5c0e8ab69a0c",
-                "description" : "Ignore.",
+                "description" : "Do not respond to this statement here. Respond within the `by-component` assembly below.",
                 "by-components" : 
 <<<<<<< HEAD
                 { "system" : 
@@ -1479,10 +1471,21 @@
 =======
                 { "60f92bcf-f353-4236-9803-2a5d417555f4" : 
                   { "uuid" : "8a72663c-28c7-41c2-8739-f1ee2d5761ac",
-                    "description" : "For the portion of the control satisfied by the service provider, describe\n                        **how** the control is met." },
+                    "description" : "For the portion of the control satisfied by this system or its owning organization, describe\n                        **how** the control is met.",
+                    "annotations" : 
+                    [ 
+                      { "name" : "responsibility",
+                        "value" : "customer",
+                        "remarks" : "General customer responsibility description." } ],
+                    "remarks" : "The component-uuid above points to the \\\"this system\\\" component.\\n\\nAny control response content that does not cleanly fit another system component is placed here. This includes customer responsibility content.\\n\\nThis can also be used to provide a summary, such as a holistic overview of how multiple components work together.\\n\\nWhile the \\\"this system\\\" component is not expclicity required within every `statement`, it will typically be present." },
                   "b7364f67-bf65-4df2-b756-4b9c6b1c4a52" : 
                   { "uuid" : "84de735f-ba37-4bb4-b784-79760f986a40",
-                    "description" : "For the portion inherited from an underlying FedRAMP-authorized provider,\n                     describe **what** is inherited." },
+                    "description" : "For the portion inherited from an underlying FedRAMP-authorized provider,\n                     describe **what** is inherited.",
+                    "annotations" : 
+                    [ 
+                      { "name" : "responsibility",
+                        "value" : "customer",
+                        "remarks" : "Component-specific customer responsibility description." } ] },
                   "cae07d12-8566-443a-95de-7596b9cac953" : 
                   { "uuid" : "13db02bb-1f33-4f79-8711-ed47c2c3d337",
                     "description" : "For the portion of the control that must be configured by or provided by the\n                     customer, describe the customer responsibility here. This is what will appear\n                     in the Customer Responsibility Matrix." } } } } },
