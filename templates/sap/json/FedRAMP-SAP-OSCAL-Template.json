@@ -329,7 +329,7 @@
             [ 
               { "objective-id" : "ac-2.2_obj.1",
                 "STRVALUE" : "" } ] } ],
-        "objective" : 
+        "objectives" : 
         { "id" : "sap-obj-1",
           "control-id" : "ac-2",
           "part" : 
@@ -545,7 +545,8 @@
                   "functions-performed" : 
                   [ "View Team Content",
                     "View\/Edit Individual Content" ] } ],
-              "remarks" : "The ID assigned to this missing role must not be used in the SSP user list.\\n\\nThe SAP user assembly duplicates the SSP user assembly, which requires a\n                  role-id.\\n\\nIf an existing role in the SSP is appropriate, reference it here.\\n\\nIf no appropriate role exists in the SSP, the role-id may be left blank in the\n                  SAP." } } } },
+              "remarks" : "The ID assigned to this missing role must not be used in the SSP user list.\\n\\nThe SAP user assembly duplicates the SSP user assembly, which requires a\n                  role-id.\\n\\nIf an existing role in the SSP is appropriate, reference it here.\\n\\nIf no appropriate role exists in the SSP, the role-id may be left blank in the\n                  SAP." } } },
+        "remarks" : "All uuid-refs cited in the include-subject and exclude-subject point to items in the\n            imported SSP, this SAP, or both.\\n\\nIf the assessor needs to create or correct SSP content, the SAP tool should create that\n            content in the SAP, not the SSP, so it is attributable to the assessor. (The assessor\n            may ask the CSP to change the SSP, but the assessor must not change the SSP content on\n            behalf of the CSP.)\\n\\nFor content that does not exist in the SSP, the SAP tool must ensure an ID is used that\n            is both unique in the SAP and does not exist in the SSP.\\n\\nWhen the same ID is found in both the SSP and the SAP, the SAP tool should treat the\n            associated content in the SAP as adding to or overriding the content in the SSP. (This\n            is how assessors correct inaccurate SSP content without changing the SSP itself.)\\n\\nWhen missing or incorrect SSP content needs to be added to the SAP, the SAP tool should\n            place the content in the SAP as follows:\\n\\n* Components: local-definitions\\n* Inventory Items: local-definitions\\n* User Roles: local-definitions\\n* Locations: metadata\\n" },
       "assets" : 
       { "tools" : 
         { "components" : 
@@ -661,7 +662,7 @@
               { "name" : "sampling",
                 "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                 "value" : "no" } ],
-            "prose" : "[3PAO Name] will perform an assessment of the Information System Abbreviation security\n            controls using the methodology described in NIST SP 800-53A. [3PAO Name] will use\n            FedRAMP test procedures to evaluate the security controls. Contained in Excel\n            worksheets, these test procedures contain the test objectives and associated test cases\n            to determine if a control is effectively implemented and operating as intended. The\n            results of the testing shall be recorded in the worksheets (provided in Appendix B)\n            along with information that notes whether the control (or control enhancement) is\n            satisfied or not.\\n\\n[3PAO Name] data gathering activities will consist of the following:\\n\\nSecurity controls will be verified using one or more of the following assessment\n            methods:\\n\\n[3PAO Name] [ will | will not ] use sampling when performing this assessment." },
+            "prose" : "[3PAO Name] will perform an assessment of the Information System Abbreviation security\n            controls using the methodology described in NIST SP 800-53A. [3PAO Name] will use\n            FedRAMP test procedures to evaluate the security controls. Contained in Excel\n            worksheets, these test procedures contain the test objectives and associated test cases\n            to determine if a control is effectively implemented and operating as intended. The\n            results of the testing shall be recorded in the worksheets (provided in Appendix B)\n            along with information that notes whether the control (or control enhancement) is\n            satisfied or not.\\n\\n[3PAO Name] data gathering activities will consist of the following:\\n\\n* Request [CSP Name] provide FedRAMP required documentation\\n* Request any follow-up documentation, files, or information needed that is not\n               provided in FedRAMP required documentation\\n* Travel to the [CSP Name] sites as necessary to inspect systems and meet with [CSP\n               Name] staff\\n* Obtain information through the use of security testing tools\\n\\n\\nSecurity controls will be verified using one or more of the following assessment\n            methods:\\n\\n* Examine: the IA will review, analyze, inspect, or observe one or more assessment\n               artifacts as specified in the attached test cases\\n* Interview: the IA will conduct discussions with individuals within the organization\n               to facilitate assessor understanding, achieve clarification, or obtain evidence\\n* Technical Tests: the IA will perform technical tests, including penetration testing,\n               on system components using automated and manual methods\\n\\n\\n[3PAO Name] [ will | will not ] use sampling when performing this assessment." },
           
           { "name" : "disclosures",
             "parts" : 
@@ -1017,7 +1018,8 @@
             [ 
               { "filename" : "sap.pdf",
                 "media-type" : "application\/pdf",
-                "value" : "00000000" } ] },
+                "value" : "00000000" } ],
+            "remarks" : "FedRAMP is formulating guidelines for handling digital\/electronic signatures in OSCAL, and welcome feedback on solutions.\\n\\nFor now, FedRAMP recommends one of the following:\\n\\n* Render the OSCAL SAP content as a PDF that is digitally signed and attached.\\n* Render the OSCAL SAP content as a printed page that is physically signed, scanned, and attached.\\n\\n\\nIf your organization prefers another approach, please seek prior approval from the FedRAMP PMO." },
           
           { "uuid" : "8e8d05e4-0d47-4bf9-bbf0-b7070d60a671",
             "desc" : "Penetration Test Plan",
