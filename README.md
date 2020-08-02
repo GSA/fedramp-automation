@@ -4,9 +4,11 @@
 
 ## August 1, 2020
 
-The FedRAMP Program Management Office (PMO) has drafted FedRAMP-specific extensions and guidance to ensure our stakeholders can fully express a FedRAMP Security Assessment Plan(SAP), Security Assessment Report (SAR), and Plan of Action and Milestones (POA&M) using NIST's [OSCAL SSP syntax](https://pages.nist.gov/OSCAL/documentation/). We have also updated our guidance for expressing a FedRAMP System Security Plan (SSP), as well as the FedRAMP OSCAL Registry. 
+The FedRAMP Program Management Office (PMO) has drafted FedRAMP-specific extensions and guidance to ensure our stakeholders can fully express a FedRAMP Security Authorization Package using NIST's [OSCAL SSP syntax](https://pages.nist.gov/OSCAL/documentation/).
 
-Of course each of these guides has an accompanying OSCAL file in XML and JSON format to serve as an example and template.
+To accompany these guides, the FedRAMP PMO has also drafted OSCAL files in XML and JSON formats to serve as an example and template for each major deliverable.
+
+We have also updated the FedRAMP baselines in OSCAL. They now include assessment objective and method content from NIST SP 800-53A, used to formulate the FedRAMP Test Case Workbook (TCW), and include a FedRAMP extension identifying the FedRAMP core controls.
 
 ## We Want Your Feedback!
 
@@ -22,10 +24,11 @@ The High, Moderate, and Low baselines now have core controls identified, and inc
 
 Please ask questions or provide feedback on the items above above either via email to [info@fedramp.gov](mailto:info@fedramp.gov), as a comment to an existing [issue](https://github.com/GSA/fedramp-automation/issues), or as a new [issue](https://github.com/GSA/fedramp-automation/issues).
 
-
 ## Dependencies
 
 FedRAMP's work is based on NIST's [OSCAL 1.0.0-Milestone3 release](https://github.com/usnistgov/OSCAL/releases/tag/v1.0.0-milestone3), and requires an understanding of the core OSCAL syntax, as well as NIST-provided resources to function correctly.
+
+**IMPORTANT**: NIST has made minor syntax updates since releasing Mielstone 3, which are also reflected in these guides. The most notable are changes to the POA&M syntax, which renamed "results" to "poam-items" and "finding" to "poam-item".
 
 The following NIST resources are available:
 - **NIST's Main OSCAL Site:** [https://pages.nist.gov/OSCAL/](https://pages.nist.gov/OSCAL/)
@@ -36,7 +39,7 @@ The following NIST resources are available:
 
 - **Content Converters:** The converters accurately convert OSCAL catalog, profile, SSP, SAP, SAR, and POA&M content from [XML to JSON](https://github.com/usnistgov/OSCAL/tree/master/json/convert) and [JSON to XML](https://github.com/usnistgov/OSCAL/tree/master/xml/convert). 
 
-- **NIST SP 800-53 & 53A Revision 4 in OSCAL:** NIST is also providing SP 800-53 and 800-53A, Revision 4 content as well as the NIST High, Moderate, and Low baselines in OSCAL (XML, JSON, and YAML formats) [here](https://github.com/usnistgov/OSCAL/tree/master/content/nist.gov/SP800-53/rev4). 
+- **NIST SP 800-53 & 53A Revision 4 in OSCAL:** NIST is also providing SP 800-53 and 800-53A, Revision 4 content as well as the NIST High, Moderate, and Low baselines in OSCAL (XML, JSON, and YAML formats) [here](https://github.com/usnistgov/OSCAL/tree/master/content/nist.gov/SP800-53/rev4). 
 
 NIST offers a complete package containing the NIST OSCAL converters, syntax validation tools, 800-53 and FedRAMP baselines content is available for download in both [ZIP](https://github.com/usnistgov/OSCAL/releases/download/v1.0.0-milestone3/oscal-1.0.0-milestone3.zip) and [BZ2](https://github.com/usnistgov/OSCAL/releases/download/v1.0.0-milestone3/oscal-1.0.0-milestone3.tar.bz2) formats. 
 
