@@ -3,18 +3,8 @@
     { "uuid" : "8383f859-be40-453d-9588-c645af5bef6f",
       "metadata" : 
       { "title" : "FedRAMP Moderate Baseline",
-<<<<<<< HEAD
-<<<<<<< HEAD
-        "published" : "2020-02-02T00:00:00.000-05:00",
-        "last-modified" : "2020-01-28T10:00:00.000-05:00",
-=======
         "published" : "2020-06-01T00:00:00.000-04:00",
         "last-modified" : "2020-06-01T10:00:00.000-04:00",
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
-        "published" : "2020-06-01T00:00:00.000-04:00",
-        "last-modified" : "2020-06-01T10:00:00.000-04:00",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
         "version" : "1.2",
         "oscal-version" : "1.0.0-milestone3",
         "roles" : 
@@ -68,661 +58,6 @@
           { "party-uuids" : 
             [ "ca9ba80e-1342-4bfd-b32a-abac468c24b4" ] } } },
       "imports" : 
-<<<<<<< HEAD
-      { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/nist.gov\/SP800-53\/rev4\/json\/NIST_SP-800-53_rev4_catalog.json",
-        "include" : 
-        { "id-selectors" : 
-          [ 
-            { "control-id" : "ac-1" },
-            
-            { "control-id" : "ac-2" },
-            
-            { "control-id" : "ac-2.1" },
-            
-            { "control-id" : "ac-2.2" },
-            
-            { "control-id" : "ac-2.3" },
-            
-            { "control-id" : "ac-2.4" },
-            
-            { "control-id" : "ac-2.5" },
-            
-            { "control-id" : "ac-2.7" },
-            
-            { "control-id" : "ac-2.9" },
-            
-            { "control-id" : "ac-2.10" },
-            
-            { "control-id" : "ac-2.12" },
-            
-            { "control-id" : "ac-3" },
-            
-            { "control-id" : "ac-4" },
-            
-            { "control-id" : "ac-4.21" },
-            
-            { "control-id" : "ac-5" },
-            
-            { "control-id" : "ac-6" },
-            
-            { "control-id" : "ac-6.1" },
-            
-            { "control-id" : "ac-6.2" },
-            
-            { "control-id" : "ac-6.5" },
-            
-            { "control-id" : "ac-6.9" },
-            
-            { "control-id" : "ac-6.10" },
-            
-            { "control-id" : "ac-7" },
-            
-            { "control-id" : "ac-8" },
-            
-            { "control-id" : "ac-10" },
-            
-            { "control-id" : "ac-11" },
-            
-            { "control-id" : "ac-11.1" },
-            
-            { "control-id" : "ac-12" },
-            
-            { "control-id" : "ac-14" },
-            
-            { "control-id" : "ac-17" },
-            
-            { "control-id" : "ac-17.1" },
-            
-            { "control-id" : "ac-17.2" },
-            
-            { "control-id" : "ac-17.3" },
-            
-            { "control-id" : "ac-17.4" },
-            
-            { "control-id" : "ac-17.9" },
-            
-            { "control-id" : "ac-18" },
-            
-            { "control-id" : "ac-18.1" },
-            
-            { "control-id" : "ac-19" },
-            
-            { "control-id" : "ac-19.5" },
-            
-            { "control-id" : "ac-20" },
-            
-            { "control-id" : "ac-20.1" },
-            
-            { "control-id" : "ac-20.2" },
-            
-            { "control-id" : "ac-21" },
-            
-            { "control-id" : "ac-22" },
-            
-            { "control-id" : "at-1" },
-            
-            { "control-id" : "at-2" },
-            
-            { "control-id" : "at-2.2" },
-            
-            { "control-id" : "at-3" },
-            
-            { "control-id" : "at-4" },
-            
-            { "control-id" : "au-1" },
-            
-            { "control-id" : "au-2" },
-            
-            { "control-id" : "au-2.3" },
-            
-            { "control-id" : "au-3" },
-            
-            { "control-id" : "au-3.1" },
-            
-            { "control-id" : "au-4" },
-            
-            { "control-id" : "au-5" },
-            
-            { "control-id" : "au-6" },
-            
-            { "control-id" : "au-6.1" },
-            
-            { "control-id" : "au-6.3" },
-            
-            { "control-id" : "au-7" },
-            
-            { "control-id" : "au-7.1" },
-            
-            { "control-id" : "au-8" },
-            
-            { "control-id" : "au-8.1" },
-            
-            { "control-id" : "au-9" },
-            
-            { "control-id" : "au-9.2" },
-            
-            { "control-id" : "au-9.4" },
-            
-            { "control-id" : "au-11" },
-            
-            { "control-id" : "au-12" },
-            
-            { "control-id" : "ca-1" },
-            
-            { "control-id" : "ca-2" },
-            
-            { "control-id" : "ca-2.1" },
-            
-            { "control-id" : "ca-2.2" },
-            
-            { "control-id" : "ca-2.3" },
-            
-            { "control-id" : "ca-3" },
-            
-            { "control-id" : "ca-3.3" },
-            
-            { "control-id" : "ca-3.5" },
-            
-            { "control-id" : "ca-5" },
-            
-            { "control-id" : "ca-6" },
-            
-            { "control-id" : "ca-7" },
-            
-            { "control-id" : "ca-7.1" },
-            
-            { "control-id" : "ca-8" },
-            
-            { "control-id" : "ca-8.1" },
-            
-            { "control-id" : "ca-9" },
-            
-            { "control-id" : "cm-1" },
-            
-            { "control-id" : "cm-2" },
-            
-            { "control-id" : "cm-2.1" },
-            
-            { "control-id" : "cm-2.2" },
-            
-            { "control-id" : "cm-2.3" },
-            
-            { "control-id" : "cm-2.7" },
-            
-            { "control-id" : "cm-3" },
-            
-            { "control-id" : "cm-4" },
-            
-            { "control-id" : "cm-5" },
-            
-            { "control-id" : "cm-5.1" },
-            
-            { "control-id" : "cm-5.3" },
-            
-            { "control-id" : "cm-5.5" },
-            
-            { "control-id" : "cm-6" },
-            
-            { "control-id" : "cm-6.1" },
-            
-            { "control-id" : "cm-7" },
-            
-            { "control-id" : "cm-7.1" },
-            
-            { "control-id" : "cm-7.2" },
-            
-            { "control-id" : "cm-7.5" },
-            
-            { "control-id" : "cm-8" },
-            
-            { "control-id" : "cm-8.1" },
-            
-            { "control-id" : "cm-8.3" },
-            
-            { "control-id" : "cm-8.5" },
-            
-            { "control-id" : "cm-9" },
-            
-            { "control-id" : "cm-10" },
-            
-            { "control-id" : "cm-10.1" },
-            
-            { "control-id" : "cm-11" },
-            
-            { "control-id" : "cp-1" },
-            
-            { "control-id" : "cp-2" },
-            
-            { "control-id" : "cp-2.1" },
-            
-            { "control-id" : "cp-2.2" },
-            
-            { "control-id" : "cp-2.3" },
-            
-            { "control-id" : "cp-2.8" },
-            
-            { "control-id" : "cp-3" },
-            
-            { "control-id" : "cp-4" },
-            
-            { "control-id" : "cp-4.1" },
-            
-            { "control-id" : "cp-6" },
-            
-            { "control-id" : "cp-6.1" },
-            
-            { "control-id" : "cp-6.3" },
-            
-            { "control-id" : "cp-7" },
-            
-            { "control-id" : "cp-7.1" },
-            
-            { "control-id" : "cp-7.2" },
-            
-            { "control-id" : "cp-7.3" },
-            
-            { "control-id" : "cp-8" },
-            
-            { "control-id" : "cp-8.1" },
-            
-            { "control-id" : "cp-8.2" },
-            
-            { "control-id" : "cp-9" },
-            
-            { "control-id" : "cp-9.1" },
-            
-            { "control-id" : "cp-9.3" },
-            
-            { "control-id" : "cp-10" },
-            
-            { "control-id" : "cp-10.2" },
-            
-            { "control-id" : "ia-1" },
-            
-            { "control-id" : "ia-2" },
-            
-            { "control-id" : "ia-2.1" },
-            
-            { "control-id" : "ia-2.2" },
-            
-            { "control-id" : "ia-2.3" },
-            
-            { "control-id" : "ia-2.5" },
-            
-            { "control-id" : "ia-2.8" },
-            
-            { "control-id" : "ia-2.11" },
-            
-            { "control-id" : "ia-2.12" },
-            
-            { "control-id" : "ia-3" },
-            
-            { "control-id" : "ia-4" },
-            
-            { "control-id" : "ia-4.4" },
-            
-            { "control-id" : "ia-5" },
-            
-            { "control-id" : "ia-5.1" },
-            
-            { "control-id" : "ia-5.2" },
-            
-            { "control-id" : "ia-5.3" },
-            
-            { "control-id" : "ia-5.4" },
-            
-            { "control-id" : "ia-5.6" },
-            
-            { "control-id" : "ia-5.7" },
-            
-            { "control-id" : "ia-5.11" },
-            
-            { "control-id" : "ia-6" },
-            
-            { "control-id" : "ia-7" },
-            
-            { "control-id" : "ia-8" },
-            
-            { "control-id" : "ia-8.1" },
-            
-            { "control-id" : "ia-8.2" },
-            
-            { "control-id" : "ia-8.3" },
-            
-            { "control-id" : "ia-8.4" },
-            
-            { "control-id" : "ir-1" },
-            
-            { "control-id" : "ir-2" },
-            
-            { "control-id" : "ir-3" },
-            
-            { "control-id" : "ir-3.2" },
-            
-            { "control-id" : "ir-4" },
-            
-            { "control-id" : "ir-4.1" },
-            
-            { "control-id" : "ir-5" },
-            
-            { "control-id" : "ir-6" },
-            
-            { "control-id" : "ir-6.1" },
-            
-            { "control-id" : "ir-7" },
-            
-            { "control-id" : "ir-7.1" },
-            
-            { "control-id" : "ir-7.2" },
-            
-            { "control-id" : "ir-8" },
-            
-            { "control-id" : "ir-9" },
-            
-            { "control-id" : "ir-9.1" },
-            
-            { "control-id" : "ir-9.2" },
-            
-            { "control-id" : "ir-9.3" },
-            
-            { "control-id" : "ir-9.4" },
-            
-            { "control-id" : "ma-1" },
-            
-            { "control-id" : "ma-2" },
-            
-            { "control-id" : "ma-3" },
-            
-            { "control-id" : "ma-3.1" },
-            
-            { "control-id" : "ma-3.2" },
-            
-            { "control-id" : "ma-3.3" },
-            
-            { "control-id" : "ma-4" },
-            
-            { "control-id" : "ma-4.2" },
-            
-            { "control-id" : "ma-5" },
-            
-            { "control-id" : "ma-5.1" },
-            
-            { "control-id" : "ma-6" },
-            
-            { "control-id" : "mp-1" },
-            
-            { "control-id" : "mp-2" },
-            
-            { "control-id" : "mp-3" },
-            
-            { "control-id" : "mp-4" },
-            
-            { "control-id" : "mp-5" },
-            
-            { "control-id" : "mp-5.4" },
-            
-            { "control-id" : "mp-6" },
-            
-            { "control-id" : "mp-6.2" },
-            
-            { "control-id" : "mp-7" },
-            
-            { "control-id" : "mp-7.1" },
-            
-            { "control-id" : "pe-1" },
-            
-            { "control-id" : "pe-2" },
-            
-            { "control-id" : "pe-3" },
-            
-            { "control-id" : "pe-4" },
-            
-            { "control-id" : "pe-5" },
-            
-            { "control-id" : "pe-6" },
-            
-            { "control-id" : "pe-6.1" },
-            
-            { "control-id" : "pe-8" },
-            
-            { "control-id" : "pe-9" },
-            
-            { "control-id" : "pe-10" },
-            
-            { "control-id" : "pe-11" },
-            
-            { "control-id" : "pe-12" },
-            
-            { "control-id" : "pe-13" },
-            
-            { "control-id" : "pe-13.2" },
-            
-            { "control-id" : "pe-13.3" },
-            
-            { "control-id" : "pe-14" },
-            
-            { "control-id" : "pe-14.2" },
-            
-            { "control-id" : "pe-15" },
-            
-            { "control-id" : "pe-16" },
-            
-            { "control-id" : "pe-17" },
-            
-            { "control-id" : "pl-1" },
-            
-            { "control-id" : "pl-2" },
-            
-            { "control-id" : "pl-2.3" },
-            
-            { "control-id" : "pl-4" },
-            
-            { "control-id" : "pl-4.1" },
-            
-            { "control-id" : "pl-8" },
-            
-            { "control-id" : "ps-1" },
-            
-            { "control-id" : "ps-2" },
-            
-            { "control-id" : "ps-3" },
-            
-            { "control-id" : "ps-3.3" },
-            
-            { "control-id" : "ps-4" },
-            
-            { "control-id" : "ps-5" },
-            
-            { "control-id" : "ps-6" },
-            
-            { "control-id" : "ps-7" },
-            
-            { "control-id" : "ps-8" },
-            
-            { "control-id" : "ra-1" },
-            
-            { "control-id" : "ra-2" },
-            
-            { "control-id" : "ra-3" },
-            
-            { "control-id" : "ra-5" },
-            
-            { "control-id" : "ra-5.1" },
-            
-            { "control-id" : "ra-5.2" },
-            
-            { "control-id" : "ra-5.3" },
-            
-            { "control-id" : "ra-5.5" },
-            
-            { "control-id" : "ra-5.6" },
-            
-            { "control-id" : "ra-5.8" },
-            
-            { "control-id" : "sa-1" },
-            
-            { "control-id" : "sa-2" },
-            
-            { "control-id" : "sa-3" },
-            
-            { "control-id" : "sa-4" },
-            
-            { "control-id" : "sa-4.1" },
-            
-            { "control-id" : "sa-4.2" },
-            
-            { "control-id" : "sa-4.8" },
-            
-            { "control-id" : "sa-4.9" },
-            
-            { "control-id" : "sa-4.10" },
-            
-            { "control-id" : "sa-5" },
-            
-            { "control-id" : "sa-8" },
-            
-            { "control-id" : "sa-9" },
-            
-            { "control-id" : "sa-9.1" },
-            
-            { "control-id" : "sa-9.2" },
-            
-            { "control-id" : "sa-9.4" },
-            
-            { "control-id" : "sa-9.5" },
-            
-            { "control-id" : "sa-10" },
-            
-            { "control-id" : "sa-10.1" },
-            
-            { "control-id" : "sa-11" },
-            
-            { "control-id" : "sa-11.1" },
-            
-            { "control-id" : "sa-11.2" },
-            
-            { "control-id" : "sa-11.8" },
-            
-            { "control-id" : "sc-1" },
-            
-            { "control-id" : "sc-2" },
-            
-            { "control-id" : "sc-4" },
-            
-            { "control-id" : "sc-5" },
-            
-            { "control-id" : "sc-6" },
-            
-            { "control-id" : "sc-7" },
-            
-            { "control-id" : "sc-7.3" },
-            
-            { "control-id" : "sc-7.4" },
-            
-            { "control-id" : "sc-7.5" },
-            
-            { "control-id" : "sc-7.7" },
-            
-            { "control-id" : "sc-7.8" },
-            
-            { "control-id" : "sc-7.12" },
-            
-            { "control-id" : "sc-7.13" },
-            
-            { "control-id" : "sc-7.18" },
-            
-            { "control-id" : "sc-8" },
-            
-            { "control-id" : "sc-8.1" },
-            
-            { "control-id" : "sc-10" },
-            
-            { "control-id" : "sc-12" },
-            
-            { "control-id" : "sc-12.2" },
-            
-            { "control-id" : "sc-12.3" },
-            
-            { "control-id" : "sc-13" },
-            
-            { "control-id" : "sc-15" },
-            
-            { "control-id" : "sc-17" },
-            
-            { "control-id" : "sc-18" },
-            
-            { "control-id" : "sc-19" },
-            
-            { "control-id" : "sc-20" },
-            
-            { "control-id" : "sc-21" },
-            
-            { "control-id" : "sc-22" },
-            
-            { "control-id" : "sc-23" },
-            
-            { "control-id" : "sc-28" },
-            
-            { "control-id" : "sc-28.1" },
-            
-            { "control-id" : "sc-39" },
-            
-            { "control-id" : "si-1" },
-            
-            { "control-id" : "si-2" },
-            
-            { "control-id" : "si-2.2" },
-            
-            { "control-id" : "si-2.3" },
-            
-            { "control-id" : "si-3" },
-            
-            { "control-id" : "si-3.1" },
-            
-            { "control-id" : "si-3.2" },
-            
-            { "control-id" : "si-3.7" },
-            
-            { "control-id" : "si-4" },
-            
-            { "control-id" : "si-4.1" },
-            
-            { "control-id" : "si-4.2" },
-            
-            { "control-id" : "si-4.4" },
-            
-            { "control-id" : "si-4.5" },
-            
-            { "control-id" : "si-4.14" },
-            
-            { "control-id" : "si-4.16" },
-            
-            { "control-id" : "si-4.23" },
-            
-            { "control-id" : "si-5" },
-            
-            { "control-id" : "si-6" },
-            
-            { "control-id" : "si-7" },
-            
-            { "control-id" : "si-7.1" },
-            
-            { "control-id" : "si-7.7" },
-            
-            { "control-id" : "si-8" },
-            
-            { "control-id" : "si-8.1" },
-            
-            { "control-id" : "si-8.2" },
-            
-            { "control-id" : "si-10" },
-            
-            { "control-id" : "si-11" },
-            
-            { "control-id" : "si-12" },
-            
-            { "control-id" : "si-16" } ] } },
-=======
       [ 
         { "href" : "#ad005eae-cc63-4e64-9109-3905a9a825e4",
           "include" : 
@@ -1377,10 +712,6 @@
               { "control-id" : "si-12" },
               
               { "control-id" : "si-16" } ] } } ],
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
       "merge" : 
       { "combine" : 
         { "method" : "keep" },
@@ -2097,81 +1428,12 @@
               { "detail" : "at least monthly" } ] } },
         "alterations" : 
         [ 
-<<<<<<< HEAD
-<<<<<<< HEAD
-          { "control-id" : "ac-2.5",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ac-2.5_smt",
-              "parts" : 
-              { "id" : "ac-2.5_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AC-2 (5) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ac-2.5_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Should use a shorter timeframe than AC-12." } } } },
-          
-          { "control-id" : "ac-2.9",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ac-2.9_smt",
-              "parts" : 
-              { "id" : "ac-2.9_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AC-2 (9) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ac-2.9_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "Required if shared\/group accounts are deployed" } } } },
-          
-          { "control-id" : "ac-2.10",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ac-2.10_smt",
-              "parts" : 
-              { "id" : "ac-2.10_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AC-2 (10) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ac-2.10_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "Required if shared\/group accounts are deployed" } } } },
-          
-          { "control-id" : "ac-2.12",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ac-2.12_smt",
-              "parts" : 
-              { "id" : "ac-2.12_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AC-2 (12) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
           { "control-id" : "ac-1",
             "additions" : 
-=======
-          { "control-id" : "ac-1",
-            "additions" : 
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-1",
                 "properties" : 
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "CORE",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
@@ -2185,59 +1447,6 @@
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
                   
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  { "id" : "ac-2.12_fr_gdn.2",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "(b) Guidance:" },
-                    "prose" : "Required for privileged accounts." } ] } } },
-          
-          { "control-id" : "ac-5",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ac-5_smt",
-              "parts" : 
-              { "id" : "ac-5_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AC-5 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ac.5_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Guidance: CSPs have the option to provide a separation of duties matrix as an attachment to the SSP." } } } },
-          
-          { "control-id" : "ac-6.2",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ac-6.2_smt",
-              "parts" : 
-              { "id" : "ac-6.2_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AC-6 (2) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ac-6.2_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Examples of security functions include but are not limited to: establishing system accounts, configuring access authorizations (i.e., permissions, privileges), setting events to be audited, and setting intrusion detection parameters, system programming, system and security administration, other privileged functions." } } } },
-          
-          { "control-id" : "ac-8",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ac-8_smt",
-              "parts" : 
-              { "id" : "ac-8_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AC-8 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "EXAMINE" } ] },
@@ -2245,10 +1454,6 @@
               { "position" : "starting",
                 "id-ref" : "ac-1.a.1_obj.2",
                 "properties" : 
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
@@ -2266,59 +1471,6 @@
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
                   
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  { "id" : "ac-8_fr_smt.3",
-                    "name" : "item",
-                    "properties" : 
-                    { "label" : "Requirement:" },
-                    "prose" : "If not performed as part of a Configuration Baseline check, then there must be documented agreement on how to provide results of verification and the necessary periodicity of the verification by the service provider. The documented agreement on how to provide verification of the results are approved and accepted by the JAB\/AO." } ] } } },
-          
-          { "control-id" : "au-2",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "au-2_smt",
-              "parts" : 
-              { "id" : "au-2_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AU-2 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "au-2_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "Coordination between service provider and consumer shall be documented and accepted by the JAB\/AO." } } } },
-          
-          { "control-id" : "au-2.3",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "au-2.3_smt",
-              "parts" : 
-              { "id" : "au-2.3_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AU-2 (3) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "au-2.3_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Annually or whenever changes in the threat environment are communicated to the service provider by the JAB\/AO." } } } },
-          
-          { "control-id" : "au-3.1",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "au-3.1_smt",
-              "parts" : 
-              { "id" : "au-3.1_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AU-3 (1) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "EXAMINE" },
@@ -2330,52 +1482,11 @@
               { "position" : "starting",
                 "id-ref" : "ac-1.a.2_obj.1",
                 "properties" : 
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
                   
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  { "id" : "au-3.1_fr_gdn.1",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "For client-server transactions, the number of bytes sent and received gives bidirectional transfer information that can be helpful during an investigation or inquiry." } ] } } },
-          
-          { "control-id" : "au-6",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "au-6_smt",
-              "parts" : 
-              { "id" : "au-6_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AU-6 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "au-6_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "Coordination between service provider and consumer shall be documented and accepted by the JAB\/AO. In multi-tennant environments, capability and means for providing review, analysis, and reporting to consumer for data pertaining to consumer shall be documented." } } } },
-          
-          { "control-id" : "au-8.1",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "au-8.1_smt",
-              "parts" : 
-              { "id" : "au-8.1_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AU-8 (1) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "EXAMINE" } ] },
@@ -2383,10 +1494,6 @@
               { "position" : "starting",
                 "id-ref" : "ac-1.a.2_obj.2",
                 "properties" : 
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
@@ -2404,123 +1511,6 @@
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
                   
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  { "id" : "au-8.1_fr_gdn.1",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "Synchronization of system clocks improves the accuracy of log analysis." } ] } } },
-          
-          { "control-id" : "au-11",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "au-11_smt",
-              "parts" : 
-              { "id" : "au-11_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "AU-11 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "au-11_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "The service provider retains audit records on-line for at least ninety days and further preserves audit records off-line for a period that is in accordance with NARA requirements." } } } },
-          
-          { "control-id" : "ca-2",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ca-2_smt",
-              "parts" : 
-              { "id" : "ca-2_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-2 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ca-2_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Annual Assessment Guidance [https:\/\/www.fedramp.gov\/documents\/](https:\/\/www.fedramp.gov\/documents\/)" } } } },
-          
-          { "control-id" : "ca-2.1",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ca-2.1_smt",
-              "parts" : 
-              { "id" : "ca-2.1_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-2 (1) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ca-2.1_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "For JAB Authorization, must use an accredited Third Party Assessment Organization (3PAO)." } } } },
-          
-          { "control-id" : "ca-2.2",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ca-2.2_smt",
-              "parts" : 
-              { "id" : "ca-2.2_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-2 (2) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ca-2.2_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "To include 'announced', 'vulnerability scanning'" } } } },
-          
-          { "control-id" : "ca-3.3",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ca-3.3_smt",
-              "parts" : 
-              { "id" : "ca-3.3_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-3 (3) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ca-3.3_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Refer to Appendix H - Cloud Considerations of the TIC 2.0 Reference Architecture document." } } } },
-          
-          { "control-id" : "ca-3.5",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ca-3.5_smt",
-              "parts" : 
-              { "id" : "ca-3.5_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-3 (5) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ca-3.5_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "For JAB Authorization, CSPs shall include details of this control in their Architecture Briefing" } } } },
-          
-          { "control-id" : "ca-5",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ca-5_smt",
-              "parts" : 
-              { "id" : "ca-5_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-5 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "EXAMINE" },
@@ -2532,52 +1522,11 @@
               { "position" : "starting",
                 "id-ref" : "ac-1.b.1_obj.1",
                 "properties" : 
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
                   
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  { "id" : "ca-5_fr_gdn.1",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Plan of Action & Milestones (POA&M) Template Completion Guide [https:\/\/www.fedramp.gov\/documents\/](https:\/\/www.fedramp.gov\/documents\/)" } ] } } },
-          
-          { "control-id" : "ca-6",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ca-6_smt",
-              "parts" : 
-              { "id" : "ca-6_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-6(c) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ca-6_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Significant change is defined in NIST Special Publication 800-37 Revision 1, Appendix F. The service provider describes the types of changes to the information system or the environment of operations that would impact the risk posture. The types of changes are approved and accepted by the JAB\/AO." } } } },
-          
-          { "control-id" : "ca-7",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ca-7_smt",
-              "parts" : 
-              { "id" : "ca-7_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-7 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "EXAMINE" } ] },
@@ -2585,10 +1534,6 @@
               { "position" : "starting",
                 "id-ref" : "ac-1.b.1_obj.2",
                 "properties" : 
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
@@ -2606,43 +1551,6 @@
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
                   
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  { "id" : "ca-7_fr_gdn.2",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Continuous Monitoring Strategy Guide [https:\/\/www.fedramp.gov\/documents\/](https:\/\/www.fedramp.gov\/documents\/)" } ] } } },
-          
-          { "control-id" : "ca-8",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "ca-8_smt",
-              "parts" : 
-              { "id" : "ca-8_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CA-8 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ca-8_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Penetration Test Guidance [https:\/\/www.FedRAMP.gov\/documents\/](https:\/\/www.FedRAMP.gov\/documents\/)" } } } },
-          
-          { "control-id" : "cm-3",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "cm-3_smt",
-              "parts" : 
-              { "id" : "cm-3_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CM-3 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "EXAMINE" } ] },
@@ -2650,72 +1558,21 @@
               { "position" : "starting",
                 "id-ref" : "ac-1.b.2_obj.2",
                 "properties" : 
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
                   
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  { "id" : "cm-3_fr_gdn.1",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "(e) Guidance:" },
-                    "prose" : "In accordance with record retention policies and procedures." } ] } } },
-          
-          { "control-id" : "cm-5.3",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "cm-5.3_smt",
-              "parts" : 
-              { "id" : "cm-5.3_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CM-5 (3) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "cm-5.3_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "If digital signatures\/certificates are unavailable, alternative cryptographic integrity checks (hashes, self-signed certs, etc.) can be utilized." } } } },
-=======
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] } ] },
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-10",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "cm-6_smt",
-              "parts" : 
-              { "id" : "cm-6_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CM-6(a) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
-=======
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "EXAMINE" } ] } ] },
           
           { "control-id" : "ac-10",
             "additions" : 
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-10_obj.1",
                 "properties" : 
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
@@ -2733,27 +1590,6 @@
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
                   
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  { "id" : "cm-6_fr_gdn.1",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "Information on the USGCB checklists can be found at: [https:\/\/csrc.nist.gov\/Projects\/United-States-Government-Configuration-Baseline](https:\/\/csrc.nist.gov\/Projects\/United-States-Government-Configuration-Baseline)." } ] } } },
-          
-          { "control-id" : "cm-7",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "cm-7_smt",
-              "parts" : 
-              { "id" : "cm-7_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CM-7 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "EXAMINE" } ] },
@@ -2761,71 +1597,11 @@
               { "position" : "starting",
                 "id-ref" : "ac-10_obj.3",
                 "properties" : 
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
                   
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  { "id" : "cm-7_fr_gdn.1",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "Information on the USGCB checklists can be found at: [http:\/\/usgcb.nist.gov\/usgcb_faq.html#usgcbfaq_usgcbfdcc](http:\/\/usgcb.nist.gov\/usgcb_faq.html#usgcbfaq_usgcbfdcc). Partially derived from AC-17(8)." } ] } } },
-          
-          { "control-id" : "cm-7.2",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "cm-7.2_smt",
-              "parts" : 
-              { "id" : "cm-7.2_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CM-7 (2) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "cm-7.2_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "This control shall be implemented in a technical manner on the information system to only allow programs to run that adhere to the policy (i.e. white listing). This control is not to be based off of strictly written policy on what is allowed or not allowed to run." } } } },
-          
-          { "control-id" : "cm-8",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "cm-8_smt",
-              "parts" : 
-              { "id" : "cm-8_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CM-8 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "cm-8_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "Must be provided at least monthly or when there is a change." } } } },
-          
-          { "control-id" : "cp-2",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "cp-2_smt",
-              "parts" : 
-              { "id" : "cp-2_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CP-2 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "cp-2_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "CP-2 Requirement:" },
-                  "prose" : "For JAB authorizations the contingency lists include designated FedRAMP personnel." } } } },
-=======
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "INTERVIEW" },
@@ -2833,26 +1609,9 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
           
           { "control-id" : "ac-11",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "cp-4_smt",
-              "parts" : 
-              { "id" : "cp-4_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CP-4(a) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "cp-4_fr_smt.a",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "CP-4(a) Requirement:" },
-                  "prose" : "The service provider develops test plans in accordance with NIST Special Publication 800-34 (as amended); plans are approved by the JAB\/AO prior to initiating testing." } } } },
-=======
-=======
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-11",
@@ -2898,7 +1657,6 @@
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
                   
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "INTERVIEW" },
@@ -2906,45 +1664,12 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-11",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "cp-7_smt",
-              "parts" : 
-              { "id" : "cp-7_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CP-7 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "cp-7_fr_smt.a",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "(a) Requirement:" },
-                  "prose" : "The service provider defines a time period consistent with the recovery time objectives and business impact analysis." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-11",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-11.a_obj.1",
-=======
           
           { "control-id" : "ac-11.1",
             "additions" : 
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-11.1_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -2953,35 +1678,7 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-11.a_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-11.b_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-=======
                     "value" : "EXAMINE" },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   
                   { "name" : "method",
                     "class" : "fedramp",
@@ -2990,30 +1687,6 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-11.1",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "cp-7.1_smt",
-              "parts" : 
-              { "id" : "cp-7.1_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CP-7 (1) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "cp-7.1_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "The service provider may determine what is considered a sufficient degree of separation between the primary and alternate processing sites, based on the types of threats that are of concern. For one particular type of threat (i.e., hostile cyber attack), the degree of separation between sites will be less relevant." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-11.1_obj",
-=======
           
           { "control-id" : "ac-12",
             "additions" : 
@@ -3028,7 +1701,6 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-12.1_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3037,9 +1709,6 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "EXAMINE" },
-=======
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
@@ -3049,7 +1718,6 @@
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   
                   { "name" : "method",
                     "class" : "fedramp",
@@ -3058,38 +1726,6 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-12",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "cp-8_smt",
-              "parts" : 
-              { "id" : "cp-8_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CP-8 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "cp-8_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "The service provider defines a time period consistent with the recovery time objectives and business impact analysis." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-12",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-12.1_obj",
-=======
           
           { "control-id" : "ac-14",
             "additions" : 
@@ -3108,7 +1744,6 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-14.a_obj.2",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3117,12 +1752,6 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-12_obj.2",
-=======
                     "value" : "EXAMINE" },
                   
                   { "name" : "method",
@@ -3131,7 +1760,6 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-14.b_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3140,128 +1768,10 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-14",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "cp-9_smt",
-              "parts" : 
-              { "id" : "cp-9_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "CP-9 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-14.a_obj.1",
-                "properties" : 
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-                [ 
-=======
                     "value" : "EXAMINE" } ] } ] },
           
           { "control-id" : "ac-17",
             "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-17",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-17.a_obj.1",
-                "properties" : 
-                [ 
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-<<<<<<< HEAD
-                "id-ref" : "ac-14.a_obj.2",
-=======
-                "id-ref" : "ac-17.a_obj.2",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-14.b_obj",
-=======
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-17.a_obj.3",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-17.b_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "EXAMINE" } ] } ] },
-          
-          { "control-id" : "ac-17",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ia-2.11_smt",
-              "parts" : 
-              { "id" : "ia-2.11_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IA-2 (11) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ia-2.11_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "PIV=separate device. Please refer to NIST SP 800-157 Guidelines for Derived Personal Identity Verification (PIV) Credentials." } } } },
-=======
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-17",
@@ -3297,19 +1807,6 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-17.a_obj.3",
-=======
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
-          
-          { "control-id" : "ac-17.1",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-17.1_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3318,7 +1815,6 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
@@ -3328,9 +1824,6 @@
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
-=======
-                    "value" : "EXAMINE" },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   
                   { "name" : "method",
                     "class" : "fedramp",
@@ -3339,37 +1832,12 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
           
           { "control-id" : "ac-17.1",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ia-2.12_smt",
-              "parts" : 
-              { "id" : "ia-2.12_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IA-2 (12) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ia-2.12_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Include Common Access Card (CAC), i.e., the DoD technical implementation of PIV\/FIPS 201\/HSPD-12." } } } },
-=======
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-17.1_obj",
-=======
-          
-          { "control-id" : "ac-17.2",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-17.2_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3387,35 +1855,13 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
           
           { "control-id" : "ac-17.2",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ia-4_smt",
-              "parts" : 
-              { "id" : "ia-4_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IA-4(e) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-17.2_obj",
                 "properties" : 
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
-          
-          { "control-id" : "ac-17.3",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-17.3_obj.1",
-                "properties" : 
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
@@ -3423,19 +1869,7 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
                     "value" : "EXAMINE" },
-=======
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-17.3_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   
                   { "name" : "method",
                     "class" : "fedramp",
@@ -3445,34 +1879,11 @@
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
           
-<<<<<<< HEAD
           { "control-id" : "ac-17.3",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ia-5_smt",
-              "parts" : 
-              { "id" : "ia-5_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IA-5 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ia-5_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 2. Link [https:\/\/pages.nist.gov\/800-63-3](https:\/\/pages.nist.gov\/800-63-3)." } } } },
-=======
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-17.3_obj.1",
-=======
-          { "control-id" : "ac-17.4",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-17.4.a_obj.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3484,11 +1895,7 @@
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
-<<<<<<< HEAD
                 "id-ref" : "ac-17.3_obj.2",
-=======
-                "id-ref" : "ac-17.4.a_obj.2",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3501,27 +1908,10 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
                     "value" : "TEST" } ] } ] },
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
           
           { "control-id" : "ac-17.4",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ia-5.1_smt",
-              "parts" : 
-              { "id" : "ia-5.1_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IA-5 (1), (a) and (d) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ia-5.1_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "(a) (d) Guidance:" },
-                  "prose" : "If password policies are compliant with NIST SP 800-63B Memorized Secret (Section 5.1.1) Guidance, the control may be considered compliant." } } } },
-=======
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-17.4.a_obj.1",
@@ -3537,7 +1927,18 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-17.4.a_obj.2",
-=======
+                "properties" : 
+                [ 
+                  { "name" : "conformity",
+                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                    "value" : "assessment-objective" },
+                  
+                  { "name" : "method",
+                    "class" : "fedramp",
+                    "value" : "INTERVIEW" },
+                  
+                  { "name" : "method",
+                    "class" : "fedramp",
                     "value" : "TEST" } ] },
               
               { "position" : "starting",
@@ -3565,7 +1966,6 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-17.9_obj.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3574,21 +1974,10 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-17.4.b_obj",
-=======
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
                 "id-ref" : "ac-17.9_obj.2",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3597,31 +1986,6 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "EXAMINE" } ] } ] },
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-17.9",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ia-5.4_smt",
-              "parts" : 
-              { "id" : "ia-5.4_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IA-5 (4) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ia-5.4_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "If automated mechanisms which enforce password authenticator strength at creation are not used, automated mechanisms must be used to audit strength of created password authenticators." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-17.9",
-=======
                     "value" : "INTERVIEW" },
                   
                   { "name" : "method",
@@ -3633,7 +1997,6 @@
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-18",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "CORE",
@@ -3641,11 +2004,7 @@
                     "value" : "" } ] },
               
               { "position" : "starting",
-<<<<<<< HEAD
-                "id-ref" : "ac-17.9_obj.1",
-=======
                 "id-ref" : "ac-18.a_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3657,11 +2016,7 @@
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
-<<<<<<< HEAD
-                "id-ref" : "ac-17.9_obj.2",
-=======
                 "id-ref" : "ac-18.b_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3675,45 +2030,12 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-18",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ir-3_smt",
-              "parts" : 
-              { "id" : "ir-3_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IR-3 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ir-3_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "IR-3 -2 Requirement:" },
-                  "prose" : "The service provider defines tests and\/or exercises in accordance with NIST Special Publication 800-61 (as amended). For JAB authorization, the service provider provides test plans to the JAB\/AO annually. Test plans are approved and accepted by the JAB\/AO prior to test commencing." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-18",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-18.a_obj",
-=======
           
           { "control-id" : "ac-18.1",
             "additions" : 
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-18.1_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3722,19 +2044,7 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-18.b_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-=======
                     "value" : "EXAMINE" },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   
                   { "name" : "method",
                     "class" : "fedramp",
@@ -3743,30 +2053,6 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-18.1",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ir-4_smt",
-              "parts" : 
-              { "id" : "ir-4_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IR-4 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ir-4_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "The service provider ensures that individuals conducting incident handling meet personnel security requirements commensurate with the criticality\/sensitivity of the information being processed, stored, and transmitted by the information system." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-18.1_obj",
-=======
           
           { "control-id" : "ac-19",
             "additions" : 
@@ -3781,79 +2067,6 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-19.a_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "EXAMINE" },
-=======
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-19.b_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-19",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ir-6_smt",
-              "parts" : 
-              { "id" : "ir-6_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IR-6 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ir-6_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "Report security incident information according to FedRAMP Incident Communications Procedure." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-19",
-=======
-          
-          { "control-id" : "ac-19.5",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-19.5",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-<<<<<<< HEAD
-                "id-ref" : "ac-19.a_obj",
-=======
-                "id-ref" : "ac-19.5_obj.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3865,11 +2078,7 @@
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
-<<<<<<< HEAD
                 "id-ref" : "ac-19.b_obj",
-=======
-                "id-ref" : "ac-19.5_obj.2",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3883,46 +2092,20 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
           
           { "control-id" : "ac-19.5",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ir-8_smt",
-              "parts" : 
-              { "id" : "ir-8_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "IR-8 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-19.5",
                 "properties" : 
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
-          
-          { "control-id" : "ac-2",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-2",
-                "properties" : 
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "CORE",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "" } ] },
               
               { "position" : "starting",
-<<<<<<< HEAD
                 "id-ref" : "ac-19.5_obj.1",
-=======
-                "id-ref" : "ac-2.a_obj.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -3934,7 +2117,6 @@
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
-<<<<<<< HEAD
                 "id-ref" : "ac-19.5_obj.2",
                 "properties" : 
                 [ 
@@ -3952,37 +2134,6 @@
           
           { "control-id" : "ac-2",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ma-5.1_smt",
-              "parts" : 
-              { "id" : "ma-5.1_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "MA-5 (1) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ma-5.1_fr_smt.b",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "Only MA-5 (1)(a)(1) is required by FedRAMP Moderate Baseline" } } } },
-          
-          { "control-id" : "mp-3",
-            "additions" : 
-            { "position" : "ending",
-              "id-ref" : "mp-3_smt",
-              "parts" : 
-              { "id" : "mp-3_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "MP-3 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "mp-3_fr_gdn.b",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "(b) Guidance:" },
-                  "prose" : "Second parameter not-applicable" } } } },
-=======
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-2",
@@ -4005,8 +2156,6 @@
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "id-ref" : "ac-2.a_obj.2",
                 "properties" : 
                 [ 
@@ -4205,31 +2354,9 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "EXAMINE" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
           
           { "control-id" : "ac-2.1",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "mp-4_smt",
-              "parts" : 
-              { "id" : "mp-4_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "MP-4 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "mp-4_fr_smt.a",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "(a) Requirement:" },
-                  "prose" : "The service provider defines controlled areas within facilities where the information and information system reside." } } } },
-=======
-=======
-          
-          { "control-id" : "ac-2.1",
-            "additions" : 
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-2.1_obj",
@@ -4246,32 +2373,12 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-2.10",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "mp-5_smt",
-              "parts" : 
-              { "id" : "mp-5_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "MP-5 Additional FedRAMP Requirements and Guidance",
-=======
-            [ 
-              { "position" : "ending",
-                "id-ref" : "ac-2.10_smt",
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
           
           { "control-id" : "ac-2.10",
             "additions" : 
             [ 
               { "position" : "ending",
                 "id-ref" : "ac-2.10_smt",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "parts" : 
                 [ 
                   { "id" : "ac-2.10_fr",
@@ -4309,25 +2416,9 @@
           
           { "control-id" : "ac-2.12",
             "additions" : 
-<<<<<<< HEAD
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "mp-6.2_smt",
-              "parts" : 
-              { "id" : "mp-6.2_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "MP-6 (2) Additional FedRAMP Requirements and Guidance",
-=======
             [ 
               { "position" : "ending",
                 "id-ref" : "ac-2.12_smt",
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
-            [ 
-              { "position" : "ending",
-                "id-ref" : "ac-2.12_smt",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "parts" : 
                 [ 
                   { "id" : "ac-2.12_fr",
@@ -4417,24 +2508,6 @@
           
           { "control-id" : "ac-2.2",
             "additions" : 
-<<<<<<< HEAD
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "pe-14_smt",
-              "parts" : 
-              { "id" : "pe-14_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "PE-14(a) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "pe-14_fr_smt.a",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "(a) Requirement:" },
-                  "prose" : "The service provider measures temperature at server inlets and humidity levels by dew point." } } } },
-=======
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-2.2",
@@ -4471,31 +2544,9 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
           
           { "control-id" : "ac-2.3",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "pl-8_smt",
-              "parts" : 
-              { "id" : "pl-8_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "PL-8(b) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "pl-8_fr_gdn.b",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "(b) Guidance:" },
-                  "prose" : "Significant change is defined in NIST Special Publication 800-37 Revision 1, Appendix F, page F-7." } } } },
-=======
-=======
-          
-          { "control-id" : "ac-2.3",
-            "additions" : 
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-2.3",
@@ -4532,34 +2583,13 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
           
           { "control-id" : "ac-2.4",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ra-3_smt",
-              "parts" : 
-              { "id" : "ra-3_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "RA-3 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-=======
-=======
-          
-          { "control-id" : "ac-2.4",
-            "additions" : 
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-2.4_obj.1",
                 "properties" : 
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 [ 
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
@@ -4605,15 +2635,7 @@
             "additions" : 
             [ 
               { "position" : "ending",
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "id-ref" : "ra-5_smt.a",
-=======
                 "id-ref" : "ac-2.5_smt",
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
-                "id-ref" : "ac-2.5_smt",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "parts" : 
                 [ 
                   { "id" : "ac-2.5_fr",
@@ -4637,32 +2659,6 @@
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "" } ] },
               
-<<<<<<< HEAD
-<<<<<<< HEAD
-              { "position" : "ending",
-                "id-ref" : "ra-5_smt.e",
-                "parts" : 
-                { "id" : "ra-5_fr_smt.e",
-                  "name" : "item",
-                  "title" : "RA-5(e) Additional FedRAMP Requirements and Guidance",
-                  "properties" : 
-                  { "label" : "RA-5 (e)Requirement:" },
-                  "prose" : "To include all Authorizing Officials; for JAB authorizations to include FedRAMP." } },
-              
-              { "position" : "ending",
-                "id-ref" : "ra-5_smt",
-                "parts" : 
-                { "id" : "ra-5_fr",
-                  "name" : "item",
-                  "ns" : "fedramp",
-                  "title" : "RA-5 Additional FedRAMP Requirements and Guidance",
-                  "parts" : 
-                  { "id" : "ra-5_fr_gdn.1",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "**See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents> Vulnerability Scanning Requirements** ([https:\/\/www.FedRAMP.gov\/documents\/](https:\/\/www.FedRAMP.gov\/documents\/))" } } } ] },
-=======
               { "position" : "starting",
                 "id-ref" : "ac-2.5_obj.1",
                 "properties" : 
@@ -4675,20 +2671,6 @@
                     "class" : "fedramp",
                     "value" : "EXAMINE" } ] },
               
-=======
-              { "position" : "starting",
-                "id-ref" : "ac-2.5_obj.1",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
               { "position" : "starting",
                 "id-ref" : "ac-2.5_obj.2",
                 "properties" : 
@@ -4704,31 +2686,9 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
           
           { "control-id" : "ac-2.7",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ra-5.6_smt",
-              "parts" : 
-              { "id" : "ra-5.6_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "RA-5 (6) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "ra-5.6_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Include in Continuous Monitoring ISSO digest\/report to JAB\/AO" } } } },
-=======
-=======
-          
-          { "control-id" : "ac-2.7",
-            "additions" : 
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-2.7.a_obj",
@@ -4789,32 +2749,12 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-2.9",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "ra-5.8_smt",
-              "parts" : 
-              { "id" : "ra-5.8_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "RA-5 (8) Additional FedRAMP Requirements and Guidance",
-=======
-            [ 
-              { "position" : "ending",
-                "id-ref" : "ac-2.9_smt",
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
           
           { "control-id" : "ac-2.9",
             "additions" : 
             [ 
               { "position" : "ending",
                 "id-ref" : "ac-2.9_smt",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "parts" : 
                 [ 
                   { "id" : "ac-2.9_fr",
@@ -4838,14 +2778,6 @@
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
                   
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  { "id" : "ra-5.8_fr_gdn.1",
-                    "name" : "guidance",
-                    "properties" : 
-                    { "label" : "Guidance:" },
-                    "prose" : "While scanning tools may label findings as high or critical, the intent of the control is based around NIST's definition of high vulnerability." } ] } } },
-=======
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "EXAMINE" } ] },
@@ -4865,32 +2797,9 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
           
           { "control-id" : "ac-20",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "sa-4_smt",
-              "parts" : 
-              { "id" : "sa-4_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SA-4 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "sa-4_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "The use of Common Criteria (ISO\/IEC 15408) evaluated products is strongly preferred. See [http:\/\/www.niap-ccevs.org\/vpl](http:\/\/www.niap-ccevs.org\/vpl) or [http:\/\/www.commoncriteriaportal.org\/products.html](http:\/\/www.commoncriteriaportal.org\/products.html)." } } } },
-=======
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-2.9_obj.2",
-=======
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-20.a_obj",
@@ -4914,7 +2823,6 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-20.b_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -4923,69 +2831,21 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
-=======
                     "value" : "EXAMINE" },
                   
                   { "name" : "method",
                     "class" : "fedramp",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                     "value" : "INTERVIEW" },
                   
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-20",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "sa-4.8_smt",
-              "parts" : 
-              { "id" : "sa-4.8_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SA-4 (8) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "sa-4.8_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "CSP must use the same security standards regardless of where the system component or information system service is acquired." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-20.a_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-20.b_obj",
-=======
           
           { "control-id" : "ac-20.1",
             "additions" : 
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-20.1_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -5003,37 +2863,12 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-20.1",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "sa-10_smt",
-              "parts" : 
-              { "id" : "sa-10_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SA-10 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "sa-10_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "(e)  Requirement:" },
-                  "prose" : "For JAB authorizations, track security flaws and flaw resolution within the system, component, or service and report findings to organization-defined personnel, to include FedRAMP." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-20.1_obj",
-=======
           
           { "control-id" : "ac-20.2",
             "additions" : 
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-20.2_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -5051,37 +2886,12 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-20.2",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "sa-11.1_smt",
-              "parts" : 
-              { "id" : "sa-11.1_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SA-11 (1) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "sa-11.1_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "The service provider documents in the Continuous Monitoring Plan, how newly developed code for the information system is reviewed." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-20.2_obj",
-=======
           
           { "control-id" : "ac-21",
             "additions" : 
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-21.a_obj.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -5090,9 +2900,6 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "EXAMINE" },
-=======
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
@@ -5130,7 +2937,6 @@
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   
                   { "name" : "method",
                     "class" : "fedramp",
@@ -5139,162 +2945,9 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-21",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "sa-11.8_smt",
-              "parts" : 
-              { "id" : "sa-11.8_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SA-11 (8) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "sa-11.8_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "The service provider documents in the Continuous Monitoring Plan, how newly developed code for the information system is reviewed." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-21.a_obj.1",
-=======
           
           { "control-id" : "ac-22",
             "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-22",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-22.a_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-<<<<<<< HEAD
-                "id-ref" : "ac-21.a_obj.2",
-=======
-                "id-ref" : "ac-22.b_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-<<<<<<< HEAD
-                "id-ref" : "ac-21.b_obj.1",
-=======
-                "id-ref" : "ac-22.c_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-22.d_obj.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-<<<<<<< HEAD
-                "id-ref" : "ac-21.b_obj.2",
-=======
-                "id-ref" : "ac-22.d_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-22.d_obj.3",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-22",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "sc-7.13_smt",
-              "parts" : 
-              { "id" : "sc-7.13_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SC-7 (13) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "sc-7.13_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "The service provider defines key information security tools, mechanisms, and support components associated with system and security administration and isolates those tools, mechanisms, and support components from other internal information system components via physically or logically separate subnets." } } } },
-=======
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-22",
@@ -5350,14 +3003,6 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-22.d_obj.1",
-=======
-          
-          { "control-id" : "ac-3",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-3_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -5366,7 +3011,6 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
@@ -5392,9 +3036,6 @@
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
-=======
-                    "value" : "EXAMINE" },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   
                   { "name" : "method",
                     "class" : "fedramp",
@@ -5403,30 +3044,29 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
           
           { "control-id" : "ac-3",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "sc-12_smt",
-              "parts" : 
-              { "id" : "sc-12_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SC-12 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "sc-12_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "Federally approved and validated cryptography." } } } },
-=======
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-3_obj",
-=======
+                "properties" : 
+                [ 
+                  { "name" : "conformity",
+                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                    "value" : "assessment-objective" },
+                  
+                  { "name" : "method",
+                    "class" : "fedramp",
+                    "value" : "EXAMINE" },
+                  
+                  { "name" : "method",
+                    "class" : "fedramp",
+                    "value" : "INTERVIEW" },
+                  
+                  { "name" : "method",
+                    "class" : "fedramp",
+                    "value" : "TEST" } ] } ] },
           
           { "control-id" : "ac-4",
             "additions" : 
@@ -5441,7 +3081,6 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-4.1_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -5450,9 +3089,6 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "EXAMINE" },
-=======
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
@@ -5462,7 +3098,6 @@
                   { "name" : "conformity",
                     "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
                     "value" : "assessment-objective" },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   
                   { "name" : "method",
                     "class" : "fedramp",
@@ -5471,38 +3106,6 @@
                   { "name" : "method",
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
-<<<<<<< HEAD
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-4",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "sc-15_smt",
-              "parts" : 
-              { "id" : "sc-15_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SC-15 Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "sc-15_fr_smt.1",
-                  "name" : "item",
-                  "properties" : 
-                  { "label" : "Requirement:" },
-                  "prose" : "The information system provides disablement (instead of physical disconnect) of collaborative computing devices in a manner that supports ease of use." } } } },
-=======
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-4",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-4.1_obj",
-=======
           
           { "control-id" : "ac-4.21",
             "additions" : 
@@ -5581,127 +3184,6 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-5.a_obj.2",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-4.2_obj",
-=======
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-5.b_obj",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-<<<<<<< HEAD
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-          
-          { "control-id" : "ac-4.21",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-4.21_obj.1",
-=======
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-5.c_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] } ] },
-          
-          { "control-id" : "ac-6",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-6_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
-          
-          { "control-id" : "ac-6.1",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-6.1_obj.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-<<<<<<< HEAD
-                "id-ref" : "ac-4.21_obj.2",
-=======
-                "id-ref" : "ac-6.1_obj.2",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-<<<<<<< HEAD
-                "id-ref" : "ac-4.21_obj.3",
-=======
-                "id-ref" : "ac-6.1_obj.3",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -5714,115 +3196,6 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
-          
-<<<<<<< HEAD
-          { "control-id" : "ac-5",
-            "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "sc-28_smt",
-              "parts" : 
-              { "id" : "sc-28_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SC-28 Additional FedRAMP Requirements and Guidance",
-=======
-            [ 
-              { "position" : "ending",
-                "id-ref" : "ac-5_smt",
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-                "parts" : 
-                [ 
-                  { "id" : "ac-5_fr",
-                    "name" : "item",
-                    "title" : "AC-5 Additional FedRAMP Requirements and Guidance",
-                    "parts" : 
-                    [ 
-                      { "id" : "ac.5_fr_gdn.1",
-=======
-          { "control-id" : "ac-6.10",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-6.10_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
-          
-          { "control-id" : "ac-6.2",
-            "additions" : 
-            [ 
-              { "position" : "ending",
-                "id-ref" : "ac-6.2_smt",
-                "parts" : 
-                [ 
-                  { "id" : "ac-6.2_fr",
-                    "name" : "item",
-                    "title" : "AC-6 (2) Additional FedRAMP Requirements and Guidance",
-                    "parts" : 
-                    [ 
-                      { "id" : "ac-6.2_fr_gdn.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                        "name" : "guidance",
-                        "properties" : 
-                        [ 
-                          { "name" : "label",
-                            "value" : "Guidance:" } ],
-<<<<<<< HEAD
-                        "prose" : "Guidance: CSPs have the option to provide a separation of duties matrix as an attachment to the SSP." } ] } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-5.a_obj.1",
-=======
-                        "prose" : "Examples of security functions include but are not limited to: establishing system accounts, configuring access authorizations (i.e., permissions, privileges), setting events to be audited, and setting intrusion detection parameters, system programming, system and security administration, other privileged functions." } ] } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-6.2_obj.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-<<<<<<< HEAD
-                "id-ref" : "ac-5.a_obj.2",
-=======
-                "id-ref" : "ac-6.2_obj.2",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-<<<<<<< HEAD
                     "value" : "TEST" } ] },
               
               { "position" : "starting",
@@ -5877,14 +3250,6 @@
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-6.1_obj.1",
-=======
-                    "value" : "TEST" } ] } ] },
-          
-          { "control-id" : "ac-6.5",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-6.5_obj.1",
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -5896,82 +3261,7 @@
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
-                "id-ref" : "ac-6.5_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
-          
-          { "control-id" : "ac-6.9",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-6.9",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-6.9_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
-          
-          { "control-id" : "ac-7",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "ac-7",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-7.a_obj.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-<<<<<<< HEAD
                 "id-ref" : "ac-6.1_obj.2",
-=======
-                "id-ref" : "ac-7.a_obj.2",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -5983,11 +3273,7 @@
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
-<<<<<<< HEAD
                 "id-ref" : "ac-6.1_obj.3",
-=======
-                "id-ref" : "ac-7.a_obj.3",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -6000,7 +3286,6 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
                     "value" : "TEST" } ] } ] },
           
           { "control-id" : "ac-6.10",
@@ -6008,12 +3293,6 @@
             [ 
               { "position" : "starting",
                 "id-ref" : "ac-6.10_obj",
-=======
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-7.b_obj.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -6022,19 +3301,7 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
                     "value" : "EXAMINE" },
-=======
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-7.b_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                   
                   { "name" : "method",
                     "class" : "fedramp",
@@ -6044,22 +3311,11 @@
                     "class" : "fedramp",
                     "value" : "TEST" } ] } ] },
           
-<<<<<<< HEAD
           { "control-id" : "ac-6.2",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "si-4_smt",
-              "parts" : 
-              { "id" : "si-4_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SI-4 Additional FedRAMP Requirements and Guidance",
-=======
             [ 
               { "position" : "ending",
                 "id-ref" : "ac-6.2_smt",
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
                 "parts" : 
                 [ 
                   { "id" : "ac-6.2_fr",
@@ -6077,46 +3333,6 @@
               
               { "position" : "starting",
                 "id-ref" : "ac-6.2_obj.1",
-=======
-          { "control-id" : "ac-8",
-            "additions" : 
-            [ 
-              { "position" : "ending",
-                "id-ref" : "ac-8_smt",
-                "parts" : 
-                [ 
-                  { "id" : "ac-8_fr",
-                    "name" : "item",
-                    "title" : "AC-8 Additional FedRAMP Requirements and Guidance",
-                    "parts" : 
-                    [ 
-                      { "id" : "ac-8_fr_smt.1",
-                        "name" : "item",
-                        "properties" : 
-                        [ 
-                          { "name" : "label",
-                            "value" : "Requirement:" } ],
-                        "prose" : "The service provider shall determine elements of the cloud environment that require the System Use Notification control. The elements of the cloud environment that require System Use Notification are approved and accepted by the JAB\/AO." },
-                      
-                      { "id" : "ac-8_fr_smt.2",
-                        "name" : "item",
-                        "properties" : 
-                        [ 
-                          { "name" : "label",
-                            "value" : "Requirement:" } ],
-                        "prose" : "The service provider shall determine how System Use Notification is going to be verified and provide appropriate periodicity of the check. The System Use Notification verification and periodicity are approved and accepted by the JAB\/AO. If performed as part of a Configuration Baseline check, then the % of items requiring setting that are checked and that pass (or fail) check can be provided." },
-                      
-                      { "id" : "ac-8_fr_smt.3",
-                        "name" : "item",
-                        "properties" : 
-                        [ 
-                          { "name" : "label",
-                            "value" : "Requirement:" } ],
-                        "prose" : "If not performed as part of a Configuration Baseline check, then there must be documented agreement on how to provide results of verification and the necessary periodicity of the verification by the service provider. The documented agreement on how to provide verification of the results are approved and accepted by the JAB\/AO." } ] } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-8.a_obj.1",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -6128,11 +3344,7 @@
                     "value" : "EXAMINE" } ] },
               
               { "position" : "starting",
-<<<<<<< HEAD
                 "id-ref" : "ac-6.2_obj.2",
-=======
-                "id-ref" : "ac-8.a_obj.2",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "properties" : 
                 [ 
                   { "name" : "conformity",
@@ -6145,7 +3357,6 @@
                   
                   { "name" : "method",
                     "class" : "fedramp",
-<<<<<<< HEAD
                     "value" : "TEST" } ] } ] },
           
           { "control-id" : "ac-6.5",
@@ -6794,470 +4005,8 @@
           
           { "control-id" : "au-1",
             "additions" : 
-<<<<<<< HEAD
-            { "position" : "ending",
-              "id-ref" : "si-4.5_smt",
-              "parts" : 
-              { "id" : "si-4.5_fr",
-                "name" : "item",
-                "ns" : "fedramp",
-                "title" : "SI-4 (5) Additional FedRAMP Requirements and Guidance",
-                "parts" : 
-                { "id" : "si-4.5_fr_gdn.1",
-                  "name" : "guidance",
-                  "properties" : 
-                  { "label" : "Guidance:" },
-                  "prose" : "In accordance with the incident response plan." } } } } ] } } }
-=======
             [ 
               { "position" : "starting",
-=======
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-8.b_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-8.c.1_obj.1",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-8.c.1_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-8.c.2_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "ac-8.c.3_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] } ] },
-          
-          { "control-id" : "at-1",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "at-1",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-1.a.1_obj.1",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-1.a.1_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-1.a.1_obj.3",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-1.a.2_obj.1",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-1.a.2_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-1.a.2_obj.3",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-1.b.1_obj.1",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-1.b.1_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-1.b.2_obj.1",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-1.b.2_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] } ] },
-          
-          { "control-id" : "at-2",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "at-2",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-2.a_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-2.b_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-2.c_obj.1",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-2.c_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
-          
-          { "control-id" : "at-2.2",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "at-2.2_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" } ] } ] },
-          
-          { "control-id" : "at-3",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "at-3",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-3.a_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-3.b_obj",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-3.c_obj.1",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-3.c_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
-          
-          { "control-id" : "at-4",
-            "additions" : 
-            [ 
-              { "position" : "starting",
-                "id-ref" : "at-4",
-                "properties" : 
-                [ 
-                  { "name" : "CORE",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-4.a_obj.1",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-4.a_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-4.b_obj.1",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "EXAMINE" } ] },
-              
-              { "position" : "starting",
-                "id-ref" : "at-4.b_obj.2",
-                "properties" : 
-                [ 
-                  { "name" : "conformity",
-                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
-                    "value" : "assessment-objective" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "INTERVIEW" },
-                  
-                  { "name" : "method",
-                    "class" : "fedramp",
-                    "value" : "TEST" } ] } ] },
-          
-          { "control-id" : "au-1",
-            "additions" : 
-            [ 
-              { "position" : "starting",
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                 "id-ref" : "au-1",
                 "properties" : 
                 [ 
@@ -25186,22 +21935,7 @@
                 "value" : "always" } ],
             "rlinks" : 
             [ 
-<<<<<<< HEAD
-<<<<<<< HEAD
-              { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/nist.gov\/SP800-53\/rev4\/json\/NIST_SP-800-53_rev4_catalog.json",
-<<<<<<< HEAD
-                "media-type" : "application\/xml" } ] } ] } } }
->>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
-=======
-=======
-              { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/v1.0.0-milestone3\/content\/nist.gov\/SP800-53\/rev4\/json\/NIST_SP-800-53_rev4_catalog.json",
->>>>>>> Updated baselines and Registry
-                "media-type" : "application\/json\/" } ] } ] } } }
-
->>>>>>> Updated Baselines and Templates
-=======
               { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/v1.0.0-milestone3\/content\/nist.gov\/SP800-53\/rev4\/json\/NIST_SP-800-53_rev4_catalog.json",
                 "media-type" : "application\/json\/" } ] } ] } } }
 
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
 
