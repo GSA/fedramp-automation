@@ -1,6 +1,6 @@
 ---
-name: PMO Action Items (FedRAMP PMO Use Only)
-about: Capture action items intended for follow-up by the FedRAMP PMO.
+name: PMO Action Item (FedRAMP PMO Use Only)
+about: Capture an action item intended for follow-up by the FedRAMP PMO.
 title: ''
 labels: ''
 assignees: brianrufgsa
@@ -56,7 +56,6 @@ NOTE: For issues related to the OSCAL syntax itself, please create or add to an 
 - [ ] A Pull Request (PR) is submitted that fully addresses the goals of this User Story. This issue is referenced in the PR.
 
 {The items above are general acceptance criteria for all User Stories. Please describe anything else that must be completed for this issue to be considered resolved.}
-
 
 
 ## Other Comments

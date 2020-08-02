@@ -1,7 +1,6 @@
 ---
-name: OSCAL-based FedRAMP SSP Feedback
-about: Provide feedback about any of the OSCAL-based FedRAMP SSP files published for
-  public comment
+name: OSCAL-based FedRAMP Resources Feedback
+about: Provide feedback, ask a question, or request an enhancement related to any of the OSCAL-based FedRAMP resources published for public comment
 title: ''
 labels: ''
 assignees: brianrufgsa
