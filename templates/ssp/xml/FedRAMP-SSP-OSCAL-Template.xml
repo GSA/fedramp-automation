@@ -620,8 +620,7 @@
          <date-authorized>2015-01-01</date-authorized>
          <remarks>
             <p>The leveraged-authorizaton assembly is supposed to have a required uuid flag instead of an optional id flag. This will be fixed in the syntax shortly.</p>
-            <p>Use one leveraged-authorization assembly for each underlying system. (In the legacy world, these may be general support systems.</p>
-            
+            <p>Use one leveraged-authorization assembly for each underlying system. (In the legacy world, these may be general support systems.</p>            
          </remarks>
       </leveraged-authorization>
       <!-- Section 9.3, Table 9-1. Personnel Roles and Privileges -->
@@ -672,6 +671,14 @@
          <description>
             <p>The entire system as depicted in the system authorization boundary</p>
          </description>
+         <status state="operational"/>
+      </component>
+      <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" component-type="system">
+         <title>Name of Leveraged System</title>
+         <description>
+            <p>If the leveraged system owner provides a UUID for their system (such as in an OSCAL-based CRM), it should be used as the UUID for this component.</p>
+         </description>
+         <prop name="leveraged-authorization-uuid">5a9c98ab-8e5e-433d-a7bd-515c07cd1497</prop>
          <status state="operational"/>
       </component>
       <component uuid="95beec7e-6f82-4aaa-8211-969cd7c1f1ab" component-type="validation">
