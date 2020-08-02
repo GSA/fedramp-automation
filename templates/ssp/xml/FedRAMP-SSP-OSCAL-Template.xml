@@ -1094,182 +1094,11 @@
                <p>Do not respond to this statement here. Respond within the <code>by-component</code> assembly below.</p>
             </description>
             <!-- Service Provider Responsibility -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <by-component component-id="system">
-<<<<<<< HEAD
-               <description><p>For the portion of part a satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
-            <!-- Inherited -->
-            <by-component component-id="fedramp-authorized-provider-1">
-               <description><p>For the portion inherited from an underlying FedRAMP-authorized provider, describe <strong>what</strong> is inherited.</p></description>
-            </by-component>
-            <!-- Customer Responsibility -->
-            <by-component component-id="customer">
-               <description><p>For the portion of part a that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-2_stmt.b">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="system">
-               <description><p>For the portion of part b satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
-            <!-- Inherited -->
-            <by-component component-id="fedramp-authorized-provider-1">
-               <description><p>For the portion inherited from an underlying FedRAMP-authorized provider, describe <strong>what</strong> is inherited.</p></description>
-            </by-component>
-            <!-- Customer Responsibility -->
-            <by-component component-id="customer">
-               <description><p>For the portion of part b that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-2_stmt.c">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="system">
-               <description><p>For the portion of part c satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
-            <!-- Inherited -->
-            <by-component component-id="fedramp-authorized-provider-1">
-               <description><p>For the portion inherited from an underlying FedRAMP-authorized provider, describe <strong>what</strong> is inherited.</p></description>
-            </by-component>
-            <!-- Customer Responsibility -->
-            <by-component component-id="customer">
-               <description><p>For the portion of part c that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-2_stmt.d">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="system">
-               <description><p>For the portion of part d satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
-            <!-- Inherited -->
-            <by-component component-id="fedramp-authorized-provider-1">
-               <description><p>For the portion inherited from an underlying FedRAMP-authorized provider, describe <strong>what</strong> is inherited.</p></description>
-            </by-component>
-            <!-- Customer Responsibility -->
-            <by-component component-id="customer">
-               <description><p>For the portion of part d that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-2_stmt.e">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="system">
-               <description><p>For the portion of part e satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
-            <!-- Inherited -->
-            <by-component component-id="fedramp-authorized-provider-1">
-               <description><p>For the portion inherited from an underlying FedRAMP-authorized provider, describe <strong>what</strong> is inherited.</p></description>
-            </by-component>
-            <!-- Customer Responsibility -->
-            <by-component component-id="customer">
-               <description><p>For the portion of part e that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-2_stmt.f">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="system">
-               <description><p>For the portion of part f satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
-            <!-- Inherited -->
-            <by-component component-id="fedramp-authorized-provider-1">
-               <description><p>For the portion inherited from an underlying FedRAMP-authorized provider, describe <strong>what</strong> is inherited.</p></description>
-            </by-component>
-            <!-- Customer Responsibility -->
-            <by-component component-id="customer">
-               <description><p>For the portion of part f that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-2_stmt.g">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="system">
-               <description><p>For the portion of part g satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
-            <!-- Inherited -->
-            <by-component component-id="fedramp-authorized-provider-1">
-               <description><p>For the portion inherited from an underlying FedRAMP-authorized provider, describe <strong>what</strong> is inherited.</p></description>
-            </by-component>
-            <!-- Customer Responsibility -->
-            <by-component component-id="customer">
-               <description><p>For the portion of part g that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-2_stmt.h">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="system">
-               <description><p>For the portion of part h satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
-            <!-- Inherited -->
-            <by-component component-id="fedramp-authorized-provider-1">
-               <description><p>For the portion inherited from an underlying FedRAMP-authorized provider, describe <strong>what</strong> is inherited.</p></description>
-            </by-component>
-            <!-- Customer Responsibility -->
-            <by-component component-id="customer">
-               <description><p>For the portion of part h that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-2_stmt.i">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="system">
-               <description><p>For the portion of part i satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
-            <!-- Inherited -->
-            <by-component component-id="fedramp-authorized-provider-1">
-               <description><p>For the portion inherited from an underlying FedRAMP-authorized provider, describe <strong>what</strong> is inherited.</p></description>
-            </by-component>
-            <!-- Customer Responsibility -->
-            <by-component component-id="customer">
-               <description><p>For the portion of part i that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-2_stmt.j">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="system">
-               <description><p>For the portion of part j satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-            </by-component>
-            <!-- Inherited -->
-            <by-component component-id="fedramp-authorized-provider-1">
-               <description><p>For the portion inherited from an underlying FedRAMP-authorized provider, describe <strong>what</strong> is inherited.</p></description>
-            </by-component>
-            <!-- Customer Responsibility -->
-            <by-component component-id="customer">
-               <description><p>For the portion of part j that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
-            </by-component>
-         </statement>
-         <statement statement-id="ac-2_stmt.k">
-            <description><p>Ignore.</p></description>
-            <!-- Service Provider Responsibility -->
-            <by-component component-id="system">
-               <description><p>For the portion of part k satisfied by the service provider, describe <strong>how</strong> the control is met.</p></description>
-=======
-=======
-            <by-component component-id="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="8a72663c-28c7-41c2-8739-f1ee2d5761ac">
->>>>>>> Guide and Template Updates
-=======
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="8a72663c-28c7-41c2-8739-f1ee2d5761ac">
->>>>>>> Updates to SAR and POA&M guides, and POA&M template for syntax changes
-=======
-            <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="8a72663c-28c7-41c2-8739-f1ee2d5761ac">
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                <description>
                   <p>For the portion of the control satisfied by this system or its owning organization, describe
                         <strong>how</strong> the control is met.</p>
                </description>
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Template updates
-=======
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                <annotation name="responsibility" value="customer">
                   <remarks>
                      <p>General customer responsibility description.</p>
@@ -1281,10 +1110,6 @@
                   <p>This can also be used to provide a summary, such as a holistic overview of how multiple components work together.</p>
                   <p>While the "this system" component is not expclicity required within every <code>statement</code>, it will typically be present.</p>
                </remarks>
-<<<<<<< HEAD
->>>>>>> Updates to SAR and POA&M guides, and POA&M template for syntax changes
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
             </by-component>
             <!-- Inherited -->
             <by-component component-uuid="b7364f67-bf65-4df2-b756-4b9c6b1c4a52" uuid="84de735f-ba37-4bb4-b784-79760f986a40">
@@ -1299,31 +1124,12 @@
                </annotation>
             </by-component>
             <!-- Customer Responsibility -->
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <by-component component-id="customer">
-<<<<<<< HEAD
-               <description><p>For the portion of part k that must be configured by or provided by the customer, describe the customer responsibility here. This is what will appear in the Customer Responsibility Matrix.</p></description>
-=======
-=======
-            <by-component component-id="cae07d12-8566-443a-95de-7596b9cac953" uuid="13db02bb-1f33-4f79-8711-ed47c2c3d337">
->>>>>>> Guide and Template Updates
-=======
             <by-component component-uuid="cae07d12-8566-443a-95de-7596b9cac953" uuid="13db02bb-1f33-4f79-8711-ed47c2c3d337">
->>>>>>> Updates to SAR and POA&M guides, and POA&M template for syntax changes
-=======
-            <by-component component-uuid="cae07d12-8566-443a-95de-7596b9cac953" uuid="13db02bb-1f33-4f79-8711-ed47c2c3d337">
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
                <description>
                   <p>For the portion of the control that must be configured by or provided by the
                      customer, describe the customer responsibility here. This is what will appear
                      in the Customer Responsibility Matrix.</p>
                </description>
-<<<<<<< HEAD
->>>>>>> Template updates
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
             </by-component>
          </statement>
       </implemented-requirement>
