@@ -16,14 +16,6 @@ assignees: brianrufgsa
 
 **This relates to ...**
   - [ ] the **FedRAMP OSCAL Registry** (Excel File)
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - [ ] the **Guide to OSCAL-based FedRAMP System Security Plans** (PDF)
-  - [ ] the **FedRAMP SSP OSCAL Template** (JSON Format)
-  - [ ] the **FedRAMP SSP OSCAL Template** (XML Format)
-=======
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
   - [ ] the **Guide to OSCAL-based FedRAMP Content** (PDF)
   - [ ] the **Guide to OSCAL-based FedRAMP System Security Plans (SSP)** (PDF)
   - [ ] the **Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP)** (PDF)
@@ -33,10 +25,6 @@ assignees: brianrufgsa
   - [ ] the **FedRAMP SAP OSCAL Template** (JSON or XML Format)
   - [ ] the **FedRAMP SAR OSCAL Template** (JSON or XML Format)
   - [ ] the **FedRAMP POA&M OSCAL Template** (JSON or XML Format)
-<<<<<<< HEAD
->>>>>>> WIP
-=======
->>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
   - [ ] **General/Overall**
   - [ ] **Other**
 
