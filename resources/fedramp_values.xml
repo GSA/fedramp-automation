@@ -4,10 +4,14 @@
         <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values [DRAFT]</title>
         <title-short>FedRAMP Data Values (DRAFT)</title-short>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <last-modified>2019-12-15Z</last-modified>
 =======
         <last-modified>2020-03-03Z</last-modified>
 >>>>>>> Updated Baselines and Templates
+=======
+        <last-modified>2020-03-03Z</last-modified>
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
         <version>DRAFT</version>
         <author>FedRAMP PMO</author>
         <description>This EXPERIMENTAL and DRAFT file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
@@ -35,10 +39,13 @@
         <file id="nist_sp-800-53_rev4_catalog.xml"  name="NIST SP 800-63, Rev 4 (XML)"  href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml" />
         <file id="nist_sp-800-53_rev4_catalog.json" name="NIST SP 800-63, Rev 4 (JSON)" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/json/NIST_SP-800-53_rev4_catalog.json" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <file id="fedramp_catalog.xml"              name="FedRAMP (XML)"                href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_catalog.xml" />
         <file id="fedramp_catalog.json"             name="FedRAMP (JSON)"               href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_catalog.json" />
 =======
 >>>>>>> Updated Baselines and Templates
+=======
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
     </catalogs>
 
     <oscal-extensions>
@@ -218,10 +225,14 @@
     
     <resource-tye>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <value id="policy"    label="Policy"                    short-label="Policy"    source="https://fedramp.gov/ns/oscal" />
 =======
         <value id="policy"    label="Polciy"                    short-label="Policy"    source="https://fedramp.gov/ns/oscal" />
 >>>>>>> Updated Baselines and Templates
+=======
+        <value id="policy"    label="Polciy"                    short-label="Policy"    source="https://fedramp.gov/ns/oscal" />
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
         <value id="procedure" label="Procedure"                 short-label="Procedure" source="https://fedramp.gov/ns/oscal" />
         <value id="guide"     label="Guidance Document"         short-label="Guidance"  source="https://fedramp.gov/ns/oscal" />
         <value id="pia"       label="Privacy Impact Assessment" short-label="P.I.A."    source="https://fedramp.gov/ns/oscal" />
@@ -250,7 +261,10 @@
     </levels>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
     <threat-origination>
         <value id="P" description="Threats launched purposefully"/>
         <value id="U" description="Threats created by unintentional human or machine error"/>
@@ -566,5 +580,8 @@
         </threat>
     </threats>
 
+<<<<<<< HEAD
 >>>>>>> Updated Baselines and Templates
+=======
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
 </fedramp-values>

@@ -2,6 +2,7 @@
   { "profile" : 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     { "id" : "uuid-24a8ac6e-b71a-40c1-a845-e9c640813134",
       "metadata" : 
       { "title" : "FedRAMP Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
@@ -17,6 +18,13 @@
         "published" : "2020-02-02T00:00:00.000-05:00",
         "last-modified" : "2020-06-01T10:00:00.000-05:00",
 >>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
+=======
+    { "uuid" : "48d3387b-e554-4232-97bc-a8617cf238d9",
+      "metadata" : 
+      { "title" : "FedRAMP Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
+        "published" : "2020-02-02T00:00:00.000-05:00",
+        "last-modified" : "2020-06-01T10:00:00.000-05:00",
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
         "version" : "1.2",
         "oscal-version" : "1.0.0-milestone3",
         "roles" : 
@@ -70,6 +78,7 @@
           { "party-uuids" : 
             [ "ca9ba80e-1342-4bfd-b32a-abac468c24b4" ] } } },
       "imports" : 
+<<<<<<< HEAD
 <<<<<<< HEAD
       { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/nist.gov\/SP800-53\/rev4\/json\/NIST_SP-800-53_rev4_catalog.json",
         "include" : 
@@ -327,6 +336,8 @@
             
             { "control-id" : "si-12" } ] } },
 =======
+=======
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
       [ 
         { "href" : "#ad005eae-cc63-4e64-9109-3905a9a825e4",
           "include" : 
@@ -583,7 +594,10 @@
               { "control-id" : "si-5" },
               
               { "control-id" : "si-12" } ] } } ],
+<<<<<<< HEAD
 >>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
+=======
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
       "merge" : 
       { "combine" : 
         { "method" : "keep" },
@@ -3141,6 +3155,7 @@
               { "name-ref" : "assessment" } ],
             "additions" : 
 <<<<<<< HEAD
+<<<<<<< HEAD
             { "position" : "ending",
               "properties" : 
               { "ns" : "fedramp",
@@ -3152,6 +3167,8 @@
                 "class" : "tailored-designation",
                 "prose" : "Attestation - Specifically related to US-CERT and FedRAMP communications procedures." } } } ] } } }
 =======
+=======
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
             [ 
               { "position" : "ending",
                 "properties" : 
@@ -3233,6 +3250,7 @@
             "rlinks" : 
             [ 
 <<<<<<< HEAD
+<<<<<<< HEAD
               { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/master\/content\/fedramp.gov\/json\/FedRAMP_LOW-baseline_profile.xml",
 <<<<<<< HEAD
                 "media-type" : "application\/xml" } ] } ] } } }
@@ -3244,4 +3262,9 @@
                 "media-type" : "application\/json\/" } ] } ] } } }
 
 >>>>>>> Updated Baselines and Templates
+=======
+              { "href" : ".\/FedRAMP_LOW-baseline_profile.xml",
+                "media-type" : "application\/json\/" } ] } ] } } }
+
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
 

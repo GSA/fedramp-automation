@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" id="uuid-24a8ac6e-b71a-40c1-a845-e9c640813134">
 	<metadata>
 		<title>FedRAMP Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
@@ -3065,6 +3066,8 @@ xmlns="http://csrc.nist.gov/ns/oscal/1.0" id="uuid-27cd2fd9-411d-4cc8-b152-98f12
 >>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
 </profile>
 =======
+=======
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
 <?xml version="1.0" encoding="UTF-8"?>
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="48d3387b-e554-4232-97bc-a8617cf238d9">
    
@@ -4804,4 +4807,7 @@ xmlns="http://csrc.nist.gov/ns/oscal/1.0" id="uuid-27cd2fd9-411d-4cc8-b152-98f12
       </resource>
    </back-matter>
 </profile>
+<<<<<<< HEAD
 >>>>>>> Updated baselines and Registry
+=======
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5

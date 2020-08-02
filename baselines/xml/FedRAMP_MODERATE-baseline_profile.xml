@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" id="uuid-c869ec01-ffd8-44ac-aae1-0f8fc13ab591">
 	<metadata>
 		<title>FedRAMP Moderate Baseline</title>
@@ -2374,6 +2375,10 @@
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0"  uuid="8383f859-be40-453d-9588-c645af5bef6f">
    
 >>>>>>> Updated baselines and Registry
+=======
+<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0"  uuid="8383f859-be40-453d-9588-c645af5bef6f">
+   
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
    <metadata>
       <title>FedRAMP Moderate Baseline</title>
       <published>2020-06-01T00:00:00.000-04:00</published>
@@ -10514,4 +10519,7 @@
       </resource>
    </back-matter>
 </profile>
+<<<<<<< HEAD
 >>>>>>> Updated FedRAMP Baselines (Profiles), and Updated Draft SAP Guide
+=======
+>>>>>>> 6c7f366a7ededc47574e0de857c83d64ec90d2e5
