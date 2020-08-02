@@ -1,0 +1,584 @@
+
+  { "plan-of-action-and-milestones" : 
+    { "uuid" : "03f53e84-8945-4510-9aeb-2d806305cba3",
+      "metadata" : 
+      { "title" : "[System Name] FedRAMP Plan of Action and Milestones (POA&M)",
+        "last-modified" : "2020-06-01T00:00:00Z",
+        "version" : "0.0.0",
+        "oscal-version" : "1.0.0-milestone3",
+        "properties" : 
+        [ 
+          { "name" : "marking",
+            "value" : "Controlled Unclassified Information" } ],
+        "roles" : 
+        [ 
+          { "id" : "cloud-service-provider",
+            "title" : "Cloud Service Provider",
+            "short-name" : "CSP" },
+          
+          { "id" : "fedramp-pmo",
+            "title" : "The FedRAMP Program Management Office (PMO)",
+            "short-name" : "CSP" },
+          
+          { "id" : "fedramp-jab",
+            "title" : "The FedRAMP Joint Authorization Board (JAB)",
+            "short-name" : "CSP" },
+          
+          { "id" : "prepared-by",
+            "title" : "Prepared By",
+            "desc" : "The primary individual responsible for maintaining the POA&M for this system. Typically the CSP's ISSO." },
+          
+          { "id" : "prepared-for",
+            "title" : "Prepared For",
+            "desc" : "The organization for which this POA&M was prepared. Typically the CSP." },
+          
+          { "id" : "information-system-security-officer",
+            "title" : "System Information System Security Officer (or Equivalent)",
+            "desc" : "The individual accountable for the security posture of the system on behalf of the system owner." } ],
+        "locations" : 
+        [ 
+          { "uuid" : "1bd641ff-54a7-40d5-acc9-82eed9d22d4a",
+            "address" : 
+            { "postal-address" : 
+              [ "1234 Main Street" ],
+              "city" : "Arlington",
+              "state" : "VA" },
+            "remarks" : "EXAMPLE - REPLACE" } ],
+        "parties" : 
+        [ 
+          { "uuid" : "72bf37e1-9f76-4261-886f-8e297599f365",
+            "type" : "organization",
+            "party-name" : "Cloud Service Provider (CSP) Name",
+            "short-name" : "CSP Acronym\/Short Name",
+            "location-uuids" : 
+            [ "1bd641ff-54a7-40d5-acc9-82eed9d22d4a" ],
+            "remarks" : "Replace sample CSP information." },
+          
+          { "uuid" : "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d",
+            "type" : "organization",
+            "party-name" : "Federal Risk and Authorization Management Program: Program Management Office",
+            "short-name" : "FedRAMP PMO",
+            "links" : 
+            [ 
+              { "href" : "https:\/\/fedramp.gov",
+                "rel" : "homepage",
+                "text" : "" } ],
+            "addresses" : 
+            [ 
+              { "type" : "work",
+                "postal-address" : 
+                [ "1800 F St. NW",
+                  "" ],
+                "city" : "Washington",
+                "state" : "DC",
+                "postal-code" : "",
+                "country" : "US" } ],
+            "email-addresses" : 
+            [ "info@fedramp.gov" ] },
+          
+          { "uuid" : "ca9ba80e-1342-4bfd-b32a-abac468c24b4",
+            "type" : "organization",
+            "party-name" : "Federal Risk and Authorization Management Program: Joint Authorization Board",
+            "short-name" : "FedRAMP JAB" },
+          
+          { "uuid" : "afe665d1-9021-4ad8-8bd2-c15b0f2dcf2d",
+            "type" : "person",
+            "party-name" : "[SAMPLE]Person Name 1",
+            "properties" : 
+            [ 
+              { "name" : "title",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "Individual's Title" } ],
+            "addresses" : 
+            [ 
+              { "type" : "work",
+                "postal-address" : 
+                [ "Address Line" ],
+                "city" : "City",
+                "state" : "ST",
+                "postal-code" : "00000",
+                "country" : "US" } ],
+            "email-addresses" : 
+            [ "name@org.domain" ],
+            "telephone-numbers" : 
+            [ 
+              { "number" : "202-000-0001" } ],
+            "member-of-organizations" : 
+            [ "72bf37e1-9f76-4261-886f-8e297599f365" ] } ],
+        "responsible-parties" : 
+        { "cloud-service-provider" : 
+          { "party-uuids" : 
+            [ "72bf37e1-9f76-4261-886f-8e297599f365" ] },
+          "fedramp-pmo" : 
+          { "party-uuids" : 
+            [ "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d" ] },
+          "fedramp-jab" : 
+          { "party-uuids" : 
+            [ "ca9ba80e-1342-4bfd-b32a-abac468c24b4" ] },
+          "prepared-by" : 
+          { "party-uuids" : 
+            [ "72bf37e1-9f76-4261-886f-8e297599f365" ] },
+          "prepared-for" : 
+          { "party-uuids" : 
+            [ "72bf37e1-9f76-4261-886f-8e297599f365" ] },
+          "information-system-security-officer" : 
+          { "party-uuids" : 
+            [ "afe665d1-9021-4ad8-8bd2-c15b0f2dcf2d" ] } } },
+      "import-ssp" : 
+      { "href" : "#7c30125f-c056-4888-9f1a-7ed1b6a1b638" },
+      "system-id" : 
+      { "identifier-type" : "https:\/\/fedramp.gov",
+        "id" : "F00000000" },
+      "local-definitions" : 
+      { "components" : 
+        { "9d194268-a9d1-4c38-839f-9c4aa57bf71e" : 
+          { "component-type" : "software",
+            "title" : "XYZ Vulnerability Scanning Tool",
+            "description" : "",
+            "properties" : 
+            [ 
+              { "name" : "vendor",
+                "value" : "Vendor Name" },
+              
+              { "name" : "name",
+                "value" : "Tool Name" },
+              
+              { "name" : "version",
+                "value" : "1.2.3" } ],
+            "status" : 
+            { "state" : "operational" },
+            "remarks" : "This is a scanning tool referenced as a source by a POA&M entry." },
+          "a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0" : 
+          { "component-type" : "virtual",
+            "title" : "Component Definition",
+            "description" : "A virtual component.",
+            "properties" : 
+            [ 
+              { "name" : "os-name",
+                "value" : "Linux Flavor" },
+              
+              { "name" : "os-version",
+                "value" : "1.2.0" } ],
+            "annotations" : 
+            [ 
+              { "name" : "is-scanned",
+                "value" : "yes" },
+              
+              { "name" : "allows-authenticated-scan",
+                "value" : "yes" } ],
+            "status" : 
+            { "state" : "operational" },
+            "remarks" : "Uses the same syntax as SSP components." } },
+        "inventory-items" : 
+        { "deb26a75-6d97-4811-ae0e-ae1c710366c1" : 
+          { "description" : "An instance of the above component.",
+            "properties" : 
+            [ 
+              { "name" : "ipv4-address",
+                "value" : "10.10.10.10" },
+              
+              { "name" : "fqdn",
+                "value" : "host.domain.cloud" } ],
+            "implemented-components" : 
+            { "a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0" : 
+              { "use" : "runs-software" } },
+            "remarks" : "Uses the same syntax as SSP inventory-items." } },
+        "remarks" : "Define one component for each scanning tool referenced by a POA&M entry.\\n\\nDefine components or inventory-items when no OSCAL-based SSP exists, or is not delivered with the POA&M." },
+      "poam-items" : 
+      { "title" : "Current POA&M Items",
+        "description" : "These are the current POA&M items for this system.",
+        "start" : "2020-06-01T00:00:00.0Z",
+        "end" : "2020-06-01T00:00:00.0Z",
+        "poam-item-group" : 
+        [ 
+          { "uuid" : "0be71cd3-f850-47db-836f-14511edbd90e",
+            "title" : "[EXAMPLE]POA&M Item",
+            "description" : "",
+            "properties" : 
+            [ 
+              { "name" : "POAM-ID",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "V-1" } ],
+            "collected" : "2020-06-01T00:00:00Z",
+            "observations" : 
+            [ 
+              { "uuid" : "0aa54106-8a63-4953-ac0d-30ff91f8d4ab",
+                "description" : "",
+                "observation-methods" : 
+                [ "TEST" ],
+                "origins" : 
+                [ 
+                  { "uuid-ref" : "9d194268-a9d1-4c38-839f-9c4aa57bf71e",
+                    "type" : "tool",
+                    "STRVALUE" : "" } ],
+                "evidence-group" : 
+                [ 
+                  { "href" : ".\/raw_scans\/scanner_output.csv",
+                    "description" : "Optional pointer to the raw scanner output that generated this POA&M entry." } ],
+                "remarks" : "The origin field identifies the \\\"Weakness Detector Source\\\"" } ],
+            "risks" : 
+            [ 
+              { "uuid" : "9cbd98f3-abcb-4948-ad06-14e0bcba742f",
+                "title" : "Weakness Name",
+                "description" : "Weakness Description",
+                "risk-metrics" : 
+                [ 
+                  { "name" : "source-id",
+                    "STRVALUE" : "" },
+                  
+                  { "name" : "likelihood",
+                    "class" : "initial",
+                    "system" : "https:\/\/fedramp.gov",
+                    "STRVALUE" : "high" } ],
+                "risk-statement" : "",
+                "risk-status" : "open" } ],
+            "remarks" : "The FedRAMP Extension, \\\"POAM-ID\\\" captures the traditional CSP-assigned unique POA&M identifier.\\n\\nThe date-time-stamp identifies the date of discovery. FedRAMP is concerned with the date information. The time information is desirable and should be included where available. The time may be all zeros if unavailable." },
+          
+          { "uuid" : "170dd310-1a92-4fcf-a12b-ebfa03d9e6d8",
+            "title" : "[EXAMPLE]Infrastructure Scan Unique Vulnerability",
+            "description" : "An example set of infrastructure scan findings.",
+            "properties" : 
+            [ 
+              { "name" : "POAM-ID",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "V-2" } ],
+            "collected" : "2020-03-01T10:11:12Z",
+            "observations" : 
+            [ 
+              { "uuid" : "63fd3d97-26c9-4d4c-8d24-9fbc482b7f52",
+                "description" : "[EXAMPLE]Scanner Output.",
+                "observation-methods" : 
+                [ "TEST" ],
+                "observation-types" : 
+                [ "finding" ],
+                "subject-references" : 
+                [ 
+                  { "uuid-ref" : "f61f4408-2cb8-444a-a312-bc88412e7c61",
+                    "type" : "inventory-item" },
+                  
+                  { "uuid-ref" : "02075556-3660-4112-8982-02fc7d6fac00",
+                    "type" : "inventory-item" },
+                  
+                  { "uuid-ref" : "5efe2c07-9fdf-453a-8457-6471046082fb",
+                    "type" : "inventory-item" },
+                  
+                  { "uuid-ref" : "75b059f2-a9ba-40b1-a1e0-881196ca1ead",
+                    "type" : "component" } ],
+                "origins" : 
+                [ 
+                  { "uuid-ref" : "9d194268-a9d1-4c38-839f-9c4aa57bf71e",
+                    "type" : "tool",
+                    "STRVALUE" : "" } ],
+                "evidence-group" : 
+                [ 
+                  { "href" : "#171b44a2-9b52-4c46-b912-54bd274b2761",
+                    "description" : "Raw scanner tool output - Infrastructure and OS Scan." } ] },
+              
+              { "uuid" : "6c103050-d72a-4391-b830-dc669641231c",
+                "title" : "Vendor Dependency",
+                "description" : "Describe the vendor dependency here.",
+                "properties" : 
+                [ 
+                  { "name" : "conformity",
+                    "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                    "value" : "vendor-dependency" } ],
+                "observation-methods" : 
+                [ "INTERVIEW" ],
+                "subject-references" : 
+                [ 
+                  { "uuid-ref" : "a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0",
+                    "type" : "component" } ] } ],
+            "risks" : 
+            [ 
+              { "uuid" : "ae628cc5-b64c-4030-af30-57e6b24a6ae7",
+                "title" : "Vulnerability Title",
+                "description" : "This is a description of the vulnerability provided by the tool.",
+                "risk-metrics" : 
+                [ 
+                  { "name" : "vulnerability-id",
+                    "system" : "9d194268-a9d1-4c38-839f-9c4aa57bf71e",
+                    "STRVALUE" : "VulID-001" },
+                  
+                  { "name" : "plugin-id",
+                    "system" : "9d194268-a9d1-4c38-839f-9c4aa57bf71e",
+                    "STRVALUE" : "Plugin-ID" },
+                  
+                  { "name" : "iavm-severity",
+                    "system" : "9d194268-a9d1-4c38-839f-9c4aa57bf71e",
+                    "STRVALUE" : "high" },
+                  
+                  { "name" : "AV",
+                    "system" : "CVSSv3.1",
+                    "STRVALUE" : "network" },
+                  
+                  { "name" : "vulnerability-id",
+                    "system" : "cve",
+                    "STRVALUE" : "CVE-2020-00000" },
+                  
+                  { "name" : "impact",
+                    "class" : "initial",
+                    "system" : "9d194268-a9d1-4c38-839f-9c4aa57bf71e",
+                    "STRVALUE" : "high" },
+                  
+                  { "name" : "likelihood",
+                    "class" : "initial",
+                    "system" : "https:\/\/fedramp.gov",
+                    "STRVALUE" : "high" },
+                  
+                  { "name" : "impact",
+                    "class" : "initial",
+                    "system" : "https:\/\/fedramp.gov",
+                    "STRVALUE" : "high" },
+                  
+                  { "name" : "priority",
+                    "system" : "https:\/\/fedramp.gov",
+                    "STRVALUE" : "1" },
+                  
+                  { "name" : "vendor-dependency",
+                    "system" : "https:\/\/fedramp.gov",
+                    "STRVALUE" : "tracking" },
+                  
+                  { "name" : "operational-requirement",
+                    "system" : "https:\/\/fedramp.gov",
+                    "STRVALUE" : "pending" },
+                  
+                  { "name" : "false-positive",
+                    "system" : "https:\/\/fedramp.gov",
+                    "STRVALUE" : "pending" },
+                  
+                  { "name" : "risk-adjustment",
+                    "system" : "https:\/\/fedramp.gov",
+                    "STRVALUE" : "approved" },
+                  
+                  { "name" : "impact",
+                    "class" : "residual",
+                    "system" : "https:\/\/fedramp.gov",
+                    "STRVALUE" : "moderate" },
+                  
+                  { "name" : "likelihood",
+                    "class" : "residual",
+                    "system" : "https:\/\/fedramp.gov",
+                    "STRVALUE" : "low" },
+                  
+                  { "name" : "AV",
+                    "system" : "CVSSv3.1",
+                    "STRVALUE" : "network" } ],
+                "risk-statement" : "This is a statement about the identified risk as provided by the tool.\\n\\nThis field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.",
+                "remediation-group" : 
+                [ 
+                  { "uuid" : "a3106e23-8b79-4b1b-abf4-74f16c51ad0c",
+                    "type" : "recommendation",
+                    "title" : "Tool's Recommendation",
+                    "description" : "A description of the recommended remediation as provided by the tool.",
+                    "origins" : 
+                    [ 
+                      { "uuid-ref" : "9d194268-a9d1-4c38-839f-9c4aa57bf71e",
+                        "type" : "tool",
+                        "STRVALUE" : "" } ],
+                    "remarks" : "Recommended and planned remediation entries should remain when the risk is closed.\\n\\nSimply add the closure-actions field and change the risk-status to \\\"closed\\\"." },
+                  
+                  { "uuid" : "69344d05-937e-40f4-9c3f-9aa8702ad99d",
+                    "type" : "recommendation",
+                    "title" : "Assessor's Recommendation",
+                    "description" : "A description of the recommended remediation as provided by the assessor in the SAR.",
+                    "origins" : 
+                    [ 
+                      { "uuid-ref" : "49f73135-efab-4275-9a79-003656ad890a",
+                        "type" : "party",
+                        "STRVALUE" : "" } ],
+                    "remarks" : "If the identified risk is as a result of an assessment, the assessor's should be copied into the POA&M\\n\\nThe assessor should leave the tool recommendation, even if adding their own.\\n\\nRecommended and planned remediation entries should remain when the risk is closed.\\n\\nSimply add the closure-actions field and change the risk-status to \\\"closed\\\"." },
+                  
+                  { "uuid" : "e9ee6fe2-856f-42c7-8c2e-ff6466d31010",
+                    "type" : "planned",
+                    "title" : "CSP's Remediation Plan",
+                    "description" : "A description of the CSP's intended approach to remediating the identified risk.",
+                    "origins" : 
+                    [ 
+                      { "uuid-ref" : "49f73135-efab-4275-9a79-003656ad890a",
+                        "type" : "party",
+                        "STRVALUE" : "" } ],
+                    "requirements" : 
+                    [ 
+                      { "uuid" : "7bd1a61e-4fda-4c52-a447-14072ef6e042",
+                        "subject-references" : 
+                        [ 
+                          { "uuid-ref" : "6e0d71b5-3dac-4a9b-b60d-da61b95eccb9",
+                            "type" : "party" } ],
+                        "description" : "Describe required resources.",
+                        "remarks" : "Use one subject-reference field for each resource identified by its UUID in the subject-reference field.\\n\\nMay have just a description with no subject-reference fields. May have both." } ],
+                    "schedule" : 
+                    { "tasks" : 
+                      [ 
+                        { "uuid" : "a12dea1d-e4d1-4f09-aacf-1eaf203a3092",
+                          "title" : "[Example]Activity 1",
+                          "description" : "Optional description",
+                          "start" : "2020-07-01T00:00:00Z",
+                          "end" : "2020-07-02T00:00:00Z" },
+                        
+                        { "uuid" : "08c50f90-3b08-49fd-862d-32ec96e6bee5",
+                          "title" : "[Example]Activity 2",
+                          "description" : "Optional description",
+                          "start" : "2020-07-05T00:00:00Z",
+                          "end" : "2020-07-07T00:00:00Z" } ] },
+                    "remarks" : "The assessor may add their recommendation in addition to the tool's recommendation, or if no tool recommendation is provided.\\n\\nThe assessor should leave the tool recommendation, even if adding their own.\\n\\nRecommended and planned remediation entries should remain when the risk is closed.\\n\\nSimply add the closure-actions field and change the risk-status to \\\"closed\\\"." } ],
+                "risk-status" : "open",
+                "closure-actions" : "Describe what action(s) the CSP took to close the risk.\\n\\nNormally the closure-actions field is only present when the risk-status is \\\"closed\\\".\\n\\nIf the risk-status field is set to \\\"open\\\" this field is ignored.\\n\\n[EXAMPLE]Applied patch. Vulnerability no longer found in subsequent scan.",
+                "remediation-tracking" : 
+                { "tracking-entries" : 
+                  [ 
+                    { "uuid" : "1b500d56-1936-41eb-8b60-a2984937ab89",
+                      "date-time-stamp" : "2020-07-02T00:00:00Z",
+                      "title" : "Activity 1",
+                      "description" : "" },
+                    
+                    { "uuid" : "316fb3fe-927a-49a1-9a72-a58722862623",
+                      "date-time-stamp" : "2020-07-07T00:00:00Z",
+                      "title" : "Activity 2",
+                      "description" : "" },
+                    
+                    { "uuid" : "d084a039-bdd1-4ccd-a06a-53355e07fa2f",
+                      "date-time-stamp" : "2020-07-07T00:00:00Z",
+                      "title" : "Vendor Check-in",
+                      "description" : "Description of the result of the vendor check-in.",
+                      "properties" : 
+                      [ 
+                        { "name" : "conformity",
+                          "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                          "value" : "vendor-check-in" } ] },
+                    
+                    { "uuid" : "0b09e341-cf3c-4de7-b728-751c6e88b653",
+                      "date-time-stamp" : "2020-07-07T00:00:00Z",
+                      "title" : "Closed",
+                      "description" : "" } ] } } ],
+            "party-uuids" : 
+            [ "f4568fda-c6d2-4640-adec-0012015af7d0",
+              "e934d8b5-13e5-4f77-b55e-871e6f2df2fe" ] } ],
+        "remarks" : "One finding per POA&M item.\\n\\nThe start and end dates may be the same for a POA&M, and must represent the effective date of the information presented." },
+      "back-matter" : 
+      { "resources" : 
+        [ 
+          { "uuid" : "a78f7e4c-a27a-4b1e-901b-ebfecf2b0301",
+            "title" : "System's Full Name",
+            "properties" : 
+            [ 
+              { "name" : "conformity",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "no-oscal-ssp" },
+              
+              { "name" : "title-short",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "SFN" },
+              
+              { "name" : "system-id",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "FR00000000" },
+              
+              { "name" : "import-profile",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "#fedramp-moderate-baseline" } ],
+            "remarks" : "Include this resource if no OSCAL-based SSP is available, or if making a monthly\n               POA&M deliverable without an attached OSCAL-based SSP.\\n\\nDelete it otherwise." },
+          
+          { "uuid" : "7c30125f-c056-4888-9f1a-7ed1b6a1b638",
+            "title" : "[System Name] [FIPS-199 Level] SSP",
+            "properties" : 
+            [ 
+              { "name" : "type",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "system-security-plan" },
+              
+              { "name" : "publication",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "SSP Date" },
+              
+              { "name" : "version",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "SSP Version" } ],
+            "rlinks" : 
+            [ 
+              { "href" : "..\/ssp\/CSP_System_SSP.xml",
+                "media-type" : "application\/xml" },
+              
+              { "href" : "..\/ssp\/CSP_System_SSP.json",
+                "media-type" : "application\/json" } ],
+            "attachments" : 
+            [ 
+              { "filename" : "CSP_System_SSP.xml",
+                "media-type" : "application\/xml",
+                "value" : "00000000" } ],
+            "remarks" : "Use this to point to an OSCAL-based SSP." },
+          
+          { "uuid" : "16805868-6fa2-41d4-b2b1-bcd95c9168c7",
+            "title" : "FedRAMP Applicable Laws and Regulations",
+            "properties" : 
+            [ 
+              { "name" : "conformity",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "fedramp-citations" } ],
+            "rlinks" : 
+            [ 
+              { "href" : "https:\/\/www.fedramp.gov\/assets\/resources\/templates\/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" } ] },
+          
+          { "uuid" : "07145a97-2dd1-4efc-bb10-a8bc93e05342",
+            "title" : "FedRAMP Master Acronym and Glossary",
+            "properties" : 
+            [ 
+              { "name" : "conformity",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "fedramp-acronyms" } ],
+            "rlinks" : 
+            [ 
+              { "href" : "https:\/\/www.fedramp.gov\/assets\/resources\/documents\/FedRAMP_Master_Acronym_and_Glossary.pdf" } ] },
+          
+          { "uuid" : "91d242d0-ccf9-4ff0-996d-e204c19dac52",
+            "desc" : "3PAO Logo",
+            "properties" : 
+            [ 
+              { "name" : "conformity",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "prepared-by-logo" },
+              
+              { "name" : "conformity",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "3pao-logo" } ],
+            "rlinks" : 
+            [ 
+              { "href" : ".\/logo.png",
+                "media-type" : "image\/png" } ],
+            "attachments" : 
+            [ 
+              { "value" : "00000000" } ] },
+          
+          { "uuid" : "031a32be-f9ef-45a0-994e-20eb58456dee",
+            "desc" : "FedRAMP Logo",
+            "properties" : 
+            [ 
+              { "name" : "conformity",
+                "ns" : "https:\/\/fedramp.gov\/ns\/oscal",
+                "value" : "fedramp-logo" } ],
+            "rlinks" : 
+            [ 
+              { "href" : "https:\/\/github.com\/GSA\/fedramp-automation\/raw\/master\/assets\/FedRAMP_LOGO.png" } ] },
+          
+          { "uuid" : "9f1aae37-7359-411f-86c1-768aaab85e63",
+            "title" : "FedRAMP High Baseline",
+            "rlinks" : 
+            [ 
+              { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/v1.0.0-milestone3\/content\/fedramp.gov\/xml\/FedRAMP_HIGH-baseline_profile.xml",
+                "media-type" : "application\/xml" } ],
+            "remarks" : "Pointer to High baseline content in OSCAL." },
+          
+          { "uuid" : "890170c3-d4fa-4d25-ab96-8e4bf7cc237c",
+            "title" : "FedRAMP Moderate Baseline",
+            "rlinks" : 
+            [ 
+              { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/v1.0.0-milestone3\/content\/fedramp.gov\/xml\/FedRAMP_MODERATE-baseline_profile.xml",
+                "media-type" : "application\/xml" } ],
+            "remarks" : "Pointer to Moderate baseline content in OSCAL." },
+          
+          { "uuid" : "2acaf846-5496-4d36-8565-9a15b48aef2c",
+            "title" : "FedRAMP Low Baseline",
+            "rlinks" : 
+            [ 
+              { "href" : "https:\/\/raw.githubusercontent.com\/usnistgov\/OSCAL\/v1.0.0-milestone3\/content\/fedramp.gov\/xml\/FedRAMP_LOW-baseline_profile.xml",
+                "media-type" : "application\/xml" } ],
+            "remarks" : "Pointer to Low baseline content in OSCAL." } ] } } }

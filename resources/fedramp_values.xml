@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fedramp-values xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+    <metadata>
+        <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values [DRAFT]</title>
+        <title-short>FedRAMP Data Values (DRAFT)</title-short>
+        <last-modified>2020-03-03Z</last-modified>
+        <version>DRAFT</version>
+        <author>FedRAMP PMO</author>
+        <description>This EXPERIMENTAL and DRAFT file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
+    </metadata>
+
+    <baselines>
+        <file id="fedramp_high_profile.xml"      name="FedRAMP High Baseline Profile (XML)"      href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml" />
+        <file id="fedramp_moderate_profile.xml"  name="FedRAMP Moderate Baseline Profile (XML)"  href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml" />
+        <file id="fedramp_low_profile.xml"       name="FedRAMP Low Baseline Profile (XML)"       href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline_profile.xml" />
+        <file id="fedramp_high_profile.json"     name="FedRAMP High Baseline Profile (JSON)"     href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_HIGH-baseline_profile.json" />
+        <file id="fedramp_moderate_profile.json" name="FedRAMP Moderate Baseline Profile (JSON)" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_MODERATE-baseline_profile.json" />
+        <file id="fedramp_low_profile.json"      name="FedRAMP Low Baseline Profile (JSON)"      href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_LOW-baseline_profile.json" />
+    </baselines>
+
+    <resolved-baselines>
+        <file id="fedramp_high_resolved.xml"      name="FedRAMP High Baseline Resolved Profile Catalog (XML)"      href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline-resolved-profile_catalog.xml" />
+        <file id="fedramp_moderate_resolved.xml"  name="FedRAMP Moderate Baseline Resolved Profile Catalog (XML)"  href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline-resolved-profile_catalog.xml" />
+        <file id="fedramp_low_resolved.xml"       name="FedRAMP Low Baseline Resolved Profile Catalog (XML)"       href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline-resolved-profile_catalog.xml" />
+        <file id="fedramp_high_resolved.json"     name="FedRAMP High Baseline Resolved Profile Catalog (JSON)"     href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_HIGH-baseline-resolved-profile_catalog.json" />
+        <file id="fedramp_moderate_resolved.json" name="FedRAMP Moderate Baseline Resolved Profile Catalog (JSON)" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_MODERATE-baseline-resolved-profile_catalog.json" />
+        <file id="fedramp_low_resolved.json"      name="FedRAMP Low Baseline Resolved Profile Catalog (JSON)"      href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_LOW-baseline-resolved-profile_catalog.json" />
+    </resolved-baselines>
+
+    <catalogs>
+        <file id="nist_sp-800-53_rev4_catalog.xml"  name="NIST SP 800-63, Rev 4 (XML)"  href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml" />
+        <file id="nist_sp-800-53_rev4_catalog.json" name="NIST SP 800-63, Rev 4 (JSON)" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/json/NIST_SP-800-53_rev4_catalog.json" />
+    </catalogs>
+
+    <oscal-extensions>
+        <ns name="FedRAMP" ns="https://fedramp.gov/ns/oscal" />
+    </oscal-extensions>
+
+    <system-identifiers>
+        <identifier-type name="FedRAMP" type="http://fedramp.gov"           source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <identifier-type name="rfc4122" type="https://ietf.org/rfc/rfc4122" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </system-identifiers>
+
+    <eauth-levels>
+        <value id="1" label="Low"      short-label="L" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="2" label="Moderate" short-label="M" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="3" label="High"     short-label="H" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </eauth-levels>
+
+    <authorization-type>
+        <value id="fedramp-jab"     label="FedRAMP JAB P-ATO"            short-label="JAB"     source="https://fedramp.gov/ns/oscal" />
+        <value id="fedramp-agency"  label="FedRAMP Agency ATO"           short-label="Agency"  source="https://fedramp.gov/ns/oscal" />
+        <value id="fedramp-li-saas" label="FedRAMP Tailored for LI-SaaS" short-label="LI-SaaS" source="https://fedramp.gov/ns/oscal" />
+    </authorization-type>
+
+    <service-model>
+        <value id="saas"  label="Software as a Service"       short-label="SaaS"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="paas"  label="Platform as a Service"       short-label="PaaS"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="iaas"  label="Infrastructure as a Service" short-label="IaaS"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="other" label="Other"                       short-label="Other" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </service-model>
+    
+    <deployment-model>
+        <value id="public-cloud"          label="Public Cloud"    short-label="Public"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="private-cloud"         label="Private Cloud"   short-label="Private"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="community-cloud"       label="Community Cloud" short-label="Community" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="government-only-cloud" label="Government Only" short-label="USG-Only"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="hybrid-cloud"          label="Hybrid"          short-label="Hybrid"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="other"                 label="Other"           short-label="Other"     source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </deployment-model>
+    
+    <security-impact-level>
+        <value id="fips-199-low"      label="Low"      short-label="L" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="fips-199-moderate" label="Moderate" short-label="M" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="fips-199-high"     label="High"     short-label="H" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </security-impact-level>
+    
+    <privacy-sensitive>
+        <value id="yes" label="Privacy Sensitive"     short-label="Yes" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="no"  label="Not Privacy Sensitive" short-label="No"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </privacy-sensitive>
+    
+    <privacy-impact-assessment>
+        <value id="yes" label="Yes" short-label="Yes" source="https://fedramp.gov/ns/oscal" />
+        <value id="no"  label="No"  short-label="No"  source="https://fedramp.gov/ns/oscal" />
+    </privacy-impact-assessment>
+    
+    <security-sensitivity-level>
+        <value id="low"      label="Low"      short-label="L" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="moderate" label="Moderate" short-label="M" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="high"     label="High"     short-label="H" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </security-sensitivity-level>
+
+    <allowed-information-types>
+        <value id="https://doi.org/10.6028/NIST.SP.800-60v2r1"  label="NIST SP 800-60, Volume 2, Revision 1" short-label="SP 800-60 V2R1" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </allowed-information-types>
+
+    <system-status>
+        <value id="operational"              label="Operational"                short-label="Operational" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="under-development"        label="Under Development"          short-label="Development" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="under-major-modification" label="Major Modification"         short-label="Major Mod."  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="disposition"              label="Alternative Implementation" short-label="Alternative" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="other"                    label="Other"                      short-label="Other"       source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </system-status>
+
+    <component-status>
+        <value id="operational"              label="Operational"                short-label="Operational" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="under-development"        label="Under Development"          short-label="Development" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="under-major-modification" label="Major Modification"         short-label="Major Mod."  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="disposition"              label="Alternative Implementation" short-label="Alternative" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="other"                    label="Other"                      short-label="Other"       source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </component-status>
+    
+    <user-type>
+        <value id="internal"       label="Internal"       short-label="I" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="external"       label="External"       short-label="E" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="general-public" label="General Public" short-label="P" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </user-type>
+
+    <privilege-type>
+        <value id="privileged"        label="Privileged"        short-label="P"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="non-privileged"    label="Non-Privileged"    short-label="NP"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="no-logical-access" label="No Logical Access" short-label="NLA" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </privilege-type>
+
+    <user-sensitivity>
+        <value id="high-risk"      label="High Risk"      short-label="High" source="https://fedramp.gov/ns/oscal" />
+        <value id="severe"         label="Severe"         short-label="Sev." source="https://fedramp.gov/ns/oscal" />
+        <value id="moderate"       label="Moderate"       short-label="Mod." source="https://fedramp.gov/ns/oscal" />
+        <value id="limited"        label="Limited"        short-label="Lim." source="https://fedramp.gov/ns/oscal" />
+        <value id="not-applicable" label="Not Applicable" short-label="N/A"  source="https://fedramp.gov/ns/oscal" />
+    </user-sensitivity>
+
+    <interconnection-direction>
+        <value id="incoming"          label="Incoming"       short-label="In"     source="https://fedramp.gov/ns/oscal" />
+        <value id="outgoing"          label="Outgoing"       short-label="Out"    source="https://fedramp.gov/ns/oscal" />
+        <value id="incoming-outgoing" label="Bi-Directional" short-label="In/Out" source="https://fedramp.gov/ns/oscal" />
+    </interconnection-direction>
+
+    <interconnection-security>
+        <value id="ipsec"                label="IPsec"                   short-label="IPsec" source="https://fedramp.gov/ns/oscal" />
+        <value id="vpn"                  label="Virtual Private Network" short-label="VPN"   source="https://fedramp.gov/ns/oscal" />
+        <value id="ssl"                  label="Secure Socket Layer"     short-label="SSL"   source="https://fedramp.gov/ns/oscal" />
+        <value id="certificate"          label="Certificate"             short-label="Cert"  source="https://fedramp.gov/ns/oscal" />
+        <value id="secure-file-transfer" label="Secure File Transfer"    short-label="SFT"   source="https://fedramp.gov/ns/oscal" />
+        <value id="other"                label="Other"                   short-label="Other" source="https://fedramp.gov/ns/oscal" />
+    </interconnection-security>
+    
+    <component-type>
+        <value id="software"   label="Software"     short-label="S/W"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="hardware"   label="Hardware"     short-label="H/W"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="service"    label="Service"      short-label="Svc"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="policy"     label="Policy"       short-label="Pol"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="process"    label="Process"      short-label="Pros"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="procedure"  label="Procedure"    short-label="Proc"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="plan"       label="Plan"         short-label="Plan"  source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="guidance"   label="Guidance"     short-label="Guide" source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="standard"   label="Standard"     short-label="Std"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="validation" label="Validation"   short-label="Val"   source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="system"     label="This System"  short-label="Sys"   source="https://fedramp.gov/ns/oscal" />
+        <value id="customer"   label="The Customer" short-label="Cust"  source="https://fedramp.gov/ns/oscal" />
+        <value id="*"          label="Any Other"    short-label="*"     source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </component-type>
+    
+    <asset-type>
+        <value id="os"               label="Operating System"        short-label="OS"    source="https://fedramp.gov/ns/oscal" />
+        <value id="database"         label="Database"                short-label="DB"    source="https://fedramp.gov/ns/oscal" />
+        <value id="web-server"       label="Service"                 short-label="Web"   source="https://fedramp.gov/ns/oscal" />
+        <value id="dns-server"       label="Policy"                  short-label="DNS"   source="https://fedramp.gov/ns/oscal" />
+        <value id="email-server"     label="Process"                 short-label="eMail" source="https://fedramp.gov/ns/oscal" />
+        <value id="directory-server" label="Procedure"               short-label="LDAP"  source="https://fedramp.gov/ns/oscal" />
+        <value id="pbx"              label="Private Branch Exchange" short-label="PBX"   source="https://fedramp.gov/ns/oscal" />
+        <value id="firewall"         label="Firewall"                short-label="FW"    source="https://fedramp.gov/ns/oscal" />
+        <value id="router"           label="Router"                  short-label="Rtr"   source="https://fedramp.gov/ns/oscal" />
+        <value id="switch"           label="Switch"                  short-label="Swtch" source="https://fedramp.gov/ns/oscal" />
+        <value id="storage-array"    label="Storage Array"           short-label="Store" source="https://fedramp.gov/ns/oscal" />
+        <value id="*"                label="Any Other"               short-label="*"     source="https://fedramp.gov/ns/oscal" />
+    </asset-type>
+    
+    <scan-type>
+        <value id="infrastructure" label="Infrastructure and Operating System Scan" short-label="Inf./OS" source="https://fedramp.gov/ns/oscal" />
+        <value id="database"       label="Database Scan"                            short-label="DB"      source="https://fedramp.gov/ns/oscal" />
+        <value id="web"            label="Web Scan"                                 short-label="Web"     source="https://fedramp.gov/ns/oscal" />
+    </scan-type>
+    
+    <control-implementation-status>
+        <value id="implemented"    label="Implemented"                short-label="Implemented" source="https://fedramp.gov/ns/oscal" />
+        <value id="partial"        label="Partially Implemented"      short-label="Partial"     source="https://fedramp.gov/ns/oscal" />
+        <value id="planned"        label="Planned"                    short-label="Planned"     source="https://fedramp.gov/ns/oscal" />
+        <value id="alternative"    label="Alternative Implementation" short-label="Alternative" source="https://fedramp.gov/ns/oscal" />
+        <value id="not-applicable" label="Not Applicable"             short-label="N/A"         source="https://fedramp.gov/ns/oscal" />
+    </control-implementation-status>
+    
+    <control-origination>
+        <value id="sp-corporate"        label="Service Provider (Corporate)"       short-label="SP Corporate"     source="https://fedramp.gov/ns/oscal" />
+        <value id="sp-system"           label="Service Provider (System Specific)" short-label="SP System"        source="https://fedramp.gov/ns/oscal" />
+        <value id="customer-configured" label="Configured by Customer"             short-label="Cust. Configured" source="https://fedramp.gov/ns/oscal" />
+        <value id="customer-provided"   label="Provided by Customer"               short-label="Cust. Provided"   source="https://fedramp.gov/ns/oscal" />
+        <value id="inherited"           label="Inherited"                          short-label="Inherited"        source="https://fedramp.gov/ns/oscal" />
+    </control-origination>
+
+    <citation-tye>
+        <value id="law"        label="Law or Statute"             short-label="Law"        source="https://fedramp.gov/ns/oscal" />
+        <value id="regulation" label="Regulation or Directive"    short-label="Regulation" source="https://fedramp.gov/ns/oscal" />
+        <value id="standard"   label="Industry Standard"          short-label="Standard"   source="https://fedramp.gov/ns/oscal" />
+        <value id="guidance"   label="Guidance"                   short-label="Guidance"   source="https://fedramp.gov/ns/oscal" />
+        <value id="pii"        label="Privacy Impact Information" short-label="P.I.I."     source="https://fedramp.gov/ns/oscal" />
+    </citation-tye>
+    
+    <resource-tye>
+        <value id="policy"    label="Polciy"                    short-label="Policy"    source="https://fedramp.gov/ns/oscal" />
+        <value id="procedure" label="Procedure"                 short-label="Procedure" source="https://fedramp.gov/ns/oscal" />
+        <value id="guide"     label="Guidance Document"         short-label="Guidance"  source="https://fedramp.gov/ns/oscal" />
+        <value id="pia"       label="Privacy Impact Assessment" short-label="P.I.A."    source="https://fedramp.gov/ns/oscal" />
+        <value id="rob"       label="Rules of Behavior"         short-label="R.O.B."    source="https://fedramp.gov/ns/oscal" />
+        <value id="plan"      label="Plan"                      short-label="PLan"      source="https://fedramp.gov/ns/oscal" />
+    </resource-tye>
+
+    <hash>
+        <value id="SHA-224"    label="SHA-224"    short-label="SHA-224"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="SHA-256"    label="SHA-256"    short-label="SHA-256"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="SHA-384"    label="SHA-384"    short-label="SHA-384"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="SHA-512"    label="SHA-512"    short-label="SHA-512"    source="http://csrc.nist.gov/ns/oscal/1.0" />
+        <value id="RIPEMD-160" label="RIPEMD-160" short-label="RIPEMD-160" source="http://csrc.nist.gov/ns/oscal/1.0" />
+    </hash>
+
+
+    <yes-no-answers>
+        <value id="yes" label="Yes" short-label="Y" />
+        <value id="no"  label="No"  short-label="N" />
+    </yes-no-answers>
+
+    <levels>
+        <value id="low"      label="Low"      short-label="L" />
+        <value id="moderate" label="Moderate" short-label="M" />
+        <value id="high"     label="High"     short-label="H" />
+    </levels>
+
+    <threat-origination>
+        <value id="P" description="Threats launched purposefully"/>
+        <value id="U" description="Threats created by unintentional human or machine error"/>
+        <value id="E" description="Threats caused by environmental agents or disruptions"/>
+    </threat-origination>
+    
+    <threats>
+        <threat id="T-1">
+            <name>Alteration</name>
+            <origination>P</origination>
+            <origination>U</origination>
+            <origination>E</origination>
+            <description><p>Alteration of data, files, or records.</p></description>
+            <integrity-impact>Modification</integrity-impact>
+        </threat>
+        <threat id="T-2">
+            <name>Audit Compromise</name>
+            <origination>P</origination>
+            <description><p>An unauthorized user gains access to the audit trail and could cause audit records to be deleted or modified, or prevents future audit records from being recorded, thus masking a security relevant event.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Unavailable Accurate Records</availability-impact>
+        </threat>
+        <threat id="T-3">
+            <name>Bomb</name>
+            <origination>P</origination>
+            <description><p>An intentional explosion.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-4">
+            <name>Communications Failure</name>
+            <origination>U</origination>
+            <origination>E</origination>
+            <description><p>Cut of fiber optic lines, trees falling on telephone lines.</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-5">
+            <name>Compromising Emanations</name>
+            <origination>P</origination>
+            <description><p>Eavesdropping can occur via electronic media directed against large scale 
+                electronic facilities that do not process classified National Security 
+                Information.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+        </threat>
+        <threat id="T-6">
+            <name>Cyber Brute Force</name>
+            <origination>P</origination>
+            <description><p>Unauthorized user could gain access to the information systems by 
+                random or systematic guessing of passwords, possibly supported by 
+                password cracking utilities.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-7">
+            <name>Data Disclosure Attack</name>
+            <origination>P</origination>
+            <description><p>An attacker uses techniques that could result in the disclosure of sensitive 
+                information by exploiting weaknesses in the design or configuration.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+        </threat>
+        <threat id="T-8">
+            <name>Data Entry Error</name>
+            <origination>U</origination>
+            <description><p>Human inattention, lack of knowledge, and failure to cross-check system 
+                activities could contribute to errors becoming integrated and ingrained in 
+                automated systems.</p></description>
+            <integrity-impact>Modification</integrity-impact>
+        </threat>
+        <threat id="T-9">
+            <name>Denial of Service Attack</name>
+            <origination>P</origination>
+            <description><p>An adversary uses techniques to attack a single target rendering it unable 
+                to respond and could cause denial of service for users of the targeted 
+                information systems. </p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-10">
+            <name>Distributed Denial of Service Attack</name>
+            <origination>P</origination>
+            <description><p>An adversary uses multiple compromised information systems to attack a 
+                single target and could cause denial of service for users of the targeted 
+                information systems. </p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-11">
+            <name>Earthquake</name>
+            <origination>E</origination>
+            <description><p>Seismic activity can damage the information system or its facility. Refer 
+                to the following document for earthquake probability maps 
+                http://pubs.usgs.gov/of/2008/1128/pdf/OF08-1128_v1.1.pdf </p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-12">
+            <name>Electromagnetic Interference</name>
+            <origination>P</origination>
+            <origination>E</origination>
+            <description><p>Disruption of electronic and wire transmissions could be caused by high 
+                frequency (HF), very high frequency (VHF), and ultra-high frequency 
+                (UHF) communications devices (jamming) or sun spots.</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-13">
+            <name>Espionage</name>
+            <origination>P</origination>
+            <description><p>The illegal covert act of copying, reproducing, recording, photographing 
+                or intercepting to obtain sensitive information.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification</integrity-impact>
+        </threat>
+        <threat id="T-14">
+            <name>Fire</name>
+            <origination>P</origination>
+            <origination>E</origination>
+            <description><p>Fire can be caused by arson, electrical problems, lightning, chemical 
+                agents, or other unrelated proximity fires.</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-15">
+            <name>Floods</name>
+            <origination>E</origination>
+            <description><p>Water damage caused by flood hazards can be caused by proximity to 
+                local flood plains. Flood maps and base flood elevation must be 
+                considered.</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-16">
+            <name>Fraud</name>
+            <origination>P</origination>
+            <description><p>Intentional deception regarding data or information about an information 
+                system could compromise the confidentiality, integrity, or availability of 
+                an information system.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-17">
+            <name>Hardware or Equipment Failure</name>
+            <origination>E</origination>
+            <description><p>Hardware or equipment may fail due to a variety of reasons.</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-18">
+            <name>Hardware Tampering</name>
+            <origination>P</origination>
+            <description><p>An unauthorized modification to hardware that alters the proper 
+                functioning of equipment in a manner that degrades the security 
+                functionality the asset provides.</p></description>
+            <integrity-impact>Modification</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-19">
+            <name>Hurricane</name>
+            <origination>E</origination>
+            <description><p>A category 1, 2, 3, 4, or 5 land falling hurricane could impact the facilities 
+                that house the information systems.</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-20">
+            <name>Malicious Software</name>
+            <origination>P</origination>
+            <description><p>Software that damages a system such a virus, Trojan, or worm.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-21">
+            <name>Phishing Attack</name>
+            <origination>P</origination>
+            <description><p>Adversary attempts to acquire sensitive information such as usernames, 
+                passwords, or SSNs, by pretending to be communications from a 
+                legitimate/trustworthy source.</p>
+                <p>Typical attacks occur via email, instant messaging, or comparable means; 
+                commonly directing users to Web sites that appear to be legitimate sites, 
+                while actually stealing the entered information.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-22">
+            <name>Power Interruptions</name>
+            <origination>E</origination>
+            <description><p>Power interruptions may be due to any number of reasons such as 
+                electrical grid failures, generator failures, uninterruptable power supply 
+                failures (e.g. spike, surge, brownout, or blackout).</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-23">
+            <name>Procedural Error</name>
+            <origination>U</origination>
+            <description><p>An error in procedures could result in unintended consequences. </p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-24">
+            <name>Procedural Violations</name>
+            <origination>P</origination>
+            <description><p>Violations of standard procedures. </p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-25">
+            <name>Resource Exhaustion</name>
+            <origination>U</origination>
+            <description><p>An errant (buggy) process may create a situation that exhausts critical 
+                resources preventing access to services.</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-26">
+            <name>Sabotage</name>
+            <origination>P</origination>
+            <description><p>Underhand interference with work.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-27">
+            <name>Scavenging</name>
+            <origination>P</origination>
+            <description><p>Searching through disposal containers (e.g. dumpsters) to acquire 
+                unauthorized data.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+        </threat>
+        <threat id="T-28">
+            <name>Severe Weather</name>
+            <origination>E</origination>
+            <description><p>Naturally occurring forces of nature could disrupt the operation of an 
+                information system by freezing, sleet, hail, heat, lightning, thunderstorms, 
+                tornados, or snowfall.</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-29">
+            <name>Social Engineering</name>
+            <origination>P</origination>
+            <description><p>An attacker manipulates people into performing actions or divulging 
+                confidential information, as well as possible access to computer systems 
+                or facilities.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+        </threat>
+        <threat id="T-30">
+            <name>Software Tampering</name>
+            <origination>P</origination>
+            <description><p>Unauthorized modification of software (e.g. files, programs, database 
+                records) that alters the proper operational functions.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+        </threat>
+        <threat id="T-31">
+            <name>Terrorist</name>
+            <origination>P</origination>
+            <description><p>An individual performing a deliberate violent act could use a variety of 
+                agents to damage the information system, its facility, and/or its operations.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-32">
+            <name>Theft</name>
+            <origination>P</origination>
+            <description><p>An adversary could steal elements of the hardware.</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-33">
+            <name>Time and State</name>
+            <origination>P</origination>
+            <description><p>An attacker exploits weaknesses in timing or state of functions to perform 
+                actions that would otherwise be prevented (e.g. race conditions, 
+                manipulation user state).</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-34">
+            <name>Transportation Accidents</name>
+            <origination>E</origination>
+            <description><p>Transportation accidents include train derailments, river barge accidents, 
+                trucking accidents, and airlines accidents. Local transportation accidents 
+                typically occur when airports, sea ports, railroad tracks, and major 
+                trucking routes occur in close proximity to systems facilities. Likelihood 
+                of HAZMAT cargo must be determined when considering the probability 
+                of local transportation accidents.</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-35">
+            <name>Unauthorized Facility Access</name>
+            <origination>P</origination>
+            <description><p>An unauthorized individual accesses a facility which may result in 
+                comprises of confidentiality, integrity, or availability.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-36">
+            <name></name>
+            <origination>P</origination>
+            <description><p>An unauthorized user accesses a system or data. </p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+        </threat>
+        <threat id="T-37">
+            <name>Volcanic Activity</name>
+            <origination>E</origination>
+            <description><p>A crack, perforation, or vent in the earth’s crust followed by molten lava, 
+                steam, gases, and ash forcefully ejected into the atmosphere. For a list of 
+                volcanoes in the U.S. see:
+                http://volcanoes.usgs.gov/about/volcanoes/volcanolist.php .</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+    </threats>
+
+</fedramp-values>
