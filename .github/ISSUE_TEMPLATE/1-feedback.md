@@ -10,7 +10,7 @@ assignees: brianrufgsa
 * **This is a ...**
   - [ ] **concern** - I think something needs to be different.
   - [ ] **question** - I didn't understand something.
-  - [ ] **kudo** - I found something helpful and want to encourage it in future FedRAMP publications.
+  - [ ] **kudos** - I found something helpful and want to encourage it in future FedRAMP publications.
   - [ ] **request** - I would like to see something additional provided.
 
 * **This relates to ...**
