@@ -1,918 +1,1332 @@
 {
-    "fedramp-values": {
-        "xmlns": "http://csrc.nist.gov/ns/oscal/1.0",
-        "metadata": {
-            "title": "[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values [DRAFT]",
-            "title-short": "FedRAMP Data Values (DRAFT)",
-            "last-modified": "2019-12-15Z",
-            "version": "DRAFT",
-            "author": "FedRAMP PMO",
-            "description": "This EXPERIMENTAL and DRAFT file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format."
-        },
-        "baselines": {
-            "file": [
-                {
-                    "id": "fedramp_high_profile.xml",
-                    "name": "FedRAMP High Baseline Profile (XML)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml"
-                },
-                {
-                    "id": "fedramp_moderate_profile.xml",
-                    "name": "FedRAMP Moderate Baseline Profile (XML)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml"
-                },
-                {
-                    "id": "fedramp_low_profile.xml",
-                    "name": "FedRAMP Low Baseline Profile (XML)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline_profile.xml"
-                },
-                {
-                    "id": "fedramp_high_profile.json",
-                    "name": "FedRAMP High Baseline Profile (JSON)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_HIGH-baseline_profile.json"
-                },
-                {
-                    "id": "fedramp_moderate_profile.json",
-                    "name": "FedRAMP Moderate Baseline Profile (JSON)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_MODERATE-baseline_profile.json"
-                },
-                {
-                    "id": "fedramp_low_profile.json",
-                    "name": "FedRAMP Low Baseline Profile (JSON)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_LOW-baseline_profile.json"
-                }
-            ]
-        },
-        "resolved-baselines": {
-            "file": [
-                {
-                    "id": "fedramp_high_resolved.xml",
-                    "name": "FedRAMP High Baseline Resolved Profile Catalog (XML)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline-resolved-profile_catalog.xml"
-                },
-                {
-                    "id": "fedramp_moderate_resolved.xml",
-                    "name": "FedRAMP Moderate Baseline Resolved Profile Catalog (XML)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline-resolved-profile_catalog.xml"
-                },
-                {
-                    "id": "fedramp_low_resolved.xml",
-                    "name": "FedRAMP Low Baseline Resolved Profile Catalog (XML)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline-resolved-profile_catalog.xml"
-                },
-                {
-                    "id": "fedramp_high_resolved.json",
-                    "name": "FedRAMP High Baseline Resolved Profile Catalog (JSON)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_HIGH-baseline-resolved-profile_catalog.json"
-                },
-                {
-                    "id": "fedramp_moderate_resolved.json",
-                    "name": "FedRAMP Moderate Baseline Resolved Profile Catalog (JSON)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_MODERATE-baseline-resolved-profile_catalog.json"
-                },
-                {
-                    "id": "fedramp_low_resolved.json",
-                    "name": "FedRAMP Low Baseline Resolved Profile Catalog (JSON)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_LOW-baseline-resolved-profile_catalog.json"
-                }
-            ]
-        },
-        "catalogs": {
-            "file": [
-                {
-                    "id": "nist_sp-800-53_rev4_catalog.xml",
-                    "name": "NIST SP 800-63, Rev 4 (XML)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"
-                },
-                {
-                    "id": "nist_sp-800-53_rev4_catalog.json",
-                    "name": "NIST SP 800-63, Rev 4 (JSON)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/json/NIST_SP-800-53_rev4_catalog.json"
-                },
-                {
-                    "id": "fedramp_catalog.xml",
-                    "name": "FedRAMP (XML)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_catalog.xml"
-                },
-                {
-                    "id": "fedramp_catalog.json",
-                    "name": "FedRAMP (JSON)",
-                    "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_catalog.json"
-                }
-            ]
-        },
-        "oscal-extensions": {
-            "ns": {
-                "name": "FedRAMP",
-                "ns": "https://fedramp.gov/ns/oscal"
+   "fedramp-values": {
+      "xmlns": "https://fedramp.gov/ns/oscal",
+      "metadata": {
+         "title": "[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values [DRAFT]",
+         "title-short": "FedRAMP Data Values (DRAFT)",
+         "last-modified": "2020-03-03Z",
+         "version": "DRAFT",
+         "author": "FedRAMP PMO",
+         "description": "This EXPERIMENTAL and DRAFT file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.",
+         "remarks": ""
+      },
+      "files": {
+         "link": [
+            {
+               "id": "fedramp_high_baseline",
+               "media-type": "application/xml",
+               "rel": "profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml",
+               "content": "FedRAMP High Baseline Profile (XML)"
+            },
+            {
+               "id": "fedramp_high_baseline",
+               "media-type": "application/json",
+               "rel": "profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_HIGH-baseline_profile.json",
+               "content": "FedRAMP High Baseline Profile (JSON)"
+            },
+            {
+               "id": "fedramp_high_baseline",
+               "media-type": "application/xml",
+               "rel": "resolved-profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline-resolved-profile_catalog.xml",
+               "content": "FedRAMP High Baseline Resolved Profile Catalog (XML)"
+            },
+            {
+               "id": "fedramp_high_baseline",
+               "media-type": "application/json",
+               "rel": "resolved-profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_HIGH-baseline-resolved-profile_catalog.json",
+               "content": "FedRAMP High Baseline Resolved Profile Catalog (JSON)"
+            },
+            {
+               "id": "fedramp_moderate_baseline",
+               "media-type": "application/xml",
+               "rel": "profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml",
+               "content": "FedRAMP Moderate Baseline Profile (XML)"
+            },
+            {
+               "id": "fedramp_moderate_baseline",
+               "media-type": "application/json",
+               "rel": "profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_MODERATE-baseline_profile.json",
+               "content": "FedRAMP Moderate Baseline Profile (JSON)"
+            },
+            {
+               "id": "fedramp_moderate_baseline",
+               "media-type": "application/xml",
+               "rel": "resolved-profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline-resolved-profile_catalog.xml",
+               "content": "FedRAMP Moderate Baseline Resolved Profile Catalog (XML)"
+            },
+            {
+               "id": "fedramp_moderate_baseline",
+               "media-type": "application/json",
+               "rel": "resolved-profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_MODERATE-baseline-resolved-profile_catalog.json",
+               "content": "FedRAMP Moderate Baseline Resolved Profile Catalog (JSON)"
+            },
+            {
+               "id": "fedramp_low_baseline",
+               "media-type": "application/xml",
+               "rel": "profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline_profile.xml",
+               "content": "FedRAMP Low Baseline Profile (XML)"
+            },
+            {
+               "id": "fedramp_low_baseline",
+               "media-type": "application/json",
+               "rel": "profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_LOW-baseline_profile.json",
+               "content": "FedRAMP Low Baseline Profile (JSON)"
+            },
+            {
+               "id": "fedramp_low_baseline",
+               "media-type": "application/xml",
+               "rel": "resolved-profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_LOW-baseline-resolved-profile_catalog.xml",
+               "content": "FedRAMP Low Baseline Resolved Profile Catalog (XML)"
+            },
+            {
+               "id": "fedramp_low_baseline",
+               "media-type": "application/json",
+               "rel": "resolved-profile",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_LOW-baseline-resolved-profile_catalog.json",
+               "content": "FedRAMP Low Baseline Resolved Profile Catalog (JSON)"
+            },
+            {
+               "id": "nist_sp-800-53_rev4",
+               "media-type": "application/xml",
+               "rel": "catalog",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml",
+               "content": "NIST SP 800-63, Rev 4 (XML)"
+            },
+            {
+               "id": "nist_sp-800-53_rev4",
+               "media-type": "application/json",
+               "rel": "catalog",
+               "href": "https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/json/NIST_SP-800-53_rev4_catalog.json",
+               "content": "NIST SP 800-63, Rev 4 (JSON)"
             }
-        },
-        "system-identifiers": {
-            "identifier-type": [
-                {
-                    "name": "FedRAMP",
-                    "type": "http://fedramp.gov",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "name": "rfc4122",
-                    "type": "https://ietf.org/rfc/rfc4122",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "eauth-levels": {
-            "value": [
-                {
-                    "id": 1,
-                    "label": "Low",
-                    "short-label": "L",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": 2,
-                    "label": "Moderate",
-                    "short-label": "M",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": 3,
-                    "label": "High",
-                    "short-label": "H",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "authorization-type": {
-            "value": [
-                {
-                    "id": "fedramp-jab",
-                    "label": "FedRAMP JAB P-ATO",
-                    "short-label": "JAB",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "fedramp-agency",
-                    "label": "FedRAMP Agency ATO",
-                    "short-label": "Agency",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "fedramp-li-saas",
-                    "label": "FedRAMP Tailored for LI-SaaS",
-                    "short-label": "LI-SaaS",
-                    "source": "https://fedramp.gov/ns/oscal"
-                }
-            ]
-        },
-        "service-model": {
-            "value": [
-                {
-                    "id": "saas",
-                    "label": "Software as a Service",
-                    "short-label": "SaaS",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "paas",
-                    "label": "Platform as a Service",
-                    "short-label": "PaaS",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "iaas",
-                    "label": "Infrastructure as a Service",
-                    "short-label": "IaaS",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "other",
-                    "label": "Other",
-                    "short-label": "Other",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "deployment-model": {
-            "value": [
-                {
-                    "id": "public-cloud",
-                    "label": "Public Cloud",
-                    "short-label": "Public",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "private-cloud",
-                    "label": "Private Cloud",
-                    "short-label": "Private",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "community-cloud",
-                    "label": "Community Cloud",
-                    "short-label": "Community",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "government-only-cloud",
-                    "label": "Government Only",
-                    "short-label": "USG-Only",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "hybrid-cloud",
-                    "label": "Hybrid",
-                    "short-label": "Hybrid",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "other",
-                    "label": "Other",
-                    "short-label": "Other",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "security-impact-level": {
-            "value": [
-                {
-                    "id": "fips-199-low",
-                    "label": "Low",
-                    "short-label": "L",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "fips-199-moderate",
-                    "label": "Moderate",
-                    "short-label": "M",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "fips-199-high",
-                    "label": "High",
-                    "short-label": "H",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "privacy-sensitive": {
-            "value": [
-                {
-                    "id": "yes",
-                    "label": "Privacy Sensitive",
-                    "short-label": "Yes",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "no",
-                    "label": "Not Privacy Sensitive",
-                    "short-label": "No",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "privacy-impact-assessment": {
-            "value": [
-                {
-                    "id": "yes",
-                    "label": "Yes",
-                    "short-label": "Yes",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "no",
-                    "label": "No",
-                    "short-label": "No",
-                    "source": "https://fedramp.gov/ns/oscal"
-                }
-            ]
-        },
-        "security-sensitivity-level": {
-            "value": [
-                {
-                    "id": "low",
-                    "label": "Low",
-                    "short-label": "L",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "moderate",
-                    "label": "Moderate",
-                    "short-label": "M",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "high",
-                    "label": "High",
-                    "short-label": "H",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "allowed-information-types": {
-            "value": {
-                "id": "https://doi.org/10.6028/NIST.SP.800-60v2r1",
-                "label": "NIST SP 800-60, Volume 2, Revision 1",
-                "short-label": "SP 800-60 V2R1",
-                "source": "http://csrc.nist.gov/ns/oscal/1.0"
+         ]
+      },
+      "namespace": {
+         "ns": {
+            "name": "FedRAMP",
+            "ns": "https://fedramp.gov/ns/oscal"
+         }
+      },
+      "value-set": [
+         {
+            "formal-name": "System Identifier Type",
+            "description": "Indicates the source of the unique ID assigned to the system. FedRAMP requires a FedRAMP-assigned identifier; however, additional identifiers may also be provided.",
+            "binding": {"pattern": "system-id/@identifier-type"},
+            "allowed-values": {
+               "allow-other": "yes",
+               "enum": [
+                  {
+                     "value": "http://fedramp.gov",
+                     "short-label": "FedRAMP ID",
+                     "content": "FedRAMP-Assigned Identifier"
+                  },
+                  {
+                     "value": "https://ietf.org/rfc/rfc4122",
+                     "short-label": "UUIDv4",
+                     "content": "RFC-4122 UUIDv4 Value"
+                  }
+               ]
             }
-        },
-        "system-status": {
-            "value": [
-                {
-                    "id": "operational",
-                    "label": "Operational",
-                    "short-label": "Operational",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "under-development",
-                    "label": "Under Development",
-                    "short-label": "Development",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "under-major-modification",
-                    "label": "Major Modification",
-                    "short-label": "Major Mod.",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "disposition",
-                    "label": "Alternative Implementation",
-                    "short-label": "Alternative",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "other",
-                    "label": "Other",
-                    "short-label": "Other",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "component-status": {
-            "value": [
-                {
-                    "id": "operational",
-                    "label": "Operational",
-                    "short-label": "Operational",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "under-development",
-                    "label": "Under Development",
-                    "short-label": "Development",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "under-major-modification",
-                    "label": "Major Modification",
-                    "short-label": "Major Mod.",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "disposition",
-                    "label": "Alternative Implementation",
-                    "short-label": "Alternative",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "other",
-                    "label": "Other",
-                    "short-label": "Other",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "user-type": {
-            "value": [
-                {
-                    "id": "internal",
-                    "label": "Internal",
-                    "short-label": "I",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "external",
-                    "label": "External",
-                    "short-label": "E",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "general-public",
-                    "label": "General Public",
-                    "short-label": "P",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "privilege-type": {
-            "value": [
-                {
-                    "id": "privileged",
-                    "label": "Privileged",
-                    "short-label": "P",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "non-privileged",
-                    "label": "Non-Privileged",
-                    "short-label": "NP",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "no-logical-access",
-                    "label": "No Logical Access",
-                    "short-label": "NLA",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "user-sensitivity": {
-            "value": [
-                {
-                    "id": "high-risk",
-                    "label": "High Risk",
-                    "short-label": "High",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "severe",
-                    "label": "Severe",
-                    "short-label": "Sev.",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "moderate",
-                    "label": "Moderate",
-                    "short-label": "Mod.",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "limited",
-                    "label": "Limited",
-                    "short-label": "Lim.",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "not-applicable",
-                    "label": "Not Applicable",
-                    "short-label": "N/A",
-                    "source": "https://fedramp.gov/ns/oscal"
-                }
-            ]
-        },
-        "interconnection-direction": {
-            "value": [
-                {
-                    "id": "incoming",
-                    "label": "Incoming",
-                    "short-label": "In",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "outgoing",
-                    "label": "Outgoing",
-                    "short-label": "Out",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "incoming-outgoing",
-                    "label": "Bi-Directional",
-                    "short-label": "In/Out",
-                    "source": "https://fedramp.gov/ns/oscal"
-                }
-            ]
-        },
-        "interconnection-security": {
-            "value": [
-                {
-                    "id": "ipsec",
-                    "label": "IPsec",
-                    "short-label": "IPsec",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "vpn",
-                    "label": "Virtual Private Network",
-                    "short-label": "VPN",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "ssl",
-                    "label": "Secure Socket Layer",
-                    "short-label": "SSL",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "certificate",
-                    "label": "Certificate",
-                    "short-label": "Cert",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "secure-file-transfer",
-                    "label": "Secure File Transfer",
-                    "short-label": "SFT",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "other",
-                    "label": "Other",
-                    "short-label": "Other",
-                    "source": "https://fedramp.gov/ns/oscal"
-                }
-            ]
-        },
-        "component-type": {
-            "value": [
-                {
-                    "id": "software",
-                    "label": "Software",
-                    "short-label": "S/W",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "hardware",
-                    "label": "Hardware",
-                    "short-label": "H/W",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "service",
-                    "label": "Service",
-                    "short-label": "Svc",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "policy",
-                    "label": "Policy",
-                    "short-label": "Pol",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "process",
-                    "label": "Process",
-                    "short-label": "Pros",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "procedure",
-                    "label": "Procedure",
-                    "short-label": "Proc",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "plan",
-                    "label": "Plan",
-                    "short-label": "Plan",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "guidance",
-                    "label": "Guidance",
-                    "short-label": "Guide",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "standard",
-                    "label": "Standard",
-                    "short-label": "Std",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "validation",
-                    "label": "Validation",
-                    "short-label": "Val",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "system",
-                    "label": "This System",
-                    "short-label": "Sys",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "customer",
-                    "label": "The Customer",
-                    "short-label": "Cust",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "*",
-                    "label": "Any Other",
-                    "short-label": "*",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "asset-type": {
-            "value": [
-                {
-                    "id": "os",
-                    "label": "Operating System",
-                    "short-label": "OS",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "database",
-                    "label": "Database",
-                    "short-label": "DB",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "web-server",
-                    "label": "Service",
-                    "short-label": "Web",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "dns-server",
-                    "label": "Policy",
-                    "short-label": "DNS",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "email-server",
-                    "label": "Process",
-                    "short-label": "eMail",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "directory-server",
-                    "label": "Procedure",
-                    "short-label": "LDAP",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "pbx",
-                    "label": "Private Branch Exchange",
-                    "short-label": "PBX",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "firewall",
-                    "label": "Firewall",
-                    "short-label": "FW",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "router",
-                    "label": "Router",
-                    "short-label": "Rtr",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "switch",
-                    "label": "Switch",
-                    "short-label": "Swtch",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "storage-array",
-                    "label": "Storage Array",
-                    "short-label": "Store",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "*",
-                    "label": "Any Other",
-                    "short-label": "*",
-                    "source": "https://fedramp.gov/ns/oscal"
-                }
-            ]
-        },
-        "scan-type": {
-            "value": [
-                {
-                    "id": "infrastructure",
-                    "label": "Infrastructure and Operating System Scan",
-                    "short-label": "Inf./OS",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "database",
-                    "label": "Database Scan",
-                    "short-label": "DB",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "web",
-                    "label": "Web Scan",
-                    "short-label": "Web",
-                    "source": "https://fedramp.gov/ns/oscal"
-                }
-            ]
-        },
-        "control-implementation-status": {
-            "value": [
-                {
-                    "id": "implemented",
-                    "label": "Implemented",
-                    "short-label": "Implemented",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "partial",
-                    "label": "Partially Implemented",
-                    "short-label": "Partial",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "planned",
-                    "label": "Planned",
-                    "short-label": "Planned",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "alternative",
-                    "label": "Alternative Implementation",
-                    "short-label": "Alternative",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "not-applicable",
-                    "label": "Not Applicable",
-                    "short-label": "N/A",
-                    "source": "https://fedramp.gov/ns/oscal"
-                }
-            ]
-        },
-        "control-origination": {
-            "value": [
-                {
-                    "id": "sp-corporate",
-                    "label": "Service Provider (Corporate)",
-                    "short-label": "SP Corporate",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "sp-system",
-                    "label": "Service Provider (System Specific)",
-                    "short-label": "SP System",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "customer-configured",
-                    "label": "Configured by Customer",
-                    "short-label": "Cust. Configured",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "customer-provided",
-                    "label": "Provided by Customer",
-                    "short-label": "Cust. Provided",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "inherited",
-                    "label": "Inherited",
-                    "short-label": "Inherited",
-                    "source": "https://fedramp.gov/ns/oscal"
-                }
-            ]
-        },
-        "citation-tye": {
-            "value": [
-                {
-                    "id": "law",
-                    "label": "Law or Statute",
-                    "short-label": "Law",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "regulation",
-                    "label": "Regulation or Directive",
-                    "short-label": "Regulation",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "standard",
-                    "label": "Industry Standard",
-                    "short-label": "Standard",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "guidance",
-                    "label": "Guidance",
-                    "short-label": "Guidance",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "pii",
-                    "label": "Privacy Impact Information",
-                    "short-label": "P.I.I.",
-                    "source": "https://fedramp.gov/ns/oscal"
-                }
-            ]
-        },
-        "resource-tye": {
-            "value": [
-                {
-                    "id": "policy",
-                    "label": "Policy",
-                    "short-label": "Policy",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "procedure",
-                    "label": "Procedure",
-                    "short-label": "Procedure",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "guide",
-                    "label": "Guidance Document",
-                    "short-label": "Guidance",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "pia",
-                    "label": "Privacy Impact Assessment",
-                    "short-label": "P.I.A.",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "rob",
-                    "label": "Rules of Behavior",
-                    "short-label": "R.O.B.",
-                    "source": "https://fedramp.gov/ns/oscal"
-                },
-                {
-                    "id": "plan",
-                    "label": "Plan",
-                    "short-label": "PLan",
-                    "source": "https://fedramp.gov/ns/oscal"
-                }
-            ]
-        },
-        "hash": {
-            "value": [
-                {
-                    "id": "SHA-224",
-                    "label": "SHA-224",
-                    "short-label": "SHA-224",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "SHA-256",
-                    "label": "SHA-256",
-                    "short-label": "SHA-256",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "SHA-384",
-                    "label": "SHA-384",
-                    "short-label": "SHA-384",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "SHA-512",
-                    "label": "SHA-512",
-                    "short-label": "SHA-512",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                },
-                {
-                    "id": "RIPEMD-160",
-                    "label": "RIPEMD-160",
-                    "short-label": "RIPEMD-160",
-                    "source": "http://csrc.nist.gov/ns/oscal/1.0"
-                }
-            ]
-        },
-        "yes-no-answers": {
-            "value": [
-                {
-                    "id": "yes",
-                    "label": "Yes",
-                    "short-label": "Y"
-                },
-                {
-                    "id": "no",
-                    "label": "No",
-                    "short-label": "N"
-                }
-            ]
-        },
-        "levels": {
-            "value": [
-                {
-                    "id": "low",
-                    "label": "Low",
-                    "short-label": "L"
-                },
-                {
-                    "id": "moderate",
-                    "label": "Moderate",
-                    "short-label": "M"
-                },
-                {
-                    "id": "high",
-                    "label": "High",
-                    "short-label": "H"
-                }
-            ]
-        }
-    }
+         },
+         {
+            "formal-name": "Address Type",
+            "description": "The type of address for the party",
+            "binding": {"pattern": "party/address/@type"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "home",
+                     "short-label": "Home",
+                     "content": "Home"
+                  },
+                  {
+                     "value": "work",
+                     "short-label": "Work",
+                     "content": "Work"
+                  }
+               ]
+            },
+            "remarks": "FedRAMP requires work addresses."
+         },
+         {
+            "formal-name": "eAuth Level",
+            "description": "The eAuthentication level as defined by NIST SP 800-63, Revision 3.",
+            "binding": {"pattern": "system-characteristics/prop[@name='security-eauth-level'][@ns='https://fedramp.gov/ns/oscal']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": 1,
+                     "short-label": "L",
+                     "content": "Low"
+                  },
+                  {
+                     "value": 2,
+                     "short-label": "M",
+                     "content": "Moderate"
+                  },
+                  {
+                     "value": 3,
+                     "short-label": "H",
+                     "content": "High"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Identity Assurance Level",
+            "description": "The identity assurance level as defined by NIST SP 800-63, Revision 3.",
+            "binding": {"pattern": "system-characteristics/prop[@name='identity-assurance-level']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": 1,
+                     "short-label": "L",
+                     "content": "Low"
+                  },
+                  {
+                     "value": 2,
+                     "short-label": "M",
+                     "content": "Moderate"
+                  },
+                  {
+                     "value": 3,
+                     "short-label": "H",
+                     "content": "High"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Authenticator Assurance Level",
+            "description": "The authenticator assurance level as defined by NIST SP 800-63, Revision 3.",
+            "binding": {"pattern": "system-characteristics/prop[@name='authenticator-assurance-level']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": 1,
+                     "short-label": "L",
+                     "content": "Low"
+                  },
+                  {
+                     "value": 2,
+                     "short-label": "M",
+                     "content": "Moderate"
+                  },
+                  {
+                     "value": 3,
+                     "short-label": "H",
+                     "content": "High"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Federation Assurance Level",
+            "description": "The federation assurance level as defined by NIST SP 800-63, Revision 3.",
+            "binding": {"pattern": "system-characteristics/prop[@name='federation-assurance-level']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": 1,
+                     "short-label": "L",
+                     "content": "Low"
+                  },
+                  {
+                     "value": 2,
+                     "short-label": "M",
+                     "content": "Moderate"
+                  },
+                  {
+                     "value": 3,
+                     "short-label": "H",
+                     "content": "High"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Authorization Type",
+            "description": "The FedRAMP Authorization Type",
+            "binding": {"pattern": "system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "fedramp-jab",
+                     "short-label": "JAB",
+                     "content": "FedRAMP JAB P-ATO"
+                  },
+                  {
+                     "value": "fedramp-agency",
+                     "short-label": "Agency",
+                     "content": "FedRAMP Agency ATO"
+                  },
+                  {
+                     "value": "fedramp-li-saas",
+                     "short-label": "LI-SaaS",
+                     "content": "FedRAMP Tailored for LI-SaaS"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Service Model",
+            "description": "The cloud service model.",
+            "binding": {"pattern": "system-characteristics/annotation[@name='service-model']/@value"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "saas",
+                     "short-label": "SaaS",
+                     "content": "Software as a Service"
+                  },
+                  {
+                     "value": "paas",
+                     "short-label": "PaaS",
+                     "content": "Platform as a Service"
+                  },
+                  {
+                     "value": "iaas",
+                     "short-label": "IaaS",
+                     "content": "Infrastructure as a Service"
+                  },
+                  {
+                     "value": "other",
+                     "short-label": "Other",
+                     "content": "Other"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Deployment Model",
+            "description": "The cloud deployment model.",
+            "binding": {"pattern": "system-characteristics/annotation[@name='deployment-model']/@value"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "public-cloud",
+                     "short-label": "Public",
+                     "content": "Public Cloud"
+                  },
+                  {
+                     "value": "private-cloud",
+                     "short-label": "Private",
+                     "content": "Private Cloud"
+                  },
+                  {
+                     "value": "community-cloud",
+                     "short-label": "Community",
+                     "content": "Community Cloud"
+                  },
+                  {
+                     "value": "government-only-cloud",
+                     "short-label": "USG-Only",
+                     "content": "U.S. Government Only"
+                  },
+                  {
+                     "value": "hybrid-cloud",
+                     "short-label": "Hybrid",
+                     "content": "Hybrid"
+                  },
+                  {
+                     "value": "other",
+                     "short-label": "Other",
+                     "content": "Other"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Security Objective Level",
+            "description": "The security objective level as defined by FIPS-199.",
+            "binding": [
+               {"pattern": "system-characteristics/security-impact-level/security-objective-confidentiality"},
+               {"pattern": "system-characteristics/security-impact-level/security-objective-availability"},
+               {"pattern": "system-characteristics/security-impact-level/security-objective-integrity"}
+            ],
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "fips-199-low",
+                     "short-label": "L",
+                     "content": "Low"
+                  },
+                  {
+                     "value": "fips-199-moderate",
+                     "short-label": "M",
+                     "content": "Moderate"
+                  },
+                  {
+                     "value": "fips-199-high",
+                     "short-label": "H",
+                     "content": "High"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Security Impact Level",
+            "description": "The security objective level as defined by NIST SP 800-60.",
+            "binding": [
+               {"pattern": "information-type/confidentiality-impact/base"},
+               {"pattern": "information-type/confidentiality-impact/selected"},
+               {"pattern": "information-type/availability-impact/base"},
+               {"pattern": "information-type/availability-impact/selected"},
+               {"pattern": "information-type/integrity-impact/base"},
+               {"pattern": "information-type/integrity-impact/selected"}
+            ],
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "fips-199-low",
+                     "short-label": "L",
+                     "content": "Low"
+                  },
+                  {
+                     "value": "fips-199-moderate",
+                     "short-label": "M",
+                     "content": "Moderate"
+                  },
+                  {
+                     "value": "fips-199-high",
+                     "short-label": "H",
+                     "content": "High"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Privacy Designation",
+            "description": "Indicates whether this system is privacy sensitive.",
+            "binding": {"pattern": "system-information/prop[@name='privacy-sensitive']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "yes",
+                     "short-label": "Yes",
+                     "content": "Privacy Sensitive"
+                  },
+                  {
+                     "value": "no",
+                     "short-label": "No",
+                     "content": "Not Privacy Sensitive"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Privacy Threshold Analysis (Q1)",
+            "description": "Does the ISA collect, maintain, or share PII in any identifiable form?",
+            "binding": {"pattern": "system-information/prop[@name='pta-1'][@ns='https://fedramp.gov/ns/oscal']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "yes",
+                     "short-label": "Yes",
+                     "content": "Yes"
+                  },
+                  {
+                     "value": "no",
+                     "short-label": "No",
+                     "content": "No"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Privacy Threshold Analysis (Q2)",
+            "description": "Does the ISA collect, maintain, share PII info from or about the public?",
+            "binding": {"pattern": "system-information/prop[@name='pta-2'][@ns='https://fedramp.gov/ns/oscal']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "yes",
+                     "short-label": "Yes",
+                     "content": "Yes"
+                  },
+                  {
+                     "value": "no",
+                     "short-label": "No",
+                     "content": "No"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Privacy Threshold Analysis (Q3)",
+            "description": "Has a Privacy Impact Assessment ever been performed for the ISA?",
+            "binding": {"pattern": "system-information/prop[@name='pta-3'][@ns='https://fedramp.gov/ns/oscal']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "yes",
+                     "short-label": "Yes",
+                     "content": "Yes"
+                  },
+                  {
+                     "value": "no",
+                     "short-label": "No",
+                     "content": "No"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Privacy Threshold Analysis (Q4)",
+            "description": "Is there a Privacy Act System of Records Notice (SORN) for this ISA system?",
+            "binding": {"pattern": "system-information/prop[@name='pta-4'][@ns='https://fedramp.gov/ns/oscal']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "yes",
+                     "short-label": "Yes",
+                     "content": "Yes"
+                  },
+                  {
+                     "value": "no",
+                     "short-label": "No",
+                     "content": "No"
+                  }
+               ]
+            },
+            "remarks": "If \"yes\" a SORN ID must be provided."
+         },
+         {
+            "formal-name": "Security Sensitivity Level",
+            "description": "The security sensitivity level for the system.",
+            "binding": {"pattern": "security-sensitivity-level"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "low",
+                     "short-label": "L",
+                     "content": "Low"
+                  },
+                  {
+                     "value": "moderate",
+                     "short-label": "M",
+                     "content": "Moderate"
+                  },
+                  {
+                     "value": "high",
+                     "short-label": "H",
+                     "content": "High"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Likelihood",
+            "description": "The likelihood of a risk.",
+            "binding": {"pattern": "risk/risk-metric[@name='likelihood'][@system='https://fedramp.gov']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "low",
+                     "short-label": "L",
+                     "content": "Low"
+                  },
+                  {
+                     "value": "moderate",
+                     "short-label": "M",
+                     "content": "Moderate"
+                  },
+                  {
+                     "value": "high",
+                     "short-label": "H",
+                     "content": "High"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Impact Level",
+            "description": "The impact level of a risk.",
+            "binding": {"pattern": "risk/risk-metric[@name='impact'][@system='https://fedramp.gov']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "low",
+                     "short-label": "L",
+                     "content": "Low"
+                  },
+                  {
+                     "value": "moderate",
+                     "short-label": "M",
+                     "content": "Moderate"
+                  },
+                  {
+                     "value": "high",
+                     "short-label": "H",
+                     "content": "High"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Information Type System",
+            "description": "Identifies the system from which the information type was defined.",
+            "binding": {"pattern": "information-type/information-type-id/@system"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": {
+                  "value": "https://doi.org/10.6028/NIST.SP.800-60v2r1",
+                  "short-label": "SP 800-60 V2R1",
+                  "content": "NIST SP 800-60, Volume 2, Revision 1"
+               }
+            },
+            "remarks": "FedRAMP only allows information types defined in NIST SP 800-60v2r1."
+         },
+         {
+            "formal-name": "Operational Status",
+            "description": "The operational status of the system",
+            "binding": {"pattern": "system-characteristics/status/@state"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "operational",
+                     "short-label": "Operational",
+                     "content": "Operational"
+                  },
+                  {
+                     "value": "under-development",
+                     "short-label": "Development",
+                     "content": "Under Development"
+                  },
+                  {
+                     "value": "under-major-modification",
+                     "short-label": "Major Mod.",
+                     "content": "Major Modification"
+                  },
+                  {
+                     "value": "disposition",
+                     "short-label": "Alternative",
+                     "content": "Alternative Implementation"
+                  },
+                  {
+                     "value": "other",
+                     "short-label": "Other",
+                     "content": "Other"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Operational Status",
+            "description": "The operational status of the component",
+            "binding": {"pattern": "component/status/@state"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "operational",
+                     "short-label": "Operational",
+                     "content": "Operational"
+                  },
+                  {
+                     "value": "under-development",
+                     "short-label": "Development",
+                     "content": "Under Development"
+                  },
+                  {
+                     "value": "disposition",
+                     "short-label": "Alternative",
+                     "content": "Alternative Implementation"
+                  },
+                  {
+                     "value": "other",
+                     "short-label": "Other",
+                     "content": "Other"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "User Type",
+            "description": "Identifies the user type.",
+            "binding": {"pattern": "user/annotation[@name='type']/@value"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "internal",
+                     "short-label": "I",
+                     "content": "Internal"
+                  },
+                  {
+                     "value": "external",
+                     "short-label": "E",
+                     "content": "External"
+                  },
+                  {
+                     "value": "general-public",
+                     "short-label": "P",
+                     "content": "General Public"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "User Privilege",
+            "description": "Identifies the privilege level of the user.",
+            "binding": {"pattern": "user/annotation[@name='privilege-level']/@value"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "privileged",
+                     "short-label": "P",
+                     "content": "Privileged"
+                  },
+                  {
+                     "value": "non-privileged",
+                     "short-label": "NP",
+                     "content": "Non-Privileged"
+                  },
+                  {
+                     "value": "no-logical-access",
+                     "short-label": "NLA",
+                     "content": "No Logical Access"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "User Sensitivity level",
+            "description": "Identifies the sensitivity level of the user.",
+            "binding": {"pattern": "user/prop[@name='sensitivity'][@ns='https://fedramp.gov/ns/oscal']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "high-risk",
+                     "short-label": "High",
+                     "content": "High Risk"
+                  },
+                  {
+                     "value": "severe",
+                     "short-label": "Sev.",
+                     "content": "Severe"
+                  },
+                  {
+                     "value": "moderate",
+                     "short-label": "Mod.",
+                     "content": "Moderate"
+                  },
+                  {
+                     "value": "limited",
+                     "short-label": "Lim.",
+                     "content": "Limited"
+                  },
+                  {
+                     "value": "not-applicable",
+                     "short-label": "N/A",
+                     "content": "Not Applicable"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Interconnection Direction",
+            "description": "Identifies the direction of information flow for the interconnection.",
+            "binding": {"pattern": "component[@component-type='interconnection']/prop[@name='direction'][@ns='https://fedramp.gov/ns/oscal']"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "incoming",
+                     "short-label": "In",
+                     "content": "Incoming"
+                  },
+                  {
+                     "value": "outgoing",
+                     "short-label": "Out",
+                     "content": "Outgoing"
+                  },
+                  {
+                     "value": "incoming-outgoing",
+                     "short-label": "In/Out",
+                     "content": "Bi-Directional"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Interconnection Security",
+            "description": "Identifies the type of security applied to the interconnection.",
+            "binding": {"pattern": "component[@component-type='interconnection']/annotation[@name='connection-security'][@ns='https://fedramp.gov/ns/oscal']/@value"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "ipsec",
+                     "short-label": "IPsec",
+                     "content": "IPsec"
+                  },
+                  {
+                     "value": "vpn",
+                     "short-label": "VPN",
+                     "content": "Virtual Private Network"
+                  },
+                  {
+                     "value": "ssl",
+                     "short-label": "SSL",
+                     "content": "Secure Socket Layer"
+                  },
+                  {
+                     "value": "certificate",
+                     "short-label": "Cert",
+                     "content": "Certificate"
+                  },
+                  {
+                     "value": "secure-file-transfer",
+                     "short-label": "SFT",
+                     "content": "Secure File Transfer"
+                  },
+                  {
+                     "value": "other",
+                     "short-label": "Other",
+                     "content": "Other"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Component Type",
+            "description": "identifies the component type.",
+            "binding": {"pattern": "component/@component-type"},
+            "allowed-values": {
+               "allow-other": "yes",
+               "enum": [
+                  {
+                     "value": "software",
+                     "short-label": "S/W",
+                     "content": "Software"
+                  },
+                  {
+                     "value": "hardware",
+                     "short-label": "H/W",
+                     "content": "Hardware"
+                  },
+                  {
+                     "value": "service",
+                     "short-label": "Svc",
+                     "content": "Service"
+                  },
+                  {
+                     "value": "policy",
+                     "short-label": "Pol",
+                     "content": "Policy"
+                  },
+                  {
+                     "value": "process",
+                     "short-label": "Pros",
+                     "content": "Process"
+                  },
+                  {
+                     "value": "procedure",
+                     "short-label": "Proc",
+                     "content": "Procedure"
+                  },
+                  {
+                     "value": "plan",
+                     "short-label": "Plan",
+                     "content": "Plan"
+                  },
+                  {
+                     "value": "guidance",
+                     "short-label": "Guide",
+                     "content": "Guidance"
+                  },
+                  {
+                     "value": "standard",
+                     "short-label": "Std",
+                     "content": "Standard"
+                  },
+                  {
+                     "value": "validation",
+                     "short-label": "Val",
+                     "content": "Validation"
+                  },
+                  {
+                     "value": "system",
+                     "short-label": "Sys",
+                     "content": "This System"
+                  },
+                  {
+                     "value": "interconnection",
+                     "short-label": "Int",
+                     "content": "Interconnection"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Asset Type",
+            "description": "Identifies the type of asset.",
+            "binding": [
+               {"pattern": "component/prop[@name='asset-type']"},
+               {"pattern": "inventory-item/prop[@name='asset-type']"}
+            ],
+            "allowed-values": {
+               "allow-other": "yes",
+               "enum": [
+                  {
+                     "value": "os",
+                     "short-label": "OS",
+                     "content": "Operating System"
+                  },
+                  {
+                     "value": "database",
+                     "short-label": "DB",
+                     "content": "Database"
+                  },
+                  {
+                     "value": "web-server",
+                     "short-label": "Web",
+                     "content": "Service"
+                  },
+                  {
+                     "value": "dns-server",
+                     "short-label": "DNS",
+                     "content": "Policy"
+                  },
+                  {
+                     "value": "email-server",
+                     "short-label": "eMail",
+                     "content": "Process"
+                  },
+                  {
+                     "value": "directory-server",
+                     "short-label": "LDAP",
+                     "content": "Procedure"
+                  },
+                  {
+                     "value": "pbx",
+                     "short-label": "PBX",
+                     "content": "Private Branch Exchange"
+                  },
+                  {
+                     "value": "firewall",
+                     "short-label": "FW",
+                     "content": "Firewall"
+                  },
+                  {
+                     "value": "router",
+                     "short-label": "Rtr",
+                     "content": "Router"
+                  },
+                  {
+                     "value": "switch",
+                     "short-label": "Swtch",
+                     "content": "Switch"
+                  },
+                  {
+                     "value": "storage-array",
+                     "short-label": "Store",
+                     "content": "Storage Array"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Scan Type",
+            "description": "",
+            "binding": [
+               {"pattern": "component/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']"},
+               {"pattern": "inventory-item/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']"}
+            ],
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "infrastructure",
+                     "short-label": "Inf./OS",
+                     "content": "Infrastructure and Operating System Scan"
+                  },
+                  {
+                     "value": "database",
+                     "short-label": "DB",
+                     "content": "Database Scan"
+                  },
+                  {
+                     "value": "web",
+                     "short-label": "Web",
+                     "content": "Web Scan"
+                  },
+                  {
+                     "value": "other",
+                     "short-label": "Other",
+                     "content": "Web Scan"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Transport Type",
+            "description": "The internet protocol transport type.",
+            "binding": {"pattern": "component[@component-type='service']/protocol/port-range/@transport"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "TCP",
+                     "short-label": "TCP",
+                     "content": "TCP"
+                  },
+                  {
+                     "value": "UDP",
+                     "short-label": "UDP",
+                     "content": "UDP"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Virtual",
+            "description": "Indicates if the asset is virtual.",
+            "binding": [
+               {"pattern": "inventory-item/prop[@name='virtual']"},
+               {"pattern": "component/prop[@name='virtual']"}
+            ],
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "yes",
+                     "short-label": "Y",
+                     "content": "Yes"
+                  },
+                  {
+                     "value": "no",
+                     "short-label": "N",
+                     "content": "No"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Public",
+            "description": "Indicates if the asset is exposed to the public Internet.",
+            "binding": [
+               {"pattern": "inventory-item/prop[@name='public']"},
+               {"pattern": "component/prop[@name='public']"}
+            ],
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "yes",
+                     "short-label": "Y",
+                     "content": "Yes"
+                  },
+                  {
+                     "value": "no",
+                     "short-label": "N",
+                     "content": "No"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Allows Authenticated Scan",
+            "description": "Indicates if the asset is capable of having an authenticated scan.",
+            "binding": [
+               {"pattern": "inventory-item/annotation[@name='allows-authenticated-scan']/@value"},
+               {"pattern": "component/annotation[@name='allows-authenticated-scan']/@value"}
+            ],
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "yes",
+                     "short-label": "Y",
+                     "content": "Yes"
+                  },
+                  {
+                     "value": "no",
+                     "short-label": "N",
+                     "content": "No"
+                  }
+               ]
+            },
+            "remarks": "if the value is \"no\", the annotation remarks must contain the reason why."
+         },
+         {
+            "formal-name": "Is Scanned",
+            "description": "Indicates if the asset is scan.",
+            "binding": [
+               {"pattern": "inventory-item/annotation[@name='is-scanned']/@value"},
+               {"pattern": "component/annotation[@name='is-scannan']/@value"}
+            ],
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "yes",
+                     "short-label": "Y",
+                     "content": "Yes"
+                  },
+                  {
+                     "value": "no",
+                     "short-label": "N",
+                     "content": "No"
+                  }
+               ]
+            },
+            "remarks": "if the value is \"no\", the annotation remarks must contain the reason why."
+         },
+         {
+            "formal-name": "Control Implementation Status",
+            "description": "The implementation status of the control.",
+            "binding": {"pattern": "implemented-requirement/annotation[@name='implementation-status']/@value"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "implemented",
+                     "short-label": "Implemented",
+                     "content": "Implemented"
+                  },
+                  {
+                     "value": "partial",
+                     "short-label": "Partial",
+                     "content": "Partially Implemented"
+                  },
+                  {
+                     "value": "planned",
+                     "short-label": "Planned",
+                     "content": "Planned"
+                  },
+                  {
+                     "value": "alternative",
+                     "short-label": "Alternative",
+                     "content": "Alternative Implementation"
+                  },
+                  {
+                     "value": "not-applicable",
+                     "short-label": "N/A",
+                     "content": "Not Applicable"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Control Origination",
+            "description": "The point(s) from which the control satisfaction originates.",
+            "binding": {"pattern": "implemented-requirement/annotation[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"},
+            "allowed-values": {
+               "allow-other": "no",
+               "enum": [
+                  {
+                     "value": "sp-corporate",
+                     "short-label": "SP Corporate",
+                     "content": "Service Provider (Corporate)"
+                  },
+                  {
+                     "value": "sp-system",
+                     "short-label": "SP System",
+                     "content": "Service Provider (System Specific)"
+                  },
+                  {
+                     "value": "customer-configured",
+                     "short-label": "Cust. Configured",
+                     "content": "Configured by Customer"
+                  },
+                  {
+                     "value": "customer-provided",
+                     "short-label": "Cust. Provided",
+                     "content": "Provided by Customer"
+                  },
+                  {
+                     "value": "inherited",
+                     "short-label": "Inherited",
+                     "content": "Inherited"
+                  }
+               ]
+            }
+         },
+         {
+            "formal-name": "Attachment Type",
+            "description": "Identifies the type of attachment.",
+            "binding": {"pattern": "resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']"},
+            "allowed-values": {
+               "allow-other": "yes",
+               "enum": [
+                  {
+                     "value": "law",
+                     "short-label": "Law",
+                     "content": "Law or Statute"
+                  },
+                  {
+                     "value": "regulation",
+                     "short-label": "Regulation",
+                     "content": "Regulation or Directive"
+                  },
+                  {
+                     "value": "standard",
+                     "short-label": "Standard",
+                     "content": "Industry Standard"
+                  },
+                  {
+                     "value": "guidance",
+                     "short-label": "Guidance",
+                     "content": "Guidance"
+                  },
+                  {
+                     "value": "pii",
+                     "short-label": "P.I.I.",
+                     "content": "Privacy Impact Information"
+                  },
+                  {
+                     "value": "policy",
+                     "short-label": "Policy",
+                     "content": "Polciy"
+                  },
+                  {
+                     "value": "procedure",
+                     "short-label": "Procedure",
+                     "content": "Procedure"
+                  },
+                  {
+                     "value": "guide",
+                     "short-label": "Guidance",
+                     "content": "Guidance Document"
+                  },
+                  {
+                     "value": "pia",
+                     "short-label": "P.I.A.",
+                     "content": "Privacy Impact Assessment"
+                  },
+                  {
+                     "value": "rob",
+                     "short-label": "R.O.B.",
+                     "content": "Rules of Behavior"
+                  },
+                  {
+                     "value": "plan",
+                     "short-label": "Plan",
+                     "content": "Plan"
+                  },
+                  {
+                     "value": "system-security-plan",
+                     "short-label": "SSP",
+                     "content": "System Security Plan"
+                  },
+                  {
+                     "value": "artifact",
+                     "short-label": "artifact",
+                     "content": "Artifact"
+                  },
+                  {
+                     "value": "evidence",
+                     "short-label": "evidence",
+                     "content": "Evidence"
+                  },
+                  {
+                     "value": "screen-shot",
+                     "short-label": "screen",
+                     "content": "Screen Shot"
+                  },
+                  {
+                     "value": "image",
+                     "short-label": "image",
+                     "content": "Image"
+                  },
+                  {
+                     "value": "tool-report",
+                     "short-label": "Report",
+                     "content": "Tool Report"
+                  },
+                  {
+                     "value": "raw-tool-output",
+                     "short-label": "Raw",
+                     "content": "Raw Tool Output"
+                  },
+                  {
+                     "value": "interview-notes",
+                     "short-label": "Notes",
+                     "content": "Interview Notes"
+                  },
+                  {
+                     "value": "questionnaire",
+                     "short-label": "Questions",
+                     "content": "Questions"
+                  },
+                  {
+                     "value": "report",
+                     "short-label": "Report",
+                     "content": "Report"
+                  }
+               ]
+            },
+            "remarkas": "Not all values apply to all FedRAMP artifacts."
+         },
+         {
+            "formal-name": "Hash Algorithm",
+            "description": "Identifies the algorithm used to create the hash value of the attachment.",
+            "binding": {"pattern": "resource/hash/@algorithm"},
+            "allowed-values": {
+               "allow-other": "yes",
+               "enum": [
+                  {
+                     "value": "SHA-224",
+                     "short-label": "SHA-224",
+                     "content": "SHA-224"
+                  },
+                  {
+                     "value": "SHA-256",
+                     "short-label": "SHA-256",
+                     "content": "SHA-256"
+                  },
+                  {
+                     "value": "SHA-384",
+                     "short-label": "SHA-384",
+                     "content": "SHA-384"
+                  },
+                  {
+                     "value": "SHA-512",
+                     "short-label": "SHA-512",
+                     "content": "SHA-512"
+                  },
+                  {
+                     "value": "RIPEMD-160",
+                     "short-label": "RIPEMD-160",
+                     "content": "RIPEMD-160"
+                  }
+               ]
+            }
+         }
+      ]
+   }
 }
