@@ -1,0 +1,75 @@
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'src/**'
+      - 'oscal'
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    branches:
+      - master
+name: Process Content
+env:
+  OSCAL_DIR_PATH: oscal
+  CICD_DIR_PATH: oscal/build/ci-cd
+  CONTENT_CONFIG_PATH: src/config
+  SAXON_VERSION: 9.9.0-1
+jobs:
+  validate-and-publish-content:
+    name: Content Validation Checking, Conversion and Validation
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: git-content
+          submodules: recursive
+      # job-validate-content
+      - name: Update APT package metadata
+        run: |
+          sudo rm -rf /var/lib/apt/lists/* && sudo apt-get update
+      - name: Install APT dependencies
+        run: |
+          sudo apt-get install libxml2-utils
+      - name: Install NPM dependencies
+        run: |
+          sudo npm install -g ajv-cli prettyjson
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+      - name: Get Saxon-HE
+        run: |
+          mvn org.apache.maven.plugins:maven-dependency-plugin:2.10:get -DartifactId=Saxon-HE -DgroupId=net.sf.saxon -Dversion=$SAXON_VERSION
+      - name: Validate Content
+        run:
+          # mkdir -p "${OSCAL_BUILD_DIR_PATH}"
+          bash "${GITHUB_WORKSPACE}/git-content/${CICD_DIR_PATH}/validate-content.sh" -o "${GITHUB_WORKSPACE}/git-content/${OSCAL_DIR_PATH}" -a "${GITHUB_WORKSPACE}/git-content" -c "${GITHUB_WORKSPACE}/git-content/${CONTENT_CONFIG_PATH}"
+      # job-copy-and-convert-content
+      - name: Auto-convert Content
+        run:
+          bash "${GITHUB_WORKSPACE}/git-content/${CICD_DIR_PATH}/copy-and-convert-content.sh" -o "${GITHUB_WORKSPACE}/git-content/${OSCAL_DIR_PATH}" -a "${GITHUB_WORKSPACE}/git-content" -c "${GITHUB_WORKSPACE}/git-content/${CONTENT_CONFIG_PATH}" -w "${GITHUB_WORKSPACE}/git-content"
+      # job-deploy-artifacts
+      - name: Setup SSH key
+        # only do this on master
+        if: github.ref == 'refs/heads/master'
+        run: |
+          eval "$(ssh-agent -s)"
+          ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+      - name: Publish Artifacts
+        # only do this on master
+        if: github.ref == 'refs/heads/master'
+        uses: stefanzweifel/git-auto-commit-action@v4.4.1
+        with:
+          repository: git-content
+          commit_message: Publishing auto-converted artifacts
+          commit_user_name: OSCAL GitHub Actions Bot
+          commit_user_email: oscal@nist.gov
+          commit_author: OSCAL GitHub Actions Bot <oscal@nist.gov>
