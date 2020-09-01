@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="b4c6ca0c-3079-481a-a82c-67667a70e34d">
+   
+   <metadata>
+      <title>[System Name] FedRAMP Security Assessment Plan (SAP)</title>
+      <published>2020-06-01T00:00:00Z</published>
+      <last-modified>2020-06-01T00:00:00Z</last-modified>
+      <version>0.0.0</version>
+      <oscal-version>1.0.0-milestone3</oscal-version>
+
+      <prop name="marking">Controlled Unclassified Information</prop>
+      <!-- The following role definitions are required by FedRAMP -->
+      <!-- Do not change the ID's or titles. -->
+      <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
+      <role id="prepared-by">
+         <title>Prepared By</title>
+         <desc>The organization that prepared this SAP.</desc>
+      </role>
+      <role id="prepared-for">
+         <title>Prepared For</title>
+         <desc>The organization for which this SAP was prepared. Typically the CSP.</desc>
+      </role>
+      <role id="content-approver">
+         <title>Security Assessment Plan Approval</title>
+         <desc>The individual or individuals accountable for the accuracy of this SAP.</desc>
+      </role>
+      <role id="assessor">
+         <title>Assessment Organization</title>
+         <desc>The organization performing the assessment.</desc>
+      </role>
+      <role id="assessment-team">
+         <title>Assessment Team</title>
+         <desc>The individual or individuals performing the assessment.</desc>
+      </role>
+      <role id="assessment-lead">
+         <title>Assessment Lead</title>
+         <desc>The individual leading the assessment activities.</desc>
+      </role>
+      <role id="penetration-test-team">
+         <title>Penetration Test Team</title>
+         <desc>The individual or individuals performing the penetration test.</desc>
+      </role>
+      <role id="penetration-test-lead">
+         <title>Penetration Test Lead</title>
+         <desc>The individual leading the penetration test activities.</desc>
+      </role>
+      <role id="assessment-executive">
+         <title>Assessment Organization's Managerial POC</title>
+         <desc>The management-level POC within the assessor's organization accountable for the organization's assessment performance.</desc>
+      </role>
+      <role id="csp-assessment-poc">
+         <title>CSP POCs During Testing</title>
+         <desc>At least three CSP testing points of contact must be identified in a FedRAMP SAP.</desc>
+      </role>
+      <role id="csp-operations-center">
+         <title>CSP Operations POC</title>
+         <desc>An operations center role, such as a SOC or NOC.</desc>
+      </role>
+      <role id="csp-end-of-testing-poc">
+         <title>CSP's End of Testing Notification POC</title>
+         <desc>A role for an individual within the CSP to be notified by the assessor when testing is complete.</desc>
+      </role>
+      <role id="csp-results-poc">
+         <title>CSP Results POCs </title>
+         <desc>A role for the individuals within the CSP who are to receive the assessment results.</desc>
+      </role>
+      <role id="hold">
+         <title/>
+         <desc>T.</desc>
+      </role>
+
+
+      <location uuid="2ba201ac-8ee9-4a1d-812a-a755591a3963">
+         <title>Assessor's HQ</title>
+         <address type="work">
+            <addr-line>Suite 0000</addr-line>
+            <addr-line>1234 Some Street</addr-line>
+            <city>Haven</city>
+            <state>ME</state>
+            <postal-code>00000</postal-code>
+            <country>US</country>
+         </address>
+         <remarks>
+            <p>The assessor's HQ, or the address of the assessment team's primary business
+               location.</p>
+         </remarks>
+      </location>
+      
+      <party uuid="49f73135-efab-4275-9a79-003656ad890a" type="organization">
+         <party-name>Assessment Organization Name</party-name>
+         <short-name>Acronym/Short Name</short-name>
+         <prop name="iso-iec-17020-identifier" ns="https://fedramp.gov/ns/oscal">0000.00</prop>
+         <link href="https://assesor.web.site" rel="home-page" />
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <remarks>
+            <p>Replace sample 3PAO information.</p>
+            <p>If the assessor is A2LA Certified, include the ISO/IEC-17020 </p>
+         </remarks>
+      </party>
+      
+      <party uuid="f4568fda-c6d2-4640-adec-0012015af7d0" type="person">
+         <party-name>[SAMPLE]Person Name 1</party-name>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+         <address type="work">
+            <addr-line>Office 1-A</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone>202-000-0001</phone>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+      </party>
+      <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
+         <party-name>[SAMPLE]Person Name 2</party-name>
+         <address type="work">
+            <addr-line>Office 2-B</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone>202-000-0002</phone>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+      </party>
+      <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person">
+         <party-name>[SAMPLE]Person Name 3</party-name>
+         <address type="work">
+            <addr-line>Office 3-C</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone>202-000-0003</phone>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+      </party>
+      <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person">
+         <party-name>[SAMPLE]Person Name 4</party-name>
+         <address type="work">
+            <addr-line>Office 4-D</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone>202-000-0004</phone>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+      </party>
+      <party uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3" type="person">
+         <party-name>[SAMPLE]Person Name 5</party-name>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+         <address type="work">
+            <addr-line>Office 5-E</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone>202-000-0005</phone>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+      </party>
+      <party uuid="ca9fca9c-4a8a-4487-8242-0a06d6fbed1f" type="person">
+         <party-name>[SAMPLE]Person Name 6</party-name>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+         <address type="work">
+            <addr-line>Office 6-F</addr-line>
+         </address>
+         <email>name@org.domain</email>
+         <phone type="mobile">000-000-0000</phone>
+         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+      </party>
+      <party uuid="877e5bdc-07c3-45da-a2b4-35367a9a0cd0" type="person">
+         <party-name>[SAMPLE]Person Name 7</party-name>
+         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+         <address type="work">
+            <addr-line>Suite 0000</addr-line>
+            <addr-line>1234 Some Street</addr-line>
+            <city>Haven</city>
+            <state>ME</state>
+            <postal-code>00000</postal-code>
+         </address>
+         <email>name@org.domain</email>
+         <phone type="office">000-000-0000</phone>
+      </party>
+      <responsible-party role-id="prepared-by">
+         <party-uuid>49f73135-efab-4275-9a79-003656ad890a</party-uuid>
+         <remarks>
+            <p>Exactly one party</p>
+            <p>This is the assessor.</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="prepared-for">
+         <party-uuid>295f4810-9add-4d64-b28e-06eccd0b6a33</party-uuid>
+         <remarks>
+            <p>Exactly one party.</p>
+            <p>This is the UUID for the CSP in the imported SSP.</p>
+            <p>If no OSCAL-based SSP exists, create a CSP party in the SAP, and provide that UUID here.</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="content-approver">
+         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+         <remarks>
+            <p>One ore more parties</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="assessor">
+         <party-uuid>49f73135-efab-4275-9a79-003656ad890a</party-uuid>
+         <remarks>
+            <p>Exactly one party</p>
+            <p>Assessment Organization (3PAO)</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="assessment-team">
+         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
+         <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
+         <party-uuid>9135b789-a40c-4a20-9be6-fab23c0ab0f3</party-uuid>
+         <remarks>
+            <p>One or more parties</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="assessment-lead">
+         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <remarks>
+            <p>Exactly one party</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="penetration-test-team">
+         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <party-uuid>ca9fca9c-4a8a-4487-8242-0a06d6fbed1f</party-uuid>
+         <party-uuid>877e5bdc-07c3-45da-a2b4-35367a9a0cd0</party-uuid>
+         <remarks>
+            <p>One or more parties</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="penetration-test-lead">
+         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <remarks>
+            <p>Exactly one party</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="assessment-executive">
+         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+         <remarks>
+            <p>Exactly one party</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="csp-operations-center">
+         <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
+         <remarks>
+            <p>Exactly one party</p>
+            <p>The party-uuid should observation-source a party in the SSP.</p>
+            <p>If an appropriate party does not exist in the SSP, the SAP tool should add a party to
+               the SAP, or have the CSP add the party to the SSP.</p>
+            <p>The SAP tool should not modify the SSP.</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="csp-assessment-poc">
+         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
+         <remarks>
+            <p>There should be at least three CSP Assessment POCs.</p>
+            <p>At least one should be available 24x7 during assessment activities.</p>
+            <p>At least one should be an operations center, such a SOC or NOC.</p>
+            <p>The party-uuid should observation-source a party in the SSP or SAP.</p>
+            <p>If an appropriate party does not exist in the SSP or SAP, the SAR tool should add a
+               party to the SAR.</p>
+            <p>The SAP tool should not modify the SSP.</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="csp-end-of-testing-poc">
+         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <remarks>
+            <p>One or more parties</p>
+         </remarks>
+      </responsible-party>
+      <responsible-party role-id="csp-results-poc">
+         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <remarks>
+            <p>One or more parties</p>
+         </remarks>
+      </responsible-party>
+      
+      <remarks>
+         <p>This OSCAL-based FedRAMP SAP Template can be used for the FedRAMP initial or annual
+            assessment planning.</p>
+      </remarks>
+   </metadata>
+
+   <import-ssp href="../ssp/FedRAMP-SSP-OSCAL-Template.xml">
+      <remarks>
+         <p>Link the SAP to the SSP.</p>
+         <p>FedRAMP prefers the path for the SSP be relative to the location of this SAP file.
+            Absolute links will likely not work when FedRAMP tools import the content.</p>
+         <p>This may point to a back-matter resource using a URI fragment.</p>
+         <p>If no OSCAL-based SSP exists, this must be a URI fragment pointing to a special
+            back-matter resource. The resource must include the <code>no-oscal-ssp</code> conformity
+            tag.</p>
+      </remarks>
+   </import-ssp>
+
+   <objectives>
+      <controls>
+         <description>
+            <p>Include all controls in the baseline.</p>
+            <p>Then exclude any specific controls if necessary.</p>
+            <p>Provide rationale/justification for control exclusion here.</p>
+         </description>
+         <all/>
+         <exclude-control control-id="ac-1"/>
+      </controls>
+      <control-objectives>
+         <description>
+            <p>Includes all objectives for all in-scope controls as defined in the controls
+               assembly.</p>
+         </description>
+         <all/>
+         <exclude-objective objective-id="ac-2.2_obj.1"/>
+      </control-objectives>
+
+      <objective id="sap-obj-1" control-id="ac-2">
+         <part name="objective">
+            <title>SAP Inserted Objective</title>
+            <prop name="label">AC-2[SAP][1]</prop>
+            <p>Custom assessment objective for this control.</p>
+         </part>
+         <assessment-method method-uuid="e1bcce13-dea9-4437-b7aa-b7e37d514285"/>
+         <assessment-method method-uuid="4e738b79-dbd4-42b4-ae32-e3f4545c585c"/>
+         <assessment-method method-uuid="ce6fd59c-203b-4efc-85cd-d3382f919dcd"/>
+      </objective>
+
+      <method uuid="e1bcce13-dea9-4437-b7aa-b7e37d514285">
+         <prop name="method">EXAMINE</prop>
+         <part name="objects">
+            <p>Unusual policy</p>
+            <p>Unexpected procedure addressing client access</p>
+         </part>
+      </method>
+      <method uuid="4e738b79-dbd4-42b4-ae32-e3f4545c585c">
+         <prop name="method">INTERVIEW</prop>
+         <part name="objects">
+            <p>Organizational personnel responsible for Unexpected Procedure</p>
+         </part>
+      </method>
+      <method uuid="ce6fd59c-203b-4efc-85cd-d3382f919dcd">
+         <prop name="method">TEST</prop>
+         <part name="objects">
+            <p>Cutting Edge Technology Product</p>
+         </part>
+      </method>
+
+      <remarks>
+         <p>THIS DEFINES THE APPLICABLE ASSESSMENT OBJECTIVES FROM THE CONTROL BASELINE</p>
+      </remarks>
+   </objectives>
+
+   <!--  === WHAT TO EXPLICITLY INCLUDE AND EXCLUDE FROM THE ASSESSMENT ===  -->
+   <assessment-subjects>
+      <include-subject name="component">
+         <description>
+            <p>A description of the included component.</p>
+         </description>
+         <all/>
+         <remarks>
+            <p>This section identifies what to include.</p>
+            <p>This is focused on components.</p>
+         </remarks>
+      </include-subject>
+
+      <include-subject name="inventory-item">
+         <description>
+            <p>A brief description of the included inventory.</p>
+         </description>
+         <all/>
+      </include-subject>
+      <include-subject name="inventory-item">
+         <description>
+            <p>A brief description of the included inventory.</p>
+         </description>
+         <subject-reference uuid-ref="9c04e165-4827-407d-9aa3-25a487de1c65" type="inventory-item"/>
+      </include-subject>
+      <include-subject name="inventory-item">
+         <description>
+            <p>Subnets to Test. The first two are defined in the SSP. The Third is defined in the SAP.</p>
+         </description>
+         <subject-reference uuid-ref="adbf512b-3246-4519-a16a-c26cb4928054" type="inventory-item"/>
+         <subject-reference uuid-ref="20fb9371-2d68-498c-bb6e-2f43898cfde9" type="inventory-item"/>
+         <subject-reference uuid-ref="59406025-116a-4fee-84c3-932a9968de54" type="inventory-item"/>
+         <!--<all />-->
+         <remarks>
+            <p>This section identifies what to include.</p>
+            <p>This is focused on inventory-items.</p>
+         </remarks>
+      </include-subject>
+
+      <include-subject name="location">
+         <description>
+            <p>A description of the location.</p>
+            <p>Provide a summary of the components in-use at this location.</p>
+         </description>
+         <subject-reference uuid-ref="be666612-9ce8-4afb-9fb0-a2f71fc0c53c" type="location"/>
+      </include-subject>
+      <include-subject name="location">
+         <description>
+            <p>A description of the included location.</p>
+         </description>
+         <subject-reference uuid-ref="be666612-9ce8-4afb-9fb0-a2f71fc0c53c" type="location"/>
+         <remarks>
+            <p>This section identifies what to include.</p>
+            <p>This is focused on locations.</p>
+         </remarks>
+      </include-subject>
+
+      <!-- USERS (ROLES) -->
+      <include-subject name="user">
+         <description>
+            <p>A description of the included users or user types.</p>
+         </description>
+         <all/>
+         <remarks>
+            <p>This refers to user assemblies identified in the system-implementation section of the
+               SSP. </p>
+         </remarks>
+      </include-subject>
+      <include-subject name="user">
+         <description>
+            <p>A description of the included users or user types.</p>
+         </description>
+         <subject-reference uuid-ref="ce1a3dbc-2bf5-4899-9fcf-090e299533bb" type="user"/>
+         <remarks>
+            <p>This refers to user assemblies identified in the system-implementation section of the
+               SSP. </p>
+         </remarks>
+      </include-subject>
+
+      <!--  === WHAT TO EXCLUDE ===  -->
+      <exclude-subject name="inventory-item">
+         <description>
+            <p>Exclude identified Windows laptop from scans.</p>
+         </description>
+         <subject-reference type="inventory-item" uuid-ref="0f9049ed-a01f-484a-b70d-b1894fd196b8"/>
+         <remarks>
+            <p>This section identifies what to exclude.</p>
+            <p>This is focused on inventory-items.</p>
+         </remarks>
+      </exclude-subject>
+
+      <!--  === LOCAL DEFINITIONS: When SSP content is missing or incorrect (Components, Inventory Items, User Types (put Locations in metadata) ===  -->
+      <local-definitions>
+         <inventory-item uuid="0f9049ed-a01f-484a-b70d-b1894fd196b8" asset-id="none">
+            <description>
+               <p>A Windows laptop, not defined in the SSP inventory.</p>
+            </description>
+            <prop name="ipv4-address">10.1.1.99</prop>
+            <prop name="virtual">no</prop>
+            <prop name="public">no</prop>
+            <prop name="fqdn">dns.name</prop>
+            <prop name="mac-address">00:00:00:00:00:00</prop>
+            <prop name="software-name">Windows 10</prop>
+            <prop name="version">V 0.0.0</prop>
+            <prop name="asset-type">os</prop>
+            <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">infrastructure</prop>
+            <!-- Use any needed prop/annotation allowed in an SSP inventory-item  -->
+         </inventory-item>
+         <inventory-item uuid="59406025-116a-4fee-84c3-932a9968de54" asset-id="none">
+            <description>
+               <p>A known subnet, which is not defined in the SSP inventory.</p>
+            </description>
+            <prop name="ipv4-subnet">10.20.30.0/24</prop>
+            <!-- Use any needed prop/annotation allowed in an SSP inventory-item  -->
+         </inventory-item>
+         <inventory-item uuid="ce6b1a6e-0391-45d1-997e-3cc97db97d9f" asset-id="none">
+            <description>
+               <p>A network appliance, not defined in the SSP inventory.</p>
+            </description>
+            <prop name="ipv4-address">10.1.2.99</prop>
+            <prop name="virtual">no</prop>
+            <prop name="public">no</prop>
+            <prop name="fqdn">dns.name</prop>
+            <prop name="mac-address">00:00:00:00:00:00</prop>
+            <prop name="version">V 0.0.0</prop>
+            <prop name="asset-type">infrastructure</prop>
+            <!-- insert the scan-type property into this assembly  -->
+            <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">infrastructure</prop>
+            <prop name="scan-type" ns="https://fedramp.gov/ns/oscal">web</prop>
+         </inventory-item>
+         <user uuid="ba6b8bd4-c6f1-4b60-aa0f-69875b108f16">
+            <title>Existing Role - Incorrect Associated Functions</title>
+            <role-id/>
+            <authorized-privilege>
+               <title>Corrected Function List</title>
+               <function-performed>Add/Remove Groups</function-performed>
+               <function-performed>Add/Remove other admins</function-performed>
+               <function-performed>Manage logs</function-performed>
+            </authorized-privilege>
+            <remarks>
+               <p>The ID assigned to this incorrect role must be identical to the entry in the SSP
+                  user list, which is being corrected.</p>
+               <p>The SAP user assembly duplicates the SSP user assembly, which requires a
+                  role-id.</p>
+               <p>If an existing role in the SSP is appropriate, reference it here.</p>
+               <p>If no appropriate role exists in the SSP, the role-id may be left blank in the
+                  SAP.</p>
+            </remarks>
+         </user>
+         <user uuid="58bb5a77-b40a-4104-ac29-299a1691f76a">
+            <title>Missing Role</title>
+            <role-id/>
+            <authorized-privilege>
+               <title>Typical External User</title>
+               <function-performed>View Team Content</function-performed>
+               <function-performed>View/Edit Individual Content</function-performed>
+            </authorized-privilege>
+            <remarks>
+               <p>The ID assigned to this missing role must not be used in the SSP user list.</p>
+               <p>The SAP user assembly duplicates the SSP user assembly, which requires a
+                  role-id.</p>
+               <p>If an existing role in the SSP is appropriate, reference it here.</p>
+               <p>If no appropriate role exists in the SSP, the role-id may be left blank in the
+                  SAP.</p>
+            </remarks>
+         </user>
+      </local-definitions>
+
+      <remarks>
+         <p>All uuid-refs cited in the include-subject and exclude-subject point to items in the
+            imported SSP, this SAP, or both.</p>
+         <p>If the assessor needs to create or correct SSP content, the SAP tool should create that
+            content in the SAP, not the SSP, so it is attributable to the assessor. (The assessor
+            may ask the CSP to change the SSP, but the assessor must not change the SSP content on
+            behalf of the CSP.)</p>
+         <p>For content that does not exist in the SSP, the SAP tool must ensure an ID is used that
+            is both unique in the SAP and does not exist in the SSP.</p>
+         <p>When the same ID is found in both the SSP and the SAP, the SAP tool should treat the
+            associated content in the SAP as adding to or overriding the content in the SSP. (This
+            is how assessors correct inaccurate SSP content without changing the SSP itself.)</p>
+         <p>When missing or incorrect SSP content needs to be added to the SAP, the SAP tool should
+            place the content in the SAP as follows:</p>
+         <ul>
+            <li>Components: local-definitions</li>
+            <li>Inventory Items: local-definitions</li>
+            <li>User Roles: local-definitions</li>
+            <li>Locations: metadata</li>
+         </ul>
+      </remarks>
+   </assessment-subjects>
+
+   <assets>
+      <tools>
+         <component uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" component-type="software">
+            <title>XYZ Vulnerability Scanning Tool</title>
+            <description>
+               <p>Describe the purpose of the tool here.</p>
+            </description>
+            <prop name="vendor">Vendor Name</prop>
+            <prop name="name">Tool Name</prop>
+            <prop name="version">1.2.3</prop>
+            <status state="operational"/>
+         </component>
+         <component uuid="c50104b9-69b3-4383-a1f1-d8a6f6f806f7" component-type="software">
+            <title>XYZ Database Scanning Tool</title>
+            <description>
+               <p>Describe the purpose of the tool here.</p>
+            </description>
+            <prop name="vendor">Vendor Name</prop>
+            <prop name="name">Tool Name</prop>
+            <prop name="version">1.2.3</prop>
+            <status state="operational"/>
+         </component>
+      </tools>
+
+      <origination>
+         <title>Assessment Addresses</title>
+         <prop name="ipv4-address">10.10.10.10</prop>
+         <prop name="ipv4-address">10.10.10.11</prop>
+         <prop name="ipv4-address">10.10.10.12</prop>
+      </origination>
+
+      <prop name="results-delivery">10 business days after completion of assessment</prop>
+
+      <annotation name="limitation">
+         <remarks>
+            <p><b>Limitation of Liability</b></p>
+            <p>This is a limitation statement, such as a liability limitation, that would appear in
+               the rules of engagement.</p>
+         </remarks>
+      </annotation>
+
+      <part name="assumptions">
+         <part name="assumption">
+            <prop name="sort-id">001</prop>
+            <p>[CSP Name] resources, including documentation and individuals with knowledge of the
+               [CSP Name] systems and infrastructure and their contact information, will be
+               available to [3PAO Name] staff during the time necessary to complete assessments.</p>
+         </part>
+         <part name="assumption">
+            <prop name="sort-id">002</prop>
+            <p>The [CSP Name] will provide login account information/credentials necessary for [3PAO
+               Name] to use its testing devices to perform authenticated scans of devices and
+               applications.</p>
+         </part>
+         <part name="assumption">
+            <prop name="sort-id">003</prop>
+            <p>The [CSP Name] will permit [3PAO Name] to connect its testing laptops to the [CSP
+               Name] networks defined within the scope of this assessment.</p>
+         </part>
+         <part name="assumption">
+            <prop name="sort-id">004</prop>
+            <p>The [CSP Name] will permit communication from Third Party Assessment Organization
+               testing appliances to an internet hosted vulnerability management service to permit
+               the analysis of vulnerability data.</p>
+         </part>
+         <part name="assumption">
+            <prop name="sort-id">005</prop>
+            <p>Security controls that have been identified as “Not Applicable” in the SSP will be
+               verified as such and further testing will not be performed on these security
+               controls.</p>
+         </part>
+         <part name="assumption">
+            <prop name="sort-id">006</prop>
+            <p>Significant upgrades or changes to the infrastructure and components of the system
+               undergoing testing will not be performed during the security assessment period.</p>
+         </part>
+         <part name="assumption">
+            <prop name="sort-id">007</prop>
+            <p>For onsite control assessment, [CSP Name] personnel will be available should the
+               [3PAO Name] staff determine that either after hours work, or weekend work, is
+               necessary to support the security assessment.</p>
+         </part>
+      </part>
+
+      <part name="methodology">
+         <prop name="sampling" ns="https://fedramp.gov/ns/oscal">no</prop>
+         <p>[3PAO Name] will perform an assessment of the Information System Abbreviation security
+            controls using the methodology described in NIST SP 800-53A. [3PAO Name] will use
+            FedRAMP test procedures to evaluate the security controls. Contained in Excel
+            worksheets, these test procedures contain the test objectives and associated test cases
+            to determine if a control is effectively implemented and operating as intended. The
+            results of the testing shall be recorded in the worksheets (provided in Appendix B)
+            along with information that notes whether the control (or control enhancement) is
+            satisfied or not.</p>
+         <p>[3PAO Name] data gathering activities will consist of the following:</p>
+         <ul>
+            <li>Request [CSP Name] provide FedRAMP required documentation</li>
+            <li>Request any follow-up documentation, files, or information needed that is not
+               provided in FedRAMP required documentation</li>
+            <li>Travel to the [CSP Name] sites as necessary to inspect systems and meet with [CSP
+               Name] staff</li>
+            <li>Obtain information through the use of security testing tools</li>
+         </ul>
+         <p>Security controls will be verified using one or more of the following assessment
+            methods:</p>
+         <ul>
+            <li>Examine: the IA will review, analyze, inspect, or observe one or more assessment
+               artifacts as specified in the attached test cases</li>
+            <li>Interview: the IA will conduct discussions with individuals within the organization
+               to facilitate assessor understanding, achieve clarification, or obtain evidence</li>
+            <li>Technical Tests: the IA will perform technical tests, including penetration testing,
+               on system components using automated and manual methods</li>
+         </ul>
+         <p>[3PAO Name] [ will | will not ] use sampling when performing this assessment.</p>
+      </part>
+
+      <part name="disclosures">
+         <part name="disclosure">
+            <prop name="sort-id">001</prop>
+            <p>Any testing will be performed according to terms and conditions designed to minimize
+               risk exposure that could occur during security testing.</p>
+         </part>
+         <part name="disclosure">
+            <prop name="sort-id">002</prop>
+            <p>A disclosure statement</p>
+         </part>
+      </part>
+
+      <part name="liability-limitations">
+         <part name="liability-limitation">
+            <prop name="sort-id">001</prop>
+            <p>[3PAO Name], and its stated partners, shall not be held liable to [CSP Name] for any
+               and all liabilities, claims, or damages arising out of or relating to the security
+               vulnerability testing portion of this agreement, howsoever caused and regardless of
+               the legal theory asserted, including breach of contract or warranty, tort, strict
+               liability, statutory liability, or otherwise.</p>
+         </part>
+         <part name="liability-limitation">
+            <prop name="sort-id">002</prop>
+            <p>[CSP Name] acknowledges that there are limitations inherent in the methodologies
+               implemented, and the assessment of security and vulnerability relating to information
+               technology is an uncertain process based on past experiences, currently available
+               information, and the anticipation of reasonable threats at the time of the analysis.
+               There is no assurance that an analysis of this nature will identify all
+               vulnerabilities or propose exhaustive and operationally viable recommendations to
+               mitigate all exposure.</p>
+         </part>
+      </part>
+
+   </assets>
+
+   <assessment-activities>
+      <test-method uuid="2715174e-9355-4775-bea4-4068e59e916b">
+         <title>Title of the Manual Test</title>
+         <description>
+            <p>Description of the manual test</p>
+         </description>
+         <prop name="type">manual</prop>
+      </test-method>
+      <test-method uuid="3ba68918-80ef-4846-89e0-9f1def7e5223">
+         <title>[SAMPLE]Forceful Browsing</title>
+         <description>
+            <p>We will login as a customer and try to see if we can gain access to the Network
+               Administrator and Database Administrator privileges and authorizations by navigating
+               to different views and manually forcing the browser to various URLs</p>
+         </description>
+         <prop name="type">manual</prop>
+      </test-method>
+      <test-method uuid="2233cf20-282a-4967-ab07-a4b7d1ae3a4b">
+         <title>[SAMPLE]CAPTCHA</title>
+         <description>
+            <p>We will test the CAPTCHA function on the web form manually</p>
+         </description>
+         <prop name="type">manual</prop>
+      </test-method>
+      <test-method uuid="f818a896-3438-409f-a2a4-583a56fa41b4">
+         <title>[SAMPLE]OCSP</title>
+         <description>
+            <p>We will manually test to see if OCSP is validating certificates.</p>
+         </description>
+         <prop name="type">manual</prop>
+      </test-method>
+
+      <test-method uuid="315b3118-3d2e-420b-b4fb-5acf13b08381">
+         <title>Web Application Test</title>
+         <prop name="type">web-application</prop>
+         <prop name="login-url">https://service.offering.com/login</prop>
+         <prop name="login-id">test-user</prop>
+         <prop name="inventory-item-id">inv-10</prop>
+      </test-method>
+      <test-method uuid="64142a6f-d8d4-47c6-8bb1-a0e33f17664d">
+         <title>Web Application Test</title>
+         <prop name="type">web-application</prop>
+         <prop name="login-url">https://admin-portal.offering.com/login</prop>
+         <prop name="login-id">test-admin</prop>
+         <prop name="inventory-item-id">inv-11</prop>
+      </test-method>
+
+      <test-method uuid="dc858ece-b430-485d-886c-3a812bb77b13">
+         <title>Role Based Test</title>
+         <prop name="type">role-based</prop>
+         <prop name="login-id">test-user</prop>
+         <prop name="user-id">sys-role-1</prop>
+      </test-method>
+      <test-method uuid="74830d19-2820-4487-bd1d-91d8656b7eb0">
+         <title>Role Based Test</title>
+         <prop name="type">role-based</prop>
+         <prop name="login-id">test-admin</prop>
+         <prop name="user-id">sys-role-2</prop>
+      </test-method>
+
+      <schedule>
+         <task uuid="17030aaf-7712-4228-8607-a5a97a785efa">
+            <title>Prepare Test Plan</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="b65e7779-bd3d-4a49-9de5-3122c290792f">
+            <title>Meeting to Review Test Plan</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="b8389553-f0f7-4ae9-9331-203608222770">
+            <title>Test Plan Update</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="e1890486-a9f0-4388-b2bc-34fb6c623686">
+            <title>Review CSP Documentation</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="172d4ba2-3362-4e3b-9379-a65a50e399bf">
+            <title>Conduct Interviews of CSP Staff</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="aa5344be-18c4-4529-8937-0f4b873b8fcd">
+            <title>Perform Assessment Testing</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="8937348c-5ebb-40bd-a8eb-faff99af156e">
+            <title>Perform Penetration Testing</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="7f2a5095-5f53-461b-b12f-3d649f6d7a6c">
+            <title>Vulnerability Analysis and Threat Assessment</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="4f90df2a-c94c-494f-9999-0695a4dbe9ca">
+            <title>Risk Exposure Table Development</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task  uuid="0378802d-1288-4305-9eaf-bec8ee1a138c">
+            <title>Complete Draft SAR</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="2a04884f-6b75-4133-857b-ded12e12b38c">
+            <title>Draft SAR Delivered to CSP</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="933b1eea-6ec3-4fbf-850a-33c8f5c44225">
+            <title>Issue Resolution Meeting</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="7f377a32-5012-4d76-becf-9f70d6a9f104">
+            <title>Complete Final Version of SAR</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+         <task uuid="45e2af99-bebf-4a2b-ad6f-b325e910aa12">
+            <title>Send Final Version of SAR to CSP and ISSO</title>
+            <description>
+               <p>optional description here</p>
+            </description>
+            <start>2020-06-01T00:00:00Z</start>
+            <end>2020-06-15T00:00:00Z</end>
+         </task>
+      </schedule>
+
+      <include-activity uuid="320326a9-5b04-411c-b1d3-3a1397cd31fc">
+         <description>
+            <p>Port scans and other network service interaction and queries</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="ff14cbb5-5607-4cb7-b211-acf6a1c1044b">
+         <description>
+            <p>Network sniffing, traffic monitoring, traffic analysis, and host discovery</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="e6d7577a-f656-4690-a042-ab8b2693bec0">
+         <description>
+            <p>Attempted logins or other use of systems, with any account name/password</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="51c36191-62a0-4dd7-a254-3fe861beaa51">
+         <description>
+            <p>Attempted structured query language (SQL) injection and other forms of input
+               parameter testing</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="110e8a53-53b9-4717-954d-436782603d94">
+         <description>
+            <p>Use of exploit code for leveraging discovered vulnerabilities</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="d4a8ac08-5c10-419c-a38a-b143bf34172a">
+         <description>
+            <p>Password cracking via capture and scanning of authentication databases</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="14b07a59-426f-4118-9f06-b9662152dd65">
+         <description>
+            <p>Spoofing or deceiving servers regarding network traffic</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="068edc97-dcc9-4179-964e-410273fb3f14">
+         <description>
+            <p>Altering running system configuration except where denial of service would result</p>
+         </description>
+      </include-activity>
+      <include-activity uuid="a50c1bef-a288-4445-ace5-63fc747911f3">
+         <description>
+            <p>Adding user accounts</p>
+         </description>
+      </include-activity>
+
+      <exclude-activity uuid="e4c19c9e-883f-478a-a519-f4d80ac03a79">
+         <description>
+            <p>Changes to assigned user passwords</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="cfec0189-1cac-4d3a-9c4b-6fdf2a1c8dc8">
+         <description>
+            <p>Modification of user files or system files</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="b9fa9d84-a62c-468b-9b13-807015cdc00a">
+         <description>
+            <p>Telephone modem probes and scans (active and passive)</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="abf9ecc6-1dbe-4659-9694-60b9670bede9">
+         <description>
+            <p>Intentional viewing of [CSP Name] staff email, Internet caches, and/or personnel
+               cookie files</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="2c72c778-e2ce-4fee-b4e0-a182d3134c93">
+         <description>
+            <p>Denial of service attacks</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="8d9de95b-ac7c-4192-af80-2cc7f7f27d0b">
+         <description>
+            <p>Exploits that will introduce new weaknesses to the system</p>
+         </description>
+      </exclude-activity>
+      <exclude-activity uuid="e615929e-c1c3-4419-8e39-e6185a0fe1c3">
+         <description>
+            <p>Intentional introduction of malicious code (viruses, Trojans, worms, etc.)</p>
+         </description>
+      </exclude-activity>
+   </assessment-activities>
+
+   <back-matter>
+      <resource uuid="a78f7e4c-a27a-4b1e-901b-ebfecf2b0301">
+         <title>System's Full Name</title>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">no-oscal-ssp</prop>
+         <prop name="title-short" ns="https://fedramp.gov/ns/oscal">SFN</prop>
+         <prop name="system-id" ns="https://fedramp.gov/ns/oscal">FR00000000</prop>
+         <prop name="import-profile" ns="https://fedramp.gov/ns/oscal">#fedramp-moderate-baseline</prop>
+         <prop name="purpose" ns="https://fedramp.gov/ns/oscal">Briefly state the system's purpose. This will appear in the SAR.</prop>
+         <prop name="description" ns="https://fedramp.gov/ns/oscal">Briefly describe the system. This will appear in the SAR.</prop>
+         <remarks>
+            <p>Only include this resource if no OSCAL-based SSP is available.</p>
+            <p>Delete it otherwise.</p>
+         </remarks>
+      </resource>
+      <resource uuid="7c30125f-c056-4888-9f1a-7ed1b6a1b638">
+         <title>[System Name] [FIPS-199 Level] SSP</title>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal">system-security-plan</prop>
+         <prop name="publication" ns="https://fedramp.gov/ns/oscal">SSP Date</prop>
+         <prop name="version" ns="https://fedramp.gov/ns/oscal">SSP Version</prop>
+         <rlink media-type="application/xml" href="../ssp/CSP_System_SSP.xml"/>
+         <rlink media-type="application/json" href="../ssp/CSP_System_SSP.json"/>
+         <remarks>
+            <p>Use this to point to an OSCAL-based SSP.</p>
+            <p>For FedRAMP, do not attach the SSP. This should be delivered by the CSP.</p>
+         </remarks>
+      </resource>
+      <resource uuid="16805868-6fa2-41d4-b2b1-bcd95c9168c7">
+         <title>FedRAMP Applicable Laws and Regulations</title>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-citations</prop>
+         <rlink
+            href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" />
+      </resource>
+      <resource uuid="07145a97-2dd1-4efc-bb10-a8bc93e05342">
+         <title>FedRAMP Master Acronym and Glossary</title>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-acronyms</prop>
+         <rlink
+            href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf" />
+      </resource>
+      <resource uuid="671dcc43-fb4d-4d93-b321-88beb2844673">
+         <desc>Signed SAP</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">signature</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="./signed-sap.pdf" media-type="application/pdf"/>
+         <base64 filename="sap.pdf" media-type="application/pdf">00000000</base64>
+         <remarks>
+            <p>FedRAMP is formulating guidelines for handling digital/electronic signatures in OSCAL, and welcome feedback on solutions.</p>
+            <p>For now, FedRAMP recommends one of the following:</p>
+            <ul>
+               <li>Render the OSCAL SAP content as a PDF that is digitally signed and attached.</li>
+               <li>Render the OSCAL SAP content as a printed page that is physically signed, scanned, and attached.</li>
+            </ul>
+            <p>If your organization prefers another approach, please seek prior approval from the FedRAMP PMO.</p>
+         </remarks>
+      </resource>
+      <resource uuid="8e8d05e4-0d47-4bf9-bbf0-b7070d60a671">
+         <desc>Penetration Test Plan</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">penetration-test-plan</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="./pen_test_plan.pdf" media-type="application/pdf"/>
+         <base64 filename="pen_test_plan.pdf" media-type="application/pdf">00000000</base64>
+      </resource>
+      <resource uuid="91d242d0-ccf9-4ff0-996d-e204c19dac52">
+         <desc>3PAO Logo</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">prepared-by-logo</prop>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">3pao-logo</prop>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="./logo.png" media-type="image/png"/>
+         <base64>00000000</base64>
+      </resource>
+      <resource uuid="031a32be-f9ef-45a0-994e-20eb58456dee">
+         <desc>FedRAMP Logo</desc>
+         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-logo</prop>
+         <rlink href="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png" />
+      </resource>
+      <resource uuid="9f1aae37-7359-411f-86c1-768aaab85e63">
+         <title>FedRAMP High Baseline</title>
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml" />
+         <remarks>
+            <p>Pointer to High baseline content in OSCAL.</p>
+         </remarks>
+      </resource>
+      <resource uuid="890170c3-d4fa-4d25-ab96-8e4bf7cc237c">
+         <title>FedRAMP Moderate Baseline</title>
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml" />
+         <remarks>
+            <p>Pointer to Moderate baseline content in OSCAL.</p>
+         </remarks>
+      </resource>
+      <resource uuid="2acaf846-5496-4d36-8565-9a15b48aef2c">
+         <title>FedRAMP Low Baseline</title>
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_LOW-baseline_profile.xml" />
+         <remarks>
+            <p>Pointer to Low baseline content in OSCAL.</p>
+         </remarks>
+      </resource>
+   </back-matter>
+</assessment-plan>

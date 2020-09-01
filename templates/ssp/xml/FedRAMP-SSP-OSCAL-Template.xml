@@ -2078,7 +2078,7 @@
          <rlink href="./party-1-logo.png" media-type="image/png"/>
          <base64>00000000</base64>
       </resource>
-      <resource uuid="0846b6ef-cfa4-4bb3-8280-717f7e7b04d4  ">
+      <resource uuid="0846b6ef-cfa4-4bb3-8280-717f7e7b04d4">
          <desc>FedRAMP Logo</desc>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-logo</prop>
          <rlink href="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png"

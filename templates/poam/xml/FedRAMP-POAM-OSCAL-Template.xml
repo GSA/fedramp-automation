@@ -141,7 +141,7 @@
             <p>Uses the same syntax as SSP components.</p>
          </remarks>
       </component>
-      <inventory-item uuid="deb26a75-6d97-4811-ae0e-ae1c710366c1" asset-id="">
+      <inventory-item uuid="deb26a75-6d97-4811-ae0e-ae1c710366c1" asset-id="asset-id-1">
          <description><p>An instance of the above component.</p></description>
          <prop name="ipv4-address">10.10.10.10</prop>
          <prop name="fqdn">host.domain.cloud</prop>
