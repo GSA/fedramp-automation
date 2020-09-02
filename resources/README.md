@@ -27,7 +27,7 @@ The content is provided in both XML and JSON formats. It is experimental and not
 
 For example, an OSCAL-based FedRAMP SAR may contain the following:
 ```
-<risk>
+<risk uuid="uuid-value">
 	<!-- cut -->
 	<risk-metric name="threat-id" system="https://fedramp.gov">T-1</risk-metric>
 	<risk-metric name="threat-id" system="https://3pao.auditor">3PAO-1</risk-metric>
