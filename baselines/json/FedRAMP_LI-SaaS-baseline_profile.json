@@ -9,7 +9,7 @@
       "oscal-version": "1.0.0-milestone3",
       "roles": [
         {
-          "id": "parpared-by",
+          "id": "prepared-by",
           "title": "Document creator"
         },
         {
