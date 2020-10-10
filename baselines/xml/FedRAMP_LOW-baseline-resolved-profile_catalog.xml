@@ -9,7 +9,7 @@
       <oscal-version>1.0.0-milestone3</oscal-version>
       <prop name="resolution-timestamp">2020-10-10T08:36:48.672259Z</prop>
       <link rel="resolution-source" href="FedRAMP_LOW-baseline_profile.xml">FedRAMP Low Baseline</link>
-      <role id="parpared-by">
+      <role id="prepared-by">
          <title>Document creator</title>
       </role>
       <role id="fedramp-pmo">

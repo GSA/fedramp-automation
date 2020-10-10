@@ -9,7 +9,7 @@
       <oscal-version>1.0.0-milestone3</oscal-version>
       <prop name="resolution-timestamp">2020-10-10T08:36:39.038855Z</prop>
       <link rel="resolution-source" href="FedRAMP_LI-SaaS-baseline_profile.xml">FedRAMP Tailored Low Impact Software as a Service (LI-SaaS) Baseline</link>
-      <role id="parpared-by">
+      <role id="prepared-by">
          <title>Document creator</title>
       </role>
       <role id="fedramp-pmo">
