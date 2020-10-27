@@ -12,9 +12,9 @@
 <sch:let name="values" value="doc(resolve-uri('../xml/fedramp_values.xml'))"/>
 <sch:let name="levels" value="$values/f:fedramp-values/f:value-set[@name='security-sensitivity-level']/f:allowed-values/f:enum/@value"/>
 
-<sch:let name="low-p"  value="doc(resolve-uri('../../../baselines/xml/FedRAMP_LOW-baseline_profile.xml'))"/>
-<sch:let name="mod-p"  value="doc(resolve-uri('../../../baselines/xml/FedRAMP_MODERATE-baseline_profile.xml'))"/>
-<sch:let name="high-p" value="doc(resolve-uri('../../../baselines/xml/FedRAMP_HIGHH-baseline_profile.xml'))"/>
+<sch:let name="low-p"  value="doc(resolve-uri('../../baselines/xml/FedRAMP_LOW-baseline_profile.xml'))"/>
+<sch:let name="mod-p"  value="doc(resolve-uri('../../baselines/xml/FedRAMP_MODERATE-baseline_profile.xml'))"/>
+<sch:let name="high-p" value="doc(resolve-uri('../../baselines/xml/FedRAMP_HIGH-baseline_profile.xml'))"/>
 
 <sch:pattern>
     <sch:rule context="o:system-security-plan/o:system-characteristics/o:security-sensitivity-level">
@@ -30,6 +30,10 @@
         <sch:report test="true()">I see <sch:value-of select="count($partial)"/> partial<sch:value-of select="if (count($partial)=1) then ' control implementation' else ' control implementations'"/>.</sch:report>
         <sch:report test="true()">I see <sch:value-of select="count($planned)"/> planned<sch:value-of select="if (count($planned)=1) then ' control implementation' else ' control implementations'"/>.</sch:report>
         <sch:report test="true()">I see <sch:value-of select="count($all)"/> total<sch:value-of select="if (count($all)=1) then ' control implementation' else ' control implementations'"/>.</sch:report>
+    </sch:rule>
+    <sch:rule context="/o:system-security-plan/o:control-implementation">
+        <sch:let name="required-controls" value="$low-p/o:profile/o:import/o:include/o:call/@control-id"/>
+        <sch:report test="true()">The following controls are required <sch:value-of select="$required-controls"/></sch:report>
     </sch:rule>
 </sch:pattern>
 </sch:schema>
