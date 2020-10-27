@@ -21,12 +21,12 @@
 </sch:pattern>
 <sch:pattern>
     <sch:rule context="o:system-security-plan">
-        <sch:let name="statuses-all" value="o:control-implementation/o:implemented-requirement[o:annotation[@name='implementation-status']]"/>
-        <sch:let name="statuses-planned" value="o:control-implementation/o:implemented-requirement[o:annotation[@name='implementation-status' and @value='planned']]"/>
-        <sch:let name="statuses-partial" value="o:control-implementation/o:implemented-requirement[o:annotation[@name='implementation-status' and @value='partial']]"/>
-        <sch:report test="true()">I see <sch:value-of select="count($statuses-partial)"/> control-implementation(s) with a status of partial.</sch:report>
-        <sch:report test="true()">I see <sch:value-of select="count($statuses-planned)"/> control-implementation(s) with a status of planned.</sch:report>
-        <sch:report test="true()">I see <sch:value-of select="count($statuses-all)"/> control-implementation(s) total.</sch:report>
+        <sch:let name="all" value="o:control-implementation/o:implemented-requirement[o:annotation[@name='implementation-status']]"/>
+        <sch:let name="planned" value="o:control-implementation/o:implemented-requirement[o:annotation[@name='implementation-status' and @value='planned']]"/>
+        <sch:let name="partial" value="o:control-implementation/o:implemented-requirement[o:annotation[@name='implementation-status' and @value='partial']]"/>
+        <sch:report test="true()">I see <sch:value-of select="count($partial)"/> partial<sch:value-of select="if (count($partial)=1) then ' control implementation' else ' control implementations'" />.</sch:report>
+        <sch:report test="true()">I see <sch:value-of select="count($planned)"/> planned<sch:value-of select="if (count($planned)=1) then ' control implementation' else ' control implementations'" />.</sch:report>
+        <sch:report test="true()">I see <sch:value-of select="count($all)"/> total<sch:value-of select="if (count($all)=1) then ' control implementation' else ' control implementations'" />.</sch:report>
     </sch:rule>
 </sch:pattern>
 </sch:schema>
