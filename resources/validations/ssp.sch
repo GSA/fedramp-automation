@@ -14,7 +14,6 @@
 
 <sch:pattern>
     <sch:rule context="o:system-security-plan/o:system-characteristics/o:security-sensitivity-level">
-        <sch:report test="true()">Permissible FedRAMP SSP Impact Levels are <sch:value-of select="$levels"/></sch:report>
         <sch:report test="."><sch:value-of select="./name()"/> is <sch:value-of select="."/></sch:report>
         <sch:assert test=". = $levels"><sch:value-of select="./name()"/> is an invalid value <sch:value-of select="."/></sch:assert>
     </sch:rule>
