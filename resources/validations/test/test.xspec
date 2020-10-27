@@ -1,4 +1,14 @@
 <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../src/fedramp_ssp_statistics.sch">
+    <x:scenario label="planned-impl-status-count">
+        <x:context  href="../test/demo/FedRAMP-SSP-OSCAL-Template.xml" location="system-security-plan/control-implementation"/>
+        <x:expect-assert id="threshold-count-exceeds" location="system-security-plan/control-implementation" />
+        <x:expect-report id="partial-count"/>
+    </x:scenario>
+    <x:scenario label="partial-impl-status-count">
+        <x:context  href="../test/demo/FedRAMP-SSP-OSCAL-Template-partial.xml" location="system-security-plan/control-implementation"/>
+        <x:expect-not-assert id="threshold-count-exceeds" location="system-security-plan/control-implementation" />
+        <x:expect-report id="partial-count"/>
+    </x:scenario>
 
 
 </x:description>
