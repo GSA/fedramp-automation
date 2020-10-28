@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<system-security-plan 
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="https://raw.githubusercontent.com/usnistgov/OSCAL/master/xml/schema/oscal_ssp_schema.xsd"
    uuid="2fa78e07-74ef-4cd6-8124-bc0050c0c4df">
    <metadata>
       <title>FedRAMP System Security Plan (SSP)</title>
@@ -1050,9 +1052,9 @@
       </implemented-requirement>
       <implemented-requirement control-id="ac-2" uuid="7a36cf53-156d-4d1f-9a8b-433f61cc57b7">
          <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">Completion Date</prop>
-         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="impossible">
+         <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
             <remarks>
-               <p>I won't describe the plan to complete the implementation.</p>
+               <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </annotation>
          <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="partial">
