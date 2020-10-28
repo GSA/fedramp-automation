@@ -1,3 +1,7 @@
 documents/source
 utils
 .history/*
+
+resources/validations/src/ssp.xsl
+resources/validations/reports
+resources/validations/target
