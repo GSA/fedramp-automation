@@ -3,5 +3,5 @@ utils
 .history/*
 
 resources/validations/src/ssp.xsl
-resources/validations/reports
+resources/validations/report
 resources/validations/target
