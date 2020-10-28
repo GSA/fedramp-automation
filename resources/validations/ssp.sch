@@ -32,9 +32,11 @@
         <sch:report test="true()">I see <sch:value-of select="count($all)"/> total<sch:value-of select="if (count($all)=1) then ' control implementation' else ' control implementations'"/>.</sch:report>
     </sch:rule>
     <sch:rule context="/o:system-security-plan/o:control-implementation">
-        <sch:let name="required" value="$low-p/o:profile/o:import/o:include/o:call/@control-id"/>
+        <sch:let name="required" value="$low-p/o:profile/o:import/o:include/o:call"/>
         <sch:let name="implemented" value="o:implemented-requirement"/>
-        <sch:report test="true()">The following <sch:value-of select="count($required)"/><sch:value-of select="if (count($required)=1) then ' control' else ' controls'"/> are required: <sch:value-of select="$required"/></sch:report>
+        <sch:let name="missing" value="$required[not(@control-id = $implemented/@control-id)]"/>
+        <sch:report test="true()">The following <sch:value-of select="count($required)"/><sch:value-of select="if (count($required)=1) then ' control' else ' controls'"/> are required: <sch:value-of select="$required/@control-id"/></sch:report>
+        <sch:assert test="count($missing) = 0">This SSP has not implemented <sch:value-of select="count($missing)"/><sch:value-of select="if (count($missing)=1) then ' control ' else ' controls '"/>: <sch:value-of select="$missing/@control-id"/></sch:assert>
     </sch:rule>
 </sch:pattern>
 </sch:schema>
