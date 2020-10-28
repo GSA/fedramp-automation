@@ -12,6 +12,14 @@ project structure
 `/test` for any XSpec or other testing artifacts
 `/test/demo` xml files for validating XSpec against
 
+To validate xml files using schematron
+---
+
+example
+`./validate_with_schematron.sh test/demo/FedRAMP-SSP-OSCAL-Template.xml`
+you must pass in a file name you want validated. by default it will compile and validate the input with all src/*.sch files 
+
+
 To Run Tests
 ---
 
