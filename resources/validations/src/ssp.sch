@@ -18,7 +18,6 @@
 
 <sch:pattern>
     <sch:rule context="o:system-security-plan/o:system-characteristics/o:security-sensitivity-level">
-        <sch:report test="."><sch:value-of select="./name()"/> is <sch:value-of select="."/></sch:report>
         <sch:assert test=". = $levels"><sch:value-of select="./name()"/> is an invalid value <sch:value-of select="."/></sch:assert>
     </sch:rule>
 </sch:pattern>
@@ -36,7 +35,7 @@
         <sch:let name="implemented" value="o:implemented-requirement"/>
         <sch:let name="missing" value="$required[not(@control-id = $implemented/@control-id)]"/>
         <sch:report test="true()">The following <sch:value-of select="count($required)"/><sch:value-of select="if (count($required)=1) then ' control' else ' controls'"/> are required: <sch:value-of select="$required/@control-id"/></sch:report>
-        <sch:assert test="count($missing) = 0">This SSP has not implemented <sch:value-of select="count($missing)"/><sch:value-of select="if (count($missing)=1) then ' control ' else ' controls '"/>: <sch:value-of select="$missing/@control-id"/></sch:assert>
+        <sch:assert test="count($missing) = 0">This SSP has not implemented <sch:value-of select="count($missing)"/><sch:value-of select="if (count($missing)=1) then ' control' else ' controls'"/>: <sch:value-of select="$missing/@control-id"/></sch:assert>
     </sch:rule>
 </sch:pattern>
 </sch:schema>
