@@ -9,12 +9,12 @@
 
 <sch:title>FedRAMP System Security Plan Validations</sch:title>
 
-<sch:let name="values" value="doc(resolve-uri('../xml/fedramp_values.xml'))"/>
+<sch:let name="values" value="doc(resolve-uri('../../xml/fedramp_values.xml'))"/>
 <sch:let name="levels" value="$values/f:fedramp-values/f:value-set[@name='security-sensitivity-level']/f:allowed-values/f:enum/@value"/>
 
-<sch:let name="low-p"  value="doc(resolve-uri('../../baselines/xml/FedRAMP_LOW-baseline_profile.xml'))"/>
-<sch:let name="mod-p"  value="doc(resolve-uri('../../baselines/xml/FedRAMP_MODERATE-baseline_profile.xml'))"/>
-<sch:let name="high-p" value="doc(resolve-uri('../../baselines/xml/FedRAMP_HIGH-baseline_profile.xml'))"/>
+<sch:let name="low-p"  value="doc(resolve-uri('../../../baselines/xml/FedRAMP_LOW-baseline_profile.xml'))"/>
+<sch:let name="mod-p"  value="doc(resolve-uri('../../../baselines/xml/FedRAMP_MODERATE-baseline_profile.xml'))"/>
+<sch:let name="high-p" value="doc(resolve-uri('../../../baselines/xml/FedRAMP_HIGH-baseline_profile.xml'))"/>
 
 <sch:pattern>
     <sch:rule context="o:system-security-plan/o:system-characteristics/o:security-sensitivity-level">
