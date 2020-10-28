@@ -7,7 +7,10 @@ echo "doc requested to be validated: ${DOC_TO_VALIDATE}"
 
 # Delete pre-existing XSLT report
 rm -rf target/*.xsl;
+SAXON_VERSION=$2
 SAXON_VERSION=${SAXON_VERSION:-10.2}
+
+echo "using saxon version ${SAXON_VERSION}"
 
 mvn -q org.apache.maven.plugins:maven-dependency-plugin:2.1:get \
     -DrepoUrl=https://mvnrepository.com/ \
