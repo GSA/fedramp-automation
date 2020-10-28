@@ -3,8 +3,8 @@
 	url = https://github.com/usnistgov/OSCAL.git
 	branch = master
 [submodule "resources/validations/test/xspec"]
-	path = resources/validations/test/xspec
+	path = resources/validations/lib/xspec
 	url = https://github.com/xspec/xspec.git
 [submodule "resources/validations/src/schematron"]
-	path = resources/validations/src/schematron
+	path = resources/validations/lib/schematron
 	url = https://github.com/schematron/schematron.git
