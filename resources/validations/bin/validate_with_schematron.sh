@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [ ! -e  "$1" ]; then
     echo "no file input for report, exiting"
     exit 1
@@ -16,7 +18,7 @@ mvn -q org.apache.maven.plugins:maven-dependency-plugin:2.1:get \
     -DrepoUrl=https://mvnrepository.com/ \
     -DartifactId=Saxon-HE \
     -DgroupId=net.sf.saxon \
-    -Dversion=${SAXON_VERSION}
+    -Dversion="${SAXON_VERSION}"
 
 # Delete pre-existing SVRL report
 rm -rf report/schematron/*.results.xml
@@ -36,6 +38,6 @@ for qualifiedSchematronName in src/*.sch; do
     # Use Saxon XSL transform to use XSL-ified Schematron rules to analyze full FedRAMP-SSP-OSCAL template
     # and dump the result into reports.
     reportName="report/schematron/${DOC_TO_VALIDATE}__${schematronRoot}.results.xml"
-    echo "validating doc: ${DOC_TO_VALIDATE} with ${qualifiedSchematronName} output found in "${reportName}
+    echo "validating doc: ${DOC_TO_VALIDATE} with ${qualifiedSchematronName} output found in ${reportName}"
     java -cp "${saxon_jar}" net.sf.saxon.Transform -o:"${reportName}" -s:"${DOC_TO_VALIDATE}" target/"${schematronRoot}".xsl
 done
