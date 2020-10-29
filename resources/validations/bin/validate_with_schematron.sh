@@ -34,15 +34,25 @@ for qualifiedSchematronName in src/*.sch; do
     
     # Use Saxon XSL transform to convert our Schematron to pure XSL 2.0 stylesheet
     saxon_jar=~/.m2/repository/net/sf/saxon/Saxon-HE/"${SAXON_VERSION}"/Saxon-HE-"${SAXON_VERSION}".jar
-    java -cp "${saxon_jar}" net.sf.saxon.Transform -o:target/"${schematronRoot}".xsl -s:"${qualifiedSchematronName}" lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl
+    java -cp "${saxon_jar}" net.sf.saxon.Transform \
+        -o:target/"${schematronRoot}".xsl \
+        -s:"${qualifiedSchematronName}" \
+        lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl
     echo "compiling: ${qualifiedSchematronName} to: target/${schematronRoot}.xsl"
    
     # Use Saxon XSL transform to use XSL-ified Schematron rules to analyze full FedRAMP-SSP-OSCAL template
     # and dump the result into reports.
     reportName="report/schematron/${DOC_TO_VALIDATE}__${schematronRoot}.results.xml"
     htmlReportName="report/html/${DOC_TO_VALIDATE}__${schematronRoot}.results.html"
+
     echo "validating doc: ${DOC_TO_VALIDATE} with ${qualifiedSchematronName} output found in ${reportName}"
-    java -cp "${saxon_jar}" net.sf.saxon.Transform -o:"${reportName}" -s:"${DOC_TO_VALIDATE}" target/"${schematronRoot}".xsl
-    java -cp "${saxon_jar}" net.sf.saxon.Transform -o:"${htmlReportName}" -s:"${reportName}"  lib/svrl2html.xsl
+
+    java -cp "${saxon_jar}" net.sf.saxon.Transform \
+        -o:"${reportName}" -s:"${DOC_TO_VALIDATE}" \
+        target/"${schematronRoot}".xsl
+    java -cp "${saxon_jar}" net.sf.saxon.Transform \
+        -o:"${htmlReportName}" \
+        -s:"${reportName}"  \
+        lib/svrl2html.xsl \
 
 done
