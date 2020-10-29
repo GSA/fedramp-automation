@@ -1,14 +1,26 @@
 <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../src/ssp.sch">
-    <x:scenario label="planned-impl-status-count">
-        <x:context  href="../test/demo/FedRAMP-SSP-OSCAL-Template.xml" location="system-security-plan/control-implementation"/>
-        <x:expect-assert id="threshold-count-exceeds" location="system-security-plan/control-implementation" />
-        <x:expect-report id="partial-count"/>
+    <x:scenario label="For an OSCAL FedRAMP SSP">
+        <x:scenario label="when the security sensitivity level is set">
+            <x:scenario label="to a value from the official FedRAMP list">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <system-characteristics>
+                        <security-sensitivity-level>low</security-sensitivity-level>
+                        </system-characteristics>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="invalid-security-sensitivity-level" label="it is valid."/>
+            </x:scenario>
+            <x:scenario label="to a value not from the official FedRAMP list">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <system-characteristics>
+                        <security-sensitivity-level>invalid</security-sensitivity-level>
+                        </system-characteristics>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="invalid-security-sensitivity-level" label="it is invalid."/>
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
-    <x:scenario label="partial-impl-status-count">
-        <x:context  href="../test/demo/FedRAMP-SSP-OSCAL-Template-partial.xml" location="system-security-plan/control-implementation"/>
-        <x:expect-not-assert id="threshold-count-exceeds" location="system-security-plan/control-implementation" />
-        <x:expect-report id="partial-count"/>
-    </x:scenario>
-
-
 </x:description>
