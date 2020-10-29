@@ -34,6 +34,7 @@ for qualifiedSchematronName in src/*.sch; do
     
     # Use Saxon XSL transform to convert our Schematron to pure XSL 2.0 stylesheet
     saxon_jar=~/.m2/repository/net/sf/saxon/Saxon-HE/"${SAXON_VERSION}"/Saxon-HE-"${SAXON_VERSION}".jar
+
     java -cp "${saxon_jar}" net.sf.saxon.Transform \
         -o:target/"${schematronRoot}".xsl \
         -s:"${qualifiedSchematronName}" \
