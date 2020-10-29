@@ -9,8 +9,10 @@ echo "doc requested to be validated: ${DOC_TO_VALIDATE}"
 
 # Delete pre-existing XSLT report
 rm -rf target/*.xsl;
+
 SAXON_VERSION=$2
 SAXON_VERSION=${SAXON_VERSION:-10.2}
+SAXON_OPTS="${SAXON_OPTS:-allow-foreign=true}"
 
 echo "using saxon version ${SAXON_VERSION}"
 
