@@ -23,8 +23,8 @@
             </x:scenario>
         </x:scenario>
         <x:scenario label="when control implementations are defined">
-            <x:scenario label="and when requirements are implemented">
-                <x:scenario label="the total number of requirements">
+            <x:scenario label="and requirements are implemented">
+                <x:scenario label="and the total number of requirements is one or more">
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <control-implementation>
@@ -37,9 +37,9 @@
                             </control-implementation>
                         </system-security-plan>
                     </x:context>
-                    <x:expect-not-assert id="invalid-implemented-requirements-count" label="is one or more, total."/>
+                    <x:expect-not-assert id="invalid-implemented-requirements-count" label="it is valid."/>
                 </x:scenario>
-                <x:scenario>
+                <x:scenario label="and the total number of requirements is zero">
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <control-implementation>
@@ -47,7 +47,7 @@
                             </control-implementation>
                         </system-security-plan>
                     </x:context>
-                    <x:expect-assert id="invalid-implemented-requirements-count" label="is not zero."/>
+                    <x:expect-assert id="invalid-implemented-requirements-count" label="it is invalid."/>
                 </x:scenario>
             </x:scenario>
         </x:scenario>
