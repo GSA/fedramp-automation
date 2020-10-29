@@ -22,5 +22,34 @@
                 <x:expect-assert id="invalid-security-sensitivity-level" label="it is invalid."/>
             </x:scenario>
         </x:scenario>
+        <x:scenario label="when control implementations are defined">
+            <x:scenario label="and when requirements are implemented">
+                <x:scenario label="the total number of requirements">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <control-implementation>
+                            <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
+                                   <remarks></remarks>
+                                </annotation>
+                             </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="invalid-implemented-requirements-count" label="is one or more, total."/>
+                </x:scenario>
+                <x:scenario>
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <control-implementation>
+                                <!-- No implemented requirements -->
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="invalid-implemented-requirements-count" label="is not zero."/>
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
 </x:description>
