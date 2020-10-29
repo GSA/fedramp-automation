@@ -37,7 +37,9 @@ for qualifiedSchematronName in src/*.sch; do
     java -cp "${saxon_jar}" net.sf.saxon.Transform \
         -o:target/"${schematronRoot}".xsl \
         -s:"${qualifiedSchematronName}" \
-        lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl
+        lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
+        $SAXON_OPTS
+
     echo "compiling: ${qualifiedSchematronName} to: target/${schematronRoot}.xsl"
    
     # Use Saxon XSL transform to use XSL-ified Schematron rules to analyze full FedRAMP-SSP-OSCAL template
@@ -49,10 +51,13 @@ for qualifiedSchematronName in src/*.sch; do
 
     java -cp "${saxon_jar}" net.sf.saxon.Transform \
         -o:"${reportName}" -s:"${DOC_TO_VALIDATE}" \
-        target/"${schematronRoot}".xsl
+        target/"${schematronRoot}".xsl \
+        $SAXON_OPTS
+
     java -cp "${saxon_jar}" net.sf.saxon.Transform \
         -o:"${htmlReportName}" \
         -s:"${reportName}"  \
         lib/svrl2html.xsl \
+        $SAXON_OPTS
 
 done
