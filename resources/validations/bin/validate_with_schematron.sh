@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -o pipefail
+
 if [ ! -e  "$1" ]; then
     echo "no file input for report, exiting"
     exit 1
