@@ -50,6 +50,9 @@ for qualifiedSchematronName in src/*.sch; do
     reportName="report/schematron/${DOC_TO_VALIDATE}__${schematronRoot}.results.xml"
     htmlReportName="report/html/${DOC_TO_VALIDATE}__${schematronRoot}.results.html"
 
+    echo "delete pre-existing SVRL and HTML results"
+    rm -rf "${reportName}" "${htmlReportName}"
+
     echo "validating doc: ${DOC_TO_VALIDATE} with ${qualifiedSchematronName} output found in ${reportName}"
 
     java -cp "${saxon_jar}" net.sf.saxon.Transform \
