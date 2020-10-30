@@ -10,12 +10,30 @@
 
 <sch:title>FedRAMP System Security Plan Validations</sch:title>
 
-<sch:let name="values" value="doc(resolve-uri('../../xml/fedramp_values.xml'))"/>
+<!--
+    Use XSL collection to load FedRAMP values, information types, and threats
+    from a known source in a relative path instead of hard-coding filenames.
+    All files are XML, but for future-proofing we filter to retrieve only XML
+    files.
+-->
+<xsl:variable name="values" select="collection('../../xml?select=*.xml')"/>
 <sch:let name="levels" value="$values/f:fedramp-values/f:value-set[@name='security-sensitivity-level']/f:allowed-values/f:enum/@value"/>
 
-<sch:let name="low-p"  value="doc(resolve-uri('../../../baselines/xml/FedRAMP_LOW-baseline_profile.xml'))"/>
-<sch:let name="mod-p"  value="doc(resolve-uri('../../../baselines/xml/FedRAMP_MODERATE-baseline_profile.xml'))"/>
-<sch:let name="high-p" value="doc(resolve-uri('../../../baselines/xml/FedRAMP_HIGH-baseline_profile.xml'))"/>
+<sch:let name="low-profile-path"  value="resolve-uri('../../../baselines/xml/FedRAMP_LOW-baseline_profile.xml')"/>
+<sch:let name="moderate-profile-path"  value="doc(resolve-uri('../../../baselines/xml/FedRAMP_MODERATE-baseline_profile.xml'))"/>
+<sch:let name="high-profile-path" value="doc(resolve-uri('../../../baselines/xml/FedRAMP_HIGH-baseline_profile.xml'))"/>
+<sch:let name="low-p"  value="doc($low-profile-path)"/>
+
+<!--
+<xsl:choose>
+    <xsl:when test="level = 'low'"></xsl:when>
+    <xsl:when test="level = 'moderate'"></xsl:when>
+    <xsl:when test="level = 'high'"></xsl:when>
+    <xsl:otherwise>
+        <td><xsl:value-of select="artist"/></td>
+    </xsl:otherwise>
+</xsl:choose>
+-->
 
 <sch:pattern>
     <sch:rule context="o:system-security-plan/o:system-characteristics/o:security-sensitivity-level">
