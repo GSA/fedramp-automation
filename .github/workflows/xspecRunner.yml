@@ -1,28 +1,23 @@
-# This action runs unit tests for the OSCAL (schematron) validations to ensure validations are working against known samples
+# This action runs unit tests for the OSCAL (schematron) validations to ensure validations
+# are working against known samples
 name: "OSCAL Validations: Unit Tests"
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events for the respective branch
-on:
-  push:
-    branches:
-        - '*'
-  pull_request:
-    branches:
-        - '*'
+# Triggered when code is pushed to any branch in a repository
+on: push
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  # one job that runs tests
+  run-tests:
+    # Run on ubuntu
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # Checkout repository and its submodules
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Check-out the repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
-
+        
+      # Check-out submodules
       - name: Checkout submodules
         uses: textbook/git-checkout-submodule-action@2.1.1
         with:
