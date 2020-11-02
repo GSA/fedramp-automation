@@ -1,4 +1,5 @@
 <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../src/ssp.sch">
+    <x:param name="allow-foreign">true</x:param>
     <x:scenario label="For an OSCAL FedRAMP SSP">
         <x:scenario label="when the security sensitivity level is set">
             <x:scenario label="to a value from the official FedRAMP list">
