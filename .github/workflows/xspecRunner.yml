@@ -23,7 +23,6 @@ jobs:
         with:
           remote: true
 
-
       # Install Saxon HE to /tmp
       - name: Install Saxon HE
         run: |
@@ -43,9 +42,19 @@ jobs:
           export TEST_DIR=$(pwd)/report/test
           lib/xspec/bin/xspec.sh -s -j test/test_all.xspec
       
-     # Sets the test report path for visibility
-      - name: Publish XSpec Test Report
+      # Sets the test report path for visibility
+      - name: Publish XSpec Test Results
         uses: mikepenz/action-junit-report@v1
         with:
           report_paths: '**/report/test/*junit.xml'
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish XSpec Test Results Summary
+        uses: EnricoMi/publish-unit-test-result-action@v1.3
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          check_name: XSpec Test Results
+          files: '**/report/test/*junit.xml'
+          report_individual_runs: true
+          deduplicate_classes_by_file_name: false
