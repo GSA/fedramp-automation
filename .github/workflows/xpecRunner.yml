@@ -2,7 +2,7 @@
 name: "OSCAL Validations: Unit Tests"
 
 # Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
+# events for the respective branch
 on:
   push:
     branches:
@@ -53,4 +53,4 @@ jobs:
         uses: scacap/action-surefire-report@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          report_paths: ./report/test/*junit.xml
+          report_paths: /home/runner/work/fedramp-automation/fedramp-automation/resources/validations/report/test/test_all-junit.xml
