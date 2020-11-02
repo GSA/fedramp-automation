@@ -1,5 +1,7 @@
 <x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../src/ssp.sch">
     <x:param name="allow-foreign">true</x:param>
+    <!-- See ssp.sch xsl:param "global-context-item" for why it is is necessary. -->
+    <x:param name="global-context-item" href="demo/FedRAMP-SSP-OSCAL-Template.xml" />
     <x:scenario label="For an OSCAL FedRAMP SSP">
         <x:scenario label="when the security sensitivity level is set">
             <x:scenario label="to a value from the official FedRAMP list">
