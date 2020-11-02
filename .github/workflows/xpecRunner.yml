@@ -1,0 +1,45 @@
+# This is a basic workflow to help you get started with Actions
+
+name: runxpec
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Checkout submodules
+        uses: textbook/git-checkout-submodule-action@2.1.1
+        with:
+          remote: true
+
+
+      # Runs a single command using the runners shell
+      - name: Install Saxon HE
+        run: |
+          echo "Installing Saxon"
+          mkdir -p /tmp/saxon
+          export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
+          wget -O "${SAXON_CP}" https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.2/Saxon-HE-10.2.jar
+
+      # Runs a set of commands using the runners shell
+      - name: Run XSpec
+        run: |
+          echo "Running XSpec"
+          cd $GITHUB_WORKSPACE/resources/validations
+          export TEST_DIR=$(pwd)/report/test
+          lib/xspec/bin/xspec.sh -s -j test/test_all.xspec
