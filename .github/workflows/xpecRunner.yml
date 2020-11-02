@@ -33,8 +33,10 @@ jobs:
         run: |
           echo "Installing Saxon"
           mkdir -p /tmp/saxon
+          echo "Dowloading Saxon"
           wget -O "${SAXON_CP}" https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.2/Saxon-HE-10.2.jar
           export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
+          echo "saxon_cp is ${SAXON_CP}"
 
       # Runs a set of commands using the runners shell
       - name: Run XSpec
