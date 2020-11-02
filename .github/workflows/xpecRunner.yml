@@ -1,6 +1,5 @@
-# This is a basic workflow to help you get started with Actions
-
-name: runxpec
+# This action runs unit tests for the OSCAL (schematron) validations to ensure validations are working against known samples
+name: "OSCAL Validations: Unit Tests"
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -30,7 +29,7 @@ jobs:
           remote: true
 
 
-      # Runs a single command using the runners shell
+      # Install Saxon HE to /tmp
       - name: Install Saxon HE
         run: |
           echo "Installing Saxon"
@@ -40,7 +39,7 @@ jobs:
           wget -O "${SAXON_CP}" https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.2/Saxon-HE-10.2.jar
           echo "saxon_cp is ${SAXON_CP}"
 
-      # Runs a set of commands using the runners shell
+      # Run XSpec after the dependencies are completed
       - name: Run XSpec
         run: |
           echo "Running XSpec"
@@ -49,7 +48,7 @@ jobs:
           export TEST_DIR=$(pwd)/report/test
           lib/xspec/bin/xspec.sh -s -j test/test_all.xspec
           
-      #sets the test report path for visibility
+      # Sets the test report path for visibility
       - name: Publish xpath Test Report
         uses: scacap/action-surefire-report@v1
         with:
