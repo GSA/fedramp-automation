@@ -54,13 +54,5 @@ jobs:
         with:
           report_paths: '**/report/test/*junit.xml'
           github_token: ${{ secrets.GITHUB_TOKEN }}
-      
-      # Sets the test report path for visibility
-      - name: Publish xspec Test Report
-        uses: scacap/action-surefire-report@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          report_paths: '**/report/test/*junit.xml'
-          check_name: XSpec Test Report (schematron)
           fail_on_test_failures: true
           fail_if_no_tests: true
