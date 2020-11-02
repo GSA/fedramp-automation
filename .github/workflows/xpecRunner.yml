@@ -47,10 +47,20 @@ jobs:
           export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
           export TEST_DIR=$(pwd)/report/test
           lib/xspec/bin/xspec.sh -s -j test/test_all.xspec
-          
+      
+     # Sets the test report path for visibility
+      - name: Publish xspec Test Report
+        uses: mikepenz/action-junit-report@v1
+        with:
+          report_paths: '**/report/test/*junit.xml'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      
       # Sets the test report path for visibility
-      - name: Publish xpath Test Report
+      - name: Publish xspec Test Report
         uses: scacap/action-surefire-report@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          report_paths: /home/runner/work/fedramp-automation/fedramp-automation/resources/validations/report/test/test_all-junit.xml
+          report_paths: '**/report/test/*junit.xml'
+          check_name: XSpec Test Report (schematron)
+          fail_on_test_failures: true
+          fail_if_no_tests: true
