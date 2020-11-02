@@ -18,6 +18,7 @@
 <xsl:variable name="values" select="collection('../../xml?select=*.xml')"/>
 
 <sch:let name="sensitivity-levels" value="$values/f:fedramp-values/f:value-set[@name='security-sensitivity-level']/f:allowed-values/f:enum/@value"/>
+<sch:let name="implementation-statuses" value="$values/f:fedramp-values/f:value-set[@name='control-implementation-status']/f:allowed-values/f:enum/@value"/>
 <sch:let name="selected-sensitivty-level" value="/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level"/>
 
 <xsl:variable name="profile-map">
