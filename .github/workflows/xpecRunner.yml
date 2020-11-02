@@ -46,3 +46,10 @@ jobs:
           export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
           export TEST_DIR=$(pwd)/report/test
           lib/xspec/bin/xspec.sh -s -j test/test_all.xspec
+          
+      #sets the test report path for visibility
+      - name: Publish xpath Test Report
+        uses: scacap/action-surefire-report@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          report_paths: '$(pwd)/report/test/*junit.xml'
