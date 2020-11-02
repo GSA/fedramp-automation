@@ -43,5 +43,6 @@ jobs:
         run: |
           echo "Running XSpec"
           cd $GITHUB_WORKSPACE/resources/validations
+          export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
           export TEST_DIR=$(pwd)/report/test
           lib/xspec/bin/xspec.sh -s -j test/test_all.xspec
