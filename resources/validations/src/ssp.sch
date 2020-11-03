@@ -35,12 +35,13 @@
 
     XPDY0002  Finding root of root/key-name the context item is absent
 -->
-<xsl:param name="global-context-item" select="/"/>
-<xsl:variable name="values" select="collection('../../xml?select=*.xml')"/>
+<xsl:param name="global-context-item" select="/" />
+<xsl:param name="fedramp-registry-href" select="'../../xml?select=*.xml'" />
+<xsl:variable name="fedramp-registry" select="collection($fedramp-registry-href)"/>
 <xsl:variable name="selected-sensitivty-level" select="$global-context-item/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level"/>
 
-<sch:let name="sensitivity-levels" value="$values/f:fedramp-values/f:value-set[@name='security-sensitivity-level']/f:allowed-values/f:enum/@value"/>
-<sch:let name="implementation-statuses" value="$values/f:fedramp-values/f:value-set[@name='control-implementation-status']/f:allowed-values/f:enum/@value"/>
+<sch:let name="sensitivity-levels" value="$fedramp-registry/f:fedramp-values/f:value-set[@name='security-sensitivity-level']/f:allowed-values/f:enum/@value"/>
+<sch:let name="implementation-statuses" value="$fedramp-registry/f:fedramp-values/f:value-set[@name='control-implementation-status']/f:allowed-values/f:enum/@value"/>
 <!-- <sch:let name="selected-sensitivty-level" value="/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level"/> -->
 
 <xsl:variable name="profile-map">
@@ -52,6 +53,12 @@
 <xsl:key name="profile-lookup" match="profile" use="@level"/>
 <xsl:variable name="selected-profile-path" select="key('profile-lookup', $selected-sensitivty-level, $profile-map)/@href"/>
 <xsl:variable name="selected-profile" select="doc(resolve-uri($selected-profile-path))"/>
+
+<sch:pattern>
+    <sch:rule context="/">
+        <sch:assert id="no-fedramp-registry-values" test="exists($fedramp-registry/f:fedramp-values)">The FedRAMP Registry values are not present, this validation is invalid.</sch:assert>
+    </sch:rule>
+</sch:pattern>
 
 <sch:pattern>
     <sch:rule context="/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level">
