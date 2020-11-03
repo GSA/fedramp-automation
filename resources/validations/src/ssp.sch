@@ -35,8 +35,8 @@
 
     XPDY0002  Finding root of root/key-name the context item is absent
 -->
-<xsl:variable name="values" select="collection('../../xml?select=*.xml')"/>
 <xsl:param name="global-context-item" select="/"/>
+<xsl:variable name="values" select="collection('../../xml?select=*.xml')"/>
 <xsl:variable name="selected-sensitivty-level" select="$global-context-item/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level"/>
 
 <sch:let name="sensitivity-levels" value="$values/f:fedramp-values/f:value-set[@name='security-sensitivity-level']/f:allowed-values/f:enum/@value"/>
