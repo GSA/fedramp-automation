@@ -60,7 +60,7 @@
     </sch:rule>
 </sch:pattern>
 <sch:pattern>
-    <sch:rule context="o:system-security-plan">
+    <sch:rule context="/o:system-security-plan">
         <sch:let name="all" value="o:control-implementation/o:implemented-requirement[o:annotation[@name='implementation-status']]"/>
         <sch:let name="planned" value="o:control-implementation/o:implemented-requirement[o:annotation[@name='implementation-status' and @value='planned']]"/>
         <sch:let name="partial" value="o:control-implementation/o:implemented-requirement[o:annotation[@name='implementation-status' and @value='partial']]"/>
