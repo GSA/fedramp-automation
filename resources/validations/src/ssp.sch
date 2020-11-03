@@ -54,7 +54,7 @@
 <xsl:variable name="selected-profile" select="doc(resolve-uri($selected-profile-path))"/>
 
 <sch:pattern>
-    <sch:rule context="o:system-security-plan/o:system-characteristics/o:security-sensitivity-level">
+    <sch:rule context="/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level">
         <sch:assert id="no-security-sensitivity-level" test="$selected-sensitivty-level">No sensitivty level found from XPath query.></sch:assert>
         <sch:assert id="invalid-security-sensitivity-level" test=". = $sensitivity-levels"><sch:value-of select="./name()"/> is an invalid value <sch:value-of select="."/></sch:assert>
     </sch:rule>
