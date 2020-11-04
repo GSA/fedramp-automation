@@ -44,9 +44,9 @@
 <sch:let name="implementation-statuses" value="$fedramp-registry/f:fedramp-values/f:value-set[@name='control-implementation-status']/f:allowed-values/f:enum/@value"/>
 
 <xsl:variable name="profile-map">
-    <profile level="low" href="../../../baselines/xml/FedRAMP_LOW-baseline_profile.xml"/>
-    <profile level="moderate" href="../../../baselines/xml/FedRAMP_MODERATE-baseline_profile.xml"/>
-    <profile level="high" href="../../../baselines/xml/FedRAMP_HIGH-baseline_profile.xml"/>
+    <profile level="low" href="../../../baselines/xml/FedRAMP_LOW-baseline-resolved-profile_catalog.xml"/>
+    <profile level="moderate" href="../../../baselines/xml/FedRAMP_MODERATE-baseline-resolved-profile_catalog.xml"/>
+    <profile level="high" href="../../../baselines/xml/FedRAMP_HIGH-baseline-resolved-profile_catalog.xml"/>
 </xsl:variable>
 
 <xsl:key name="profile-lookup" match="profile" use="@level"/>
@@ -76,11 +76,11 @@
         <sch:report id="all-requirements-report" test="true()">There are <sch:value-of select="count($all)"/> total<sch:value-of select="if (count($all)=1) then ' control implementation' else ' control implementations'"/>.</sch:report>
     </sch:rule>
     <sch:rule context="/o:system-security-plan/o:control-implementation">
-        <sch:let name="required" value="$selected-profile/o:profile/o:import/o:include/o:call"/>
+        <sch:let name="required" value="$selected-profile/o:catalog/o:group/o:control"/>
         <sch:let name="implemented" value="o:implemented-requirement"/>
-        <sch:let name="missing" value="$required[not(@control-id = $implemented/@control-id)]"/>
-        <sch:report test="true()">The following <sch:value-of select="count($required)"/><sch:value-of select="if (count($required)=1) then ' control' else ' controls'"/> are required: <sch:value-of select="$required/@control-id"/></sch:report>
-        <sch:assert id="incomplete-implementation-requirements" test="count($missing) = 0">This SSP has not implemented <sch:value-of select="count($missing)"/><sch:value-of select="if (count($missing)=1) then ' control' else ' controls'"/>: <sch:value-of select="$missing/@control-id"/></sch:assert>
+        <sch:let name="missing" value="$required[not(@id = $implemented/@control-id)]"/>
+        <sch:report id="each-required-control-report" test="count($required) > 0">The following <sch:value-of select="count($required)"/><sch:value-of select="if (count($required)=1) then ' control' else ' controls'"/> are required: <sch:value-of select="$required/@id"/></sch:report>
+        <sch:assert id="incomplete-implementation-requirements" test="count($missing) = 0">This SSP has not implemented <sch:value-of select="count($missing)"/><sch:value-of select="if (count($missing)=1) then ' control' else ' controls'"/>: <sch:value-of select="$missing/@id"/></sch:assert>
     </sch:rule>
 </sch:pattern>
 </sch:schema>
