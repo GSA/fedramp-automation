@@ -42,7 +42,6 @@
 
 <sch:let name="sensitivity-levels" value="$fedramp-registry/f:fedramp-values/f:value-set[@name='security-sensitivity-level']/f:allowed-values/f:enum/@value"/>
 <sch:let name="implementation-statuses" value="$fedramp-registry/f:fedramp-values/f:value-set[@name='control-implementation-status']/f:allowed-values/f:enum/@value"/>
-<!-- <sch:let name="selected-sensitivty-level" value="/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level"/> -->
 
 <xsl:variable name="profile-map">
     <profile level="low" uuid="4678df89-bdc1-4804-bdfd-0bb1fc5bba1a" href="../../../baselines/xml/FedRAMP_LOW-baseline_profile.xml"/>
