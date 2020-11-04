@@ -1,6 +1,8 @@
 Schematron Validations for OSCAL
 ===
 
+![OSCAL Validations: Unit Tests](https://github.com/18F/fedramp-automation/workflows/OSCAL%20Validations:%20Unit%20Tests/badge.svg)
+
 project structure
 ---
 
