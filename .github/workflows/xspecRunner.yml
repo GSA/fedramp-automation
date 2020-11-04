@@ -5,7 +5,7 @@ name: "OSCAL Validations: Unit Tests"
 # Triggered when code is pushed to any branch in a repository
 on: push
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# the job requires some dependencies to be installed (including submodules), runs the tests, and then reports results
 jobs:
   # one job that runs tests
   run-tests:
@@ -49,6 +49,7 @@ jobs:
           report_paths: '**/report/test/*junit.xml'
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
+      # publish the test summary as comment on the PR
       - name: Publish XSpec Test Results Summary
         uses: EnricoMi/publish-unit-test-result-action@v1.3
         if: always()
