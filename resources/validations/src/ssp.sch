@@ -50,8 +50,8 @@
 </xsl:variable>
 
 <xsl:key name="profile-lookup" match="profile" use="@level"/>
-<xsl:variable name="selected-profile-path" select="key('profile-lookup', $selected-sensitivty-level, $profile-map)/@href"/>
-<xsl:variable name="selected-profile" select="doc(resolve-uri($selected-profile-path))"/>
+<xsl:variable name="selected-profile-href" select="key('profile-lookup', $selected-sensitivty-level, $profile-map)/@href"/>
+<xsl:variable name="selected-profile" select="doc(resolve-uri($selected-profile-href))"/>
 
 <sch:pattern>
     <sch:rule context="/">
