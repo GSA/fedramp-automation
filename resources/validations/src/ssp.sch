@@ -44,9 +44,9 @@
 <sch:let name="implementation-statuses" value="$fedramp-registry/f:fedramp-values/f:value-set[@name='control-implementation-status']/f:allowed-values/f:enum/@value"/>
 
 <xsl:variable name="profile-map">
-    <profile level="low" uuid="4678df89-bdc1-4804-bdfd-0bb1fc5bba1a" href="../../../baselines/xml/FedRAMP_LOW-baseline_profile.xml"/>
-    <profile level="moderate" uuid="8383f859-be40-453d-9588-c645af5bef6f" href="../../../baselines/xml/FedRAMP_MODERATE-baseline_profile.xml"/>
-    <profile level="high" uuid="b11dba1c-0c68-4724-9eaf-02de2d5bbb89" href="../../../baselines/xml/FedRAMP_HIGH-baseline_profile.xml"/>
+    <profile level="low" href="../../../baselines/xml/FedRAMP_LOW-baseline_profile.xml"/>
+    <profile level="moderate" href="../../../baselines/xml/FedRAMP_MODERATE-baseline_profile.xml"/>
+    <profile level="high" href="../../../baselines/xml/FedRAMP_HIGH-baseline_profile.xml"/>
 </xsl:variable>
 
 <xsl:key name="profile-lookup" match="profile" use="@level"/>
