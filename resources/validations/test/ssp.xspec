@@ -84,6 +84,23 @@
                     <x:expect-assert id="invalid-implemented-requirements-count" label="it is invalid."/>
                 </x:scenario>
             </x:scenario>
+            <x:scenario label="and all required implementations are not yet complete">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>low</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <description />
+                                <!-- Only one control implemented for a FedRAMP profile, one or more must be missing. -->
+                                <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented" />
+                                </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="incomplete-implementation-requirements" label="it is invalid."/>
+            </x:scenario>
         </x:scenario>
     </x:scenario>
 </x:description>
