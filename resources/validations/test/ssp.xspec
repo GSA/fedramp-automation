@@ -5,22 +5,33 @@
         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
     </x:param>
     <x:scenario label="For an OSCAL FedRAMP SSP">
-        <x:scenario label="when the security sensitivity level is set">
-            <x:scenario label="to a value from the official FedRAMP list">
+        <x:scenario label="when the security sensitivity level">
+            <x:scenario label="is not defined at all">
                 <x:context>
                     <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                     <system-characteristics>
-                        <security-sensitivity-level>low</security-sensitivity-level>
+                        <!-- no level set in empty element-->
+                        <security-sensitivity-level />
+                    </system-characteristics>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="no-security-sensitivity-level" label="it is invalid."/>
+            </x:scenario>
+            <x:scenario label="is set to a value from the official FedRAMP list">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>low</security-sensitivity-level>
                         </system-characteristics>
                     </system-security-plan>
                 </x:context>
                 <x:expect-not-assert id="invalid-security-sensitivity-level" label="it is valid."/>
             </x:scenario>
-            <x:scenario label="to a value not from the official FedRAMP list">
+            <x:scenario label="is not set to a value from the official FedRAMP list">
                 <x:context>
                     <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                    <system-characteristics>
-                        <security-sensitivity-level>invalid</security-sensitivity-level>
+                        <system-characteristics>
+                            <security-sensitivity-level>invalid</security-sensitivity-level>
                         </system-characteristics>
                     </system-security-plan>
                 </x:context>
