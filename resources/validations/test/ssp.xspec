@@ -40,7 +40,7 @@
         </x:scenario>
         <x:scenario label="when control implementations are defined">
             <x:scenario label="and requirements are implemented">
-                <x:scenario label="and the total number of requirements is one or more">
+                <x:scenario label="and each one has its implementation status set">
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <control-implementation>
