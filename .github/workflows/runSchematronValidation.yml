@@ -49,18 +49,14 @@ jobs:
           # compute name without .sch
           qualifiedSchematronName=${{ github.event.inputs.schematronFileName }}
           echo "schematronFileName ${qualifiedSchematronName}"
-          echo "DOC_TO_VALIDATE: ${{ github.workspace }}/${{ github.event.inputs.DOC_TO_VALIDATE }}"
+          echo "DOC_TO_VALIDATE: ${{ github.workspace }}${{ github.event.inputs.DOC_TO_VALIDATE }}"
           schematronName=${qualifiedSchematronName##*/}
           echo "schematronName: ${schematronName}"
           schematronRoot=${schematronName%.*}
           echo "schematronRoot: ${schematronRoot}"
           echo "schematron code ${{ github.workspace }}/resources/validations/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl"
           rm -rf /tmp/target/*.xsl;
-          java -cp ${SAXON_CP} net.sf.saxon.Transform \
-          -o:"/tmp/target/${schematronRoot}.xsl" \
-          -s:"${{ github.workspace }}/${qualifiedSchematronName}" \
-          ${{ github.workspace }}/resources/validations/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
-          allow-foreign=true
+          java -cp ${SAXON_CP} net.sf.saxon.Transform -o:"/tmp/target/${schematronRoot}.xsl" -s:"${{ github.workspace }}${qualifiedSchematronName}" ${{ github.workspace }}/resources/validations/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl SAXON_OPTS:allow-foreign=true
           
           echo "delete pre-existing SVRL and HTML results"
           rm -rf "${reportName}" "${htmlReportName}"
