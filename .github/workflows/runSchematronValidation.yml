@@ -48,7 +48,7 @@ jobs:
           echo "convert to xsl"
           # compute name without .sch
           qualifiedSchematronName=${{ github.event.inputs.schematronFileName }}
-          echo "schematronFileName ${{ qualifiedSchematronName }}"
+          echo "schematronFileName ${qualifiedSchematronName}"
           echo "DOC_TO_VALIDATE: ${{ github.workspace }}/${{ github.event.inputs.DOC_TO_VALIDATE }}"
           schematronName=${qualifiedSchematronName##*/}
           echo "schematronName: ${schematronName}"
