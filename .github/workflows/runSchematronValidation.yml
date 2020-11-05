@@ -1,0 +1,60 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Run Schematron Validation
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on: [workflow_dispatch]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This job runs schematron validation(s) on the file that is passed in 
+  run-schematron-validation:
+   # Run on ubuntu
+    runs-on: ubuntu-latest
+
+    # Checkout repository and its submodules
+    steps:
+      # Check-out the repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2
+        
+      # Check-out submodules
+      - name: Checkout submodules
+        uses: textbook/git-checkout-submodule-action@2.1.1
+        with:
+          remote: true
+
+      # Install Saxon HE to /tmp
+      - name: Install Saxon HE
+        run: |
+          echo "Installing Saxon"
+          mkdir -p /tmp/saxon
+          echo "Dowloading Saxon"
+          export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
+          wget -O "${SAXON_CP}" https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.2/Saxon-HE-10.2.jar
+          echo "saxon_cp is ${SAXON_CP}"
+          
+      # convert schematron to xsl and validate file with converted xsl
+      - name: Convert to XSL
+        run: |
+          echo "convert to xsl"
+          # compute name without .sch
+          qualifiedSchematronName=${{ schematronFileName }}
+          schematronName=${qualifiedSchematronName##*/}
+          schematronRoot=${schematronName%.*}
+          rm -rf target/*.xsl;
+          java -cp "${SAXON_CP}" net.sf.saxon.Transform \
+          -o:target/"${schematronRoot}".xsl \
+          -s:"${qualifiedSchematronName}}" \
+          lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
+          allow-foreign=true
+          
+          echo "delete pre-existing SVRL and HTML results"
+          rm -rf "${reportName}" "${htmlReportName}"
+
+          echo "validating doc: ${DOC_TO_VALIDATE} with ${qualifiedSchematronName} output found in ${reportName}"
+
+          java -cp "${SAXON_CP}" net.sf.saxon.Transform \
+          -o:"${reportName}" -s:"${{ DOC_TO_VALIDATE }}" \
+          target/"${schematronRoot}".xsl \
+          allow-foreign=true
