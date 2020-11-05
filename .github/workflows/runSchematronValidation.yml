@@ -4,7 +4,15 @@ name: Run Schematron Validation
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
-on: [workflow_dispatch]
+on: 
+  workflow_dispatch:
+    inputs:
+      schematronFileName:
+        description: the name of the schematron file (.sch) to validate including the relative path from the root of the repository    
+        required: true
+      DOC_TO_VALIDATE:
+        description: the name of the SSP file (XML) to validate including the relative path from the root of the repository
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
