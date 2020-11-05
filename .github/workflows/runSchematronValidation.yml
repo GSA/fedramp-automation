@@ -48,15 +48,18 @@ jobs:
           echo "convert to xsl"
           # compute name without .sch
           qualifiedSchematronName=${{ github.event.inputs.schematronFileName }}
+          echo "schematronFileName ${{ qualifiedSchematronName }}"
+          echo "DOC_TO_VALIDATE: ${{ github.workspace }}/${{ github.event.inputs.DOC_TO_VALIDATE }}"
           schematronName=${qualifiedSchematronName##*/}
           echo "schematronName: ${schematronName}"
           schematronRoot=${schematronName%.*}
           echo "schematronRoot: ${schematronRoot}"
-          #rm -rf target/*.xsl;
+          eho "schematron code ${{ github.workspace }}/resources/validations/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl"
+          rm -rf /tmp/target/*.xsl;
           java -cp ${SAXON_CP} net.sf.saxon.Transform \
-          -o:target/"${schematronRoot}".xsl \
-          -s:"${qualifiedSchematronName}" \
-          lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
+          -o:"/tmp/target/${schematronRoot}.xsl" \
+          -s:"${{ github.workspace }}/${qualifiedSchematronName}" \
+          ${{ github.workspace }}/resources/validations/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
           allow-foreign=true
           
           echo "delete pre-existing SVRL and HTML results"
@@ -65,6 +68,6 @@ jobs:
           echo "validating doc: ${{ github.event.inputs.DOC_TO_VALIDATE }} with ${qualifiedSchematronName} output found in ${reportName}"
 
           java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-          -o:"${reportName}" -s:"${{ github.event.inputs.DOC_TO_VALIDATE }}" \
+          -o:"${reportName}" -s:"${{ github.workspace }}/${{ github.event.inputs.DOC_TO_VALIDATE }}" \
           target/"${schematronRoot}".xsl \
           allow-foreign=true
