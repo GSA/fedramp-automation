@@ -49,11 +49,13 @@ jobs:
           # compute name without .sch
           qualifiedSchematronName=${{ github.event.inputs.schematronFileName }}
           schematronName=${qualifiedSchematronName##*/}
+          echo "schematronName: ${schematronName}"
           schematronRoot=${schematronName%.*}
-          rm -rf target/*.xsl;
-          java -cp "${SAXON_CP}" net.sf.saxon.Transform \
+          echo "schematronRoot: ${schematronRoot}"
+          #rm -rf target/*.xsl;
+          java -cp ${SAXON_CP} net.sf.saxon.Transform \
           -o:target/"${schematronRoot}".xsl \
-          -s:"${qualifiedSchematronName}}" \
+          -s:"${qualifiedSchematronName}" \
           lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
           allow-foreign=true
           
