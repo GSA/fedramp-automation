@@ -39,7 +39,7 @@ jobs:
         run: |
           echo "convert to xsl"
           # compute name without .sch
-          qualifiedSchematronName=${{ schematronFileName }}
+          qualifiedSchematronName=${{ github.event.inputs.schematronFileName }}
           schematronName=${qualifiedSchematronName##*/}
           schematronRoot=${schematronName%.*}
           rm -rf target/*.xsl;
@@ -52,9 +52,9 @@ jobs:
           echo "delete pre-existing SVRL and HTML results"
           rm -rf "${reportName}" "${htmlReportName}"
 
-          echo "validating doc: ${DOC_TO_VALIDATE} with ${qualifiedSchematronName} output found in ${reportName}"
+          echo "validating doc: ${{ github.event.inputs.DOC_TO_VALIDATE }} with ${qualifiedSchematronName} output found in ${reportName}"
 
           java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-          -o:"${reportName}" -s:"${{ DOC_TO_VALIDATE }}" \
+          -o:"${reportName}" -s:"${{ github.event.inputs.DOC_TO_VALIDATE }}" \
           target/"${schematronRoot}".xsl \
           allow-foreign=true
