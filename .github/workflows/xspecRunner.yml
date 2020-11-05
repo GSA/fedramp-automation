@@ -59,3 +59,12 @@ jobs:
           files: '**/report/test/*junit.xml'
           report_individual_runs: true
           deduplicate_classes_by_file_name: false
+
+      - name: Upload Resulting Schematron SVRL Report
+        uses: actions/upload-artifact@27bce4eee761b5bc643f46a8dfb41b430c8d05f6 # v2
+        with:
+          name: fedramp-automation-validation-unit-tests-${{ github.sha }}
+          path: |
+            ./resources/validations/report/schematron/**/*.*
+            ./resources/validations/report/test/**/*.*
+          if-no-files-found: error
