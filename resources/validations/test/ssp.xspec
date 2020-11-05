@@ -40,6 +40,24 @@
         </x:scenario>
         <x:scenario label="when control implementations are defined">
             <x:scenario label="and requirements are implemented">
+                <x:scenario label="a count of all total controls">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                    </x:context>
+                    <x:expect-report id="all-requirements-report" label="must be reported."/>
+                </x:scenario>
+                <x:scenario label="a count of all controls with a status of planned">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                    </x:context>
+                    <x:expect-report id="planned-requirements-report" label="must be reported."/>
+                </x:scenario>
+                <x:scenario label="a count of all controls with a status of partial">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                    </x:context>
+                    <x:expect-report id="partial-requirements-report" label="must be reported."/>
+                </x:scenario>
                 <x:scenario label="and each one has its implementation status set">
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
