@@ -62,12 +62,12 @@
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <control-implementation>
-                            <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
-                                <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
-                                   <remarks></remarks>
-                                </annotation>
-                             </implemented-requirement>
+                                <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                    <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
+                                    <remarks></remarks>
+                                    </annotation>
+                                </implemented-requirement>
                             </control-implementation>
                         </system-security-plan>
                     </x:context>
@@ -92,10 +92,10 @@
                         </system-characteristics>
                         <control-implementation>
                             <description />
-                                <!-- Only one control implemented for a FedRAMP profile, one or more must be missing. -->
-                                <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
-                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented" />
-                                </implemented-requirement>
+                            <!-- Only one control implemented for a FedRAMP profile, one or more must be missing. -->
+                            <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented" />
+                            </implemented-requirement>
                         </control-implementation>
                     </system-security-plan>
                 </x:context>
