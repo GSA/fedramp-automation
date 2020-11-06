@@ -35,7 +35,7 @@
 
     XPDY0002  Finding root of root/key-name the context item is absent
 -->
-<xsl:param name="global-context-item" select="/" />
+<xsl:param as="document-node(element(o:system-security-plan))" name="global-context-item" select="." />
 <xsl:param name="fedramp-registry-href" select="'../../xml?select=*.xml'" />
 <xsl:variable name="fedramp-registry" select="collection($fedramp-registry-href)"/>
 <xsl:variable name="selected-sensitivty-level" select="$global-context-item/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level"/>
@@ -61,8 +61,8 @@
 
 <sch:pattern>
     <sch:rule context="/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level">
-        <sch:assert id="no-security-sensitivity-level" test="$selected-sensitivty-level">No sensitivty level found from XPath query.</sch:assert>
-        <sch:assert id="invalid-security-sensitivity-level" test=". = $sensitivity-levels"><sch:value-of select="./name()"/> is an invalid value <sch:value-of select="."/></sch:assert>
+        <sch:assert id="no-security-sensitivity-level" test="$selected-sensitivty-level">No sensitivty level found from XPath query <sch:value-of select="$selected-profile-href" /></sch:assert>
+        <sch:assert id="invalid-security-sensitivity-level" test=". = $sensitivity-levels"><sch:value-of select="./name()"/> is an invalid value <sch:value-of select="."/>, not from <sch:value-of select="$sensitivity-levels" /></sch:assert>
     </sch:rule>
 </sch:pattern>
 <sch:pattern>
@@ -79,8 +79,8 @@
         <sch:let name="required" value="$selected-profile/o:catalog/o:group/o:control"/>
         <sch:let name="implemented" value="o:implemented-requirement"/>
         <sch:let name="missing" value="$required[not(@id = $implemented/@control-id)]"/>
-        <sch:report id="each-required-control-report" test="count($required) > 0">The following <sch:value-of select="count($required)"/><sch:value-of select="if (count($required)=1) then ' control' else ' controls'"/> are required: <sch:value-of select="$required/@id"/></sch:report>
-        <sch:assert id="incomplete-implementation-requirements" test="count($missing) = 0">This SSP has not implemented <sch:value-of select="count($missing)"/><sch:value-of select="if (count($missing)=1) then ' control' else ' controls'"/>: <sch:value-of select="$missing/@id"/></sch:assert>
+        <sch:report id="each-required-control-report" test="true()">The following <sch:value-of select="count($required)"/><sch:value-of select="if (count($required)=1) then ' control' else ' controls'"/> are required: <sch:value-of select="$required/@id"/></sch:report>
+        <sch:assert id="incomplete-implementation-requirements" test="true()">This SSP has not implemented <sch:value-of select="count($missing)"/><sch:value-of select="if (count($missing)=1) then ' control' else ' controls'"/>: <sch:value-of select="$missing/@id"/></sch:assert>
     </sch:rule>
 </sch:pattern>
 </sch:schema>
