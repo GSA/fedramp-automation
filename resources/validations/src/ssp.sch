@@ -76,7 +76,7 @@
         <sch:report id="all-requirements-report" test="true()">There are <sch:value-of select="count($all)"/> total<sch:value-of select="if (count($all)=1) then ' control implementation' else ' control implementations'"/>.</sch:report>
     </sch:rule>
     <sch:rule context="/o:system-security-plan/o:control-implementation">
-        <sch:let name="required" value="$selected-profile/o:catalog/o:group/o:control"/>
+        <sch:let name="required" value="$selected-profile/*//o:control"/>
         <sch:let name="implemented" value="o:implemented-requirement"/>
         <sch:let name="missing" value="$required[not(@id = $implemented/@control-id)]"/>
         <sch:report id="each-required-control-report" test="true()">The following <sch:value-of select="count($required)"/><sch:value-of select="if (count($required)=1) then ' control' else ' controls'"/> are required: <sch:value-of select="$required/@id"/></sch:report>
