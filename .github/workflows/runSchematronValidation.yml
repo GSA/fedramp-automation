@@ -25,6 +25,15 @@ jobs:
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
+
+      - name: Cache
+        uses: actions/cache@v2.1.3
+        with:
+          path: |
+            ~/resources/validations/lib/
+            ~/oscal/
+            /tmp/saxon/
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
         
       # Check-out submodules
       - name: Checkout submodules
@@ -45,6 +54,7 @@ jobs:
       # convert schematron to xsl and validate file with converted xsl
       - name: Convert to XSL
         run: |
+          export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
           echo "convert to xsl"
           # compute name without .sch
           qualifiedSchematronName=${{ github.event.inputs.schematronFileName }}
@@ -55,16 +65,25 @@ jobs:
           schematronRoot=${schematronName%.*}
           echo "schematronRoot: ${schematronRoot}"
           echo "schematron code ${{ github.workspace }}/resources/validations/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl"
-          mkdir /tmp/target
-          rm -rf /tmp/target/*.xsl;
-          `java -cp ${SAXON_CP} net.sf.saxon.Transform -o:/tmp/target/${schematronRoot}.xsl -s:${{ github.workspace }}${qualifiedSchematronName} ${{ github.workspace }}/resources/validations/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl`
-          
+          rm -rf ${{ github.workspace }}/resources/validations/target/*.xsl
+
+          java -cp ${SAXON_CP} net.sf.saxon.Transform \
+          -o:"${{ github.workspace }}/resources/validations/target/${schematronRoot}".xsl \
+          -s:"${{ github.workspace }}/${qualifiedSchematronName}" \
+          ${{ github.workspace }}/resources/validations/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
+          allow-foreign=true
+
+          reportName=${{ github.workspace }}/resources/validations/report/schematron${{ github.event.inputs.DOC_TO_VALIDATE }}__${schematronRoot}.results.xml
+
           echo "delete pre-existing SVRL and HTML results"
           rm -rf "${reportName}" "${htmlReportName}"
 
           echo "validating doc: ${{ github.event.inputs.DOC_TO_VALIDATE }} with ${qualifiedSchematronName} output found in ${reportName}"
+          echo source
+          echo `ls -ltr ${{ github.workspace }}${{ github.event.inputs.DOC_TO_VALIDATE }}`
 
           java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-          -o:"${reportName}" -s:"${{ github.workspace }}/${{ github.event.inputs.DOC_TO_VALIDATE }}" \
-          target/"${schematronRoot}".xsl \
+          -o:${reportName} \
+          -s:${{ github.workspace }}${{ github.event.inputs.DOC_TO_VALIDATE }} \
+          ${{ github.workspace }}/resources/validations/target/${schematronRoot}.xsl \
           allow-foreign=true

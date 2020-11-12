@@ -17,23 +17,36 @@ project structure
 To validate xml files using schematron
 ---
 
-example
+*Prerequesite
+if you haven't done it previously: to add the needed dependencies (declared by .gitmodules), run the following:*
 
-`./validate_with_schematron.sh test/demo/FedRAMP-SSP-OSCAL-Template.xml`
+`-f` *\<required>* is the input file to be tested. ex: `-f test/demo/FedRAMP-SSP-OSCAL-Template.xml`
 
-you must pass in a file name you want validated as argument `$1`. by default it will compile and validate the input with all `src/*.sch` files.
+`-s` *\<optional>* schematron directory used to validate the file. Each .sch found within the specified directory will be compliled and generate a separate report. defaults to src relative to this script.  ex: `-o ~/mySchematronDirectory`
 
-if you wish to override the default version (currently 10.2) of `SAXON HE`, you may pass it as the argument `$2`
+`-o` *\<optional>* is an the root of the report output. ex: `-o ~/dev`
 
+`-v` *\<optional>* if you wish to override the default version (currently 10.2) of `SAXON HE`, that is downloaded and used if $SAXON_CP is not specified. ex:  `-v 10.2.2` *Note,  SAXON_CP is set as an Environment Variable. and `-v` is specified, the script will terminate due to inability to determine priority.*
 
+example:
+
+`./bin/validate_with_schematron.sh -f test/demo/FedRAMP-SSP-OSCAL-Template.xml -o ~/dev -v 10.2.2`
 
 To Run Tests
 ---
 
+*Prerequesite
+if you haven't done it previously: to add the needed dependencies (declared by .gitmodules), run the following:*
+
+`git submodule update --init --recursive`
+
 ```sh
 cd /path/to/fedramp-automation/resources/validations
+#if you have a preferred version of a saxon jar downloaded export SAXON_CP as so
 export SAXON_CP=yourpath/Saxon-HE-X.Y.Z.jar
+#set the test directory relative to project path, you may change if you prefer somehere else
 export TEST_DIR=$(pwd)/report/test
+#execute xpec with the test harness that runs all tests
 lib/xspec/bin/xspec.sh -s -j test/test_all.xspec
 ```
 
