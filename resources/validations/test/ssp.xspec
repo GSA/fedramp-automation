@@ -1,0 +1,108 @@
+<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../src/ssp.sch">
+    <x:param name="allow-foreign">true</x:param>
+    <!-- See ssp.sch xsl:param "global-context-item" for why it is is necessary. -->
+    <x:param name="global-context-item">
+        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+    </x:param>
+    <x:scenario label="For an OSCAL FedRAMP SSP">
+        <x:scenario label="when the security sensitivity level">
+            <x:scenario label="is not defined at all">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <system-characteristics>
+                        <!-- no level set in empty element-->
+                        <security-sensitivity-level />
+                    </system-characteristics>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="no-security-sensitivity-level" label="it is invalid."/>
+            </x:scenario>
+            <x:scenario label="is set to a value from the official FedRAMP list">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>low</security-sensitivity-level>
+                        </system-characteristics>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="invalid-security-sensitivity-level" label="it is valid."/>
+            </x:scenario>
+            <x:scenario label="is not set to a value from the official FedRAMP list">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>invalid</security-sensitivity-level>
+                        </system-characteristics>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="invalid-security-sensitivity-level" label="it is invalid."/>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="when control implementations are defined">
+            <x:scenario label="and requirements are implemented">
+                <x:scenario label="a count of all total controls">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                    </x:context>
+                    <x:expect-report id="all-requirements-report" label="must be reported."/>
+                </x:scenario>
+                <x:scenario label="a count of all controls with a status of planned">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                    </x:context>
+                    <x:expect-report id="planned-requirements-report" label="must be reported."/>
+                </x:scenario>
+                <x:scenario label="a count of all controls with a status of partial">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                    </x:context>
+                    <x:expect-report id="partial-requirements-report" label="must be reported."/>
+                </x:scenario>
+                <x:scenario label="and each one has its implementation status set">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <control-implementation>
+                                <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                    <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
+                                    <remarks></remarks>
+                                    </annotation>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="invalid-implemented-requirements-count" label="it is valid."/>
+                </x:scenario>
+                <x:scenario label="and the total number of requirements is zero">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <control-implementation>
+                                <!-- No implemented requirements -->
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="invalid-implemented-requirements-count" label="it is invalid."/>
+                </x:scenario>
+            </x:scenario>
+            <x:pending label="surpress failing test due to global context item pattern issues">
+                <x:scenario label="and all required implementations are not yet complete">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <description />
+                                <!-- Only one control implemented for a FedRAMP profile, one or more must be missing. -->
+                                <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented" />
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="incomplete-implementation-requirements" label="it is invalid."/>
+                </x:scenario>
+            </x:pending>
+        </x:scenario>
+    </x:scenario>
+</x:description>
