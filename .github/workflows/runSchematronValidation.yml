@@ -26,64 +26,26 @@ jobs:
       # Check-out the repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
 
-      - name: Cache
-        uses: actions/cache@v2.1.3
-        with:
-          path: |
-            ~/resources/validations/lib/
-            ~/oscal/
-            /tmp/saxon/
-          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-        
       # Check-out submodules
       - name: Checkout submodules
         uses: textbook/git-checkout-submodule-action@2.1.1
         with:
           remote: true
 
-      # Install Saxon HE to /tmp
-      - name: Install Saxon HE
+      # Run validations by calling the shell with appropriate arguments
+      - name: Run Schematron Validations
         run: |
-          echo "Installing Saxon"
-          mkdir -p /tmp/saxon
-          echo "Dowloading Saxon"
-          export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
-          wget -O "${SAXON_CP}" https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.2/Saxon-HE-10.2.jar
-          echo "saxon_cp is ${SAXON_CP}"
-          
-      # convert schematron to xsl and validate file with converted xsl
-      - name: Convert to XSL
-        run: |
-          export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
-          echo "convert to xsl"
-          # compute name without .sch
-          qualifiedSchematronName=${{ github.event.inputs.schematronFileName }}
-          echo "schematronFileName ${qualifiedSchematronName}"
-          echo "DOC_TO_VALIDATE: ${{ github.workspace }}${{ github.event.inputs.DOC_TO_VALIDATE }}"
-          schematronName=${qualifiedSchematronName##*/}
-          echo "schematronName: ${schematronName}"
-          schematronRoot=${schematronName%.*}
-          echo "schematronRoot: ${schematronRoot}"
-          echo "schematron code ${{ github.workspace }}/resources/validations/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl"
-          rm -rf ${{ github.workspace }}/resources/validations/target/*.xsl
+          bash ${{ github.workspace }}/resources/validations/bin/validate_with_schematron.sh \
+          -f ${{ github.workspace }}${{ github.event.inputs.DOC_TO_VALIDATE }}  \
+          -s ${{ github.workspace }}${{ github.event.inputs.schematronFileName }} \
+          -b ${{ github.workspace }}/resources/validations \
+          -o /tmp/report
 
-          java -cp ${SAXON_CP} net.sf.saxon.Transform \
-          -o:"${{ github.workspace }}/resources/validations/target/${schematronRoot}".xsl \
-          -s:"${{ github.workspace }}/${qualifiedSchematronName}" \
-          ${{ github.workspace }}/resources/validations/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
-          allow-foreign=true
-
-          reportName=${{ github.workspace }}/resources/validations/report/schematron${{ github.event.inputs.DOC_TO_VALIDATE }}__${schematronRoot}.results.xml
-
-          echo "delete pre-existing SVRL and HTML results"
-          rm -rf "${reportName}" "${htmlReportName}"
-
-          echo "validating doc: ${{ github.event.inputs.DOC_TO_VALIDATE }} with ${qualifiedSchematronName} output found in ${reportName}"
-          echo source
-          echo `ls -ltr ${{ github.workspace }}${{ github.event.inputs.DOC_TO_VALIDATE }}`
-
-          java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-          -o:${reportName} \
-          -s:${{ github.workspace }}${{ github.event.inputs.DOC_TO_VALIDATE }} \
-          ${{ github.workspace }}/resources/validations/target/${schematronRoot}.xsl \
-          allow-foreign=true
+      - name: Upload Resulting Schematron SVRL Report
+        uses: actions/upload-artifact@27bce4eee761b5bc643f46a8dfb41b430c8d05f6
+        with:
+          name: fedramp-automation-validation-reports-${{ github.sha }}
+          path: |
+            /tmp/report/**/*.xml
+            /tmp/report/**/*.html
+          if-no-files-found: error
