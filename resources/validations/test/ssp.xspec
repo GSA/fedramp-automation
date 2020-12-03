@@ -1,18 +1,24 @@
-<x:description xmlns:x="http://www.jenitennison.com/xslt/xspec" schematron="../src/ssp.sch">
+<x:description 
+    xmlns:x="http://www.jenitennison.com/xslt/xspec"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
+    xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0"
+    xmlns:f="https://fedramp.gov/ns/oscal"
+    xmlns:lv="local-validations"
+    schematron="../src/ssp.sch">
+
     <x:param name="allow-foreign">true</x:param>
-    <!-- See ssp.sch xsl:param "global-context-item" for why it is is necessary. -->
-    <x:param name="global-context-item">
-        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
-    </x:param>
+    <x:param name="only-child-elements">false</x:param>
+    <x:param name="visit-text">true</x:param>
     <x:scenario label="For an OSCAL FedRAMP SSP">
         <x:scenario label="when the security sensitivity level">
             <x:scenario label="is not defined at all">
                 <x:context>
                     <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                    <system-characteristics>
-                        <!-- no level set in empty element-->
-                        <security-sensitivity-level />
-                    </system-characteristics>
+                        <system-characteristics>
+                            <security-sensitivity-level/>
+                        </system-characteristics>
                     </system-security-plan>
                 </x:context>
                 <x:expect-assert id="no-security-sensitivity-level" label="it is invalid."/>
@@ -42,67 +48,232 @@
             <x:scenario label="and requirements are implemented">
                 <x:scenario label="a count of all total controls">
                     <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
-                    </x:context>
-                    <x:expect-report id="all-requirements-report" label="must be reported."/>
-                </x:scenario>
-                <x:scenario label="a count of all controls with a status of planned">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
-                    </x:context>
-                    <x:expect-report id="planned-requirements-report" label="must be reported."/>
-                </x:scenario>
-                <x:scenario label="a count of all controls with a status of partial">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
-                    </x:context>
-                    <x:expect-report id="partial-requirements-report" label="must be reported."/>
-                </x:scenario>
-                <x:scenario label="and each one has its implementation status set">
-                    <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <control-implementation>
-                                <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
-                                    <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
-                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
-                                    <remarks></remarks>
-                                    </annotation>
-                                </implemented-requirement>
-                            </control-implementation>
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation/>
                         </system-security-plan>
                     </x:context>
-                    <x:expect-not-assert id="invalid-implemented-requirements-count" label="it is valid."/>
+                    <x:expect-report id="each-required-control-report" label="must be reported."/>
                 </x:scenario>
-                <x:scenario label="and the total number of requirements is zero">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <control-implementation>
-                                <!-- No implemented requirements -->
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-assert id="invalid-implemented-requirements-count" label="it is invalid."/>
-                </x:scenario>
-            </x:scenario>
-            <x:pending label="surpress failing test due to global context item pattern issues">
-                <x:scenario label="and all required implementations are not yet complete">
+                <x:scenario label="and any control's implemented requirement is defined with an invalid status">
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-characteristics>
                                 <security-sensitivity-level>low</security-sensitivity-level>
                             </system-characteristics>
                             <control-implementation>
-                                <description />
-                                <!-- Only one control implemented for a FedRAMP profile, one or more must be missing. -->
-                                <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
-                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented" />
+                                <implemented-requirement control-id="at-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="inconceivable">
+                                    <remarks></remarks>
+                                    </annotation>
                                 </implemented-requirement>
                             </control-implementation>
                         </system-security-plan>
                     </x:context>
-                    <x:expect-assert id="incomplete-implementation-requirements" label="it is invalid."/>
+                    <x:expect-assert id="invalid-implementation-status" label="it is invalid."/>
                 </x:scenario>
-            </x:pending>
+                <x:scenario label="summary counts of controls' implementated requirements and those with valid and invalid statuses">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <implemented-requirement control-id="cm-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented">
+                                    <remarks></remarks>
+                                    </annotation>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-report id="control-implemented-requirements-stats" label="must be reported."/>
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="and all required implementations are not yet complete">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>low</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
+                                <remarks></remarks>
+                                </annotation>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="incomplete-implementation-requirements" label="it is invalid."/>
+            </x:scenario>
+        </x:scenario>
+    </x:scenario>
+    <x:scenario label="For FedRAMP Automation helper functions">
+        <x:scenario label="with if-empty-default">
+            <x:scenario label="when a valid atom value like a string is supplied">
+                <x:call function="lv:if-empty-default">
+                    <x:param select="'use this'"/>
+                    <x:param select="'ignore this default'"/>
+                </x:call>
+                <x:expect 
+                    label="the valid atom will be used and the optional default discarded."
+                    test="$x:result => string()"
+                    select="'use this'"/>
+            </x:scenario>
+            <x:scenario label="when an valid atom value like a string is supplied">
+                <x:call function="lv:if-empty-default">
+                    <x:param select="''"/>
+                    <x:param select="'use the default'"/>
+                </x:call>
+                <x:expect 
+                    label="the invalid atom will be discarded and the optional default used."
+                    test="$x:result => string()"
+                    select="'use the default'"/>
+            </x:scenario>
+            <x:scenario label="when a valid node value is supplied">
+                <x:call function="lv:if-empty-default">
+                    <x:param>
+                        <example>
+                            <item>valid</item>
+                        </example>
+                    </x:param>
+                    <x:param>
+                        <example>
+                            <item>default</item>
+                        </example>
+                    </x:param>
+                </x:call>
+                <x:expect label="the valid node will be used and the optional default discarded.">
+                    <example>
+                        <item>valid</item>
+                    </example>
+                </x:expect>
+            </x:scenario>
+            <x:scenario label="when an invalid node value is supplied">
+                <x:call function="lv:if-empty-default">
+                    <x:param>
+                        <example/>
+                    </x:param>
+                    <x:param>
+                        <example>
+                            <item>use the default</item>
+                        </example>
+                    </x:param>
+                </x:call>
+                <x:expect label="the invalid node will be discarded and the optional default node used.">
+                    <example>
+                        <item>use the default</item>
+                    </example>
+                </x:expect>
+            </x:scenario>
+            <x:scenario label="when an invalid value is supplied with an unknown type (not atom or sequence)">
+                <x:call function="lv:if-empty-default">
+                    <x:param/>
+                    <x:param>
+                        <example>
+                            <item>use the default</item>
+                        </example>
+                    </x:param>
+                </x:call>
+                <x:expect
+                    label="the invalid value will be discarded and an empty sequence returned."
+                    select="()"/>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="with lv:registry">
+            <x:scenario label="when a valid filesystem path is provided">
+                <x:call function="lv:registry">
+                    <!-- 
+                        We filter in this test on one file, not all, because
+                        we can get a collection of files back. So we have a
+                        few options, each with issue(s). These are workarounds
+                        for building a test that XSpec will not throw errors on.
+
+                        - We can use raw handling of the $x:result response from XSpec, but you get back a sequence of doc() items in the collection. You cannot
+                          `treat as` to change the type signature, so this breaks. There does not seem to be a reasonable way to fix that in XSLT.
+                        - Pass in one hard-coded path, '../../xml/file_name.xml', but this will not return a collection, and you do not get a collection back.
+                        - You can work around these two problems by filtering back on a specific filename, so you get back a collection, of length, 0, 1, or n+1.
+                    -->
+                    <x:param select="'../../xml?select=fedramp_values.xml'"/>
+                 </x:call>
+                 <x:expect
+                    label="the function will return a non-empty collection of information types, threats, and values"
+                    test="count(//f:value-set) > 0"/>
+            </x:scenario>
+            <x:scenario label="when an invalid filesystem path is provided">
+                <x:call function="lv:registry">
+                    <x:param select="'../../xml?select=*.willnotwork'"/>
+                 </x:call>
+                 <x:expect
+                    label="the function will return an empty collection of information types, threats, and values" 
+                    test="count(//f:information-type) = 0 and 
+                            count(//f:threat) = 0 and
+                            count(//f:value-set) = 0"/>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="with lv:sensitivity-level">
+            <x:scenario label="when a properly formed OSCAL SSP context is provided">
+                <x:call function="lv:sensitivity-level">
+                    <x:param>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>high</security-sensitivity-level>
+                            </system-characteristics>
+                        </system-security-plan>
+                    </x:param>
+                 </x:call>
+                 <x:expect 
+                    label="the function will return the Security Sensitivity Level as text."
+                    select="'high'"/>
+            </x:scenario>
+            <x:scenario label="when an improperly formed OSCAL SSP context is provided">
+                <x:call function="lv:sensitivity-level">
+                    <x:param>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <!-- No sensitivity-level in the system-characteristics node -->
+                            <system-characteristics/>
+                        </system-security-plan>
+                    </x:param>
+                </x:call>
+                <x:expect 
+                    label="the function will return an empty string to invalidate subsequent validation."
+                    select="''"/>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="with lv:correct">
+            <x:scenario label="when performing corrections on a valid value from an official value set">
+                <x:call function="lv:correct">
+                    <x:param>
+                        <value-set xmlns="https://fedramp.gov/ns/oscal" name="test">
+                            <allowed-values allow-other="no">
+                               <enum value="a" short-label="Answer A">Approved Answer A</enum>
+                               <enum value="b" short-label="Answer B">Approved Answer B</enum>
+                            </allowed-values>
+                         </value-set>
+                    </x:param>
+                    <x:param>a</x:param>
+                    </x:call>   
+                    <x:expect label="no corrections will be returned because the value is correct."/>
+            </x:scenario>
+            <x:scenario label="when performing corrections on a valid value from an official value set">
+                <x:call function="lv:correct">
+                    <x:param>
+                        <value-set xmlns="https://fedramp.gov/ns/oscal" name="test">
+                            <allowed-values allow-other="no">
+                               <enum value="a" short-label="Answer A">Approved Answer A</enum>
+                               <enum value="b" short-label="Answer B">Approved Answer B</enum>
+                            </allowed-values>
+                         </value-set>
+                    </x:param>
+                    <x:param>c</x:param>
+                    </x:call>   
+                    <x:expect
+                        label="corrections will be returned because the value is incorrect.">a, b</x:expect>
+            </x:scenario>
         </x:scenario>
     </x:scenario>
 </x:description>

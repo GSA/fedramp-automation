@@ -23,6 +23,16 @@
                         <li>Location: <xsl:value-of select="@location"/></li>
                     </ul>
                 </xsl:for-each>
+                <div>Reports: <xsl:value-of select="count(.//svrl:successful-report)"/></div>
+                <xsl:for-each select=".//svrl:successful-report">
+                    <ul>
+                        <li><b>Text: <xsl:value-of select="svrl:text"/></b></li>
+                        <li>Test: <xsl:value-of select="@test"/></li>
+                        <li>See: <xsl:value-of select="@see"/></li>
+                        <li>Location: <xsl:value-of select="@location"/></li>
+                    </ul>
+                </xsl:for-each>
+                 
             </body>
         </html>
     </xsl:template>
