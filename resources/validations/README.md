@@ -17,12 +17,12 @@ project structure
 To validate xml files using schematron
 ---
 
-*Prerequesite
-if you haven't done it previously: to add the needed dependencies (declared by .gitmodules), run the following:*
+__Prerequesite__
+*if you haven't done it previously: to add the needed dependencies (declared by .gitmodules), run the following:*
 
 `git submodule update --init --recursive`
 
-`validate_with_schematron.sh` Command Options
+__Command Options__ for `/bin/validate_with_schematron.sh` 
 
 `-f` *\<required>* is the input file to be tested. ex: `-f test/demo/FedRAMP-SSP-OSCAL-Template.xml`
 
