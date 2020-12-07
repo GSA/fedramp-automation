@@ -111,6 +111,50 @@
                 <x:expect-assert id="incomplete-implementation-requirements" label="it is invalid."/>
             </x:scenario>
         </x:scenario>
+        <x:scenario label="when an extraneous control not required by the profile is implemented">
+            <x:context>
+                <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <system-characteristics>
+                        <!--
+                            NOTE: At this time, 800-53 control AC-5 is not required
+                            for the FedRAMP LOW profile. It is required for the FedRAMP
+                            HIGH profile, so this is extraneous.
+                        -->
+                        <security-sensitivity-level>low</security-sensitivity-level>
+                    </system-characteristics>
+                    <control-implementation>
+                        <implemented-requirement control-id="ac-5" uuid="373c8a10-7885-4209-9e55-0b69747cb6b9">
+                            <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented">
+                            <remarks></remarks>
+                            </annotation>
+                        </implemented-requirement>
+                    </control-implementation>
+                </system-security-plan>
+            </x:context>
+            <x:expect-assert id="extraneous-implemented-requirements" label="it is invalid."/>
+        </x:scenario>
+        <x:scenario label="when no extraneous control is implemented except those required by the profile">
+            <x:context>
+                <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <system-characteristics>
+                        <!--
+                            NOTE: At this time, 800-53 control AC-1 is required for
+                            the FedRAMP LOW profile. It is required for the FedRAMP
+                            HIGH profile, so this is extraneous.
+                        -->
+                        <security-sensitivity-level>low</security-sensitivity-level>
+                    </system-characteristics>
+                    <control-implementation>
+                        <implemented-requirement control-id="ac-1" uuid="4b81d5aa-2149-4b7b-ab28-69e390226784">
+                            <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="partial">
+                            <remarks></remarks>
+                            </annotation>
+                        </implemented-requirement>
+                    </control-implementation>
+                </system-security-plan>
+            </x:context>
+            <x:expect-not-assert id="extraneous-implemented-requirements" label="it is valid."/>
+        </x:scenario>
     </x:scenario>
     <x:scenario label="For FedRAMP Automation helper functions">
         <x:scenario label="with if-empty-default">

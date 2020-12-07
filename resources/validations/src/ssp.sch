@@ -179,9 +179,9 @@
             <xsl:otherwise> items total. </xsl:otherwise>
         </xsl:choose>
         <xsl:for-each select="$analysis/reports/report">
-            <xsl:if test="position() gt 1 and not(position() eq last())">
+            <xsl:if test="position() gt 0 and not(position() eq last())">
                 <xsl:value-of select="current()/@count"/> set as <xsl:value-of select="current()/@value"/>, </xsl:if>
-            <xsl:if test="position() gt 1 and position() eq last()"
+            <xsl:if test="position() gt 0 and position() eq last()"
                 > and <xsl:value-of select="current()/@count"/> set as <xsl:value-of select="current()/@value"/>.</xsl:if>
             <xsl:sequence select="."/>
         </xsl:for-each>
@@ -217,8 +217,10 @@
         <sch:let name="required-controls" value="$selected-profile/*//o:control"/>
         <sch:let name="implemented" value="o:implemented-requirement"/>
         <sch:let name="missing" value="$required-controls[not(@id = $implemented/@control-id)]"/>
+        <sch:let name="extraneous" value="$implemented[not(@control-id = $required-controls/@id)]"/>
         <sch:report id="each-required-control-report" test="count($required-controls) > 0">The following <sch:value-of select="count($required-controls)"/><sch:value-of select="if (count($required-controls)=1) then ' control' else ' controls'"/> are required: <sch:value-of select="$required-controls/@id"/></sch:report>
         <sch:assert id="incomplete-implementation-requirements" test="not(exists($missing))">This SSP has not implemented <sch:value-of select="count($missing)"/><sch:value-of select="if (count($missing)=1) then ' control' else ' controls'"/>: <sch:value-of select="$missing/@id"/></sch:assert>
+        <sch:assert id="extraneous-implemented-requirements" test="not(exists($extraneous))">This SSP has implemented <sch:value-of select="count($extraneous)"/> extraneous<sch:value-of select="if (count($extraneous)=1) then ' control' else ' controls'"/> not needed given the selected profile: <sch:value-of select="$extraneous/@control-id"/></sch:assert>
         <sch:let name="results" value="$ok-values => lv:analyze(//o:implemented-requirement/o:annotation[@name='implementation-status'])"/>
         <sch:let name="total" value="$results/reports/@count"/>
         <sch:report id="control-implemented-requirements-stats" test="count($results/errors/error) = 0"><sch:value-of select="$results => lv:report() => normalize-space()"/></sch:report>
