@@ -20,6 +20,10 @@ To validate xml files using schematron
 *Prerequesite
 if you haven't done it previously: to add the needed dependencies (declared by .gitmodules), run the following:*
 
+`git submodule update --init --recursive`
+
+`validate_with_schematron.sh` Command Options
+
 `-f` *\<required>* is the input file to be tested. ex: `-f test/demo/FedRAMP-SSP-OSCAL-Template.xml`
 
 `-s` *\<optional>* schematron directory used to validate the file. Each .sch found within the specified directory will be compliled and generate a separate report. defaults to src relative to the parent of the bin directory where this script is located.  ex: `-o ~/mySchematronDirectory`
@@ -36,7 +40,7 @@ example:
 
 `./bin/validate_with_schematron.sh -f test/demo/FedRAMP-SSP-OSCAL-Template.xml -o ~/dev/report -v 10.2.2`
 
-To Run Tests
+To Run Unit Tests
 ---
 
 *Prerequesite
