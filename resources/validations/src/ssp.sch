@@ -211,15 +211,18 @@
 
     <sch:rule context="/o:system-security-plan/o:control-implementation">
     <sch:let name="registry" value="$registry-href => lv:registry()"/>
+        <sch:let name="registry-namespace" value="$registry/f:fedramp-values/f:namespace/f:ns/@ns"/>
         <sch:let name="sensitivity-level" value="/ => lv:sensitivity-level()"/>
         <sch:let name="ok-values" value="$registry/f:fedramp-values/f:value-set[@name='control-implementation-status']"/>
         <sch:let name="selected-profile" value="$sensitivity-level => lv:profile()"/>
         <sch:let name="required-controls" value="$selected-profile/*//o:control"/>
         <sch:let name="implemented" value="o:implemented-requirement"/>
-        <sch:let name="missing" value="$required-controls[not(@id = $implemented/@control-id)]"/>
+        <sch:let name="all-missing" value="$required-controls[not(@id = $implemented/@control-id)]"/>
+        <sch:let name="core-missing" value="$required-controls[o:prop[@name='CORE' and @ns=$registry-namespace] and @id = $all-missing/@id]"/>
         <sch:let name="extraneous" value="$implemented[not(@control-id = $required-controls/@id)]"/>
         <sch:report id="each-required-control-report" test="count($required-controls) > 0">The following <sch:value-of select="count($required-controls)"/><sch:value-of select="if (count($required-controls)=1) then ' control' else ' controls'"/> are required: <sch:value-of select="$required-controls/@id"/></sch:report>
-        <sch:assert id="incomplete-implementation-requirements" test="not(exists($missing))">This SSP has not implemented <sch:value-of select="count($missing)"/><sch:value-of select="if (count($missing)=1) then ' control' else ' controls'"/>: <sch:value-of select="$missing/@id"/></sch:assert>
+        <sch:assert role="error" id="incomplete-core-implemented-requirements" test="not(exists($core-missing))">This SSP has not implemented the most important <sch:value-of select="count($core-missing)"/> core<sch:value-of select="if (count($core-missing)=1) then ' control' else ' controls'"/>: <sch:value-of select="$core-missing/@id"/></sch:assert>
+        <sch:assert role="warn" id="incomplete-all-implemented-requirements" test="not(exists($all-missing))">This SSP has not implemented <sch:value-of select="count($all-missing)"/><sch:value-of select="if (count($all-missing)=1) then ' control' else ' controls'"/> overall: <sch:value-of select="$all-missing/@id"/></sch:assert>
         <sch:assert id="extraneous-implemented-requirements" test="not(exists($extraneous))">This SSP has implemented <sch:value-of select="count($extraneous)"/> extraneous<sch:value-of select="if (count($extraneous)=1) then ' control' else ' controls'"/> not needed given the selected profile: <sch:value-of select="$extraneous/@control-id"/></sch:assert>
         <sch:let name="results" value="$ok-values => lv:analyze(//o:implemented-requirement/o:annotation[@name='implementation-status'])"/>
         <sch:let name="total" value="$results/reports/@count"/>
@@ -230,7 +233,7 @@
         <sch:let name="registry" value="$registry-href => lv:registry()"/>
         <sch:let name="status" value="./o:annotation[@name='implementation-status']/@value"/>
         <sch:let name="corrections" value="lv:correct($registry/f:fedramp-values/f:value-set[@name='control-implementation-status'], $status)"/>
-        <sch:assert id="invalid-implementation-status" test="not(exists($corrections))">Invalid status '<sch:value-of select="$status"/>' for <sch:value-of select="./@control-id"/>, must be <sch:value-of select="$corrections"/></sch:assert>
+        <sch:assert role="error" id="invalid-implementation-status" test="not(exists($corrections))">Invalid status '<sch:value-of select="$status"/>' for <sch:value-of select="./@control-id"/>, must be <sch:value-of select="$corrections"/></sch:assert>
     </sch:rule>
 
 </sch:pattern>
