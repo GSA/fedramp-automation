@@ -110,6 +110,249 @@
                 </x:context>
                 <x:expect-assert id="incomplete-all-implemented-requirements" label="it is invalid."/>
             </x:scenario>
+            <x:scenario label="and implemented requirements have a component reference">
+                <x:scenario label="and it references a component with a valid ID.">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <system-implementation>
+                                <component uuid="5129f6ad-53f7-47be-9e5c-22728012264a" component-type="system">
+                                    <title>This System</title>
+                                    <description>
+                                    <p>This component is referenced in the implemented requirement.</p>
+                                    </description>
+                                    <status state="operational"/>
+                                </component>
+                            </system-implementation>
+                            <control-implementation>
+                                 <implemented-requirement control-id="ac-2" uuid="96c7ce44-01dd-4e67-8dad-3f87ffa02fd5">
+                                    <statement statement-id="ac-2_stmt.a" uuid="badd8d1e-df18-4c0d-b6d7-594a08feb2c4">
+                                        <by-component component-uuid="5129f6ad-53f7-47be-9e5c-22728012264a" uuid="11c34ae8-4004-493b-a985-53c17f8f58b1">
+                                            <description>
+                                                <p>This describes how component 'This System' is used to satisfy the control requirements.</p>
+                                            </description>
+                                        </by-component>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="invalid-component-match" label="it is valid."/>
+                </x:scenario>
+                <x:scenario label="and it references a component with an ID not previously declared.">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <component uuid="8644cdab-afe3-47ec-a382-623a25dce632" component-type="system">
+                                    <title>This System</title>
+                                    <description>
+                                       <p>This component is referenced in the implemented requirement.</p>
+                                    </description>
+                                    <status state="operational"/>
+                                 </component>
+                                 <implemented-requirement control-id="ac-2" uuid="5a3d0273-d668-4883-9891-e518d2a27b3d">
+                                    <statement statement-id="ac-2_stmt.a" uuid="4a44a707-9acf-4fe9-b2a6-947c6f9eebf8">
+                                        <by-component component-uuid="d5de542c-cbed-4f04-8c94-72f258d28797" uuid="9cf0fac3-5d3d-4c85-a000-4c3aff5f9b72">
+                                            <description>
+                                                <p>This should describe how component 'This System' but the component UUID is wrong.</p>
+                                            </description>
+                                        </by-component>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="invalid-component-match" label="it generates a warning." role="warning"/>
+                </x:scenario>
+                <x:scenario label="and it references a component with an ID and no components are declared.">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                 <implemented-requirement control-id="ac-2" uuid="dfd3dff9-cb6d-4fd0-a35f-c47aff127483">
+                                    <statement statement-id="ac-2_stmt.a" uuid="dd8def77-dc3b-4cd4-a63f-7874c8883a58">
+                                        <by-component component-uuid="f49150ad-12a3-426c-b2ae-0c46d5c6f881" uuid="20e81d58-3bbd-4759-b7e4-f5c2e18df702">
+                                            <description>
+                                                <p>This should describe how component 'This System' but the component UUID is wrong.</p>
+                                            </description>
+                                        </by-component>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="invalid-component-match" label="it generates a warning." role="warning"/>
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="and implemented requirements have explanatory statement descriptions defined directly in the statement">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>low</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement control-id="ac-2" uuid="68aae076-23ce-4620-bf66-32a8da15d696">
+                                <statement statement-id="ac-2_stmt.a" uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
+                                    <description><p>This shouldn not be here.</p></description>
+                                </statement>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="extraneous-response-description" label="it generates a warning." role="warning"/>
+            </x:scenario>
+            <x:scenario label="and implemented requirements have explanatory statement remarks defined directly in the statement">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>low</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement control-id="ac-2" uuid="4325e92d-e888-42ff-9d49-f5231129c4d3">                                ">
+                                <statement statement-id="ac-2_stmt.a" uuid="a8419fd8-2666-4851-8191-94d054c9ef1c">                                    ">
+                                    <remarks><p>This shouldn not be here.</p></remarks>
+                                </statement>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="extraneous-response-remarks" label="it generates a warning." role="warning"/>
+            </x:scenario>
+            <x:scenario label="and implemented requirements have explanatory statement in a component reference">
+                <x:scenario label="and the component reference has a description">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <implemented-requirement control-id="ac-2" uuid="ac002979-59cc-4134-bac8-acd9e82a2915">
+                                    <statement statement-id="ac-2_stmt.a" uuid="">
+                                        <by-component component-uuid="23b822f1-5b62-4ddd-8636-6dfc3512241e" uuid="7d126750-533c-460b-9fa8-ba1c81f4d0d5">
+                                            <description>
+                                                <p>This describes <strong>how</strong> this component implements requirements in more than 20 chars.</p>
+                                            </description>
+                                        </by-component>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="missing-component-description" label="it is valid."/>
+                </x:scenario>
+                <x:scenario label="and the component reference has no description">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <implemented-requirement control-id="ac-2" uuid="51d4bf48-f0f6-408e-b3be-a596b04d996e">
+                                    <statement statement-id="ac-2_stmt.a" uuid="54f1ed90-c0a5-4c2e-943e-bda1eacb8ed0">
+                                        <by-component component-uuid="75245bbd-f761-46cf-baf4-084bf2ab5438" uuid="4d275109-976d-47b1-a239-1968a9e14e86"/>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="missing-component-description" label="it is valid."/>
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="and implemented requirements have explanatory statement descriptions properly defined in a component reference">
+                <x:scenario label="and it is sufficiently long">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <implemented-requirement control-id="ac-2" uuid="68aae076-23ce-4620-bf66-32a8da15d696">
+                                    <statement statement-id="ac-2_stmt.a" uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
+                                        <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201" uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
+                                            <description>
+                                                <p>This describes <strong>how</strong> this component implements requirements in more than 20 chars.</p>
+                                            </description>
+                                        </by-component>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="incomplete-response-description" label="it is valid."/>
+                </x:scenario>
+                <x:scenario label="and it is not sufficiently long">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <implemented-requirement control-id="ac-2" uuid="68aae076-23ce-4620-bf66-32a8da15d696">
+                                    <statement statement-id="ac-2_stmt.a" uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
+                                        <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201" uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
+                                            <description>
+                                                <p>Too short.</p>
+                                            </description>
+                                        </by-component>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="incomplete-response-description" label="it is invalid."/>
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="and implemented requirements have explanatory statement remarks properly defined in a component reference">
+                <x:scenario label="and it is sufficiently long">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <implemented-requirement control-id="ac-2" uuid="68aae076-23ce-4620-bf66-32a8da15d696">
+                                    <statement statement-id="ac-2_stmt.a" uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
+                                        <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201" uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
+                                            <remarks>
+                                                <p>This describes <strong>how</strong> this component implements requirements in more than 20 chars.</p>
+                                            </remarks>
+                                        </by-component>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="incomplete-response-remarks" label="it is valid."/>
+                </x:scenario>
+                <x:scenario label="and it is not sufficiently long">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <implemented-requirement control-id="ac-2" uuid="68aae076-23ce-4620-bf66-32a8da15d696">
+                                    <statement statement-id="ac-2_stmt.a" uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
+                                        <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201" uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
+                                            <remarks>
+                                                <p>Too short.</p>
+                                            </remarks>
+                                        </by-component>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="incomplete-response-remarks" label="it is invalid." role="warning"/>
+                </x:scenario>
+            </x:scenario>
         </x:scenario>
         <x:scenario label="when the most important core controls are defined">
             <x:scenario label="and these controls do not have implemented requirements">
