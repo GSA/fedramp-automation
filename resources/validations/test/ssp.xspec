@@ -191,6 +191,73 @@
                     <x:expect-assert id="invalid-component-match" label="it generates a warning." role="warning"/>
                 </x:scenario>
             </x:scenario>
+            <x:scenario label="and the profile defines specific response points to address specific control requirements">
+                <x:scenario label="and response points are properly defined">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <system-implementation>
+                                <component uuid="5129f6ad-53f7-47be-9e5c-22728012264a" component-type="system">
+                                    <title>This System</title>
+                                    <description>
+                                    <p>This component is referenced in the implemented requirement.</p>
+                                    </description>
+                                    <status state="operational"/>
+                                </component>
+                            </system-implementation>
+                            <control-implementation>
+                                <!-- Requirements and lettered responses for AC-7 are complete, so these will be absent from the report. -->
+                                <implemented-requirement control-id="ac-7" uuid="c1a9916f-cba6-4910-b2ea-b4ba17b03480">
+                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                    <statement statement-id="ac-7_smt.a" uuid="8d8e73f3-b966-4b3e-a545-93923885ba2a">
+                                        <by-component component-uuid="5129f6ad-53f7-47be-9e5c-22728012264a" uuid="fa680b3c-9da9-443f-9a4c-db731a5218f7">
+                                            <description>
+                                                <p>This describes how component 'This System' is used to satisfy the control requirements.</p>
+                                            </description>
+                                        </by-component>
+                                    </statement>
+                                    <statement statement-id="ac-7_smt.b" uuid="5794c9a0-01c5-499e-b58f-1beed1585576">
+                                        <by-component component-uuid="5129f6ad-53f7-47be-9e5c-22728012264a" uuid="34afa29a-c258-42fb-b08d-0c21be7f814d">
+                                            <description>
+                                                <p>This describes how component 'This System' is used to satisfy the control requirements.</p>
+                                            </description>
+                                        </by-component>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-report id="implemented-response-points" label="those defined are validated."/>
+                    <x:expect-assert id="missing-response-points" label="it generates an error because missing response points are invalid." role="error"/>
+                </x:scenario>
+                <x:scenario label="and response points are missing">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <system-implementation>
+                                <component uuid="5129f6ad-53f7-47be-9e5c-22728012264a" component-type="system">
+                                    <title>This System</title>
+                                    <description>
+                                    <p>This component is referenced in the implemented requirement.</p>
+                                    </description>
+                                    <status state="operational"/>
+                                </component>
+                            </system-implementation>
+                            <control-implementation>
+                                <implemented-requirement control-id="ac-1" uuid="c1a9916f-cba6-4910-b2ea-b4ba17b03480">
+                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-report id="implemented-response-points" label="it does not report on valid response points as they are missing."/>
+                    <x:expect-assert id="missing-response-points" label="it generates an error because missing response points are invalid." role="error"/>
+                </x:scenario>
+            </x:scenario>
             <x:scenario label="and implemented requirements have explanatory statement descriptions defined directly in the statement">
                 <x:context>
                     <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">

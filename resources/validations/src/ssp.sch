@@ -211,14 +211,14 @@
 
     <sch:rule context="/o:system-security-plan/o:control-implementation">
     <sch:let name="registry" value="$registry-href => lv:registry()"/>
-        <sch:let name="registry-namespace" value="$registry/f:fedramp-values/f:namespace/f:ns/@ns"/>
+        <sch:let name="registry-ns" value="$registry/f:fedramp-values/f:namespace/f:ns/@ns"/>
         <sch:let name="sensitivity-level" value="/ => lv:sensitivity-level()"/>
         <sch:let name="ok-values" value="$registry/f:fedramp-values/f:value-set[@name='control-implementation-status']"/>
         <sch:let name="selected-profile" value="$sensitivity-level => lv:profile()"/>
         <sch:let name="required-controls" value="$selected-profile/*//o:control"/>
         <sch:let name="implemented" value="o:implemented-requirement"/>
         <sch:let name="all-missing" value="$required-controls[not(@id = $implemented/@control-id)]"/>
-        <sch:let name="core-missing" value="$required-controls[o:prop[@name='CORE' and @ns=$registry-namespace] and @id = $all-missing/@id]"/>
+        <sch:let name="core-missing" value="$required-controls[o:prop[@name='CORE' and @ns=$registry-ns] and @id = $all-missing/@id]"/>
         <sch:let name="extraneous" value="$implemented[not(@control-id = $required-controls/@id)]"/>
         <sch:report id="each-required-control-report" test="count($required-controls) > 0">The following <sch:value-of select="count($required-controls)"/><sch:value-of select="if (count($required-controls)=1) then ' control' else ' controls'"/> are required: <sch:value-of select="$required-controls/@id"/></sch:report>
         <sch:assert role="error" id="incomplete-core-implemented-requirements" test="not(exists($core-missing))">This SSP has not implemented the most important <sch:value-of select="count($core-missing)"/> core<sch:value-of select="if (count($core-missing)=1) then ' control' else ' controls'"/>: <sch:value-of select="$core-missing/@id"/></sch:assert>
@@ -230,10 +230,64 @@
     </sch:rule>
 
     <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement">
+        <sch:let name="sensitivity-level" value="/ => lv:sensitivity-level() => lv:if-empty-default('')"/>
+        <sch:let name="selected-profile" value="$sensitivity-level => lv:profile()"/>
         <sch:let name="registry" value="$registry-href => lv:registry()"/>
+        <sch:let name="registry-ns" value="$registry/f:fedramp-values/f:namespace/f:ns/@ns"/>
         <sch:let name="status" value="./o:annotation[@name='implementation-status']/@value"/>
         <sch:let name="corrections" value="lv:correct($registry/f:fedramp-values/f:value-set[@name='control-implementation-status'], $status)"/>
+        <sch:let name="required-response-points" value="$selected-profile/o:catalog//o:part[@name='item' and o:prop[@name='response-point' and @ns=$registry-ns]]"/>
+        <sch:let name="implemented" value="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement"/>
+        <sch:let name="missing" value="$required-response-points[not(@id = $implemented/@statement-id)]"/>
         <sch:assert role="error" id="invalid-implementation-status" test="not(exists($corrections))">Invalid status '<sch:value-of select="$status"/>' for <sch:value-of select="./@control-id"/>, must be <sch:value-of select="$corrections"/></sch:assert>
+        <sch:report id="implemented-response-points" test="exists($implemented)"
+            >This SSP has implemented a statement for each of the following lettered response points for required controls: <sch:value-of select="$implemented/@statement-id"/>.</sch:report>
+        <sch:assert role="error" id="missing-response-points" test="not(exists($missing))"
+            >This SSP has not implemented a statement for each of the following lettered response points for required controls: <sch:value-of select="$missing/@id"/>.</sch:assert>
+    </sch:rule>
+
+    <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement">
+        <sch:let name="required-components-count" value="1"/>
+        <sch:let name="required-length" value="20"/>
+        <sch:let name="components-count" value="./o:by-component => count()"/>
+        <sch:let name="remarks" value="./o:remarks => normalize-space()"/>
+        <sch:let name="remarks-length" value="$remarks => string-length()"/>
+        <sch:assert role="warning" id="missing-response-components" test="$components-count >= $required-components-count"
+            >Response statements for <sch:value-of select="./@statement-id"/> must have at least <sch:value-of select="$required-components-count"/><sch:value-of select="if (count($components-count)=1) then ' component' else ' components'"/> with a description. There are <sch:value-of select="$components-count"/>.</sch:assert>
+    </sch:rule>
+
+    <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description">
+        <sch:assert role="warning" id="extraneous-response-description" test=". => empty()"
+            >Response statement <sch:value-of select="../@statement-id"/> has a description not within a component. That was previously allowed, but not recommended. It will soon be syntactically invalid and deprecated.</sch:assert>
+    </sch:rule>
+
+    <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks">
+        <sch:assert role="warning" id="extraneous-response-remarks" test=". => empty()"
+            >Response statement <sch:value-of select="../@statement-id"/> has remarks not within a component. That was previously allowed, but not recommended. It will soon be syntactically invalid and deprecated.</sch:assert>
+    </sch:rule>
+
+    <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component">
+        <sch:let name="component-ref" value="./@component-uuid"/>
+        <sch:assert role="warning" id="invalid-component-match" test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] => exists()"
+            >Response statment <sch:value-of select="../@statement-id"/> with component reference UUID '<sch:value-of select="$component-ref"/>' is not in the system implementation inventory, and cannot be used to define a control.</sch:assert>
+        <sch:assert role="error" id="missing-component-description" test="./o:description => exists()"
+            >Response statement <sch:value-of select="../@statement-id"/> has a component, but that component is missing a required description node.</sch:assert>"
+    </sch:rule>
+
+    <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:description">
+        <sch:let name="required-length" value="20"/>
+        <sch:let name="description" value=". => normalize-space()"/>
+        <sch:let name="description-length" value="$description => string-length()"/>
+        <sch:assert role="error" id="incomplete-response-description" test="$description-length >= $required-length"
+            >Response statement component description for <sch:value-of select="../../@statement-id"/> is too short with <sch:value-of select="$description-length"/> characters. It must be <sch:value-of select="$required-length"/> characters long.</sch:assert>
+    </sch:rule>
+
+    <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:remarks">
+        <sch:let name="required-length" value="20"/>
+        <sch:let name="remarks" value=". => normalize-space()"/>
+        <sch:let name="remarks-length" value="$remarks => string-length()"/>
+        <sch:assert role="warning" id="incomplete-response-remarks" test="$remarks-length >= $required-length"
+            >Response statement component remarks for <sch:value-of select="../../@statement-id"/> is too short with <sch:value-of select="$remarks-length"/> characters. It must be <sch:value-of select="$required-length"/> characters long.</sch:assert>
     </sch:rule>
 
     <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement">
