@@ -5,13 +5,20 @@ Schematron Validations for OSCAL
 
 project structure
 ---
+All directory references are local to the `fedramp-automation/resources/validations`
 
 `/src` for the sch files
+
 `/lib` for toolchain dependencies (e.g. Schematron)
+
 `/report/test` for XSpec outputs
+
 `/report/schematron` for final validations in Schematron SVRL reporting format
+
 `/target` for intermediary and compiled artifacts (e.g. XSLT stylesheets)
+
 `/test` for any XSpec or other testing artifacts
+
 `/test/demo` xml files for validating XSpec against
 
 To validate xml files using schematron
