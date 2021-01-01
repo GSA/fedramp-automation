@@ -242,7 +242,7 @@
         <sch:let name="registry-ns" value="$registry/f:fedramp-values/f:namespace/f:ns/@ns"/>
         <sch:let name="status" value="./o:annotation[@name='implementation-status']/@value"/>
         <sch:let name="corrections" value="lv:correct($registry/f:fedramp-values/f:value-set[@name='control-implementation-status'], $status)"/>
-        <sch:let name="required-response-points" value="$selected-profile/o:catalog//o:part[@name='item' and o:prop[@name='response-point' and @ns=$registry-ns]]"/>
+        <sch:let name="required-response-points" value="$selected-profile/o:catalog//o:part[@name='item']"/>
         <sch:let name="implemented" value="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement"/>
         <sch:let name="missing" value="$required-response-points[not(@id = $implemented/@statement-id)]"/>
         <sch:assert role="error" id="invalid-implementation-status" test="not(exists($corrections))">Invalid status '<sch:value-of select="$status"/>' for <sch:value-of select="./@control-id"/>, must be <sch:value-of select="$corrections"/></sch:assert>
