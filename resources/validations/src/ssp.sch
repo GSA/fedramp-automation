@@ -89,9 +89,15 @@
 <xsl:function name="lv:profile" as="document-node()*">
     <xsl:param name="level" />
     <xsl:variable name="profile-map">
-        <profile level="low" href="../../../baselines/xml/FedRAMP_LOW-baseline-resolved-profile_catalog.xml"/>
-        <profile level="moderate" href="../../../baselines/xml/FedRAMP_MODERATE-baseline-resolved-profile_catalog.xml"/>
-        <profile level="high" href="../../../baselines/xml/FedRAMP_HIGH-baseline-resolved-profile_catalog.xml"/>
+        <!-- 
+            OSCAL releases are tagged, but updates from OSCAL CI/CD pipeline to
+            github.com/usnistgov/oscal-content are not. The 0f78f05 commit is the
+            most recent triggered by the OSCAL 1.0.0-rc1 release. Change this url
+            accordingly if you know what you are doing.
+        -->
+        <profile level="low" href="https://raw.githubusercontent.com/usnistgov/oscal-content/0f78f05f0953e64f37b5cb24e0522030d82fc1fa/fedramp.gov/xml/FedRAMP_LOW-baseline-resolved-profile_catalog.xml"/>
+        <profile level="moderate" href="https://raw.githubusercontent.com/usnistgov/oscal-content/0f78f05f0953e64f37b5cb24e0522030d82fc1fa/fedramp.gov/xml/FedRAMP_MODERATE-baseline-resolved-profile_catalog.xml"/>
+        <profile level="high" href="https://raw.githubusercontent.com/usnistgov/oscal-content/0f78f05f0953e64f37b5cb24e0522030d82fc1fa/fedramp.gov/xml/FedRAMP_HIGH-baseline-resolved-profile_catalog.xml"/>
     </xsl:variable>
     <xsl:variable name="href" select="$profile-map/profile[@level=$level]/@href"/>
     <xsl:sequence select="doc(resolve-uri($href))"/>
