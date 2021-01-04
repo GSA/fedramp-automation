@@ -1015,7 +1015,7 @@
          <set-parameter param-id="ac-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="ac-1_stmt.a" uuid="fb4d039a-dc4f-46f5-9c1f-f6343eaf69bc">
+         <statement statement-id="ac-1_smt.a" uuid="fb4d039a-dc4f-46f5-9c1f-f6343eaf69bc">
             <!-- Service Provider Responsibility -->
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="3f5612a4-cd1d-4c47-8cae-75d2eaa332cd">
                <description>
@@ -1027,24 +1027,24 @@
                <p>Any control implementation response that can not be associated with another component is associated with the component representing the system.</p>
             </remarks>
          </statement>
-         <statement statement-id="ac-1_stmt.a.1" uuid="0afdccce-b5ed-4127-ae19-cfbdd17d775e">
+         <statement statement-id="ac-1_smt.a.1" uuid="0afdccce-b5ed-4127-ae19-cfbdd17d775e">
             <link href="#090ab379-2089-4830-b9fd-26d0729e22e9" rel="policy"/>
             <remarks>
                <p>This identifies a policy (attached in resources) that satisfies this control.</p>
             </remarks>
          </statement>
-         <statement statement-id="ac-1_stmt.a.2" uuid="ffaf5e02-3055-40df-bbeb-3b94e834a43f">
+         <statement statement-id="ac-1_smt.a.2" uuid="ffaf5e02-3055-40df-bbeb-3b94e834a43f">
             <link href="#att-process-1" rel="process"/>
             <remarks>
                <p>This identifies a process (attached in resources) that satisfies this control.</p>
             </remarks>
          </statement>
-         <statement statement-id="ac-1_stmt.b.1" uuid="b46f97ec-55c1-4249-a9b9-3a228f1e3791">
+         <statement statement-id="ac-1_smt.b.1" uuid="b46f97ec-55c1-4249-a9b9-3a228f1e3791">
             <description>
                <p>Describe how Part b-1 is satisfied.</p>
             </description>
          </statement>
-         <statement statement-id="ac-1_stmt.b.2" uuid="59c67969-3d5c-45f1-8e3e-1e642249633f">
+         <statement statement-id="ac-1_smt.b.2" uuid="59c67969-3d5c-45f1-8e3e-1e642249633f">
             <description>
                <p>Describe how Part b-2 is satisfied.</p>
             </description>
@@ -1089,7 +1089,7 @@
          <set-parameter param-id="ac-2_prm_4">
             <value>[SAMPLE]annually</value>
          </set-parameter>
-         <statement statement-id="ac-2_stmt.a" uuid="24a85abb-25ad-4686-850c-5c0e8ab69a0c">
+         <statement statement-id="ac-2_smt.a" uuid="24a85abb-25ad-4686-850c-5c0e8ab69a0c">
             <description>
                <p>Do not respond to this statement here. Respond within the <code>by-component</code> assembly below.</p>
             </description>
@@ -1151,7 +1151,7 @@
          <set-parameter param-id="at-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="at-1_stmt.a" uuid="ee5a11fb-9bae-4680-8f8c-575c85d47355">
+         <statement statement-id="at-1_smt.a" uuid="ee5a11fb-9bae-4680-8f8c-575c85d47355">
             <description>
                <p>Component-based Approach</p>
             </description>
@@ -1162,19 +1162,19 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="at-1_stmt.a.1" uuid="2e8ec7ce-c9c6-4f5f-9d50-3a3b9d3acf65">
+         <statement statement-id="at-1_smt.a.1" uuid="2e8ec7ce-c9c6-4f5f-9d50-3a3b9d3acf65">
             <link href="#090ab379-2089-4830-b9fd-26d0729e22e9" rel="policy"/>
             <remarks>
                <p>This identifies a policy (attached in resources) that satisfies this control.</p>
             </remarks>
          </statement>
-         <statement statement-id="at-1_stmt.a.2" uuid="e7f9b618-c092-4b8b-b416-0ee477026726">
+         <statement statement-id="at-1_smt.a.2" uuid="e7f9b618-c092-4b8b-b416-0ee477026726">
             <link href="#att-process-1" rel="process"/>
             <remarks>
                <p>This identifies a process (attached in resources) that satisfies this control.</p>
             </remarks>
          </statement>
-         <statement statement-id="at-1_stmt.b.1" uuid="29192f0b-edb1-4820-b951-65ffdc64bb3e">
+         <statement statement-id="at-1_smt.b.1" uuid="29192f0b-edb1-4820-b951-65ffdc64bb3e">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1185,7 +1185,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="at-1_stmt.b.2" uuid="23a9bfa7-6e3f-4e00-a120-791b26a9157e">
+         <statement statement-id="at-1_smt.b.2" uuid="23a9bfa7-6e3f-4e00-a120-791b26a9157e">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1215,7 +1215,7 @@
          <set-parameter param-id="au-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="au-1_stmt.a" uuid="9a2bd937-226e-4aaf-8261-2cf0c2e3aa10">
+         <statement statement-id="au-1_smt.a" uuid="9a2bd937-226e-4aaf-8261-2cf0c2e3aa10">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1227,7 +1227,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="au-1_stmt.b.1" uuid="d01f186f-a14f-4e22-b069-84a55e48a112">
+         <statement statement-id="au-1_smt.b.1" uuid="d01f186f-a14f-4e22-b069-84a55e48a112">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1239,7 +1239,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="au-1_stmt.b.2" uuid="ea153acb-2bd0-41d9-8ebd-ba022d31230a">
+         <statement statement-id="au-1_smt.b.2" uuid="ea153acb-2bd0-41d9-8ebd-ba022d31230a">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1270,7 +1270,7 @@
          <set-parameter param-id="ca-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="ca-1_stmt.a" uuid="e7bd0a7e-5f92-4769-8cd3-76ad2f663a5c">
+         <statement statement-id="ca-1_smt.a" uuid="e7bd0a7e-5f92-4769-8cd3-76ad2f663a5c">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1282,7 +1282,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ca-1_stmt.b.1" uuid="b2c3ec86-b976-4e5a-9dc3-4ac2d570765e">
+         <statement statement-id="ca-1_smt.b.1" uuid="b2c3ec86-b976-4e5a-9dc3-4ac2d570765e">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1294,7 +1294,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ca-1_stmt.b.2" uuid="e9474eb8-36d6-4eab-abeb-f9bd17e66b22">
+         <statement statement-id="ca-1_smt.b.2" uuid="e9474eb8-36d6-4eab-abeb-f9bd17e66b22">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1325,7 +1325,7 @@
          <set-parameter param-id="cm-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="cm-1_stmt.a" uuid="52339583-19b6-4774-9213-50b9f42fe51f">
+         <statement statement-id="cm-1_smt.a" uuid="52339583-19b6-4774-9213-50b9f42fe51f">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1337,7 +1337,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="cm-1_stmt.b.1" uuid="f9cc6f3f-c64f-4fae-9a32-f964ebdc8e74">
+         <statement statement-id="cm-1_smt.b.1" uuid="f9cc6f3f-c64f-4fae-9a32-f964ebdc8e74">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1349,7 +1349,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="cm-1_stmt.b.2" uuid="c548a71f-41d6-4e8c-b400-1764379348c4">
+         <statement statement-id="cm-1_smt.b.2" uuid="c548a71f-41d6-4e8c-b400-1764379348c4">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1380,7 +1380,7 @@
          <set-parameter param-id="cp-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="cp-1_stmt.a" uuid="8bde1fa5-eb81-4a1b-9e6e-5827e176025a">
+         <statement statement-id="cp-1_smt.a" uuid="8bde1fa5-eb81-4a1b-9e6e-5827e176025a">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1392,7 +1392,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="cp-1_stmt.b.1" uuid="2fc9eec1-a49f-4cfa-9f7b-c702a1e21619">
+         <statement statement-id="cp-1_smt.b.1" uuid="2fc9eec1-a49f-4cfa-9f7b-c702a1e21619">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1404,7 +1404,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="cp-1_stmt.b.2" uuid="db5b3977-bd51-4505-b3e2-1597bbd4d930">
+         <statement statement-id="cp-1_smt.b.2" uuid="db5b3977-bd51-4505-b3e2-1597bbd4d930">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1435,7 +1435,7 @@
          <set-parameter param-id="ia-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="ia-1_stmt.a" uuid="ba92e479-705f-47a4-a763-dfc098ba239d">
+         <statement statement-id="ia-1_smt.a" uuid="ba92e479-705f-47a4-a763-dfc098ba239d">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1447,7 +1447,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ia-1_stmt.b.1" uuid="dba8c469-5758-497e-9856-e472a2e08677">
+         <statement statement-id="ia-1_smt.b.1" uuid="dba8c469-5758-497e-9856-e472a2e08677">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1459,7 +1459,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ia-1_stmt.b.2" uuid="b56e37b1-1f4c-479b-bfa1-a2773c2eebfd">
+         <statement statement-id="ia-1_smt.b.2" uuid="b56e37b1-1f4c-479b-bfa1-a2773c2eebfd">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1490,7 +1490,7 @@
          <set-parameter param-id="ir-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="ir-1_stmt.a" uuid="7284efc2-d953-486c-ab8a-3caef6ce06c3">
+         <statement statement-id="ir-1_smt.a" uuid="7284efc2-d953-486c-ab8a-3caef6ce06c3">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1502,7 +1502,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ir-1_stmt.b.1" uuid="75c37e1a-6e8d-4ef0-99f4-c16f7995706c">
+         <statement statement-id="ir-1_smt.b.1" uuid="75c37e1a-6e8d-4ef0-99f4-c16f7995706c">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1514,7 +1514,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ir-1_stmt.b.2" uuid="900591ec-2006-4622-bc87-59828d884d4f">
+         <statement statement-id="ir-1_smt.b.2" uuid="900591ec-2006-4622-bc87-59828d884d4f">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1545,7 +1545,7 @@
          <set-parameter param-id="ma-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="ma-1_stmt.a" uuid="d609e538-3976-418e-a368-58fc75cd03c0">
+         <statement statement-id="ma-1_smt.a" uuid="d609e538-3976-418e-a368-58fc75cd03c0">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1557,7 +1557,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ma-1_stmt.b.1" uuid="df1a6dd8-9e18-4408-8783-cb30e0413f22">
+         <statement statement-id="ma-1_smt.b.1" uuid="df1a6dd8-9e18-4408-8783-cb30e0413f22">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1569,7 +1569,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ma-1_stmt.b.2" uuid="f02f759d-7d4c-41f2-b153-f3cc1e157e39">
+         <statement statement-id="ma-1_smt.b.2" uuid="f02f759d-7d4c-41f2-b153-f3cc1e157e39">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1600,7 +1600,7 @@
          <set-parameter param-id="mp-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="mp-1_stmt.a" uuid="bab45ad3-65ee-43bc-9c3e-c3e4e2db8001">
+         <statement statement-id="mp-1_smt.a" uuid="bab45ad3-65ee-43bc-9c3e-c3e4e2db8001">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1612,7 +1612,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="mp-1_stmt.b.1" uuid="ca35d4a5-ca73-4b3a-aa66-6c712c7a4a49">
+         <statement statement-id="mp-1_smt.b.1" uuid="ca35d4a5-ca73-4b3a-aa66-6c712c7a4a49">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1624,7 +1624,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="mp-1_stmt.b.2" uuid="0c5c6eda-9644-46f2-a29c-16fe4e248621">
+         <statement statement-id="mp-1_smt.b.2" uuid="0c5c6eda-9644-46f2-a29c-16fe4e248621">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1655,7 +1655,7 @@
          <set-parameter param-id="pe-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="pe-1_stmt.a" uuid="11fd3e46-4735-4986-91bc-747345fe608a">
+         <statement statement-id="pe-1_smt.a" uuid="11fd3e46-4735-4986-91bc-747345fe608a">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1667,7 +1667,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="pe-1_stmt.b.1" uuid="a37f91e2-190d-40f7-829c-39776c14c8b4">
+         <statement statement-id="pe-1_smt.b.1" uuid="a37f91e2-190d-40f7-829c-39776c14c8b4">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1679,7 +1679,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="pe-1_stmt.b.2" uuid="f3d57138-916c-4064-b2fc-aa8dd76849f8">
+         <statement statement-id="pe-1_smt.b.2" uuid="f3d57138-916c-4064-b2fc-aa8dd76849f8">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1710,7 +1710,7 @@
          <set-parameter param-id="pl-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="pl-1_stmt.a" uuid="ec7af577-ff22-46bf-ac0a-cf9d75c72ebb">
+         <statement statement-id="pl-1_smt.a" uuid="ec7af577-ff22-46bf-ac0a-cf9d75c72ebb">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1722,7 +1722,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="pl-1_stmt.b.1" uuid="438f3e29-670a-49f2-8b9f-05d951318294">
+         <statement statement-id="pl-1_smt.b.1" uuid="438f3e29-670a-49f2-8b9f-05d951318294">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1734,7 +1734,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="pl-1_stmt.b.2" uuid="96a4d13c-bd2b-4038-96c5-0f923f404bbd">
+         <statement statement-id="pl-1_smt.b.2" uuid="96a4d13c-bd2b-4038-96c5-0f923f404bbd">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1765,7 +1765,7 @@
          <set-parameter param-id="ps-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="ps-1_stmt.a" uuid="afe1703d-5e59-460b-b048-41b49699c5a1">
+         <statement statement-id="ps-1_smt.a" uuid="afe1703d-5e59-460b-b048-41b49699c5a1">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1777,7 +1777,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ps-1_stmt.b.1" uuid="956c93e2-cf8f-482c-aaf7-91ab44c7cbd6">
+         <statement statement-id="ps-1_smt.b.1" uuid="956c93e2-cf8f-482c-aaf7-91ab44c7cbd6">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1789,7 +1789,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ps-1_stmt.b.2" uuid="6926c688-3fb2-4ab8-9acb-cff0b5acd365">
+         <statement statement-id="ps-1_smt.b.2" uuid="6926c688-3fb2-4ab8-9acb-cff0b5acd365">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1820,7 +1820,7 @@
          <set-parameter param-id="ra-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="ra-1_stmt.a" uuid="8fe541ea-0920-42d0-8561-4e08f04d796c">
+         <statement statement-id="ra-1_smt.a" uuid="8fe541ea-0920-42d0-8561-4e08f04d796c">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1832,7 +1832,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ra-1_stmt.b.1" uuid="b0e9ed47-fe83-485d-8d79-979833543a83">
+         <statement statement-id="ra-1_smt.b.1" uuid="b0e9ed47-fe83-485d-8d79-979833543a83">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1844,7 +1844,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="ra-1_stmt.b.2" uuid="d9a38f95-ded1-4d1d-afe2-242987222ebd">
+         <statement statement-id="ra-1_smt.b.2" uuid="d9a38f95-ded1-4d1d-afe2-242987222ebd">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1875,7 +1875,7 @@
          <set-parameter param-id="sa-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="sa-1_stmt.a" uuid="ae3f64be-2e62-4347-b06a-727bc28e4f9b">
+         <statement statement-id="sa-1_smt.a" uuid="ae3f64be-2e62-4347-b06a-727bc28e4f9b">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1887,7 +1887,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="sa-1_stmt.b.1" uuid="959519a9-3e12-47bc-8d76-50d9ab0b6544">
+         <statement statement-id="sa-1_smt.b.1" uuid="959519a9-3e12-47bc-8d76-50d9ab0b6544">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1899,7 +1899,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="sa-1_stmt.b.2" uuid="9daa3848-9672-469c-9aa0-f363e3339123">
+         <statement statement-id="sa-1_smt.b.2" uuid="9daa3848-9672-469c-9aa0-f363e3339123">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1930,7 +1930,7 @@
          <set-parameter param-id="sc-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="sc-1_stmt.a" uuid="5e2e8372-c13b-4cf5-90c5-e8833a9fe241">
+         <statement statement-id="sc-1_smt.a" uuid="5e2e8372-c13b-4cf5-90c5-e8833a9fe241">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1942,7 +1942,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="sc-1_stmt.b.1" uuid="8166980a-86c0-497d-87e4-453adfd0d4bd">
+         <statement statement-id="sc-1_smt.b.1" uuid="8166980a-86c0-497d-87e4-453adfd0d4bd">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1954,7 +1954,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="sc-1_stmt.b.2" uuid="eeea34ff-18ab-4c35-bf32-c74dbf746e7b">
+         <statement statement-id="sc-1_smt.b.2" uuid="eeea34ff-18ab-4c35-bf32-c74dbf746e7b">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1985,7 +1985,7 @@
          <set-parameter param-id="si-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <statement statement-id="si-1_stmt.a" uuid="915b10d2-2275-4d86-951a-eec23f9ee77a">
+         <statement statement-id="si-1_smt.a" uuid="915b10d2-2275-4d86-951a-eec23f9ee77a">
             <description>
                <p>Ignore.</p>
             </description>
@@ -1997,7 +1997,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="si-1_stmt.b.1" uuid="2a5a6f7f-aeea-4ea4-be1e-859df4bf7521">
+         <statement statement-id="si-1_smt.b.1" uuid="2a5a6f7f-aeea-4ea4-be1e-859df4bf7521">
             <description>
                <p>Ignore.</p>
             </description>
@@ -2009,7 +2009,7 @@
                </description>
             </by-component>
          </statement>
-         <statement statement-id="si-1_stmt.b.2" uuid="c152bbde-57fc-4864-ac51-861bd8bb83b4">
+         <statement statement-id="si-1_smt.b.2" uuid="c152bbde-57fc-4864-ac51-861bd8bb83b4">
             <description>
                <p>Ignore.</p>
             </description>
