@@ -677,6 +677,136 @@
             </x:context>
             <x:expect-not-assert id="extraneous-implemented-requirements" label="it is valid."/>
         </x:scenario>
+        <x:scenario label="when responsible party ">
+            <x:scenario label="references a valid role and valid party">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>>
+                            <role id="prepared-by">
+                                <title>Prepared By</title>
+                                <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
+                             </role>
+                             <party uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6" type="person">
+                                <party-name>[SAMPLE]Person Name 1</party-name>
+                                <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+                                <address>
+                                    <addr-line>Mailstop A-1</addr-line>
+                                </address>
+                                <email>name@org.domain</email>
+                                <phone>202-000-0001</phone>
+                                <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
+                                <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+                            </party>
+                            <responsible-party role-id="prepared-by">
+                                <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
+                                <remarks>
+                                <p>Exactly one</p>
+                                </remarks>
+                            </responsible-party>
+                        </metadata>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="incorrect-role-association" label="role positive case."/>
+                <x:expect-not-assert id="incorrect-party-association" label="party positive case."/>
+            </x:scenario>
+            <x:scenario label="references a valid role but invalid party">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>>
+                            <role id="prepared-by">
+                                <title>Prepared By</title>
+                                <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
+                             </role>
+
+                             <party uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6" type="person">
+                                <party-name>[SAMPLE]Person Name 1</party-name>
+                                <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+                                <address>
+                                    <addr-line>Mailstop A-1</addr-line>
+                                </address>
+                                <email>name@org.domain</email>
+                                <phone>202-000-0001</phone>
+                                <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
+                                <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+                            </party>
+
+                            <responsible-party role-id="prepared-by">
+                                <party-uuid>3360e343-9860-4bda-9dfc-xxxxxxxxxxxxx</party-uuid>
+                                <remarks>
+                                <p>Exactly one</p>
+                                </remarks>
+                            </responsible-party>
+                        </metadata>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="incorrect-party-association" label="party-uuid referenced is not defined, case."/>
+            </x:scenario>
+            
+            <x:scenario label="references an invalid role but valid party">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>>
+                            <role id="prepared-by">
+                                <title>Prepared By</title>
+                                <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
+                             </role>
+                             <party uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6" type="person">
+                                <party-name>[SAMPLE]Person Name 1</party-name>
+                                <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+                                <address>
+                                    <addr-line>Mailstop A-1</addr-line>
+                                </address>
+                                <email>name@org.domain</email>
+                                <phone>202-000-0001</phone>
+                                <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
+                                <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+                            </party>
+                            <responsible-party role-id="prepared-for">
+                                <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
+                                <remarks>
+                                <p>Exactly one</p>
+                                </remarks>
+                            </responsible-party>
+                        </metadata>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="incorrect-role-association" label="role-id referenced is not defined case."/>
+            </x:scenario>
+            
+            <x:scenario  label="references an invalid role and invalid party">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>>
+                            <role id="prepared-by">
+                                <title>Prepared By</title>
+                                <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
+                             </role>
+
+                             <party uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6" type="person">
+                                <party-name>[SAMPLE]Person Name 1</party-name>
+                                <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+                                <address>
+                                    <addr-line>Mailstop A-1</addr-line>
+                                </address>
+                                <email>name@org.domain</email>
+                                <phone>202-000-0001</phone>
+                                <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
+                                <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+                            </party>
+
+                            <responsible-party role-id="prepared-for">
+                                <party-uuid>3360e343-9860-4bda-9dfc-xxxxxxxxxxxxx</party-uuid>
+                                <remarks>
+                                <p>Exactly one</p>
+                                </remarks>
+                            </responsible-party>
+                        </metadata>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="incorrect-party-association" label="party-uuid referenced is not defined, case."/>
+                <x:expect-assert id="incorrect-role-association" label="role-id referenced is not defined case."/>
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
     <x:scenario label="For FedRAMP Automation helper functions">
         <x:scenario label="with if-empty-default">
@@ -842,4 +972,5 @@
             </x:scenario>
         </x:scenario>
     </x:scenario>
+
 </x:description>

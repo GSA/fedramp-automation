@@ -5,5 +5,6 @@ utils
 resources/validations/src/ssp.xsl
 resources/validations/report
 resources/validations/target
+resources/validations/test/xspec/*
 *.DS_Store
 resources/validations/lib/**.jar

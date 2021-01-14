@@ -340,5 +340,16 @@
             >Response statement component remarks for <sch:value-of select="../../@statement-id"/> is too short with <sch:value-of select="$remarks-length"/> characters. It must be <sch:value-of select="$required-length"/> characters long.</sch:assert>
     </sch:rule>
 
-</sch:pattern>
+ 
+    <sch:rule context="/o:system-security-plan/o:metadata">
+        <sch:let name="parties" value="o:party"/> 
+        <sch:let name="roles" value="o:role"/>
+        <sch:let name="responsible-parties" value="./o:responsible-party"/>
+        <sch:let name="extraneous-roles" value="$responsible-parties[not(@role-id = $roles/@id)]"/>
+        <sch:let name="extraneous-parties" value="$responsible-parties[not(o:party-uuid = $parties/@uuid)]"/>
+
+        <sch:assert id="incorrect-role-association" test="not(exists($extraneous-roles))">This SSP has defined a responsible party with <sch:value-of select="count($extraneous-roles)"/> <sch:value-of select="if (count($extraneous-roles)=1) then ' role' else ' roles'"/> not defined in the role: <sch:value-of select="$extraneous-roles/@role-id"/></sch:assert>
+        <sch:assert id="incorrect-party-association" test="not(exists($extraneous-parties))">This SSP has defined a responsible party with <sch:value-of select="count($extraneous-parties)"/> <sch:value-of select="if (count($extraneous-parties)=1) then ' party' else ' parties'"/> is not a defined party: <sch:value-of select="$extraneous-parties/o:party-uuid"/></sch:assert>
+    </sch:rule>
+  </sch:pattern>
 </sch:schema>
