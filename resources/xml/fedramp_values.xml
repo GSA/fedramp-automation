@@ -524,4 +524,25 @@
       </allowed-values>
    </value-set>
 
+   <value-set name="role-type">
+      <formal-name>Defined Role Identifiers</formal-name>
+      <description>Identifies the type of role for a responsible party.</description>
+      <binding pattern="role/@id"/>
+      <allowed-values allow-other="yes">
+         <enum value="assessor" label="Assesor">Assesor</enum>
+         <enum value="assessment-team" label="Assessment Team">Assessment Team</enum>
+         <enum value="assessment-lead" label="Assessment Lead">Assessment Lead</enum>
+         <enum value="assessment-executive" label="Assessment Executive">Assessment Executive</enum>
+         <enum value="cloud-service-provider" label="CSP">Cloud Service Provider</enum>
+         <enum value="csp-operations-center" label="CSP Operations Center">Cloud Service Provider Operations Center</enum>
+         <enum value="csp-assessment-poc" label="CSP Assessment PoC">Cloud Service Provider Assessment Point(s) of Contact</enum>
+         <enum value="csp-end-of-testing-poc" label="CSP End of Testing PoC">Cloud Service Provider End of Testing Point(s) of Contact</enum>
+         <enum value="csp-results-poc" label="CSP Results PoC">Cloud Service Provider Point(s) of Contact</enum>
+         <enum value="fedramp-pmo" label="FedRAMP PMO">FedRAMP Project Management Office (PMO)</enum>
+         <enum value="fedramp-jab" label="FedRAMP JAB">FedRAMP Joint Authorization Board (JAB)</enum>
+         <enum value="penetration-test-team" label="Penetration Test Team">Penetration Test Team</enum>
+         <enum value="penetration-test-lead" label="Penetration Test Lead">Penetration Test Lead</enum>
+      </allowed-values>
+   </value-set>
+
 </fedramp-values>

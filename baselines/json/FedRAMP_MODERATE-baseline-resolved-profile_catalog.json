@@ -1,6 +1,6 @@
 {
   "catalog": {
-    "uuid": "bcb4c7eb-1114-4186-a49a-c9074d90c37d",
+    "uuid": "1a1bd0e3-03f8-4d3d-9aa0-dbe774cc21dd",
     "metadata": {
       "title": "FedRAMP Moderate Baseline",
       "published": "2020-06-01T00:00:00.000-04:00",
@@ -10,7 +10,7 @@
       "properties": [
         {
           "name": "resolution-timestamp",
-          "value": "2020-11-04T21:49:14.194605Z"
+          "value": "2021-01-04T19:01:04.686217Z"
         }
       ],
       "links": [

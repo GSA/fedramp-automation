@@ -1770,7 +1770,7 @@
             }
           },
           "statements": {
-            "ac-1_stmt.a": {
+            "ac-1_smt.a": {
               "uuid": "fb4d039a-dc4f-46f5-9c1f-f6343eaf69bc",
               "by-components": {
                 "60f92bcf-f353-4236-9803-2a5d417555f4": {
@@ -1780,7 +1780,7 @@
               },
               "remarks": "The specified component is the system itself.\\n\\nAny control implementation response that can not be associated with another component is associated with the component representing the system."
             },
-            "ac-1_stmt.a.1": {
+            "ac-1_smt.a.1": {
               "uuid": "0afdccce-b5ed-4127-ae19-cfbdd17d775e",
               "links": [
                 {
@@ -1791,7 +1791,7 @@
               ],
               "remarks": "This identifies a policy (attached in resources) that satisfies this control."
             },
-            "ac-1_stmt.a.2": {
+            "ac-1_smt.a.2": {
               "uuid": "ffaf5e02-3055-40df-bbeb-3b94e834a43f",
               "links": [
                 {
@@ -1802,11 +1802,11 @@
               ],
               "remarks": "This identifies a process (attached in resources) that satisfies this control."
             },
-            "ac-1_stmt.b.1": {
+            "ac-1_smt.b.1": {
               "uuid": "b46f97ec-55c1-4249-a9b9-3a228f1e3791",
               "description": "Describe how Part b-1 is satisfied."
             },
-            "ac-1_stmt.b.2": {
+            "ac-1_smt.b.2": {
               "uuid": "59c67969-3d5c-45f1-8e3e-1e642249633f",
               "description": "Describe how Part b-2 is satisfied."
             }
@@ -1872,7 +1872,7 @@
             }
           },
           "statements": {
-            "ac-2_stmt.a": {
+            "ac-2_smt.a": {
               "uuid": "24a85abb-25ad-4686-850c-5c0e8ab69a0c",
               "description": "Do not respond to this statement here. Respond within the `by-component` assembly below.",
               "by-components": {
@@ -1945,7 +1945,7 @@
             }
           },
           "statements": {
-            "at-1_stmt.a": {
+            "at-1_smt.a": {
               "uuid": "ee5a11fb-9bae-4680-8f8c-575c85d47355",
               "description": "Component-based Approach",
               "by-components": {
@@ -1955,7 +1955,7 @@
                 }
               }
             },
-            "at-1_stmt.a.1": {
+            "at-1_smt.a.1": {
               "uuid": "2e8ec7ce-c9c6-4f5f-9d50-3a3b9d3acf65",
               "links": [
                 {
@@ -1966,7 +1966,7 @@
               ],
               "remarks": "This identifies a policy (attached in resources) that satisfies this control."
             },
-            "at-1_stmt.a.2": {
+            "at-1_smt.a.2": {
               "uuid": "e7f9b618-c092-4b8b-b416-0ee477026726",
               "links": [
                 {
@@ -1977,7 +1977,7 @@
               ],
               "remarks": "This identifies a process (attached in resources) that satisfies this control."
             },
-            "at-1_stmt.b.1": {
+            "at-1_smt.b.1": {
               "uuid": "29192f0b-edb1-4820-b951-65ffdc64bb3e",
               "description": "Ignore.",
               "by-components": {
@@ -1987,7 +1987,7 @@
                 }
               }
             },
-            "at-1_stmt.b.2": {
+            "at-1_smt.b.2": {
               "uuid": "23a9bfa7-6e3f-4e00-a120-791b26a9157e",
               "description": "Ignore.",
               "by-components": {
@@ -2037,7 +2037,7 @@
             }
           },
           "statements": {
-            "au-1_stmt.a": {
+            "au-1_smt.a": {
               "uuid": "9a2bd937-226e-4aaf-8261-2cf0c2e3aa10",
               "description": "Ignore.",
               "by-components": {
@@ -2047,7 +2047,7 @@
                 }
               }
             },
-            "au-1_stmt.b.1": {
+            "au-1_smt.b.1": {
               "uuid": "d01f186f-a14f-4e22-b069-84a55e48a112",
               "description": "Ignore.",
               "by-components": {
@@ -2057,7 +2057,7 @@
                 }
               }
             },
-            "au-1_stmt.b.2": {
+            "au-1_smt.b.2": {
               "uuid": "ea153acb-2bd0-41d9-8ebd-ba022d31230a",
               "description": "Ignore.",
               "by-components": {
@@ -2107,7 +2107,7 @@
             }
           },
           "statements": {
-            "ca-1_stmt.a": {
+            "ca-1_smt.a": {
               "uuid": "e7bd0a7e-5f92-4769-8cd3-76ad2f663a5c",
               "description": "Ignore.",
               "by-components": {
@@ -2117,7 +2117,7 @@
                 }
               }
             },
-            "ca-1_stmt.b.1": {
+            "ca-1_smt.b.1": {
               "uuid": "b2c3ec86-b976-4e5a-9dc3-4ac2d570765e",
               "description": "Ignore.",
               "by-components": {
@@ -2127,7 +2127,7 @@
                 }
               }
             },
-            "ca-1_stmt.b.2": {
+            "ca-1_smt.b.2": {
               "uuid": "e9474eb8-36d6-4eab-abeb-f9bd17e66b22",
               "description": "Ignore.",
               "by-components": {
@@ -2177,7 +2177,7 @@
             }
           },
           "statements": {
-            "cm-1_stmt.a": {
+            "cm-1_smt.a": {
               "uuid": "52339583-19b6-4774-9213-50b9f42fe51f",
               "description": "Ignore.",
               "by-components": {
@@ -2187,7 +2187,7 @@
                 }
               }
             },
-            "cm-1_stmt.b.1": {
+            "cm-1_smt.b.1": {
               "uuid": "f9cc6f3f-c64f-4fae-9a32-f964ebdc8e74",
               "description": "Ignore.",
               "by-components": {
@@ -2197,7 +2197,7 @@
                 }
               }
             },
-            "cm-1_stmt.b.2": {
+            "cm-1_smt.b.2": {
               "uuid": "c548a71f-41d6-4e8c-b400-1764379348c4",
               "description": "Ignore.",
               "by-components": {
@@ -2247,7 +2247,7 @@
             }
           },
           "statements": {
-            "cp-1_stmt.a": {
+            "cp-1_smt.a": {
               "uuid": "8bde1fa5-eb81-4a1b-9e6e-5827e176025a",
               "description": "Ignore.",
               "by-components": {
@@ -2257,7 +2257,7 @@
                 }
               }
             },
-            "cp-1_stmt.b.1": {
+            "cp-1_smt.b.1": {
               "uuid": "2fc9eec1-a49f-4cfa-9f7b-c702a1e21619",
               "description": "Ignore.",
               "by-components": {
@@ -2267,7 +2267,7 @@
                 }
               }
             },
-            "cp-1_stmt.b.2": {
+            "cp-1_smt.b.2": {
               "uuid": "db5b3977-bd51-4505-b3e2-1597bbd4d930",
               "description": "Ignore.",
               "by-components": {
@@ -2317,7 +2317,7 @@
             }
           },
           "statements": {
-            "ia-1_stmt.a": {
+            "ia-1_smt.a": {
               "uuid": "ba92e479-705f-47a4-a763-dfc098ba239d",
               "description": "Ignore.",
               "by-components": {
@@ -2327,7 +2327,7 @@
                 }
               }
             },
-            "ia-1_stmt.b.1": {
+            "ia-1_smt.b.1": {
               "uuid": "dba8c469-5758-497e-9856-e472a2e08677",
               "description": "Ignore.",
               "by-components": {
@@ -2337,7 +2337,7 @@
                 }
               }
             },
-            "ia-1_stmt.b.2": {
+            "ia-1_smt.b.2": {
               "uuid": "b56e37b1-1f4c-479b-bfa1-a2773c2eebfd",
               "description": "Ignore.",
               "by-components": {
@@ -2387,7 +2387,7 @@
             }
           },
           "statements": {
-            "ir-1_stmt.a": {
+            "ir-1_smt.a": {
               "uuid": "7284efc2-d953-486c-ab8a-3caef6ce06c3",
               "description": "Ignore.",
               "by-components": {
@@ -2397,7 +2397,7 @@
                 }
               }
             },
-            "ir-1_stmt.b.1": {
+            "ir-1_smt.b.1": {
               "uuid": "75c37e1a-6e8d-4ef0-99f4-c16f7995706c",
               "description": "Ignore.",
               "by-components": {
@@ -2407,7 +2407,7 @@
                 }
               }
             },
-            "ir-1_stmt.b.2": {
+            "ir-1_smt.b.2": {
               "uuid": "900591ec-2006-4622-bc87-59828d884d4f",
               "description": "Ignore.",
               "by-components": {
@@ -2457,7 +2457,7 @@
             }
           },
           "statements": {
-            "ma-1_stmt.a": {
+            "ma-1_smt.a": {
               "uuid": "d609e538-3976-418e-a368-58fc75cd03c0",
               "description": "Ignore.",
               "by-components": {
@@ -2467,7 +2467,7 @@
                 }
               }
             },
-            "ma-1_stmt.b.1": {
+            "ma-1_smt.b.1": {
               "uuid": "df1a6dd8-9e18-4408-8783-cb30e0413f22",
               "description": "Ignore.",
               "by-components": {
@@ -2477,7 +2477,7 @@
                 }
               }
             },
-            "ma-1_stmt.b.2": {
+            "ma-1_smt.b.2": {
               "uuid": "f02f759d-7d4c-41f2-b153-f3cc1e157e39",
               "description": "Ignore.",
               "by-components": {
@@ -2527,7 +2527,7 @@
             }
           },
           "statements": {
-            "mp-1_stmt.a": {
+            "mp-1_smt.a": {
               "uuid": "bab45ad3-65ee-43bc-9c3e-c3e4e2db8001",
               "description": "Ignore.",
               "by-components": {
@@ -2537,7 +2537,7 @@
                 }
               }
             },
-            "mp-1_stmt.b.1": {
+            "mp-1_smt.b.1": {
               "uuid": "ca35d4a5-ca73-4b3a-aa66-6c712c7a4a49",
               "description": "Ignore.",
               "by-components": {
@@ -2547,7 +2547,7 @@
                 }
               }
             },
-            "mp-1_stmt.b.2": {
+            "mp-1_smt.b.2": {
               "uuid": "0c5c6eda-9644-46f2-a29c-16fe4e248621",
               "description": "Ignore.",
               "by-components": {
@@ -2597,7 +2597,7 @@
             }
           },
           "statements": {
-            "pe-1_stmt.a": {
+            "pe-1_smt.a": {
               "uuid": "11fd3e46-4735-4986-91bc-747345fe608a",
               "description": "Ignore.",
               "by-components": {
@@ -2607,7 +2607,7 @@
                 }
               }
             },
-            "pe-1_stmt.b.1": {
+            "pe-1_smt.b.1": {
               "uuid": "a37f91e2-190d-40f7-829c-39776c14c8b4",
               "description": "Ignore.",
               "by-components": {
@@ -2617,7 +2617,7 @@
                 }
               }
             },
-            "pe-1_stmt.b.2": {
+            "pe-1_smt.b.2": {
               "uuid": "f3d57138-916c-4064-b2fc-aa8dd76849f8",
               "description": "Ignore.",
               "by-components": {
@@ -2667,7 +2667,7 @@
             }
           },
           "statements": {
-            "pl-1_stmt.a": {
+            "pl-1_smt.a": {
               "uuid": "ec7af577-ff22-46bf-ac0a-cf9d75c72ebb",
               "description": "Ignore.",
               "by-components": {
@@ -2677,7 +2677,7 @@
                 }
               }
             },
-            "pl-1_stmt.b.1": {
+            "pl-1_smt.b.1": {
               "uuid": "438f3e29-670a-49f2-8b9f-05d951318294",
               "description": "Ignore.",
               "by-components": {
@@ -2687,7 +2687,7 @@
                 }
               }
             },
-            "pl-1_stmt.b.2": {
+            "pl-1_smt.b.2": {
               "uuid": "96a4d13c-bd2b-4038-96c5-0f923f404bbd",
               "description": "Ignore.",
               "by-components": {
@@ -2737,7 +2737,7 @@
             }
           },
           "statements": {
-            "ps-1_stmt.a": {
+            "ps-1_smt.a": {
               "uuid": "afe1703d-5e59-460b-b048-41b49699c5a1",
               "description": "Ignore.",
               "by-components": {
@@ -2747,7 +2747,7 @@
                 }
               }
             },
-            "ps-1_stmt.b.1": {
+            "ps-1_smt.b.1": {
               "uuid": "956c93e2-cf8f-482c-aaf7-91ab44c7cbd6",
               "description": "Ignore.",
               "by-components": {
@@ -2757,7 +2757,7 @@
                 }
               }
             },
-            "ps-1_stmt.b.2": {
+            "ps-1_smt.b.2": {
               "uuid": "6926c688-3fb2-4ab8-9acb-cff0b5acd365",
               "description": "Ignore.",
               "by-components": {
@@ -2807,7 +2807,7 @@
             }
           },
           "statements": {
-            "ra-1_stmt.a": {
+            "ra-1_smt.a": {
               "uuid": "8fe541ea-0920-42d0-8561-4e08f04d796c",
               "description": "Ignore.",
               "by-components": {
@@ -2817,7 +2817,7 @@
                 }
               }
             },
-            "ra-1_stmt.b.1": {
+            "ra-1_smt.b.1": {
               "uuid": "b0e9ed47-fe83-485d-8d79-979833543a83",
               "description": "Ignore.",
               "by-components": {
@@ -2827,7 +2827,7 @@
                 }
               }
             },
-            "ra-1_stmt.b.2": {
+            "ra-1_smt.b.2": {
               "uuid": "d9a38f95-ded1-4d1d-afe2-242987222ebd",
               "description": "Ignore.",
               "by-components": {
@@ -2877,7 +2877,7 @@
             }
           },
           "statements": {
-            "sa-1_stmt.a": {
+            "sa-1_smt.a": {
               "uuid": "ae3f64be-2e62-4347-b06a-727bc28e4f9b",
               "description": "Ignore.",
               "by-components": {
@@ -2887,7 +2887,7 @@
                 }
               }
             },
-            "sa-1_stmt.b.1": {
+            "sa-1_smt.b.1": {
               "uuid": "959519a9-3e12-47bc-8d76-50d9ab0b6544",
               "description": "Ignore.",
               "by-components": {
@@ -2897,7 +2897,7 @@
                 }
               }
             },
-            "sa-1_stmt.b.2": {
+            "sa-1_smt.b.2": {
               "uuid": "9daa3848-9672-469c-9aa0-f363e3339123",
               "description": "Ignore.",
               "by-components": {
@@ -2947,7 +2947,7 @@
             }
           },
           "statements": {
-            "sc-1_stmt.a": {
+            "sc-1_smt.a": {
               "uuid": "5e2e8372-c13b-4cf5-90c5-e8833a9fe241",
               "description": "Ignore.",
               "by-components": {
@@ -2957,7 +2957,7 @@
                 }
               }
             },
-            "sc-1_stmt.b.1": {
+            "sc-1_smt.b.1": {
               "uuid": "8166980a-86c0-497d-87e4-453adfd0d4bd",
               "description": "Ignore.",
               "by-components": {
@@ -2967,7 +2967,7 @@
                 }
               }
             },
-            "sc-1_stmt.b.2": {
+            "sc-1_smt.b.2": {
               "uuid": "eeea34ff-18ab-4c35-bf32-c74dbf746e7b",
               "description": "Ignore.",
               "by-components": {
@@ -3017,7 +3017,7 @@
             }
           },
           "statements": {
-            "si-1_stmt.a": {
+            "si-1_smt.a": {
               "uuid": "915b10d2-2275-4d86-951a-eec23f9ee77a",
               "description": "Ignore.",
               "by-components": {
@@ -3027,7 +3027,7 @@
                 }
               }
             },
-            "si-1_stmt.b.1": {
+            "si-1_smt.b.1": {
               "uuid": "2a5a6f7f-aeea-4ea4-be1e-859df4bf7521",
               "description": "Ignore.",
               "by-components": {
@@ -3037,7 +3037,7 @@
                 }
               }
             },
-            "si-1_stmt.b.2": {
+            "si-1_smt.b.2": {
               "uuid": "c152bbde-57fc-4864-ac51-861bd8bb83b4",
               "description": "Ignore.",
               "by-components": {
