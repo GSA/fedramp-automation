@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="3f142f00-e093-4194-bf33-2f2d94004f34">
+         uuid="8f4c14e7-8793-4914-88f1-87eb879d6c70">
    <metadata>
       <title>FedRAMP Rev 4 Low Baseline</title>
       <published>2021-02-05T00:00:00.000-04:00</published>
-      <last-modified>2021-02-05T00:00:00.000-04:00</last-modified>
+      <last-modified>2021-02-05T16:00:00.000-04:00</last-modified>
       <version>1.3</version>
       <oscal-version>1.0.0-rc1</oscal-version>
-      <prop name="resolution-timestamp">2021-02-05T20:50:06.140199Z</prop>
+      <prop name="resolution-timestamp">2021-02-05T22:56:54.487727Z</prop>
       <link rel="resolution-source" href="FedRAMP_rev4_LOW-baseline_profile.xml"/>
       <role id="prepared-by">
          <title>Document creator</title>
@@ -24,6 +24,9 @@
          <name>Federal Risk and Authorization Management Program: Program Management Office</name>
          <short-name>FedRAMP PMO</short-name>
          <link href="https://fedramp.gov" rel="homepage"/>
+         <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
+         <link href="#985475ee-d4d6-4581-8fdf-d84d3d8caa48" rel="reference"/>
+         <link href="#1a23a771-d481-4594-9a1a-71d584fa4123" rel="reference"/>
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
@@ -37,6 +40,7 @@
       <party uuid="ca9ba80e-1342-4bfd-b32a-abac468c24b4" type="organization">
          <name>Federal Risk and Authorization Management Program: Joint Authorization Board</name>
          <short-name>FedRAMP JAB</short-name>
+         <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
       </party>
       <responsible-party role-id="prepared-by">
          <party-uuid>4aa7b203-318b-4cde-96cf-feaeffc3a4b7</party-uuid>
@@ -17254,30 +17258,18 @@
       </resource>
       <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
          <title>FedRAMP Applicable Laws and Regulations</title>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-citations</prop>
-         <prop name="keep">always</prop>
          <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
       </resource>
       <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
          <title>FedRAMP Master Acronym and Glossary</title>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-acronyms</prop>
-         <prop name="keep">always</prop>
          <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
       </resource>
       <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
          <description>
             <p>FedRAMP Logo</p>
          </description>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-logo</prop>
-         <prop name="keep">always</prop>
+         <prop name="type">logo</prop>
          <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
-      </resource>
-      <resource uuid="ad005eae-cc63-4e64-9109-3905a9a825e4">
-         <title>NIST Special Publication (SP) 800-53</title>
-         <prop name="version" ns="https://fedramp.gov/ns/oscal">Revision 4</prop>
-         <prop name="keep">always</prop>
-         <rlink media-type="application/xml"
-                href="https://raw.githubusercontent.com/usnistgov/oscal-content/9fd42a99a440f0ac7e0db2087cde4995bf33bf7c/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
       </resource>
    </back-matter>
 </catalog>

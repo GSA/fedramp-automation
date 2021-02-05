@@ -1,10 +1,10 @@
 {
   "profile": {
-    "uuid": "48d3387b-e554-4232-97bc-a8617cf238d9",
+    "uuid": "99FFEB8B-EEE5-46DA-8AC1-40504477F9F8",
     "metadata": {
       "title": "FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
       "published": "2021-02-05T00:00:00.000-04:00",
-      "last-modified": "2021-02-05T00:00:00.000-04:00",
+      "last-modified": "2021-02-05T16:00:00.000-04:00",
       "version": "1.3",
       "oscal-version": "1.0.0-rc1",
       "roles": [
@@ -33,6 +33,18 @@
             {
               "href": "https://fedramp.gov",
               "rel": "homepage"
+            },
+            {
+              "href": "#a2381e87-3d04-4108-a30b-b4d2f36d001f",
+              "rel": "logo"
+            },
+            {
+              "href": "#985475ee-d4d6-4581-8fdf-d84d3d8caa48",
+              "rel": "reference"
+            },
+            {
+              "href": "#1a23a771-d481-4594-9a1a-71d584fa4123",
+              "rel": "reference"
             }
           ],
           "email-addresses": [
@@ -56,7 +68,13 @@
           "uuid": "ca9ba80e-1342-4bfd-b32a-abac468c24b4",
           "type": "organization",
           "name": "Federal Risk and Authorization Management Program: Joint Authorization Board",
-          "short-name": "FedRAMP JAB"
+          "short-name": "FedRAMP JAB",
+          "links": [
+            {
+              "href": "#a2381e87-3d04-4108-a30b-b4d2f36d001f",
+              "rel": "logo"
+            }
+          ]
         }
       ],
       "responsible-parties": {
@@ -4377,17 +4395,6 @@
         {
           "uuid": "985475ee-d4d6-4581-8fdf-d84d3d8caa48",
           "title": "FedRAMP Applicable Laws and Regulations",
-          "props": [
-            {
-              "name": "conformity",
-              "ns": "https://fedramp.gov/ns/oscal",
-              "value": "fedramp-citations"
-            },
-            {
-              "name": "keep",
-              "value": "always"
-            }
-          ],
           "rlinks": [
             {
               "href": "https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"
@@ -4397,17 +4404,6 @@
         {
           "uuid": "1a23a771-d481-4594-9a1a-71d584fa4123",
           "title": "FedRAMP Master Acronym and Glossary",
-          "props": [
-            {
-              "name": "conformity",
-              "ns": "https://fedramp.gov/ns/oscal",
-              "value": "fedramp-acronyms"
-            },
-            {
-              "name": "keep",
-              "value": "always"
-            }
-          ],
           "rlinks": [
             {
               "href": "https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"
@@ -4419,13 +4415,8 @@
           "description": "FedRAMP Logo",
           "props": [
             {
-              "name": "conformity",
-              "ns": "https://fedramp.gov/ns/oscal",
-              "value": "fedramp-logo"
-            },
-            {
-              "name": "keep",
-              "value": "always"
+              "name": "type",
+              "value": "logo"
             }
           ],
           "rlinks": [
@@ -4440,33 +4431,12 @@
           "props": [
             {
               "name": "version",
-              "ns": "https://fedramp.gov/ns/oscal",
               "value": "Revision 4"
-            },
-            {
-              "name": "keep",
-              "value": "always"
             }
           ],
           "rlinks": [
             {
               "href": "https://raw.githubusercontent.com/usnistgov/oscal-content/9fd42a99a440f0ac7e0db2087cde4995bf33bf7c/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml",
-              "media-type": "application/xml"
-            }
-          ]
-        },
-        {
-          "uuid": "7dd13ca9-e2f5-4ac7-aead-8622327c17a4",
-          "title": "FedRAMP Low Baseline",
-          "props": [
-            {
-              "name": "keep",
-              "value": "always"
-            }
-          ],
-          "rlinks": [
-            {
-              "href": "./FedRAMP_LOW-baseline_profile.xml",
               "media-type": "application/xml"
             }
           ]

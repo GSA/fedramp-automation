@@ -1,16 +1,16 @@
 {
   "catalog": {
-    "uuid": "aed3ff6b-2765-4208-8a5d-007e42c4d8d7",
+    "uuid": "4f9cc7e1-463c-447b-bfb0-244d8fb725b1",
     "metadata": {
       "title": "FedRAMP Rev 4 Moderate Baseline",
       "published": "2021-02-05T00:00:00.000-04:00",
-      "last-modified": "2021-02-05T00:00:00.000-04:00",
+      "last-modified": "2021-02-05T16:00:00.000-04:00",
       "version": "1.3",
       "oscal-version": "1.0.0-rc1",
       "props": [
         {
           "name": "resolution-timestamp",
-          "value": "2021-02-05T20:50:20.025238Z"
+          "value": "2021-02-05T22:57:07.045872Z"
         }
       ],
       "links": [
@@ -45,6 +45,18 @@
             {
               "href": "https://fedramp.gov",
               "rel": "homepage"
+            },
+            {
+              "href": "#a2381e87-3d04-4108-a30b-b4d2f36d001f",
+              "rel": "logo"
+            },
+            {
+              "href": "#985475ee-d4d6-4581-8fdf-d84d3d8caa48",
+              "rel": "reference"
+            },
+            {
+              "href": "#1a23a771-d481-4594-9a1a-71d584fa4123",
+              "rel": "reference"
             }
           ],
           "email-addresses": [
@@ -68,7 +80,13 @@
           "uuid": "ca9ba80e-1342-4bfd-b32a-abac468c24b4",
           "type": "organization",
           "name": "Federal Risk and Authorization Management Program: Joint Authorization Board",
-          "short-name": "FedRAMP JAB"
+          "short-name": "FedRAMP JAB",
+          "links": [
+            {
+              "href": "#a2381e87-3d04-4108-a30b-b4d2f36d001f",
+              "rel": "logo"
+            }
+          ]
         }
       ],
       "responsible-parties": {
@@ -85953,17 +85971,6 @@
         {
           "uuid": "985475ee-d4d6-4581-8fdf-d84d3d8caa48",
           "title": "FedRAMP Applicable Laws and Regulations",
-          "props": [
-            {
-              "name": "conformity",
-              "ns": "https://fedramp.gov/ns/oscal",
-              "value": "fedramp-citations"
-            },
-            {
-              "name": "keep",
-              "value": "always"
-            }
-          ],
           "rlinks": [
             {
               "href": "https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"
@@ -85973,17 +85980,6 @@
         {
           "uuid": "1a23a771-d481-4594-9a1a-71d584fa4123",
           "title": "FedRAMP Master Acronym and Glossary",
-          "props": [
-            {
-              "name": "conformity",
-              "ns": "https://fedramp.gov/ns/oscal",
-              "value": "fedramp-acronyms"
-            },
-            {
-              "name": "keep",
-              "value": "always"
-            }
-          ],
           "rlinks": [
             {
               "href": "https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"
@@ -85995,39 +85991,13 @@
           "description": "FedRAMP Logo",
           "props": [
             {
-              "name": "conformity",
-              "ns": "https://fedramp.gov/ns/oscal",
-              "value": "fedramp-logo"
-            },
-            {
-              "name": "keep",
-              "value": "always"
+              "name": "type",
+              "value": "logo"
             }
           ],
           "rlinks": [
             {
               "href": "https://www.fedramp.gov/assets/img/logo-main-fedramp.png"
-            }
-          ]
-        },
-        {
-          "uuid": "ad005eae-cc63-4e64-9109-3905a9a825e4",
-          "title": "NIST Special Publication (SP) 800-53",
-          "props": [
-            {
-              "name": "version",
-              "ns": "https://fedramp.gov/ns/oscal",
-              "value": "Revision 4"
-            },
-            {
-              "name": "keep",
-              "value": "always"
-            }
-          ],
-          "rlinks": [
-            {
-              "href": "https://raw.githubusercontent.com/usnistgov/oscal-content/9fd42a99a440f0ac7e0db2087cde4995bf33bf7c/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml",
-              "media-type": "application/xml"
             }
           ]
         }
