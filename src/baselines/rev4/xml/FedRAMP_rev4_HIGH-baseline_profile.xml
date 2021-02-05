@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="60c418e5-d7a3-4c58-bd6c-032bcf029ed8">
+<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="7E407793-3CD2-4BF5-9F61-1295121F2732">
 	<metadata>
-		<title>FedRAMP Moderate Baseline</title>
-		<published>2020-06-01T00:00:00.000-04:00</published>
-		<last-modified>2020-10-12T00:56:31Z</last-modified>
-		<version>1.2</version>
-		<oscal-version>1.0.0-milestone3</oscal-version>
+		<title>FedRAMP High Baseline</title>
+		<published>2021-02-05T00:00:00.000-04:00</published>
+		<last-modified>2021-02-05T00:00:00.000-04:00</last-modified>
+		<version>1.3</version>
+		<oscal-version>1.0.0-rc1</oscal-version>
 		<role id="prepared-by">
 			<title>Document creator</title>
 		</role>
@@ -18,9 +18,10 @@
 			<short-name>CSP</short-name>
 		</role>
 		<party uuid="8cc0b8e5-9650-4d5f-9796-316f05fa9a2d" type="organization">
-			<party-name>Federal Risk and Authorization Management Program: Program Management Office</party-name>
+			<name>Federal Risk and Authorization Management Program: Program Management Office</name>
 			<short-name>FedRAMP PMO</short-name>
 			<link href="https://fedramp.gov" rel="homepage"/>
+			<email-address>info@fedramp.gov</email-address>
 			<address type="work">
 				<addr-line>1800 F St. NW</addr-line>
 				<addr-line/>
@@ -29,10 +30,9 @@
 				<postal-code/>
 				<country>US</country>
 			</address>
-			<email>info@fedramp.gov</email>
 		</party>
 		<party uuid="ca9ba80e-1342-4bfd-b32a-abac468c24b4" type="organization">
-			<party-name>Federal Risk and Authorization Management Program: Joint Authorization Board</party-name>
+			<name>Federal Risk and Authorization Management Program: Joint Authorization Board</name>
 			<short-name>FedRAMP JAB</short-name>
 		</party>
 		<responsible-party role-id="prepared-by">
@@ -57,23 +57,31 @@
 			<call control-id="ac-2.7"/>
 			<call control-id="ac-2.9"/>
 			<call control-id="ac-2.10"/>
+			<call control-id="ac-2.11"/>
 			<call control-id="ac-2.12"/>
+			<call control-id="ac-2.13"/>
 			<call control-id="ac-3"/>
 			<call control-id="ac-4"/>
+			<call control-id="ac-4.8"/>
 			<call control-id="ac-4.21"/>
 			<call control-id="ac-5"/>
 			<call control-id="ac-6"/>
 			<call control-id="ac-6.1"/>
 			<call control-id="ac-6.2"/>
+			<call control-id="ac-6.3"/>
 			<call control-id="ac-6.5"/>
+			<call control-id="ac-6.7"/>
+			<call control-id="ac-6.8"/>
 			<call control-id="ac-6.9"/>
 			<call control-id="ac-6.10"/>
 			<call control-id="ac-7"/>
+			<call control-id="ac-7.2"/>
 			<call control-id="ac-8"/>
 			<call control-id="ac-10"/>
 			<call control-id="ac-11"/>
 			<call control-id="ac-11.1"/>
 			<call control-id="ac-12"/>
+			<call control-id="ac-12.1"/>
 			<call control-id="ac-14"/>
 			<call control-id="ac-17"/>
 			<call control-id="ac-17.1"/>
@@ -83,6 +91,9 @@
 			<call control-id="ac-17.9"/>
 			<call control-id="ac-18"/>
 			<call control-id="ac-18.1"/>
+			<call control-id="ac-18.3"/>
+			<call control-id="ac-18.4"/>
+			<call control-id="ac-18.5"/>
 			<call control-id="ac-19"/>
 			<call control-id="ac-19.5"/>
 			<call control-id="ac-20"/>
@@ -94,26 +105,40 @@
 			<call control-id="at-2"/>
 			<call control-id="at-2.2"/>
 			<call control-id="at-3"/>
+			<call control-id="at-3.3"/>
+			<call control-id="at-3.4"/>
 			<call control-id="at-4"/>
 			<call control-id="au-1"/>
 			<call control-id="au-2"/>
 			<call control-id="au-2.3"/>
 			<call control-id="au-3"/>
 			<call control-id="au-3.1"/>
+			<call control-id="au-3.2"/>
 			<call control-id="au-4"/>
 			<call control-id="au-5"/>
+			<call control-id="au-5.1"/>
+			<call control-id="au-5.2"/>
 			<call control-id="au-6"/>
 			<call control-id="au-6.1"/>
 			<call control-id="au-6.3"/>
+			<call control-id="au-6.4"/>
+			<call control-id="au-6.5"/>
+			<call control-id="au-6.6"/>
+			<call control-id="au-6.7"/>
+			<call control-id="au-6.10"/>
 			<call control-id="au-7"/>
 			<call control-id="au-7.1"/>
 			<call control-id="au-8"/>
 			<call control-id="au-8.1"/>
 			<call control-id="au-9"/>
 			<call control-id="au-9.2"/>
+			<call control-id="au-9.3"/>
 			<call control-id="au-9.4"/>
+			<call control-id="au-10"/>
 			<call control-id="au-11"/>
 			<call control-id="au-12"/>
+			<call control-id="au-12.1"/>
+			<call control-id="au-12.3"/>
 			<call control-id="ca-1"/>
 			<call control-id="ca-2"/>
 			<call control-id="ca-2.1"/>
@@ -126,6 +151,7 @@
 			<call control-id="ca-6"/>
 			<call control-id="ca-7"/>
 			<call control-id="ca-7.1"/>
+			<call control-id="ca-7.3"/>
 			<call control-id="ca-8"/>
 			<call control-id="ca-8.1"/>
 			<call control-id="ca-9"/>
@@ -136,56 +162,79 @@
 			<call control-id="cm-2.3"/>
 			<call control-id="cm-2.7"/>
 			<call control-id="cm-3"/>
+			<call control-id="cm-3.1"/>
+			<call control-id="cm-3.2"/>
+			<call control-id="cm-3.4"/>
+			<call control-id="cm-3.6"/>
 			<call control-id="cm-4"/>
+			<call control-id="cm-4.1"/>
 			<call control-id="cm-5"/>
 			<call control-id="cm-5.1"/>
+			<call control-id="cm-5.2"/>
 			<call control-id="cm-5.3"/>
 			<call control-id="cm-5.5"/>
 			<call control-id="cm-6"/>
 			<call control-id="cm-6.1"/>
+			<call control-id="cm-6.2"/>
 			<call control-id="cm-7"/>
 			<call control-id="cm-7.1"/>
 			<call control-id="cm-7.2"/>
 			<call control-id="cm-7.5"/>
 			<call control-id="cm-8"/>
 			<call control-id="cm-8.1"/>
+			<call control-id="cm-8.2"/>
 			<call control-id="cm-8.3"/>
+			<call control-id="cm-8.4"/>
 			<call control-id="cm-8.5"/>
 			<call control-id="cm-9"/>
 			<call control-id="cm-10"/>
 			<call control-id="cm-10.1"/>
 			<call control-id="cm-11"/>
+			<call control-id="cm-11.1"/>
 			<call control-id="cp-1"/>
 			<call control-id="cp-2"/>
 			<call control-id="cp-2.1"/>
 			<call control-id="cp-2.2"/>
 			<call control-id="cp-2.3"/>
+			<call control-id="cp-2.4"/>
+			<call control-id="cp-2.5"/>
 			<call control-id="cp-2.8"/>
 			<call control-id="cp-3"/>
+			<call control-id="cp-3.1"/>
 			<call control-id="cp-4"/>
 			<call control-id="cp-4.1"/>
+			<call control-id="cp-4.2"/>
 			<call control-id="cp-6"/>
 			<call control-id="cp-6.1"/>
+			<call control-id="cp-6.2"/>
 			<call control-id="cp-6.3"/>
 			<call control-id="cp-7"/>
 			<call control-id="cp-7.1"/>
 			<call control-id="cp-7.2"/>
 			<call control-id="cp-7.3"/>
+			<call control-id="cp-7.4"/>
 			<call control-id="cp-8"/>
 			<call control-id="cp-8.1"/>
 			<call control-id="cp-8.2"/>
+			<call control-id="cp-8.3"/>
+			<call control-id="cp-8.4"/>
 			<call control-id="cp-9"/>
 			<call control-id="cp-9.1"/>
+			<call control-id="cp-9.2"/>
 			<call control-id="cp-9.3"/>
+			<call control-id="cp-9.5"/>
 			<call control-id="cp-10"/>
 			<call control-id="cp-10.2"/>
+			<call control-id="cp-10.4"/>
 			<call control-id="ia-1"/>
 			<call control-id="ia-2"/>
 			<call control-id="ia-2.1"/>
 			<call control-id="ia-2.2"/>
 			<call control-id="ia-2.3"/>
+			<call control-id="ia-2.4"/>
 			<call control-id="ia-2.5"/>
 			<call control-id="ia-2.8"/>
+			<call control-id="ia-2.9"/>
 			<call control-id="ia-2.11"/>
 			<call control-id="ia-2.12"/>
 			<call control-id="ia-3"/>
@@ -198,7 +247,9 @@
 			<call control-id="ia-5.4"/>
 			<call control-id="ia-5.6"/>
 			<call control-id="ia-5.7"/>
+			<call control-id="ia-5.8"/>
 			<call control-id="ia-5.11"/>
+			<call control-id="ia-5.13"/>
 			<call control-id="ia-6"/>
 			<call control-id="ia-7"/>
 			<call control-id="ia-8"/>
@@ -208,11 +259,19 @@
 			<call control-id="ia-8.4"/>
 			<call control-id="ir-1"/>
 			<call control-id="ir-2"/>
+			<call control-id="ir-2.1"/>
+			<call control-id="ir-2.2"/>
 			<call control-id="ir-3"/>
 			<call control-id="ir-3.2"/>
 			<call control-id="ir-4"/>
 			<call control-id="ir-4.1"/>
+			<call control-id="ir-4.2"/>
+			<call control-id="ir-4.3"/>
+			<call control-id="ir-4.4"/>
+			<call control-id="ir-4.6"/>
+			<call control-id="ir-4.8"/>
 			<call control-id="ir-5"/>
+			<call control-id="ir-5.1"/>
 			<call control-id="ir-6"/>
 			<call control-id="ir-6.1"/>
 			<call control-id="ir-7"/>
@@ -226,12 +285,15 @@
 			<call control-id="ir-9.4"/>
 			<call control-id="ma-1"/>
 			<call control-id="ma-2"/>
+			<call control-id="ma-2.2"/>
 			<call control-id="ma-3"/>
 			<call control-id="ma-3.1"/>
 			<call control-id="ma-3.2"/>
 			<call control-id="ma-3.3"/>
 			<call control-id="ma-4"/>
 			<call control-id="ma-4.2"/>
+			<call control-id="ma-4.3"/>
+			<call control-id="ma-4.6"/>
 			<call control-id="ma-5"/>
 			<call control-id="ma-5.1"/>
 			<call control-id="ma-6"/>
@@ -242,29 +304,38 @@
 			<call control-id="mp-5"/>
 			<call control-id="mp-5.4"/>
 			<call control-id="mp-6"/>
+			<call control-id="mp-6.1"/>
 			<call control-id="mp-6.2"/>
+			<call control-id="mp-6.3"/>
 			<call control-id="mp-7"/>
 			<call control-id="mp-7.1"/>
 			<call control-id="pe-1"/>
 			<call control-id="pe-2"/>
 			<call control-id="pe-3"/>
+			<call control-id="pe-3.1"/>
 			<call control-id="pe-4"/>
 			<call control-id="pe-5"/>
 			<call control-id="pe-6"/>
 			<call control-id="pe-6.1"/>
+			<call control-id="pe-6.4"/>
 			<call control-id="pe-8"/>
+			<call control-id="pe-8.1"/>
 			<call control-id="pe-9"/>
 			<call control-id="pe-10"/>
 			<call control-id="pe-11"/>
+			<call control-id="pe-11.1"/>
 			<call control-id="pe-12"/>
 			<call control-id="pe-13"/>
+			<call control-id="pe-13.1"/>
 			<call control-id="pe-13.2"/>
 			<call control-id="pe-13.3"/>
 			<call control-id="pe-14"/>
 			<call control-id="pe-14.2"/>
 			<call control-id="pe-15"/>
+			<call control-id="pe-15.1"/>
 			<call control-id="pe-16"/>
 			<call control-id="pe-17"/>
+			<call control-id="pe-18"/>
 			<call control-id="pl-1"/>
 			<call control-id="pl-2"/>
 			<call control-id="pl-2.3"/>
@@ -276,6 +347,7 @@
 			<call control-id="ps-3"/>
 			<call control-id="ps-3.3"/>
 			<call control-id="ps-4"/>
+			<call control-id="ps-4.2"/>
 			<call control-id="ps-5"/>
 			<call control-id="ps-6"/>
 			<call control-id="ps-7"/>
@@ -287,9 +359,11 @@
 			<call control-id="ra-5.1"/>
 			<call control-id="ra-5.2"/>
 			<call control-id="ra-5.3"/>
+			<call control-id="ra-5.4"/>
 			<call control-id="ra-5.5"/>
 			<call control-id="ra-5.6"/>
 			<call control-id="ra-5.8"/>
+			<call control-id="ra-5.10"/>
 			<call control-id="sa-1"/>
 			<call control-id="sa-2"/>
 			<call control-id="sa-3"/>
@@ -312,8 +386,13 @@
 			<call control-id="sa-11.1"/>
 			<call control-id="sa-11.2"/>
 			<call control-id="sa-11.8"/>
+			<call control-id="sa-12"/>
+			<call control-id="sa-15"/>
+			<call control-id="sa-16"/>
+			<call control-id="sa-17"/>
 			<call control-id="sc-1"/>
 			<call control-id="sc-2"/>
+			<call control-id="sc-3"/>
 			<call control-id="sc-4"/>
 			<call control-id="sc-5"/>
 			<call control-id="sc-6"/>
@@ -323,13 +402,17 @@
 			<call control-id="sc-7.5"/>
 			<call control-id="sc-7.7"/>
 			<call control-id="sc-7.8"/>
+			<call control-id="sc-7.10"/>
 			<call control-id="sc-7.12"/>
 			<call control-id="sc-7.13"/>
 			<call control-id="sc-7.18"/>
+			<call control-id="sc-7.20"/>
+			<call control-id="sc-7.21"/>
 			<call control-id="sc-8"/>
 			<call control-id="sc-8.1"/>
 			<call control-id="sc-10"/>
 			<call control-id="sc-12"/>
+			<call control-id="sc-12.1"/>
 			<call control-id="sc-12.2"/>
 			<call control-id="sc-12.3"/>
 			<call control-id="sc-13"/>
@@ -341,11 +424,14 @@
 			<call control-id="sc-21"/>
 			<call control-id="sc-22"/>
 			<call control-id="sc-23"/>
+			<call control-id="sc-23.1"/>
+			<call control-id="sc-24"/>
 			<call control-id="sc-28"/>
 			<call control-id="sc-28.1"/>
 			<call control-id="sc-39"/>
 			<call control-id="si-1"/>
 			<call control-id="si-2"/>
+			<call control-id="si-2.1"/>
 			<call control-id="si-2.2"/>
 			<call control-id="si-2.3"/>
 			<call control-id="si-3"/>
@@ -357,14 +443,24 @@
 			<call control-id="si-4.2"/>
 			<call control-id="si-4.4"/>
 			<call control-id="si-4.5"/>
+			<call control-id="si-4.11"/>
 			<call control-id="si-4.14"/>
 			<call control-id="si-4.16"/>
+			<call control-id="si-4.18"/>
+			<call control-id="si-4.19"/>
+			<call control-id="si-4.20"/>
+			<call control-id="si-4.22"/>
 			<call control-id="si-4.23"/>
+			<call control-id="si-4.24"/>
 			<call control-id="si-5"/>
+			<call control-id="si-5.1"/>
 			<call control-id="si-6"/>
 			<call control-id="si-7"/>
 			<call control-id="si-7.1"/>
+			<call control-id="si-7.2"/>
+			<call control-id="si-7.5"/>
 			<call control-id="si-7.7"/>
+			<call control-id="si-7.14"/>
 			<call control-id="si-8"/>
 			<call control-id="si-8.1"/>
 			<call control-id="si-8.2"/>
@@ -380,163 +476,265 @@
 	</merge>
 	<modify>
 		<set-parameter param-id="ac-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-2_prm_4">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>monthly for privileged accessed, every six (6) months for non-privileged access</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-2.2_prm_1">
+			<constraint><description><p>Selection: disables</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-2.2_prm_2">
-			<constraint>no more than 30 days for temporary and emergency account types</constraint>
+			<constraint><description><p>24 hours from last use</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-2.3_prm_1">
-			<constraint>90 days for user accounts</constraint>
+			<constraint><description><p>35 days for user accounts</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-2.4_prm_1">
+			<constraint><description><p>organization and/or service provider system owner</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-2.5_prm_1">
+			<constraint><description><p>inactivity is anticipated to exceed Fifteen (15) minutes</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-2.7_prm_1">
+			<constraint><description><p>disables/revokes access within a organization-specified timeframe</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-2.9_prm_1">
+			<constraint><description><p>organization-defined need with justification statement that explains why such accounts are necessary</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-2.12_prm_2">
+			<constraint><description><p>at a minimum, the ISSO and/or similar role within the organization</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-2.13_prm_1">
+			<constraint><description><p>one (1) hour</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-6.1_prm_1">
+			<constraint><description><p>all functions not publicly accessible and all security-relevant information not publicly available</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-6.2_prm_1">
-			<constraint>all security functions</constraint>
+			<constraint><description><p>all security functions</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-6.3_prm_1">
+			<constraint><description><p>all privileged commands</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-6.7_prm_1">
+			<constraint><description><p>at a minimum, annually</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-6.7_prm_2">
+			<constraint><description><p>all users with privileges</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-6.8_prm_1">
+			<constraint><description><p>any software except software explicitly documented</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-7_prm_1">
-			<constraint>not more than three (3)</constraint>
+			<constraint><description><p>not more than three (3)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-7_prm_2">
-			<constraint>fifteen (15) minutes</constraint>
+			<constraint><description><p>fifteen (15) minutes</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-7_prm_4">
-			<constraint>locks the account/node for thirty minutes</constraint>
+			<constraint><description><p>locks the account/node for a minimum of three (3) hours or until unlocked by an administrator</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-7.2_prm_1">
+			<constraint><description><p>mobile devices as defined by organization policy</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-7.2_prm_3">
+			<constraint><description><p>three (3)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-8_prm_1">
-			<constraint>see additional Requirements and Guidance</constraint>
+			<constraint><description><p>see additional Requirements and Guidance</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-8_prm_2">
-			<constraint>see additional Requirements and Guidance]</constraint>
+			<constraint><description><p>see additional Requirements and Guidance</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-10_prm_2">
-			<constraint>three (3) sessions for privileged access and two (2) sessions for non-privileged access</constraint>
+			<constraint><description><p>three (3) sessions for privileged access and two (2) sessions for non-privileged access</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-11_prm_1">
-			<constraint>fifteen (15) minutes</constraint>
+			<constraint><description><p>fifteen (15) minutes</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-17.9_prm_1">
-			<constraint>fifteen 15 minutes</constraint>
+			<constraint><description><p>fifteen (15) minutes</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-22_prm_1">
-			<constraint>at least quarterly</constraint>
+			<constraint><description><p>at least quarterly</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="at-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="at-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="at-2_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="at-3_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="at-3.4_prm_1">
+			<constraint><description><p>malicious code indicators as defined by organization incident policy/capability.</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="at-4_prm_1">
-			<constraint>At least one year</constraint>
+			<constraint><description><p>five (5) years or 5 years after completion of a specific training program</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-2_prm_1">
-			<constraint>successful and unsuccessful account logon events, account management events, object access, policy change, privilege functions, process tracking, and system events. For Web applications: all administrator activity, authentication checks, authorization checks, data deletions, data access, data changes, and permission changes</constraint>
+			<constraint><description><p>successful and unsuccessful account logon events, account management events, object access, policy change, privilege functions, process tracking, and system events. For Web applications: all administrator activity, authentication checks, authorization checks, data deletions, data access, data changes, and permission changes</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-2_prm_2">
-			<constraint>organization-defined subset of the auditable events defined in AU-2 a to be audited continually for each identified event</constraint>
+			<constraint><description><p>organization-defined subset of the auditable events defined in AU-2a to be audited continually for each identified event</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-2.3_prm_1">
-			<constraint>annually or whenever there is a change in the threat environment</constraint>
+			<constraint><description><p>annually or whenever there is a change in the threat environment</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-3.1_prm_1">
-			<constraint>session, connection, transaction, or activity duration; for client-server transactions, the number of bytes received and bytes sent; additional informational messages to diagnose or identify the event; characteristics that describe or identify the object or resource being acted upon</constraint>
+			<constraint><description><p>session, connection, transaction, or activity duration; for client-server transactions, the number of bytes received and bytes sent; additional informational messages to diagnose or identify the event; characteristics that describe or identify the object or resource being acted upon; individual identities of group account users; full-text of privileged commands</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="au-3.2_prm_1">
+			<constraint><description><p>all network, data storage, and computing devices</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-5_prm_2">
-			<constraint>organization-defined actions to be taken (overwrite oldest record)</constraint>
+			<constraint><description><p>organization-defined actions to be taken (overwrite oldest record)</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="au-5.2_prm_1">
+			<constraint><description><p>real-time</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="au-5.2_prm_2">
+			<constraint><description><p>service provider personnel with authority to address failed audit events</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="au-5.2_prm_3">
+			<constraint><description><p>audit failure events requiring real-time alerts, as defined by organization audit policy</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-6_prm_1">
-			<constraint>at least weekly</constraint>
+			<constraint><description><p>at least weekly</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="au-6.5_prm_2">
+			<constraint><description><p>Possibly to include penetration test data.</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="au-6.7_prm_1">
+			<constraint><description><p>information system process; role; user</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="au-8_prm_1">
+			<constraint><description><p>one second granularity of time measurement</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-8.1_prm_1">
-			<constraint>At least hourly</constraint>
+			<constraint><description><p>At least hourly</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-8.1_prm_2">
-			<constraint>http://tf.nist.gov/tf-cgi/servers.cgi</constraint>
+			<constraint><description><p>http://tf.nist.gov/tf-cgi/servers.cgi</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-9.2_prm_1">
-			<constraint>at least weekly</constraint>
+			<constraint><description><p>at least weekly</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="au-10_prm_1">
+			<constraint><description><p>minimum actions including the addition, modification, deletion, approval, sending, or receiving of data</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-11_prm_1">
-			<constraint>at least ninety days</constraint>
+			<constraint><description><p>at least one (1) year</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="au-12_prm_1">
-			<constraint>all information system and network components where audit capability is deployed/available</constraint>
+			<constraint><description><p>all information system and network components where audit capability is deployed/available</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="au-12.1_prm_1">
+			<constraint><description><p>all network, data storage, and computing devices</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="au-12.3_prm_1">
+			<constraint><description><p>service provider-defined individuals or roles with audit configuration responsibilities</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="au-12.3_prm_2">
+			<constraint><description><p>all network, data storage, and computing devices</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-2_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-2_prm_2">
-			<constraint>individuals or roles to include FedRAMP PMO</constraint>
+			<constraint><description><p>individuals or roles to include FedRAMP PMO</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-2.2_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-2.3_prm_1">
-			<constraint>any FedRAMP Accredited 3PAO</constraint>
+			<constraint><description><p>any FedRAMP Accredited 3PAO</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-2.3_prm_2">
-			<constraint>any FedRAMP Accredited 3PAO</constraint>
+			<constraint><description><p>any FedRAMP Accredited 3PAO</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-2.3_prm_3">
-			<constraint>the conditions of the JAB/AO in the FedRAMP Repository</constraint>
+			<constraint><description><p>the conditions of the JAB/AO in the FedRAMP Repository</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-3_prm_1">
-			<constraint>at least annually and on input from FedRAMP</constraint>
+			<constraint><description><p>At least annually and on input from FedRAMP</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-3.3_prm_2">
-			<constraint>Boundary Protections which meet the Trusted Internet Connection (TIC) requirements</constraint>
+			<constraint><description><p>boundary protections which meet the Trusted Internet Connection (TIC) requirements</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ca-3.5_prm_1">
+			<constraint><description><p>deny-all, permit by exception</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ca-3.5_prm_2">
+			<constraint><description><p>any systems</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-5_prm_1">
-			<constraint>at least monthly</constraint>
+			<constraint><description><p>at least monthly</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-6_prm_1">
-			<constraint>at least every three (3) years or when a significant change occurs</constraint>
+			<constraint><description><p>at least every three (3) years or when a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-7_prm_4">
-			<constraint>to meet Federal and FedRAMP requirements (See additional guidance)</constraint>
+			<constraint><description><p>to meet Federal and FedRAMP requirements (See additional guidance)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-7_prm_5">
-			<constraint>to meet Federal and FedRAMP requirements (See additional guidance)</constraint>
+			<constraint><description><p>to meet Federal and FedRAMP requirements (See additional guidance)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-8_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-2.1_prm_1">
-			<constraint>at least annually or when a significant change occurs</constraint>
+			<constraint><description><p>at least annually or when a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-2.1_prm_2">
-			<constraint>to include when directed by the JAB</constraint>
+			<constraint><description><p>to include when directed by the JAB</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="cm-2.3_prm_1">
+			<constraint><description><p>organization-defined previous versions of baseline configurations of the previously approved baseline configuration of IS components</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="cm-3.1_prm_2">
+			<constraint><description><p>organization agreed upon time period</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="cm-3.1_prm_3">
+			<constraint><description><p>organization defined configuration management approval authorities</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="cm-3.4_prm_1">
+			<constraint><description><p>Configuration control board (CCB) or similar (as defined in CM-3)</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="cm-3.6_prm_1">
+			<constraint><description><p>All security safeguards that rely on cryptography</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="cm-5.2_prm_1">
+			<constraint><description><p>at least every thirty (30) days</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-5.5_prm_1">
-			<constraint>at least quarterly</constraint>
+			<constraint><description><p>at least quarterly</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-6_prm_1">
 			<guideline>
@@ -544,373 +742,463 @@
 			</guideline>
 		</set-parameter>
 		<set-parameter param-id="cm-7_prm_1">
-			<constraint>United States Government Configuration Baseline (USGCB)</constraint>
+			<constraint><description><p>United States Government Configuration Baseline (USGCB)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-7.1_prm_1">
-			<constraint>at least monthly</constraint>
+			<constraint><description><p>at least monthly</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-7.5_prm_2">
-			<constraint>at least Annually or when there is a change</constraint>
+			<constraint><description><p>at least quarterly or when there is a change</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-8_prm_2">
-			<constraint>at least monthly</constraint>
+			<constraint><description><p>at least monthly</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-8.3_prm_1">
-			<constraint>Continuously, using automated mechanisms with a maximum five-minute delay in detection</constraint>
+			<constraint><description><p>Continuously, using automated mechanisms with a maximum five-minute delay in detection.</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="cm-8.4_prm_1">
+			<constraint><description><p>position and role</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-11_prm_3">
-			<constraint>Continuously (via CM-7 (5))</constraint>
+			<constraint><description><p>Continuously (via CM-7 (5))</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-2_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="cp-2.4_prm_1">
+			<constraint><description><p>time period defined in service provider and organization SLA</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-3_prm_1">
-			<constraint>ten (10) days</constraint>
+			<constraint><description><p>ten (10) days</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-3_prm_2">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-4_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-4_prm_2">
-			<constraint>functional exercises</constraint>
+			<constraint><description><p>functional exercises</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="cp-8.4_prm_1">
+			<constraint><description><p>annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-9_prm_1">
-			<constraint>daily incremental; weekly full</constraint>
+			<constraint><description><p>daily incremental; weekly full</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-9_prm_2">
-			<constraint>daily incremental; weekly full</constraint>
+			<constraint><description><p>daily incremental; weekly full</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-9_prm_3">
-			<constraint>daily incremental; weekly full</constraint>
+			<constraint><description><p>daily incremental; weekly full</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-9.1_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least monthly</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="cp-9.5_prm_1">
+			<constraint><description><p>time period and transfer rate consistent with the recovery time and recovery point objectives defined in the service provider and organization SLA</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="cp-10.4_prm_1">
+			<constraint><description><p>time period consistent with the restoration time-periods defined in the service provider and organization SLA</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-2.11_prm_1">
-			<constraint>FIPS 140-2, NIAP Certification, or NSA approval</constraint>
+			<constraint><description><p>FIPS 140-2, NIAP Certification, or NSA approval</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ia-4_prm_1">
+			<constraint><description><p>at a minimum, the ISSO (or similar role within the organization)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-4_prm_2">
-			<constraint>IA-4 (d) [at least two years]</constraint>
+			<constraint><description><p>at least two (2) years</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-4_prm_3">
-			<constraint>ninety days for user identifiers (See additional requirements and guidance)</constraint>
+			<constraint><description><p>thirty-five (35) days (See additional requirements and guidance.)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-4.4_prm_1">
-			<constraint>contractors; foreign nationals</constraint>
+			<constraint><description><p>contractors; foreign nationals]</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-5.1_prm_2">
-			<constraint>at least one</constraint>
+			<constraint><description><p>at least fifty percent (50%)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-5.1_prm_4">
-			<constraint>twenty four (24)</constraint>
+			<constraint><description><p>twenty four (24)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-5.3_prm_1">
-			<constraint>All hardware/biometric (multifactor authenticators)</constraint>
+			<constraint><description><p>All hardware/biometric (multifactor authenticators)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-5.3_prm_2">
-			<constraint>in person</constraint>
+			<constraint><description><p>in person</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ia-5.4_prm_1">
+			<constraint><description><p>complexity as identified in IA-5 (1) Control Enhancement Part (a)</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ia-5.8_prm_1">
+			<constraint><description><p>different authenticators on different systems</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ir-2_prm_1">
+			<constraint><description><p>within ten (10) days</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-2_prm_2">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-3_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least every six (6) months</p></description></constraint>
 		</set-parameter>
-		<set-parameter param-id="ir-3_prm_2">
-			<constraint>see additional FedRAMP Requirements and Guidance</constraint>
+		<set-parameter param-id="ir-4.2_prm_1">
+			<constraint><description><p>all network, data storage, and computing devices</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ir-4.8_prm_1">
+			<constraint><description><p>external organizations including consumer incident responders and network defenders and the appropriate CIRT/CERT (such as US-CERT, DOD CERT, IC CERT)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-6_prm_1">
-			<constraint>US-CERT incident reporting timelines as specified in NIST Special Publication 800-61 (as amended)</constraint>
+			<constraint><description><p>US-CERT incident reporting timelines as specified in NIST Special Publication 800-61 (as amended)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-8_prm_2">
-			<constraint>see additional FedRAMP Requirements and Guidance</constraint>
+			<constraint><description><p>see additional FedRAMP Requirements and Guidance</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-8_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-8_prm_4">
-			<constraint>see additional FedRAMP Requirements and Guidance</constraint>
+			<constraint><description><p>see additional FedRAMP Requirements and Guidance</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ir-9.2_prm_1">
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ma-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ma-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ma-3.3_prm_1">
-			<constraint>the information owner explicitly authorizing removal of the equipment from the facility</constraint>
+			<constraint><description><p>the information owner explicitly authorizing removal of the equipment from the facility</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="mp-2_prm_1">
+			<constraint><description><p>any digital and non-digital media deemed sensitive</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-3_prm_1">
-			<constraint>no removable media types</constraint>
+			<constraint><description><p>no removable media types</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="mp-3_prm_2">
+			<constraint><description><p>organization-defined security safeguards not applicable</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-4_prm_1">
-			<constraint>all types of digital and non-digital media with sensitive information</constraint>
+			<constraint><description><p>all types of digital and non-digital media with sensitive information</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-4_prm_2">
-			<constraint>see additional FedRAMP requirements and guidance</constraint>
+			<constraint><description><p>see additional FedRAMP requirements and guidance</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-5_prm_1">
-			<constraint>all media with sensitive information</constraint>
+			<constraint><description><p>all media with sensitive information</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-5_prm_2">
-			<constraint>prior to leaving secure/controlled environment: for digital media, encryption using a FIPS 140-2 validated encryption module; for non-digitital media, secured in locked container</constraint>
+			<constraint><description><p>prior to leaving secure/controlled environment: for digital media, encryption using a FIPS 140-2 validated encryption module; for non-digital media, secured in locked container</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="mp-6_prm_2">
+			<constraint><description><p>techniques and procedures IAW NIST SP 800-88 R1, Appendix A - Minimum Sanitization Recommendations</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-6.2_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least every six (6) months</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-2_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least every ninety (90) days</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-3_prm_2">
-			<constraint>CSP defined physical access control systems/devices AND guards</constraint>
+			<constraint><description><p>CSP defined physical access control systems/devices AND guards</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-3_prm_3">
-			<constraint>CSP defined physical access control systems/devices</constraint>
+			<constraint><description><p>CSP defined physical access control systems/devices</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-3_prm_6">
-			<constraint>in all circumstances within restricted access area where the information system resides</constraint>
+			<constraint><description><p>in all circumstances within restricted access area where the information system resides</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-3_prm_8">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-3_prm_9">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-6_prm_1">
-			<constraint>at least monthly</constraint>
+			<constraint><description><p>at least monthly</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-8_prm_1">
-			<constraint>for a minimum of one (1) year</constraint>
+			<constraint><description><p>for a minimum of one (1) year</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-8_prm_2">
-			<constraint>at least monthly</constraint>
+			<constraint><description><p>at least monthly</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="pe-13.1_prm_1">
+			<constraint><description><p>service provider building maintenance/physical security personnel</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="pe-13.1_prm_2">
+			<constraint><description><p>service provider emergency responders with incident response responsibilities</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-14_prm_1">
-			<constraint>consistent with American Society of Heating, Refrigerating and Air-conditioning Engineers (ASHRAE) document entitled Thermal Guidelines for Data Processing Environments</constraint>
+			<constraint><description><p>consistent with American Society of Heating, Refrigerating and Air-conditioning Engineers (ASHRAE) document entitled Thermal Guidelines for Data Processing Environments</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-14_prm_2">
-			<constraint>continuously</constraint>
+			<constraint><description><p>continuously</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="pe-15.1_prm_1">
+			<constraint><description><p>service provider building maintenance/physical security personnel</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-16_prm_1">
-			<constraint>all information system components</constraint>
+			<constraint><description><p>all information system components</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="pe-18_prm_1">
+			<constraint><description><p>physical and environmental hazards identified during threat assessment</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-2_prm_2">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-4_prm_1">
-			<constraint>At least every 3 years</constraint>
+			<constraint><description><p>annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-8_prm_1">
-			<constraint>At least annually or when a significant change occurs</constraint>
+			<constraint><description><p>at least annually or when a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-2_prm_1">
-			<constraint>at least every three years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-3_prm_1">
-			<constraint>for national security clearances; a reinvestigation is required during the fifth (5th) year for top secret security clearance, the tenth (10th) year for secret security clearance, and fifteenth (15th) year for confidential security clearance. For moderate risk law enforcement and high impact public trust level, a reinvestigation is required during the fifth (5th) year. There is no reinvestigation for other moderate risk positions or any low risk positions</constraint>
+			<constraint><description><p>for national security clearances; a reinvestigation is required during the fifth (5th) year for top secret security clearance, the tenth (10th) year for secret security clearance, and fifteenth (15th) year for confidential security clearance. For moderate risk law enforcement and high impact public trust level, a reinvestigation is required during the fifth (5th) year. There is no reinvestigation for other moderate risk positions or any low risk positions</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-3.3_prm_1">
-			<constraint>personnel screening criteria - as required by specific information</constraint>
+			<constraint><description><p>personnel screening criteria - as required by specific information</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-4_prm_1">
-			<constraint>same day</constraint>
+			<constraint><description><p>eight (8) hours</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ps-4.2_prm_1">
+			<constraint><description><p>access control personnel responsible for disabling access to the system</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ps-5_prm_2">
+			<constraint><description><p>twenty-four (24) hours</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-5_prm_4">
-			<constraint>five days of the time period following the formal transfer action (DoD 24 hours)</constraint>
+			<constraint><description><p>twenty-four (24) hours</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-6_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-6_prm_2">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually and any time there is a change to the user's level of access</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-7_prm_2">
-			<constraint>organization-defined time period - same day</constraint>
+			<constraint><description><p>terminations: immediately; transfers: within twenty-four (24) hours</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ps-8_prm_1">
+			<constraint><description><p>at a minimum, the ISSO and/or similar role within the organization</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-3_prm_2">
-			<constraint>security assessment report</constraint>
+			<constraint><description><p>security assessment report</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-3_prm_3">
-			<constraint>at least every three (3) years or when a significant change occurs</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-3_prm_5">
-			<constraint>at least every three (3) years or when a significant change occurs</constraint>
+			<constraint><description><p>annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-5_prm_1">
-			<constraint>monthly operating system/infrastructure; monthly web applications and databases</constraint>
+			<constraint><description><p>monthly operating system/infrastructure; monthly web applications and databases</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-5_prm_2">
-			<constraint>high-risk vulnerabilities mitigated within thirty (30) days from date of discovery; moderate-risk vulnerabilities mitigated within ninety (90) days from date of discovery; low risk vulnerabilities mitigated within one hundred and eighty (180) days from date of discovery</constraint>
+			<constraint><description><p>high-risk vulnerabilities mitigated within thirty (30) days from date of discovery; moderate-risk vulnerabilities mitigated within ninety (90) days from date of discovery; low risk vulnerabilities mitigated within one hundred and eighty (180) days from date of discovery</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-5.2_prm_1">
-			<constraint>prior to a new scan</constraint>
+			<constraint><description><p>prior to a new scan</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="ra-5.4_prm_1">
+			<constraint><description><p>notify appropriate service provider personnel and follow procedures for organization and service provider-defined corrective actions</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-5.5_prm_1">
-			<constraint>operating systems / web applications / databases</constraint>
+			<constraint><description><p>operating systems / web applications / databases</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-5.5_prm_2">
-			<constraint>all scans</constraint>
+			<constraint><description><p>all scans</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-4.2_prm_1">
-			<constraint>to include security-relevant external system interfaces and high-level design</constraint>
+			<constraint><description><p>at a minimum to include security-relevant external system interfaces; high-level design; low-level design; source code or network and data flow diagram; [organization-defined design/implementation information]</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-4.8_prm_1">
-			<constraint>at least the minimum requirement as defined in control CA-7</constraint>
+			<constraint><description><p>at least the minimum requirement as defined in control CA-7</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="sa-5_prm_2">
+			<constraint><description><p>at a minimum, the ISSO (or similar role within the organization)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-9_prm_1">
-			<constraint>FedRAMP Security Controls Baseline(s) if Federal information is processed or stored within the external system</constraint>
+			<constraint><description><p>FedRAMP Security Controls Baseline(s) if Federal information is processed or stored within the external system</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-9_prm_2">
-			<constraint>Federal/FedRAMP Continuous Monitoring requirements must be met for external systems where Federal information is processed or stored</constraint>
+			<constraint><description><p>Federal/FedRAMP Continuous Monitoring requirements must be met for external systems where Federal information is processed or stored</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-9.2_prm_1">
-			<constraint>all external systems where Federal information is processed or stored</constraint>
+			<constraint><description><p>all external systems where Federal information is processed or stored</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-9.4_prm_2">
-			<constraint>all external systems where Federal information is processed or stored</constraint>
+			<constraint><description><p>all external systems where Federal information is processed or stored</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-9.5_prm_1">
-			<constraint>information processing, information data, AND information services</constraint>
+			<constraint><description><p>information processing, information data, AND information services</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="sa-9.5_prm_2">
+			<constraint><description><p>U.S./U.S. Territories or geographic locations where there is U.S. jurisdiction</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="sa-9.5_prm_3">
+			<constraint><description><p>all High Impact Data, Systems, or Services</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-10_prm_1">
-			<constraint>development, implementation, AND operation</constraint>
+			<constraint><description><p>development, implementation, AND operation</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="sa-12_prm_1">
+			<constraint><description><p>organization and service provider-defined personnel security requirements, approved HW/SW vendor list/process, and secure SDLC procedures</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="sa-15_prm_1">
+			<constraint><description><p>as needed and as dictated by the current threat posture</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="sa-15_prm_2">
+			<constraint><description><p>organization and service provider- defined security requirements</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-7.4_prm_1">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least every ninety (90) days or whenever there is a change in the threat environment that warrants a review of the exceptions</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="sc-7.12_prm_1">
+			<constraint><description><p>Host Intrusion Prevention System (HIPS), Host Intrusion Detection System (HIDS), or minimally a host-based firewall</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-8_prm_1">
-			<constraint>confidentiality AND integrity</constraint>
+			<constraint><description><p>confidentiality AND integrity</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-8.1_prm_1">
-			<constraint>prevent unauthorized disclosure of information AND detect changes to information</constraint>
+			<constraint><description><p>prevent unauthorized disclosure of information AND detect changes to information</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-8.1_prm_2">
-			<constraint>a hardened or alarmed carrier Protective Distribution System (PDS)</constraint>
+			<constraint><description><p>a hardened or alarmed carrier Protective Distribution System (PDS)</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-10_prm_1">
-			<constraint>no longer than 30 minutes for RAS-based sessions or no longer than 60 minutes for non-interactive user sessions</constraint>
+			<constraint><description><p>no longer than ten (10) minutes for privileged sessions and no longer than fifteen (15) minutes for user sessions</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-12.2_prm_1">
-			<constraint>NIST FIPS-compliant</constraint>
+			<constraint><description><p>NIST FIPS-compliant</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-13_prm_1">
-			<constraint>FIPS-validated or NSA-approved cryptography</constraint>
+			<constraint><description><p>FIPS-validated or NSA-approved cryptography</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-15_prm_1">
-			<constraint>no exceptions</constraint>
+			<constraint><description><p>no exceptions</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-28_prm_1">
-			<constraint>confidentiality AND integrity</constraint>
+			<constraint><description><p>confidentiality AND integrity</p></description></constraint>
+		</set-parameter>
+		<set-parameter param-id="sc-28.1_prm_2">
+			<constraint><description><p>all information system components storing customer data deemed sensitive</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-1_prm_2">
-			<constraint>at least every 3 years</constraint>
+			<constraint><description><p>at least annually</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-1_prm_3">
-			<constraint>at least annually</constraint>
+			<constraint><description><p>at least annually or whenever a significant change occurs</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-2_prm_1">
-			<constraint>within 30 days of release of updates</constraint>
+			<constraint><description><p>thirty (30) days of release of updates</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-2.2_prm_1">
-			<constraint>at least monthly</constraint>
+			<constraint><description><p>at least monthly</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-3_prm_1">
-			<constraint>at least weekly</constraint>
+			<constraint><description><p>at least weekly</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-3_prm_2">
-			<constraint>to include endpoints</constraint>
+			<constraint><description><p>to include endpoints</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-3_prm_3">
-			<constraint>to include alerting administrator or defined security personnel</constraint>
+			<constraint><description><p>to include blocking and quarantining malicious code and alerting administrator or defined security personnel near-realtime</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-4.4_prm_1">
-			<constraint>continuously</constraint>
+			<constraint><description><p>continuously</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-5_prm_1">
-			<constraint>to include US-CERT</constraint>
+			<constraint><description><p>to include US-CERT</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-5_prm_2">
-			<constraint>to include system security personnel and administrators with configuration/patch-management responsibilities</constraint>
+			<constraint><description><p>to include system security personnel and administrators with configuration/patch-management responsibilities</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-6_prm_3">
-			<constraint>to include upon system startup and/or restart</constraint>
+			<constraint><description><p>to include upon system startup and/or restart</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-6_prm_4">
-			<constraint>at least monthly</constraint>
+			<constraint><description><p>at least monthly</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-6_prm_5">
-			<constraint>to include system administrators and security personnel</constraint>
+			<constraint><description><p>to include system administrators and security personnel</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-6_prm_7">
-			<constraint>to include notification of system administrators and security personnel</constraint>
+			<constraint><description><p>to include notification of system administrators and security personnel</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-7.1_prm_3">
-			<constraint>Selection to include security relevant events</constraint>
+			<constraint><description><p>selection to include security relevant events</p></description></constraint>
 		</set-parameter>
 		<set-parameter param-id="si-7.1_prm_4">
-			<constraint>at least monthly</constraint>
+			<constraint><description><p>at least monthly</p></description></constraint>
 		</set-parameter>
 		<alter control-id="ac-1">
 			<add position="starting" id-ref="ac-1">
@@ -1036,6 +1324,36 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="ac-12_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ac-12.1">
+			<add position="ending" id-ref="ac-12.1_smt">
+				<part id="ac-12.1_fr" name="item">
+					<title>AC-12 (1) Additional FedRAMP Requirements and Guidance</title>
+					<part id="ac-12.1_fr_gdn.1" name="guidance">
+						<prop name="label">Guidance:</prop>
+						<p>https://www.owasp.org/index.php/Testing_for_logout_functionality_%28OTG-SESS-006%29</p>
+					</part>
+				</part>
+			</add>
+			<add position="starting" id-ref="ac-12.1.a_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-12.1.a_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="ac-12.1.b_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ac-12.1_smt.a" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="ac-12.1_smt.b" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -1190,6 +1508,46 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="ac-18.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ac-18.3">
+			<add position="starting" id-ref="ac-18.3_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ac-18.3_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ac-18.4">
+			<add position="starting" id-ref="ac-18.4_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-18.4_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ac-18.4_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ac-18.5">
+			<add position="starting" id-ref="ac-18.5_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="ac-18.5_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ac-18.5_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -1350,8 +1708,8 @@
 			<add position="ending" id-ref="ac-2.10_smt">
 				<part id="ac-2.10_fr" name="item">
 					<title>AC-2 (10) Additional FedRAMP Requirements and Guidance</title>
-					<part id="ac-2.10_fr_smt.1" name="item">
-						<prop name="label">Requirement:</prop>
+					<part id="ac-2.10_fr_gdn.1" name="guidance">
+						<prop name="label">Guidance:</prop>
 						<p>Required if shared/group accounts are deployed</p>
 					</part>
 				</part>
@@ -1363,6 +1721,24 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="ac-2.10_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ac-2.11">
+			<add position="starting" id-ref="ac-2.11_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-2.11_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-2.11_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ac-2.11_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -1408,6 +1784,20 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ac-2.13">
+			<add position="starting" id-ref="ac-2.13_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-2.13_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ac-2.13_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ac-2.2">
 			<add position="starting" id-ref="ac-2.2">
 				<prop name="CORE" ns="https://fedramp.gov/ns/oscal"/>
@@ -1426,6 +1816,19 @@
 			</add>
 		</alter>
 		<alter control-id="ac-2.3">
+			<add position="ending" id-ref="ac-2.3_smt">
+				<part id="ac-2.3_fr" name="item">
+					<title>AC-2 (3) Additional FedRAMP Requirements and Guidance</title>
+					<part id="ac-2.3_fr_smt.1" name="item">
+						<prop name="label">Requirement:</prop>
+						<p>The service provider defines the time period for non-user accounts (e.g.,
+							accounts associated with devices). The time periods are approved and
+							accepted by the JAB/AO. Where user management is a function of the
+							service, reports of activity of consumer users shall be made
+							available.</p>
+					</part>
+				</part>
+			</add>
 			<add position="starting" id-ref="ac-2.3">
 				<prop name="CORE" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
@@ -1521,8 +1924,8 @@
 			<add position="ending" id-ref="ac-2.9_smt">
 				<part id="ac-2.9_fr" name="item">
 					<title>AC-2 (9) Additional FedRAMP Requirements and Guidance</title>
-					<part id="ac-2.9_fr_smt.1" name="item">
-						<prop name="label">Requirement:</prop>
+					<part id="ac-2.9_fr_gdn.1" name="guidance">
+						<prop name="label">Guidance:</prop>
 						<p>Required if shared/group accounts are deployed</p>
 					</part>
 				</part>
@@ -1702,11 +2105,29 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ac-4.8">
+			<add position="starting" id-ref="ac-4.8_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-4.8_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-4.8_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ac-4.8_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ac-5">
 			<add position="ending" id-ref="ac-5_smt">
 				<part id="ac-5_fr" name="item">
 					<title>AC-5 Additional FedRAMP Requirements and Guidance</title>
-					<part id="ac.5_fr_gdn.1" name="guidance">
+					<part id="ac-5_fr_gdn.1" name="guidance">
 						<prop name="label">Guidance:</prop>
 						<p>Guidance: CSPs have the option to provide a separation of duties matrix
 							as an attachment to the SSP.</p>
@@ -1807,6 +2228,29 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ac-6.3">
+			<add position="starting" id-ref="ac-6.3_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-6.3_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-6.3_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="ac-6.3_obj.4">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add id-ref="ac-6.3_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ac-6.5">
 			<add position="starting" id-ref="ac-6.5_obj.1">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -1818,6 +2262,46 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="ac-6.5_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ac-6.7">
+			<add position="starting" id-ref="ac-6.7.a_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-6.7.a_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-6.7.a_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add position="starting" id-ref="ac-6.7.b_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ac-6.7_smt.a" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="ac-6.7_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ac-6.8">
+			<add position="starting" id-ref="ac-6.8_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-6.8_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ac-6.8_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -1865,6 +2349,28 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 			<add id-ref="ac-7_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ac-7.2">
+			<add position="starting" id-ref="ac-7.2_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-7.2_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-7.2_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ac-7.2_obj.4">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ac-7.2_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -2072,6 +2578,30 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="at-3.3">
+			<add position="starting" id-ref="at-3.3_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add id-ref="at-3.3_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="at-3.4">
+			<add position="starting" id-ref="at-3.4_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="at-3.4_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add id-ref="at-3.4_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="at-4">
 			<add position="starting" id-ref="at-4">
 				<prop name="CORE" ns="https://fedramp.gov/ns/oscal"/>
@@ -2157,6 +2687,20 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="au-10">
+			<add position="starting" id-ref="au-10.1_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-10.2_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-10_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="au-11">
 			<add position="ending" id-ref="au-11_smt">
 				<part id="au-11_fr" name="item">
@@ -2215,6 +2759,50 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 			<add id-ref="au-12_smt.c" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="au-12.1">
+			<add position="starting" id-ref="au-12.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-12.1_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-12.1_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-12.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="au-12.3">
+			<add position="starting" id-ref="au-12.3_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-12.3_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-12.3_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-12.3_obj.4">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-12.3_obj.5">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-12.3_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -2351,6 +2939,20 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="au-3.2">
+			<add position="starting" id-ref="au-3.2_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-3.2_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-3.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="au-4">
 			<add position="starting" id-ref="au-4.1_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -2388,6 +2990,50 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 			<add id-ref="au-5_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="au-5.1">
+			<add position="starting" id-ref="au-5.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-5.1_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-5.1_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-5.1_obj.4">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-5.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="au-5.2">
+			<add position="starting" id-ref="au-5.2_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-5.2_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-5.2_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-5.2_obj.4">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-5.2_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -2451,6 +3097,17 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="au-6.10">
+			<add position="starting" id-ref="au-6.10_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-6.10_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="au-6.3">
 			<add position="starting" id-ref="au-6.3_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -2459,6 +3116,68 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="au-6.3_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="au-6.4">
+			<add position="starting" id-ref="au-6.4_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-6.4_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="au-6.5">
+			<add position="starting" id-ref="au-6.5_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="au-6.5_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="au-6.5_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-6.5_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="au-6.6">
+			<add position="ending" id-ref="au-6.6_smt">
+				<part id="au-6.6_fr" name="item">
+					<title>AU-6 (6) Additional FedRAMP Requirements and Guidance</title>
+					<part id="au-6.6_fr_smt.1" name="item">
+						<prop name="label">Requirement:</prop>
+						<p>Coordination between service provider and consumer shall be documented
+							and accepted by the JAB/AO.</p>
+					</part>
+				</part>
+			</add>
+			<add position="starting" id-ref="au-6.6_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-6.6_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="au-6.7">
+			<add position="starting" id-ref="au-6.7_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-6.7_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -2608,6 +3327,23 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="au-9.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="au-9.3">
+			<add position="starting" id-ref="au-9.3_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="au-9.3_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="au-9.3_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -3137,6 +3873,16 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ca-7.3">
+			<add position="starting" id-ref="ca-7.3_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add id-ref="ca-7.3_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ca-8">
 			<add position="ending" id-ref="ca-8_smt">
 				<part id="ca-8_fr" name="item">
@@ -3337,6 +4083,20 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="cm-11.1">
+			<add position="starting" id-ref="cm-11.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cm-11.1_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cm-11.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="cm-2">
 			<add position="starting" id-ref="cm-2_obj.1">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -3353,6 +4113,16 @@
 			</add>
 		</alter>
 		<alter control-id="cm-2.1">
+			<add position="ending" id-ref="cm-2.1_smt">
+				<part id="cm-2.1_fr" name="item">
+					<title>CM-8 Additional FedRAMP Requirements and Guidance</title>
+					<part id="cm-2.1_fr_gdn.1" name="guidance">
+						<prop name="label">(a) Guidance:</prop>
+						<p>Significant change is defined in NIST Special Publication 800-37 Revision
+							1, Appendix F, page F-7.</p>
+					</part>
+				</part>
+			</add>
 			<add position="starting" id-ref="cm-2.1">
 				<prop name="CORE" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
@@ -3552,6 +4322,115 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="cm-3.1">
+			<add position="starting" id-ref="cm-3.1.a_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.1.b_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.1.b_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.1.c_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.1.c_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.1.d_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.1.e_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.1.f_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.1.f_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cm-3.1_smt.a" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="cm-3.1_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="cm-3.1_smt.c" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="cm-3.1_smt.d" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="cm-3.1_smt.e" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="cm-3.1_smt.f" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cm-3.2">
+			<add position="starting" id-ref="cm-3.2_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.2_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.2_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add id-ref="cm-3.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cm-3.4">
+			<add position="starting" id-ref="cm-3.4_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.4_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cm-3.4_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cm-3.6">
+			<add position="starting" id-ref="cm-3.6_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cm-3.6_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cm-3.6_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="cm-4">
 			<add position="starting" id-ref="cm-4.1_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -3560,6 +4439,36 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="cm-4_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cm-4.1">
+			<add position="starting" id-ref="cm-4.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-4.1_obj.2.a">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-4.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-4.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-4.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cm-4.1_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -3615,6 +4524,29 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="cm-5.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cm-5.2">
+			<add position="starting" id-ref="cm-5.2_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cm-5.2_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cm-5.2_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="cm-5.2_obj.4">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cm-5.2_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -3768,6 +4700,24 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="cm-6.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cm-6.2">
+			<add position="starting" id-ref="cm-6.2_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cm-6.2_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cm-6.2_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cm-6.2_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -3959,6 +4909,15 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="cm-8.2">
+			<add position="starting" id-ref="cm-8.2_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cm-8.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="cm-8.3">
 			<add position="starting" id-ref="cm-8.3">
 				<prop name="CORE" ns="https://fedramp.gov/ns/oscal"/>
@@ -3985,6 +4944,17 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 			<add id-ref="cm-8.3_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cm-8.4">
+			<add position="starting" id-ref="cm-8.4_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cm-8.4_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -4116,6 +5086,20 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="cp-10.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cp-10.4">
+			<add position="starting" id-ref="cp-10.4_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cp-10.4_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cp-10.4_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -4260,6 +5244,34 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="cp-2.4">
+			<add position="starting" id-ref="cp-2.4_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cp-2.4_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cp-2.4_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cp-2.5">
+			<add position="starting" id-ref="cp-2.5_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cp-2.5_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cp-2.5_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="cp-2.8">
 			<add position="starting" id-ref="cp-2.8_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -4304,6 +5316,16 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 			<add id-ref="cp-3_smt.c" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cp-3.1">
+			<add position="starting" id-ref="cp-3.1_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add id-ref="cp-3.1_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -4363,6 +5385,24 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="cp-4.2">
+			<add position="starting" id-ref="cp-4.2.a_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add position="starting" id-ref="cp-4.2.b_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add id-ref="cp-4.2_smt.a" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="cp-4.2_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="cp-6">
 			<add position="starting" id-ref="cp-6.1_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -4388,6 +5428,16 @@
 				<prop name="method" class="fedramp">INTERVIEW</prop>
 			</add>
 			<add id-ref="cp-6.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cp-6.2">
+			<add position="starting" id-ref="cp-6.2_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cp-6.2_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -4504,6 +5554,17 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="cp-7.4">
+			<add position="starting" id-ref="cp-7.4_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cp-7.4_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="cp-8">
 			<add position="ending" id-ref="cp-8_smt">
 				<part id="cp-8_fr" name="item">
@@ -4556,6 +5617,51 @@
 				<prop name="method" class="fedramp">INTERVIEW</prop>
 			</add>
 			<add id-ref="cp-8.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cp-8.3">
+			<add position="starting" id-ref="cp-8.3_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add id-ref="cp-8.3_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cp-8.4">
+			<add position="starting" id-ref="cp-8.4.a_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add position="starting" id-ref="cp-8.4.a_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add position="starting" id-ref="cp-8.4.b_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add position="starting" id-ref="cp-8.4.c_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cp-8.4.c_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add id-ref="cp-8.4_smt.a" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="cp-8.4_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="cp-8.4_smt.c" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -4650,6 +5756,17 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="cp-9.2">
+			<add position="starting" id-ref="cp-9.2_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cp-9.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="cp-9.3">
 			<add position="starting" id-ref="cp-9.3_obj.1.a">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -4665,6 +5782,23 @@
 				<prop name="method" class="fedramp">INTERVIEW</prop>
 			</add>
 			<add id-ref="cp-9.3_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="cp-9.5">
+			<add position="starting" id-ref="cp-9.5_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cp-9.5_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="cp-9.5_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="cp-9.5_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -4838,6 +5972,17 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ia-2.4">
+			<add position="starting" id-ref="ia-2.4_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ia-2.4_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ia-2.5">
 			<add position="starting" id-ref="ia-2.5_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -4857,6 +6002,17 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="ia-2.8_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ia-2.9">
+			<add position="starting" id-ref="ia-2.9_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ia-2.9_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -4969,7 +6125,7 @@
 					<part id="ia-5_fr_smt.1" name="item">
 						<prop name="label">Requirement:</prop>
 						<p>Authenticators must be compliant with NIST SP 800-63-3 Digital Identity
-							Guidelines IAL, AAL, FAL level 2. Link <a
+							Guidelines IAL, AAL, FAL level 3. Link <a
 								href="https://pages.nist.gov/800-63-3"
 								>https://pages.nist.gov/800-63-3</a>.</p>
 					</part>
@@ -5196,6 +6352,20 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ia-5.13">
+			<add position="starting" id-ref="ia-5.13_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ia-5.13_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ia-5.13_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ia-5.2">
 			<add position="starting" id-ref="ia-5.2.a_obj.1">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -5309,6 +6479,20 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="ia-5.7_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ia-5.8">
+			<add position="starting" id-ref="ia-5.8_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ia-5.8_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ia-5.8_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -5491,6 +6675,28 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ir-2.1">
+			<add position="starting" id-ref="ir-2.1_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ir-2.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ir-2.2">
+			<add position="starting" id-ref="ir-2.2_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ir-2.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ir-3">
 			<add position="ending" id-ref="ir-3_smt">
 				<part id="ir-3_fr" name="item">
@@ -5585,6 +6791,78 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ir-4.2">
+			<add position="starting" id-ref="ir-4.2_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ir-4.2_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ir-4.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ir-4.3">
+			<add position="starting" id-ref="ir-4.3_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ir-4.3_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ir-4.3_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ir-4.3_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ir-4.4">
+			<add position="starting" id-ref="ir-4.4_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ir-4.4_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ir-4.6">
+			<add position="starting" id-ref="ir-4.6_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ir-4.6_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ir-4.8">
+			<add position="starting" id-ref="ir-4.8_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ir-4.8_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ir-4.8_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ir-4.8_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ir-5">
 			<add position="starting" id-ref="ir-5.1_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -5597,6 +6875,17 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="ir-5_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ir-5.1">
+			<add position="starting" id-ref="ir-5.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ir-5.1_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -6061,6 +7350,23 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ma-2.2">
+			<add position="starting" id-ref="ma-2.2.a_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ma-2.2.b_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ma-2.2_smt.a" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="ma-2.2_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ma-3">
 			<add position="starting" id-ref="ma-3.1_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -6188,6 +7494,34 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ma-4.3">
+			<add position="starting" id-ref="ma-4.3.a_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ma-4.3.b_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ma-4.3_smt.a" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="ma-4.3_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ma-4.6">
+			<add position="starting" id-ref="ma-4.6_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ma-4.6_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ma-5">
 			<add position="starting" id-ref="ma-5.a_obj.1">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -6217,15 +7551,6 @@
 			</add>
 		</alter>
 		<alter control-id="ma-5.1">
-			<add position="ending" id-ref="ma-5.1_smt">
-				<part id="ma-5.1_fr" name="item">
-					<title>MA-5 (1) Additional FedRAMP Requirements and Guidance</title>
-					<part id="ma-5.1_fr_smt.b" name="item">
-						<prop name="label">Requirement:</prop>
-						<p>Only MA-5 (1)(a)(1) is required by FedRAMP Moderate Baseline</p>
-					</part>
-				</part>
-			</add>
 			<add position="starting" id-ref="ma-5.1.a.1_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 				<prop name="method" class="fedramp">INTERVIEW</prop>
@@ -6507,6 +7832,32 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="mp-6.1">
+			<add position="starting" id-ref="mp-6.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="mp-6.1_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="mp-6.1_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="mp-6.1_obj.4">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="mp-6.1_obj.5">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="mp-6.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="mp-6.2">
 			<add position="ending" id-ref="mp-6.2_smt">
 				<part id="mp-6.2_fr" name="item">
@@ -6530,6 +7881,20 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="mp-6.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="mp-6.3">
+			<add position="starting" id-ref="mp-6.3_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="mp-6.3_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="mp-6.3_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -6662,6 +8027,17 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="pe-11.1">
+			<add position="starting" id-ref="pe-11.1_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="pe-11.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="pe-12">
 			<add position="starting" id-ref="pe-12.1_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -6693,6 +8069,24 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="pe-13_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="pe-13.1">
+			<add position="starting" id-ref="pe-13.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="pe-13.1_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="pe-13.1_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="pe-13.1_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -6807,6 +8201,25 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="pe-15.1">
+			<add position="starting" id-ref="pe-15.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="pe-15.1_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="pe-15.1_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="pe-15.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="pe-16">
 			<add position="starting" id-ref="pe-16_obj.1">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -6883,6 +8296,29 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 			<add id-ref="pe-17_smt.c" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="pe-18">
+			<add position="starting" id-ref="pe-18.1_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="pe-18_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="pe-18_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="pe-18_obj.4">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="pe-18_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -7040,6 +8476,20 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="pe-3.1">
+			<add position="starting" id-ref="pe-3.1_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="pe-3.1_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="pe-3.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="pe-4">
 			<add position="starting" id-ref="pe-4_obj.1">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -7117,6 +8567,20 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="pe-6.4">
+			<add position="starting" id-ref="pe-6.4_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="pe-6.4_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="pe-6.4_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="pe-8">
 			<add position="starting" id-ref="pe-8">
 				<prop name="CORE" ns="https://fedramp.gov/ns/oscal"/>
@@ -7143,6 +8607,17 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 			<add id-ref="pe-8_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="pe-8.1">
+			<add position="starting" id-ref="pe-8.1_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="pe-8.1_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -7614,6 +9089,20 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ps-4.2">
+			<add position="starting" id-ref="ps-4.2_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ps-4.2_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ps-4.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ps-5">
 			<add position="starting" id-ref="ps-5">
 				<prop name="CORE" ns="https://fedramp.gov/ns/oscal"/>
@@ -7944,23 +9433,19 @@
 			</add>
 		</alter>
 		<alter control-id="ra-5">
-			<add position="ending" id-ref="ra-5_smt.a">
+			<add id-ref="ra-5_smt">
 				<part id="ra-5_fr_smt.a" name="item">
 					<title>RA-5(a) Additional FedRAMP Requirements and Guidance</title>
 					<prop name="label">RA-5 (a)Requirement:</prop>
 					<p>An accredited independent assessor scans operating systems/infrastructure,
 						web applications, and databases once annually.</p>
 				</part>
-			</add>
-			<add position="ending" id-ref="ra-5_smt.e">
 				<part id="ra-5_fr_smt.e" name="item">
 					<title>RA-5(e) Additional FedRAMP Requirements and Guidance</title>
 					<prop name="label">RA-5 (e)Requirement:</prop>
 					<p>To include all Authorizing Officials; for JAB authorizations to include
 						FedRAMP.</p>
 				</part>
-			</add>
-			<add position="ending" id-ref="ra-5_smt">
 				<part id="ra-5_fr" name="item">
 					<title>RA-5 Additional FedRAMP Requirements and Guidance</title>
 					<part id="ra-5_fr_gdn.1" name="guidance">
@@ -8065,6 +9550,26 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="ra-5.10">
+			<add position="ending" id-ref="ra-5.10_smt">
+				<part id="ra-5.10_fr" name="item">
+					<title>RA-5 (10) Additional FedRAMP Requirements and Guidance</title>
+					<part id="ra-5.10_fr_gdn.1" name="guidance">
+						<prop name="label">Guidance:</prop>
+						<p>If multiple tools are not used, this control is not applicable.</p>
+					</part>
+				</part>
+			</add>
+			<add position="starting" id-ref="ra-5.10_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ra-5.10_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="ra-5.2">
 			<add position="starting" id-ref="ra-5.2">
 				<prop name="CORE" ns="https://fedramp.gov/ns/oscal"/>
@@ -8096,6 +9601,25 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="ra-5.3_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="ra-5.4">
+			<add position="starting" id-ref="ra-5.4_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="ra-5.4_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="ra-5.4_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="ra-5.4_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -8395,6 +9919,100 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="sa-11.8_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="sa-12">
+			<add position="starting" id-ref="sa-12.1_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="sa-12.2_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="sa-12_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="sa-15">
+			<add position="starting" id-ref="sa-15.a_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="sa-15.b_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="sa-15.b_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="sa-15.b_obj.3.a">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add position="starting" id-ref="sa-15.b_obj.3.b">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add position="starting" id-ref="sa-15.b_obj.3.c">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add position="starting" id-ref="sa-15.b_obj.3.d">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add id-ref="sa-15_smt.a" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="sa-15_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="sa-16">
+			<add position="starting" id-ref="sa-16_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="sa-16_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add id-ref="sa-16_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="sa-17">
+			<add position="starting" id-ref="sa-17.a_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add position="starting" id-ref="sa-17.b_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add position="starting" id-ref="sa-17.c_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+			</add>
+			<add id-ref="sa-17_smt.a" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="sa-17_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="sa-17_smt.c" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -8845,6 +10463,17 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="sc-12.1">
+			<add position="starting" id-ref="sc-12.1_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="sc-12.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="sc-12.2">
 			<add position="starting" id-ref="sc-12.2_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -9086,6 +10715,44 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="sc-23.1">
+			<add position="starting" id-ref="sc-23.1_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="sc-23.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="sc-24">
+			<add position="starting" id-ref="sc-24_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="sc-24_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="sc-24_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="sc-24_obj.4">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="sc-24_obj.5">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="sc-24_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="sc-28">
 			<add position="ending" id-ref="sc-28_smt">
 				<part id="sc-28_fr" name="item">
@@ -9125,6 +10792,17 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="sc-28.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="sc-3">
+			<add position="starting" id-ref="sc-3_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="sc-3_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -9229,6 +10907,17 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="sc-7.10">
+			<add position="starting" id-ref="sc-7.10_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="sc-7.10_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="sc-7.12">
 			<add position="starting" id-ref="sc-7.12_obj.1">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -9259,6 +10948,15 @@
 							components from other internal information system components via
 							physically or logically separate subnets.</p>
 					</part>
+					<part id="sc-7.13_fr_gdn.1" name="guidance">
+						<prop name="label">Guidance:</prop>
+						<p>Examples include: information security tools, mechanisms, and support
+							components such as, but not limited to PKI, patching infrastructure,
+							cyber defense tools, special purpose gateway, vulnerability tracking
+							systems, internet access points (IAPs); network element and data center
+							administrative/management traffic; Demilitarized Zones (DMZs), Server
+							farms/computing centers, centralized audit log servers etc.</p>
+					</part>
 				</part>
 			</add>
 			<add position="starting" id-ref="sc-7.13_obj.1">
@@ -9282,6 +10980,38 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="sc-7.18_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="sc-7.20">
+			<add position="starting" id-ref="sc-7.20_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="sc-7.20_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="sc-7.20_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="sc-7.21">
+			<add position="starting" id-ref="sc-7.21_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="sc-7.21_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="sc-7.21_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="sc-7.21_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -9605,6 +11335,17 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="si-2.1">
+			<add position="starting" id-ref="si-2.1_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="si-2.1_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="si-2.2">
 			<add position="starting" id-ref="si-2.2">
 				<prop name="CORE" ns="https://fedramp.gov/ns/oscal"/>
@@ -9843,6 +11584,20 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="si-4.11">
+			<add position="starting" id-ref="si-4.11_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="si-4.11_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="si-4.11_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="si-4.14">
 			<add position="starting" id-ref="si-4.14">
 				<prop name="CORE" ns="https://fedramp.gov/ns/oscal"/>
@@ -9877,6 +11632,38 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="si-4.18">
+			<add position="starting" id-ref="si-4.18_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="si-4.18_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="si-4.18_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="si-4.19">
+			<add position="starting" id-ref="si-4.19_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="si-4.19_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="si-4.19_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="si-4.19_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="si-4.2">
 			<add position="starting" id-ref="si-4.2_obj">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -9885,6 +11672,38 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="si-4.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="si-4.20">
+			<add position="starting" id-ref="si-4.20_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="si-4.20_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="si-4.20_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="si-4.22">
+			<add position="starting" id-ref="si-4.22_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="si-4.22_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="si-4.22_obj.3">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="si-4.22_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -9903,6 +11722,16 @@
 				<prop name="method" class="fedramp">TEST</prop>
 			</add>
 			<add id-ref="si-4.23_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="si-4.24">
+			<add position="starting" id-ref="si-4.24_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="si-4.24_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -10000,6 +11829,17 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 			<add id-ref="si-5_smt.d" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="si-5.1">
+			<add position="starting" id-ref="si-5.1_obj">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="si-5.1_smt" position="starting">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
@@ -10107,6 +11947,60 @@
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
 			</add>
 		</alter>
+		<alter control-id="si-7.14">
+			<add position="starting" id-ref="si-7.14.a_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="si-7.14.a_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="si-7.14.b_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add position="starting" id-ref="si-7.14.b_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="si-7.14_smt.a" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+			<add id-ref="si-7.14_smt.b" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="si-7.2">
+			<add position="starting" id-ref="si-7.2_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="si-7.2_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="si-7.2_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
+		<alter control-id="si-7.5">
+			<add position="starting" id-ref="si-7.5_obj.1">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">EXAMINE</prop>
+			</add>
+			<add position="starting" id-ref="si-7.5_obj.2">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+				<prop name="method" class="fedramp">INTERVIEW</prop>
+				<prop name="method" class="fedramp">TEST</prop>
+			</add>
+			<add id-ref="si-7.5_smt" position="starting">
+				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+			</add>
+		</alter>
 		<alter control-id="si-7.7">
 			<add position="starting" id-ref="si-7.7_obj.1">
 				<prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
@@ -10185,7 +12079,7 @@
 			/>
 		</resource>
 		<resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
-			<desc>FedRAMP Logo</desc>
+			<description><p>FedRAMP Logo</p></description>
 			<prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-logo</prop>
 			<prop name="keep">always</prop>
 			<rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
