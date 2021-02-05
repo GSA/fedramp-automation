@@ -1727,7 +1727,7 @@
          <title>NIST Special Publication (SP) 800-53</title>
          <prop name="version" ns="https://fedramp.gov/ns/oscal">Revision 4</prop>
          <prop name="keep">always</prop>
-         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
+         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/oscal-content/9fd42a99a440f0ac7e0db2087cde4995bf33bf7c/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
       </resource>
       <resource uuid="7dd13ca9-e2f5-4ac7-aead-8622327c17a4">
          <title>FedRAMP Low Baseline</title>
