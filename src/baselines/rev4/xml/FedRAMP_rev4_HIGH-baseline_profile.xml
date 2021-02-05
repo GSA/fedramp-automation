@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="7E407793-3CD2-4BF5-9F61-1295121F2732">
 	<metadata>
-		<title>FedRAMP High Baseline</title>
+		<title>FedRAMP Rev 4 High Baseline</title>
 		<published>2021-02-05T00:00:00.000-04:00</published>
 		<last-modified>2021-02-05T00:00:00.000-04:00</last-modified>
 		<version>1.3</version>
