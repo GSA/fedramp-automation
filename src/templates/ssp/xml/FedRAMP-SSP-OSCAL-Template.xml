@@ -262,7 +262,7 @@
          <name>[SAMPLE]Person Name 1</name>
          <prop name="job-title">Individual's Title</prop>
          <prop name="mail-stop">Mailstop A-1</prop>
-         <email-address>name@org.domain</email-address>
+         <email-address>name@example.com</email-address>
          <telephone-number>202-000-0001</telephone-number>
          <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
          <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
@@ -270,7 +270,7 @@
       <party uuid="36b8d6c0-3b25-42cc-b529-cf4066145cdd" type="person">
          <name>[SAMPLE]Person Name 2</name>
          <prop name="job-title">Individual's Title</prop>
-         <email-address>name@org.domain</email-address>
+         <email-address>name@example.com</email-address>
          <telephone-number>202-000-0002</telephone-number>
          <address type="work">
             <addr-line>Address Line</addr-line>
@@ -284,7 +284,7 @@
       <party uuid="0cec09d9-20c6-470b-9ffc-85763375880b" type="person">
          <name>[SAMPLE]Person Name 3</name>
          <prop name="job-title">Individual's Title</prop>
-         <email-address>name@org.domain</email-address>
+         <email-address>name@example.com</email-address>
          <telephone-number>202-000-0003</telephone-number>
          <address type="work">
             <addr-line>Address Line</addr-line>
@@ -298,7 +298,7 @@
       <party uuid="f75e21f6-43d8-46ab-890d-7f2eebc5a830" type="person">
          <name>[SAMPLE]Person Name 4</name>
          <prop name="job-title">Individual's Title</prop>
-         <email-address>name@org.domain</email-address>
+         <email-address>name@example.com</email-address>
          <telephone-number>202-000-0004</telephone-number>
          <address type="work">
             <addr-line>Address Line</addr-line>
@@ -312,7 +312,7 @@
       <party uuid="132953a9-640c-46f7-9de9-3fa15ec99361" type="person">
          <name>[SAMPLE]Person Name 5</name>
          <prop name="job-title">Individual's Title</prop>
-         <email-address>name@org.domain</email-address>
+         <email-address>name@example.com</email-address>
          <telephone-number>202-000-0005</telephone-number>
          <address type="work">
             <addr-line>Address Line</addr-line>
@@ -326,7 +326,7 @@
       <party uuid="4fded5fd-7a65-47ea-bd76-df57c46e27d1" type="person">
          <name>[SAMPLE]Person Name 6</name>
          <prop name="job-title">Individual's Title</prop>
-         <email-address>name@org.domain</email-address>
+         <email-address>name@example.com</email-address>
          <telephone-number>202-000-0006</telephone-number>
          <address type="work">
             <addr-line>Address Line</addr-line>
@@ -340,7 +340,7 @@
       <party uuid="db234cb7-1776-425c-9ac4-b067c1723011" type="person">
          <name>[SAMPLE]Person Name 7</name>
          <prop name="job-title">Individual's Title</prop>
-         <email-address>name@org.domain</email-address>
+         <email-address>name@example.com</email-address>
          <telephone-number>202-000-0007</telephone-number>
          <address type="work">
             <addr-line>Address Line</addr-line>
