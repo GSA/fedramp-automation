@@ -834,7 +834,7 @@
          </remarks>
       </component>
       
-      <component type="" uuid="55b55b3d-3bd9-409a-bc87-3b9a2074bacd">
+      <component type="subnet" uuid="55b55b3d-3bd9-409a-bc87-3b9a2074bacd">
          <title>IPv4 Production Subnet</title>
          <description>
             <p>IPv4 Production Subnet.</p>
@@ -845,14 +845,16 @@
          <status state="implemented" />
       </component>
       
-      <inventory-item uuid="c0dbefa1-c8e8-4ca8-bd73-67cb7b1fa3f6">
+      <component type="subnet" uuid="c0dbefa1-c8e8-4ca8-bd73-67cb7b1fa3f6">
+         <title>IPv4 Management Subnet</title>
          <description>
             <p>IPv4 Management Subnet.</p>
          </description>
          <prop name="asset-id">10.10.20.0</prop>
          <prop name="ipv4-subnet">10.10.20.0/24</prop>
          <annotation name="is-scanned" value="yes"/>
-      </inventory-item>
+         <status state="operational"></status>
+      </component>
       
       <inventory-item uuid="98e37f90-fbb5-4177-badb-9b55229cc183">
          <description>
