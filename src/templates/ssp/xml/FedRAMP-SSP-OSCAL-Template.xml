@@ -658,7 +658,7 @@
          <prop name="inherited-uuid">11111111-0000-4000-9001-000000000001</prop>
          <status state="operational"/>
       </component>
-      <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="service">
+      <component uuid="77A1614A-57B3-4B32-9FEE-613A6520EC58" type="service">
          <title>Service Provided by Leveraged System</title>
          <description>
             <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
@@ -1043,8 +1043,21 @@
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="3f5612a4-cd1d-4c47-8cae-75d2eaa332cd">
                <description>
                   <p>Describe how Part a is satisfied within the system.</p>
+                  <p>Legacy approach. If no policy component is defined, describe here how the policy satisfies part a.</p>
+                  <p>In this case, a link must be provided to the policy.</p>
+                  <p>FedRAMP prefers all policies and procedures be attached as a resource in the back-matter. The link points to a resource.</p>
+               </description>
+               <link href="#090ab379-2089-4830-b9fd-26d0729e22e9" rel="policy" />
+            </by-component>
+
+            <by-component component-uuid="F25E84BF-3E57-48C3-AC0B-7A567B3AF79E" uuid="2CF56836-6834-49A9-96CD-4F49C17AAB01">
+               <description>
+                  <p>Describe how this policy component satisfies part a.</p>
+                  <p>Component approach. This links to a component representing the Identity Management and Access Control Policy.</p>
+                  <p>That component contains a link to the policy, so it does not have to be linked here too.</p>
                </description>
             </by-component>
+            
             <remarks>
                <p>The specified component is the system itself.</p>
                <p>Any control implementation response that can not be associated with another component is associated with the component representing the system.</p>
