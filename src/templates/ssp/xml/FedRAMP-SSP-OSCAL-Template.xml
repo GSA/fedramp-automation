@@ -842,7 +842,7 @@
          <prop name="asset-id">10.10.10.0</prop>
          <prop name="ipv4-subnet">10.10.10.0/24</prop>
          <annotation name="is-scanned" value="yes"/>
-         <status state="implemented" />
+         <status state="operational"></status>
       </component>
       
       <component type="subnet" uuid="c0dbefa1-c8e8-4ca8-bd73-67cb7b1fa3f6">
