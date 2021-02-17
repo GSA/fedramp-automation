@@ -356,8 +356,12 @@
          <remove id-ref="ac-2_smt.k"/>
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
-         <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+         
+         <add id-ref="ac-2_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
+
+         <add id-ref="ac-2_smt" position="ending">
             <part id="ac-2_fr" name="item">
                <title>AC-2 Additional FedRAMP Requirements and Guidance</title>
                <part id="ac-2_fr_gdn.1" name="guidance">
@@ -367,13 +371,72 @@
                </part>
             </part>
          </add>
+
+         <add position="ending">
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+               <p>Determine if the organization defines information system account types to be identified and selected to support organizational missions/business functions.</p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                   <p>Access control policy; procedures addressing account management; security plan; information system design documentation; information system configuration settings and associated documentation; list of active system accounts along with the name of the individual associated with each account; list of conditions for group and role membership; notifications or records of recently transferred, separated, or terminated employees; list of recently disabled information system accounts along with the name of the individual associated with each account; access authorization records; account management compliance reviews; information system monitoring records; information system audit records; other relevant documents or records.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                   <p>Organizational personnel with account management responsibilities; system/network administrators; organizational personnel with information security responsibilities.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                   <p>Organizational processes for account management on the information system; automated mechanisms for implementing account management.</p>
+                </part>  
+            </part>
+
+         </add>
       </alter>
       <!-- - - AC-3 - -  -->
       <alter control-id="ac-3">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ac-3_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+               <p>Determine if the information system enforces approved authorizations for logical access to information and system resources in accordance with applicable access control policies.</p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                   <p>Access control policy; procedures addressing access enforcement; information system design documentation; information system configuration settings and associated documentation; list of approved authorizations (user privileges); information system audit records; and other relevant documents or records.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                   <p>Organizational personnel with access enforcement responsibilities; system/network administrators; organizational personnel with information security responsibilities; and system developers.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                   <p>Automated mechanisms implementing access control policy.</p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - AC-7 - -  -->
@@ -415,8 +478,37 @@
       <alter control-id="ac-17">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ac-17_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+               <p>Determine if the organization authorizes remote access to the information system prior to allowing such connections</p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                   <p>Access control policy; procedures addressing remote access implementation and usage (including restrictions); configuration management plan; security plan; information system configuration settings and associated documentation; remote access authorizations; information system audit records; and other relevant documents or records.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                   <p>Organizational personnel with responsibilities for managing remote access connections; system/network administrators; and organizational personnel with information security responsibilities.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                   <p>Remote access management capability for the information system.</p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - AC-18 - -  -->
@@ -461,8 +553,37 @@
       <alter control-id="ac-22">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ac-22_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+               <p>Determine if the organization designates individuals authorized to post information onto a publicly accessible information system.</p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                   <p>Access control policy; procedures addressing publicly accessible content; list of users authorized to post publicly accessible content on organizational information systems; training materials and/or records; records of publicly accessible information reviews; records of response to nonpublic information on public websites; system audit logs; security awareness training records; other relevant documents or records Interview - Organizational personnel with responsibilities for managing remote access connections; system/network administrators; and organizational personnel with information security responsibilities.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                   <p>Organizational personnel with responsibilities for managing publicly accessible information posted on organizational information systems; and organizational personnel with information security responsibilities.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                   <p>Automated mechanisms implementing management of publicly accessible content.</p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - AT-1 - -  -->
@@ -517,8 +638,46 @@
       <alter control-id="au-3">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="au-3_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+               <p>Determine if the information system:</p>
+               <p>Generates audit records containing information that establishes:</p>
+               <ul>
+                  <li>What type of event occurred</li>
+                  <li>When the event occurred</li>
+                  <li>Where the event occurred</li>
+                  <li>The source of the event</li>
+                  <li>The outcome of the event</li>
+                  <li>The identity of any individuals or subjects associated with the event</li>
+               </ul>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                   <p>Audit and accountability policy; procedures addressing content of audit records; information system design documentation; information system configuration settings and associated documentation; list of organization-defined auditable events; information system audit records; information system incident reports; and other relevant documents or records.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                   <p>Organizational personnel with audit and accountability responsibilities; organizational personnel with information security responsibilities; and system/network administrators.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                   <p>Automated mechanisms implementing information system auditing of auditable events.</p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - AU-4 - -  -->
@@ -537,16 +696,75 @@
       <alter control-id="au-5">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="au-5_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+               <p>Determine if the organization defines the personnel or roles to be alerted in the event of an audit processing failure.</p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                   <p>Audit and accountability policy; procedures addressing response to audit processing failures; information system design documentation; security plan; information system configuration settings and associated documentation; list of personnel to be notified in case of an audit processing failure; information system audit records; and other relevant documents or records.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                   <p>Organizational personnel with responsibilities for managing remote access connections; system/network administrators; and organizational personnel with information security responsibilities.</p>
+                   <p>Organizational personnel with audit and accountability responsibilities; organizational personnel with information security responsibilities; and system/network administrators; system developers.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                   <p>Automated mechanisms implementing information system response to audit processing failures.</p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - AU-6 - -  -->
       <alter control-id="au-6">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="au-6_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+               <p>Determine if the organization:</p>
+               <ul>
+                  <li>Defines the types of inappropriate or unusual activity to look for when information system audit records are reviewed and analyzed.</li>
+                  <li>Defines the frequency to review and analyze information system audit records for indications of organization-defined inappropriate or unusual activity.</li>
+                  <li>Reviews and analyzes information system audit records for indications of organization-defined inappropriate or unusual activity with the organization-defined frequency.</li>
+                  <li>Defines personnel or roles to whom findings resulting from reviews and analysis of information system audit records are to be reported.</li>
+                  <li>Reports findings to organization-defined personnel or roles.</li>
+               </ul>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                   <p>Audit and accountability policy; procedures addressing audit review, analysis, and reporting; reports of audit findings; records of actions taken in response to reviews/analyses of audit records; and other relevant documents or records.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                   <p>Organizational personnel with audit review, analysis, and reporting responsibilities; and organizational personnel with information security responsibilities.</p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - AU-8 - -  -->
@@ -597,8 +815,55 @@
       <alter control-id="ca-2">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ca-2_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+               <p>Determine if the organization:</p>
+               <ul>
+                  <li>Develops a security assessment plan that describes the scope of the assessment including:</li>
+                  <li>
+                     <ul>
+                        <li>Security controls and control enhancements under assessment.</li>
+                        <li>Assessment procedures to be used to determine security control effectiveness.</li>
+                        <li>Assessment environment.</li>
+                        <li>Assessment team.</li>
+                        <li>Assessment roles and responsibilities.</li>
+                     </ul>
+                  </li>
+                  <li>Defines the frequency to assess the security controls in the information system and its environment of operation.</li>
+                  <li>Assesses the security controls in the information system with the organization-defined frequency to determine the extent to which the controls are implemented correctly, operating as intended, and producing the desired outcome with respect to meeting established security requirements.</li>
+                  <li>Produces a security assessment report that documents the results of the assessment.</li>
+                  <li>Defines individuals or roles to whom the results of the security control assessment are to be provided.</li>
+                  <li>Provides the results of the security control assessment to organization-defined individuals or roles.
+                  </li>
+               </ul>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                   <p>Security assessment and authorization policy; procedures addressing security assessment planning; procedures addressing security assessments; security assessment plan; and other relevant documents or records.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                   <p>Organizational personnel with security assessment responsibilities; and organizational personnel with information security responsibilities.</p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                   <p>Automated mechanisms supporting security assessment, security assessment plan development, and/or security assessment reporting.</p>
+                </part>  
+            </part>
+
             <part id="ca-2_fr" name="item">
                <title>CA-2 Additional FedRAMP Requirements and Guidance</title>
                <part id="ca-2_fr_gdn.1" name="guidance">
@@ -623,6 +888,9 @@
       <alter control-id="ca-3">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ca-3_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -649,8 +917,37 @@
       <alter control-id="ca-6">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ca-6_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
             <part id="ca-6_fr" name="item">
                <title>CA-6(c) Additional FedRAMP Requirements and Guidance</title>
                <part id="ca-6_fr_gdn.1" name="guidance">
@@ -668,8 +965,37 @@
       <alter control-id="ca-7">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ca-7_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
             <part id="ca-7_fr" name="item">
                <title>CA-7 Additional FedRAMP Requirements and Guidance</title>
                <part id="ca-7_fr_gdn.1" name="guidance">
@@ -691,6 +1017,9 @@
       <alter control-id="ca-9">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ca-9_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -721,16 +1050,74 @@
       <alter control-id="cm-4">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="cm-4_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - CM-6 - -  -->
       <alter control-id="cm-6">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="cm-6_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
                <p>Required - Specifically include details of least functionality.</p>
             </part>
@@ -770,8 +1157,37 @@
       <alter control-id="cm-8">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="cm-8_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
             <part id="cm-8_fr" name="item">
                <title>CM-8 Additional FedRAMP Requirements and Guidance</title>
                <part id="cm-8_fr_smt.1" name="item">
@@ -854,8 +1270,37 @@
       <alter control-id="cp-9">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="cp-9_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
             <part id="cp-9_fr" name="item">
                <title>CP-9 Additional FedRAMP Requirements and Guidance</title>
                <part id="cp-9_fr_smt.1" name="item">
@@ -922,14 +1367,46 @@
       <alter control-id="ia-2.1">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ia-2.1_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - IA-2 (12) - -  -->
       <alter control-id="ia-2.12">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ia-2.12_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -977,6 +1454,9 @@
       <alter control-id="ia-5.11">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ia-5.11_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">FED</prop>
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
@@ -990,8 +1470,37 @@
       <alter control-id="ia-6">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ia-6_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - IA-7 - -  -->
@@ -1014,6 +1523,9 @@
       <alter control-id="ia-8.1">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ia-8.1_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1029,6 +1541,9 @@
       <alter control-id="ia-8.2">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ia-8.2_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1076,8 +1591,37 @@
       <alter control-id="ir-4">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ir-4_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
             <part id="ir-4_fr" name="item">
                <title>IR-4 Additional FedRAMP Requirements and Guidance</title>
                <part id="ir-4_fr_smt.1" name="item">
@@ -1102,8 +1646,37 @@
       <alter control-id="ir-6">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ir-6_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
             <part id="ir-6_fr" name="item">
                <title>IR-6 Additional FedRAMP Requirements and Guidance</title>
                <part id="ir-6_fr_smt.1" name="item">
@@ -1156,6 +1729,9 @@
       <alter control-id="ma-2">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ma-2_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1175,6 +1751,9 @@
       <alter control-id="ma-5">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ma-5_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1194,6 +1773,9 @@
       <alter control-id="mp-2">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="mp-2_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1205,6 +1787,9 @@
       <alter control-id="mp-6">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="mp-6_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1216,6 +1801,9 @@
       <alter control-id="mp-7">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="mp-7_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1235,6 +1823,9 @@
       <alter control-id="pe-2">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="pe-2_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1246,6 +1837,9 @@
       <alter control-id="pe-3">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="pe-3_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1257,6 +1851,9 @@
       <alter control-id="pe-6">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="pe-6_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1268,6 +1865,9 @@
       <alter control-id="pe-8">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="pe-8_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1279,6 +1879,9 @@
       <alter control-id="pe-12">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="pe-12_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1290,6 +1893,9 @@
       <alter control-id="pe-13">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="pe-13_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1301,6 +1907,9 @@
       <alter control-id="pe-14">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="pe-14_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1320,6 +1929,9 @@
       <alter control-id="pe-15">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="pe-15_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1331,6 +1943,9 @@
       <alter control-id="pe-16">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="pe-16_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1350,8 +1965,37 @@
       <alter control-id="pl-2">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="pl-2_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - PL-4 - -  -->
@@ -1382,8 +2026,37 @@
       <alter control-id="ps-3">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ps-3_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - PS-4 - -  -->
@@ -1442,16 +2115,74 @@
       <alter control-id="ra-2">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ra-2_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - RA-3 - -  -->
       <alter control-id="ra-3">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="ra-3_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
             <part id="ra-3_fr" name="item">
                <title>RA-3 Additional FedRAMP Requirements and Guidance</title>
                <part id="ra-3_fr_gdn.1" name="guidance">
@@ -1471,8 +2202,37 @@
       <alter control-id="ra-5">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
-         <add>
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+         <add id-ref="ra-5_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
+         <add position="ending">
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
             <part id="ra-5_fr_smt.a" name="item">
                <title>RA-5(a) Additional FedRAMP Requirements and Guidance</title>
                <prop name="label">RA-5 (a)Requirement:</prop>
@@ -1549,8 +2309,37 @@
       <alter control-id="sa-9">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="sa-9_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - SC-1 - -  -->
@@ -1565,6 +2354,9 @@
       <alter control-id="sc-5">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="sc-5_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1577,16 +2369,74 @@
       <alter control-id="sc-7">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="sc-7_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - SC-12 - -  -->
       <alter control-id="sc-12">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="sc-12_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
             <part id="sc-12_fr" name="item">
                <title>SC-12 Additional FedRAMP Requirements and Guidance</title>
                <part id="sc-12_fr_gdn.1" name="guidance">
@@ -1600,6 +2450,9 @@
       <alter control-id="sc-13">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="sc-13_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS">CONDITIONAL</prop>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1662,24 +2515,111 @@
       <alter control-id="si-2">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="si-2_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - SI-3 - -  -->
       <alter control-id="si-3">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="si-3_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - SI-4 - -  -->
       <alter control-id="si-4">
          <remove name-ref="objective"/>
          <remove name-ref="assessment"/>
+         <add id-ref="si-4_smt" position="starting">
+            <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+         </add>
          <add position="ending">
-            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>
+            <prop name="method" class="FedRAMP-Tailored-LI-SaaS">ASSESS</prop>            
+            <part id="ac-2_obj_fr" name="objective">
+                <prop name="response-point" ns="https://fedramp.gov/ns/oscal"/>
+                <prop name="method" class="fedramp">EXAMINE</prop>
+                <prop name="method" class="fedramp">INTERVIEW</prop>
+                <prop name="method" class="fedramp">TEST</prop>
+                <p></p>
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">EXAMINE</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">INTERVIEW</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+            <part id="ac-2_asmt_fr" name="assess">
+                <prop name="method">TEST</prop>
+                <part name="objects">
+                    <p></p>
+                </part>  
+            </part>
+
          </add>
       </alter>
       <!-- - - SI-5 - -  -->

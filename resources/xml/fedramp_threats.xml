@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fedramp-threats xmlns="https://fedramp.gov/ns/oscal">
+<fedramp-threats xmlns="https://fedramp.gov/ns" uuid="7539047F-158B-4AA0-8FC5-F0530F1CC5CF">
+
     <metadata>
         <title>FedRAMP Defined Threat Table [DRAFT]</title>
-        <title-short>FedRAMP Threats (DRAFT)</title-short>
-        <last-modified>2020-08-19Z</last-modified>
-        <version>DRAFT</version>
-        <author>FedRAMP PMO</author>
-        <description><p>This DRAFT file provides the FedRAMP threat table from the MS Word-based FedRAMP SAR template in machine-readable format.</p></description>
-        <remarks><p>The allowed values for 'origination' are defined in the fedramp-values file.</p></remarks>
+        <last-modified>2019-12-15T00:00:00Z</last-modified>
+        <version>DRAFT-02</version>
+        <revisions>
+            <revision>
+                <published>2019-06-01T00:00:00.00-04:00</published>
+                <version>DRAFT-01</version>
+                <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+                <remarks>
+                    <p>Initial draft.</p>
+                </remarks>
+            </revision>
+            <revision>
+                <published>2021-01-15T00:00:00.00-04:00</published>
+                <version>DRAFT-02</version>
+                <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+                <remarks>
+                    <p>Revised draft to align metadata with OSCAL syntax, and to provide a machine-readble definition for threat origination types.</p>
+                </remarks>
+            </revision>
+        </revisions>
+        
+        <role id="prepared-by">
+            <title>Prepared By</title>
+            <description>
+                <p>The organization that prepared this content.</p>
+            </description>
+        </role>
+        
+        <party uuid="77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d" type="organization">
+            <name>Federal Risk and Authorization Management Program: Program Management
+                Office</name>
+            <short-name>FedRAMP PMO</short-name>
+            <link href="https://fedramp.gov"/>
+            <email-address>info@fedramp.gov</email-address>
+            <address type="work">
+                <addr-line>1800 F St. NW</addr-line>
+                <addr-line/>
+                <city>Washington</city>
+                <state>DC</state>
+                <postal-code/>
+                <country>US</country>
+            </address>
+            <remarks>
+                <p>This party entry must be present in a FedRAMP SSP.</p>
+                <p>The uuid may be different; however, the uuid must be associated with the
+                    "fedramp-pmo" role in the responsible-party assemblies.</p>
+            </remarks>
+        </party>
+        
+        <responsible-party role-id="prepared-by">
+            <party-uuid>77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d</party-uuid>
+        </responsible-party>
+        
+        <remarks>
+            <p>This file provides the FedRAMP threat table from the MS Word-based FedRAMP SAR template in machine-readable format.</p>
+        </remarks>
     </metadata>
+
+    <constraint>
+        <allowed-values target="/*/threats/origination">
+            <enum value="P">Threat launched purposefully.</enum>
+            <enum value="U">Threat created by unintentional human or machine error.</enum>
+            <enum value="E">Threat caused by environmental agents or disruptions.</enum>
+        </allowed-values>
+    </constraint>
 
     <threats>
         <threat id="T-1" system="https://fedramp.gov">
