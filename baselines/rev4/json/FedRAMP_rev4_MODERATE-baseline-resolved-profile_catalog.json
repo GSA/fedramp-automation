@@ -1,6 +1,6 @@
 {
   "catalog": {
-    "uuid": "b673b6aa-1f3f-432e-8409-5885714051bd",
+    "uuid": "63958fb4-fa5a-45ab-b85d-f942a0c1b6cb",
     "metadata": {
       "title": "FedRAMP Rev 4 Moderate Baseline",
       "published": "2021-02-05T00:00:00.000-04:00",
@@ -10,7 +10,7 @@
       "props": [
         {
           "name": "resolution-timestamp",
-          "value": "2021-02-17T14:39:21.734008Z"
+          "value": "2021-02-17T20:15:35.077249Z"
         }
       ],
       "links": [
@@ -64,7 +64,6 @@
           ],
           "addresses": [
             {
-              "type": "work",
               "addr-lines": [
                 "1800 F St. NW",
                 ""

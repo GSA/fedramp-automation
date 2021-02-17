@@ -152,7 +152,6 @@
           "uuid": "27b78960-59ef-4619-82b0-ae20b9c709ac",
           "title": "CSP HQ",
           "address": {
-            "type": "work",
             "addr-lines": [
               "Suite 0000",
               "1234 Some Street"
@@ -249,7 +248,6 @@
           ],
           "addresses": [
             {
-              "type": "work",
               "addr-lines": [
                 "1800 F St. NW",
                 ""
@@ -308,7 +306,6 @@
           ],
           "addresses": [
             {
-              "type": "work",
               "addr-lines": [
                 "3333 Corporate Way"
               ],
@@ -402,7 +399,6 @@
           ],
           "addresses": [
             {
-              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -436,7 +432,6 @@
           ],
           "addresses": [
             {
-              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -470,7 +465,6 @@
           ],
           "addresses": [
             {
-              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -504,7 +498,6 @@
           ],
           "addresses": [
             {
-              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -538,7 +531,6 @@
           ],
           "addresses": [
             {
-              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -572,7 +564,6 @@
           ],
           "addresses": [
             {
-              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],

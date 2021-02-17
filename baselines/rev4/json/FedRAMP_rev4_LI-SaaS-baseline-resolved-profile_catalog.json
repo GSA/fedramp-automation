@@ -1,6 +1,6 @@
 {
   "catalog": {
-    "uuid": "fee79c2a-a799-4477-8c9b-f3e6d57a7b0f",
+    "uuid": "0f09c51e-7dc3-4ccf-87ed-868abdd585fb",
     "metadata": {
       "title": "FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
       "published": "2021-02-17T00:00:00.000-04:00",
@@ -10,7 +10,7 @@
       "props": [
         {
           "name": "resolution-timestamp",
-          "value": "2021-02-17T14:38:57.200241Z"
+          "value": "2021-02-17T20:15:08.022784Z"
         }
       ],
       "links": [
@@ -64,7 +64,6 @@
           ],
           "addresses": [
             {
-              "type": "work",
               "addr-lines": [
                 "1800 F St. NW",
                 ""
