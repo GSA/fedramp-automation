@@ -1,6 +1,6 @@
 {
   "catalog": {
-    "uuid": "6e90999b-6c7f-4924-8504-53a9c971c3e7",
+    "uuid": "b673b6aa-1f3f-432e-8409-5885714051bd",
     "metadata": {
       "title": "FedRAMP Rev 4 Moderate Baseline",
       "published": "2021-02-05T00:00:00.000-04:00",
@@ -10,7 +10,7 @@
       "props": [
         {
           "name": "resolution-timestamp",
-          "value": "2021-02-11T19:48:04.053766Z"
+          "value": "2021-02-17T14:39:21.734008Z"
         }
       ],
       "links": [
