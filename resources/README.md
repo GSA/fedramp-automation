@@ -6,7 +6,7 @@ Please let us know if you find them valuable.
 ## Resource Inventory
 
 The following resources are provided in both XML and JSON formats:
-- FedRAMP Values ([fedramp_values.xml](xml/fedramp_values.xml), [fedramp_values.json](json/fedramp_values.json))
+- FedRAMP Extensions ([fedramp_extensions.xml](xml/fedramp_values.xml), [fedramp_values.json](json/fedramp_values.json))
 - FedRAMP Threats ([fedramp_threats.xml](xml/fedramp_threats.xml), [fedramp_threats.json](json/fedramp_threats.json))
 - FedRAMP Information Types ([fedramp_information-types.xml](xml/fedramp_information-types.xml), [fedramp_information-types.json](json/fedramp_information-types.json))
 

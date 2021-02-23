@@ -26,15 +26,15 @@
       </role>
       <role id="prepared-by">
          <title>Prepared By</title>
-         <desc>The primary individual responsible for maintaining the POA&amp;M for this system. Typically the CSP's ISSO.</desc>
+         <description><p>The primary individual responsible for maintaining the POA&amp;M for this system. Typically the CSP's ISSO.</p></description>
       </role>
       <role id="prepared-for">
          <title>Prepared For</title>
-         <desc>The organization for which this POA&amp;M was prepared. Typically the CSP.</desc>
+         <description><p>The organization for which this POA&amp;M was prepared. Typically the CSP.</p></description>
       </role>
       <role id="information-system-security-officer">
          <title>System Information System Security Officer (or Equivalent)</title>
-         <desc>The individual accountable for the security posture of the system on behalf of the system owner.</desc>
+         <description><p>The individual accountable for the security posture of the system on behalf of the system owner.</p></description>
       </role>
 
       <location uuid="1bd641ff-54a7-40d5-acc9-82eed9d22d4a">
@@ -47,7 +47,7 @@
       </location>
       
       <party uuid="72bf37e1-9f76-4261-886f-8e297599f365" type="organization">
-         <party-name>Cloud Service Provider (CSP) Name</party-name>
+         <name>Cloud Service Provider (CSP) Name</name>
          <short-name>CSP Acronym/Short Name</short-name>
          <location-uuid>1bd641ff-54a7-40d5-acc9-82eed9d22d4a</location-uuid>
          <remarks>
@@ -56,9 +56,10 @@
       </party>
 
       <party uuid="8cc0b8e5-9650-4d5f-9796-316f05fa9a2d" type="organization">
-         <party-name>Federal Risk and Authorization Management Program: Program Management Office</party-name>
+         <name>Federal Risk and Authorization Management Program: Program Management Office</name>
          <short-name>FedRAMP PMO</short-name>
          <link href="https://fedramp.gov" rel="homepage" />
+         <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
             <addr-line/>
@@ -67,16 +68,17 @@
             <postal-code/>
             <country>US</country>
          </address>
-         <email>info@fedramp.gov</email>
       </party>
       <party uuid="ca9ba80e-1342-4bfd-b32a-abac468c24b4" type="organization">
-         <party-name>Federal Risk and Authorization Management Program: Joint Authorization Board</party-name>
+         <name>Federal Risk and Authorization Management Program: Joint Authorization Board</name>
          <short-name>FedRAMP JAB</short-name>
       </party>
       
       <party uuid="afe665d1-9021-4ad8-8bd2-c15b0f2dcf2d" type="person">
-         <party-name>[SAMPLE]Person Name 1</party-name>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+         <name>[SAMPLE]Person Name 1</name>
+         <prop name="job-title">Individual's Title</prop>
+         <email-address>name@example.com</email-address>
+         <telephone-number>202-000-0001</telephone-number>
          <address type="work">
             <addr-line>Address Line</addr-line>
             <city>City</city>
@@ -84,8 +86,6 @@
             <postal-code>00000</postal-code>
             <country>US</country>
          </address>
-         <email>name@org.domain</email>
-         <phone>202-000-0001</phone>
          <member-of-organization>72bf37e1-9f76-4261-886f-8e297599f365</member-of-organization>
       </party>
 
@@ -115,7 +115,7 @@
    <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
    
    <local-definitions>
-      <component uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e" component-type="software">
+      <component uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e" type="software">
          <title>XYZ Vulnerability Scanning Tool</title>
          <description/>
          <prop name="vendor">Vendor Name</prop>
@@ -127,7 +127,7 @@
          </remarks>
       </component>
 
-      <component uuid="a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0" component-type="virtual">
+      <component uuid="a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0" type="virtual">
          <title>Component Definition</title>
          <description>
             <p>A virtual component.</p>
@@ -141,11 +141,12 @@
             <p>Uses the same syntax as SSP components.</p>
          </remarks>
       </component>
-      <inventory-item uuid="deb26a75-6d97-4811-ae0e-ae1c710366c1" asset-id="asset-id-1">
+      <inventory-item uuid="deb26a75-6d97-4811-ae0e-ae1c710366c1">
          <description><p>An instance of the above component.</p></description>
+         <prop name="asset-id">org-asset-id</prop>
          <prop name="ipv4-address">10.10.10.10</prop>
          <prop name="fqdn">host.domain.cloud</prop>
-         <implemented-component component-uuid="a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0" use="runs-software" />
+         <implemented-component component-uuid="a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0" />
          <remarks>
             <p>Uses the same syntax as SSP inventory-items.</p>
          </remarks>
@@ -156,209 +157,258 @@
       </remarks>
    </local-definitions>
 
-   <poam-items>
-      <title>Current POA&amp;M Items</title>
+   <observation uuid="0aa54106-8a63-4953-ac0d-30ff91f8d4ab">
+      <description><p></p></description>
+      <method>TEST</method>
+      <origin>
+         <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0" />
+         <actor type="tool"  uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e" />
+      </origin>
+      <relevant-evidence href="./raw_scans/scanner_output.csv">
+         <description><p>Optional pointer to the raw scanner output that generated this POA&amp;M entry.</p></description>
+      </relevant-evidence>
+      <collected>2020-10-10T00:00:00Z</collected>
+      <remarks><p>The origin field identifies the "Weakness Detector Source"</p></remarks>
+   </observation>
+   
+   <observation uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52">
       <description>
-         <p>These are the current POA&amp;M items for this system.</p>
+         <p>[EXAMPLE]Scanner Output.</p>
       </description>
-      <start>2020-06-01T00:00:00.0Z</start>
-      <end>2020-06-01T00:00:00.0Z</end>
+      <method>TEST</method>
+      <type>finding</type>
+      <origin>
+         <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0" />
+         <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" />
+         <actor type="tool"  uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e" />
+      </origin>
+      <subject type="inventory-item" uuid-ref="f61f4408-2cb8-444a-a312-bc88412e7c61" />
+      <subject type="inventory-item" uuid-ref="02075556-3660-4112-8982-02fc7d6fac00" />
+      <subject type="inventory-item" uuid-ref="5efe2c07-9fdf-453a-8457-6471046082fb" />
+      <subject type="component" uuid-ref="75b059f2-a9ba-40b1-a1e0-881196ca1ead" />
+      <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
+         <description>
+            <p>Raw scanner tool output - Infrastructure and OS Scan.</p>
+         </description>
+      </relevant-evidence>
+      <collected>2020-10-10T00:00:00Z</collected>
+   </observation>
+   <observation uuid="6c103050-d72a-4391-b830-dc669641231c">
+      <title>Vendor Dependency</title>
+      <description><p>Describe the vendor dependency here.</p></description>
+      <prop name="conformity" ns="https://fedramp.gov/ns/oscal">vendor-dependency</prop>
+      <method>INTERVIEW</method>
+      <subject uuid-ref="a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0" type="component" />
+      <collected>2020-10-10T00:00:00Z</collected>
+   </observation>
 
-      <poam-item uuid="0be71cd3-f850-47db-836f-14511edbd90e">
-         <title>[EXAMPLE]POA&amp;M Item</title>
-         <description/>
-         <prop name="POAM-ID" ns="https://fedramp.gov/ns/oscal">V-1</prop>
-         <collected>2020-06-01T00:00:00Z</collected>
-         <observation uuid="0aa54106-8a63-4953-ac0d-30ff91f8d4ab">
-            <description></description>
-            <observation-method>TEST</observation-method>
-            <origin uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e" type="tool" />
-            <relevant-evidence href="./raw_scans/scanner_output.csv">
-               <description><p>Optional pointer to the raw scanner output that generated this POA&amp;M entry.</p></description>
-            </relevant-evidence>
-            <remarks><p>The origin field identifies the "Weakness Detector Source"</p></remarks>
-         </observation>
 
-         <risk uuid="9cbd98f3-abcb-4948-ad06-14e0bcba742f">
-            <title>Weakness Name</title>
-            <description><p>Weakness Description</p></description>
-            
-            <risk-metric name="source-id" system=""></risk-metric>
-            
-            <risk-metric name="likelihood" class="initial" system="https://fedramp.gov">high</risk-metric>
-            <risk-statement><p></p></risk-statement>
-            <risk-status>open</risk-status>
-         </risk>
+   <risk uuid="9cbd98f3-abcb-4948-ad06-14e0bcba742f">
+      <title>Weakness Name</title>
+      <description><p>Weakness Description</p></description>
+      <statement><p></p></statement>
+      <status>open</status>
+      <characterization>
+         <origin>
+            <actor type="party" uuid-ref="afe665d1-9021-4ad8-8bd2-c15b0f2dcf2d" />
+            <actor type="tool"  uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e" />
+         </origin>
+         
+         <facet name="likelihood" system="https://fedramp.gov" value="high">
+            <annotation name="state" value="initial" />
+         </facet>
+         
+      </characterization>
+      
+   </risk>
+
+   <risk uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
+      <title>Vulnerability Title</title>
+      <description>
+         <p>This is a description of the vulnerability provided by the tool.</p>
+      </description>
+
+      <statement>
+         <p>This is a statement about the identified risk as provided by the tool.</p>
+         <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
+      </statement>
+      <status>open</status>
+      <characterization>
+         <origin>
+            <actor type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e">
+               <prop name="vulnerability-id">VulID-001</prop>
+               <prop name="plugin-id">Plugin-ID</prop>
+            </actor>
+         </origin>
+         <facet name="iavm-severity"     value="high"           system="https://fedramp.gov" />
+         <facet name="AV"                value="network"        system="http://www.first.org/cvss/v3.1" />
+         <facet name="vulnerability-id"  value="CVE-2020-00000" system="http://cve.mitre.org" />
+         <facet name="impact"            value="high"           system="http://csrc.nist.gov/ns/oscal/unknown" />
+      </characterization>
+      <!-- TODO: Finish converting these. -->
+      
+      <characterization>
+         <origin>
+            <actor type="party" uuid-ref="41E10E3B-32E1-4550-AE52-7F5D6B1BA532" />
+         </origin>
+         <facet name="likelihood" value="high" system="https://fedramp.gov">
+            <annotation name="state" value="initial" />
+         </facet>
+         <facet name="impact" value="high" system="https://fedramp.gov">
+            <annotation name="state" value="initial" />
+         </facet>
+         <facet name="priority" value="1" system="https://fedramp.gov" />
+
+         <facet name="likelihood" value="moderate" system="https://fedramp.gov">
+            <annotation name="state" value="adjusted">
+               <remarks>
+                  <p>Explain why likelihood was adjusted.</p>
+               </remarks>
+            </annotation>
+         </facet>
+         <facet name="impact" value="low" system="https://fedramp.gov">
+            <annotation name="state" value="adjusted">
+               <remarks>
+                  <p>Explain why impact was adjusted.</p>
+               </remarks>
+            </annotation>
+         </facet>
+
+         <facet name="vendor-dependency"       value="tracking" system="https://fedramp.gov" ></facet>
+         <facet name="operational-requirement" value="pending"  system="https://fedramp.gov" ></facet>
+         <facet name="false-positive"          value="pending"  system="https://fedramp.gov" ></facet>
+         
+         <facet name="risk-adjustment"         value="approved" system="https://fedramp.gov"></facet>
+         
+         <facet name="AV"      value="network"         system="http://csrc.nist.gov/ns/oscal/unknown"></facet>
+         
+
+      </characterization>
+      
+      
+      
+      
+      <response uuid="a3106e23-8b79-4b1b-abf4-74f16c51ad0c" lifecycle="recommendation">
+         <title>Tool's Recommendation</title>
+         <description>
+            <p>A description of the recommended remediation as provided by the tool.</p>
+         </description>
+         <origin >
+            <actor type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e"></actor>
+         </origin>
          <remarks>
-            <p>The FedRAMP Extension, "POAM-ID" captures the traditional CSP-assigned unique POA&amp;M identifier.</p>
-            <p>The date-time-stamp identifies the date of discovery. FedRAMP is concerned with the date information. The time information is desirable and should be included where available. The time may be all zeros if unavailable.</p>
+            <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
+            <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
          </remarks>
-      </poam-item>
-
-      <poam-item uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
-         <title>[EXAMPLE]Infrastructure Scan Unique Vulnerability</title>
-         <description><p>An example set of infrastructure scan findings.</p></description>
-         <prop name="POAM-ID" ns="https://fedramp.gov/ns/oscal">V-2</prop>
-         <collected>2020-03-01T10:11:12Z</collected>
-         <observation uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52">
+      </response>
+      
+      <response uuid="69344d05-937e-40f4-9c3f-9aa8702ad99d" lifecycle="recommendation">
+         <title>Assessor's Recommendation</title>
+         <description>
+            <p>A description of the recommended remediation as provided by the assessor in the SAR.</p>
+         </description>
+         <origin >
+            <actor type="tool" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"></actor>
+         </origin>
+         <remarks>
+            <p>If the identified risk is as a result of an assessment, the assessor's should be copied into the POA&amp;M</p>
+            <p>The assessor should leave the tool recommendation, even if adding their own.</p>
+            <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
+            <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
+         </remarks>
+      </response>
+      
+      <response uuid="e9ee6fe2-856f-42c7-8c2e-ff6466d31010" lifecycle="planned">
+         <title>CSP's Remediation Plan</title>
+         <description>
+            <p>A description of the CSP's intended approach to remediating the identified risk.</p>
+         </description>
+         <origin>
+            <actor type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"></actor>
+         </origin>
+         
+         <required-asset uuid="7bd1a61e-4fda-4c52-a447-14072ef6e042">
+            <subject uuid-ref="6e0d71b5-3dac-4a9b-b60d-da61b95eccb9" type="party" />
+            <description><p>Describe required resources.</p></description>
+            <remarks>
+               <p>Use one subject-reference field for each resource identified by its UUID in the subject-reference field.</p>
+               <p>May have just a description with no subject-reference fields. May have both.</p>
+            </remarks>
+         </required-asset>
+         <task uuid="a12dea1d-e4d1-4f09-aacf-1eaf203a3092" type="action">
+            <title>[Example]Activity 1</title>
+            <description><p>Optional description</p></description>
+            <timing>
+               <within-date-range start="2020-07-01T00:00:00Z" end="2020-07-02T00:00:00Z"/>
+            </timing>
+         </task>
+         <task uuid="08c50f90-3b08-49fd-862d-32ec96e6bee5" type="action">
+            <title>[Example]Activity 2</title>
+            <description><p>Optional description</p></description>
+            <timing>
+               <within-date-range start="2020-07-05T00:00:00Z" end="2020-07-07T00:00:00Z"/>
+            </timing>
+         </task>
+         <remarks>
+            <p>The assessor may add their recommendation in addition to the tool's recommendation, or if no tool recommendation is provided.</p>
+            <p>The assessor should leave the tool recommendation, even if adding their own.</p>
+            <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
+            <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
+         </remarks>
+      </response>            
+      <risk-log>
+         <entry uuid="1b500d56-1936-41eb-8b60-a2984937ab89">
+            <title>Activity 1</title>
+            <description />
+            <start>2020-07-02T00:00:00Z</start>
+         </entry>
+         <entry uuid="316fb3fe-927a-49a1-9a72-a58722862623">
+            <title>Activity 2</title>
+            <description />
+            <start>2020-07-07T00:00:00Z</start>
+         </entry>
+         <entry uuid="d084a039-bdd1-4ccd-a06a-53355e07fa2f">
+            <title>Vendor Check-in</title>
+            <description><p>Description of the result of the vendor check-in.</p></description>
+            <start>2020-07-07T00:00:00Z</start>
+            <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>vendor-check-in</prop>
+         </entry>
+         <entry uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
+            <title>Risk Closed</title>
             <description>
-               <p>[EXAMPLE]Scanner Output.</p>
-            </description>
-            <observation-method>TEST</observation-method>
-            <observation-type>finding</observation-type>
-            <subject-reference type="inventory-item" uuid-ref="f61f4408-2cb8-444a-a312-bc88412e7c61" />
-            <subject-reference type="inventory-item" uuid-ref="02075556-3660-4112-8982-02fc7d6fac00" />
-            <subject-reference type="inventory-item" uuid-ref="5efe2c07-9fdf-453a-8457-6471046082fb" />
-            <subject-reference type="component" uuid-ref="75b059f2-a9ba-40b1-a1e0-881196ca1ead" />
-            <origin uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e" type="tool" />
-            <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
-               <description>
-                  <p>Raw scanner tool output - Infrastructure and OS Scan.</p>
-               </description>
-            </relevant-evidence>
-         </observation>
-         <observation uuid="6c103050-d72a-4391-b830-dc669641231c">
-            <title>Vendor Dependency</title>
-            <description><p>Describe the vendor dependency here.</p></description>
-            <prop name="conformity" ns="https://fedramp.gov/ns/oscal">vendor-dependency</prop>
-            <observation-method>INTERVIEW</observation-method>
-            <subject-reference uuid-ref="a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0" type="component" />
-         </observation>
-         <risk uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
-            <title>Vulnerability Title</title>
-            <description>
-               <p>This is a description of the vulnerability provided by the tool.</p>
-            </description>
-            
-            <risk-metric name="vulnerability-id" system="9d194268-a9d1-4c38-839f-9c4aa57bf71e">VulID-001</risk-metric>
-            <risk-metric name="plugin-id"        system="9d194268-a9d1-4c38-839f-9c4aa57bf71e">Plugin-ID</risk-metric>
-            <risk-metric name="iavm-severity"    system="9d194268-a9d1-4c38-839f-9c4aa57bf71e">high</risk-metric>
-            <risk-metric name="AV"               system="CVSSv3.1">network</risk-metric>
-            
-            <risk-metric name="vulnerability-id" system="cve">CVE-2020-00000</risk-metric>
-            
-            <risk-metric name="impact"     class="initial" system="9d194268-a9d1-4c38-839f-9c4aa57bf71e">high</risk-metric>
-            <risk-metric name="likelihood" class='initial' system="https://fedramp.gov">high</risk-metric>
-            <risk-metric name="impact"     class='initial' system="https://fedramp.gov">high</risk-metric>
-            <risk-metric name="priority"                   system="https://fedramp.gov">1</risk-metric>
-
-            <risk-metric name="vendor-dependency"           system="https://fedramp.gov" >tracking</risk-metric>
-            <risk-metric name="operational-requirement"     system="https://fedramp.gov" >pending</risk-metric>
-            <risk-metric name="false-positive"              system="https://fedramp.gov" >pending</risk-metric>
-            
-            <risk-metric name="risk-adjustment"             system="https://fedramp.gov">approved</risk-metric>
-            <risk-metric name="impact"     class="residual" system="https://fedramp.gov">moderate</risk-metric>
-            <risk-metric name="likelihood" class="residual" system="https://fedramp.gov">low</risk-metric>
-            
-            <risk-metric name="AV"               system="CVSSv3.1">network</risk-metric>
-            
-
-            <risk-statement>
-               <p>This is a statement about the identified risk as provided by the tool.</p>
-               <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
-            </risk-statement>
-            
-            <remediation uuid="a3106e23-8b79-4b1b-abf4-74f16c51ad0c" type="recommendation">
-               <title>Tool's Recommendation</title>
-               <description>
-                  <p>A description of the recommended remediation as provided by the tool.</p>
-               </description>
-               <remediation-origin type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e" />
-               <remarks>
-                  <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
-                  <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
-               </remarks>
-            </remediation>
-            
-            <remediation uuid="69344d05-937e-40f4-9c3f-9aa8702ad99d" type="recommendation">
-               <title>Assessor's Recommendation</title>
-               <description>
-                  <p>A description of the recommended remediation as provided by the assessor in the SAR.</p>
-               </description>
-               <remediation-origin type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a" />
-               <remarks>
-                  <p>If the identified risk is as a result of an assessment, the assessor's should be copied into the POA&amp;M</p>
-                  <p>The assessor should leave the tool recommendation, even if adding their own.</p>
-                  <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
-                  <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
-               </remarks>
-            </remediation>
-
-            <remediation uuid="e9ee6fe2-856f-42c7-8c2e-ff6466d31010" type="planned">
-               <title>CSP's Remediation Plan</title>
-               <description>
-                  <p>A description of the CSP's intended approach to remediating the identified risk.</p>
-               </description>
-               <remediation-origin type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a" />
-               <required uuid="7bd1a61e-4fda-4c52-a447-14072ef6e042">
-                  <subject-reference uuid-ref="6e0d71b5-3dac-4a9b-b60d-da61b95eccb9" type="party" />
-                  <description><p>Describe required resources.</p></description>
-                  <remarks>
-                     <p>Use one subject-reference field for each resource identified by its UUID in the subject-reference field.</p>
-                     <p>May have just a description with no subject-reference fields. May have both.</p>
-                  </remarks>
-               </required>
-               <schedule>
-                  <task uuid="a12dea1d-e4d1-4f09-aacf-1eaf203a3092">
-                     <title>[Example]Activity 1</title>
-                     <description><p>Optional description</p></description>
-                     <start>2020-07-01T00:00:00Z</start>
-                     <end>2020-07-02T00:00:00Z</end>
-                  </task>
-                  <task uuid="08c50f90-3b08-49fd-862d-32ec96e6bee5">
-                     <title>[Example]Activity 2</title>
-                     <description><p>Optional description</p></description>
-                     <start>2020-07-05T00:00:00Z</start>
-                     <end>2020-07-07T00:00:00Z</end>
-                  </task>
-               </schedule>
-               <remarks>
-                  <p>The assessor may add their recommendation in addition to the tool's recommendation, or if no tool recommendation is provided.</p>
-                  <p>The assessor should leave the tool recommendation, even if adding their own.</p>
-                  <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
-                  <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
-               </remarks>
-            </remediation>            
-            <risk-status>open</risk-status>
-            <closure-actions>
                <p>Describe what action(s) the CSP took to close the risk.</p>
-               <p>Normally the closure-actions field is only present when the risk-status is "closed".</p>
-               <p>If the risk-status field is set to "open" this field is ignored.</p>
                <p>[EXAMPLE]Applied patch. Vulnerability no longer found in subsequent scan.</p>
-            </closure-actions>
-            <remediation-tracking>
-               <tracking-entry uuid="1b500d56-1936-41eb-8b60-a2984937ab89">
-                  <date-time-stamp>2020-07-02T00:00:00Z</date-time-stamp>
-                  <title>Activity 1</title>
-                  <description />
-               </tracking-entry>
-               <tracking-entry uuid="316fb3fe-927a-49a1-9a72-a58722862623">
-                  <date-time-stamp>2020-07-07T00:00:00Z</date-time-stamp>
-                  <title>Activity 2</title>
-                  <description />
-               </tracking-entry>
-               <tracking-entry uuid="d084a039-bdd1-4ccd-a06a-53355e07fa2f">
-                  <date-time-stamp>2020-07-07T00:00:00Z</date-time-stamp>
-                  <title>Vendor Check-in</title>
-                  <description><p>Description of the result of the vendor check-in.</p></description>
-                  <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>vendor-check-in</prop>
-               </tracking-entry>
-               <tracking-entry uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
-                  <date-time-stamp>2020-07-07T00:00:00Z</date-time-stamp>
-                  <title>Closed</title>
-                  <description />
-               </tracking-entry>
-            </remediation-tracking>
-         </risk>
-         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
-         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
-      </poam-item> 
+            </description>
+            <start>2020-07-07T00:00:00Z</start>
+            <status-change>closed</status-change>
+         </entry>
+      </risk-log>
+   </risk>
 
+   <poam-item uuid="6F5FFF73-CAC6-4DA0-A0D9-0F931A5EFAFA">
+      <title>[EXAMPLE]POA&amp;M Item</title>
+      <description/>
+      <prop name="POAM-ID" ns="https://fedramp.gov/ns/oscal">V-1</prop>
+      <related-observation observation-uuid="0aa54106-8a63-4953-ac0d-30ff91f8d4ab" />
+      <associated-risk risk-uuid="9cbd98f3-abcb-4948-ad06-14e0bcba742f" />
       <remarks>
-         <p>One finding per POA&amp;M item.</p>
-         <p>The start and end dates may be the same for a POA&amp;M, and must represent the effective date of the information presented.</p>
+         <p>The FedRAMP Extension, "POAM-ID" captures the traditional CSP-assigned unique POA&amp;M identifier.</p>
+         <p>The date-time-stamp identifies the date of discovery. FedRAMP is concerned with the date information. The time information is desirable and should be included where available. The time may be all zeros if unavailable.</p>
       </remarks>
-   </poam-items>
+   </poam-item>
+
+   <poam-item uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+      <title>[EXAMPLE]Infrastructure Scan Unique Vulnerability</title>
+      <description><p>An example set of infrastructure scan findings.</p></description>
+      <prop name="POAM-ID" ns="https://fedramp.gov/ns/oscal">V-2</prop>
+
+      <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52" />
+      <related-observation observation-uuid="6c103050-d72a-4391-b830-dc669641231c" />
+      
+      <associated-risk risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7" />
+
+   </poam-item> 
+
 
    <back-matter>
       <resource uuid="a78f7e4c-a27a-4b1e-901b-ebfecf2b0301">
@@ -400,7 +450,7 @@
          />
       </resource>
       <resource uuid="91d242d0-ccf9-4ff0-996d-e204c19dac52">
-         <desc>3PAO Logo</desc>
+         <description><p>3PAO Logo</p></description>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">prepared-by-logo</prop>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">3pao-logo</prop>
          <!-- Use rlink and/or base64 -->
@@ -408,7 +458,7 @@
          <base64>00000000</base64>
       </resource>
       <resource uuid="031a32be-f9ef-45a0-994e-20eb58456dee">
-         <desc>FedRAMP Logo</desc>
+         <description><p>FedRAMP Logo</p></description>
          <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-logo</prop>
          <rlink href="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png"
          />

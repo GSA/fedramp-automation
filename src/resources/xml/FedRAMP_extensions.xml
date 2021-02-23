@@ -103,15 +103,13 @@
       <extension-name>response-point</extension-name>
       <formal-name>Response Point</formal-name>
       <description>A property whose presence indicates its parent part is a required point of response for FedRAMP stakeholders.</description>
-      <binding pattern="/o:profile/o:modify/o:alter/o:add/o:prop[@name='response-point']" >
-         <remarks><p>A property (prop) at the root of an add.</p></remarks>
-      </binding>
-      <binding pattern="/o:profile/o:modify/o:alter/o:add//o:part/o:prop[@name='response-point']">
-         <remarks><p>A property (prop) at the root of any part that is a descendent to an add.</p></remarks>
-      </binding>
-      <binding pattern="/o:catalog//o:control//o:part/o:prop[@name='response-point']">
-         <remarks><p>a property (prop) at the root of any part in a resolved profile catalog.</p></remarks>
-      </binding>
+
+      <binding pattern="/o:profile/o:modify/o:alter/o:add/o:prop" />
+      <binding pattern="/o:profile/o:modify/o:alter/o:add//o:part/o:prop" />
+      <binding pattern="/o:catalog//o:control//o:part/o:prop" />
+      <binding pattern="/o:assessment-plan/o:local-definitions/o:objectives-and-methods//part/o:prop" />
+      <binding pattern="/o:assessment-results/o:local-definitions/o:objectives-and-methods//part/o:prop" />
+      
       <constraint>
          <matches data-type="empty" />
          <has-cardinality min-occurs="0" max-occurs="1" />
@@ -418,6 +416,10 @@
       <description>Identifies the type(s) of scans to be performed on this inventory-item or component.</description>
       <binding pattern="/o:system-security-plan/o:system-implementation/o:component/o:prop" />
       <binding pattern="/o:system-security-plan/o:system-implementation/o:system-inventory/o:inventory-item/o:prop" />
+      <binding pattern="/o:assessment-plan/o:local-definitions/o:component/o:prop" />
+      <binding pattern="/o:assessment-plan/o:local-definitions/o:inventory-item/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definitions/o:component/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definitions/o:inventory-item/o:prop" />
       <constraint>
          <matches data-type="NCName" />
          <has-cardinality min-occurs="0" max-occurs="unbounded" />
@@ -487,6 +489,7 @@
          <!-- Probably needs to be a separate constraint below. -->
       </constraint>
    </extension>
+   
    <extension id="import-profile">
       <extension-name>import-profile</extension-name>
       <formal-name>Profile</formal-name>
@@ -502,6 +505,7 @@
          <!-- Probably needs to be a separate constraint below. -->
       </constraint>
    </extension>
+   
    <extension id="authorization-date">
       <extension-name>authorization-date</extension-name>
       <formal-name>Authorization Date</formal-name>
@@ -517,6 +521,7 @@
          <!-- Probably needs to be a separate constraint below. -->
       </constraint>
    </extension>
+   
    <extension id="purpose">
       <extension-name>purpose</extension-name>
       <formal-name>Purpose</formal-name>
@@ -634,6 +639,76 @@
       </constraint>
    </extension>
    
+   <extension id="no-oscal-ssp-title-short">
+      <extension-name>title-short</extension-name>
+      <formal-name>Short System Name</formal-name>
+      <description>The abbreviated name for the system, such as an acronym.</description>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="1" max-occurs="1" />         
+      </constraint>
+   </extension>
+   
+   <extension id="no-oscal-ssp-system-id">
+      <extension-name>system-id</extension-name>
+      <formal-name>Short System Name</formal-name>
+      <description>The FedRAMP-assigned system identifier.</description>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="1" max-occurs="1" />         
+      </constraint>
+   </extension>
+
+   <extension id="no-oscal-ssp-import-profile">
+      <extension-name>import-profile</extension-name>
+      <formal-name>Relevant Baseline</formal-name>
+      <description>Identifies the relevant OSCAL baseline.</description>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <constraint>
+         <matches data-type="uri" />
+         <has-cardinality min-occurs="1" max-occurs="1" />         
+      </constraint>
+      <remarks>
+         <p>As with all URIs in OSCAL, this may contain a URI fragment, which identifies the local resource containing the relevant profile.</p>
+      </remarks>
+   </extension>
+   
+   <extension id="no-oscal-ssp-purpose">
+      <extension-name>system-id</extension-name>
+      <formal-name>Short System Name</formal-name>
+      <description>The FedRAMP-assigned system identifier.</description>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="1" max-occurs="1" />         
+      </constraint>
+   </extension>
+
+   <extension id="task-login-url">
+      <extension-name>logn-url</extension-name>
+      <formal-name>Login URL</formal-name>
+      <description>The login URL for a web application.</description>
+      <binding pattern="/o:system-security-plan/o:system-implementation/o:inventory-item/prop" />
+      <binding pattern="/o:assessment-plan//o:task/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+      </constraint>
+   </extension>
+   
+   <extension id="task-login-id">
+      <extension-name>logn-id</extension-name>
+      <formal-name>Login ID</formal-name>
+      <description>The login ID used to assess the web application.</description>
+      <binding pattern="/o:assessment-plan//o:task/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+      </constraint>
+   </extension>
+
    <constraint name="control-origination-constraints">
       <formal-name>Control Origination</formal-name>
       <description>The point(s) from which the control satisfaction originates.</description>
@@ -672,7 +747,11 @@
       <matches data-type="NCName" />
       <expect test="(o:annotation[@name='planned-completion'][@ns='https://fedramp.gov/ns/oscal'])" />
    </constraint>
-
+ 
+   <constraint>
+      <formal-name>FedRAMP Facet System Constraints</formal-name>
+      <!-- TODO: NEED TO FILL OUT -->
+   </constraint>
  
 
    <!-- ===================================================================== -->
@@ -718,7 +797,21 @@
       </remarks>
    </constraint>
 
-
+   <constraint>
+      <formal-name>Additional Component Types</formal-name>
+      <description>Identifies additional component types for Assessment Assets in the SAP and SAR.</description>
+      <binding pattern="o:assessment-plan/o:assessment-assets/o:component/@type" />
+      <binding pattern="o:assessment-results/o:assessment-result/o:local-definitions/o:assessment-assets/o:component/@type" />
+      <allowed-values allow-other="no" >
+         <enum value="assessment-origination" label="Assessment Origination">The component identifies one or more IP addresses from which assessment activities may be performed.</enum>
+      </allowed-values>
+      <remarks>
+         <p>For FedRAMP, the SAP must identify the IP addresses from which scanning and penetration test activities are performed, and the SAR must identify the actual IP addresses used.</p>
+         <p>This requires an additional component type in the SAP's <code>assessment-assets</code>, and in the SAR's <code>result</code>, <code>local-definitions</code>, <code>assessment-assets</code>.</p>
+      </remarks>
+   </constraint>
+   
+   
    <!-- ===================================================================== -->
    <!--  CONSTRAINTS: Expand NIST allowed values.  -->
    <!-- ===================================================================== -->
@@ -761,6 +854,7 @@
          <enum value="personally-identifiable-information" label="Personally Identifiable Information (PII)">The resource is a citation related to Personally Identifiable Information (PII)</enum>
          <enum value="privacy-impact-analysis" label="Privacy Impact Assessment (PIA)">The resource represents the FedRAMP Privacy Impact Assessment (PIA).</enum>
          <enum value="fedramp-citations" label="FedRAMP Laws and Regulations">A resource containng laws and regulations relevant to FedRAMP.</enum>
+         <enum value="system-security-plan" label="System Security Plan (SSP)">A resource representing the system security plan, as imported by a SAP or POA&amp;M.</enum>
       </allowed-values>
       <remarks><p>These are in addition to the NIST-defined allowed values for resource types.</p></remarks>
    </constraint>
