@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="b4c6ca0c-3079-481a-a82c-67667a70e34d">
+<assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="F40DA6AB-138C-4B38-9C05-AFF8223A2A2C">
    
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Plan (SAP)</title>
-      <published>2020-06-01T00:00:00Z</published>
-      <last-modified>2020-06-01T00:00:00Z</last-modified>
-      <version>0.0.0</version>
-      <oscal-version>1.0.0-milestone3</oscal-version>
-
+      <published>2021-02-22T00:00:00.00-04:00</published>
+      <last-modified>2021-02-22T00:00:00.00-04:00</last-modified>
+      <version>0.3</version>
+      <oscal-version>1.0.0-rc2</oscal-version>
+      
       <prop name="marking">Controlled Unclassified Information</prop>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->

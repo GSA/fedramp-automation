@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"  uuid="03f53e84-8945-4510-9aeb-2d806305cba3">
+<plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"  uuid="DF31A4A9-8D34-4675-96F3-F89CEC7C75B5">
 
    <metadata>
       <title>[System Name] FedRAMP Plan of Action and Milestones (POA&amp;M)</title>
-      <last-modified>2020-06-01T00:00:00Z</last-modified>
-      <version>0.0.0</version>
-      <oscal-version>1.0.0-milestone3</oscal-version>
-
+      <published>2021-02-22T00:00:00.00-04:00</published>
+      <last-modified>2021-02-22T00:00:00.00-04:00</last-modified>
+      <version>0.3</version>
+      <oscal-version>1.0.0-rc2</oscal-version>
+      
       <prop name="marking">Controlled Unclassified Information</prop>
 
       <!-- The following role definitions are required by FedRAMP -->
