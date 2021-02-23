@@ -55,10 +55,13 @@
          </remarks>
       </party>
 
-      <party uuid="8cc0b8e5-9650-4d5f-9796-316f05fa9a2d" type="organization">
+      <party uuid="77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d" type="organization">
          <name>Federal Risk and Authorization Management Program: Program Management Office</name>
          <short-name>FedRAMP PMO</short-name>
          <link href="https://fedramp.gov" rel="homepage" />
+         <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo" />
+         <link href="#985475ee-d4d6-4581-8fdf-d84d3d8caa48" rel="reference" />
+         <link href="#1a23a771-d481-4594-9a1a-71d584fa4123" rel="reference" />
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
@@ -68,6 +71,10 @@
             <postal-code/>
             <country>US</country>
          </address>
+         <remarks>
+            <p>This party entry must be present in a FedRAMP POAM.</p>
+            <p>The uuid may be different; however, the uuid must be associated with the "fedramp-pmo" role in the responsible-party assemblies.</p>
+         </remarks>
       </party>
       <party uuid="ca9ba80e-1342-4bfd-b32a-abac468c24b4" type="organization">
          <name>Federal Risk and Authorization Management Program: Joint Authorization Board</name>
@@ -154,6 +161,8 @@
       <remarks>
          <p>Define one component for each scanning tool referenced by a POA&amp;M entry.</p>
          <p>Define components or inventory-items when no OSCAL-based SSP exists, or is not delivered with the POA&amp;M.</p>
+         <h1>FOR MONTHLY CONMON DELIVERIES</h1>
+         <p>The CSP may import all SSP components and inventory items into the POA&amp;M's <code>local-definitions</code> section to satisfy the system inventory delivery requirement.</p>
       </remarks>
    </local-definitions>
 
@@ -413,7 +422,6 @@
    <back-matter>
       <resource uuid="a78f7e4c-a27a-4b1e-901b-ebfecf2b0301">
          <title>System's Full Name</title>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">no-oscal-ssp</prop>
          <prop name="title-short" ns="https://fedramp.gov/ns/oscal">SFN</prop>
          <prop name="system-id" ns="https://fedramp.gov/ns/oscal">FR00000000</prop>
          <prop name="import-profile" ns="https://fedramp.gov/ns/oscal">#fedramp-moderate-baseline</prop>
@@ -457,33 +465,32 @@
          <rlink href="./logo.png" media-type="image/png"/>
          <base64>00000000</base64>
       </resource>
-      <resource uuid="031a32be-f9ef-45a0-994e-20eb58456dee">
+
+      <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
+         <title>FedRAMP Applicable Laws and Regulations</title>
+         <prop name="type">fedramp-citations</prop>
+         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" />
+         <remarks>
+            <p>Must be present in a FedRAMP SSP.</p>
+         </remarks>
+      </resource>
+      <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
+         <title>FedRAMP Master Acronym and Glossary</title>
+         <prop name="type">fedramp-acronyms</prop>
+         <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf" />
+         <remarks>
+            <p>Must be present in a FedRAMP SSP.</p>
+         </remarks>
+      </resource>
+      <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
          <description><p>FedRAMP Logo</p></description>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-logo</prop>
-         <rlink href="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png"
-         />
-      </resource>
-      <resource uuid="9f1aae37-7359-411f-86c1-768aaab85e63">
-         <title>FedRAMP High Baseline</title>
-         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml" />
+         <prop name="type">logo</prop>
+         <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
          <remarks>
-            <p>Pointer to High baseline content in OSCAL.</p>
+            <p>Must be present in a FedRAMP SSP.</p>
          </remarks>
       </resource>
-      <resource uuid="890170c3-d4fa-4d25-ab96-8e4bf7cc237c">
-         <title>FedRAMP Moderate Baseline</title>
-         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml" />
-         <remarks>
-            <p>Pointer to Moderate baseline content in OSCAL.</p>
-         </remarks>
-      </resource>
-      <resource uuid="2acaf846-5496-4d36-8565-9a15b48aef2c">
-         <title>FedRAMP Low Baseline</title>
-         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_LOW-baseline_profile.xml" />
-         <remarks>
-            <p>Pointer to Low baseline content in OSCAL.</p>
-         </remarks>
-      </resource>
+      
    </back-matter>
 
 </plan-of-action-and-milestones>

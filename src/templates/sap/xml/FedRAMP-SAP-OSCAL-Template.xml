@@ -12,6 +12,10 @@
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
+      <role id="fedramp-pmo">
+         <title>FedRAMP Program Management Office</title>
+         <description><p>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</p></description>
+      </role>
       <role id="prepared-by">
          <title>Prepared By</title>
          <description><p>The organization that prepared this SAP.</p></description>
@@ -96,6 +100,27 @@
             <p>If the assessor is A2LA Certified, include the ISO/IEC-17020 </p>
          </remarks>
       </party>
+      <party uuid="77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d" type="organization">
+         <name>Federal Risk and Authorization Management Program: Program Management Office</name>
+         <short-name>FedRAMP PMO</short-name>
+         <link href="https://fedramp.gov" rel="homepage" />
+         <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo" />
+         <link href="#985475ee-d4d6-4581-8fdf-d84d3d8caa48" rel="reference" />
+         <link href="#1a23a771-d481-4594-9a1a-71d584fa4123" rel="reference" />
+         <email-address>info@fedramp.gov</email-address>
+         <address type="work">
+            <addr-line>1800 F St. NW</addr-line>
+            <addr-line/>
+            <city>Washington</city>
+            <state>DC</state>
+            <postal-code/>
+            <country>US</country>
+         </address>
+         <remarks>
+            <p>This party entry must be present in a FedRAMP SAP.</p>
+            <p>The uuid may be different; however, the uuid must be associated with the "fedramp-pmo" role in the responsible-party assemblies.</p>
+         </remarks>
+      </party>
       
       <party uuid="f4568fda-c6d2-4640-adec-0012015af7d0" type="person">
          <name>[SAMPLE]Person Name 1</name>
@@ -161,6 +186,9 @@
          </address>
       </party>
       
+      <responsible-party role-id="fedramp-pmo">
+         <party-uuid>8cc0b8e5-9650-4d5f-9796-316f05fa9a2d</party-uuid>
+      </responsible-party>
       <responsible-party role-id="prepared-by">
          <party-uuid>49f73135-efab-4275-9a79-003656ad890a</party-uuid>
          <remarks>
@@ -1075,7 +1103,7 @@
       </resource>
       <resource uuid="07145a97-2dd1-4efc-bb10-a8bc93e05342">
          <title>FedRAMP Master Acronym and Glossary</title>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-acronyms</prop>
+         <prop name="type">fedramp-acronyms</prop>
          <rlink
             href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf" />
       </resource>
@@ -1097,44 +1125,47 @@
       </resource>
       <resource uuid="8e8d05e4-0d47-4bf9-bbf0-b7070d60a671">
          <description><p>Penetration Test Plan</p></description>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">penetration-test-plan</prop>
+         <prop name="type">penetration-test-plan</prop>
          <!-- Use rlink and/or base64 -->
          <rlink href="./pen_test_plan.pdf" media-type="application/pdf"/>
          <base64 filename="pen_test_plan.pdf" media-type="application/pdf">00000000</base64>
       </resource>
       <resource uuid="91d242d0-ccf9-4ff0-996d-e204c19dac52">
          <description><p>3PAO Logo</p></description>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">prepared-by-logo</prop>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">3pao-logo</prop>
+         <prop name="type">logo</prop>
          <!-- Use rlink and/or base64 -->
          <rlink href="./logo.png" media-type="image/png"/>
          <base64>00000000</base64>
       </resource>
       <resource uuid="031a32be-f9ef-45a0-994e-20eb58456dee">
          <description><p>FedRAMP Logo</p></description>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-logo</prop>
+         <prop name="type">logo</prop>
          <rlink href="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png" />
       </resource>
-      <resource uuid="9f1aae37-7359-411f-86c1-768aaab85e63">
-         <title>FedRAMP High Baseline</title>
-         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml" />
+      <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
+         <title>FedRAMP Applicable Laws and Regulations</title>
+         <prop name="type">fedramp-citations</prop>
+         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" />
          <remarks>
-            <p>Pointer to High baseline content in OSCAL.</p>
+            <p>Must be present in a FedRAMP SSP.</p>
          </remarks>
       </resource>
-      <resource uuid="890170c3-d4fa-4d25-ab96-8e4bf7cc237c">
-         <title>FedRAMP Moderate Baseline</title>
-         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml" />
+      <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
+         <title>FedRAMP Master Acronym and Glossary</title>
+         <prop name="type">fedramp-acronyms</prop>
+         <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf" />
          <remarks>
-            <p>Pointer to Moderate baseline content in OSCAL.</p>
+            <p>Must be present in a FedRAMP SSP.</p>
          </remarks>
       </resource>
-      <resource uuid="2acaf846-5496-4d36-8565-9a15b48aef2c">
-         <title>FedRAMP Low Baseline</title>
-         <rlink media-type="application/xml" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_LOW-baseline_profile.xml" />
+      <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
+         <description><p>FedRAMP Logo</p></description>
+         <prop name="type">logo</prop>
+         <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
          <remarks>
-            <p>Pointer to Low baseline content in OSCAL.</p>
+            <p>Must be present in a FedRAMP SSP.</p>
          </remarks>
       </resource>
+
    </back-matter>
 </assessment-plan>
