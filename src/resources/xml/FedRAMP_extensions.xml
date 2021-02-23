@@ -709,6 +709,29 @@
       </constraint>
    </extension>
 
+   <extension id="poam-id">
+      <extension-name>POAM-ID</extension-name>
+      <formal-name>CSP POA&amp;M Identifier</formal-name>
+      <description>A CSP-assigned identifier for this POA&amp;M item.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:poam-item/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+      </constraint>
+   </extension>
+   
+   <extension id="poam-impacted-control">
+      <extension-name>impacted-control-id</extension-name>
+      <formal-name>Impacted Control</formal-name>
+      <description>A control impacted by this POA&amp;M item.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:risk/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+         <has-cardinality min-occurs="1" max-occurs="unbounded" />
+      </constraint>
+   </extension>
+   
+   <!-- ===================================================================================== -->
+
    <constraint name="control-origination-constraints">
       <formal-name>Control Origination</formal-name>
       <description>The point(s) from which the control satisfaction originates.</description>

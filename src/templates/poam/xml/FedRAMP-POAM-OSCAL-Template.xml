@@ -216,7 +216,9 @@
    <risk uuid="9cbd98f3-abcb-4948-ad06-14e0bcba742f">
       <title>Weakness Name</title>
       <description><p>Weakness Description</p></description>
-      <statement><p></p></statement>
+      <statement><p>Describe the risk</p></statement>
+      <prop name="impacted-control-id" ns="https://fedramp.gov/ns/oscal">ac-2</prop>
+      <prop name="impacted-control-id" ns="https://fedramp.gov/ns/oscal">ac-2</prop>
       <status>open</status>
       <characterization>
          <origin>
@@ -242,6 +244,8 @@
          <p>This is a statement about the identified risk as provided by the tool.</p>
          <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
       </statement>
+      <prop name="impacted-control-id" ns="https://fedramp.gov/ns/oscal">ac-2</prop>
+      <prop name="impacted-control-id" ns="https://fedramp.gov/ns/oscal">ac-2</prop>
       <status>open</status>
       <characterization>
          <origin>
