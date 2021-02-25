@@ -3,8 +3,8 @@
 
    <metadata>
       <title>[System Name] FedRAMP Plan of Action and Milestones (POA&amp;M)</title>
-      <published>2021-02-22T00:00:00.00-04:00</published>
-      <last-modified>2021-02-22T00:00:00.00-04:00</last-modified>
+      <published>2021-02-25T00:00:00.00-04:00</published>
+      <last-modified>2021-02-25T00:00:00.00-04:00</last-modified>
       <version>0.3</version>
       <oscal-version>1.0.0-rc2</oscal-version>
       
@@ -170,6 +170,7 @@
    <observation uuid="0aa54106-8a63-4953-ac0d-30ff91f8d4ab">
       <description><p></p></description>
       <method>TEST</method>
+      <type>finding</type>
       <origin>
          <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0" />
          <actor type="tool"  uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e" />
@@ -180,7 +181,7 @@
       <collected>2020-10-10T00:00:00Z</collected>
       <remarks><p>The origin field identifies the "Weakness Detector Source"</p></remarks>
    </observation>
-   
+
    <observation uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52">
       <description>
          <p>[EXAMPLE]Scanner Output.</p>
@@ -203,21 +204,66 @@
       </relevant-evidence>
       <collected>2020-10-10T00:00:00Z</collected>
    </observation>
+   
    <observation uuid="6c103050-d72a-4391-b830-dc669641231c">
       <title>Vendor Dependency</title>
       <description><p>Describe the vendor dependency here.</p></description>
-      <prop name="conformity" ns="https://fedramp.gov/ns/oscal">vendor-dependency</prop>
       <method>INTERVIEW</method>
+      <type>vendor-dependency</type>
       <subject uuid-ref="a49ed61e-fca1-4ffa-b5e7-c23a2375a7a0" type="component" />
       <collected>2020-10-10T00:00:00Z</collected>
    </observation>
 
-
+   <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+      <title>Operational Requirement</title>
+      <description><p>Provide the justification for the operational requirement.</p></description>
+      <method>EXAMINE</method>
+      <type>operational-requirement</type>
+      <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61">
+         <description><p>A screen shot showing the system impact when patch is applied.</p></description>
+      </relevant-evidence>
+      <relevant-evidence href="https://vendor.site/article/describing/something.htm">
+         <description><p>Vendor detail describing why this happens.</p></description>
+      </relevant-evidence>
+      <collected>2020-10-10T00:00:00Z</collected>
+   </observation>
+   
+   <observation uuid="46209140-8263-4e74-b3c9-cead4ffed22c">
+      <title>False Positive</title>
+      <description><p>Describe the false positive here.</p></description>
+      <method>EXAMINE</method>
+      <type>false-positive</type>
+      <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61">
+         <description><p>A screen shot showing the setting is correct</p></description>
+      </relevant-evidence>
+      <relevant-evidence href="https://vendor.site/article/describing/something.htm">
+         <description><p>Vendor detail describing why this happens.</p></description>
+      </relevant-evidence>
+      <collected>2020-10-10T00:00:00Z</collected>
+   </observation>
+   
+   <observation uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a">
+      <title>Risk Adjustment</title>
+      <description><p>Describe the risk adjustment justification here.</p></description>
+      <method>EXAMINE</method>
+      <type>risk-adjustment</type>
+      <relevant-evidence>
+         <description>
+            <p>Describe the risk adjustment evidence here.</p>
+         </description>
+         <link href="#53af7193-b25d-4ed2-a82f-5954d2d0df61" rel="evidence"/>
+         <remarks>
+            <p>Attach relevant evidence as a <code>resource</code>.</p>
+            <p>Use a <code>link</code> field with a URI fragment to link to the resource using its UUID.</p>
+         </remarks>
+      </relevant-evidence>
+      <collected>2020-10-10T00:00:00Z</collected>
+   </observation>
+   
    <risk uuid="9cbd98f3-abcb-4948-ad06-14e0bcba742f">
       <title>Weakness Name</title>
       <description><p>Weakness Description</p></description>
       <statement><p>Describe the risk</p></statement>
-      <prop name="impacted-control-id" ns="https://fedramp.gov/ns/oscal">ac-2</prop>
       <prop name="impacted-control-id" ns="https://fedramp.gov/ns/oscal">ac-2</prop>
       <status>open</status>
       <characterization>
@@ -229,9 +275,7 @@
          <facet name="likelihood" system="https://fedramp.gov" value="high">
             <annotation name="state" value="initial" />
          </facet>
-         
       </characterization>
-      
    </risk>
 
    <risk uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
@@ -244,8 +288,11 @@
          <p>This is a statement about the identified risk as provided by the tool.</p>
          <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
       </statement>
-      <prop name="impacted-control-id" ns="https://fedramp.gov/ns/oscal">ac-2</prop>
-      <prop name="impacted-control-id" ns="https://fedramp.gov/ns/oscal">ac-2</prop>
+      <prop name="impacted-control-id"     ns="https://fedramp.gov/ns/oscal">ac-2</prop>
+      <prop name="vendor-dependency"       ns="https://fedramp.gov/ns/oscal">tracking</prop>
+      <prop name="operational-requirement" ns="https://fedramp.gov/ns/oscal">approved</prop>
+      <prop name="false-positive"          ns="https://fedramp.gov/ns/oscal">withdrawn</prop>
+      <prop name="risk-adjustment"         ns="https://fedramp.gov/ns/oscal">approved</prop>
       <status>open</status>
       <characterization>
          <origin>
@@ -254,7 +301,7 @@
                <prop name="plugin-id">Plugin-ID</prop>
             </actor>
          </origin>
-         <facet name="iavm-severity"     value="high"           system="https://fedramp.gov" />
+         <facet name="iavm-severity"     value="high"           system="https://us-cert.cisa.gov" />
          <facet name="AV"                value="network"        system="http://www.first.org/cvss/v3.1" />
          <facet name="vulnerability-id"  value="CVE-2020-00000" system="http://cve.mitre.org" />
          <facet name="impact"            value="high"           system="http://csrc.nist.gov/ns/oscal/unknown" />
@@ -271,7 +318,6 @@
          <facet name="impact" value="high" system="https://fedramp.gov">
             <annotation name="state" value="initial" />
          </facet>
-         <facet name="priority" value="1" system="https://fedramp.gov" />
 
          <facet name="likelihood" value="moderate" system="https://fedramp.gov">
             <annotation name="state" value="adjusted">
@@ -287,21 +333,19 @@
                </remarks>
             </annotation>
          </facet>
-
-         <facet name="vendor-dependency"       value="tracking" system="https://fedramp.gov" ></facet>
-         <facet name="operational-requirement" value="pending"  system="https://fedramp.gov" ></facet>
-         <facet name="false-positive"          value="pending"  system="https://fedramp.gov" ></facet>
-         
-         <facet name="risk-adjustment"         value="approved" system="https://fedramp.gov"></facet>
-         
          <facet name="AV"      value="network"         system="http://csrc.nist.gov/ns/oscal/unknown"></facet>
-         
 
       </characterization>
+
+      <mitigating-factor uuid="260d3c0a-fc2e-4627-9fb9-a003acdc4b14">
+         <description><p>Describe mitigating factor</p></description>
+      </mitigating-factor>            
       
+      <mitigating-factor uuid="fd061039-e9b0-4b4c-a78b-ca024d411174" implementation-uuid="46f4c261-e488-4fb5-84d6-6a61dd30c3d7">
+         <description><p>Describe why the cited implementation statement justifies lowering the risk.</p></description>
+      </mitigating-factor>            
       
-      
-      
+
       <response uuid="a3106e23-8b79-4b1b-abf4-74f16c51ad0c" lifecycle="recommendation">
          <title>Tool's Recommendation</title>
          <description>
@@ -312,7 +356,6 @@
          </origin>
          <remarks>
             <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
-            <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
          </remarks>
       </response>
       
@@ -322,13 +365,12 @@
             <p>A description of the recommended remediation as provided by the assessor in the SAR.</p>
          </description>
          <origin >
-            <actor type="tool" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"></actor>
+            <actor type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"></actor>
          </origin>
          <remarks>
-            <p>If the identified risk is as a result of an assessment, the assessor's should be copied into the POA&amp;M</p>
-            <p>The assessor should leave the tool recommendation, even if adding their own.</p>
+            <p>If the identified risk is as a result of an assessment, the assessor's recommendation should also be copied into the POA&amp;M</p>
+            <p>The assessor should leave the tool recommendation, adding a second recommendation of their own.</p>
             <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
-            <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
          </remarks>
       </response>
       
@@ -349,15 +391,15 @@
                <p>May have just a description with no subject-reference fields. May have both.</p>
             </remarks>
          </required-asset>
-         <task uuid="a12dea1d-e4d1-4f09-aacf-1eaf203a3092" type="action">
-            <title>[Example]Activity 1</title>
+         <task uuid="a12dea1d-e4d1-4f09-aacf-1eaf203a3092" type="milestone">
+            <title>[Example]Milestone 1</title>
             <description><p>Optional description</p></description>
             <timing>
                <within-date-range start="2020-07-01T00:00:00Z" end="2020-07-02T00:00:00Z"/>
             </timing>
          </task>
-         <task uuid="08c50f90-3b08-49fd-862d-32ec96e6bee5" type="action">
-            <title>[Example]Activity 2</title>
+         <task uuid="08c50f90-3b08-49fd-862d-32ec96e6bee5" type="milestone">
+            <title>[Example]Milestone 2</title>
             <description><p>Optional description</p></description>
             <timing>
                <within-date-range start="2020-07-05T00:00:00Z" end="2020-07-07T00:00:00Z"/>
@@ -375,6 +417,9 @@
             <title>Activity 1</title>
             <description />
             <start>2020-07-02T00:00:00Z</start>
+            <related-response response-uuid="e9ee6fe2-856f-42c7-8c2e-ff6466d31010">
+               <related-task task-uuid="a12dea1d-e4d1-4f09-aacf-1eaf203a3092" />
+            </related-response>
          </entry>
          <entry uuid="316fb3fe-927a-49a1-9a72-a58722862623">
             <title>Activity 2</title>
@@ -385,7 +430,6 @@
             <title>Vendor Check-in</title>
             <description><p>Description of the result of the vendor check-in.</p></description>
             <start>2020-07-07T00:00:00Z</start>
-            <prop name='conformity' ns='https://fedramp.gov/ns/oscal'>vendor-check-in</prop>
          </entry>
          <entry uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
             <title>Risk Closed</title>
@@ -423,7 +467,6 @@
 
    </poam-item> 
 
-
    <back-matter>
       <resource uuid="a78f7e4c-a27a-4b1e-901b-ebfecf2b0301">
          <title>System's Full Name</title>
@@ -450,22 +493,18 @@
       </resource>
       <resource uuid="16805868-6fa2-41d4-b2b1-bcd95c9168c7">
          <title>FedRAMP Applicable Laws and Regulations</title>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-citations</prop>
          <rlink
             href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"
          />
       </resource>
       <resource uuid="07145a97-2dd1-4efc-bb10-a8bc93e05342">
          <title>FedRAMP Master Acronym and Glossary</title>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">fedramp-acronyms</prop>
          <rlink
             href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"
          />
       </resource>
       <resource uuid="91d242d0-ccf9-4ff0-996d-e204c19dac52">
          <description><p>3PAO Logo</p></description>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">prepared-by-logo</prop>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">3pao-logo</prop>
          <!-- Use rlink and/or base64 -->
          <rlink href="./logo.png" media-type="image/png"/>
          <base64>00000000</base64>

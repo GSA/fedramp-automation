@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extensions  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="875246F4-8318-49CF-977C-96FD280F15B9" >
+   xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="BA710064-79AC-47D5-8F70-6749B359E7E2" >
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Extensions [DRAFT]</title>
-      <published>2021-02-09T00:00:00Z</published>
-      <last-modified>2021-02-09T00:00:00Z</last-modified>
+      <published>2021-02-25T00:00:00Z</published>
+      <last-modified>2021-02-25T00:00:00Z</last-modified>
       <version>DRAFT-03</version>
-      <oscal-version>1.0.0-rc1</oscal-version>
+      <oscal-version>1.0.0-rc2</oscal-version>
       <revisions>
          <revision>
             <published>2019-06-01T00:00:00.00-04:00</published>
@@ -103,15 +103,13 @@
       <extension-name>response-point</extension-name>
       <formal-name>Response Point</formal-name>
       <description>A property whose presence indicates its parent part is a required point of response for FedRAMP stakeholders.</description>
-      <binding pattern="/o:profile/o:modify/o:alter/o:add/o:prop[@name='response-point']" >
-         <remarks><p>A property (prop) at the root of an add.</p></remarks>
-      </binding>
-      <binding pattern="/o:profile/o:modify/o:alter/o:add//o:part/o:prop[@name='response-point']">
-         <remarks><p>A property (prop) at the root of any part that is a descendent to an add.</p></remarks>
-      </binding>
-      <binding pattern="/o:catalog//o:control//o:part/o:prop[@name='response-point']">
-         <remarks><p>a property (prop) at the root of any part in a resolved profile catalog.</p></remarks>
-      </binding>
+
+      <binding pattern="/o:profile/o:modify/o:alter/o:add/o:prop" />
+      <binding pattern="/o:profile/o:modify/o:alter/o:add//o:part/o:prop" />
+      <binding pattern="/o:catalog//o:control//o:part/o:prop" />
+      <binding pattern="/o:assessment-plan/o:local-definitions/o:objectives-and-methods//part/o:prop" />
+      <binding pattern="/o:assessment-results/o:local-definitions/o:objectives-and-methods//part/o:prop" />
+      
       <constraint>
          <matches data-type="empty" />
          <has-cardinality min-occurs="0" max-occurs="1" />
@@ -127,7 +125,7 @@
       <extension-name>party-uuid</extension-name>
       <formal-name>Party Identifier</formal-name>
       <description>Identifies the party who authored this revision.</description>
-      <binding pattern="/*/o:metadata/o:revisions/o:revision" />
+      <binding pattern="/*/o:metadata/o:revisions/o:revision/o:prop" />
       <constraint>
          <matches data-type="uuid" />
          <has-cardinality min-occurs="0" max-occurs="unbounded" />
@@ -418,6 +416,10 @@
       <description>Identifies the type(s) of scans to be performed on this inventory-item or component.</description>
       <binding pattern="/o:system-security-plan/o:system-implementation/o:component/o:prop" />
       <binding pattern="/o:system-security-plan/o:system-implementation/o:system-inventory/o:inventory-item/o:prop" />
+      <binding pattern="/o:assessment-plan/o:local-definitions/o:component/o:prop" />
+      <binding pattern="/o:assessment-plan/o:local-definitions/o:inventory-item/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definitions/o:component/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definitions/o:inventory-item/o:prop" />
       <constraint>
          <matches data-type="NCName" />
          <has-cardinality min-occurs="0" max-occurs="unbounded" />
@@ -487,6 +489,7 @@
          <!-- Probably needs to be a separate constraint below. -->
       </constraint>
    </extension>
+   
    <extension id="import-profile">
       <extension-name>import-profile</extension-name>
       <formal-name>Profile</formal-name>
@@ -502,6 +505,7 @@
          <!-- Probably needs to be a separate constraint below. -->
       </constraint>
    </extension>
+   
    <extension id="authorization-date">
       <extension-name>authorization-date</extension-name>
       <formal-name>Authorization Date</formal-name>
@@ -517,6 +521,7 @@
          <!-- Probably needs to be a separate constraint below. -->
       </constraint>
    </extension>
+   
    <extension id="purpose">
       <extension-name>purpose</extension-name>
       <formal-name>Purpose</formal-name>
@@ -634,6 +639,298 @@
       </constraint>
    </extension>
    
+   <extension id="no-oscal-ssp-title-short">
+      <extension-name>title-short</extension-name>
+      <formal-name>Short System Name</formal-name>
+      <description>The abbreviated name for the system, such as an acronym.</description>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="1" max-occurs="1" />         
+      </constraint>
+   </extension>
+   
+   <extension id="no-oscal-ssp-system-id">
+      <extension-name>system-id</extension-name>
+      <formal-name>Short System Name</formal-name>
+      <description>The FedRAMP-assigned system identifier.</description>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="1" max-occurs="1" />         
+      </constraint>
+   </extension>
+
+   <extension id="no-oscal-ssp-import-profile">
+      <extension-name>import-profile</extension-name>
+      <formal-name>Relevant Baseline</formal-name>
+      <description>Identifies the relevant OSCAL baseline.</description>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <constraint>
+         <matches data-type="uri" />
+         <has-cardinality min-occurs="1" max-occurs="1" />         
+      </constraint>
+      <remarks>
+         <p>As with all URIs in OSCAL, this may contain a URI fragment, which identifies the local resource containing the relevant profile.</p>
+      </remarks>
+   </extension>
+   
+   <extension id="no-oscal-ssp-purpose">
+      <extension-name>system-id</extension-name>
+      <formal-name>Short System Name</formal-name>
+      <description>The FedRAMP-assigned system identifier.</description>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="1" max-occurs="1" />         
+      </constraint>
+   </extension>
+
+   <extension id="no-oscal-ssp-authorization-date">
+      <extension-name>authorization-date</extension-name>
+      <formal-name>Authorization DAte</formal-name>
+      <description>The date of the system's initial FedRAMP authorization.</description>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <constraint>
+         <matches data-type="dateTime-with-timezone" />
+         <has-cardinality min-occurs="1" max-occurs="1" />         
+      </constraint>
+   </extension>
+   
+   <extension id="task-login-url">
+      <extension-name>logn-url</extension-name>
+      <formal-name>Login URL</formal-name>
+      <description>The login URL for a web application.</description>
+      <binding pattern="/o:system-security-plan/o:system-implementation/o:inventory-item/prop" />
+      <binding pattern="/o:assessment-plan//o:task/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+      </constraint>
+   </extension>
+   
+   <extension id="task-login-id">
+      <extension-name>logn-id</extension-name>
+      <formal-name>Login ID</formal-name>
+      <description>The login ID used to assess the web application.</description>
+      <binding pattern="/o:assessment-plan//o:task/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+      </constraint>
+   </extension>
+
+   <extension id="task-test-type">
+      <extension-name>test-type</extension-name>
+      <formal-name>Test Type</formal-name>
+      <description>Indicates the type of test represented by the task.</description>
+      <binding pattern="/o:assessment-plan//o:task/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+         <allowed-values>
+            <enum value="web-applicaiton" label="Web Application">This task tests a web application.</enum>
+         </allowed-values>
+      </constraint>
+   </extension>
+
+   <extension id="task-user-uuid">
+      <extension-name>user-uuid</extension-name>
+      <formal-name>User Identifier</formal-name>
+      <description>Cites the SSP defined user role to use for testing.</description>
+      <binding pattern="/o:assessment-plan//o:task/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop" />
+      <constraint>
+         <matches data-type="uuid" />
+      </constraint>
+   </extension>
+   
+   <extension id="poam-id">
+      <extension-name>POAM-ID</extension-name>
+      <formal-name>CSP POA&amp;M Identifier</formal-name>
+      <description>A CSP-assigned identifier for this POA&amp;M item.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:poam-item/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+      </constraint>
+   </extension>
+   
+   <extension id="poam-impacted-control">
+      <extension-name>impacted-control-id</extension-name>
+      <formal-name>Impacted Control</formal-name>
+      <description>A control impacted by this POA&amp;M item.</description>
+      <binding pattern="/o:assessment-results/o:result/o:risk/o:prop" />
+      <binding pattern="/o:plan-of-action-and-milestones/o:risk/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+      </constraint>
+      <remarks>
+         <p>Impacted control is required in the POA&amp;M and optional in the SAR.</p>
+         <p>It is allowed in the SAR in anticipation of duplicatng open risks from the SAR to the POA&amp;M.</p>
+      </remarks>
+   </extension>
+
+   <extension id="sar-risk-priority">
+      <extension-name>priority</extension-name>
+      <formal-name>Risk Priority</formal-name>
+      <description>Assessor's recommended risk priority. Lower numbers are higher priority. One (1) is highest priority.</description>
+      <binding pattern="/o:assessment-results/o:result/o:risk/o:prop" />
+      <binding pattern="/o:plan-of-action-and-milestones/o:risk/o:prop" />
+      <constraint>
+         <matches data-type="integer" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+      </constraint>
+   </extension>
+   
+   <extension id="sar-recommend-authorization">
+      <extension-name>recommend-authorization</extension-name>
+      <formal-name>Assessor's Authorization Recommendation</formal-name>
+      <description>Indicates the assessor's reommendation for initial or continued authorization.</description>
+      <binding pattern="/o:assessment-results/o:result/o:attestation/o:part[@name='authorization-statements']/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+         <has-cardinality min-occurs="1" max-occurs="1" />
+         <allowed-values>
+            <enum value="yes" label="Yes">The assessor recommends initial or continued authorization.</enum>
+            <enum value="no" label="No">The assessor does not recommend initial or continued authorization.</enum>
+         </allowed-values>
+      </constraint>
+   </extension>
+
+   <extension id="vulnerability-identifier">
+      <extension-name>vulnerability-id</extension-name>
+      <formal-name>Vulnerability Identifier</formal-name>
+      <description>A tool assigned vulnerability ID.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop" />
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+      </constraint>
+   </extension>
+
+   <extension id="plugin-identifier">
+      <extension-name>plugin-id</extension-name>
+      <formal-name>Plugin Identifier</formal-name>
+      <description>A tool assigned Plugin ID.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop" />
+      <constraint>
+         <matches data-type="string" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+      </constraint>
+   </extension>
+   
+   <extension id="operational-requirement">
+      <extension-name>operational-requirement</extension-name>
+      <formal-name>Operational Requirement</formal-name>
+      <description>The risk cannot be remediated without impact to the system and must be accepted.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:risk/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:risk/o:prop" />
+      <binding pattern="/o:plan-of-action-and-milestones/o:observation/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:observation/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+         <allowed-values>
+            <enum value="investigating" label="Investigating">A possible operational requirement is being investigated.</enum>
+            <enum value="pending" label="Tracking">An operational requirement deviation request was submitted to the AO and is pending adjudication.</enum>
+            <enum value="approved" label="Approved">The operational requirement has been approved by the AO.</enum>
+            <enum value="withdrawn" label="Withdrawn">The operational requirement was withdrawn.</enum>
+         </allowed-values>
+      </constraint>
+   </extension>
+   
+   <extension id="false-positive">
+      <extension-name>false-positive</extension-name>
+      <formal-name>False Positive</formal-name>
+      <description>The risk was found to be a false positive report.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:risk/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:risk/o:prop" />
+      <binding pattern="/o:plan-of-action-and-milestones/o:observation/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:observation/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+         <allowed-values>
+            <enum value="investigating" label="Investigating">A possible risk adjustment is being investigated.</enum>
+            <enum value="pending" label="Tracking">A false positive deviation request was submitted to the AO and is pending adjudication.</enum>
+            <enum value="approved" label="Approved">The false positive has been approved by the AO.</enum>
+            <enum value="withdrawn" label="Withdrawn">The false positive was withdrawn.</enum>
+         </allowed-values>
+      </constraint>
+   </extension>
+   
+   <extension id="risk-adjustment">
+      <extension-name>risk-adjustment</extension-name>
+      <formal-name>Risk Adjustment</formal-name>
+      <description>Mitigating factors were identified or implemented, reducing the likelihood or impact of the risk.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:risk/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:risk/o:prop" />
+      <binding pattern="/o:plan-of-action-and-milestones/o:observation/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:observation/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+         <allowed-values>
+            <enum value="investigating" label="Investigating">A possible risk adjustment is being investigated.</enum>
+            <enum value="pending" label="Tracking">A risk adjustment deviation request was submitted to the AO and is pending adjudication.</enum>
+            <enum value="approved" label="Approved">The risk adjustment has been approved by the AO.</enum>
+            <enum value="withdrawn" label="Withdrawn">The risk adjustment was withdrawn.</enum>
+         </allowed-values>
+      </constraint>
+   </extension>
+
+   <extension id="vendor-dependency">
+      <extension-name>vendor-dependency</extension-name>
+      <formal-name>Vendor Dependency</formal-name>
+      <description>A vendor resolution is pending, but not yet available.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:risk/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:risk/o:prop" />
+      <binding pattern="/o:plan-of-action-and-milestones/o:observation/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:observation/o:prop" />
+      <constraint>
+         <matches data-type="NCName" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
+         <allowed-values>
+            <enum value="investigating" label="Investigating">The risk is a suspected vendor dependency, and is being investigated for verification.</enum>
+            <enum value="tracking" label="Tracking">The vendor has confirmed the issue and is working on a resolution.</enum>
+            <enum value="resolved" label="Resolved">The vendor released the fix and it has been applied.</enum>
+            <enum value="withdrawn" label="Withdrawn">The vendor dependency was withdrawn.</enum>
+         </allowed-values>
+      </constraint>
+   </extension>
+   
+   <!-- ===================================================================================== -->
+
+   <constraint name="observation-types">
+      <formal-name>Observation Types</formal-name>
+      <description>In addition to the NIST observation types, FedRAMP requires observaton types to support risk deviations and vendor dependencies.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:observation/o:type" />
+      <binding pattern="/o:assessment-results/o:result/o:observation/o:type" />
+      <allowed-values allow-other="yes">
+         <enum value="vendor-dependency" label="Vendor Dependency">The observation provides evidence of reliance on a vendor for a pending resolution that is not yet available.</enum>
+         <enum value="false-positive" label="False Positive">The observation provides evidence the associated risk is a false positive finding.</enum>
+         <enum value="operational-requirement" label="Operational Requirement">The observation provides evidence to substantiate the assertion that remediating the risk will have an adverse impact on the system.</enum>
+         <enum value="risk-adjustment" label="Risk Adjustment">The observation provides evidence to justify an adjustment to the likelihood or impact values.</enum>
+         <enum value="closure" label="Closure">The observation provides evidence of risk closure.</enum>
+      </allowed-values>
+   </constraint>
+
+   <constraint name="sar-risk-impacted-control">
+      <formal-name>Impacted Control</formal-name>
+      <description>The impacted control field is optional in the SAR, but helpful in anticipation of copying open risks to the POA&amp;M.</description>
+      <binding pattern="/o:assessment-results/o:result/o:risk/o:prop" />
+      <has-cardinality min-occurs="0" max-occurs="unbounded" />
+   </constraint>
+
+   <constraint name="poam-risk-impacted-control">
+      <formal-name>Impacted Control</formal-name>
+      <description>At least one impacted control field is required in the POA&amp;M.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:risk/o:prop" />
+      <has-cardinality min-occurs="0" max-occurs="unbounded" />
+   </constraint>
+
    <constraint name="control-origination-constraints">
       <formal-name>Control Origination</formal-name>
       <description>The point(s) from which the control satisfaction originates.</description>
@@ -672,7 +969,11 @@
       <matches data-type="NCName" />
       <expect test="(o:annotation[@name='planned-completion'][@ns='https://fedramp.gov/ns/oscal'])" />
    </constraint>
-
+ 
+   <constraint>
+      <formal-name>FedRAMP Facet System Constraints</formal-name>
+      <!-- TODO: NEED TO FILL OUT -->
+   </constraint>
  
 
    <!-- ===================================================================== -->
@@ -718,7 +1019,21 @@
       </remarks>
    </constraint>
 
-
+   <constraint>
+      <formal-name>Additional Component Types</formal-name>
+      <description>Identifies additional component types for Assessment Assets in the SAP and SAR.</description>
+      <binding pattern="o:assessment-plan/o:assessment-assets/o:component/@type" />
+      <binding pattern="o:assessment-results/o:assessment-result/o:local-definitions/o:assessment-assets/o:component/@type" />
+      <allowed-values allow-other="no" >
+         <enum value="assessment-origination" label="Assessment Origination">The component identifies one or more IP addresses from which assessment activities may be performed.</enum>
+      </allowed-values>
+      <remarks>
+         <p>For FedRAMP, the SAP must identify the IP addresses from which scanning and penetration test activities are performed, and the SAR must identify the actual IP addresses used.</p>
+         <p>This requires an additional component type in the SAP's <code>assessment-assets</code>, and in the SAR's <code>result</code>, <code>local-definitions</code>, <code>assessment-assets</code>.</p>
+      </remarks>
+   </constraint>
+   
+   
    <!-- ===================================================================== -->
    <!--  CONSTRAINTS: Expand NIST allowed values.  -->
    <!-- ===================================================================== -->
@@ -761,6 +1076,7 @@
          <enum value="personally-identifiable-information" label="Personally Identifiable Information (PII)">The resource is a citation related to Personally Identifiable Information (PII)</enum>
          <enum value="privacy-impact-analysis" label="Privacy Impact Assessment (PIA)">The resource represents the FedRAMP Privacy Impact Assessment (PIA).</enum>
          <enum value="fedramp-citations" label="FedRAMP Laws and Regulations">A resource containng laws and regulations relevant to FedRAMP.</enum>
+         <enum value="system-security-plan" label="System Security Plan (SSP)">A resource representing the system security plan, as imported by a SAP or POA&amp;M.</enum>
       </allowed-values>
       <remarks><p>These are in addition to the NIST-defined allowed values for resource types.</p></remarks>
    </constraint>

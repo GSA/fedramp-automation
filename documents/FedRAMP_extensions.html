@@ -57,8 +57,8 @@ td.data p { font-size: smaller }
          <tr class="extension">
             <td class="center"><span class="cardinality">0 or 1</span></td>
             <td class="center"><span class="grey">n/a</span></td>
-            <td class="center"><span class="grey">n/a</span></td>
-            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
             <td class="center"><span class="grey">n/a</span></td>
             <td class="data">
                <h4 class="formal-name">Response Point</h4>
@@ -72,9 +72,11 @@ td.data p { font-size: smaller }
                <p class="extension-name">response-point</p>
             </td>
             <td class="xpaths">
-               <p class="binding">/o:profile/o:modify/o:alter/o:add/o:prop[@name='response-point']</p>
-               <p class="binding">/o:profile/o:modify/o:alter/o:add//o:part/o:prop[@name='response-point']</p>
-               <p class="binding">/o:catalog//o:control//o:part/o:prop[@name='response-point']</p>
+               <p class="binding">/o:profile/o:modify/o:alter/o:add/o:prop</p>
+               <p class="binding">/o:profile/o:modify/o:alter/o:add//o:part/o:prop</p>
+               <p class="binding">/o:catalog//o:control//o:part/o:prop</p>
+               <p class="binding">/o:assessment-plan/o:local-definitions/o:objectives-and-methods//part/o:prop</p>
+               <p class="binding">/o:assessment-results/o:local-definitions/o:objectives-and-methods//part/o:prop</p>
             </td>
             <td class="mdtype">empty</td>
             <td class="defined-ids center"> </td>
@@ -103,13 +105,13 @@ td.data p { font-size: smaller }
                <p class="description">Identifies the party who authored this revision.</p>
             </td>
             <td class="mtype">
-               <p class="pattern">revision</p>
+               <p class="pattern">prop</p>
             </td>
             <td class="pname">
                <p class="extension-name">party-uuid</p>
             </td>
             <td class="xpaths">
-               <p class="binding">/*/o:metadata/o:revisions/o:revision</p>
+               <p class="binding">/*/o:metadata/o:revisions/o:revision/o:prop</p>
             </td>
             <td class="mdtype">uuid</td>
             <td class="defined-ids center"> </td>
@@ -620,8 +622,8 @@ td.data p { font-size: smaller }
          <tr class="extension">
             <td class="center"><span class="grey">n/a</span></td>
             <td class="center"><span class="cardinality">0 to ∞</span></td>
-            <td class="center"><span class="grey">n/a</span></td>
-            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">0 to ∞</span></td>
+            <td class="center"><span class="cardinality">0 to ∞</span></td>
             <td class="center"><span class="grey">n/a</span></td>
             <td class="data">
                <h4 class="formal-name">Scan Type</h4>
@@ -636,6 +638,10 @@ td.data p { font-size: smaller }
             <td class="xpaths">
                <p class="binding">/o:system-security-plan/o:system-implementation/o:component/o:prop</p>
                <p class="binding">/o:system-security-plan/o:system-implementation/o:system-inventory/o:inventory-item/o:prop</p>
+               <p class="binding">/o:assessment-plan/o:local-definitions/o:component/o:prop</p>
+               <p class="binding">/o:assessment-plan/o:local-definitions/o:inventory-item/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:local-definitions/o:component/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:local-definitions/o:inventory-item/o:prop</p>
             </td>
             <td class="mdtype">NCName</td>
             <td class="defined-ids center"> </td>
@@ -992,6 +998,499 @@ td.data p { font-size: smaller }
             <td class="mdtype"> </td>
             <td class="defined-ids center"> </td>
             <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">1</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="data">
+               <h4 class="formal-name">Short System Name</h4>
+               <p class="description">The abbreviated name for the system, such as an acronym.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">title-short</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
+            </td>
+            <td class="mdtype">string</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">1</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="data">
+               <h4 class="formal-name">Short System Name</h4>
+               <p class="description">The FedRAMP-assigned system identifier.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">system-id</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
+            </td>
+            <td class="mdtype">string</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">1</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="data">
+               <h4 class="formal-name">Relevant Baseline</h4>
+               <p class="description">Identifies the relevant OSCAL baseline.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">import-profile</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
+            </td>
+            <td class="mdtype">uri</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes">
+               <div class="remarks">
+                  
+                  <p>As with all URIs in OSCAL, this may contain a URI fragment, which identifies the local
+                     resource containing the relevant profile.</p>
+                  </div>
+            </td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">1</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="data">
+               <h4 class="formal-name">Short System Name</h4>
+               <p class="description">The FedRAMP-assigned system identifier.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">system-id</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
+            </td>
+            <td class="mdtype">string</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">1</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="data">
+               <h4 class="formal-name">Authorization DAte</h4>
+               <p class="description">The date of the system's initial FedRAMP authorization.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">authorization-date</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
+            </td>
+            <td class="mdtype">dateTime-with-timezone</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="data">
+               <h4 class="formal-name">Login URL</h4>
+               <p class="description">The login URL for a web application.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">logn-url</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:system-security-plan/o:system-implementation/o:inventory-item/prop</p>
+               <p class="binding">/o:assessment-plan//o:task/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop</p>
+            </td>
+            <td class="mdtype">NCName</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="data">
+               <h4 class="formal-name">Login ID</h4>
+               <p class="description">The login ID used to assess the web application.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">logn-id</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:assessment-plan//o:task/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop</p>
+            </td>
+            <td class="mdtype">NCName</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="data">
+               <h4 class="formal-name">Test Type</h4>
+               <p class="description">Indicates the type of test represented by the task.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">test-type</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:assessment-plan//o:task/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop</p>
+            </td>
+            <td class="mdtype">NCName</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center">x</td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="data">
+               <h4 class="formal-name">User Identifier</h4>
+               <p class="description">Cites the SSP defined user role to use for testing.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">user-uuid</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:assessment-plan//o:task/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop</p>
+            </td>
+            <td class="mdtype">uuid</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="data">
+               <h4 class="formal-name">CSP POA&amp;M Identifier</h4>
+               <p class="description">A CSP-assigned identifier for this POA&amp;M item.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">POAM-ID</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:plan-of-action-and-milestones/o:poam-item/o:prop</p>
+            </td>
+            <td class="mdtype">NCName</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="center"><span class="grey">[unspecified]</span></td>
+            <td class="data">
+               <h4 class="formal-name">Impacted Control</h4>
+               <p class="description">A control impacted by this POA&amp;M item.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">impacted-control-id</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:assessment-results/o:result/o:risk/o:prop</p>
+               <p class="binding">/o:plan-of-action-and-milestones/o:risk/o:prop</p>
+            </td>
+            <td class="mdtype">NCName</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes">
+               <div class="remarks">
+                  
+                  <p>Impacted control is required in the POA&amp;M and optional in the SAR.</p>
+                  
+                  <p>It is allowed in the SAR in anticipation of duplicatng open risks from the SAR to
+                     the POA&amp;M.</p>
+                  </div>
+            </td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="data">
+               <h4 class="formal-name">Risk Priority</h4>
+               <p class="description">Assessor's recommended risk priority. Lower numbers are higher priority. One (1) is
+                  highest priority.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">priority</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:assessment-results/o:result/o:risk/o:prop</p>
+               <p class="binding">/o:plan-of-action-and-milestones/o:risk/o:prop</p>
+            </td>
+            <td class="mdtype">integer</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">1</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="data">
+               <h4 class="formal-name">Assessor's Authorization Recommendation</h4>
+               <p class="description">Indicates the assessor's reommendation for initial or continued authorization.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">recommend-authorization</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:assessment-results/o:result/o:attestation/o:part[@name='authorization-statements']/o:prop</p>
+            </td>
+            <td class="mdtype">NCName</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center">x</td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="data">
+               <h4 class="formal-name">Vulnerability Identifier</h4>
+               <p class="description">A tool assigned vulnerability ID.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">vulnerability-id</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:plan-of-action-and-milestones/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop</p>
+            </td>
+            <td class="mdtype">string</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="data">
+               <h4 class="formal-name">Plugin Identifier</h4>
+               <p class="description">A tool assigned Plugin ID.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">plugin-id</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:plan-of-action-and-milestones/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop</p>
+            </td>
+            <td class="mdtype">string</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center"> </td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="data">
+               <h4 class="formal-name">Operational Requirement</h4>
+               <p class="description">The risk cannot be remediated without impact to the system and must be accepted.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">operational-requirement</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:plan-of-action-and-milestones/o:risk/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:risk/o:prop</p>
+               <p class="binding">/o:plan-of-action-and-milestones/o:observation/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:observation/o:prop</p>
+            </td>
+            <td class="mdtype">NCName</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center">x</td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="data">
+               <h4 class="formal-name">False Positive</h4>
+               <p class="description">The risk was found to be a false positive report.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">false-positive</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:plan-of-action-and-milestones/o:risk/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:risk/o:prop</p>
+               <p class="binding">/o:plan-of-action-and-milestones/o:observation/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:observation/o:prop</p>
+            </td>
+            <td class="mdtype">NCName</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center">x</td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="data">
+               <h4 class="formal-name">Risk Adjustment</h4>
+               <p class="description">Mitigating factors were identified or implemented, reducing the likelihood or impact
+                  of the risk.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">risk-adjustment</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:plan-of-action-and-milestones/o:risk/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:risk/o:prop</p>
+               <p class="binding">/o:plan-of-action-and-milestones/o:observation/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:observation/o:prop</p>
+            </td>
+            <td class="mdtype">NCName</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center">x</td>
+            <td class="notes"></td>
+         </tr>
+         <tr class="extension">
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="grey">n/a</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="center"><span class="cardinality">0 or 1</span></td>
+            <td class="data">
+               <h4 class="formal-name">Vendor Dependency</h4>
+               <p class="description">A vendor resolution is pending, but not yet available.</p>
+            </td>
+            <td class="mtype">
+               <p class="pattern">prop</p>
+            </td>
+            <td class="pname">
+               <p class="extension-name">vendor-dependency</p>
+            </td>
+            <td class="xpaths">
+               <p class="binding">/o:plan-of-action-and-milestones/o:risk/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:risk/o:prop</p>
+               <p class="binding">/o:plan-of-action-and-milestones/o:observation/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:observation/o:prop</p>
+            </td>
+            <td class="mdtype">NCName</td>
+            <td class="defined-ids center"> </td>
+            <td class="avs center">x</td>
             <td class="notes"></td>
          </tr>
       </table>

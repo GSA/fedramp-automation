@@ -3,8 +3,8 @@
    
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Plan (SAP)</title>
-      <published>2021-02-22T00:00:00.00-04:00</published>
-      <last-modified>2021-02-22T00:00:00.00-04:00</last-modified>
+      <published>2021-02-25T00:00:00.00-04:00</published>
+      <last-modified>2021-02-25T00:00:00.00-04:00</last-modified>
       <version>0.3</version>
       <oscal-version>1.0.0-rc2</oscal-version>
       
@@ -434,6 +434,7 @@
             <p>Description of the manual test</p>
          </description>
          <prop name="type">manual</prop>
+         <prop name="label">Test ID</prop>
          <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
             <description><p>Describe test step #1</p></description>
             <prop name="sort-id">001</prop>
@@ -455,6 +456,7 @@
                to different views and manually forcing the browser to various URLs</p>
          </description>
          <prop name="type">manual</prop>
+         <prop name="label">Test ID</prop>
       </activity>
       
       <activity uuid="2233cf20-282a-4967-ab07-a4b7d1ae3a4b">
@@ -463,6 +465,7 @@
             <p>We will test the CAPTCHA function on the web form manually</p>
          </description>
          <prop name="type">manual</prop>
+         <prop name="label">Test ID</prop>
       </activity>
       
       <activity uuid="f818a896-3438-409f-a2a4-583a56fa41b4">
@@ -471,6 +474,7 @@
             <p>We will manually test to see if OCSP is validating certificates.</p>
          </description>
          <prop name="type">manual</prop>
+         <prop name="label">Test ID</prop>
       </activity>
       
       <activity uuid="315b3118-3d2e-420b-b4fb-5acf13b08381">
@@ -626,9 +630,6 @@
       <part name="included-activities">
          <title>Included Activities</title>
          <p>The following activities are to be included as part of the FedRAMP assessment.</p>
-         <part name="included-activity">
-            
-         </part>
          <part name="included-activity">
             <p>Port scans and other network service interaction and queries</p>
          </part>
@@ -1024,6 +1025,7 @@
       <title>Web Application Tests</title>
       <task uuid="16CC716D-B519-416A-BA61-EDD4AFFBDDDB" type="action">
          <title>Web Application Test #1</title>
+         <prop name="test-type" ns="http://fedramp.gov/ns/oscal">web-application</prop>
          <prop name="login-url" ns="http://fedramp.gov/ns/oscal">https://service.offering.com/login</prop>
          <prop name="login-id" ns="http://fedramp.gov/ns/oscal">test-user</prop>
          <associated-activity activity-uuid="315b3118-3d2e-420b-b4fb-5acf13b08381" />
@@ -1037,6 +1039,7 @@
       </task>
       <task uuid="FC869008-9CD5-4499-82C8-6BC532A86142" type="action">
          <title>Web Application Test #2</title>
+         <prop name="test-type" ns="http://fedramp.gov/ns/oscal">web-application</prop>
          <prop name="login-url" ns="http://fedramp.gov/ns/oscal">https://admin-portal.offering.com/login</prop>
          <prop name="login-id" ns="http://fedramp.gov/ns/oscal">test-admin</prop>
          <associated-activity activity-uuid="64142a6f-d8d4-47c6-8bb1-a0e33f17664d" />
@@ -1053,14 +1056,16 @@
       <title>Role-Based Tests</title>
       <task uuid="CFCB0F24-2E1B-49D7-B938-5F58479ED874" type="action">
          <title>Role Based Test #1</title>
+         <prop name="test-type" ns="http://fedramp.gov/ns/oscal">role-based</prop>
          <prop name="login-id" ns="http://fedramp.gov/ns/oscal">test-user</prop>
-         <prop name="user-id" ns="http://fedramp.gov/ns/oscal">sys-role-1</prop>
+         <prop name="user-uuid" ns="http://fedramp.gov/ns/oscal">9cb0fab0-78bd-44ba-bcb8-3e9801cc952f</prop>
          <associated-activity activity-uuid="dc858ece-b430-485d-886c-3a812bb77b13" />
       </task>
       <task uuid="74830d19-2820-4487-bd1d-91d8656b7eb0" type="action">
          <title>Role Based Test #2</title>
+         <prop name="test-type" ns="http://fedramp.gov/ns/oscal">role-based</prop>
          <prop name="login-id" ns="http://fedramp.gov/ns/oscal">test-admin</prop>
-         <prop name="user-id" ns="http://fedramp.gov/ns/oscal">sys-role-2</prop>
+         <prop name="user-uuid" ns="http://fedramp.gov/ns/oscal">sys-role-2</prop>
          <associated-activity activity-uuid="64142a6f-d8d4-47c6-8bb1-a0e33f17664d" />
       </task>
    </task>
@@ -1077,7 +1082,7 @@
          <prop name="system-id" ns="https://fedramp.gov/ns/oscal">FR00000000</prop>
          <prop name="import-profile" ns="https://fedramp.gov/ns/oscal">#890170c3-d4fa-4d25-ab96-8e4bf7cc237c</prop>
          <prop name="purpose" ns="https://fedramp.gov/ns/oscal">Briefly state the system's purpose. This will appear in the SAR.</prop>
-         <rlink media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document" href="/documents/CSP_System_SSP.docx" />
+         <prop name="authorization-date" ns="https://fedramp.gov/ns/oscal">2017-01-23T00:00:00Z</prop>
          <remarks>
             <p>Only include this resource if no OSCAL-based SSP is available.</p>
             <p>Delete it otherwise.</p>

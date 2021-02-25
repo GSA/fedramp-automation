@@ -3,8 +3,8 @@
 
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Report (SAR)</title>
-      <published>2021-02-22T00:00:00.00-04:00</published>
-      <last-modified>2021-02-22T00:00:00.00-04:00</last-modified>
+      <published>2021-02-25T00:00:00.00-04:00</published>
+      <last-modified>2021-02-25T00:00:00.00-04:00</last-modified>
       <version>0.3</version>
       <oscal-version>1.0.0-rc2</oscal-version>
       
@@ -394,6 +394,7 @@
 
       <attestation>
          <part name="authorization-statements">
+            <prop name="recommend-authorization" ns="https://fedramp.gov/ns/oscal">yes</prop>
             <part name="authorization-statement">
                <prop name="sort-id">001</prop>
                <p>Priority levels were established based on [describe].</p>
@@ -404,7 +405,6 @@
             </part>
             <part name="authorization-statement">
                <prop name="sort-id">999</prop>
-               <prop name="recommend-authorization" ns="https://fedramp.gov/ns/oscal">yes</prop>
                <p>[3PAO Name] attests that the SAR from the [system name] [initial | annual] 
                   assessment testing provides a complete assessment of the applicable FedRAMP 
                   controls as stipulated in the SAP. Evidence to validate the successful implementation 
@@ -544,9 +544,15 @@
             <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0" />
             <related-task task-uuid="e1890486-a9f0-4388-b2bc-34fb6c623686" />
          </origin>
-         <subject type="resource" uuid-ref="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
+         <subject type="component" uuid-ref="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
             <title>Reviewed Policy</title>
+            <remarks><p>If the policy is defined in the SSP as a component, you can cite it using <code>subject</code>, and use the UUID of the policy component in the SSP.</p></remarks>
          </subject>
+         <relevant-evidence>
+            <description><p>Reviewed Policy</p></description>
+            <link href="#f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7" rel="policy" />
+            <remarks><p>If the policy is <em>not</em> an SSP component, it should be attached to the SAR as a <code>resource</code>, and cited here as a URI fragment.</p></remarks>
+         </relevant-evidence>
          <collected>2020-10-10T00:00:00Z</collected>
          <remarks>
             <p>The subject-reference identifies a policy that was reviewed and is attached in the back-matter.</p>
@@ -604,7 +610,7 @@
          </relevant-evidence>
          <collected>2020-10-10T00:00:00Z</collected>
          <remarks>
-            <p>Undocumented hosts are entered into the SAR's assessment-subjects, local-definitions section as inventory-items or components.</p>
+            <p>Undocumented hosts are entered into the SAR's result/local-definitions section as inventory-items or components.</p>
             <p>Undocumented hosts are listed in the observations assembly as subject-references.</p>
             <p>The origin must contain the UUID of the tool used to perform the scan.</p>
          </remarks>
@@ -634,8 +640,8 @@
       <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
          <title>Operational Requirement</title>
          <description><p>Provide the justification for the operational requirement.</p></description>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">operational-requirement</prop>
          <method>EXAMINE</method>
+         <type>operational-requirement</type>
          <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61">
             <description><p>A screen shot showing the system impact when patch is applied.</p></description>
          </relevant-evidence>
@@ -648,8 +654,8 @@
       <observation uuid="46209140-8263-4e74-b3c9-cead4ffed22c">
          <title>False Positive</title>
          <description><p>Describe the false positive here.</p></description>
-         <prop name="false-positive"          ns="https://fedramp.gov/ns/oscal" />
          <method>EXAMINE</method>
+         <type>false-positive</type>
          <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61">
             <description><p>A screen shot showing the setting is correct</p></description>
          </relevant-evidence>
@@ -662,8 +668,8 @@
       <observation uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a">
          <title>Risk Adjustment</title>
          <description><p>Describe the risk adjustment justification here.</p></description>
-         <prop name="risk-adjustment"         ns="https://fedramp.gov/ns/oscal" />
          <method>EXAMINE</method>
+         <type>risk-adjustment</type>
          <relevant-evidence>
             <description>
                <p>Describe the risk adjustment evidence here.</p>
@@ -712,6 +718,21 @@
             </description>
          </relevant-evidence>
          <collected>2020-10-10T00:00:00Z</collected>
+      </observation>
+      
+      <observation uuid="A38F3BBA-5B71-400D-B8F2-D808E1D4627F">
+         <description><p>The policy describes a procedure, which could not be found.</p></description>
+         <method>EXAMINE</method>
+         <type>ssp-statement-issue</type>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0" />
+         </origin>
+         <collected>2020-10-10T00:00:00Z</collected>
+         <remarks>
+            <p>The <code>type</code> field designates this observations as an issue with a statement in the SSP. Tools can filter on this field to summarize all SSP issues.</p>
+            <p>The <code>origin</code> identifies the assessor who found the SSP statement issue.</p>
+            <p>If relevant, evidence can be cited as well using the <code>relevant-evidence</code> assembly, such as a screenshot showing a setting is different than stated in the SSP.</p>
+         </remarks>
       </observation>
       
       <risk uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9">
@@ -819,11 +840,11 @@
             <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
          </statement>
          <prop name="priority"                ns="https://fedramp.gov/ns/oscal">1</prop>
-         <prop name="operational-requirement" ns="https://fedramp.gov/ns/oscal" />
-         <prop name="false-positive"          ns="https://fedramp.gov/ns/oscal" />
-         <prop name="risk-adjustment"         ns="https://fedramp.gov/ns/oscal" />
+         <prop name="operational-requirement" ns="https://fedramp.gov/ns/oscal">approved</prop>
+         <prop name="false-positive"          ns="https://fedramp.gov/ns/oscal">withdrawn</prop>
+         <prop name="risk-adjustment"         ns="https://fedramp.gov/ns/oscal">approved</prop>
 
-         <status>open</status>
+         <status>closed</status>
 
          <characterization>
             <origin>
@@ -845,13 +866,12 @@
             </facet>
 
             <facet name="likelihood"       system="https://fedramp.gov" value="moderate">
-               <annotation name="state" value="residual"></annotation>
+               <annotation name="state" value="adjusted"></annotation>
             </facet>
             <facet name="impact"           system="https://fedramp.gov" value="moderate">
-               <annotation name="state" value="residual"></annotation>
+               <annotation name="state" value="adjusted"></annotation>
             </facet>
          </characterization>
-         
          
          <mitigating-factor uuid="260d3c0a-fc2e-4627-9fb9-a003acdc4b14">
             <description><p>Describe mitigating factor</p></description>
@@ -906,11 +926,11 @@
       <risk uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07">
          <title>Risk Title</title>
          <description>
-            <p>This is a description of the issue found by the penetration testing team.</p>
+            <p>This is a description of the issue found by the penetration  testing team.</p>
          </description>
          
          <statement>
-            <p>This is a statement about the identified risk identified by penetraton testing.</p>
+            <p>This is a statement about the risk identified by penetration  testing.</p>
          </statement>
          <prop name="priority"                ns="https://fedramp.gov/ns/oscal">1</prop>
          
@@ -943,20 +963,63 @@
       </risk>
       
       <finding uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
-         <title>[EXAMPLE]TCW Objective AC-1.a.1.3 (Examine and Interview)</title>
+         <title>[EXAMPLE]TCW Objective AC-1(a)(1)[1] (Examine)</title>
+         <description><p>An overall statement about the system's satisfaction of this objective.</p></description>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0" />
+            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" />
+         </origin>
+         <target type="objective-id" id-ref="ac-1.a.1_obj.1">
+            <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal">implemented</prop>
+            <status>satisfied</status>
+         </target>
+         <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
+         <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
+         <remarks>
+            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
+            <p>This objective only has one method (Examine), so there should be at least one <code>related-objservation</code>.</p>
+         </remarks>
+      </finding>
+
+      <finding uuid="EF489684-C2E5-46BD-887A-A86A4AA210D9">
+         <title>[EXAMPLE]TCW Objective AC-1(a)(1)[2] (Examine)</title>
+         <description><p>An overall statement about the system's satisfaction of this objective.</p></description>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0" />
+            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" />
+         </origin>
+         <target type="objective-id" id-ref="ac-1.a.1_obj.2">
+            <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal">implemented</prop>
+            <status>satisfied</status>
+         </target>
+         <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
+         <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
+         <remarks>
+            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
+            <p>This objective only has one method (Examine), so there should be at least one <code>related-objservation</code>.</p>
+         </remarks>
+      </finding>
+      
+      <finding uuid="0D3EE91E-8A4E-455B-BC84-EB31C7C3C34B">
+         <title>[EXAMPLE]TCW Objective AC-1(a)(1)[3] (Examine and Interview)</title>
          <description><p>An overall statement about the system's satisfaction of this objective.</p></description>
          <origin>
             <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0" />
             <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"></actor>
          </origin>
          <target type="objective-id" id-ref="ac-1.a.1_obj.3">
-            <status>implemented</status>
+            <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal">implemented</prop>
+            <status>satisfied</status>
          </target>
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
          <related-observation observation-uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774"/>
          <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
+         <remarks>
+            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
+            <p>This objective has two methods (Examine and Interview), so there should be at least two <code>related-objservation</code>, including at least one observaton of each type.</p>
+         </remarks>
       </finding>
-      
+
       <finding uuid="33e43825-6fd7-49c6-a610-4c795954a167">
          <title>[EXAMPLE]Issue With AU-1 Statement</title>
          <description><p>[EXAMPLE]There is an issue with an SSP Statement.</p></description>
@@ -965,8 +1028,11 @@
             <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"></actor>
          </origin>
          <implementation-statement-uuid>7924db51-e44d-4215-ad7e-3a5dda44a631</implementation-statement-uuid>
-         <related-observation observation-uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774"/>
-         <associated-risk risk-uuid="6038458c-9120-4736-b1c8-78f6c1ad3a48"/>
+         <related-observation observation-uuid="A38F3BBA-5B71-400D-B8F2-D808E1D4627F" />
+         <remarks>
+            <p>The <code>implementation-statement-uuid</code> contains the UUID of the erroneous statement in the SSP.</p>
+            <p>The <code>related-observation</code> contains the UUID of an observation with details about the issue, including a statement and any relevant evidence.</p>
+         </remarks>
       </finding>
 
       <finding uuid="d6316907-a5e5-4ad5-871d-f2f29938360e">
@@ -1019,7 +1085,7 @@
          <related-observation observation-uuid="21b26801-2e00-4e59-979c-bf2a4ed93920"/>
          <associated-risk risk-uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07"/>
          <remarks>
-            <p>If a penetration test result is positive, such as to say the SOC detected the activities appropriately, no risk is required.</p>
+            <p>If a penetration test result is favorable, such as to say the SOC detected the activities appropriately, no risk is required.</p>
             <p>If a penetration test result identifies a vulnerability or deficiency, the risk assembly is required.</p>
          </remarks>
       </finding>
@@ -1075,15 +1141,12 @@
          </origin>
          <collected>2018-03-01T00:00:00Z</collected>
       </observation>
-      
-      <finding uuid="0cbd1819-3ea7-4f78-9ebc-92873eab4d6e">
-         <title>AC-1.1.1.3</title>
+
+      <finding uuid="A0A1395D-59CD-46D9-91A2-E6CA62AE9BAB">
+         <title/>
          <description/>
-         <target type="objective-id" id-ref="ac-1.1_obj.3">
-            <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal">implemented</prop>
-            <status>satisfied</status>
-         </target>
       </finding>
+
    </result>
 
    <back-matter>
@@ -1175,7 +1238,7 @@
       </resource>
       <resource uuid="3a9ace38-c36a-4478-bd2a-f00961889214">
          <description><p>Signed SAR</p></description>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">signature</prop>
+         <prop name="type">signature</prop>
          <!-- Use rlink and/or base64 -->
          <rlink href="./signed-sar.pdf" media-type="application/pdf"/>
          <base64 filename="sar.pdf" media-type="application/pdf">00000000</base64>
