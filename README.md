@@ -2,25 +2,26 @@
 # Federal Risk and Authorization Management Program (FedRAMP) Automation
 ### Based on the Open Security Controls Assessment Language (OSCAL)
 
-## August 1, 2020
+## February 25, 2021
+
+**Guides and Templates updated to OSCAL Release Candidate #2 (RC-2) Syntax**
 
 The FedRAMP Program Management Office (PMO) has drafted FedRAMP-specific extensions and guidance to ensure our stakeholders can fully express a FedRAMP Security Authorization Package using NIST's [OSCAL SSP syntax](https://pages.nist.gov/OSCAL/documentation/).
 
 To accompany these guides, the FedRAMP PMO has also drafted OSCAL files in XML and JSON formats to serve as an example and template for each major deliverable.
 
-We have also updated the FedRAMP baselines in OSCAL. They now include assessment objective and method content from NIST SP 800-53A, used to formulate the FedRAMP Test Case Workbook (TCW), and include a FedRAMP extension identifying the FedRAMP core controls.
 
 ## We Want Your Feedback!
 
 The FedRAMP PMO is releasing the following files for public review and comment:
-- **FedRAMP OSCAL Registry (Updated):** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The draft for public comment is available [here](./documents/FedRAMP_OSCAL_Registry.xlsx).
+- **FedRAMP OSCAL Registry (Updated):** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The draft for public comment is available [here](./documents/FedRAMP_Extensions.pdf).
 
 - **Implementation Guides:** These documents enables tool developers to generate OSCAL-based FedRAMP deliverabes that are fully compliant with FedRAMP’s extensions, defined identifiers, conformity tags, and acceptable values. The drafts for public comment are available [here](./documents/).
 
 - **OSCAL-based FedRAMP Templates:** The template files are pre-populated with FedRAMP extensions, defined-identifiers, and conformity tags where practical. They also include sample data, and are the basis for their respective guidance documents above. The drafts for public comment are available in both XML and JSON formats [here](./templates/).
 
 - **FedRAMP Baselines (Updated):** The FedRAMP baselines for High, Moderate, Low, and Tailored for Low Impact-Software as a Service (LI-SaaS) in OSCAL (XML and JSON formats) are available [here](./baselines). 
-The High, Moderate, and Low baselines now have core controls identified, and include the assessment objectives and actions required for the test case workbook (TCW).
+
 
 Please ask questions or provide feedback on the items above above either via email to [info@fedramp.gov](mailto:info@fedramp.gov), as a comment to an existing [issue](https://github.com/GSA/fedramp-automation/issues), or as a new [issue](https://github.com/GSA/fedramp-automation/issues).
 

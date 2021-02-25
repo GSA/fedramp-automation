@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="149AD6C0-0442-4E36-88C7-D518AFA65D9C">
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="2EC5D191-395C-4D1E-9E55-FE98C54B0F6C">
    <metadata>
       <title>FedRAMP System Security Plan (SSP)</title>
-      <published>2021-02-09T00:00:00.00-04:00</published>
-      <last-modified>2021-02-09T00:00:00.00-04:00</last-modified>
-      <version>0.0</version>
-      <oscal-version>1.0.0-rc1</oscal-version>
+      <published>2021-02-25T00:00:00.00-04:00</published>
+      <last-modified>2021-02-25T00:00:00.00-04:00</last-modified>
+      <version>0.3</version>
+      <oscal-version>1.0.0-rc2</oscal-version>
       <revisions>
          <revision>
             <published>2019-06-01T00:00:00.00-04:00</published>
@@ -16,7 +16,6 @@
                <p>Initial publication.</p>
             </remarks>
          </revision>
-         <!-- Additional revision assemblies as needed. -->
       </revisions>
       <prop name="marking">Controlled Unclassified Information</prop>
       <!-- The following role definitions are required by FedRAMP -->
@@ -858,7 +857,7 @@
       
       <inventory-item uuid="98e37f90-fbb5-4177-badb-9b55229cc183">
          <description>
-            <p>Flat-File Example (No implemented-component).</p>
+            <p>Legacy Example (No implemented-component).</p>
          </description>
          <prop name="asset-id">unique-asset-id</prop>
          <prop name="ipv4-address">10.1.1.1</prop>
@@ -930,8 +929,7 @@
          <prop name="patch-level">Patch-Level</prop>
          <annotation name="baseline-configuration-name" value="Baseline Configuration Name"/>
          <annotation name="physical-location" value="Physical location of Asset"/>
-         <annotation name="allows-authenticated-scan"
-                     value="no">
+         <annotation name="allows-authenticated-scan" value="no">
             <remarks>
                <p>If no, explain why. If yes, omit remark.</p>
             </remarks>
@@ -2052,7 +2050,7 @@
          <prop name="publication">Document Date</prop>
          <prop name="version">Document Version</prop>
          <prop name="type">agreement</prop>
-         <rlink href="./documents/ISAs/ISA-1.docx"/>
+         <rlink href="./documents/ISAs/ISA-1.docx" />
       </resource>
       <resource uuid="31a46c4f-2959-4287-bc1c-67297d7da60b">
          <description><p>CSP Logo</p></description>
