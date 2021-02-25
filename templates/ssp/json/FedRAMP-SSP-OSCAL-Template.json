@@ -1,12 +1,12 @@
 {
   "system-security-plan": {
-    "uuid": "149AD6C0-0442-4E36-88C7-D518AFA65D9C",
+    "uuid": "2EC5D191-395C-4D1E-9E55-FE98C54B0F6C",
     "metadata": {
       "title": "FedRAMP System Security Plan (SSP)",
-      "published": "2021-02-09T00:00:00.00-04:00",
-      "last-modified": "2021-02-09T00:00:00.00-04:00",
-      "version": "0.0",
-      "oscal-version": "1.0.0-rc1",
+      "published": "2021-02-25T00:00:00.00-04:00",
+      "last-modified": "2021-02-25T00:00:00.00-04:00",
+      "version": "0.3",
+      "oscal-version": "1.0.0-rc2",
       "revisions": [
         {
           "published": "2019-06-01T00:00:00.00-04:00",
@@ -1453,7 +1453,7 @@
       "inventory-items": [
         {
           "uuid": "98e37f90-fbb5-4177-badb-9b55229cc183",
-          "description": "Flat-File Example (No implemented-component).",
+          "description": "Legacy Example (No implemented-component).",
           "props": [
             {
               "name": "asset-id",
