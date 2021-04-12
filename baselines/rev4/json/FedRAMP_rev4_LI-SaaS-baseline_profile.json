@@ -1,12 +1,12 @@
 {
   "profile": {
-    "uuid": "B43230FC-D8BD-4264-A88D-41727ED4391E",
+    "uuid": "8f814186-8f82-42ec-bed5-0c9e2287674a",
     "metadata": {
       "title": "FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
       "published": "2021-02-17T00:00:00.000-04:00",
-      "last-modified": "2021-02-17T09:30:00.000-04:00",
+      "last-modified": "2021-04-12T12:36:28.491209-04:00",
       "version": "1.3",
-      "oscal-version": "1.0.0-rc1",
+      "oscal-version": "1.0.0-rc2",
       "roles": [
         {
           "id": "prepared-by",
@@ -52,6 +52,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "1800 F St. NW",
                 ""
@@ -97,388 +98,138 @@
     "imports": [
       {
         "href": "#ad005eae-cc63-4e64-9109-3905a9a825e4",
-        "include": {
-          "calls": [
-            {
-              "control-id": "ac-1"
-            },
-            {
-              "control-id": "ac-2"
-            },
-            {
-              "control-id": "ac-3"
-            },
-            {
-              "control-id": "ac-7"
-            },
-            {
-              "control-id": "ac-8"
-            },
-            {
-              "control-id": "ac-14"
-            },
-            {
-              "control-id": "ac-17"
-            },
-            {
-              "control-id": "ac-18"
-            },
-            {
-              "control-id": "ac-19"
-            },
-            {
-              "control-id": "ac-20"
-            },
-            {
-              "control-id": "ac-22"
-            },
-            {
-              "control-id": "at-1"
-            },
-            {
-              "control-id": "at-2"
-            },
-            {
-              "control-id": "at-3"
-            },
-            {
-              "control-id": "at-4"
-            },
-            {
-              "control-id": "au-1"
-            },
-            {
-              "control-id": "au-2"
-            },
-            {
-              "control-id": "au-3"
-            },
-            {
-              "control-id": "au-4"
-            },
-            {
-              "control-id": "au-5"
-            },
-            {
-              "control-id": "au-6"
-            },
-            {
-              "control-id": "au-8"
-            },
-            {
-              "control-id": "au-9"
-            },
-            {
-              "control-id": "au-11"
-            },
-            {
-              "control-id": "au-12"
-            },
-            {
-              "control-id": "ca-1"
-            },
-            {
-              "control-id": "ca-2"
-            },
-            {
-              "control-id": "ca-2.1"
-            },
-            {
-              "control-id": "ca-3"
-            },
-            {
-              "control-id": "ca-5"
-            },
-            {
-              "control-id": "ca-6"
-            },
-            {
-              "control-id": "ca-7"
-            },
-            {
-              "control-id": "ca-9"
-            },
-            {
-              "control-id": "cm-1"
-            },
-            {
-              "control-id": "cm-2"
-            },
-            {
-              "control-id": "cm-4"
-            },
-            {
-              "control-id": "cm-6"
-            },
-            {
-              "control-id": "cm-7"
-            },
-            {
-              "control-id": "cm-8"
-            },
-            {
-              "control-id": "cm-10"
-            },
-            {
-              "control-id": "cm-11"
-            },
-            {
-              "control-id": "cp-1"
-            },
-            {
-              "control-id": "cp-2"
-            },
-            {
-              "control-id": "cp-3"
-            },
-            {
-              "control-id": "cp-4"
-            },
-            {
-              "control-id": "cp-9"
-            },
-            {
-              "control-id": "cp-10"
-            },
-            {
-              "control-id": "ia-1"
-            },
-            {
-              "control-id": "ia-2"
-            },
-            {
-              "control-id": "ia-2.1"
-            },
-            {
-              "control-id": "ia-2.12"
-            },
-            {
-              "control-id": "ia-4"
-            },
-            {
-              "control-id": "ia-5"
-            },
-            {
-              "control-id": "ia-5.1"
-            },
-            {
-              "control-id": "ia-5.11"
-            },
-            {
-              "control-id": "ia-6"
-            },
-            {
-              "control-id": "ia-7"
-            },
-            {
-              "control-id": "ia-8"
-            },
-            {
-              "control-id": "ia-8.1"
-            },
-            {
-              "control-id": "ia-8.2"
-            },
-            {
-              "control-id": "ia-8.3"
-            },
-            {
-              "control-id": "ia-8.4"
-            },
-            {
-              "control-id": "ir-1"
-            },
-            {
-              "control-id": "ir-2"
-            },
-            {
-              "control-id": "ir-4"
-            },
-            {
-              "control-id": "ir-5"
-            },
-            {
-              "control-id": "ir-6"
-            },
-            {
-              "control-id": "ir-7"
-            },
-            {
-              "control-id": "ir-8"
-            },
-            {
-              "control-id": "ir-9"
-            },
-            {
-              "control-id": "ma-1"
-            },
-            {
-              "control-id": "ma-2"
-            },
-            {
-              "control-id": "ma-4"
-            },
-            {
-              "control-id": "ma-5"
-            },
-            {
-              "control-id": "mp-1"
-            },
-            {
-              "control-id": "mp-2"
-            },
-            {
-              "control-id": "mp-6"
-            },
-            {
-              "control-id": "mp-7"
-            },
-            {
-              "control-id": "pe-1"
-            },
-            {
-              "control-id": "pe-2"
-            },
-            {
-              "control-id": "pe-3"
-            },
-            {
-              "control-id": "pe-6"
-            },
-            {
-              "control-id": "pe-8"
-            },
-            {
-              "control-id": "pe-12"
-            },
-            {
-              "control-id": "pe-13"
-            },
-            {
-              "control-id": "pe-14"
-            },
-            {
-              "control-id": "pe-15"
-            },
-            {
-              "control-id": "pe-16"
-            },
-            {
-              "control-id": "pl-1"
-            },
-            {
-              "control-id": "pl-2"
-            },
-            {
-              "control-id": "pl-4"
-            },
-            {
-              "control-id": "ps-1"
-            },
-            {
-              "control-id": "ps-2"
-            },
-            {
-              "control-id": "ps-3"
-            },
-            {
-              "control-id": "ps-4"
-            },
-            {
-              "control-id": "ps-5"
-            },
-            {
-              "control-id": "ps-6"
-            },
-            {
-              "control-id": "ps-7"
-            },
-            {
-              "control-id": "ps-8"
-            },
-            {
-              "control-id": "ra-1"
-            },
-            {
-              "control-id": "ra-2"
-            },
-            {
-              "control-id": "ra-3"
-            },
-            {
-              "control-id": "ra-5"
-            },
-            {
-              "control-id": "sa-1"
-            },
-            {
-              "control-id": "sa-2"
-            },
-            {
-              "control-id": "sa-3"
-            },
-            {
-              "control-id": "sa-4"
-            },
-            {
-              "control-id": "sa-4.10"
-            },
-            {
-              "control-id": "sa-5"
-            },
-            {
-              "control-id": "sa-9"
-            },
-            {
-              "control-id": "sc-1"
-            },
-            {
-              "control-id": "sc-5"
-            },
-            {
-              "control-id": "sc-7"
-            },
-            {
-              "control-id": "sc-12"
-            },
-            {
-              "control-id": "sc-13"
-            },
-            {
-              "control-id": "sc-15"
-            },
-            {
-              "control-id": "sc-20"
-            },
-            {
-              "control-id": "sc-21"
-            },
-            {
-              "control-id": "sc-22"
-            },
-            {
-              "control-id": "sc-39"
-            },
-            {
-              "control-id": "si-1"
-            },
-            {
-              "control-id": "si-2"
-            },
-            {
-              "control-id": "si-3"
-            },
-            {
-              "control-id": "si-4"
-            },
-            {
-              "control-id": "si-5"
-            },
-            {
-              "control-id": "si-12"
-            }
-          ]
-        }
+        "include-controls": [
+          {
+            "with-ids": [
+              "ac-1",
+              "ac-2",
+              "ac-3",
+              "ac-7",
+              "ac-8",
+              "ac-14",
+              "ac-17",
+              "ac-18",
+              "ac-19",
+              "ac-20",
+              "ac-22",
+              "at-1",
+              "at-2",
+              "at-3",
+              "at-4",
+              "au-1",
+              "au-2",
+              "au-3",
+              "au-4",
+              "au-5",
+              "au-6",
+              "au-8",
+              "au-9",
+              "au-11",
+              "au-12",
+              "ca-1",
+              "ca-2",
+              "ca-2.1",
+              "ca-3",
+              "ca-5",
+              "ca-6",
+              "ca-7",
+              "ca-9",
+              "cm-1",
+              "cm-2",
+              "cm-4",
+              "cm-6",
+              "cm-7",
+              "cm-8",
+              "cm-10",
+              "cm-11",
+              "cp-1",
+              "cp-2",
+              "cp-3",
+              "cp-4",
+              "cp-9",
+              "cp-10",
+              "ia-1",
+              "ia-2",
+              "ia-2.1",
+              "ia-2.12",
+              "ia-4",
+              "ia-5",
+              "ia-5.1",
+              "ia-5.11",
+              "ia-6",
+              "ia-7",
+              "ia-8",
+              "ia-8.1",
+              "ia-8.2",
+              "ia-8.3",
+              "ia-8.4",
+              "ir-1",
+              "ir-2",
+              "ir-4",
+              "ir-5",
+              "ir-6",
+              "ir-7",
+              "ir-8",
+              "ir-9",
+              "ma-1",
+              "ma-2",
+              "ma-4",
+              "ma-5",
+              "mp-1",
+              "mp-2",
+              "mp-6",
+              "mp-7",
+              "pe-1",
+              "pe-2",
+              "pe-3",
+              "pe-6",
+              "pe-8",
+              "pe-12",
+              "pe-13",
+              "pe-14",
+              "pe-15",
+              "pe-16",
+              "pl-1",
+              "pl-2",
+              "pl-4",
+              "ps-1",
+              "ps-2",
+              "ps-3",
+              "ps-4",
+              "ps-5",
+              "ps-6",
+              "ps-7",
+              "ps-8",
+              "ra-1",
+              "ra-2",
+              "ra-3",
+              "ra-5",
+              "sa-1",
+              "sa-2",
+              "sa-3",
+              "sa-4",
+              "sa-4.10",
+              "sa-5",
+              "sa-9",
+              "sc-1",
+              "sc-5",
+              "sc-7",
+              "sc-12",
+              "sc-13",
+              "sc-15",
+              "sc-20",
+              "sc-21",
+              "sc-22",
+              "sc-39",
+              "si-1",
+              "si-2",
+              "si-3",
+              "si-4",
+              "si-5",
+              "si-12"
+            ]
+          }
+        ]
       }
     ],
     "merge": {
@@ -794,8 +545,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -873,8 +624,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -889,18 +640,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization defines information system account types to be identified and selected to support organizational missions/business functions."
@@ -984,8 +735,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1000,18 +751,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the information system enforces approved authorizations for logical access to information and system resources in accordance with applicable access control policies."
@@ -1084,13 +835,13 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 },
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1119,8 +870,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "FED"
+                  "value": "FED",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1149,8 +900,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "FED"
+                  "value": "FED",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1190,8 +941,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1206,18 +957,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization authorizes remote access to the information system prior to allowing such connections"
@@ -1290,8 +1041,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1320,8 +1071,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1350,8 +1101,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -1384,8 +1135,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1400,18 +1151,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization designates individuals authorized to post information onto a publicly accessible information system."
@@ -1484,8 +1235,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -1507,8 +1258,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -1530,8 +1281,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -1553,8 +1304,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -1576,8 +1327,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -1599,8 +1350,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -1633,8 +1384,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1649,18 +1400,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the information system:\n\nGenerates audit records containing information that establishes:\n\n* What type of event occurred\n* When the event occurred\n* Where the event occurred\n* The source of the event\n* The outcome of the event\n* The identity of any individuals or subjects associated with the event\n"
@@ -1733,8 +1484,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1774,8 +1525,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1790,18 +1541,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization defines the personnel or roles to be alerted in the event of an audit processing failure."
@@ -1885,8 +1636,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -1901,13 +1652,13 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Defines the types of inappropriate or unusual activity to look for when information system audit records are reviewed and analyzed.\n* Defines the frequency to review and analyze information system audit records for indications of organization-defined inappropriate or unusual activity.\n* Reviews and analyzes information system audit records for indications of organization-defined inappropriate or unusual activity with the organization-defined frequency.\n* Defines personnel or roles to whom findings resulting from reviews and analysis of information system audit records are to be reported.\n* Reports findings to organization-defined personnel or roles.\n"
@@ -1964,8 +1715,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -1987,8 +1738,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -2010,8 +1761,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -2040,8 +1791,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -2063,8 +1814,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -2097,8 +1848,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -2113,18 +1864,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Develops a security assessment plan that describes the scope of the assessment including:\n*     * Security controls and control enhancements under assessment.   * Assessment procedures to be used to determine security control effectiveness.   * Assessment environment.   * Assessment team.   * Assessment roles and responsibilities.  \n* Defines the frequency to assess the security controls in the information system and its environment of operation.\n* Assesses the security controls in the information system with the organization-defined frequency to determine the extent to which the controls are implemented correctly, operating as intended, and producing the desired outcome with respect to meeting established security requirements.\n* Produces a security assessment report that documents the results of the assessment.\n* Defines individuals or roles to whom the results of the security control assessment are to be provided.\n* Provides the results of the security control assessment to organization-defined individuals or roles. \n"
@@ -2191,7 +1942,7 @@
                           "value": "Guidance:"
                         }
                       ],
-                      "prose": "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Annual Assessment Guidance [https://www.fedramp.gov/documents/](https://www.fedramp.gov/documents/)"
+                      "prose": "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Annual Assessment Guidance [https://www.fedramp.gov/documents/](https://www.fedramp.gov/documents/) "
                     }
                   ]
                 }
@@ -2215,8 +1966,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -2249,8 +2000,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -2265,13 +2016,13 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Authorizes connections from the information system to other information systems through the use of Interconnection Security Agreements.\n* Documents, for each interconnection:\n*     * The interface characteristics;   * The security requirements; and   * The nature of the information communicated.  \n* Defines the frequency to review and update Interconnection Security Agreements.\n* Reviews and updates Interconnection Security Agreements with the organization-defined frequency.\n"
@@ -2333,8 +2084,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -2374,8 +2125,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -2390,18 +2141,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Assigns a senior-level executive or manager as the authorizing official for the information system.\n* Ensures that the authorizing official authorizes the information system for processing before commencing operations.\n* Defines the frequency to update the security authorization.\n* Updates the security authorization with the organization-defined frequency.\n"
@@ -2503,8 +2254,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -2519,18 +2270,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Develops a continuous monitoring strategy that defines metrics to be monitored.\n* Develops a continuous monitoring strategy that includes monitoring of organization-defined metrics.\n* Implements a continuous monitoring program that includes monitoring of organization-defined metrics in accordance with the organizational continuous monitoring strategy.\n* Develops a continuous monitoring strategy that defines frequencies for monitoring and defines frequencies for assessments supporting monitoring.\n* Develops a continuous monitoring strategy that includes establishment of the organization-defined frequencies for monitoring and for assessments supporting monitoring.\n* Implements a continuous monitoring program that includes establishment of organization-defined frequencies for monitoring and for assessments supporting such monitoring in accordance with the organizational continuous monitoring strategy.\n* Develops a continuous monitoring strategy that includes ongoing security control assessments.\n* Implements a continuous monitoring program that includes ongoing security control assessments in accordance with the organizational continuous monitoring strategy.\n* Develops a continuous monitoring strategy that includes ongoing security status monitoring of organization-defined metrics.\n* Implements a continuous monitoring program that includes ongoing security status monitoring of organization-defined metrics in accordance with the organizational continuous monitoring strategy.\n* Develops a continuous monitoring strategy that includes correlation and analysis of security-related information generated by assessments and monitoring.\n* Implements a continuous monitoring program that includes correlation and analysis of security-related information generated by assessments and monitoring in accordance with the organizational continuous monitoring strategy.\n* Develops a continuous monitoring strategy that includes response actions to address results of the analysis of security-related information.\n* Implements a continuous monitoring program that includes response actions to address results of the analysis of security-related information in accordance with the organizational continuous monitoring strategy.\n* Develops a continuous monitoring strategy that defines the personnel or roles to whom the security status of the organization and information system are to be reported.\n* Develops a continuous monitoring strategy that defines the frequency to report the security status of the organization and information system to organization-defined personnel or roles.\n* Develops a continuous monitoring strategy that includes reporting the security status of the organization or information system to organizational-defined personnel or roles with the organization-defined frequency.\n* Implements a continuous monitoring program that includes reporting the security status of the organization and information system to organization-defined personnel or roles with the organization-defined frequency in accordance with the organizational continuous monitoring strategy.\n"
@@ -2608,7 +2359,7 @@
                           "value": "Guidance:"
                         }
                       ],
-                      "prose": "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Continuous Monitoring Strategy Guide [https://www.fedramp.gov/documents/](https://www.fedramp.gov/documents/)"
+                      "prose": "See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents, Continuous Monitoring Strategy Guide [https://www.fedramp.gov/documents/](https://www.fedramp.gov/documents/) "
                     }
                   ]
                 }
@@ -2643,8 +2394,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -2659,13 +2410,13 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Defines information system components or classes of components to be authorized as internal connections to the information system.\n* Authorizes internal connections of organization-defined information system components or classes of components to the information system.\n* Documents, for each internal connection:\n*     * The interface characteristics;   * The security requirements; and   * The nature of the information communicated.  \n"
@@ -2727,8 +2478,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -2750,8 +2501,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -2784,8 +2535,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -2800,18 +2551,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization analyzes changes to the information system to determine potential security impacts prior to change implementation."
@@ -2895,8 +2646,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -2911,18 +2662,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Defines security configuration checklists to be used to establish and document configuration settings for the information technology products employed.\n* Ensures the defined security configuration checklists reflect the most restrictive mode consistent with operational requirements.\n* Establishes and documents configuration settings for information technology products employed within the information system using organization-defined security configuration checklists.\n* Implements the configuration settings established/documented in CM-6(a).\n* Defines information system components for which any deviations from established configuration settings must be:\n*     * Identified;   * Documented; and   * Approved.  \n* Defines operational requirements to support:\n*     * The identification of any deviations from established configuration settings;   * The documentation of any deviations from established configuration settings; and   * The approval of any deviations from established configuration settings.  \n* Identifies any deviations from established configuration settings for organization-defined information system components based on organizational-defined operational requirements.\n* Approves any deviations from established configuration settings for organization-defined information system components based on organizational-defined operational requirements.\n* Monitors changes to the configuration settings in accordance with organizational policies and procedures.\n* Controls changes to the configuration settings in accordance with organizational policies and procedures.\n"
@@ -3040,8 +2791,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -3074,8 +2825,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3090,18 +2841,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Develops and documents an inventory of information system components that accurately reflects the current information system.\n* Develops and documents an inventory of information system components that includes all components within the authorization boundary of the information system.\n* Develops and documents an inventory of information system components that is at the level of granularity deemed necessary for tracking and reporting.\n* Defines the information deemed necessary to achieve effective information system component accountability.\n* Develops and documents an inventory of information system components that includes organization-defined information deemed necessary to achieve effective information system component accountability.\n* Defines the frequency to review and update the information system component inventory.\n* Reviews and updates the information system component inventory with the organization-defined frequency.\n"
@@ -3192,8 +2943,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3222,8 +2973,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3252,8 +3003,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -3275,8 +3026,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3305,8 +3056,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3335,8 +3086,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3376,8 +3127,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3392,18 +3143,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Defines a frequency, consistent with recovery time objectives and recovery point objectives as specified in the information system contingency plan, to conduct backups of user-level information contained in the information system.\n* Conducts backups of user-level information contained in the information system with the organization-defined frequency.\n* Defines a frequency, consistent with recovery time objectives and recovery point objectives as specified in the information system contingency plan, to conduct backups of system-level information contained in the information system.\n* Conducts backups of system-level information contained in the information system with the organization-defined frequency.\n* Defines a frequency, consistent with recovery time objectives and recovery point objectives as specified in the information system contingency plan, to conduct backups of information system documentation including security-related documentation.\n* Conducts backups of information system documentation, including security-related documentation, with the organization-defined frequency.\n* Protects the confidentiality, integrity, and availability of backup information at storage locations.\n"
@@ -3532,8 +3283,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3562,8 +3313,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -3585,13 +3336,13 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 },
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3631,8 +3382,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3647,18 +3398,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization implements multifactor authentication for network access to privileged accounts."
@@ -3742,8 +3493,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3758,18 +3509,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the information system:\n\n* Accepts PIV credentials.\n* Electronically verifies PIV credentials.\n"
@@ -3870,8 +3621,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -3893,8 +3644,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -3916,8 +3667,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -3950,13 +3701,13 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "FED"
+                  "value": "FED",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 },
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -3971,18 +3722,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if, for hardware token-based authentication, the organization:\n\n* Defines token quality requirements to be satisfied.\n* Employs mechanisms that satisfy organization-defined token quality requirements.\n"
@@ -4071,8 +3822,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -4087,18 +3838,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the information system obscures feedback of authentication information during the authentication process to protect the information from possible exploitation/use by unauthorized individuals."
@@ -4171,8 +3922,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -4194,8 +3945,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -4228,8 +3979,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -4244,18 +3995,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the information system:\n\n* Accepts PIV credentials from other agencies.\n* Electronically verifies PIV credentials from other agencies.\n"
@@ -4344,8 +4095,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -4360,18 +4111,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the information system accepts only FICAM-approved third-party credentials."
@@ -4449,8 +4200,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -4472,8 +4223,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -4495,8 +4246,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -4518,8 +4269,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -4552,8 +4303,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -4568,18 +4319,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Implements an incident handling capability for security incidents that includes:\n*     * Preparation;   * Detection and analysis;   * Containment;   * Eradication; and   * Recovery.  \n* Coordinates incident handling activities with contingency planning activities.\n* Incorporates lessons learned from ongoing incident handling activities into:\n*     * Incident response procedures;   * Training; and   * Testing/exercises.  \n* Implements the resulting changes accordingly to:\n*     * Incident response procedures;   * Training; and   * Testing/exercises.  \n"
@@ -4670,8 +4421,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -4704,8 +4455,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -4720,18 +4471,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Defines the time period within which personnel report suspected security incidents to the organizational incident response capability.\n* Requires personnel to report suspected security incidents to the organizational incident response capability within the organization-defined time period.\n* Defines authorities to whom security incident information is to be reported.\n* Reports security incident information to organization-defined authorities.\n"
@@ -4828,8 +4579,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -4851,8 +4602,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -4881,8 +4632,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -4911,8 +4662,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -4945,8 +4696,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -4961,18 +4712,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* schedules maintenance and repairs on information system components in accordance with manufacturer or vendor specifications; and/or organizational requirements;\n* performs maintenance and repairs on information system components in accordance with manufacturer or vendor specifications; and/or organizational requirements;\n* documents maintenance and repairs on information system components in accordance with manufacturer or vendor specifications; and/or organizational requirements;\n* reviews records of maintenance and repairs on information system components in accordance with manufacturer or vendor specifications; and/or organizational requirements;\n* approves all maintenance activities, whether performed on-site or remotely and whether the equipment is serviced on-site or removed to another location;\n* monitors all maintenance activities, whether performed on-site or remotely and whether the equipment is serviced on-site or removed to another location;\n* defines personnel or roles required to explicitly approve the removal of the information system or system components from organizational facilities for off-site maintenance or repairs;\n* requires that organization-defined personnel or roles explicitly approve the removal of the information system or system components from organizational facilities for off-site maintenance or repairs;\n* sanitizes equipment to remove all information from associated media prior to removal from organizational facilities for off-site maintenance or repairs;\n* checks all potentially impacted security controls to verify that the controls are still functioning properly following maintenance or repair actions;\n* defines maintenance-related information to be included in organizational maintenance records; and\n* includes organization-defined maintenance-related information in organizational maintenance records.\n"
@@ -5050,8 +4801,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -5084,8 +4835,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -5100,18 +4851,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* establishes a process for maintenance personnel authorization;\n* maintains a list of authorized maintenance organizations or personnel;\n* ensures that non-escorted personnel performing maintenance on the information system have required access authorizations; and\n* designates organizational personnel with required access authorizations and technical competence to supervise the maintenance activities of personnel who do not possess the required access authorizations.\n"
@@ -5189,8 +4940,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -5223,8 +4974,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -5239,18 +4990,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* defines types of digital and/or non-digital media requiring restricted access;\n* defines personnel or roles authorized to access organization-defined types of digital and/or non-digital media; and\n* restricts access to organization-defined types of digital and/or non-digital media to organization-defined personnel or roles.\n"
@@ -5339,8 +5090,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -5355,18 +5106,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* defines information system media to be sanitized prior to:\n*     * disposal;   * release out of organizational controls; or   * release for reuse.  \n* defines sanitization techniques or procedures to be used for sanitizing organization-defined information system media prior to:\n*     * disposal;   * release out of organizational controls; or   * release for reuse.  \n* sanitizes organization-defined information system media prior to disposal, release out of organizational control, or release for reuse using organization-defined sanitization techniques or procedures in accordance with applicable federal and organizational standards and policies; and\n* employs sanitization mechanisms with strength and integrity commensurate with the security category or classification of the information.\n"
@@ -5455,8 +5206,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -5471,18 +5222,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* defines types of information system media to be:\n*     * restricted on information systems or system components; or   * prohibited from use on information systems or system components  \n* defines information systems or system components on which the use of organization-defined types of information system media is to be one of the following:\n*     * restricted; or   * prohibited.  \n* defines security safeguards to be employed to restrict or prohibit the use of organization-defined types of information system media on organization-defined information systems or system components; and,\n* restricts or prohibits the use of organization-defined information system media on organization-defined information systems or system components using organization-defined security safeguards.\n"
@@ -5560,8 +5311,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -5594,8 +5345,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -5610,18 +5361,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* develops a list of individuals with authorized access to the facility where the information system resides;\n* approves a list of individuals with authorized access to the facility where the information system resides;\n* maintains a list of individuals with authorized access to the facility where the information system resides;\n* issues authorization credentials for facility access;\n* defines the frequency to review the access list detailing authorized facility access by individuals;\n* reviews the access list detailing authorized facility access by individuals with the organization-defined frequency; and,\n* removes individuals from the facility access list when access is no longer required.\n"
@@ -5710,8 +5461,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -5726,18 +5477,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* defines entry/exit points to the facility where the information system resides;\n* enforces physical access authorizations at organization-defined entry/exit points to the facility where the information system resides by:\n*     * verifying individual access authorizations before granting access to the facility;  \n* enforces physical access authorizations at organization-defined entry/exit points to the facility where the information system resides by:\n*     * defining physical access control systems/devices to be employed to control ingress/egress to the facility where the information system resides;   * using one or more of the following ways to control ingress/egress to the facility:   *       * organization-defined physical access control systems/devices; and/or     * guards;    \n* defines entry/exit points for which physical access audit logs are to be maintained;\n* maintains physical access audit logs for organization-defined entry/exit points;\n* defines security safeguards to be employed to control access to areas within the facility officially designated as publicly accessible;\n* provides organization-defined security safeguards to control access to areas within the facility officially designated as publicly accessible;\n* defines circumstances requiring visitor:\n*     * escorts; and   * monitoring;  \n* in accordance with organization-defined circumstances requiring visitor escorts and monitoring:\n*     * escorts visitors; and   * monitors visitor activities.  \n* secures keys;\n* secures combinations;\n* secures other physical access devices;\n* defines physical access devices to be inventoried;\n* defines the frequency to inventory organization-defined physical access devices;\n* inventories the organization-defined physical access devices with the organization-defined frequency;\n* defines the frequency to change combinations and keys; and\n* changes combinations and keys with the organization-defined frequency and/or when:\n*     * keys are lost;   * combinations are compromised; or   * individuals are transferred or terminated.  \n"
@@ -5826,8 +5577,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -5842,18 +5593,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* monitors physical access to the facility where the information system resides to detect and respond to physical security incidents;\n* defines the frequency to review physical access logs;\n* defines events or potential indication of events requiring physical access logs to be reviewed;\n* reviews physical access logs with the organization-defined frequency and upon occurrence of organization-defined events or potential indications of events; and\n* coordinates results of reviews and investigations with the organizational incident response capability.\n"
@@ -5942,8 +5693,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -5958,18 +5709,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* defines the time period to maintain visitor access records to the facility where the information system resides;\n* maintains visitor access records to the facility where the information system resides for the organization-defined time period;\n* defines the frequency to review visitor access records; and\n* reviews visitor access records with the organization-defined frequency.\n"
@@ -6058,8 +5809,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -6074,18 +5825,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* employs and maintains automatic emergency lighting for the information system that activates in the event of a power outage or disruption; and\n* employs and maintains automatic emergency lighting for the information system that covers emergency exits and evacuation routes within the facility.\n"
@@ -6174,8 +5925,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -6190,18 +5941,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* employs fire suppression and detection devices/systems for the information system that are supported by an independent energy source; and\n* maintains fire suppression and detection devices/systems for the information system that are supported by an independent energy source.\n"
@@ -6290,8 +6041,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -6306,18 +6057,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* defines acceptable temperature levels to be maintained within the facility where the information system resides;\n* defines acceptable humidity levels to be maintained within the facility where the information system resides;\n* maintains temperature levels within the facility where the information system resides at the organization-defined levels;\n* maintains humidity levels within the facility where the information system resides at the organization-defined levels;\n* defines the frequency to monitor temperature levels;\n* defines the frequency to monitor humidity levels;\n* monitors temperature levels with the organization-defined frequency; and\n* monitors humidity levels with the organization-defined frequency.\n"
@@ -6430,8 +6181,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -6446,18 +6197,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* protects the information system from damage resulting from water leakage by providing master shutoff or isolation valves that are:\n*     * accessible;   * working properly; and   * known to key personnel.  \n"
@@ -6546,8 +6297,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -6562,18 +6313,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* defines types of information system components to be authorized, monitored, and controlled as such components are entering and exiting the facility;\n* authorizes organization-defined information system components entering the facility;\n* monitors organization-defined information system components entering the facility;\n* controls organization-defined information system components entering the facility;\n* authorizes organization-defined information system components exiting the facility;\n* monitors organization-defined information system components exiting the facility;\n* controls organization-defined information system components exiting the facility;\n* maintains records of information system components entering the facility; and\n* maintains records of information system components exiting the facility.\n"
@@ -6651,8 +6402,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -6685,8 +6436,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -6701,18 +6452,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Develops a security plan for the information system that:\n*     * Is consistent with the organization’s enterprise architecture;   * Explicitly defines the authorization boundary for the system;   * Describes the operational context of the information system in terms of missions and business processes;   * Provides the security categorization of the information system including supporting rationale;   * Describes the operational environment for the information system and relationships with or connections to other information systems;   * Provides an overview of the security requirements for the system;   * Identifies any relevant overlays, if applicable;   * Describes the security controls in place or planned for meeting those requirements including a rationale for the tailoring decisions; and   * Is reviewed and approved by the authorizing official or designated representative prior to plan implementation.  \n* Defines personnel or roles to whom copies of the security plan are to be distributed and subsequent changes to the plan are to be communicated.\n* Distributes copies of the security plan and communicates subsequent changes to the plan to organization-defined personnel or roles.\n* Defines the frequency to review the security plan for the information system.\n* Reviews the security plan for the information system with the organization-defined frequency.\n* Updates the plan to address:\n*     * Changes to the information system/environment of operation;   * Problems identified during plan implementation; and   * Problems identified during security control assessments.  \n* Protects the security plan from unauthorized:\n*     * Disclosure; and   * Modification.  \n"
@@ -6785,8 +6536,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -6808,8 +6559,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -6831,8 +6582,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "FED"
+                  "value": "FED",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -6865,8 +6616,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -6881,18 +6632,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Screens individuals prior to authorizing access to the information system.\n* Defines conditions requiring re-screening.\n* Defines the frequency of re-screening where it is so indicated.\n* Re-screens individuals in accordance with organization-defined conditions requiring re-screening and, where re-screening is so indicated, with the organization-defined frequency of such re-screening.\n"
@@ -6965,8 +6716,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -6988,8 +6739,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -7011,8 +6762,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -7034,8 +6785,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -7064,8 +6815,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -7087,8 +6838,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -7121,8 +6872,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -7137,18 +6888,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Categorizes information and the information system in accordance with applicable Federal laws, Executive Orders, directives, policies, regulations, standards, and guidance.\n* Documents the security categorization results (including supporting rationale) in the security plan for the information system.\n* Ensures the authorizing official or authorizing official designated representative reviews and approves the security categorization decision.\n"
@@ -7232,8 +6983,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -7248,21 +6999,21 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
-                  "prose": "Determine if the organization:\n\n* Conducts an assessment of risk, including the likelihood and magnitude of harm, from the unauthorized access, use, disclosure, disruption, modification, or destruction of:\n*    * The information system. Conducts an assessment of risk, including the likelihood and magnitude of harm, from the unauthorized access, use, disclosure, disruption, modification, or destruction of:\n*     * The information the system processes, stores, or transmits.  \n* Defines a document in which risk assessment results are to be documented (if not documented in the security plan or risk assessment report).\n* Documents risk assessment results in one of the following:\n*     * The security plan;   * The risk assessment report; or   * The organization-defined document.  \n* Reviews risk assessment results with the organization-defined frequency.Defines the frequency to review risk assessment results.\n* Defines personnel or roles to whom risk assessment results are to be disseminated.\n* Disseminates risk assessment results to organization-defined personnel or roles.\n* Defines the frequency to update the risk assessment.\n* Updates the risk assessment:\n*     * With the organization-defined frequency;   * Whenever there are significant changes to the information system or environment of operation (including the identification of new threats and vulnerabilities); and   * Whenever there are other conditions that may impact the security state of the system.  \n"
+                  "prose": "Determine if the organization:\n\n* Conducts an assessment of risk, including the likelihood and magnitude of harm, from the unauthorized access, use, disclosure, disruption, modification, or destruction of:\n*     * The information system. Conducts an assessment of risk, including the likelihood and magnitude of harm, from the unauthorized access, use, disclosure, disruption, modification, or destruction of:\n*     * The information the system processes, stores, or transmits.  \n* Defines a document in which risk assessment results are to be documented (if not documented in the security plan or risk assessment report).\n* Documents risk assessment results in one of the following:\n*     * The security plan;   * The risk assessment report; or   * The organization-defined document.  \n* Reviews risk assessment results with the organization-defined frequency.Defines the frequency to review risk assessment results.\n* Defines personnel or roles to whom risk assessment results are to be disseminated.\n* Disseminates risk assessment results to organization-defined personnel or roles.\n* Defines the frequency to update the risk assessment.\n* Updates the risk assessment:\n*     * With the organization-defined frequency;   * Whenever there are significant changes to the information system or environment of operation (including the identification of new threats and vulnerabilities); and   * Whenever there are other conditions that may impact the security state of the system.  \n"
                 },
                 {
                   "id": "ra-3_asmt_fr.1",
@@ -7378,8 +7129,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -7394,18 +7145,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Defines the frequency for conducting vulnerability scans on the information system and hosted applications.\n* Defines the process for conducting random vulnerability scans on the information system and hosted applications.\n* In accordance with the organization-defined frequency and/or organization-defined process for conducting random scans, scans for vulnerabilities in:\n*     * The information system; and   * Hosted applications.  \n* When new vulnerabilities potentially affecting the system/applications are identified and reported, scans for vulnerabilities in:\n*     * The information system; and   * Hosted applications.  \n* Employs vulnerability scanning tools and techniques that facilitate interoperability among tools and automate parts of the vulnerability management process by using standards for:\n*     * Enumerating platforms;   * Enumerating software flaws; and   * Enumerating improper configurations.  \n* Employs vulnerability scanning tools and techniques that facilitate interoperability among tools and automate parts of the vulnerability management process by using standards for:\n*     * Formatting checklists; and   * Formatting test procedures.  \n* Employs vulnerability scanning tools and techniques that facilitate interoperability among tools and automate parts of the vulnerability management process by using standards for:\n*     * Measuring vulnerability impact.  \n* Analyzes vulnerability scan reports.\n* Analyzes results from security control assessments.\n* Defines response times to remediate legitimate vulnerabilities in accordance with an organizational assessment of risk.\n* Remediates legitimate vulnerabilities within the organization-defined response times in accordance with an organizational assessment of risk.\n* Defines personnel or roles with whom information obtained from the vulnerability scanning process and security control assessments is to be shared.\n* Shares information obtained from the vulnerability scanning process with organization-defined personnel or roles to help eliminate similar vulnerabilities in other information systems (i.e., systemic weaknesses or deficiencies).\n* Shares information obtained from security control assessments with organization-defined personnel or roles to help eliminate similar vulnerabilities in other information systems (i.e., systemic weaknesses or deficiencies).\n"
@@ -7502,7 +7253,7 @@
                           "value": "Guidance:"
                         }
                       ],
-                      "prose": "**See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents> Vulnerability Scanning Requirements** ([https://www.FedRAMP.gov/documents/](https://www.FedRAMP.gov/documents/))"
+                      "prose": " **See the FedRAMP Documents page under Key Cloud Service Provider (CSP) Documents> Vulnerability Scanning Requirements** ([https://www.FedRAMP.gov/documents/](https://www.FedRAMP.gov/documents/))"
                     }
                   ]
                 }
@@ -7526,8 +7277,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -7549,8 +7300,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -7572,8 +7323,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -7595,8 +7346,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -7618,8 +7369,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -7641,8 +7392,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -7675,8 +7426,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -7691,18 +7442,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Defines security controls to be employed by providers of external information system services.\n* Requires that providers of external information system services comply with organizational information security requirements.\n* Requires that providers of external information system services employ organization-defined security controls in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, standards, and guidance.\n* Defines and documents government oversight with regard to external information system services.\n* Defines and documents user roles and responsibilities with regard to external information system services.\n* Defines processes, methods, and techniques to be employed to monitor security control compliance by external service providers.\n* Employs organization-defined processes, methods, and techniques to monitor security control compliance by external service providers on an ongoing basis.\n"
@@ -7775,8 +7526,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -7809,8 +7560,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -7825,18 +7576,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Defines types of denial of service attacks or reference to source of such information for the information system to protect against or limit the effects.\n* Defines security safeguards to be employed by the information system to protect against or limit the effects of organization-defined types of denial of service attacks.\n* Protects against or limits the effects of the organization-defined denial or service attacks (or reference to source for such information) by employing organization-defined security safeguards.\n"
@@ -7925,8 +7676,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -7941,18 +7692,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Monitors communications at the external boundary of the information system.\n* Monitors communications at key internal boundaries within the system.\n* Controls communications at the external boundary of the information system.\n* Controls communications at key internal boundaries within the system.\n* Implements subnetworks for publicly accessible system components that are either:\n*     * Physically separated from internal organizational networks; and/or   * Logically separated from internal organizational networks.  \n* Connects to external networks or information systems only through managed interfaces consisting of boundary protection devices arranged in accordance with an organizational security architecture.\n"
@@ -8036,8 +7787,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -8052,18 +7803,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Defines requirements for cryptographic key:\n*     * Generation;   * Distribution;   * Storage;   * Access; and   * Destruction.  \n* Establishes and manages cryptographic keys for required cryptography employed within the information system in accordance with organization-defined requirements for key generation, distribution, storage, access, and destruction.\n"
@@ -8165,8 +7916,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "CONDITIONAL"
+                  "value": "CONDITIONAL",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -8181,18 +7932,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Defines cryptographic uses.\n* Defines the type of cryptography required for each use.\n* Implements the organization-defined cryptographic uses and type of cryptography required for each use in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and standards.\n"
@@ -8270,8 +8021,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "NSO"
+                  "value": "NSO",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -8300,8 +8051,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -8323,8 +8074,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -8346,8 +8097,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -8369,8 +8120,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -8392,8 +8143,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -8426,8 +8177,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -8442,18 +8193,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Identifies information system flaws.\n* Reports information system flaws.\n* Corrects information system flaws.\n* Tests software updates related to flaw remediation for effectiveness and potential side effects before installation.\n* Tests firmware updates related to flaw remediation for effectiveness and potential side effects before installation.\n* Defines the time period within which to install security-relevant software updates after the release of the updates.\n* Defines the time period within which to install security-relevant firmware updates after the release of the updates.\n* Installs software updates within the organization-defined time period of the release of the updates.\n* Installs firmware updates within the organization-defined time period of the release of the updates.\n* Incorporates flaw remediation into the organizational configuration management process.\n"
@@ -8537,8 +8288,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -8553,18 +8304,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Employs malicious code protection mechanisms to detect and eradicate malicious code at information system:\n*     * Entry points; and   * Exit points.  \n* Updates malicious code protection mechanisms whenever new releases are available in accordance with organizational configuration management policy and procedures (as identified in CM-1).\n* Defines a frequency for malicious code protection mechanisms to perform periodic scans of the information system.\n* Defines action to be initiated by malicious protection mechanisms in response to malicious code detection.\n* Configures malicious code protection mechanisms to:\n*     * Perform periodic scans of the information system with the organization-defined frequency;   * Perform real-time scans of files from external sources at endpoint and/or network entry/exit points as the files are downloaded, opened, or executed in accordance with organizational security policy.  \n* Configures malicious code protection mechanisms to do one or more of the following:\n*     * Block malicious code in response to malicious code detection;   * Quarantine malicious code in response to malicious code detection;   * Send alert to administrator in response to malicious code detection; and/or   * Initiate organization-defined action in response to malicious code detection.  \n* Addresses the receipt of false positives during malicious code detection and eradication.\n* Addresses the resulting potential impact on the availability of the information system.\n"
@@ -8648,8 +8399,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ASSESS"
+                  "value": "ASSESS",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -8664,18 +8415,18 @@
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "EXAMINE"
+                      "value": "EXAMINE",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "INTERVIEW"
+                      "value": "INTERVIEW",
+                      "class": "fedramp"
                     },
                     {
                       "name": "method",
-                      "class": "fedramp",
-                      "value": "TEST"
+                      "value": "TEST",
+                      "class": "fedramp"
                     }
                   ],
                   "prose": "Determine if the organization:\n\n* Defines monitoring objectives to detect attacks and indicators of potential attacks on the information system.\n* Monitors the information system to detect, in accordance with organization-defined monitoring objectives:\n*     * Attacks; and/or   * Indicators of potential attacks.  \n* Monitors the information system to detect unauthorized:\n*     * Local connections;   * Network connections; and/or   * Remote connections.  \n* Defines techniques and methods to identify unauthorized use of the information system.\n* Identifies unauthorized use of the information system through organization-defined techniques and methods.\n* Deploys monitoring devices:\n*     * Strategically within the information system to collect organization-determined essential information.   * At ad hoc locations within the system to track specific types of transactions of interest to the organization.  \n* Protects information obtained from intrusion-monitoring tools from unauthorized:\n*     * Access;   * Modification; and/or   * Deletion.  \n* Heightens the level of information system monitoring activity whenever there is an indication of increased risk to organizational operations and assets, individuals, other organizations, or the Nation based on law enforcement information, intelligence information, or other credible sources of information.\n* Obtains legal opinion with regard to information system monitoring activities in accordance with applicable federal laws, Executive Orders, directives, policies, or regulations.\n* Defines personnel or roles to whom information system monitoring information is to be provided.\n* Defines information system monitoring information to be provided to organization-defined personnel or roles.\n* Defines a frequency to provide organization-defined information system monitoring to organization-defined personnel or roles.\n* Provides organization-defined information system monitoring information to organization-defined personnel or roles one or more of the following:\n*     * As needed; and/or   * With the organization-defined frequency.  \n"
@@ -8748,8 +8499,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ]
             }
@@ -8771,8 +8522,8 @@
               "props": [
                 {
                   "name": "method",
-                  "class": "FedRAMP-Tailored-LI-SaaS",
-                  "value": "ATTEST"
+                  "value": "ATTEST",
+                  "class": "FedRAMP-Tailored-LI-SaaS"
                 }
               ],
               "parts": [
@@ -8833,7 +8584,7 @@
           ],
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/usnistgov/oscal-content/9fd42a99a440f0ac7e0db2087cde4995bf33bf7c/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml",
+              "href": "https://raw.githubusercontent.com/usnistgov/oscal-content/f5bf0dd0eea8c117d09c813b1b183e619e2f60cf/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml",
               "media-type": "application/xml"
             }
           ]

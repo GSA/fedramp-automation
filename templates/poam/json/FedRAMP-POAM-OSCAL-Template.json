@@ -1,10 +1,10 @@
 {
   "plan-of-action-and-milestones": {
-    "uuid": "DF31A4A9-8D34-4675-96F3-F89CEC7C75B5",
+    "uuid": "524b9109-64a2-4ffa-9ee1-09eade05dec7",
     "metadata": {
       "title": "[System Name] FedRAMP Plan of Action and Milestones (POA&M)",
       "published": "2021-02-25T00:00:00.00-04:00",
-      "last-modified": "2021-02-25T00:00:00.00-04:00",
+      "last-modified": "2021-04-12T12:36:27.218704-04:00",
       "version": "0.3",
       "oscal-version": "1.0.0-rc2",
       "props": [
@@ -97,6 +97,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "1800 F St. NW",
                 ""
@@ -135,6 +136,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -226,9 +228,7 @@
             {
               "name": "os-version",
               "value": "1.2.0"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "is-scanned",
               "value": "yes"
@@ -478,7 +478,7 @@
                 "name": "likelihood",
                 "system": "https://fedramp.gov",
                 "value": "high",
-                "annotations": [
+                "props": [
                   {
                     "name": "state",
                     "value": "initial"
@@ -579,7 +579,7 @@
                 "name": "likelihood",
                 "system": "https://fedramp.gov",
                 "value": "high",
-                "annotations": [
+                "props": [
                   {
                     "name": "state",
                     "value": "initial"
@@ -590,7 +590,7 @@
                 "name": "impact",
                 "system": "https://fedramp.gov",
                 "value": "high",
-                "annotations": [
+                "props": [
                   {
                     "name": "state",
                     "value": "initial"
@@ -601,7 +601,7 @@
                 "name": "likelihood",
                 "system": "https://fedramp.gov",
                 "value": "moderate",
-                "annotations": [
+                "props": [
                   {
                     "name": "state",
                     "value": "adjusted",
@@ -613,7 +613,7 @@
                 "name": "impact",
                 "system": "https://fedramp.gov",
                 "value": "low",
-                "annotations": [
+                "props": [
                   {
                     "name": "state",
                     "value": "adjusted",

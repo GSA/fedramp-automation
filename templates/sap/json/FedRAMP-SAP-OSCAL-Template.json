@@ -1,10 +1,10 @@
 {
   "assessment-plan": {
-    "uuid": "F40DA6AB-138C-4B38-9C05-AFF8223A2A2C",
+    "uuid": "35cd0f77-4c33-4942-9119-86c115d9f641",
     "metadata": {
       "title": "[System Name] FedRAMP Security Assessment Plan (SAP)",
       "published": "2021-02-25T00:00:00.00-04:00",
-      "last-modified": "2021-02-25T00:00:00.00-04:00",
+      "last-modified": "2021-04-12T12:36:27.685737-04:00",
       "version": "0.3",
       "oscal-version": "1.0.0-rc2",
       "props": [
@@ -95,6 +95,7 @@
           "uuid": "2ba201ac-8ee9-4a1d-812a-a755591a3963",
           "title": "Assessor's HQ",
           "address": {
+            "type": "work",
             "addr-lines": [
               "Suite 0000",
               "1234 Some Street"
@@ -159,6 +160,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "1800 F St. NW",
                 ""
@@ -352,6 +354,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "Suite 0000",
                 "1234 Some Street"
@@ -627,18 +630,18 @@
                 },
                 {
                   "name": "method",
-                  "class": "fedramp",
-                  "value": "EXAMINE"
+                  "value": "EXAMINE",
+                  "class": "fedramp"
                 },
                 {
                   "name": "method",
-                  "class": "fedramp",
-                  "value": "INTERVIEW"
+                  "value": "INTERVIEW",
+                  "class": "fedramp"
                 },
                 {
                   "name": "method",
-                  "class": "fedramp",
-                  "value": "TEST"
+                  "value": "TEST",
+                  "class": "fedramp"
                 }
               ],
               "prose": "Custom assessment objective for this control."
@@ -709,7 +712,7 @@
               "value": "Test ID"
             }
           ],
-          "actions": [
+          "steps": [
             {
               "uuid": "FB039FD7-5A2B-4C0F-867C-88CCE9C3778C",
               "description": "Describe test step #1",
@@ -1094,20 +1097,40 @@
         {
           "description": "# Control Objective Scope\nWithin the OSCAL-based FedRAMP baselines, FedRAMP has defined the control objectives for which an assessor must respond. Those must be explicityly listed here.\n\nThis template only includes the AC-1 response points from the FedRAMP Moderate Baseline based on NIST SP 800-53 Revision 4.\n\nThis is analgous to the individual rows listed in the empty FedRAMP Test Case Workbook ([Moderate](https://www.fedramp.gov/assets/resources/templates/SAP-AA-FedRAMP-Moderate-Security-Test-Case-Procedures-Template.xlsx)).",
           "include-objectives": [
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-            {},
-            {}
+            {
+              "objective-id": "ac-1.a.1_obj.1"
+            },
+            {
+              "objective-id": "ac-1.a.1_obj.2"
+            },
+            {
+              "objective-id": "ac-1.a.1_obj.3"
+            },
+            {
+              "objective-id": "ac-1.a.2_obj.1"
+            },
+            {
+              "objective-id": "ac-1.a.2_obj.2"
+            },
+            {
+              "objective-id": "ac-1.a.2_obj.3"
+            },
+            {
+              "objective-id": "ac-1.b.1_obj.1"
+            },
+            {
+              "objective-id": "ac-1.b.1_obj.2"
+            },
+            {
+              "objective-id": "ac-1.b.2_obj.1"
+            },
+            {
+              "objective-id": "ac-1.b.2_obj.2"
+            }
           ]
         }
       ],
-      "remarks": "# IMPORTANT: RESPONSE POINTS\nWithin each FedRAMP baseline, FedRAMP has added \\\"response-point\\\" properties as a FedRAMP Extension.\n\nThese are found in control statements (for CSPs to use in their SSP) and in control objectives (for assessors to use in their SAP and SAR).\n\nSAP tools should scan the appropriate baseline (as identified by the SSP's `import-profile` statement), find the response points associated with control objectives (ignoring response points associated with statements), and insert one `include-objective` field for each identified response point.\n\nFor this task, tools should either scan the resolved profile catalog version of each baseline, or resolve the profile against its catalog before processing.\n\nXPath for all control objectie response points in a resolved profile catalog: `//control/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id`\n\nXPath for AC-1 control objectie response points in a resolved profile catalog: `//control[@id='ac-1']/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id`"
+      "remarks": "# IMPORTANT: RESPONSE POINTS\nWithin each FedRAMP baseline, FedRAMP has added \\\"response-point\\\" properties as a FedRAMP Extension.\n\nThese are found in control statements (for CSPs to use in their SSP) and in control objectives (for assessors to use in their SAP and SAR).\n\nSAP tools should scan the appropriate baseline (as identified by the SSP's `import-profile` statement), find the response points associated with control objectives (ignoring response points associated with statements), and insert one `include-objective` field for each identified response point.\n\nFor this task, tools should either scan the resolved profile catalog version of each baseline, or resolve the profile against its catalog before processing.\n\nXPath for all control objectie response points in a resolved profile catalog: `//control/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id` \n\nXPath for AC-1 control objectie response points in a resolved profile catalog: `//control[@id='ac-1']/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id` "
     },
     "assessment-subjects": [
       {

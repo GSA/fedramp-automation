@@ -1,16 +1,16 @@
 ---
 system-security-plan:
-  uuid: 2EC5D191-395C-4D1E-9E55-FE98C54B0F6C
+  uuid: 246dcd23-fcb9-43e5-9a5c-72d423777082
   metadata:
     title: FedRAMP System Security Plan (SSP)
     published: 2021-02-25T00:00:00.00-04:00
-    last-modified: 2021-02-25T00:00:00.00-04:00
+    last-modified: 2021-04-12T12:36:28.051707-04:00
     version: "0.3"
     oscal-version: 1.0.0-rc2
     revisions:
       - published: 2019-06-01T00:00:00.00-04:00
         version: "1.0"
-        oscal-version: 1.0.0-rc1
+        oscal-version: 1.0.0-rc2
         props:
           - name: party-uuid
             ns: https://fedramp.gov/ns/oscal
@@ -108,6 +108,7 @@ system-security-plan:
       - uuid: 27b78960-59ef-4619-82b0-ae20b9c709ac
         title: CSP HQ
         address:
+          type: work
           addr-lines:
             - Suite 0000
             - 1234 Some Street
@@ -127,8 +128,8 @@ system-security-plan:
           postal-code: 00000-0000
         props:
           - name: type
-            class: primary
             value: data-center
+            class: primary
         remarks: >-
           There must be one location for each data center.
 
@@ -153,8 +154,8 @@ system-security-plan:
           postal-code: 00000-0000
         props:
           - name: type
-            class: alternate
             value: data-center
+            class: alternate
         remarks: >-
           There must be one location for each data center.
 
@@ -201,7 +202,8 @@ system-security-plan:
         email-addresses:
           - info@fedramp.gov
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - 1800 F St. NW
               - ""
             city: Washington
@@ -247,7 +249,8 @@ system-security-plan:
         email-addresses:
           - poc@example.com
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - 3333 Corporate Way
             city: Washington
             state: DC
@@ -300,7 +303,8 @@ system-security-plan:
         telephone-numbers:
           - number: 202-000-0002
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - Address Line
             city: City
             state: ST
@@ -319,7 +323,8 @@ system-security-plan:
         telephone-numbers:
           - number: 202-000-0003
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - Address Line
             city: City
             state: ST
@@ -338,7 +343,8 @@ system-security-plan:
         telephone-numbers:
           - number: 202-000-0004
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - Address Line
             city: City
             state: ST
@@ -357,7 +363,8 @@ system-security-plan:
         telephone-numbers:
           - number: 202-000-0005
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - Address Line
             city: City
             state: ST
@@ -376,7 +383,8 @@ system-security-plan:
         telephone-numbers:
           - number: 202-000-0006
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - Address Line
             city: City
             state: ST
@@ -395,7 +403,8 @@ system-security-plan:
         telephone-numbers:
           - number: 202-000-0007
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - Address Line
             city: City
             state: ST
@@ -490,15 +499,14 @@ system-security-plan:
         value: fedramp-agency
       - name: security-eauth-level
         ns: https://fedramp.gov/ns/oscal
-        class: security-eauth
         value: "2"
+        class: security-eauth
       - name: identity-assurance-level
         value: "2"
       - name: authenticator-assurance-level
         value: "2"
       - name: federation-assurance-level
         value: "2"
-    annotations:
       - name: cloud-service-model
         value: saas
         remarks: Remarks are required if service model is \"other\". Optional otherwise.
@@ -513,24 +521,24 @@ system-security-plan:
           value: yes
         - name: pta-1
           ns: https://fedramp.gov/ns/oscal
-          class: pta
           value: yes
+          class: pta
         - name: pta-2
           ns: https://fedramp.gov/ns/oscal
-          class: pta
           value: yes
+          class: pta
         - name: pta-3
           ns: https://fedramp.gov/ns/oscal
-          class: pta
           value: yes
+          class: pta
         - name: pta-4
           ns: https://fedramp.gov/ns/oscal
-          class: pta
           value: no
+          class: pta
         - name: sorn-id
           ns: https://fedramp.gov/ns/oscal
-          class: pta
           value: "[No SORN ID]"
+          class: pta
       information-types:
         - uuid: 06ecba4f-db96-4491-a3a2-7febfa227435
           title: Information Type Name
@@ -625,7 +633,6 @@ system-security-plan:
           - name: sensitivity
             ns: https://fedramp.gov/ns/oscal
             value: high
-        annotations:
           - name: privilege-level
             value: privileged
           - name: type
@@ -645,7 +652,6 @@ system-security-plan:
           - name: sensitivity
             ns: https://fedramp.gov/ns/oscal
             value: moderate
-        annotations:
           - name: privilege-level
             value: non-privileged
           - name: type
@@ -663,7 +669,6 @@ system-security-plan:
           - name: sensitivity
             ns: https://fedramp.gov/ns/oscal
             value: limited
-        annotations:
           - name: privilege-level
             value: no-logical-access
           - name: type
@@ -803,7 +808,6 @@ system-security-plan:
           - name: scan-type
             ns: https://fedramp.gov/ns/oscal
             value: infrastructure
-        annotations:
           - name: baseline-configuration-name
             value: Baseline Config. Name
           - name: allows-authenticated-scan
@@ -820,7 +824,6 @@ system-security-plan:
           - name: scan-type
             ns: https://fedramp.gov/ns/oscal
             value: database
-        annotations:
           - name: baseline-configuration-name
             value: Baseline Config. Name
           - name: allows-authenticated-scan
@@ -839,7 +842,6 @@ system-security-plan:
             value: web
           - name: login-url
             value: https://admin.offering.com/login
-        annotations:
           - name: baseline-configuration-name
             value: Baseline Config. Name
           - name: allows-authenticated-scan
@@ -884,11 +886,11 @@ system-security-plan:
             ns: https://fedramp.gov/ns/oscal
             value: "[SAMPLE]Telco Name"
           - name: ipv4-address
-            class: local
             value: 10.1.1.1
+            class: local
           - name: ipv4-address
-            class: remote
             value: 10.2.2.2
+            class: remote
           - name: direction
             value: incoming
           - name: direction
@@ -898,12 +900,11 @@ system-security-plan:
             value: Describe the information being transmitted.
           - name: port
             ns: https://fedramp.gov/ns/oscal
-            class: remote
             value: "80"
+            class: remote
           - name: circuit
             ns: https://fedramp.gov/ns/oscal
             value: "1"
-        annotations:
           - name: connection-security
             ns: https://fedramp.gov/ns/oscal
             value: ipsec
@@ -936,7 +937,6 @@ system-security-plan:
             value: 10.10.10.0
           - name: ipv4-subnet
             value: 10.10.10.0/24
-        annotations:
           - name: is-scanned
             value: yes
         status:
@@ -950,7 +950,6 @@ system-security-plan:
             value: 10.10.20.0
           - name: ipv4-subnet
             value: 10.10.20.0/24
-        annotations:
           - name: is-scanned
             value: yes
         status:
@@ -1003,7 +1002,6 @@ system-security-plan:
           - name: scan-type
             ns: https://fedramp.gov/ns/oscal
             value: database
-        annotations:
           - name: allows-authenticated-scan
             value: no
             remarks: If no, explain why. If yes, omit remarks field.
@@ -1057,7 +1055,6 @@ system-security-plan:
             value: netbios-name
           - name: patch-level
             value: Patch-Level
-        annotations:
           - name: baseline-configuration-name
             value: Baseline Configuration Name
           - name: physical-location
@@ -1087,7 +1084,6 @@ system-security-plan:
             value: unique-asset-id
           - name: ipv4-address
             value: 10.3.3.3
-        annotations:
           - name: is-scanned
             value: yes
         implemented-components:
@@ -1099,7 +1095,6 @@ system-security-plan:
             value: unique-asset-id
           - name: ipv4-address
             value: 10.4.4.4
-        annotations:
           - name: is-scanned
             value: yes
         implemented-components:
@@ -1111,7 +1106,6 @@ system-security-plan:
             value: unique-asset-id
           - name: ipv4-address
             value: 10.5.5.5
-        annotations:
           - name: is-scanned
             value: yes
         implemented-components:
@@ -1123,7 +1117,6 @@ system-security-plan:
             value: unique-asset-id
           - name: ipv4-address
             value: 10.6.6.6
-        annotations:
           - name: is-scanned
             value: no
             remarks: Asset wasn't running at time of scan.
@@ -1136,7 +1129,6 @@ system-security-plan:
             value: unique-asset-id
           - name: ipv4-address
             value: 10.7.7.7
-        annotations:
           - name: is-scanned
             value: yes
         implemented-components:
@@ -1148,7 +1140,6 @@ system-security-plan:
             value: unique-asset-id
           - name: ipv4-address
             value: 10.8.8.8
-        annotations:
           - name: is-scanned
             value: no
             remarks: Asset wasn't running at time of scan.
@@ -1168,7 +1159,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1237,7 +1227,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: Completion Date
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1374,7 +1363,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1420,7 +1408,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1475,7 +1462,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1524,7 +1510,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1573,7 +1558,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1622,7 +1606,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1671,7 +1654,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1720,7 +1702,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1769,7 +1750,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1818,7 +1798,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1870,7 +1849,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1919,7 +1897,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -1968,7 +1945,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -2017,7 +1993,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -2066,7 +2041,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.
@@ -2115,7 +2089,6 @@ system-security-plan:
           - name: planned-completion-date
             ns: https://fedramp.gov/ns/oscal
             value: 2020-11-27Z
-        annotations:
           - name: implementation-status
             value: planned
             remarks: Describe the plan to complete the implementation.

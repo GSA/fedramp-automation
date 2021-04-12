@@ -1,12 +1,12 @@
 ---
 profile:
-  uuid: B43230FC-D8BD-4264-A88D-41727ED4391E
+  uuid: 8f814186-8f82-42ec-bed5-0c9e2287674a
   metadata:
     title: FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline
     published: 2021-02-17T00:00:00.000-04:00
-    last-modified: 2021-02-17T09:30:00.000-04:00
+    last-modified: 2021-04-12T12:36:28.491209-04:00
     version: "1.3"
-    oscal-version: 1.0.0-rc1
+    oscal-version: 1.0.0-rc2
     roles:
       - id: prepared-by
         title: Document creator
@@ -34,7 +34,8 @@ profile:
         email-addresses:
           - info@fedramp.gov
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - 1800 F St. NW
               - ""
             city: Washington
@@ -61,134 +62,134 @@ profile:
           - ca9ba80e-1342-4bfd-b32a-abac468c24b4
   imports:
     - href: "#ad005eae-cc63-4e64-9109-3905a9a825e4"
-      include:
-        calls:
-          - control-id: ac-1
-          - control-id: ac-2
-          - control-id: ac-3
-          - control-id: ac-7
-          - control-id: ac-8
-          - control-id: ac-14
-          - control-id: ac-17
-          - control-id: ac-18
-          - control-id: ac-19
-          - control-id: ac-20
-          - control-id: ac-22
-          - control-id: at-1
-          - control-id: at-2
-          - control-id: at-3
-          - control-id: at-4
-          - control-id: au-1
-          - control-id: au-2
-          - control-id: au-3
-          - control-id: au-4
-          - control-id: au-5
-          - control-id: au-6
-          - control-id: au-8
-          - control-id: au-9
-          - control-id: au-11
-          - control-id: au-12
-          - control-id: ca-1
-          - control-id: ca-2
-          - control-id: ca-2.1
-          - control-id: ca-3
-          - control-id: ca-5
-          - control-id: ca-6
-          - control-id: ca-7
-          - control-id: ca-9
-          - control-id: cm-1
-          - control-id: cm-2
-          - control-id: cm-4
-          - control-id: cm-6
-          - control-id: cm-7
-          - control-id: cm-8
-          - control-id: cm-10
-          - control-id: cm-11
-          - control-id: cp-1
-          - control-id: cp-2
-          - control-id: cp-3
-          - control-id: cp-4
-          - control-id: cp-9
-          - control-id: cp-10
-          - control-id: ia-1
-          - control-id: ia-2
-          - control-id: ia-2.1
-          - control-id: ia-2.12
-          - control-id: ia-4
-          - control-id: ia-5
-          - control-id: ia-5.1
-          - control-id: ia-5.11
-          - control-id: ia-6
-          - control-id: ia-7
-          - control-id: ia-8
-          - control-id: ia-8.1
-          - control-id: ia-8.2
-          - control-id: ia-8.3
-          - control-id: ia-8.4
-          - control-id: ir-1
-          - control-id: ir-2
-          - control-id: ir-4
-          - control-id: ir-5
-          - control-id: ir-6
-          - control-id: ir-7
-          - control-id: ir-8
-          - control-id: ir-9
-          - control-id: ma-1
-          - control-id: ma-2
-          - control-id: ma-4
-          - control-id: ma-5
-          - control-id: mp-1
-          - control-id: mp-2
-          - control-id: mp-6
-          - control-id: mp-7
-          - control-id: pe-1
-          - control-id: pe-2
-          - control-id: pe-3
-          - control-id: pe-6
-          - control-id: pe-8
-          - control-id: pe-12
-          - control-id: pe-13
-          - control-id: pe-14
-          - control-id: pe-15
-          - control-id: pe-16
-          - control-id: pl-1
-          - control-id: pl-2
-          - control-id: pl-4
-          - control-id: ps-1
-          - control-id: ps-2
-          - control-id: ps-3
-          - control-id: ps-4
-          - control-id: ps-5
-          - control-id: ps-6
-          - control-id: ps-7
-          - control-id: ps-8
-          - control-id: ra-1
-          - control-id: ra-2
-          - control-id: ra-3
-          - control-id: ra-5
-          - control-id: sa-1
-          - control-id: sa-2
-          - control-id: sa-3
-          - control-id: sa-4
-          - control-id: sa-4.10
-          - control-id: sa-5
-          - control-id: sa-9
-          - control-id: sc-1
-          - control-id: sc-5
-          - control-id: sc-7
-          - control-id: sc-12
-          - control-id: sc-13
-          - control-id: sc-15
-          - control-id: sc-20
-          - control-id: sc-21
-          - control-id: sc-22
-          - control-id: sc-39
-          - control-id: si-1
-          - control-id: si-2
-          - control-id: si-3
-          - control-id: si-4
-          - control-id: si-5
-          - control-id: si-12
+      include-controls:
+        - with-ids:
+            - ac-1
+            - ac-2
+            - ac-3
+            - ac-7
+            - ac-8
+            - ac-14
+            - ac-17
+            - ac-18
+            - ac-19
+            - ac-20
+            - ac-22
+            - at-1
+            - at-2
+            - at-3
+            - at-4
+            - au-1
+            - au-2
+            - au-3
+            - au-4
+            - au-5
+            - au-6
+            - au-8
+            - au-9
+            - au-11
+            - au-12
+            - ca-1
+            - ca-2
+            - ca-2.1
+            - ca-3
+            - ca-5
+            - ca-6
+            - ca-7
+            - ca-9
+            - cm-1
+            - cm-2
+            - cm-4
+            - cm-6
+            - cm-7
+            - cm-8
+            - cm-10
+            - cm-11
+            - cp-1
+            - cp-2
+            - cp-3
+            - cp-4
+            - cp-9
+            - cp-10
+            - ia-1
+            - ia-2
+            - ia-2.1
+            - ia-2.12
+            - ia-4
+            - ia-5
+            - ia-5.1
+            - ia-5.11
+            - ia-6
+            - ia-7
+            - ia-8
+            - ia-8.1
+            - ia-8.2
+            - ia-8.3
+            - ia-8.4
+            - ir-1
+            - ir-2
+            - ir-4
+            - ir-5
+            - ir-6
+            - ir-7
+            - ir-8
+            - ir-9
+            - ma-1
+            - ma-2
+            - ma-4
+            - ma-5
+            - mp-1
+            - mp-2
+            - mp-6
+            - mp-7
+            - pe-1
+            - pe-2
+            - pe-3
+            - pe-6
+            - pe-8
+            - pe-12
+            - pe-13
+            - pe-14
+            - pe-15
+            - pe-16
+            - pl-1
+            - pl-2
+            - pl-4
+            - ps-1
+            - ps-2
+            - ps-3
+            - ps-4
+            - ps-5
+            - ps-6
+            - ps-7
+            - ps-8
+            - ra-1
+            - ra-2
+            - ra-3
+            - ra-5
+            - sa-1
+            - sa-2
+            - sa-3
+            - sa-4
+            - sa-4.10
+            - sa-5
+            - sa-9
+            - sc-1
+            - sc-5
+            - sc-7
+            - sc-12
+            - sc-13
+            - sc-15
+            - sc-20
+            - sc-21
+            - sc-22
+            - sc-39
+            - si-1
+            - si-2
+            - si-3
+            - si-4
+            - si-5
+            - si-12
   merge:
     combine:
       method: keep
@@ -344,8 +345,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ac-2
         removes:
           - id-ref: ac-2_smt.b
@@ -381,8 +382,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ac-2_obj_fr
                 name: objective
@@ -391,14 +392,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: Determine if the organization defines information system account types to
                   be identified and selected to support organizational
                   missions/business functions.
@@ -457,8 +458,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ac-3_obj_fr
                 name: objective
@@ -467,14 +468,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: Determine if the information system enforces approved authorizations for
                   logical access to information and system resources in
                   accordance with applicable access control policies.
@@ -518,11 +519,11 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
-              - name: method
                 class: FedRAMP-Tailored-LI-SaaS
+              - name: method
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -536,8 +537,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: FED
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -550,8 +551,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: FED
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -570,8 +571,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ac-17_obj_fr
                 name: objective
@@ -580,14 +581,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: Determine if the organization authorizes remote access to the information
                   system prior to allowing such connections
               - id: ac-17_asmt_fr.1
@@ -630,8 +631,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -650,8 +651,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -669,8 +670,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ac-22
         removes:
           - name-ref: objective
@@ -685,8 +686,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ac-22_obj_fr
                 name: objective
@@ -695,14 +696,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: Determine if the organization designates individuals authorized to post
                   information onto a publicly accessible information system.
               - id: ac-22_asmt_fr.1
@@ -752,8 +753,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: at-2
         removes:
           - name-ref: objective
@@ -762,8 +763,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: at-3
         removes:
           - name-ref: objective
@@ -772,8 +773,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: at-4
         removes:
           - name-ref: objective
@@ -782,8 +783,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-1
         removes:
           - name-ref: objective
@@ -792,8 +793,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-2
         removes:
           - name-ref: objective
@@ -802,8 +803,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-3
         removes:
           - name-ref: objective
@@ -818,8 +819,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: au-3_obj_fr
                 name: objective
@@ -828,14 +829,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the information system:
 
@@ -895,8 +896,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -916,8 +917,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: au-5_obj_fr
                 name: objective
@@ -926,14 +927,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: Determine if the organization defines the personnel or roles to be
                   alerted in the event of an audit processing failure.
               - id: au-5_asmt_fr.1
@@ -988,8 +989,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: au-6_obj_fr
                 name: objective
@@ -998,11 +999,11 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -1045,8 +1046,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-9
         removes:
           - name-ref: objective
@@ -1055,8 +1056,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: au-11
         removes:
           - name-ref: objective
@@ -1065,8 +1066,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -1080,8 +1081,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ca-1
         removes:
           - name-ref: objective
@@ -1090,8 +1091,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ca-2
         removes:
           - name-ref: objective
@@ -1106,8 +1107,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ca-2_obj_fr
                 name: objective
@@ -1116,14 +1117,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -1180,9 +1181,10 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: See the FedRAMP Documents page under Key Cloud Service Provider (CSP)
+                    prose: "See the FedRAMP Documents page under Key Cloud Service Provider (CSP)
                       Documents, Annual Assessment Guidance
-                      [https://www.fedramp.gov/documents/](https://www.fedramp.gov/documents/)
+                      [https://www.fedramp.gov/documents/](https://www.fedramp.\
+                      gov/documents/) "
       - control-id: ca-2.1
         removes:
           - name-ref: objective
@@ -1191,8 +1193,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ca-3
         removes:
           - name-ref: objective
@@ -1207,8 +1209,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ca-3_obj_fr
                 name: objective
@@ -1217,11 +1219,11 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -1276,8 +1278,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -1297,8 +1299,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ca-6_obj_fr
                 name: objective
@@ -1307,14 +1309,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -1385,8 +1387,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ca-7_obj_fr
                 name: objective
@@ -1395,14 +1397,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -1492,9 +1494,10 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: See the FedRAMP Documents page under Key Cloud Service Provider (CSP)
+                    prose: "See the FedRAMP Documents page under Key Cloud Service Provider (CSP)
                       Documents, Continuous Monitoring Strategy Guide
-                      [https://www.fedramp.gov/documents/](https://www.fedramp.gov/documents/)
+                      [https://www.fedramp.gov/documents/](https://www.fedramp.\
+                      gov/documents/) "
       - control-id: ca-9
         removes:
           - name-ref: objective
@@ -1509,8 +1512,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ca-9_obj_fr
                 name: objective
@@ -1519,11 +1522,11 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -1576,8 +1579,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: cm-2
         removes:
           - name-ref: objective
@@ -1586,8 +1589,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: cm-4
         removes:
           - name-ref: objective
@@ -1602,8 +1605,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: cm-4_obj_fr
                 name: objective
@@ -1612,14 +1615,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: Determine if the organization analyzes changes to the information system
                   to determine potential security impacts prior to change
                   implementation.
@@ -1669,8 +1672,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: cm-6_obj_fr
                 name: objective
@@ -1679,14 +1682,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -1796,8 +1799,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: cm-8
         removes:
           - name-ref: objective
@@ -1812,8 +1815,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: cm-8_obj_fr
                 name: objective
@@ -1822,14 +1825,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -1899,8 +1902,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -1913,8 +1916,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -1932,8 +1935,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: cp-2
         removes:
           - name-ref: objective
@@ -1942,8 +1945,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -1957,8 +1960,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -1972,8 +1975,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -1993,8 +1996,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: cp-9_obj_fr
                 name: objective
@@ -2003,14 +2006,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -2106,8 +2109,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -2121,8 +2124,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-2
         removes:
           - name-ref: objective
@@ -2131,11 +2134,11 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
-              - name: method
                 class: FedRAMP-Tailored-LI-SaaS
+              - name: method
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -2156,8 +2159,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ia-2.1_obj_fr
                 name: objective
@@ -2166,14 +2169,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: Determine if the organization implements multifactor authentication for
                   network access to privileged accounts.
               - id: ia-2.1_asmt_fr.1
@@ -2224,8 +2227,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ia-2.12_obj_fr
                 name: objective
@@ -2234,14 +2237,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: |
                   Determine if the information system:
 
@@ -2311,8 +2314,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-5
         removes:
           - name-ref: objective
@@ -2321,8 +2324,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-5.1
         removes:
           - name-ref: objective
@@ -2331,8 +2334,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-5.11
         removes:
           - name-ref: objective
@@ -2347,11 +2350,11 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: FED
-              - name: method
                 class: FedRAMP-Tailored-LI-SaaS
+              - name: method
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ia-5.11_obj_fr
                 name: objective
@@ -2360,14 +2363,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if, for hardware token-based authentication, the
                   organization:
@@ -2430,8 +2433,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ia-6_obj_fr
                 name: objective
@@ -2440,14 +2443,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: Determine if the information system obscures feedback of authentication
                   information during the authentication process to protect the
                   information from possible exploitation/use by unauthorized
@@ -2491,8 +2494,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-8
         removes:
           - name-ref: objective
@@ -2501,8 +2504,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-8.1
         removes:
           - name-ref: objective
@@ -2517,8 +2520,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ia-8.1_obj_fr
                 name: objective
@@ -2527,14 +2530,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: |
                   Determine if the information system:
 
@@ -2598,8 +2601,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ia-8.2_obj_fr
                 name: objective
@@ -2608,14 +2611,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: Determine if the information system accepts only FICAM-approved
                   third-party credentials.
               - id: ia-8.2_asmt_fr.1
@@ -2673,8 +2676,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ia-8.4
         removes:
           - name-ref: objective
@@ -2683,8 +2686,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-1
         removes:
           - name-ref: objective
@@ -2693,8 +2696,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-2
         removes:
           - name-ref: objective
@@ -2703,8 +2706,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-4
         removes:
           - name-ref: objective
@@ -2719,8 +2722,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ir-4_obj_fr
                 name: objective
@@ -2729,14 +2732,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -2806,8 +2809,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-6
         removes:
           - name-ref: objective
@@ -2822,8 +2825,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ir-6_obj_fr
                 name: objective
@@ -2832,14 +2835,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -2905,8 +2908,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ir-8
         removes:
           - name-ref: objective
@@ -2915,8 +2918,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -2929,8 +2932,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -2944,8 +2947,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ma-2
         removes:
           - name-ref: objective
@@ -2960,8 +2963,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ma-2_obj_fr
                 name: objective
@@ -2970,14 +2973,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -3055,8 +3058,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ma-5
         removes:
           - name-ref: objective
@@ -3071,8 +3074,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ma-5_obj_fr
                 name: objective
@@ -3081,14 +3084,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -3144,8 +3147,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: mp-2
         removes:
           - name-ref: objective
@@ -3160,8 +3163,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: mp-2_obj_fr
                 name: objective
@@ -3170,14 +3173,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -3238,8 +3241,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: mp-6_obj_fr
                 name: objective
@@ -3248,14 +3251,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -3323,8 +3326,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: mp-7_obj_fr
                 name: objective
@@ -3333,14 +3336,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -3402,8 +3405,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: pe-2
         removes:
           - name-ref: objective
@@ -3418,8 +3421,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: pe-2_obj_fr
                 name: objective
@@ -3428,14 +3431,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -3505,8 +3508,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: pe-3_obj_fr
                 name: objective
@@ -3515,14 +3518,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -3622,8 +3625,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: pe-6_obj_fr
                 name: objective
@@ -3632,14 +3635,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -3705,8 +3708,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: pe-8_obj_fr
                 name: objective
@@ -3715,14 +3718,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -3786,8 +3789,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: pe-12_obj_fr
                 name: objective
@@ -3796,14 +3799,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -3863,8 +3866,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: pe-13_obj_fr
                 name: objective
@@ -3873,14 +3876,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -3940,8 +3943,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: pe-14_obj_fr
                 name: objective
@@ -3950,14 +3953,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -4043,8 +4046,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: pe-15_obj_fr
                 name: objective
@@ -4053,14 +4056,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -4120,8 +4123,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: pe-16_obj_fr
                 name: objective
@@ -4130,14 +4133,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -4205,8 +4208,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: pl-2
         removes:
           - name-ref: objective
@@ -4221,8 +4224,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: pl-2_obj_fr
                 name: objective
@@ -4231,14 +4234,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -4303,8 +4306,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-1
         removes:
           - name-ref: objective
@@ -4313,8 +4316,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-2
         removes:
           - name-ref: objective
@@ -4323,8 +4326,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: FED
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-3
         removes:
           - name-ref: objective
@@ -4339,8 +4342,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ps-3_obj_fr
                 name: objective
@@ -4349,14 +4352,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -4404,8 +4407,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-5
         removes:
           - name-ref: objective
@@ -4414,8 +4417,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-6
         removes:
           - name-ref: objective
@@ -4424,8 +4427,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ps-7
         removes:
           - name-ref: objective
@@ -4434,8 +4437,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -4449,8 +4452,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ra-1
         removes:
           - name-ref: objective
@@ -4459,8 +4462,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: ra-2
         removes:
           - name-ref: objective
@@ -4475,8 +4478,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ra-2_obj_fr
                 name: objective
@@ -4485,14 +4488,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -4546,8 +4549,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ra-3_obj_fr
                 name: objective
@@ -4556,21 +4559,21 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
 
                   * Conducts an assessment of risk, including the likelihood and magnitude of harm, from the unauthorized access, use, disclosure, disruption, modification, or destruction of:
 
-                  *    * The information system. Conducts an assessment of risk, including the likelihood and magnitude of harm, from the unauthorized access, use, disclosure, disruption, modification, or destruction of:
+                  *     * The information system. Conducts an assessment of risk, including the likelihood and magnitude of harm, from the unauthorized access, use, disclosure, disruption, modification, or destruction of:
 
                   *     * The information the system processes, stores, or transmits.  
 
@@ -4658,8 +4661,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: ra-5_obj_fr
                 name: objective
@@ -4668,14 +4671,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -4784,7 +4787,7 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: "**See the FedRAMP Documents page under Key Cloud Service Provider (CSP)
+                    prose: " **See the FedRAMP Documents page under Key Cloud Service Provider (CSP)
                       Documents> Vulnerability Scanning Requirements**
                       ([https://www.FedRAMP.gov/documents/](https://www.FedRAMP\
                       .gov/documents/))"
@@ -4796,8 +4799,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-2
         removes:
           - name-ref: objective
@@ -4806,8 +4809,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-3
         removes:
           - name-ref: objective
@@ -4816,8 +4819,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-4
         removes:
           - name-ref: objective
@@ -4826,8 +4829,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-4.10
         removes:
           - name-ref: objective
@@ -4836,8 +4839,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-5
         removes:
           - name-ref: objective
@@ -4846,8 +4849,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: sa-9
         removes:
           - name-ref: objective
@@ -4862,8 +4865,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: sa-9_obj_fr
                 name: objective
@@ -4872,14 +4875,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -4944,8 +4947,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-5
         removes:
           - name-ref: objective
@@ -4960,8 +4963,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: sc-5_obj_fr
                 name: objective
@@ -4970,14 +4973,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -5041,8 +5044,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: sc-7_obj_fr
                 name: objective
@@ -5051,14 +5054,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -5124,8 +5127,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: sc-12_obj_fr
                 name: objective
@@ -5134,14 +5137,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -5208,8 +5211,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: CONDITIONAL
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: sc-13_obj_fr
                 name: objective
@@ -5218,14 +5221,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -5281,8 +5284,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: NSO
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -5295,8 +5298,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-21
         removes:
           - name-ref: objective
@@ -5305,8 +5308,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-22
         removes:
           - name-ref: objective
@@ -5315,8 +5318,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: sc-39
         removes:
           - name-ref: objective
@@ -5325,8 +5328,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: si-1
         removes:
           - name-ref: objective
@@ -5335,8 +5338,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: si-2
         removes:
           - name-ref: objective
@@ -5351,8 +5354,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: si-2_obj_fr
                 name: objective
@@ -5361,14 +5364,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -5452,8 +5455,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: si-3_obj_fr
                 name: objective
@@ -5462,14 +5465,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -5555,8 +5558,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ASSESS
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - id: si-4_obj_fr
                 name: objective
@@ -5565,14 +5568,14 @@ profile:
                     ns: https://fedramp.gov/ns/oscal
                     value: ""
                   - name: method
-                    class: fedramp
                     value: EXAMINE
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: INTERVIEW
-                  - name: method
                     class: fedramp
+                  - name: method
                     value: TEST
+                    class: fedramp
                 prose: >
                   Determine if the organization:
 
@@ -5657,8 +5660,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
       - control-id: si-12
         removes:
           - name-ref: objective
@@ -5667,8 +5670,8 @@ profile:
           - position: ending
             props:
               - name: method
-                class: FedRAMP-Tailored-LI-SaaS
                 value: ATTEST
+                class: FedRAMP-Tailored-LI-SaaS
             parts:
               - name: guidance
                 class: FedRAMP-Tailored-LI-SaaS
@@ -5697,5 +5700,5 @@ profile:
           - name: version
             value: Revision 4
         rlinks:
-          - href: https://raw.githubusercontent.com/usnistgov/oscal-content/9fd42a99a440f0ac7e0db2087cde4995bf33bf7c/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml
+          - href: https://raw.githubusercontent.com/usnistgov/oscal-content/f5bf0dd0eea8c117d09c813b1b183e619e2f60cf/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml
             media-type: application/xml

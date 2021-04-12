@@ -1,10 +1,10 @@
 ---
 plan-of-action-and-milestones:
-  uuid: DF31A4A9-8D34-4675-96F3-F89CEC7C75B5
+  uuid: 524b9109-64a2-4ffa-9ee1-09eade05dec7
   metadata:
     title: "[System Name] FedRAMP Plan of Action and Milestones (POA&M)"
     published: 2021-02-25T00:00:00.00-04:00
-    last-modified: 2021-02-25T00:00:00.00-04:00
+    last-modified: 2021-04-12T12:36:27.218704-04:00
     version: "0.3"
     oscal-version: 1.0.0-rc2
     props:
@@ -64,7 +64,8 @@ plan-of-action-and-milestones:
         email-addresses:
           - info@fedramp.gov
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - 1800 F St. NW
               - ""
             city: Washington
@@ -92,7 +93,8 @@ plan-of-action-and-milestones:
         telephone-numbers:
           - number: 202-000-0001
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - Address Line
             city: City
             state: ST
@@ -149,7 +151,6 @@ plan-of-action-and-milestones:
             value: Linux Flavor
           - name: os-version
             value: 1.2.0
-        annotations:
           - name: is-scanned
             value: yes
           - name: allows-authenticated-scan
@@ -303,7 +304,7 @@ plan-of-action-and-milestones:
             - name: likelihood
               system: https://fedramp.gov
               value: high
-              annotations:
+              props:
                 - name: state
                   value: initial
     - uuid: ae628cc5-b64c-4030-af30-57e6b24a6ae7
@@ -362,26 +363,26 @@ plan-of-action-and-milestones:
             - name: likelihood
               system: https://fedramp.gov
               value: high
-              annotations:
+              props:
                 - name: state
                   value: initial
             - name: impact
               system: https://fedramp.gov
               value: high
-              annotations:
+              props:
                 - name: state
                   value: initial
             - name: likelihood
               system: https://fedramp.gov
               value: moderate
-              annotations:
+              props:
                 - name: state
                   value: adjusted
                   remarks: Explain why likelihood was adjusted.
             - name: impact
               system: https://fedramp.gov
               value: low
-              annotations:
+              props:
                 - name: state
                   value: adjusted
                   remarks: Explain why impact was adjusted.

@@ -1,17 +1,17 @@
 {
   "system-security-plan": {
-    "uuid": "2EC5D191-395C-4D1E-9E55-FE98C54B0F6C",
+    "uuid": "246dcd23-fcb9-43e5-9a5c-72d423777082",
     "metadata": {
       "title": "FedRAMP System Security Plan (SSP)",
       "published": "2021-02-25T00:00:00.00-04:00",
-      "last-modified": "2021-02-25T00:00:00.00-04:00",
+      "last-modified": "2021-04-12T12:36:28.051707-04:00",
       "version": "0.3",
       "oscal-version": "1.0.0-rc2",
       "revisions": [
         {
           "published": "2019-06-01T00:00:00.00-04:00",
           "version": "1.0",
-          "oscal-version": "1.0.0-rc1",
+          "oscal-version": "1.0.0-rc2",
           "props": [
             {
               "name": "party-uuid",
@@ -152,6 +152,7 @@
           "uuid": "27b78960-59ef-4619-82b0-ae20b9c709ac",
           "title": "CSP HQ",
           "address": {
+            "type": "work",
             "addr-lines": [
               "Suite 0000",
               "1234 Some Street"
@@ -176,8 +177,8 @@
           "props": [
             {
               "name": "type",
-              "class": "primary",
-              "value": "data-center"
+              "value": "data-center",
+              "class": "primary"
             }
           ],
           "remarks": "There must be one location for each data center.\n\nThere must be at least two data center locations.\n\nFor a data center, briefly summarize the components at this location.\n\nAll data centers must have a \\\"type\\\" property with a value of \\\"data-center\\\".\n\nThe type property must also have a class of \\\"primary\\\" or \\\"alternate\\\"."
@@ -196,8 +197,8 @@
           "props": [
             {
               "name": "type",
-              "class": "alternate",
-              "value": "data-center"
+              "value": "data-center",
+              "class": "alternate"
             }
           ],
           "remarks": "There must be one location for each data center.\n\nThere must be at least two data center locations.\n\nFor a data center, briefly summarize the components at this location.\n\nAll data centers must have a \\\"type\\\" property with a value of \\\"data-center\\\".\n\nThe type property must also have a class of \\\"primary\\\" or \\\"alternate\\\"."
@@ -248,6 +249,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "1800 F St. NW",
                 ""
@@ -306,6 +308,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "3333 Corporate Way"
               ],
@@ -399,6 +402,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -432,6 +436,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -465,6 +470,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -498,6 +504,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -531,6 +538,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -564,6 +572,7 @@
           ],
           "addresses": [
             {
+              "type": "work",
               "addr-lines": [
                 "Address Line"
               ],
@@ -694,8 +703,8 @@
         {
           "name": "security-eauth-level",
           "ns": "https://fedramp.gov/ns/oscal",
-          "class": "security-eauth",
-          "value": "2"
+          "value": "2",
+          "class": "security-eauth"
         },
         {
           "name": "identity-assurance-level",
@@ -708,9 +717,7 @@
         {
           "name": "federation-assurance-level",
           "value": "2"
-        }
-      ],
-      "annotations": [
+        },
         {
           "name": "cloud-service-model",
           "value": "saas",
@@ -732,32 +739,32 @@
           {
             "name": "pta-1",
             "ns": "https://fedramp.gov/ns/oscal",
-            "class": "pta",
-            "value": "yes"
+            "value": "yes",
+            "class": "pta"
           },
           {
             "name": "pta-2",
             "ns": "https://fedramp.gov/ns/oscal",
-            "class": "pta",
-            "value": "yes"
+            "value": "yes",
+            "class": "pta"
           },
           {
             "name": "pta-3",
             "ns": "https://fedramp.gov/ns/oscal",
-            "class": "pta",
-            "value": "yes"
+            "value": "yes",
+            "class": "pta"
           },
           {
             "name": "pta-4",
             "ns": "https://fedramp.gov/ns/oscal",
-            "class": "pta",
-            "value": "no"
+            "value": "no",
+            "class": "pta"
           },
           {
             "name": "sorn-id",
             "ns": "https://fedramp.gov/ns/oscal",
-            "class": "pta",
-            "value": "[No SORN ID]"
+            "value": "[No SORN ID]",
+            "class": "pta"
           }
         ],
         "information-types": [
@@ -897,9 +904,7 @@
               "name": "sensitivity",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "high"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "privilege-level",
               "value": "privileged"
@@ -931,9 +936,7 @@
               "name": "sensitivity",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "moderate"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "privilege-level",
               "value": "non-privileged"
@@ -963,9 +966,7 @@
               "name": "sensitivity",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "limited"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "privilege-level",
               "value": "no-logical-access"
@@ -1193,9 +1194,7 @@
               "name": "scan-type",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "infrastructure"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "baseline-configuration-name",
               "value": "Baseline Config. Name"
@@ -1222,9 +1221,7 @@
               "name": "scan-type",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "database"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "baseline-configuration-name",
               "value": "Baseline Config. Name"
@@ -1255,9 +1252,7 @@
             {
               "name": "login-url",
               "value": "https://admin.offering.com/login"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "baseline-configuration-name",
               "value": "Baseline Config. Name"
@@ -1327,13 +1322,13 @@
             },
             {
               "name": "ipv4-address",
-              "class": "local",
-              "value": "10.1.1.1"
+              "value": "10.1.1.1",
+              "class": "local"
             },
             {
               "name": "ipv4-address",
-              "class": "remote",
-              "value": "10.2.2.2"
+              "value": "10.2.2.2",
+              "class": "remote"
             },
             {
               "name": "direction",
@@ -1351,16 +1346,14 @@
             {
               "name": "port",
               "ns": "https://fedramp.gov/ns/oscal",
-              "class": "remote",
-              "value": "80"
+              "value": "80",
+              "class": "remote"
             },
             {
               "name": "circuit",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "1"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "connection-security",
               "ns": "https://fedramp.gov/ns/oscal",
@@ -1413,9 +1406,7 @@
             {
               "name": "ipv4-subnet",
               "value": "10.10.10.0/24"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "is-scanned",
               "value": "yes"
@@ -1437,9 +1428,7 @@
             {
               "name": "ipv4-subnet",
               "value": "10.10.20.0/24"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "is-scanned",
               "value": "yes"
@@ -1540,9 +1529,7 @@
               "name": "scan-type",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "database"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "allows-authenticated-scan",
               "value": "no",
@@ -1636,9 +1623,7 @@
             {
               "name": "patch-level",
               "value": "Patch-Level"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "baseline-configuration-name",
               "value": "Baseline Configuration Name"
@@ -1689,9 +1674,7 @@
             {
               "name": "ipv4-address",
               "value": "10.3.3.3"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "is-scanned",
               "value": "yes"
@@ -1714,9 +1697,7 @@
             {
               "name": "ipv4-address",
               "value": "10.4.4.4"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "is-scanned",
               "value": "yes"
@@ -1739,9 +1720,7 @@
             {
               "name": "ipv4-address",
               "value": "10.5.5.5"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "is-scanned",
               "value": "yes"
@@ -1764,9 +1743,7 @@
             {
               "name": "ipv4-address",
               "value": "10.6.6.6"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "is-scanned",
               "value": "no",
@@ -1790,9 +1767,7 @@
             {
               "name": "ipv4-address",
               "value": "10.7.7.7"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "is-scanned",
               "value": "yes"
@@ -1815,9 +1790,7 @@
             {
               "name": "ipv4-address",
               "value": "10.8.8.8"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "is-scanned",
               "value": "no",
@@ -1843,9 +1816,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -1922,9 +1893,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "Completion Date"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2051,9 +2020,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2128,9 +2095,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2217,9 +2182,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2294,9 +2257,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2371,9 +2332,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2448,9 +2407,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2525,9 +2482,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2602,9 +2557,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2679,9 +2632,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2756,9 +2707,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2839,9 +2788,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2916,9 +2863,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -2993,9 +2938,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -3070,9 +3013,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -3147,9 +3088,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",
@@ -3224,9 +3163,7 @@
               "name": "planned-completion-date",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "2020-11-27Z"
-            }
-          ],
-          "annotations": [
+            },
             {
               "name": "implementation-status",
               "value": "planned",

@@ -1,10 +1,10 @@
 ---
 assessment-results:
-  uuid: AF7F9206-F241-4C8A-9128-D1EED150E1BB
+  uuid: 3556429f-3008-4004-8797-66ea8e0f41ce
   metadata:
     title: "[System Name] FedRAMP Security Assessment Report (SAR)"
     published: 2021-02-25T00:00:00.00-04:00
-    last-modified: 2021-02-25T00:00:00.00-04:00
+    last-modified: 2021-04-12T12:36:27.890707-04:00
     version: "0.3"
     oscal-version: 1.0.0-rc2
     props:
@@ -62,6 +62,7 @@ assessment-results:
       - uuid: 2ba201ac-8ee9-4a1d-812a-a755591a3963
         title: Assessor's HQ
         address:
+          type: work
           addr-lines:
             - Suite 0000
             - 1234 Some Street
@@ -106,7 +107,8 @@ assessment-results:
         email-addresses:
           - info@fedramp.gov
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - 1800 F St. NW
               - ""
             city: Washington
@@ -219,7 +221,8 @@ assessment-results:
           - type: office
             number: 000-000-0000
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - Suite 0000
               - 1234 Some Street
             city: Haven
@@ -357,7 +360,7 @@ assessment-results:
         props:
           - name: type
             value: manual
-        actions:
+        steps:
           - uuid: FB039FD7-5A2B-4C0F-867C-88CCE9C3778C
             description: "Describe test step #1"
             props:
@@ -797,13 +800,13 @@ assessment-results:
                 - name: likelihood
                   system: https://fedramp.gov
                   value: high
-                  annotations:
+                  props:
                     - name: state
                       value: initial
                 - name: likelihood
                   system: https://fedramp.gov
                   value: moderate
-                  annotations:
+                  props:
                     - name: state
                       value: initial
           remediations:
@@ -859,13 +862,13 @@ assessment-results:
                 - name: likelihood
                   system: https://fedramp.gov
                   value: moderate
-                  annotations:
+                  props:
                     - name: state
                       value: initial
                 - name: likelihood
                   system: https://fedramp.gov
                   value: low
-                  annotations:
+                  props:
                     - name: state
                       value: initial
           remediations:
@@ -943,25 +946,25 @@ assessment-results:
                 - name: likelihood
                   system: https://fedramp.gov
                   value: high
-                  annotations:
+                  props:
                     - name: state
                       value: initial
                 - name: impact
                   system: https://fedramp.gov
                   value: high
-                  annotations:
+                  props:
                     - name: state
                       value: initial
                 - name: likelihood
                   system: https://fedramp.gov
                   value: moderate
-                  annotations:
+                  props:
                     - name: state
                       value: adjusted
                 - name: impact
                   system: https://fedramp.gov
                   value: moderate
-                  annotations:
+                  props:
                     - name: state
                       value: adjusted
           mitigating-factors:
@@ -1038,13 +1041,13 @@ assessment-results:
                 - name: likelihood
                   system: https://fedramp.gov
                   value: high
-                  annotations:
+                  props:
                     - name: state
                       value: initial
                 - name: impact
                   system: https://fedramp.gov
                   value: high
-                  annotations:
+                  props:
                     - name: state
                       value: initial
           remediations:

@@ -1,10 +1,10 @@
 ---
 assessment-plan:
-  uuid: F40DA6AB-138C-4B38-9C05-AFF8223A2A2C
+  uuid: 35cd0f77-4c33-4942-9119-86c115d9f641
   metadata:
     title: "[System Name] FedRAMP Security Assessment Plan (SAP)"
     published: 2021-02-25T00:00:00.00-04:00
-    last-modified: 2021-02-25T00:00:00.00-04:00
+    last-modified: 2021-04-12T12:36:27.685737-04:00
     version: "0.3"
     oscal-version: 1.0.0-rc2
     props:
@@ -65,6 +65,7 @@ assessment-plan:
       - uuid: 2ba201ac-8ee9-4a1d-812a-a755591a3963
         title: Assessor's HQ
         address:
+          type: work
           addr-lines:
             - Suite 0000
             - 1234 Some Street
@@ -109,7 +110,8 @@ assessment-plan:
         email-addresses:
           - info@fedramp.gov
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - 1800 F St. NW
               - ""
             city: Washington
@@ -222,7 +224,8 @@ assessment-plan:
           - type: office
             number: 000-000-0000
         addresses:
-          - addr-lines:
+          - type: work
+            addr-lines:
               - Suite 0000
               - 1234 Some Street
             city: Haven
@@ -478,14 +481,14 @@ assessment-plan:
                 ns: https://fedramp.gov/ns/oscal
                 value: ""
               - name: method
-                class: fedramp
                 value: EXAMINE
-              - name: method
                 class: fedramp
+              - name: method
                 value: INTERVIEW
-              - name: method
                 class: fedramp
+              - name: method
                 value: TEST
+                class: fedramp
             prose: Custom assessment objective for this control.
           - id: ac-2_sap_obj_1-1
             name: assessment
@@ -523,7 +526,7 @@ assessment-plan:
             value: manual
           - name: label
             value: Test ID
-        actions:
+        steps:
           - uuid: FB039FD7-5A2B-4C0F-867C-88CCE9C3778C
             description: "Describe test step #1"
             props:
@@ -815,16 +818,16 @@ assessment-plan:
 
           This is analgous to the individual rows listed in the empty FedRAMP Test Case Workbook ([Moderate](https://www.fedramp.gov/assets/resources/templates/SAP-AA-FedRAMP-Moderate-Security-Test-Case-Procedures-Template.xlsx)).
         include-objectives:
-          - {}
-          - {}
-          - {}
-          - {}
-          - {}
-          - {}
-          - {}
-          - {}
-          - {}
-          - {}
+          - objective-id: ac-1.a.1_obj.1
+          - objective-id: ac-1.a.1_obj.2
+          - objective-id: ac-1.a.1_obj.3
+          - objective-id: ac-1.a.2_obj.1
+          - objective-id: ac-1.a.2_obj.2
+          - objective-id: ac-1.a.2_obj.3
+          - objective-id: ac-1.b.1_obj.1
+          - objective-id: ac-1.b.1_obj.2
+          - objective-id: ac-1.b.2_obj.1
+          - objective-id: ac-1.b.2_obj.2
     remarks: >-
       # IMPORTANT: RESPONSE POINTS
 
@@ -840,10 +843,10 @@ assessment-plan:
       For this task, tools should either scan the resolved profile catalog version of each baseline, or resolve the profile against its catalog before processing.
 
 
-      XPath for all control objectie response points in a resolved profile catalog: `//control/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id`
+      XPath for all control objectie response points in a resolved profile catalog: `//control/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id` 
 
 
-      XPath for AC-1 control objectie response points in a resolved profile catalog: `//control[@id='ac-1']/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id`
+      XPath for AC-1 control objectie response points in a resolved profile catalog: `//control[@id='ac-1']/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id` 
   assessment-subjects:
     - type: component
       description: |-
