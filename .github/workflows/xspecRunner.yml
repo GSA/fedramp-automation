@@ -15,9 +15,12 @@ jobs:
     # Checkout repository and its submodules
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE
-      - name: Checkout repository
+      - uses: actions/checkout@v2
+        
+      # Check-out submodules
+      - name: Checkout submodules
         uses: actions/checkout@v2
-      - run: |
+        run: |
           git submodule update --init --recursive
 
       # Install Saxon HE to /tmp
