@@ -15,13 +15,10 @@ jobs:
     # Checkout repository and its submodules
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE
-      - uses: actions/checkout@v2
-        
-      # Check-out submodules
-      - name: Checkout submodules
-        uses: textbook/git-checkout-submodule-action@2.1.1
-        with:
-          remote: true
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - run: |
+          git submodule update --init --recursive
 
       # Install Saxon HE to /tmp
       - name: Install Saxon HE
@@ -51,7 +48,7 @@ jobs:
 
       # publish the test summary as comment on the PR
       - name: Publish XSpec Test Results Summary
-        uses: EnricoMi/publish-unit-test-result-action@v1.3
+        uses: EnricoMi/publish-unit-test-result-action@v1.15
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

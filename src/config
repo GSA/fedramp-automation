@@ -1,6 +1,6 @@
 # path to source|format of source|model of source|format(s) to convert to
+src/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml|xml|ssp|json
 src/templates/sap/xml/FedRAMP-SAP-OSCAL-Template.xml|xml|assessment-plan|json
 src/templates/sar/xml/FedRAMP-SAR-OSCAL-Template.xml|xml|assessment-results|json
 src/templates/poam/xml/FedRAMP-POAM-OSCAL-Template.xml|xml|poam|json
-src/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml|xml|ssp|json
-src/baselines/xml/*profile.xml|xml|profile|json
+src/baselines/rev4/xml/*profile.xml|xml|profile|json

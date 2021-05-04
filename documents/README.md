@@ -14,5 +14,11 @@ This includes the following content:
 
 - **[Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&M)](./Guide_to_OSCAL-based_FedRAMP_Plan_of_Action_and_Milestones_(POAM).pdf)**
 
-- **[FedRAMP OSCAL Registry](./FedRAMP_OSCAL_Registry.xlsx?raw=true)**
+**NOTE: The FedRAMP OSCAL Registry is now a machine-readable file using the DRAFT NIST OSCAL Extensions Model**
+- [xml](../resources/xml/FedRAMP_extensions.xml)
+- [json](../resources/json/FedRAMP_extensions.json)
+- [html](./FedRAMP_extensions.html)
+- [pdf](./FedRAMP_extensions.pdf)
+
+- **[FedRAMP OSCAL Vendor Resource Summary](./FedRAMP_OSCAL_Vendor_Resources.pdf)**
 

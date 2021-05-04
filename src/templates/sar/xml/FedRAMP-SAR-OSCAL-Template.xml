@@ -1,70 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<assessment-results xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="574fe077-0405-49a5-8a3c-a198bcf39125">
-
+<!-- Modified by the OSCAL 1.0.0 RC1 to OSCAL 1.0.0 RC2 conversion XSLT on 2021-04-12T12:36:27.890707-04:00 -->
+<assessment-results xmlns="http://csrc.nist.gov/ns/oscal/1.0"
+                    uuid="3556429f-3008-4004-8797-66ea8e0f41ce">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Report (SAR)</title>
-      <published>2020-06-01T00:00:00Z</published>
-      <last-modified>2020-06-01T00:00:00Z</last-modified>
-      <version>0.0.0</version>
-      <oscal-version>1.0.0-milestone3</oscal-version>
-
-      <prop name="marking">Controlled Unclassified Information</prop>
+      <published>2021-02-25T00:00:00.00-04:00</published>
+      <last-modified>2021-04-12T12:36:27.890707-04:00</last-modified>
+      <version>0.3</version>
+      <oscal-version>1.0.0-rc2</oscal-version>
+      <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
+      <role id="fedramp-pmo">
+         <title>FedRAMP Program Management Office</title>
+         <description>
+            <p>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</p>
+         </description>
+      </role>
       <role id="prepared-by">
          <title>Prepared By</title>
-         <desc>The organization that prepared this SAR.</desc>
+         <description>
+            <p>The organization that prepared this SAR.</p>
+         </description>
       </role>
       <role id="prepared-for">
          <title>Prepared For</title>
-         <desc>The organization for which this SAR was prepared. Typically the CSP.</desc>
+         <description>
+            <p>The organization for which this SAR was prepared. Typically the CSP.</p>
+         </description>
       </role>
       <role id="content-approver">
          <title>Security Assessment Plan Approval</title>
-         <desc>The individual or individuals accountable for the accuracy of this SAR.</desc>
+         <description>
+            <p>The individual or individuals accountable for the accuracy of this SAR.</p>
+         </description>
       </role>
       <role id="assessor">
          <title>Assessment Organization</title>
-         <desc>The organization performing the assessment.</desc>
+         <description>
+            <p>The organization performing the assessment.</p>
+         </description>
       </role>
       <role id="assessment-team">
          <title>Assessment Team</title>
-         <desc>The individual or individuals performing the assessment.</desc>
+         <description>
+            <p>The individual or individuals performing the assessment.</p>
+         </description>
       </role>
       <role id="assessment-lead">
          <title>Assessment Lead</title>
-         <desc>The individual leading the assessment activities.</desc>
+         <description>
+            <p>The individual leading the assessment activities.</p>
+         </description>
       </role>
       <role id="penetration-test-team">
          <title>Penetration Test Team</title>
-         <desc>The individual or individuals performing the penetration test.</desc>
+         <description>
+            <p>The individual or individuals performing the penetration test.</p>
+         </description>
       </role>
       <role id="penetration-test-lead">
          <title>Penetration Test Lead</title>
-         <desc>The individual leading the penetration test activities.</desc>
+         <description>
+            <p>The individual leading the penetration test activities.</p>
+         </description>
       </role>
       <role id="assessment-executive">
          <title>Assessment Organization's Managerial POC</title>
-         <desc>The management-level POC within the assessor's organization accountable for the organization's assessment performance.</desc>
+         <description>
+            <p>The management-level POC within the assessor's organization accountable for the organization's assessment performance.</p>
+         </description>
       </role>
       <role id="csp-assessment-poc">
          <title>CSP POCs During Testing</title>
-         <desc>At least three CSP testing points of contact must be identified in a FedRAMP SAP.</desc>
+         <description>
+            <p>At least three CSP testing points of contact must be identified in a FedRAMP SAP.</p>
+         </description>
       </role>
       <role id="csp-operations-center">
          <title>CSP Operations POC</title>
-         <desc>An operations center role, such as a SOC or NOC.</desc>
+         <description>
+            <p>An operations center role, such as a SOC or NOC.</p>
+         </description>
       </role>
       <role id="csp-end-of-testing-poc">
          <title>CSP's End of Testing Notification POC</title>
-         <desc>A role for an individual within the CSP to be notified by the assessor when testing is complete.</desc>
+         <description>
+            <p>A role for an individual within the CSP to be notified by the assessor when testing is complete.</p>
+         </description>
       </role>
       <role id="csp-results-poc">
          <title>CSP Results POCs </title>
-         <desc>A role for the individuals within the CSP who are to receive the assessment results.</desc>
+         <description>
+            <p>A role for the individuals within the CSP who are to receive the assessment results.</p>
+         </description>
       </role>
-
       <location uuid="2ba201ac-8ee9-4a1d-812a-a755591a3963">
          <title>Assessor's HQ</title>
          <address type="work">
@@ -80,94 +111,106 @@
                location.</p>
          </remarks>
       </location>
-
       <party uuid="49f73135-efab-4275-9a79-003656ad890a" type="organization">
-         <party-name>Assessment Organization Name</party-name>
+         <name>Assessment Organization Name</name>
          <short-name>Acronym/Short Name</short-name>
-         <prop name="iso-iec-17020-identifier" ns="https://fedramp.gov/ns/oscal">0000.00</prop>
-         <link href="https://assesor.web.site" rel="home-page" />
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="iso-iec-17020-identifier"
+               value="0000.00"/>
+         <link href="https://assesor.web.site" rel="home-page"/>
          <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
          <remarks>
-               <p>Replace sample 3PAO information.</p>
-               <p>If the assessor is A2LA Certified, include the ISO/IEC-17020 </p>
+            <p>Replace sample 3PAO information.</p>
+            <p>If the assessor is A2LA Certified, include the ISO/IEC-17020 </p>
          </remarks>
       </party>
-
-      <party uuid="f4568fda-c6d2-4640-adec-0012015af7d0" type="person">
-         <party-name>[SAMPLE]Person Name 1</party-name>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+      <party uuid="77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d" type="organization">
+         <name>Federal Risk and Authorization Management Program: Program Management Office</name>
+         <short-name>FedRAMP PMO</short-name>
+         <link href="https://fedramp.gov" rel="homepage"/>
+         <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
+         <link href="#985475ee-d4d6-4581-8fdf-d84d3d8caa48" rel="reference"/>
+         <link href="#1a23a771-d481-4594-9a1a-71d584fa4123" rel="reference"/>
+         <email-address>info@fedramp.gov</email-address>
          <address type="work">
-            <addr-line>Office 1-A</addr-line>
+            <addr-line>1800 F St. NW</addr-line>
+            <addr-line/>
+            <city>Washington</city>
+            <state>DC</state>
+            <postal-code/>
+            <country>US</country>
          </address>
-         <email>name@org.domain</email>
-         <phone>202-000-0001</phone>
-         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <remarks>
+            <p>This party entry must be present in a FedRAMP SAR.</p>
+            <p>The uuid may be different; however, the uuid must be associated with the "fedramp-pmo" role in the responsible-party assemblies.</p>
+         </remarks>
+      </party>
+      <party uuid="f4568fda-c6d2-4640-adec-0012015af7d0" type="person">
+         <name>[SAMPLE]Person Name 1</name>
+         <prop name="job-title" value="Individual's Title"/>
+         <prop name="mail-stop" value="Office 1-A"/>
+         <email-address>name@example.com</email-address>
+         <telephone-number>202-000-0001</telephone-number>
          <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
       </party>
       <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
-         <party-name>[SAMPLE]Person Name 2</party-name>
-         <address type="work">
-            <addr-line>Office 2-B</addr-line>
-         </address>
-         <email>name@org.domain</email>
-         <phone>202-000-0002</phone>
-         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <name>[SAMPLE]Person Name 2</name>
+         <prop name="mail-stop" value="Mailstop 2-B"/>
+         <email-address>name@example.com</email-address>
+         <telephone-number>202-000-0002</telephone-number>
          <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
       </party>
       <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person">
-         <party-name>[SAMPLE]Person Name 3</party-name>
-         <address type="work">
-            <addr-line>Office 3-C</addr-line>
-         </address>
-         <email>name@org.domain</email>
-         <phone>202-000-0003</phone>
-         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <name>[SAMPLE]Person Name 3</name>
+         <prop name="mail-stop" value="Mailstop 3-C"/>
+         <email-address>name@example.com</email-address>
+         <telephone-number>202-000-0003</telephone-number>
          <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
       </party>
       <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person">
-         <party-name>[SAMPLE]Person Name 4</party-name>
-         <address type="work">
-            <addr-line>Office 4-D</addr-line>
-         </address>
-         <email>name@org.domain</email>
-         <phone>202-000-0004</phone>
-         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <name>[SAMPLE]Person Name 4</name>
+         <prop name="mail-stop" value="Mailstop 4-D"/>
+         <email-address>name@example.com</email-address>
+         <telephone-number>202-000-0004</telephone-number>
          <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
       </party>
       <party uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3" type="person">
-         <party-name>[SAMPLE]Person Name 5</party-name>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-         <address type="work">
-            <addr-line>Office 5-E</addr-line>
-         </address>
-         <email>name@org.domain</email>
-         <phone>202-000-0005</phone>
-         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+         <name>[SAMPLE]Person Name 5</name>
+         <prop name="job-title" value="Individual's Title"/>
+         <prop name="mail-stop" value="Mailstop 5-E"/>
+         <email-address>name@example.com</email-address>
+         <telephone-number>202-000-0005</telephone-number>
          <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
       </party>
       <party uuid="ca9fca9c-4a8a-4487-8242-0a06d6fbed1f" type="person">
-         <party-name>[SAMPLE]Person Name 6</party-name>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-         <address type="work">
-            <addr-line>Office 6-F</addr-line>
-         </address>
-         <email>name@org.domain</email>
-         <phone type="mobile">000-000-0000</phone>
+         <name>[SAMPLE]Person Name 6</name>
+         <prop name="job-title" value="Individual's Title"/>
+         <prop name="mail-stop" value="Mailstop 6-F"/>
+         <email-address>name@example.com</email-address>
+         <telephone-number type="mobile">000-000-0000</telephone-number>
          <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
       </party>
       <party uuid="877e5bdc-07c3-45da-a2b4-35367a9a0cd0" type="person">
-         <party-name>[SAMPLE]Person Name 7</party-name>
-         <prop name="title" ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+         <name>[SAMPLE]Person Name 7</name>
+         <prop name="job-title" value="Individual's Title"/>
+         <email-address>name@example.com</email-address>
+         <telephone-number type="office">000-000-0000</telephone-number>
          <address type="work">
-         <addr-line>Suite 0000</addr-line>
-         <addr-line>1234 Some Street</addr-line>
-         <city>Haven</city>
-         <state>ME</state>
-         <postal-code>00000</postal-code>
+            <addr-line>Suite 0000</addr-line>
+            <addr-line>1234 Some Street</addr-line>
+            <city>Haven</city>
+            <state>ME</state>
+            <postal-code>00000</postal-code>
          </address>
-         <email>name@org.domain</email>
-         <phone type="office">000-000-0000</phone>
       </party>
+      <responsible-party role-id="fedramp-pmo">
+         <party-uuid>8cc0b8e5-9650-4d5f-9796-316f05fa9a2d</party-uuid>
+      </responsible-party>
       <responsible-party role-id="prepared-by">
          <party-uuid>49f73135-efab-4275-9a79-003656ad890a</party-uuid>
          <remarks>
@@ -268,13 +311,11 @@
             <p>One or more parties</p>
          </remarks>
       </responsible-party>
-
       <remarks>
          <p>This OSCAL-based FedRAMP SAR Template can be used for the FedRAMP initial or annual
             assessment reporting.</p>
       </remarks>
    </metadata>
-
    <!-- Link this SAR to the SAP -->
    <import-ap href="../sap/FedRAMP-SAP-OSCAL-Template.xml">
       <remarks>
@@ -283,829 +324,880 @@
          <p>This may point to a back-matter resource using a URI fragment.</p>
       </remarks>
    </import-ap>
-
-   <objectives>
-      <controls>
-         <description>
-            <p>Include all controls in the SSP's baseline, except as explicitly excluded
-               elsewhere.</p>
-         </description>
-         <all/>
-         <exclude-control control-id="ac-1"/>
-      </controls>
-      <control-objectives>
-         <description>
-            <p>Includes all objectives for all in-scope controls as defined in the controls
-               assembly.</p>
-         </description>
-         <all/>
-      </control-objectives>
-      <objective id="sap-obj-1" control-id="ac-2">
-         <part name="objective">
+   <local-definitions>
+      <objectives-and-methods control-id="ac-2">
+         <part name="objective" id="sap-obj-1">
             <title>SAP Inserted Objective</title>
-            <prop name="lable">AC-2 SAP-1</prop>
+            <prop name="lable" value="AC-2 SAP-1"/>
          </part>
-      </objective>
-   </objectives>
-   
-   <assessment-subjects>
-      <include-subject name="components">
+      </objectives-and-methods>
+      <activity uuid="1BC8F0BB-E601-4946-A0E6-FCB934EBAA06">
+         <title>Locally Defined Activity</title>
          <description>
-            <p>A description of the included components.</p>
+            <p>This describes an activity that was not defined in the SAP, but was performed during the assessment.</p>
          </description>
-         <all/>
-      </include-subject>
-      <include-subject name="inventory-items">
-         <description>
-            <p>A description of the included inventory-items.</p>
-         </description>
-         <all/>
-      </include-subject>
-      <include-subject name="locations">
-         <description>
-            <p>A description of the included locations.</p>
-         </description>
-         <all/>
-      </include-subject>
-      <include-subject name="users">
-         <description>
-            <p>A description of the included users.</p>
-         </description>
-         <all/>
-      </include-subject>
-
-      <exclude-subject name="inventory-items">
-         <description>
-            <p>Exclude identified Windows laptop from scans.</p>
-         </description>
-         <subject-reference type="inventory-item" uuid-ref="efa0013f-d35b-43a3-a8b6-674740e6af62"/>
-      </exclude-subject>
-
+         <prop name="type" value="manual"/>
+         <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
+            <description>
+               <p>Describe test step #1</p>
+            </description>
+            <prop name="sort-id" value="001"/>
+         </step>
+         <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
+            <description>
+               <p>Describe test step #2</p>
+            </description>
+            <prop name="sort-id" value="002"/>
+         </step>
+         <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
+            <description>
+               <p>Describe test step #3</p>
+            </description>
+            <prop name="sort-id" value="003"/>
+         </step>
+      </activity>
+   </local-definitions>
+   <result uuid="af0c8632-e994-48a7-924e-2354b6abace7">
+      <title>2020 Annual Assessment</title>
+      <description>
+         <p>Brief assessment description.</p>
+      </description>
+      <start>2020-03-01T00:00:00Z</start>
+      <end>2020-03-12T00:00:00Z</end>
       <local-definitions>
-         <inventory-item uuid="efa0013f-d35b-43a3-a8b6-674740e6af62" asset-id="none">
+         <inventory-item uuid="efa0013f-d35b-43a3-a8b6-674740e6af62">
             <description>
                <p>A Windows laptop, which is not defined in the SSP inventory.</p>
             </description>
-            <prop name="ipv4-address">10.1.1.99</prop>
+            <prop name="ipv4-address" value="10.1.1.99"/>
          </inventory-item>
+         <assessment-assets>
+            <component type="hardware" uuid="C1461F8A-684F-4727-8C08-4BB56C33A8DD">
+               <title>Assessment Laptop</title>
+               <description>
+                  <p>Describe assessment laptop.</p>
+               </description>
+               <prop name="ipv4-address" value="10.10.10.10"/>
+               <status state="operational"/>
+               <remarks>
+                  <p>Ideally, this assessment laptop would have been defined in the SAP, and not repeated here.</p>
+                  <p>If the laptop was not known at the time the SAP was drafted, or something different was used, it must be defined here.</p>
+               </remarks>
+            </component>
+            <assessment-platform uuid="67D98337-884A-46FF-98B1-42C53A4A7611">
+               <title>Revised Assessment Platform</title>
+               <uses-component component-uuid="C1461F8A-684F-4727-8C08-4BB56C33A8DD">
+                  <remarks>
+                     <p>Cites the Assessment laptop above.</p>
+                  </remarks>
+               </uses-component>
+               <uses-component component-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460">
+                  <remarks>
+                     <p>Cites the Vulnerability Scanning Tool identified in the SAP.</p>
+                  </remarks>
+               </uses-component>
+               <uses-component component-uuid="8F01C4AB-123F-4D1E-8BBF-22AD454B0BC1">
+                  <remarks>
+                     <p>Cites the XYZ Database Scanning Tool identified in the SAP.</p>
+                  </remarks>
+               </uses-component>
+               <remarks>
+                  <p>This is an example of a revised assessment platform.</p>
+                  <p>Ideally, all assessment platforms and components are defined in the SAP. If there is a departure from what is defined in the SAP, it must be defined in the SAR.</p>
+                  <p>This is a mixed example showing a revised component (a different assessment laptop defined as a component in the SAR) being paired with tools previously defined in the SAP.</p>
+               </remarks>
+            </assessment-platform>
+         </assessment-assets>
       </local-definitions>
-   </assessment-subjects>
-
-   <assets>
-      <tools>
-         <component uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e" component-type="software">
-            <title>XYZ Vulnerability Scanning Tool</title>
-            <description/>
-            <prop name="vendor">Vendor Name</prop>
-            <prop name="name">Tool Name</prop>
-            <prop name="version">1.2.3</prop>
-            <status state="operational"/>
-         </component>
-      </tools>
-
-      <origination>
-         <title>Assessment Laptop</title>
-         <prop name="ipv4-address">10.10.10.10</prop>
-      </origination>
-
-      <prop name="recommend-authorization" ns="https://fedramp.gov/ns/oscal">yes</prop>
-      <part name="authorization-statements">
-         <part name="authorization-statement">
-            <prop name="sort-id">001</prop>
-            <p>Priority levels were established based on [describe].</p>
+      <reviewed-controls>
+         <control-selection>
+            <description>
+               <p>Include all controls in the specified in the assessment plan, except as explicitly excluded here.</p>
+            </description>
+            <include-all/>
+            <exclude-control control-id="ac-1"/>
+         </control-selection>
+         <control-objective-selection>
+            <include-all/>
+         </control-objective-selection>
+      </reviewed-controls>
+      <attestation>
+         <part name="authorization-statements">
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="recommend-authorization"
+                  value="yes"/>
+            <part name="authorization-statement">
+               <prop name="sort-id" value="001"/>
+               <p>Priority levels were established based on [describe].</p>
+            </part>
+            <part name="authorization-statement">
+               <prop name="sort-id" value="002"/>
+               <p>Notes and other information the assessor may wish to provide related to a continued authorization recommendation.</p>
+            </part>
+            <part name="authorization-statement">
+               <prop name="sort-id" value="999"/>
+               <p>[3PAO Name] attests that the SAR from the [system name] [initial | annual] 
+                  assessment testing provides a complete assessment of the applicable FedRAMP 
+                  controls as stipulated in the SAP. Evidence to validate the successful implementation 
+                  of the various security controls has been collected and validated. Based on the 
+                  remaining risks, and continuous improvements of security related processes and 
+                  controls, [3PAO Name] recommends a continued authorization be granted for 
+                  the [system name].</p>
+            </part>
          </part>
-         <part name="authorization-statement">
-            <prop name="sort-id">002</prop>
-            <p>Notes and other information the assessor may wish to provide related to a continued authorization recommendation.</p>
-         </part>
-         <part name="authorization-statement">
-            <prop name="sort-id">999</prop>
-            <p>[3PAO Name] attests that the SAR from the [system name] [initial | annual] 
-               assessment testing provides a complete assessment of the applicable FedRAMP 
-               controls as stipulated in the SAP. Evidence to validate the successful implementation 
-               of the various security controls has been collected and validated. Based on the 
-               remaining risks, and continuous improvements of security related processes and 
-               controls, [3PAO Name] recommends a continued authorization be granted for 
-               the [system name].</p>
-         </part>
-      </part>
-
-   </assets>
-   
-   <assessment-activities>
-      <test-method uuid="2715174e-9355-4775-bea4-4068e59e916b">
-         <title>Title of the Manual Test</title>
-         <description>
-            <p>Description of the manual test</p>
-         </description>
-         <prop name="type">manual</prop>
-      </test-method>
-      <test-method uuid="3ba68918-80ef-4846-89e0-9f1def7e5223">
-         <title>[SAMPLE]Forceful Browsing</title>
-         <description>
-            <p>We will login as a customer and try to see if we can gain access to the Network
-               Administrator and Database Administrator privileges and authorizations by navigating
-               to different views and manually forcing the browser to various URLs</p>
-         </description>
-         <prop name="type">manual</prop>
-      </test-method>
-      <test-method uuid="2233cf20-282a-4967-ab07-a4b7d1ae3a4b">
-         <title>[SAMPLE]CAPTCHA</title>
-         <description>
-            <p>We will test the CAPTCHA function on the web form manually</p>
-         </description>
-         <prop name="type">manual</prop>
-      </test-method>
-      <test-method uuid="f818a896-3438-409f-a2a4-583a56fa41b4">
-         <title>[SAMPLE]OCSP</title>
-         <description>
-            <p>We will manually test to see if OCSP is validating certificates.</p>
-         </description>
-         <prop name="type">manual</prop>
-      </test-method>
-      
-      <test-method uuid="315b3118-3d2e-420b-b4fb-5acf13b08381">
-         <title>Web Application Test</title>
-         <prop name="type">web-application</prop>
-         <prop name="login-url">https://service.offering.com/login</prop>
-         <prop name="login-id">test-user</prop>
-         <prop name="inventory-item-id">inv-10</prop>
-      </test-method>
-      <test-method uuid="64142a6f-d8d4-47c6-8bb1-a0e33f17664d">
-         <title>Web Application Test</title>
-         <prop name="type">web-application</prop>
-         <prop name="login-url">https://admin-portal.offering.com/login</prop>
-         <prop name="login-id">test-admin</prop>
-         <prop name="inventory-item-id">inv-11</prop>
-      </test-method>
-      
-      <test-method uuid="dc858ece-b430-485d-886c-3a812bb77b13">
-         <title>Role Based Test</title>
-         <prop name="type">role-based</prop>
-         <prop name="login-id">test-user</prop>
-         <prop name="user-id">sys-role-1</prop>
-      </test-method>
-      <test-method uuid="74830d19-2820-4487-bd1d-91d8656b7eb0">
-         <title>Role Based Test</title>
-         <prop name="type">role-based</prop>
-         <prop name="login-id">test-admin</prop>
-         <prop name="user-id">sys-role-2</prop>
-      </test-method>
-      
-      <schedule>
-         <task uuid="17030aaf-7712-4228-8607-a5a97a785efa">
+      </attestation>
+      <assessment-log>
+         <entry uuid="17030aaf-7712-4228-8607-a5a97a785efa">
             <title>Prepare Test Plan</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="b65e7779-bd3d-4a49-9de5-3122c290792f">
+         </entry>
+         <entry uuid="b65e7779-bd3d-4a49-9de5-3122c290792f">
             <title>Meeting to Review Test Plan</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="b8389553-f0f7-4ae9-9331-203608222770">
+         </entry>
+         <entry uuid="b8389553-f0f7-4ae9-9331-203608222770">
             <title>Test Plan Update</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="e1890486-a9f0-4388-b2bc-34fb6c623686">
+         </entry>
+         <entry uuid="e1890486-a9f0-4388-b2bc-34fb6c623686">
             <title>Review CSP Documentation</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="172d4ba2-3362-4e3b-9379-a65a50e399bf">
+         </entry>
+         <entry uuid="172d4ba2-3362-4e3b-9379-a65a50e399bf">
             <title>Conduct Interviews of CSP Staff</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="aa5344be-18c4-4529-8937-0f4b873b8fcd">
+         </entry>
+         <entry uuid="aa5344be-18c4-4529-8937-0f4b873b8fcd">
             <title>Perform Assessment Testing</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="8937348c-5ebb-40bd-a8eb-faff99af156e">
+         </entry>
+         <entry uuid="8937348c-5ebb-40bd-a8eb-faff99af156e">
             <title>Perform Penetration Testing</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="7f2a5095-5f53-461b-b12f-3d649f6d7a6c">
+         </entry>
+         <entry uuid="7f2a5095-5f53-461b-b12f-3d649f6d7a6c">
             <title>Vulnerability Analysis and Threat Assessment</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="4f90df2a-c94c-494f-9999-0695a4dbe9ca">
+         </entry>
+         <entry uuid="4f90df2a-c94c-494f-9999-0695a4dbe9ca">
             <title>Risk Exposure Table Development</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task  uuid="0378802d-1288-4305-9eaf-bec8ee1a138c">
+         </entry>
+         <entry uuid="0378802d-1288-4305-9eaf-bec8ee1a138c">
             <title>Complete Draft SAR</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="2a04884f-6b75-4133-857b-ded12e12b38c">
+         </entry>
+         <entry uuid="2a04884f-6b75-4133-857b-ded12e12b38c">
             <title>Draft SAR Delivered to CSP</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="933b1eea-6ec3-4fbf-850a-33c8f5c44225">
+         </entry>
+         <entry uuid="933b1eea-6ec3-4fbf-850a-33c8f5c44225">
             <title>Issue Resolution Meeting</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="7f377a32-5012-4d76-becf-9f70d6a9f104">
+         </entry>
+         <entry uuid="7f377a32-5012-4d76-becf-9f70d6a9f104">
             <title>Complete Final Version of SAR</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-         <task uuid="45e2af99-bebf-4a2b-ad6f-b325e910aa12">
+         </entry>
+         <entry uuid="45e2af99-bebf-4a2b-ad6f-b325e910aa12">
             <title>Send Final Version of SAR to CSP and ISSO</title>
             <description>
                <p>optional description here</p>
             </description>
             <start>2020-06-01T00:00:00Z</start>
             <end>2020-06-15T00:00:00Z</end>
-         </task>
-      </schedule>
-      
-      <include-activity uuid="320326a9-5b04-411c-b1d3-3a1397cd31fc">
+         </entry>
+      </assessment-log>
+      <observation uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
+         <title>[EXAMPLE]Examine AC Policy</title>
          <description>
-            <p>Port scans and other network service interaction and queries</p>
+            <p>[EXAMPLE]The AC policy existed, and had all the required elements.</p>
          </description>
-      </include-activity>
-      <include-activity uuid="ff14cbb5-5607-4cb7-b211-acf6a1c1044b">
-         <description>
-            <p>Network sniffing, traffic monitoring, traffic analysis, and host discovery</p>
-         </description>
-      </include-activity>
-      <include-activity uuid="e6d7577a-f656-4690-a042-ab8b2693bec0">
-         <description>
-            <p>Attempted logins or other use of systems, with any account name/password</p>
-         </description>
-      </include-activity>
-      <include-activity uuid="51c36191-62a0-4dd7-a254-3fe861beaa51">
-         <description>
-            <p>Attempted structured query language (SQL) injection and other forms of input
-               parameter testing</p>
-         </description>
-      </include-activity>
-      <include-activity uuid="110e8a53-53b9-4717-954d-436782603d94">
-         <description>
-            <p>Use of exploit code for leveraging discovered vulnerabilities</p>
-         </description>
-      </include-activity>
-      <include-activity uuid="d4a8ac08-5c10-419c-a38a-b143bf34172a">
-         <description>
-            <p>Password cracking via capture and scanning of authentication databases</p>
-         </description>
-      </include-activity>
-      <include-activity uuid="14b07a59-426f-4118-9f06-b9662152dd65">
-         <description>
-            <p>Spoofing or deceiving servers regarding network traffic</p>
-         </description>
-      </include-activity>
-      <include-activity uuid="068edc97-dcc9-4179-964e-410273fb3f14">
-         <description>
-            <p>Altering running system configuration except where denial of service would result</p>
-         </description>
-      </include-activity>
-      <include-activity uuid="a50c1bef-a288-4445-ace5-63fc747911f3">
-         <description>
-            <p>Adding user accounts</p>
-         </description>
-      </include-activity>
-      
-      <exclude-activity uuid="e4c19c9e-883f-478a-a519-f4d80ac03a79">
-         <description>
-            <p>Changes to assigned user passwords</p>
-         </description>
-      </exclude-activity>
-      <exclude-activity uuid="cfec0189-1cac-4d3a-9c4b-6fdf2a1c8dc8">
-         <description>
-            <p>Modification of user files or system files</p>
-         </description>
-      </exclude-activity>
-      <exclude-activity uuid="b9fa9d84-a62c-468b-9b13-807015cdc00a">
-         <description>
-            <p>Telephone modem probes and scans (active and passive)</p>
-         </description>
-      </exclude-activity>
-      <exclude-activity uuid="abf9ecc6-1dbe-4659-9694-60b9670bede9">
-         <description>
-            <p>Intentional viewing of [CSP Name] staff email, Internet caches, and/or personnel
-               cookie files</p>
-         </description>
-      </exclude-activity>
-      <exclude-activity uuid="2c72c778-e2ce-4fee-b4e0-a182d3134c93">
-         <description>
-            <p>Denial of service attacks</p>
-         </description>
-      </exclude-activity>
-      <exclude-activity uuid="8d9de95b-ac7c-4192-af80-2cc7f7f27d0b">
-         <description>
-            <p>Exploits that will introduce new weaknesses to the system</p>
-         </description>
-      </exclude-activity>
-      <exclude-activity uuid="e615929e-c1c3-4419-8e39-e6185a0fe1c3">
-         <description>
-            <p>Intentional introduction of malicious code (viruses, Trojans, worms, etc.)</p>
-         </description>
-      </exclude-activity>
-   </assessment-activities>
-   
-   
-   <results uuid="af0c8632-e994-48a7-924e-2354b6abace7">
-      <title>2020 Annual Assessment</title>
-      <description><p>Brief assessment description.</p></description>
-      <start>2020-03-01T00:00:00Z</start>
-      <end>2020-03-12T00:00:00Z</end>
-      <finding uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
-         <title>[EXAMPLE]TCW Objective AC-1.a.1.3 (Examine and Interview)</title>
-         <description><p>An overall statement about the system's satisfaction of this objective.</p></description>
-         <collected>2020-03-01T10:11:12Z</collected>
-         <objective-status objective-id="ac-1.a.1_obj.3">
-            <result system="https://fedramp.gov">satisfied</result>
-            <implementation-status system="https://fedramp.gov">implemented</implementation-status>
-         </objective-status>
-         <observation uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
-            <title>[EXAMPLE]Examine AC Policy</title>
-            <description>
-               <p>[EXAMPLE]The AC policy existed, and had all the required elements.</p>
-            </description>
-            <observation-method>EXAMINE</observation-method>
-            <observation-type>control-objective</observation-type>
-            <assessor party-uuid="f4568fda-c6d2-4640-adec-0012015af7d0" />
-            <subject-reference type="resource" uuid-ref="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
-               <title>Reviewed Policy</title>
-            </subject-reference>
-            <origin type="task" uuid-ref="e1890486-a9f0-4388-b2bc-34fb6c623686" />
+         <method>EXAMINE</method>
+         <type>control-objective</type>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <related-task task-uuid="e1890486-a9f0-4388-b2bc-34fb6c623686"/>
+         </origin>
+         <subject type="component" uuid-ref="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
+            <title>Reviewed Policy</title>
             <remarks>
-               <p>The subject-reference identifies a policy that was reviewed and is attached in the back-matter.</p>
-               <p>The observation source is linked to the task in the schedule associated with performing document reviews.</p>
-               <p>Even though the policy may be defined in the SSP and OSCAL would allow the SAR to reference it, FedRAMP requires the assessor attach all evidence to the SAR..</p>
+               <p>If the policy is defined in the SSP as a component, you can cite it using <code>subject</code>, and use the UUID of the policy component in the SSP.</p>
             </remarks>
-         </observation>
-         <observation uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774">
-            <title>[EXAMPLE]AC Policy Interview</title>
+         </subject>
+         <relevant-evidence>
             <description>
-               <p>[EXAMPLE]The person interviewed knew about the policy and where to find it.</p>
+               <p>Reviewed Policy</p>
             </description>
-            <observation-method>INTERVIEW</observation-method>
-            <observation-type>control-objective</observation-type>
-            <assessor party-uuid="f4568fda-c6d2-4640-adec-0012015af7d0" />
-            <subject-reference type="party" uuid-ref="5ff3d794-d2e8-48be-bf9c-95c2328271ce">
-               <title>Interviewed Person</title>
-            </subject-reference>
-            <origin type="task" uuid-ref="172d4ba2-3362-4e3b-9379-a65a50e399bf" />
-            <relevant-evidence href="#65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
-               <description>
-                  <p>This describes the evidence, and adds relevant detail.</p>
-                  <p>For example, this could cite where to find this information in interview notes.</p>
-               </description>
-               <remarks>
-                  <p>The subject-reference is linked to the person interviewed.</p>
-                  <p>The observation source is linked to the task in the schedule associated with performing staff interviews.</p>
-                  <p>The relevant-evidence is linked to the interview notes.</p>
-                  <p>These may be defined in the SSP, SAP, or SAR. Tools should check all three locations.</p>
-               </remarks>
-            </relevant-evidence>
-         </observation>
-         <risk uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9">
-            <title>Risk Title</title>
+            <link href="#f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7" rel="policy"/>
+            <remarks>
+               <p>If the policy is <em>not</em> an SSP component, it should be attached to the SAR as a <code>resource</code>, and cited here as a URI fragment.</p>
+            </remarks>
+         </relevant-evidence>
+         <collected>2020-10-10T00:00:00Z</collected>
+         <remarks>
+            <p>The subject-reference identifies a policy that was reviewed and is attached in the back-matter.</p>
+            <p>The observation source is linked to the task in the schedule associated with performing document reviews.</p>
+            <p>Even though the policy may be defined in the SSP and OSCAL would allow the SAR to reference it, FedRAMP requires the assessor attach all evidence to the SAR..</p>
+         </remarks>
+      </observation>
+      <observation uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774">
+         <title>[EXAMPLE]AC Policy Interview</title>
+         <description>
+            <p>[EXAMPLE]The person interviewed knew about the policy and where to find it.</p>
+         </description>
+         <method>INTERVIEW</method>
+         <type>control-objective</type>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <related-task task-uuid="172d4ba2-3362-4e3b-9379-a65a50e399bf"/>
+         </origin>
+         <subject type="party" uuid-ref="5ff3d794-d2e8-48be-bf9c-95c2328271ce">
+            <title>Interviewed Person</title>
+         </subject>
+         <relevant-evidence href="#65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
             <description>
-               <p>This is a description of the identified risk.</p>
-               <p>TCW: Identified Risk.</p>
-               <p>Scans: Vulnerability Description.</p>
-               <p>Pen Test: Risk Description.</p>
-               <p>RET: Description.</p>
+               <p>This describes the evidence, and adds relevant detail.</p>
+               <p>For example, this could cite where to find this information in interview notes.</p>
             </description>
-            
-            <risk-metric name="likelihood" class="initial" system="https://fedramp.gov">high</risk-metric>
-            <risk-metric name="impact"     class="initial" system="https://fedramp.gov">moderate</risk-metric>
-            
-            <risk-statement>
-               <p>This is a statement about the identified risk.</p>
-               <p>TCW: Risk Statement..</p>
-               <p>Scans: N/A.</p>
-               <p>Pen Risk Statement.</p>
-               <p>RET: Risk Statement.</p>
-            </risk-statement>
-            
-            <remediation uuid="fde4758d-6417-4f35-ba71-278af4f008f8" type="recommendation">
-               <title>Remediation Title</title>
+            <remarks>
+               <p>The subject-reference is linked to the person interviewed.</p>
+               <p>The observation source is linked to the task in the schedule associated with performing staff interviews.</p>
+               <p>The relevant-evidence is linked to the interview notes.</p>
+               <p>These may be defined in the SSP, SAP, or SAR. Tools should check all three locations.</p>
+            </remarks>
+         </relevant-evidence>
+         <collected>2020-10-10T00:00:00Z</collected>
+      </observation>
+      <observation uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+         <description>
+            <p>Undocumented devices found on network.</p>
+         </description>
+         <method>TEST</method>
+         <type>finding</type>
+         <origin>
+            <actor type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
+         </origin>
+         <subject type="inventory-item" uuid-ref="f61f4408-2cb8-444a-a312-bc88412e7c61"/>
+         <subject type="inventory-item" uuid-ref="02075556-3660-4112-8982-02fc7d6fac00"/>
+         <subject type="inventory-item" uuid-ref="5efe2c07-9fdf-453a-8457-6471046082fb"/>
+         <subject type="component" uuid-ref="75b059f2-a9ba-40b1-a1e0-881196ca1ead"/>
+         <relevant-evidence href="#19a07333-4e87-46dc-abab-adad60e706b9">
+            <description>
+               <p>Raw scanner tool output - discovery scan.</p>
+            </description>
+         </relevant-evidence>
+         <collected>2020-10-10T00:00:00Z</collected>
+         <remarks>
+            <p>Undocumented hosts are entered into the SAR's result/local-definitions section as inventory-items or components.</p>
+            <p>Undocumented hosts are listed in the observations assembly as subject-references.</p>
+            <p>The origin must contain the UUID of the tool used to perform the scan.</p>
+         </remarks>
+      </observation>
+      <observation uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52">
+         <description>
+            <p>[EXAMPLE]Scanner Output.</p>
+         </description>
+         <method>TEST</method>
+         <type>finding</type>
+         <origin>
+            <actor type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
+         </origin>
+         <subject type="inventory-item" uuid-ref="f61f4408-2cb8-444a-a312-bc88412e7c61"/>
+         <subject type="inventory-item" uuid-ref="02075556-3660-4112-8982-02fc7d6fac00"/>
+         <subject type="inventory-item" uuid-ref="5efe2c07-9fdf-453a-8457-6471046082fb"/>
+         <subject type="component" uuid-ref="75b059f2-a9ba-40b1-a1e0-881196ca1ead"/>
+         <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
+            <description>
+               <p>Raw scanner tool output - Infrastructure and OS Scan.</p>
+            </description>
+         </relevant-evidence>
+         <collected>2020-10-10T00:00:00Z</collected>
+      </observation>
+      <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+         <title>Operational Requirement</title>
+         <description>
+            <p>Provide the justification for the operational requirement.</p>
+         </description>
+         <method>EXAMINE</method>
+         <type>operational-requirement</type>
+         <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61">
+            <description>
+               <p>A screen shot showing the system impact when patch is applied.</p>
+            </description>
+         </relevant-evidence>
+         <relevant-evidence href="https://vendor.site/article/describing/something.htm">
+            <description>
+               <p>Vendor detail describing why this happens.</p>
+            </description>
+         </relevant-evidence>
+         <collected>2020-10-10T00:00:00Z</collected>
+      </observation>
+      <observation uuid="46209140-8263-4e74-b3c9-cead4ffed22c">
+         <title>False Positive</title>
+         <description>
+            <p>Describe the false positive here.</p>
+         </description>
+         <method>EXAMINE</method>
+         <type>false-positive</type>
+         <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61">
+            <description>
+               <p>A screen shot showing the setting is correct</p>
+            </description>
+         </relevant-evidence>
+         <relevant-evidence href="https://vendor.site/article/describing/something.htm">
+            <description>
+               <p>Vendor detail describing why this happens.</p>
+            </description>
+         </relevant-evidence>
+         <collected>2020-10-10T00:00:00Z</collected>
+      </observation>
+      <observation uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a">
+         <title>Risk Adjustment</title>
+         <description>
+            <p>Describe the risk adjustment justification here.</p>
+         </description>
+         <method>EXAMINE</method>
+         <type>risk-adjustment</type>
+         <relevant-evidence>
+            <description>
+               <p>Describe the risk adjustment evidence here.</p>
+            </description>
+            <link href="#53af7193-b25d-4ed2-a82f-5954d2d0df61" rel="evidence"/>
+            <remarks>
+               <p>Attach relevant evidence as a <code>resource</code>.</p>
+               <p>Use a <code>link</code> field with a URI fragment to link to the resource using its UUID.</p>
+            </remarks>
+         </relevant-evidence>
+         <collected>2020-10-10T00:00:00Z</collected>
+      </observation>
+      <observation uuid="21b26801-2e00-4e59-979c-bf2a4ed93920">
+         <description>
+            <p>[EXAMPLE]Spear phishing test yielded a 22% click rate.</p>
+            <p>[EXAMPLE]The target threshold was below 20%.</p>
+         </description>
+         <method>TEST</method>
+         <type>finding</type>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <related-task task-uuid="8937348c-5ebb-40bd-a8eb-faff99af156e"/>
+         </origin>
+         <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
+            <description>
+               <p>Spear Phishing Report.</p>
+            </description>
+         </relevant-evidence>
+         <collected>2020-10-10T00:00:00Z</collected>
+      </observation>
+      <observation uuid="21b26801-2e00-4e59-979c-bf2a4ed93920">
+         <description>
+            <p>[EXAMPLE]Describe the finding.</p>
+         </description>
+         <method>TEST</method>
+         <type>finding</type>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <related-task task-uuid="8937348c-5ebb-40bd-a8eb-faff99af156e"/>
+         </origin>
+         <relevant-evidence href="#e552fb72-d662-4c01-b2d7-4dcb2086bb07">
+            <description>
+               <p>Penetration Test Report.</p>
+            </description>
+         </relevant-evidence>
+         <collected>2020-10-10T00:00:00Z</collected>
+      </observation>
+      <observation uuid="A38F3BBA-5B71-400D-B8F2-D808E1D4627F">
+         <description>
+            <p>The policy describes a procedure, which could not be found.</p>
+         </description>
+         <method>EXAMINE</method>
+         <type>ssp-statement-issue</type>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+         </origin>
+         <collected>2020-10-10T00:00:00Z</collected>
+         <remarks>
+            <p>The <code>type</code> field designates this observations as an issue with a statement in the SSP. Tools can filter on this field to summarize all SSP issues.</p>
+            <p>The <code>origin</code> identifies the assessor who found the SSP statement issue.</p>
+            <p>If relevant, evidence can be cited as well using the <code>relevant-evidence</code> assembly, such as a screenshot showing a setting is different than stated in the SSP.</p>
+         </remarks>
+      </observation>
+      <risk uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9">
+         <title>Risk Title</title>
+         <description>
+            <p>This is a description of the identified risk.</p>
+            <p>TCW: Identified Risk.</p>
+            <p>Scans: Vulnerability Description.</p>
+            <p>Pen Test: Risk Description.</p>
+            <p>RET: Description.</p>
+         </description>
+         <statement>
+            <p>This is a statement about the identified risk.</p>
+            <p>TCW: Risk Statement..</p>
+            <p>Scans: N/A.</p>
+            <p>Pen Risk Statement.</p>
+            <p>RET: Risk Statement.</p>
+         </statement>
+         <status>open</status>
+         <characterization>
+            <origin>
+               <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            </origin>
+            <facet name="likelihood" system="https://fedramp.gov" value="high">
+               <prop name="state" value="initial"/>
+            </facet>
+            <facet name="likelihood" system="https://fedramp.gov" value="moderate">
+               <prop name="state" value="initial"/>
+            </facet>
+         </characterization>
+         <response uuid="fde4758d-6417-4f35-ba71-278af4f008f8" lifecycle="recommendation">
+            <title>Remediation Title</title>
+            <description>
+               <p>A description of the recommended remediation.</p>
+               <p>TCW: Assessor's recommended remediation (type='recommendation').</p>
+               <p>Scans: Tool's recommended remediation (type='recommendation')</p>
+               <p>Pen Test: Assessor's recommended remediation (type='recommendation')</p>
+               <p>RET: Assessor's recommended remediation (type='recommendation').</p>
+               <p>POA&amp;M: CSP's intended remediation (no type flag).</p>
+            </description>
+         </response>
+      </risk>
+      <risk uuid="6038458c-9120-4736-b1c8-78f6c1ad3a48">
+         <title>Risk Title</title>
+         <description>
+            <p>This is a description of the identified risk.</p>
+            <p>TCW: Identified Risk.</p>
+            <p>Scans: Vulnerability Description.</p>
+            <p>Pen Test: Risk Description.</p>
+            <p>RET: Description.</p>
+         </description>
+         <statement>
+            <p>This is a statement about the identified risk.</p>
+            <p>TCW: Risk Statement..</p>
+            <p>Scans: N/A.</p>
+            <p>Pen Risk Statement.</p>
+            <p>RET: Risk Statement.</p>
+         </statement>
+         <status>open</status>
+         <characterization>
+            <origin>
+               <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            </origin>
+            <facet name="likelihood" system="https://fedramp.gov" value="moderate">
+               <prop name="state" value="initial"/>
+            </facet>
+            <facet name="likelihood" system="https://fedramp.gov" value="low">
+               <prop name="state" value="initial"/>
+            </facet>
+         </characterization>
+         <response uuid="6038458c-9120-4736-b1c8-78f6c1ad3a48" lifecycle="recommendation">
+            <title/>
+            <description>
+               <p>A description of the recommended remediation.</p>
+               <p>TCW: Assessor's recommended remediation (type='recommendation').</p>
+               <p>Scans: Tool's recommended remediation (type='recommendation')</p>
+               <p>Pen Test: Assessor's recommended remediation (type='recommendation')</p>
+               <p>RET: Assessor's recommended remediation (type='recommendation').</p>
+               <p>POA&amp;M: CSP's intended remediation (no type flag).</p>
+            </description>
+            <origin>
+               <actor type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"/>
+            </origin>
+         </response>
+      </risk>
+      <risk uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
+         <title>Vulnerability Title</title>
+         <description>
+            <p>This is a description of the vulnerability provided by the tool.</p>
+         </description>
+         <statement>
+            <p>This is a statement about the identified risk as provided by the tool.</p>
+            <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
+         </statement>
+         <prop ns="https://fedramp.gov/ns/oscal" name="priority" value="1"/>
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="operational-requirement"
+               value="approved"/>
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="false-positive"
+               value="withdrawn"/>
+         <prop ns="https://fedramp.gov/ns/oscal"
+               name="risk-adjustment"
+               value="approved"/>
+         <status>closed</status>
+         <characterization>
+            <origin>
+               <actor type="tool" uuid-ref="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+            </origin>
+            <facet name="vulnerability-id"
+                   system="http://csrc.nist.gov/ns/oscal/unknown"
+                   value="VulID-001"/>
+            <facet name="plugin-id"
+                   system="http://csrc.nist.gov/ns/oscal/unknown"
+                   value="Plugin-ID"/>
+            <facet name="iavm-severity"
+                   system="https://us-cert.cisa.gov/"
+                   value="high"/>
+            <facet name="vulnerability-id"
+                   system="http://cve.mitre.org"
+                   value="CVE-2020-00000"/>
+            <facet name="impact"
+                   system="http://csrc.nist.gov/ns/oscal/unknown"
+                   value="high"/>
+            <facet name="AV" system="http://www.first.org/cvss/v3.1" value="network"/>
+            <facet name="likelihood" system="https://fedramp.gov" value="high">
+               <prop name="state" value="initial"/>
+            </facet>
+            <facet name="impact" system="https://fedramp.gov" value="high">
+               <prop name="state" value="initial"/>
+            </facet>
+            <facet name="likelihood" system="https://fedramp.gov" value="moderate">
+               <prop name="state" value="adjusted"/>
+            </facet>
+            <facet name="impact" system="https://fedramp.gov" value="moderate">
+               <prop name="state" value="adjusted"/>
+            </facet>
+         </characterization>
+         <mitigating-factor uuid="260d3c0a-fc2e-4627-9fb9-a003acdc4b14">
+            <description>
+               <p>Describe mitigating factor</p>
+            </description>
+         </mitigating-factor>
+         <mitigating-factor uuid="fd061039-e9b0-4b4c-a78b-ca024d411174"
+                            implementation-uuid="46f4c261-e488-4fb5-84d6-6a61dd30c3d7">
+            <description>
+               <p>Describe why the cited implementation statement justifies lowering the risk.</p>
+            </description>
+         </mitigating-factor>
+         <response uuid="a3106e23-8b79-4b1b-abf4-74f16c51ad0c" lifecycle="recommendation">
+            <title>Tool's Recommendation</title>
+            <description>
+               <p>A description of the recommended remediation as provided by the tool.</p>
+            </description>
+            <origin>
+               <actor type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
+            </origin>
+            <remarks>
+               <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
+               <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
+            </remarks>
+         </response>
+         <response uuid="69344d05-937e-40f4-9c3f-9aa8702ad99d" lifecycle="recommendation">
+            <title>Assessor's Recommendation</title>
+            <description>
+               <p>A description of the recommended remediation as provided by the assessor.</p>
+            </description>
+            <origin>
+               <actor type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"/>
+            </origin>
+            <remarks>
+               <p>The assessor may add their recommendation in addition to the tool's recommendation, or if no tool recommendation is provided.</p>
+               <p>The assessor should leave the tool recommendation, even if adding their own.</p>
+               <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
+               <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
+            </remarks>
+         </response>
+         <risk-log>
+            <entry uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
+               <title>Closed</title>
                <description>
-                  <p>A description of the recommended remediation.</p>
-                  <p>TCW: Assessor's recommended remediation (type='recommendation').</p>
-                  <p>Scans: Tool's recommended remediation (type='recommendation')</p>
-                  <p>Pen Test: Assessor's recommended remediation (type='recommendation')</p>
-                  <p>RET: Assessor's recommended remediation (type='recommendation').</p>
-                  <p>POA&amp;M: CSP's intended remediation (no type flag).</p>
+                  <p>Describe what action(s) the CSP took to close the risk.</p>
+                  <p>[EXAMPLE]Applied patch. Vulnerability no longer found in subsequent scan.</p>
                </description>
-            </remediation>
-            
-            <risk-status>open</risk-status>
-         </risk>
-         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
-         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+               <start>2020-07-07T00:00:00Z</start>
+               <status-change>closed</status-change>
+            </entry>
+         </risk-log>
+      </risk>
+      <risk uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07">
+         <title>Risk Title</title>
+         <description>
+            <p>This is a description of the issue found by the penetration  testing team.</p>
+         </description>
+         <statement>
+            <p>This is a statement about the risk identified by penetration  testing.</p>
+         </statement>
+         <prop ns="https://fedramp.gov/ns/oscal" name="priority" value="1"/>
+         <status>open</status>
+         <characterization>
+            <origin>
+               <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            </origin>
+            <facet name="likelihood" system="https://fedramp.gov" value="high">
+               <prop name="state" value="initial"/>
+            </facet>
+            <facet name="impact" system="https://fedramp.gov" value="high">
+               <prop name="state" value="initial"/>
+            </facet>
+         </characterization>
+         <response uuid="69344d05-937e-40f4-9c3f-9aa8702ad99d" lifecycle="recommendation">
+            <title>Assessor's Recommendation</title>
+            <description>
+               <p>A description of the recommended remediation as provided by the assessor.</p>
+            </description>
+            <origin>
+               <actor type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"/>
+            </origin>
+            <remarks>
+               <p>The assessor may add their recommendation.</p>
+            </remarks>
+         </response>
+      </risk>
+      <finding uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+         <title>[EXAMPLE]TCW Objective AC-1(a)(1)[1] (Examine)</title>
+         <description>
+            <p>An overall statement about the system's satisfaction of this objective.</p>
+         </description>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+         </origin>
+         <target type="objective-id" id-ref="ac-1.a.1_obj.1">
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="implementation-status"
+                  value="implemented"/>
+            <status>satisfied</status>
+         </target>
+         <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
+         <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
+         <remarks>
+            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
+            <p>This objective only has one method (Examine), so there should be at least one <code>related-objservation</code>.</p>
+         </remarks>
+      </finding>
+      <finding uuid="EF489684-C2E5-46BD-887A-A86A4AA210D9">
+         <title>[EXAMPLE]TCW Objective AC-1(a)(1)[2] (Examine)</title>
+         <description>
+            <p>An overall statement about the system's satisfaction of this objective.</p>
+         </description>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+         </origin>
+         <target type="objective-id" id-ref="ac-1.a.1_obj.2">
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="implementation-status"
+                  value="implemented"/>
+            <status>satisfied</status>
+         </target>
+         <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
+         <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
+         <remarks>
+            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
+            <p>This objective only has one method (Examine), so there should be at least one <code>related-objservation</code>.</p>
+         </remarks>
+      </finding>
+      <finding uuid="0D3EE91E-8A4E-455B-BC84-EB31C7C3C34B">
+         <title>[EXAMPLE]TCW Objective AC-1(a)(1)[3] (Examine and Interview)</title>
+         <description>
+            <p>An overall statement about the system's satisfaction of this objective.</p>
+         </description>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+         </origin>
+         <target type="objective-id" id-ref="ac-1.a.1_obj.3">
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="implementation-status"
+                  value="implemented"/>
+            <status>satisfied</status>
+         </target>
+         <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
+         <related-observation observation-uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774"/>
+         <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
+         <remarks>
+            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
+            <p>This objective has two methods (Examine and Interview), so there should be at least two <code>related-objservation</code>, including at least one observaton of each type.</p>
+         </remarks>
       </finding>
       <finding uuid="33e43825-6fd7-49c6-a610-4c795954a167">
          <title>[EXAMPLE]Issue With AU-1 Statement</title>
-         <description><p>[EXAMPLE]There is an issue with .</p></description>
-         <collected>2020-03-01T10:11:12Z</collected>
+         <description>
+            <p>[EXAMPLE]There is an issue with an SSP Statement.</p>
+         </description>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+         </origin>
          <implementation-statement-uuid>7924db51-e44d-4215-ad7e-3a5dda44a631</implementation-statement-uuid>
-         <observation uuid="3f955801-52ec-4846-aefe-7d27b79f1e2c">
-            <title>[EXAMPLE]Missing Procedure</title>
-            <description>
-               <p>[EXAMPLE]The SSP describes a procedure that does not exist in the official repository.</p>
-            </description>
-            <observation-method>EXAMINE</observation-method>
-            <observation-type>ssp-statement-issue</observation-type>
-            <assessor party-uuid="f4568fda-c6d2-4640-adec-0012015af7d0" />
-            <origin type="task" 
-               uuid-ref="172d4ba2-3362-4e3b-9379-a65a50e399bf" />
-            <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61">
-               <description>
-                  <p>An attached screen shot showing the list of authoritative procedures in the repository.</p>
-               </description>
-            </relevant-evidence>
-            <remarks>
-               <p>If this was an issue where an inventory-item or component was not configured as described in the SSP, this observation could also include a subject-reference for each item that does not match the SSP.</p>
-            </remarks>
-         </observation>
-
-         <risk uuid="6038458c-9120-4736-b1c8-78f6c1ad3a48">
-            <title>Risk Title</title>
-            <description>
-               <p>This is a description of the identified risk.</p>
-               <p>TCW: Identified Risk.</p>
-               <p>Scans: Vulnerability Description.</p>
-               <p>Pen Test: Risk Description.</p>
-               <p>RET: Description.</p>
-            </description>
-
-            <risk-metric name="likelihood" class='initial' system="https://fedramp.gov/">moderate</risk-metric>
-            <risk-metric name="impact"     class='initial' system="https://fedramp.gov/">low</risk-metric>
-            
-            <risk-statement>
-               <p>This is a statement about the identified risk.</p>
-               <p>TCW: Risk Statement..</p>
-               <p>Scans: N/A.</p>
-               <p>Pen Risk Statement.</p>
-               <p>RET: Risk Statement.</p>
-            </risk-statement>
-
-            <remediation uuid="6038458c-9120-4736-b1c8-78f6c1ad3a48" type="recommendation">
-               <title></title>
-               <description>
-                  <p>A description of the recommended remediation.</p>
-                  <p>TCW: Assessor's recommended remediation (type='recommendation').</p>
-                  <p>Scans: Tool's recommended remediation (type='recommendation')</p>
-                  <p>Pen Test: Assessor's recommended remediation (type='recommendation')</p>
-                  <p>RET: Assessor's recommended remediation (type='recommendation').</p>
-                  <p>POA&amp;M: CSP's intended remediation (no type flag).</p>
-               </description>
-               <remediation-origin  type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a" />
-            </remediation>
-            
-            <risk-status>open</risk-status>
-         </risk>
-         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
-         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <related-observation observation-uuid="A38F3BBA-5B71-400D-B8F2-D808E1D4627F"/>
+         <remarks>
+            <p>The <code>implementation-statement-uuid</code> contains the UUID of the erroneous statement in the SSP.</p>
+            <p>The <code>related-observation</code> contains the UUID of an observation with details about the issue, including a statement and any relevant evidence.</p>
+         </remarks>
       </finding>
-      
       <finding uuid="d6316907-a5e5-4ad5-871d-f2f29938360e">
          <title>Discovery Scan Results</title>
-         <description><p>The results of the discovery scan.</p></description>
-         <collected>2020-03-01T10:11:12Z</collected>
-         <observation uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
-            <description>
-               <p>Undocumented devices found on network.</p>
-            </description>
-            <observation-method>TEST</observation-method>
-            <observation-type>finding</observation-type>
-            <subject-reference type="inventory-item" uuid-ref="f61f4408-2cb8-444a-a312-bc88412e7c61" />
-            <subject-reference type="inventory-item" uuid-ref="02075556-3660-4112-8982-02fc7d6fac00" />
-            <subject-reference type="inventory-item" uuid-ref="5efe2c07-9fdf-453a-8457-6471046082fb" />
-            <subject-reference type="component" uuid-ref="75b059f2-a9ba-40b1-a1e0-881196ca1ead" />
-            <origin uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e" type="tool" />
-            <relevant-evidence href="#19a07333-4e87-46dc-abab-adad60e706b9">
-               <description>
-                  <p>Raw scanner tool output - discovery scan.</p>
-               </description>
-            </relevant-evidence>
-            <remarks>
-               <p>Undocumented hosts are entered into the SAR's assessment-subjects, local-definitions section as inventory-items or components.</p>
-               <p>Undocumented hosts are listed in the observations assembly as subject-references.</p>
-               <p>The origin must contain the UUID of the tool used to perform the scan.</p>
-            </remarks>
-         </observation>
-
-         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
-         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <description>
+            <p>The results of the discovery scan.</p>
+         </description>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+         </origin>
+         <related-observation observation-uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d"/>
          <remarks>
             <p>The UUID for the tool operator must be listed as the party-uuid for the finding. There may be more than one.</p>
          </remarks>
       </finding>
-      
       <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
          <title>[EXAMPLE]Infrastructure Scan Unique Vulnerability</title>
-         <description><p>An example set of infrastructure scan findings.</p></description>
-         <collected>2020-03-01T10:11:12Z</collected>
-         <observation uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52">
-            <description>
-               <p>[EXAMPLE]Scanner Output.</p>
-            </description>
-            <observation-method>TEST</observation-method>
-            <observation-type>finding</observation-type>
-            <subject-reference type="inventory-item" uuid-ref="f61f4408-2cb8-444a-a312-bc88412e7c61" />
-            <subject-reference type="inventory-item" uuid-ref="02075556-3660-4112-8982-02fc7d6fac00" />
-            <subject-reference type="inventory-item" uuid-ref="5efe2c07-9fdf-453a-8457-6471046082fb" />
-            <subject-reference type="component" uuid-ref="75b059f2-a9ba-40b1-a1e0-881196ca1ead" />
-            <origin uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e" type="tool" />
-            <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
-               <description>
-                  <p>Raw scanner tool output - Infrastructure and OS Scan.</p>
-               </description>
-            </relevant-evidence>
-         </observation>
-         
-         <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
-            <title>Operational Requirement</title>
-            <description><p>Provide the justification for the operational requirement.</p></description>
-            <prop name="conformity" ns="https://fedramp.gov/ns/oscal">operational-requirement</prop>
-            <observation-method>EXAMINE</observation-method>
-            <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61">
-               <description><p>A screen shot showing the system impact when patch is applied.</p></description>
-            </relevant-evidence>
-            <relevant-evidence href="https://vendor.site/article/describing/something.htm">
-               <description><p>Vendor detail describing why this happens.</p></description>
-            </relevant-evidence>
-         </observation>
-
-         <observation uuid="46209140-8263-4e74-b3c9-cead4ffed22c">
-            <title>False Positive</title>
-            <description><p>Describe the false positive here.</p></description>
-            <prop name="conformity" ns="https://fedramp.gov/ns/oscal">false-positive</prop>
-            <observation-method>EXAMINE</observation-method>
-            <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61">
-               <description><p>A screen shot showing the setting is correct</p></description>
-            </relevant-evidence>
-            <relevant-evidence href="https://vendor.site/article/describing/something.htm">
-               <description><p>Vendor detail describing why this happens.</p></description>
-            </relevant-evidence>
-         </observation>
-         
-         <observation uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a">
-            <title>Risk Adjustment</title>
-            <description><p>Describe the risk adjustment justification here.</p></description>
-            <prop name="conformity" ns="https://fedramp.gov/ns/oscal">risk-adjustment</prop>
-            <observation-method>EXAMINE</observation-method>
-         </observation>
-         
-         <risk uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
-            <title>Vulnerability Title</title>
-            <description>
-               <p>This is a description of the vulnerability provided by the tool.</p>
-            </description>
-            
-            <risk-metric name="vulnerability-id" system="scanner-name">VulID-001</risk-metric>
-            <risk-metric name="plugin-id"        system="scanner-namme">Plugin-ID</risk-metric>
-            <risk-metric name="iavm-severity"    system="scanner-namme"></risk-metric>
-           
-            <risk-metric name="vulnerability-id" system="CVE">CVE-2020-00000</risk-metric>
-            <risk-metric name="impact"                     system="scanner-name">high</risk-metric>
-
-            <risk-metric name="likelihood" class="initial" system="https://fedramp.gov">high</risk-metric>
-            <risk-metric name="impact"     class="initial" system="https://fedramp.gov">high</risk-metric>
-            <risk-metric name="priority"                   system="https://fedramp.gov">1</risk-metric>
-            
-            <risk-metric name="operational-requirement"     system="https://fedramp.gov" />
-            <risk-metric name="false-positive"              system="https://fedramp.gov" />
-
-            <risk-metric name="risk-adjustment"             system="https://fedramp.gov" />
-            <risk-metric name="impact"     class="residual" system="https://fedramp.gov">high</risk-metric>
-            <risk-metric name="likelihood" class="residual" system="https://fedramp.gov">high</risk-metric>
-
-            <risk-metric name="AV"               system="CVSSv3.1">network</risk-metric>
-
-            <risk-statement>
-               <p>This is a statement about the identified risk as provided by the tool.</p>
-               <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
-            </risk-statement>
-            
-            <mitigating-factor uuid="260d3c0a-fc2e-4627-9fb9-a003acdc4b14">
-               <description><p>Describe mitigating factor</p></description>
-            </mitigating-factor>            
-            
-            <mitigating-factor uuid="fd061039-e9b0-4b4c-a78b-ca024d411174" implementation-uuid="46f4c261-e488-4fb5-84d6-6a61dd30c3d7">
-               <description><p>Describe why the cited implementation statement justifies lowering the risk.</p></description>
-            </mitigating-factor>            
-            
-            <remediation uuid="a3106e23-8b79-4b1b-abf4-74f16c51ad0c" type="recommendation">
-               <title>Tool's Recommendation</title>
-               <description>
-                  <p>A description of the recommended remediation as provided by the tool.</p>
-               </description>
-               <remediation-origin type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e" />
-               <remarks>
-                  <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
-                  <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
-               </remarks>
-            </remediation>
-            <remediation uuid="69344d05-937e-40f4-9c3f-9aa8702ad99d" type="recommendation">
-               <title>Assessor's Recommendation</title>
-               <description>
-                  <p>A description of the recommended remediation as provided by the assessor.</p>
-               </description>
-               <remediation-origin type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a" />
-               <remarks>
-                  <p>The assessor may add their recommendation in addition to the tool's recommendation, or if no tool recommendation is provided.</p>
-                  <p>The assessor should leave the tool recommendation, even if adding their own.</p>
-                  <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
-                  <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
-               </remarks>
-            </remediation>
-            
-            <risk-status>open</risk-status>
-            <closure-actions>
-               <p>Describe what action(s) the CSP took to close the risk.</p>
-               <p>Normally the closure-actions field is only present when the risk-status is "closed".</p>
-               <p>If the risk-status field is set to "open" this field is ignored.</p>
-               <p>[EXAMPLE]Applied patch. Vulnerability no longer found in subsequent scan.</p>
-            </closure-actions>
-            <remediation-tracking>
-               <tracking-entry uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
-                  <date-time-stamp>2020-07-07T00:00:00Z</date-time-stamp>
-                  <title>Closed</title>
-                  <description />
-               </tracking-entry>
-            </remediation-tracking>
-         </risk>
-         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
-         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <description>
+            <p>An example set of infrastructure scan findings.</p>
+         </description>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+         </origin>
+         <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
+         <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
+         <related-observation observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c"/>
+         <related-observation observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a"/>
+         <associated-risk risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7"/>
       </finding>
-
-
       <finding uuid="b56edab1-8cdc-45f9-8589-35f1bd7b3348">
          <title>[EXAMPLE]Spear Phishing Results</title>
-         <description><p>The Results of the spear phishing test.</p></description>
-         <collected>2020-03-01T10:11:12Z</collected>
-         <observation uuid="21b26801-2e00-4e59-979c-bf2a4ed93920">
-            <description>
-               <p>[EXAMPLE]Spear phishing test yielded a 22% click rate.</p>
-               <p>[EXAMPLE]The target threshold was below 20%.</p>
-            </description>
-            <observation-method>TEST</observation-method>
-            <observation-type>finding</observation-type>
-            <origin uuid-ref="8937348c-5ebb-40bd-a8eb-faff99af156e" type="task" />
-            <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
-               <description>
-                  <p>Spear Phishing Report.</p>
-               </description>
-            </relevant-evidence>
-         </observation>
-         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
-         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <description>
+            <p>The Results of the spear phishing test.</p>
+         </description>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+         </origin>
+         <related-observation observation-uuid="21b26801-2e00-4e59-979c-bf2a4ed93920"/>
          <remarks>
             <p>When reporting a result for a test such as the spear phishing activity, a risk assembly is required if the result is to be reported in the Risk Exposure Table.</p>
          </remarks>
       </finding>
-      
       <finding uuid="b56edab1-8cdc-45f9-8589-35f1bd7b3348">
          <title>[EXAMPLE]Penetration Test Result</title>
-         <description><p>A finding from penetration testing activities.</p></description>
-         <collected>2020-03-01T10:11:12Z</collected>
-         <observation uuid="21b26801-2e00-4e59-979c-bf2a4ed93920">
-            <description>
-               <p>[EXAMPLE]Describe the finding.</p>
-            </description>
-            <observation-method>TEST</observation-method>
-            <observation-type>finding</observation-type>
-            <origin uuid-ref="8937348c-5ebb-40bd-a8eb-faff99af156e" type="task" />
-            <relevant-evidence href="#e552fb72-d662-4c01-b2d7-4dcb2086bb07">
-               <description>
-                  <p>Penetration Test Report.</p>
-               </description>
-            </relevant-evidence>
-         </observation>
-         <risk uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07">
-            <title>Risk Title</title>
-            <description>
-               <p>This is a description of the issue found by the penetration testing team.</p>
-            </description>
-            
-            <risk-metric name="likelihood" class='initial' system="https://fedramp.gov">high</risk-metric>
-            <risk-metric name="impact"     class='initial' system="https://fedramp.gov">high</risk-metric>
-            <risk-metric name="priority"                   system="https://fedramp.gov">1</risk-metric>
-            
-            <risk-statement>
-               <p>This is a statement about the identified risk identified by penetraton testing.</p>
-            </risk-statement>
-            
-            <remediation uuid="69344d05-937e-40f4-9c3f-9aa8702ad99d" type="recommendation">
-               <title>Assessor's Recommendation</title>
-               <description>
-                  <p>A description of the recommended remediation as provided by the assessor.</p>
-               </description>
-               <remediation-origin type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a" />
-               <remarks>
-                  <p>The assessor may add their recommendation.</p>
-               </remarks>
-            </remediation>
-            
-            <risk-status>open</risk-status>
-         </risk>
-         <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
-         <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+         <description>
+            <p>A finding from penetration testing activities.</p>
+         </description>
+         <origin>
+            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+         </origin>
+         <related-observation observation-uuid="21b26801-2e00-4e59-979c-bf2a4ed93920"/>
+         <associated-risk risk-uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07"/>
          <remarks>
-            <p>If a penetration test result is positive, such as to say the SOC detected the activities appropriately, no risk is required.</p>
+            <p>If a penetration test result is favorable, such as to say the SOC detected the activities appropriately, no risk is required.</p>
             <p>If a penetration test result identifies a vulnerability or deficiency, the risk assembly is required.</p>
          </remarks>
       </finding>
-
-   </results>
-
-   <results uuid="cfa9b157-540e-456b-980d-efa789e50ace">
+   </result>
+   <result uuid="cfa9b157-540e-456b-980d-efa789e50ace">
       <title>2019 Annual Assessment</title>
       <description/>
       <start>2019-03-01T00:00:00Z</start>
       <end>2019-03-12T00:00:00Z</end>
+      <reviewed-controls>
+         <control-selection>
+            <include-control control-id="ac-1"/>
+            <include-control control-id="ac-2"/>
+            <remarks>
+               <p>Other controls omitted from example.</p>
+            </remarks>
+         </control-selection>
+      </reviewed-controls>
+      <observation uuid="EF3A436A-7445-41B7-A980-78E9BAB3B83A">
+         <description/>
+         <method>EXAMINE</method>
+         <collected>2019-03-01T10:11:12Z</collected>
+      </observation>
       <finding uuid="30451d68-4b70-42cc-a564-a26696a6ed03">
          <title/>
          <description/>
-         <collected>2019-03-01T10:11:12Z</collected>
       </finding>
-   </results>
-
-   <results uuid="d755e7fd-346d-40f0-b538-1b1da1aa5821">
+   </result>
+   <result uuid="d755e7fd-346d-40f0-b538-1b1da1aa5821">
       <title>Initial (2018) Assessment</title>
       <description/>
       <start>2018-03-01T00:00:00Z</start>
       <end>2018-03-12T00:00:00Z</end>
-      <finding uuid="0cbd1819-3ea7-4f78-9ebc-92873eab4d6e">
-         <title>AC-1.1.1.3</title>
-         <description/>
+      <reviewed-controls>
+         <control-selection>
+            <include-control control-id="ac-1"/>
+            <include-control control-id="ac-2"/>
+            <remarks>
+               <p>Other controls omitted from example.</p>
+            </remarks>
+         </control-selection>
+      </reviewed-controls>
+      <observation uuid="1c23ddee-7001-4512-9de1-e062faa69c0a">
+         <title>[EXAMPLE]</title>
+         <description>
+            <p>[EXAMPLE]This is the contents of the Observations and Evidence cell in the TCW.</p>
+         </description>
+         <method>MIXED</method>
+         <type>historic</type>
+         <origin>
+            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+         </origin>
          <collected>2018-03-01T00:00:00Z</collected>
-         <objective-status objective-id="ac-1.1_obj.3">
-            <result system="https://fedramp.gov">satisfied</result>
-            <implementation-status system="https://fedramp.gov">implemented</implementation-status>
-         </objective-status>
-         <observation uuid="1c23ddee-7001-4512-9de1-e062faa69c0a">
-            <title>[EXAMPLE]</title>
-            <description>
-               <p>[EXAMPLE]This is the contents of the Observations and Evidence cell in the TCW.</p>
-            </description>
-            <observation-method>MIXED</observation-method>
-            <observation-type>historic</observation-type>
-            <assessor party-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" />
-         </observation>
+      </observation>
+      <finding uuid="A0A1395D-59CD-46D9-91A2-E6CA62AE9BAB">
+         <title/>
+         <description/>
       </finding>
-   </results>
-
+   </result>
    <back-matter>
       <resource uuid="65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
          <title>[EXAMPLE]Interview Notes</title>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">evidence</prop>
-         <rlink media-type="application/msword" href="./evidence/interview-notes.docx"></rlink>
+         <prop name="type" value="evidence"/>
+         <rlink media-type="application/msword" href="./evidence/interview-notes.docx"/>
          <base64 media-type="application/msword" filename="interview-notes.docx">00000000</base64>
          <remarks>
             <p>A tool could use either an rlink or base64 field.</p>
@@ -1116,11 +1208,11 @@
       </resource>
       <resource uuid="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
          <title>[EXAMPLE]AC Policy</title>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">artifact</prop>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">policy</prop>
-         <prop name="version" ns="https://fedramp.gov/ns/oscal">2.1</prop>
-         <prop name="publication" ns="https://fedramp.gov/ns/oscal">2018-11-11T00:00:00Z</prop>
-         <rlink media-type="application/pdf" href="./artifacts/AC_Policy.pdf"></rlink>
+         <prop name="type" value="artifact"/>
+         <prop name="type" value="policy"/>
+         <prop name="version" value="2.1"/>
+         <prop name="publication" value="2018-11-11T00:00:00Z"/>
+         <rlink media-type="application/pdf" href="./artifacts/AC_Policy.pdf"/>
          <base64 media-type="application/pdf" filename="AC_Policy.pdf">00000000</base64>
          <remarks>
             <p>A tool could use either an rlink or base64 field.</p>
@@ -1131,8 +1223,8 @@
       </resource>
       <resource uuid="53af7193-b25d-4ed2-a82f-5954d2d0df61">
          <title>[EXAMPLE]Screen Shot</title>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">evidence</prop>
-         <rlink media-type="image/jpeg" href="./evidence/screen-shot.jpg"></rlink>
+         <prop name="type" value="evidence"/>
+         <rlink media-type="image/jpeg" href="./evidence/screen-shot.jpg"/>
          <base64 media-type="image/jepg" filename="screen-shot.jpg">00000000</base64>
          <remarks>
             <p>A tool could use either an rlink or base64 field.</p>
@@ -1143,10 +1235,12 @@
       </resource>
       <resource uuid="19a07333-4e87-46dc-abab-adad60e706b9">
          <title>[EXAMPLE]Raw Scan Results - Discovery Scan</title>
-         <desc>Raw scan results exported from the scanning tool.</desc>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">evidence</prop>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">raw-tool-output</prop>
-         <rlink media-type="text/csv" href="./scans/raw_tool_output.csv"></rlink>
+         <description>
+            <p>Raw scan results exported from the scanning tool.</p>
+         </description>
+         <prop name="type" value="evidence"/>
+         <prop name="type" value="raw-tool-output"/>
+         <rlink media-type="text/csv" href="./scans/raw_tool_output.csv"/>
          <remarks>
             <p>A SAR tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
@@ -1156,10 +1250,12 @@
       </resource>
       <resource uuid="171b44a2-9b52-4c46-b912-54bd274b2761">
          <title>[EXAMPLE]Raw Scan Results - OS and Inf Scans</title>
-         <desc>Raw scan results exported from the scanning tool.</desc>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">evidence</prop>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">raw-tool-output</prop>
-         <rlink media-type="text/csv" href="./scans/raw_tool_output.csv"></rlink>
+         <description>
+            <p>Raw scan results exported from the scanning tool.</p>
+         </description>
+         <prop name="type" value="evidence"/>
+         <prop name="type" value="raw-tool-output"/>
+         <rlink media-type="text/csv" href="./scans/raw_tool_output.csv"/>
          <remarks>
             <p>A SAR tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
@@ -1169,9 +1265,9 @@
       </resource>
       <resource uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07">
          <title>Penetration Test Report</title>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">penetration-test-report</prop>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">report</prop>
-         <rlink media-type="application/pdf" href="./pen_test_report.pdf" />
+         <prop name="type" value="penetration-test-report"/>
+         <prop name="type" value="report"/>
+         <rlink media-type="application/pdf" href="./pen_test_report.pdf"/>
          <remarks>
             <p>A SAR tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
@@ -1181,16 +1277,18 @@
       </resource>
       <resource uuid="5cce2310-8fcc-49f8-8cae-8e31dc8048f1">
          <title>[System Name] [FIPS-199 Level] SAP</title>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal">sap</prop>
-         <prop name="publication" ns="https://fedramp.gov/ns/oscal">SAP Date</prop>
-         <prop name="version" ns="https://fedramp.gov/ns/oscal">SAP Version</prop>
+         <prop name="type" value="sap"/>
+         <prop name="publication" value="SAP Date"/>
+         <prop name="version" value="SAP Version"/>
          <rlink media-type="application/xml" href="../sap/CSP_System_SAP.xml"/>
          <rlink media-type="application/json" href="../sap/CSP_System_SAP.json"/>
          <base64 filename="CSP_System_SAP.xml" media-type="application/xml">00000000</base64>
       </resource>
       <resource uuid="3a9ace38-c36a-4478-bd2a-f00961889214">
-         <desc>Signed SAR</desc>
-         <prop name="conformity" ns="https://fedramp.gov/ns/oscal">signature</prop>
+         <description>
+            <p>Signed SAR</p>
+         </description>
+         <prop name="type" value="signature"/>
          <!-- Use rlink and/or base64 -->
          <rlink href="./signed-sar.pdf" media-type="application/pdf"/>
          <base64 filename="sar.pdf" media-type="application/pdf">00000000</base64>
@@ -1204,6 +1302,31 @@
             <p>If your organization prefers another approach, please seek prior approval from the FedRAMP PMO.</p>
          </remarks>
       </resource>
-      
+      <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
+         <title>FedRAMP Applicable Laws and Regulations</title>
+         <prop name="type" value="fedramp-citations"/>
+         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
+         <remarks>
+            <p>Must be present in a FedRAMP SSP.</p>
+         </remarks>
+      </resource>
+      <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
+         <title>FedRAMP Master Acronym and Glossary</title>
+         <prop name="type" value="fedramp-acronyms"/>
+         <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
+         <remarks>
+            <p>Must be present in a FedRAMP SSP.</p>
+         </remarks>
+      </resource>
+      <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
+         <description>
+            <p>FedRAMP Logo</p>
+         </description>
+         <prop name="type" value="logo"/>
+         <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
+         <remarks>
+            <p>Must be present in a FedRAMP SSP.</p>
+         </remarks>
+      </resource>
    </back-matter>
 </assessment-results>
