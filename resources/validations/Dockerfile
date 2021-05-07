@@ -1,10 +1,11 @@
-FROM openjdk:17-jdk-buster
+FROM openjdk:17-alpine
 
 # Install htmltidy
-RUN apt-get update && \
-    apt-get install --no-install-recommends -y \
-    tidy && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache \
+    bash \
+    tidyhtml
+
+WORKDIR /root
 
 # Add contents of this directory to the root user's home directory.
 ADD . /root

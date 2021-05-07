@@ -23,37 +23,37 @@
         <xsl:choose>
             <!-- Atomic types, integers, strings, et cetera. -->
             <xsl:when test="$item instance of xs:untypedAtomic or
-                        $item instance of xs:anyURI or
-                        $item instance of xs:string or
-                        $item instance of xs:QName or
-                        $item instance of xs:boolean or
-                        $item instance of xs:base64Binary or
-                        $item instance of xs:hexBinary or
-                        $item instance of xs:integer or
-                        $item instance of xs:decimal or
-                        $item instance of xs:float or
-                        $item instance of xs:double or
-                        $item instance of xs:date or
-                        $item instance of xs:time or
-                        $item instance of xs:dateTime or
-                        $item instance of xs:dayTimeDuration or
-                        $item instance of xs:yearMonthDuration or
-                        $item instance of xs:duration or
-                        $item instance of xs:gMonth or
-                        $item instance of xs:gYear or
-                        $item instance of xs:gYearMonth or
-                        $item instance of xs:gDay or
-                        $item instance of xs:gMonthDay">
+                            $item instance of xs:anyURI or
+                            $item instance of xs:string or
+                            $item instance of xs:QName or
+                            $item instance of xs:boolean or
+                            $item instance of xs:base64Binary or
+                            $item instance of xs:hexBinary or
+                            $item instance of xs:integer or
+                            $item instance of xs:decimal or
+                            $item instance of xs:float or
+                            $item instance of xs:double or
+                            $item instance of xs:date or
+                            $item instance of xs:time or
+                            $item instance of xs:dateTime or
+                            $item instance of xs:dayTimeDuration or
+                            $item instance of xs:yearMonthDuration or
+                            $item instance of xs:duration or
+                            $item instance of xs:gMonth or
+                            $item instance of xs:gYear or
+                            $item instance of xs:gYearMonth or
+                            $item instance of xs:gDay or
+                            $item instance of xs:gMonthDay">
                 <xsl:value-of select="if ($item =&gt; string() =&gt; normalize-space() = '') then $default else $item" />
             </xsl:when>
             <!-- Any node-kind that can be a sequence type -->
             <xsl:when test="$item instance of element() or
-                        $item instance of attribute() or
-                        $item instance of text() or
-                        $item instance of node() or
-                        $item instance of document-node() or
-                        $item instance of comment() or
-                        $item instance of processing-instruction()">
+                            $item instance of attribute() or
+                            $item instance of text() or
+                            $item instance of node() or
+                            $item instance of document-node() or
+                            $item instance of comment() or
+                            $item instance of processing-instruction()">
                 <xsl:sequence select="if ($item =&gt; normalize-space() =&gt; not()) then $default else $item" />
             </xsl:when>
             <xsl:otherwise>
@@ -206,7 +206,7 @@
         <xsl:param as="element()*"
                    name="analysis" />
         <xsl:value-of>There are 
-        <xsl:value-of select="$analysis/reports/@count" />&#xA0;
+        <xsl:value-of select="$analysis/reports/@count" />&#xA0; 
         <xsl:value-of select="$analysis/reports/@formal-name" />
         <xsl:choose>
             <xsl:when test="$analysis/reports/report">items total, with</xsl:when>
@@ -240,7 +240,7 @@
                      value="lv:correct($ok-values, $sensitivity-level)" />
             <sch:assert id="no-registry-values"
                         role="fatal"
-                        test="count($registry/f:fedramp-values/f:value-set) &gt; 0">The registry values at the path '
+                        test="count($registry/f:fedramp-values/f:value-set) &gt; 0">The registry values at the path ' 
             <sch:value-of select="$registry-href" />' are not present, this configuration is invalid.</sch:assert>
             <sch:assert id="no-security-sensitivity-level"
                         organizational-id="section-c.1.a"
@@ -251,7 +251,7 @@
                         organizational-id="section-c.1.a"
                         role="fatal"
                         test="empty($ok-values) or not(exists($corrections))">[Section C Check 1.a] 
-            <sch:value-of select="./name()" />is an invalid value of '
+            <sch:value-of select="./name()" />is an invalid value of ' 
             <sch:value-of select="lv:sensitivity-level(/)" />', not an allowed value of 
             <sch:value-of select="$corrections" />. No more validation processing can occur.</sch:assert>
         </sch:rule>
@@ -286,7 +286,7 @@
                         organizational-id="section-c.3"
                         role="error"
                         test="not(exists($core-missing))">[Section C Check 3] This SSP has not implemented the most important 
-            <sch:value-of select="count($core-missing)" />core
+            <sch:value-of select="count($core-missing)" />core 
             <sch:value-of select="if (count($core-missing)=1) then ' control' else ' controls'" />: 
             <sch:value-of select="$core-missing/@id" /></sch:assert>
             <sch:assert id="incomplete-all-implemented-requirements"
@@ -300,7 +300,7 @@
                         organizational-id="section-c.2"
                         role="warn"
                         test="not(exists($extraneous))">[Section C Check 2] This SSP has implemented 
-            <sch:value-of select="count($extraneous)" />extraneous
+            <sch:value-of select="count($extraneous)" />extraneous 
             <sch:value-of select="if (count($extraneous)=1) then ' control' else ' controls'" />not needed given the selected profile: 
             <sch:value-of select="$extraneous/@control-id" /></sch:assert>
             <sch:let name="results"
@@ -335,7 +335,7 @@
             <sch:assert id="invalid-implementation-status"
                         organizational-id="section-c.2"
                         role="error"
-                        test="not(exists($corrections))">[Section C Check 2] Invalid status '
+                        test="not(exists($corrections))">[Section C Check 2] Invalid status ' 
             <sch:value-of select="$status" />' for 
             <sch:value-of select="./@control-id" />, must be 
             <sch:value-of select="$corrections" /></sch:assert>
@@ -392,7 +392,7 @@
                     role="warning"
                     test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] =&gt; exists()">[Section D Checks]
                     Response statment 
-        <sch:value-of select="../@statement-id" />with component reference UUID '
+        <sch:value-of select="../@statement-id" />with component reference UUID ' 
         <sch:value-of select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a control.</sch:assert>
         <sch:assert id="missing-component-description"
                     organizational-id="section-d"
@@ -474,7 +474,7 @@
                     role="warning"
                     test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] =&gt; exists()">[Section D Checks]
                     Response statment 
-        <sch:value-of select="../@statement-id" />with component reference UUID '
+        <sch:value-of select="../@statement-id" />with component reference UUID ' 
         <sch:value-of select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a control.</sch:assert>
         <sch:assert id="missing-component-description"
                     organizational-id="section-d"
