@@ -384,7 +384,7 @@
       <extension-name>connection-security</extension-name>
       <formal-name>Connection Security</formal-name>
       <description>Identifies the mechanisms/protocol(s) used to secure the communication.</description>
-      <binding pattern="/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:annotation" />
+      <binding pattern="/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop" />
       <constraint>
          <matches data-type="NCName" />
          <has-cardinality min-occurs="1" max-occurs="unbounded" />
@@ -603,11 +603,11 @@
       <extension-name>implementation-status</extension-name>
       <formal-name>Control Implementation Status</formal-name>
       <description>Indicates the implementation status of the control.</description>
-      <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:annotation"/>
+      <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop"/>
       <constraint>
          <has-cardinality min-occurs="1" max-occurs="unbounded" />
          <remarks>
-            <p>When an annotation is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the <code>@value</code> flag.</p>
+            <p>When a prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the <code>@value</code> flag.</p>
          </remarks>
       </constraint>
    </extension>
@@ -630,11 +630,11 @@
       <extension-name>control-origination</extension-name>
       <formal-name>Control Origination</formal-name>
       <description>The point(s) from which the control satisfaction originates.</description>
-      <binding pattern="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:annotation"/>
+      <binding pattern="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:prop"/>
       <constraint>
          <has-cardinality min-occurs="0" max-occurs="1" />
          <remarks>
-            <p>When an annotation is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the <code>@value</code> flag.</p>
+            <p>When a prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the <code>@value</code> flag.</p>
          </remarks>
       </constraint>
    </extension>
@@ -934,7 +934,7 @@
    <constraint name="control-origination-constraints">
       <formal-name>Control Origination</formal-name>
       <description>The point(s) from which the control satisfaction originates.</description>
-      <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:annotation[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
+      <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
       <matches data-type="NCName" />
       <allowed-values allow-other="no">
          <enum value="sp-corporate" label="SP Corporate">Service Provider (Corporate)</enum>
@@ -948,7 +948,7 @@
    <constraint name="control-implementation-status-constraints">
       <formal-name>Control Implementation Status Constraints</formal-name>
       <description>Defines the data type and allowed values for the Control Implementation Status</description>
-      <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:annotation[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
+      <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
       <matches data-type="NCName" />
       <allowed-values allow-other="no">
          <enum value="implemented" label="Implemented">The assessor finds sufficient evidence to agree the control objective is fully implemented.</enum>
@@ -958,7 +958,7 @@
          <enum value="not-applicable" label="Not Applicable (N/A)">The assessor finds this control objective does not apply to this system.</enum>
       </allowed-values>
       <remarks>
-         <p>When an extension is an annotation, the data type and allowed values must be defined in a separate constraint.</p>
+         <p>When an extension is a prop, the data type and allowed values must be defined in a separate constraint.</p>
       </remarks>
    </constraint>
 
@@ -967,7 +967,7 @@
       <description>Remarks are required for certain Control Implementation Status values.</description>
       <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement"/>
       <matches data-type="NCName" />
-      <expect test="(o:annotation[@name='planned-completion'][@ns='https://fedramp.gov/ns/oscal'])" />
+      <expect test="(o:prop[@name='planned-completion'][@ns='https://fedramp.gov/ns/oscal'])" />
    </constraint>
  
    <constraint>
@@ -984,13 +984,13 @@
       <formal-name>Planned Implementation Date Exists</formal-name>
       <description>If the control implementation status is "Planned" a "Planned Implementation Date" must be provided.</description>
       <prop name="reference">3.1</prop>
-      <binding pattern="/o:system-security-plan/o:control-implementation/o:implemented-requirement[o:annotation[@name='implementation-status'][@value='planned']]" />
+      <binding pattern="/o:system-security-plan/o:control-implementation/o:implemented-requirement[o:prop[@name='implementation-status'][@value='planned']]" />
       <expect test="(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='partial']/remarks)" />
       <expect test="(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='planned']/remarks)" />
       <expect test="(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='alternative']/remarks)" />
       <expect test="(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='not-applicable']/remarks)" />
       <remarks>
-         <p>In the SSP, if <code>implemented-requirement</code> includes <code>annotation[@name='implementation-status']</code> with <code>value='planned'</code>, a <code>planned-completion-date</code> extension must be provided.</p>
+         <p>In the SSP, if <code>implemented-requirement</code> includes <code>prop[@name='implementation-status']</code> with <code>value='planned'</code>, a <code>planned-completion-date</code> extension must be provided.</p>
       </remarks>
    </constraint>
 
@@ -1133,7 +1133,7 @@
    <constraint name="service-model">
       <formal-name>Service Model</formal-name>
       <description>The cloud service model.</description>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:annotation[@name='service-model']/@value"/>
+      <binding pattern="/o:system-security-plan/o:system-characteristics/o:prop[@name='service-model']/@value"/>
       <allowed-values allow-other="no">
          <enum value="saas" label="SaaS">Software as a Service</enum>
          <enum value="paas" label="PaaS">Platform as a Service</enum>
@@ -1145,7 +1145,7 @@
    <constraint name="deployment-model">
       <formal-name>Deployment Model</formal-name>
       <description>The cloud deployment model.</description>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:annotation[@name='deployment-model']/@value"/>
+      <binding pattern="/o:system-security-plan/o:system-characteristics/o:prop[@name='deployment-model']/@value"/>
       <allowed-values allow-other="no">
          <enum value="public-cloud" label="Public">Public Cloud</enum>
          <enum value="private-cloud" label="Private">Private Cloud</enum>
