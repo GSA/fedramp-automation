@@ -24,7 +24,7 @@ __Prerequesite__
 
 `git submodule update --init --recursive`
 
-__Command Options__ for `/bin/validate_with_schematron.sh` 
+__Command Options__ for `/bin/validate_with_schematron.sh`
 
 `-f` *\<required>* is the input file to be tested. ex: `-f test/demo/FedRAMP-SSP-OSCAL-Template.xml`
 
@@ -82,5 +82,12 @@ Developers ought to review the following relevant information sources, in order 
 
 Per [18F/fedramp-automation#61](https://github.com/18F/fedramp-automation/issues/61), programmatic diff utilities to semantically analyze the differences between OSCAL versions requires resources not available at this time.
 
+__Formatting XML__
 
+When contributing, please use the provided XML formatter (htmltidy >= 5.6.0). Formatting options are chosen for readability, and for clean git diffs.
 
+To format validation XML, you may use the provided Docker container:
+
+```bash
+docker-compose run validator ./bin/format_xml.sh
+```
