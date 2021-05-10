@@ -958,7 +958,7 @@
          <enum value="not-applicable" label="Not Applicable (N/A)">The assessor finds this control objective does not apply to this system.</enum>
       </allowed-values>
       <remarks>
-         <p>When an extension is an prop, the data type and allowed values must be defined in a separate constraint.</p>
+         <p>When an extension is a prop, the data type and allowed values must be defined in a separate constraint.</p>
       </remarks>
    </constraint>
 
