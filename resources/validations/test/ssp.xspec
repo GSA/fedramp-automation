@@ -65,9 +65,9 @@
                             </system-characteristics>
                             <control-implementation>
                                 <implemented-requirement control-id="at-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
-                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="inconceivable">
+                                    <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="inconceivable">
                                     <remarks></remarks>
-                                    </annotation>
+                                    </prop>
                                 </implemented-requirement>
                             </control-implementation>
                         </system-security-plan>
@@ -82,9 +82,9 @@
                             </system-characteristics>
                             <control-implementation>
                                 <implemented-requirement control-id="cm-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
-                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented">
+                                    <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented">
                                     <remarks></remarks>
-                                    </annotation>
+                                    </prop>
                                 </implemented-requirement>
                             </control-implementation>
                         </system-security-plan>
@@ -101,9 +101,9 @@
                         <control-implementation>
                             <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
                                 <prop name="planned-completion-date" ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="planned">
                                 <remarks></remarks>
-                                </annotation>
+                                </prop>
                             </implemented-requirement>
                         </control-implementation>
                     </system-security-plan>
@@ -210,7 +210,7 @@
                             <control-implementation>
                                 <!-- Requirements and lettered responses for AC-7 are complete, so these will be absent from the report. -->
                                 <implemented-requirement control-id="ac-7" uuid="c1a9916f-cba6-4910-b2ea-b4ba17b03480">
-                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                    <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                                     <statement statement-id="ac-7_smt.a" uuid="8d8e73f3-b966-4b3e-a545-93923885ba2a">
                                         <by-component component-uuid="5129f6ad-53f7-47be-9e5c-22728012264a" uuid="fa680b3c-9da9-443f-9a4c-db731a5218f7">
                                             <description>
@@ -249,7 +249,7 @@
                             </system-implementation>
                             <control-implementation>
                                 <implemented-requirement control-id="ac-1" uuid="c1a9916f-cba6-4910-b2ea-b4ba17b03480">
-                                    <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                    <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                                 </implemented-requirement>
                             </control-implementation>
                         </system-security-plan>
@@ -442,190 +442,190 @@
                         <!-- For thee FedRAMP Low Baseline, there are 62 CORE controls. -->
                         <control-implementation>
                             <implemented-requirement control-id="ac-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ac-2">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ac-7">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ac-17">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ac-18">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ac-19">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ac-22">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="at-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="at-2">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="at-3">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="at-4">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="au-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="au-2">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="au-6">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="au-11">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ca-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ca-2">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ca-3">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ca-5">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ca-7">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ca-9">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="cm-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="cm-6">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="cm-8">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="cp-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="cp-2">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="cp-3">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="cp-4">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="cp-9">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ia-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ia-4">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ia-5">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ia-5.1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ir-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ir-2">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ir-6">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ir-8">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ma-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ma-4">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="mp-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="pe-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="pe-2">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="pe-3">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="pe-6">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="pe-8">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="pl-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="pl-2">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ps-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ps-3">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ps-4">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ps-5">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ps-6">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ps-7">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ra-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="ra-5">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="sa-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="sc-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="sc-13">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="si-1">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="si-2">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="si-3">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                             <implemented-requirement control-id="si-4">
-                                <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+                                <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
                             </implemented-requirement>
                         </control-implementation>
                     </system-security-plan>
@@ -646,9 +646,9 @@
                     </system-characteristics>
                     <control-implementation>
                         <implemented-requirement control-id="ac-5" uuid="373c8a10-7885-4209-9e55-0b69747cb6b9">
-                            <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented">
+                            <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented">
                             <remarks></remarks>
-                            </annotation>
+                            </prop>
                         </implemented-requirement>
                     </control-implementation>
                 </system-security-plan>
@@ -668,9 +668,9 @@
                     </system-characteristics>
                     <control-implementation>
                         <implemented-requirement control-id="ac-1" uuid="4b81d5aa-2149-4b7b-ab28-69e390226784">
-                            <annotation name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="partial">
+                            <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="partial">
                             <remarks></remarks>
-                            </annotation>
+                            </prop>
                         </implemented-requirement>
                     </control-implementation>
                 </system-security-plan>
