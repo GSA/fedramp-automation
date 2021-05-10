@@ -113,7 +113,7 @@
    <value-set name="service-model">
       <formal-name>Service Model</formal-name>
       <description>The cloud service model.</description>
-      <binding pattern="system-characteristics/annotation[@name='service-model']/@value"/>
+      <binding pattern="system-characteristics/prop[@name='service-model']/@value"/>
       <allowed-values allow-other="no">
          <enum value="saas" short-label="SaaS">Software as a Service</enum>
          <enum value="paas" short-label="PaaS">Platform as a Service</enum>
@@ -125,7 +125,7 @@
    <value-set name="deployment-model">
       <formal-name>Deployment Model</formal-name>
       <description>The cloud deployment model.</description>
-      <binding pattern="system-characteristics/annotation[@name='deployment-model']/@value"/>
+      <binding pattern="system-characteristics/prop[@name='deployment-model']/@value"/>
       <allowed-values allow-other="no">
          <enum value="public-cloud" short-label="Public">Public Cloud</enum>
          <enum value="private-cloud" short-label="Private">Private Cloud</enum>
@@ -289,7 +289,7 @@
    <value-set name="user-type">
       <formal-name>User Type</formal-name>
       <description>Identifies the user type.</description>
-      <binding pattern="user/annotation[@name='type']/@value"/>
+      <binding pattern="user/prop[@name='type']/@value"/>
       <allowed-values allow-other="no">
          <enum value="internal" short-label="I">Internal</enum>
          <enum value="external" short-label="E">External</enum>
@@ -300,7 +300,7 @@
    <value-set name="user-privilege">
       <formal-name>User Privilege</formal-name>
       <description>Identifies the privilege level of the user.</description>
-      <binding pattern="user/annotation[@name='privilege-level']/@value"/>
+      <binding pattern="user/prop[@name='privilege-level']/@value"/>
       <allowed-values allow-other="no">
          <enum value="privileged" short-label="P">Privileged</enum>
          <enum value="non-privileged" short-label="NP">Non-Privileged</enum>
@@ -335,7 +335,7 @@
    <value-set name="interconnection-security">
       <formal-name>Interconnection Security</formal-name>
       <description>Identifies the type of security applied to the interconnection.</description>
-      <binding pattern="component[@component-type='interconnection']/annotation[@name='connection-security'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
+      <binding pattern="component[@component-type='interconnection']/prop[@name='connection-security'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
       <allowed-values allow-other="no">
          <enum value="ipsec" short-label="IPsec">IPsec</enum>
          <enum value="vpn" short-label="VPN">Virtual Private Network</enum>
@@ -434,31 +434,31 @@
    <value-set name="allows-authenticated-scan">
       <formal-name>Allows Authenticated Scan</formal-name>
       <description>Indicates if the asset is capable of having an authenticated scan.</description>
-      <binding pattern="inventory-item/annotation[@name='allows-authenticated-scan']/@value"/>
-      <binding pattern="component/annotation[@name='allows-authenticated-scan']/@value"/>
+      <binding pattern="inventory-item/prop[@name='allows-authenticated-scan']/@value"/>
+      <binding pattern="component/prop[@name='allows-authenticated-scan']/@value"/>
       <allowed-values allow-other="no">
          <enum value="yes" short-label="Y">Yes</enum>
          <enum value="no" short-label="N">No</enum>
       </allowed-values>
-      <remarks>if the value is "no", the annotation remarks must contain the reason why.</remarks>
+      <remarks>if the value is "no", the prop remarks must contain the reason why.</remarks>
    </value-set>
    
    <value-set name="is-scanned">
       <formal-name>Is Scanned</formal-name>
       <description>Indicates if the asset is scan.</description>
-      <binding pattern="inventory-item/annotation[@name='is-scanned']/@value"/>
-      <binding pattern="component/annotation[@name='is-scannan']/@value"/>
+      <binding pattern="inventory-item/prop[@name='is-scanned']/@value"/>
+      <binding pattern="component/prop[@name='is-scannan']/@value"/>
       <allowed-values allow-other="no">
          <enum value="yes" short-label="Y">Yes</enum>
          <enum value="no" short-label="N">No</enum>
       </allowed-values>
-      <remarks>if the value is "no", the annotation remarks must contain the reason why.</remarks>
+      <remarks>if the value is "no", the prop remarks must contain the reason why.</remarks>
    </value-set>
    
    <value-set name="control-implementation-status">
       <formal-name>Control Implementation Status</formal-name>
       <description>The implementation status of the control.</description>
-      <binding pattern="implemented-requirement/annotation[@name='implementation-status']/@value"/>
+      <binding pattern="implemented-requirement/prop[@name='implementation-status']/@value"/>
       <allowed-values allow-other="no">
          <enum value="implemented" short-label="Implemented">Implemented</enum>
          <enum value="partial" short-label="Partial">Partially Implemented</enum>
@@ -471,7 +471,7 @@
    <value-set name="control-origination">
       <formal-name>Control Origination</formal-name>
       <description>The point(s) from which the control satisfaction originates.</description>
-      <binding pattern="implemented-requirement/annotation[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
+      <binding pattern="implemented-requirement/prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
       <allowed-values allow-other="no">
          <enum value="sp-corporate" short-label="SP Corporate">Service Provider (Corporate)</enum>
          <enum value="sp-system" short-label="SP System">Service Provider (System Specific)</enum>

@@ -230,7 +230,7 @@
         <sch:assert role="error" organizational-id="section-c.3" id="incomplete-core-implemented-requirements" test="not(exists($core-missing))">[Section C Check 3] This SSP has not implemented the most important <sch:value-of select="count($core-missing)"/> core<sch:value-of select="if (count($core-missing)=1) then ' control' else ' controls'"/>: <sch:value-of select="$core-missing/@id"/></sch:assert>
         <sch:assert role="warn" organizational-id="section-c.2" id="incomplete-all-implemented-requirements" test="not(exists($all-missing))">[Section C Check 2] This SSP has not implemented <sch:value-of select="count($all-missing)"/><sch:value-of select="if (count($all-missing)=1) then ' control' else ' controls'"/> overall: <sch:value-of select="$all-missing/@id"/></sch:assert>
         <sch:assert role="warn" organizational-id="section-c.2" id="extraneous-implemented-requirements" test="not(exists($extraneous))">[Section C Check 2] This SSP has implemented <sch:value-of select="count($extraneous)"/> extraneous<sch:value-of select="if (count($extraneous)=1) then ' control' else ' controls'"/> not needed given the selected profile: <sch:value-of select="$extraneous/@control-id"/></sch:assert>
-        <sch:let name="results" value="$ok-values => lv:analyze(//o:implemented-requirement/o:annotation[@name='implementation-status'])"/>
+        <sch:let name="results" value="$ok-values => lv:analyze(//o:implemented-requirement/o:prop[@name='implementation-status'])"/>
         <sch:let name="total" value="$results/reports/@count"/>
         <sch:report role="positive" id="control-implemented-requirements-stats" test="count($results/errors/error) = 0"><sch:value-of select="$results => lv:report() => normalize-space()"/></sch:report>
     </sch:rule>
@@ -240,7 +240,7 @@
         <sch:let name="selected-profile" value="$sensitivity-level => lv:profile()"/>
         <sch:let name="registry" value="$registry-href => lv:registry()"/>
         <sch:let name="registry-ns" value="$registry/f:fedramp-values/f:namespace/f:ns/@ns"/>
-        <sch:let name="status" value="./o:annotation[@name='implementation-status']/@value"/>
+        <sch:let name="status" value="./o:prop[@name='implementation-status']/@value"/>
         <sch:let name="corrections" value="lv:correct($registry/f:fedramp-values/f:value-set[@name='control-implementation-status'], $status)"/>
         <sch:let name="required-response-points" value="$selected-profile/o:catalog//o:part[@name='item']"/>
         <sch:let name="implemented" value="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement"/>
