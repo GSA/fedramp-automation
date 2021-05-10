@@ -634,7 +634,7 @@
       <constraint>
          <has-cardinality min-occurs="0" max-occurs="1" />
          <remarks>
-            <p>When an prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the <code>@value</code> flag.</p>
+            <p>When a prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the <code>@value</code> flag.</p>
          </remarks>
       </constraint>
    </extension>
