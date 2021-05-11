@@ -536,5 +536,30 @@
             <sch:value-of select="if (count($extraneous-parties)=1) then ' party' else ' parties'" />is not a defined party: 
             <sch:value-of select="$extraneous-parties/o:party-uuid" /></sch:assert>
         </sch:rule>
+        <sch:rule context="/o:system-security-plan/o:back-matter/o:resource">
+            <sch:assert id="resource-uuid-required"
+                        organizational-id="section-b.?????"
+                        test="./@uuid">[Section B Check ????] This SSP includes back-matter resource missing a UUID</sch:assert>
+        </sch:rule>
+        <sch:rule context="/o:system-security-plan/o:back-matter/o:resource/o:rlink">
+            <sch:assert id="resource-rlink-required"
+                        organizational-id="section-b.?????"
+                        test="doc-available(./@href)">[Section B Check ????] This SSP references back-matter resource: 
+            <sch:value-of select="./@href" /></sch:assert>
+        </sch:rule>
+        <sch:rule context="/o:system-security-plan/o:back-matter/o:resource/o:base64">
+            <sch:let name="filename"
+                     value="@filename" />
+            <sch:let name="media-type"
+                     value="@media-type" />
+            <sch:assert id="resource-base64-available"
+                        organizational-id="section-b.?????"
+                        test="./@filename">[Section B Check ????] This SSP has file name: 
+            <sch:value-of select="./@filename" /></sch:assert>
+            <sch:assert id="resource-base64-available"
+                        organizational-id="section-b.?????"
+                        test="./@filename">[Section B Check ????] This SSP has media type: 
+            <sch:value-of select="./@media-type" /></sch:assert>
+        </sch:rule>
     </sch:pattern>
 </sch:schema>

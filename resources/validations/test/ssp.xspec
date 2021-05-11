@@ -1033,6 +1033,39 @@
                                  label="role-id referenced is not defined case." />
             </x:scenario>
         </x:scenario>
+        <x:scenario label="when back matter resource is present">
+            <x:scenario label="missing required fields trigger error">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <back-matter>
+                            <resource>
+                                <rlink />
+                            </resource>
+                        </back-matter>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="resource-uuid-required"
+                                 label="back-matter resource missing uuid attribute." />
+                <x:expect-assert id="resource-rlink-required"
+                                 label="back-matter resource rlink missing href attribute." />
+            </x:scenario>
+            <x:scenario label="required fields are set"></x:scenario>
+            <x:scenario label="and rlink is valid">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <back-matter>
+                            <resource uuid="e6522953-6714-435d-a0d3-140df554c186">
+                                <title>FedRAMP Moderate Baseline</title>
+                                <rlink href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml"
+                                       media-type="application/xml" />
+                            </resource>
+                        </back-matter>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="resource-rlink-required"
+                                     label="resource rlink should exist." />
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
     <x:scenario label="For FedRAMP Automation helper functions">
         <x:scenario label="with if-empty-default">
