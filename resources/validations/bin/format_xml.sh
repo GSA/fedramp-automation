@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
-tidy -modify \
+tidy \
+    -config .tidyrc \
+    -modify \
     ./src/*.sch \
     ./test/*.xspec

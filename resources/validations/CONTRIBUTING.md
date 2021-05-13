@@ -42,6 +42,18 @@ example:
 
 `./bin/validate_with_schematron.sh -f test/demo/FedRAMP-SSP-OSCAL-Template.xml -o ~/dev/report -v 10.2.2`
 
+Alternatively, you can also use `docker-compose` to execute the validation script like so.
+
+```sh
+cd /path/to/fedramp-automation/resources/validations
+docker-compose run \
+  -w /root/resources/validations \
+  validator \
+  bin/validate_with_schematron.sh \
+  -f test/demo/FedRAMP-SSP-OSCAL-Template.xml
+```
+
+
 To Run Unit Tests
 ---
 
@@ -58,6 +70,16 @@ export SAXON_CP=yourpath/Saxon-HE-X.Y.Z.jar
 export TEST_DIR=$(pwd)/report/test
 #execute xpec with the test harness that runs all tests
 lib/xspec/bin/xspec.sh -s -j test/test_all.xspec
+```
+
+Alternatively, you can also use `docker-compose` to execute the test harness like so.
+
+```sh
+cd /path/to/fedramp-automation/resources/validations
+docker-compose run \
+  -w /root/resources/validations \
+  validator \
+  lib/xspec/bin/xspec.sh -s -j test/test_all.xspec
 ```
 
 Adding tests to the harness
@@ -86,8 +108,12 @@ __Formatting XML__
 
 When contributing, please use the provided XML formatter (htmltidy >= 5.6.0). Formatting options are chosen for readability, and for clean git diffs.
 
-To format validation XML, you may use the provided Docker container:
+To format validation XML, you may use the provided `docker-compose` harness:
 
-```bash
-docker-compose run validator ./bin/format_xml.sh
+```sh
+cd /path/to/fedramp-automation/resources/validations
+docker-compose run \
+  -w /root/resources/validations \
+  validator \
+  bin/format_xml.sh
 ```
