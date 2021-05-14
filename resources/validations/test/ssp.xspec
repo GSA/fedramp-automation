@@ -1071,21 +1071,23 @@
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <back-matter>
                                 <resource uuid="872d6f42-f566-4189-82f9-e94c9fdaaf38">
-                                    <title>Rules of Behavior Document</title>
-                                    <description>
-                                       <p>Rules of Behavior (ROB)</p>
-                                    </description>
                                     <prop name="type" value="rules-of-behavior" ns="https://fedramp.gov/ns/oscal"/>
-                                    <prop name="publication" value="2021-05-01Z"/>
-                                    <prop name="version" value="1.0.0-FINAL"/>
-                                    <rlink href="./documents/rules_of_behavior.docx"
-                                           media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
                                     <base64 filename="rules_of_behavior.docx"
                                             media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
-                                    <remarks>
-                                       <p>Table 15-1 Attachments: Contingency Plan (CP) Attachment</p>
-                                       <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
-                                    </remarks>
+                                 </resource>
+                            </back-matter>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="attachment-required-rob" label="it should exist." />
+                </x:scenario>
+                <x:scenario label="when a Configuration Management Plan document is properly attached">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <back-matter>
+                                <resource uuid="0681015f-7022-4977-b067-20a67da32409">
+                                    <prop name="type" value="separation-of-duties-matrix" ns="https://fedramp.gov/ns/oscal"/>
+                                    <base64 filename="separation_of_duties.docx"
+                                            media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
                                  </resource>
                             </back-matter>
                         </system-security-plan>
