@@ -1066,33 +1066,139 @@
                                      label="resource rlink should exist." />
             </x:scenario>
             <x:pending label="pending attachment tests">
+                <x:scenario label="when an Policies and Procedures document is properly attached">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <back-matter>
+                                <resource uuid="3327cd40-a16e-48da-9b58-c95922834f649">
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="procedure" />
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="TODO-information-security-policies-and-procedures" />
+                                    <base64 filename="information_security_policies_and_procedures.docx"
+                                            media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
+                                </resource>
+                            </back-matter>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="attachment-required-ispp"
+                                         label="it should exist." />
+                </x:scenario>
+                <x:scenario label="when a User Guide document is properly attached">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <back-matter>
+                                <resource uuid="8f831302-1fab-4a1a-8989-1600ce26d559">
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="guide" />
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="TODO-user-guide" />
+                                    <base64 filename="user_guide.docx"
+                                            media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
+                                </resource>
+                            </back-matter>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="attachment-required-user-guide"
+                                         label="it should exist." />
+                </x:scenario>
+                <x:scenario label="when a Privacy Impact Assessment document is properly attached">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <back-matter>
+                                <resource uuid="2c096832-2c5c-4ee8-b7dd-eb682870a2a2">
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="TODO-privacy-impact-assessment" />
+                                    <base64 filename="privacy_impact_assessment.docx"
+                                            media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
+                                </resource>
+                            </back-matter>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="attachment-required-privacy-impact-assessment"
+                                         label="it should exist." />
+                </x:scenario>
                 <x:scenario label="when a Rules of Behavior document is properly attached">
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <back-matter>
                                 <resource uuid="872d6f42-f566-4189-82f9-e94c9fdaaf38">
-                                    <prop name="type" value="rules-of-behavior" ns="https://fedramp.gov/ns/oscal"/>
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="rules-of-behavior" />
                                     <base64 filename="rules_of_behavior.docx"
                                             media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
-                                 </resource>
+                                </resource>
                             </back-matter>
                         </system-security-plan>
                     </x:context>
-                    <x:expect-not-assert id="attachment-required-rob" label="it should exist." />
+                    <x:expect-not-assert id="attachment-required-rob"
+                                         label="it should exist." />
+                </x:scenario>
+                <x:scenario label="when an Information System Contingency Plan document is properly attached">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <back-matter>
+                                <resource uuid="3c995fab-bb8d-4c1a-bcdd-b8548495d1e4">
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="plan" />
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="TODO-information-system-contingency-plan" />
+                                    <base64 filename="information_system_contingency_plan.docx"
+                                            media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
+                                </resource>
+                            </back-matter>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="attachment-required-information-system-contingency-plan"
+                                         label="it should exist." />
                 </x:scenario>
                 <x:scenario label="when a Configuration Management Plan document is properly attached">
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <back-matter>
                                 <resource uuid="0681015f-7022-4977-b067-20a67da32409">
-                                    <prop name="type" value="separation-of-duties-matrix" ns="https://fedramp.gov/ns/oscal"/>
-                                    <base64 filename="separation_of_duties.docx"
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="plan" />
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="TODO-configuration-management-plan" />
+                                    <base64 filename="configuration_management_plan.docx"
                                             media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
-                                 </resource>
+                                </resource>
                             </back-matter>
                         </system-security-plan>
                     </x:context>
-                    <x:expect-not-assert id="attachment-required-sod-matrix" label="it should exist." />
+                    <x:expect-not-assert id="attachment-required-configuration-management-plan"
+                                         label="it should exist." />
+                </x:scenario>
+                <x:scenario label="when an Incident Response Plan document is properly attached">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <back-matter>
+                                <resource uuid="ea1523ed-aad3-4346-acc7-b9d491488268">
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="plan" />
+                                    <prop name="type"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="TODO-incident-response-plan" />
+                                    <base64 filename="incident_response_plan.docx"
+                                            media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
+                                </resource>
+                            </back-matter>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="attachment-required-incident-response-plan"
+                                         label="it should exist." />
                 </x:scenario>
             </x:pending>
         </x:scenario>
