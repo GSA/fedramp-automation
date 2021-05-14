@@ -1080,7 +1080,7 @@
                                     <prop name="version" value="Document Version"/>
                                     <rlink href="./documents/rules_of_behavior.docx"
                                            media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
-                                    <base64 filename="cp.docx"
+                                    <base64 filename="rules_of_behavior.docx"
                                             media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
                                     <remarks>
                                        <p>Table 15-1 Attachments: Contingency Plan (CP) Attachment</p>
