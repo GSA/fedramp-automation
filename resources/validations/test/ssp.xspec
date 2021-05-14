@@ -1092,7 +1092,7 @@
                             </back-matter>
                         </system-security-plan>
                     </x:context>
-                    <x:expect-not-assert id="attachment-required-rob" label="it should exist." />
+                    <x:expect-not-assert id="attachment-required-sod-matrix" label="it should exist." />
                 </x:scenario>
             </x:pending>
         </x:scenario>
