@@ -1076,8 +1076,8 @@
                                        <p>Rules of Behavior (ROB)</p>
                                     </description>
                                     <prop name="type" value="rules-of-behavior" ns="https://fedramp.gov/ns/oscal"/>
-                                    <prop name="publication" value="Document Date"/>
-                                    <prop name="version" value="Document Version"/>
+                                    <prop name="publication" value="2021-05-01Z"/>
+                                    <prop name="version" value="1.0.0-FINAL"/>
                                     <rlink href="./documents/rules_of_behavior.docx"
                                            media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
                                     <base64 filename="rules_of_behavior.docx"
