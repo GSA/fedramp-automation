@@ -522,10 +522,6 @@
          <enum value="privacy-impact-assessment" short-label="PII">Privacy Impact Assessment</enum>
          <enum value="information-system-contingency-plan" short-label="ISCP">Information System Contingency Plan</enum>
          <enum value="configuration-management-plan" short-label="CMP">configuration-management-plan</enum>
-         <enum value="" short-label=""></enum>
-         <enum value="" short-label=""></enum>
-
-
       </allowed-values>
       <remarkas>Not all values apply to all FedRAMP artifacts.</remarkas>
    </value-set>
