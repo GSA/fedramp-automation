@@ -10,44 +10,645 @@
     <x:param name="only-child-elements">false</x:param>
     <x:param name="visit-text">true</x:param>
     <x:scenario label="For an OSCAL FedRAMP SSP">
-        <x:scenario label="when the security sensitivity level">
-            <x:scenario label="is not defined at all">
-                <x:context>
-                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <system-characteristics>
-                            <security-sensitivity-level />
-                        </system-characteristics>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-assert id="no-security-sensitivity-level"
-                                 label="it is invalid." />
-            </x:scenario>
-            <x:scenario label="is set to a value from the official FedRAMP list">
-                <x:context>
-                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <system-characteristics>
-                            <security-sensitivity-level>low</security-sensitivity-level>
-                        </system-characteristics>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-not-assert id="invalid-security-sensitivity-level"
-                                     label="it is valid." />
-            </x:scenario>
-            <x:scenario label="is not set to a value from the official FedRAMP list">
-                <x:context>
-                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <system-characteristics>
-                            <security-sensitivity-level>invalid</security-sensitivity-level>
-                        </system-characteristics>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-assert id="invalid-security-sensitivity-level"
-                                 label="it is invalid." />
+        <x:scenario label="Section 2.1">
+            <x:scenario label="when the security sensitivity level">
+                <x:scenario label="is not defined at all">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level />
+                            </system-characteristics>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="no-security-sensitivity-level"
+                                     label="it is invalid." />
+                </x:scenario>
+                <x:scenario label="is set to a value from the official FedRAMP list">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="invalid-security-sensitivity-level"
+                                         label="it is valid." />
+                </x:scenario>
+                <x:scenario label="is not set to a value from the official FedRAMP list">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>invalid</security-sensitivity-level>
+                            </system-characteristics>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="invalid-security-sensitivity-level"
+                                     label="it is invalid." />
+                </x:scenario>
             </x:scenario>
         </x:scenario>
-        <x:scenario label="when control implementations are defined">
-            <x:scenario label="and requirements are implemented">
-                <x:scenario label="a count of all total controls">
+        <x:scenario label="Section 6">
+            <x:scenario label="when responsible party ">
+                <x:scenario label="references a valid role and valid party">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>&gt; 
+                            <role id="prepared-by">
+                                <title>Prepared By</title>
+                                <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
+                            </role>
+                            <party type="person"
+                                   uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6">
+                                <party-name>[SAMPLE]Person Name 1</party-name>
+                                <prop name="title"
+                                      ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+                                <address>
+                                    <addr-line>Mailstop A-1</addr-line>
+                                </address>
+                                <email>name@org.domain</email>
+                                <phone>202-000-0001</phone>
+                                <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
+                                <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+                            </party>
+                            <responsible-party role-id="prepared-by">
+                                <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
+                                <remarks>
+                                    <p>Exactly one</p>
+                                </remarks>
+                            </responsible-party></metadata>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="incorrect-role-association"
+                                         label="role positive case." />
+                    <x:expect-not-assert id="incorrect-party-association"
+                                         label="party positive case." />
+                </x:scenario>
+                <x:scenario label="references a valid role but invalid party">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>&gt; 
+                            <role id="prepared-by">
+                                <title>Prepared By</title>
+                                <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
+                            </role>
+                            <party type="person"
+                                   uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6">
+                                <party-name>[SAMPLE]Person Name 1</party-name>
+                                <prop name="title"
+                                      ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+                                <address>
+                                    <addr-line>Mailstop A-1</addr-line>
+                                </address>
+                                <email>name@org.domain</email>
+                                <phone>202-000-0001</phone>
+                                <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
+                                <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+                            </party>
+                            <responsible-party role-id="prepared-by">
+                                <party-uuid>3360e343-9860-4bda-9dfc-xxxxxxxxxxxxx</party-uuid>
+                                <remarks>
+                                    <p>Exactly one</p>
+                                </remarks>
+                            </responsible-party></metadata>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="incorrect-party-association"
+                                     label="party-uuid referenced is not defined, case." />
+                </x:scenario>
+                <x:scenario label="references an invalid role but valid party">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>&gt; 
+                            <role id="prepared-by">
+                                <title>Prepared By</title>
+                                <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
+                            </role>
+                            <party type="person"
+                                   uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6">
+                                <party-name>[SAMPLE]Person Name 1</party-name>
+                                <prop name="title"
+                                      ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+                                <address>
+                                    <addr-line>Mailstop A-1</addr-line>
+                                </address>
+                                <email>name@org.domain</email>
+                                <phone>202-000-0001</phone>
+                                <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
+                                <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+                            </party>
+                            <responsible-party role-id="prepared-for">
+                                <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
+                                <remarks>
+                                    <p>Exactly one</p>
+                                </remarks>
+                            </responsible-party></metadata>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="incorrect-role-association"
+                                     label="role-id referenced is not defined case." />
+                </x:scenario>
+                <x:scenario label="references an invalid role and invalid party">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>&gt; 
+                            <role id="prepared-by">
+                                <title>Prepared By</title>
+                                <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
+                            </role>
+                            <party type="person"
+                                   uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6">
+                                <party-name>[SAMPLE]Person Name 1</party-name>
+                                <prop name="title"
+                                      ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
+                                <address>
+                                    <addr-line>Mailstop A-1</addr-line>
+                                </address>
+                                <email>name@org.domain</email>
+                                <phone>202-000-0001</phone>
+                                <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
+                                <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
+                            </party>
+                            <responsible-party role-id="prepared-for">
+                                <party-uuid>3360e343-9860-4bda-9dfc-xxxxxxxxxxxxx</party-uuid>
+                                <remarks>
+                                    <p>Exactly one</p>
+                                </remarks>
+                            </responsible-party></metadata>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="incorrect-party-association"
+                                     label="party-uuid referenced is not defined, case." />
+                    <x:expect-assert id="incorrect-role-association"
+                                     label="role-id referenced is not defined case." />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="Section 13">
+            <x:scenario label="when control implementations are defined">
+                <x:scenario label="and requirements are implemented">
+                    <x:scenario label="a count of all total controls">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation />
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-report id="each-required-control-report"
+                                         label="must be reported." />
+                    </x:scenario>
+                    <x:scenario label="and any control's implemented requirement is defined with an invalid status">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation>
+                                    <implemented-requirement control-id="at-1"
+                                                             uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                        <prop name="implementation-status"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="inconceivable">
+                                            <remarks></remarks>
+                                        </prop>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="invalid-implementation-status"
+                                         label="it is invalid." />
+                    </x:scenario>
+                    <x:scenario label="summary counts of controls' implementated requirements and those with valid and invalid statuses">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation>
+                                    <implemented-requirement control-id="cm-1"
+                                                             uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                        <prop name="implementation-status"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="implemented">
+                                            <remarks></remarks>
+                                        </prop>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-report id="control-implemented-requirements-stats"
+                                         label="must be reported." />
+                    </x:scenario>
+                </x:scenario>
+                <x:scenario label="and all required implementations are not yet complete">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <implemented-requirement control-id="ac-1"
+                                                         uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                    <prop name="planned-completion-date"
+                                          ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="planned">
+                                        <remarks></remarks>
+                                    </prop>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="incomplete-all-implemented-requirements"
+                                     label="it is invalid." />
+                </x:scenario>
+                <x:scenario label="and implemented requirements have a component reference">
+                    <x:scenario label="and it references a component with a valid ID.">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <system-implementation>
+                                    <component component-type="system"
+                                               uuid="5129f6ad-53f7-47be-9e5c-22728012264a">
+                                        <title>This System</title>
+                                        <description>
+                                            <p>This component is referenced in the implemented requirement.</p>
+                                        </description>
+                                        <status state="operational" />
+                                    </component>
+                                </system-implementation>
+                                <control-implementation>
+                                    <implemented-requirement control-id="ac-2"
+                                                             uuid="96c7ce44-01dd-4e67-8dad-3f87ffa02fd5">
+                                        <statement statement-id="ac-2_stmt.a"
+                                                   uuid="badd8d1e-df18-4c0d-b6d7-594a08feb2c4">
+                                            <by-component component-uuid="5129f6ad-53f7-47be-9e5c-22728012264a"
+                                                          uuid="11c34ae8-4004-493b-a985-53c17f8f58b1">
+                                                <description>
+                                                    <p>This describes how component 'This System' is used to satisfy the control requirements.</p>
+                                                </description>
+                                            </by-component>
+                                        </statement>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="invalid-component-match"
+                                             label="it is valid." />
+                    </x:scenario>
+                    <x:scenario label="and it references a component with an ID not previously declared.">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation>
+                                    <component component-type="system"
+                                               uuid="8644cdab-afe3-47ec-a382-623a25dce632">
+                                        <title>This System</title>
+                                        <description>
+                                            <p>This component is referenced in the implemented requirement.</p>
+                                        </description>
+                                        <status state="operational" />
+                                    </component>
+                                    <implemented-requirement control-id="ac-2"
+                                                             uuid="5a3d0273-d668-4883-9891-e518d2a27b3d">
+                                        <statement statement-id="ac-2_stmt.a"
+                                                   uuid="4a44a707-9acf-4fe9-b2a6-947c6f9eebf8">
+                                            <by-component component-uuid="d5de542c-cbed-4f04-8c94-72f258d28797"
+                                                          uuid="9cf0fac3-5d3d-4c85-a000-4c3aff5f9b72">
+                                                <description>
+                                                    <p>This should describe how component 'This System' but the component UUID is wrong.</p>
+                                                </description>
+                                            </by-component>
+                                        </statement>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="invalid-component-match"
+                                         label="it generates a warning."
+                                         role="warning" />
+                    </x:scenario>
+                    <x:scenario label="and it references a component with an ID and no components are declared.">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation>
+                                    <implemented-requirement control-id="ac-2"
+                                                             uuid="dfd3dff9-cb6d-4fd0-a35f-c47aff127483">
+                                        <statement statement-id="ac-2_stmt.a"
+                                                   uuid="dd8def77-dc3b-4cd4-a63f-7874c8883a58">
+                                            <by-component component-uuid="f49150ad-12a3-426c-b2ae-0c46d5c6f881"
+                                                          uuid="20e81d58-3bbd-4759-b7e4-f5c2e18df702">
+                                                <description>
+                                                    <p>This should describe how component 'This System' but the component UUID is wrong.</p>
+                                                </description>
+                                            </by-component>
+                                        </statement>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="invalid-component-match"
+                                         label="it generates a warning."
+                                         role="warning" />
+                    </x:scenario>
+                </x:scenario>
+                <x:scenario label="and the profile defines specific response points to address specific control requirements">
+                    <x:scenario label="and response points are properly defined">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <system-implementation>
+                                    <component component-type="system"
+                                               uuid="5129f6ad-53f7-47be-9e5c-22728012264a">
+                                        <title>This System</title>
+                                        <description>
+                                            <p>This component is referenced in the implemented requirement.</p>
+                                        </description>
+                                        <status state="operational" />
+                                    </component>
+                                </system-implementation>
+                                <control-implementation>
+                                    <!-- Requirements and lettered responses for AC-7 are complete, so these will be absent from the report. -->
+                                    <implemented-requirement control-id="ac-7"
+                                                             uuid="c1a9916f-cba6-4910-b2ea-b4ba17b03480">
+                                        <prop name="implementation-status"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="implemented" />
+                                        <statement statement-id="ac-7_smt.a"
+                                                   uuid="8d8e73f3-b966-4b3e-a545-93923885ba2a">
+                                            <by-component component-uuid="5129f6ad-53f7-47be-9e5c-22728012264a"
+                                                          uuid="fa680b3c-9da9-443f-9a4c-db731a5218f7">
+                                                <description>
+                                                    <p>This describes how component 'This System' is used to satisfy the control requirements.</p>
+                                                </description>
+                                            </by-component>
+                                        </statement>
+                                        <statement statement-id="ac-7_smt.b"
+                                                   uuid="5794c9a0-01c5-499e-b58f-1beed1585576">
+                                            <by-component component-uuid="5129f6ad-53f7-47be-9e5c-22728012264a"
+                                                          uuid="34afa29a-c258-42fb-b08d-0c21be7f814d">
+                                                <description>
+                                                    <p>This describes how component 'This System' is used to satisfy the control requirements.</p>
+                                                </description>
+                                            </by-component>
+                                        </statement>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-report id="implemented-response-points"
+                                         label="those defined are validated." />
+                        <x:expect-assert id="missing-response-points"
+                                         label="it generates an error because missing response points are invalid."
+                                         role="error" />
+                    </x:scenario>
+                    <x:scenario label="and response points are missing">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <system-implementation>
+                                    <component component-type="system"
+                                               uuid="5129f6ad-53f7-47be-9e5c-22728012264a">
+                                        <title>This System</title>
+                                        <description>
+                                            <p>This component is referenced in the implemented requirement.</p>
+                                        </description>
+                                        <status state="operational" />
+                                    </component>
+                                </system-implementation>
+                                <control-implementation>
+                                    <implemented-requirement control-id="ac-1"
+                                                             uuid="c1a9916f-cba6-4910-b2ea-b4ba17b03480">
+                                        <prop name="implementation-status"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="implemented" />
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-report id="implemented-response-points"
+                                             label="it does not report on valid response points as they are missing." />
+                        <x:expect-assert id="missing-response-points"
+                                         label="it generates an error because missing response points are invalid."
+                                         role="error" />
+                    </x:scenario>
+                </x:scenario>
+                <x:scenario label="and implemented requirements have explanatory statement descriptions defined directly in the statement">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <implemented-requirement control-id="ac-2"
+                                                         uuid="68aae076-23ce-4620-bf66-32a8da15d696">
+                                    <statement statement-id="ac-2_stmt.a"
+                                               uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
+                                        <description>
+                                            <p>This shouldn not be here.</p>
+                                        </description>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="extraneous-response-description"
+                                     label="it generates a warning."
+                                     role="warning" />
+                </x:scenario>
+                <x:scenario label="and implemented requirements have explanatory statement remarks defined directly in the statement">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <implemented-requirement control-id="ac-2"
+                                                         uuid="4325e92d-e888-42ff-9d49-f5231129c4d3">"&gt; 
+                                <statement statement-id="ac-2_stmt.a"
+                                           uuid="a8419fd8-2666-4851-8191-94d054c9ef1c">"&gt; 
+                                <remarks>
+                                    <p>This shouldn not be here.</p>
+                                </remarks></statement></implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="extraneous-response-remarks"
+                                     label="it generates a warning."
+                                     role="warning" />
+                </x:scenario>
+                <x:scenario label="and implemented requirements have explanatory statement in a component reference">
+                    <x:scenario label="and the component reference has a description">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation>
+                                    <implemented-requirement control-id="ac-2"
+                                                             uuid="ac002979-59cc-4134-bac8-acd9e82a2915">
+                                        <statement statement-id="ac-2_stmt.a"
+                                                   uuid="">
+                                            <by-component component-uuid="23b822f1-5b62-4ddd-8636-6dfc3512241e"
+                                                          uuid="7d126750-533c-460b-9fa8-ba1c81f4d0d5">
+                                                <description>
+                                                    <p>This describes 
+                                                    <strong>how</strong>this component implements requirements in more than 20 chars.</p>
+                                                </description>
+                                            </by-component>
+                                        </statement>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="missing-component-description"
+                                             label="it is valid." />
+                    </x:scenario>
+                    <x:scenario label="and the component reference has no description">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation>
+                                    <implemented-requirement control-id="ac-2"
+                                                             uuid="51d4bf48-f0f6-408e-b3be-a596b04d996e">
+                                        <statement statement-id="ac-2_stmt.a"
+                                                   uuid="54f1ed90-c0a5-4c2e-943e-bda1eacb8ed0">
+                                            <by-component component-uuid="75245bbd-f761-46cf-baf4-084bf2ab5438"
+                                                          uuid="4d275109-976d-47b1-a239-1968a9e14e86" />
+                                        </statement>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="missing-component-description"
+                                         label="it is valid." />
+                    </x:scenario>
+                </x:scenario>
+                <x:scenario label="and implemented requirements have explanatory statement descriptions properly defined in a component reference">
+                    <x:scenario label="and it is sufficiently long">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation>
+                                    <implemented-requirement control-id="ac-2"
+                                                             uuid="68aae076-23ce-4620-bf66-32a8da15d696">
+                                        <statement statement-id="ac-2_stmt.a"
+                                                   uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
+                                            <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201"
+                                                          uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
+                                                <description>
+                                                    <p>This describes 
+                                                    <strong>how</strong>this component implements requirements in more than 20 chars.</p>
+                                                </description>
+                                            </by-component>
+                                        </statement>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="incomplete-response-description"
+                                             label="it is valid." />
+                    </x:scenario>
+                    <x:scenario label="and it is not sufficiently long">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation>
+                                    <implemented-requirement control-id="ac-2"
+                                                             uuid="68aae076-23ce-4620-bf66-32a8da15d696">
+                                        <statement statement-id="ac-2_stmt.a"
+                                                   uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
+                                            <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201"
+                                                          uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
+                                                <description>
+                                                    <p>Too short.</p>
+                                                </description>
+                                            </by-component>
+                                        </statement>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="incomplete-response-description"
+                                         label="it is invalid." />
+                    </x:scenario>
+                </x:scenario>
+                <x:scenario label="and implemented requirements have explanatory statement remarks properly defined in a component reference">
+                    <x:scenario label="and it is sufficiently long">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation>
+                                    <implemented-requirement control-id="ac-2"
+                                                             uuid="68aae076-23ce-4620-bf66-32a8da15d696">
+                                        <statement statement-id="ac-2_stmt.a"
+                                                   uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
+                                            <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201"
+                                                          uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
+                                                <remarks>
+                                                    <p>This describes 
+                                                    <strong>how</strong>this component implements requirements in more than 20 chars.</p>
+                                                </remarks>
+                                            </by-component>
+                                        </statement>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="incomplete-response-remarks"
+                                             label="it is valid." />
+                    </x:scenario>
+                    <x:scenario label="and it is not sufficiently long">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation>
+                                    <implemented-requirement control-id="ac-2"
+                                                             uuid="68aae076-23ce-4620-bf66-32a8da15d696">
+                                        <statement statement-id="ac-2_stmt.a"
+                                                   uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
+                                            <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201"
+                                                          uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
+                                                <remarks>
+                                                    <p>Too short.</p>
+                                                </remarks>
+                                            </by-component>
+                                        </statement>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="incomplete-response-remarks"
+                                         label="it is invalid."
+                                         role="warning" />
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="when the most important core controls are defined">
+                <x:scenario label="and these controls do not have implemented requirements">
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-characteristics>
@@ -56,981 +657,600 @@
                             <control-implementation />
                         </system-security-plan>
                     </x:context>
-                    <x:expect-report id="each-required-control-report"
-                                     label="must be reported." />
+                    <x:expect-assert id="incomplete-core-implemented-requirements"
+                                     label="it is invalid."
+                                     role="error" />
                 </x:scenario>
-                <x:scenario label="and any control's implemented requirement is defined with an invalid status">
+                <x:scenario label="and these controls do not have implemented requirements">
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-characteristics>
                                 <security-sensitivity-level>low</security-sensitivity-level>
                             </system-characteristics>
+                            <!-- For thee FedRAMP Low Baseline, there are 62 CORE controls. -->
                             <control-implementation>
-                                <implemented-requirement control-id="at-1"
-                                                         uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                <implemented-requirement control-id="ac-1">
                                     <prop name="implementation-status"
                                           ns="https://fedramp.gov/ns/oscal"
-                                          value="inconceivable">
-                                        <remarks></remarks>
-                                    </prop>
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ac-2">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ac-7">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ac-17">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ac-18">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ac-19">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ac-22">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="at-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="at-2">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="at-3">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="at-4">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="au-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="au-2">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="au-6">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="au-11">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ca-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ca-2">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ca-3">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ca-5">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ca-7">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ca-9">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="cm-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="cm-6">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="cm-8">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="cp-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="cp-2">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="cp-3">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="cp-4">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="cp-9">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ia-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ia-4">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ia-5">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ia-5.1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ir-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ir-2">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ir-6">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ir-8">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ma-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ma-4">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="mp-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="pe-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="pe-2">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="pe-3">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="pe-6">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="pe-8">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="pl-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="pl-2">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ps-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ps-3">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ps-4">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ps-5">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ps-6">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ps-7">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ra-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="ra-5">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="sa-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="sc-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="sc-13">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="si-1">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="si-2">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="si-3">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
+                                </implemented-requirement>
+                                <implemented-requirement control-id="si-4">
+                                    <prop name="implementation-status"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="implemented" />
                                 </implemented-requirement>
                             </control-implementation>
                         </system-security-plan>
                     </x:context>
-                    <x:expect-assert id="invalid-implementation-status"
-                                     label="it is invalid." />
-                </x:scenario>
-                <x:scenario label="summary counts of controls' implementated requirements and those with valid and invalid statuses">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <control-implementation>
-                                <implemented-requirement control-id="cm-1"
-                                                         uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
-                                    <prop name="implementation-status"
-                                          ns="https://fedramp.gov/ns/oscal"
-                                          value="implemented">
-                                        <remarks></remarks>
-                                    </prop>
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-report id="control-implemented-requirements-stats"
-                                     label="must be reported." />
+                    <x:expect-not-assert id="incomplete-core-implemented-requirements"
+                                         label="it is valid." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario label="and all required implementations are not yet complete">
+            <x:scenario label="when an extraneous control not required by the profile is implemented">
                 <x:context>
                     <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <system-characteristics>
+                            <!--
+                            NOTE: At this time, 800-53 control AC-5 is not required
+                            for the FedRAMP LOW profile. It is required for the FedRAMP
+                            HIGH profile, so this is extraneous.
+                        -->
                             <security-sensitivity-level>low</security-sensitivity-level>
                         </system-characteristics>
                         <control-implementation>
-                            <implemented-requirement control-id="ac-1"
-                                                     uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
-                                <prop name="planned-completion-date"
-                                      ns="https://fedramp.gov/ns/oscal">2020-11-27Z</prop>
+                            <implemented-requirement control-id="ac-5"
+                                                     uuid="373c8a10-7885-4209-9e55-0b69747cb6b9">
                                 <prop name="implementation-status"
                                       ns="https://fedramp.gov/ns/oscal"
-                                      value="planned">
+                                      value="implemented">
                                     <remarks></remarks>
                                 </prop>
                             </implemented-requirement>
                         </control-implementation>
                     </system-security-plan>
                 </x:context>
-                <x:expect-assert id="incomplete-all-implemented-requirements"
+                <x:expect-assert id="extraneous-implemented-requirements"
                                  label="it is invalid." />
             </x:scenario>
-            <x:scenario label="and implemented requirements have a component reference">
-                <x:scenario label="and it references a component with a valid ID.">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <system-implementation>
-                                <component component-type="system"
-                                           uuid="5129f6ad-53f7-47be-9e5c-22728012264a">
-                                    <title>This System</title>
-                                    <description>
-                                        <p>This component is referenced in the implemented requirement.</p>
-                                    </description>
-                                    <status state="operational" />
-                                </component>
-                            </system-implementation>
-                            <control-implementation>
-                                <implemented-requirement control-id="ac-2"
-                                                         uuid="96c7ce44-01dd-4e67-8dad-3f87ffa02fd5">
-                                    <statement statement-id="ac-2_stmt.a"
-                                               uuid="badd8d1e-df18-4c0d-b6d7-594a08feb2c4">
-                                        <by-component component-uuid="5129f6ad-53f7-47be-9e5c-22728012264a"
-                                                      uuid="11c34ae8-4004-493b-a985-53c17f8f58b1">
-                                            <description>
-                                                <p>This describes how component 'This System' is used to satisfy the control requirements.</p>
-                                            </description>
-                                        </by-component>
-                                    </statement>
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-not-assert id="invalid-component-match"
-                                         label="it is valid." />
-                </x:scenario>
-                <x:scenario label="and it references a component with an ID not previously declared.">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <control-implementation>
-                                <component component-type="system"
-                                           uuid="8644cdab-afe3-47ec-a382-623a25dce632">
-                                    <title>This System</title>
-                                    <description>
-                                        <p>This component is referenced in the implemented requirement.</p>
-                                    </description>
-                                    <status state="operational" />
-                                </component>
-                                <implemented-requirement control-id="ac-2"
-                                                         uuid="5a3d0273-d668-4883-9891-e518d2a27b3d">
-                                    <statement statement-id="ac-2_stmt.a"
-                                               uuid="4a44a707-9acf-4fe9-b2a6-947c6f9eebf8">
-                                        <by-component component-uuid="d5de542c-cbed-4f04-8c94-72f258d28797"
-                                                      uuid="9cf0fac3-5d3d-4c85-a000-4c3aff5f9b72">
-                                            <description>
-                                                <p>This should describe how component 'This System' but the component UUID is wrong.</p>
-                                            </description>
-                                        </by-component>
-                                    </statement>
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-assert id="invalid-component-match"
-                                     label="it generates a warning."
-                                     role="warning" />
-                </x:scenario>
-                <x:scenario label="and it references a component with an ID and no components are declared.">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <control-implementation>
-                                <implemented-requirement control-id="ac-2"
-                                                         uuid="dfd3dff9-cb6d-4fd0-a35f-c47aff127483">
-                                    <statement statement-id="ac-2_stmt.a"
-                                               uuid="dd8def77-dc3b-4cd4-a63f-7874c8883a58">
-                                        <by-component component-uuid="f49150ad-12a3-426c-b2ae-0c46d5c6f881"
-                                                      uuid="20e81d58-3bbd-4759-b7e4-f5c2e18df702">
-                                            <description>
-                                                <p>This should describe how component 'This System' but the component UUID is wrong.</p>
-                                            </description>
-                                        </by-component>
-                                    </statement>
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-assert id="invalid-component-match"
-                                     label="it generates a warning."
-                                     role="warning" />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario label="and the profile defines specific response points to address specific control requirements">
-                <x:scenario label="and response points are properly defined">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <system-implementation>
-                                <component component-type="system"
-                                           uuid="5129f6ad-53f7-47be-9e5c-22728012264a">
-                                    <title>This System</title>
-                                    <description>
-                                        <p>This component is referenced in the implemented requirement.</p>
-                                    </description>
-                                    <status state="operational" />
-                                </component>
-                            </system-implementation>
-                            <control-implementation>
-                                <!-- Requirements and lettered responses for AC-7 are complete, so these will be absent from the report. -->
-                                <implemented-requirement control-id="ac-7"
-                                                         uuid="c1a9916f-cba6-4910-b2ea-b4ba17b03480">
-                                    <prop name="implementation-status"
-                                          ns="https://fedramp.gov/ns/oscal"
-                                          value="implemented" />
-                                    <statement statement-id="ac-7_smt.a"
-                                               uuid="8d8e73f3-b966-4b3e-a545-93923885ba2a">
-                                        <by-component component-uuid="5129f6ad-53f7-47be-9e5c-22728012264a"
-                                                      uuid="fa680b3c-9da9-443f-9a4c-db731a5218f7">
-                                            <description>
-                                                <p>This describes how component 'This System' is used to satisfy the control requirements.</p>
-                                            </description>
-                                        </by-component>
-                                    </statement>
-                                    <statement statement-id="ac-7_smt.b"
-                                               uuid="5794c9a0-01c5-499e-b58f-1beed1585576">
-                                        <by-component component-uuid="5129f6ad-53f7-47be-9e5c-22728012264a"
-                                                      uuid="34afa29a-c258-42fb-b08d-0c21be7f814d">
-                                            <description>
-                                                <p>This describes how component 'This System' is used to satisfy the control requirements.</p>
-                                            </description>
-                                        </by-component>
-                                    </statement>
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-report id="implemented-response-points"
-                                     label="those defined are validated." />
-                    <x:expect-assert id="missing-response-points"
-                                     label="it generates an error because missing response points are invalid."
-                                     role="error" />
-                </x:scenario>
-                <x:scenario label="and response points are missing">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <system-implementation>
-                                <component component-type="system"
-                                           uuid="5129f6ad-53f7-47be-9e5c-22728012264a">
-                                    <title>This System</title>
-                                    <description>
-                                        <p>This component is referenced in the implemented requirement.</p>
-                                    </description>
-                                    <status state="operational" />
-                                </component>
-                            </system-implementation>
-                            <control-implementation>
-                                <implemented-requirement control-id="ac-1"
-                                                         uuid="c1a9916f-cba6-4910-b2ea-b4ba17b03480">
-                                    <prop name="implementation-status"
-                                          ns="https://fedramp.gov/ns/oscal"
-                                          value="implemented" />
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-not-report id="implemented-response-points"
-                                         label="it does not report on valid response points as they are missing." />
-                    <x:expect-assert id="missing-response-points"
-                                     label="it generates an error because missing response points are invalid."
-                                     role="error" />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario label="and implemented requirements have explanatory statement descriptions defined directly in the statement">
+            <x:scenario label="when no extraneous control is implemented except those required by the profile">
                 <x:context>
                     <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <system-characteristics>
-                            <security-sensitivity-level>low</security-sensitivity-level>
-                        </system-characteristics>
-                        <control-implementation>
-                            <implemented-requirement control-id="ac-2"
-                                                     uuid="68aae076-23ce-4620-bf66-32a8da15d696">
-                                <statement statement-id="ac-2_stmt.a"
-                                           uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
-                                    <description>
-                                        <p>This shouldn not be here.</p>
-                                    </description>
-                                </statement>
-                            </implemented-requirement>
-                        </control-implementation>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-assert id="extraneous-response-description"
-                                 label="it generates a warning."
-                                 role="warning" />
-            </x:scenario>
-            <x:scenario label="and implemented requirements have explanatory statement remarks defined directly in the statement">
-                <x:context>
-                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <system-characteristics>
-                            <security-sensitivity-level>low</security-sensitivity-level>
-                        </system-characteristics>
-                        <control-implementation>
-                            <implemented-requirement control-id="ac-2"
-                                                     uuid="4325e92d-e888-42ff-9d49-f5231129c4d3">"&gt; 
-                            <statement statement-id="ac-2_stmt.a"
-                                       uuid="a8419fd8-2666-4851-8191-94d054c9ef1c">"&gt; 
-                            <remarks>
-                                <p>This shouldn not be here.</p>
-                            </remarks></statement></implemented-requirement>
-                        </control-implementation>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-assert id="extraneous-response-remarks"
-                                 label="it generates a warning."
-                                 role="warning" />
-            </x:scenario>
-            <x:scenario label="and implemented requirements have explanatory statement in a component reference">
-                <x:scenario label="and the component reference has a description">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <control-implementation>
-                                <implemented-requirement control-id="ac-2"
-                                                         uuid="ac002979-59cc-4134-bac8-acd9e82a2915">
-                                    <statement statement-id="ac-2_stmt.a"
-                                               uuid="">
-                                        <by-component component-uuid="23b822f1-5b62-4ddd-8636-6dfc3512241e"
-                                                      uuid="7d126750-533c-460b-9fa8-ba1c81f4d0d5">
-                                            <description>
-                                                <p>This describes 
-                                                <strong>how</strong>this component implements requirements in more than 20 chars.</p>
-                                            </description>
-                                        </by-component>
-                                    </statement>
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-not-assert id="missing-component-description"
-                                         label="it is valid." />
-                </x:scenario>
-                <x:scenario label="and the component reference has no description">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <control-implementation>
-                                <implemented-requirement control-id="ac-2"
-                                                         uuid="51d4bf48-f0f6-408e-b3be-a596b04d996e">
-                                    <statement statement-id="ac-2_stmt.a"
-                                               uuid="54f1ed90-c0a5-4c2e-943e-bda1eacb8ed0">
-                                        <by-component component-uuid="75245bbd-f761-46cf-baf4-084bf2ab5438"
-                                                      uuid="4d275109-976d-47b1-a239-1968a9e14e86" />
-                                    </statement>
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-assert id="missing-component-description"
-                                     label="it is valid." />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario label="and implemented requirements have explanatory statement descriptions properly defined in a component reference">
-                <x:scenario label="and it is sufficiently long">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <control-implementation>
-                                <implemented-requirement control-id="ac-2"
-                                                         uuid="68aae076-23ce-4620-bf66-32a8da15d696">
-                                    <statement statement-id="ac-2_stmt.a"
-                                               uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
-                                        <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201"
-                                                      uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
-                                            <description>
-                                                <p>This describes 
-                                                <strong>how</strong>this component implements requirements in more than 20 chars.</p>
-                                            </description>
-                                        </by-component>
-                                    </statement>
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-not-assert id="incomplete-response-description"
-                                         label="it is valid." />
-                </x:scenario>
-                <x:scenario label="and it is not sufficiently long">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <control-implementation>
-                                <implemented-requirement control-id="ac-2"
-                                                         uuid="68aae076-23ce-4620-bf66-32a8da15d696">
-                                    <statement statement-id="ac-2_stmt.a"
-                                               uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
-                                        <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201"
-                                                      uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
-                                            <description>
-                                                <p>Too short.</p>
-                                            </description>
-                                        </by-component>
-                                    </statement>
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-assert id="incomplete-response-description"
-                                     label="it is invalid." />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario label="and implemented requirements have explanatory statement remarks properly defined in a component reference">
-                <x:scenario label="and it is sufficiently long">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <control-implementation>
-                                <implemented-requirement control-id="ac-2"
-                                                         uuid="68aae076-23ce-4620-bf66-32a8da15d696">
-                                    <statement statement-id="ac-2_stmt.a"
-                                               uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
-                                        <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201"
-                                                      uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
-                                            <remarks>
-                                                <p>This describes 
-                                                <strong>how</strong>this component implements requirements in more than 20 chars.</p>
-                                            </remarks>
-                                        </by-component>
-                                    </statement>
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-not-assert id="incomplete-response-remarks"
-                                         label="it is valid." />
-                </x:scenario>
-                <x:scenario label="and it is not sufficiently long">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
-                            </system-characteristics>
-                            <control-implementation>
-                                <implemented-requirement control-id="ac-2"
-                                                         uuid="68aae076-23ce-4620-bf66-32a8da15d696">
-                                    <statement statement-id="ac-2_stmt.a"
-                                               uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
-                                        <by-component component-uuid="477b6022-01a8-41c8-8085-b4ed8d47d201"
-                                                      uuid="c9bd1f15-2bae-4d20-8d24-0a5eae7240e9">
-                                            <remarks>
-                                                <p>Too short.</p>
-                                            </remarks>
-                                        </by-component>
-                                    </statement>
-                                </implemented-requirement>
-                            </control-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-assert id="incomplete-response-remarks"
-                                     label="it is invalid."
-                                     role="warning" />
-                </x:scenario>
-            </x:scenario>
-        </x:scenario>
-        <x:scenario label="when the most important core controls are defined">
-            <x:scenario label="and these controls do not have implemented requirements">
-                <x:context>
-                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <system-characteristics>
-                            <security-sensitivity-level>low</security-sensitivity-level>
-                        </system-characteristics>
-                        <control-implementation />
-                    </system-security-plan>
-                </x:context>
-                <x:expect-assert id="incomplete-core-implemented-requirements"
-                                 label="it is invalid."
-                                 role="error" />
-            </x:scenario>
-            <x:scenario label="and these controls do not have implemented requirements">
-                <x:context>
-                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <system-characteristics>
-                            <security-sensitivity-level>low</security-sensitivity-level>
-                        </system-characteristics>
-                        <!-- For thee FedRAMP Low Baseline, there are 62 CORE controls. -->
-                        <control-implementation>
-                            <implemented-requirement control-id="ac-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ac-2">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ac-7">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ac-17">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ac-18">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ac-19">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ac-22">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="at-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="at-2">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="at-3">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="at-4">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="au-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="au-2">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="au-6">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="au-11">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ca-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ca-2">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ca-3">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ca-5">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ca-7">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ca-9">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="cm-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="cm-6">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="cm-8">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="cp-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="cp-2">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="cp-3">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="cp-4">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="cp-9">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ia-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ia-4">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ia-5">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ia-5.1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ir-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ir-2">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ir-6">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ir-8">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ma-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ma-4">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="mp-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="pe-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="pe-2">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="pe-3">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="pe-6">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="pe-8">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="pl-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="pl-2">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ps-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ps-3">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ps-4">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ps-5">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ps-6">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ps-7">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ra-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="ra-5">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="sa-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="sc-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="sc-13">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="si-1">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="si-2">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="si-3">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                            <implemented-requirement control-id="si-4">
-                                <prop name="implementation-status"
-                                      ns="https://fedramp.gov/ns/oscal"
-                                      value="implemented" />
-                            </implemented-requirement>
-                        </control-implementation>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-not-assert id="incomplete-core-implemented-requirements"
-                                     label="it is valid." />
-            </x:scenario>
-        </x:scenario>
-        <x:scenario label="when an extraneous control not required by the profile is implemented">
-            <x:context>
-                <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                    <system-characteristics>
-                        <!--
-                            NOTE: At this time, 800-53 control AC-5 is not required
-                            for the FedRAMP LOW profile. It is required for the FedRAMP
-                            HIGH profile, so this is extraneous.
-                        -->
-                        <security-sensitivity-level>low</security-sensitivity-level>
-                    </system-characteristics>
-                    <control-implementation>
-                        <implemented-requirement control-id="ac-5"
-                                                 uuid="373c8a10-7885-4209-9e55-0b69747cb6b9">
-                            <prop name="implementation-status"
-                                  ns="https://fedramp.gov/ns/oscal"
-                                  value="implemented">
-                                <remarks></remarks>
-                            </prop>
-                        </implemented-requirement>
-                    </control-implementation>
-                </system-security-plan>
-            </x:context>
-            <x:expect-assert id="extraneous-implemented-requirements"
-                             label="it is invalid." />
-        </x:scenario>
-        <x:scenario label="when no extraneous control is implemented except those required by the profile">
-            <x:context>
-                <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                    <system-characteristics>
-                        <!--
+                            <!--
                             NOTE: At this time, 800-53 control AC-1 is required for
                             the FedRAMP LOW profile. It is required for the FedRAMP
                             HIGH profile, so this is extraneous.
                         -->
-                        <security-sensitivity-level>low</security-sensitivity-level>
-                    </system-characteristics>
-                    <control-implementation>
-                        <implemented-requirement control-id="ac-1"
-                                                 uuid="4b81d5aa-2149-4b7b-ab28-69e390226784">
-                            <prop name="implementation-status"
-                                  ns="https://fedramp.gov/ns/oscal"
-                                  value="partial">
-                                <remarks></remarks>
-                            </prop>
-                        </implemented-requirement>
-                    </control-implementation>
-                </system-security-plan>
-            </x:context>
-            <x:expect-not-assert id="extraneous-implemented-requirements"
-                                 label="it is valid." />
+                            <security-sensitivity-level>low</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement control-id="ac-1"
+                                                     uuid="4b81d5aa-2149-4b7b-ab28-69e390226784">
+                                <prop name="implementation-status"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="partial">
+                                    <remarks></remarks>
+                                </prop>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="extraneous-implemented-requirements"
+                                     label="it is valid." />
+            </x:scenario>
         </x:scenario>
-        <x:scenario label="when responsible party ">
-            <x:scenario label="references a valid role and valid party">
-                <x:context>
-                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <metadata>&gt; 
-                        <role id="prepared-by">
-                            <title>Prepared By</title>
-                            <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
-                        </role>
-                        <party type="person"
-                               uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6">
-                            <party-name>[SAMPLE]Person Name 1</party-name>
-                            <prop name="title"
-                                  ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-                            <address>
-                                <addr-line>Mailstop A-1</addr-line>
-                            </address>
-                            <email>name@org.domain</email>
-                            <phone>202-000-0001</phone>
-                            <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
-                            <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
-                        </party>
-                        <responsible-party role-id="prepared-by">
-                            <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
-                            <remarks>
-                                <p>Exactly one</p>
-                            </remarks>
-                        </responsible-party></metadata>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-not-assert id="incorrect-role-association"
-                                     label="role positive case." />
-                <x:expect-not-assert id="incorrect-party-association"
-                                     label="party positive case." />
-            </x:scenario>
-            <x:scenario label="references a valid role but invalid party">
-                <x:context>
-                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <metadata>&gt; 
-                        <role id="prepared-by">
-                            <title>Prepared By</title>
-                            <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
-                        </role>
-                        <party type="person"
-                               uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6">
-                            <party-name>[SAMPLE]Person Name 1</party-name>
-                            <prop name="title"
-                                  ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-                            <address>
-                                <addr-line>Mailstop A-1</addr-line>
-                            </address>
-                            <email>name@org.domain</email>
-                            <phone>202-000-0001</phone>
-                            <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
-                            <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
-                        </party>
-                        <responsible-party role-id="prepared-by">
-                            <party-uuid>3360e343-9860-4bda-9dfc-xxxxxxxxxxxxx</party-uuid>
-                            <remarks>
-                                <p>Exactly one</p>
-                            </remarks>
-                        </responsible-party></metadata>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-assert id="incorrect-party-association"
-                                 label="party-uuid referenced is not defined, case." />
-            </x:scenario>
-            <x:scenario label="references an invalid role but valid party">
-                <x:context>
-                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <metadata>&gt; 
-                        <role id="prepared-by">
-                            <title>Prepared By</title>
-                            <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
-                        </role>
-                        <party type="person"
-                               uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6">
-                            <party-name>[SAMPLE]Person Name 1</party-name>
-                            <prop name="title"
-                                  ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-                            <address>
-                                <addr-line>Mailstop A-1</addr-line>
-                            </address>
-                            <email>name@org.domain</email>
-                            <phone>202-000-0001</phone>
-                            <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
-                            <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
-                        </party>
-                        <responsible-party role-id="prepared-for">
-                            <party-uuid>3360e343-9860-4bda-9dfc-ff427c3dfab6</party-uuid>
-                            <remarks>
-                                <p>Exactly one</p>
-                            </remarks>
-                        </responsible-party></metadata>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-assert id="incorrect-role-association"
-                                 label="role-id referenced is not defined case." />
-            </x:scenario>
-            <x:scenario label="references an invalid role and invalid party">
-                <x:context>
-                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <metadata>&gt; 
-                        <role id="prepared-by">
-                            <title>Prepared By</title>
-                            <desc>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</desc>
-                        </role>
-                        <party type="person"
-                               uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6">
-                            <party-name>[SAMPLE]Person Name 1</party-name>
-                            <prop name="title"
-                                  ns="https://fedramp.gov/ns/oscal">Individual's Title</prop>
-                            <address>
-                                <addr-line>Mailstop A-1</addr-line>
-                            </address>
-                            <email>name@org.domain</email>
-                            <phone>202-000-0001</phone>
-                            <member-of-organization>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</member-of-organization>
-                            <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
-                        </party>
-                        <responsible-party role-id="prepared-for">
-                            <party-uuid>3360e343-9860-4bda-9dfc-xxxxxxxxxxxxx</party-uuid>
-                            <remarks>
-                                <p>Exactly one</p>
-                            </remarks>
-                        </responsible-party></metadata>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-assert id="incorrect-party-association"
-                                 label="party-uuid referenced is not defined, case." />
-                <x:expect-assert id="incorrect-role-association"
-                                 label="role-id referenced is not defined case." />
+        <x:scenario label="Chapter 15">
+            <x:scenario label="when required attachments">
+                <x:pending label="specified via structured data">
+                    <x:scenario label="has Digital Identity Worksheet data">
+                        <x:context>
+                            <system-security-plan></system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="attachment-required-diwd"
+                                         label="DI Worksheet"></x:expect-assert>
+                    </x:scenario>
+                    <x:scenario label="has Privacy Threshold Analysis (PTA) data">
+                        <x:context>
+                            <system-security-plan></system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="attachment-required-pta"
+                                         label="PTA"></x:expect-assert>
+                    </x:scenario>
+                    <x:scenario label="has CIS Workbook data">
+                        <x:context>
+                            <system-security-plan></system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="attachment-required-cis-workbook"
+                                         label="CIS Workbook"></x:expect-assert>
+                    </x:scenario>
+                    <x:scenario label="has FIPS-199 data">
+                        <x:context>
+                            <system-security-plan></system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="attachment-required-fips-199"
+                                         label="FIPS-199"></x:expect-assert>
+                    </x:scenario>
+                    <x:scenario label="has Inventory data">
+                        <x:context>
+                            <system-security-plan></system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="attachment-required-inventory"
+                                         label="Inventory"></x:expect-assert>
+                    </x:scenario>
+                </x:pending>
+                <x:scenario label="specified via back matter resource">
+                    <x:scenario label="has missing required fields">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource>
+                                        <rlink />
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-assert id="resource-uuid-required"
+                                         label="back-matter resource missing uuid attribute." />
+                        <x:expect-assert id="resource-rlink-required"
+                                         label="back-matter resource rlink missing href attribute." />
+                    </x:scenario>
+                    <x:scenario label="has valid rlink">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource uuid="e6522953-6714-435d-a0d3-140df554c186">
+                                        <title>FedRAMP Moderate Baseline</title>
+                                        <rlink href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml"
+                                               media-type="application/xml" />
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="resource-rlink-required"
+                                             label="resource rlink should exist." />
+                    </x:scenario>
+                    <x:pending label="has a Policies and Procedures document attached">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource uuid="3327cd40-a16e-48da-9b58-c95922834f649">
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="procedure" />
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="information-security-policies-and-procedures" />
+                                        <base64 filename="information_security_policies_and_procedures.docx"
+                                                media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                00000000</base64>
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="attachment-required-ispp"
+                                             label="it should exist." />
+                    </x:pending>
+                    <x:pending label="has a User Guide document attached">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource uuid="8f831302-1fab-4a1a-8989-1600ce26d559">
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="guide" />
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="user-guide" />
+                                        <base64 filename="user_guide.docx"
+                                                media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                00000000</base64>
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="attachment-required-user-guide"
+                                             label="it should exist." />
+                    </x:pending>
+                    <x:pending label="has a Privacy Impact Assessment document attached">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource uuid="2c096832-2c5c-4ee8-b7dd-eb682870a2a2">
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="privacy-impact-assessment" />
+                                        <base64 filename="privacy_impact_assessment.docx"
+                                                media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                00000000</base64>
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="attachment-required-privacy-impact-assessment"
+                                             label="it should exist." />
+                    </x:pending>
+                    <x:pending label="has a Rules of Behavior document attached">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource uuid="872d6f42-f566-4189-82f9-e94c9fdaaf38">
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="rules-of-behavior" />
+                                        <base64 filename="rules_of_behavior.docx"
+                                                media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                00000000</base64>
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="attachment-required-rob"
+                                             label="it should exist." />
+                    </x:pending>
+                    <x:pending label="has an Information System Contingency Plan document attached">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource uuid="3c995fab-bb8d-4c1a-bcdd-b8548495d1e4">
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="plan" />
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="information-system-contingency-plan" />
+                                        <base64 filename="information_system_contingency_plan.docx"
+                                                media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                00000000</base64>
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="attachment-required-information-system-contingency-plan"
+                                             label="it should exist." />
+                    </x:pending>
+                    <x:pending label="has a Configuration Management Plan document attached">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource uuid="0681015f-7022-4977-b067-20a67da32409">
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="plan" />
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="configuration-management-plan" />
+                                        <base64 filename="configuration_management_plan.docx"
+                                                media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                00000000</base64>
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="attachment-required-configuration-management-plan"
+                                             label="it should exist." />
+                    </x:pending>
+                    <x:pending label="has an Incident Response Plan document attached">
+                        <x:context>
+                            <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource uuid="ea1523ed-aad3-4346-acc7-b9d491488268">
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="plan" />
+                                        <prop name="type"
+                                              ns="https://fedramp.gov/ns/oscal"
+                                              value="incident-response-plan" />
+                                        <base64 filename="incident_response_plan.docx"
+                                                media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                                                00000000</base64>
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert id="attachment-required-incident-response-plan"
+                                             label="it should exist." />
+                    </x:pending>
+                </x:scenario>
             </x:scenario>
         </x:scenario>
     </x:scenario>
