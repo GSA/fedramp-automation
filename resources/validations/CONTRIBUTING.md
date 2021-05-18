@@ -2,19 +2,21 @@ Project Structure
 ---
 All directory references are local to the `fedramp-automation/resources/validations`
 
-`/src` for the sch files
+`src` for the sch files
 
-`/lib` for toolchain dependencies (e.g. Schematron)
+`lib` for toolchain dependencies (e.g. Schematron)
 
-`/report/test` for XSpec outputs
+`report/test` for XSpec outputs
 
-`/report/schematron` for final validations in Schematron SVRL reporting format
+`report/schematron` for final validations in Schematron SVRL reporting format
 
-`/target` for intermediary and compiled artifacts (e.g. XSLT stylesheets)
+`target` for intermediary and compiled artifacts (e.g. XSLT stylesheets)
 
-`/test` for any XSpec or other testing artifacts
+`test` for any XSpec or other testing artifacts
 
-`/test/demo` xml files for validating XSpec against
+`test/demo` xml files for validating XSpec against
+
+`docs/adr` a list of [Architectural Decision Records](https://adr.github.io) in which the product team documented technical decisions for the project
 
 To validate xml files using schematron
 ---
