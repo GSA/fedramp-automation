@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="FedRAMP OSCAL Validations" />
+    <script>
+      const docElem = window.document.documentElement,
+        loadingClass = 'usa-js-loading';
+      function addLoadingClass() {
+        docElem.className += ` ${loadingClass}`;
+      }
+      function revertClass() {
+        docElem.className = docElem.className.replace(loadingClass, '');
+      }
+      if ('querySelector' in window.document && 'addEventListener' in window) {
+        addLoadingClass();
+        const e = setTimeout(revertClass, 8e3);
+        let s = 100;
+        const n = () => {
+          setTimeout(() => {
+            (s += 1),
+              'undefined' != typeof uswdsPresent
+                ? (clearTimeout(e), setTimeout(revertClass, 100))
+                : s > 0 && n();
+          }, 100);
+        };
+        n();
+      }
+    </script>
+    <title>FedRAMP - OSCAL Validations</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script type="module" src="/dist/index.js"></script>
+  </body>
+</html>
