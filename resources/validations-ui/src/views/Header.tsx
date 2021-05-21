@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 
-interface AppProps {}
+interface Props {}
 
 /*return (
 <div>
@@ -11,7 +11,7 @@ interface AppProps {}
 </div>
 );*/
 
-function Header({}: AppProps) {
+function Header({}: Props) {
   return (
     <header className="usa-header usa-header--basic usa-header--megamenu">
       <div className="usa-nav-container">

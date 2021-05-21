@@ -1,8 +1,8 @@
 import React from 'react';
 
-interface AppProps {}
+interface Props {}
 
-function Banner({}: AppProps) {
+function Banner({}: Props) {
   return (
     <section className="usa-banner" aria-label="Official government website">
       <div className="usa-accordion">

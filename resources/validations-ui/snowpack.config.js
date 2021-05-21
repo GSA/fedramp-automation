@@ -6,6 +6,7 @@ module.exports = {
     'node_modules/uswds/dist/fonts': { url: '/fonts', static: true },
     'node_modules/uswds/dist/img': { url: '/img', static: true },
     'node_modules/uswds/dist/js': { url: '/js', static: true },
+    validations: { url: '/validations', static: true },
   },
   plugins: [
     '@snowpack/plugin-react-refresh',

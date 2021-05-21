@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 
 import 'uswds';
 
+import App from './views/App';
 import './index.scss';
-
 
 ReactDOM.render(
   <React.StrictMode>
