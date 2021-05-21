@@ -1,17 +1,46 @@
-// @ts-nocheck
 // The npm version of saxon-js is for node; currently, we load the browser
 // version via a script tag in index.html.
 
+export type ValidationAssert = {
+  id: string;
+  location: string;
+  role: string;
+  see: string;
+  test: string;
+  text: string;
+};
+export type ValidationReport = {
+  failedAsserts: ValidationAssert[];
+};
+
+const getValidationReport = (document: DocumentFragment): ValidationReport => {
+  return {
+    failedAsserts: Array.prototype.map.call(
+      document.querySelectorAll('failed-assert'),
+      assert => {
+        return {
+          id: assert.attributes.id.value,
+          location: assert.attributes.location.value,
+          role: assert.attributes.role && assert.attributes.role.value,
+          see: assert.attributes.see && assert.attributes.see.value,
+          test: assert.attributes.test.value,
+          text: assert.textContent,
+        };
+      },
+    ) as ValidationAssert[],
+  };
+};
+
 export const transform = (options: { sourceText: string }) => {
-  return window.SaxonJS.transform(
+  return (window as any).SaxonJS.transform(
     {
       stylesheetLocation: '/validations/ssp.sef.json',
-      destination: 'serialized',
+      destination: 'document',
       sourceText: options.sourceText,
-      collectionFinder: _ => [],
+      collectionFinder: (url: string) => [],
     },
     'async',
-  ).then(output => {
-    return output.principalResult as string;
+  ).then((output: any) => {
+    return getValidationReport(output.principalResult as DocumentFragment);
   });
 };

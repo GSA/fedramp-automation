@@ -1,11 +1,39 @@
 import React, { ChangeEvent, useState } from 'react';
 
-import { transform } from '../adapters/saxon-js';
+import {
+  transform,
+  ValidationAssert,
+  ValidationReport,
+} from '../adapters/saxon-js';
 
 interface Props {}
 
-function SSPValidator({}: Props) {
-  const [svrl, setSvrl] = useState<string | true>('');
+const SSPReport = ({ report }: { report: ValidationReport }) => {
+  return (
+    <div className="usa-table-container--scrollable">
+      {report.failedAsserts.map((assert: ValidationAssert, index: number) => (
+        <div className="usa-alert usa-alert--error" role="alert">
+          <div className="usa-alert__body">
+            <h4 className="usa-alert__heading">{assert.id}</h4>
+            <p className="usa-alert__text">
+              {assert.text}
+              <ul>
+                {assert.see && <li>`see: ${assert.see}`</li>}
+                <li>xpath: {assert.location}</li>
+                <li>test: {assert.test}</li>
+              </ul>
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ({}: Props) => {
+  type Loading = boolean;
+  const [validationReport, setValidationReport] =
+    useState<ValidationReport | Loading>(false);
 
   const setXmlDocument = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -21,9 +49,12 @@ function SSPValidator({}: Props) {
           return;
         }
 
-        setSvrl(true);
-        transform({ sourceText }).then(setSvrl);
+        setValidationReport(true);
+        transform({ sourceText }).then((report: ValidationReport) => {
+          setValidationReport(report);
+        });
       });
+      setValidationReport(false);
       reader.readAsText(inputFile);
     }
   };
@@ -45,9 +76,11 @@ function SSPValidator({}: Props) {
         accept=".xml"
         onChange={setXmlDocument}
       />
-      {svrl === true ? <div className="loader" /> : <code>{svrl}</code>}
+      {validationReport === false ? null : validationReport === true ? (
+        <div className="loader" />
+      ) : (
+        <SSPReport report={validationReport} />
+      )}
     </div>
   );
-}
-
-export default SSPValidator;
+};
