@@ -4,19 +4,25 @@ import { transform } from '../adapters/saxon-js';
 
 interface Props {}
 
-function XslSchematronValidator({}: Props) {
+function SSPValidator({}: Props) {
   const [svrl, setSvrl] = useState<string | true>('');
 
   const setXmlDocument = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files?.length) {
+    if (event.target.files && event.target.files.length > 0) {
       const inputFile = event.target.files[0];
       const reader = new FileReader();
       reader.addEventListener('load', event => {
-        const sourceText = event.target?.result?.toString();
-        if (sourceText) {
-          setSvrl(true);
-          transform({ sourceText }).then(setSvrl);
+        if (!event.target || !event.target.result) {
+          return;
         }
+
+        const sourceText = event.target.result.toString();
+        if (!sourceText) {
+          return;
+        }
+
+        setSvrl(true);
+        transform({ sourceText }).then(setSvrl);
       });
       reader.readAsText(inputFile);
     }
@@ -44,4 +50,4 @@ function XslSchematronValidator({}: Props) {
   );
 }
 
-export default XslSchematronValidator;
+export default SSPValidator;
