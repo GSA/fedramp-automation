@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="250abd54-0ba9-42b0-a0c7-ab94ad8de444">
+         uuid="60b00512-59ab-4a68-8b71-01fee9dd2909">
    <metadata>
       <title>FedRAMP Rev 4 Low Baseline</title>
       <published>2021-02-05T00:00:00.000-04:00</published>
-      <last-modified>2021-04-12T21:26:18.177782Z</last-modified>
+      <last-modified>2021-05-21T12:20:20.647029Z</last-modified>
       <version>1.3</version>
       <oscal-version>1.0.0-rc2</oscal-version>
       <link rel="resolution-source" href="FedRAMP_rev4_LOW-baseline_profile.xml"/>
@@ -42,10 +42,10 @@
          <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
       </party>
       <responsible-party role-id="prepared-by">
-         <party-uuid>4aa7b203-318b-4cde-96cf-feaeffc3a4b7</party-uuid>
+         <party-uuid>8cc0b8e5-9650-4d5f-9796-316f05fa9a2d</party-uuid>
       </responsible-party>
       <responsible-party role-id="fedramp-pmo">
-         <party-uuid>4aa7b203-318b-4cde-96cf-feaeffc3a4b7</party-uuid>
+         <party-uuid>8cc0b8e5-9650-4d5f-9796-316f05fa9a2d</party-uuid>
       </responsible-party>
       <responsible-party role-id="fedramp-jab">
          <party-uuid>ca9ba80e-1342-4bfd-b32a-abac468c24b4</party-uuid>
