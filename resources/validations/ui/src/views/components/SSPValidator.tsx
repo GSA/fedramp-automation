@@ -4,10 +4,10 @@ import React from 'react';
 import type {
   ValidationAssert,
   ValidationReport,
-} from '../use-cases/validate-ssp-xml';
+} from '../../use-cases/validate-ssp-xml';
 
-import { usePresenter } from './hooks';
-import { onFileChange } from './util/file-input';
+import { usePresenter } from '../hooks';
+import { onFileChange } from '../util/file-input';
 
 interface Props {}
 
