@@ -1,17 +1,11 @@
 // The npm version of saxon-js is for node; currently, we load the browser
 // version via a script tag in index.html.
 
-export type ValidationAssert = {
-  id: string;
-  location: string;
-  role: string;
-  see: string;
-  test: string;
-  text: string;
-};
-export type ValidationReport = {
-  failedAsserts: ValidationAssert[];
-};
+import type {
+  ValidateSspXml,
+  ValidationAssert,
+  ValidationReport,
+} from '../use-cases/validate-ssp-xml';
 
 const getValidationReport = (document: DocumentFragment): ValidationReport => {
   return {
@@ -31,7 +25,7 @@ const getValidationReport = (document: DocumentFragment): ValidationReport => {
   };
 };
 
-export const transform = (sourceText: string) => {
+export const transform: ValidateSspXml = (sourceText: string) => {
   return (window as any).SaxonJS.transform(
     {
       stylesheetLocation: '/validations/ssp.sef.json',
