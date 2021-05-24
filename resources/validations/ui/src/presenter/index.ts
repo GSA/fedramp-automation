@@ -1,25 +1,18 @@
 import { createOvermind, IConfig } from 'overmind';
+import { namespaced } from 'overmind/config';
 
-import type { ValidateSspXml } from '../use-cases/validate-ssp-xml';
+import * as report from './report';
 
-import * as actions from './actions';
-import { state } from './state';
-
-type UseCases = {
-  validateSspXml: ValidateSspXml;
-};
+type UseCases = report.UseCases;
 
 export const getPresenterConfig = (useCases: UseCases) => {
-  return {
-    state,
-    actions,
-    effects: {
-      useCases: useCases,
-    },
-  };
+  return namespaced({
+    report: report.getPresenterConfig(useCases),
+  });
 };
+type ConfigType = ReturnType<typeof getPresenterConfig>;
 declare module 'overmind' {
-  interface Config extends IConfig<ReturnType<typeof getPresenterConfig>> {}
+  interface Config extends IConfig<ConfigType> {}
 }
 
 export const createPresenter = (useCases: UseCases) => {

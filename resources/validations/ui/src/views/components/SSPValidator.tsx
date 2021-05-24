@@ -9,8 +9,6 @@ import type {
 import { usePresenter } from '../hooks';
 import { onFileChange } from '../util/file-input';
 
-interface Props {}
-
 const SSPReport = ({ report }: { report: ValidationReport }) => {
   return (
     <div className="usa-table-container--scrollable">
@@ -51,10 +49,12 @@ export const SSPValidator: React.FC = () => {
         name="file-input-specific"
         aria-describedby="file-input-specific-hint"
         accept=".xml"
-        onChange={onFileChange(actions.setXmlContents)}
+        onChange={onFileChange(actions.report.setXmlContents)}
       />
-      {state.loadingValidationReport && <div className="loader" />}
-      {state.validationReport && <SSPReport report={state.validationReport} />}
+      {state.report.loadingValidationReport && <div className="loader" />}
+      {state.report.validationReport && (
+        <SSPReport report={state.report.validationReport} />
+      )}
     </div>
   );
 };
