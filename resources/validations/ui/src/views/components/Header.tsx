@@ -1,8 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
 
-interface Props {}
-
 /*return (
 <div>
     <header>
@@ -11,7 +9,7 @@ interface Props {}
 </div>
 );*/
 
-function Header({}: Props) {
+export const Header: React.FC = () => {
   return (
     <header className="usa-header usa-header--basic usa-header--megamenu">
       <div className="usa-nav-container">
@@ -27,7 +25,7 @@ function Header({}: Props) {
         </div>
         <nav aria-label="Primary navigation" className="usa-nav">
           <button className="usa-nav__close">
-            <img src="/img/usa-icons/close.svg" role="img" alt="close" />
+            <img src="/uswds/img/usa-icons/close.svg" role="img" alt="close" />
           </button>
           <ul className="usa-nav__primary usa-accordion">
             <li className="usa-nav__primary-item">
@@ -40,6 +38,4 @@ function Header({}: Props) {
       </div>
     </header>
   );
-}
-
-export default Header;
+};

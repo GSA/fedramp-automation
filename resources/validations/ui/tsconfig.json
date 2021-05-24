@@ -6,6 +6,10 @@
     "moduleResolution": "node",
     "jsx": "preserve",
     "baseUrl": "./",
+    "lib": [
+      "ESNext",
+      "DOM",
+    ],
     /* paths - import rewriting/resolving */
     "paths": {
       // If you configured any Snowpack aliases, add them here.

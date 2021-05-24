@@ -8,6 +8,8 @@
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
   },
   "dependencies": {
+    "overmind": "^27.0.0",
+    "overmind-react": "^28.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "uswds": "^2.11.2"

@@ -9,6 +9,12 @@ This project is built using the node.js version specified in `.nvmrc`. To use, r
 nvm use
 ```
 
+To install dependencies:
+
+```bash
+nvm install
+```
+
 ### Development server
 
 ```bash
@@ -23,6 +29,12 @@ To build a static copy of your site to the `build/` folder:
 
 ```bash
 npm run build
+```
+
+To test the production build locally, you could use the Python http server:
+
+```bash
+python -m http.server 8000 -d ./build
 ```
 
 ### Run tests

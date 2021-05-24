@@ -1,10 +1,13 @@
-import React, { ChangeEvent, useState } from 'react';
+import React from 'react';
 
-import {
-  transform,
+// fixme: don't depend directly on use-case typing in the view
+import type {
   ValidationAssert,
   ValidationReport,
-} from '../adapters/saxon-js';
+} from '../use-cases/validate-ssp-xml';
+
+import { usePresenter } from './hooks';
+import { onFileChange } from './util/file-input';
 
 interface Props {}
 
@@ -30,34 +33,8 @@ const SSPReport = ({ report }: { report: ValidationReport }) => {
   );
 };
 
-export default ({}: Props) => {
-  type Loading = boolean;
-  const [validationReport, setValidationReport] =
-    useState<ValidationReport | Loading>(false);
-
-  const setXmlDocument = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files.length > 0) {
-      const inputFile = event.target.files[0];
-      const reader = new FileReader();
-      reader.addEventListener('load', event => {
-        if (!event.target || !event.target.result) {
-          return;
-        }
-
-        const sourceText = event.target.result.toString();
-        if (!sourceText) {
-          return;
-        }
-
-        setValidationReport(true);
-        transform({ sourceText }).then((report: ValidationReport) => {
-          setValidationReport(report);
-        });
-      });
-      setValidationReport(false);
-      reader.readAsText(inputFile);
-    }
-  };
+export const SSPValidator: React.FC = () => {
+  const { state, actions } = usePresenter();
 
   return (
     <div className="usa-form-group">
@@ -74,13 +51,10 @@ export default ({}: Props) => {
         name="file-input-specific"
         aria-describedby="file-input-specific-hint"
         accept=".xml"
-        onChange={setXmlDocument}
+        onChange={onFileChange(actions.setXmlContents)}
       />
-      {validationReport === false ? null : validationReport === true ? (
-        <div className="loader" />
-      ) : (
-        <SSPReport report={validationReport} />
-      )}
+      {state.loadingValidationReport && <div className="loader" />}
+      {state.validationReport && <SSPReport report={state.validationReport} />}
     </div>
   );
 };

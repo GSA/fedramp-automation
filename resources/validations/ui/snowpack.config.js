@@ -3,9 +3,9 @@ module.exports = {
   mount: {
     public: { url: '/', static: true },
     src: { url: '/dist' },
-    'node_modules/uswds/dist/fonts': { url: '/fonts', static: true },
-    'node_modules/uswds/dist/img': { url: '/img', static: true },
-    'node_modules/uswds/dist/js': { url: '/js', static: true },
+    'node_modules/uswds/dist/fonts': { url: '/uswds/fonts', static: true },
+    'node_modules/uswds/dist/img': { url: '/uswds/img', static: true },
+    'node_modules/uswds/dist/js': { url: '/uswds/js', static: true },
     validations: { url: '/validations', static: true },
   },
   plugins: [

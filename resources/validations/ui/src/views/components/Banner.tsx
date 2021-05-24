@@ -1,8 +1,6 @@
 import React from 'react';
 
-interface Props {}
-
-function Banner({}: Props) {
+export const Banner: React.FC = () => {
   return (
     <section className="usa-banner" aria-label="Official government website">
       <div className="usa-accordion">
@@ -11,7 +9,7 @@ function Banner({}: Props) {
             <div className="grid-col-auto">
               <img
                 className="usa-banner__header-flag"
-                src="/img/us_flag_small.png"
+                src="/uswds/img/us_flag_small.png"
                 alt="U.S. flag"
               />
             </div>
@@ -42,7 +40,7 @@ function Banner({}: Props) {
             <div className="usa-banner__guidance tablet:grid-col-6">
               <img
                 className="usa-banner__icon usa-media-block__img"
-                src="/img/icon-dot-gov.svg"
+                src="/uswds/img/icon-dot-gov.svg"
                 role="img"
                 alt=""
                 aria-hidden="true"
@@ -58,7 +56,7 @@ function Banner({}: Props) {
             <div className="usa-banner__guidance tablet:grid-col-6">
               <img
                 className="usa-banner__icon usa-media-block__img"
-                src="/img/icon-https.svg"
+                src="/uswds/img/icon-https.svg"
                 role="img"
                 alt=""
                 aria-hidden="true"
@@ -100,6 +98,4 @@ function Banner({}: Props) {
       </div>
     </section>
   );
-}
-
-export default Banner;
+};

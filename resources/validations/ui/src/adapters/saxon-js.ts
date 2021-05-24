@@ -31,12 +31,12 @@ const getValidationReport = (document: DocumentFragment): ValidationReport => {
   };
 };
 
-export const transform = (options: { sourceText: string }) => {
+export const transform = (sourceText: string) => {
   return (window as any).SaxonJS.transform(
     {
       stylesheetLocation: '/validations/ssp.sef.json',
       destination: 'document',
-      sourceText: options.sourceText,
+      sourceText: sourceText,
       collectionFinder: (url: string) => [],
     },
     'async',
