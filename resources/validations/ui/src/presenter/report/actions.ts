@@ -6,7 +6,7 @@ export const setXmlContents: Action<string> = (
 ) => {
   state.report.loadingValidationReport = true;
   effects.report.useCases
-    .validateSspXml(xmlContents)
+    .validateSchematron(xmlContents)
     .then(validationReport => {
       state.report.validationReport = validationReport;
       state.report.loadingValidationReport = false;

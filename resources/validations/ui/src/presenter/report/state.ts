@@ -1,7 +1,9 @@
 import { derived } from 'overmind';
-import type { ValidationAssert } from 'src/adapters/saxon-js';
 
-import type { ValidationReport } from '../../use-cases/validate-ssp-xml';
+import type {
+  ValidationAssert,
+  ValidationReport,
+} from '../../use-cases/validate-ssp-xml';
 
 export enum Filter {
   ALL = 'all',

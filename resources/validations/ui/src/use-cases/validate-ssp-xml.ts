@@ -1,6 +1,3 @@
-// temp, just export saxon-js code
-export { transform } from '../adapters/saxon-js';
-
 export type ValidationAssert = {
   id: string;
   location: string;
@@ -13,4 +10,18 @@ export type ValidationReport = {
   failedAsserts: ValidationAssert[];
 };
 
-export type ValidateSspXml = (xmlContents: string) => Promise<ValidationReport>;
+export type SchematronValidationReportGateway = (
+  oscalXmlString: string,
+) => Promise<ValidationReport>;
+
+type ValidateSchematronUseCaseContext = {
+  generateSchematronValidationReport: SchematronValidationReportGateway;
+};
+
+export const ValidateSchematronUseCase =
+  (ctx: ValidateSchematronUseCaseContext) => (oscalXmlString: string) => {
+    return ctx.generateSchematronValidationReport(oscalXmlString);
+  };
+export type ValidateSchematronUseCase = ReturnType<
+  typeof ValidateSchematronUseCase
+>;
