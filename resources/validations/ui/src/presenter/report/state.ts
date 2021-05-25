@@ -5,35 +5,43 @@ import type {
   ValidationReport,
 } from '../../use-cases/validate-ssp-xml';
 
-export enum Filter {
-  ALL = 'all',
-  ERROR = 'error',
-  POSITIVE = 'positive',
-  WARN = 'warn',
-  WARNING = 'warning',
-}
+export type Filter = string;
 
 type State = {
   filter: Filter;
   loadingValidationReport: boolean;
-  roles: Set<string>;
-  filterRoles: string[];
+  roles: Filter[];
+  filterRoles: Filter[];
   validationReport: ValidationReport | null;
   visibleAssertions: ValidationAssert[];
 };
 
 export const state: State = {
-  filter: Filter.WARN,
+  filter: 'all',
   loadingValidationReport: false,
   validationReport: null,
   roles: derived(({ validationReport }: State) => {
     if (!validationReport) {
-      return new Set();
+      return [];
     }
-    return new Set(validationReport.failedAsserts.map(assert => assert.role));
+    return [
+      'all',
+      ...Array.from(
+        new Set(
+          validationReport.failedAsserts
+            .map(assert => assert.role)
+            .filter(role => role),
+        ),
+      ).sort(),
+    ];
   }),
-  filterRoles: derived(({ filter }: State) => {
-    return [filter.valueOf()];
+  filterRoles: derived(({ filter, roles }: State) => {
+    switch (filter) {
+      case 'all':
+        return roles;
+      default:
+        return [filter];
+    }
   }),
   visibleAssertions: derived(({ filterRoles, validationReport }: State) => {
     if (!validationReport) {

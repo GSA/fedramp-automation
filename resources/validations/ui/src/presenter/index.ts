@@ -10,14 +10,19 @@ export const getPresenterConfig = (useCases: UseCases) => {
     report: report.getPresenterConfig(useCases),
   });
 };
-type ConfigType = ReturnType<typeof getPresenterConfig>;
+export type ConfigType = ReturnType<typeof getPresenterConfig>;
 declare module 'overmind' {
   interface Config extends IConfig<ConfigType> {}
 }
 
-export const createPresenter = (useCases: UseCases) => {
-  return createOvermind(getPresenterConfig(useCases), {
-    devtools: false,
+type PresenterContext = {
+  useCases: UseCases;
+  debug: boolean;
+};
+
+export const createPresenter = (ctx: PresenterContext) => {
+  return createOvermind(getPresenterConfig(ctx.useCases), {
+    devtools: ctx.debug,
   });
 };
 export type Presenter = ReturnType<typeof createPresenter>;

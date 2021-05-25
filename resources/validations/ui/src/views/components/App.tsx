@@ -11,11 +11,7 @@ export const App: React.FC<AppProps> = props => {
       <Banner />
       <Header />
       <div className="grid-container">
-        <div className="grid-row">
-          <div className="tablet:grid-col">
-            <SSPValidator />
-          </div>
-        </div>
+        <SSPValidator />
       </div>
     </div>
   );
