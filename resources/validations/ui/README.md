@@ -12,7 +12,7 @@ nvm use
 To install dependencies:
 
 ```bash
-nvm install
+npm install
 ```
 
 ### Development server
