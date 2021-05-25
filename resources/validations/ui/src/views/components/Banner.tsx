@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Banner: React.FC = () => {
+export const Banner = () => {
   return (
     <section className="usa-banner" aria-label="Official government website">
       <div className="usa-accordion">

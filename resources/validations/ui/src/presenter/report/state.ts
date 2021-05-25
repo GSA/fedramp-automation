@@ -1,4 +1,4 @@
-import { derived, filter } from 'overmind';
+import { derived } from 'overmind';
 
 import type {
   ValidationAssert,
@@ -34,9 +34,7 @@ export const state: State = {
       'all',
       ...Array.from(
         new Set(
-          validationReport.failedAsserts
-            .map(assert => assert.role)
-            .filter(role => role),
+          validationReport.failedAsserts.map(assert => assert.role || ''),
         ),
       ).sort(),
     ];
@@ -56,7 +54,7 @@ export const state: State = {
       }
       let assertions = validationReport.failedAsserts.filter(
         (assertion: ValidationAssert) => {
-          return filterRoles.includes(assertion.role);
+          return filterRoles.includes(assertion.role || '');
         },
       );
       if (filter.text.length > 0) {

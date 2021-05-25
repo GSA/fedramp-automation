@@ -1,11 +1,12 @@
 import React from 'react';
 import { Banner } from './Banner';
+import { Footer } from './Footer';
 import { Header } from './Header';
 import { SSPValidator } from './SSPValidator';
 
 interface AppProps {}
 
-export const App: React.FC<AppProps> = props => {
+export const App = () => {
   return (
     <div>
       <Banner />
@@ -13,6 +14,7 @@ export const App: React.FC<AppProps> = props => {
       <div className="grid-container">
         <SSPValidator />
       </div>
+      <Footer />
     </div>
   );
 };

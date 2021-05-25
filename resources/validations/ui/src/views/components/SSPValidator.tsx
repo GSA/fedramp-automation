@@ -4,7 +4,7 @@ import { usePresenter } from '../hooks';
 import { onFileChange } from '../util/file-input';
 import { SSPReport } from './report';
 
-export const SSPValidator: React.FC = () => {
+export const SSPValidator = () => {
   const { state, actions } = usePresenter();
 
   return (
@@ -75,7 +75,7 @@ export const SSPValidator: React.FC = () => {
                       className="usa-radio__label"
                       htmlFor={`role-${filterRole}`}
                     >
-                      {filterRole}
+                      {filterRole || '<not specified>'}
                     </label>
                   </>
                 ))}

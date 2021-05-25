@@ -9,7 +9,7 @@ import logo from './logo.svg';
 </div>
 );*/
 
-export const Header: React.FC = () => {
+export const Header = () => {
   return (
     <header className="usa-header usa-header--basic usa-header--megamenu">
       <div className="usa-nav-container">
