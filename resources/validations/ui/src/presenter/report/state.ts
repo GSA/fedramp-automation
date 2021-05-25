@@ -61,8 +61,8 @@ export const state: State = {
       );
       if (filter.text.length > 0) {
         assertions = assertions.filter(assertion => {
-          const allText = Object.values(assertion).join('\n');
-          return allText.includes(filter.text);
+          const allText = Object.values(assertion).join('\n').toLowerCase();
+          return allText.includes(filter.text.toLowerCase());
         });
       }
       return assertions;
