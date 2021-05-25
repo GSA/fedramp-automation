@@ -1,6 +1,6 @@
 import type { Action, AsyncAction } from 'overmind';
 
-import type { Filter } from './state';
+import type { Role } from './state';
 
 export const setXmlContents: AsyncAction<string> = (
   { state, effects },
@@ -22,6 +22,10 @@ export const setXmlContents: AsyncAction<string> = (
     });
 };
 
-export const setFilterRole: Action<Filter> = ({ state }, filter) => {
-  state.report.filter = filter;
+export const setFilterRole: Action<Role> = ({ state }, filter) => {
+  state.report.filter.role = filter;
+};
+
+export const setFilterText: Action<string> = ({ state }, text) => {
+  state.report.filter.text = text;
 };

@@ -11,7 +11,7 @@ export const SSPValidator: React.FC = () => {
     <div className="grid-row grid-gap">
       <div className="mobile:grid-col-12 tablet:grid-col-4">
         <label className="usa-label" htmlFor="file-input-specific">
-          Select a FedRAMP OSCAL SSP document
+          FedRAMP OSCAL SSP document
         </label>
         <span className="usa-hint" id="file-input-specific-hint">
           Select XML file
@@ -28,7 +28,36 @@ export const SSPValidator: React.FC = () => {
         {state.report.validationReport && (
           <form className="usa-form">
             <fieldset className="usa-fieldset">
-              <legend className="usa-legend">Filter by assertion role</legend>
+              <div className="usa-search usa-search--small" role="search">
+                <label className="usa-sr-only" htmlFor="search-field">
+                  Search
+                </label>
+                <div className="usa-input-group">
+                  <div className="usa-input-prefix" aria-hidden="true">
+                    <svg
+                      aria-hidden="true"
+                      role="img"
+                      focusable="false"
+                      className="usa-icon"
+                    >
+                      <use
+                        xmlnsXlink="http://www.w3.org/1999/xlink"
+                        xlinkHref="/uswds/img/sprite.svg#search"
+                      />
+                    </svg>
+                  </div>
+                  <input
+                    id="search-field"
+                    type="search"
+                    className="usa-input"
+                    autoComplete="off"
+                    onChange={event =>
+                      actions.report.setFilterText(event?.target.value)
+                    }
+                    placeholder="Search text..."
+                  />
+                </div>
+              </div>
               <div className="usa-radio">
                 {state.report.roles.map((filterRole, index) => (
                   <>
@@ -39,7 +68,7 @@ export const SSPValidator: React.FC = () => {
                       type="radio"
                       name="role"
                       value={filterRole}
-                      checked={state.report.filter === filterRole}
+                      checked={state.report.filter.role === filterRole}
                       onChange={() => actions.report.setFilterRole(filterRole)}
                     />
                     <label
