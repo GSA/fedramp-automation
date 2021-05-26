@@ -34,7 +34,7 @@ npm run build
 To test the production build locally, you could use the Python http server:
 
 ```bash
-python -m http.server 8000 -d ./_site
+python -m http.server 8000 -d ./build
 ```
 
 ### Run tests
