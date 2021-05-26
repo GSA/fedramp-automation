@@ -51,9 +51,13 @@ export const SSPValidator = () => {
                     type="search"
                     className="usa-input"
                     autoComplete="off"
-                    onChange={event =>
-                      actions.report.setFilterText(event?.target.value)
-                    }
+                    onChange={event => {
+                      let text = '';
+                      if (event && event.target) {
+                        text = event.target.value;
+                      }
+                      actions.report.setFilterText(text);
+                    }}
                     placeholder="Search text..."
                   />
                 </div>

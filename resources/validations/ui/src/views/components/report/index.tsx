@@ -67,7 +67,8 @@ export const SSPReport = () => {
       {state.report.validationReport && (
         <h1>
           Showing {state.report.visibleAssertions.length} of{' '}
-          {state.report.validationReport?.failedAsserts.length}
+          {state.report.validationReport &&
+            state.report.validationReport.failedAsserts.length}
         </h1>
       )}
       {state.report.visibleAssertions.map((assert, index) => (
