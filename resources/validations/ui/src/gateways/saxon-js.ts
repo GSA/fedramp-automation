@@ -23,6 +23,7 @@ const getValidationReport = (document: DocumentFragment): ValidationReport => {
 };
 
 type SaxonJsSchematronValidationReportGatewayContext = {
+  sefUrl: string;
   SaxonJS: any;
 };
 
@@ -34,7 +35,7 @@ export const SaxonJsSchematronValidationReportGateway =
     return (
       ctx.SaxonJS.transform(
         {
-          stylesheetLocation: '/validations/ssp.sef.json',
+          stylesheetLocation: ctx.sefUrl,
           destination: 'document',
           sourceText: sourceText,
           collectionFinder: (url: string) => [],
