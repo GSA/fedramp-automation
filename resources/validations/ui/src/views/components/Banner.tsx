@@ -42,7 +42,7 @@ export const Banner = () => {
             <div className="usa-banner__guidance tablet:grid-col-6">
               <img
                 className="usa-banner__icon usa-media-block__img"
-                src="/uswds/img/icon-dot-gov.svg"
+                src={getAssetUrl('uswds/img/icon-dot-gov.svg')}
                 role="img"
                 alt=""
                 aria-hidden="true"
@@ -58,7 +58,7 @@ export const Banner = () => {
             <div className="usa-banner__guidance tablet:grid-col-6">
               <img
                 className="usa-banner__icon usa-media-block__img"
-                src="/uswds/img/icon-https.svg"
+                src={getAssetUrl('uswds/img/icon-https.svg')}
                 role="img"
                 alt=""
                 aria-hidden="true"
