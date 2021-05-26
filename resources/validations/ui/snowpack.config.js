@@ -42,6 +42,6 @@ module.exports = {
     /* ... */
   },
   buildOptions: {
-    /* ... */
+    baseUrl: process.env.BASEURL || '/',
   },
 };
