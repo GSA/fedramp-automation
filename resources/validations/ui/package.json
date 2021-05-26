@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "concurrently \"overmind-devtools\" \"snowpack dev\"",
-    "build": "snowpack build",
+    "build": "npm run build:sef && snowpack build",
     "build:sef": "xslt3 -xsl:../target/ssp.xsl -export:validations/ssp.sef.json -nogo",
     "test": "web-test-runner \"src/**/*.test.tsx\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
