@@ -5,9 +5,10 @@ import { renderApp } from '../views';
 
 type BrowserContext = {
   debug: boolean;
+  baseUrl: string;
 };
 
-export default ({ debug }: BrowserContext) => {
+export default ({ debug, baseUrl }: BrowserContext) => {
   const useCases = {
     validateSchematron: ValidateSchematronUseCase({
       generateSchematronValidationReport:
@@ -18,7 +19,7 @@ export default ({ debug }: BrowserContext) => {
         }),
     }),
   };
-  const presenter = createPresenter({ useCases, debug });
+  const presenter = createPresenter({ useCases, debug, baseUrl });
   renderApp(document.getElementById('root') as HTMLElement, presenter);
 
   // Hot Module Replacement (HMR) - Remove this snippet to remove HMR.

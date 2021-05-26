@@ -1,5 +1,10 @@
+const BASEURL = process.env.BASEURL || '/';
+
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
+  env: {
+    BASEURL,
+  },
   mount: {
     public: { url: '/', static: true },
     src: { url: '/dist' },
@@ -42,6 +47,6 @@ module.exports = {
     /* ... */
   },
   buildOptions: {
-    baseUrl: process.env.BASEURL || '/',
+    baseUrl: BASEURL,
   },
 };

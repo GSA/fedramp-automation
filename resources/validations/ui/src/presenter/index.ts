@@ -1,14 +1,23 @@
 import { createOvermind, IConfig } from 'overmind';
-import { namespaced } from 'overmind/config';
+import { merge, namespaced } from 'overmind/config';
 
+import * as actions from './actions';
 import * as report from './report';
 
 type UseCases = report.UseCases;
 
 export const getPresenterConfig = (useCases: UseCases) => {
-  return namespaced({
-    report: report.getPresenterConfig(useCases),
-  });
+  return merge(
+    {
+      state: {
+        baseUrl: '',
+      },
+      actions,
+    },
+    namespaced({
+      report: report.getPresenterConfig(useCases),
+    }),
+  );
 };
 export type ConfigType = ReturnType<typeof getPresenterConfig>;
 declare module 'overmind' {
@@ -16,13 +25,16 @@ declare module 'overmind' {
 }
 
 type PresenterContext = {
-  useCases: UseCases;
+  baseUrl: string;
   debug: boolean;
+  useCases: UseCases;
 };
 
 export const createPresenter = (ctx: PresenterContext) => {
-  return createOvermind(getPresenterConfig(ctx.useCases), {
+  const presenter = createOvermind(getPresenterConfig(ctx.useCases), {
     devtools: ctx.debug,
   });
+  presenter.actions.setBaseUrl(ctx.baseUrl);
+  return presenter;
 };
 export type Presenter = ReturnType<typeof createPresenter>;

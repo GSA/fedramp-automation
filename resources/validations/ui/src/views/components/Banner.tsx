@@ -1,6 +1,8 @@
 import React from 'react';
+import { useActions } from '../hooks';
 
 export const Banner = () => {
+  const { getAssetUrl } = useActions();
   return (
     <section className="usa-banner" aria-label="Official government website">
       <div className="usa-accordion">
@@ -9,7 +11,7 @@ export const Banner = () => {
             <div className="grid-col-auto">
               <img
                 className="usa-banner__header-flag"
-                src="/uswds/img/us_flag_small.png"
+                src={getAssetUrl('uswds/img/us_flag_small.png')}
                 alt="U.S. flag"
               />
             </div>

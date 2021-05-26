@@ -42,7 +42,9 @@ export const SSPValidator = () => {
                     >
                       <use
                         xmlnsXlink="http://www.w3.org/1999/xlink"
-                        xlinkHref="/uswds/img/sprite.svg#search"
+                        xlinkHref={actions.getAssetUrl(
+                          'uswds/img/sprite.svg#search',
+                        )}
                       />
                     </svg>
                   </div>
