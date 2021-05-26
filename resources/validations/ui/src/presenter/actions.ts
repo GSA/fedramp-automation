@@ -5,5 +5,5 @@ export const setBaseUrl: Action<string> = ({ state }, baseUrl) => {
 };
 
 export const getAssetUrl: Action<string, string> = ({ state }, assetPath) => {
-  return `${state.baseUrl}${assetPath}`;
+  return `${state.baseUrl}/${assetPath}`;
 };
