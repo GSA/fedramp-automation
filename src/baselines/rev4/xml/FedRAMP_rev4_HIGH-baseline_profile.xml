@@ -1371,7 +1371,7 @@
       <set-parameter param-id="ir-3_prm_1">
          <constraint>
             <description>
-               <p>at least every six (6) months</p>
+               <p>at least every six (6) months, including functional at least annually</p>
             </description>
          </constraint>
       </set-parameter>
@@ -11040,7 +11040,7 @@
                <part id="sa-4_fr_gdn.1" name="guidance">
                   <prop name="label" value="Guidance:"/>
                   <p>The use of Common Criteria (ISO/IEC 15408) evaluated products is strongly
-							preferred. See <a href="https://www.niap-ccevs.org/Product/">https://www.niap-ccevs.org/Product/</a>.</p>
+							preferred. See <a href="https://www.niap-ccevs.org/Product/ ">https://www.niap-ccevs.org/Product/</a>.</p>
                </part>
             </part>
          </add>
