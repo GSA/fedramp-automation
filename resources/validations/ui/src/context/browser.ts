@@ -13,7 +13,7 @@ export default ({ debug, baseUrl }: BrowserContext) => {
     validateSchematron: ValidateSchematronUseCase({
       generateSchematronValidationReport:
         SaxonJsSchematronValidationReportGateway({
-          sefUrl: `${baseUrl}/validations/ssp.sef.json`,
+          sefUrl: `${baseUrl}/ssp.sef.json`,
           // The npm version of saxon-js is for node; currently, we load the
           // browser version via a script tag in index.html.
           SaxonJS: (window as any).SaxonJS,

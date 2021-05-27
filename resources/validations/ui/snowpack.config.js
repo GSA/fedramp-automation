@@ -1,4 +1,4 @@
-const BASEURL = process.env.BASEURL || '/';
+const BASEURL = process.env.BASEURL || '';
 
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {

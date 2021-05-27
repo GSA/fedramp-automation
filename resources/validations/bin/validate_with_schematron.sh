@@ -73,12 +73,12 @@ echo output dir "${OUTPUT_ROOT}"
 if test ! -e  "$DOC_TO_VALIDATE" ; then
     echo "no file input to validate, exiting"
     exit 1
-else 
+else
     echo "doc requested to be validated: ${DOC_TO_VALIDATE}"
 fi
 
 #if version not specified default
-SAXON_VERSION=${SAXON_VERSION:-10.2}
+SAXON_VERSION=${SAXON_VERSION:-10.5}
 SAXON_OPTS="${SAXON_OPTS:-allow-foreign=true diagnose=true}"
 BASE_DIR="${BASE_DIR:-.}"
 
@@ -114,8 +114,8 @@ if test -f "${SAXON_CP}" ; then
         echo Saxon JAR at classpath "${SAXON_CP}" does not contain net.sf.saxon.Transform
         exit 1
     fi
-else 
-    echo Saxon JAR at classpath "${SAXON_CP}" is not present 
+else
+    echo Saxon JAR at classpath "${SAXON_CP}" is not present
     exit 1
 fi
 
@@ -123,10 +123,10 @@ fi
 rm -rf "${OUTPUT_ROOT}/*.results.xml"
 rm -rf "${OUTPUT_ROOT}/*.results.html"
 
-#in the future replace the for loop with an optional passed in directory or single schema file -f 
+#in the future replace the for loop with an optional passed in directory or single schema file -f
 for qualifiedSchematronName in "${SCHEMA_LOCATION_DIR}"/*.sch; do
     [ -e "${qualifiedSchematronName}" ] || continue
-        
+
     # compute name without .sch
     schematronName=${qualifiedSchematronName##*/}
     schematronRoot=${schematronName%.*}
@@ -159,7 +159,7 @@ for qualifiedSchematronName in "${SCHEMA_LOCATION_DIR}"/*.sch; do
         $SAXON_OPTS
 
     echo "compiling: ${qualifiedSchematronName} to: ${BASE_DIR}/target/${schematronRoot}.xsl"
-   
+
     # Use Saxon XSL transform to use XSL-ified Schematron rules to analyze full FedRAMP-SSP-OSCAL template
     # and dump the result into reports.
     reportName="${OUTPUT_ROOT}/${DOC_TO_VALIDATE}__${schematronRoot}.results.xml"

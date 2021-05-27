@@ -1,8 +1,12 @@
 {
   "scripts": {
     "start": "concurrently \"overmind-devtools\" \"snowpack dev\"",
-    "build": "npm run build:sef && snowpack build",
-    "build:sef": "xslt3 -xsl:../target/ssp.xsl -export:validations/ssp.sef.json -nogo",
+    "build": "snowpack build",
+    "build:schematron": "npm run build:sch-stage-1 && npm run build:sch-stage-2 && npm run build:sch-stage-3 && npm run build:sef",
+    "build:sch-stage-1": "xslt3 -s:../src/ssp.sch -xsl:../lib/schematron/trunk/schematron/code/iso_dsdl_include.xsl -o:validations/stage1.sch",
+    "build:sch-stage-2": "xslt3 -s:validations/stage1.sch -xsl:../lib/schematron/trunk/schematron/code/iso_abstract_expand.xsl -o:validations/stage2.sch",
+    "build:sch-stage-3": "xslt3 -s:validations/stage2.sch -xsl:../lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl -o:validations/ssp.xsl",
+    "build:sef": "xslt3 -xsl:validations/ssp.xsl -export:validations/ssp.sef.json -nogo",
     "test": "web-test-runner \"src/**/*.test.tsx\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
