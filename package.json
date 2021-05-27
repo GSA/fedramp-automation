@@ -7,6 +7,7 @@
     "link:validation-ui": "ln -sf ./resources/validations/ui/build _site",
     "build:schematron": "cd resources/validations && ./bin/validate_with_schematron.sh -f ./test/demo/FedRAMP-SSP-OSCAL-Template.xml && cd ../..",
     "build:validation-ui": "cd resources/validations/ui && npm install && npm run build && cd ../../..",
-    "federalist": "npm run build:schematron && npm run build:validation-ui && npm run link:validation-ui"
+    "federalist": "which java && java --version",
+    "federalisttemp": "npm run build:schematron && npm run build:validation-ui && npm run link:validation-ui"
   }
 }
