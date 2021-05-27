@@ -1367,10 +1367,15 @@ profile:
                     prose: The service provider shall determine how System Use Notification is going
                       to be verified and provide appropriate periodicity of the
                       check. The System Use Notification verification and
-                      periodicity are approved and accepted by the JAB/AO. If
-                      performed as part of a Configuration Baseline check, then
-                      the % of items requiring setting that are checked and that
-                      pass (or fail) check can be provided.
+                      periodicity are approved and accepted by the JAB/AO.
+                  - id: ac-8_fr_gdn.1
+                    name: guidance
+                    props:
+                      - name: label
+                        value: "Guidance:"
+                    prose: If performed as part of a Configuration Baseline check, then the % of
+                      items requiring setting that are checked and that pass (or
+                      fail) check can be provided.
                   - id: ac-8_fr_smt.3
                     name: item
                     props:
