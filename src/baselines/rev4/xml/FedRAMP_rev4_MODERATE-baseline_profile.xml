@@ -6192,10 +6192,13 @@
                <part id="ir-3_fr_smt.1" name="item">
                   <prop name="label" value="IR-3 -2 Requirement:"/>
                   <p>The service provider defines tests and/or exercises in accordance with
-							NIST Special Publication 800-61 (as amended). For JAB authorization, the
-							service provider provides test plans to the JAB/AO annually. Test plans
-							are approved and accepted by the JAB/AO prior to test commencing.</p>
+							NIST Special Publication 800-61 (as amended). Functional Testing must occur prior to
+							testing for initial authorization. Annual functional testing may be concurrent with
+							required penetration tests (see CA-8). The service provider provides test plans to the
+                     JAB/AO annually. Test plans are approved and accepted by the JAB/AO prior to test
+                     commencing.</p>
                </part>
+            </part>
             </part>
          </add>
          <add position="starting" id-ref="ir-3">
