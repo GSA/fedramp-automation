@@ -6199,7 +6199,6 @@
                      commencing.</p>
                </part>
             </part>
-            </part>
          </add>
          <add position="starting" id-ref="ir-3">
             <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value=""/>
