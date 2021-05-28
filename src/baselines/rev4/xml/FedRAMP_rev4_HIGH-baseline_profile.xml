@@ -7659,7 +7659,7 @@
             <part id="ir-3_fr" name="item">
                <title>IR-3 Additional FedRAMP Requirements and Guidance</title>
                <part id="ir-3_fr_smt.1" name="item">
-                  <prop name="label" value="IR-3 Requiremen 2:"/>
+                  <prop name="label" value="IR-3 Requirement 2:"/>
                   <p>The service provider defines tests and/or exercises in accordance with
 							NIST Special Publication 800-61 (as amended). Functional Testing must occur prior to
 							testing for initial authorization. Annual functional testing may be concurrent with
