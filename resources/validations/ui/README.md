@@ -45,3 +45,7 @@ To launch the application test runner:
 npm test
 npm test -- --watch
 ```
+
+## Licensing
+
+With the exception of all dependencies, project code is in the public domain. Note that [Saxon-JS](https://www.saxonica.com/saxon-js/index.xml) is vendored in the [./public](./public) directory, and is [free but not open source](https://www.saxonica.com/saxon-js/documentation/index.html#!conditions/public-license).
