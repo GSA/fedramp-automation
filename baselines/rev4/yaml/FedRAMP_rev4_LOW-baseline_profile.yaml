@@ -9970,6 +9970,18 @@ profile:
                 name: item
                 title: SA-4 Additional FedRAMP Requirements and Guidance
                 parts:
+                  - id: sa-4_fr_smt.1
+                    name: item
+                    props:
+                      - name: label
+                        value: "Requirement:"
+                    prose: The service provider must comply with Federal Acquisition Regulation
+                      (FAR) Subpart 7.103, and Section 889 of the John S. McCain
+                      National Defense Authorization Act (NDAA) for Fiscal Year
+                      2019 (Pub. L. 115-232), and FAR Subpart 4.21, which
+                      implements Section 889 (as well as any added updates
+                      related to FISMA to address security concerns in the
+                      system acquisitions process).
                   - id: sa-4_fr_gdn.1
                     name: guidance
                     props:
@@ -9977,9 +9989,7 @@ profile:
                         value: "Guidance:"
                     prose: The use of Common Criteria (ISO/IEC 15408) evaluated products is strongly
                       preferred. See
-                      [http://www.niap-ccevs.org/vpl](http://www.niap-ccevs.org/vpl)
-                      or
-                      [http://www.commoncriteriaportal.org/products.html](http://www.commoncriteriaportal.org/products.html).
+                      [https://www.niap-ccevs.org/Product/](https://www.niap-ccevs.org/Product/).
           - position: starting
             id-ref: sa-4.1_obj
             props:

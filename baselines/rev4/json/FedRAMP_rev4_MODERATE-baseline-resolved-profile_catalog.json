@@ -1,10 +1,10 @@
 {
   "catalog": {
-    "uuid": "964808ee-022a-4cd1-955e-b611b18e291e",
+    "uuid": "7cf32925-b7f4-4702-94fe-9ba567554f4f",
     "metadata": {
       "title": "FedRAMP Rev 4 Moderate Baseline",
       "published": "2021-02-05T00:00:00.000-04:00",
-      "last-modified": "2021-05-27T16:30:38.207291Z",
+      "last-modified": "2021-05-28T04:19:55.605094Z",
       "version": "1.3",
       "oscal-version": "1.0.0-rc2",
       "links": [
@@ -41025,10 +41025,10 @@
                         "props": [
                           {
                             "name": "label",
-                            "value": "IR-3 -2 Requirement:"
+                            "value": "IR-3 Requirement 2:"
                           }
                         ],
-                        "prose": "The service provider defines tests and/or exercises in accordance with NIST Special Publication 800-61 (as amended). For JAB authorization, the service provider provides test plans to the JAB/AO annually. Test plans are approved and accepted by the JAB/AO prior to test commencing."
+                        "prose": "The service provider defines tests and/or exercises in accordance with NIST Special Publication 800-61 (as amended). Functional Testing must occur prior to testing for initial authorization. Annual functional testing may be concurrent with required penetration tests (see CA-8). The service provider provides test plans to the JAB/AO annually. Test plans are approved and accepted by the JAB/AO prior to test commencing."
                       }
                     ]
                   }
@@ -66168,6 +66168,17 @@
                     "title": "SA-4 Additional FedRAMP Requirements and Guidance",
                     "parts": [
                       {
+                        "id": "sa-4_fr_smt.1",
+                        "name": "item",
+                        "props": [
+                          {
+                            "name": "label",
+                            "value": "Requirement:"
+                          }
+                        ],
+                        "prose": "The service provider must comply with Federal Acquisition Regulation (FAR) Subpart 7.103, and Section 889 of the John S. McCain National Defense Authorization Act (NDAA) for Fiscal Year 2019 (Pub. L. 115-232), and FAR Subpart 4.21, which implements Section 889 (as well as any added updates related to FISMA to address security concerns in the system acquisitions process)."
+                      },
+                      {
                         "id": "sa-4_fr_gdn.1",
                         "name": "guidance",
                         "props": [
@@ -66176,7 +66187,7 @@
                             "value": "Guidance:"
                           }
                         ],
-                        "prose": "The use of Common Criteria (ISO/IEC 15408) evaluated products is strongly preferred. See [http://www.niap-ccevs.org/vpl](http://www.niap-ccevs.org/vpl) or [http://www.commoncriteriaportal.org/products.html](http://www.commoncriteriaportal.org/products.html)."
+                        "prose": "The use of Common Criteria (ISO/IEC 15408) evaluated products is strongly preferred. See [https://www.niap-ccevs.org/Product/](https://www.niap-ccevs.org/Product/)."
                       }
                     ]
                   }
