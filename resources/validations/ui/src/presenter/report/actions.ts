@@ -7,7 +7,7 @@ export const setXmlContents: AsyncAction<string> = (
   xmlContents: string,
 ) => {
   state.report.loadingValidationReport = true;
-  return effects.report.useCases
+  return effects.useCases
     .validateSchematron(xmlContents)
     .then(validationReport => {
       console.log('setting validation report', validationReport);

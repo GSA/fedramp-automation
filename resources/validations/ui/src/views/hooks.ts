@@ -6,10 +6,10 @@ import {
   createReactionHook,
 } from 'overmind-react';
 
-import type { ConfigType } from '../presenter';
+import type { PresenterConfig } from '../presenter';
 
 export const usePresenter = createHook();
-export const useState = createStateHook<ConfigType>();
-export const useActions = createActionsHook<ConfigType>();
-export const useEffects = createEffectsHook<ConfigType>();
-export const useReaction = createReactionHook<ConfigType>();
+export const useState = createStateHook<PresenterConfig>();
+export const useActions = createActionsHook<PresenterConfig>();
+export const useEffects = createEffectsHook<PresenterConfig>();
+export const useReaction = createReactionHook<PresenterConfig>();

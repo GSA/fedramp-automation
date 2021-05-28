@@ -7,12 +7,9 @@ export type UseCases = {
   validateSchematron: ValidateSchematronUseCase;
 };
 
-export const getPresenterConfig = (useCases: UseCases) => {
+export const getPresenterConfig = () => {
   return {
     state,
     actions,
-    effects: {
-      useCases: useCases,
-    },
   };
 };

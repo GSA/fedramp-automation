@@ -1,7 +1,7 @@
 {
   "include": ["src", "types"],
   "compilerOptions": {
-    "module": "esnext",
+    "module": "es2020",
     "target": "es5",
     "moduleResolution": "node",
     "jsx": "preserve",
@@ -22,7 +22,7 @@
     /* Additional Options */
     "strict": true,
     "skipLibCheck": true,
-    "types": ["mocha", "snowpack-env"],
+    "types": ["jest", "snowpack-env"],
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,

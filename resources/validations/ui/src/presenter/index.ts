@@ -1,5 +1,6 @@
-import { createOvermind, IConfig } from 'overmind';
+import { createOvermind, createOvermindMock, IConfig } from 'overmind';
 import { merge, namespaced } from 'overmind/config';
+import type { ValidateSchematronUseCase } from 'src/use-cases/validate-ssp-xml';
 
 import * as actions from './actions';
 import * as report from './report';
@@ -13,15 +14,18 @@ export const getPresenterConfig = (useCases: UseCases) => {
         baseUrl: '',
       },
       actions,
+      effects: {
+        useCases,
+      },
     },
     namespaced({
-      report: report.getPresenterConfig(useCases),
+      report: report.getPresenterConfig(),
     }),
   );
 };
-export type ConfigType = ReturnType<typeof getPresenterConfig>;
+export type PresenterConfig = ReturnType<typeof getPresenterConfig>;
 declare module 'overmind' {
-  interface Config extends IConfig<ConfigType> {}
+  interface Config extends IConfig<PresenterConfig> {}
 }
 
 type PresenterContext = {
@@ -38,3 +42,15 @@ export const createPresenter = (ctx: PresenterContext) => {
   return presenter;
 };
 export type Presenter = ReturnType<typeof createPresenter>;
+
+export const createPresenterMock = (useCaseMocks?: Partial<UseCases>) => {
+  const presenter = createOvermindMock(
+    getPresenterConfig({
+      validateSchematron: () => console.log as any as ValidateSchematronUseCase,
+    } as any as UseCases),
+    { useCases: useCaseMocks },
+  );
+  presenter.actions.setBaseUrl('/');
+  return presenter;
+};
+export type PresenterMock = ReturnType<typeof createPresenterMock>;
