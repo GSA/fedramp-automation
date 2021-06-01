@@ -13,7 +13,7 @@ Schematron-compiled XSLT has been produced by the development team, with the int
 ### Technical considerations
 
 - *Client or server* SSPs are considered [Controlled Unclassified Information (CUI)](https://www.archives.gov/cui/about), so having the option to handle SSP evaluation entirely client-side avoids security concerns. However, XSLT transformation in-browser may be more limited in feature set or stability.
-- *XSLT library* Saxon-JS is the only viable Javascript library that may be run in the browser. For the server-side, Saxon-JS (node.js) and Saxon-HE (Java) are options that are viable. Saxon-JS has additional licensing considerations - it is free to use, but not open source.
+- *XSLT library* [Saxon-JS](https://www.saxonica.com/saxon-js/index.xml) is the only viable Javascript library that may be run in the browser. For the server-side, [Saxon-JS](https://www.saxonica.com/saxon-js/index.xml) (node.js) and [Saxon-HE](https://www.saxonica.com/documentation10/documentation.xml) (Java) are options that are viable. Saxon-JS has additional licensing considerations - it is free to use, but not open source.
 - *View layer* There are no major known requirements that require specific view layer features.
 - *Other considerations* Maintaining the ability to reuse code developed for a frontend in different contexts (build pipeline, command-line interface) would provide additional value.
 
