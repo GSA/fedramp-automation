@@ -22,3 +22,16 @@ $theme-image-path: '../../uswds/img';
     transform: rotate(360deg);
   }
 }
+
+// Header & Navigation
+.beta-banner {
+  background-color: $theme-color-secondary;
+  color: $theme-color-primary-vivid;
+  margin: auto 0;
+  padding: 0.1rem 0;
+
+  p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
