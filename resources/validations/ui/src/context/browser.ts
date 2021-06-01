@@ -1,31 +1,35 @@
-import { SaxonJsSchematronValidationReportGateway } from '../gateways/saxon-js';
+import { browserController } from '../adapters/browser-controller';
+import { SaxonJsSchematronValidationReportGateway } from '../adapters/saxon-js';
 import { createPresenter } from '../presenter';
 import { ValidateSchematronUseCase } from '../use-cases/validate-ssp-xml';
-import { renderApp } from '../views';
+import { createAppRenderer } from '../views';
 
 type BrowserContext = {
   debug: boolean;
   baseUrl: string;
+  importMetaHot: ImportMetaHot;
 };
 
-export default ({ debug, baseUrl }: BrowserContext) => {
-  const useCases = {
-    validateSchematron: ValidateSchematronUseCase({
-      generateSchematronValidationReport:
-        SaxonJsSchematronValidationReportGateway({
-          sefUrl: `${baseUrl}/ssp.sef.json`,
-          // The npm version of saxon-js is for node; currently, we load the
-          // browser version via a script tag in index.html.
-          SaxonJS: (window as any).SaxonJS,
-        }),
-    }),
-  };
-  const presenter = createPresenter({ useCases, debug, baseUrl });
-  renderApp(document.getElementById('root') as HTMLElement, presenter);
-
-  // Hot Module Replacement (HMR) - Remove this snippet to remove HMR.
-  // Learn more: https://snowpack.dev/concepts/hot-module-replacement
-  if (import.meta.hot) {
-    import.meta.hot.accept();
-  }
+export default ({ baseUrl, debug, importMetaHot }: BrowserContext) => {
+  browserController({
+    importMetaHot,
+    renderApp: createAppRenderer(
+      document.getElementById('root') as HTMLElement,
+      createPresenter({
+        debug,
+        baseUrl,
+        useCases: {
+          validateSchematron: ValidateSchematronUseCase({
+            generateSchematronValidationReport:
+              SaxonJsSchematronValidationReportGateway({
+                sefUrl: `${baseUrl}/ssp.sef.json`,
+                // The npm version of saxon-js is for node; currently, we load the
+                // browser version via a script tag in index.html.
+                SaxonJS: (window as any).SaxonJS,
+              }),
+          }),
+        },
+      }),
+    ),
+  });
 };

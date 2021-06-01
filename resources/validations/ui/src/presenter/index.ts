@@ -28,7 +28,7 @@ declare module 'overmind' {
   interface Config extends IConfig<PresenterConfig> {}
 }
 
-type PresenterContext = {
+export type PresenterContext = {
   baseUrl: string;
   debug: boolean;
   useCases: UseCases;
