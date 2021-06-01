@@ -19,7 +19,7 @@ export const Header = () => {
           <div className="usa-logo" id="basic-mega-logo">
             <em className="usa-logo__text">
               <a href="/" title="Home" aria-label="Home">
-                FedRAMP Validation Suite
+                FedRAMP Validations
               </a>
             </em>
           </div>

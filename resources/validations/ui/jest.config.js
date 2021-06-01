@@ -6,7 +6,7 @@ module.exports = {
     [
       './node_modules/jest-html-reporter',
       {
-        pageTitle: 'FedRAMP Validation Suite Test Report',
+        pageTitle: 'FedRAMP Validations Test Report',
       },
     ],
   ],
