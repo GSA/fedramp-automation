@@ -5,7 +5,6 @@ Date: 2021-05-28
 ## Status
 
 Accepted
-
 ## Context
 
 Schematron-compiled XSLT has been produced by the development team, with the intent that it be consumed by third-party developers. Additionally, the team has determined that a frontend interface is required to display validation data from the applied XSLT. Initially, the interface will be used to solicit feedback from FART (FedRAMP Agency Review Team) stakeholders and as a method for the team to view validation results during the development process.

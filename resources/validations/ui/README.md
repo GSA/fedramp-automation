@@ -1,6 +1,6 @@
 # FedRAMP Validations User Interface
 
-This is the user interface for the FedRAMP Validations.
+This is the user interface for FedRAMP Validations.
 ## Developer Instructions
 
 This project is built using the node.js version specified in `.nvmrc`. To use, run:

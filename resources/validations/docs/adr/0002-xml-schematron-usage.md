@@ -8,7 +8,7 @@ Accepted
 
 ## Context
 
-At the onset of the project, FedRAMP technical staff collaborated with the NIST OSCAL developers to assess the viability and methods to validate OSCAL system security plans (and other objects) against FedRAMP standards. Developers performed proof-of-concept development activites in spikes in 
+At the onset of the project, FedRAMP technical staff collaborated with the NIST OSCAL developers to assess the viability and methods to validate OSCAL system security plans (and other objects) against FedRAMP standards. Developers performed proof-of-concept development activites in spikes in
 
 - [usnistgov/OSCAL#271](https://github.com/usnistgov/OSCAL/issues/271)
 - [usnistgov/OSCAL#272](https://github.com/usnistgov/OSCAL/issues/271)
@@ -22,10 +22,10 @@ Following this exploratory development, the FedRAMP team briefed the [10x](10x.g
 
 ## Decision
 
-The 10x team reviewed previous prototype efforts and recommendations. They prototyped their own Schematron validation pipeline. The development team will continue using Schematron and XSLT for their development of the FedRAMP validations. 
+The 10x team reviewed previous prototype efforts and recommendations. They prototyped their own Schematron validation pipeline. The development team will continue using Schematron and XSLT for their development of FedRAMP Validations.
 
 ## Consequences
 
-- The FedRAMP validations will easy integrate and inter-operate with the OSCAL XML development toolchain.
+- FedRAMP Validations will easy integrate and inter-operate with the OSCAL XML development toolchain.
 - FedRAMP will need to refine a consistent structuring of informational, warning, and error messaging in validation output in [the Schematron Validation Reporting Language data format](https://github.com/schematron/schema).
 - Downstream developers and consumers of the validations must rely to the round-tripping JSON to XML converters (as the JSON data models are more popular based on developer community feedback).

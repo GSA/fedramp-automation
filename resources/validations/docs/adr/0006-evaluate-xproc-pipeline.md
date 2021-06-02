@@ -8,7 +8,7 @@ Accepted
 
 ## Context
 
-Early in the project, the development team decided to evaluate one of the existing task runners supporting [the XProc standard](https://spec.xproc.org/master/head/xproc/) to ease adoption of the FedRAMP validations prototype into projects reliant on XML and the XML ecosystem, per [18F/fedramp-automation#16](https://github.com/18F/fedramp-automation/issues/16).
+Early in the project, the development team decided to evaluate one of the existing task runners supporting [the XProc standard](https://spec.xproc.org/master/head/xproc/) to ease adoption of the FedRAMP Validations prototype into projects reliant on XML and the XML ecosystem, per [18F/fedramp-automation#16](https://github.com/18F/fedramp-automation/issues/16).
 
 At the time of this spike effort, there were [two XProc processors](https://xproc.org/processors.html):
 - MorganaXProc-III
@@ -18,7 +18,7 @@ Only MorganaXProc-III is ready for general use., and XProc Calabash is in active
 
 ## Decision
 
-After evaluation of available XProc tools, the development decided not to fully implement a pipeline in XProc for development, testing, and continuous integration. They assessed the level of effort required to integrate them into one or more Github Actions we would need to either extend or develop from scratch. Running these pipelines locally with desktop software with commercial tools, like OxygenXML and other common XML development software, would require development effort focused outside of the FedRAMP validations. The development team decided against it primarily over the level of effort for these supporting efforts.
+After evaluation of available XProc tools, the development decided not to fully implement a pipeline in XProc for development, testing, and continuous integration. They assessed the level of effort required to integrate them into one or more Github Actions we would need to either extend or develop from scratch. Running these pipelines locally with desktop software with commercial tools, like OxygenXML and other common XML development software, would require development effort focused outside of FedRAMP Validations. The development team decided against it primarily over the level of effort for these supporting efforts.
 
 ## Consequences
 

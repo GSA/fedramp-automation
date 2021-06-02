@@ -8,8 +8,8 @@ export const Banner = () => {
       <section className="beta-banner">
         <div className="grid-container">
           <p className="grid-col-auto">
-            <strong>BETA SITE:</strong> We are testing a new centralized System
-            of Records Notice dashboard.
+            <strong>BETA SITE:</strong> We are testing a new validation system
+            for FedRAMP.
           </p>
         </div>
       </section>
