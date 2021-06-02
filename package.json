@@ -1,0 +1,11 @@
+{
+  "name": "fedramp-automation",
+  "version": "0.0.1",
+  "author": "",
+  "license": "CC0-1.0",
+  "scripts": {
+    "link:validation-ui": "ln -sf ./resources/validations/ui/build _site",
+    "build:validation-ui": "cd resources/validations/ui && npm install && npm run build && cd ../../..",
+    "federalist": "npm run build:validation-ui && npm run link:validation-ui"
+  }
+}
