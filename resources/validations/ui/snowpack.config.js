@@ -1,9 +1,16 @@
 const BASEURL = process.env.BASEURL || '';
+const OWNER = process.env.OWNER || '';
+const BRANCH = process.env.BRANCH || '';
+const REPOSITORY =
+  process.env.REPOSITORY || 'https://github.com/18F/fedramp-automation';
 
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
   env: {
     BASEURL,
+    OWNER,
+    BRANCH,
+    REPOSITORY,
   },
   mount: {
     public: { url: '/', static: true },
