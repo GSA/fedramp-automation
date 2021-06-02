@@ -17,7 +17,7 @@ export const Footer = () => {
                 <li className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
                   <a
                     className="usa-footer__primary-link"
-                    href="javascript:void(0);"
+                    href="https://www.fedramp.gov/"
                   >
                     FedRAMP
                   </a>
