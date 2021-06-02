@@ -1,8 +1,9 @@
 import React from 'react';
-import { useActions } from '../hooks';
+import { useActions, useState } from '../hooks';
 
 export const Footer = () => {
   const { getAssetUrl } = useActions();
+  const { repositoryUrl } = useState();
   return (
     <footer className="usa-footer usa-footer--slim">
       <div className="grid-container usa-footer__return-to-top">
@@ -30,10 +31,7 @@ export const Footer = () => {
                   </a>
                 </li>
                 <li className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
-                  <a
-                    className="usa-footer__primary-link"
-                    href="https://github.com/18F/fedramp-automation"
-                  >
+                  <a className="usa-footer__primary-link" href={repositoryUrl}>
                     Source code
                   </a>
                 </li>

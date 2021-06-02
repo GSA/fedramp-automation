@@ -12,7 +12,7 @@ export const getPresenterConfig = (useCases: UseCases) => {
     {
       state: {
         baseUrl: '',
-        repository: '',
+        repositoryUrl: '',
       },
       actions,
       effects: {
@@ -32,7 +32,7 @@ declare module 'overmind' {
 export type PresenterContext = {
   baseUrl: string;
   debug: boolean;
-  repository: string;
+  repositoryUrl: string;
   useCases: UseCases;
 };
 
@@ -41,7 +41,7 @@ export const createPresenter = (ctx: PresenterContext) => {
     devtools: ctx.debug,
   });
   presenter.actions.setBaseUrl(ctx.baseUrl);
-  presenter.actions.setRepository(ctx.repository);
+  presenter.actions.setRepositoryUrl(ctx.repositoryUrl);
   return presenter;
 };
 export type Presenter = ReturnType<typeof createPresenter>;

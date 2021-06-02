@@ -8,14 +8,14 @@ type BrowserContext = {
   debug: boolean;
   baseUrl: string;
   importMetaHot: ImportMetaHot;
-  repository: string;
+  repositoryUrl: string;
 };
 
 export default ({
   baseUrl,
   debug,
   importMetaHot,
-  repository,
+  repositoryUrl,
 }: BrowserContext) => {
   browserController({
     importMetaHot,
@@ -24,7 +24,7 @@ export default ({
       createPresenter({
         debug,
         baseUrl,
-        repository,
+        repositoryUrl,
         useCases: {
           validateSchematron: ValidateSchematronUseCase({
             generateSchematronValidationReport:
