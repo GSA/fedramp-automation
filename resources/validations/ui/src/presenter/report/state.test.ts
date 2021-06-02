@@ -1,4 +1,3 @@
-import type { ValidationReport } from 'src/use-cases/validate-ssp-xml';
 import { createPresenterMock } from '..';
 
 describe('report state', () => {

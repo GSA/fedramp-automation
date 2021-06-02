@@ -1,6 +1,6 @@
-import browserContext from './context/browser';
+import { runBrowserContext } from './context/browser';
 
-browserContext({
+runBrowserContext({
   baseUrl: import.meta.env.BASEURL,
   debug: true,
   importMetaHot: import.meta.hot,

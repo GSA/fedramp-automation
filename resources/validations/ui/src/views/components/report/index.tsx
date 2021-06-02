@@ -16,20 +16,10 @@ const alertClassForRole = (role: string) => {
   return 'usa-alert--info';
 };
 
-const Assertion = ({
-  index,
-  assert,
-}: {
-  index: number;
-  assert: ValidationAssert;
-}) => {
+const Assertion = ({ assert }: { assert: ValidationAssert }) => {
   const [expanded, setExpanded] = useState<boolean>(false);
   return (
-    <div
-      key={index}
-      className={`usa-alert ${alertClassForRole(assert.role)}`}
-      role="alert"
-    >
+    <div className={`usa-alert ${alertClassForRole(assert.role)}`} role="alert">
       <div className="usa-alert__body">
         <h4 className="usa-alert__heading">{assert.id}</h4>
         <div className="usa-alert__text">
@@ -72,7 +62,7 @@ export const SSPReport = () => {
         </h1>
       )}
       {state.report.visibleAssertions.map((assert, index) => (
-        <Assertion index={index} assert={assert} />
+        <Assertion key={index} assert={assert} />
       ))}
     </div>
   );

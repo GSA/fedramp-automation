@@ -66,10 +66,9 @@ export const SSPValidator = () => {
               </div>
               <div className="usa-radio">
                 {state.report.roles.map((filterRole, index) => (
-                  <>
+                  <div key={index}>
                     <input
                       className="usa-radio__input usa-radio__input--tile"
-                      key={index}
                       id={`role-${filterRole}`}
                       type="radio"
                       name="role"
@@ -83,7 +82,7 @@ export const SSPValidator = () => {
                     >
                       {filterRole || '<not specified>'}
                     </label>
-                  </>
+                  </div>
                 ))}
               </div>
             </fieldset>

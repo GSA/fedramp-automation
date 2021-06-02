@@ -11,7 +11,7 @@ type BrowserContext = {
   repositoryUrl: string;
 };
 
-export default ({
+export const runBrowserContext = ({
   baseUrl,
   debug,
   importMetaHot,

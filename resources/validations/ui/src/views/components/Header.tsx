@@ -1,14 +1,5 @@
 import React from 'react';
 import { useActions } from '../hooks';
-import logo from './logo.svg';
-
-/*return (
-<div>
-    <header>
-    <img src={logo} alt="logo" />
-    </header>
-</div>
-);*/
 
 export const Header = () => {
   const { getAssetUrl } = useActions();
