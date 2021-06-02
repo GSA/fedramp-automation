@@ -20,7 +20,7 @@ describe('action', () => {
     it('should work', async () => {
       const presenter = createPresenterMock();
       expect(presenter.state).toMatchObject({
-        repositoryUrl: '',
+        repositoryUrl: '#',
       });
       await presenter.actions.setRepositoryUrl('https://github.com/owner/repo');
       expect(presenter.state).toMatchObject({

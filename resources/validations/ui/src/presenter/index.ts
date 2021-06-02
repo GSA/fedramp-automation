@@ -5,14 +5,16 @@ import type { ValidateSchematronUseCase } from 'src/use-cases/validate-ssp-xml';
 import * as actions from './actions';
 import * as report from './report';
 
-type UseCases = report.UseCases;
+type UseCases = {
+  validateSchematron: ValidateSchematronUseCase;
+};
 
 export const getPresenterConfig = (useCases: UseCases) => {
   return merge(
     {
       state: {
-        baseUrl: '',
-        repositoryUrl: '',
+        baseUrl: '/',
+        repositoryUrl: '#',
       },
       actions,
       effects: {
@@ -46,14 +48,24 @@ export const createPresenter = (ctx: PresenterContext) => {
 };
 export type Presenter = ReturnType<typeof createPresenter>;
 
+/**
+ * `createOvermindMock` expects actual effect functions. They may be shimmed in
+ * with the return value from this function.
+ * These use cases will never be called, because Overmind requires mock effects
+ * specified as the second parameter of `createOvermindMock`.
+ * @returns Stubbed use cases
+ */
+const getUseCasesShim = (): UseCases => {
+  const stub = jest.fn();
+  return {
+    validateSchematron: stub,
+  };
+};
+
 export const createPresenterMock = (useCaseMocks?: Partial<UseCases>) => {
-  const presenter = createOvermindMock(
-    getPresenterConfig({
-      validateSchematron: () => console.log as any as ValidateSchematronUseCase,
-    } as any as UseCases),
-    { useCases: useCaseMocks },
-  );
-  presenter.actions.setBaseUrl('/');
+  const presenter = createOvermindMock(getPresenterConfig(getUseCasesShim()), {
+    useCases: useCaseMocks,
+  });
   return presenter;
 };
 export type PresenterMock = ReturnType<typeof createPresenterMock>;
