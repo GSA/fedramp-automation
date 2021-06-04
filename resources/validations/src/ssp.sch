@@ -15,8 +15,18 @@
     <xsl:output encoding="UTF-8"
                 indent="yes"
                 method="xml" />
-    <xsl:param name="registry-href"
-               select="'../../xml?select=*.xml'" />
+    <xsl:param as="xs:string"
+               name="registry-base-path"
+               select="'../../xml'" />
+    <sch:let name="registry"
+             value="doc(concat($registry-base-path, '/fedramp_values.xml')) |
+                              doc(concat($registry-base-path, '/fedramp_threats.xml')) |
+                              doc(concat($registry-base-path, '/information-types.xml'))" />
+    <!--xsl:variable name="registry">
+        <xsl:sequence select="doc(concat($registry-base-path, '/fedramp_values.xml')) | 
+                              doc(concat($registry-base-path, '/fedramp_threats.xml')) |
+                              doc(concat($registry-base-path, '/information-types.xml'))"/>
+    </xsl:variable-->
     <xsl:function name="lv:if-empty-default">
         <xsl:param name="item" />
         <xsl:param name="default" />
@@ -68,26 +78,7 @@
     </xsl:function>
     <xsl:function as="item()*"
                   name="lv:registry">
-        <xsl:param name="href" />
-        <xsl:variable name="collection">
-            <xsl:sequence select="
-                doc('../../xml/fedramp_values.xml'),
-                doc('../../xml/fedramp_threats.xml'),
-                doc('../../xml/information-types.xml')
-                " />
-        </xsl:variable>
-        <xsl:choose>
-            <xsl:when test="$collection =&gt; exists()">
-                <xsl:sequence select="$collection" />
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:sequence>
-                    <fedramp-values xmlns="https://fedramp.gov/ns/oscal" />
-                    <fedramp-threats xmlns="https://fedramp.gov/ns/oscal" />
-                    <information-types />
-                </xsl:sequence>
-            </xsl:otherwise>
-        </xsl:choose>
+        <xsl:sequence select="$registry" />
     </xsl:function>
     <xsl:function as="xs:string"
                   name="lv:sensitivity-level">
@@ -235,8 +226,6 @@
     </xsl:template>
     <sch:pattern>
         <sch:rule context="/o:system-security-plan">
-            <sch:let name="registry"
-                     value="$registry-href =&gt; lv:registry()" />
             <sch:let name="ok-values"
                      value="$registry/f:fedramp-values/f:value-set[@name='security-sensitivity-level']" />
             <sch:let name="sensitivity-level"
@@ -246,7 +235,7 @@
             <sch:assert id="no-registry-values"
                         role="fatal"
                         test="count($registry/f:fedramp-values/f:value-set) &gt; 0">The registry values at the path ' 
-            <sch:value-of select="$registry-href" />' are not present, this configuration is invalid.</sch:assert>
+            <sch:value-of select="$registry-base-path" />' are not present, this configuration is invalid.</sch:assert>
             <sch:assert id="no-security-sensitivity-level"
                         organizational-id="section-c.1.a"
                         role="fatal"
@@ -261,8 +250,6 @@
             <sch:value-of select="$corrections" />. No more validation processing can occur.</sch:assert>
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation">
-            <sch:let name="registry"
-                     value="$registry-href =&gt; lv:registry()" />
             <sch:let name="registry-ns"
                      value="$registry/f:fedramp-values/f:namespace/f:ns/@ns" />
             <sch:let name="sensitivity-level"
@@ -323,8 +310,6 @@
                      value="/ =&gt; lv:sensitivity-level() =&gt; lv:if-empty-default('')" />
             <sch:let name="selected-profile"
                      value="$sensitivity-level =&gt; lv:profile()" />
-            <sch:let name="registry"
-                     value="$registry-href =&gt; lv:registry()" />
             <sch:let name="registry-ns"
                      value="$registry/f:fedramp-values/f:namespace/f:ns/@ns" />
             <sch:let name="status"

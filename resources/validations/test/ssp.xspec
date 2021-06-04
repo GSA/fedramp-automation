@@ -1324,32 +1324,14 @@
             </x:scenario>
         </x:scenario>
         <x:scenario label="with lv:registry">
-            <x:scenario label="when a valid filesystem path is provided">
-                <x:call function="lv:registry">
-                    <!-- 
-                        We filter in this test on one file, not all, because
-                        we can get a collection of files back. So we have a
-                        few options, each with issue(s). These are workarounds
-                        for building a test that XSpec will not throw errors on.
-
-                        - We can use raw handling of the $x:result response from XSpec, but you get back a sequence of doc() items in the collection. You cannot
-                          `treat as` to change the type signature, so this breaks. There does not seem to be a reasonable way to fix that in XSLT.
-                        - Pass in one hard-coded path, '../../xml/file_name.xml', but this will not return a collection, and you do not get a collection back.
-                        - You can work around these two problems by filtering back on a specific filename, so you get back a collection, of length, 0, 1, or n+1.
-                    -->
-                    <x:param select="'../../xml?select=fedramp_values.xml'" />
-                </x:call>
-                <x:expect label="the function will return a non-empty collection of information types, threats, and values"
-                          test="count(//f:value-set) &gt; 0" />
-            </x:scenario>
-            <x:scenario label="when an invalid filesystem path is provided">
-                <x:call function="lv:registry">
-                    <x:param select="'../../xml?select=*.willnotwork'" />
-                </x:call>
-                <x:expect label="the function will return an empty collection of information types, threats, and values"
-                          test="count(//f:information-type) = 0 and 
-                            count(//f:threat) = 0 and
-                            count(//f:value-set) = 0" />
+            <x:scenario label="registry resources should be returned">
+                <x:call function="lv:registry" />
+                <x:expect label="expected information-types"
+                          test="count(//f:information-types) = 1" />
+                <x:expect label="expected fedramp-threats"
+                          test="count(//f:fedramp-threats) = 1" />
+                <x:expect label="expected fedramp-values"
+                          test="count(//f:fedramp-values) = 1" />
             </x:scenario>
         </x:scenario>
         <x:scenario label="with lv:sensitivity-level">
