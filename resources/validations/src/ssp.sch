@@ -69,8 +69,13 @@
     <xsl:function as="item()*"
                   name="lv:registry">
         <xsl:param name="href" />
-        <xsl:variable name="collection"
-                      select="$href =&gt; collection()" />
+        <xsl:variable name="collection">
+            <xsl:sequence select="
+                doc('../../xml/fedramp_values.xml'),
+                doc('../../xml/fedramp_threats.xml'),
+                doc('../../xml/information-types.xml')
+                " />
+        </xsl:variable>
         <xsl:choose>
             <xsl:when test="$collection =&gt; exists()">
                 <xsl:sequence select="$collection" />
