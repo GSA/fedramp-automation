@@ -25,6 +25,7 @@ const getValidationReport = (document: DocumentFragment): ValidationReport => {
 type SaxonJsSchematronValidationReportGatewayContext = {
   sefUrl: string;
   SaxonJS: any;
+  registryBaseUrl: string;
 };
 
 export const SaxonJsSchematronValidationReportGateway =
@@ -39,6 +40,9 @@ export const SaxonJsSchematronValidationReportGateway =
           destination: 'document',
           sourceText: sourceText,
           collectionFinder: (url: string) => [],
+          stylesheetParams: {
+            'registry-base-path': ctx.registryBaseUrl,
+          },
         },
         'async',
       ) as Promise<DocumentFragment>
