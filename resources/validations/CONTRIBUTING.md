@@ -28,7 +28,7 @@ __Prerequesite__
 
 __Command Options__ for `/bin/validate_with_schematron.sh`
 
-`-f` *\<required>* is the input file to be tested. ex: `-f test/demo/FedRAMP-SSP-OSCAL-Template.xml`
+`-f` *\<optional>* is the input file to be tested. ex: `-f test/demo/FedRAMP-SSP-OSCAL-Template.xml`. If omitted, the XSLT transform will be compiled, but it will not be applied to a document.
 
 `-s` *\<optional>* schematron directory used to validate the file. Each .sch found within the specified directory will be compliled and generate a separate report. defaults to src relative to the parent of the bin directory where this script is located.  ex: `-o ~/mySchematronDirectory`
 
