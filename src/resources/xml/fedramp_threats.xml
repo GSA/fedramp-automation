@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<fedramp-threats xmlns="https://fedramp.gov/ns" uuid="7539047F-158B-4AA0-8FC5-F0530F1CC5CF">
+<fedramp-threats xmlns="https://fedramp.gov/ns/oscal" uuid="7539047F-158B-4AA0-8FC5-F0530F1CC5CF">
 
     <metadata>
         <title>FedRAMP Defined Threat Table [DRAFT]</title>
