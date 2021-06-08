@@ -1,11 +1,13 @@
 {
   "scripts": {
     "build": "snowpack build",
-    "build:schematron": "npm run build:sch-stage-1 && npm run build:sch-stage-2 && npm run build:sch-stage-3 && npm run build:sef",
+    "build:schematron": "npm run build:sch-java && npm run build:sef",
+    "build:schematron-ideal": "npm run build:sch-stage-1 && npm run build:sch-stage-2 && npm run build:sch-stage-3 && npm run build:sef",
+    "build:sch-java": "cd .. && ./bin/validate_with_schematron.sh && cp target/ssp.xsl ui/public && cd ui",
     "build:sch-stage-1": "xslt3 -s:../src/ssp.sch -xsl:../lib/schematron/trunk/schematron/code/iso_dsdl_include.xsl -o:validations/stage1.sch",
     "build:sch-stage-2": "xslt3 -s:validations/stage1.sch -xsl:../lib/schematron/trunk/schematron/code/iso_abstract_expand.xsl -o:validations/stage2.sch",
     "build:sch-stage-3": "xslt3 -s:validations/stage2.sch -xsl:../lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl -o:validations/ssp.xsl",
-    "build:sef": "xslt3 -xsl:validations/ssp.xsl -export:validations/ssp.sef.json -nogo",
+    "build:sef": "xslt3 -xsl:public/ssp.xsl -export:public/ssp.sef.json -nogo",
     "coverage": "jest --coverage && open ./coverage/lcov-report/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",

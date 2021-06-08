@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<information-types xmlns="https://fedramp.gov/ns" uuid="157BB1F7-8BE7-4642-9D5B-60B5995684F0">
+<information-types xmlns="https://fedramp.gov/ns/oscal" uuid="157BB1F7-8BE7-4642-9D5B-60B5995684F0">
     <metadata>
         <title>FedRAMP Acceptable Information Types [DRAFT]</title>
         <published>2021-01-15T00:00:00Z</published>

@@ -71,8 +71,7 @@ done
 
 echo output dir "${OUTPUT_ROOT}"
 if test ! -e  "$DOC_TO_VALIDATE" ; then
-    echo "no file input to validate, exiting"
-    exit 1
+    echo "no file input to validate, just compiling Schematron..."
 else
     echo "doc requested to be validated: ${DOC_TO_VALIDATE}"
 fi
@@ -160,27 +159,28 @@ for qualifiedSchematronName in "${SCHEMA_LOCATION_DIR}"/*.sch; do
 
     echo "compiling: ${qualifiedSchematronName} to: ${BASE_DIR}/target/${schematronRoot}.xsl"
 
-    # Use Saxon XSL transform to use XSL-ified Schematron rules to analyze full FedRAMP-SSP-OSCAL template
-    # and dump the result into reports.
-    reportName="${OUTPUT_ROOT}/${DOC_TO_VALIDATE}__${schematronRoot}.results.xml"
-    htmlReportName="${OUTPUT_ROOT}/${DOC_TO_VALIDATE}__${schematronRoot}.results.html"
+    if test -n "$DOC_TO_VALIDATE" ; then
+        # Use Saxon XSL transform to use XSL-ified Schematron rules to analyze full FedRAMP-SSP-OSCAL template
+        # and dump the result into reports.
+        reportName="${OUTPUT_ROOT}/${DOC_TO_VALIDATE}__${schematronRoot}.results.xml"
+        htmlReportName="${OUTPUT_ROOT}/${DOC_TO_VALIDATE}__${schematronRoot}.results.html"
 
-    rm -rf "${reportName}" "${htmlReportName}"
+        rm -rf "${reportName}" "${htmlReportName}"
 
-    echo "validating doc: ${DOC_TO_VALIDATE} with ${qualifiedSchematronName} output found in ${reportName}"
+        echo "validating doc: ${DOC_TO_VALIDATE} with ${qualifiedSchematronName} output found in ${reportName}"
 
-    # shellcheck disable=2086
-    java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-        -o:"${reportName}" \
-        -s:"${DOC_TO_VALIDATE}" \
-        "${BASE_DIR}"/target/"${schematronRoot}".xsl \
-        $SAXON_OPTS
+        # shellcheck disable=2086
+        java -cp "${SAXON_CP}" net.sf.saxon.Transform \
+            -o:"${reportName}" \
+            -s:"${DOC_TO_VALIDATE}" \
+            "${BASE_DIR}"/target/"${schematronRoot}".xsl \
+            $SAXON_OPTS
 
-    # shellcheck disable=2086
-    java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-        -o:"${htmlReportName}" \
-        -s:"${reportName}"  \
-        "${BASE_DIR}"/lib/svrl2html.xsl \
-        $SAXON_OPTS
-
+        # shellcheck disable=2086
+        java -cp "${SAXON_CP}" net.sf.saxon.Transform \
+            -o:"${htmlReportName}" \
+            -s:"${reportName}"  \
+            "${BASE_DIR}"/lib/svrl2html.xsl \
+            $SAXON_OPTS
+    fi
 done

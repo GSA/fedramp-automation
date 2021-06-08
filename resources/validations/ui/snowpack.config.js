@@ -12,10 +12,11 @@ module.exports = {
   mount: {
     public: { url: '/', static: true },
     src: { url: '/dist' },
+    '../../xml': { url: '/xml', static: true },
     'node_modules/uswds/dist/fonts': { url: '/uswds/fonts', static: true },
     'node_modules/uswds/dist/img': { url: '/uswds/img', static: true },
     'node_modules/uswds/dist/js': { url: '/uswds/js', static: true },
-    validations: { url: '/validations', static: true },
+    //validations: { url: '/validations', static: true },
   },
   plugins: [
     '@snowpack/plugin-react-refresh',
