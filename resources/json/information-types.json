@@ -1,6 +1,6 @@
 {
     "information-types": {
-        "xmlns": "https://fedramp.gov/ns",
+        "xmlns": "https://fedramp.gov/ns/oscal",
         "uuid": "157BB1F7-8BE7-4642-9D5B-60B5995684F0",
         "metadata": {
             "title": "FedRAMP Acceptable Information Types [DRAFT]",
