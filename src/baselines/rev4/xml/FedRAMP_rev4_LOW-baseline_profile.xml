@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Modified by the OSCAL 1.0.0 RC1 to OSCAL 1.0.0 RC2 conversion XSLT on 2021-04-12T12:36:28.67021-04:00 -->
+<!-- Modified by the OSCAL 1.0.0 RC2 to OSCAL 1.0.0 conversion XSLT on 2021-06-09T14:27:40.706-04:00 -->
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="9b1e1846-5c9b-47e1-aa75-0a54284c0657">
+         uuid="0c98192d-af11-4486-ab9a-d97ff36ff2ad">
    <metadata>
       <title>FedRAMP Rev 4 Low Baseline</title>
       <published>2021-02-05T00:00:00.000-04:00</published>
-      <last-modified>2021-04-12T12:36:28.67021-04:00</last-modified>
+      <last-modified>2021-06-09T14:27:40.706-04:00</last-modified>
       <version>1.3</version>
-      <oscal-version>1.0.0-rc2</oscal-version>
+      <oscal-version>1.0.0</oscal-version>
       <role id="prepared-by">
          <title>Document creator</title>
       </role>
@@ -5444,7 +5444,7 @@
                             Authorization Act (NDAA) for Fiscal Year 2019 (Pub. L. 115-232), and FAR Subpart 4.21,
                             which implements Section 889 (as well as any added updates related to FISMA to
                             address security concerns in the system acquisitions process).</p>
-              </part>
+               </part>
                <part id="sa-4_fr_gdn.1" name="guidance">
                   <prop name="label" value="Guidance:"/>
                   <p>The use of Common Criteria (ISO/IEC 15408) evaluated products is strongly
@@ -6224,7 +6224,7 @@
          <title>NIST Special Publication (SP) 800-53</title>
          <prop name="version" value="Revision 4"/>
          <rlink media-type="application/xml"
-            href="https://raw.githubusercontent.com/usnistgov/oscal-content/f5bf0dd0eea8c117d09c813b1b183e619e2f60cf/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
+                href="https://raw.githubusercontent.com/usnistgov/oscal-content/f5bf0dd0eea8c117d09c813b1b183e619e2f60cf/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
       </resource>
    </back-matter>
 </profile>

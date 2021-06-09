@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Modified by the OSCAL 1.0.0 RC1 to OSCAL 1.0.0 RC2 conversion XSLT on 2021-04-12T12:36:28.051707-04:00 -->
+<!-- Modified by the OSCAL 1.0.0 RC2 to OSCAL 1.0.0 conversion XSLT on 2021-06-09T14:27:50.591-04:00 -->
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-                      uuid="246dcd23-fcb9-43e5-9a5c-72d423777082">
+                      uuid="8c000726-ba93-480d-a221-8cb60df10c24">
    <metadata>
       <title>FedRAMP System Security Plan (SSP)</title>
       <published>2021-02-25T00:00:00.00-04:00</published>
-      <last-modified>2021-04-12T12:36:28.051707-04:00</last-modified>
+      <last-modified>2021-06-09T14:27:50.591-04:00</last-modified>
       <version>0.3</version>
-      <oscal-version>1.0.0-rc2</oscal-version>
+      <oscal-version>1.0.0</oscal-version>
       <revisions>
          <revision>
             <published>2019-06-01T00:00:00.00-04:00</published>
             <version>1.0</version>
-            <oscal-version>1.0.0-rc2</oscal-version>
+            <oscal-version>1.0.0</oscal-version>
             <prop ns="https://fedramp.gov/ns/oscal"
                   name="party-uuid"
                   value="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"/>
@@ -1190,6 +1190,8 @@
                <p>Describe any customer-configured requirements for satisfying this control.</p>
             </remarks>
          </prop>
+         <responsible-role role-id="admin-unix"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="ac-2_prm_1">
             <value>[SAMPLE]privileged, non-privileged</value>
          </set-parameter>
@@ -1202,8 +1204,6 @@
          <set-parameter param-id="ac-2_prm_4">
             <value>[SAMPLE]annually</value>
          </set-parameter>
-         <responsible-role role-id="admin-unix"/>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="ac-2_smt.a" uuid="24a85abb-25ad-4686-850c-5c0e8ab69a0c">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="b29d1505-69fa-4ad0-834b-d179e7f44f98">
@@ -1288,6 +1288,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="at-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1297,7 +1298,6 @@
          <set-parameter param-id="at-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="at-1_smt.a" uuid="ee5a11fb-9bae-4680-8f8c-575c85d47355">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="d3bdee1c-7d84-4ed4-8950-e13256edb7fa">
@@ -1334,6 +1334,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="au-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1343,7 +1344,6 @@
          <set-parameter param-id="au-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="au-1_smt.a" uuid="9a2bd937-226e-4aaf-8261-2cf0c2e3aa10">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="30042cb9-ff85-472f-b769-68bd7bb5bbd9">
@@ -1385,6 +1385,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="ca-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1394,7 +1395,6 @@
          <set-parameter param-id="ca-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="ca-1_smt.a" uuid="e7bd0a7e-5f92-4769-8cd3-76ad2f663a5c">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="e5815f1d-ec94-4d98-8896-ec57e339bd7b">
@@ -1434,6 +1434,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="cm-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1443,7 +1444,6 @@
          <set-parameter param-id="cm-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="cm-1_smt.a" uuid="52339583-19b6-4774-9213-50b9f42fe51f">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="2916ebd5-c45a-466e-b8e9-00dd15b0c94d">
@@ -1483,6 +1483,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="cp-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1492,7 +1493,6 @@
          <set-parameter param-id="cp-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="cp-1_smt.a" uuid="8bde1fa5-eb81-4a1b-9e6e-5827e176025a">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="157d7751-938c-441f-9299-02a339d98532">
@@ -1532,6 +1532,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="ia-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1541,7 +1542,6 @@
          <set-parameter param-id="ia-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="ia-1_smt.a" uuid="ba92e479-705f-47a4-a763-dfc098ba239d">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="5add335d-7375-49f0-843c-ac994e4d147b">
@@ -1581,6 +1581,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="ir-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1590,7 +1591,6 @@
          <set-parameter param-id="ir-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="ir-1_smt.a" uuid="7284efc2-d953-486c-ab8a-3caef6ce06c3">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="7b385445-5e7b-4656-98f1-0f1353aab59e">
@@ -1630,6 +1630,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="ma-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1639,7 +1640,6 @@
          <set-parameter param-id="ma-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="ma-1_smt.a" uuid="d609e538-3976-418e-a368-58fc75cd03c0">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="93a9b046-63c4-4628-8547-39bc7d8df70c">
@@ -1679,6 +1679,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="mp-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1688,7 +1689,6 @@
          <set-parameter param-id="mp-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="mp-1_smt.a" uuid="bab45ad3-65ee-43bc-9c3e-c3e4e2db8001">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="6668f521-4d5c-4317-868f-804878675bf2">
@@ -1728,6 +1728,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="pe-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1737,7 +1738,6 @@
          <set-parameter param-id="pe-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="pe-1_smt.a" uuid="11fd3e46-4735-4986-91bc-747345fe608a">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="dceb4401-c1fd-41a7-9e07-8d82a8042e61">
@@ -1778,6 +1778,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="pl-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1787,7 +1788,6 @@
          <set-parameter param-id="pl-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="pl-1_smt.a" uuid="ec7af577-ff22-46bf-ac0a-cf9d75c72ebb">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="679837fb-601e-4517-abe6-11ff6fc551b4">
@@ -1827,6 +1827,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="ps-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1836,7 +1837,6 @@
          <set-parameter param-id="ps-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="ps-1_smt.a" uuid="afe1703d-5e59-460b-b048-41b49699c5a1">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="7d6cafb2-b613-4807-ad61-4f0f649bd5ee">
@@ -1876,6 +1876,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="ra-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1885,7 +1886,6 @@
          <set-parameter param-id="ra-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="ra-1_smt.a" uuid="8fe541ea-0920-42d0-8561-4e08f04d796c">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="5894d92b-05bf-4fc4-85dc-f5c37e112bc4">
@@ -1925,6 +1925,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="sa-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1934,7 +1935,6 @@
          <set-parameter param-id="sa-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="sa-1_smt.a" uuid="ae3f64be-2e62-4347-b06a-727bc28e4f9b">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="e5864f16-83f2-4faf-b7be-0810c6e58fc4">
@@ -1974,6 +1974,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="sc-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -1983,7 +1984,6 @@
          <set-parameter param-id="sc-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="sc-1_smt.a" uuid="5e2e8372-c13b-4cf5-90c5-e8833a9fe241">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="88cfadba-043b-483b-8032-73344aa53c96">
@@ -2023,6 +2023,7 @@
             </remarks>
          </prop>
          <prop name="control-origination" value="system-specific"/>
+         <responsible-role role-id="program-director"/>
          <set-parameter param-id="si-1_prm_1">
             <value>[replace with list of personnel or roles]</value>
          </set-parameter>
@@ -2032,7 +2033,6 @@
          <set-parameter param-id="si-1_prm_3">
             <value>[specify frequency]</value>
          </set-parameter>
-         <responsible-role role-id="program-director"/>
          <statement statement-id="si-1_smt.a" uuid="915b10d2-2275-4d86-951a-eec23f9ee77a">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                           uuid="682311e7-e3f7-4d94-acf9-131149887fda">

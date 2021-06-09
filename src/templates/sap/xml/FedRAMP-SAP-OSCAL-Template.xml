@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Modified by the OSCAL 1.0.0 RC1 to OSCAL 1.0.0 RC2 conversion XSLT on 2021-04-12T12:36:27.685737-04:00 -->
+<!-- Modified by the OSCAL 1.0.0 RC2 to OSCAL 1.0.0 conversion XSLT on 2021-06-09T14:27:43.166-04:00 -->
 <assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-                 uuid="35cd0f77-4c33-4942-9119-86c115d9f641">
+                 uuid="c94691c8-0b83-483c-bc02-f3d3bf026abb">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Plan (SAP)</title>
       <published>2021-02-25T00:00:00.00-04:00</published>
-      <last-modified>2021-04-12T12:36:27.685737-04:00</last-modified>
+      <last-modified>2021-06-09T14:27:43.166-04:00</last-modified>
       <version>0.3</version>
-      <oscal-version>1.0.0-rc2</oscal-version>
+      <oscal-version>1.0.0</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
@@ -758,7 +758,7 @@
          <p>A description of the included component.</p>
       </description>
       <include-all/>
-      <exclude-subject uuid-ref="0f9049ed-a01f-484a-b70d-b1894fd196b8"/>
+      <exclude-subject subject-uuid="0f9049ed-a01f-484a-b70d-b1894fd196b8"/>
       <remarks>
          <p>FedRAMP and NIST use the term "component" differently. The combination of <code>component</code> and <code>inventory-item</code> assembly in OSCAL, together are equivalent to a FedRAMP "component".</p>
          <p>This <code>assessment-subject</code> is citing OSCAL <code>component</code> assemblies in the SSP.</p>
@@ -773,7 +773,7 @@
          <p>A brief description of the included inventory.</p>
       </description>
       <include-all/>
-      <exclude-subject uuid-ref="9c04e165-4827-407d-9aa3-25a487de1c65"/>
+      <exclude-subject subject-uuid="9c04e165-4827-407d-9aa3-25a487de1c65"/>
       <remarks>
          <p>FedRAMP and NIST use the term "component" differently. The combination of <code>component</code> and <code>inventory-item</code> assembly in OSCAL, together are equivalent to a FedRAMP "component".</p>
          <p>This <code>assessment-subject</code> is citing OSCAL <code>inventory-item</code> assemblies in the SSP.</p>
@@ -787,7 +787,7 @@
          <h2>Selective Example</h2>
          <p>A brief description of the included inventory.</p>
       </description>
-      <include-subject uuid-ref="9c04e165-4827-407d-9aa3-25a487de1c65"/>
+      <include-subject subject-uuid="9c04e165-4827-407d-9aa3-25a487de1c65"/>
       <remarks>
          <p>FedRAMP and NIST use the term "component" differently. The combination of <code>component</code> and <code>inventory-item</code> assembly in OSCAL, together are equivalent to a FedRAMP "component".</p>
          <p>This <code>assessment-subject</code> is citing OSCAL <code>inventory-item</code> assemblies in the SSP.</p>
@@ -800,12 +800,12 @@
          <h1>System Location(s) in Assessment Scope</h1>
          <p>An overall description of the included location.</p>
       </description>
-      <include-subject uuid-ref="16adcc8d-65d8-4583-80d3-9cf007744fec">
+      <include-subject subject-uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
          <remarks>
             <p>Briefly describe the components at this location.</p>
          </remarks>
       </include-subject>
-      <include-subject uuid-ref="ad321514-7b9f-4374-8409-efb18eea6e5d">
+      <include-subject subject-uuid="ad321514-7b9f-4374-8409-efb18eea6e5d">
          <remarks>
             <p>Briefly describe the components at this location.</p>
          </remarks>
@@ -823,7 +823,7 @@
          <p>Briefly description the included users here.</p>
       </description>
       <include-all/>
-      <exclude-subject uuid-ref="ce1a3dbc-2bf5-4899-9fcf-090e299533bb"/>
+      <exclude-subject subject-uuid="ce1a3dbc-2bf5-4899-9fcf-090e299533bb"/>
       <remarks>
          <p>This refers to user assemblies identified in the system-implementation section of the SSP and the local-definitions of the SAP. </p>
          <p>Using include-all means all user roles defined both in the SSP and in the local-definitions of the SAP are included in the assessment.</p>
@@ -839,7 +839,7 @@
          <h2>Selective Example</h2>
          <p>Briefly description the included users here.</p>
       </description>
-      <include-subject uuid-ref="ce1a3dbc-2bf5-4899-9fcf-090e299533bb"/>
+      <include-subject subject-uuid="ce1a3dbc-2bf5-4899-9fcf-090e299533bb"/>
       <remarks>
          <p>This refers to user assemblies identified in the system-implementation section of the SSP and the local-definitions of the SAP. </p>
          <p>This <code>assessment-subject</code> is citing OSCAL <code>user</code> assemblies in the SSP.</p>
@@ -1054,7 +1054,7 @@
          <prop ns="http://fedramp.gov/ns/oscal" name="login-id" value="test-user"/>
          <associated-activity activity-uuid="315b3118-3d2e-420b-b4fb-5acf13b08381"/>
          <subject type="inventory-item">
-            <include-subject uuid-ref="779d4e89-bba6-432c-b50d-d699fe534129">
+            <include-subject subject-uuid="779d4e89-bba6-432c-b50d-d699fe534129">
                <remarks>
                   <p>References an inventory item, which is linked to a component. The component has a <code>scan-type</code> FedRAMP Extension with a value of "web"</p>
                </remarks>
@@ -1072,7 +1072,7 @@
          <prop ns="http://fedramp.gov/ns/oscal" name="login-id" value="test-admin"/>
          <associated-activity activity-uuid="64142a6f-d8d4-47c6-8bb1-a0e33f17664d"/>
          <subject type="inventory-item">
-            <include-subject uuid-ref="779d4e89-bba6-432c-b50d-d699fe534129"/>
+            <include-subject subject-uuid="779d4e89-bba6-432c-b50d-d699fe534129"/>
             <remarks>
                <p>References an inventory item, which is linked to a component. The component has a <code>scan-type</code> FedRAMP Extension with a value of "web"</p>
             </remarks>

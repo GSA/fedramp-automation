@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Modified by the OSCAL 1.0.0 RC1 to OSCAL 1.0.0 RC2 conversion XSLT on 2021-04-12T12:36:28.491209-04:00 -->
+<!-- Modified by the OSCAL 1.0.0 RC2 to OSCAL 1.0.0 conversion XSLT on 2021-06-09T14:28:03.343-04:00 -->
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="8f814186-8f82-42ec-bed5-0c9e2287674a">
+         uuid="145f590d-2443-4c34-9ce9-37ccbe88abf9">
    <metadata>
       <title>FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
       <published>2021-02-17T00:00:00.000-04:00</published>
-      <last-modified>2021-04-12T12:36:28.491209-04:00</last-modified>
+      <last-modified>2021-06-09T14:28:03.343-04:00</last-modified>
       <version>1.3</version>
-      <oscal-version>1.0.0-rc2</oscal-version>
+      <oscal-version>1.0.0</oscal-version>
       <role id="prepared-by">
          <title>Document creator</title>
       </role>
@@ -3919,7 +3919,7 @@
          <title>NIST Special Publication (SP) 800-53</title>
          <prop name="version" value="Revision 4"/>
          <rlink media-type="application/xml"
-            href="https://raw.githubusercontent.com/usnistgov/oscal-content/f5bf0dd0eea8c117d09c813b1b183e619e2f60cf/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
+                href="https://raw.githubusercontent.com/usnistgov/oscal-content/f5bf0dd0eea8c117d09c813b1b183e619e2f60cf/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
       </resource>
    </back-matter>
 </profile>
