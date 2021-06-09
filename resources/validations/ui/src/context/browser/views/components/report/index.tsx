@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import type { ValidationAssert } from '../../../use-cases/validate-ssp-xml';
+import type { ValidationAssert } from '../../../../../use-cases/schematron';
 import { usePresenter } from '../../../views/hooks';
 
 const MAX_ASSERT_TEXT_LENGTH = 200;

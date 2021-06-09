@@ -1,8 +1,8 @@
 import type {
-  SchematronValidationReportGateway,
+  SchematronValidator,
   ValidationAssert,
   ValidationReport,
-} from '../use-cases/validate-ssp-xml';
+} from '../../use-cases/schematron';
 
 const getValidationReport = (document: DocumentFragment): ValidationReport => {
   return {
@@ -22,16 +22,14 @@ const getValidationReport = (document: DocumentFragment): ValidationReport => {
   };
 };
 
-type SaxonJsSchematronValidationReportGatewayContext = {
+type SaxonJsSchematronValidatorGatewayContext = {
   sefUrl: string;
   SaxonJS: any;
   registryBaseUrl: string;
 };
 
-export const SaxonJsSchematronValidationReportGateway =
-  (
-    ctx: SaxonJsSchematronValidationReportGatewayContext,
-  ): SchematronValidationReportGateway =>
+export const SaxonJsSchematronValidatorGateway =
+  (ctx: SaxonJsSchematronValidatorGatewayContext): SchematronValidator =>
   (sourceText: string) => {
     return (
       ctx.SaxonJS.transform(

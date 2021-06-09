@@ -1,4 +1,4 @@
-import { SaxonJsSchematronValidationReportGateway } from './saxon-js';
+import { SaxonJsSchematronValidatorGateway } from './saxon-js-gateway';
 
 describe('saxon-js gateway', () => {
   it('produces validation results for transformation', async () => {
@@ -9,7 +9,7 @@ describe('saxon-js gateway', () => {
         principalResult: doc.createDocumentFragment(),
       });
     });
-    const reportGateway = SaxonJsSchematronValidationReportGateway({
+    const reportGateway = SaxonJsSchematronValidatorGateway({
       sefUrl: '/test.sef.json',
       SaxonJS: {
         transform,

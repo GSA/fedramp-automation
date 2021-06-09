@@ -18,6 +18,7 @@ module.exports = {
     'node_modules/uswds/dist/js': { url: '/uswds/js', static: true },
     //validations: { url: '/validations', static: true },
   },
+  exclude: ['**/node_modules/**/*', '**/src/context/cli/**'],
   plugins: [
     '@snowpack/plugin-react-refresh',
     '@snowpack/plugin-dotenv',

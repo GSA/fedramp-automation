@@ -1,8 +1,8 @@
 $theme-show-notifications: false;
-$theme-font-path: '../../uswds/fonts';
-$theme-image-path: '../../uswds/img';
+$theme-font-path: '../../../../uswds/fonts';
+$theme-image-path: '../../../../uswds/img';
 
-@import '../../node_modules/uswds/dist/scss/uswds.scss';
+@import '../../../../node_modules/uswds/dist/scss/uswds.scss';
 
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */

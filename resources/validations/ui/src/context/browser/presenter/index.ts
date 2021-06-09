@@ -1,6 +1,7 @@
 import { createOvermind, createOvermindMock, IConfig } from 'overmind';
 import { merge, namespaced } from 'overmind/config';
-import type { ValidateSchematronUseCase } from 'src/use-cases/validate-ssp-xml';
+
+import type { ValidateSchematronUseCase } from '../../../use-cases/validate-ssp-xml';
 
 import * as actions from './actions';
 import * as report from './report';

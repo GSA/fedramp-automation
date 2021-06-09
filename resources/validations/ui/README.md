@@ -45,3 +45,11 @@ To launch the application test runner:
 npm test
 npm test -- --watch
 ```
+
+### Command-line tool
+
+To run the CLI:
+
+```bash
+npx ts-node src/context/cli/index.ts
+```

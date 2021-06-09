@@ -22,10 +22,15 @@
     /* Additional Options */
     "strict": true,
     "skipLibCheck": true,
-    "types": ["jest", "snowpack-env"],
+    "types": ["jest", "node", "snowpack-env"],
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "importsNotUsedAsValues": "error"
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonJS"
+    }
   }
 }
