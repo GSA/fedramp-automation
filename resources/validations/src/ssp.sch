@@ -20,7 +20,7 @@
                select="'../../xml'" />
     <xsl:param as="xs:string"
                name="baselines-base-path"
-               select="'../../../src/baselines/rev4/xml'" />
+               select="'../../../baselines/rev4/xml'" />
     <sch:let name="registry"
              value="doc(concat($registry-base-path, '/fedramp_values.xml')) |
                               doc(concat($registry-base-path, '/fedramp_threats.xml')) |
