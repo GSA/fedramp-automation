@@ -10,7 +10,7 @@
       <remarks />
    </metadata>
 
-   <files>
+   <!--files>
       <link id="fedramp_high_baseline" media-type="application/xml" rel="profile" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline_profile.xml">FedRAMP High Baseline Profile (XML)</link>
       <link id="fedramp_high_baseline" media-type="application/json" rel="profile" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/json/FedRAMP_HIGH-baseline_profile.json">FedRAMP High Baseline Profile (JSON)</link>
       <link id="fedramp_high_baseline" media-type="application/xml" rel="resolved-profile" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/fedramp.gov/xml/FedRAMP_HIGH-baseline-resolved-profile_catalog.xml">FedRAMP High Baseline Resolved Profile Catalog (XML)</link>
@@ -28,7 +28,7 @@
 
       <link id="nist_sp-800-53_rev4" media-type="application/xml" rel="catalog" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml">NIST SP 800-63, Rev 4 (XML)</link>
       <link id="nist_sp-800-53_rev4" media-type="application/json" rel="catalog" href="https://raw.githubusercontent.com/usnistgov/OSCAL/master/content/nist.gov/SP800-53/rev4/json/NIST_SP-800-53_rev4_catalog.json">NIST SP 800-63, Rev 4 (JSON)</link>
-   </files>
+   </files-->
 
    <namespace>
       <ns name="FedRAMP" ns="https://fedramp.gov/ns/oscal" />
