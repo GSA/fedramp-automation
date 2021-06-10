@@ -13,6 +13,7 @@ module.exports = {
     public: { url: '/', static: true },
     src: { url: '/dist' },
     '../../xml': { url: '/xml', static: true },
+    '../../../src/baselines/rev4/xml': { url: '/baselines', static: true },
     'node_modules/uswds/dist/fonts': { url: '/uswds/fonts', static: true },
     'node_modules/uswds/dist/img': { url: '/uswds/img', static: true },
     'node_modules/uswds/dist/js': { url: '/uswds/js', static: true },
