@@ -14,6 +14,7 @@ describe('saxon-js gateway', () => {
       SaxonJS: {
         transform,
       },
+      baselinesBaseUrl: '/baselines',
       registryBaseUrl: '/xml',
     });
     const validationReport = await reportGateway('<xml>ignored</xml');
