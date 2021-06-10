@@ -503,27 +503,27 @@
       <!-- - -     CONTROL MODIFICATIONS      - -  -->
       <!-- - - AC-1 - -  -->
       <alter control-id="ac-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - AC-2 - -  -->
       <alter control-id="ac-2">
-         <remove id-ref="ac-2_smt.b"/>
-         <remove id-ref="ac-2_smt.c"/>
-         <remove id-ref="ac-2_smt.d"/>
-         <remove id-ref="ac-2_smt.e"/>
-         <remove id-ref="ac-2_smt.i"/>
-         <remove id-ref="ac-2_smt.j"/>
-         <remove id-ref="ac-2_smt.k"/>
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ac-2_smt" position="starting">
+         <remove by-id="ac-2_smt.b"/>
+         <remove by-id="ac-2_smt.c"/>
+         <remove by-id="ac-2_smt.d"/>
+         <remove by-id="ac-2_smt.e"/>
+         <remove by-id="ac-2_smt.i"/>
+         <remove by-id="ac-2_smt.j"/>
+         <remove by-id="ac-2_smt.k"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ac-2_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
-         <add id-ref="ac-2_smt" position="ending">
+         <add by-id="ac-2_smt" position="ending">
             <part id="ac-2_fr" name="item">
                <title>AC-2 Additional FedRAMP Requirements and Guidance</title>
                <part id="ac-2_fr_gdn.1" name="guidance">
@@ -564,9 +564,9 @@
       </alter>
       <!-- - - AC-3 - -  -->
       <alter control-id="ac-3">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ac-3_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ac-3_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -600,8 +600,8 @@
       </alter>
       <!-- - - AC-7 - -  -->
       <alter control-id="ac-7">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
@@ -613,8 +613,8 @@
       </alter>
       <!-- - - AC-8 - -  -->
       <alter control-id="ac-8">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="FED"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -624,8 +624,8 @@
       </alter>
       <!-- - - AC-14 - -  -->
       <alter control-id="ac-14">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="FED"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -635,9 +635,9 @@
       </alter>
       <!-- - - AC-17 - -  -->
       <alter control-id="ac-17">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ac-17_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ac-17_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -671,8 +671,8 @@
       </alter>
       <!-- - - AC-18 - -  -->
       <alter control-id="ac-18">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -686,8 +686,8 @@
       </alter>
       <!-- - - AC-19 - -  -->
       <alter control-id="ac-19">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -701,17 +701,17 @@
       </alter>
       <!-- - - AC-20 - -  -->
       <alter control-id="ac-20">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - AC-22 - -  -->
       <alter control-id="ac-22">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ac-22_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ac-22_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -745,57 +745,57 @@
       </alter>
       <!-- - - AT-1 - -  -->
       <alter control-id="at-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - AT-2 - -  -->
       <alter control-id="at-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - AT-3 - -  -->
       <alter control-id="at-3">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - AT-4 - -  -->
       <alter control-id="at-4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - AU-1 - -  -->
       <alter control-id="au-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - AU-2 - -  -->
       <alter control-id="au-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - AU-3 - -  -->
       <alter control-id="au-3">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="au-3_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="au-3_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -838,8 +838,8 @@
       </alter>
       <!-- - - AU-4 - -  -->
       <alter control-id="au-4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -850,9 +850,9 @@
       </alter>
       <!-- - - AU-5 - -  -->
       <alter control-id="au-5">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="au-5_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="au-5_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -887,9 +887,9 @@
       </alter>
       <!-- - - AU-6 - -  -->
       <alter control-id="au-6">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="au-6_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="au-6_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -923,24 +923,24 @@
       </alter>
       <!-- - - AU-8 - -  -->
       <alter control-id="au-8">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - AU-9 - -  -->
       <alter control-id="au-9">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - AU-11 - -  -->
       <alter control-id="au-11">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -951,25 +951,25 @@
       </alter>
       <!-- - - AU-12 - -  -->
       <alter control-id="au-12">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - CA-1 - -  -->
       <alter control-id="ca-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - CA-2 - -  -->
       <alter control-id="ca-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ca-2_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ca-2_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1030,17 +1030,17 @@
       </alter>
       <!-- - - CA-2 (1) - -  -->
       <alter control-id="ca-2.1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - CA-3 - -  -->
       <alter control-id="ca-3">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ca-3_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ca-3_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1086,8 +1086,8 @@
       </alter>
       <!-- - - CA-5 - -  -->
       <alter control-id="ca-5">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1098,9 +1098,9 @@
       </alter>
       <!-- - - CA-6 - -  -->
       <alter control-id="ca-6">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ca-6_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ca-6_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1151,9 +1151,9 @@
       </alter>
       <!-- - - CA-7 - -  -->
       <alter control-id="ca-7">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ca-7_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ca-7_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1221,9 +1221,9 @@
       </alter>
       <!-- - - CA-9 - -  -->
       <alter control-id="ca-9">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ca-9_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ca-9_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1268,25 +1268,25 @@
       </alter>
       <!-- - - CM-1 - -  -->
       <alter control-id="cm-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - CM-2 - -  -->
       <alter control-id="cm-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - CM-4 - -  -->
       <alter control-id="cm-4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="cm-4_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="cm-4_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1320,9 +1320,9 @@
       </alter>
       <!-- - - CM-6 - -  -->
       <alter control-id="cm-6">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="cm-6_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="cm-6_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1404,17 +1404,17 @@
       </alter>
       <!-- - - CM-7 - -  -->
       <alter control-id="cm-7">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - CM-8 - -  -->
       <alter control-id="cm-8">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="cm-8_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="cm-8_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1464,8 +1464,8 @@
       </alter>
       <!-- - - CM-10 - -  -->
       <alter control-id="cm-10">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1475,8 +1475,8 @@
       </alter>
       <!-- - - CM-11 - -  -->
       <alter control-id="cm-11">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1489,16 +1489,16 @@
       </alter>
       <!-- - - CP-1 - -  -->
       <alter control-id="cp-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - CP-2 - -  -->
       <alter control-id="cp-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1509,8 +1509,8 @@
       </alter>
       <!-- - - CP-3 - -  -->
       <alter control-id="cp-3">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1521,8 +1521,8 @@
       </alter>
       <!-- - - CP-4 - -  -->
       <alter control-id="cp-4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1533,9 +1533,9 @@
       </alter>
       <!-- - - CP-9 - -  -->
       <alter control-id="cp-9">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="cp-9_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="cp-9_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1575,7 +1575,7 @@
                </part>
             </part>
          </add>
-         <add id-ref="cp-9_smt">
+         <add by-id="cp-9_smt">
             <part id="cp-9_fr" name="item">
                <title>CP-9 Additional FedRAMP Requirements and Guidance</title>
                <part id="cp-9_fr_smt.1" name="item">
@@ -1606,8 +1606,8 @@
       </alter>
       <!-- - - CP-10 - -  -->
       <alter control-id="cp-10">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1618,16 +1618,16 @@
       </alter>
       <!-- - - IA-1 - -  -->
       <alter control-id="ia-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IA-2 - -  -->
       <alter control-id="ia-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
@@ -1640,9 +1640,9 @@
       </alter>
       <!-- - - IA-2 (1) - -  -->
       <alter control-id="ia-2.1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ia-2.1_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ia-2.1_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1676,9 +1676,9 @@
       </alter>
       <!-- - - IA-2 (12) - -  -->
       <alter control-id="ia-2.12">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ia-2.12_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ia-2.12_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1720,7 +1720,7 @@
                   implemented must be clearly defined by the CSP.</p>
             </part>
          </add>
-         <add id-ref="ia-2.12_smt">
+         <add by-id="ia-2.12_smt">
             <part id="ia-2.12_fr" name="item">
                <title>IA-2 (12) Additional FedRAMP Requirements and Guidance</title>
                <part id="ia-2.12_fr_gdn.1" name="guidance">
@@ -1733,33 +1733,33 @@
       </alter>
       <!-- - - IA-4 - -  -->
       <alter control-id="ia-4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IA-5 - -  -->
       <alter control-id="ia-5">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IA-5 (1) - -  -->
       <alter control-id="ia-5.1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IA-5 (11) - -  -->
       <alter control-id="ia-5.11">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ia-5.11_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ia-5.11_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1802,9 +1802,9 @@
       </alter>
       <!-- - - IA-6 - -  -->
       <alter control-id="ia-6">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ia-6_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ia-6_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1838,25 +1838,25 @@
       </alter>
       <!-- - - IA-7 - -  -->
       <alter control-id="ia-7">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IA-8 - -  -->
       <alter control-id="ia-8">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IA-8 (1) - -  -->
       <alter control-id="ia-8.1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ia-8.1_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ia-8.1_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1901,9 +1901,9 @@
       </alter>
       <!-- - - IA-8 (2) - -  -->
       <alter control-id="ia-8.2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ia-8.2_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ia-8.2_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -1944,41 +1944,41 @@
       </alter>
       <!-- - - IA-8 (3) - -  -->
       <alter control-id="ia-8.3">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IA-8 (4) - -  -->
       <alter control-id="ia-8.4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IR-1 - -  -->
       <alter control-id="ir-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IR-2 - -  -->
       <alter control-id="ir-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IR-4 - -  -->
       <alter control-id="ir-4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ir-4_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ir-4_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2051,17 +2051,17 @@
       </alter>
       <!-- - - IR-5 - -  -->
       <alter control-id="ir-5">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IR-6 - -  -->
       <alter control-id="ir-6">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ir-6_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ir-6_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2098,7 +2098,7 @@
                </part>
             </part>
          </add>
-         <add id-ref="ir-6_smt" position="ending">
+         <add by-id="ir-6_smt" position="ending">
             <part id="ir-6_fr" name="item">
                <title>IR-6 Additional FedRAMP Requirements and Guidance</title>
                <part id="ir-6_fr_smt.1" name="item">
@@ -2111,16 +2111,16 @@
       </alter>
       <!-- - - IR-7 - -  -->
       <alter control-id="ir-7">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - IR-8 - -  -->
       <alter control-id="ir-8">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -2130,8 +2130,8 @@
       </alter>
       <!-- - - IR-9 - -  -->
       <alter control-id="ir-9">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -2141,17 +2141,17 @@
       </alter>
       <!-- - - MA-1 - -  -->
       <alter control-id="ma-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - MA-2 - -  -->
       <alter control-id="ma-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ma-2_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ma-2_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2202,17 +2202,17 @@
       </alter>
       <!-- - - MA-4 - -  -->
       <alter control-id="ma-4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - MA-5 - -  -->
       <alter control-id="ma-5">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ma-5_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ma-5_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2255,17 +2255,17 @@
       </alter>
       <!-- - - MP-1 - -  -->
       <alter control-id="mp-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - MP-2 - -  -->
       <alter control-id="mp-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="mp-2_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="mp-2_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2307,9 +2307,9 @@
       </alter>
       <!-- - - MP-6 - -  -->
       <alter control-id="mp-6">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="mp-6_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="mp-6_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2366,9 +2366,9 @@
       </alter>
       <!-- - - MP-7 - -  -->
       <alter control-id="mp-7">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="mp-7_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="mp-7_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2423,17 +2423,17 @@
       </alter>
       <!-- - - PE-1 - -  -->
       <alter control-id="pe-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - PE-2 - -  -->
       <alter control-id="pe-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="pe-2_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="pe-2_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2479,9 +2479,9 @@
       </alter>
       <!-- - - PE-3 - -  -->
       <alter control-id="pe-3">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="pe-3_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="pe-3_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2573,9 +2573,9 @@
       </alter>
       <!-- - - PE-6 - -  -->
       <alter control-id="pe-6">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="pe-6_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="pe-6_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2619,9 +2619,9 @@
       </alter>
       <!-- - - PE-8 - -  -->
       <alter control-id="pe-8">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="pe-8_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="pe-8_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2664,9 +2664,9 @@
       </alter>
       <!-- - - PE-12 - -  -->
       <alter control-id="pe-12">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="pe-12_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="pe-12_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2707,9 +2707,9 @@
       </alter>
       <!-- - - PE-13 - -  -->
       <alter control-id="pe-13">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="pe-13_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="pe-13_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2750,9 +2750,9 @@
       </alter>
       <!-- - - PE-14 - -  -->
       <alter control-id="pe-14">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="pe-14_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="pe-14_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2796,7 +2796,7 @@
                <p>Condition: Control is not inherited from a FedRAMP-authorized PaaS or IaaS.</p>
             </part>
          </add>
-         <add id-ref="pe-14_smt" position="ending">
+         <add by-id="pe-14_smt" position="ending">
             <part id="pe-14_fr" name="item">
                <title>PE-14(a) Additional FedRAMP Requirements and Guidance</title>
                <part id="pe-14_fr_smt.a" name="item">
@@ -2809,9 +2809,9 @@
       </alter>
       <!-- - - PE-15 - -  -->
       <alter control-id="pe-15">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="pe-15_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="pe-15_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2858,9 +2858,9 @@
       </alter>
       <!-- - - PE-16 - -  -->
       <alter control-id="pe-16">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="pe-16_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="pe-16_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2908,17 +2908,17 @@
       </alter>
       <!-- - - PL-1 - -  -->
       <alter control-id="pl-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - PL-2 - -  -->
       <alter control-id="pl-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="pl-2_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="pl-2_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -2987,33 +2987,33 @@
       </alter>
       <!-- - - PL-4 - -  -->
       <alter control-id="pl-4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - PS-1 - -  -->
       <alter control-id="ps-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - PS-2 - -  -->
       <alter control-id="ps-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="FED"/>
          </add>
       </alter>
       <!-- - - PS-3 - -  -->
       <alter control-id="ps-3">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ps-3_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ps-3_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3053,32 +3053,32 @@
       </alter>
       <!-- - - PS-4 - -  -->
       <alter control-id="ps-4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - PS-5 - -  -->
       <alter control-id="ps-5">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - PS-6 - -  -->
       <alter control-id="ps-6">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - PS-7 - -  -->
       <alter control-id="ps-7">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -3089,25 +3089,25 @@
       </alter>
       <!-- - - PS-8 - -  -->
       <alter control-id="ps-8">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - RA-1 - -  -->
       <alter control-id="ra-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - RA-2 - -  -->
       <alter control-id="ra-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ra-2_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ra-2_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3146,9 +3146,9 @@
       </alter>
       <!-- - - RA-3 - -  -->
       <alter control-id="ra-3">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ra-3_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ra-3_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3212,7 +3212,7 @@
                </part>
             </part>
          </add>
-         <add id-ref="ra-_smt" position="ending">
+         <add by-id="ra-_smt" position="ending">
             <part id="ra-3_fr" name="item">
                <title>RA-3 Additional FedRAMP Requirements and Guidance</title>
                <part id="ra-3_fr_gdn.1" name="guidance">
@@ -3230,9 +3230,9 @@
       </alter>
       <!-- - - RA-5 - -  -->
       <alter control-id="ra-5">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="ra-5_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="ra-5_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3321,7 +3321,7 @@
                   FedRAMP.</p>
             </part>
          </add>
-         <add id-ref="ra-5_smt" position="ending">
+         <add by-id="ra-5_smt" position="ending">
             <part id="ra-5_fr" name="item">
                <title>RA-5 Additional FedRAMP Requirements and Guidance</title>
                <part id="ra-5_fr_gdn.1" name="guidance">
@@ -3335,57 +3335,57 @@
       </alter>
       <!-- - - SA-1 - -  -->
       <alter control-id="sa-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SA-2 - -  -->
       <alter control-id="sa-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SA-3 - -  -->
       <alter control-id="sa-3">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SA-4 - -  -->
       <alter control-id="sa-4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SA-4(10) - -  -->
       <alter control-id="sa-4.10">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SA-5 - -  -->
       <alter control-id="sa-5">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SA-9 - -  -->
       <alter control-id="sa-9">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="sa-9_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="sa-9_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3428,17 +3428,17 @@
       </alter>
       <!-- - - SC-1 - -  -->
       <alter control-id="sc-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SC-5 - -  -->
       <alter control-id="sc-5">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="sc-5_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="sc-5_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3481,9 +3481,9 @@
       </alter>
       <!-- - - SC-7 - -  -->
       <alter control-id="sc-7">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="sc-7_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="sc-7_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3531,9 +3531,9 @@
       </alter>
       <!-- - - SC-12 - -  -->
       <alter control-id="sc-12">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="sc-12_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="sc-12_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3587,9 +3587,9 @@
       </alter>
       <!-- - - SC-13 - -  -->
       <alter control-id="sc-13">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="sc-13_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="sc-13_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3631,8 +3631,8 @@
       </alter>
       <!-- - - SC-15 - -  -->
       <alter control-id="sc-15">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -3642,49 +3642,49 @@
       </alter>
       <!-- - - SC-20 - -  -->
       <alter control-id="sc-20">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SC-21 - -  -->
       <alter control-id="sc-21">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SC-22 - -  -->
       <alter control-id="sc-22">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SC-39 - -  -->
       <alter control-id="sc-39">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SI-1 - -  -->
       <alter control-id="si-1">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SI-2 - -  -->
       <alter control-id="si-2">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="si-2_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="si-2_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3730,9 +3730,9 @@
       </alter>
       <!-- - - SI-3 - -  -->
       <alter control-id="si-3">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="si-3_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="si-3_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3796,9 +3796,9 @@
       </alter>
       <!-- - - SI-4 - -  -->
       <alter control-id="si-4">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
-         <add id-ref="si-4_smt" position="starting">
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
+         <add by-id="si-4_smt" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
          </add>
          <add position="ending">
@@ -3879,16 +3879,16 @@
       </alter>
       <!-- - - SI-5 - -  -->
       <alter control-id="si-5">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
          </add>
       </alter>
       <!-- - - SI-12 - -  -->
       <alter control-id="si-12">
-         <remove name-ref="objective"/>
-         <remove name-ref="assessment"/>
+         <remove by-name="objective"/>
+         <remove by-name="assessment"/>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
