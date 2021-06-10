@@ -33,6 +33,7 @@ export const runBrowserContext = ({
                 // The npm version of saxon-js is for node; currently, we load the
                 // browser version via a script tag in index.html.
                 SaxonJS: (window as any).SaxonJS,
+                baselinesBaseUrl: `${baseUrl}/baselines`,
                 registryBaseUrl: `${baseUrl}/xml`,
               }),
           }),

@@ -18,6 +18,9 @@
     <xsl:param as="xs:string"
                name="registry-base-path"
                select="'../../xml'" />
+    <xsl:param as="xs:string"
+               name="baselines-base-path"
+               select="'../../../baselines/rev4/xml'" />
     <sch:let name="registry"
              value="doc(concat($registry-base-path, '/fedramp_values.xml')) |
                               doc(concat($registry-base-path, '/fedramp_threats.xml')) |
@@ -95,12 +98,12 @@
             github.com/usnistgov/oscal-content are not. The 0f78f05 commit is the
             most recent triggered by the OSCAL 1.0.0-rc1 release. Change this url
             accordingly if you know what you are doing.
-        -->
-            <profile href="https://raw.githubusercontent.com/usnistgov/oscal-content/0f78f05f0953e64f37b5cb24e0522030d82fc1fa/fedramp.gov/xml/FedRAMP_LOW-baseline-resolved-profile_catalog.xml"
+            -->
+            <profile href="{concat($baselines-base-path, '/FedRAMP_rev4_LOW-baseline-resolved-profile_catalog.xml')}"
                      level="low" />
-            <profile href="https://raw.githubusercontent.com/usnistgov/oscal-content/0f78f05f0953e64f37b5cb24e0522030d82fc1fa/fedramp.gov/xml/FedRAMP_MODERATE-baseline-resolved-profile_catalog.xml"
+            <profile href="{concat($baselines-base-path, '/FedRAMP_rev4_MODERATE-baseline-resolved-profile_catalog.xml')}"
                      level="moderate" />
-            <profile href="https://raw.githubusercontent.com/usnistgov/oscal-content/0f78f05f0953e64f37b5cb24e0522030d82fc1fa/fedramp.gov/xml/FedRAMP_HIGH-baseline-resolved-profile_catalog.xml"
+            <profile href="{concat($baselines-base-path, '/FedRAMP_rev4_HIGH-baseline-resolved-profile_catalog.xml')}"
                      level="high" />
         </xsl:variable>
         <xsl:variable name="href"
