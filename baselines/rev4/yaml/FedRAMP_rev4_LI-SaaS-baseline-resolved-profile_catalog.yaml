@@ -1,12 +1,12 @@
 ---
 catalog:
-  uuid: fb6894fc-3be1-4bbb-be45-01968110f53b
+  uuid: 8c2636bc-3f89-4b8c-bb28-6dc859337f91
   metadata:
     title: FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline
     published: 2021-02-17T00:00:00.000-04:00
-    last-modified: 2021-06-08T14:00:19.283349Z
+    last-modified: 2021-06-11T23:01:59.874667Z
     version: "1.3"
-    oscal-version: 1.0.0-rc2
+    oscal-version: 1.0.0
     links:
       - href: FedRAMP_rev4_LI-SaaS-baseline_profile.xml
         rel: resolution-source
@@ -40,10 +40,9 @@ catalog:
           - type: work
             addr-lines:
               - 1800 F St. NW
-              - ""
             city: Washington
             state: DC
-            postal-code: ""
+            postal-code: "20006"
             country: US
       - uuid: ca9ba80e-1342-4bfd-b32a-abac468c24b4
         type: organization
@@ -54,13 +53,13 @@ catalog:
           - href: "#a2381e87-3d04-4108-a30b-b4d2f36d001f"
             rel: logo
     responsible-parties:
-      prepared-by:
+      - role-id: prepared-by
         party-uuids:
           - 8cc0b8e5-9650-4d5f-9796-316f05fa9a2d
-      fedramp-pmo:
+      - role-id: fedramp-pmo
         party-uuids:
           - 8cc0b8e5-9650-4d5f-9796-316f05fa9a2d
-      fedramp-jab:
+      - role-id: fedramp-jab
         party-uuids:
           - ca9ba80e-1342-4bfd-b32a-abac468c24b4
   groups:
@@ -183,7 +182,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ac-2_smt.a
@@ -335,7 +334,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -405,7 +404,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: The information system enforces approved authorizations for logical
                 access to information and system resources in accordance with
                 applicable access control policies.
@@ -466,7 +465,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -794,7 +793,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ac-17_smt.a
@@ -877,7 +876,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -1248,7 +1247,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ac-22_smt.a
@@ -1308,7 +1307,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -1881,7 +1880,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: The information system generates audit records containing information
                 that establishes what type of event occurred, when the event
                 occurred, where the event occurred, the source of the event, the
@@ -1911,7 +1910,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -2040,7 +2039,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The information system:"
               parts:
                 - id: au-5_smt.a
@@ -2079,7 +2078,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -2155,7 +2154,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: au-6_smt.a
@@ -2252,7 +2251,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -2634,7 +2633,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ca-2_smt.a
@@ -2765,7 +2764,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -2927,7 +2926,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ca-3_smt.a
@@ -3012,7 +3011,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -3159,7 +3158,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ca-6_smt.a
@@ -3232,7 +3231,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -3347,7 +3346,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization develops a continuous monitoring strategy and
                 implements a continuous monitoring program that includes:"
               parts:
@@ -3457,7 +3456,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -3580,7 +3579,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ca-9_smt.a
@@ -3640,7 +3639,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -3860,7 +3859,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: The organization analyzes changes to the information system to determine
                 potential security impacts prior to change implementation.
             - id: cm-4_gdn
@@ -3903,7 +3902,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -3991,7 +3990,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: cm-6_smt.a
@@ -4084,7 +4083,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -4298,7 +4297,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: cm-8_smt.a
@@ -4370,7 +4369,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -5049,7 +5048,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: cp-9_smt.a
@@ -5146,7 +5145,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -5507,7 +5506,7 @@ catalog:
                   props:
                     - name: response-point
                       ns: https://fedramp.gov/ns/oscal
-                      value: ""
+                      value: You must fill in this response point.
                   prose: The information system implements multifactor authentication for network
                     access to privileged accounts.
                 - id: ia-2.1_gdn
@@ -5520,7 +5519,7 @@ catalog:
                   props:
                     - name: response-point
                       ns: https://fedramp.gov/ns/oscal
-                      value: ""
+                      value: You must fill in this response point.
                     - name: method
                       value: EXAMINE
                       class: fedramp
@@ -5583,7 +5582,7 @@ catalog:
                   props:
                     - name: response-point
                       ns: https://fedramp.gov/ns/oscal
-                      value: ""
+                      value: You must fill in this response point.
                   prose: The information system accepts and electronically verifies Personal
                     Identity Verification (PIV) credentials.
                   parts:
@@ -5620,7 +5619,7 @@ catalog:
                   props:
                     - name: response-point
                       ns: https://fedramp.gov/ns/oscal
-                      value: ""
+                      value: You must fill in this response point.
                     - name: method
                       value: EXAMINE
                       class: fedramp
@@ -6060,7 +6059,7 @@ catalog:
                   props:
                     - name: response-point
                       ns: https://fedramp.gov/ns/oscal
-                      value: ""
+                      value: You must fill in this response point.
                   prose: "The information system, for hardware token-based authentication, employs
                     mechanisms that satisfy {{ insert: param, ia-5.11_prm_1 }}."
                 - id: ia-5.11_gdn
@@ -6075,7 +6074,7 @@ catalog:
                   props:
                     - name: response-point
                       ns: https://fedramp.gov/ns/oscal
-                      value: ""
+                      value: You must fill in this response point.
                     - name: method
                       value: EXAMINE
                       class: fedramp
@@ -6150,7 +6149,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: The information system obscures feedback of authentication information
                 during the authentication process to protect the information
                 from possible exploitation/use by unauthorized individuals.
@@ -6179,7 +6178,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -6353,7 +6352,7 @@ catalog:
                   props:
                     - name: response-point
                       ns: https://fedramp.gov/ns/oscal
-                      value: ""
+                      value: You must fill in this response point.
                   prose: The information system accepts and electronically verifies Personal
                     Identity Verification (PIV) credentials from other federal
                     agencies.
@@ -6379,7 +6378,7 @@ catalog:
                   props:
                     - name: response-point
                       ns: https://fedramp.gov/ns/oscal
-                      value: ""
+                      value: You must fill in this response point.
                     - name: method
                       value: EXAMINE
                       class: fedramp
@@ -6457,7 +6456,7 @@ catalog:
                   props:
                     - name: response-point
                       ns: https://fedramp.gov/ns/oscal
-                      value: ""
+                      value: You must fill in this response point.
                   prose: The information system accepts only FICAM-approved third-party
                     credentials.
                 - id: ia-8.2_gdn
@@ -6481,7 +6480,7 @@ catalog:
                   props:
                     - name: response-point
                       ns: https://fedramp.gov/ns/oscal
-                      value: ""
+                      value: You must fill in this response point.
                     - name: method
                       value: EXAMINE
                       class: fedramp
@@ -6791,7 +6790,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ir-4_smt.a
@@ -6867,7 +6866,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -7014,7 +7013,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ir-6_smt.a
@@ -7072,7 +7071,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -7506,7 +7505,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ma-2_smt.a
@@ -7598,7 +7597,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -7809,7 +7808,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ma-5_smt.a
@@ -7876,7 +7875,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -8053,7 +8052,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization restricts access to {{ insert: param, mp-2_prm_1 }} to
                 {{ insert: param, mp-2_prm_2 }}."
             - id: mp-2_gdn
@@ -8088,7 +8087,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -8174,7 +8173,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: mp-6_smt.a
@@ -8235,7 +8234,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -8331,7 +8330,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization {{ insert: param, mp-7_prm_1 }} the use of {{ insert:
                 param, mp-7_prm_2 }} on {{ insert: param, mp-7_prm_3 }} using {{
                 insert: param, mp-7_prm_4 }}."
@@ -8373,7 +8372,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -8554,7 +8553,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: pe-2_smt.a
@@ -8609,7 +8608,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -8685,7 +8684,7 @@ catalog:
               constraints:
                 - description: CSP defined physical access control systems/devices AND guards
               select:
-                how-many: one or more
+                how-many: one-or-more
                 choice:
                   - " {{ insert: param, pe-3_prm_3 }} "
                   - guards
@@ -8749,7 +8748,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: pe-3_smt.a
@@ -8872,7 +8871,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -8991,7 +8990,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: pe-6_smt.a
@@ -9038,7 +9037,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -9125,7 +9124,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: pe-8_smt.a
@@ -9153,7 +9152,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -9229,7 +9228,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: The organization employs and maintains automatic emergency lighting for
                 the information system that activates in the event of a power
                 outage or disruption and that covers emergency exits and
@@ -9249,7 +9248,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -9321,7 +9320,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: The organization employs and maintains fire suppression and detection
                 devices/systems for the information system that are supported by
                 an independent energy source.
@@ -9338,7 +9337,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -9421,7 +9420,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: pe-14_smt.a
@@ -9463,7 +9462,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -9547,7 +9546,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: The organization protects the information system from damage resulting
                 from water leakage by providing master shutoff or isolation
                 valves that are accessible, working properly, and known to key
@@ -9568,7 +9567,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -9645,7 +9644,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization authorizes, monitors, and controls {{ insert: param,
                 pe-16_prm_1 }} entering and exiting the facility and maintains
                 records of those items."
@@ -9671,7 +9670,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -9862,7 +9861,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: pl-2_smt.a
@@ -10052,7 +10051,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -10426,7 +10425,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ps-3_smt.a
@@ -10465,7 +10464,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -11038,7 +11037,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ra-2_smt.a
@@ -11100,7 +11099,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -11197,7 +11196,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ra-3_smt.a
@@ -11281,7 +11280,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -11395,7 +11394,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: ra-5_smt.a
@@ -11523,7 +11522,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -12224,7 +12223,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: sa-9_smt.a
@@ -12298,7 +12297,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -12484,7 +12483,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The information system protects against or limits the effects of the
                 following types of denial of service attacks: {{ insert: param,
                 sc-5_prm_1 }} by employing {{ insert: param, sc-5_prm_2 }}."
@@ -12508,7 +12507,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -12597,7 +12596,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The information system:"
               parts:
                 - id: sc-7_smt.a
@@ -12670,7 +12669,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -12757,7 +12756,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization establishes and manages cryptographic keys for required
                 cryptography employed within the information system in
                 accordance with {{ insert: param, sc-12_prm_1 }}."
@@ -12784,7 +12783,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -12876,7 +12875,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The information system implements {{ insert: param, sc-13_prm_1 }} in
                 accordance with applicable federal laws, Executive Orders,
                 directives, policies, regulations, and standards."
@@ -12944,7 +12943,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -13374,7 +13373,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: si-2_smt.a
@@ -13470,7 +13469,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -13561,7 +13560,7 @@ catalog:
               constraints:
                 - description: to include endpoints
               select:
-                how-many: one or more
+                how-many: one-or-more
                 choice:
                   - endpoint
                   - network entry/exit points
@@ -13569,7 +13568,7 @@ catalog:
               constraints:
                 - description: to include alerting administrator or defined security personnel
               select:
-                how-many: one or more
+                how-many: one-or-more
                 choice:
                   - block malicious code
                   - quarantine malicious code
@@ -13595,7 +13594,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: si-3_smt.a
@@ -13712,7 +13711,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -13806,7 +13805,7 @@ catalog:
               label: organization-defined personnel or roles
             - id: si-4_prm_5
               select:
-                how-many: one or more
+                how-many: one-or-more
                 choice:
                   - as needed
                   - " {{ insert: param, si-4_prm_6 }} "
@@ -13838,7 +13837,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
               prose: "The organization:"
               parts:
                 - id: si-4_smt.a
@@ -14001,7 +14000,7 @@ catalog:
               props:
                 - name: response-point
                   ns: https://fedramp.gov/ns/oscal
-                  value: ""
+                  value: You must fill in this response point.
                 - name: method
                   value: EXAMINE
                   class: fedramp
@@ -14095,7 +14094,7 @@ catalog:
               label: organization-defined external organizations
             - id: si-5_prm_2
               select:
-                how-many: one or more
+                how-many: one-or-more
                 choice:
                   - " {{ insert: param, si-5_prm_3 }} "
                   - " {{ insert: param, si-5_prm_4 }} "

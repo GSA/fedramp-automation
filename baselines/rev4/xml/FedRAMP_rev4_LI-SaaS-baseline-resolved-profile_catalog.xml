@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="fb6894fc-3be1-4bbb-be45-01968110f53b">
+         uuid="8c2636bc-3f89-4b8c-bb28-6dc859337f91">
    <metadata>
       <title>FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
       <published>2021-02-17T00:00:00.000-04:00</published>
-      <last-modified>2021-06-08T14:00:19.283349Z</last-modified>
+      <last-modified>2021-06-11T23:01:59.874667Z</last-modified>
       <version>1.3</version>
-      <oscal-version>1.0.0-rc2</oscal-version>
+      <oscal-version>1.0.0</oscal-version>
       <link rel="resolution-source"
             href="FedRAMP_rev4_LI-SaaS-baseline_profile.xml"/>
       <role id="prepared-by">
@@ -30,10 +30,9 @@
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
-            <addr-line/>
             <city>Washington</city>
             <state>DC</state>
-            <postal-code/>
+            <postal-code>20006</postal-code>
             <country>US</country>
          </address>
       </party>
@@ -120,7 +119,9 @@
          <prop name="sort-id" value="ac-02"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <part id="ac-2_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ac-2_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -184,7 +185,9 @@
             <link rel="related" href="#sc-13"/>
          </part>
          <part id="ac-2_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -215,7 +218,9 @@
          <prop name="sort-id" value="ac-03"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <part id="ac-3_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The information system enforces approved authorizations for logical access to information and system resources in accordance with applicable access control policies.</p>
          </part>
          <part id="ac-3_gdn" name="guidance">
@@ -241,7 +246,9 @@
             <link rel="related" href="#pe-3"/>
          </part>
          <part id="ac-3_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -416,7 +423,9 @@
          <link href="#1201fcf3-afb1-4675-915a-fb4ae0435717" rel="reference"/>
          <link href="#d1a4e2a9-e512-4132-8795-5357aba29254" rel="reference"/>
          <part id="ac-17_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ac-17_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -447,7 +456,9 @@
             <link rel="related" href="#si-4"/>
          </part>
          <part id="ac-17_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -602,7 +613,9 @@
          <prop name="sort-id" value="ac-22"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <part id="ac-22_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ac-22_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -630,7 +643,9 @@
             <link rel="related" href="#au-13"/>
          </part>
          <part id="ac-22_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -907,7 +922,9 @@
          <prop name="sort-id" value="au-03"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <part id="au-3_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The information system generates audit records containing information that establishes what type of event occurred, when the event occurred, where the event occurred, the source of the event, the outcome of the event, and the identity of any individuals or subjects associated with the event.</p>
          </part>
          <part id="au-3_gdn" name="guidance">
@@ -918,7 +935,9 @@
             <link rel="related" href="#si-11"/>
          </part>
          <part id="au-3_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -994,7 +1013,9 @@
          <prop name="sort-id" value="au-05"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <part id="au-5_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The information system:</p>
             <part id="au-5_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -1011,7 +1032,9 @@
             <link rel="related" href="#si-12"/>
          </part>
          <part id="au-5_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -1057,7 +1080,9 @@
          <prop name="sort-id" value="au-06"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <part id="au-6_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="au-6_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -1100,7 +1125,9 @@
             <link rel="related" href="#si-7"/>
          </part>
          <part id="au-6_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <p>Determine if the organization:</p>
@@ -1309,7 +1336,9 @@
          <link href="#c4691b88-57d1-463b-9053-2d0087913f31" rel="reference"/>
          <link href="#cee2c6ca-0261-4a6f-b630-e41d8ffdd82b" rel="reference"/>
          <part id="ca-2_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ca-2_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -1352,7 +1381,9 @@
             <link rel="related" href="#si-4"/>
          </part>
          <part id="ca-2_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -1435,7 +1466,9 @@
          <link href="#e85cdb3f-7f0a-4083-8639-f13f70d3760b" rel="reference"/>
          <link href="#2711f068-734e-4afd-94ba-0b22247fbc88" rel="reference"/>
          <part id="ca-3_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ca-3_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -1465,7 +1498,9 @@
             <link rel="related" href="#si-4"/>
          </part>
          <part id="ca-3_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <p>Determine if the organization:</p>
@@ -1558,7 +1593,9 @@
          <link href="#0a0c26b6-fd44-4274-8b36-93442d49d998" rel="reference"/>
          <link href="#cee2c6ca-0261-4a6f-b630-e41d8ffdd82b" rel="reference"/>
          <part id="ca-6_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ca-6_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -1581,7 +1618,9 @@
             <link rel="related" href="#pm-10"/>
          </part>
          <part id="ca-6_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -1662,7 +1701,9 @@
          <link href="#8ade2fbe-e468-4ca8-9a40-54d7f23c32bb" rel="reference"/>
          <link href="#2d8b14e9-c8b5-4d3d-8bdc-155078f3281b" rel="reference"/>
          <part id="ca-7_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization develops a continuous monitoring strategy and implements a continuous monitoring program that includes:</p>
             <part id="ca-7_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -1710,7 +1751,9 @@
             <link rel="related" href="#si-4"/>
          </part>
          <part id="ca-7_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -1778,7 +1821,9 @@
          <prop name="sort-id" value="ca-09"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="ca-9_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ca-9_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -1804,7 +1849,9 @@
             <link rel="related" href="#si-4"/>
          </part>
          <part id="ca-9_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <p>Determine if the organization:</p>
@@ -1918,7 +1965,9 @@
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <link href="#080f8068-5e3e-435e-9790-d22ba4722693" rel="reference"/>
          <part id="cm-4_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization analyzes changes to the information system to determine potential security impacts prior to change implementation.</p>
          </part>
          <part id="cm-4_gdn" name="guidance">
@@ -1933,7 +1982,9 @@
             <link rel="related" href="#si-2"/>
          </part>
          <part id="cm-4_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -1986,7 +2037,9 @@
          <link href="#e95dd121-2733-413e-bf1e-f1eb49f20a98" rel="reference"/>
          <link href="#647b6de3-81d0-4d22-bec1-5f1333e34380" rel="reference"/>
          <part id="cm-6_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="cm-6_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -2014,7 +2067,9 @@
             <link rel="related" href="#si-4"/>
          </part>
          <part id="cm-6_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -2134,7 +2189,9 @@
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <link href="#080f8068-5e3e-435e-9790-d22ba4722693" rel="reference"/>
          <part id="cm-8_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="cm-8_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -2168,7 +2225,9 @@
             <link rel="related" href="#pm-5"/>
          </part>
          <part id="cm-8_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -2547,7 +2606,9 @@
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <link href="#748a81b9-9cad-463f-abde-8b368167e70d" rel="reference"/>
          <part id="cp-9_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="cp-9_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -2601,7 +2662,9 @@
             <link rel="related" href="#sc-13"/>
          </part>
          <part id="cp-9_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -2759,14 +2822,18 @@
             <prop name="sort-id" value="ia-02.01"/>
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ia-2.1_smt" name="statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
                <p>The information system implements multifactor authentication for network access to privileged accounts.</p>
             </part>
             <part id="ia-2.1_gdn" name="guidance">
                <link rel="related" href="#ac-6"/>
             </part>
             <part id="ia-2.1_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2797,7 +2864,9 @@
             <prop name="sort-id" value="ia-02.12"/>
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ia-2.12_smt" name="statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
                <p>The information system accepts and electronically verifies Personal Identity Verification (PIV) credentials.</p>
                <part id="ia-2.12_fr" name="item">
                   <title>IA-2 (12) Additional FedRAMP Requirements and Guidance</title>
@@ -2815,7 +2884,9 @@
                <link rel="related" href="#sa-4"/>
             </part>
             <part id="ia-2.12_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3039,14 +3110,18 @@
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="FED"/>
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ia-5.11_smt" name="statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
                <p>The information system, for hardware token-based authentication, employs mechanisms that satisfy <insert type="param" id-ref="ia-5.11_prm_1"/>.</p>
             </part>
             <part id="ia-5.11_gdn" name="guidance">
                <p>Hardware token-based authentication typically refers to the use of PKI-based tokens, such as the U.S. Government Personal Identity Verification (PIV) card. Organizations define specific requirements for tokens, such as working with a particular PKI.</p>
             </part>
             <part id="ia-5.11_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3086,7 +3161,9 @@
          <prop name="sort-id" value="ia-06"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <part id="ia-6_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The information system obscures feedback of authentication information during the authentication process to protect the information from possible exploitation/use by unauthorized individuals.</p>
          </part>
          <part id="ia-6_gdn" name="guidance">
@@ -3094,7 +3171,9 @@
             <link rel="related" href="#pe-18"/>
          </part>
          <part id="ia-6_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -3172,7 +3251,9 @@
             <prop name="sort-id" value="ia-08.01"/>
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ia-8.1_smt" name="statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
                <p>The information system accepts and electronically verifies Personal Identity Verification (PIV) credentials from other federal agencies.</p>
             </part>
             <part id="ia-8.1_gdn" name="guidance">
@@ -3182,7 +3263,9 @@
                <link rel="related" href="#sa-4"/>
             </part>
             <part id="ia-8.1_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3224,7 +3307,9 @@
             <prop name="sort-id" value="ia-08.02"/>
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ia-8.2_smt" name="statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
                <p>The information system accepts only FICAM-approved third-party credentials.</p>
             </part>
             <part id="ia-8.2_gdn" name="guidance">
@@ -3232,7 +3317,9 @@
                <link rel="related" href="#au-2"/>
             </part>
             <part id="ia-8.2_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3391,7 +3478,9 @@
          <link href="#c5034e0c-eba6-4ecd-a541-79f0678f4ba4" rel="reference"/>
          <link href="#be95fb85-a53f-4624-bdbb-140075500aa3" rel="reference"/>
          <part id="ir-4_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ir-4_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -3423,7 +3512,9 @@
             <link rel="related" href="#si-7"/>
          </part>
          <part id="ir-4_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -3527,7 +3618,9 @@
          <link href="#be95fb85-a53f-4624-bdbb-140075500aa3" rel="reference"/>
          <link href="#02631467-668b-4233-989b-3dfded2fd184" rel="reference"/>
          <part id="ir-6_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ir-6_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -3553,7 +3646,9 @@
             <link rel="related" href="#ir-8"/>
          </part>
          <part id="ir-6_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -3796,7 +3891,9 @@
          <prop name="sort-id" value="ma-02"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="ma-2_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ma-2_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -3834,7 +3931,9 @@
             <link rel="related" href="#si-2"/>
          </part>
          <part id="ma-2_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -3937,7 +4036,9 @@
          <prop name="sort-id" value="ma-05"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="ma-5_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ma-5_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -3963,7 +4064,9 @@
             <link rel="related" href="#ra-3"/>
          </part>
          <part id="ma-5_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4062,7 +4165,9 @@
          <link href="#e85cdb3f-7f0a-4083-8639-f13f70d3760b" rel="reference"/>
          <link href="#3cac5e7b-9ebf-4bbb-9af5-ae032de78e8e" rel="reference"/>
          <part id="mp-2_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization restricts access to <insert type="param" id-ref="mp-2_prm_1"/> to <insert type="param" id-ref="mp-2_prm_2"/>.</p>
          </part>
          <part id="mp-2_gdn" name="guidance">
@@ -4075,7 +4180,9 @@
             <link rel="related" href="#pl-2"/>
          </part>
          <part id="mp-2_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4124,7 +4231,9 @@
          <link href="#263823e0-a971-4b00-959d-315b26278b22" rel="reference"/>
          <link href="#a47466c4-c837-4f06-a39f-e68412a5f73d" rel="reference"/>
          <part id="mp-6_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="mp-6_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -4143,7 +4252,9 @@
             <link rel="related" href="#sc-4"/>
          </part>
          <part id="mp-6_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4214,7 +4325,9 @@
          <link href="#e85cdb3f-7f0a-4083-8639-f13f70d3760b" rel="reference"/>
          <link href="#3cac5e7b-9ebf-4bbb-9af5-ae032de78e8e" rel="reference"/>
          <part id="mp-7_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization <insert type="param" id-ref="mp-7_prm_1"/> the use of <insert type="param" id-ref="mp-7_prm_2"/> on <insert type="param" id-ref="mp-7_prm_3"/> using <insert type="param" id-ref="mp-7_prm_4"/>.</p>
          </part>
          <part id="mp-7_gdn" name="guidance">
@@ -4223,7 +4336,9 @@
             <link rel="related" href="#pl-4"/>
          </part>
          <part id="mp-7_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4334,7 +4449,9 @@
          <prop name="sort-id" value="pe-02"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="pe-2_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="pe-2_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -4360,7 +4477,9 @@
             <link rel="related" href="#ps-3"/>
          </part>
          <part id="pe-2_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4408,7 +4527,7 @@
                   <p>CSP defined physical access control systems/devices AND guards</p>
                </description>
             </constraint>
-            <select how-many="one or more">
+            <select how-many="one-or-more">
                <choice>
                   <insert type="param" id-ref="pe-3_prm_3"/>
                </choice>
@@ -4466,7 +4585,9 @@
          <link href="#85280698-0417-489d-b214-12bb935fb939" rel="reference"/>
          <link href="#5ed1f4d5-1494-421b-97ed-39d3c88ab51f" rel="reference"/>
          <part id="pe-3_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="pe-3_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -4518,7 +4639,9 @@
             <link rel="related" href="#ra-3"/>
          </part>
          <part id="pe-3_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4618,7 +4741,9 @@
          <prop name="sort-id" value="pe-06"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="pe-6_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="pe-6_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -4640,7 +4765,9 @@
             <link rel="related" href="#ir-8"/>
          </part>
          <part id="pe-6_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4697,7 +4824,9 @@
          <prop name="sort-id" value="pe-08"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="pe-8_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="pe-8_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -4712,7 +4841,9 @@
             <p>Visitor access records include, for example, names and organizations of persons visiting, visitor signatures, forms of identification, dates of access, entry and departure times, purposes of visits, and names and organizations of persons visited. Visitor access records are not required for publicly accessible areas.</p>
          </part>
          <part id="pe-8_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4752,7 +4883,9 @@
          <prop name="sort-id" value="pe-12"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="pe-12_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization employs and maintains automatic emergency lighting for the information system that activates in the event of a power outage or disruption and that covers emergency exits and evacuation routes within the facility.</p>
          </part>
          <part id="pe-12_gdn" name="guidance">
@@ -4761,7 +4894,9 @@
             <link rel="related" href="#cp-7"/>
          </part>
          <part id="pe-12_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4799,14 +4934,18 @@
          <prop name="sort-id" value="pe-13"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="pe-13_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization employs and maintains fire suppression and detection devices/systems for the information system that are supported by an independent energy source.</p>
          </part>
          <part id="pe-13_gdn" name="guidance">
             <p>This control applies primarily to facilities containing concentrations of information system resources including, for example, data centers, server rooms, and mainframe computer rooms. Fire suppression and detection devices/systems include, for example, sprinkler systems, handheld fire extinguishers, fixed fire hoses, and smoke detectors.</p>
          </part>
          <part id="pe-13_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4860,7 +4999,9 @@
          <prop name="sort-id" value="pe-14"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="pe-14_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="pe-14_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -4884,7 +5025,9 @@
             <link rel="related" href="#at-3"/>
          </part>
          <part id="pe-14_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4928,7 +5071,9 @@
          <prop name="sort-id" value="pe-15"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="pe-15_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization protects the information system from damage resulting from water leakage by providing master shutoff or isolation valves that are accessible, working properly, and known to key personnel.</p>
          </part>
          <part id="pe-15_gdn" name="guidance">
@@ -4936,7 +5081,9 @@
             <link rel="related" href="#at-3"/>
          </part>
          <part id="pe-15_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -4988,7 +5135,9 @@
          <prop name="sort-id" value="pe-16"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="pe-16_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization authorizes, monitors, and controls <insert type="param" id-ref="pe-16_prm_1"/> entering and exiting the facility and maintains records of those items.</p>
          </part>
          <part id="pe-16_gdn" name="guidance">
@@ -5000,7 +5149,9 @@
             <link rel="related" href="#sa-12"/>
          </part>
          <part id="pe-16_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -5109,7 +5260,9 @@
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <link href="#9c5c9e8c-dc81-4f55-a11c-d71d7487790f" rel="reference"/>
          <part id="pl-2_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="pl-2_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -5196,7 +5349,9 @@
             <link rel="related" href="#sa-17"/>
          </part>
          <part id="pl-2_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -5410,7 +5565,9 @@
          <link href="#2042d97b-f7f6-4c74-84f8-981867684659" rel="reference"/>
          <link href="#6caa237b-531b-43ac-9711-d8f6b97b0377" rel="reference"/>
          <part id="ps-3_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ps-3_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -5429,7 +5586,9 @@
             <link rel="related" href="#ps-2"/>
          </part>
          <part id="ps-3_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -5740,7 +5899,9 @@
          <link href="#d480aa6a-7a88-424e-a10c-ad1c7870354b" rel="reference"/>
          <link href="#f152844f-b1ef-4836-8729-6277078ebee1" rel="reference"/>
          <part id="ra-2_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ra-2_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -5763,7 +5924,9 @@
             <link rel="related" href="#sc-7"/>
          </part>
          <part id="ra-2_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -5839,7 +6002,9 @@
          <link href="#d480aa6a-7a88-424e-a10c-ad1c7870354b" rel="reference"/>
          <link href="#85280698-0417-489d-b214-12bb935fb939" rel="reference"/>
          <part id="ra-3_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ra-3_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -5868,7 +6033,9 @@
             <link rel="related" href="#pm-9"/>
          </part>
          <part id="ra-3_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -5956,7 +6123,9 @@
          <link href="#15522e92-9192-463d-9646-6a01982db8ca" rel="reference"/>
          <link href="#275cc052-0f7f-423c-bdb6-ed503dc36228" rel="reference"/>
          <part id="ra-5_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="ra-5_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -6012,7 +6181,9 @@
             <link rel="related" href="#si-2"/>
          </part>
          <part id="ra-5_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -6377,7 +6548,9 @@
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <link href="#0c775bc3-bfc3-42c7-a382-88949f503171" rel="reference"/>
          <part id="sa-9_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="sa-9_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -6399,7 +6572,9 @@
             <link rel="related" href="#ps-7"/>
          </part>
          <part id="sa-9_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -6496,7 +6671,9 @@
          <prop name="sort-id" value="sc-05"/>
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
          <part id="sc-5_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The information system protects against or limits the effects of the following types of denial of service attacks: <insert type="param" id-ref="sc-5_prm_1"/> by employing <insert type="param" id-ref="sc-5_prm_2"/>.</p>
          </part>
          <part id="sc-5_gdn" name="guidance">
@@ -6505,7 +6682,9 @@
             <link rel="related" href="#sc-7"/>
          </part>
          <part id="sc-5_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -6554,7 +6733,9 @@
          <link href="#756a8e86-57d5-4701-8382-f7a40439665a" rel="reference"/>
          <link href="#99f331f2-a9f0-46c2-9856-a3cbb9b89442" rel="reference"/>
          <part id="sc-7_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The information system:</p>
             <part id="sc-7_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -6582,7 +6763,9 @@
             <link rel="related" href="#sc-13"/>
          </part>
          <part id="sc-7_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -6632,7 +6815,9 @@
          <link href="#81f09e01-d0b0-4ae2-aa6a-064ed9950070" rel="reference"/>
          <link href="#a6c774c0-bf50-4590-9841-2a5c1c91ac6f" rel="reference"/>
          <part id="sc-12_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization establishes and manages cryptographic keys for required cryptography employed within the information system in accordance with <insert type="param" id-ref="sc-12_prm_1"/>.</p>
          </part>
          <part id="sc-12_gdn" name="guidance">
@@ -6641,7 +6826,9 @@
             <link rel="related" href="#sc-17"/>
          </part>
          <part id="sc-12_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -6703,7 +6890,9 @@
          <link href="#6a1041fc-054e-4230-946b-2e6f4f3731bb" rel="reference"/>
          <link href="#9b97ed27-3dd6-4f9a-ade5-1b43e9669794" rel="reference"/>
          <part id="sc-13_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The information system implements <insert type="param" id-ref="sc-13_prm_1"/> in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and standards.</p>
          </part>
          <part id="sc-13_gdn" name="guidance">
@@ -6730,7 +6919,9 @@
             <link rel="related" href="#si-7"/>
          </part>
          <part id="sc-13_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -6937,7 +7128,9 @@
          <link href="#bdd14f6c-41ab-4277-8d74-a0ce75a0eb1d" rel="reference"/>
          <link href="#080f8068-5e3e-435e-9790-d22ba4722693" rel="reference"/>
          <part id="si-2_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="si-2_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -6971,7 +7164,9 @@
             <link rel="related" href="#si-11"/>
          </part>
          <part id="si-2_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -7024,7 +7219,7 @@
                   <p>to include endpoints</p>
                </description>
             </constraint>
-            <select how-many="one or more">
+            <select how-many="one-or-more">
                <choice>endpoint</choice>
                <choice>network entry/exit points</choice>
             </select>
@@ -7035,7 +7230,7 @@
                   <p>to include alerting administrator or defined security personnel</p>
                </description>
             </constraint>
-            <select how-many="one or more">
+            <select how-many="one-or-more">
                <choice>block malicious code</choice>
                <choice>quarantine malicious code</choice>
                <choice>send alert to administrator</choice>
@@ -7052,7 +7247,9 @@
          <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
          <link href="#6d431fee-658f-4a0e-9f2e-a38b5d398fab" rel="reference"/>
          <part id="si-3_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="si-3_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -7096,7 +7293,9 @@
             <link rel="related" href="#si-7"/>
          </part>
          <part id="si-3_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -7166,7 +7365,7 @@
             <label>organization-defined personnel or roles</label>
          </param>
          <param id="si-4_prm_5">
-            <select how-many="one or more">
+            <select how-many="one-or-more">
                <choice>as needed</choice>
                <choice>
                   <insert type="param" id-ref="si-4_prm_6"/>
@@ -7185,7 +7384,9 @@
          <link href="#d1b1d689-0f66-4474-9924-c81119758dc1" rel="reference"/>
          <link href="#cee2c6ca-0261-4a6f-b630-e41d8ffdd82b" rel="reference"/>
          <part id="si-4_smt" name="statement">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <p>The organization:</p>
             <part id="si-4_smt.a" name="item">
                <prop name="label" value="a."/>
@@ -7255,7 +7456,9 @@
             <link rel="related" href="#si-7"/>
          </part>
          <part id="si-4_obj_fr" name="objective">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -7333,7 +7536,7 @@
             <label>organization-defined external organizations</label>
          </param>
          <param id="si-5_prm_2">
-            <select how-many="one or more">
+            <select how-many="one-or-more">
                <choice>
                   <insert type="param" id-ref="si-5_prm_3"/>
                </choice>

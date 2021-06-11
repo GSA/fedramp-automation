@@ -1,12 +1,12 @@
 {
   "catalog": {
-    "uuid": "fb6894fc-3be1-4bbb-be45-01968110f53b",
+    "uuid": "8c2636bc-3f89-4b8c-bb28-6dc859337f91",
     "metadata": {
       "title": "FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
       "published": "2021-02-17T00:00:00.000-04:00",
-      "last-modified": "2021-06-08T14:00:19.283349Z",
+      "last-modified": "2021-06-11T23:01:59.874667Z",
       "version": "1.3",
-      "oscal-version": "1.0.0-rc2",
+      "oscal-version": "1.0.0",
       "links": [
         {
           "href": "FedRAMP_rev4_LI-SaaS-baseline_profile.xml",
@@ -60,12 +60,11 @@
             {
               "type": "work",
               "addr-lines": [
-                "1800 F St. NW",
-                ""
+                "1800 F St. NW"
               ],
               "city": "Washington",
               "state": "DC",
-              "postal-code": "",
+              "postal-code": "20006",
               "country": "US"
             }
           ]
@@ -83,23 +82,26 @@
           ]
         }
       ],
-      "responsible-parties": {
-        "prepared-by": {
+      "responsible-parties": [
+        {
+          "role-id": "prepared-by",
           "party-uuids": [
             "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d"
           ]
         },
-        "fedramp-pmo": {
+        {
+          "role-id": "fedramp-pmo",
           "party-uuids": [
             "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d"
           ]
         },
-        "fedramp-jab": {
+        {
+          "role-id": "fedramp-jab",
           "party-uuids": [
             "ca9ba80e-1342-4bfd-b32a-abac468c24b4"
           ]
         }
-      }
+      ]
     },
     "groups": [
       {
@@ -286,7 +288,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -488,7 +490,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -585,7 +587,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The information system enforces approved authorizations for logical access to information and system resources in accordance with applicable access control policies."
@@ -680,7 +682,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -1153,7 +1155,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -1260,7 +1262,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -1726,7 +1728,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -1811,7 +1813,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -2624,7 +2626,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The information system generates audit records containing information that establishes what type of event occurred, when the event occurred, where the event occurred, the source of the event, the outcome of the event, and the identity of any individuals or subjects associated with the event."
@@ -2659,7 +2661,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -2840,7 +2842,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The information system:",
@@ -2891,7 +2893,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -3007,7 +3009,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -3162,7 +3164,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -3731,7 +3733,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -3863,7 +3865,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -4039,7 +4041,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -4137,7 +4139,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -4347,7 +4349,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -4417,7 +4419,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -4598,7 +4600,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization develops a continuous monitoring strategy and implements a continuous monitoring program that includes:",
@@ -4744,7 +4746,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -4876,7 +4878,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -4963,7 +4965,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -5259,7 +5261,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization analyzes changes to the information system to determine potential security impacts prior to change implementation."
@@ -5310,7 +5312,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -5460,7 +5462,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -5545,7 +5547,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -5798,7 +5800,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -5899,7 +5901,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -6894,7 +6896,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -7030,7 +7032,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -7491,7 +7493,7 @@
                       {
                         "name": "response-point",
                         "ns": "https://fedramp.gov/ns/oscal",
-                        "value": ""
+                        "value": "You must fill in this response point."
                       }
                     ],
                     "prose": "The information system implements multifactor authentication for network access to privileged accounts."
@@ -7513,7 +7515,7 @@
                       {
                         "name": "response-point",
                         "ns": "https://fedramp.gov/ns/oscal",
-                        "value": ""
+                        "value": "You must fill in this response point."
                       },
                       {
                         "name": "method",
@@ -7610,7 +7612,7 @@
                       {
                         "name": "response-point",
                         "ns": "https://fedramp.gov/ns/oscal",
-                        "value": ""
+                        "value": "You must fill in this response point."
                       }
                     ],
                     "prose": "The information system accepts and electronically verifies Personal Identity Verification (PIV) credentials.",
@@ -7661,7 +7663,7 @@
                       {
                         "name": "response-point",
                         "ns": "https://fedramp.gov/ns/oscal",
-                        "value": ""
+                        "value": "You must fill in this response point."
                       },
                       {
                         "name": "method",
@@ -8293,7 +8295,7 @@
                       {
                         "name": "response-point",
                         "ns": "https://fedramp.gov/ns/oscal",
-                        "value": ""
+                        "value": "You must fill in this response point."
                       }
                     ],
                     "prose": "The information system, for hardware token-based authentication, employs mechanisms that satisfy {{ insert: param, ia-5.11_prm_1 }}."
@@ -8310,7 +8312,7 @@
                       {
                         "name": "response-point",
                         "ns": "https://fedramp.gov/ns/oscal",
-                        "value": ""
+                        "value": "You must fill in this response point."
                       },
                       {
                         "name": "method",
@@ -8414,7 +8416,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The information system obscures feedback of authentication information during the authentication process to protect the information from possible exploitation/use by unauthorized individuals."
@@ -8437,7 +8439,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -8702,7 +8704,7 @@
                       {
                         "name": "response-point",
                         "ns": "https://fedramp.gov/ns/oscal",
-                        "value": ""
+                        "value": "You must fill in this response point."
                       }
                     ],
                     "prose": "The information system accepts and electronically verifies Personal Identity Verification (PIV) credentials from other federal agencies."
@@ -8733,7 +8735,7 @@
                       {
                         "name": "response-point",
                         "ns": "https://fedramp.gov/ns/oscal",
-                        "value": ""
+                        "value": "You must fill in this response point."
                       },
                       {
                         "name": "method",
@@ -8835,7 +8837,7 @@
                       {
                         "name": "response-point",
                         "ns": "https://fedramp.gov/ns/oscal",
-                        "value": ""
+                        "value": "You must fill in this response point."
                       }
                     ],
                     "prose": "The information system accepts only FICAM-approved third-party credentials."
@@ -8858,7 +8860,7 @@
                       {
                         "name": "response-point",
                         "ns": "https://fedramp.gov/ns/oscal",
-                        "value": ""
+                        "value": "You must fill in this response point."
                       },
                       {
                         "name": "method",
@@ -9304,7 +9306,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -9410,7 +9412,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -9622,7 +9624,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -9695,7 +9697,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -10345,7 +10347,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -10460,7 +10462,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -10747,7 +10749,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -10829,7 +10831,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -11092,7 +11094,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization restricts access to {{ insert: param, mp-2_prm_1 }} to {{ insert: param, mp-2_prm_2 }}."
@@ -11135,7 +11137,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -11265,7 +11267,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -11324,7 +11326,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -11459,7 +11461,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization {{ insert: param, mp-7_prm_1 }} the use of {{ insert: param, mp-7_prm_2 }} on {{ insert: param, mp-7_prm_3 }} using {{ insert: param, mp-7_prm_4 }}."
@@ -11486,7 +11488,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -11740,7 +11742,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -11817,7 +11819,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -11909,7 +11911,7 @@
                   }
                 ],
                 "select": {
-                  "how-many": "one or more",
+                  "how-many": "one-or-more",
                   "choice": [
                     " {{ insert: param, pe-3_prm_3 }} ",
                     "guards"
@@ -12030,7 +12032,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -12188,7 +12190,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -12305,7 +12307,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -12371,7 +12373,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -12493,7 +12495,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -12534,7 +12536,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -12636,7 +12638,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization employs and maintains automatic emergency lighting for the information system that activates in the event of a power outage or disruption and that covers emergency exits and evacuation routes within the facility."
@@ -12663,7 +12665,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -12765,7 +12767,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization employs and maintains fire suppression and detection devices/systems for the information system that are supported by an independent energy source."
@@ -12782,7 +12784,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -12904,7 +12906,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -12969,7 +12971,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -13071,7 +13073,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization protects the information system from damage resulting from water leakage by providing master shutoff or isolation valves that are accessible, working properly, and known to key personnel."
@@ -13094,7 +13096,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -13207,7 +13209,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization authorizes, monitors, and controls {{ insert: param, pe-16_prm_1 }} entering and exiting the facility and maintains records of those items."
@@ -13246,7 +13248,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -13514,7 +13516,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -13787,7 +13789,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -14327,7 +14329,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -14386,7 +14388,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -15239,7 +15241,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -15309,7 +15311,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -15468,7 +15470,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -15552,7 +15554,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -15695,7 +15697,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -15856,7 +15858,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -16784,7 +16786,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -16850,7 +16852,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -17098,7 +17100,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The information system protects against or limits the effects of the following types of denial of service attacks: {{ insert: param, sc-5_prm_1 }} by employing {{ insert: param, sc-5_prm_2 }}."
@@ -17125,7 +17127,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -17252,7 +17254,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The information system:",
@@ -17342,7 +17344,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -17455,7 +17457,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization establishes and manages cryptographic keys for required cryptography employed within the information system in accordance with {{ insert: param, sc-12_prm_1 }}."
@@ -17482,7 +17484,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -17622,7 +17624,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The information system implements {{ insert: param, sc-13_prm_1 }} in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, and standards."
@@ -17721,7 +17723,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -18320,7 +18322,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -18429,7 +18431,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -18521,7 +18523,7 @@
                   }
                 ],
                 "select": {
-                  "how-many": "one or more",
+                  "how-many": "one-or-more",
                   "choice": [
                     "endpoint",
                     "network entry/exit points"
@@ -18536,7 +18538,7 @@
                   }
                 ],
                 "select": {
-                  "how-many": "one or more",
+                  "how-many": "one-or-more",
                   "choice": [
                     "block malicious code",
                     "quarantine malicious code",
@@ -18580,7 +18582,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -18717,7 +18719,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -18811,7 +18813,7 @@
               {
                 "id": "si-4_prm_5",
                 "select": {
-                  "how-many": "one or more",
+                  "how-many": "one-or-more",
                   "choice": [
                     "as needed",
                     " {{ insert: param, si-4_prm_6 }} "
@@ -18869,7 +18871,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   }
                 ],
                 "prose": "The organization:",
@@ -19087,7 +19089,7 @@
                   {
                     "name": "response-point",
                     "ns": "https://fedramp.gov/ns/oscal",
-                    "value": ""
+                    "value": "You must fill in this response point."
                   },
                   {
                     "name": "method",
@@ -19169,7 +19171,7 @@
               {
                 "id": "si-5_prm_2",
                 "select": {
-                  "how-many": "one or more",
+                  "how-many": "one-or-more",
                   "choice": [
                     " {{ insert: param, si-5_prm_3 }} ",
                     " {{ insert: param, si-5_prm_4 }} ",
