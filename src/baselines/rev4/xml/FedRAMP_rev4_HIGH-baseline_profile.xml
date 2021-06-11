@@ -2332,7 +2332,7 @@
       </alter>
       <alter control-id="ac-14">
          <add position="starting" by-id="ac-14.a_obj.1">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=" "/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="true/FedRAMP_rev4_HIGH-baseline_profile.xml"/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
          <add position="starting" by-id="ac-14.a_obj.2">
