@@ -1004,7 +1004,7 @@
             <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
-         <target type="objective-id" id-ref="ac-1.a.1_obj.1">
+         <target type="objective-id" target-id="ac-1.a.1_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal"
                   name="implementation-status"
                   value="implemented"/>
@@ -1026,7 +1026,7 @@
             <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
-         <target type="objective-id" id-ref="ac-1.a.1_obj.2">
+         <target type="objective-id" target-id="ac-1.a.1_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal"
                   name="implementation-status"
                   value="implemented"/>
@@ -1048,7 +1048,7 @@
             <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
-         <target type="objective-id" id-ref="ac-1.a.1_obj.3">
+         <target type="objective-id" target-id="ac-1.a.1_obj.3">
             <prop ns="https://fedramp.gov/ns/oscal"
                   name="implementation-status"
                   value="implemented"/>
