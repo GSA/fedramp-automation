@@ -1224,7 +1224,7 @@
          <title/>
          <description/>
          <target target-id="ac-1_smt.a" type="statement-id">
-            <status state="unsatisfied"/>
+            <status state="not-satisfied"/>
          </target>
       </finding>
    </result>
