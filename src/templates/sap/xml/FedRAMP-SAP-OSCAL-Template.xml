@@ -141,10 +141,9 @@
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
-            <addr-line/>
             <city>Washington</city>
             <state>DC</state>
-            <postal-code/>
+            <postal-code>20006</postal-code>
             <country>US</country>
          </address>
          <remarks>

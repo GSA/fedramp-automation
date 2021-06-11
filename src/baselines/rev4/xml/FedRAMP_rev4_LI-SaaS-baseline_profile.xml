@@ -30,10 +30,9 @@
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
-            <addr-line/>
             <city>Washington</city>
             <state>DC</state>
-            <postal-code/>
+            <postal-code>20006</postal-code>
             <country>US</country>
          </address>
       </party>
@@ -522,7 +521,7 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ac-2_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add by-id="ac-2_smt" position="ending">
             <part id="ac-2_fr" name="item">
@@ -537,7 +536,7 @@
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ac-2_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -568,12 +567,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ac-3_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ac-3_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -639,12 +638,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ac-17_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ac-17_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -713,12 +712,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ac-22_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ac-22_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -797,12 +796,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="au-3_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="au-3_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -854,12 +853,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="au-5_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="au-5_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -891,12 +890,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="au-6_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="au-6_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <p>Determine if the organization:</p>
@@ -971,12 +970,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ca-2_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ca-2_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1042,12 +1041,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ca-3_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ca-3_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <p>Determine if the organization:</p>
@@ -1102,12 +1101,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ca-6_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ca-6_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1155,12 +1154,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ca-7_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ca-7_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1225,12 +1224,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ca-9_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ca-9_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <p>Determine if the organization:</p>
@@ -1288,12 +1287,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="cm-4_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="cm-4_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1324,12 +1323,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="cm-6_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="cm-6_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1416,12 +1415,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="cm-8_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="cm-8_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1537,12 +1536,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="cp-9_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="cp-9_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1644,12 +1643,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ia-2.1_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ia-2.1_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1680,12 +1679,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ia-2.12_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ia-2.12_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1761,13 +1760,13 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ia-5.11_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="FED"/>
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ia-5.11_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1806,12 +1805,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ia-6_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ia-6_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1858,12 +1857,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ia-8.1_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ia-8.1_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1905,12 +1904,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ia-8.2_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ia-8.2_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -1980,12 +1979,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ir-4_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ir-4_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2063,12 +2062,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ir-6_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ir-6_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2153,12 +2152,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ma-2_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ma-2_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2214,12 +2213,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ma-5_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="ma-5_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2267,12 +2266,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="mp-2_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="mp-2_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2311,12 +2310,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="mp-6_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="mp-6_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2370,12 +2369,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="mp-7_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="mp-7_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2435,12 +2434,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="pe-2_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="pe-2_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2483,12 +2482,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="pe-3_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="pe-3_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2577,12 +2576,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="pe-6_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="pe-6_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2623,12 +2622,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="pe-8_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="pe-8_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2668,12 +2667,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="pe-12_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="pe-12_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2711,12 +2710,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="pe-13_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="pe-13_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2754,12 +2753,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="pe-14_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="pe-14_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2813,12 +2812,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="pe-15_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="pe-15_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2862,12 +2861,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="pe-16_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="pe-16_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -2920,12 +2919,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="pl-2_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="pl-2_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3015,12 +3014,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ps-3_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ps-3_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3109,12 +3108,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ra-2_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ra-2_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3150,12 +3149,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ra-3_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ra-3_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3234,12 +3233,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="ra-5_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="ra-5_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3387,12 +3386,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="sa-9_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="sa-9_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3440,12 +3439,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="sc-5_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="sc-5_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3485,12 +3484,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="sc-7_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="sc-7_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3535,12 +3534,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="sc-12_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="sc-12_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3591,12 +3590,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="sc-13_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="CONDITIONAL"/>
             <part id="sc-13_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3686,12 +3685,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="si-2_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="si-2_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3734,12 +3733,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="si-3_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="si-3_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>
@@ -3800,12 +3799,12 @@
          <remove by-name="objective"/>
          <remove by-name="assessment"/>
          <add by-id="si-4_smt" position="starting">
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add position="ending">
             <prop name="method" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             <part id="si-4_obj_fr" name="objective">
-               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value=""/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
                <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="method" class="fedramp" value="TEST"/>

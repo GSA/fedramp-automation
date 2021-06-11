@@ -135,10 +135,9 @@
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
-            <addr-line/>
             <city>Washington</city>
             <state>DC</state>
-            <postal-code/>
+            <postal-code>20006</postal-code>
             <country>US</country>
          </address>
          <remarks>
@@ -569,10 +568,10 @@
          <method>EXAMINE</method>
          <type>control-objective</type>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             <related-task task-uuid="e1890486-a9f0-4388-b2bc-34fb6c623686"/>
          </origin>
-         <subject type="component" uuid-ref="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
+         <subject type="component" subject-uuid="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
             <title>Reviewed Policy</title>
             <remarks>
                <p>If the policy is defined in the SSP as a component, you can cite it using <code>subject</code>, and use the UUID of the policy component in the SSP.</p>
@@ -602,10 +601,10 @@
          <method>INTERVIEW</method>
          <type>control-objective</type>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             <related-task task-uuid="172d4ba2-3362-4e3b-9379-a65a50e399bf"/>
          </origin>
-         <subject type="party" uuid-ref="5ff3d794-d2e8-48be-bf9c-95c2328271ce">
+         <subject type="party" subject-uuid="5ff3d794-d2e8-48be-bf9c-95c2328271ce">
             <title>Interviewed Person</title>
          </subject>
          <relevant-evidence href="#65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
@@ -629,12 +628,12 @@
          <method>TEST</method>
          <type>finding</type>
          <origin>
-            <actor type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
+            <actor type="tool" actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
          </origin>
-         <subject type="inventory-item" uuid-ref="f61f4408-2cb8-444a-a312-bc88412e7c61"/>
-         <subject type="inventory-item" uuid-ref="02075556-3660-4112-8982-02fc7d6fac00"/>
-         <subject type="inventory-item" uuid-ref="5efe2c07-9fdf-453a-8457-6471046082fb"/>
-         <subject type="component" uuid-ref="75b059f2-a9ba-40b1-a1e0-881196ca1ead"/>
+         <subject type="inventory-item" subject-uuid="f61f4408-2cb8-444a-a312-bc88412e7c61"/>
+         <subject type="inventory-item" subject-uuid="02075556-3660-4112-8982-02fc7d6fac00"/>
+         <subject type="inventory-item" subject-uuid="5efe2c07-9fdf-453a-8457-6471046082fb"/>
+         <subject type="component" subject-uuid="75b059f2-a9ba-40b1-a1e0-881196ca1ead"/>
          <relevant-evidence href="#19a07333-4e87-46dc-abab-adad60e706b9">
             <description>
                <p>Raw scanner tool output - discovery scan.</p>
@@ -654,12 +653,12 @@
          <method>TEST</method>
          <type>finding</type>
          <origin>
-            <actor type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
+            <actor type="tool" actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
          </origin>
-         <subject type="inventory-item" uuid-ref="f61f4408-2cb8-444a-a312-bc88412e7c61"/>
-         <subject type="inventory-item" uuid-ref="02075556-3660-4112-8982-02fc7d6fac00"/>
-         <subject type="inventory-item" uuid-ref="5efe2c07-9fdf-453a-8457-6471046082fb"/>
-         <subject type="component" uuid-ref="75b059f2-a9ba-40b1-a1e0-881196ca1ead"/>
+         <subject type="inventory-item" subject-uuid="f61f4408-2cb8-444a-a312-bc88412e7c61"/>
+         <subject type="inventory-item" subject-uuid="02075556-3660-4112-8982-02fc7d6fac00"/>
+         <subject type="inventory-item" subject-uuid="5efe2c07-9fdf-453a-8457-6471046082fb"/>
+         <subject type="component" subject-uuid="75b059f2-a9ba-40b1-a1e0-881196ca1ead"/>
          <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
             <description>
                <p>Raw scanner tool output - Infrastructure and OS Scan.</p>
@@ -732,7 +731,7 @@
          <method>TEST</method>
          <type>finding</type>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             <related-task task-uuid="8937348c-5ebb-40bd-a8eb-faff99af156e"/>
          </origin>
          <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
@@ -749,7 +748,7 @@
          <method>TEST</method>
          <type>finding</type>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             <related-task task-uuid="8937348c-5ebb-40bd-a8eb-faff99af156e"/>
          </origin>
          <relevant-evidence href="#e552fb72-d662-4c01-b2d7-4dcb2086bb07">
@@ -766,7 +765,7 @@
          <method>EXAMINE</method>
          <type>ssp-statement-issue</type>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
          </origin>
          <collected>2020-10-10T00:00:00Z</collected>
          <remarks>
@@ -794,7 +793,7 @@
          <status>open</status>
          <characterization>
             <origin>
-               <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+               <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             </origin>
             <facet name="likelihood" system="https://fedramp.gov" value="high">
                <prop name="state" value="initial"/>
@@ -834,7 +833,7 @@
          <status>open</status>
          <characterization>
             <origin>
-               <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+               <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             </origin>
             <facet name="likelihood" system="https://fedramp.gov" value="moderate">
                <prop name="state" value="initial"/>
@@ -854,7 +853,7 @@
                <p>POA&amp;M: CSP's intended remediation (no type flag).</p>
             </description>
             <origin>
-               <actor type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"/>
+               <actor type="party" actor-uuid="49f73135-efab-4275-9a79-003656ad890a"/>
             </origin>
          </response>
       </risk>
@@ -880,7 +879,7 @@
          <status>closed</status>
          <characterization>
             <origin>
-               <actor type="tool" uuid-ref="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+               <actor type="tool" actor-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
             </origin>
             <facet name="vulnerability-id"
                    system="http://csrc.nist.gov/ns/oscal/unknown"
@@ -928,7 +927,7 @@
                <p>A description of the recommended remediation as provided by the tool.</p>
             </description>
             <origin>
-               <actor type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
+               <actor type="tool" actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
             </origin>
             <remarks>
                <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
@@ -941,7 +940,7 @@
                <p>A description of the recommended remediation as provided by the assessor.</p>
             </description>
             <origin>
-               <actor type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"/>
+               <actor type="party" actor-uuid="49f73135-efab-4275-9a79-003656ad890a"/>
             </origin>
             <remarks>
                <p>The assessor may add their recommendation in addition to the tool's recommendation, or if no tool recommendation is provided.</p>
@@ -974,7 +973,7 @@
          <status>open</status>
          <characterization>
             <origin>
-               <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+               <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             </origin>
             <facet name="likelihood" system="https://fedramp.gov" value="high">
                <prop name="state" value="initial"/>
@@ -989,7 +988,7 @@
                <p>A description of the recommended remediation as provided by the assessor.</p>
             </description>
             <origin>
-               <actor type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"/>
+               <actor type="party" actor-uuid="49f73135-efab-4275-9a79-003656ad890a"/>
             </origin>
             <remarks>
                <p>The assessor may add their recommendation.</p>
@@ -1002,8 +1001,8 @@
             <p>An overall statement about the system's satisfaction of this objective.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <target type="objective-id" id-ref="ac-1.a.1_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal"
@@ -1024,8 +1023,8 @@
             <p>An overall statement about the system's satisfaction of this objective.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <target type="objective-id" id-ref="ac-1.a.1_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal"
@@ -1046,8 +1045,8 @@
             <p>An overall statement about the system's satisfaction of this objective.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <target type="objective-id" id-ref="ac-1.a.1_obj.3">
             <prop ns="https://fedramp.gov/ns/oscal"
@@ -1069,8 +1068,8 @@
             <p>[EXAMPLE]There is an issue with an SSP Statement.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <implementation-statement-uuid>7924db51-e44d-4215-ad7e-3a5dda44a631</implementation-statement-uuid>
          <related-observation observation-uuid="A38F3BBA-5B71-400D-B8F2-D808E1D4627F"/>
@@ -1085,8 +1084,8 @@
             <p>The results of the discovery scan.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <related-observation observation-uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d"/>
          <remarks>
@@ -1099,8 +1098,8 @@
             <p>An example set of infrastructure scan findings.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
          <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
@@ -1114,8 +1113,8 @@
             <p>The Results of the spear phishing test.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <related-observation observation-uuid="21b26801-2e00-4e59-979c-bf2a4ed93920"/>
          <remarks>
@@ -1128,8 +1127,8 @@
             <p>A finding from penetration testing activities.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <related-observation observation-uuid="21b26801-2e00-4e59-979c-bf2a4ed93920"/>
          <associated-risk risk-uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07"/>
@@ -1185,7 +1184,7 @@
          <method>MIXED</method>
          <type>historic</type>
          <origin>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <collected>2018-03-01T00:00:00Z</collected>
       </observation>
