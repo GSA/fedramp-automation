@@ -1008,7 +1008,7 @@
             <prop ns="https://fedramp.gov/ns/oscal"
                   name="implementation-status"
                   value="implemented"/>
-            <status>satisfied</status>
+            <status state="satisfied"/>
          </target>
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
          <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
@@ -1030,7 +1030,7 @@
             <prop ns="https://fedramp.gov/ns/oscal"
                   name="implementation-status"
                   value="implemented"/>
-            <status>satisfied</status>
+            <status state="satisfied"/>
          </target>
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
          <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
@@ -1052,7 +1052,7 @@
             <prop ns="https://fedramp.gov/ns/oscal"
                   name="implementation-status"
                   value="implemented"/>
-            <status>satisfied</status>
+            <status state="satisfied"/>
          </target>
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
          <related-observation observation-uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774"/>
