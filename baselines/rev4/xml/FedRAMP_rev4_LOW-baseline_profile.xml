@@ -6224,7 +6224,7 @@
          <title>NIST Special Publication (SP) 800-53</title>
          <prop name="version" value="Revision 4"/>
          <rlink media-type="application/xml"
-                href="https://raw.githubusercontent.com/usnistgov/oscal-content/a207cd792c9cbb73f32127cbe1ffcec92ff0a14e/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
+                href="https://raw.githubusercontent.com/usnistgov/oscal-content/v1.0.0/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
       </resource>
    </back-matter>
 </profile>
