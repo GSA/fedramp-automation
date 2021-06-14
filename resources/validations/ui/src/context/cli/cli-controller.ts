@@ -1,9 +1,8 @@
-import { readFileSync } from 'fs';
-
 import { Command } from 'commander';
 import type { ValidateSchematronUseCase } from 'src/use-cases/validate-ssp-xml';
 
 type CommandLineContext = {
+  readStringFile: (fileName: string) => string;
   validateSchematron: ValidateSchematronUseCase;
 };
 
@@ -13,7 +12,7 @@ export const CommandLineController = (ctx: CommandLineContext) => {
     .command('validate <ssp-xml-file>')
     .description('validate OSCAL systems security plan document')
     .action(sspXmlFile => {
-      const xmlString = readFileSync(sspXmlFile, 'utf-8');
+      const xmlString = ctx.readStringFile(sspXmlFile);
       ctx.validateSchematron(xmlString).then(validationReport => {
         console.log(
           `Found ${validationReport.failedAsserts.length} assertions`,
