@@ -79,7 +79,7 @@ cd ..
 # First, compile Schematron to XSLT:
 ./bin/validate_with_schematron.sh
 # Then, time the stylesheet transform:
-npm run cli -- validate ../test/demo/FedRAMP-SSP-OSCAL-Template.xml  6.77s user 0.32s system 123% cpu 5.740 total
+time ./bin/validate_with_schematron.sh -f ./test/demo/FedRAMP-SSP-OSCAL-Template.xml -t
 ```
 
 Example output:
