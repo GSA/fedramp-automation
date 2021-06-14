@@ -1,4 +1,4 @@
-import { commandLineController } from './cli-controller';
+import { CommandLineController } from './cli-controller';
 
 describe('command-line controller', () => {
   it('works', () => {

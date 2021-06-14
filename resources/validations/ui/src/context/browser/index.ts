@@ -1,5 +1,5 @@
 import { browserController } from './browser-controller';
-import { SaxonJsSchematronValidatorGateway } from '../shared/saxon-js';
+import { SaxonJsSchematronValidatorGateway } from '../shared/saxon-js-gateway';
 import { createPresenter } from './presenter';
 import { ValidateSchematronUseCase } from '../../use-cases/validate-ssp-xml';
 import { createAppRenderer } from './views';

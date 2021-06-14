@@ -12,6 +12,7 @@ const controller = CommandLineController({
     // The npm version of saxon-js is for node; currently, we load the
     // browser version via a script tag in index.html.
     SaxonJS: SaxonJS,
+    baselinesBaseUrl: `file:///Users/dan/src/10x/fedramp-automation/baselines/rev4/xml`,
     registryBaseUrl: `file:///Users/dan/src/10x/fedramp-automation/resources/xml`,
   }),
 });

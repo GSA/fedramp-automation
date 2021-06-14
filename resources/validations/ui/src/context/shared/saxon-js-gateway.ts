@@ -4,21 +4,30 @@ import type {
   ValidationReport,
 } from '../../use-cases/schematron';
 
-const getValidationReport = (document: DocumentFragment): ValidationReport => {
+const getValidationReport = (
+  SaxonJS: any,
+  document: DocumentFragment,
+): ValidationReport => {
+  let failedAsserts = SaxonJS.XPath.evaluate('//svrl:failed-assert', document, {
+    namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
+    resultForm: 'array',
+  });
   return {
-    failedAsserts: Array.prototype.map.call(
-      document.querySelectorAll('failed-assert'),
-      assert => {
-        return {
-          id: assert.attributes.id.value,
-          location: assert.attributes.location.value,
-          role: assert.attributes.role && assert.attributes.role.value,
-          see: assert.attributes.see && assert.attributes.see.value,
-          test: assert.attributes.test.value,
+    failedAsserts: Array.prototype.map.call(failedAsserts, assert => {
+      return Object.keys(assert.attributes).reduce(
+        (assertMap: Record<string, ValidationAssert>, key: string) => {
+          const name = assert.attributes[key].name;
+          if (name) {
+            assertMap[assert.attributes[key].name] =
+              assert.attributes[key].value;
+          }
+          return assertMap;
+        },
+        {
           text: assert.textContent,
-        };
-      },
-    ) as ValidationAssert[],
+        },
+      );
+    }) as ValidationAssert[],
   };
 };
 
@@ -47,6 +56,9 @@ export const SaxonJsSchematronValidatorGateway =
         'async',
       ) as Promise<DocumentFragment>
     ).then((output: any) => {
-      return getValidationReport(output.principalResult as DocumentFragment);
+      return getValidationReport(
+        ctx.SaxonJS,
+        output.principalResult as DocumentFragment,
+      );
     });
   };

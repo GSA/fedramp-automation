@@ -10,7 +10,6 @@ export const setXmlContents: AsyncAction<string> = (
   return effects.useCases
     .validateSchematron(xmlContents)
     .then(validationReport => {
-      console.log('setting validation report', validationReport);
       state.report.validationReport = validationReport;
     })
     .catch(reason => {

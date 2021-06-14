@@ -15,7 +15,9 @@ export const CommandLineController = (ctx: CommandLineContext) => {
     .action(sspXmlFile => {
       const xmlString = readFileSync(sspXmlFile, 'utf-8');
       ctx.validateSchematron(xmlString).then(validationReport => {
-        console.log(validationReport);
+        console.log(
+          `Found ${validationReport.failedAsserts.length} assertions`,
+        );
       });
     });
   return cli;
