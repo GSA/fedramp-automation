@@ -18,8 +18,7 @@ const getValidationReport = (
         (assertMap: Record<string, ValidationAssert>, key: string) => {
           const name = assert.attributes[key].name;
           if (name) {
-            assertMap[assert.attributes[key].name] =
-              assert.attributes[key].value;
+            assertMap[name] = assert.attributes[key].value;
           }
           return assertMap;
         },
