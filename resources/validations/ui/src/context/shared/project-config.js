@@ -14,5 +14,5 @@ const PROJECT_ROOT = process.cwd();
 module.exports = {
   REGISTRY_PATH: join(PROJECT_ROOT, '../../../resources/xml'),
   BASELINES_PATH: join(PROJECT_ROOT, '../../../baselines/rev4/xml'),
-  SEF_URL: join(PROJECT_ROOT, 'public/ssp.sef.json'),
+  PUBLIC_PATH: join(PROJECT_ROOT, 'public'),
 };

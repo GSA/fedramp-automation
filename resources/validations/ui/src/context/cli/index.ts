@@ -1,5 +1,7 @@
 #!/usr/bin/env -S ts-node --script-mode
 
+import { join } from 'path';
+
 // @ts-ignore
 import * as SaxonJS from 'saxon-js';
 
@@ -12,7 +14,7 @@ const config = require('../shared/project-config');
 const controller = CommandLineController({
   readStringFile,
   validateSchematron: SaxonJsSchematronValidatorGateway({
-    sefUrl: `file://${config.SEF_URL}`,
+    sefUrl: `file://${join(config.PUBLIC_PATH, 'ssp.sef.json')}`,
     SaxonJS: SaxonJS,
     baselinesBaseUrl: config.BASELINES_PATH,
     registryBaseUrl: config.REGISTRY_PATH,

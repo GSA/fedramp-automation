@@ -12,8 +12,8 @@ module.exports = {
     REPOSITORY,
   },
   mount: {
-    public: { url: '/', static: true },
     src: { url: '/dist' },
+    [config.PUBLIC_PATH]: { url: '/', static: true },
     [config.REGISTRY_PATH]: { url: '/xml', static: true },
     [config.BASELINES_PATH]: {
       url: '/baselines',
