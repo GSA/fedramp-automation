@@ -39,7 +39,7 @@ NOTE: For feedback related to the OSCAL syntax itself, please create or add to a
 * **What is your feedback?**
 
 
-* **What version of OSCAL are you using? (Check our info on [supported OSCAL versions]((https://github.com/GSA/fedramp-automation/blob/master/README.md#support-and-oscal-deprecation-strategy))**
+* **What version of OSCAL are you using? (Check our info on [supported OSCAL versions](https://github.com/GSA/fedramp-automation/blob/master/README.md#support-and-oscal-deprecation-strategy))**
 
 
 * **What action would you like to see from the FedRAMP PMO?**
