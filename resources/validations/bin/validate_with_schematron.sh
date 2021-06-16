@@ -13,6 +13,7 @@ usage() {
     echo "  -o    outputRootDirectory          is an the root of the report output."
     echo "  -v    saxonVersionNumber     if you wish to override the default version to be downloaded"
     echo "  -b    baseDirectory          if you need to override the default base directory (.) for the project"
+    echo "  -t                           transform-only - skip schematron compilation"
     echo "  -h                           display this help message"
 }
 
@@ -20,6 +21,9 @@ usage() {
 OUTPUT_ROOT="report/schematron"
 # schematron directory validate the file with each .sch found defaults to src/*.sch relative to this script
 SCHEMA_LOCATION_DIR="src"
+# whether or not to compile Schematron to XSLT (if false, will reuse previously-compiled XSLT)
+PREPROCESS_PIPELINE=true
+
 ##
 ## options ###################################################################
 ##
@@ -55,6 +59,11 @@ while echo "$1" | grep -- ^- > /dev/null 2>&1; do
             shift
             BASE_DIR="$1"
             ;;
+        # transform-only
+        -t)
+            shift
+            PREPROCESS_PIPELINE=false
+            ;;
         # Help!
         -h)
             usage
@@ -84,7 +93,9 @@ BASE_DIR="${BASE_DIR:-.}"
 echo "using saxon version ${SAXON_VERSION}"
 
 # Delete pre-existing compiled XSLT
-rm -rf "${BASE_DIR}"/target/{*.sch,*.xsl};
+if [ "$PREPROCESS_PIPELINE" = true ] ; then
+    rm -rf "${BASE_DIR}"/target/{*.sch,*.xsl};
+fi
 
 saxonLocation=saxon/Saxon-HE/"${SAXON_VERSION}"/Saxon-HE-"${SAXON_VERSION}".jar
 if test -n "$SAXON_CP" ; then
@@ -130,34 +141,35 @@ for qualifiedSchematronName in "${SCHEMA_LOCATION_DIR}"/*.sch; do
     schematronName=${qualifiedSchematronName##*/}
     schematronRoot=${schematronName%.*}
 
-    # See pipeline steps 1-4 for further details.
-    # github.com/Schematron/schematron/blob/72f7f7c9c46236f073bc59b60869b79528890fd0/trunk/schematron/code/readme.txt
-    #
-    # Step 1
-    java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-        -o:"${BASE_DIR}"/target/"${schematronRoot}-stage1.sch" \
-        -s:"${qualifiedSchematronName}" \
-        "${BASE_DIR}"/lib/schematron/trunk/schematron/code/iso_dsdl_include.xsl \
-        $SAXON_OPTS
-    echo "preprocessing stage 1: ${qualifiedSchematronName} to: ${BASE_DIR}/target/${schematronRoot}-stage1.sch"
+    if [ "$PREPROCESS_PIPELINE" = true ] ; then
+        # See pipeline steps 1-4 for further details.
+        # github.com/Schematron/schematron/blob/72f7f7c9c46236f073bc59b60869b79528890fd0/trunk/schematron/code/readme.txt
+        #
+        # Step 1
+        echo "preprocessing stage 1: ${qualifiedSchematronName} to: ${BASE_DIR}/target/${schematronRoot}-stage1.sch"
+        java -cp "${SAXON_CP}" net.sf.saxon.Transform \
+            -o:"${BASE_DIR}"/target/"${schematronRoot}-stage1.sch" \
+            -s:"${qualifiedSchematronName}" \
+            "${BASE_DIR}"/lib/schematron/trunk/schematron/code/iso_dsdl_include.xsl \
+            $SAXON_OPTS
 
-    # Step 2
-    java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-        -o:"${BASE_DIR}"/target/"${schematronRoot}-stage2.sch" \
-        -s:"${BASE_DIR}"/target/"${schematronRoot}-stage1.sch" \
-        "${BASE_DIR}"/lib/schematron/trunk/schematron/code/iso_abstract_expand.xsl \
-        $SAXON_OPTS
-    echo "preprocessing stage 2: ${BASE_DIR}/target/${schematronRoot}-stage1.sch to: ${BASE_DIR}/target/${schematronRoot}-stage2.sch"
+        # Step 2
+        echo "preprocessing stage 2: ${BASE_DIR}/target/${schematronRoot}-stage1.sch to: ${BASE_DIR}/target/${schematronRoot}-stage2.sch"
+        java -cp "${SAXON_CP}" net.sf.saxon.Transform \
+            -o:"${BASE_DIR}"/target/"${schematronRoot}-stage2.sch" \
+            -s:"${BASE_DIR}"/target/"${schematronRoot}-stage1.sch" \
+            "${BASE_DIR}"/lib/schematron/trunk/schematron/code/iso_abstract_expand.xsl \
+            $SAXON_OPTS
 
-    # Use Saxon XSL transform to convert our Schematron to pure XSL 2.0 stylesheet
-    # shellcheck disable=2086
-    java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-        -o:"${BASE_DIR}"/target/"${schematronRoot}".xsl \
-        -s:"${BASE_DIR}"/target/"${schematronRoot}-stage2.sch" \
-        "${BASE_DIR}"/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
-        $SAXON_OPTS
-
-    echo "compiling: ${qualifiedSchematronName} to: ${BASE_DIR}/target/${schematronRoot}.xsl"
+        # Use Saxon XSL transform to convert our Schematron to pure XSL 2.0 stylesheet
+        # shellcheck disable=2086
+        echo "compiling: ${qualifiedSchematronName} to: ${BASE_DIR}/target/${schematronRoot}.xsl"
+        java -cp "${SAXON_CP}" net.sf.saxon.Transform \
+            -o:"${BASE_DIR}"/target/"${schematronRoot}".xsl \
+            -s:"${BASE_DIR}"/target/"${schematronRoot}-stage2.sch" \
+            "${BASE_DIR}"/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
+            $SAXON_OPTS
+    fi
 
     if test -n "$DOC_TO_VALIDATE" ; then
         # Use Saxon XSL transform to use XSL-ified Schematron rules to analyze full FedRAMP-SSP-OSCAL template

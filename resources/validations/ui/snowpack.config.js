@@ -1,3 +1,5 @@
+const config = require('./src/context/shared/project-config');
+
 const BASEURL = process.env.BASEURL || '';
 const REPOSITORY = `https://github.com/${process.env.OWNER || '18F'}/${
   process.env.REPOSITORY || 'fedramp-automation'
@@ -10,15 +12,19 @@ module.exports = {
     REPOSITORY,
   },
   mount: {
-    public: { url: '/', static: true },
     src: { url: '/dist' },
-    '../../xml': { url: '/xml', static: true },
-    '../../../baselines/rev4/xml': { url: '/baselines', static: true },
+    [config.PUBLIC_PATH]: { url: '/', static: true },
+    [config.REGISTRY_PATH]: { url: '/xml', static: true },
+    [config.BASELINES_PATH]: {
+      url: '/baselines',
+      static: true,
+    },
     'node_modules/uswds/dist/fonts': { url: '/uswds/fonts', static: true },
     'node_modules/uswds/dist/img': { url: '/uswds/img', static: true },
     'node_modules/uswds/dist/js': { url: '/uswds/js', static: true },
     //validations: { url: '/validations', static: true },
   },
+  exclude: ['**/node_modules/**/*', '**/src/context/cli/**'],
   plugins: [
     '@snowpack/plugin-react-refresh',
     '@snowpack/plugin-dotenv',

@@ -1,21 +1,7 @@
-export type ValidationAssert = {
-  id: string;
-  location: string;
-  role: string;
-  see: string;
-  test: string;
-  text: string;
-};
-export type ValidationReport = {
-  failedAsserts: ValidationAssert[];
-};
-
-export type SchematronValidationReportGateway = (
-  oscalXmlString: string,
-) => Promise<ValidationReport>;
+import type { SchematronValidator } from './schematron';
 
 type ValidateSchematronUseCaseContext = {
-  generateSchematronValidationReport: SchematronValidationReportGateway;
+  generateSchematronValidationReport: SchematronValidator;
 };
 
 export const ValidateSchematronUseCase =

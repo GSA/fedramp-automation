@@ -1,4 +1,9 @@
 {
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonJS"
+    }
+  },
   "scripts": {
     "build": "snowpack build",
     "build:schematron": "npm run build:sch-java && npm run build:sef",
@@ -8,6 +13,7 @@
     "build:sch-stage-2": "xslt3 -s:validations/stage1.sch -xsl:../lib/schematron/trunk/schematron/code/iso_abstract_expand.xsl -o:validations/stage2.sch",
     "build:sch-stage-3": "xslt3 -s:validations/stage2.sch -xsl:../lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl -o:validations/ssp.xsl",
     "build:sef": "xslt3 -xsl:public/ssp.xsl -export:public/ssp.sef.json -nogo",
+    "cli": "ts-node src/context/cli/index.ts",
     "coverage": "jest --coverage && open ./coverage/lcov-report/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
@@ -17,11 +23,13 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
+    "commander": "^2.20.3",
     "overmind": "^27.0.0",
     "overmind-react": "^28.0.0",
     "patch-package": "^6.4.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "saxon-js": "^2.2.0",
     "uswds": "^2.11.2"
   },
   "devDependencies": {
@@ -33,6 +41,7 @@
     "@snowpack/plugin-typescript": "^1.2.1",
     "@snowpack/plugin-webpack": "^2.3.1",
     "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.2",
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
     "@types/snowpack-env": "^2.3.3",
@@ -44,6 +53,7 @@
     "prettier": "^2.2.1",
     "snowpack": "^3.3.7",
     "ts-jest": "^27.0.1",
+    "ts-node": "^10.0.0",
     "typescript": "^4.2.4",
     "xslt3": "^2.2.0"
   }

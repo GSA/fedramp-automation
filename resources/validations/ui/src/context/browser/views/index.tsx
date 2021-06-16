@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import type { Presenter } from '../presenter';
-import type { RenderApp } from '../adapters/browser-controller';
+import type { RenderApp } from '../browser-controller';
 import { App } from './components/App';
 import './index.scss';
 

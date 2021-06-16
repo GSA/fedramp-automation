@@ -3,7 +3,7 @@ import { derived } from 'overmind';
 import type {
   ValidationAssert,
   ValidationReport,
-} from '../../use-cases/validate-ssp-xml';
+} from '../../../../use-cases/schematron';
 
 export type Role = string;
 
