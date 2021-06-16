@@ -1,15 +1,17 @@
 <img src='./assets/FedRAMP_LOGO.png' alt="FedRAMP" width="76" height="94"><br />
 # Federal Risk and Authorization Management Program (FedRAMP) Automation
-### Based on the Open Security Controls Assessment Language (OSCAL)
 
-## June 4, 2021
-
-**Guides and Templates updated to OSCAL Release Candidate 2 (RC-2) Syntax**
+## OSCAL Guides and Templates
 
 The FedRAMP Program Management Office (PMO) has drafted FedRAMP-specific extensions and guidance to ensure our stakeholders can fully express a FedRAMP Security Authorization Package using NIST's [OSCAL SSP syntax](https://pages.nist.gov/OSCAL/documentation/).
 
 To accompany these guides, the FedRAMP PMO has also drafted OSCAL files in XML and JSON formats to serve as an example and template for each major deliverable.
 
+## Support and OSCAL Deprecation Strategy 
+
+The FedRAMP PMO has [a release strategy and versioning procedures](./documents/adr/0002-git-release-version-strategy.md). FedRAMP has a minimally supported version of OSCAL, unless explicitly noted otherwise in specific documents or source code in this repository. Baselines, guides, templates, and associated tools in this repository will only support OSCAL data with a version number no lower than specified by FedRAMP version tags. A version tag that ends in `oscal1.0.0` will only support data with `oscal-version` equal to `1.0.0` or newer, it will not support `1.0.0-milestone3`, `1.0.0-rc1`, or ``1.0.0-rc2`.
+
+Changes to the minimally supported version and deprecation notices will be made in advance of a release.
 
 ## We Want Your Feedback!
 
