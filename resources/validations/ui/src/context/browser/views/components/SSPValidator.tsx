@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { usePresenter } from '../hooks';
-import { onFileChange } from '../util/file-input';
+import { onFileChange } from '../../util/file-input';
 import { SSPReport } from './report';
 
 export const SSPValidator = () => {
   const { state, actions } = usePresenter();
+  const validatedReport = state.report.matches('VALIDATED');
 
   return (
     <div className="grid-row grid-gap">
@@ -25,7 +26,7 @@ export const SSPValidator = () => {
           accept=".xml"
           onChange={onFileChange(actions.report.setXmlContents)}
         />
-        {state.report.validationReport && (
+        {validatedReport && (
           <form className="usa-form">
             <fieldset className="usa-fieldset">
               <div className="usa-search usa-search--small" role="search">
@@ -65,7 +66,7 @@ export const SSPValidator = () => {
                 </div>
               </div>
               <div className="usa-radio">
-                {state.report.roles.map((filterRole, index) => (
+                {validatedReport.roles.map((filterRole, index) => (
                   <div key={index}>
                     <input
                       className="usa-radio__input usa-radio__input--tile"
@@ -73,7 +74,7 @@ export const SSPValidator = () => {
                       type="radio"
                       name="role"
                       value={filterRole}
-                      checked={state.report.filter.role === filterRole}
+                      checked={validatedReport.filter.role === filterRole}
                       onChange={() => actions.report.setFilterRole(filterRole)}
                     />
                     <label
@@ -90,7 +91,7 @@ export const SSPValidator = () => {
         )}
       </div>
       <div className="mobile:grid-col-12 tablet:grid-col-8">
-        {state.report.loadingValidationReport && <div className="loader" />}
+        {state.report.current === 'VALIDATING' && <div className="loader" />}
         <SSPReport />
       </div>
     </div>
