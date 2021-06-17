@@ -5,12 +5,14 @@ describe('report action', () => {
     it('should work', async () => {
       const mockXml = 'mock xml';
       const presenter = createPresenterMock({
-        validateSchematron: jest.fn(async (xml: string) => {
-          expect(xml).toEqual(mockXml);
-          return Promise.resolve({
-            failedAsserts: [],
-          });
-        }),
+        useCaseMocks: {
+          validateSchematron: jest.fn(async (xml: string) => {
+            expect(xml).toEqual(mockXml);
+            return Promise.resolve({
+              failedAsserts: [],
+            });
+          }),
+        },
       });
       expect(presenter.state).toMatchObject({
         report: {

@@ -1,23 +1,32 @@
 import { createOvermind, createOvermindMock, IConfig } from 'overmind';
 import { merge, namespaced } from 'overmind/config';
 
+import * as actions from './actions';
 import type { ValidateSchematronUseCase } from '../../../use-cases/validate-ssp-xml';
 
-import * as actions from './actions';
 import * as report from './report';
 
 type UseCases = {
   validateSchematron: ValidateSchematronUseCase;
 };
 
-export const getPresenterConfig = (useCases: UseCases) => {
+type State = {
+  baseUrl: string;
+  repositoryUrl: string;
+};
+
+export const getPresenterConfig = (
+  useCases: UseCases,
+  initialState: Partial<State> = {},
+) => {
   return merge(
     {
-      state: {
-        baseUrl: '/',
-        repositoryUrl: '#',
-      },
       actions,
+      state: {
+        baseUrl: '',
+        repositoryUrl: '#',
+        ...initialState,
+      },
       effects: {
         useCases,
       },
@@ -40,11 +49,15 @@ export type PresenterContext = {
 };
 
 export const createPresenter = (ctx: PresenterContext) => {
-  const presenter = createOvermind(getPresenterConfig(ctx.useCases), {
-    devtools: ctx.debug,
-  });
-  presenter.actions.setBaseUrl(ctx.baseUrl);
-  presenter.actions.setRepositoryUrl(ctx.repositoryUrl);
+  const presenter = createOvermind(
+    getPresenterConfig(ctx.useCases, {
+      baseUrl: ctx.baseUrl,
+      repositoryUrl: ctx.repositoryUrl,
+    }),
+    {
+      devtools: ctx.debug,
+    },
+  );
   return presenter;
 };
 export type Presenter = ReturnType<typeof createPresenter>;
@@ -63,10 +76,18 @@ const getUseCasesShim = (): UseCases => {
   };
 };
 
-export const createPresenterMock = (useCaseMocks?: Partial<UseCases>) => {
-  const presenter = createOvermindMock(getPresenterConfig(getUseCasesShim()), {
-    useCases: useCaseMocks,
-  });
+type MockPresenterContext = {
+  useCaseMocks?: Partial<UseCases>;
+  initialState?: Partial<State>;
+};
+
+export const createPresenterMock = (ctx: MockPresenterContext = {}) => {
+  const presenter = createOvermindMock(
+    getPresenterConfig(getUseCasesShim(), ctx.initialState),
+    {
+      useCases: ctx.useCaseMocks,
+    },
+  );
   return presenter;
 };
 export type PresenterMock = ReturnType<typeof createPresenterMock>;
