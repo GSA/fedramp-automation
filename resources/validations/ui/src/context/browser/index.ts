@@ -1,6 +1,7 @@
 import { browserController } from './browser-controller';
 import { SaxonJsSchematronValidatorGateway } from '../shared/saxon-js-gateway';
 import { createPresenter } from './presenter';
+import type { GithubRepository } from '../../domain/github';
 import { ValidateSchematronUseCase } from '../../use-cases/validate-ssp-xml';
 import { createAppRenderer } from './views';
 
@@ -8,14 +9,14 @@ type BrowserContext = {
   debug: boolean;
   baseUrl: string;
   importMetaHot: ImportMetaHot;
-  repositoryUrl: string;
+  githubRepository: GithubRepository;
 };
 
 export const runBrowserContext = ({
   baseUrl,
   debug,
   importMetaHot,
-  repositoryUrl,
+  githubRepository,
 }: BrowserContext) => {
   browserController({
     importMetaHot,
@@ -24,7 +25,7 @@ export const runBrowserContext = ({
       createPresenter({
         debug,
         baseUrl,
-        repositoryUrl,
+        githubRepository,
         useCases: {
           validateSchematron: ValidateSchematronUseCase({
             generateSchematronValidationReport:

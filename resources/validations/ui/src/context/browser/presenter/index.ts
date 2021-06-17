@@ -1,6 +1,7 @@
-import { createOvermind, createOvermindMock, IConfig } from 'overmind';
+import { derived, createOvermind, createOvermindMock, IConfig } from 'overmind';
 import { merge, namespaced } from 'overmind/config';
 
+import * as github from '../../../domain/github';
 import * as actions from './actions';
 import type { ValidateSchematronUseCase } from '../../../use-cases/validate-ssp-xml';
 
@@ -12,7 +13,7 @@ type UseCases = {
 
 type State = {
   baseUrl: string;
-  repositoryUrl: string;
+  githubRepository: github.GithubRepository;
 };
 
 export const getPresenterConfig = (
@@ -24,8 +25,17 @@ export const getPresenterConfig = (
       actions,
       state: {
         baseUrl: '',
-        repositoryUrl: '#',
+        githubRepository: github.DEFAULT_REPOSITORY,
         ...initialState,
+        repositoryUrl: derived(({ githubRepository }: State) =>
+          github.getBranchTreeUrl(githubRepository),
+        ),
+        sampleSSPs: derived(({ githubRepository }: State) => [
+          github.getRepositoryRawUrl(
+            githubRepository,
+            'resources/validations/test/demo/FedRAMP-SSP-OSCAL-Template.xml',
+          ),
+        ]),
       },
       effects: {
         useCases,
@@ -44,7 +54,7 @@ declare module 'overmind' {
 export type PresenterContext = {
   baseUrl: string;
   debug: boolean;
-  repositoryUrl: string;
+  githubRepository: github.GithubRepository;
   useCases: UseCases;
 };
 
@@ -52,7 +62,7 @@ export const createPresenter = (ctx: PresenterContext) => {
   const presenter = createOvermind(
     getPresenterConfig(ctx.useCases, {
       baseUrl: ctx.baseUrl,
-      repositoryUrl: ctx.repositoryUrl,
+      githubRepository: ctx.githubRepository,
     }),
     {
       devtools: ctx.debug,
