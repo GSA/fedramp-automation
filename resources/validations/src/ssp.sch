@@ -1,4 +1,5 @@
 <sch:schema queryBinding="xslt2"
+            xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
             xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
             xmlns:sch="http://purl.oclc.org/dsdl/schematron"
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -240,12 +241,12 @@
                         test="count($registry/f:fedramp-values/f:value-set) &gt; 0">The registry values at the path ' 
             <sch:value-of select="$registry-base-path" />' are not present, this configuration is invalid.</sch:assert>
             <sch:assert id="no-security-sensitivity-level"
-                        organizational-id="section-c.1.a"
+                        doc:organizational-id="section-c.1.a"
                         role="fatal"
                         test="$sensitivity-level != ''">[Section C Check 1.a] No sensitivty level found, no more validation processing can
                         occur.</sch:assert>
             <sch:assert id="invalid-security-sensitivity-level"
-                        organizational-id="section-c.1.a"
+                        doc:organizational-id="section-c.1.a"
                         role="fatal"
                         test="empty($ok-values) or not(exists($corrections))">[Section C Check 1.a] 
             <sch:value-of select="./name()" />is an invalid value of ' 
@@ -278,21 +279,21 @@
             <sch:value-of select="if (count($required-controls)=1) then ' control' else ' controls'" />are required: 
             <sch:value-of select="$required-controls/@id" /></sch:report>
             <sch:assert id="incomplete-core-implemented-requirements"
-                        organizational-id="section-c.3"
+                        doc:organizational-id="section-c.3"
                         role="error"
                         test="not(exists($core-missing))">[Section C Check 3] This SSP has not implemented the most important 
             <sch:value-of select="count($core-missing)" />core 
             <sch:value-of select="if (count($core-missing)=1) then ' control' else ' controls'" />: 
             <sch:value-of select="$core-missing/@id" /></sch:assert>
             <sch:assert id="incomplete-all-implemented-requirements"
-                        organizational-id="section-c.2"
+                        doc:organizational-id="section-c.2"
                         role="warn"
                         test="not(exists($all-missing))">[Section C Check 2] This SSP has not implemented 
             <sch:value-of select="count($all-missing)" />
             <sch:value-of select="if (count($all-missing)=1) then ' control' else ' controls'" />overall: 
             <sch:value-of select="$all-missing/@id" /></sch:assert>
             <sch:assert id="extraneous-implemented-requirements"
-                        organizational-id="section-c.2"
+                        doc:organizational-id="section-c.2"
                         role="warn"
                         test="not(exists($extraneous))">[Section C Check 2] This SSP has implemented 
             <sch:value-of select="count($extraneous)" />extraneous 
@@ -326,7 +327,7 @@
             <sch:let name="missing"
                      value="$required-response-points[not(@id = $implemented/@statement-id)]" />
             <sch:assert id="invalid-implementation-status"
-                        organizational-id="section-c.2"
+                        doc:organizational-id="section-c.2"
                         role="error"
                         test="not(exists($corrections))">[Section C Check 2] Invalid status ' 
             <sch:value-of select="$status" />' for 
@@ -338,7 +339,7 @@
                         response points for required controls: 
             <sch:value-of select="$implemented/@statement-id" />.</sch:report>
             <sch:assert id="missing-response-points"
-                        organizational-id="section-c.2"
+                        doc:organizational-id="section-c.2"
                         role="error"
                         test="not(exists($missing))">[Section C Check 2] This SSP has not implemented a statement for each of the following lettered
                         response points for required controls: 
@@ -356,86 +357,7 @@
             <sch:let name="remarks-length"
                      value="$remarks =&gt; string-length()" />
             <sch:assert id="missing-response-components"
-                        role="warning"
-                        test="$components-count &gt;= $required-components-count">Response statements for 
-            <sch:value-of select="./@statement-id" />must have at least 
-            <sch:value-of select="$required-components-count" />
-            <sch:value-of select="if (count($components-count)=1) then ' component' else ' components'" />with a description. There are 
-            <sch:value-of select="$components-count" />.</sch:assert>
-        </sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description">
-            <sch:assert id="extraneous-response-description"
-                        role="warning"
-                        test=". =&gt; empty()">Response statement 
-            <sch:value-of select="../@statement-id" />has a description not within a component. That was previously allowed, but not recommended. It
-            will soon be syntactically invalid and deprecated.</sch:assert>
-        </sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks">
-            <sch:assert id="extraneous-response-remarks"
-                        role="warning"
-                        test=". =&gt; empty()">Response statement 
-            <sch:value-of select="../@statement-id" />has remarks not within a component. That was previously allowed, but not recommended. It will
-            soon be syntactically invalid and deprecated.</sch:assert>
-        </sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component">
-        <sch:let name="component-ref"
-                 value="./@component-uuid" />
-        <sch:assert id="invalid-component-match"
-                    organizational-id="section-d"
-                    role="warning"
-                    test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] =&gt; exists()">[Section D Checks]
-                    Response statment 
-        <sch:value-of select="../@statement-id" />with component reference UUID ' 
-        <sch:value-of select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a control.</sch:assert>
-        <sch:assert id="missing-component-description"
-                    organizational-id="section-d"
-                    role="error"
-                    test="./o:description =&gt; exists()">[Section D Checks] Response statement 
-        <sch:value-of select="../@statement-id" />has a component, but that component is missing a required description
-        node.</sch:assert>"</sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:description">
-            <sch:let name="required-length"
-                     value="20" />
-            <sch:let name="description"
-                     value=". =&gt; normalize-space()" />
-            <sch:let name="description-length"
-                     value="$description =&gt; string-length()" />
-            <sch:assert id="incomplete-response-description"
-                        organizational-id="section-d"
-                        role="error"
-                        test="$description-length &gt;= $required-length">[Section D Checks] Response statement component description for 
-            <sch:value-of select="../../@statement-id" />is too short with 
-            <sch:value-of select="$description-length" />characters. It must be 
-            <sch:value-of select="$required-length" />characters long.</sch:assert>
-        </sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:remarks">
-            <sch:let name="required-length"
-                     value="20" />
-            <sch:let name="remarks"
-                     value=". =&gt; normalize-space()" />
-            <sch:let name="remarks-length"
-                     value="$remarks =&gt; string-length()" />
-            <sch:assert id="incomplete-response-remarks"
-                        organizational-id="section-d"
-                        role="warning"
-                        test="$remarks-length &gt;= $required-length">[Section D Checks] Response statement component remarks for 
-            <sch:value-of select="../../@statement-id" />is too short with 
-            <sch:value-of select="$remarks-length" />characters. It must be 
-            <sch:value-of select="$required-length" />characters long.</sch:assert>
-        </sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement">
-            <sch:let name="required-components-count"
-                     value="1" />
-            <sch:let name="required-length"
-                     value="20" />
-            <sch:let name="components-count"
-                     value="./o:by-component =&gt; count()" />
-            <sch:let name="remarks"
-                     value="./o:remarks =&gt; normalize-space()" />
-            <sch:let name="remarks-length"
-                     value="$remarks =&gt; string-length()" />
-            <sch:assert id="missing-response-components"
-                        organizational-id="section-d"
+                        doc:organizational-id="section-d"
                         role="warning"
                         test="$components-count &gt;= $required-components-count">[Section D Checks] Response statements for 
             <sch:value-of select="./@statement-id" />must have at least 
@@ -445,7 +367,7 @@
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description">
             <sch:assert id="extraneous-response-description"
-                        organizational-id="section-d"
+                        doc:organizational-id="section-d"
                         role="warning"
                         test=". =&gt; empty()">[Section D Checks] Response statement 
             <sch:value-of select="../@statement-id" />has a description not within a component. That was previously allowed, but not recommended. It
@@ -453,7 +375,7 @@
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks">
             <sch:assert id="extraneous-response-remarks"
-                        organizational-id="section-d"
+                        doc:organizational-id="section-d"
                         role="warning"
                         test=". =&gt; empty()">[Section D Checks] Response statement 
             <sch:value-of select="../@statement-id" />has remarks not within a component. That was previously allowed, but not recommended. It will
@@ -463,18 +385,18 @@
         <sch:let name="component-ref"
                  value="./@component-uuid" />
         <sch:assert id="invalid-component-match"
-                    organizational-id="section-d"
+                    doc:organizational-id="section-d"
                     role="warning"
                     test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] =&gt; exists()">[Section D Checks]
                     Response statment 
         <sch:value-of select="../@statement-id" />with component reference UUID ' 
         <sch:value-of select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a control.</sch:assert>
         <sch:assert id="missing-component-description"
-                    organizational-id="section-d"
+                    doc:organizational-id="section-d"
                     role="error"
                     test="./o:description =&gt; exists()">[Section D Checks] Response statement 
         <sch:value-of select="../@statement-id" />has a component, but that component is missing a required description
-        node.</sch:assert>"</sch:rule>
+        node.</sch:assert></sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:description">
             <sch:let name="required-length"
                      value="20" />
@@ -483,7 +405,7 @@
             <sch:let name="description-length"
                      value="$description =&gt; string-length()" />
             <sch:assert id="incomplete-response-description"
-                        organizational-id="section-d"
+                        doc:organizational-id="section-d"
                         role="error"
                         test="$description-length &gt;= $required-length">[Section D Checks] Response statement component description for 
             <sch:value-of select="../../@statement-id" />is too short with 
@@ -498,7 +420,7 @@
             <sch:let name="remarks-length"
                      value="$remarks =&gt; string-length()" />
             <sch:assert id="incomplete-response-remarks"
-                        organizational-id="section-d"
+                        doc:organizational-id="section-d"
                         role="warning"
                         test="$remarks-length &gt;= $required-length">[Section D Checks] Response statement component remarks for 
             <sch:value-of select="../../@statement-id" />is too short with 
@@ -517,13 +439,13 @@
             <sch:let name="extraneous-parties"
                      value="$responsible-parties[not(o:party-uuid = $parties/@uuid)]" />
             <sch:assert id="incorrect-role-association"
-                        organizational-id="section-c.6"
+                        doc:organizational-id="section-c.6"
                         test="not(exists($extraneous-roles))">[Section C Check 2] This SSP has defined a responsible party with 
             <sch:value-of select="count($extraneous-roles)" />
             <sch:value-of select="if (count($extraneous-roles)=1) then ' role' else ' roles'" />not defined in the role: 
             <sch:value-of select="$extraneous-roles/@role-id" /></sch:assert>
             <sch:assert id="incorrect-party-association"
-                        organizational-id="section-c.6"
+                        doc:organizational-id="section-c.6"
                         test="not(exists($extraneous-parties))">[Section C Check 2] This SSP has defined a responsible party with 
             <sch:value-of select="count($extraneous-parties)" />
             <sch:value-of select="if (count($extraneous-parties)=1) then ' party' else ' parties'" />is not a defined party: 
@@ -531,12 +453,12 @@
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:back-matter/o:resource">
             <sch:assert id="resource-uuid-required"
-                        organizational-id="section-b.?????"
+                        doc:organizational-id="section-b.?????"
                         test="./@uuid">[Section B Check ????] This SSP includes back-matter resource missing a UUID</sch:assert>
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:back-matter/o:resource/o:rlink">
             <sch:assert id="resource-rlink-required"
-                        organizational-id="section-b.?????"
+                        doc:organizational-id="section-b.?????"
                         test="doc-available(./@href)">[Section B Check ????] This SSP references back-matter resource: 
             <sch:value-of select="./@href" /></sch:assert>
         </sch:rule>
@@ -545,12 +467,12 @@
                      value="@filename" />
             <sch:let name="media-type"
                      value="@media-type" />
-            <sch:assert id="resource-base64-available"
-                        organizational-id="section-b.?????"
+            <sch:assert id="resource-base64-available-filenamne"
+                        doc:organizational-id="section-b.?????"
                         test="./@filename">[Section B Check ????] This SSP has file name: 
             <sch:value-of select="./@filename" /></sch:assert>
-            <sch:assert id="resource-base64-available"
-                        organizational-id="section-b.?????"
+            <sch:assert id="resource-base64-available-media-type"
+                        doc:organizational-id="section-b.?????"
                         test="./@filename">[Section B Check ????] This SSP has media type: 
             <sch:value-of select="./@media-type" /></sch:assert>
         </sch:rule>
