@@ -9,22 +9,38 @@ export const setXmlContents: AsyncAction<string> = async (
 ) => {
   if (
     state.report
-      .send('VALIDATING', { xmlFileContents: xmlContents })
-      .matches('VALIDATING')
+      .send('PROCESSING_STRING', { xmlFileContents: xmlContents })
+      .matches('PROCESSING_STRING')
   ) {
     return effects.useCases
-      .validateSchematron(xmlContents)
+      .validateSSP(xmlContents)
+      .then(actions.report.setValidationReport)
+      .catch(actions.report.setValidationError);
+  }
+};
+
+export const setXmlUrl: AsyncAction<string> = async (
+  { actions, effects, state },
+  xmlFileUrl,
+) => {
+  if (
+    state.report
+      .send('PROCESSING_URL', { xmlFileUrl })
+      .matches('PROCESSING_URL')
+  ) {
+    return effects.useCases
+      .validateSSPUrl(xmlFileUrl)
       .then(actions.report.setValidationReport)
       .catch(actions.report.setValidationError);
   }
 };
 
 export const setValidationError: Action<string> = ({ state }, errorMessage) => {
-  const validatingState = state.report.matches('VALIDATING');
+  const validatingState = state.report.matches('PROCESSING_STRING');
   if (!validatingState) {
     return;
   }
-  state.report.send('VALIDATING_ERROR', { errorMessage });
+  state.report.send('PROCESSING_ERROR', { errorMessage });
 };
 
 export const setValidationReport: Action<ValidationReport> = (
@@ -32,7 +48,9 @@ export const setValidationReport: Action<ValidationReport> = (
   validationReport,
 ) => {
   const validatingState =
-    state.report.matches('VALIDATING') || state.report.matches('UNLOADED');
+    state.report.matches('PROCESSING_STRING') ||
+    state.report.matches('UNLOADED') ||
+    state.report.matches('PROCESSING_URL');
   if (!validatingState) {
     return;
   }

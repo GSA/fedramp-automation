@@ -17,6 +17,17 @@ export const SSPValidator = () => {
         <span className="usa-hint" id="file-input-specific-hint">
           Select XML file
         </span>
+        <div>
+          {state.sampleSSPs.map((sampleSSP, index) => (
+            <button
+              key={index}
+              className="usa-button usa-button--unstyled"
+              onClick={() => actions.report.setXmlUrl(sampleSSP.url)}
+            >
+              {sampleSSP.displayName}
+            </button>
+          ))}
+        </div>
         <input
           id="file-input-specific"
           className="usa-file-input"
@@ -91,7 +102,10 @@ export const SSPValidator = () => {
         )}
       </div>
       <div className="mobile:grid-col-12 tablet:grid-col-8">
-        {state.report.current === 'VALIDATING' && <div className="loader" />}
+        {(state.report.current === 'PROCESSING_STRING' ||
+          state.report.current === 'PROCESSING_URL') && (
+          <div className="loader" />
+        )}
         <SSPReport />
       </div>
     </div>

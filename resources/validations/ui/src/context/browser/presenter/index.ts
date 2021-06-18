@@ -3,12 +3,16 @@ import { merge, namespaced } from 'overmind/config';
 
 import * as github from '../../../domain/github';
 import * as actions from './actions';
-import type { ValidateSchematronUseCase } from '../../../use-cases/validate-ssp-xml';
+import type {
+  ValidateSSPUseCase,
+  ValidateSSPUrlUseCase,
+} from '../../../use-cases/validate-ssp-xml';
 
 import * as report from './report';
 
 type UseCases = {
-  validateSchematron: ValidateSchematronUseCase;
+  validateSSP: ValidateSSPUseCase;
+  validateSSPUrl: ValidateSSPUrlUseCase;
 };
 
 type State = {
@@ -30,12 +34,17 @@ export const getPresenterConfig = (
         repositoryUrl: derived(({ githubRepository }: State) =>
           github.getBranchTreeUrl(githubRepository),
         ),
-        sampleSSPs: derived(({ githubRepository }: State) => [
-          github.getRepositoryRawUrl(
-            githubRepository,
+        sampleSSPs: derived(({ githubRepository }: State) => {
+          return [
             'resources/validations/test/demo/FedRAMP-SSP-OSCAL-Template.xml',
-          ),
-        ]),
+          ].map(url => {
+            const urlParts = url.split('/');
+            return {
+              url: github.getRepositoryRawUrl(githubRepository, url),
+              displayName: urlParts[urlParts.length - 1],
+            };
+          });
+        }),
       },
       effects: {
         useCases,
@@ -82,7 +91,8 @@ export type Presenter = ReturnType<typeof createPresenter>;
 const getUseCasesShim = (): UseCases => {
   const stub = jest.fn();
   return {
-    validateSchematron: stub,
+    validateSSP: stub,
+    validateSSPUrl: stub,
   };
 };
 

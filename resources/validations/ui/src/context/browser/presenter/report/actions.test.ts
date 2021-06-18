@@ -6,7 +6,7 @@ describe('report action', () => {
       const mockXml = 'mock xml';
       const presenter = createPresenterMock({
         useCaseMocks: {
-          validateSchematron: jest.fn(async (xml: string) => {
+          validateSSP: jest.fn(async (xml: string) => {
             expect(xml).toEqual(mockXml);
             return Promise.resolve({
               failedAsserts: [],
@@ -16,7 +16,7 @@ describe('report action', () => {
       });
       expect(presenter.state.report.current).toEqual('UNLOADED');
       const promise = presenter.actions.report.setXmlContents(mockXml);
-      expect(presenter.state.report.current).toEqual('VALIDATING');
+      expect(presenter.state.report.current).toEqual('PROCESSING_STRING');
       await promise;
       expect(presenter.state.report.current).toEqual('VALIDATED');
     });

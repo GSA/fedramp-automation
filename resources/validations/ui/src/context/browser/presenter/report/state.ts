@@ -12,19 +12,15 @@ type States =
       current: 'UNLOADED';
     }
   | {
-      current: 'LOADING';
+      current: 'PROCESSING_URL';
       xmlFileUrl: string;
     }
   | {
-      current: 'LOADING_ERROR';
-      errorMessage: string;
-    }
-  | {
-      current: 'VALIDATING';
+      current: 'PROCESSING_STRING';
       xmlFileContents: string;
     }
   | {
-      current: 'VALIDATING_ERROR';
+      current: 'PROCESSING_ERROR';
       errorMessage: string;
     }
   | {
@@ -43,25 +39,19 @@ type BaseState = {};
 
 type Events =
   | {
-      type: 'LOADING';
+      type: 'PROCESSING_URL';
       data: {
         xmlFileUrl: string;
       };
     }
   | {
-      type: 'LOADING_ERROR';
-      data: {
-        errorMessage: string;
-      };
-    }
-  | {
-      type: 'VALIDATING';
+      type: 'PROCESSING_STRING';
       data: {
         xmlFileContents: string;
       };
     }
   | {
-      type: 'VALIDATING_ERROR';
+      type: 'PROCESSING_ERROR';
       data: {
         errorMessage: string;
       };
@@ -76,38 +66,37 @@ type Events =
 export type ReportMachine = Statemachine<States, Events, BaseState>;
 
 export const reportMachine = statemachine<States, Events, BaseState>({
-  LOADING: (state, { xmlFileUrl }) => {
+  PROCESSING_URL: (state, { xmlFileUrl }) => {
     return {
-      current: 'LOADING',
+      current: 'PROCESSING_URL',
       xmlFileUrl,
     };
   },
-  LOADING_ERROR: (state, { errorMessage }) => {
-    if (state.current === 'LOADING') {
+  PROCESSING_STRING: (state, { xmlFileContents }) => {
+    if (state.current === 'PROCESSING_URL' || state.current === 'UNLOADED') {
       return {
-        current: 'LOADING_ERROR',
-        errorMessage,
-      };
-    }
-  },
-  VALIDATING: (state, { xmlFileContents }) => {
-    if (state.current === 'LOADING' || state.current === 'UNLOADED') {
-      return {
-        current: 'VALIDATING',
+        current: 'PROCESSING_STRING',
         xmlFileContents,
       };
     }
   },
-  VALIDATING_ERROR: (state, { errorMessage }) => {
-    if (state.current === 'VALIDATING') {
+  PROCESSING_ERROR: (state, { errorMessage }) => {
+    if (
+      state.current === 'PROCESSING_STRING' ||
+      state.current === 'PROCESSING_URL'
+    ) {
       return {
-        current: 'VALIDATING_ERROR',
+        current: 'PROCESSING_ERROR',
         errorMessage,
       };
     }
   },
   VALIDATED: (state, { validationReport }) => {
-    if (state.current !== 'VALIDATING' && state.current !== 'UNLOADED') {
+    if (
+      state.current !== 'PROCESSING_STRING' &&
+      state.current !== 'UNLOADED' &&
+      state.current !== 'PROCESSING_URL'
+    ) {
       return;
     }
     return {
