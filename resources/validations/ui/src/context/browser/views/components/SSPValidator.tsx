@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { usePresenter } from '../hooks';
-import { onFileChange } from '../../util/file-input';
+import { onFileInputChangeGetFile } from '../../util/file-input';
 import { SSPReport } from './report';
 
 export const SSPValidator = () => {
@@ -42,7 +42,12 @@ export const SSPValidator = () => {
           name="file-input-specific"
           aria-describedby="file-input-specific-hint"
           accept=".xml"
-          onChange={onFileChange(actions.report.setXmlContents)}
+          onChange={onFileInputChangeGetFile(fileDetails => {
+            actions.report.setXmlContents({
+              fileName: fileDetails.name,
+              xmlContents: fileDetails.text,
+            });
+          })}
           disabled={!selectionEnabled}
         />
         {validatedReport && (
@@ -110,10 +115,7 @@ export const SSPValidator = () => {
         )}
       </div>
       <div className="mobile:grid-col-12 tablet:grid-col-8">
-        {(state.report.current === 'PROCESSING_STRING' ||
-          state.report.current === 'PROCESSING_URL') && (
-          <div className="loader" />
-        )}
+        {state.report.current === 'PROCESSING' && <div className="loader" />}
         <SSPReport />
       </div>
     </div>

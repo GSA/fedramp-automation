@@ -5,7 +5,7 @@ describe('report action', () => {
     it('should work', async () => {
       const mockXml = 'mock xml';
       const presenter = createPresenterMock({
-        useCaseMocks: {
+        useCases: {
           validateSSP: jest.fn(async (xml: string) => {
             expect(xml).toEqual(mockXml);
             return Promise.resolve({
@@ -15,8 +15,11 @@ describe('report action', () => {
         },
       });
       expect(presenter.state.report.current).toEqual('UNLOADED');
-      const promise = presenter.actions.report.setXmlContents(mockXml);
-      expect(presenter.state.report.current).toEqual('PROCESSING_STRING');
+      const promise = presenter.actions.report.setXmlContents({
+        fileName: 'file-name.xml',
+        xmlContents: mockXml,
+      });
+      expect(presenter.state.report.current).toEqual('PROCESSING');
       await promise;
       expect(presenter.state.report.current).toEqual('VALIDATED');
     });
@@ -34,10 +37,18 @@ describe('report action', () => {
 
   describe('setFilterText', () => {
     it('works', () => {
-      const presenter = createPresenterMock();
+      const presenter = createPresenterMock({
+        useCases: {
+          validateSSP: () => Promise.resolve(MOCK_VALIDATION_REPORT),
+        },
+      });
       expect(presenter.state.report.current).toEqual('UNLOADED');
       presenter.actions.report.setFilterText('filter text');
       expect(presenter.state.report.current).toEqual('UNLOADED');
+      presenter.actions.report.setXmlContents({
+        fileName: 'file-name.xml',
+        xmlContents: '<xml>ignored</xml>',
+      });
       presenter.actions.report.setValidationReport(MOCK_VALIDATION_REPORT);
       presenter.actions.report.setFilterText('filter text');
       expect(presenter.state.report).toMatchObject({

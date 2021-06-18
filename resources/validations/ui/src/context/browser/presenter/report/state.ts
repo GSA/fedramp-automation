@@ -12,12 +12,8 @@ type States =
       current: 'UNLOADED';
     }
   | {
-      current: 'PROCESSING_URL';
-      xmlFileUrl: string;
-    }
-  | {
-      current: 'PROCESSING_STRING';
-      xmlFileContents: string;
+      current: 'PROCESSING';
+      message: string;
     }
   | {
       current: 'PROCESSING_ERROR';
@@ -39,6 +35,9 @@ type BaseState = {};
 
 type Events =
   | {
+      type: 'RESET';
+    }
+  | {
       type: 'PROCESSING_URL';
       data: {
         xmlFileUrl: string;
@@ -47,7 +46,7 @@ type Events =
   | {
       type: 'PROCESSING_STRING';
       data: {
-        xmlFileContents: string;
+        fileName: string;
       };
     }
   | {
@@ -66,25 +65,31 @@ type Events =
 export type ReportMachine = Statemachine<States, Events, BaseState>;
 
 export const reportMachine = statemachine<States, Events, BaseState>({
-  PROCESSING_URL: (state, { xmlFileUrl }) => {
-    return {
-      current: 'PROCESSING_URL',
-      xmlFileUrl,
-    };
-  },
-  PROCESSING_STRING: (state, { xmlFileContents }) => {
-    if (state.current === 'PROCESSING_URL' || state.current === 'UNLOADED') {
+  RESET: state => {
+    if (state.current !== 'PROCESSING') {
       return {
-        current: 'PROCESSING_STRING',
-        xmlFileContents,
+        current: 'UNLOADED',
+      };
+    }
+  },
+  PROCESSING_URL: (state, { xmlFileUrl }) => {
+    if (state.current === 'UNLOADED') {
+      return {
+        current: 'PROCESSING',
+        message: `Processing ${xmlFileUrl}...`,
+      };
+    }
+  },
+  PROCESSING_STRING: state => {
+    if (state.current === 'UNLOADED') {
+      return {
+        current: 'PROCESSING',
+        message: `Processing local file...`,
       };
     }
   },
   PROCESSING_ERROR: (state, { errorMessage }) => {
-    if (
-      state.current === 'PROCESSING_STRING' ||
-      state.current === 'PROCESSING_URL'
-    ) {
+    if (state.current === 'PROCESSING') {
       return {
         current: 'PROCESSING_ERROR',
         errorMessage,
@@ -92,59 +97,54 @@ export const reportMachine = statemachine<States, Events, BaseState>({
     }
   },
   VALIDATED: (state, { validationReport }) => {
-    if (
-      state.current !== 'PROCESSING_STRING' &&
-      state.current !== 'UNLOADED' &&
-      state.current !== 'PROCESSING_URL'
-    ) {
-      return;
+    if (state.current === 'PROCESSING') {
+      return {
+        current: 'VALIDATED',
+        validationReport,
+        filter: {
+          role: 'all',
+          text: '',
+        },
+        roles: [
+          'all',
+          ...Array.from(
+            new Set(
+              validationReport.failedAsserts.map(assert => assert.role || ''),
+            ),
+          ).sort(),
+        ],
+        filterRoles: derived((state: ReportMachine) => {
+          const validatedState = state.matches('VALIDATED');
+          if (!validatedState) {
+            return [];
+          }
+          switch (validatedState.filter.role) {
+            case 'all':
+              return validatedState.roles;
+            default:
+              return [validatedState.filter.role];
+          }
+        }),
+        visibleAssertions: derived((state: ReportMachine) => {
+          const validatedState = state.matches('VALIDATED');
+          if (!validatedState) {
+            return [];
+          }
+          let assertions = validatedState.validationReport.failedAsserts.filter(
+            (assertion: ValidationAssert) => {
+              return validatedState.filterRoles.includes(assertion.role || '');
+            },
+          );
+          if (validatedState.filter.text.length > 0) {
+            assertions = assertions.filter(assertion => {
+              const allText = Object.values(assertion).join('\n').toLowerCase();
+              return allText.includes(validatedState.filter.text.toLowerCase());
+            });
+          }
+          return assertions;
+        }),
+      };
     }
-    return {
-      current: 'VALIDATED',
-      validationReport,
-      filter: {
-        role: 'all',
-        text: '',
-      },
-      roles: [
-        'all',
-        ...Array.from(
-          new Set(
-            validationReport.failedAsserts.map(assert => assert.role || ''),
-          ),
-        ).sort(),
-      ],
-      filterRoles: derived((state: ReportMachine) => {
-        const validatedState = state.matches('VALIDATED');
-        if (!validatedState) {
-          return [];
-        }
-        switch (validatedState.filter.role) {
-          case 'all':
-            return validatedState.roles;
-          default:
-            return [validatedState.filter.role];
-        }
-      }),
-      visibleAssertions: derived((state: ReportMachine) => {
-        const validatedState = state.matches('VALIDATED');
-        if (!validatedState) {
-          return [];
-        }
-        let assertions = validatedState.validationReport.failedAsserts.filter(
-          (assertion: ValidationAssert) => {
-            return validatedState.filterRoles.includes(assertion.role || '');
-          },
-        );
-        if (validatedState.filter.text.length > 0) {
-          assertions = assertions.filter(assertion => {
-            const allText = Object.values(assertion).join('\n').toLowerCase();
-            return allText.includes(validatedState.filter.text.toLowerCase());
-          });
-        }
-        return assertions;
-      }),
-    };
   },
 });
 

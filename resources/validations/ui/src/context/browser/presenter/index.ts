@@ -97,7 +97,7 @@ const getUseCasesShim = (): UseCases => {
 };
 
 type MockPresenterContext = {
-  useCaseMocks?: Partial<UseCases>;
+  useCases?: Partial<UseCases>;
   initialState?: Partial<State>;
 };
 
@@ -105,7 +105,7 @@ export const createPresenterMock = (ctx: MockPresenterContext = {}) => {
   const presenter = createOvermindMock(
     getPresenterConfig(getUseCasesShim(), ctx.initialState),
     {
-      useCases: ctx.useCaseMocks,
+      useCases: ctx.useCases,
     },
   );
   return presenter;
