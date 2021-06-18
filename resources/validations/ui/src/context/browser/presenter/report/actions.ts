@@ -3,6 +3,12 @@ import type { Action, AsyncAction } from 'overmind';
 import type { ValidationReport } from '../../../../use-cases/schematron';
 import type { Role } from './state';
 
+export const reset: Action = ({ state }) => {
+  if (state.report.matches('VALIDATED')) {
+    state.report.send('RESET');
+  }
+};
+
 export const setXmlContents: AsyncAction<{
   fileName: string;
   xmlContents: string;
@@ -10,9 +16,7 @@ export const setXmlContents: AsyncAction<{
   { actions, state, effects },
   options: { fileName: string; xmlContents: string },
 ) => {
-  if (state.report.matches('VALIDATED')) {
-    state.report.send('RESET');
-  }
+  actions.report.reset();
   if (
     state.report
       .send('PROCESSING_STRING', { fileName: options.fileName })
@@ -29,9 +33,7 @@ export const setXmlUrl: AsyncAction<string> = async (
   { actions, effects, state },
   xmlFileUrl,
 ) => {
-  if (state.report.matches('VALIDATED')) {
-    state.report.send('RESET');
-  }
+  actions.report.reset();
   if (
     state.report.send('PROCESSING_URL', { xmlFileUrl }).matches('PROCESSING')
   ) {

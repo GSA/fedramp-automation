@@ -1,6 +1,49 @@
+import { doesNotMatch } from 'assert/strict';
 import { createPresenterMock } from '..';
 
 describe('report action', () => {
+  describe('reset', () => {
+    const config = {
+      useCases: {
+        validateSSP: jest.fn(() =>
+          Promise.resolve({
+            failedAsserts: [],
+          }),
+        ),
+      },
+    };
+
+    it('works on unloaded', () => {
+      const presenter = createPresenterMock(config);
+      expect(presenter.state.report.current).toEqual('UNLOADED');
+      presenter.actions.report.reset();
+      expect(presenter.state.report.current).toEqual('UNLOADED');
+    });
+
+    it('is disabled while processing', async () => {
+      const presenter = createPresenterMock(config);
+      const promise = presenter.actions.report.setXmlContents({
+        fileName: 'file-name.xml',
+        xmlContents: '<xml></xml>',
+      });
+      expect(presenter.state.report.current).toEqual('PROCESSING');
+      presenter.actions.report.reset();
+      expect(presenter.state.report.current).toEqual('PROCESSING');
+      await promise;
+    });
+
+    it('works on validated', async () => {
+      const presenter = createPresenterMock(config);
+      await presenter.actions.report.setXmlContents({
+        fileName: 'file-name.xml',
+        xmlContents: '<xml></xml>',
+      });
+      expect(presenter.state.report.current).toEqual('VALIDATED');
+      presenter.actions.report.reset();
+      expect(presenter.state.report.current).toEqual('UNLOADED');
+    });
+  });
+
   describe('setXmlContents', () => {
     it('should work', async () => {
       const mockXml = 'mock xml';
@@ -22,6 +65,30 @@ describe('report action', () => {
       expect(presenter.state.report.current).toEqual('PROCESSING');
       await promise;
       expect(presenter.state.report.current).toEqual('VALIDATED');
+    });
+  });
+
+  describe('setXmlUrl and setProcessingError', () => {
+    it('should work', done => {
+      const mockUrl = 'https://test.com/test.xml';
+      const presenter = createPresenterMock({
+        useCases: {
+          validateSSPUrl: jest.fn(async (url: string) => {
+            expect(url).toEqual(mockUrl);
+            expect(presenter.state.report.current).toEqual('PROCESSING');
+            done();
+            return Promise.resolve({
+              failedAsserts: [],
+            });
+          }),
+        },
+      });
+      expect(presenter.state.report.current).toEqual('UNLOADED');
+      presenter.actions.report.setXmlUrl(mockUrl);
+      presenter.actions.report.setProcessingError('my error');
+      const processingState =
+        presenter.state.report.matches('PROCESSING_ERROR');
+      expect(processingState?.errorMessage).toEqual('my error');
     });
   });
 

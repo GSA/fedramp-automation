@@ -9,13 +9,15 @@ import {
 import { createAppRenderer } from './views';
 
 type BrowserContext = {
+  element: HTMLElement;
   debug: boolean;
   baseUrl: string;
-  importMetaHot: ImportMetaHot;
+  importMetaHot: ImportMetaHot | undefined;
   githubRepository: GithubRepository;
 };
 
 export const runBrowserContext = ({
+  element,
   baseUrl,
   debug,
   importMetaHot,
@@ -32,7 +34,7 @@ export const runBrowserContext = ({
   browserController({
     importMetaHot,
     renderApp: createAppRenderer(
-      document.getElementById('root') as HTMLElement,
+      element,
       createPresenter({
         debug,
         baseUrl,

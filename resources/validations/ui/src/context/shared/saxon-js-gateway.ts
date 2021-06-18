@@ -46,7 +46,6 @@ export const SaxonJsSchematronValidatorGateway =
           stylesheetLocation: ctx.sefUrl,
           destination: 'document',
           sourceText: sourceText,
-          collectionFinder: (url: string) => [],
           stylesheetParams: {
             'baselines-base-path': ctx.baselinesBaseUrl,
             'registry-base-path': ctx.registryBaseUrl,
