@@ -357,8 +357,9 @@
             <sch:let name="remarks-length"
                      value="$remarks =&gt; string-length()" />
             <sch:assert id="missing-response-components"
+                        doc:organizational-id="section-d"
                         role="warning"
-                        test="$components-count &gt;= $required-components-count">Response statements for 
+                        test="$components-count &gt;= $required-components-count">[Section D Checks] Response statements for 
             <sch:value-of select="./@statement-id" />must have at least 
             <sch:value-of select="$required-components-count" />
             <sch:value-of select="if (count($components-count)=1) then ' component' else ' components'" />with a description. There are 
@@ -366,15 +367,17 @@
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description">
             <sch:assert id="extraneous-response-description"
+                        doc:organizational-id="section-d"
                         role="warning"
-                        test=". =&gt; empty()">Response statement 
+                        test=". =&gt; empty()">[Section D Checks] Response statement 
             <sch:value-of select="../@statement-id" />has a description not within a component. That was previously allowed, but not recommended. It
             will soon be syntactically invalid and deprecated.</sch:assert>
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks">
             <sch:assert id="extraneous-response-remarks"
+                        doc:organizational-id="section-d"
                         role="warning"
-                        test=". =&gt; empty()">Response statement 
+                        test=". =&gt; empty()">[Section D Checks] Response statement 
             <sch:value-of select="../@statement-id" />has remarks not within a component. That was previously allowed, but not recommended. It will
             soon be syntactically invalid and deprecated.</sch:assert>
         </sch:rule>
@@ -417,88 +420,6 @@
             <sch:let name="remarks-length"
                      value="$remarks =&gt; string-length()" />
             <sch:assert id="incomplete-response-remarks"
-                        doc:organizational-id="section-d"
-                        role="warning"
-                        test="$remarks-length &gt;= $required-length">[Section D Checks] Response statement component remarks for 
-            <sch:value-of select="../../@statement-id" />is too short with 
-            <sch:value-of select="$remarks-length" />characters. It must be 
-            <sch:value-of select="$required-length" />characters long.</sch:assert>
-        </sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement">
-            <sch:let name="required-components-count"
-                     value="1" />
-            <sch:let name="required-length"
-                     value="20" />
-            <sch:let name="components-count"
-                     value="./o:by-component =&gt; count()" />
-            <sch:let name="remarks"
-                     value="./o:remarks =&gt; normalize-space()" />
-            <sch:let name="remarks-length"
-                     value="$remarks =&gt; string-length()" />
-            <sch:assert id="missing-response-components-2"
-                        doc:organizational-id="section-d"
-                        role="warning"
-                        test="$components-count &gt;= $required-components-count">[Section D Checks] Response statements for 
-            <sch:value-of select="./@statement-id" />must have at least 
-            <sch:value-of select="$required-components-count" />
-            <sch:value-of select="if (count($components-count)=1) then ' component' else ' components'" />with a description. There are 
-            <sch:value-of select="$components-count" />.</sch:assert>
-        </sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description">
-            <sch:assert id="extraneous-response-description-2"
-                        doc:organizational-id="section-d"
-                        role="warning"
-                        test=". =&gt; empty()">[Section D Checks] Response statement 
-            <sch:value-of select="../@statement-id" />has a description not within a component. That was previously allowed, but not recommended. It
-            will soon be syntactically invalid and deprecated.</sch:assert>
-        </sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks">
-            <sch:assert id="extraneous-response-remarks-2"
-                        doc:organizational-id="section-d"
-                        role="warning"
-                        test=". =&gt; empty()">[Section D Checks] Response statement 
-            <sch:value-of select="../@statement-id" />has remarks not within a component. That was previously allowed, but not recommended. It will
-            soon be syntactically invalid and deprecated.</sch:assert>
-        </sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component">
-        <sch:let name="component-ref"
-                 value="./@component-uuid" />
-        <sch:assert id="invalid-component-match-2"
-                    doc:organizational-id="section-d"
-                    role="warning"
-                    test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] =&gt; exists()">[Section D Checks]
-                    Response statment 
-        <sch:value-of select="../@statement-id" />with component reference UUID ' 
-        <sch:value-of select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a control.</sch:assert>
-        <sch:assert id="missing-component-description-2"
-                    doc:organizational-id="section-d"
-                    role="error"
-                    test="./o:description =&gt; exists()">[Section D Checks] Response statement 
-        <sch:value-of select="../@statement-id" />has a component, but that component is missing a required description
-        node.</sch:assert></sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:description">
-            <sch:let name="required-length"
-                     value="20" />
-            <sch:let name="description"
-                     value=". =&gt; normalize-space()" />
-            <sch:let name="description-length"
-                     value="$description =&gt; string-length()" />
-            <sch:assert id="incomplete-response-description-2"
-                        doc:organizational-id="section-d"
-                        role="error"
-                        test="$description-length &gt;= $required-length">[Section D Checks] Response statement component description for 
-            <sch:value-of select="../../@statement-id" />is too short with 
-            <sch:value-of select="$description-length" />characters. It must be 
-            <sch:value-of select="$required-length" />characters long.</sch:assert>
-        </sch:rule>
-        <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:remarks">
-            <sch:let name="required-length"
-                     value="20" />
-            <sch:let name="remarks"
-                     value=". =&gt; normalize-space()" />
-            <sch:let name="remarks-length"
-                     value="$remarks =&gt; string-length()" />
-            <sch:assert id="incomplete-response-remarks-2"
                         doc:organizational-id="section-d"
                         role="warning"
                         test="$remarks-length &gt;= $required-length">[Section D Checks] Response statement component remarks for 
