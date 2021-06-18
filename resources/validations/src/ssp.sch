@@ -356,7 +356,7 @@
                      value="./o:remarks =&gt; normalize-space()" />
             <sch:let name="remarks-length"
                      value="$remarks =&gt; string-length()" />
-            <sch:assert id="missing-response-components-1"
+            <sch:assert id="missing-response-components"
                         role="warning"
                         test="$components-count &gt;= $required-components-count">Response statements for 
             <sch:value-of select="./@statement-id" />must have at least 
@@ -365,14 +365,14 @@
             <sch:value-of select="$components-count" />.</sch:assert>
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description">
-            <sch:assert id="extraneous-response-description-1"
+            <sch:assert id="extraneous-response-description"
                         role="warning"
                         test=". =&gt; empty()">Response statement 
             <sch:value-of select="../@statement-id" />has a description not within a component. That was previously allowed, but not recommended. It
             will soon be syntactically invalid and deprecated.</sch:assert>
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks">
-            <sch:assert id="extraneous-response-remarks-1"
+            <sch:assert id="extraneous-response-remarks"
                         role="warning"
                         test=". =&gt; empty()">Response statement 
             <sch:value-of select="../@statement-id" />has remarks not within a component. That was previously allowed, but not recommended. It will
@@ -381,14 +381,14 @@
         <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component">
         <sch:let name="component-ref"
                  value="./@component-uuid" />
-        <sch:assert id="invalid-component-match-1"
+        <sch:assert id="invalid-component-match"
                     doc:organizational-id="section-d"
                     role="warning"
                     test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] =&gt; exists()">[Section D Checks]
                     Response statment 
         <sch:value-of select="../@statement-id" />with component reference UUID ' 
         <sch:value-of select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a control.</sch:assert>
-        <sch:assert id="missing-component-description-1"
+        <sch:assert id="missing-component-description"
                     doc:organizational-id="section-d"
                     role="error"
                     test="./o:description =&gt; exists()">[Section D Checks] Response statement 
@@ -401,7 +401,7 @@
                      value=". =&gt; normalize-space()" />
             <sch:let name="description-length"
                      value="$description =&gt; string-length()" />
-            <sch:assert id="incomplete-response-description-1"
+            <sch:assert id="incomplete-response-description"
                         doc:organizational-id="section-d"
                         role="error"
                         test="$description-length &gt;= $required-length">[Section D Checks] Response statement component description for 
@@ -416,7 +416,7 @@
                      value=". =&gt; normalize-space()" />
             <sch:let name="remarks-length"
                      value="$remarks =&gt; string-length()" />
-            <sch:assert id="incomplete-response-remarks-1"
+            <sch:assert id="incomplete-response-remarks"
                         doc:organizational-id="section-d"
                         role="warning"
                         test="$remarks-length &gt;= $required-length">[Section D Checks] Response statement component remarks for 
