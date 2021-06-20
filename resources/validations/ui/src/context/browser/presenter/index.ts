@@ -1,4 +1,4 @@
-import { derived, createOvermind, createOvermindMock, IConfig } from 'overmind';
+import { createOvermind, createOvermindMock, IConfig } from 'overmind';
 import { merge, namespaced } from 'overmind/config';
 
 import * as github from '../../../domain/github';
@@ -15,9 +15,15 @@ type UseCases = {
   validateSSPUrl: ValidateSSPUrlUseCase;
 };
 
+type SampleSSP = {
+  url: string;
+  displayName: string;
+};
+
 type State = {
   baseUrl: string;
-  githubRepository: github.GithubRepository;
+  repositoryUrl: string;
+  sampleSSPs: SampleSSP[];
 };
 
 export const getPresenterConfig = (
@@ -29,22 +35,8 @@ export const getPresenterConfig = (
       actions,
       state: {
         baseUrl: '',
-        githubRepository: github.DEFAULT_REPOSITORY,
+        sampleSSPs: [] as SampleSSP[],
         ...initialState,
-        repositoryUrl: derived(({ githubRepository }: State) =>
-          github.getBranchTreeUrl(githubRepository),
-        ),
-        sampleSSPs: derived(({ githubRepository }: State) => {
-          return [
-            'resources/validations/test/demo/FedRAMP-SSP-OSCAL-Template.xml',
-          ].map(url => {
-            const urlParts = url.split('/');
-            return {
-              url: github.getRepositoryRawUrl(githubRepository, url),
-              displayName: urlParts[urlParts.length - 1],
-            };
-          });
-        }),
       },
       effects: {
         useCases,
@@ -63,7 +55,8 @@ declare module 'overmind' {
 export type PresenterContext = {
   baseUrl: string;
   debug: boolean;
-  githubRepository: github.GithubRepository;
+  repositoryUrl: string;
+  sampleSSPs: SampleSSP[];
   useCases: UseCases;
 };
 
@@ -71,7 +64,8 @@ export const createPresenter = (ctx: PresenterContext) => {
   const presenter = createOvermind(
     getPresenterConfig(ctx.useCases, {
       baseUrl: ctx.baseUrl,
-      githubRepository: ctx.githubRepository,
+      repositoryUrl: ctx.repositoryUrl,
+      sampleSSPs: ctx.sampleSSPs,
     }),
     {
       devtools: ctx.debug,
