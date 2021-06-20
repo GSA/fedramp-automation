@@ -8,12 +8,6 @@ export const SSPValidator = () => {
   const { state, actions } = usePresenter();
   const validatedReport = state.report.matches('VALIDATED');
 
-  // TODO: move this to the presenter
-  const selectionEnabled =
-    state.report.matches('UNLOADED') ||
-    state.report.matches('PROCESSING_ERROR') ||
-    state.report.matches('VALIDATED');
-
   return (
     <div className="grid-row grid-gap">
       <div className="mobile:grid-col-12 tablet:grid-col-4">
@@ -29,7 +23,7 @@ export const SSPValidator = () => {
               key={index}
               className="usa-button usa-button--unstyled"
               onClick={() => actions.report.setXmlUrl(sampleSSP.url)}
-              disabled={!selectionEnabled}
+              disabled={state.report.current === 'PROCESSING'}
             >
               {sampleSSP.displayName}
             </button>
@@ -48,7 +42,7 @@ export const SSPValidator = () => {
               xmlContents: fileDetails.text,
             });
           })}
-          disabled={!selectionEnabled}
+          disabled={state.report.current === 'PROCESSING'}
         />
         {validatedReport && (
           <form className="usa-form">
