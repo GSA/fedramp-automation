@@ -3,7 +3,7 @@
             xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
             xmlns:sch="http://purl.oclc.org/dsdl/schematron"
             xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-            xpath-default-namespace="http://csrc.nist.gov/ns/oscal/1.0">
+            >
     <sch:ns prefix="f"
             uri="https://fedramp.gov/ns/oscal" />
     <sch:ns prefix="o"

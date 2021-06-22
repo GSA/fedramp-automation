@@ -1109,7 +1109,7 @@
                         <x:expect-not-assert id="resource-rlink-required"
                                              label="resource rlink should exist." />
                     </x:scenario>
-                    <x:pending label="has a Policies and Procedures document attached">
+                    <x:scenario label="has a Policies and Procedures document attached" pending="">
                         <x:context>
                             <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <back-matter>
@@ -1129,8 +1129,8 @@
                         </x:context>
                         <x:expect-not-assert id="attachment-required-ispp"
                                              label="it should exist." />
-                    </x:pending>
-                    <x:pending label="has a User Guide document attached">
+                    </x:scenario>
+                    <x:scenario label="has a User Guide document attached" pending="">
                         <x:context>
                             <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <back-matter>
@@ -1150,8 +1150,8 @@
                         </x:context>
                         <x:expect-not-assert id="attachment-required-user-guide"
                                              label="it should exist." />
-                    </x:pending>
-                    <x:pending label="has a Privacy Impact Assessment document attached">
+                    </x:scenario>
+                    <x:scenario label="has a Privacy Impact Assessment document attached" pending="">
                         <x:context>
                             <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <back-matter>
@@ -1168,8 +1168,8 @@
                         </x:context>
                         <x:expect-not-assert id="attachment-required-privacy-impact-assessment"
                                              label="it should exist." />
-                    </x:pending>
-                    <x:pending label="has a Rules of Behavior document attached">
+                    </x:scenario>
+                    <x:scenario label="has a Rules of Behavior document attached" pending="">
                         <x:context>
                             <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <back-matter>
@@ -1186,8 +1186,8 @@
                         </x:context>
                         <x:expect-not-assert id="attachment-required-rob"
                                              label="it should exist." />
-                    </x:pending>
-                    <x:pending label="has an Information System Contingency Plan document attached">
+                    </x:scenario>
+                    <x:scenario label="has an Information System Contingency Plan document attached" pending="">
                         <x:context>
                             <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <back-matter>
@@ -1207,8 +1207,8 @@
                         </x:context>
                         <x:expect-not-assert id="attachment-required-information-system-contingency-plan"
                                              label="it should exist." />
-                    </x:pending>
-                    <x:pending label="has a Configuration Management Plan document attached">
+                    </x:scenario>
+                    <x:scenario label="has a Configuration Management Plan document attached" pending="">
                         <x:context>
                             <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <back-matter>
@@ -1228,8 +1228,8 @@
                         </x:context>
                         <x:expect-not-assert id="attachment-required-configuration-management-plan"
                                              label="it should exist." />
-                    </x:pending>
-                    <x:pending label="has an Incident Response Plan document attached">
+                    </x:scenario>
+                    <x:scenario label="has an Incident Response Plan document attached" pending="">
                         <x:context>
                             <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <back-matter>
@@ -1249,7 +1249,7 @@
                         </x:context>
                         <x:expect-not-assert id="attachment-required-incident-response-plan"
                                              label="it should exist." />
-                    </x:pending>
+                    </x:scenario>
                 </x:scenario>
             </x:scenario>
         </x:scenario>
