@@ -486,7 +486,7 @@
 
         <sch:let
             name="attachment-types"
-            value="doc('file:../../xml/fedramp_values.xml')//fedramp:value-set[@name = 'attachment-type']//fedramp:enum/@value" />
+            value="doc(concat($registry-base-path, '/fedramp_values.xml'))//fedramp:value-set[@name = 'attachment-type']//fedramp:enum/@value" />
         <sch:rule
             context="oscal:resource">
             <!-- create a "path" to the context -->
@@ -550,7 +550,7 @@
 
             <sch:let
                 name="media-types"
-                value="doc('file:../../xml/fedramp_values.xml')//fedramp:value-set[@name = 'media-type']//fedramp:enum/@value" />
+                value="doc(concat($registry-base-path, '/fedramp_values.xml'))//fedramp:value-set[@name = 'media-type']//fedramp:enum/@value" />
             <sch:report
                 role="information"
                 test="false()">There are <sch:value-of
@@ -935,7 +935,7 @@
 
             <!--<sch:let
                 name="security-sensitivity-levels"
-                value="doc('file:../../xml/fedramp_values.xml')//fedramp:value-set[@name = 'security-sensitivity-level']//fedramp:enum/@value" />-->
+                value="doc(concat($registry-base-path, '/fedramp_values.xml'))//fedramp:value-set[@name = 'security-sensitivity-level']//fedramp:enum/@value" />-->
             <sch:let
                 name="security-sensitivity-levels"
                 value="('Low', 'Moderate', 'High')" />
@@ -976,7 +976,7 @@
 
             <!--<sch:let
                 name="security-objective-levels"
-                value="doc('file:../../xml/fedramp_values.xml')//fedramp:value-set[@name = 'security-objective-level']//fedramp:enum/@value" />-->
+                value="doc(concat($registry-base-path, '/fedramp_values.xml'))//fedramp:value-set[@name = 'security-objective-level']//fedramp:enum/@value" />-->
             <sch:let
                 name="security-objective-levels"
                 value="('Low', 'Moderate', 'High')" />
@@ -1077,7 +1077,7 @@
 
             <sch:let
                 name="information-types"
-                value="doc('file:../../xml/information-types.xml')//fedramp:information-type/@id" />
+                value="doc(concat($registry-base-path, '/information-types.xml'))//fedramp:information-type/@id" />
 
             <!-- note the variant namespace and associated prefix -->
             <sch:assert
@@ -1122,7 +1122,7 @@
 
         <sch:let
             name="fedramp-values"
-            value="doc('file:../../xml/fedramp_values.xml')" />
+            value="doc(concat($registry-base-path, '/fedramp_values.xml'))" />
 
         <sch:title>A FedRAMP OSCAL SSP must specify system inventory items</sch:title>
 
