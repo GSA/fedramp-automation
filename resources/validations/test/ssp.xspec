@@ -2757,6 +2757,170 @@
             </x:scenario>
         </x:scenario>
     </x:scenario>
+    <x:scenario label="FedRAMP OSCAL SSP FIPS 140 validation">
+        <x:scenario label="when a system-implementation">
+            <x:scenario label="has a CMVP validation component">
+                <x:context>
+                    <system-implementation xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <component type="validation"
+                                   uuid="772ea84a-0d4e-4225-b82f-66fdc498a934">
+                            <title>FIPS 140-2 Validation</title>
+                            <description>
+                                <p>FIPS 140-2 Validation</p>
+                            </description>
+                            <prop name="validation-reference"
+                                  value="3928" />
+                            <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
+                                  rel="validation-details" />
+                            <status state="active" />
+                        </component>
+                    </system-implementation>
+                </x:context>
+                <x:expect-not-assert id="has-CMVP-validation"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks a CMVP validation component">
+                <x:context>
+                    <system-implementation xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <component type="invalidation"
+                                   uuid="772ea84a-0d4e-4225-b82f-66fdc498a934">
+                            <title>FIPS 140-2 Validation</title>
+                            <description>
+                                <p>FIPS 140-2 Validation</p>
+                            </description>
+                            <prop name="validation-reference"
+                                  value="3928" />
+                            <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
+                                  rel="validation-details" />
+                            <status state="active" />
+                        </component>
+                    </system-implementation>
+                </x:context>
+                <x:expect-assert id="has-CMVP-validation"
+                                 label="that is an error" />
+            </x:scenario>
+            <x:scenario label="has a CMVP validation inventory-item">
+                <x:context>
+                    <system-implementation xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <inventory-item type="validation"
+                                        uuid="772ea84a-0d4e-4225-b82f-66fdc498a934">
+                            <title>FIPS 140-2 Validation</title>
+                            <description>
+                                <p>FIPS 140-2 Validation</p>
+                            </description>
+                            <prop name="validation-reference"
+                                  value="3928" />
+                            <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
+                                  rel="validation-details" />
+                            <status state="active" />
+                        </inventory-item>
+                    </system-implementation>
+                </x:context>
+                <x:expect-not-assert id="has-CMVP-validation"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks a CMVP validation inventory-item">
+                <x:context>
+                    <system-implementation xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <inventory-item type="invalidation"
+                                        uuid="772ea84a-0d4e-4225-b82f-66fdc498a934">
+                            <title>FIPS 140-2 Validation</title>
+                            <description>
+                                <p>FIPS 140-2 Validation</p>
+                            </description>
+                            <prop name="validation-reference"
+                                  value="3928" />
+                            <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
+                                  rel="validation-details" />
+                            <status state="active" />
+                        </inventory-item>
+                    </system-implementation>
+                </x:context>
+                <x:expect-assert id="has-CMVP-validation"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="when a CMVP validation component">
+            <x:scenario label="has a validation-reference property">
+                <x:context>
+                    <component type="validation"
+                               uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                               xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <title>FIPS 140-2 Validation</title>
+                        <description>
+                            <p>FIPS 140-2 Validation</p>
+                        </description>
+                        <prop name="validation-reference"
+                              value="3928" />
+                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
+                              rel="validation-details" />
+                        <status state="active" />
+                    </component>
+                </x:context>
+                <x:expect-not-assert id="has-CMVP-validation-reference"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks a validation-reference property">
+                <x:context>
+                    <component type="validation"
+                               uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                               xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <title>FIPS 140-2 Validation</title>
+                        <description>
+                            <p>FIPS 140-2 Validation</p>
+                        </description>
+                        <prop name="invalidation-reference"
+                              value="3928" />
+                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
+                              rel="validation-details" />
+                        <status state="active" />
+                    </component>
+                </x:context>
+                <x:expect-assert id="has-CMVP-validation-reference"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="when a CMVP validation inventory-item">
+            <x:scenario label="has a validation-reference property">
+                <x:context>
+                    <inventory-item type="validation"
+                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <title>FIPS 140-2 Validation</title>
+                        <description>
+                            <p>FIPS 140-2 Validation</p>
+                        </description>
+                        <prop name="validation-reference"
+                              value="3928" />
+                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
+                              rel="validation-details" />
+                        <status state="active" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="has-CMVP-validation-reference"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks a validation-reference property">
+                <x:context>
+                    <inventory-item type="validation"
+                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <title>FIPS 140-2 Validation</title>
+                        <description>
+                            <p>FIPS 140-2 Validation</p>
+                        </description>
+                        <prop name="invalidation-reference"
+                              value="3928" />
+                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
+                              rel="validation-details" />
+                        <status state="active" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="has-CMVP-validation-reference"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+    </x:scenario>
     <x:scenario label="FedRAMP OSCAL SSP FIPS 199 Categorization">
         <x:scenario label="when a system-characteristics">
             <x:scenario label="has security-sensitivity-level">
@@ -3372,34 +3536,205 @@
             </x:scenario>
         </x:scenario>
     </x:scenario>
-    <x:pending>
-        <x:label>Pending until all XSpec tests are correct</x:label>
-        <x:scenario label="FedRAMP OSCAL SSP System Inventory">
-            <x:scenario label="when the system-implementation">
-                <x:scenario label="has inventory items">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-implementation>
-                                <inventory-item />
-                            </system-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-not-assert id="has-inventory-items"
-                                         label="that is correct" />
-                </x:scenario>
-                <x:scenario label="lacks inventory items">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-implementation>
-                                <!-- <inventory-item /> -->
-                            </system-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-assert id="has-inventory-items"
-                                     label="that is an error" />
-                </x:scenario>
+    <x:scenario label="FedRAMP OSCAL SSP System Inventory"
+                pending="multiple XSpec problems">
+        <x:scenario label="when the system-implementation">
+            <x:scenario label="has inventory items">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <inventory-item />
+                        </system-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="has-inventory-items"
+                                     label="that is correct" />
             </x:scenario>
-            <x:scenario label="asset-id must be unique.">
+            <x:scenario label="lacks inventory items">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <!-- <inventory-item /> -->
+                        </system-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="has-inventory-items"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="asset-id must be unique.">
+            <x:scenario label="affirmative">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-id"
+                              value="1" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="has-unique-asset-id"
+                                     label="correct" />
+            </x:scenario>
+            <x:scenario label="negative">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-id"
+                              value="1" />
+                    </inventory-item>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-id"
+                              value="1" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="has-unique-asset-id"
+                                 label="error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="asset-type property has an allowed value.">
+            <x:scenario label="affirmative">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type"
+                              value="os" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="has-allowed-asset-type"
+                                     label="correct" />
+            </x:scenario>
+            <x:scenario label="negative">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type"
+                              value="not-os" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="has-allowed-asset-type"
+                                 label="error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="virtual property has an allowed value.">
+            <x:scenario label="affirmative">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="virtual"
+                              value="yes" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="has-allowed-virtual"
+                                     label="correct" />
+            </x:scenario>
+            <x:scenario label="negative">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="virtual"
+                              value="maybe" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="has-allowed-virtual"
+                                 label="error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="public property has an allowed value.">
+            <x:scenario label="affirmative">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="public"
+                              value="yes" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="has-allowed-public"
+                                     label="correct" />
+            </x:scenario>
+            <x:scenario label="negative">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="public"
+                              value="maybe" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="has-allowed-public"
+                                 label="error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="allows-authenticated-scan property has an allowed value.">
+            <x:scenario label="affirmative">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="allows-authenticated-scan"
+                              value="yes" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="has-allowed-allows-authenticated-scan"
+                                     label="correct" />
+            </x:scenario>
+            <x:scenario label="negative">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="allows-authenticated-scan"
+                              value="maybe" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="has-allowed-allows-authenticated-scan"
+                                 label="error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="is-scanned property has an allowed value.">
+            <x:scenario label="affirmative">
+                <x:context>
+                    <prop name="is-scanned"
+                          value="yes"
+                          xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                </x:context>
+                <x:expect-not-assert id="has-allowed-is-scanned"
+                                     label="correct" />
+            </x:scenario>
+            <x:scenario label="negative">
+                <x:context>
+                    <prop name="is-scanned"
+                          value="maybe"
+                          xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                </x:context>
+                <x:expect-assert id="has-allowed-is-scanned"
+                                 label="error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="component has an allowed type.">
+            <x:scenario label="affirmative">
+                <x:context>
+                    <component type="software"
+                               xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                </x:context>
+                <x:expect-not-assert id="component-has-allowed-type"
+                                     label="correct" />
+            </x:scenario>
+            <x:scenario label="negative">
+                <x:context>
+                    <component type="malware"
+                               xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                </x:context>
+                <x:expect-assert id="component-has-allowed-type"
+                                 label="error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="when the inventory-item">
+            <x:scenario label="has a uuid attribute">
+                <x:context>
+                    <inventory-item uuid="033363e4-3424-47f4-8c88-ebb1684881f4"
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                </x:context>
+                <x:expect-not-assert id="inventory-item-has-uuid"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks a uuid attribute">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <inventory-item />
+                        </system-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="inventory-item-has-uuid"
+                                 label="that is an error" />
+            </x:scenario>
+            <x:scenario label="has an asset-id.">
                 <x:scenario label="affirmative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
@@ -3407,7 +3742,29 @@
                                   value="1" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-not-assert id="has-unique-asset-id"
+                    <x:expect-not-assert id="has-asset-id"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="not-an-asset-id"
+                                  value="1" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="has-asset-id"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="has only one asset-id.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-id"
+                                  value="1" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="has-one-asset-id"
                                          label="correct" />
                 </x:scenario>
                 <x:scenario label="negative">
@@ -3415,390 +3772,219 @@
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="asset-id"
                                   value="1" />
-                        </inventory-item>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="asset-id"
-                                  value="1" />
+                                  value="2" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-assert id="has-unique-asset-id"
+                    <x:expect-assert id="has-one-asset-id"
                                      label="error" />
                 </x:scenario>
             </x:scenario>
-            <x:scenario label="asset-type property has an allowed value.">
+            <x:scenario label="has an asset-type">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type"
+                              value="os" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="inventory-item-has-asset-type"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks an asset-type">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="not-aasset-type"
+                              value="os" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="inventory-item-has-asset-type"
+                                 label="that is an error" />
+            </x:scenario>
+            <x:scenario label="has only one asset-type.">
                 <x:scenario label="affirmative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="asset-type"
-                                  value="os" />
+                            <prop name="asset-type" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-not-assert id="has-allowed-asset-type"
+                    <x:expect-not-assert id="inventory-item-has-one-asset-type"
                                          label="correct" />
                 </x:scenario>
                 <x:scenario label="negative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="asset-type"
-                                  value="not-os" />
+                            <prop name="asset-type" />
+                            <prop name="asset-type" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-assert id="has-allowed-asset-type"
+                    <x:expect-assert id="inventory-item-has-one-asset-type"
                                      label="error" />
                 </x:scenario>
             </x:scenario>
-            <x:scenario label="virtual property has an allowed value.">
+            <x:scenario label="has only one virtual property.">
                 <x:scenario label="affirmative">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="virtual"
-                                  value="yes" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-not-assert id="has-allowed-virtual"
-                                         label="correct" />
-                </x:scenario>
-                <x:scenario label="negative">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="virtual"
-                                  value="maybe" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-assert id="has-allowed-virtual"
-                                     label="error" />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario label="public property has an allowed value.">
-                <x:scenario label="affirmative">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="public"
-                                  value="yes" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-not-assert id="has-allowed-public"
-                                         label="correct" />
-                </x:scenario>
-                <x:scenario label="negative">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="public"
-                                  value="maybe" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-assert id="has-allowed-public"
-                                     label="error" />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario label="allows-authenticated-scan property has an allowed value.">
-                <x:scenario label="affirmative">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="allows-authenticated-scan"
-                                  value="yes" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-not-assert id="has-allowed-allows-authenticated-scan"
-                                         label="correct" />
-                </x:scenario>
-                <x:scenario label="negative">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="allows-authenticated-scan"
-                                  value="maybe" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-assert id="has-allowed-allows-authenticated-scan"
-                                     label="error" />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario label="is-scanned property has an allowed value.">
-                <x:scenario label="affirmative">
-                    <x:context>
-                        <prop name="is-scanned"
-                              value="yes"
-                              xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
-                    </x:context>
-                    <x:expect-not-assert id="has-allowed-is-scanned"
-                                         label="correct" />
-                </x:scenario>
-                <x:scenario label="negative">
-                    <x:context>
-                        <prop name="is-scanned"
-                              value="maybe"
-                              xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
-                    </x:context>
-                    <x:expect-assert id="has-allowed-is-scanned"
-                                     label="error" />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario label="component has an allowed type.">
-                <x:scenario label="affirmative">
-                    <x:context>
-                        <component type="software"
-                                   xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
-                    </x:context>
-                    <x:expect-not-assert id="component-has-allowed-type"
-                                         label="correct" />
-                </x:scenario>
-                <x:scenario label="negative">
-                    <x:context>
-                        <component type="malware"
-                                   xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
-                    </x:context>
-                    <x:expect-assert id="component-has-allowed-type"
-                                     label="error" />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario label="when the inventory-item">
-                <x:scenario label="has a uuid attribute">
-                    <x:context>
-                        <inventory-item uuid="033363e4-3424-47f4-8c88-ebb1684881f4"
-                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
-                    </x:context>
-                    <x:expect-not-assert id="inventory-item-has-uuid"
-                                         label="that is correct" />
-                </x:scenario>
-                <x:scenario label="lacks a uuid attribute">
-                    <x:context>
-                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-implementation>
-                                <inventory-item />
-                            </system-implementation>
-                        </system-security-plan>
-                    </x:context>
-                    <x:expect-assert id="inventory-item-has-uuid"
-                                     label="that is an error" />
-                </x:scenario>
-                <x:scenario label="has an asset-id.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-id"
-                                      value="1" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="has-asset-id"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="not-an-asset-id"
-                                      value="1" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="has-asset-id"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="has only one asset-id.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-id"
-                                      value="1" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="has-one-asset-id"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-id"
-                                      value="1" />
-                                <prop name="asset-id"
-                                      value="2" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="has-one-asset-id"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="has an asset-type">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="asset-type"
-                                  value="os" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-not-assert id="inventory-item-has-asset-type"
-                                         label="that is correct" />
-                </x:scenario>
-                <x:scenario label="lacks an asset-type">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="not-aasset-type"
-                                  value="os" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-assert id="inventory-item-has-asset-type"
-                                     label="that is an error" />
-                </x:scenario>
-                <x:scenario label="has only one asset-type.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-asset-type"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type" />
-                                <prop name="asset-type" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-asset-type"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="has only one virtual property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="virtual" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-virtual"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="virtual" />
-                                <prop name="virtual" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-virtual"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="has a virtual property">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="virtual" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-not-assert id="inventory-item-has-virtual"
-                                         label="that is correct" />
+                    <x:expect-not-assert id="inventory-item-has-one-virtual"
+                                         label="correct" />
                 </x:scenario>
-                <x:scenario label="lacks a virtual property">
+                <x:scenario label="negative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="not-a-virtual" />
+                            <prop name="virtual" />
+                            <prop name="virtual" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-assert id="inventory-item-has-virtual"
-                                     label="that is an error" />
+                    <x:expect-assert id="inventory-item-has-one-virtual"
+                                     label="error" />
                 </x:scenario>
-                <x:scenario label="has only one virtual property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="virtual" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-virtual"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="virtual" />
-                                <prop name="virtual" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-virtual"
-                                         label="error" />
-                    </x:scenario>
+            </x:scenario>
+            <x:scenario label="has a virtual property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="virtual" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="inventory-item-has-virtual"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks a virtual property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="not-a-virtual" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="inventory-item-has-virtual"
+                                 label="that is an error" />
+            </x:scenario>
+            <x:scenario label="has only one virtual property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="virtual" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-one-virtual"
+                                         label="correct" />
                 </x:scenario>
-                <x:scenario label="has a public property">
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="virtual" />
+                            <prop name="virtual" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-one-virtual"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="has a public property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="public" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="inventory-item-has-public"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks a public property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="not-a-public" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="inventory-item-has-public"
+                                 label="that is an error" />
+            </x:scenario>
+            <x:scenario label="has only one public property.">
+                <x:scenario label="affirmative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="public" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-not-assert id="inventory-item-has-public"
-                                         label="that is correct" />
+                    <x:expect-not-assert id="inventory-item-has-one-public"
+                                         label="correct" />
                 </x:scenario>
-                <x:scenario label="lacks a public property">
+                <x:scenario label="negative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="not-a-public" />
+                            <prop name="public" />
+                            <prop name="public" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-assert id="inventory-item-has-public"
-                                     label="that is an error" />
+                    <x:expect-assert id="inventory-item-has-one-public"
+                                     label="error" />
                 </x:scenario>
-                <x:scenario label="has only one public property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="public" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-public"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="public" />
-                                <prop name="public" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-public"
-                                         label="error" />
-                    </x:scenario>
+            </x:scenario>
+            <x:scenario label="has scan-type property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="scan-type" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-scan-type"
+                                         label="correct" />
                 </x:scenario>
-                <x:scenario label="has scan-type property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="scan-type" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-scan-type"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="not-a-scan-type" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-scan-type"
-                                         label="error" />
-                    </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="not-a-scan-type" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-scan-type"
+                                     label="error" />
                 </x:scenario>
-                <x:scenario label="has only one scan-type property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="scan-type" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-scan-type"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="scan-type" />
-                                <prop name="scan-type" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-scan-type"
-                                         label="error" />
-                    </x:scenario>
+            </x:scenario>
+            <x:scenario label="has only one scan-type property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="scan-type" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-one-scan-type"
+                                         label="correct" />
                 </x:scenario>
-                <x:scenario label="has a allows-authenticated-scan property">
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="scan-type" />
+                            <prop name="scan-type" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-one-scan-type"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="has a allows-authenticated-scan property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type"
+                              value="os" />
+                        <prop name="allows-authenticated-scan" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="inventory-item-has-allows-authenticated-scan"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks a allows-authenticated-scan property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type"
+                              value="os" />
+                        <!--<prop name="not-a-allows-authenticated-scan" />-->
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="inventory-item-has-allows-authenticated-scan"
+                                 label="that is an error" />
+            </x:scenario>
+            <x:scenario label="has only one one-allows-authenticated-scan property.">
+                <x:scenario label="affirmative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="asset-type"
@@ -3806,46 +3992,46 @@
                             <prop name="allows-authenticated-scan" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-not-assert id="inventory-item-has-allows-authenticated-scan"
-                                         label="that is correct" />
+                    <x:expect-not-assert id="inventory-item-has-one-allows-authenticated-scan"
+                                         label="correct" />
                 </x:scenario>
-                <x:scenario label="lacks a allows-authenticated-scan property">
+                <x:scenario label="negative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="asset-type"
                                   value="os" />
-                            <malaprop name="not-a-allows-authenticated-scan" />
+                            <prop name="allows-authenticated-scan" />
+                            <prop name="allows-authenticated-scan" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-assert id="inventory-item-has-allows-authenticated-scan"
-                                     label="that is an error" />
+                    <x:expect-assert id="inventory-item-has-one-allows-authenticated-scan"
+                                     label="error" />
                 </x:scenario>
-                <x:scenario label="has only one one-allows-authenticated-scan property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="allows-authenticated-scan" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-allows-authenticated-scan"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="allows-authenticated-scan" />
-                                <prop name="allows-authenticated-scan" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-allows-authenticated-scan"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="has a baseline-configuration-name property">
+            </x:scenario>
+            <x:scenario label="has a baseline-configuration-name property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type"
+                              value="os" />
+                        <prop name="baseline-configuration-name" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="inventory-item-has-baseline-configuration-name"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks a baseline-configuration-name property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type"
+                              value="os" />
+                        <prop name="not-a-baseline-configuration-name" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="inventory-item-has-baseline-configuration-name"
+                                 label="that is an error" />
+            </x:scenario>
+            <x:scenario label="&quot;infrastructure&quot; asset-type has only one baseline-configuration-name.">
+                <x:scenario label="affirmative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="asset-type"
@@ -3853,10 +4039,10 @@
                             <prop name="baseline-configuration-name" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-not-assert id="inventory-item-has-baseline-configuration-name"
-                                         label="that is correct" />
+                    <x:expect-not-assert id="inventory-item-has-one-baseline-configuration-name"
+                                         label="correct" />
                 </x:scenario>
-                <x:scenario label="lacks a baseline-configuration-name property">
+                <x:scenario label="negative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="asset-type"
@@ -3864,34 +4050,34 @@
                             <prop name="not-a-baseline-configuration-name" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-assert id="inventory-item-has-baseline-configuration-name"
-                                     label="that is an error" />
+                    <x:expect-assert id="inventory-item-has-one-baseline-configuration-name"
+                                     label="error" />
                 </x:scenario>
-                <x:scenario label="&quot;infrastructure&quot; asset-type has only one baseline-configuration-name.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="baseline-configuration-name" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-baseline-configuration-name"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="not-a-baseline-configuration-name" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-baseline-configuration-name"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="has a vendor-name property">
+            </x:scenario>
+            <x:scenario label="has a vendor-name property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type"
+                              value="os" />
+                        <prop name="vendor-name" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="inventory-item-has-vendor-name"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks a vendor-name property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type"
+                              value="os" />
+                        <prop name="not-a-vendor-name" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="inventory-item-has-vendor-name"
+                                 label="that is an error" />
+            </x:scenario>
+            <x:scenario label="&quot;infrastructure&quot; asset-type has only one vendor-name property.">
+                <x:scenario label="affirmative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="asset-type"
@@ -3899,327 +4085,303 @@
                             <prop name="vendor-name" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-not-assert id="inventory-item-has-vendor-name"
-                                         label="that is correct" />
+                    <x:expect-not-assert id="inventory-item-has-one-vendor-name"
+                                         label="correct" />
                 </x:scenario>
-                <x:scenario label="lacks a vendor-name property">
+                <x:scenario label="negative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="asset-type"
                                   value="os" />
-                            <prop name="not-a-vendor-name" />
+                            <prop name="vendor-name" />
+                            <prop name="vendor-name" />
                         </inventory-item>
                     </x:context>
-                    <x:expect-assert id="inventory-item-has-vendor-name"
-                                     label="that is an error" />
+                    <x:expect-assert id="inventory-item-has-one-vendor-name"
+                                     label="error" />
                 </x:scenario>
-                <x:scenario label="&quot;infrastructure&quot; asset-type has only one vendor-name property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="vendor-name" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-vendor-name"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="vendor-name" />
-                                <prop name="vendor-name" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-vendor-name"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="&quot;infrastructure&quot; asset-type has a hardware-model property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="hardware-model" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-hardware-model"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="not-a-hardware-model" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-hardware-model"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="&quot;infrastructure&quot; asset-type has only one hardware-model property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="hardware-model" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-hardware-model"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="hardware-model" />
-                                <prop name="hardware-model" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-hardware-model"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="&quot;infrastructure&quot; asset-type has is-scanned property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="is-scanned" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-is-scanned"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="not-a-is-scanned" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-is-scanned"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="&quot;infrastructure&quot; asset-type has only one is-scanned property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="is-scanned" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-is-scanned"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type"
-                                      value="os" />
-                                <prop name="is-scanned" />
-                                <prop name="is-scanned" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-is-scanned"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="&quot;software or database&quot; asset-type has software-name property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="software-name" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-software-name"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="not-a-software-name" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-software-name"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="&quot;software or database&quot; asset-type has software-name property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="software-name" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-software-name"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="software-name" />
-                                <prop name="software-name" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-software-name"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="&quot;software or database&quot; asset-type has software-version property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="software-version" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-software-version"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="not-a-software-version" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-software-version"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="&quot;software or database&quot; asset-type has one software-version property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="software-version" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-software-version"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="software-version" />
-                                <prop name="software-version" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-software-version"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="&quot;software or database&quot; asset-type has function property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="function" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-function"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="not-a-function" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-function"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="&quot;software or database&quot; asset-type has one function property.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="function" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="inventory-item-has-one-function"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="function" />
-                                <prop name="function" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="inventory-item-has-one-function"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="component has an asset type.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <component xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type" />
-                            </component>
-                        </x:context>
-                        <x:expect-not-assert id="component-has-asset-type"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <component xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="not-a-asset-type" />
-                            </component>
-                        </x:context>
-                        <x:expect-assert id="component-has-asset-type"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="component has one asset type.">
-                    <x:scenario label="affirmative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-not-assert id="component-has-one-asset-type"
-                                             label="correct" />
-                    </x:scenario>
-                    <x:scenario label="negative">
-                        <x:context>
-                            <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="asset-type" />
-                                <prop name="asset-type" />
-                            </inventory-item>
-                        </x:context>
-                        <x:expect-assert id="component-has-one-asset-type"
-                                         label="error" />
-                    </x:scenario>
-                </x:scenario>
-                <x:scenario label="has a scan-type property">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="scan-type" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-not-assert id="inventory-item-has-allowed-scan-type"
-                                         label="that is correct" />
-                </x:scenario>
-                <x:scenario label="lacks a scan-type property">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="not-a-scan-type" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-assert id="inventory-item-has-allowed-scan-type"
-                                     label="that is an error" />
-                </x:scenario>
-                <!-- FIXME: Software/Database Vendor -->
             </x:scenario>
+            <x:scenario label="&quot;infrastructure&quot; asset-type has a hardware-model property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-type"
+                                  value="os" />
+                            <prop name="hardware-model" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-hardware-model"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-type"
+                                  value="os" />
+                            <prop name="not-a-hardware-model" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-hardware-model"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="&quot;infrastructure&quot; asset-type has only one hardware-model property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-type"
+                                  value="os" />
+                            <prop name="hardware-model" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-one-hardware-model"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-type"
+                                  value="os" />
+                            <prop name="hardware-model" />
+                            <prop name="hardware-model" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-one-hardware-model"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="&quot;infrastructure&quot; asset-type has is-scanned property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-type"
+                                  value="os" />
+                            <prop name="is-scanned" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-is-scanned"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-type"
+                                  value="os" />
+                            <prop name="not-a-is-scanned" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-is-scanned"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="&quot;infrastructure&quot; asset-type has only one is-scanned property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-type"
+                                  value="os" />
+                            <prop name="is-scanned" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-one-is-scanned"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-type"
+                                  value="os" />
+                            <prop name="is-scanned" />
+                            <prop name="is-scanned" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-one-is-scanned"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="&quot;software or database&quot; asset-type has software-name property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="software-name" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-software-name"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="not-a-software-name" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-software-name"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="&quot;software or database&quot; asset-type has software-name property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="software-name" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-one-software-name"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="software-name" />
+                            <prop name="software-name" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-one-software-name"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="&quot;software or database&quot; asset-type has software-version property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="software-version" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-software-version"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="not-a-software-version" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-software-version"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="&quot;software or database&quot; asset-type has one software-version property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="software-version" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-one-software-version"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="software-version" />
+                            <prop name="software-version" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-one-software-version"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="&quot;software or database&quot; asset-type has function property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="function" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-function"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="not-a-function" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-function"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="&quot;software or database&quot; asset-type has one function property.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="function" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="inventory-item-has-one-function"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="function" />
+                            <prop name="function" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="inventory-item-has-one-function"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="component has an asset type.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <component xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-type" />
+                        </component>
+                    </x:context>
+                    <x:expect-not-assert id="component-has-asset-type"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <component xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="not-a-asset-type" />
+                        </component>
+                    </x:context>
+                    <x:expect-assert id="component-has-asset-type"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="component has one asset type.">
+                <x:scenario label="affirmative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-type" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert id="component-has-one-asset-type"
+                                         label="correct" />
+                </x:scenario>
+                <x:scenario label="negative">
+                    <x:context>
+                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="asset-type" />
+                            <prop name="asset-type" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert id="component-has-one-asset-type"
+                                     label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="has a scan-type property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="scan-type" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="inventory-item-has-allowed-scan-type"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="lacks a scan-type property">
+                <x:context>
+                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="not-a-scan-type" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="inventory-item-has-allowed-scan-type"
+                                 label="that is an error" />
+            </x:scenario>
+            <!-- FIXME: Software/Database Vendor -->
         </x:scenario>
-    </x:pending>
+    </x:scenario>
 </x:description>

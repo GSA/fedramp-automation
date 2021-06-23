@@ -810,6 +810,22 @@ the four PTA questions is a duplicate</sch:assert>
             This FedRAMP OSCAL SSP must incorporate a Privacy Impact Analysis</sch:assert>
         </sch:rule>
     </sch:pattern>
+    <sch:pattern see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 58">
+        <!-- FIXME: Draft guide is wildly different than template -->
+        <sch:title>FIPS 140 Validation</sch:title>
+        <sch:rule context="oscal:system-implementation">
+            <sch:assert id="has-CMVP-validation"
+                        role="error"
+                        test="oscal:component[@type = 'validation'] or oscal:inventory-item[@type = 'validation']">A FedRAMP OSCAL SSP must
+                        incorporate one or more FIPS 140 validated products.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:component[@type = 'validation'] | oscal:inventory-item[@type = 'validation']">
+            <sch:assert id="has-CMVP-validation-reference"
+                        role="error"
+                        test="oscal:prop[@name = 'validation-reference']">A validation component or inventory-item must have a validation-reference
+                        property.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
     <sch:pattern see="https://github.com/18F/fedramp-automation/blob/master/documents/Guide_to_OSCAL-based_FedRAMP_System_Security_Plans_(SSP).pdf page 12">
 
         <sch:title>Security Objectives Categorization (FIPS 199)</sch:title>
