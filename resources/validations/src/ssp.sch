@@ -518,34 +518,29 @@
             <sch:value-of select="./@media-type" /></sch:assert>
         </sch:rule>
     </sch:pattern>
+    <!-- set $fedramp-values globally -->
+    <sch:let name="fedramp-values"
+             value="doc(concat($registry-base-path, '/fedramp_values.xml'))" />
     <sch:pattern>
         <sch:title>Basic resource constraints</sch:title>
         <sch:let name="attachment-types"
-                 value="doc(concat($registry-base-path, '/fedramp_values.xml'))//fedramp:value-set[@name = 'attachment-type']//fedramp:enum/@value" />
+                 value="$fedramp-values//fedramp:value-set[@name = 'attachment-type']//fedramp:enum/@value" />
         <sch:rule context="oscal:resource">
-            <!-- create a "path" to the context -->
-            <sch:let name="path"
-                     value="concat(string-join(ancestor-or-self::* ! name(), '/'), ' ', @uuid, ' &quot;', oscal:title, '&quot;')" />
             <!-- the following assertion recapitulates the XML Schema constraint -->
             <sch:assert id="resource-has-uuid"
                         role="error"
-                        test="@uuid">A &lt; 
-            <sch:name />&gt; element must have a uuid attribute</sch:assert>
+                        test="@uuid">A resource must have a uuid attribute.</sch:assert>
             <sch:assert id="resource-has-title"
                         role="warning"
-                        test="oscal:title">&lt; 
-            <sch:name />uuid=" 
-            <sch:value-of select="@uuid" />"&gt; SHOULD have a title</sch:assert>
+                        test="oscal:title">A resource SHOULD have a title.</sch:assert>
             <sch:assert id="resource-has-rlink"
                         role="error"
-                        test="oscal:rlink">&lt; 
-            <sch:name />uuid=" 
-            <sch:value-of select="@uuid" />"&gt; must have an &lt;rlink&gt; element</sch:assert>
+                        test="oscal:rlink">A resource must have a rlink element</sch:assert>
             <sch:assert diagnostics="resource-is-referenced-diagnostic"
                         id="resource-is-referenced"
                         role="info"
-                        test="@uuid = (//@href[matches(., '^#')] ! substring-after(., '#'))">
-            <sch:value-of select="$path" />is referenced from within the document.</sch:assert>
+                        test="@uuid = (//@href[matches(., '^#')] ! substring-after(., '#'))">A resource should be referenced from within the
+                        document.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:back-matter/oscal:resource/oscal:prop[@name = 'type']">
             <sch:assert id="attachment-type-is-valid"
@@ -572,7 +567,7 @@
         <sch:rule context="@media-type"
                   role="error">
             <sch:let name="media-types"
-                     value="doc(concat($registry-base-path, '/fedramp_values.xml'))//fedramp:value-set[@name = 'media-type']//fedramp:enum/@value" />
+                     value="$fedramp-values//fedramp:value-set[@name = 'media-type']//fedramp:enum/@value" />
             <sch:report role="information"
                         test="false()">There are 
             <sch:value-of select="count($media-types)" />media types.</sch:report>
@@ -611,9 +606,6 @@
                         test="@media-type">A base64 element has a media-type attribute</sch:assert>
             <doc:original-assertion>
             <sch:name />must have media-type attribute.</doc:original-assertion>
-            <!-- TODO: add IANA media type check using https://www.iana.org/assignments/media-types/media-types.xml-->
-            <!-- TODO: decide whether to use the IANA resource directly, or cache a local copy -->
-            <!-- TODO: determine what media types will be acceptable for FedRAMP SSP submissions -->
             <sch:assert diagnostics="base64-has-content-diagnostic "
                         id="base64-has-content"
                         role="error"
@@ -833,7 +825,7 @@ the four PTA questions is a duplicate</sch:assert>
         <sch:rule context="oscal:security-sensitivity-level">
             <!--<sch:let
                 name="security-sensitivity-levels"
-                value="doc(concat($registry-base-path, '/fedramp_values.xml'))//fedramp:value-set[@name = 'security-sensitivity-level']//fedramp:enum/@value" />-->
+                value="$fedramp-values//fedramp:value-set[@name = 'security-sensitivity-level']//fedramp:enum/@value" />-->
             <sch:let name="security-sensitivity-levels"
                      value="('Low', 'Moderate', 'High')" />
             <sch:assert diagnostics="has-allowed-security-sensitivity-level-diagnostic"
@@ -859,7 +851,7 @@ the four PTA questions is a duplicate</sch:assert>
         <sch:rule context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability">
             <!--<sch:let
                 name="security-objective-levels"
-                value="doc(concat($registry-base-path, '/fedramp_values.xml'))//fedramp:value-set[@name = 'security-objective-level']//fedramp:enum/@value" />-->
+                value="$fedramp-values//fedramp:value-set[@name = 'security-objective-level']//fedramp:enum/@value" />-->
             <sch:let name="security-objective-levels"
                      value="('Low', 'Moderate', 'High')" />
             <sch:report role="information"
@@ -1008,8 +1000,6 @@ the four PTA questions is a duplicate</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern>
-        <sch:let name="fedramp-values"
-                 value="doc(concat($registry-base-path, '/fedramp_values.xml'))" />
         <sch:title>A FedRAMP OSCAL SSP must specify system inventory items</sch:title>
         <sch:rule context="/oscal:system-security-plan/oscal:system-implementation"
                   see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans pp52-60">
@@ -1163,7 +1153,7 @@ the four PTA questions is a duplicate</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-allows-authenticated-scan-diagnostic"
                         id="inventory-item-has-one-allows-authenticated-scan"
                         role="error"
-                        test="count(oscal:prop[@name = 'allows-authenticated-scan']) = 1">inventory-item has only one one-allows-authenticated-scan
+                        test="not(oscal:prop[@name = 'allows-authenticated-scan'][2])">inventory-item has one-allows-authenticated-scan
                         property.</sch:assert>
             <sch:p>"infrastructure" inventory-item has baseline-configuration-name</sch:p>
             <sch:assert diagnostics="inventory-item-has-baseline-configuration-name-diagnostic"
@@ -1302,34 +1292,28 @@ the four PTA questions is a duplicate</sch:assert>
         <sch:diagnostic id="context-diagnostic">XPath: The context for this error is 
         <sch:value-of select="replace(path(), 'Q\{[^\}]+\}', '')" /></sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-is-referenced"
-                        id="resource-is-referenced-diagnostic">
-        <sch:value-of select="$path" />SHOULD optionally have a reference within the document (but does not)</sch:diagnostic>
+                        id="resource-is-referenced-diagnostic">This resource SHOULD optionally have a reference within the document (but does
+                        not).</sch:diagnostic>
         <sch:diagnostic id="has-allowed-media-type-diagnostic">This 
-        <sch:value-of select="name(parent::node())" />element has a media-type=" 
+        <sch:value-of select="name(parent::node())" />&#x20;element has a media-type=" 
         <sch:value-of select="current()" />" which is not in the list of allowed media types. Allowed media types are 
         <sch:value-of select="string-join($media-types, ' ∨ ')" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-has-base64"
                         id="resource-has-base64-diagnostic"
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-        <sch:value-of select="name()" />should have a base64 element.</sch:diagnostic>
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">This resource should have a base64 element.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-base64-cardinality"
                         id="resource-base64-cardinality-diagnostic"
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-        <sch:value-of select="name()" />must not have more than one base64 element.</sch:diagnostic>
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">This resource must not have more than one base64 element.</sch:diagnostic>
         <sch:diagnostic doc:assertion="base64-has-filename"
                         id="base64-has-filename-diagnostic"
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-        <sch:value-of select="name()" />must have a filename attribute.</sch:diagnostic>
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">This base64 must have a filename attribute.</sch:diagnostic>
         <sch:diagnostic doc:assertion="base64-has-media-type"
                         id="base64-has-media-type-diagnostic"
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-        <sch:value-of select="name()" />must have a media-type attribute.</sch:diagnostic>
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">This base64 must have a media-type attribute.</sch:diagnostic>
         <sch:diagnostic doc:assertion="base64-has-content"
                         id="base64-has-content-diagnostic"
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-        <sch:value-of select="name()" />must have content.</sch:diagnostic>
-        <sch:diagnostic id="has-allowed-security-sensitivity-level-diagnostic">Invalid 
-        <sch:value-of select="name()" />" 
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">This base64 must have content.</sch:diagnostic>
+        <sch:diagnostic id="has-allowed-security-sensitivity-level-diagnostic">Invalid security-sensitivity-level " 
         <sch:value-of select="." />". It must have one of the following 
         <sch:value-of select="count($security-sensitivity-levels)" />values: 
         <sch:value-of select="string-join($security-sensitivity-levels, ' ∨ ')" />.</sch:diagnostic>
@@ -1364,12 +1348,12 @@ the four PTA questions is a duplicate</sch:assert>
         document.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-allowed-asset-type"
                         id="has-allowed-asset-type-diagnostic">
-        <sch:value-of select="name()" />should have a FedRAMP asset type 
+        <sch:value-of select="name()" />&#x20;should have a FedRAMP asset type 
         <sch:value-of select="string-join($asset-types, ' ∨ ')" />(not " 
         <sch:value-of select="@value" />").</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-allowed-virtual"
                         id="has-allowed-virtual-diagnostic">
-        <sch:value-of select="name()" />must have an allowed value 
+        <sch:value-of select="name()" />&#x20;must have an allowed value 
         <sch:value-of select="string-join($virtuals, ' ∨ ')" />(not " 
         <sch:value-of select="@value" />").</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-allowed-public"
@@ -1398,80 +1382,65 @@ the four PTA questions is a duplicate</sch:assert>
         <sch:value-of select="string-join($component-types, ' ∨ ')" />(not " 
         <sch:value-of select="@type" />").</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-uuid"
-                        id="inventory-item-has-uuid-diagnostic">
-        <sch:value-of select="name()" />must have a uuid attribute.</sch:diagnostic>
+                        id="inventory-item-has-uuid-diagnostic">This inventory-item must have a uuid attribute.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-asset-id"
-                        id="has-asset-id-diagnostic">
-        <sch:value-of select="name()" />must have an asset-id property.</sch:diagnostic>
+                        id="has-asset-id-diagnostic">This inventory-item must have an asset-id property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-one-asset-id"
-                        id="has-one-asset-id-diagnostic">
-        <sch:value-of select="name()" />must have only one asset-id property.</sch:diagnostic>
+                        id="has-one-asset-id-diagnostic">This inventory-item must have only one asset-id property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-asset-type"
-                        id="inventory-item-has-asset-type-diagnostic">
-        <sch:value-of select="name()" />must have an asset-type property.</sch:diagnostic>
+                        id="inventory-item-has-asset-type-diagnostic">This inventory-item must have an asset-type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-asset-type"
-                        id="inventory-item-has-one-asset-type-diagnostic">
-        <sch:value-of select="name()" />must have only one asset-type property.</sch:diagnostic>
+                        id="inventory-item-has-one-asset-type-diagnostic">This inventory-item must have only one asset-type
+                        property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-virtual"
-                        id="inventory-item-has-virtual-diagnostic">
-        <sch:value-of select="name()" />must have virtual property.</sch:diagnostic>
+                        id="inventory-item-has-virtual-diagnostic">This inventory-item must have virtual property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-virtual"
-                        id="inventory-item-has-one-virtual-diagnostic">
-        <sch:value-of select="name()" />must have only one virtual property.</sch:diagnostic>
+                        id="inventory-item-has-one-virtual-diagnostic">This inventory-item must have only one virtual property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-public"
-                        id="inventory-item-has-public-diagnostic">
-        <sch:value-of select="name()" />must have public property.</sch:diagnostic>
+                        id="inventory-item-has-public-diagnostic">This inventory-item must have public property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-public"
-                        id="inventory-item-has-one-public-diagnostic">
-        <sch:value-of select="name()" />must have only one public property.</sch:diagnostic>
+                        id="inventory-item-has-one-public-diagnostic">This inventory-item must have only one public property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-scan-type"
-                        id="inventory-item-has-scan-type-diagnostic">
-        <sch:value-of select="name()" />must have scan-type property.</sch:diagnostic>
+                        id="inventory-item-has-scan-type-diagnostic">This inventory-item must have scan-type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-scan-type"
-                        id="inventory-item-has-one-scan-type-diagnostic">
-        <sch:value-of select="name()" />must have only one scan-type property.</sch:diagnostic>
+                        id="inventory-item-has-one-scan-type-diagnostic">This inventory-item must have only one scan-type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-allows-authenticated-scan"
-                        id="inventory-item-has-allows-authenticated-scan-diagnostic">
-        <sch:value-of select="name()" />must have allows-authenticated-scan property.</sch:diagnostic>
+                        id="inventory-item-has-allows-authenticated-scan-diagnostic">This inventory-item must have allows-authenticated-scan
+                        property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-allows-authenticated-scan"
-                        id="inventory-item-has-one-allows-authenticated-scan-diagnostic">
-        <sch:value-of select="name()" />must have only one allows-authenticated-scan property.</sch:diagnostic>
+                        id="inventory-item-has-one-allows-authenticated-scan-diagnostic">This inventory-item must have only one
+                        allows-authenticated-scan property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-baseline-configuration-name"
-                        id="inventory-item-has-baseline-configuration-name-diagnostic">
-        <sch:value-of select="name()" />must have baseline-configuration-name property.</sch:diagnostic>
+                        id="inventory-item-has-baseline-configuration-name-diagnostic">This inventory-item must have baseline-configuration-name
+                        property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-baseline-configuration-name"
-                        id="inventory-item-has-one-baseline-configuration-name-diagnostic">
-        <sch:value-of select="name()" />must have only one baseline-configuration-name property.</sch:diagnostic>
+                        id="inventory-item-has-one-baseline-configuration-name-diagnostic">This inventory-item must have only one
+                        baseline-configuration-name property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-vendor-name"
-                        id="inventory-item-has-vendor-name-diagnostic">
-        <sch:value-of select="name()" />must have a vendor-name property.</sch:diagnostic>
+                        id="inventory-item-has-vendor-name-diagnostic">This inventory-item must have a vendor-name property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-vendor-name"
-                        id="inventory-item-has-one-vendor-name-diagnostic">
-        <sch:value-of select="name()" />must have only one vendor-name property.</sch:diagnostic>
+                        id="inventory-item-has-one-vendor-name-diagnostic">This inventory-item must have only one vendor-name
+                        property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-hardware-model"
-                        id="inventory-item-has-hardware-model-diagnostic">
-        <sch:value-of select="name()" />must have a hardware-model property.</sch:diagnostic>
+                        id="inventory-item-has-hardware-model-diagnostic">This inventory-item must have a hardware-model property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-hardware-model"
-                        id="inventory-item-has-one-hardware-model-diagnostic">
-        <sch:value-of select="name()" />must have only one hardware-model property.</sch:diagnostic>
+                        id="inventory-item-has-one-hardware-model-diagnostic">This inventory-item must have only one hardware-model
+                        property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-is-scanned"
-                        id="inventory-item-has-is-scanned-diagnostic">
-        <sch:value-of select="name()" />must have is-scanned property.</sch:diagnostic>
+                        id="inventory-item-has-is-scanned-diagnostic">This inventory-item must have is-scanned property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-is-scanned"
-                        id="inventory-item-has-one-is-scanned-diagnostic">
-        <sch:value-of select="name()" />must have only one is-scanned property.</sch:diagnostic>
+                        id="inventory-item-has-one-is-scanned-diagnostic">This inventory-item must have only one is-scanned
+                        property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-software-name"
-                        id="inventory-item-has-software-name-diagnostic">
-        <sch:value-of select="name()" />must have software-name property.</sch:diagnostic>
+                        id="inventory-item-has-software-name-diagnostic">This inventory-item must have software-name property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-software-name"
-                        id="inventory-item-has-one-software-name-diagnostic">
-        <sch:value-of select="name()" />must have only one software-name property.</sch:diagnostic>
+                        id="inventory-item-has-one-software-name-diagnostic">This inventory-item must have only one software-name
+                        property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-software-version"
-                        id="inventory-item-has-software-version-diagnostic">
-        <sch:value-of select="name()" />must have software-version property.</sch:diagnostic>
+                        id="inventory-item-has-software-version-diagnostic">This inventory-item must have software-version property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-software-version"
-                        id="inventory-item-has-one-software-version-diagnostic">
-        <sch:value-of select="name()" />must have only one software-version property.</sch:diagnostic>
+                        id="inventory-item-has-one-software-version-diagnostic">This inventory-item must have only one software-version
+                        property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-function"
                         id="inventory-item-has-function-diagnostic">
         <sch:value-of select="name()" />" 
