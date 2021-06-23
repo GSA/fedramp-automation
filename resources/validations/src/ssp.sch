@@ -13,6 +13,7 @@
             uri="https://fedramp.gov/ns/oscal" />
     <sch:ns prefix="lv"
             uri="local-validations" />
+    <doc:xspec href="../test/ssp.xspec" />
     <sch:title>FedRAMP System Security Plan Validations</sch:title>
     <xsl:output encoding="UTF-8"
                 indent="yes"
@@ -532,7 +533,7 @@
                         test="@uuid">A resource must have a uuid attribute.</sch:assert>
             <sch:assert id="resource-has-title"
                         role="warning"
-                        test="oscal:title">A resource SHOULD have a title.</sch:assert>
+                        test="oscal:title">A resource should have a title.</sch:assert>
             <sch:assert id="resource-has-rlink"
                         role="error"
                         test="oscal:rlink">A resource must have a rlink element</sch:assert>
@@ -562,7 +563,7 @@
                 document</sch:assert>-->
             <!--<sch:assert id="rlink-has-media-type"
                 role="warning"
-                test="$WARNING and @media-type">the &lt;<sch:name/>&gt; element SHOULD have a media-type attribute</sch:assert>-->
+                test="$WARNING and @media-type">the &lt;<sch:name/>&gt; element should have a media-type attribute</sch:assert>-->
         </sch:rule>
         <sch:rule context="@media-type"
                   role="error">
@@ -817,7 +818,7 @@ the four PTA questions is a duplicate</sch:assert>
             <sch:assert id="has-CMVP-validation"
                         role="error"
                         test="oscal:component[@type = 'validation'] or oscal:inventory-item[@type = 'validation']">A FedRAMP OSCAL SSP must
-                        incorporate one or more FIPS 140 validated products.</sch:assert>
+                        incorporate one or more FIPS 140 validated modules.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:component[@type = 'validation'] | oscal:inventory-item[@type = 'validation']">
             <sch:assert id="has-CMVP-validation-reference"
@@ -831,10 +832,12 @@ the four PTA questions is a duplicate</sch:assert>
         <sch:title>Security Objectives Categorization (FIPS 199)</sch:title>
         <sch:rule context="oscal:system-characteristics">
             <!-- These should also be asserted in XML Schema -->
-            <sch:assert id="has-security-sensitivity-level"
+            <sch:assert diagnostics="has-security-sensitivity-level-diagnostic"
+                        id="has-security-sensitivity-level"
                         role="error"
                         test="oscal:security-sensitivity-level">A FedRAMP OSCAL SSP must specify a FIPS 199 categorization.</sch:assert>
-            <sch:assert id="has-security-impact-level"
+            <sch:assert diagnostics="has-security-impact-level-diagnostic"
+                        id="has-security-impact-level"
                         role="error"
                         test="oscal:security-impact-level">A FedRAMP OSCAL SSP must specify a security impact level.</sch:assert>
         </sch:rule>
@@ -852,14 +855,17 @@ the four PTA questions is a duplicate</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:security-impact-level">
             <!-- These should also be asserted in XML Schema -->
-            <sch:assert id="has-security-objective-confidentiality"
+            <sch:assert diagnostics="has-security-objective-confidentiality-diagnostic"
+                        id="has-security-objective-confidentiality"
                         role="error"
                         test="oscal:security-objective-confidentiality">A FedRAMP OSCAL SSP must specify a confidentiality security
                         objective.</sch:assert>
-            <sch:assert id="has-security-objective-integrity"
+            <sch:assert diagnostics="has-security-objective-integrity-diagnostic"
+                        id="has-security-objective-integrity"
                         role="error"
                         test="oscal:security-objective-integrity">A FedRAMP OSCAL SSP must specify an integrity security objective.</sch:assert>
-            <sch:assert id="has-security-objective-availability"
+            <sch:assert diagnostics="has-security-objective-availability-diagnostic"
+                        id="has-security-objective-availability"
                         role="error"
                         test="oscal:security-objective-availability">A FedRAMP OSCAL SSP must specify an availability security
                         objective.</sch:assert>
@@ -1308,7 +1314,7 @@ the four PTA questions is a duplicate</sch:assert>
         <sch:diagnostic id="context-diagnostic">XPath: The context for this error is 
         <sch:value-of select="replace(path(), 'Q\{[^\}]+\}', '')" /></sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-is-referenced"
-                        id="resource-is-referenced-diagnostic">This resource SHOULD optionally have a reference within the document (but does
+                        id="resource-is-referenced-diagnostic">This resource should optionally have a reference within the document (but does
                         not).</sch:diagnostic>
         <sch:diagnostic id="has-allowed-media-type-diagnostic">This 
         <sch:value-of select="name(parent::node())" />&#x20;element has a media-type=" 
