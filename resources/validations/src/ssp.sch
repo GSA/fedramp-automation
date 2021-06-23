@@ -522,19 +522,24 @@
     <!-- set $fedramp-values globally -->
     <sch:let name="fedramp-values"
              value="doc(concat($registry-base-path, '/fedramp_values.xml'))" />
+    <!-- ↑ stage 2 content ↑ -->
+    <!-- ↓ stage 3 content ↓ -->
     <sch:pattern>
         <sch:title>Basic resource constraints</sch:title>
         <sch:let name="attachment-types"
                  value="$fedramp-values//fedramp:value-set[@name = 'attachment-type']//fedramp:enum/@value" />
         <sch:rule context="oscal:resource">
             <!-- the following assertion recapitulates the XML Schema constraint -->
-            <sch:assert id="resource-has-uuid"
+            <sch:assert diagnostics="resource-has-uuid-diagnostic"
+                        id="resource-has-uuid"
                         role="error"
                         test="@uuid">A resource must have a uuid attribute.</sch:assert>
-            <sch:assert id="resource-has-title"
+            <sch:assert diagnostics="resource-has-title-diagnostic"
+                        id="resource-has-title"
                         role="warning"
                         test="oscal:title">A resource should have a title.</sch:assert>
-            <sch:assert id="resource-has-rlink"
+            <sch:assert diagnostics="resource-has-rlink-diagnostic"
+                        id="resource-has-rlink"
                         role="error"
                         test="oscal:rlink">A resource must have a rlink element</sch:assert>
             <sch:assert diagnostics="resource-is-referenced-diagnostic"
@@ -544,20 +549,16 @@
                         document.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:back-matter/oscal:resource/oscal:prop[@name = 'type']">
-            <sch:assert id="attachment-type-is-valid"
-                        test="@value = $attachment-types">Found unknown attachment type « 
-            <sch:value-of select="@value" />» in 
-            <sch:value-of select="
-                        if (parent::oscal:resource/oscal:title) then
-                            concat('&quot;', parent::oscal:resource/oscal:title, '&quot;')
-                        else
-                            'untitled'" />resource</sch:assert>
+            <sch:assert diagnostics="attachment-type-is-valid-diagnostic"
+                        id="attachment-type-is-valid"
+                        role="warning"
+                        test="@value = $attachment-types">A resource should have an allowed attachment-type property.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:back-matter/oscal:resource/oscal:rlink">
-            <sch:assert id="rlink-has-href"
+            <sch:assert diagnostics="rlink-has-href-diagnostic"
+                        id="rlink-has-href"
                         role="error"
-                        test="@href">A &lt; 
-            <sch:name />&gt; element must have an href attribute</sch:assert>
+                        test="@href">A resource rlink must have an href attribute.</sch:assert>
             <!-- Both doc-avail() and unparsed-text-available() are failing on arbitrary hrefs -->
             <!--<sch:assert test="unparsed-text-available(@href)">the &lt;<sch:name/>&gt; element href attribute refers to a non-existent
                 document</sch:assert>-->
@@ -619,45 +620,54 @@
         <sch:title>Constraints for specific attachments</sch:title>
         <sch:rule context="oscal:back-matter"
                   see="https://github.com/18F/fedramp-automation/blob/master/documents/Guide_to_OSCAL-based_FedRAMP_System_Security_Plans_(SSP).pdf">
-            <sch:assert id="has-fedramp-acronyms"
+            <sch:assert diagnostics="has-fedramp-acronyms-diagnostic"
+                        id="has-fedramp-acronyms"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-acronyms']]">A
                         FedRAMP OSCAL SSP must attach the FedRAMP Master Acronym and Glossary.</sch:assert>
-            <sch:assert doc:attachment="§15 Attachment 12"
+            <sch:assert diagnostics="has-fedramp-citations-diagnostic"
+                        doc:attachment="§15 Attachment 12"
                         id="has-fedramp-citations"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-citations']]">A
                         FedRAMP OSCAL SSP must attach the FedRAMP Applicable Laws and Regulations.</sch:assert>
-            <sch:assert id="has-fedramp-logo"
+            <sch:assert diagnostics="has-fedramp-logo-diagnostic"
+                        id="has-fedramp-logo"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-logo']]">A
                         FedRAMP OSCAL SSP must attach the FedRAMP Logo.</sch:assert>
-            <sch:assert doc:attachment="§15 Attachment 2"
+            <sch:assert diagnostics="has-user-guide-diagnostic"
+                        doc:attachment="§15 Attachment 2"
                         id="has-user-guide"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'user-guide']]">A
                         FedRAMP OSCAL SSP must attach a User Guide.</sch:assert>
-            <sch:assert doc:attachment="§15 Attachment 5"
+            <sch:assert diagnostics="has-rules-of-behavior-diagnostic"
+                        doc:attachment="§15 Attachment 5"
                         id="has-rules-of-behavior"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'rules-of-behavior']]">A
                         FedRAMP OSCAL SSP must attach Rules of Behavior.</sch:assert>
-            <sch:assert doc:attachment="§15 Attachment 6"
+            <sch:assert diagnostics="has-information-system-contingency-plan-diagnostic"
+                        doc:attachment="§15 Attachment 6"
                         id="has-information-system-contingency-plan"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'information-system-contingency-plan']]">
             A FedRAMP OSCAL SSP must attach a Contingency Plan</sch:assert>
-            <sch:assert doc:attachment="§15 Attachment 7"
+            <sch:assert diagnostics="has-configuration-management-plan-diagnostic"
+                        doc:attachment="§15 Attachment 7"
                         id="has-configuration-management-plan"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'configuration-management-plan']]">
                         A FedRAMP OSCAL SSP must attach a Configuration Management Plan.</sch:assert>
-            <sch:assert doc:attachment="§15 Attachment 8"
+            <sch:assert diagnostics="has-incident-response-plan-diagnostic"
+                        doc:attachment="§15 Attachment 8"
                         id="has-incident-response-plan"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'incident-response-plan']]">
                         A FedRAMP OSCAL SSP must attach an Incident Response Plan.</sch:assert>
-            <sch:assert doc:attachment="§15 Attachment 11"
+            <sch:assert diagnostics="has-separation-of-duties-matrix-diagnostic"
+                        doc:attachment="§15 Attachment 11"
                         id="has-separation-of-duties-matrix"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'separation-of-duties-matrix']]">
@@ -673,46 +683,36 @@
         <sch:rule context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
                   doc:attachment="§15 Attachment 1"
                   see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 48">
-            <sch:assert id="has-policy-link"
+            <sch:assert diagnostics="has-policy-link-diagnostic"
+                        id="has-policy-link"
                         role="error"
-                        test="descendant::oscal:by-component/oscal:link[@rel = 'policy']">
-                <sch:value-of select="local-name()" />
-                <sch:value-of select="@control-id" />
-                <sch:span class="message">lacks policy reference(s) (via by-component link)</sch:span>
-            </sch:assert>
+                        test="descendant::oscal:by-component/oscal:link[@rel = 'policy']">A FedRAMP SSP must incorporate a policy document for each
+                        of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <sch:let name="policy-hrefs"
                      value="distinct-values(descendant::oscal:by-component/oscal:link[@rel = 'policy']/@href ! substring-after(., '#'))" />
-            <sch:assert id="has-policy-attachment-resource"
+            <sch:assert diagnostics="has-policy-attachment-resource-diagnostic"
+                        id="has-policy-attachment-resource"
                         role="error"
                         test="
                     every $ref in $policy-hrefs
-                        satisfies exists(//oscal:resource[oscal:prop[@name = 'type' and @value = 'policy']][@uuid = $ref])">
-                <sch:value-of select="local-name()" />
-                <sch:value-of select="@control-id" />
-                <sch:span class="message">lacks policy attachment resource(s)</sch:span>
-                <sch:value-of select="string-join($policy-hrefs, ', ')" />
-            </sch:assert>
+                        satisfies exists(//oscal:resource[oscal:prop[@name = 'type' and @value = 'policy']][@uuid = $ref])">A FedRAMP SSP must
+incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <!-- TODO: ensure resource has an rlink -->
-            <sch:assert id="has-procedure-link"
+            <sch:assert diagnostics="has-procedure-link-diagnostic"
+                        id="has-procedure-link"
                         role="error"
-                        test="descendant::oscal:by-component/oscal:link[@rel = 'procedure']">
-                <sch:value-of select="local-name()" />
-                <sch:value-of select="@control-id" />
-                <sch:span class="message">lacks procedure reference(s) (via by-component link)</sch:span>
-            </sch:assert>
+                        test="descendant::oscal:by-component/oscal:link[@rel = 'procedure']">A FedRAMP SSP must incorporate a procedure document for
+                        each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <sch:let name="procedure-hrefs"
                      value="distinct-values(descendant::oscal:by-component/oscal:link[@rel = 'procedure']/@href ! substring-after(., '#'))" />
-            <sch:assert id="has-procedure-attachment-resource"
+            <sch:assert diagnostics="has-procedure-attachment-resource-diagnostic"
+                        id="has-procedure-attachment-resource"
                         role="error"
                         test="
                     (: targets of links exist in the document :)
                     every $ref in $procedure-hrefs
-                        satisfies exists(//oscal:resource[oscal:prop[@name = 'type' and @value = 'procedure']][@uuid = $ref])">
-                <sch:value-of select="local-name()" />
-                <sch:value-of select="@control-id" />
-                <sch:span class="message">lacks procedure attachment resource(s)</sch:span>
-                <sch:value-of select="string-join($procedure-hrefs, ', ')" />
-            </sch:assert>
+                        satisfies exists(//oscal:resource[oscal:prop[@name = 'type' and @value = 'procedure']][@uuid = $ref])">A FedRAMP SSP must
+incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <!-- TODO: ensure resource has an rlink -->
         </sch:rule>
         <sch:rule context="oscal:by-component/oscal:link[@rel = ('policy', 'procedure')]">
@@ -1307,19 +1307,51 @@ the four PTA questions is a duplicate</sch:assert>
             <sch:p>Information System Categorization and FedRAMP Baselines</sch:p>
             <sch:assert id="has-fedramp-authorization-type"
                         test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'authorization-type' and @value = ('fedramp-jab', 'fedramp-agency', 'fedramp-li-saas')]">
-            Missing FedRAMP authorization type</sch:assert>
+            A FedRAMP OSCAL SSP must have a FedRAMP authorization type</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:diagnostics>
         <sch:diagnostic id="context-diagnostic">XPath: The context for this error is 
         <sch:value-of select="replace(path(), 'Q\{[^\}]+\}', '')" /></sch:diagnostic>
+        <sch:diagnostic doc:assertion="resource-has-uuid"
+                        doc:context="oscal:resource"
+                        id="resource-has-uuid-diagnostic">This resource lacks a uuid attribute.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="resource-has-title"
+                        doc:comment="synthesized"
+                        doc:context="oscal:resource"
+                        id="resource-has-title-diagnostic"
+                        xmlns="http://purl.oclc.org/dsdl/schematron">This resource lacks a title.</sch:diagnostic>
+        <diagnostic doc:assertion="resource-has-rlink"
+                    doc:comment="synthesized"
+                    doc:context="oscal:resource"
+                    id="resource-has-rlink-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">This resource lacks a rlink element</diagnostic>
         <sch:diagnostic doc:assertion="resource-is-referenced"
+                        doc:context="oscal:resource"
                         id="resource-is-referenced-diagnostic">This resource should optionally have a reference within the document (but does
                         not).</sch:diagnostic>
         <sch:diagnostic id="has-allowed-media-type-diagnostic">This 
         <sch:value-of select="name(parent::node())" />&#x20;element has a media-type=" 
         <sch:value-of select="current()" />" which is not in the list of allowed media types. Allowed media types are 
         <sch:value-of select="string-join($media-types, ' ∨ ')" />.</sch:diagnostic>
+        <diagnostic doc:assertion="attachment-type-is-valid"
+                    doc:comment="synthesized"
+                    doc:context="oscal:back-matter/oscal:resource/oscal:prop[@name = 'type']"
+                    id="attachment-type-is-valid-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">Found unknown attachment type «
+        <sch:value-of select="@value" />» in 
+        <sch:value-of select="
+                    if (parent::oscal:resource/oscal:title) then
+                        concat('&#34;', parent::oscal:resource/oscal:title, '&#34;')
+                    else
+                        'untitled'" />resource</diagnostic>
+        <diagnostic doc:assertion="rlink-has-href"
+                    doc:comment="synthesized"
+                    doc:context="oscal:back-matter/oscal:resource/oscal:rlink"
+                    id="rlink-has-href-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">A &lt; 
+        <sch:value-of select="name()"
+                      xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0" />&gt; element must have an href attribute</diagnostic>
         <sch:diagnostic doc:assertion="resource-has-base64"
                         id="resource-has-base64-diagnostic"
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">This resource should have a base64 element.</sch:diagnostic>
@@ -1335,6 +1367,90 @@ the four PTA questions is a duplicate</sch:assert>
         <sch:diagnostic doc:assertion="base64-has-content"
                         id="base64-has-content-diagnostic"
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">This base64 must have content.</sch:diagnostic>
+        <diagnostic doc:assertion="has-fedramp-acronyms"
+                    doc:comment="synthesized"
+                    doc:context="oscal:back-matter"
+                    id="has-fedramp-acronyms-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">This FedRAMP OSCAL SSP lacks the FedRAMP Master Acronym and Glossary.</diagnostic>
+        <diagnostic doc:assertion="has-fedramp-citations"
+                    doc:comment="synthesized"
+                    doc:context="oscal:back-matter"
+                    id="has-fedramp-citations-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">This FedRAMP OSCAL SSP lacks the FedRAMP Applicable Laws and
+                    Regulations.</diagnostic>
+        <diagnostic doc:assertion="has-fedramp-logo"
+                    doc:comment="synthesized"
+                    doc:context="oscal:back-matter"
+                    id="has-fedramp-logo-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">This FedRAMP OSCAL SSP lacks the FedRAMP Logo.</diagnostic>
+        <diagnostic doc:assertion="has-user-guide"
+                    doc:comment="synthesized"
+                    doc:context="oscal:back-matter"
+                    id="has-user-guide-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">This FedRAMP OSCAL SSP lacks a User Guide.</diagnostic>
+        <diagnostic doc:assertion="has-information-system-contingency-plan"
+                    doc:comment="synthesized"
+                    doc:context="oscal:back-matter"
+                    id="has-information-system-contingency-plan-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">This FedRAMP OSCAL SSP lacks a Contingency Plan</diagnostic>
+        <diagnostic doc:assertion="has-rules-of-behavior"
+                    doc:comment="synthesized"
+                    doc:context="oscal:back-matter"
+                    id="has-rules-of-behavior-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">This FedRAMP OSCAL SSP lacks a Rules of Behavior.</diagnostic>
+        <diagnostic doc:assertion="has-configuration-management-plan"
+                    doc:comment="synthesized"
+                    doc:context="oscal:back-matter"
+                    id="has-configuration-management-plan-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">This FedRAMP OSCAL SSP lacks a Configuration Management Plan.</diagnostic>
+        <diagnostic doc:assertion="has-incident-response-plan"
+                    doc:comment="synthesized"
+                    doc:context="oscal:back-matter"
+                    id="has-incident-response-plan-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">This FedRAMP OSCAL SSP lacks an Incident Response Plan.</diagnostic>
+        <diagnostic doc:assertion="has-separation-of-duties-matrix"
+                    doc:comment="synthesized"
+                    doc:context="oscal:back-matter"
+                    id="has-separation-of-duties-matrix-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">This FedRAMP OSCAL SSP lacks a Separation of Duties Matrix.</diagnostic>
+        <diagnostic doc:assertion="has-policy-link"
+                    doc:comment="synthesized"
+                    doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
+                    id="has-policy-link-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">
+            <sch:value-of select="local-name()" />
+            <sch:value-of select="@control-id" />
+            <sch:span class="message">lacks policy reference(s) (via by-component link)</sch:span>
+        </diagnostic>
+        <diagnostic doc:assertion="has-policy-attachment-resource"
+                    doc:comment="synthesized"
+                    doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
+                    id="has-policy-attachment-resource-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">
+            <sch:value-of select="local-name()" />
+            <sch:value-of select="@control-id" />
+            <sch:span class="message">lacks policy attachment resource(s)</sch:span>
+            <sch:value-of select="string-join($policy-hrefs, ', ')" />
+        </diagnostic>
+        <diagnostic doc:assertion="has-procedure-link"
+                    doc:comment="synthesized"
+                    doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
+                    id="has-procedure-link-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">
+            <sch:value-of select="local-name()" />
+            <sch:value-of select="@control-id" />
+            <sch:span class="message">lacks procedure reference(s) (via by-component link)</sch:span>
+        </diagnostic>
+        <diagnostic doc:assertion="has-procedure-attachment-resource"
+                    doc:comment="synthesized"
+                    doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
+                    id="has-procedure-attachment-resource-diagnostic"
+                    xmlns="http://purl.oclc.org/dsdl/schematron">
+            <sch:value-of select="local-name()" />
+            <sch:value-of select="@control-id" />
+            <sch:span class="message">lacks procedure attachment resource(s)</sch:span>
+            <sch:value-of select="string-join($procedure-hrefs, ', ')" />
+        </diagnostic>
         <sch:diagnostic id="has-allowed-security-sensitivity-level-diagnostic">Invalid security-sensitivity-level " 
         <sch:value-of select="." />". It must have one of the following 
         <sch:value-of select="count($security-sensitivity-levels)" />values: 
