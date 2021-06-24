@@ -272,12 +272,12 @@
             <sch:assert diagnostics="incomplete-all-implemented-requirements-diagnostic"
                         doc:organizational-id="section-c.2"
                         id="incomplete-all-implemented-requirements"
-                        role="warn"
+                        role="warning"
                         test="not(exists($all-missing))">[Section C Check 2] This SSP has implemented all required controls.</sch:assert>
             <sch:assert diagnostics="extraneous-implemented-requirements-diagnostic"
                         doc:organizational-id="section-c.2"
                         id="extraneous-implemented-requirements"
-                        role="warn"
+                        role="warning"
                         test="not(exists($extraneous))">[Section C Check 2] This SSP has no extraneous implemented controls.</sch:assert>
             <sch:let name="results"
                      value="$ok-values =&gt; lv:analyze(//o:implemented-requirement/o:prop[@name = 'implementation-status'])" />
@@ -481,7 +481,7 @@
                         test="oscal:rlink">A resource must have a rlink element</sch:assert>
             <sch:assert diagnostics="resource-is-referenced-diagnostic"
                         id="resource-is-referenced"
-                        role="info"
+                        role="information"
                         test="@uuid = (//@href[matches(., '^#')] ! substring-after(., '#'))">A resource should be referenced from within the
                         document.</sch:assert>
         </sch:rule>
