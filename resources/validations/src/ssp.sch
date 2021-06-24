@@ -254,7 +254,7 @@
                      value="$required-controls[o:prop[@name = 'CORE' and @ns = $registry-ns] and @id = $all-missing/@id]" />
             <sch:let name="extraneous"
                      value="$implemented[not(@control-id = $required-controls/@id)]" />
-            <!--<sch:report id="each-required-control-report"
+            <sch:report id="each-required-control-report"
                         role="information"
                         test="count($required-controls) &gt; 0">The following 
             <sch:value-of select="count($required-controls)" />
@@ -263,7 +263,7 @@
                             ' control'
                         else
                             ' controls'" />are required: 
-            <sch:value-of select="$required-controls/@id" />.</sch:report>-->
+            <sch:value-of select="$required-controls/@id" />.</sch:report>
             <sch:assert diagnostics="incomplete-core-implemented-requirements-diagnostic"
                         doc:organizational-id="section-c.3"
                         id="incomplete-core-implemented-requirements"
@@ -283,10 +283,10 @@
                      value="$ok-values =&gt; lv:analyze(//o:implemented-requirement/o:prop[@name = 'implementation-status'])" />
             <sch:let name="total"
                      value="$results/reports/@count" />
-            <!--<sch:report id="control-implemented-requirements-stats"
+            <sch:report id="control-implemented-requirements-stats"
                         role="information"
                         test="count($results/errors/error) = 0">
-            <sch:value-of select="$results =&gt; lv:report() =&gt; normalize-space()" />.</sch:report>-->
+            <sch:value-of select="$results =&gt; lv:report() =&gt; normalize-space()" />.</sch:report>
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement">
             <sch:let name="sensitivity-level"
@@ -310,11 +310,11 @@
                         id="invalid-implementation-status"
                         role="error"
                         test="not(exists($corrections))">[Section C Check 2] Implementation status is correct.</sch:assert>
-            <!--<sch:report id="implemented-response-points"
+            <sch:report id="implemented-response-points"
                         role="information"
                         test="exists($implemented)">[Section C Check 2] This SSP has implemented a statement for each of the following lettered
                         response points for required controls: 
-            <sch:value-of select="$implemented/@statement-id" />.</sch:report>-->
+            <sch:value-of select="$implemented/@statement-id" />.</sch:report>
             <sch:assert diagnostics="missing-response-points-diagnostic"
                         doc:organizational-id="section-c.2"
                         id="missing-response-points"
