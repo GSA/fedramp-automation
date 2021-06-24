@@ -278,7 +278,7 @@
                         doc:organizational-id="section-c.2"
                         id="extraneous-implemented-requirements"
                         role="warn"
-                        test="not(exists($extraneous))">[Section C Check 2] This SSP has no implemented controls.</sch:assert>
+                        test="not(exists($extraneous))">[Section C Check 2] This SSP has no extraneous implemented controls.</sch:assert>
             <sch:let name="results"
                      value="$ok-values =&gt; lv:analyze(//o:implemented-requirement/o:prop[@name = 'implementation-status'])" />
             <sch:let name="total"
@@ -309,7 +309,7 @@
                         doc:organizational-id="section-c.2"
                         id="invalid-implementation-status"
                         role="error"
-                        test="not(exists($corrections))">[Section C Check 2] Status is correct.</sch:assert>
+                        test="not(exists($corrections))">[Section C Check 2] Implementation status is correct.</sch:assert>
             <!--<sch:report id="implemented-response-points"
                         role="information"
                         test="exists($implemented)">[Section C Check 2] This SSP has implemented a statement for each of the following lettered
@@ -733,7 +733,7 @@ must have all four PTA questions.</sch:assert>
                         test="
                     not(some $name in ('pta-1', 'pta-2', 'pta-3', 'pta-4')
                         satisfies exists(oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = $name][2]))">A FedRAMP OSCAL
-SSP must have duplicate PTA questions.</sch:assert>
+SSP must have no duplicate PTA questions.</sch:assert>
         </sch:rule>
         <sch:rule context="/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information"
                   see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 51">
@@ -876,7 +876,7 @@ SSP must have duplicate PTA questions.</sch:assert>
                         id="categorization-has-correct-system-attribute"
                         role="error"
                         test="@system = 'https://doi.org/10.6028/NIST.SP.800-60v2r1'">A FedRAMP OSCAL SSP information-type categorization must have a
-                        correct system attribute. The correct value is "https://doi.org/10.6028/NIST.SP.800-60v2r1".</sch:assert>
+                        correct system attribute.</sch:assert>
             <sch:assert diagnostics="categorization-has-information-type-id-diagnostic"
                         id="categorization-has-information-type-id"
                         role="error"
@@ -1012,7 +1012,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="has-allowed-asset-type-diagnostic"
                         id="has-allowed-asset-type"
                         role="warning"
-                        test="@value = $asset-types">asset-type property must have an allowed value.</sch:assert>
+                        test="@value = $asset-types">An asset-type property must have an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:prop[@name = 'virtual']">
             <sch:let name="virtuals"
@@ -1020,7 +1020,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="has-allowed-virtual-diagnostic"
                         id="has-allowed-virtual"
                         role="error"
-                        test="@value = $virtuals">virtual property must have an allowed value.</sch:assert>
+                        test="@value = $virtuals">A virtual property must have an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:prop[@name = 'public']">
             <sch:let name="publics"
@@ -1028,7 +1028,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="has-allowed-public-diagnostic"
                         id="has-allowed-public"
                         role="error"
-                        test="@value = $publics">public property must have an allowed value.</sch:assert>
+                        test="@value = $publics">A public property must have an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:prop[@name = 'allows-authenticated-scan']">
             <sch:let name="allows-authenticated-scans"
@@ -1036,7 +1036,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="has-allowed-allows-authenticated-scan-diagnostic"
                         id="has-allowed-allows-authenticated-scan"
                         role="error"
-                        test="@value = $allows-authenticated-scans">allows-authenticated-scan property has an allowed value.</sch:assert>
+                        test="@value = $allows-authenticated-scans">An allows-authenticated-scan property has an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:prop[@name = 'is-scanned']">
             <sch:let name="is-scanneds"
@@ -1052,7 +1052,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-allowed-scan-type-diagnostic"
                         id="inventory-item-has-allowed-scan-type"
                         role="error"
-                        test="@value = $scan-types">scan-type property must have an allowed value.</sch:assert>
+                        test="@value = $scan-types">A scan-type property must have an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:component">
             <sch:let name="component-types"
@@ -1076,7 +1076,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="has-one-asset-id-diagnostic"
                         id="has-one-asset-id"
                         role="error"
-                        test="count(oscal:prop[@name = 'asset-id']) = 1">An inventory-item must have only one asset-id.</sch:assert>
+                        test="not(oscal:prop[@name = 'asset-id'][2])">An inventory-item must have only one asset-id.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-asset-type-diagnostic"
                         id="inventory-item-has-asset-type"
                         role="error"
@@ -1084,7 +1084,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-asset-type-diagnostic"
                         id="inventory-item-has-one-asset-type"
                         role="error"
-                        test="count(oscal:prop[@name = 'asset-type']) = 1">An inventory-item must have only one asset-type.</sch:assert>
+                        test="not(oscal:prop[@name = 'asset-type'][2])">An inventory-item must have only one asset-type.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-virtual-diagnostic"
                         id="inventory-item-has-virtual"
                         role="error"
@@ -1092,7 +1092,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-virtual-diagnostic"
                         id="inventory-item-has-one-virtual"
                         role="error"
-                        test="count(oscal:prop[@name = 'virtual']) = 1">An inventory-item must have only one virtual property.</sch:assert>
+                        test="not(oscal:prop[@name = 'virtual'][2])">An inventory-item must have only one virtual property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-public-diagnostic"
                         id="inventory-item-has-public"
                         role="error"
@@ -1100,7 +1100,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-public-diagnostic"
                         id="inventory-item-has-one-public"
                         role="error"
-                        test="count(oscal:prop[@name = 'public']) = 1">An inventory-item must have only one public property.</sch:assert>
+                        test="not(oscal:prop[@name = 'public'][2])">An inventory-item must have only one public property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-scan-type-diagnostic"
                         id="inventory-item-has-scan-type"
                         role="error"
@@ -1108,7 +1108,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-scan-type-diagnostic"
                         id="inventory-item-has-one-scan-type"
                         role="error"
-                        test="count(oscal:prop[@name = 'scan-type']) = 1">An inventory-item has only one scan-type property.</sch:assert>
+                        test="not(oscal:prop[@name = 'scan-type'][2])">An inventory-item has only one scan-type property.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]">
             <sch:assert diagnostics="inventory-item-has-allows-authenticated-scan-diagnostic"
@@ -1129,7 +1129,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-baseline-configuration-name-diagnostic"
                         id="inventory-item-has-one-baseline-configuration-name"
                         role="error"
-                        test="count(oscal:prop[@name = 'baseline-configuration-name']) = 1">"infrastructure" inventory-item has only one
+                        test="not(oscal:prop[@name = 'baseline-configuration-name'][2])">"infrastructure" inventory-item has only one
                         baseline-configuration-name.</sch:assert>
             <!-- FIXME: Documentation says vendor name is in FedRAMP @ns -->
             <sch:assert diagnostics="inventory-item-has-vendor-name-diagnostic"
@@ -1227,7 +1227,7 @@ SSP must have duplicate PTA questions.</sch:assert>
             <sch:assert diagnostics="has-system-id-diagnostic"
                         id="has-system-id"
                         role="error"
-                        test="oscal:system-id[@identifier-type = 'https://fedramp.gov/']">A FedRAMP OSCAL SSP must have a system-id.</sch:assert>
+                        test="oscal:system-id[@identifier-type = 'https://fedramp.gov/']">A FedRAMP OSCAL SSP must have a FedRAMP system-id.</sch:assert>
             <sch:assert diagnostics="has-system-name-diagnostic"
                         id="has-system-name"
                         role="error"
@@ -1707,113 +1707,111 @@ SSP must have duplicate PTA questions.</sch:assert>
         <sch:value-of select="@type" />").</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-uuid"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-uuid-diagnostic">This inventory-item must have a uuid attribute.</sch:diagnostic>
+                        id="inventory-item-has-uuid-diagnostic">This inventory-item lacks a uuid attribute.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-asset-id"
                         doc:context="oscal:inventory-item"
-                        id="has-asset-id-diagnostic">This inventory-item must have an asset-id property.</sch:diagnostic>
+                        id="has-asset-id-diagnostic">This inventory-item lacks an asset-id property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-one-asset-id"
                         doc:context="oscal:inventory-item"
-                        id="has-one-asset-id-diagnostic">This inventory-item must have only one asset-id property.</sch:diagnostic>
+                        id="has-one-asset-id-diagnostic">This inventory-item has more than one asset-id property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-asset-type"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-asset-type-diagnostic">This inventory-item must have an asset-type property.</sch:diagnostic>
+                        id="inventory-item-has-asset-type-diagnostic">This inventory-item lacks an asset-type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-asset-type"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-one-asset-type-diagnostic">This inventory-item must have only one asset-type
-                        property.</sch:diagnostic>
+                        id="inventory-item-has-one-asset-type-diagnostic">This inventory-item has more than one asset-type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-virtual"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-virtual-diagnostic">This inventory-item must have virtual property.</sch:diagnostic>
+                        id="inventory-item-has-virtual-diagnostic">This inventory-item lacks virtual property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-virtual"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-one-virtual-diagnostic">This inventory-item must have only one virtual property.</sch:diagnostic>
+                        id="inventory-item-has-one-virtual-diagnostic">This inventory-item has more than one virtual property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-public"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-public-diagnostic">This inventory-item must have public property.</sch:diagnostic>
+                        id="inventory-item-has-public-diagnostic">This inventory-item lacks public property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-public"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-one-public-diagnostic">This inventory-item must have only one public property.</sch:diagnostic>
+                        id="inventory-item-has-one-public-diagnostic">This inventory-item has more than one public property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-scan-type"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-scan-type-diagnostic">This inventory-item must have scan-type property.</sch:diagnostic>
+                        id="inventory-item-has-scan-type-diagnostic">This inventory-item lacks scan-type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-scan-type"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-one-scan-type-diagnostic">This inventory-item must have only one scan-type property.</sch:diagnostic>
+                        id="inventory-item-has-one-scan-type-diagnostic">This inventory-item has more than one scan-type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-allows-authenticated-scan"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
-                        id="inventory-item-has-allows-authenticated-scan-diagnostic">This inventory-item must have allows-authenticated-scan
+                        id="inventory-item-has-allows-authenticated-scan-diagnostic">This inventory-item lacks allows-authenticated-scan
                         property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-allows-authenticated-scan"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
-                        id="inventory-item-has-one-allows-authenticated-scan-diagnostic">This inventory-item must have only one
+                        id="inventory-item-has-one-allows-authenticated-scan-diagnostic">This inventory-item has more than one
                         allows-authenticated-scan property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-baseline-configuration-name"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
-                        id="inventory-item-has-baseline-configuration-name-diagnostic">This inventory-item must have baseline-configuration-name
+                        id="inventory-item-has-baseline-configuration-name-diagnostic">This inventory-item lacks baseline-configuration-name
                         property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-baseline-configuration-name"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
-                        id="inventory-item-has-one-baseline-configuration-name-diagnostic">This inventory-item must have only one
+                        id="inventory-item-has-one-baseline-configuration-name-diagnostic">This inventory-item has more than one
                         baseline-configuration-name property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-vendor-name"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
-                        id="inventory-item-has-vendor-name-diagnostic">This inventory-item must have a vendor-name property.</sch:diagnostic>
+                        id="inventory-item-has-vendor-name-diagnostic">This inventory-item lacks a vendor-name property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-vendor-name"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
-                        id="inventory-item-has-one-vendor-name-diagnostic">This inventory-item must have only one vendor-name
+                        id="inventory-item-has-one-vendor-name-diagnostic">This inventory-item has more than one vendor-name
                         property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-hardware-model"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
-                        id="inventory-item-has-hardware-model-diagnostic">This inventory-item must have a hardware-model property.</sch:diagnostic>
+                        id="inventory-item-has-hardware-model-diagnostic">This inventory-item lacks a hardware-model property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-hardware-model"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
-                        id="inventory-item-has-one-hardware-model-diagnostic">This inventory-item must have only one hardware-model
+                        id="inventory-item-has-one-hardware-model-diagnostic">This inventory-item has more than one hardware-model
                         property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-is-scanned"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
-                        id="inventory-item-has-is-scanned-diagnostic">This inventory-item must have is-scanned property.</sch:diagnostic>
+                        id="inventory-item-has-is-scanned-diagnostic">This inventory-item lacks is-scanned property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-is-scanned"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
-                        id="inventory-item-has-one-is-scanned-diagnostic">This inventory-item must have only one is-scanned
-                        property.</sch:diagnostic>
+                        id="inventory-item-has-one-is-scanned-diagnostic">This inventory-item has more than one is-scanned property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-software-name"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
-                        id="inventory-item-has-software-name-diagnostic">This inventory-item must have software-name property.</sch:diagnostic>
+                        id="inventory-item-has-software-name-diagnostic">This inventory-item lacks software-name property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-software-name"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
-                        id="inventory-item-has-one-software-name-diagnostic">This inventory-item must have only one software-name
+                        id="inventory-item-has-one-software-name-diagnostic">This inventory-item has more than one software-name
                         property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-software-version"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
-                        id="inventory-item-has-software-version-diagnostic">This inventory-item must have software-version property.</sch:diagnostic>
+                        id="inventory-item-has-software-version-diagnostic">This inventory-item lacks software-version property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-software-version"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
-                        id="inventory-item-has-one-software-version-diagnostic">This inventory-item must have only one software-version
+                        id="inventory-item-has-one-software-version-diagnostic">This inventory-item has more than one software-version
                         property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-function"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
                         id="inventory-item-has-function-diagnostic">
         <sch:value-of select="name()" />" 
-        <sch:value-of select="oscal:prop[@name = 'asset-type']/@value" />" must have function property.</sch:diagnostic>
+        <sch:value-of select="oscal:prop[@name = 'asset-type']/@value" />" lacks function property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-function"
                         doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
                         id="inventory-item-has-one-function-diagnostic">
         <sch:value-of select="name()" />" 
-        <sch:value-of select="oscal:prop[@name = 'asset-type']/@value" />" must have only one function property.</sch:diagnostic>
+        <sch:value-of select="oscal:prop[@name = 'asset-type']/@value" />" has more than one function property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="component-has-asset-type"
                         doc:context="/oscal:system-security-plan/oscal:system-implementation/oscal:component[(: a component referenced by any inventory-item :)@uuid = //oscal:inventory-item/oscal:implemented-component/@component-uuid]"
                         id="component-has-asset-type-diagnostic">
-        <sch:value-of select="name()" />must have an asset-type property.</sch:diagnostic>
+        <sch:value-of select="name()" />lacks an asset-type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="component-has-one-asset-type"
                         doc:context="/oscal:system-security-plan/oscal:system-implementation/oscal:component[(: a component referenced by any inventory-item :)@uuid = //oscal:inventory-item/oscal:implemented-component/@component-uuid]"
                         id="component-has-one-asset-type-diagnostic">
-        <sch:value-of select="name()" />must have only one asset-type property.</sch:diagnostic>
+        <sch:value-of select="name()" />has more than one asset-type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-system-component"
                         doc:context="oscal:system-implementation"
                         id="has-system-component-diagnostic">This FedRAMP OSCAL SSP lacks a system component.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-system-id"
                         doc:context="oscal:system-characteristics"
-                        id="has-system-id-diagnostic">This FedRAMP OSCAL SSP lacks a system-id.</sch:diagnostic>
+                        id="has-system-id-diagnostic">This FedRAMP OSCAL SSP lacks a FedRAMP system-id.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-system-name"
                         doc:context="oscal:system-characteristics"
                         id="has-system-name-diagnostic">This FedRAMP OSCAL SSP lacks a system-name.</sch:diagnostic>
