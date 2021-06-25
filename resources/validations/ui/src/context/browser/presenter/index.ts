@@ -1,23 +1,43 @@
 import { createOvermind, createOvermindMock, IConfig } from 'overmind';
 import { merge, namespaced } from 'overmind/config';
 
-import type { ValidateSchematronUseCase } from '../../../use-cases/validate-ssp-xml';
-
+import * as github from '../../../domain/github';
 import * as actions from './actions';
+import type {
+  ValidateSSPUseCase,
+  ValidateSSPUrlUseCase,
+} from '../../../use-cases/validate-ssp-xml';
+
 import * as report from './report';
 
 type UseCases = {
-  validateSchematron: ValidateSchematronUseCase;
+  validateSSP: ValidateSSPUseCase;
+  validateSSPUrl: ValidateSSPUrlUseCase;
 };
 
-export const getPresenterConfig = (useCases: UseCases) => {
+type SampleSSP = {
+  url: string;
+  displayName: string;
+};
+
+type State = {
+  baseUrl: string;
+  repositoryUrl: string;
+  sampleSSPs: SampleSSP[];
+};
+
+export const getPresenterConfig = (
+  useCases: UseCases,
+  initialState: Partial<State> = {},
+) => {
   return merge(
     {
-      state: {
-        baseUrl: '/',
-        repositoryUrl: '#',
-      },
       actions,
+      state: {
+        baseUrl: '',
+        sampleSSPs: [] as SampleSSP[],
+        ...initialState,
+      },
       effects: {
         useCases,
       },
@@ -36,15 +56,21 @@ export type PresenterContext = {
   baseUrl: string;
   debug: boolean;
   repositoryUrl: string;
+  sampleSSPs: SampleSSP[];
   useCases: UseCases;
 };
 
 export const createPresenter = (ctx: PresenterContext) => {
-  const presenter = createOvermind(getPresenterConfig(ctx.useCases), {
-    devtools: ctx.debug,
-  });
-  presenter.actions.setBaseUrl(ctx.baseUrl);
-  presenter.actions.setRepositoryUrl(ctx.repositoryUrl);
+  const presenter = createOvermind(
+    getPresenterConfig(ctx.useCases, {
+      baseUrl: ctx.baseUrl,
+      repositoryUrl: ctx.repositoryUrl,
+      sampleSSPs: ctx.sampleSSPs,
+    }),
+    {
+      devtools: ctx.debug,
+    },
+  );
   return presenter;
 };
 export type Presenter = ReturnType<typeof createPresenter>;
@@ -59,14 +85,23 @@ export type Presenter = ReturnType<typeof createPresenter>;
 const getUseCasesShim = (): UseCases => {
   const stub = jest.fn();
   return {
-    validateSchematron: stub,
+    validateSSP: stub,
+    validateSSPUrl: stub,
   };
 };
 
-export const createPresenterMock = (useCaseMocks?: Partial<UseCases>) => {
-  const presenter = createOvermindMock(getPresenterConfig(getUseCasesShim()), {
-    useCases: useCaseMocks,
-  });
+type MockPresenterContext = {
+  useCases?: Partial<UseCases>;
+  initialState?: Partial<State>;
+};
+
+export const createPresenterMock = (ctx: MockPresenterContext = {}) => {
+  const presenter = createOvermindMock(
+    getPresenterConfig(getUseCasesShim(), ctx.initialState),
+    {
+      useCases: ctx.useCases,
+    },
+  );
   return presenter;
 };
 export type PresenterMock = ReturnType<typeof createPresenterMock>;

@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { usePresenter } from '../hooks';
-import { onFileChange } from '../util/file-input';
+import { onFileInputChangeGetFile } from '../../util/file-input';
 import { SSPReport } from './report';
 
 export const SSPValidator = () => {
   const { state, actions } = usePresenter();
+  const validatedReport = state.report.matches('VALIDATED');
 
   return (
     <div className="grid-row grid-gap">
@@ -23,9 +24,30 @@ export const SSPValidator = () => {
           name="file-input-specific"
           aria-describedby="file-input-specific-hint"
           accept=".xml"
-          onChange={onFileChange(actions.report.setXmlContents)}
+          onChange={onFileInputChangeGetFile(fileDetails => {
+            actions.report.setXmlContents({
+              fileName: fileDetails.name,
+              xmlContents: fileDetails.text,
+            });
+          })}
+          disabled={state.report.current === 'PROCESSING'}
         />
-        {state.report.validationReport && (
+        <div className="usa-hint">
+          Or just use an example file, brought to you by FedRAMP.
+        </div>
+        <div>
+          {state.sampleSSPs.map((sampleSSP, index) => (
+            <button
+              key={index}
+              className="usa-button usa-button--unstyled"
+              onClick={() => actions.report.setXmlUrl(sampleSSP.url)}
+              disabled={state.report.current === 'PROCESSING'}
+            >
+              {sampleSSP.displayName}
+            </button>
+          ))}
+        </div>
+        {validatedReport && (
           <form className="usa-form">
             <fieldset className="usa-fieldset">
               <div className="usa-search usa-search--small" role="search">
@@ -65,7 +87,7 @@ export const SSPValidator = () => {
                 </div>
               </div>
               <div className="usa-radio">
-                {state.report.roles.map((filterRole, index) => (
+                {validatedReport.roles.map((filterRole, index) => (
                   <div key={index}>
                     <input
                       className="usa-radio__input usa-radio__input--tile"
@@ -73,7 +95,7 @@ export const SSPValidator = () => {
                       type="radio"
                       name="role"
                       value={filterRole}
-                      checked={state.report.filter.role === filterRole}
+                      checked={validatedReport.filter.role === filterRole}
                       onChange={() => actions.report.setFilterRole(filterRole)}
                     />
                     <label
@@ -90,7 +112,7 @@ export const SSPValidator = () => {
         )}
       </div>
       <div className="mobile:grid-col-12 tablet:grid-col-8">
-        {state.report.loadingValidationReport && <div className="loader" />}
+        {state.report.current === 'PROCESSING' && <div className="loader" />}
         <SSPReport />
       </div>
     </div>

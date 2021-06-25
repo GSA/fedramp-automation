@@ -1,30 +1,72 @@
 import type { Action, AsyncAction } from 'overmind';
 
+import type { ValidationReport } from '../../../../use-cases/schematron';
 import type { Role } from './state';
 
-export const setXmlContents: AsyncAction<string> = (
-  { state, effects },
-  xmlContents: string,
+export const reset: Action = ({ state }) => {
+  if (state.report.matches('VALIDATED')) {
+    state.report.send('RESET');
+  }
+};
+
+export const setXmlContents: AsyncAction<{
+  fileName: string;
+  xmlContents: string;
+}> = async (
+  { actions, state, effects },
+  options: { fileName: string; xmlContents: string },
 ) => {
-  state.report.loadingValidationReport = true;
-  return effects.useCases
-    .validateSchematron(xmlContents)
-    .then(validationReport => {
-      state.report.validationReport = validationReport;
-    })
-    .catch(reason => {
-      console.error('error validating', reason);
-      state.report.validationReport = null;
-    })
-    .finally(() => {
-      state.report.loadingValidationReport = false;
-    });
+  actions.report.reset();
+  if (
+    state.report
+      .send('PROCESSING_STRING', { fileName: options.fileName })
+      .matches('PROCESSING')
+  ) {
+    return effects.useCases
+      .validateSSP(options.xmlContents)
+      .then(actions.report.setValidationReport)
+      .catch(actions.report.setProcessingError);
+  }
+};
+
+export const setXmlUrl: AsyncAction<string> = async (
+  { actions, effects, state },
+  xmlFileUrl,
+) => {
+  actions.report.reset();
+  if (
+    state.report.send('PROCESSING_URL', { xmlFileUrl }).matches('PROCESSING')
+  ) {
+    return effects.useCases
+      .validateSSPUrl(xmlFileUrl)
+      .then(actions.report.setValidationReport)
+      .catch(actions.report.setProcessingError);
+  }
+};
+
+export const setProcessingError: Action<string> = ({ state }, errorMessage) => {
+  if (state.report.matches('PROCESSING')) {
+    state.report.send('PROCESSING_ERROR', { errorMessage });
+  }
+};
+
+export const setValidationReport: Action<ValidationReport> = (
+  { state },
+  validationReport,
+) => {
+  if (state.report.matches('PROCESSING')) {
+    state.report.send('VALIDATED', { validationReport });
+  }
 };
 
 export const setFilterRole: Action<Role> = ({ state }, filter) => {
-  state.report.filter.role = filter;
+  if (state.report.current === 'VALIDATED') {
+    state.report.filter.role = filter;
+  }
 };
 
 export const setFilterText: Action<string> = ({ state }, text) => {
-  state.report.filter.text = text;
+  if (state.report.current === 'VALIDATED') {
+    state.report.filter.text = text;
+  }
 };

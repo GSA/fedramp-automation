@@ -13,7 +13,7 @@ const config = require('../shared/project-config');
 
 const controller = CommandLineController({
   readStringFile,
-  validateSchematron: SaxonJsSchematronValidatorGateway({
+  validateSSP: SaxonJsSchematronValidatorGateway({
     sefUrl: `file://${join(config.PUBLIC_PATH, 'ssp.sef.json')}`,
     SaxonJS: SaxonJS,
     baselinesBaseUrl: config.BASELINES_PATH,

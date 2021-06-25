@@ -5,8 +5,8 @@
 export type ValidationAssert = {
   id: string;
   location: string;
-  role: string;
-  see: string;
+  role?: string;
+  see?: string;
   test: string;
   text: string;
 };

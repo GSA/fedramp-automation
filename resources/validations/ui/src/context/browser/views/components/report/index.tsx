@@ -5,7 +5,7 @@ import { usePresenter } from '../../../views/hooks';
 
 const MAX_ASSERT_TEXT_LENGTH = 200;
 
-const alertClassForRole = (role: string) => {
+const alertClassForRole = (role: string | undefined) => {
   const roleLower = (role || '').toLowerCase();
   if (roleLower.includes('warn')) {
     return 'usa-alert--warning';
@@ -54,16 +54,18 @@ export const SSPReport = () => {
   const { state } = usePresenter();
   return (
     <div>
-      {state.report.validationReport && (
-        <h1>
-          Showing {state.report.visibleAssertions.length} of{' '}
-          {state.report.validationReport &&
-            state.report.validationReport.failedAsserts.length}
-        </h1>
+      {state.report.current === 'VALIDATED' && (
+        <>
+          <h1>
+            Showing {state.report.visibleAssertions.length} of{' '}
+            {state.report.validationReport &&
+              state.report.validationReport.failedAsserts.length}
+          </h1>
+          {state.report.visibleAssertions.map((assert, index) => (
+            <Assertion key={index} assert={assert} />
+          ))}
+        </>
       )}
-      {state.report.visibleAssertions.map((assert, index) => (
-        <Assertion key={index} assert={assert} />
-      ))}
     </div>
   );
 };

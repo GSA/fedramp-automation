@@ -6,7 +6,7 @@ describe('command-line controller', () => {
     const mockXml = '<xml></xml>';
     const ctx = {
       readStringFile: jest.fn().mockReturnValue(mockXml),
-      validateSchematron: jest.fn().mockReturnValue(
+      validateSSP: jest.fn().mockReturnValue(
         Promise.resolve({
           failedAsserts: [],
         }),
@@ -15,6 +15,6 @@ describe('command-line controller', () => {
     const cli = CommandLineController(ctx);
     cli.parse(['ts-node', 'index.ts', 'validate', 'ssp.xml']);
     expect(ctx.readStringFile).toHaveBeenCalledWith('ssp.xml');
-    expect(ctx.validateSchematron).toHaveBeenCalledWith(mockXml);
+    expect(ctx.validateSSP).toHaveBeenCalledWith(mockXml);
   });
 });

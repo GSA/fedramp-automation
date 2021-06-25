@@ -1,15 +1,17 @@
 const config = require('./src/context/shared/project-config');
 
 const BASEURL = process.env.BASEURL || '';
-const REPOSITORY = `https://github.com/${process.env.OWNER || '18F'}/${
-  process.env.REPOSITORY || 'fedramp-automation'
-}/tree/${process.env.BRANCH || 'master'}`;
+const GITHUB = {
+  owner: process.env.OWNER || '18F',
+  repository: process.env.REPOSITORY || 'fedramp-automation',
+  branch: process.env.BRANCH || 'master',
+};
 
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
   env: {
     BASEURL,
-    REPOSITORY,
+    GITHUB,
   },
   mount: {
     src: { url: '/dist' },

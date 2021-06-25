@@ -1,13 +1,25 @@
 import type { SchematronValidator } from './schematron';
 
-type ValidateSchematronUseCaseContext = {
+type ValidateSSPUseCaseContext = {
   generateSchematronValidationReport: SchematronValidator;
 };
 
-export const ValidateSchematronUseCase =
-  (ctx: ValidateSchematronUseCaseContext) => (oscalXmlString: string) => {
+export const ValidateSSPUseCase =
+  (ctx: ValidateSSPUseCaseContext) => (oscalXmlString: string) => {
     return ctx.generateSchematronValidationReport(oscalXmlString);
   };
-export type ValidateSchematronUseCase = ReturnType<
-  typeof ValidateSchematronUseCase
->;
+export type ValidateSSPUseCase = ReturnType<typeof ValidateSSPUseCase>;
+
+type ValidateSSPUrlUseCaseContext = {
+  generateSchematronValidationReport: SchematronValidator;
+  fetch: typeof fetch;
+};
+
+export const ValidateSSPUrlUseCase =
+  (ctx: ValidateSSPUrlUseCaseContext) => (xmlUrl: string) => {
+    return ctx
+      .fetch(xmlUrl)
+      .then(response => response.text())
+      .then(ctx.generateSchematronValidationReport);
+  };
+export type ValidateSSPUrlUseCase = ReturnType<typeof ValidateSSPUseCase>;

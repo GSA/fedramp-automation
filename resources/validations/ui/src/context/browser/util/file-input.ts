@@ -11,11 +11,13 @@ const readFileAsync = (file: File) => {
   });
 };
 
-export const onFileChange =
-  (setText: (text: string) => void) =>
+export const onFileInputChangeGetFile =
+  (setFile: ({ name, text }: { name: string; text: string }) => void) =>
   (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
       const inputFile = event.target.files[0];
-      readFileAsync(inputFile).then(setText);
+      readFileAsync(inputFile).then(text => {
+        setFile({ name: inputFile.name, text });
+      });
     }
   };
