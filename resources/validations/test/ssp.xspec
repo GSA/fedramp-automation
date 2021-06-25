@@ -9,7 +9,8 @@
     <x:param name="allow-foreign">true</x:param>
     <x:param name="only-child-elements">false</x:param>
     <x:param name="visit-text">true</x:param>
-    <x:scenario label="For an OSCAL FedRAMP SSP">
+    <x:scenario label="For an OSCAL FedRAMP SSP"
+                pending="">
         <x:scenario label="Section 2.1">
             <x:scenario label="when the security sensitivity level">
                 <x:scenario label="is not defined at all">
@@ -1100,14 +1101,13 @@
                                 <back-matter>
                                     <resource uuid="e6522953-6714-435d-a0d3-140df554c186">
                                         <title>FedRAMP Moderate Baseline</title>
-                                        <rlink href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.0-milestone3/content/fedramp.gov/xml/FedRAMP_MODERATE-baseline_profile.xml"
-                                               media-type="application/xml" />
+                                        <rlink />
                                     </resource>
                                 </back-matter>
                             </system-security-plan>
                         </x:context>
-                        <!--<x:expect-not-assert id="resource-rlink-required"
-                                             label="resource rlink should exist." />-->
+                        <x:expect-not-assert id="resource-rlink-required"
+                                             label="resource rlink should exist." />
                     </x:scenario>
                     <x:scenario label="has a Policies and Procedures document attached"
                                 pending="">
@@ -1407,6 +1407,28 @@
     </x:scenario>
     <x:scenario label="FedRAMP OSCAL SSP Attachments">
         <x:scenario label="General:">
+            <x:scenario label="when a resource attachment type">
+                <x:scenario label="is allowed">
+                    <x:context>
+                        <resource xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="type"
+                                  value="image" />
+                        </resource>
+                    </x:context>
+                    <x:expect-not-assert id="attachment-type-is-valid"
+                                         label="that is correct" />
+                </x:scenario>
+                <x:scenario label="is not allowed">
+                    <x:context>
+                        <resource xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="type"
+                                  value="notallowed" />
+                        </resource>
+                    </x:context>
+                    <x:expect-assert id="attachment-type-is-valid"
+                                     label="that is an error" />
+                </x:scenario>
+            </x:scenario>
             <x:scenario label="when a resource">
                 <x:scenario label="has a uuid">
                     <x:context>
@@ -1490,6 +1512,30 @@
                                      label="that is an anomaly" />
                 </x:scenario>
             </x:scenario>
+            <x:scenario label="when an rlink">
+                <x:scenario label="has an href">
+                    <x:context>
+                        <back-matter xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <resource>
+                                <rlink href="href" />
+                            </resource>
+                        </back-matter>
+                    </x:context>
+                    <x:expect-not-assert id="rlink-has-href"
+                                         label="that is correct" />
+                </x:scenario>
+                <x:scenario label="lacks an href">
+                    <x:context>
+                        <back-matter xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <resource>
+                                <rlink not-a-href="href" />
+                            </resource>
+                        </back-matter>
+                    </x:context>
+                    <x:expect-assert id="rlink-has-href"
+                                     label="that is correct" />
+                </x:scenario>
+            </x:scenario>
             <x:scenario label="when the media-type attribute"
                         pending="">
                 <x:scenario label="has an allowed value">
@@ -1522,7 +1568,7 @@
                         <back-matter>
                             <resource>
                                 <base64 filename="filename.xml"
-                                        media-type="text/plain">stuff</base64>
+                                        media-type="text/plain">RmVkUkFNUAo=</base64>
                             </resource>
                         </back-matter>
                     </system-security-plan>
@@ -1554,7 +1600,7 @@
                         <back-matter>
                             <resource>
                                 <base64 filename="filename.xml"
-                                        media-type="text/plain">stuff</base64>
+                                    media-type="text/plain">RmVkUkFNUAo=</base64>
                             </resource>
                         </back-matter>
                     </system-security-plan>
@@ -1566,7 +1612,7 @@
                                 <resource>
                                     <!--<base64
                                     filename="filename.xml"
-                                    media-type="text/plain">stuff</base64>-->
+                                    media-type="text/plain">RmVkUkFNUAo=</base64>-->
                                 </resource>
                             </back-matter>
                         </system-security-plan>
@@ -1580,14 +1626,14 @@
                             <back-matter>
                                 <resource>
                                     <base64 filename="filename.xml"
-                                            media-type="text/plain">stuff</base64>
+                                        media-type="text/plain">RmVkUkFNUAo=</base64>
                                     <base64 filename="filename.xml"
-                                            media-type="text/plain">stuff</base64>
+                                        media-type="text/plain">RmVkUkFNUAo=</base64>
                                 </resource>
                             </back-matter>
                         </system-security-plan>
                     </x:context>
-                    <x:expect-assert id="resource-base64-cardinality"
+                    <x:expect-assert id="resource-has-base64-cardinality"
                                      label="that is an error" />
                 </x:scenario>
                 <x:scenario label="lacks @filename">
@@ -1595,7 +1641,7 @@
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <back-matter>
                                 <resource>
-                                    <base64 media-type="text/plain">stuff</base64>
+                                    <base64 media-type="text/plain">RmVkUkFNUAo=</base64>
                                 </resource>
                             </back-matter>
                         </system-security-plan>
@@ -1608,7 +1654,7 @@
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <back-matter>
                                 <resource>
-                                    <base64 filename="filename.xml">stuff</base64>
+                                    <base64 filename="filename.xml">RmVkUkFNUAo=</base64>
                                 </resource>
                             </back-matter>
                         </system-security-plan>
@@ -1622,7 +1668,7 @@
                             <back-matter>
                                 <resource>
                                     <base64 filename="filename.xml"
-                                            media-type="text/plain" />
+                                            media-type="text/plain">xxx</base64>
                                 </resource>
                             </back-matter>
                         </system-security-plan>
