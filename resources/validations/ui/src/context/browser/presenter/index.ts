@@ -1,7 +1,6 @@
 import { createOvermind, createOvermindMock, IConfig } from 'overmind';
 import { merge, namespaced } from 'overmind/config';
 
-import * as github from '../../../domain/github';
 import * as actions from './actions';
 import type {
   ValidateSSPUseCase,

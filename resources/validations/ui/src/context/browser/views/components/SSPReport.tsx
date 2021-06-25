@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
-import type { ValidationAssert } from '../../../../../use-cases/schematron';
-import { usePresenter } from '../../../views/hooks';
+import type { ValidationAssert } from '../../../../use-cases/schematron';
+import { usePresenter } from '../../views/hooks';
+import { XmlViewer } from './XmlViewer';
 
 const MAX_ASSERT_TEXT_LENGTH = 200;
 
@@ -56,6 +57,7 @@ export const SSPReport = () => {
     <div>
       {state.report.current === 'VALIDATED' && (
         <>
+          <XmlViewer xmlText={state.report.xmlText} />
           <h1>
             Showing {state.report.visibleAssertions.length} of{' '}
             {state.report.validationReport &&

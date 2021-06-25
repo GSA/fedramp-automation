@@ -27,6 +27,7 @@ type States =
       };
       roles: Role[];
       validationReport: ValidationReport;
+      xmlText: string;
       filterRoles: Role[];
       visibleAssertions: ValidationAssert[];
     };
@@ -59,6 +60,7 @@ type Events =
       type: 'VALIDATED';
       data: {
         validationReport: ValidationReport;
+        xmlText: string;
       };
     };
 
@@ -96,11 +98,12 @@ export const reportMachine = statemachine<States, Events, BaseState>({
       };
     }
   },
-  VALIDATED: (state, { validationReport }) => {
+  VALIDATED: (state, { validationReport, xmlText }) => {
     if (state.current === 'PROCESSING') {
       return {
         current: 'VALIDATED',
         validationReport,
+        xmlText,
         filter: {
           role: 'all',
           text: '',

@@ -24,7 +24,12 @@ export const setXmlContents: AsyncAction<{
   ) {
     return effects.useCases
       .validateSSP(options.xmlContents)
-      .then(actions.report.setValidationReport)
+      .then(validationReport =>
+        actions.report.setValidationReport({
+          validationReport,
+          xmlText: options.xmlContents,
+        }),
+      )
       .catch(actions.report.setProcessingError);
   }
 };
@@ -50,12 +55,12 @@ export const setProcessingError: Action<string> = ({ state }, errorMessage) => {
   }
 };
 
-export const setValidationReport: Action<ValidationReport> = (
-  { state },
-  validationReport,
-) => {
+export const setValidationReport: Action<{
+  validationReport: ValidationReport;
+  xmlText: string;
+}> = ({ state }, { validationReport, xmlText }) => {
   if (state.report.matches('PROCESSING')) {
-    state.report.send('VALIDATED', { validationReport });
+    state.report.send('VALIDATED', { validationReport, xmlText });
   }
 };
 

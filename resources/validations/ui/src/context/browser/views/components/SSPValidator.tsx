@@ -2,7 +2,7 @@ import React from 'react';
 
 import { usePresenter } from '../hooks';
 import { onFileInputChangeGetFile } from '../../util/file-input';
-import { SSPReport } from './report';
+import { SSPReport } from './SSPReport';
 
 export const SSPValidator = () => {
   const { state, actions } = usePresenter();

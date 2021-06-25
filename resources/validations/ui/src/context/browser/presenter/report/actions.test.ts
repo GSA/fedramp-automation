@@ -78,7 +78,10 @@ describe('report action', () => {
             expect(presenter.state.report.current).toEqual('PROCESSING');
             done();
             return Promise.resolve({
-              failedAsserts: [],
+              xmlText: '<xml></xml>',
+              validationReport: {
+                failedAsserts: [],
+              },
             });
           }),
         },
@@ -98,7 +101,10 @@ describe('report action', () => {
       expect(presenter.state.report.current).toEqual('UNLOADED');
       presenter.actions.report.setFilterRole('error');
       expect(presenter.state.report.current).toEqual('UNLOADED');
-      presenter.actions.report.setValidationReport(MOCK_VALIDATION_REPORT);
+      presenter.actions.report.setValidationReport({
+        xmlText: '<xml></xml',
+        validationReport: MOCK_VALIDATION_REPORT,
+      });
     });
   });
 
@@ -112,11 +118,15 @@ describe('report action', () => {
       expect(presenter.state.report.current).toEqual('UNLOADED');
       presenter.actions.report.setFilterText('filter text');
       expect(presenter.state.report.current).toEqual('UNLOADED');
+      const xmlText = '<xml>ignored</xml>';
       presenter.actions.report.setXmlContents({
         fileName: 'file-name.xml',
-        xmlContents: '<xml>ignored</xml>',
+        xmlContents: xmlText,
       });
-      presenter.actions.report.setValidationReport(MOCK_VALIDATION_REPORT);
+      presenter.actions.report.setValidationReport({
+        xmlText,
+        validationReport: MOCK_VALIDATION_REPORT,
+      });
       presenter.actions.report.setFilterText('filter text');
       expect(presenter.state.report).toMatchObject({
         current: 'VALIDATED',
