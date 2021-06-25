@@ -9,8 +9,7 @@
     <x:param name="allow-foreign">true</x:param>
     <x:param name="only-child-elements">false</x:param>
     <x:param name="visit-text">true</x:param>
-    <x:scenario label="For an OSCAL FedRAMP SSP"
-                pending="">
+    <x:scenario label="For an OSCAL FedRAMP SSP">
         <x:scenario label="Section 2.1">
             <x:scenario label="when the security sensitivity level">
                 <x:scenario label="is not defined at all">
@@ -1418,7 +1417,8 @@
                     <x:expect-not-assert id="attachment-type-is-valid"
                                          label="that is correct" />
                 </x:scenario>
-                <x:scenario label="is not allowed">
+                <x:scenario label="is not allowed"
+                            pending="XSpec error resolution">
                     <x:context>
                         <resource xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="type"
@@ -1600,7 +1600,7 @@
                         <back-matter>
                             <resource>
                                 <base64 filename="filename.xml"
-                                    media-type="text/plain">RmVkUkFNUAo=</base64>
+                                        media-type="text/plain">RmVkUkFNUAo=</base64>
                             </resource>
                         </back-matter>
                     </system-security-plan>
@@ -1620,15 +1620,16 @@
                     <x:expect-assert id="resource-has-base64"
                                      label="that is a warning" />
                 </x:scenario>
-                <x:scenario label="is duplicative">
+                <x:scenario label="is duplicative"
+                            pending="XSpec error resolution">
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <back-matter>
                                 <resource>
                                     <base64 filename="filename.xml"
-                                        media-type="text/plain">RmVkUkFNUAo=</base64>
+                                            media-type="text/plain">RmVkUkFNUAo=</base64>
                                     <base64 filename="filename.xml"
-                                        media-type="text/plain">RmVkUkFNUAo=</base64>
+                                            media-type="text/plain">RmVkUkFNUAo=</base64>
                                 </resource>
                             </back-matter>
                         </system-security-plan>
