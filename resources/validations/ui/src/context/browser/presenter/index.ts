@@ -1,4 +1,4 @@
-import { createOvermind, createOvermindMock, IConfig } from 'overmind';
+import { createOvermind, createOvermindMock, IContext } from 'overmind';
 import { merge, namespaced } from 'overmind/config';
 
 import * as actions from './actions';
@@ -46,10 +46,7 @@ export const getPresenterConfig = (
     }),
   );
 };
-export type PresenterConfig = ReturnType<typeof getPresenterConfig>;
-declare module 'overmind' {
-  interface Config extends IConfig<PresenterConfig> {}
-}
+export type PresenterConfig = IContext<ReturnType<typeof getPresenterConfig>>;
 
 export type PresenterContext = {
   baseUrl: string;

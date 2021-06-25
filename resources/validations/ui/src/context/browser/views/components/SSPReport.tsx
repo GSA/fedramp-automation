@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import type { ValidationAssert } from '../../../../use-cases/schematron';
-import { usePresenter } from '../../views/hooks';
+import { useActions, useAppState } from '../../views/hooks';
 import { XmlViewer } from './XmlViewer';
 
 const MAX_ASSERT_TEXT_LENGTH = 200;
@@ -17,7 +17,13 @@ const alertClassForRole = (role: string | undefined) => {
   return 'usa-alert--info';
 };
 
-const Assertion = ({ assert }: { assert: ValidationAssert }) => {
+const Assertion = ({
+  assert,
+  showAssertionXmlContext,
+}: {
+  assert: ValidationAssert;
+  showAssertionXmlContext: () => void;
+}) => {
   const [expanded, setExpanded] = useState<boolean>(false);
   return (
     <div className={`usa-alert ${alertClassForRole(assert.role)}`} role="alert">
@@ -42,7 +48,17 @@ const Assertion = ({ assert }: { assert: ValidationAssert }) => {
           )}
           <ul>
             {assert.see && <li>`see: ${assert.see}`</li>}
-            <li>xpath: {assert.location}</li>
+            <li>
+              <button
+                type="button"
+                className="usa-button usa-button--unstyled usa-tooltip"
+                data-position="top"
+                title={assert.location}
+                onClick={showAssertionXmlContext}
+              >
+                Show XML context
+              </button>
+            </li>
             <li>test: {assert.test}</li>
           </ul>
         </div>
@@ -52,19 +68,27 @@ const Assertion = ({ assert }: { assert: ValidationAssert }) => {
 };
 
 export const SSPReport = () => {
-  const { state } = usePresenter();
+  const reportState = useAppState().report;
+  const { showAssertionXmlContext } = useActions().report;
   return (
     <div>
-      {state.report.current === 'VALIDATED' && (
+      {reportState.current === 'VALIDATED' && (
         <>
-          <XmlViewer xmlText={state.report.xmlText} />
+          <XmlViewer
+            assertionXPath={reportState.assertionXPath}
+            xmlText={reportState.xmlText}
+          />
           <h1>
-            Showing {state.report.visibleAssertions.length} of{' '}
-            {state.report.validationReport &&
-              state.report.validationReport.failedAsserts.length}
+            Showing {reportState.visibleAssertions.length} of{' '}
+            {reportState.validationReport &&
+              reportState.validationReport.failedAsserts.length}
           </h1>
-          {state.report.visibleAssertions.map((assert, index) => (
-            <Assertion key={index} assert={assert} />
+          {reportState.visibleAssertions.map((assert, index) => (
+            <Assertion
+              key={index}
+              assert={assert}
+              showAssertionXmlContext={() => showAssertionXmlContext(assert)}
+            />
           ))}
         </>
       )}

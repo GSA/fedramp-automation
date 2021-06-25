@@ -1,5 +1,5 @@
-import type { Action } from 'overmind';
+import type { PresenterConfig } from '.';
 
-export const getAssetUrl: Action<string, string> = ({ state }, assetPath) => {
+export const getAssetUrl = ({ state }: PresenterConfig, assetPath: string) => {
   return `${state.baseUrl}/${assetPath}`;
 };

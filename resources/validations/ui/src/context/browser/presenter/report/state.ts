@@ -30,6 +30,7 @@ type States =
       xmlText: string;
       filterRoles: Role[];
       visibleAssertions: ValidationAssert[];
+      assertionXPath?: string;
     };
 
 type BaseState = {};
@@ -67,39 +68,43 @@ type Events =
 export type ReportMachine = Statemachine<States, Events, BaseState>;
 
 export const reportMachine = statemachine<States, Events, BaseState>({
-  RESET: state => {
-    if (state.current !== 'PROCESSING') {
+  PROCESSING_ERROR: {
+    RESET: () => {
       return {
         current: 'UNLOADED',
       };
-    }
+    },
   },
-  PROCESSING_URL: (state, { xmlFileUrl }) => {
-    if (state.current === 'UNLOADED') {
+  VALIDATED: {
+    RESET: () => {
+      return {
+        current: 'UNLOADED',
+      };
+    },
+  },
+  UNLOADED: {
+    PROCESSING_URL: ({ xmlFileUrl }) => {
       return {
         current: 'PROCESSING',
         message: `Processing ${xmlFileUrl}...`,
       };
-    }
-  },
-  PROCESSING_STRING: state => {
-    if (state.current === 'UNLOADED') {
+    },
+    PROCESSING_STRING: ({ fileName }) => {
       return {
         current: 'PROCESSING',
         message: `Processing local file...`,
       };
-    }
+    },
+    PROCESSING_ERROR: () => {},
   },
-  PROCESSING_ERROR: (state, { errorMessage }) => {
-    if (state.current === 'PROCESSING') {
+  PROCESSING: {
+    PROCESSING_ERROR: ({ errorMessage }) => {
       return {
         current: 'PROCESSING_ERROR',
         errorMessage,
       };
-    }
-  },
-  VALIDATED: (state, { validationReport, xmlText }) => {
-    if (state.current === 'PROCESSING') {
+    },
+    VALIDATED: ({ validationReport, xmlText }) => {
       return {
         current: 'VALIDATED',
         validationReport,
@@ -147,7 +152,7 @@ export const reportMachine = statemachine<States, Events, BaseState>({
           return assertions;
         }),
       };
-    }
+    },
   },
 });
 
