@@ -147,15 +147,15 @@
                             <li>For FedRAMP OSCAL SSP reviewers</li>
                         </ul>
                     </li>
-                    <li>Can/shall Schematron be a structured form of FedRAMP rule definitions? (A Schematron document may include arbitrary
-                        information cast as XML in one or more XML namespaces.) <ul>
-                            <li>Could it be the sole source?</li>
+                    <li>Should Schematron be a structured form of FedRAMP rule definitions? (A Schematron document may include arbitrary information
+                        cast as XML in one or more XML namespaces.) <ul>
+                            <li>Should it be the sole source?</li>
                         </ul>
                     </li>
-                    <li>Shall <a
+                    <li>Should <a
                             href="https://www.plainlanguage.gov/"
                             target="_blank">plainlanguage.gov</a> prose style be used?</li>
-                    <li>Will fedramp-automation structured documentation be inclusive of <a
+                    <li>Will FedRAMP automation structured documentation be inclusive of <a
                             href="https://www.section508.gov/"
                             target="_blank">Section 508</a> accommodations?</li>
                 </ul>
