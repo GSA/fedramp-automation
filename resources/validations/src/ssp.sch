@@ -233,7 +233,7 @@
                         doc:organizational-id="section-c.1.a"
                         id="invalid-security-sensitivity-level"
                         role="fatal"
-                        test="empty($ok-values) or not(exists($corrections))">[Section C Check 1.a] Sensitivity level has allowed value.</sch:assert>
+                        test="empty($ok-values) or not(exists($corrections))">[Section C Check 1.a] Sensitivity level has an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation">
             <sch:let name="registry-ns"
@@ -361,7 +361,7 @@
                         id="invalid-component-match"
                         role="warning"
                         test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] =&gt; exists()">[Section D Checks]
-                        Response statment cites a component in the system implementation inventory.</sch:assert>
+                        Response statement cites a component in the system implementation inventory.</sch:assert>
             <sch:assert diagnostics="missing-component-description-diagnostic"
                         doc:organizational-id="section-d"
                         id="missing-component-description"
@@ -426,7 +426,7 @@
                         doc:organizational-id="section-b.?????"
                         id="resource-uuid-required"
                         role="error"
-                        test="./@uuid">[Section B Check ????] This SSP has back-matter resources each with a UUID.</sch:assert>
+                        test="./@uuid">This SSP has back-matter resources each with a UUID.</sch:assert>
         </sch:rule>
         <!-- The following rule is commented out because doc-available does not provide the desired existence check -->
         <!--<sch:rule
@@ -436,7 +436,7 @@
                 doc:organizational-id="section-b.?????"
                 id="resource-rlink-required"
                 role="error"
-                test="doc-available(./@href)">[Section B Check ????] This SSP references back-matter resource: <sch:value-of
+                test="doc-available(./@href)">This SSP references back-matter resource: <sch:value-of
                     select="./@href" /></sch:assert>
         </sch:rule>-->
         <sch:rule context="/o:system-security-plan/o:back-matter/o:resource/o:base64">
@@ -448,12 +448,12 @@
                         doc:organizational-id="section-b.?????"
                         id="resource-base64-available-filenamne"
                         role="error"
-                        test="./@filename">[Section B Check ????] This base64 has a filename attribute.</sch:assert>
+                        test="./@filename">This base64 has a filename attribute.</sch:assert>
             <sch:assert diagnostics="resource-base64-available-media-type-diagnostic"
                         doc:organizational-id="section-b.?????"
                         id="resource-base64-available-media-type"
                         role="error"
-                        test="./@media-type">[Section B Check ????] This base64 has a filename attribute.</sch:assert>
+                        test="./@media-type">This base64 has a filename attribute.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <!-- set $fedramp-values globally -->
@@ -553,54 +553,54 @@
                         id="has-fedramp-acronyms"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-acronyms']]">A
-                        FedRAMP OSCAL SSP must attach the FedRAMP Master Acronym and Glossary.</sch:assert>
+                        FedRAMP OSCAL SSP must have the FedRAMP Master Acronym and Glossary attached.</sch:assert>
             <sch:assert diagnostics="has-fedramp-citations-diagnostic"
                         doc:attachment="§15 Attachment 12"
                         id="has-fedramp-citations"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-citations']]">
-                        [Section B Check 3.12] A FedRAMP OSCAL SSP must attach the FedRAMP Applicable Laws and Regulations.</sch:assert>
+                [Section B Check 3.12] A FedRAMP OSCAL SSP must have the FedRAMP Applicable Laws and Regulations attached.</sch:assert>
             <sch:assert diagnostics="has-fedramp-logo-diagnostic"
                         id="has-fedramp-logo"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-logo']]">A
-                        FedRAMP OSCAL SSP must attach the FedRAMP Logo.</sch:assert>
+                FedRAMP OSCAL SSP must have the FedRAMP Logo attached.</sch:assert>
             <sch:assert diagnostics="has-user-guide-diagnostic"
                         doc:attachment="§15 Attachment 2"
                         id="has-user-guide"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'user-guide']]">[Section
-                        B Check 3.2] A FedRAMP OSCAL SSP must attach a User Guide.</sch:assert>
+                B Check 3.2] A FedRAMP OSCAL SSP must have a User Guide attached.</sch:assert>
             <sch:assert diagnostics="has-rules-of-behavior-diagnostic"
                         doc:attachment="§15 Attachment 5"
                         id="has-rules-of-behavior"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'rules-of-behavior']]">
-                        [Section B Check 3.5] A FedRAMP OSCAL SSP must attach Rules of Behavior.</sch:assert>
+                        [Section B Check 3.5] A FedRAMP OSCAL SSP must have Rules of Behavior.</sch:assert>
             <sch:assert diagnostics="has-information-system-contingency-plan-diagnostic"
                         doc:attachment="§15 Attachment 6"
                         id="has-information-system-contingency-plan"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'information-system-contingency-plan']]">
-            [Section B Check 3.6] A FedRAMP OSCAL SSP must attach a Contingency Plan</sch:assert>
+                [Section B Check 3.6] A FedRAMP OSCAL SSP must have a Contingency Plan attached.</sch:assert>
             <sch:assert diagnostics="has-configuration-management-plan-diagnostic"
                         doc:attachment="§15 Attachment 7"
                         id="has-configuration-management-plan"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'configuration-management-plan']]">
-                        [Section B Check 3.7] A FedRAMP OSCAL SSP must attach a Configuration Management Plan.</sch:assert>
+                [Section B Check 3.7] A FedRAMP OSCAL SSP must have a Configuration Management Plan attached.</sch:assert>
             <sch:assert diagnostics="has-incident-response-plan-diagnostic"
                         doc:attachment="§15 Attachment 8"
                         id="has-incident-response-plan"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'incident-response-plan']]">
-                        [Section B Check 3.8] A FedRAMP OSCAL SSP must attach an Incident Response Plan.</sch:assert>
+                [Section B Check 3.8] A FedRAMP OSCAL SSP must have an Incident Response Plan attached.</sch:assert>
             <sch:assert diagnostics="has-separation-of-duties-matrix-diagnostic"
                         doc:attachment="§15 Attachment 11"
                         id="has-separation-of-duties-matrix"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'separation-of-duties-matrix']]">
-                        [Section B Check 3.11] A FedRAMP OSCAL SSP must attach a Separation of Duties Matrix.</sch:assert>
+                [Section B Check 3.11] A FedRAMP OSCAL SSP must have a Separation of Duties Matrix attached.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern>
@@ -664,25 +664,25 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         id="has-privacy-poc-role"
                         role="error"
                         test="/oscal:system-security-plan/oscal:metadata/oscal:role[@id = 'privacy-poc']">[Section B Check 3.4] A FedRAMP OSCAL SSP
-                        must incorporate a Privacy Point of Contact role</sch:assert>
+                        must incorporate a Privacy Point of Contact role.</sch:assert>
             <sch:assert diagnostics="has-responsible-party-privacy-poc-role-diagnostic"
                         id="has-responsible-party-privacy-poc-role"
                         role="error"
                         test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id = 'privacy-poc']">[Section B Check 3.4] A
-                        FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role reference</sch:assert>
+                        FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role reference.</sch:assert>
             <sch:assert diagnostics="has-responsible-privacy-poc-party-uuid-diagnostic"
                         id="has-responsible-privacy-poc-party-uuid"
                         role="error"
                         test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id = 'privacy-poc']/oscal:party-uuid">[Section
                         B Check 3.4] A FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role reference identifying the
-                        party by UUID</sch:assert>
+                        party by UUID.</sch:assert>
             <sch:let name="poc-uuid"
                      value="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id = 'privacy-poc']/oscal:party-uuid" />
             <sch:assert diagnostics="has-privacy-poc-diagnostic"
                         id="has-privacy-poc"
                         role="error"
                         test="/oscal:system-security-plan/oscal:metadata/oscal:party[@uuid = $poc-uuid]">[Section B Check 3.4] A FedRAMP OSCAL SSP
-                        must define a Privacy Point of Contact</sch:assert>
+                        must define a Privacy Point of Contact.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern>
@@ -693,7 +693,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-correct-yes-or-no-answer-diagnostic"
                         id="has-correct-yes-or-no-answer"
                         role="error"
-                        test="current()/@value = ('yes', 'no')">[Section B Check 3.4] A PTA/PIA qualifying question must have an allowed
+                        test="current()/@value = ('yes', 'no')">[Section B Check 3.4] A Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question must have an allowed
                         answer.</sch:assert>
         </sch:rule>
         <sch:rule context="/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information"
@@ -702,27 +702,27 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         id="has-privacy-sensitive-designation"
                         role="error"
                         test="oscal:prop[@name = 'privacy-sensitive']">[Section B Check 3.4] A FedRAMP OSCAL SSP must have a privacy-sensitive
-                        designation</sch:assert>
+                        designation.</sch:assert>
             <sch:assert diagnostics="has-pta-question-1-diagnostic"
                         id="has-pta-question-1"
                         role="error"
                         test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-1']">[Section B Check 3.4] A
-                        FedRAMP OSCAL SSP must have PTA/PIA qualifying question #1.</sch:assert>
+                        FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #1.</sch:assert>
             <sch:assert diagnostics="has-pta-question-2-diagnostic"
                         id="has-pta-question-2"
                         role="error"
                         test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-2']">[Section B Check 3.4] A
-                        FedRAMP OSCAL SSP must have PTA/PIA qualifying question #2.</sch:assert>
+                        FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #2.</sch:assert>
             <sch:assert diagnostics="has-pta-question-3-diagnostic"
                         id="has-pta-question-3"
                         role="error"
                         test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-3']">[Section B Check 3.4] A
-                        FedRAMP OSCAL SSP must have PTA/PIA qualifying question #3.</sch:assert>
+                        FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #3.</sch:assert>
             <sch:assert diagnostics="has-pta-question-4-diagnostic"
                         id="has-pta-question-4"
                         role="error"
                         test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-4']">[Section B Check 3.4] A
-                        FedRAMP OSCAL SSP must have PTA/PIA qualifying question #4.</sch:assert>
+                        FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #4.</sch:assert>
             <sch:assert diagnostics="has-all-pta-questions-diagnostic"
                         id="has-all-pta-questions"
                         role="error"
@@ -744,7 +744,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         id="has-sorn"
                         role="error"
                         test="/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-4' and @value = 'yes'] and oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'sorn-id' and @value != '']">
-            [Section B Check 3.4] A FedRAMP OSCAL SSP may have a SORN ID</sch:assert>
+            [Section B Check 3.4] A FedRAMP OSCAL SSP may have a SORN ID.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:back-matter"
                   see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 51">
@@ -1257,7 +1257,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         <sch:value-of select="$registry-base-path" />' are not present, this configuration is invalid.</sch:diagnostic>
         <sch:diagnostic doc:assertion="no-security-sensitivity-level"
                         doc:context="/o:system-security-plan"
-                        id="no-security-sensitivity-level-diagnostic">[Section C Check 1.a] No sensitivity level found, no more validation processing
+                        id="no-security-sensitivity-level-diagnostic">[Section C Check 1.a] No sensitivity level was found As a result, no more validation processing
                         can occur.</sch:diagnostic>
         <sch:diagnostic doc:assertion="invalid-security-sensitivity-level"
                         doc:context="/o:system-security-plan"
@@ -1329,7 +1329,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         be syntactically invalid and deprecated.</sch:diagnostic>
         <sch:diagnostic doc:assertion="invalid-component-match"
                         doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
-                        id="invalid-component-match-diagnostic">[Section D Checks] Response statment 
+                        id="invalid-component-match-diagnostic">[Section D Checks] Response statement 
         <sch:value-of select="../@statement-id" />with component reference UUID ' 
         <sch:value-of select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a
         control.</sch:diagnostic>
@@ -1371,20 +1371,18 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         <sch:value-of select="$extraneous-parties/o:party-uuid" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-uuid-required"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource"
-                        id="resource-uuid-required-diagnostic">[Section B Check ????] This SSP includes back-matter resource missing a
+                        id="resource-uuid-required-diagnostic">This SSP includes back-matter resource missing a
                         UUID.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-rlink-required"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource/o:rlink"
-                        id="resource-rlink-required-diagnostic">[Section B Check ????] This SSP references back-matter resource: 
+                        id="resource-rlink-required-diagnostic">This SSP references back-matter resource: 
         <sch:value-of select="./@href" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-base64-available-filenamne"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
-                        id="resource-base64-available-filenamne-diagnostic">[Section B Check ????] This SSP has file name: 
-        <sch:value-of select="./@filename" />.</sch:diagnostic>
+                        id="resource-base64-available-filenamne-diagnostic">This base64 lacksd a filename attribute.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-base64-available-media-type"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
-                        id="resource-base64-available-media-type-diagnostic">[Section B Check ????] This SSP has media type: 
-        <sch:value-of select="./@media-type" />.</sch:diagnostic>
+                        id="resource-base64-available-media-type-diagnostic">This base64 lacksd a media-type attribute.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-has-uuid"
                         doc:context="oscal:resource"
                         id="resource-has-uuid-diagnostic">This resource lacks a uuid attribute.</sch:diagnostic>
@@ -1514,16 +1512,16 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         id="has-privacy-sensitive-designation-diagnostic">The privacy-sensitive designation is missing.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-pta-question-1"
                         doc:context="/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information"
-                        id="has-pta-question-1-diagnostic">The PTA/PIA qualifying question #1 is missing.</sch:diagnostic>
+                        id="has-pta-question-1-diagnostic">The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #1 is missing.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-pta-question-2"
                         doc:context="/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information"
-                        id="has-pta-question-2-diagnostic">The PTA/PIA qualifying question #2 is missing.</sch:diagnostic>
+                        id="has-pta-question-2-diagnostic">The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #2 is missing.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-pta-question-3"
                         doc:context="/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information"
-                        id="has-pta-question-3-diagnostic">The PTA/PIA qualifying question #3 is missing.</sch:diagnostic>
+                        id="has-pta-question-3-diagnostic">The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #3 is missing.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-pta-question-4"
                         doc:context="/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information"
-                        id="has-pta-question-4-diagnostic">The PTA/PIA qualifying question #4 is missing.</sch:diagnostic>
+                        id="has-pta-question-4-diagnostic">The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #4 is missing.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-all-pta-questions"
                         doc:context="/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information"
                         id="has-all-pta-questions-diagnostic">One or more of the four PTA questions is missing.</sch:diagnostic>
@@ -1726,19 +1724,19 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         id="inventory-item-has-one-asset-type-diagnostic">This inventory-item has more than one asset-type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-virtual"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-virtual-diagnostic">This inventory-item lacks virtual property.</sch:diagnostic>
+                        id="inventory-item-has-virtual-diagnostic">This inventory-item lacks a virtual property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-virtual"
                         doc:context="oscal:inventory-item"
                         id="inventory-item-has-one-virtual-diagnostic">This inventory-item has more than one virtual property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-public"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-public-diagnostic">This inventory-item lacks public property.</sch:diagnostic>
+                        id="inventory-item-has-public-diagnostic">This inventory-item lacks a public property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-public"
                         doc:context="oscal:inventory-item"
                         id="inventory-item-has-one-public-diagnostic">This inventory-item has more than one public property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-scan-type"
                         doc:context="oscal:inventory-item"
-                        id="inventory-item-has-scan-type-diagnostic">This inventory-item lacks scan-type property.</sch:diagnostic>
+                        id="inventory-item-has-scan-type-diagnostic">This inventory-item lacks a scan-type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="inventory-item-has-one-scan-type"
                         doc:context="oscal:inventory-item"
                         id="inventory-item-has-one-scan-type-diagnostic">This inventory-item has more than one scan-type property.</sch:diagnostic>
