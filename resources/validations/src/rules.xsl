@@ -260,6 +260,26 @@
                                                 select="node()" />
                                         </span>
                                     </div>
+                                    <xsl:if
+                                        test="@diagnostics">
+                                        <xsl:for-each
+                                            select="//diagnostic[@id = tokenize(current()/@diagnostics, '\s+')]">
+                                            <div>
+                                                <span
+                                                    class="diagnostic">
+                                                    <xsl:attribute
+                                                        name="title">
+                                                        <xsl:value-of
+                                                            select="@id" />
+                                                    </xsl:attribute>
+                                                    <xsl:text> </xsl:text>
+                                                    <xsl:apply-templates
+                                                        mode="serialize"
+                                                        select="node()" />
+                                                </span>
+                                            </div>
+                                        </xsl:for-each>
+                                    </xsl:if>
                                     <div>
                                         <xsl:text>context: </xsl:text>
                                         <code>
@@ -281,26 +301,6 @@
                                                 select="@role" />
                                         </code>
                                     </div>
-                                    <xsl:if
-                                        test="@diagnostics">
-                                        <xsl:for-each
-                                            select="//diagnostic[@id = tokenize(current()/@diagnostics, '\s+')]">
-                                            <div>
-                                                <span
-                                                    class="diagnostic">
-                                                    <xsl:attribute
-                                                        name="title">
-                                                        <xsl:value-of
-                                                            select="@id" />
-                                                    </xsl:attribute>
-                                                    <xsl:text> </xsl:text>
-                                                    <xsl:apply-templates
-                                                        mode="serialize"
-                                                        select="node()" />
-                                                </span>
-                                            </div>
-                                        </xsl:for-each>
-                                    </xsl:if>
                                     <xsl:variable
                                         as="document-node()"
                                         name="xspec"

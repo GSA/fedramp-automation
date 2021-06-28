@@ -85,10 +85,13 @@ blockquote {
 .diagnostic {
     font-style: italic;
 }
-.assertion {
+.assertion,
+.diagnostic {
     font-weight: bold;
+    font-size:larger;
 }
-.assertion:before {
+.assertion:before,
+.diagnostic:before {
     content: "assertion: ";
     font-style: normal;
     font-weight: normal;
