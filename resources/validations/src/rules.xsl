@@ -180,13 +180,13 @@
                 </xsl:variable>
 
                 <h2>Rules</h2>
-                <p>NB: When FedRAMP rules and validation logic is discussed, there is a minor mismatch between a general concept of a <i>rule</i>
+                <!--<p>NB: When FedRAMP rules and validation logic is discussed, there is a minor mismatch between a general concept of a <i>rule</i>
                     versus rule representation in Schematron. The former is what SSP reviewers (and perhaps submitters) hold; the latter might be
                     expressed as multiple Schematron <code>&lt;rule&gt;</code>, <code>&lt;assert&gt;</code>, and <code>&lt;report&gt;</code> elements.
-                    The same word with different meanings in both venues is unfortunate.</p>
-                <p>The following table lists assertions - Schematron <code>assert</code> and <code>report</code> elements - with the Schematron id,
-                    source document, and constraint statement. Each of these is subordinate to a context defined in a parent Schematron
-                        <code>rule</code> element.</p>
+                    The same word with different meanings in both venues is unfortunate.</p>-->
+                <p>The following table lists Schematron <code>assert</code> and <code>report</code> elements with the Schematron ID, assertion
+                    (affirmative statement), diagnostic (negative statement used when the assertion was false), and related attributes. Each of these
+                    is subordinate to a context defined in a parent Schematron <code>rule</code> element.</p>
                 <xsl:if
                     test="false()">
                     <p>The Schematron documentation describes a <code>rule></code> as</p>
