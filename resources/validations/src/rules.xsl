@@ -167,6 +167,12 @@
                     <xsl:sequence>
                         <xsl:for-each
                             select="$docs">
+                            <xsl:if
+                                test="not(doc-available(.))">
+                                <xsl:message
+                                    expand-text="true"
+                                    terminate="true">The expected input document {.} is not available.</xsl:message>
+                            </xsl:if>
                             <xsl:copy-of
                                 select="doc(.)" />
                         </xsl:for-each>
