@@ -778,6 +778,24 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         role="error"
                         test="oscal:prop[@name = 'validation-reference']">A validation component or inventory-item must have a validation-reference
                         property.</sch:assert>
+            <sch:assert diagnostics="has-CMVP-validation-details-diagnostic"
+                        id="has-CMVP-validation-details"
+                        role="error"
+                        test="oscal:link[@rel = 'validation-details']">A validation component or inventory-item must have a validation-details
+                        link.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:prop[@name = 'validation-reference']">
+            <sch:assert diagnostics="has-credible-CMVP-validation-reference-diagnostic"
+                        id="has-credible-CMVP-validation-reference"
+                        role="error"
+                        test="matches(@value,'^\d{3,4}$')">A validation-reference property must provide a CMVP certificate number.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:link[@rel = 'validation-details']">
+            <sch:assert diagnostics="has-credible-CMVP-validation-details-diagnostic"
+                        id="has-credible-CMVP-validation-details"
+                        role="error"
+                        test="matches(@href,'^https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/\d{3,4}$')">A
+                        validation-details link must refer to a NIST CMVP certificate detail page.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern see="https://github.com/18F/fedramp-automation/blob/master/documents/Guide_to_OSCAL-based_FedRAMP_System_Security_Plans_(SSP).pdf page 12">
@@ -1544,12 +1562,24 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         id="has-pia-diagnostic">This FedRAMP OSCAL SSP lacks a Privacy Impact Analysis.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-CMVP-validation"
                         doc:context="oscal:system-implementation"
-                        id="has-CMVP-validation-diagnostic">A FedRAMP OSCAL SSP does not declare one or more FIPS 140 validated
+                        id="has-CMVP-validation-diagnostic">This FedRAMP OSCAL SSP does not declare one or more FIPS 140 validated
                         modules.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-CMVP-validation-reference"
                         doc:context="oscal:component[@type = 'validation'] | oscal:inventory-item[@type = 'validation']"
-                        id="has-CMVP-validation-reference-diagnostic">A validation component or inventory-item lacks a validation-reference
+                        id="has-CMVP-validation-reference-diagnostic">This validation component or inventory-item lacks a validation-reference
                         property.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-CMVP-validation-details"
+                        doc:context="oscal:component[@type = 'validation'] | oscal:inventory-item[@type = 'validation']"
+                        id="has-CMVP-validation-details-diagnostic">This validation component or inventory-item lacks a validation-details
+                        link.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-credible-CMVP-validation-reference"
+                        doc:context="oscal:prop[@name = 'validation-reference']"
+                        id="has-credible-CMVP-validation-reference-diagnostic">This validation-reference property does not resemble a CMVP
+                        certificate number.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-credible-CMVP-validation-details"
+                        doc:context="oscal:prop[@name = 'validation-details']"
+                        id="has-credible-CMVP-validation-details-diagnostic">This validation-details link href attribute does not resemble a CMVP
+                        certificate URL.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-security-sensitivity-level"
                         doc:context="oscal:system-characteristics"
                         id="has-security-sensitivity-level-diagnostic">This FedRAMP OSCAL SSP lacks a FIPS 199 categorization.</sch:diagnostic>
