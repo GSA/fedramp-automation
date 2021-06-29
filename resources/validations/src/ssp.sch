@@ -788,14 +788,24 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-credible-CMVP-validation-reference-diagnostic"
                         id="has-credible-CMVP-validation-reference"
                         role="error"
-                        test="matches(@value,'^\d{3,4}$')">A validation-reference property must provide a CMVP certificate number.</sch:assert>
+                        test="matches(@value, '^\d{3,4}$')">A validation-reference property must provide a CMVP certificate number.</sch:assert>
+            <sch:assert diagnostics="has-consonant-CMVP-validation-reference-diagnostic"
+                        id="has-consonant-CMVP-validation-reference"
+                        role="error"
+                        test="@value = tokenize(following-sibling::oscal:link[@rel = 'validation-details']/@href,'/')[last()]">A validation-reference
+                        property must be in accord with its sibling validation-details href.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:link[@rel = 'validation-details']">
             <sch:assert diagnostics="has-credible-CMVP-validation-details-diagnostic"
                         id="has-credible-CMVP-validation-details"
                         role="error"
-                        test="matches(@href,'^https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/\d{3,4}$')">A
+                        test="matches(@href, '^https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/\d{3,4}$')">A
                         validation-details link must refer to a NIST CMVP certificate detail page.</sch:assert>
+            <sch:assert diagnostics="has-consonant-CMVP-validation-details-diagnostic"
+                        id="has-consonant-CMVP-validation-details"
+                        role="error"
+                        test="tokenize(@href, '/')[last()] = preceding-sibling::oscal:prop[@name = 'validation-reference']/@value">A
+                        validation-details link must be in accord with its sibling validation-reference.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern see="https://github.com/18F/fedramp-automation/blob/master/documents/Guide_to_OSCAL-based_FedRAMP_System_Security_Plans_(SSP).pdf page 12">
@@ -1576,10 +1586,18 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         doc:context="oscal:prop[@name = 'validation-reference']"
                         id="has-credible-CMVP-validation-reference-diagnostic">This validation-reference property does not resemble a CMVP
                         certificate number.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-consonant-CMVP-validation-reference"
+                        doc:context="oscal:prop[@name = 'validation-reference']"
+                        id="has-consonant-CMVP-validation-reference-diagnostic">This validation-reference property does not match its sibling
+                        validation-details href.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-credible-CMVP-validation-details"
                         doc:context="oscal:prop[@name = 'validation-details']"
                         id="has-credible-CMVP-validation-details-diagnostic">This validation-details link href attribute does not resemble a CMVP
                         certificate URL.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-consonant-CMVP-validation-details"
+                        doc:context="oscal:prop[@name = 'validation-details']"
+                        id="has-consonant-CMVP-validation-details-diagnostic">This validation-details link href attribute does not match its sibling
+                        validation-reference value.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-security-sensitivity-level"
                         doc:context="oscal:system-characteristics"
                         id="has-security-sensitivity-level-diagnostic">This FedRAMP OSCAL SSP lacks a FIPS 199 categorization.</sch:diagnostic>

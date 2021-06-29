@@ -3088,6 +3088,46 @@
                                  label="that is an error" />
             </x:scenario>
         </x:scenario>
+        <x:scenario label="when a CMVP validation-reference">
+            <x:scenario label="is consonant">
+                <x:context>
+                    <component type="validation"
+                               uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                               xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <title>FIPS 140-2 Validation</title>
+                        <description>
+                            <p>FIPS 140-2 Validation</p>
+                        </description>
+                        <prop name="validation-reference"
+                              value="3928" />
+                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
+                              rel="validation-details" />
+                        <status state="active" />
+                    </component>
+                </x:context>
+                <x:expect-not-assert id="has-consonant-CMVP-validation-reference"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="is not consonant">
+                <x:context>
+                    <component type="validation"
+                               uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                               xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <title>FIPS 140-2 Validation</title>
+                        <description>
+                            <p>FIPS 140-2 Validation</p>
+                        </description>
+                        <prop name="validation-reference"
+                              value="0000" />
+                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
+                              rel="validation-details" />
+                        <status state="active" />
+                    </component>
+                </x:context>
+                <x:expect-assert id="has-consonant-CMVP-validation-reference"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
         <x:scenario label="when a CMVP validation-details">
             <x:scenario label="is credible">
                 <x:context>
@@ -3125,6 +3165,46 @@
                     </inventory-item>
                 </x:context>
                 <x:expect-assert id="has-credible-CMVP-validation-details"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="when a CMVP validation-details">
+            <x:scenario label="is consonant">
+                <x:context>
+                    <inventory-item type="validation"
+                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <title>FIPS 140-2 Validation</title>
+                        <description>
+                            <p>FIPS 140-2 Validation</p>
+                        </description>
+                        <prop name="validation-reference"
+                              value="3928" />
+                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
+                              rel="validation-details" />
+                        <status state="active" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert id="has-consonant-CMVP-validation-details"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="is not consonant">
+                <x:context>
+                    <inventory-item type="validation"
+                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <title>FIPS 140-2 Validation</title>
+                        <description>
+                            <p>FIPS 140-2 Validation</p>
+                        </description>
+                        <prop name="validation-reference"
+                              value="3928" />
+                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/0000"
+                              rel="validation-details" />
+                        <status state="active" />
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert id="has-consonant-CMVP-validation-details"
                                  label="that is an error" />
             </x:scenario>
         </x:scenario>
