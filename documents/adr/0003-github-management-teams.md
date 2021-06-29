@@ -1,4 +1,4 @@
-# 2. Manage Github with Github Teams
+# 3. Manage Github with Github Teams
 
 Date: 2021-06-29
 
