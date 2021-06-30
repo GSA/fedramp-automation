@@ -454,7 +454,7 @@
                         doc:organizational-id="section-b.?????"
                         id="resource-base64-available-media-type"
                         role="error"
-                        test="./@media-type">This base64 has a filename attribute.</sch:assert>
+                        test="./@media-type">This base64 has a media-type attribute.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <!-- set $fedramp-values globally -->
@@ -944,12 +944,12 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         selected element.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:base | oscal:selected">
-            <sch:let name="fips-levels"
-                     value="('fips-199-low', 'fips-199-moderate', 'fips-199-high')" />
+            <sch:let name="fips-199-levels"
+                     value="$fedramp-values//fedramp:value-set[@name = 'security-impact-level']//fedramp:enum/@value" />
             <sch:assert diagnostics="cia-impact-has-approved-fips-categorization-diagnostic"
                         id="cia-impact-has-approved-fips-categorization"
                         role="error"
-                        test=". = $fips-levels">A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or availability-impact base or
+                        test=". = $fips-199-levels">A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or availability-impact base or
                         select element must have an approved value.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -1411,10 +1411,10 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         <sch:value-of select="./@href" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-base64-available-filenamne"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
-                        id="resource-base64-available-filenamne-diagnostic">This base64 lacksd a filename attribute.</sch:diagnostic>
+                        id="resource-base64-available-filenamne-diagnostic">This base64 lacks a filename attribute.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-base64-available-media-type"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
-                        id="resource-base64-available-media-type-diagnostic">This base64 lacksd a media-type attribute.</sch:diagnostic>
+                        id="resource-base64-available-media-type-diagnostic">This base64 lacks a media-type attribute.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-has-uuid"
                         doc:context="oscal:resource"
                         id="resource-has-uuid-diagnostic">This resource lacks a uuid attribute.</sch:diagnostic>
