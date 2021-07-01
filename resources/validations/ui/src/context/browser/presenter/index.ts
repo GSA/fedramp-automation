@@ -2,6 +2,7 @@ import { createOvermind, createOvermindMock, IContext } from 'overmind';
 import { merge, namespaced } from 'overmind/config';
 
 import * as actions from './actions';
+import type { AnnotateXMLUseCase } from '../../../use-cases/annotate-xml';
 import type {
   ValidateSSPUseCase,
   ValidateSSPUrlUseCase,
@@ -10,6 +11,7 @@ import type {
 import * as report from './report';
 
 type UseCases = {
+  annotateXML: AnnotateXMLUseCase;
   validateSSP: ValidateSSPUseCase;
   validateSSPUrl: ValidateSSPUrlUseCase;
 };
@@ -81,6 +83,7 @@ export type Presenter = ReturnType<typeof createPresenter>;
 const getUseCasesShim = (): UseCases => {
   const stub = jest.fn();
   return {
+    annotateXML: stub,
     validateSSP: stub,
     validateSSPUrl: stub,
   };

@@ -21,7 +21,8 @@ export const Collapsable = ({ children, title }: CollapsableProps) => {
           </h4>
           <div
             id={`id-${index}`}
-            className="usa-accordion__content usa-prose maxh-card"
+            className="usa-accordion__content usa-prose"
+            style={{ maxHeight: '30em' }}
           >
             {child}
           </div>
@@ -33,17 +34,19 @@ export const Collapsable = ({ children, title }: CollapsableProps) => {
 
 type XmlViewProps = {
   assertionXPath?: string;
+  formattedHtml: string;
   xmlText: string;
 };
 
-export const XmlViewer = ({ assertionXPath, xmlText }: XmlViewProps) => {
-  const parser = new DOMParser();
-  const xmlDocument = parser.parseFromString(xmlText, 'text/xml');
+export const XmlViewer = ({
+  assertionXPath,
+  formattedHtml,
+  xmlText,
+}: XmlViewProps) => {
   return (
     <Collapsable title="SSP XML">
       <pre>
-        TODO: show xpath: {assertionXPath}
-        {xmlDocument.documentElement.innerHTML}
+        <code dangerouslySetInnerHTML={{ __html: formattedHtml }}></code>
       </pre>
     </Collapsable>
   );

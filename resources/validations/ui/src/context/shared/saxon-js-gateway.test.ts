@@ -1,6 +1,26 @@
 import * as SaxonJS from 'saxon-js';
 
-import { SaxonJsSchematronValidatorGateway } from './saxon-js-gateway';
+import {
+  XmlIndenter,
+  SaxonJsSchematronValidatorGateway,
+} from './saxon-js-gateway';
+
+describe('xml indent', () => {
+  it('works', async () => {
+    const xmlIndent = XmlIndenter({ SaxonJS });
+    const indentedXml = await xmlIndent(
+      '<xml><child><node1></node1><!-- comment1 --><node2></node2><!-- comment2 --></child></xml>',
+    );
+    expect(indentedXml).toEqual(
+      `<xml>
+   <child>
+      <node1/>
+      <!-- comment1 --><node2/>
+      <!-- comment2 --></child>
+</xml>`,
+    );
+  });
+});
 
 describe('saxon-js gateway', () => {
   it('produces validation results for transformation', async () => {

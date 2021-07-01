@@ -29,6 +29,7 @@ export const setXmlContents = async (
           xmlText: options.xmlContents,
         }),
       )
+      .then(actions.report.annotateXml)
       .catch(actions.report.setProcessingError);
   }
 };
@@ -44,7 +45,23 @@ export const setXmlUrl = async (
     return effects.useCases
       .validateSSPUrl(xmlFileUrl)
       .then(actions.report.setValidationReport)
+      .then(actions.report.annotateXml)
       .catch(actions.report.setProcessingError);
+  }
+};
+
+export const annotateXml = async ({ effects, state }: PresenterConfig) => {
+  if (state.report.current === 'VALIDATED') {
+    const annotatedSSP = await effects.useCases.annotateXML({
+      xmlString: state.report.xmlText,
+      annotations: state.report.validationReport.failedAsserts.map(assert => {
+        return {
+          id: assert.id,
+          xpath: assert.location,
+        };
+      }),
+    });
+    state.report.annotatedSSP = annotatedSSP;
   }
 };
 

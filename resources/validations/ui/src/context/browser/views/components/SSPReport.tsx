@@ -76,6 +76,7 @@ export const SSPReport = () => {
         <>
           <XmlViewer
             assertionXPath={reportState.assertionXPath}
+            formattedHtml={reportState.annotatedSSP}
             xmlText={reportState.xmlText}
           />
           <h1>

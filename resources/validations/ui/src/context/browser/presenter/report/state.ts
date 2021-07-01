@@ -28,6 +28,7 @@ type States =
       roles: Role[];
       validationReport: ValidationReport;
       xmlText: string;
+      annotatedSSP: string;
       filterRoles: Role[];
       visibleAssertions: ValidationAssert[];
       assertionXPath?: string;
@@ -108,6 +109,7 @@ export const reportMachine = statemachine<States, Events, BaseState>({
       return {
         current: 'VALIDATED',
         validationReport,
+        annotatedSSP: '',
         xmlText,
         filter: {
           role: 'all',
