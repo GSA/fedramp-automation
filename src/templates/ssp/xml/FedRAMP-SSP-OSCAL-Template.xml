@@ -745,6 +745,18 @@
                   <code>back-matter</code>.</p>
          </remarks>
       </component>
+      <component uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" type="procedure">
+         <title>[EXAMPLE]Access Control and Identity Management Procedure</title>
+         <description>
+            <p>[EXAMPLE]An example component representing a procedure, realizing a policy.</p>
+         </description>
+         <link href="#4bb1e2e5-261c-4b5c-b22c-e1627c2e8be6" rel="procedure"/>
+         <status state="operational"/>
+         <remarks>
+            <p>Links to the component, attached as a <code>resource</code> in
+               <code>back-matter</code>.</p>
+         </remarks>
+      </component>
       <component uuid="95beec7e-6f82-4aaa-8211-969cd7c1f1ab" type="validation">
          <title>[SAMPLE]Module Name</title>
          <description>
@@ -1110,7 +1122,7 @@
                </set-parameter>
             </by-component>
          </statement>
-         <statement statement-id="ac-1_smt.a" uuid="fb4d039a-dc4f-46f5-9c1f-f6343eaf69bc">
+         <statement statement-id="ac-1_smt.a.1" uuid="fb4d039a-dc4f-46f5-9c1f-f6343eaf69bc">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                uuid="3f5612a4-cd1d-4c47-8cae-75d2eaa332cd">
                <description>
@@ -1131,6 +1143,36 @@
                      Management and Access Control Policy.</p>
                   <p>That component contains a link to the policy, so it does not have to be linked
                      here too.</p>
+               </description>
+            </by-component>
+            <remarks>
+               <p>The specified component is the system itself.</p>
+               <p>Any control implementation response that can not be associated with another
+                  component is associated with the component representing the system.</p>
+            </remarks>
+         </statement>
+         <statement statement-id="ac-1_smt.a.2" uuid="c365cf95-5bc0-4599-9773-f4eddf69798d">
+            <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
+               uuid="00507a44-e0d7-4fe6-ad20-8d474a84ee15">
+               <description>
+                  <p>Describe how Part b is satisfied within the system.</p>
+                  <p>Legacy approach. If no policy component is defined, describe here how the
+                     procedure satisfies part b.</p>
+                  <p>In this case, a link must be provided to the procedure.</p>
+                  <p>FedRAMP prefers all policies and procedures be attached as a resource in the
+                     back-matter. The link points to a resource.</p>
+               </description>
+               <link href="#1002a58e-9e11-4aa6-9ab4-2bde52995952" rel="procedure"/>
+            </by-component>
+            <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc"
+               uuid="42ac379e-4abc-4716-809c-119c03b5ac64">
+               <description>
+                  <p>Describe how Part b is satisfied within the system.</p>
+                  <p>Legacy approach. If no policy component is defined, describe here how the
+                     procedure satisfies part b.</p>
+                  <p>In this case, a link must be provided to the procedure.</p>
+                  <p>FedRAMP prefers all policies and procedures be attached as a resource in the
+                     back-matter. The link points to a resource.</p>
                </description>
             </by-component>
             <remarks>
@@ -2369,14 +2411,14 @@
          </remarks>
       </resource>
       <resource uuid="4bb1e2e5-261c-4b5c-b22c-e1627c2e8be6">
-         <title>Procedure Title</title>
+         <title>Procedure Title 2</title>
          <description>
             <p>Procedure document</p>
          </description>
          <prop name="type" value="procedure"/>
          <prop name="publication" value="Document Date"/>
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/procedures/sample_procedure.pdf"/>
+         <rlink href="./documents/procedures/sample_procedure2.pdf"/>
          <base64 media-type="application/pdf" filename="sample_procedure.pdf">00000000</base64>
          <remarks>
             <p>Table 15-1 Attachments: Procedure Attachment</p>
