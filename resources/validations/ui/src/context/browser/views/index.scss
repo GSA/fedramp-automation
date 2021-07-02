@@ -35,3 +35,15 @@ $theme-image-path: '../../../../uswds/img';
     margin-right: auto;
   }
 }
+
+.bg-error-lighter {
+  background-color: color('error-lighter');
+}
+
+.bg-warning-lighter {
+  background-color: color('warning-lighter');
+}
+
+.bg-info-lighter {
+  background-color: color('info-lighter');
+}
