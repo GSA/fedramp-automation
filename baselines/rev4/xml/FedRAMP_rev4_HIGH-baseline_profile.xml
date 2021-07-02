@@ -2219,7 +2219,10 @@
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add by-id="ac-1_smt.a" position="starting">
+         <add by-id="ac-1_smt.a.1" position="starting">
+            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
+         </add>
+         <add by-id="ac-1_smt.a.2" position="starting">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
          </add>
          <add by-id="ac-1_smt.b.1" position="starting">

@@ -1086,6 +1086,22 @@
           "remarks": "Links to the component, attached as a `resource` in `back-matter`."
         },
         {
+          "uuid": "fa90644a-8bf8-47da-b0d3-82bffc708afc",
+          "type": "procedure",
+          "title": "[EXAMPLE]Access Control and Identity Management Procedure",
+          "description": "[EXAMPLE]An example component representing a procedure, realizing a policy.",
+          "links": [
+            {
+              "href": "#4bb1e2e5-261c-4b5c-b22c-e1627c2e8be6",
+              "rel": "procedure"
+            }
+          ],
+          "status": {
+            "state": "operational"
+          },
+          "remarks": "Links to the component, attached as a `resource` in `back-matter`."
+        },
+        {
           "uuid": "95beec7e-6f82-4aaa-8211-969cd7c1f1ab",
           "type": "validation",
           "title": "[SAMPLE]Module Name",
@@ -1899,7 +1915,7 @@
               ]
             },
             {
-              "statement-id": "ac-1_smt.a",
+              "statement-id": "ac-1_smt.a.1",
               "uuid": "fb4d039a-dc4f-46f5-9c1f-f6343eaf69bc",
               "by-components": [
                 {
@@ -1917,6 +1933,29 @@
                   "component-uuid": "F25E84BF-3E57-48C3-AC0B-7A567B3AF79E",
                   "uuid": "2CF56836-6834-49A9-96CD-4F49C17AAB01",
                   "description": "Describe how this policy component satisfies part a.\n\nComponent approach. This links to a component representing the Identity Management and Access Control Policy.\n\nThat component contains a link to the policy, so it does not have to be linked here too."
+                }
+              ],
+              "remarks": "The specified component is the system itself.\n\nAny control implementation response that can not be associated with another component is associated with the component representing the system."
+            },
+            {
+              "statement-id": "ac-1_smt.a.2",
+              "uuid": "c365cf95-5bc0-4599-9773-f4eddf69798d",
+              "by-components": [
+                {
+                  "component-uuid": "60f92bcf-f353-4236-9803-2a5d417555f4",
+                  "uuid": "00507a44-e0d7-4fe6-ad20-8d474a84ee15",
+                  "description": "Describe how Part b is satisfied within the system.\n\nLegacy approach. If no policy component is defined, describe here how the procedure satisfies part b.\n\nIn this case, a link must be provided to the procedure.\n\nFedRAMP prefers all policies and procedures be attached as a resource in the back-matter. The link points to a resource.",
+                  "links": [
+                    {
+                      "href": "#1002a58e-9e11-4aa6-9ab4-2bde52995952",
+                      "rel": "procedure"
+                    }
+                  ]
+                },
+                {
+                  "component-uuid": "fa90644a-8bf8-47da-b0d3-82bffc708afc",
+                  "uuid": "42ac379e-4abc-4716-809c-119c03b5ac64",
+                  "description": "Describe how Part b is satisfied within the system.\n\nLegacy approach. If no policy component is defined, describe here how the procedure satisfies part b.\n\nIn this case, a link must be provided to the procedure.\n\nFedRAMP prefers all policies and procedures be attached as a resource in the back-matter. The link points to a resource."
                 }
               ],
               "remarks": "The specified component is the system itself.\n\nAny control implementation response that can not be associated with another component is associated with the component representing the system."
@@ -3994,7 +4033,7 @@
         },
         {
           "uuid": "4bb1e2e5-261c-4b5c-b22c-e1627c2e8be6",
-          "title": "Procedure Title",
+          "title": "Procedure Title 2",
           "description": "Procedure document",
           "props": [
             {
@@ -4012,7 +4051,7 @@
           ],
           "rlinks": [
             {
-              "href": "./documents/procedures/sample_procedure.pdf"
+              "href": "./documents/procedures/sample_procedure2.pdf"
             }
           ],
           "base64": {

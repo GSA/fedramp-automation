@@ -1,10 +1,10 @@
 ---
 catalog:
-  uuid: 29cc6a60-6bc6-4cbf-b477-35811ff1c0c7
+  uuid: 56456dd2-67d3-466c-b646-75da7202c477
   metadata:
     title: FedRAMP Rev 4 High Baseline
     published: 2021-02-05T00:00:00.000-04:00
-    last-modified: 2021-06-11T23:14:40.664021Z
+    last-modified: 2021-07-02T13:01:55.070547Z
     version: "1.3"
     oscal-version: 1.0.0
     links:
@@ -102,9 +102,6 @@ catalog:
                 - id: ac-1_smt.a
                   name: item
                   props:
-                    - name: response-point
-                      ns: https://fedramp.gov/ns/oscal
-                      value: You must fill in this response point.
                     - name: label
                       value: a.
                   prose: "Develops, documents, and disseminates to {{ insert: param, ac-1_prm_1
@@ -113,6 +110,9 @@ catalog:
                     - id: ac-1_smt.a.1
                       name: item
                       props:
+                        - name: response-point
+                          ns: https://fedramp.gov/ns/oscal
+                          value: You must fill in this response point.
                         - name: label
                           value: "1."
                       prose: An access control policy that addresses purpose, scope, roles,
@@ -121,6 +121,9 @@ catalog:
                     - id: ac-1_smt.a.2
                       name: item
                       props:
+                        - name: response-point
+                          ns: https://fedramp.gov/ns/oscal
+                          value: You must fill in this response point.
                         - name: label
                           value: "2."
                       prose: Procedures to facilitate the implementation of the access control policy

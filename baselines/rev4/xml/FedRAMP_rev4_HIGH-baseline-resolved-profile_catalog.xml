@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="29cc6a60-6bc6-4cbf-b477-35811ff1c0c7">
+         uuid="56456dd2-67d3-466c-b646-75da7202c477">
    <metadata>
       <title>FedRAMP Rev 4 High Baseline</title>
       <published>2021-02-05T00:00:00.000-04:00</published>
-      <last-modified>2021-06-11T23:14:40.664021Z</last-modified>
+      <last-modified>2021-07-02T13:01:55.070547Z</last-modified>
       <version>1.3</version>
       <oscal-version>1.0.0</oscal-version>
       <link rel="resolution-source" href="FedRAMP_rev4_HIGH-baseline_profile.xml"/>
@@ -81,16 +81,19 @@
          <part id="ac-1_smt" name="statement">
             <p>The organization:</p>
             <part id="ac-1_smt.a" name="item">
-               <prop ns="https://fedramp.gov/ns/oscal"
-                     name="response-point"
-                     value="You must fill in this response point."/>
                <prop name="label" value="a."/>
                <p>Develops, documents, and disseminates to <insert type="param" id-ref="ac-1_prm_1"/>:</p>
                <part id="ac-1_smt.a.1" name="item">
+                  <prop ns="https://fedramp.gov/ns/oscal"
+                        name="response-point"
+                        value="You must fill in this response point."/>
                   <prop name="label" value="1."/>
                   <p>An access control policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and</p>
                </part>
                <part id="ac-1_smt.a.2" name="item">
+                  <prop ns="https://fedramp.gov/ns/oscal"
+                        name="response-point"
+                        value="You must fill in this response point."/>
                   <prop name="label" value="2."/>
                   <p>Procedures to facilitate the implementation of the access control policy and associated access controls; and</p>
                </part>

@@ -2045,7 +2045,18 @@
             },
             {
               "position": "starting",
-              "by-id": "ac-1_smt.a",
+              "by-id": "ac-1_smt.a.1",
+              "props": [
+                {
+                  "name": "response-point",
+                  "ns": "https://fedramp.gov/ns/oscal",
+                  "value": "You must fill in this response point."
+                }
+              ]
+            },
+            {
+              "position": "starting",
+              "by-id": "ac-1_smt.a.2",
               "props": [
                 {
                   "name": "response-point",

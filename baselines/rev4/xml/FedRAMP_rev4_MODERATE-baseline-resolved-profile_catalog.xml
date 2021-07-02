@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="fe8e6b33-65dc-4e1b-b789-b6b6fee22054">
+         uuid="7628cf48-dd54-4e3b-b5ba-10384777c28b">
    <metadata>
       <title>FedRAMP Rev 4 Moderate Baseline</title>
       <published>2021-02-05T00:00:00.000-04:00</published>
-      <last-modified>2021-06-11T23:15:23.406565Z</last-modified>
+      <last-modified>2021-07-02T13:02:32.702083Z</last-modified>
       <version>1.3</version>
       <oscal-version>1.0.0</oscal-version>
       <link rel="resolution-source"
@@ -82,16 +82,19 @@
          <part id="ac-1_smt" name="statement">
             <p>The organization:</p>
             <part id="ac-1_smt.a" name="item">
-               <prop ns="https://fedramp.gov/ns/oscal"
-                     name="response-point"
-                     value="You must fill in this response point."/>
                <prop name="label" value="a."/>
                <p>Develops, documents, and disseminates to <insert type="param" id-ref="ac-1_prm_1"/>:</p>
                <part id="ac-1_smt.a.1" name="item">
+                  <prop ns="https://fedramp.gov/ns/oscal"
+                        name="response-point"
+                        value="You must fill in this response point."/>
                   <prop name="label" value="1."/>
                   <p>An access control policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and</p>
                </part>
                <part id="ac-1_smt.a.2" name="item">
+                  <prop ns="https://fedramp.gov/ns/oscal"
+                        name="response-point"
+                        value="You must fill in this response point."/>
                   <prop name="label" value="2."/>
                   <p>Procedures to facilitate the implementation of the access control policy and associated access controls; and</p>
                </part>
