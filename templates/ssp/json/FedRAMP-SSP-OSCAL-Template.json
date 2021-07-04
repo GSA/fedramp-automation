@@ -741,7 +741,7 @@
           "remarks": "Remarks are required if deployment model is \\\"hybrid-cloud\\\" or \\\"other\\\". Optional otherwise."
         }
       ],
-      "security-sensitivity-level": "moderate",
+      "security-sensitivity-level": "fips-199-moderate",
       "system-information": {
         "props": [
           {

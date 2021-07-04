@@ -539,7 +539,7 @@
          </remarks>
       </prop>
       <!-- Table 2-1 Security Categorization and 2-4 Baseline Security Configuration -->
-      <security-sensitivity-level>moderate</security-sensitivity-level>
+      <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
       <!-- Table 2-2, Table 15-9, and Attachment 4 -->
       <system-information>
          <!-- Attachment 4, PTA/PIA Designation -->
