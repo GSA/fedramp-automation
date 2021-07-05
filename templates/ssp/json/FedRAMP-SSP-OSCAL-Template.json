@@ -769,13 +769,13 @@
           {
             "name": "pta-4",
             "ns": "https://fedramp.gov/ns/oscal",
-            "value": "no",
+            "value": "yes",
             "class": "pta"
           },
           {
             "name": "sorn-id",
             "ns": "https://fedramp.gov/ns/oscal",
-            "value": "[No SORN ID]",
+            "value": "82 FR 37451",
             "class": "pta"
           }
         ],

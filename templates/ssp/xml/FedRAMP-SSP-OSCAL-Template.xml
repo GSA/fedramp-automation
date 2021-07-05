@@ -552,8 +552,9 @@
          <!--Has a Privacy Impact Assessment ever been performed for the ISA? -->
          <prop ns="https://fedramp.gov/ns/oscal" name="pta-3" class="pta" value="yes"/>
          <!--Is there a Privacy Act System of Records Notice (SORN) for this ISA system? (If so, please specify the SORN ID.) -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="pta-4" class="pta" value="no"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="sorn-id" class="pta" value="[No SORN ID]"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="pta-4" class="pta" value="yes"/>
+         <!--Example Systems of Records Notice ID from the Federal Register, login.gov -->   
+         <prop ns="https://fedramp.gov/ns/oscal" name="sorn-id" class="pta" value="82 FR 37451"/>
          <information-type uuid="06ecba4f-db96-4491-a3a2-7febfa227435">
             <title>Information Type Name</title>
             <description>

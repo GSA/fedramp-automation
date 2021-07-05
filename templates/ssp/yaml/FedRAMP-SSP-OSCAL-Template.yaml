@@ -532,11 +532,11 @@ system-security-plan:
           class: pta
         - name: pta-4
           ns: https://fedramp.gov/ns/oscal
-          value: no
+          value: yes
           class: pta
         - name: sorn-id
           ns: https://fedramp.gov/ns/oscal
-          value: "[No SORN ID]"
+          value: 82 FR 37451
           class: pta
       information-types:
         - uuid: 06ecba4f-db96-4491-a3a2-7febfa227435
