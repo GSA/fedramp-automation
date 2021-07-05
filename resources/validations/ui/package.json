@@ -28,6 +28,7 @@
     "overmind": "^28.0.0",
     "overmind-react": "^29.0.0",
     "patch-package": "^6.4.7",
+    "path-to-regexp": "^6.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "saxon-js": "^2.2.0",

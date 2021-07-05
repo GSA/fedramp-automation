@@ -9,6 +9,7 @@ import type {
 } from '../../../use-cases/validate-ssp-xml';
 
 import * as report from './report';
+import { homeRoute, Route } from './router';
 
 type UseCases = {
   annotateXML: AnnotateXMLUseCase;
@@ -22,8 +23,9 @@ type SampleSSP = {
 };
 
 type State = {
+  currentRoute: Route;
   baseUrl: string;
-  repositoryUrl: string;
+  repositoryUrl?: string;
   sampleSSPs: SampleSSP[];
 };
 
@@ -31,14 +33,16 @@ export const getPresenterConfig = (
   useCases: UseCases,
   initialState: Partial<State> = {},
 ) => {
+  const state: State = {
+    currentRoute: homeRoute,
+    baseUrl: '',
+    sampleSSPs: [] as SampleSSP[],
+    ...initialState,
+  };
   return merge(
     {
       actions,
-      state: {
-        baseUrl: '',
-        sampleSSPs: [] as SampleSSP[],
-        ...initialState,
-      },
+      state,
       effects: {
         useCases,
       },

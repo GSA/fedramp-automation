@@ -4,7 +4,7 @@ import { useActions, useAppState } from '../hooks';
 import { onFileInputChangeGetFile } from '../../util/file-input';
 import { SSPReport } from './SSPReport';
 
-export const SSPValidator = () => {
+export const HomePage = () => {
   const state = useAppState();
   const actions = useActions();
   const validatedReport = state.report.matches('VALIDATED');

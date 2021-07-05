@@ -31,23 +31,3 @@ export const Collapsable = ({ children, title }: CollapsableProps) => {
     </div>
   );
 };
-
-type XmlViewProps = {
-  assertionXPath?: string;
-  formattedHtml: string;
-  xmlText: string;
-};
-
-export const XmlViewer = ({
-  assertionXPath,
-  formattedHtml,
-  xmlText,
-}: XmlViewProps) => {
-  return (
-    <Collapsable title="SSP XML">
-      <pre>
-        <code dangerouslySetInnerHTML={{ __html: formattedHtml }}></code>
-      </pre>
-    </Collapsable>
-  );
-};

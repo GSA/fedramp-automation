@@ -20,7 +20,7 @@ describe('xml annotation integrated with SaxonJS', () => {
         ],
       });
       expect(retVal).toEqual(
-        '<?xml version="1.0" encoding="UTF-8"?><xml><!--annotation-1-start--><node1/><!--annotation-1-end--><node2/></xml>',
+        '<?xml version="1.0" encoding="UTF-8"?><xml><!--ASSERTION-START:annotation-1:ASSERTION-START--><node1/><!--ASSERTION-END:annotation-1:ASSERTION-END--><node2/></xml>',
       );
     });
 
@@ -35,7 +35,7 @@ describe('xml annotation integrated with SaxonJS', () => {
         ],
       });
       expect(retVal).toEqual(
-        '<?xml version="1.0" encoding="UTF-8"?><xml><node1/><!--annotation-1-start--><node2/><!--annotation-1-end--></xml>',
+        '<?xml version="1.0" encoding="UTF-8"?><xml><node1/><!--ASSERTION-START:annotation-1:ASSERTION-START--><node2/><!--ASSERTION-END:annotation-1:ASSERTION-END--></xml>',
       );
     });
   });
