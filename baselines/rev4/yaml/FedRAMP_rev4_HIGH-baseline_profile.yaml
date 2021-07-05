@@ -5,7 +5,7 @@ profile:
     title: FedRAMP Rev 4 High Baseline
     published: 2021-02-05T00:00:00.000-04:00
     last-modified: 2021-06-09T14:27:59.366-04:00
-    version: "1.3"
+    version: fedramp1.0.0-oscal1.0.0
     oscal-version: 1.0.0
     roles:
       - id: prepared-by

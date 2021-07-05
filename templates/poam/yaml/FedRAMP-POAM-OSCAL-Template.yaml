@@ -5,7 +5,7 @@ plan-of-action-and-milestones:
     title: "[System Name] FedRAMP Plan of Action and Milestones (POA&M)"
     published: 2021-02-25T00:00:00.00-04:00
     last-modified: 2021-06-09T14:28:10.983-04:00
-    version: "0.3"
+    version: fedramp1.0.0-oscal1.0.0
     oscal-version: 1.0.0
     props:
       - name: marking
