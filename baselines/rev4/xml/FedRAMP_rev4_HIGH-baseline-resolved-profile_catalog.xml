@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="24f81f98-d667-4a5c-b954-f5b1a9a65f0e">
+         uuid="87f9f4db-524b-4654-a956-2d17dc732e56">
    <metadata>
       <title>FedRAMP Rev 4 High Baseline</title>
       <published>2021-02-05T00:00:00.000-04:00</published>
-      <last-modified>2021-07-05T20:52:57.027051Z</last-modified>
+      <last-modified>2021-07-06T14:29:31.648468Z</last-modified>
       <version>fedramp1.0.0-oscal1.0.0</version>
       <oscal-version>1.0.0</oscal-version>
       <link rel="resolution-source" href="FedRAMP_rev4_HIGH-baseline_profile.xml"/>
@@ -3573,7 +3573,7 @@
                <part id="ac-14.a_obj.1" name="objective">
                   <prop ns="https://fedramp.gov/ns/oscal"
                         name="response-point"
-                        value="true/FedRAMP_rev4_HIGH-baseline_profile.xml"/>
+                        value="You must fill in this response point."/>
                   <prop name="method" class="fedramp" value="EXAMINE"/>
                   <prop name="label" value="AC-14(a)[1]"/>
                   <p>defines user actions that can be performed on the information system without identification or authentication consistent with organizational missions/business functions;</p>

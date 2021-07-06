@@ -1,10 +1,10 @@
 ---
 catalog:
-  uuid: 24f81f98-d667-4a5c-b954-f5b1a9a65f0e
+  uuid: 87f9f4db-524b-4654-a956-2d17dc732e56
   metadata:
     title: FedRAMP Rev 4 High Baseline
     published: 2021-02-05T00:00:00.000-04:00
-    last-modified: 2021-07-05T20:52:57.027051Z
+    last-modified: 2021-07-06T14:29:31.648468Z
     version: fedramp1.0.0-oscal1.0.0
     oscal-version: 1.0.0
     links:
@@ -6190,7 +6190,7 @@ catalog:
                       props:
                         - name: response-point
                           ns: https://fedramp.gov/ns/oscal
-                          value: true/FedRAMP_rev4_HIGH-baseline_profile.xml
+                          value: You must fill in this response point.
                         - name: method
                           value: EXAMINE
                           class: fedramp
