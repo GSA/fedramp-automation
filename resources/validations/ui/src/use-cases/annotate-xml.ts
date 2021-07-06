@@ -13,7 +13,7 @@ type AnnotateXMLUseCaseContext = {
 type AnnotateXMLOptions = {
   xmlString: string;
   annotations: {
-    id: string;
+    uniqueId: string;
     xpath: string;
   }[];
 };
@@ -25,7 +25,7 @@ const spanWrapAssertionContexts = (highlightedXml: string) => {
     /<span class="hljs-comment">&lt;!--ASSERTION-END:(.*?):ASSERTION-END--&gt;<\/span>/gm;
   return highlightedXml
     .replaceAll(assertionStart, (_, assertionId) => {
-      return `<span id="${assertionId}" style="background-color: lightgray;">`;
+      return `<span id="${assertionId}">`;
     })
     .replaceAll(assertionEnd, '</span>');
 };
@@ -42,11 +42,15 @@ export const AnnotateXMLUseCase =
       const node = xmlContext[0];
       if (node && node.parentNode) {
         node.parentNode.insertBefore(
-          doc.createComment(`ASSERTION-START:${annotation.id}:ASSERTION-START`),
+          doc.createComment(
+            `ASSERTION-START:${annotation.uniqueId}:ASSERTION-START`,
+          ),
           node,
         );
         node.parentNode.insertBefore(
-          doc.createComment(`ASSERTION-END:${annotation.id}:ASSERTION-END`),
+          doc.createComment(
+            `ASSERTION-END:${annotation.uniqueId}:ASSERTION-END`,
+          ),
           node.nextSibling,
         );
       }

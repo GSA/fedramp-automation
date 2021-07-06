@@ -14,7 +14,7 @@ const getValidationReport = (
     resultForm: 'array',
   });
   return {
-    failedAsserts: Array.prototype.map.call(failedAsserts, assert => {
+    failedAsserts: Array.prototype.map.call(failedAsserts, (assert, index) => {
       return Object.keys(assert.attributes).reduce(
         (assertMap: Record<string, ValidationAssert>, key: string) => {
           const name = assert.attributes[key].name;
@@ -25,6 +25,7 @@ const getValidationReport = (
         },
         {
           text: assert.textContent,
+          uniqueId: `${assert['id']}-${index}` as any,
         },
       );
     }) as ValidationAssert[],

@@ -74,7 +74,7 @@ export const SSPReport = () => {
             <Assertion
               key={index}
               assert={assert}
-              href={getUrl(assertionRoute({ assertionId: assert.id }))}
+              href={getUrl(assertionRoute({ assertionId: assert.uniqueId }))}
             />
           ))}
         </>

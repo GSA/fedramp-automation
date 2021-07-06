@@ -14,7 +14,7 @@ describe('xml annotation integrated with SaxonJS', () => {
         xmlString: '<xml><node1></node1><node2></node2></xml>',
         annotations: [
           {
-            id: 'annotation-1',
+            uniqueId: 'annotation-1',
             xpath: '//node1',
           },
         ],
@@ -29,7 +29,7 @@ describe('xml annotation integrated with SaxonJS', () => {
         xmlString: '<xml><node1></node1><node2></node2></xml>',
         annotations: [
           {
-            id: 'annotation-1',
+            uniqueId: 'annotation-1',
             xpath: '//node2',
           },
         ],

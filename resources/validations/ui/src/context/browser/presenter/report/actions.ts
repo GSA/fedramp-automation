@@ -53,7 +53,7 @@ export const annotateXml = async ({ effects, state }: PresenterConfig) => {
       xmlString: state.report.xmlText,
       annotations: state.report.validationReport.failedAsserts.map(assert => {
         return {
-          id: assert.id,
+          uniqueId: assert.uniqueId,
           xpath: assert.location,
         };
       }),

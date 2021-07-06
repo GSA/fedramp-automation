@@ -6,7 +6,7 @@ type CodeViewerProps = {
 
 export const CodeViewer = ({ codeHTML }: CodeViewerProps) => {
   return (
-    <pre>
+    <pre style={{ whiteSpace: 'pre-wrap' }}>
       <code dangerouslySetInnerHTML={{ __html: codeHTML }}></code>
     </pre>
   );

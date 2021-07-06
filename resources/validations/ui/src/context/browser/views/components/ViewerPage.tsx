@@ -23,7 +23,12 @@ export const ViewerPage = (props: ViewerProps) => {
         `#${props.assertionId}`,
       ) as HTMLElement;
       if (target) {
-        target.scrollIntoView({ block: 'center' });
+        target.scrollIntoView({
+          behavior: 'auto',
+          block: 'start',
+          inline: 'start',
+        });
+        target.style.backgroundColor = 'lightgray';
       }
     }
   });
