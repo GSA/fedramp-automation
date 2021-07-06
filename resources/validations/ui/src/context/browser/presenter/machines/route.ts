@@ -8,7 +8,7 @@ type States =
       current: router.HomeRoute['type'];
     }
   | {
-      current: router.ViewerRoute['type'];
+      current: router.SummaryRoute['type'];
     }
   | {
       current: router.AssertionRoute['type'];
