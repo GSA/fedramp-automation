@@ -6,22 +6,22 @@ export type BrowserLocation = {
 };
 
 // Defined concrete objects for each route.
-type HomeRoute = { type: 'Home' };
+export type HomeRoute = { type: 'Home' };
 export const homeRoute: HomeRoute = {
   type: 'Home',
 };
 
-type ViewerRoute = { type: 'Viewer' };
+export type ViewerRoute = { type: 'Viewer' };
 export const viewerRoute: ViewerRoute = {
   type: 'Viewer',
 };
 
-type AssertionListRoute = { type: 'AssertionList' };
+export type AssertionListRoute = { type: 'AssertionList' };
 export const assertionListRoute: AssertionListRoute = {
   type: 'AssertionList',
 };
 
-type AssertionRoute = { type: 'Assertion'; assertionId: string };
+export type AssertionRoute = { type: 'Assertion'; assertionId: string };
 export const assertionRoute = (options: {
   assertionId: string;
 }): AssertionRoute => {
@@ -36,6 +36,7 @@ export type Route =
   | ViewerRoute
   | AssertionListRoute
   | AssertionRoute;
+export type RouteType = Route['type'];
 
 export type NotFound = { type: 'NotFound' };
 export const notFound: NotFound = { type: 'NotFound' };
@@ -45,10 +46,10 @@ export const breadcrumbStructure = {
 };
 
 const RouteUrl: Record<Route['type'], (route?: any) => string> = {
-  Home: () => '/',
-  Viewer: () => '/viewer',
-  AssertionList: () => '/assertions',
-  Assertion: (route: AssertionRoute) => `/assertions/${route.assertionId}`,
+  Home: () => '#/',
+  Viewer: () => '#/viewer',
+  AssertionList: () => '#/assertions',
+  Assertion: (route: AssertionRoute) => `#/assertions/${route.assertionId}`,
 };
 
 export const getUrl = (route: Route): string => {

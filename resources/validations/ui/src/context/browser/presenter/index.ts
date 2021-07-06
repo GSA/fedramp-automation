@@ -1,4 +1,9 @@
-import { createOvermind, createOvermindMock, IContext } from 'overmind';
+import {
+  createOvermind,
+  createOvermindMock,
+  derived,
+  IContext,
+} from 'overmind';
 import { merge, namespaced } from 'overmind/config';
 
 import * as actions from './actions';
@@ -9,7 +14,7 @@ import type {
 } from '../../../use-cases/validate-ssp-xml';
 
 import * as report from './report';
-import { homeRoute, Route } from './router';
+import * as router from './router';
 
 type UseCases = {
   annotateXML: AnnotateXMLUseCase;
@@ -23,10 +28,11 @@ type SampleSSP = {
 };
 
 type State = {
-  currentRoute: Route;
+  currentRoute: router.Route;
   baseUrl: string;
   repositoryUrl?: string;
   sampleSSPs: SampleSSP[];
+  breadcrumbs: { text: string; selected: boolean; url: string }[];
 };
 
 export const getPresenterConfig = (
@@ -34,10 +40,36 @@ export const getPresenterConfig = (
   initialState: Partial<State> = {},
 ) => {
   const state: State = {
-    currentRoute: homeRoute,
+    currentRoute: router.homeRoute,
     baseUrl: '',
     sampleSSPs: [] as SampleSSP[],
     ...initialState,
+    breadcrumbs: derived((state: State) => {
+      return [
+        {
+          text: 'Home',
+          url: router.getUrl(router.homeRoute),
+          selected: state.currentRoute.type === 'Home',
+        },
+        {
+          text: 'SSP Viewer',
+          url: router.getUrl(router.viewerRoute),
+          selected: state.currentRoute.type === 'Viewer',
+        },
+        {
+          text: 'AssertionList',
+          url: router.getUrl(router.assertionListRoute),
+          selected: state.currentRoute.type === 'AssertionList',
+        },
+        {
+          text: 'Assertion',
+          url: router.getUrl(
+            router.assertionRoute({ assertionId: 'test-assertion-id' }),
+          ),
+          selected: state.currentRoute.type === 'Assertion',
+        },
+      ];
+    }),
   };
   return merge(
     {
