@@ -2,6 +2,7 @@ import React from 'react';
 
 import { usePresenter } from '../hooks';
 import { onFileInputChangeGetFile } from '../../util/file-input';
+import { colorTokenForRole } from '../../util/styles';
 import { SSPReport } from './report';
 
 export const SSPValidator = () => {
@@ -32,20 +33,23 @@ export const SSPValidator = () => {
           })}
           disabled={state.report.current === 'PROCESSING'}
         />
-        <div className="usa-hint">
-          Or just use an example file, brought to you by FedRAMP.
-        </div>
-        <div>
-          {state.sampleSSPs.map((sampleSSP, index) => (
-            <button
-              key={index}
-              className="usa-button usa-button--unstyled"
-              onClick={() => actions.report.setXmlUrl(sampleSSP.url)}
-              disabled={state.report.current === 'PROCESSING'}
-            >
-              {sampleSSP.displayName}
-            </button>
-          ))}
+        <div className="margin-y-1">
+          <div className="usa-hint">
+            Or use an example file, brought to you by FedRAMP:
+          </div>
+          <ul>
+            {state.sampleSSPs.map((sampleSSP, index) => (
+              <li key={index}>
+                <button
+                  className="usa-button usa-button--unstyled"
+                  onClick={() => actions.report.setXmlUrl(sampleSSP.url)}
+                  disabled={state.report.current === 'PROCESSING'}
+                >
+                  {sampleSSP.displayName}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
         {validatedReport && (
           <form className="usa-form">
@@ -99,9 +103,26 @@ export const SSPValidator = () => {
                       onChange={() => actions.report.setFilterRole(filterRole)}
                     />
                     <label
-                      className="usa-radio__label"
+                      className={`usa-radio__label bg-${colorTokenForRole(
+                        filterRole,
+                      )}-lighter`}
                       htmlFor={`role-${filterRole}`}
                     >
+                      <svg
+                        aria-hidden="true"
+                        role="img"
+                        focusable="false"
+                        className="usa-icon usa-icon--size-3 margin-right-1 margin-bottom-neg-2px"
+                      >
+                        <use
+                          xmlnsXlink="http://www.w3.org/1999/xlink"
+                          xlinkHref={actions.getAssetUrl(
+                            `uswds/img/sprite.svg#${colorTokenForRole(
+                              filterRole,
+                            )}`,
+                          )}
+                        />
+                      </svg>
                       {filterRole || '<not specified>'}
                     </label>
                   </div>
