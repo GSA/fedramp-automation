@@ -3,8 +3,8 @@
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values [DRAFT]</title>
       <title-short>FedRAMP Data Values (DRAFT)</title-short>
-      <last-modified>2020-03-03Z</last-modified>
-      <version>DRAFT</version>
+      <last-modified>2021-07-06T12:28:35Z</last-modified>
+      <version>fedramp1.0.0-oscal1.0.0</version>
       <author>FedRAMP PMO</author>
       <description>This EXPERIMENTAL and DRAFT file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
       <remarks />
