@@ -11,7 +11,7 @@
          <revision>
             <published>2019-06-01T00:00:00.00-04:00</published>
             <version>DRAFT-01</version>
-            <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</o:prop>
+            <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
             <remarks>
                <p>Initial draft.</p>
             </remarks>
@@ -19,7 +19,7 @@
          <revision>
             <published>2020-03-03T00:00:00.00-04:00</published>
             <version>DRAFT-02</version>
-            <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</o:prop>
+            <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
             <remarks>
                <p>Partial update to include some SAP, SAR, and POA&amp;M extensions.</p>
             </remarks>
@@ -27,7 +27,7 @@
          <revision>
             <published>2021-02-09T00:00:00.00-04:00</published>
             <version>DRAFT-03</version>
-            <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</o:prop>
+            <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
             <remarks>
                <p>Revised draft to better align with OSCAL RC-1 SSP syntax.</p>
             </remarks>
@@ -1113,7 +1113,7 @@
    <constraint name="planned-completion-date">
       <formal-name>Planned Implementation Date Exists</formal-name>
       <description>If the control implementation status is "Planned" a "Planned Implementation Date" must be provided.</description>
-      <prop name="reference">3.1</o:prop>
+      <prop name="reference">3.1</prop>
       <binding pattern="/o:system-security-plan/o:control-implementation/o:implemented-requirement[o:prop[@name='implementation-status'][@value='planned']]" />
       <expect test="(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='partial']/remarks)" />
       <expect test="(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='planned']/remarks)" />
@@ -1210,7 +1210,7 @@
          <enum value="SHA-512" short-label="SHA-512">SHA-512</enum>
          <enum value="RIPEMD-160" short-label="RIPEMD-160">RIPEMD-160</enum>
       </allowed-values>
-   </value-set>
+   </constraint>
 
    <constraint name="attachment-type">
       <formal-name>Attachment/Resource Types</formal-name>
@@ -1341,7 +1341,7 @@
       <remarks><p>FedRAMP only allows information types defined in NIST SP 800-60v2r1.</p></remarks>
    </constraint>
    
-   <constraint name="security-impact-level">
+   <constraint name="security-level">
       <formal-name>Security Impact Level</formal-name>
       <description>The security objective level as defined by NIST SP 800-60.</description>
       <binding pattern="security-sensitivity-level"/>
@@ -1373,8 +1373,8 @@
 <back-matter>
    <resource uuid="871713A8-5A27-4AC3-8B94-972588469C6B">
       <title>OPM Posiiton Designation</title>
-      <prop name="type"></o:prop>
-      <prop name="published">2017-09-01T00:00:00Z</o:prop>
+      <prop name="type"></prop>
+      <prop name="published">2017-09-01T00:00:00Z</prop>
       <rlink media-type="application/pdf" href="https://www.opm.gov/suitability/suitability-executive-agent/position-designation-tool/position-designation-system-with-glossary-2017.pdf" />
    </resource>
 </back-matter>
