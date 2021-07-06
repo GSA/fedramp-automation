@@ -427,7 +427,7 @@
       <formal-name>Is Scanned</formal-name>
       <description>Indicates if the asset is scan.</description>
       <binding pattern="inventory-item/prop[@name='is-scanned']/@value" />
-      <binding pattern="component/prop[@name='is-scannan']/@value" />
+      <binding pattern="component/prop[@name='is-scanned']/@value" />
       <allowed-values allow-other="no">
          <enum value="yes" short-label="Y">Yes</enum>
          <enum value="no" short-label="N">No</enum>
