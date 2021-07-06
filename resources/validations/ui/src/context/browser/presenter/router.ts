@@ -11,14 +11,10 @@ export const homeRoute: HomeRoute = {
   type: 'Home',
 };
 
-export type ViewerRoute = { type: 'Viewer' };
-export const viewerRoute: ViewerRoute = {
-  type: 'Viewer',
-};
-
-export type AssertionListRoute = { type: 'AssertionList' };
-export const assertionListRoute: AssertionListRoute = {
-  type: 'AssertionList',
+// Defined concrete objects for each route.
+export type SummaryRoute = { type: 'Summary' };
+export const summaryRoute: SummaryRoute = {
+  type: 'Summary',
 };
 
 export type AssertionRoute = { type: 'Assertion'; assertionId: string };
@@ -31,24 +27,15 @@ export const assertionRoute = (options: {
   };
 };
 
-export type Route =
-  | HomeRoute
-  | ViewerRoute
-  | AssertionListRoute
-  | AssertionRoute;
+export type Route = HomeRoute | SummaryRoute | AssertionRoute;
 export type RouteType = Route['type'];
 
 export type NotFound = { type: 'NotFound' };
 export const notFound: NotFound = { type: 'NotFound' };
 
-export const breadcrumbStructure = {
-  '/': ['/'],
-};
-
 const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   Home: () => '#/',
-  Viewer: () => '#/viewer',
-  AssertionList: () => '#/assertions',
+  Summary: () => '#/summary',
   Assertion: (route: AssertionRoute) => `#/assertions/${route.assertionId}`,
 };
 
@@ -70,10 +57,9 @@ const matchRoute = <L extends Route>(
 };
 
 const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
-  Home: matchRoute('/', () => homeRoute),
-  Viewer: matchRoute('/viewer', () => viewerRoute),
-  AssertionList: matchRoute('/assertions', () => assertionListRoute),
-  Assertion: matchRoute('/assertions/:assertionId', assertionRoute),
+  Home: matchRoute('#/', () => homeRoute),
+  Summary: matchRoute('#/summary', () => summaryRoute),
+  Assertion: matchRoute('#/assertions/:assertionId', assertionRoute),
 };
 
 export const getRoute = (url: string): Route | NotFound => {
@@ -85,3 +71,43 @@ export const getRoute = (url: string): Route | NotFound => {
   }
   return notFound;
 };
+
+type Breadcrumb = {
+  text: string;
+  url: string;
+  selected: boolean;
+};
+export const breadcrumbs: Record<Route['type'], (route: any) => Breadcrumb[]> =
+  {
+    Home: (route: Route) => {
+      return [
+        {
+          text: 'Select SSP',
+          url: getUrl(homeRoute),
+          selected: route.type === 'Home',
+        },
+      ];
+    },
+    Summary: (route: Route) => {
+      return [
+        ...breadcrumbs.Home(route),
+        {
+          text: 'Document name',
+          url: getUrl(summaryRoute),
+          selected: route.type === 'Summary',
+        },
+      ];
+    },
+    Assertion: (route: AssertionRoute) => {
+      return [
+        ...breadcrumbs.Home(route),
+        {
+          text: 'Assertion',
+          url: getUrl(assertionRoute({ assertionId: route.assertionId })),
+          selected: route.type === 'Assertion',
+        },
+      ];
+    },
+  };
+
+export type LocationListener = (listener: (url: string) => void) => void;

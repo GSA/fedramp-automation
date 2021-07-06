@@ -31,7 +31,6 @@ type States =
       annotatedSSP: string;
       filterRoles: Role[];
       visibleAssertions: ValidationAssert[];
-      assertionXPath?: string;
     };
 
 type BaseState = {};

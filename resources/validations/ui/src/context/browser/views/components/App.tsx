@@ -5,18 +5,17 @@ import { Breadcrumbs } from './Breadcrumbs';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { HomePage } from './HomePage';
+import { SummaryPage } from './SummaryPage';
 import { ViewerPage } from './ViewerPage';
 
 const CurrentPage = () => {
   const { currentRoute } = useAppState();
   if (currentRoute.type === 'Home') {
     return <HomePage />;
-  } else if (currentRoute.type === 'Viewer') {
-    return <ViewerPage />;
-  } else if (currentRoute.type === 'AssertionList') {
-    return <div>TODO: AssertionList page</div>;
+  } else if (currentRoute.type === 'Summary') {
+    return <SummaryPage />;
   } else if (currentRoute.type === 'Assertion') {
-    return <div>TODO: Assertion page</div>;
+    return <ViewerPage assertionId={currentRoute.assertionId} />;
   } else {
     const _exhaustiveCheck: never = currentRoute;
     return <></>;

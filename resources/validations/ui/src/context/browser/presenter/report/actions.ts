@@ -1,7 +1,4 @@
-import type {
-  ValidationAssert,
-  ValidationReport,
-} from '../../../../use-cases/schematron';
+import type { ValidationReport } from '../../../../use-cases/schematron';
 import type { Role } from './state';
 import type { PresenterConfig } from '..';
 
@@ -98,14 +95,5 @@ export const setFilterRole = ({ state }: PresenterConfig, filter: Role) => {
 export const setFilterText = ({ state }: PresenterConfig, text: string) => {
   if (state.report.current === 'VALIDATED') {
     state.report.filter.text = text;
-  }
-};
-
-export const showAssertionXmlContext = (
-  { state }: PresenterConfig,
-  assert: ValidationAssert,
-) => {
-  if (state.report.current == 'VALIDATED') {
-    state.report.assertionXPath = assert.location;
   }
 };

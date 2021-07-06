@@ -5,13 +5,8 @@ describe('router', () => {
     it('parses /', () => {
       expect(router.getRoute('/')).toEqual({ type: 'Home' });
     });
-    it('parses /viewer', () => {
-      expect(router.getRoute('/viewer')).toEqual({ type: 'Viewer' });
-    });
-    it('parses /assertions', () => {
-      expect(router.getRoute('/assertions')).toEqual({
-        type: 'AssertionList',
-      });
+    it('parses /summary', () => {
+      expect(router.getRoute('/summary')).toEqual({ type: 'Summary' });
     });
     it('parses /assertions/assertion-id', () => {
       expect(router.getRoute('/assertions/assertion-id')).toEqual({
@@ -28,19 +23,12 @@ describe('router', () => {
     it('returns HomeRoute', () => {
       expect(router.getUrl(router.homeRoute)).toEqual('/');
     });
-    it('returns ViewerRoute', () => {
-      expect(router.getUrl(router.viewerRoute)).toEqual('/viewer');
-    });
-    it('returns AssertionListRoute', () => {
-      expect(router.getUrl(router.assertionListRoute)).toEqual(
-        '/assertions',
-      );
+    it('returns SummaryRoute', () => {
+      expect(router.getUrl(router.summaryRoute)).toEqual('/summary');
     });
     it('returns AssertionRoute', () => {
       expect(
-        router.getUrl(
-          router.assertionRoute({ assertionId: 'assertion-id' }),
-        ),
+        router.getUrl(router.assertionRoute({ assertionId: 'assertion-id' })),
       ).toEqual('/assertions/assertion-id');
     });
   });

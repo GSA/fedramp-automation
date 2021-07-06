@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 import type { ValidationAssert } from '../../../../use-cases/schematron';
-import { useActions, useAppState } from '../../views/hooks';
+import { useAppState } from '../../views/hooks';
+import { assertionRoute, getUrl } from '../../presenter/router';
 
 const MAX_ASSERT_TEXT_LENGTH = 200;
 
@@ -18,10 +19,10 @@ const alertClassForRole = (role: string | undefined) => {
 
 const Assertion = ({
   assert,
-  showAssertionXmlContext,
+  href,
 }: {
   assert: ValidationAssert;
-  showAssertionXmlContext: () => void;
+  href: string;
 }) => {
   const [expanded, setExpanded] = useState<boolean>(false);
   return (
@@ -48,15 +49,14 @@ const Assertion = ({
           <ul>
             {assert.see && <li>`see: ${assert.see}`</li>}
             <li>
-              <button
-                type="button"
-                className="usa-button usa-button--unstyled usa-tooltip"
+              <a
+                href={href}
+                className="usa-tooltip"
                 data-position="top"
                 title={assert.location}
-                onClick={showAssertionXmlContext}
               >
                 Show XML context
-              </button>
+              </a>
             </li>
             <li>test: {assert.test}</li>
           </ul>
@@ -68,7 +68,6 @@ const Assertion = ({
 
 export const SSPReport = () => {
   const reportState = useAppState().report;
-  const { showAssertionXmlContext } = useActions().report;
   return (
     <div>
       {reportState.current === 'VALIDATED' && (
@@ -82,7 +81,7 @@ export const SSPReport = () => {
             <Assertion
               key={index}
               assert={assert}
-              showAssertionXmlContext={() => showAssertionXmlContext(assert)}
+              href={getUrl(assertionRoute({ assertionId: assert.id }))}
             />
           ))}
         </>

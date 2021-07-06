@@ -8,10 +8,11 @@ export const Breadcrumbs = () => {
   return (
     <nav className="usa-breadcrumb" aria-label="Breadcrumbs">
       <ol className="usa-breadcrumb__list">
-        {breadcrumbs.map(breadcrumb => {
+        {breadcrumbs.map((breadcrumb, index) => {
           const contentNode = <span>{breadcrumb.text}</span>;
           return (
             <li
+              key={index}
               className="usa-breadcrumb__list-item"
               aria-current={breadcrumb.selected && 'page'}
             >

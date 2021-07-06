@@ -36,6 +36,7 @@ type State = {
 };
 
 export const getPresenterConfig = (
+  locationListen: router.LocationListener,
   useCases: UseCases,
   initialState: Partial<State> = {},
 ) => {
@@ -44,38 +45,16 @@ export const getPresenterConfig = (
     baseUrl: '',
     sampleSSPs: [] as SampleSSP[],
     ...initialState,
-    breadcrumbs: derived((state: State) => {
-      return [
-        {
-          text: 'Home',
-          url: router.getUrl(router.homeRoute),
-          selected: state.currentRoute.type === 'Home',
-        },
-        {
-          text: 'SSP Viewer',
-          url: router.getUrl(router.viewerRoute),
-          selected: state.currentRoute.type === 'Viewer',
-        },
-        {
-          text: 'AssertionList',
-          url: router.getUrl(router.assertionListRoute),
-          selected: state.currentRoute.type === 'AssertionList',
-        },
-        {
-          text: 'Assertion',
-          url: router.getUrl(
-            router.assertionRoute({ assertionId: 'test-assertion-id' }),
-          ),
-          selected: state.currentRoute.type === 'Assertion',
-        },
-      ];
-    }),
+    breadcrumbs: derived((state: State) =>
+      router.breadcrumbs[state.currentRoute.type](state.currentRoute),
+    ),
   };
   return merge(
     {
       actions,
       state,
       effects: {
+        locationListen,
         useCases,
       },
     },
@@ -91,12 +70,13 @@ export type PresenterContext = {
   debug: boolean;
   repositoryUrl: string;
   sampleSSPs: SampleSSP[];
+  locationListen: router.LocationListener;
   useCases: UseCases;
 };
 
 export const createPresenter = (ctx: PresenterContext) => {
   const presenter = createOvermind(
-    getPresenterConfig(ctx.useCases, {
+    getPresenterConfig(ctx.locationListen, ctx.useCases, {
       baseUrl: ctx.baseUrl,
       repositoryUrl: ctx.repositoryUrl,
       sampleSSPs: ctx.sampleSSPs,
@@ -132,7 +112,7 @@ type MockPresenterContext = {
 
 export const createPresenterMock = (ctx: MockPresenterContext = {}) => {
   const presenter = createOvermindMock(
-    getPresenterConfig(getUseCasesShim(), ctx.initialState),
+    getPresenterConfig(jest.fn(), getUseCasesShim(), ctx.initialState),
     {
       useCases: ctx.useCases,
     },

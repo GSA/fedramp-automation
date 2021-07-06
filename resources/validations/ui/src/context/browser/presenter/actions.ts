@@ -2,8 +2,10 @@ import type { PresenterConfig } from '.';
 import * as router from './router';
 
 export const onInitializeOvermind = ({ actions, effects }: PresenterConfig) => {
-  console.log('registering event listener');
   actions.setCurrentRoute(window.location.hash);
+  effects.locationListen(url => {
+    actions.setCurrentRoute(url);
+  });
   window.addEventListener('hashchange', event => {
     const url = event.newURL.split('#')[1];
     actions.setCurrentRoute(url);

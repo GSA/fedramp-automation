@@ -45,6 +45,11 @@ export const runBrowserContext = ({
         baseUrl,
         repositoryUrl: github.getBranchTreeUrl(githubRepository),
         sampleSSPs: github.getSampleSSPs(githubRepository),
+        locationListen: (listener: (url: string) => void) => {
+          window.addEventListener('hashchange', event => {
+            listener(`#${event.newURL.split('#')[1]}`);
+          });
+        },
         useCases: {
           annotateXML: AnnotateXMLUseCase({
             xml: {

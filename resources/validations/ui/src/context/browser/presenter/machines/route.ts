@@ -11,9 +11,6 @@ type States =
       current: router.ViewerRoute['type'];
     }
   | {
-      current: router.AssertionListRoute['type'];
-    }
-  | {
       current: router.AssertionRoute['type'];
     };
 
@@ -36,19 +33,6 @@ export const appMachine = statemachine<States, Events, BaseState>({
     },
   },
   Viewer: {
-    ROUTE_NAVIGATED: (route, state) => {
-      if (state.report.matches('VALIDATED')) {
-        return {
-          current: route.type,
-        };
-      } else {
-        return {
-          current: 'Home',
-        };
-      }
-    },
-  },
-  AssertionList: {
     ROUTE_NAVIGATED: (route, state) => {
       if (state.report.matches('VALIDATED')) {
         return {
