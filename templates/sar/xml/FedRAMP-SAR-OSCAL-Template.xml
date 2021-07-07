@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Modified by the OSCAL 1.0.0 RC1 to OSCAL 1.0.0 RC2 conversion XSLT on 2021-04-12T12:36:27.890707-04:00 -->
+<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
+<!-- Modified by the OSCAL 1.0.0 RC2 to OSCAL 1.0.0 conversion XSLT on 2021-06-09T14:27:48.374-04:00 -->
 <assessment-results xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-                    uuid="3556429f-3008-4004-8797-66ea8e0f41ce">
+   uuid="7ea5c269-ee26-48c8-b32c-91aa26339023">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Report (SAR)</title>
       <published>2021-02-25T00:00:00.00-04:00</published>
-      <last-modified>2021-04-12T12:36:27.890707-04:00</last-modified>
-      <version>0.3</version>
-      <oscal-version>1.0.0-rc2</oscal-version>
+      <last-modified>2021-06-09T14:27:48.374-04:00</last-modified>
+      <version>fedramp1.0.0-oscal1.0.0</version>
+      <oscal-version>1.0.0</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
@@ -15,7 +16,8 @@
       <role id="fedramp-pmo">
          <title>FedRAMP Program Management Office</title>
          <description>
-            <p>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</p>
+            <p>The organization that prepared this SSP. If developed in-house, this is the CSP
+               itself.</p>
          </description>
       </role>
       <role id="prepared-by">
@@ -69,7 +71,8 @@
       <role id="assessment-executive">
          <title>Assessment Organization's Managerial POC</title>
          <description>
-            <p>The management-level POC within the assessor's organization accountable for the organization's assessment performance.</p>
+            <p>The management-level POC within the assessor's organization accountable for the
+               organization's assessment performance.</p>
          </description>
       </role>
       <role id="csp-assessment-poc">
@@ -87,13 +90,15 @@
       <role id="csp-end-of-testing-poc">
          <title>CSP's End of Testing Notification POC</title>
          <description>
-            <p>A role for an individual within the CSP to be notified by the assessor when testing is complete.</p>
+            <p>A role for an individual within the CSP to be notified by the assessor when testing
+               is complete.</p>
          </description>
       </role>
       <role id="csp-results-poc">
          <title>CSP Results POCs </title>
          <description>
-            <p>A role for the individuals within the CSP who are to receive the assessment results.</p>
+            <p>A role for the individuals within the CSP who are to receive the assessment
+               results.</p>
          </description>
       </role>
       <location uuid="2ba201ac-8ee9-4a1d-812a-a755591a3963">
@@ -114,9 +119,7 @@
       <party uuid="49f73135-efab-4275-9a79-003656ad890a" type="organization">
          <name>Assessment Organization Name</name>
          <short-name>Acronym/Short Name</short-name>
-         <prop ns="https://fedramp.gov/ns/oscal"
-               name="iso-iec-17020-identifier"
-               value="0000.00"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="iso-iec-17020-identifier" value="0000.00"/>
          <link href="https://assesor.web.site" rel="home-page"/>
          <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
          <remarks>
@@ -134,15 +137,15 @@
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
-            <addr-line/>
             <city>Washington</city>
             <state>DC</state>
-            <postal-code/>
+            <postal-code>20006</postal-code>
             <country>US</country>
          </address>
          <remarks>
             <p>This party entry must be present in a FedRAMP SAR.</p>
-            <p>The uuid may be different; however, the uuid must be associated with the "fedramp-pmo" role in the responsible-party assemblies.</p>
+            <p>The uuid may be different; however, the uuid must be associated with the
+               "fedramp-pmo" role in the responsible-party assemblies.</p>
          </remarks>
       </party>
       <party uuid="f4568fda-c6d2-4640-adec-0012015af7d0" type="person">
@@ -223,7 +226,8 @@
          <remarks>
             <p>Exactly one party.</p>
             <p>This is the UUID for the CSP in the SSP.</p>
-            <p>If no OSCAL-based SSP exists, create a CSP party in the SAP, and provide that UUID here.</p>
+            <p>If no OSCAL-based SSP exists, create a CSP party in the SAP, and provide that UUID
+               here.</p>
          </remarks>
       </responsible-party>
       <responsible-party role-id="content-approver">
@@ -334,7 +338,8 @@
       <activity uuid="1BC8F0BB-E601-4946-A0E6-FCB934EBAA06">
          <title>Locally Defined Activity</title>
          <description>
-            <p>This describes an activity that was not defined in the SAP, but was performed during the assessment.</p>
+            <p>This describes an activity that was not defined in the SAP, but was performed during
+               the assessment.</p>
          </description>
          <prop name="type" value="manual"/>
          <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
@@ -380,8 +385,10 @@
                <prop name="ipv4-address" value="10.10.10.10"/>
                <status state="operational"/>
                <remarks>
-                  <p>Ideally, this assessment laptop would have been defined in the SAP, and not repeated here.</p>
-                  <p>If the laptop was not known at the time the SAP was drafted, or something different was used, it must be defined here.</p>
+                  <p>Ideally, this assessment laptop would have been defined in the SAP, and not
+                     repeated here.</p>
+                  <p>If the laptop was not known at the time the SAP was drafted, or something
+                     different was used, it must be defined here.</p>
                </remarks>
             </component>
             <assessment-platform uuid="67D98337-884A-46FF-98B1-42C53A4A7611">
@@ -403,8 +410,12 @@
                </uses-component>
                <remarks>
                   <p>This is an example of a revised assessment platform.</p>
-                  <p>Ideally, all assessment platforms and components are defined in the SAP. If there is a departure from what is defined in the SAP, it must be defined in the SAR.</p>
-                  <p>This is a mixed example showing a revised component (a different assessment laptop defined as a component in the SAR) being paired with tools previously defined in the SAP.</p>
+                  <p>Ideally, all assessment platforms and components are defined in the SAP. If
+                     there is a departure from what is defined in the SAP, it must be defined in the
+                     SAR.</p>
+                  <p>This is a mixed example showing a revised component (a different assessment
+                     laptop defined as a component in the SAR) being paired with tools previously
+                     defined in the SAP.</p>
                </remarks>
             </assessment-platform>
          </assessment-assets>
@@ -412,7 +423,8 @@
       <reviewed-controls>
          <control-selection>
             <description>
-               <p>Include all controls in the specified in the assessment plan, except as explicitly excluded here.</p>
+               <p>Include all controls in the specified in the assessment plan, except as explicitly
+                  excluded here.</p>
             </description>
             <include-all/>
             <exclude-control control-id="ac-1"/>
@@ -423,26 +435,25 @@
       </reviewed-controls>
       <attestation>
          <part name="authorization-statements">
-            <prop ns="https://fedramp.gov/ns/oscal"
-                  name="recommend-authorization"
-                  value="yes"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="recommend-authorization" value="yes"/>
             <part name="authorization-statement">
                <prop name="sort-id" value="001"/>
                <p>Priority levels were established based on [describe].</p>
             </part>
             <part name="authorization-statement">
                <prop name="sort-id" value="002"/>
-               <p>Notes and other information the assessor may wish to provide related to a continued authorization recommendation.</p>
+               <p>Notes and other information the assessor may wish to provide related to a
+                  continued authorization recommendation.</p>
             </part>
             <part name="authorization-statement">
                <prop name="sort-id" value="999"/>
-               <p>[3PAO Name] attests that the SAR from the [system name] [initial | annual] 
-                  assessment testing provides a complete assessment of the applicable FedRAMP 
-                  controls as stipulated in the SAP. Evidence to validate the successful implementation 
-                  of the various security controls has been collected and validated. Based on the 
-                  remaining risks, and continuous improvements of security related processes and 
-                  controls, [3PAO Name] recommends a continued authorization be granted for 
-                  the [system name].</p>
+               <p>[3PAO Name] attests that the SAR from the [system name] [initial | annual]
+                  assessment testing provides a complete assessment of the applicable FedRAMP
+                  controls as stipulated in the SAP. Evidence to validate the successful
+                  implementation of the various security controls has been collected and validated.
+                  Based on the remaining risks, and continuous improvements of security related
+                  processes and controls, [3PAO Name] recommends a continued authorization be
+                  granted for the [system name].</p>
             </part>
          </part>
       </attestation>
@@ -568,13 +579,14 @@
          <method>EXAMINE</method>
          <type>control-objective</type>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             <related-task task-uuid="e1890486-a9f0-4388-b2bc-34fb6c623686"/>
          </origin>
-         <subject type="component" uuid-ref="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
+         <subject type="component" subject-uuid="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
             <title>Reviewed Policy</title>
             <remarks>
-               <p>If the policy is defined in the SSP as a component, you can cite it using <code>subject</code>, and use the UUID of the policy component in the SSP.</p>
+               <p>If the policy is defined in the SSP as a component, you can cite it using
+                     <code>subject</code>, and use the UUID of the policy component in the SSP.</p>
             </remarks>
          </subject>
          <relevant-evidence>
@@ -583,14 +595,18 @@
             </description>
             <link href="#f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7" rel="policy"/>
             <remarks>
-               <p>If the policy is <em>not</em> an SSP component, it should be attached to the SAR as a <code>resource</code>, and cited here as a URI fragment.</p>
+               <p>If the policy is <em>not</em> an SSP component, it should be attached to the SAR
+                  as a <code>resource</code>, and cited here as a URI fragment.</p>
             </remarks>
          </relevant-evidence>
          <collected>2020-10-10T00:00:00Z</collected>
          <remarks>
-            <p>The subject-reference identifies a policy that was reviewed and is attached in the back-matter.</p>
-            <p>The observation source is linked to the task in the schedule associated with performing document reviews.</p>
-            <p>Even though the policy may be defined in the SSP and OSCAL would allow the SAR to reference it, FedRAMP requires the assessor attach all evidence to the SAR..</p>
+            <p>The subject-reference identifies a policy that was reviewed and is attached in the
+               back-matter.</p>
+            <p>The observation source is linked to the task in the schedule associated with
+               performing document reviews.</p>
+            <p>Even though the policy may be defined in the SSP and OSCAL would allow the SAR to
+               reference it, FedRAMP requires the assessor attach all evidence to the SAR..</p>
          </remarks>
       </observation>
       <observation uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774">
@@ -601,22 +617,25 @@
          <method>INTERVIEW</method>
          <type>control-objective</type>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             <related-task task-uuid="172d4ba2-3362-4e3b-9379-a65a50e399bf"/>
          </origin>
-         <subject type="party" uuid-ref="5ff3d794-d2e8-48be-bf9c-95c2328271ce">
+         <subject type="party" subject-uuid="5ff3d794-d2e8-48be-bf9c-95c2328271ce">
             <title>Interviewed Person</title>
          </subject>
          <relevant-evidence href="#65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
             <description>
                <p>This describes the evidence, and adds relevant detail.</p>
-               <p>For example, this could cite where to find this information in interview notes.</p>
+               <p>For example, this could cite where to find this information in interview
+                  notes.</p>
             </description>
             <remarks>
                <p>The subject-reference is linked to the person interviewed.</p>
-               <p>The observation source is linked to the task in the schedule associated with performing staff interviews.</p>
+               <p>The observation source is linked to the task in the schedule associated with
+                  performing staff interviews.</p>
                <p>The relevant-evidence is linked to the interview notes.</p>
-               <p>These may be defined in the SSP, SAP, or SAR. Tools should check all three locations.</p>
+               <p>These may be defined in the SSP, SAP, or SAR. Tools should check all three
+                  locations.</p>
             </remarks>
          </relevant-evidence>
          <collected>2020-10-10T00:00:00Z</collected>
@@ -628,12 +647,12 @@
          <method>TEST</method>
          <type>finding</type>
          <origin>
-            <actor type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
+            <actor type="tool" actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
          </origin>
-         <subject type="inventory-item" uuid-ref="f61f4408-2cb8-444a-a312-bc88412e7c61"/>
-         <subject type="inventory-item" uuid-ref="02075556-3660-4112-8982-02fc7d6fac00"/>
-         <subject type="inventory-item" uuid-ref="5efe2c07-9fdf-453a-8457-6471046082fb"/>
-         <subject type="component" uuid-ref="75b059f2-a9ba-40b1-a1e0-881196ca1ead"/>
+         <subject type="inventory-item" subject-uuid="f61f4408-2cb8-444a-a312-bc88412e7c61"/>
+         <subject type="inventory-item" subject-uuid="02075556-3660-4112-8982-02fc7d6fac00"/>
+         <subject type="inventory-item" subject-uuid="5efe2c07-9fdf-453a-8457-6471046082fb"/>
+         <subject type="component" subject-uuid="75b059f2-a9ba-40b1-a1e0-881196ca1ead"/>
          <relevant-evidence href="#19a07333-4e87-46dc-abab-adad60e706b9">
             <description>
                <p>Raw scanner tool output - discovery scan.</p>
@@ -641,7 +660,8 @@
          </relevant-evidence>
          <collected>2020-10-10T00:00:00Z</collected>
          <remarks>
-            <p>Undocumented hosts are entered into the SAR's result/local-definitions section as inventory-items or components.</p>
+            <p>Undocumented hosts are entered into the SAR's result/local-definitions section as
+               inventory-items or components.</p>
             <p>Undocumented hosts are listed in the observations assembly as subject-references.</p>
             <p>The origin must contain the UUID of the tool used to perform the scan.</p>
          </remarks>
@@ -653,12 +673,12 @@
          <method>TEST</method>
          <type>finding</type>
          <origin>
-            <actor type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
+            <actor type="tool" actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
          </origin>
-         <subject type="inventory-item" uuid-ref="f61f4408-2cb8-444a-a312-bc88412e7c61"/>
-         <subject type="inventory-item" uuid-ref="02075556-3660-4112-8982-02fc7d6fac00"/>
-         <subject type="inventory-item" uuid-ref="5efe2c07-9fdf-453a-8457-6471046082fb"/>
-         <subject type="component" uuid-ref="75b059f2-a9ba-40b1-a1e0-881196ca1ead"/>
+         <subject type="inventory-item" subject-uuid="f61f4408-2cb8-444a-a312-bc88412e7c61"/>
+         <subject type="inventory-item" subject-uuid="02075556-3660-4112-8982-02fc7d6fac00"/>
+         <subject type="inventory-item" subject-uuid="5efe2c07-9fdf-453a-8457-6471046082fb"/>
+         <subject type="component" subject-uuid="75b059f2-a9ba-40b1-a1e0-881196ca1ead"/>
          <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
             <description>
                <p>Raw scanner tool output - Infrastructure and OS Scan.</p>
@@ -718,7 +738,8 @@
             <link href="#53af7193-b25d-4ed2-a82f-5954d2d0df61" rel="evidence"/>
             <remarks>
                <p>Attach relevant evidence as a <code>resource</code>.</p>
-               <p>Use a <code>link</code> field with a URI fragment to link to the resource using its UUID.</p>
+               <p>Use a <code>link</code> field with a URI fragment to link to the resource using
+                  its UUID.</p>
             </remarks>
          </relevant-evidence>
          <collected>2020-10-10T00:00:00Z</collected>
@@ -731,7 +752,7 @@
          <method>TEST</method>
          <type>finding</type>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             <related-task task-uuid="8937348c-5ebb-40bd-a8eb-faff99af156e"/>
          </origin>
          <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
@@ -748,7 +769,7 @@
          <method>TEST</method>
          <type>finding</type>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             <related-task task-uuid="8937348c-5ebb-40bd-a8eb-faff99af156e"/>
          </origin>
          <relevant-evidence href="#e552fb72-d662-4c01-b2d7-4dcb2086bb07">
@@ -765,13 +786,17 @@
          <method>EXAMINE</method>
          <type>ssp-statement-issue</type>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
          </origin>
          <collected>2020-10-10T00:00:00Z</collected>
          <remarks>
-            <p>The <code>type</code> field designates this observations as an issue with a statement in the SSP. Tools can filter on this field to summarize all SSP issues.</p>
-            <p>The <code>origin</code> identifies the assessor who found the SSP statement issue.</p>
-            <p>If relevant, evidence can be cited as well using the <code>relevant-evidence</code> assembly, such as a screenshot showing a setting is different than stated in the SSP.</p>
+            <p>The <code>type</code> field designates this observations as an issue with a statement
+               in the SSP. Tools can filter on this field to summarize all SSP issues.</p>
+            <p>The <code>origin</code> identifies the assessor who found the SSP statement
+               issue.</p>
+            <p>If relevant, evidence can be cited as well using the <code>relevant-evidence</code>
+               assembly, such as a screenshot showing a setting is different than stated in the
+               SSP.</p>
          </remarks>
       </observation>
       <risk uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9">
@@ -793,7 +818,7 @@
          <status>open</status>
          <characterization>
             <origin>
-               <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+               <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             </origin>
             <facet name="likelihood" system="https://fedramp.gov" value="high">
                <prop name="state" value="initial"/>
@@ -833,7 +858,7 @@
          <status>open</status>
          <characterization>
             <origin>
-               <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+               <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             </origin>
             <facet name="likelihood" system="https://fedramp.gov" value="moderate">
                <prop name="state" value="initial"/>
@@ -853,7 +878,7 @@
                <p>POA&amp;M: CSP's intended remediation (no type flag).</p>
             </description>
             <origin>
-               <actor type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"/>
+               <actor type="party" actor-uuid="49f73135-efab-4275-9a79-003656ad890a"/>
             </origin>
          </response>
       </risk>
@@ -864,38 +889,24 @@
          </description>
          <statement>
             <p>This is a statement about the identified risk as provided by the tool.</p>
-            <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
+            <p>This field must be present, but may be blank (or state 'No Risk Statement' if no
+               statement is provided by the tool.</p>
          </statement>
          <prop ns="https://fedramp.gov/ns/oscal" name="priority" value="1"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-               name="operational-requirement"
-               value="approved"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-               name="false-positive"
-               value="withdrawn"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-               name="risk-adjustment"
-               value="approved"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="operational-requirement" value="approved"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="false-positive" value="withdrawn"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="risk-adjustment" value="approved"/>
          <status>closed</status>
          <characterization>
             <origin>
-               <actor type="tool" uuid-ref="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+               <actor type="tool" actor-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
             </origin>
-            <facet name="vulnerability-id"
-                   system="http://csrc.nist.gov/ns/oscal/unknown"
-                   value="VulID-001"/>
-            <facet name="plugin-id"
-                   system="http://csrc.nist.gov/ns/oscal/unknown"
-                   value="Plugin-ID"/>
-            <facet name="iavm-severity"
-                   system="https://us-cert.cisa.gov/"
-                   value="high"/>
-            <facet name="vulnerability-id"
-                   system="http://cve.mitre.org"
-                   value="CVE-2020-00000"/>
-            <facet name="impact"
-                   system="http://csrc.nist.gov/ns/oscal/unknown"
-                   value="high"/>
+            <facet name="vulnerability-id" system="http://csrc.nist.gov/ns/oscal/unknown"
+               value="VulID-001"/>
+            <facet name="plugin-id" system="http://csrc.nist.gov/ns/oscal/unknown" value="Plugin-ID"/>
+            <facet name="iavm-severity" system="https://us-cert.cisa.gov/" value="high"/>
+            <facet name="vulnerability-id" system="http://cve.mitre.org" value="CVE-2020-00000"/>
+            <facet name="impact" system="http://csrc.nist.gov/ns/oscal/unknown" value="high"/>
             <facet name="AV" system="http://www.first.org/cvss/v3.1" value="network"/>
             <facet name="likelihood" system="https://fedramp.gov" value="high">
                <prop name="state" value="initial"/>
@@ -916,7 +927,7 @@
             </description>
          </mitigating-factor>
          <mitigating-factor uuid="fd061039-e9b0-4b4c-a78b-ca024d411174"
-                            implementation-uuid="46f4c261-e488-4fb5-84d6-6a61dd30c3d7">
+            implementation-uuid="46f4c261-e488-4fb5-84d6-6a61dd30c3d7">
             <description>
                <p>Describe why the cited implementation statement justifies lowering the risk.</p>
             </description>
@@ -927,10 +938,11 @@
                <p>A description of the recommended remediation as provided by the tool.</p>
             </description>
             <origin>
-               <actor type="tool" uuid-ref="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
+               <actor type="tool" actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"/>
             </origin>
             <remarks>
-               <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
+               <p>Recommended and planned remediation entries should remain when the risk is
+                  closed.</p>
                <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
             </remarks>
          </response>
@@ -940,12 +952,14 @@
                <p>A description of the recommended remediation as provided by the assessor.</p>
             </description>
             <origin>
-               <actor type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"/>
+               <actor type="party" actor-uuid="49f73135-efab-4275-9a79-003656ad890a"/>
             </origin>
             <remarks>
-               <p>The assessor may add their recommendation in addition to the tool's recommendation, or if no tool recommendation is provided.</p>
+               <p>The assessor may add their recommendation in addition to the tool's
+                  recommendation, or if no tool recommendation is provided.</p>
                <p>The assessor should leave the tool recommendation, even if adding their own.</p>
-               <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
+               <p>Recommended and planned remediation entries should remain when the risk is
+                  closed.</p>
                <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
             </remarks>
          </response>
@@ -964,16 +978,16 @@
       <risk uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07">
          <title>Risk Title</title>
          <description>
-            <p>This is a description of the issue found by the penetration  testing team.</p>
+            <p>This is a description of the issue found by the penetration testing team.</p>
          </description>
          <statement>
-            <p>This is a statement about the risk identified by penetration  testing.</p>
+            <p>This is a statement about the risk identified by penetration testing.</p>
          </statement>
          <prop ns="https://fedramp.gov/ns/oscal" name="priority" value="1"/>
          <status>open</status>
          <characterization>
             <origin>
-               <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+               <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
             </origin>
             <facet name="likelihood" system="https://fedramp.gov" value="high">
                <prop name="state" value="initial"/>
@@ -988,7 +1002,7 @@
                <p>A description of the recommended remediation as provided by the assessor.</p>
             </description>
             <origin>
-               <actor type="party" uuid-ref="49f73135-efab-4275-9a79-003656ad890a"/>
+               <actor type="party" actor-uuid="49f73135-efab-4275-9a79-003656ad890a"/>
             </origin>
             <remarks>
                <p>The assessor may add their recommendation.</p>
@@ -1001,20 +1015,20 @@
             <p>An overall statement about the system's satisfaction of this objective.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
-         <target type="objective-id" id-ref="ac-1.a.1_obj.1">
-            <prop ns="https://fedramp.gov/ns/oscal"
-                  name="implementation-status"
-                  value="implemented"/>
-            <status>satisfied</status>
+         <target type="objective-id" target-id="ac-1.a.1_obj.1">
+            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+            <status state="satisfied"/>
          </target>
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
          <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
          <remarks>
-            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
-            <p>This objective only has one method (Examine), so there should be at least one <code>related-objservation</code>.</p>
+            <p>There should be at least one <code>related-observation</code> for each test method.
+               There may be more than one.</p>
+            <p>This objective only has one method (Examine), so there should be at least one
+                  <code>related-objservation</code>.</p>
          </remarks>
       </finding>
       <finding uuid="EF489684-C2E5-46BD-887A-A86A4AA210D9">
@@ -1023,20 +1037,20 @@
             <p>An overall statement about the system's satisfaction of this objective.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
-         <target type="objective-id" id-ref="ac-1.a.1_obj.2">
-            <prop ns="https://fedramp.gov/ns/oscal"
-                  name="implementation-status"
-                  value="implemented"/>
-            <status>satisfied</status>
+         <target type="objective-id" target-id="ac-1.a.1_obj.2">
+            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+            <status state="satisfied"/>
          </target>
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
          <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
          <remarks>
-            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
-            <p>This objective only has one method (Examine), so there should be at least one <code>related-objservation</code>.</p>
+            <p>There should be at least one <code>related-observation</code> for each test method.
+               There may be more than one.</p>
+            <p>This objective only has one method (Examine), so there should be at least one
+                  <code>related-objservation</code>.</p>
          </remarks>
       </finding>
       <finding uuid="0D3EE91E-8A4E-455B-BC84-EB31C7C3C34B">
@@ -1045,21 +1059,22 @@
             <p>An overall statement about the system's satisfaction of this objective.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
-         <target type="objective-id" id-ref="ac-1.a.1_obj.3">
-            <prop ns="https://fedramp.gov/ns/oscal"
-                  name="implementation-status"
-                  value="implemented"/>
-            <status>satisfied</status>
+         <target type="objective-id" target-id="ac-1.a.1_obj.3">
+            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
+            <status state="satisfied"/>
          </target>
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
          <related-observation observation-uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774"/>
          <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
          <remarks>
-            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
-            <p>This objective has two methods (Examine and Interview), so there should be at least two <code>related-objservation</code>, including at least one observaton of each type.</p>
+            <p>There should be at least one <code>related-observation</code> for each test method.
+               There may be more than one.</p>
+            <p>This objective has two methods (Examine and Interview), so there should be at least
+               two <code>related-objservation</code>, including at least one observaton of each
+               type.</p>
          </remarks>
       </finding>
       <finding uuid="33e43825-6fd7-49c6-a610-4c795954a167">
@@ -1068,14 +1083,19 @@
             <p>[EXAMPLE]There is an issue with an SSP Statement.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
-         <implementation-statement-uuid>7924db51-e44d-4215-ad7e-3a5dda44a631</implementation-statement-uuid>
+         <target target-id="au-1_smt.a" type="statement-id">
+            <status state="not-satisfied"/>
+         </target>
+         <implementation-statement-uuid>9a2bd937-226e-4aaf-8261-2cf0c2e3aa10</implementation-statement-uuid>
          <related-observation observation-uuid="A38F3BBA-5B71-400D-B8F2-D808E1D4627F"/>
          <remarks>
-            <p>The <code>implementation-statement-uuid</code> contains the UUID of the erroneous statement in the SSP.</p>
-            <p>The <code>related-observation</code> contains the UUID of an observation with details about the issue, including a statement and any relevant evidence.</p>
+            <p>The <code>implementation-statement-uuid</code> contains the UUID of the erroneous
+               statement in the SSP.</p>
+            <p>The <code>related-observation</code> contains the UUID of an observation with details
+               about the issue, including a statement and any relevant evidence.</p>
          </remarks>
       </finding>
       <finding uuid="d6316907-a5e5-4ad5-871d-f2f29938360e">
@@ -1084,12 +1104,16 @@
             <p>The results of the discovery scan.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
+         <target target-id="ra-5_smt.a" type="statement-id">
+            <status state="not-satisfied"/>
+         </target>
          <related-observation observation-uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d"/>
          <remarks>
-            <p>The UUID for the tool operator must be listed as the party-uuid for the finding. There may be more than one.</p>
+            <p>The UUID for the tool operator must be listed as the party-uuid for the finding.
+               There may be more than one.</p>
          </remarks>
       </finding>
       <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
@@ -1098,9 +1122,12 @@
             <p>An example set of infrastructure scan findings.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
+         <target type="statement-id" target-id="cm-2.1_smt.c">
+            <status state="not-satisfied"/>
+         </target>
          <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
          <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
          <related-observation observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c"/>
@@ -1113,12 +1140,16 @@
             <p>The Results of the spear phishing test.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
+         <target type="objective-id" target-id="at-2.c_obj.2">
+            <status state="not-satisfied"/>
+         </target>
          <related-observation observation-uuid="21b26801-2e00-4e59-979c-bf2a4ed93920"/>
          <remarks>
-            <p>When reporting a result for a test such as the spear phishing activity, a risk assembly is required if the result is to be reported in the Risk Exposure Table.</p>
+            <p>When reporting a result for a test such as the spear phishing activity, a risk
+               assembly is required if the result is to be reported in the Risk Exposure Table.</p>
          </remarks>
       </finding>
       <finding uuid="b56edab1-8cdc-45f9-8589-35f1bd7b3348">
@@ -1127,14 +1158,19 @@
             <p>A finding from penetration testing activities.</p>
          </description>
          <origin>
-            <actor type="party" uuid-ref="f4568fda-c6d2-4640-adec-0012015af7d0"/>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="f4568fda-c6d2-4640-adec-0012015af7d0"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
+         <target type="objective-id" target-id="ca-8.1_obj">
+            <status state="not-satisfied"/>
+         </target>
          <related-observation observation-uuid="21b26801-2e00-4e59-979c-bf2a4ed93920"/>
          <associated-risk risk-uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07"/>
          <remarks>
-            <p>If a penetration test result is favorable, such as to say the SOC detected the activities appropriately, no risk is required.</p>
-            <p>If a penetration test result identifies a vulnerability or deficiency, the risk assembly is required.</p>
+            <p>If a penetration test result is favorable, such as to say the SOC detected the
+               activities appropriately, no risk is required.</p>
+            <p>If a penetration test result identifies a vulnerability or deficiency, the risk
+               assembly is required.</p>
          </remarks>
       </finding>
    </result>
@@ -1157,10 +1193,6 @@
          <method>EXAMINE</method>
          <collected>2019-03-01T10:11:12Z</collected>
       </observation>
-      <finding uuid="30451d68-4b70-42cc-a564-a26696a6ed03">
-         <title/>
-         <description/>
-      </finding>
    </result>
    <result uuid="d755e7fd-346d-40f0-b538-1b1da1aa5821">
       <title>Initial (2018) Assessment</title>
@@ -1184,13 +1216,16 @@
          <method>MIXED</method>
          <type>historic</type>
          <origin>
-            <actor type="party" uuid-ref="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
+            <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <collected>2018-03-01T00:00:00Z</collected>
       </observation>
       <finding uuid="A0A1395D-59CD-46D9-91A2-E6CA62AE9BAB">
          <title/>
          <description/>
+         <target target-id="ac-1_smt.a" type="statement-id">
+            <status state="not-satisfied"/>
+         </target>
       </finding>
    </result>
    <back-matter>
@@ -1203,7 +1238,8 @@
             <p>A tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
+               path.</p>
          </remarks>
       </resource>
       <resource uuid="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
@@ -1218,7 +1254,8 @@
             <p>A tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
+               path.</p>
          </remarks>
       </resource>
       <resource uuid="53af7193-b25d-4ed2-a82f-5954d2d0df61">
@@ -1230,7 +1267,8 @@
             <p>A tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
+               path.</p>
          </remarks>
       </resource>
       <resource uuid="19a07333-4e87-46dc-abab-adad60e706b9">
@@ -1245,7 +1283,8 @@
             <p>A SAR tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
+               path.</p>
          </remarks>
       </resource>
       <resource uuid="171b44a2-9b52-4c46-b912-54bd274b2761">
@@ -1260,7 +1299,8 @@
             <p>A SAR tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
+               path.</p>
          </remarks>
       </resource>
       <resource uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07">
@@ -1272,7 +1312,8 @@
             <p>A SAR tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
+               path.</p>
          </remarks>
       </resource>
       <resource uuid="5cce2310-8fcc-49f8-8cae-8e31dc8048f1">
@@ -1293,19 +1334,23 @@
          <rlink href="./signed-sar.pdf" media-type="application/pdf"/>
          <base64 filename="sar.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
-            <p>FedRAMP is formulating guidelines for handling digital/electronic signatures in OSCAL, and welcome feedback on solutions.</p>
+            <p>FedRAMP is formulating guidelines for handling digital/electronic signatures in
+               OSCAL, and welcome feedback on solutions.</p>
             <p>For now, FedRAMP recommends one of the following:</p>
             <ul>
                <li>Render the OSCAL SAR content as a PDF that is digitally signed and attached.</li>
-               <li>Render the OSCAL SAR content as printed pages that are physically signed, scanned, and attached.</li>
+               <li>Render the OSCAL SAR content as printed pages that are physically signed,
+                  scanned, and attached.</li>
             </ul>
-            <p>If your organization prefers another approach, please seek prior approval from the FedRAMP PMO.</p>
+            <p>If your organization prefers another approach, please seek prior approval from the
+               FedRAMP PMO.</p>
          </remarks>
       </resource>
       <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
          <title>FedRAMP Applicable Laws and Regulations</title>
          <prop name="type" value="fedramp-citations"/>
-         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
+         <rlink
+            href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
          <remarks>
             <p>Must be present in a FedRAMP SSP.</p>
          </remarks>
@@ -1313,7 +1358,8 @@
       <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
          <title>FedRAMP Master Acronym and Glossary</title>
          <prop name="type" value="fedramp-acronyms"/>
-         <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
+         <rlink
+            href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
          <remarks>
             <p>Must be present in a FedRAMP SSP.</p>
          </remarks>

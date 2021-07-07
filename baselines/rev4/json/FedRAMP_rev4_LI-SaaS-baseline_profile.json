@@ -1,12 +1,12 @@
 {
   "profile": {
-    "uuid": "8f814186-8f82-42ec-bed5-0c9e2287674a",
+    "uuid": "145f590d-2443-4c34-9ce9-37ccbe88abf9",
     "metadata": {
       "title": "FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
       "published": "2021-02-17T00:00:00.000-04:00",
-      "last-modified": "2021-04-12T12:36:28.491209-04:00",
-      "version": "1.3",
-      "oscal-version": "1.0.0-rc2",
+      "last-modified": "2021-06-09T14:28:03.343-04:00",
+      "version": "fedramp1.0.0-oscal1.0.0",
+      "oscal-version": "1.0.0",
       "roles": [
         {
           "id": "prepared-by",
@@ -54,12 +54,11 @@
             {
               "type": "work",
               "addr-lines": [
-                "1800 F St. NW",
-                ""
+                "1800 F St. NW"
               ],
               "city": "Washington",
               "state": "DC",
-              "postal-code": "",
+              "postal-code": "20006",
               "country": "US"
             }
           ]
@@ -77,23 +76,26 @@
           ]
         }
       ],
-      "responsible-parties": {
-        "prepared-by": {
+      "responsible-parties": [
+        {
+          "role-id": "prepared-by",
           "party-uuids": [
-            "4aa7b203-318b-4cde-96cf-feaeffc3a4b7"
+            "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d"
           ]
         },
-        "fedramp-pmo": {
+        {
+          "role-id": "fedramp-pmo",
           "party-uuids": [
-            "4aa7b203-318b-4cde-96cf-feaeffc3a4b7"
+            "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d"
           ]
         },
-        "fedramp-jab": {
+        {
+          "role-id": "fedramp-jab",
           "party-uuids": [
             "ca9ba80e-1342-4bfd-b32a-abac468c24b4"
           ]
         }
-      }
+      ]
     },
     "imports": [
       {
@@ -239,304 +241,345 @@
       "as-is": true
     },
     "modify": {
-      "set-parameters": {
-        "ac-22_prm_1": {
+      "set-parameters": [
+        {
+          "param-id": "ac-22_prm_1",
           "constraints": [
             {
               "description": "at least quarterly"
             }
           ]
         },
-        "au-5_prm_2": {
+        {
+          "param-id": "au-5_prm_2",
           "constraints": [
             {
               "description": "organization-defined actions to be taken (overwrite oldest record)"
             }
           ]
         },
-        "au-6_prm_1": {
+        {
+          "param-id": "au-6_prm_1",
           "constraints": [
             {
               "description": "at least weekly"
             }
           ]
         },
-        "ca-2_prm_1": {
+        {
+          "param-id": "ca-2_prm_1",
           "constraints": [
             {
               "description": "at least annually"
             }
           ]
         },
-        "ca-2_prm_2": {
+        {
+          "param-id": "ca-2_prm_2",
           "constraints": [
             {
               "description": "individuals or roles to include FedRAMP PMO"
             }
           ]
         },
-        "ca-3_prm_1": {
+        {
+          "param-id": "ca-3_prm_1",
           "constraints": [
             {
               "description": "at least annually and on input from FedRAMP"
             }
           ]
         },
-        "ca-5_prm_1": {
+        {
+          "param-id": "ca-5_prm_1",
           "constraints": [
             {
               "description": "at least monthly"
             }
           ]
         },
-        "ca-6_prm_1": {
+        {
+          "param-id": "ca-6_prm_1",
           "constraints": [
             {
               "description": "at least every three years or when a significant change occurs"
             }
           ]
         },
-        "ca-7_prm_4": {
+        {
+          "param-id": "ca-7_prm_4",
           "constraints": [
             {
               "description": "to meet Federal and FedRAMP requirements (See additional guidance)"
             }
           ]
         },
-        "ca-7_prm_5": {
+        {
+          "param-id": "ca-7_prm_5",
           "constraints": [
             {
               "description": "to meet Federal and FedRAMP requirements (See additional guidance)"
             }
           ]
         },
-        "cm-6_prm_1": {
+        {
+          "param-id": "cm-6_prm_1",
           "constraints": [
             {
               "description": "see CM-6(a) Additional FedRAMP Requirements and Guidance"
             }
           ]
         },
-        "cm-8_prm_2": {
+        {
+          "param-id": "cm-8_prm_2",
           "constraints": [
             {
               "description": "at least monthly"
             }
           ]
         },
-        "cp-9_prm_1": {
+        {
+          "param-id": "cp-9_prm_1",
           "constraints": [
             {
               "description": "daily incremental; weekly full"
             }
           ]
         },
-        "cp-9_prm_2": {
+        {
+          "param-id": "cp-9_prm_2",
           "constraints": [
             {
               "description": "daily incremental; weekly full"
             }
           ]
         },
-        "cp-9_prm_3": {
+        {
+          "param-id": "cp-9_prm_3",
           "constraints": [
             {
               "description": "daily incremental; weekly full"
             }
           ]
         },
-        "ir-6_prm_1": {
+        {
+          "param-id": "ir-6_prm_1",
           "constraints": [
             {
               "description": "US-CERT incident reporting timelines as specified in NIST Special Publication 800-61 (as amended)"
             }
           ]
         },
-        "pe-2_prm_1": {
+        {
+          "param-id": "pe-2_prm_1",
           "constraints": [
             {
               "description": "at least annually"
             }
           ]
         },
-        "pe-3_prm_2": {
+        {
+          "param-id": "pe-3_prm_2",
           "constraints": [
             {
               "description": "CSP defined physical access control systems/devices AND guards"
             }
           ]
         },
-        "pe-3_prm_6": {
+        {
+          "param-id": "pe-3_prm_6",
           "constraints": [
             {
               "description": "in all circumstances within restricted access area where the information system resides"
             }
           ]
         },
-        "pe-3_prm_8": {
+        {
+          "param-id": "pe-3_prm_8",
           "constraints": [
             {
               "description": "at least annually"
             }
           ]
         },
-        "pe-3_prm_9": {
+        {
+          "param-id": "pe-3_prm_9",
           "constraints": [
             {
               "description": "at least annually"
             }
           ]
         },
-        "pe-6_prm_1": {
+        {
+          "param-id": "pe-6_prm_1",
           "constraints": [
             {
               "description": "at least monthly"
             }
           ]
         },
-        "pe-8_prm_1": {
+        {
+          "param-id": "pe-8_prm_1",
           "constraints": [
             {
               "description": "for a minimum of one (1) year"
             }
           ]
         },
-        "pe-8_prm_2": {
+        {
+          "param-id": "pe-8_prm_2",
           "constraints": [
             {
               "description": "at least monthly"
             }
           ]
         },
-        "pe-14_prm_1": {
+        {
+          "param-id": "pe-14_prm_1",
           "constraints": [
             {
               "description": "consistent with American Society of Heating, Refrigerating and Air-conditioning Engineers (ASHRAE) document entitled Thermal Guidelines for Data Processing Environments"
             }
           ]
         },
-        "pe-14_prm_2": {
+        {
+          "param-id": "pe-14_prm_2",
           "constraints": [
             {
               "description": "continuously"
             }
           ]
         },
-        "pe-16_prm_1": {
+        {
+          "param-id": "pe-16_prm_1",
           "constraints": [
             {
               "description": "all information system components"
             }
           ]
         },
-        "pl-2_prm_2": {
+        {
+          "param-id": "pl-2_prm_2",
           "constraints": [
             {
               "description": "at least annually"
             }
           ]
         },
-        "ps-3_prm_1": {
+        {
+          "param-id": "ps-3_prm_1",
           "constraints": [
             {
               "description": "For national security clearances; a reinvestigation is required during the 5th year for top secret security clearance, the 10th year for secret security clearance, and 15th year for confidential security clearance. For moderate risk law enforcement and high impact public trust level, a reinvestigation is required during the 5th year. There is no reinvestigation for other moderate risk positions or any low risk positions."
             }
           ]
         },
-        "ra-3_prm_2": {
+        {
+          "param-id": "ra-3_prm_2",
           "constraints": [
             {
               "description": "security assessment report"
             }
           ]
         },
-        "ra-3_prm_3": {
+        {
+          "param-id": "ra-3_prm_3",
           "constraints": [
             {
               "description": "at least every three (3) years or when a significant change occurs"
             }
           ]
         },
-        "ra-3_prm_5": {
+        {
+          "param-id": "ra-3_prm_5",
           "constraints": [
             {
               "description": "at least every three (3) years or when a significant change occurs"
             }
           ]
         },
-        "ra-5_prm_1": {
+        {
+          "param-id": "ra-5_prm_1",
           "constraints": [
             {
               "description": "monthly operating system/infrastructure; monthly web applications and databases"
             }
           ]
         },
-        "ra-5_prm_2": {
+        {
+          "param-id": "ra-5_prm_2",
           "constraints": [
             {
               "description": "[high-risk vulnerabilities mitigated within thirty (30) days from date of discovery; moderate-risk vulnerabilities mitigated within ninety (90) days from date of discovery; low risk vulnerabilities mitigated within one hundred and eighty (180) days from date of discovery."
             }
           ]
         },
-        "sa-9_prm_1": {
+        {
+          "param-id": "sa-9_prm_1",
           "constraints": [
             {
               "description": "FedRAMP Security Controls Baseline(s) if Federal information is processed or stored within the external system"
             }
           ]
         },
-        "sa-9_prm_2": {
+        {
+          "param-id": "sa-9_prm_2",
           "constraints": [
             {
               "description": "Federal/FedRAMP Continuous Monitoring requirements must be met for external systems where Federal information is processed or stored"
             }
           ]
         },
-        "sc-13_prm_1": {
+        {
+          "param-id": "sc-13_prm_1",
           "constraints": [
             {
               "description": "FIPS-validated or NSA-approved cryptography"
             }
           ]
         },
-        "si-2_prm_1": {
+        {
+          "param-id": "si-2_prm_1",
           "constraints": [
             {
               "description": "within 30 days of release of updates"
             }
           ]
         },
-        "si-3_prm_1": {
+        {
+          "param-id": "si-3_prm_1",
           "constraints": [
             {
               "description": "at least weekly"
             }
           ]
         },
-        "si-3_prm_2": {
+        {
+          "param-id": "si-3_prm_2",
           "constraints": [
             {
               "description": "to include endpoints"
             }
           ]
         },
-        "si-3_prm_3": {
+        {
+          "param-id": "si-3_prm_3",
           "constraints": [
             {
               "description": "to include alerting administrator or defined security personnel"
             }
           ]
         }
-      },
+      ],
       "alters": [
         {
           "control-id": "ac-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -556,48 +599,48 @@
           "control-id": "ac-2",
           "removes": [
             {
-              "id-ref": "ac-2_smt.b"
+              "by-id": "ac-2_smt.b"
             },
             {
-              "id-ref": "ac-2_smt.c"
+              "by-id": "ac-2_smt.c"
             },
             {
-              "id-ref": "ac-2_smt.d"
+              "by-id": "ac-2_smt.d"
             },
             {
-              "id-ref": "ac-2_smt.e"
+              "by-id": "ac-2_smt.e"
             },
             {
-              "id-ref": "ac-2_smt.i"
+              "by-id": "ac-2_smt.i"
             },
             {
-              "id-ref": "ac-2_smt.j"
+              "by-id": "ac-2_smt.j"
             },
             {
-              "id-ref": "ac-2_smt.k"
+              "by-id": "ac-2_smt.k"
             },
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ac-2_smt",
+              "by-id": "ac-2_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
             {
               "position": "ending",
-              "id-ref": "ac-2_smt",
+              "by-id": "ac-2_smt",
               "parts": [
                 {
                   "id": "ac-2_fr",
@@ -636,7 +679,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -712,21 +755,21 @@
           "control-id": "ac-3",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ac-3_smt",
+              "by-id": "ac-3_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -747,7 +790,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -823,10 +866,10 @@
           "control-id": "ac-7",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -858,10 +901,10 @@
           "control-id": "ac-8",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -888,10 +931,10 @@
           "control-id": "ac-14",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -918,21 +961,21 @@
           "control-id": "ac-17",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ac-17_smt",
+              "by-id": "ac-17_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -953,7 +996,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -1029,10 +1072,10 @@
           "control-id": "ac-18",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1059,10 +1102,10 @@
           "control-id": "ac-19",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1089,10 +1132,10 @@
           "control-id": "ac-20",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1112,21 +1155,21 @@
           "control-id": "ac-22",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ac-22_smt",
+              "by-id": "ac-22_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -1147,7 +1190,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -1223,10 +1266,10 @@
           "control-id": "at-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1246,10 +1289,10 @@
           "control-id": "at-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1269,10 +1312,10 @@
           "control-id": "at-3",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1292,10 +1335,10 @@
           "control-id": "at-4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1315,10 +1358,10 @@
           "control-id": "au-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1338,10 +1381,10 @@
           "control-id": "au-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1361,21 +1404,21 @@
           "control-id": "au-3",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "au-3_smt",
+              "by-id": "au-3_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -1396,7 +1439,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -1472,10 +1515,10 @@
           "control-id": "au-4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1502,21 +1545,21 @@
           "control-id": "au-5",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "au-5_smt",
+              "by-id": "au-5_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -1537,7 +1580,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -1613,21 +1656,21 @@
           "control-id": "au-6",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "au-6_smt",
+              "by-id": "au-6_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -1648,7 +1691,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -1703,10 +1746,10 @@
           "control-id": "au-8",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1726,10 +1769,10 @@
           "control-id": "au-9",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1749,10 +1792,10 @@
           "control-id": "au-11",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1779,10 +1822,10 @@
           "control-id": "au-12",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1802,10 +1845,10 @@
           "control-id": "ca-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1825,21 +1868,21 @@
           "control-id": "ca-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ca-2_smt",
+              "by-id": "ca-2_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -1860,7 +1903,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -1954,10 +1997,10 @@
           "control-id": "ca-2.1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -1977,21 +2020,21 @@
           "control-id": "ca-3",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ca-3_smt",
+              "by-id": "ca-3_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -2012,7 +2055,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -2072,10 +2115,10 @@
           "control-id": "ca-5",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -2102,21 +2145,21 @@
           "control-id": "ca-6",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ca-6_smt",
+              "by-id": "ca-6_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -2137,7 +2180,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -2231,21 +2274,21 @@
           "control-id": "ca-7",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ca-7_smt",
+              "by-id": "ca-7_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -2266,7 +2309,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -2371,21 +2414,21 @@
           "control-id": "ca-9",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ca-9_smt",
+              "by-id": "ca-9_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -2406,7 +2449,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -2466,10 +2509,10 @@
           "control-id": "cm-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -2489,10 +2532,10 @@
           "control-id": "cm-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -2512,21 +2555,21 @@
           "control-id": "cm-4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "cm-4_smt",
+              "by-id": "cm-4_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -2547,7 +2590,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -2623,21 +2666,21 @@
           "control-id": "cm-6",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "cm-6_smt",
+              "by-id": "cm-6_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -2658,7 +2701,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -2779,10 +2822,10 @@
           "control-id": "cm-7",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -2802,21 +2845,21 @@
           "control-id": "cm-8",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "cm-8_smt",
+              "by-id": "cm-8_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -2837,7 +2880,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -2931,10 +2974,10 @@
           "control-id": "cm-10",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -2961,10 +3004,10 @@
           "control-id": "cm-11",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -2991,10 +3034,10 @@
           "control-id": "cp-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3014,10 +3057,10 @@
           "control-id": "cp-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3044,10 +3087,10 @@
           "control-id": "cp-3",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3074,10 +3117,10 @@
           "control-id": "cp-4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3104,21 +3147,21 @@
           "control-id": "cp-9",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "cp-9_smt",
+              "by-id": "cp-9_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -3139,7 +3182,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -3210,7 +3253,7 @@
               ]
             },
             {
-              "id-ref": "cp-9_smt",
+              "by-id": "cp-9_smt",
               "parts": [
                 {
                   "id": "cp-9_fr",
@@ -3271,10 +3314,10 @@
           "control-id": "cp-10",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3301,10 +3344,10 @@
           "control-id": "ia-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3324,10 +3367,10 @@
           "control-id": "ia-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3359,21 +3402,21 @@
           "control-id": "ia-2.1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ia-2.1_smt",
+              "by-id": "ia-2.1_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -3394,7 +3437,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -3470,21 +3513,21 @@
           "control-id": "ia-2.12",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ia-2.12_smt",
+              "by-id": "ia-2.12_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -3505,7 +3548,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -3581,7 +3624,7 @@
               ]
             },
             {
-              "id-ref": "ia-2.12_smt",
+              "by-id": "ia-2.12_smt",
               "parts": [
                 {
                   "id": "ia-2.12_fr",
@@ -3609,10 +3652,10 @@
           "control-id": "ia-4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3632,10 +3675,10 @@
           "control-id": "ia-5",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3655,10 +3698,10 @@
           "control-id": "ia-5.1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3678,21 +3721,21 @@
           "control-id": "ia-5.11",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ia-5.11_smt",
+              "by-id": "ia-5.11_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -3718,7 +3761,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -3799,21 +3842,21 @@
           "control-id": "ia-6",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ia-6_smt",
+              "by-id": "ia-6_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -3834,7 +3877,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -3910,10 +3953,10 @@
           "control-id": "ia-7",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3933,10 +3976,10 @@
           "control-id": "ia-8",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -3956,21 +3999,21 @@
           "control-id": "ia-8.1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ia-8.1_smt",
+              "by-id": "ia-8.1_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -3991,7 +4034,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -4072,21 +4115,21 @@
           "control-id": "ia-8.2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ia-8.2_smt",
+              "by-id": "ia-8.2_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -4107,7 +4150,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -4188,10 +4231,10 @@
           "control-id": "ia-8.3",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -4211,10 +4254,10 @@
           "control-id": "ia-8.4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -4234,10 +4277,10 @@
           "control-id": "ir-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -4257,10 +4300,10 @@
           "control-id": "ir-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -4280,21 +4323,21 @@
           "control-id": "ir-4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ir-4_smt",
+              "by-id": "ir-4_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -4315,7 +4358,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -4409,10 +4452,10 @@
           "control-id": "ir-5",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -4432,21 +4475,21 @@
           "control-id": "ir-6",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ir-6_smt",
+              "by-id": "ir-6_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -4467,7 +4510,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -4539,7 +4582,7 @@
             },
             {
               "position": "ending",
-              "id-ref": "ir-6_smt",
+              "by-id": "ir-6_smt",
               "parts": [
                 {
                   "id": "ir-6_fr",
@@ -4567,10 +4610,10 @@
           "control-id": "ir-7",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -4590,10 +4633,10 @@
           "control-id": "ir-8",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -4620,10 +4663,10 @@
           "control-id": "ir-9",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -4650,10 +4693,10 @@
           "control-id": "ma-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -4673,21 +4716,21 @@
           "control-id": "ma-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ma-2_smt",
+              "by-id": "ma-2_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -4708,7 +4751,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -4789,10 +4832,10 @@
           "control-id": "ma-4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -4812,21 +4855,21 @@
           "control-id": "ma-5",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ma-5_smt",
+              "by-id": "ma-5_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -4847,7 +4890,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -4928,10 +4971,10 @@
           "control-id": "mp-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -4951,21 +4994,21 @@
           "control-id": "mp-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "mp-2_smt",
+              "by-id": "mp-2_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -4986,7 +5029,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -5067,21 +5110,21 @@
           "control-id": "mp-6",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "mp-6_smt",
+              "by-id": "mp-6_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -5102,7 +5145,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -5183,21 +5226,21 @@
           "control-id": "mp-7",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "mp-7_smt",
+              "by-id": "mp-7_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -5218,7 +5261,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -5299,10 +5342,10 @@
           "control-id": "pe-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -5322,21 +5365,21 @@
           "control-id": "pe-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "pe-2_smt",
+              "by-id": "pe-2_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -5357,7 +5400,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -5438,21 +5481,21 @@
           "control-id": "pe-3",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "pe-3_smt",
+              "by-id": "pe-3_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -5473,7 +5516,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -5554,21 +5597,21 @@
           "control-id": "pe-6",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "pe-6_smt",
+              "by-id": "pe-6_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -5589,7 +5632,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -5670,21 +5713,21 @@
           "control-id": "pe-8",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "pe-8_smt",
+              "by-id": "pe-8_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -5705,7 +5748,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -5786,21 +5829,21 @@
           "control-id": "pe-12",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "pe-12_smt",
+              "by-id": "pe-12_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -5821,7 +5864,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -5902,21 +5945,21 @@
           "control-id": "pe-13",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "pe-13_smt",
+              "by-id": "pe-13_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -5937,7 +5980,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -6018,21 +6061,21 @@
           "control-id": "pe-14",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "pe-14_smt",
+              "by-id": "pe-14_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -6053,7 +6096,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -6130,7 +6173,7 @@
             },
             {
               "position": "ending",
-              "id-ref": "pe-14_smt",
+              "by-id": "pe-14_smt",
               "parts": [
                 {
                   "id": "pe-14_fr",
@@ -6158,21 +6201,21 @@
           "control-id": "pe-15",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "pe-15_smt",
+              "by-id": "pe-15_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -6193,7 +6236,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -6274,21 +6317,21 @@
           "control-id": "pe-16",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "pe-16_smt",
+              "by-id": "pe-16_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -6309,7 +6352,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -6390,10 +6433,10 @@
           "control-id": "pl-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -6413,21 +6456,21 @@
           "control-id": "pl-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "pl-2_smt",
+              "by-id": "pl-2_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -6448,7 +6491,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -6524,10 +6567,10 @@
           "control-id": "pl-4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -6547,10 +6590,10 @@
           "control-id": "ps-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -6570,10 +6613,10 @@
           "control-id": "ps-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -6593,21 +6636,21 @@
           "control-id": "ps-3",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ps-3_smt",
+              "by-id": "ps-3_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -6628,7 +6671,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -6704,10 +6747,10 @@
           "control-id": "ps-4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -6727,10 +6770,10 @@
           "control-id": "ps-5",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -6750,10 +6793,10 @@
           "control-id": "ps-6",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -6773,10 +6816,10 @@
           "control-id": "ps-7",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -6803,10 +6846,10 @@
           "control-id": "ps-8",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -6826,10 +6869,10 @@
           "control-id": "ra-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -6849,21 +6892,21 @@
           "control-id": "ra-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ra-2_smt",
+              "by-id": "ra-2_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -6884,7 +6927,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -6960,21 +7003,21 @@
           "control-id": "ra-3",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ra-3_smt",
+              "by-id": "ra-3_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -6995,7 +7038,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -7067,7 +7110,7 @@
             },
             {
               "position": "ending",
-              "id-ref": "ra-_smt",
+              "by-id": "ra-_smt",
               "parts": [
                 {
                   "id": "ra-3_fr",
@@ -7106,21 +7149,21 @@
           "control-id": "ra-5",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "ra-5_smt",
+              "by-id": "ra-5_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -7141,7 +7184,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -7237,7 +7280,7 @@
             },
             {
               "position": "ending",
-              "id-ref": "ra-5_smt",
+              "by-id": "ra-5_smt",
               "parts": [
                 {
                   "id": "ra-5_fr",
@@ -7265,10 +7308,10 @@
           "control-id": "sa-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -7288,10 +7331,10 @@
           "control-id": "sa-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -7311,10 +7354,10 @@
           "control-id": "sa-3",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -7334,10 +7377,10 @@
           "control-id": "sa-4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -7357,10 +7400,10 @@
           "control-id": "sa-4.10",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -7380,10 +7423,10 @@
           "control-id": "sa-5",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -7403,21 +7446,21 @@
           "control-id": "sa-9",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "sa-9_smt",
+              "by-id": "sa-9_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -7438,7 +7481,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -7514,10 +7557,10 @@
           "control-id": "sc-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -7537,21 +7580,21 @@
           "control-id": "sc-5",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "sc-5_smt",
+              "by-id": "sc-5_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -7572,7 +7615,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -7653,21 +7696,21 @@
           "control-id": "sc-7",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "sc-7_smt",
+              "by-id": "sc-7_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -7688,7 +7731,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -7764,21 +7807,21 @@
           "control-id": "sc-12",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "sc-12_smt",
+              "by-id": "sc-12_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -7799,7 +7842,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -7893,21 +7936,21 @@
           "control-id": "sc-13",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "sc-13_smt",
+              "by-id": "sc-13_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -7928,7 +7971,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -8009,10 +8052,10 @@
           "control-id": "sc-15",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -8039,10 +8082,10 @@
           "control-id": "sc-20",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -8062,10 +8105,10 @@
           "control-id": "sc-21",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -8085,10 +8128,10 @@
           "control-id": "sc-22",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -8108,10 +8151,10 @@
           "control-id": "sc-39",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -8131,10 +8174,10 @@
           "control-id": "si-1",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -8154,21 +8197,21 @@
           "control-id": "si-2",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "si-2_smt",
+              "by-id": "si-2_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -8189,7 +8232,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -8265,21 +8308,21 @@
           "control-id": "si-3",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "si-3_smt",
+              "by-id": "si-3_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -8300,7 +8343,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -8376,21 +8419,21 @@
           "control-id": "si-4",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
             {
               "position": "starting",
-              "id-ref": "si-4_smt",
+              "by-id": "si-4_smt",
               "props": [
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 }
               ]
             },
@@ -8411,7 +8454,7 @@
                     {
                       "name": "response-point",
                       "ns": "https://fedramp.gov/ns/oscal",
-                      "value": ""
+                      "value": "You must fill in this response point."
                     },
                     {
                       "name": "method",
@@ -8487,10 +8530,10 @@
           "control-id": "si-5",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -8510,10 +8553,10 @@
           "control-id": "si-12",
           "removes": [
             {
-              "name-ref": "objective"
+              "by-name": "objective"
             },
             {
-              "name-ref": "assessment"
+              "by-name": "assessment"
             }
           ],
           "adds": [
@@ -8584,8 +8627,16 @@
           ],
           "rlinks": [
             {
-              "href": "https://raw.githubusercontent.com/usnistgov/oscal-content/f5bf0dd0eea8c117d09c813b1b183e619e2f60cf/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml",
+              "href": "https://raw.githubusercontent.com/usnistgov/oscal-content/v1.0.0/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml",
               "media-type": "application/xml"
+            },
+            {
+              "href": "https://raw.githubusercontent.com/usnistgov/oscal-content/v1.0.0/nist.gov/SP800-53/rev4/json/NIST_SP-800-53_rev4_catalog.json",
+              "media-type": "application/oscal.catalog+json"
+            },
+            {
+              "href": "https://raw.githubusercontent.com/usnistgov/oscal-content/v1.0.0/nist.gov/SP800-53/rev4/yaml/NIST_SP-800-53_rev4_catalog.yaml",
+              "media-type": "application/oscal.catalog+yaml"
             }
           ]
         }

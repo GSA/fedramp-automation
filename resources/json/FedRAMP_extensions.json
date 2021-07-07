@@ -1,1 +1,3000 @@
-{"extensions":{"uuid":"BA710064-79AC-47D5-8F70-6749B359E7E2","metadata":{"title":"[EXPERIMENTAL] FedRAMP Extensions [DRAFT]","published":"2021-02-25T00:00:00Z","last-modified":"2021-02-25T00:00:00Z","version":"DRAFT-03","oscal-version":"1.0.0-rc2","revisions":[{"published":"2019-06-01T00:00:00.00-04:00","version":"DRAFT-01","props":[{"name":"party-uuid","ns":"https:\/\/fedramp.gov\/ns\/oscal","value":"6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"}],"remarks":"Initial draft."},{"published":"2020-03-03T00:00:00.00-04:00","version":"DRAFT-02","props":[{"name":"party-uuid","ns":"https:\/\/fedramp.gov\/ns\/oscal","value":"6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"}],"remarks":"Partial update to include some SAP, SAR, and POA&M extensions."},{"published":"2021-02-09T00:00:00.00-04:00","version":"DRAFT-03","props":[{"name":"party-uuid","ns":"https:\/\/fedramp.gov\/ns\/oscal","value":"6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"}],"remarks":"Revised draft to better align with OSCAL RC-1 SSP syntax."}],"roles":[{"id":"prepared-by","title":"Prepared By","description":"The organization that prepared this content."}],"parties":[{"uuid":"77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d","type":"organization","name":"Federal Risk and Authorization Management Program: Program Management\n            Office","short-name":"FedRAMP PMO","links":[{"href":"https:\/\/fedramp.gov"}],"email-addresses":["info@fedramp.gov"],"addresses":[{"type":"work","addr-lines":["1800 F St. NW",""],"city":"Washington","state":"DC","postal-code":"","country":"US"}],"remarks":"This party entry must be present in a FedRAMP SSP.\n\nThe uuid may be different; however, the uuid must be associated with the \\\"fedramp-pmo\\\" role in the responsible-party assemblies."}],"responsible-parties":{"prepared-by":{"party-uuids":["77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d"]}},"remarks":"This EXPERIMENTAL and DRAFT file exteneds OSCAL to meet FedRAMP requirements.\n\nIt provides the extensions, defined identifiers, and acceptable values in a machine-readable format necssary to meet FedRAMP Authorization Package requirements."},"indexes":[{"id":"index-local-party-id","target":"\/\/o:party","key-fields":{"target":"@uuid"},"remarks":"This document only."},{"id":"index-assessment-layer-party-id","target":"oscal-document-set()\/(o:assessment-plan | o:assessment-results)\/\/o:party","key-fields":{"target":"@uuid"},"remarks":"Select documents."},{"id":"global-local-party-id","target":"oscal-document-set()\/\/o:party","key-fields":{"target":"@uuid"},"remarks":"Entire stack."}],"extension-namespace":{"ns":"https:\/\/fedramp.gov\/ns\/oscal"},"extensions":{"response-point":{"extension-name":"response-point","formal-name":"Response Point","description":"A property whose presence indicates its parent part is a required point of response for FedRAMP stakeholders.","bindings":[{"pattern":"\/o:profile\/o:modify\/o:alter\/o:add\/o:prop"},{"pattern":"\/o:profile\/o:modify\/o:alter\/o:add\/\/o:part\/o:prop"},{"pattern":"\/o:catalog\/\/o:control\/\/o:part\/o:prop"},{"pattern":"\/o:assessment-plan\/o:local-definitions\/o:objectives-and-methods\/\/part\/o:prop"},{"pattern":"\/o:assessment-results\/o:local-definitions\/o:objectives-and-methods\/\/part\/o:prop"}],"constraint":{"matches":[{"data-type":"empty"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}},"remarks":"This appears in FedRAMP profiles and resolved profile catalogs.\n\nFor control statements, it signals to the CSP which statements require a response in the SSP.\n\nFor control objectives, it signals to the assessor which control objectives must appear in the assessment results, which aligns with the FedRAMP test case workbook."},"revision-history-party-uuid":{"extension-name":"party-uuid","formal-name":"Party Identifier","description":"Identifies the party who authored this revision.","bindings":[{"pattern":"\/*\/o:metadata\/o:revisions\/o:revision\/o:prop"}],"constraint":{"matches":[{"data-type":"uuid"}],"has-cardinality":{"min-occurs":0,"max-occurs":"unbounded"},"index-has-keys":[{"name":"index-local-party-uuid","target":"o:prop[@name='party-uuid']","key-fields":{"target":"."},"remarks":"On the revision element in the revision history, the party-uuid extension must match the UUID of an existing party in the metadata."}]}},"iso-iec-17020-identifier":{"extension-name":"iso-iec-17020-identifier","formal-name":"ISO\/IEC 17020 Identifier","description":"The ISO\/IEC-17020 identifier assigned to the assessor related to their status as an A2LA Accredidted Third Party Assessment Organization.","bindings":[{"pattern":"\/o:assessment-plan\/o:metadata\/o:party\/o:prop"},{"pattern":"\/o:assessment-results\/o:metadata\/o:party\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"CORE":{"extension-name":"CORE","formal-name":"Core Control","description":"Identifies a control that must be included in every FedRAMP assessment.","bindings":[{"pattern":"\/o:profile\/o:modify\/o:alter\/o:add\/o:prop"},{"pattern":"\/o:profile\/o:modify\/o:alter\/o:add\/\/o:control\/o:prop"},{"pattern":"\/o:catalog\/\/o:control\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}},"remarks":"Core controls must be assessed every year, and are often subject to additional scrutiny by assessors and adjudication reviewers."},"security-eauth-level":{"extension-name":"security-eauth-level","formal-name":"eAuth Level (OVERALL)","description":"The overall electronic authentication (eAuth) level applied to the system.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:prop"}],"constraint":{"matches":[{"data-type":"integer"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"},"allowed-values":[{"allow-other":"no","enums":[{"value":"1","label":"Level 1 (Low)","RICHTEXT":"The overall eAuth Level is defined as Level 1 (Low)."},{"value":"2","label":"Level 2 (Moderate)","RICHTEXT":"The overall eAuth Level is defined as Level 2 (Moderate)."},{"value":"3","label":"Level 3 (High)","RICHTEXT":"The overall eAuth Level is defined as Level 3 (High)."}]}]},"remarks":"FedRAMP requires all Low systems to be at Level 1"},"authorization-type":{"extension-name":"authorization-type","formal-name":"Authorization Type","description":"Identifies the FedRAMP authorization type.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"},"allowed-values":[{"allow-other":"no","enums":[{"value":"fedramp-jab","label":"JAB P-ATO","RICHTEXT":"A FedRAMP Joint Authorization Board (JAB) Provisional-Authorization to Operate (P-ATO)."},{"value":"fedramp-agency","label":"Agency ATO","RICHTEXT":"A FedRAMP Agency Authorization to Operate (ATO)."},{"value":"fedramp-li-saas","label":"Tailored (LI-SaaS) ATO","RICHTEXT":"A FedRAMP Tailored authorization to operate (ATO) for low impact Software as a Service (LI-SaaS) systems."}]}]}},"users-internal":{"extension-name":"users-internal","formal-name":"Internal Users","description":"The current number of users internal to the organization.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-implementation\/o:prop"}],"constraint":{"matches":[{"data-type":"integer"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"}}},"users-external":{"extension-name":"users-external","formal-name":"External Users","description":"The current number of users external to the organization.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:prop"}],"constraint":{"matches":[{"data-type":"integer"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"}}},"users-internal-future":{"extension-name":"users-internal-future","formal-name":"Future Internal Users","description":"The anticipated number of users internal to the organization in one year.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:prop"}],"constraint":{"matches":[{"data-type":"integer"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"}}},"users-external-future":{"extension-name":"users-external-future","formal-name":"Future External Users","description":"The anticipated number of users external to the organization in one year.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:prop"}],"constraint":{"matches":[{"data-type":"integer"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"}}},"pta-1":{"extension-name":"pta-1","formal-name":"Privacy Threshold Analysis Q1","description":"Does the ISA collect, maintain, or share PII in any identifiable form?","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"},"allowed-values":[{"allow-other":"no","enums":[{"value":"yes","label":"Yes","RICHTEXT":"Yes, the ISA collects, maintains, or shares some form of PII."},{"value":"no","label":"No","RICHTEXT":"No, the ISA does not collect, maintain, or share PII in any form."}]}]}},"pta-2":{"extension-name":"pta-2","formal-name":"Privacy Threshold Analysis Q2","description":"Does the ISA collect, maintain, or share PII from or about the public?","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"},"allowed-values":[{"allow-other":"no","enums":[{"value":"yes","label":"Yes","RICHTEXT":"Yes, the ISA collects, maintains, or shares PII from or about the public."},{"value":"no","label":"No","RICHTEXT":"No, the ISA does not collect, maintain, or share PII from or about the public."}]}]}},"pta-3":{"extension-name":"pta-3","formal-name":"Privacy Threshold Analysis Q3","description":"Has a Privacy Impact Assessment (PIA) ever been performed for the ISA?","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"},"allowed-values":[{"allow-other":"no","enums":[{"value":"yes","label":"Yes","RICHTEXT":"Yes, a PIA has been performed."},{"value":"no","label":"No","RICHTEXT":"No, a PIA has not been performed.."}]}]}},"pta-4":{"extension-name":"pta-4","formal-name":"Privacy Threshold Analysis Q4","description":"Is there a Privacy Act System of Records Notice (SORN) for this ISA system?","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"},"allowed-values":[{"allow-other":"no","enums":[{"value":"yes","label":"Yes","RICHTEXT":"Yes, there is a SORN ID for this system."},{"value":"no","label":"No","RICHTEXT":"No, there is not a SORN ID for this system."}]}]}},"sorn-id":{"extension-name":"sorn-id","formal-name":"SORN ID","description":"An assigned System of Records Notice (SORN) identifier for this system.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"},"expects":[{"test":".[@name='pta-4'][@ns='https:\/\/fedramp.gov\/ns\/oscal']\/value='yes' and .[@name='sorn-id'][@ns='https:\/\/fedramp.gov\/ns\/oscal']"}]}},"user-sensitivity-level":{"extension-name":"sensitivity","formal-name":"User Sensitivity Level","description":"Defines the sensitivity level of the identified user type.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-implementation\/o:user\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":1,"max-occurs":"unbounded"},"allowed-values":[{"allow-other":"no","enums":[{"value":"high-risk","label":"High Risk","RICHTEXT":"Misuse of the user's access could result in grave damage to the public's trust."},{"value":"severe","label":"Severe","RICHTEXT":"Misuse of the user's access could result in a substantial degree of harm or serious damage to the public’s trust."},{"value":"moderate","label":"Moderate","RICHTEXT":"Misuse of the user's access could result in a fair amount of harm or serious damage to the public’s trust."},{"value":"limited","label":"Limited","RICHTEXT":"Misuse of the user's access could result in some harm or discernible damage to the public’s trust."},{"value":"not-applicable","label":"Not Applicable","RICHTEXT":"The user does not have access to the system."}]}]},"remarks":"Values are as required by FedRMAP for packages based on NIST 800-53, Revision 4.\n\nAuthoritative source: [OPM Position Designation (Page 18)](#871713A8-5A27-4AC3-8B94-972588469C6B)."},"service-processor":{"extension-name":"service-processor","formal-name":"Service Processor","description":"Name of the interconnection service processor.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-implementation\/o:component[@type='interconnection']\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":1,"max-occurs":"unbounded"}}},"information":{"extension-name":"information","formal-name":"Transmitted Information","description":"Describes the information transmitted over the interconnection.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-implementation\/o:component[@type='interconnection']\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":1,"max-occurs":"unbounded"}}},"port":{"extension-name":"port","formal-name":"Interconnection Port","description":"A port used by the interconnection for the communication.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-implementation\/o:component[@type='interconnection']\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":1,"max-occurs":"unbounded"},"expects":[{"test":".[@class]"}]}},"circuit":{"extension-name":"circuit","formal-name":"Service Processor","description":"A circuit used for the communication.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-implementation\/o:component[@type='interconnection']\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":1,"max-occurs":"unbounded"}}},"connection-security":{"extension-name":"connection-security","formal-name":"Connection Security","description":"Identifies the mechanisms\/protocol(s) used to secure the communication.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-implementation\/o:component[@type='interconnection']\/o:annotation"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":1,"max-occurs":"unbounded"},"allowed-values":[{"allow-other":"no","enums":[{"value":"ipsec","label":"IPsec","RICHTEXT":"IPsec"},{"value":"vpn","label":"VPN","RICHTEXT":"Virtual Private Network"},{"value":"ssl","label":"SSL","RICHTEXT":"Secure Socket Layer"},{"value":"certificate","label":"Cert","RICHTEXT":"Certificate"},{"value":"secure-file-transfer","label":"SFT","RICHTEXT":"Secure File Transfer"},{"value":"other","label":"Other","RICHTEXT":"Other"}]}]}},"service-used-by":{"extension-name":"used-by","formal-name":"Service Used By","description":"Identifies what uses the service.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-implementation\/o:component[@type='service']\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":1,"max-occurs":"unbounded"}}},"scan-type":{"extension-name":"scan-type","formal-name":"Scan Type","description":"Identifies the type(s) of scans to be performed on this inventory-item or component.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-implementation\/o:component\/o:prop"},{"pattern":"\/o:system-security-plan\/o:system-implementation\/o:system-inventory\/o:inventory-item\/o:prop"},{"pattern":"\/o:assessment-plan\/o:local-definitions\/o:component\/o:prop"},{"pattern":"\/o:assessment-plan\/o:local-definitions\/o:inventory-item\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:local-definitions\/o:component\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:local-definitions\/o:inventory-item\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":0,"max-occurs":"unbounded"},"allowed-values":[{"allow-other":"no","enums":[{"value":"infrastructure","label":"Infrastructure","RICHTEXT":"The component or inventory item is included in operating system (OS) and\/or infrastructure scans."},{"value":"database","label":"Database","RICHTEXT":"The component or inventory item is included in Database scans."},{"value":"web","label":"Web","RICHTEXT":"The component or inventory item is included in Web interface\/application scans."},{"value":"other","label":"Other","RICHTEXT":"The component or inventory item is included in non-typical scans."}]}]}},"planned-completion-date":{"extension-name":"planned-completion-date","formal-name":"Planned Completion Date","description":"Provides the date the control expects to be implemented. Must be present when Implementation Status is \"Planned\"","bindings":[{"pattern":"\/o:system-security-plan\/o:control-implementation\/o:implemented-requirement\/o:prop"}],"constraint":{"matches":[{"data-type":"date"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"authorization-recommendation":{"extension-name":"authorization-recommendation","formal-name":"Authorization Recommendation","description":"Indicates whether the assessor recommends the system be authorized by the authorizing official.","bindings":[{"pattern":"\/o:assessment-results\/o:results\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"},"allowed-values":[{"allow-other":"no","enums":[{"value":"yes","label":"Yes","RICHTEXT":"Yes, the assessor recommends the system for authorization."},{"value":"no","label":"No","RICHTEXT":"No, the assessor does not recommend the system for authorization."}]}]}},"title-short":{"extension-name":"title-short","formal-name":"Short Title","description":"The short name for the system represented in the resource.","bindings":[{"pattern":"\/o:assessment-plan\/o:back-matter\/o:resource\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:back-matter\/o:resource\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"system-id":{"extension-name":"system-id","formal-name":"System Identifier","description":"The FedRAMP-assigned identifier for this system.","bindings":[{"pattern":"\/o:assessment-plan\/o:back-matter\/o:resource\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:back-matter\/o:resource\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"import-profile":{"extension-name":"import-profile","formal-name":"Profile","description":"The baseline\/profile for this sysytem based on its FIPS-199 categorization.","bindings":[{"pattern":"\/o:assessment-plan\/o:back-matter\/o:resource\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:back-matter\/o:resource\/o:prop"}],"constraint":{"matches":[{"data-type":"uri"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"authorization-date":{"extension-name":"authorization-date","formal-name":"Authorization Date","description":"The date the system was authorized. Omit or leave blank for an initial authorization.","bindings":[{"pattern":"\/o:assessment-plan\/o:back-matter\/o:resource\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:back-matter\/o:resource\/o:prop"}],"constraint":{"matches":[{"data-type":"date"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"purpose":{"extension-name":"purpose","formal-name":"Purpose","description":"Explains the system's purpose.","bindings":[{"pattern":"\/o:assessment-plan\/o:back-matter\/o:resource\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:back-matter\/o:resource\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"description":{"extension-name":"description","formal-name":"Description","description":"A brief description of the system.","bindings":[{"pattern":"\/o:assessment-plan\/o:back-matter\/o:resource\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:back-matter\/o:resource\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"sampling":{"extension-name":"sampling","formal-name":"Sampling","description":"Indicates whether a sampling methodology was used instead of assessing the entire system.","bindings":[{"pattern":"\/o:assessment-plan\/o:assessment-subject\/o:prop"},{"pattern":"\/o:assessment-results\/o:results\/o:assessment-subject\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"},"allowed-values":[{"allow-other":"no","enums":[{"value":"yes","label":"Yes","RICHTEXT":"Yes, a sampling methodology was used."},{"value":"no","label":"No","RICHTEXT":"No, a sampling methodology was not used."}]}]}},"POAM-ID":{"extension-name":"POAM-ID","formal-name":"POA&M ID","description":"A CSP-assigned POA&M identifier.","bindings":[{"pattern":"\/o:plan-of-action-and-milestones\/o:poam-item\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"control-objective-implementation-status":{"extension-name":"control-objective-implementation-status","formal-name":"Objective Implementation Status","description":"Indicates the implementation status of the control objective.","bindings":[{"pattern":"\/o:assessment-results\/o:results\/o:finding\/o:objective-status\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"},"allowed-values":[{"allow-other":"no","enums":[{"value":"implemented","label":"Implemented","RICHTEXT":"The assessor finds sufficient evidence to agree the control objective is fully implemented."},{"value":"partial","label":"Partial","RICHTEXT":"The assessor finds evidence to suggest a portion of the control objective is implemented and a portion is not."},{"value":"planned","label":"Planned","RICHTEXT":"The assessor finds this control objective is not implemented, but there is evidence the system owner has a plan for implemnting it."},{"value":"alternative","label":"Alternative Implementation","RICHTEXT":"The assessor finds evidence of an alternative implementation, which the assessor judges to provide protection similar enough to satisfy this control."},{"value":"not-applicable","label":"Not Applicable (N\/A)","RICHTEXT":"The assessor finds this control objective does not apply to this system."}]}]}},"control-implementation-status":{"extension-name":"implementation-status","formal-name":"Control Implementation Status","description":"Indicates the implementation status of the control.","bindings":[{"pattern":"\/o:system-security-plan\/o:control-implmentation\/o:implemented-requirement\/o:annotation"}],"constraint":{"has-cardinality":{"min-occurs":1,"max-occurs":"unbounded"},"remarks":"When an annotation is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the `@value` flag."}},"leveraged-authorization":{"extension-name":"leveraged-authorization-uuid","formal-name":"Leveraged Authorization","description":"Indicates a leveraged authorization used for this control.","bindings":[{"pattern":"\/o:assessment-results\/o:results\/o:finding\/o:objective-status\/o:prop"}],"constraint":{"matches":[{"data-type":"uuid"}],"has-cardinality":{"min-occurs":0,"max-occurs":"unbounded"}},"remarks":"This is for legacy SSP convertion to OSCAL. The preferred approach is to specificy the leveraged system as a `component` and reference it in the control using `by-component`."},"control-origination":{"extension-name":"control-origination","formal-name":"Control Origination","description":"The point(s) from which the control satisfaction originates.","bindings":[{"pattern":"\/o:system-security-plan\/o:control-implementation\/o:implemented-requirement\/o:annotation"}],"constraint":{"has-cardinality":{"min-occurs":0,"max-occurs":"1"},"remarks":"When an annotation is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the `@value` flag."}},"no-oscal-ssp-title-short":{"extension-name":"title-short","formal-name":"Short System Name","description":"The abbreviated name for the system, such as an acronym.","bindings":[{"pattern":"\/o:assessment-plan\/o:back-matter\/o:resource[.\/prop[@name='type'][.='no-oscal-ssp']]\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"}}},"no-oscal-ssp-system-id":{"extension-name":"system-id","formal-name":"Short System Name","description":"The FedRAMP-assigned system identifier.","bindings":[{"pattern":"\/o:assessment-plan\/o:back-matter\/o:resource[.\/prop[@name='type'][.='no-oscal-ssp']]\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"}}},"no-oscal-ssp-import-profile":{"extension-name":"import-profile","formal-name":"Relevant Baseline","description":"Identifies the relevant OSCAL baseline.","bindings":[{"pattern":"\/o:assessment-plan\/o:back-matter\/o:resource[.\/prop[@name='type'][.='no-oscal-ssp']]\/o:prop"}],"constraint":{"matches":[{"data-type":"uri"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"}},"remarks":"As with all URIs in OSCAL, this may contain a URI fragment, which identifies the local resource containing the relevant profile."},"no-oscal-ssp-purpose":{"extension-name":"system-id","formal-name":"Short System Name","description":"The FedRAMP-assigned system identifier.","bindings":[{"pattern":"\/o:assessment-plan\/o:back-matter\/o:resource[.\/prop[@name='type'][.='no-oscal-ssp']]\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"}}},"no-oscal-ssp-authorization-date":{"extension-name":"authorization-date","formal-name":"Authorization DAte","description":"The date of the system's initial FedRAMP authorization.","bindings":[{"pattern":"\/o:assessment-plan\/o:back-matter\/o:resource[.\/prop[@name='type'][.='no-oscal-ssp']]\/o:prop"}],"constraint":{"matches":[{"data-type":"dateTime-with-timezone"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"}}},"task-login-url":{"extension-name":"logn-url","formal-name":"Login URL","description":"The login URL for a web application.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-implementation\/o:inventory-item\/prop"},{"pattern":"\/o:assessment-plan\/\/o:task\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:local-definition\/o:inventory-item\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}]}},"task-login-id":{"extension-name":"logn-id","formal-name":"Login ID","description":"The login ID used to assess the web application.","bindings":[{"pattern":"\/o:assessment-plan\/\/o:task\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:local-definition\/o:inventory-item\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}]}},"task-test-type":{"extension-name":"test-type","formal-name":"Test Type","description":"Indicates the type of test represented by the task.","bindings":[{"pattern":"\/o:assessment-plan\/\/o:task\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:local-definition\/o:inventory-item\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"allowed-values":[{"enums":[{"value":"web-applicaiton","label":"Web Application","RICHTEXT":"This task tests a web application."}]}]}},"task-user-uuid":{"extension-name":"user-uuid","formal-name":"User Identifier","description":"Cites the SSP defined user role to use for testing.","bindings":[{"pattern":"\/o:assessment-plan\/\/o:task\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:local-definition\/o:inventory-item\/o:prop"}],"constraint":{"matches":[{"data-type":"uuid"}]}},"poam-id":{"extension-name":"POAM-ID","formal-name":"CSP POA&M Identifier","description":"A CSP-assigned identifier for this POA&M item.","bindings":[{"pattern":"\/o:plan-of-action-and-milestones\/o:poam-item\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}]}},"poam-impacted-control":{"extension-name":"impacted-control-id","formal-name":"Impacted Control","description":"A control impacted by this POA&M item.","bindings":[{"pattern":"\/o:assessment-results\/o:result\/o:risk\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:risk\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}]},"remarks":"Impacted control is required in the POA&M and optional in the SAR.\n\nIt is allowed in the SAR in anticipation of duplicatng open risks from the SAR to the POA&M."},"sar-risk-priority":{"extension-name":"priority","formal-name":"Risk Priority","description":"Assessor's recommended risk priority. Lower numbers are higher priority. One (1) is highest priority.","bindings":[{"pattern":"\/o:assessment-results\/o:result\/o:risk\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:risk\/o:prop"}],"constraint":{"matches":[{"data-type":"integer"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"sar-recommend-authorization":{"extension-name":"recommend-authorization","formal-name":"Assessor's Authorization Recommendation","description":"Indicates the assessor's reommendation for initial or continued authorization.","bindings":[{"pattern":"\/o:assessment-results\/o:result\/o:attestation\/o:part[@name='authorization-statements']\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":1,"max-occurs":"1"},"allowed-values":[{"enums":[{"value":"yes","label":"Yes","RICHTEXT":"The assessor recommends initial or continued authorization."},{"value":"no","label":"No","RICHTEXT":"The assessor does not recommend initial or continued authorization."}]}]}},"vulnerability-identifier":{"extension-name":"vulnerability-id","formal-name":"Vulnerability Identifier","description":"A tool assigned vulnerability ID.","bindings":[{"pattern":"\/o:plan-of-action-and-milestones\/o:risk\/o:characterization\/o:origin\/o:actor[@type='tool']\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:risk\/o:characterization\/o:origin\/o:actor[@type='tool']\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"plugin-identifier":{"extension-name":"plugin-id","formal-name":"Plugin Identifier","description":"A tool assigned Plugin ID.","bindings":[{"pattern":"\/o:plan-of-action-and-milestones\/o:risk\/o:characterization\/o:origin\/o:actor[@type='tool']\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:risk\/o:characterization\/o:origin\/o:actor[@type='tool']\/o:prop"}],"constraint":{"matches":[{"data-type":"string"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"}}},"operational-requirement":{"extension-name":"operational-requirement","formal-name":"Operational Requirement","description":"The risk cannot be remediated without impact to the system and must be accepted.","bindings":[{"pattern":"\/o:plan-of-action-and-milestones\/o:risk\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:risk\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:observation\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:observation\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"},"allowed-values":[{"enums":[{"value":"investigating","label":"Investigating","RICHTEXT":"A possible operational requirement is being investigated."},{"value":"pending","label":"Tracking","RICHTEXT":"An operational requirement deviation request was submitted to the AO and is pending adjudication."},{"value":"approved","label":"Approved","RICHTEXT":"The operational requirement has been approved by the AO."},{"value":"withdrawn","label":"Withdrawn","RICHTEXT":"The operational requirement was withdrawn."}]}]}},"false-positive":{"extension-name":"false-positive","formal-name":"False Positive","description":"The risk was found to be a false positive report.","bindings":[{"pattern":"\/o:plan-of-action-and-milestones\/o:risk\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:risk\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:observation\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:observation\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"},"allowed-values":[{"enums":[{"value":"investigating","label":"Investigating","RICHTEXT":"A possible risk adjustment is being investigated."},{"value":"pending","label":"Tracking","RICHTEXT":"A false positive deviation request was submitted to the AO and is pending adjudication."},{"value":"approved","label":"Approved","RICHTEXT":"The false positive has been approved by the AO."},{"value":"withdrawn","label":"Withdrawn","RICHTEXT":"The false positive was withdrawn."}]}]}},"risk-adjustment":{"extension-name":"risk-adjustment","formal-name":"Risk Adjustment","description":"Mitigating factors were identified or implemented, reducing the likelihood or impact of the risk.","bindings":[{"pattern":"\/o:plan-of-action-and-milestones\/o:risk\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:risk\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:observation\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:observation\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"},"allowed-values":[{"enums":[{"value":"investigating","label":"Investigating","RICHTEXT":"A possible risk adjustment is being investigated."},{"value":"pending","label":"Tracking","RICHTEXT":"A risk adjustment deviation request was submitted to the AO and is pending adjudication."},{"value":"approved","label":"Approved","RICHTEXT":"The risk adjustment has been approved by the AO."},{"value":"withdrawn","label":"Withdrawn","RICHTEXT":"The risk adjustment was withdrawn."}]}]}},"vendor-dependency":{"extension-name":"vendor-dependency","formal-name":"Vendor Dependency","description":"A vendor resolution is pending, but not yet available.","bindings":[{"pattern":"\/o:plan-of-action-and-milestones\/o:risk\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:risk\/o:prop"},{"pattern":"\/o:plan-of-action-and-milestones\/o:observation\/o:prop"},{"pattern":"\/o:assessment-results\/o:result\/o:observation\/o:prop"}],"constraint":{"matches":[{"data-type":"NCName"}],"has-cardinality":{"min-occurs":0,"max-occurs":"1"},"allowed-values":[{"enums":[{"value":"investigating","label":"Investigating","RICHTEXT":"The risk is a suspected vendor dependency, and is being investigated for verification."},{"value":"tracking","label":"Tracking","RICHTEXT":"The vendor has confirmed the issue and is working on a resolution."},{"value":"resolved","label":"Resolved","RICHTEXT":"The vendor released the fix and it has been applied."},{"value":"withdrawn","label":"Withdrawn","RICHTEXT":"The vendor dependency was withdrawn."}]}]}}},"constraints":[{"name":"observation-types","formal-name":"Observation Types","description":"In addition to the NIST observation types, FedRAMP requires observaton types to support risk deviations and vendor dependencies.","bindings":[{"pattern":"\/o:plan-of-action-and-milestones\/o:observation\/o:type"},{"pattern":"\/o:assessment-results\/o:result\/o:observation\/o:type"}],"allowed-values":[{"allow-other":"yes","enums":[{"value":"vendor-dependency","label":"Vendor Dependency","RICHTEXT":"The observation provides evidence of reliance on a vendor for a pending resolution that is not yet available."},{"value":"false-positive","label":"False Positive","RICHTEXT":"The observation provides evidence the associated risk is a false positive finding."},{"value":"operational-requirement","label":"Operational Requirement","RICHTEXT":"The observation provides evidence to substantiate the assertion that remediating the risk will have an adverse impact on the system."},{"value":"risk-adjustment","label":"Risk Adjustment","RICHTEXT":"The observation provides evidence to justify an adjustment to the likelihood or impact values."},{"value":"closure","label":"Closure","RICHTEXT":"The observation provides evidence of risk closure."}]}]},{"name":"sar-risk-impacted-control","formal-name":"Impacted Control","description":"The impacted control field is optional in the SAR, but helpful in anticipation of copying open risks to the POA&M.","bindings":[{"pattern":"\/o:assessment-results\/o:result\/o:risk\/o:prop"}],"has-cardinality":{"min-occurs":0,"max-occurs":"unbounded"}},{"name":"poam-risk-impacted-control","formal-name":"Impacted Control","description":"At least one impacted control field is required in the POA&M.","bindings":[{"pattern":"\/o:plan-of-action-and-milestones\/o:risk\/o:prop"}],"has-cardinality":{"min-occurs":0,"max-occurs":"unbounded"}},{"name":"control-origination-constraints","formal-name":"Control Origination","description":"The point(s) from which the control satisfaction originates.","bindings":[{"pattern":"\/o:system-security-plan\/o:control-implmentation\/o:implemented-requirement\/o:annotation[@name='control-origination'][@ns='https:\/\/fedramp.gov\/ns\/oscal']\/@value"}],"matches":[{"data-type":"NCName"}],"allowed-values":[{"allow-other":"no","enums":[{"value":"sp-corporate","label":"SP Corporate","RICHTEXT":"Service Provider (Corporate)"},{"value":"sp-system","label":"SP System","RICHTEXT":"Service Provider (System Specific)"},{"value":"customer-configured","label":"Cust. Configured","RICHTEXT":"Configured by Customer"},{"value":"customer-provided","label":"Cust. Provided","RICHTEXT":"Provided by Customer"},{"value":"inherited","label":"Inherited","RICHTEXT":"Inherited"}]}]},{"name":"control-implementation-status-constraints","formal-name":"Control Implementation Status Constraints","description":"Defines the data type and allowed values for the Control Implementation Status","bindings":[{"pattern":"\/o:system-security-plan\/o:control-implmentation\/o:implemented-requirement\/o:annotation[@name='implementation-status'][@ns='https:\/\/fedramp.gov\/ns\/oscal']\/@value"}],"matches":[{"data-type":"NCName"}],"allowed-values":[{"allow-other":"no","enums":[{"value":"implemented","label":"Implemented","RICHTEXT":"The assessor finds sufficient evidence to agree the control objective is fully implemented."},{"value":"partial","label":"Partial","RICHTEXT":"The assessor finds evidence to suggest a portion of the control objective is implemented and a portion is not."},{"value":"planned","label":"Planned","RICHTEXT":"The assessor finds this control objective is not implemented, but there is evidence the system owner has a plan for implemnting it."},{"value":"alternative","label":"Alternative Implementation","RICHTEXT":"The assessor finds evidence of an alternative implementation, which the assessor judges to provide protection similar enough to satisfy this control."},{"value":"not-applicable","label":"Not Applicable (N\/A)","RICHTEXT":"The assessor finds this control objective does not apply to this system."}]}],"remarks":"When an extension is an annotation, the data type and allowed values must be defined in a separate constraint."},{"formal-name":"Control Implementation Status Constraints","description":"Remarks are required for certain Control Implementation Status values.","bindings":[{"pattern":"\/o:system-security-plan\/o:control-implmentation\/o:implemented-requirement"}],"matches":[{"data-type":"NCName"}],"expects":[{"test":"(o:annotation[@name='planned-completion'][@ns='https:\/\/fedramp.gov\/ns\/oscal'])"}]},{"formal-name":"FedRAMP Facet System Constraints"},{"name":"planned-completion-date","formal-name":"Planned Implementation Date Exists","description":"If the control implementation status is \"Planned\" a \"Planned Implementation Date\" must be provided.","props":[{"name":"reference","value":"3.1"}],"bindings":[{"pattern":"\/o:system-security-plan\/o:control-implementation\/o:implemented-requirement[o:annotation[@name='implementation-status'][@value='planned']]"}],"expects":[{"test":"(o:prop[@name='implementation-status'][@ns='https:\/\/fedramp.gov\/ns\/oscal'][@value='partial']\/remarks)"},{"test":"(o:prop[@name='implementation-status'][@ns='https:\/\/fedramp.gov\/ns\/oscal'][@value='planned']\/remarks)"},{"test":"(o:prop[@name='implementation-status'][@ns='https:\/\/fedramp.gov\/ns\/oscal'][@value='alternative']\/remarks)"},{"test":"(o:prop[@name='implementation-status'][@ns='https:\/\/fedramp.gov\/ns\/oscal'][@value='not-applicable']\/remarks)"}],"remarks":"In the SSP, if `implemented-requirement` includes `annotation[@name='implementation-status']` with `value='planned'`, a `planned-completion-date` extension must be provided."},{"formal-name":"Port Class Exists","description":"If a port number is provided as part of an interconnection, Local or Remote must be specified.","bindings":[{"pattern":"o:system-security-plan\/o:system-implementation\/o:component[@component-type='interconnection']\/o:prop[@name='port']"}],"expects":[{"test":"exists(@class)"}],"remarks":"The port field is a FedRAMP extension - a property assigned to a component with a component type of 'interconnection'.\n\nWhen this extension is present, it must include a `@class` flag with a value of either 'local' or 'remote'."},{"formal-name":"Port Class Valid Values","description":"If a port number is provided as part of an interconnection, Local or Remote must be specified.","bindings":[{"pattern":"o:system-security-plan\/o:system-implementation\/o:component[@component-type='interconnection']\/o:prop[@name='port']\/@class"}],"allowed-values":[{"allow-other":"no","enums":[{"value":"local","label":"Local","RICHTEXT":"The identified port number is used by the interconnected system to communicate with this system."},{"value":"remote","label":"Remote","RICHTEXT":"The identified poart number is used by this system to communicate with the interconnected system."}]}],"remarks":"The port field is a FedRAMP extension - a property assigned to a component with a component type of 'interconnection'.\n\nWhen this extension is present, it must include a `@class` flag with a value of either 'local' or 'remote'."},{"formal-name":"Additional Component Types","description":"Identifies additional component types for Assessment Assets in the SAP and SAR.","bindings":[{"pattern":"o:assessment-plan\/o:assessment-assets\/o:component\/@type"},{"pattern":"o:assessment-results\/o:assessment-result\/o:local-definitions\/o:assessment-assets\/o:component\/@type"}],"allowed-values":[{"allow-other":"no","enums":[{"value":"assessment-origination","label":"Assessment Origination","RICHTEXT":"The component identifies one or more IP addresses from which assessment activities may be performed."}]}],"remarks":"For FedRAMP, the SAP must identify the IP addresses from which scanning and penetration test activities are performed, and the SAR must identify the actual IP addresses used.\n\nThis requires an additional component type in the SAP's `assessment-assets`, and in the SAR's `result`, `local-definitions`, `assessment-assets`."},{"name":"fedramp-general-role-identifiers","formal-name":"General Role Identifiers","description":"FedRAMP additional roles identifiers.","bindings":[{"pattern":"\/*\/o:metadata\/o:role\/@id"}],"allowed-values":[{"allow-other":"yes","enums":[{"value":"fedramp-pmo","label":"FedRAMP PMO","RICHTEXT":"The FedRAMP Program Management Office (PMO)"},{"value":"fedramp-jab","label":"FedRAMP JAB","RICHTEXT":"The FedRAMP Joint Authorization Board (JAB)"},{"value":"cloud-service-provider","label":"CSP","RICHTEXT":"Cloud Service Provider"},{"value":"csp-operations-center","label":"CSP Operations Center","RICHTEXT":"Cloud Service Provider Operations Center"}]}],"remarks":"These are in addition to the NIST-defined allowed values for role identifiers, and apply to all OSCAL-based FedRAMP content."},{"name":"fedramp-assessment-role-identifiers","formal-name":"Assessment Role Identifiers","description":"FedRAMP additional roles identifiers.","bindings":[{"pattern":"\/*\/o:metadata\/o:role\/@id"}],"allowed-values":[{"allow-other":"yes","enums":[{"value":"assessor","label":"Assesor","RICHTEXT":"Assesor"},{"value":"assessment-team","label":"Assessment Team","RICHTEXT":"Assessment Team"},{"value":"assessment-lead","label":"Assessment Lead","RICHTEXT":"Assessment Lead"},{"value":"assessment-executive","label":"Assessment Executive","RICHTEXT":"Assessment Executive"},{"value":"csp-assessment-poc","label":"CSP Assessment PoC","RICHTEXT":"Cloud Service Provider Assessment Point(s) of Contact"},{"value":"csp-end-of-testing-poc","label":"CSP End of Testing PoC","RICHTEXT":"Cloud Service Provider End of Testing Point(s) of Contact"},{"value":"csp-results-poc","label":"CSP Results PoC","RICHTEXT":"Cloud Service Provider Point(s) of Contact"},{"value":"penetration-test-team","label":"Penetration Test Team","RICHTEXT":"Penetration Test Team"},{"value":"penetration-test-lead","label":"Penetration Test Lead","RICHTEXT":"Penetration Test Lead"}]}],"remarks":"These are in addition to the NIST-defined allowed values for role identifiers, and apply to OSCAL-based FedRAMP SAP and SAR content."},{"name":"attachment-type","formal-name":"Attachment\/Resource Types","description":"FedRAMP additional attachment\/resource types.","bindings":[{"pattern":"\/*\/o:back-matter\/o:resource\/o:prop[@name='type']"}],"allowed-values":[{"allow-other":"yes","enums":[{"value":"personally-identifiable-information","label":"Personally Identifiable Information (PII)","RICHTEXT":"The resource is a citation related to Personally Identifiable Information (PII)"},{"value":"privacy-impact-analysis","label":"Privacy Impact Assessment (PIA)","RICHTEXT":"The resource represents the FedRAMP Privacy Impact Assessment (PIA)."},{"value":"fedramp-citations","label":"FedRAMP Laws and Regulations","RICHTEXT":"A resource containng laws and regulations relevant to FedRAMP."},{"value":"system-security-plan","label":"System Security Plan (SSP)","RICHTEXT":"A resource representing the system security plan, as imported by a SAP or POA&M."}]}],"remarks":"These are in addition to the NIST-defined allowed values for resource types."},{"name":"system-identifier-type","formal-name":"System Identifier Type","description":"Enables an identifier to be formally recognized as being assigned by FedRAMP.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-id\/@identifier-type"}],"allowed-values":[{"allow-other":"yes","enums":[{"value":"https:\/\/fedramp.gov","label":"FedRAMP ID","RICHTEXT":"FedRAMP-Assigned Identifier"}]}]},{"name":"information-type-system","formal-name":"Information Type System","description":"Identifies the system from which the information type was defined.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:information-type\/o:information-type-id\/@system"}],"allowed-values":[{"allow-other":"no","enums":[{"value":"https:\/\/doi.org\/10.6028\/NIST.SP.800-60v2r1","label":"SP 800-60 V2R1","RICHTEXT":"NIST SP 800-60, Volume 2, Revision 1"}]}],"remarks":"FedRAMP only allows information types defined in NIST SP 800-60v2r1."},{"name":"security-impact-level","formal-name":"Security Impact Level","description":"The security objective level as defined by NIST SP 800-60.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:information-type\/o:confidentiality-impact\/base"},{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:information-type\/o:confidentiality-impact\/selected"},{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:information-type\/o:availability-impact\/base"},{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:information-type\/o:availability-impact\/selected"},{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:information-type\/o:integrity-impact\/base"},{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-information\/o:information-type\/o:integrity-impact\/selected"}],"allowed-values":[{"allow-other":"no","enums":[{"value":"fips-199-low","label":"L","RICHTEXT":"Low"},{"value":"fips-199-moderate","label":"M","RICHTEXT":"Moderate"},{"value":"fips-199-high","label":"H","RICHTEXT":"High"}]}]},{"name":"system-operational-status","formal-name":"Operational Status (system)","description":"The operational status of the system","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:system-characteristics\/o:status\/@state"}],"allowed-values":[{"allow-other":"no","enums":[{"value":"operational","label":"Operational","RICHTEXT":"Operational"},{"value":"under-major-modification","label":"Major Mod.","RICHTEXT":"Major Modification"},{"value":"other","label":"Other","RICHTEXT":"Other"}]}],"remarks":"FedRAMP limits the allowed values from a larger NIST-defined list to only those defined here."},{"name":"service-model","formal-name":"Service Model","description":"The cloud service model.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:annotation[@name='service-model']\/@value"}],"allowed-values":[{"allow-other":"no","enums":[{"value":"saas","label":"SaaS","RICHTEXT":"Software as a Service"},{"value":"paas","label":"PaaS","RICHTEXT":"Platform as a Service"},{"value":"iaas","label":"IaaS","RICHTEXT":"Infrastructure as a Service"},{"value":"other","label":"Other","RICHTEXT":"Other"}]}]},{"name":"deployment-model","formal-name":"Deployment Model","description":"The cloud deployment model.","bindings":[{"pattern":"\/o:system-security-plan\/o:system-characteristics\/o:annotation[@name='deployment-model']\/@value"}],"allowed-values":[{"allow-other":"no","enums":[{"value":"public-cloud","label":"Public","RICHTEXT":"Public Cloud"},{"value":"private-cloud","label":"Private","RICHTEXT":"Private Cloud"},{"value":"government-only-cloud","label":"USG-Only","RICHTEXT":"U.S. Government Only"},{"value":"hybrid-cloud","label":"Hybrid","RICHTEXT":"Hybrid"},{"value":"other","label":"Other","RICHTEXT":"Other"}]}],"remarks":"NIST also defines a community cloud model; however, FedRAMP does not accept this response."}],"back-matter":{"resources":[{"uuid":"871713A8-5A27-4AC3-8B94-972588469C6B","title":"OPM Posiiton Designation","props":[{"name":"type","value":""},{"name":"published","value":"2017-09-01T00:00:00Z"}],"rlinks":[{"href":"https:\/\/www.opm.gov\/suitability\/suitability-executive-agent\/position-designation-tool\/position-designation-system-with-glossary-2017.pdf","media-type":"application\/pdf"}]}]}}}
+{
+    "extensions": {
+        "uuid": "BA710064-79AC-47D5-8F70-6749B359E7E2",
+        "metadata": {
+            "title": "[EXPERIMENTAL] FedRAMP Extensions [DRAFT]",
+            "published": "2021-07-06T23:07:21Z",
+            "last-modified": "2021-07-06T23:07:21Z",
+            "version": "fedramp1.0.0-oscal1.0.0",
+            "oscal-version": "oscal-1.0.0",
+            "revisions": [
+                {
+                    "published": "2019-06-01T00:00:00.00-04:00",
+                    "version": "DRAFT-01",
+                    "props": [
+                        {
+                            "name": "party-uuid",
+                            "ns": "https://fedramp.gov/ns/oscal",
+                            "value": "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"
+                        }
+                    ],
+                    "remarks": "Initial draft."
+                },
+                {
+                    "published": "2020-03-03T00:00:00.00-04:00",
+                    "version": "DRAFT-02",
+                    "props": [
+                        {
+                            "name": "party-uuid",
+                            "ns": "https://fedramp.gov/ns/oscal",
+                            "value": "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"
+                        }
+                    ],
+                    "remarks": "Partial update to include some SAP, SAR, and POA&M extensions."
+                },
+                {
+                    "published": "2021-02-09T00:00:00.00-04:00",
+                    "version": "DRAFT-03",
+                    "props": [
+                        {
+                            "name": "party-uuid",
+                            "ns": "https://fedramp.gov/ns/oscal",
+                            "value": "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"
+                        }
+                    ],
+                    "remarks": "Revised draft to better align with OSCAL RC-1 SSP syntax."
+                }
+            ],
+            "roles": [
+                {
+                    "id": "prepared-by",
+                    "title": "Prepared By",
+                    "description": "The organization that prepared this content."
+                }
+            ],
+            "parties": [
+                {
+                    "uuid": "77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d",
+                    "type": "organization",
+                    "name": "Federal Risk and Authorization Management Program: Program Management\n            Office",
+                    "short-name": "FedRAMP PMO",
+                    "links": [
+                        {
+                            "href": "https://fedramp.gov"
+                        }
+                    ],
+                    "email-addresses": [
+                        "info@fedramp.gov"
+                    ],
+                    "addresses": [
+                        {
+                            "type": "work",
+                            "addr-lines": [
+                                "1800 F St. NW",
+                                ""
+                            ],
+                            "city": "Washington",
+                            "state": "DC",
+                            "postal-code": "",
+                            "country": "US"
+                        }
+                    ],
+                    "remarks": "This party entry must be present in a FedRAMP SSP.\n\nThe uuid may be different; however, the uuid must be associated with the \\\"fedramp-pmo\\\" role in the responsible-party assemblies."
+                }
+            ],
+            "responsible-parties": {
+                "prepared-by": {
+                    "party-uuids": [
+                        "77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d"
+                    ]
+                }
+            },
+            "remarks": "This EXPERIMENTAL and DRAFT file exteneds OSCAL to meet FedRAMP requirements.\n\nIt provides the extensions, defined identifiers, and acceptable values in a machine-readable format necssary to meet FedRAMP Authorization Package requirements."
+        },
+        "indexes": [
+            {
+                "id": "index-local-party-id",
+                "target": "//o:party",
+                "key-fields": {
+                    "target": "@uuid"
+                },
+                "remarks": "This document only."
+            },
+            {
+                "id": "index-assessment-layer-party-id",
+                "target": "oscal-document-set()/(o:assessment-plan | o:assessment-results)//o:party",
+                "key-fields": {
+                    "target": "@uuid"
+                },
+                "remarks": "Select documents."
+            },
+            {
+                "id": "global-local-party-id",
+                "target": "oscal-document-set()//o:party",
+                "key-fields": {
+                    "target": "@uuid"
+                },
+                "remarks": "Entire stack."
+            }
+        ],
+        "extension-namespace": {
+            "ns": "https://fedramp.gov/ns/oscal"
+        },
+        "extensions": {
+            "response-point": {
+                "extension-name": "response-point",
+                "formal-name": "Response Point",
+                "description": "A property whose presence indicates its parent part is a required point of response for FedRAMP stakeholders.",
+                "bindings": [
+                    {
+                        "pattern": "/o:profile/o:modify/o:alter/o:add/o:prop"
+                    },
+                    {
+                        "pattern": "/o:profile/o:modify/o:alter/o:add//o:part/o:prop"
+                    },
+                    {
+                        "pattern": "/o:catalog//o:control//o:part/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-plan/o:local-definitions/o:objectives-and-methods//part/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:local-definitions/o:objectives-and-methods//part/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                },
+                "remarks": "This appears in FedRAMP profiles and resolved profile catalogs.\n\nFor control statements, it signals to the CSP which statements require a response in the SSP.\n\nFor control objectives, it signals to the assessor which control objectives must appear in the assessment results, which aligns with the FedRAMP test case workbook."
+            },
+            "revision-history-party-uuid": {
+                "extension-name": "party-uuid",
+                "formal-name": "Party Identifier",
+                "description": "Identifies the party who authored this revision.",
+                "bindings": [
+                    {
+                        "pattern": "/*/o:metadata/o:revisions/o:revision/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "uuid"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "unbounded"
+                    },
+                    "index-has-keys": [
+                        {
+                            "name": "index-local-party-uuid",
+                            "target": "o:prop[@name='party-uuid']",
+                            "key-fields": {
+                                "target": "."
+                            },
+                            "remarks": "On the revision element in the revision history, the party-uuid extension must match the UUID of an existing party in the metadata."
+                        }
+                    ]
+                }
+            },
+            "iso-iec-17020-identifier": {
+                "extension-name": "iso-iec-17020-identifier",
+                "formal-name": "ISO/IEC 17020 Identifier",
+                "description": "The ISO/IEC-17020 identifier assigned to the assessor related to their status as an A2LA Accredidted Third Party Assessment Organization.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:metadata/o:party/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:metadata/o:party/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "CORE": {
+                "extension-name": "CORE",
+                "formal-name": "Core Control",
+                "description": "Identifies a control that must be included in every FedRAMP assessment.",
+                "bindings": [
+                    {
+                        "pattern": "/o:profile/o:modify/o:alter/o:add/o:prop"
+                    },
+                    {
+                        "pattern": "/o:profile/o:modify/o:alter/o:add//o:control/o:prop"
+                    },
+                    {
+                        "pattern": "/o:catalog//o:control/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                },
+                "remarks": "Core controls must be assessed every year, and are often subject to additional scrutiny by assessors and adjudication reviewers."
+            },
+            "security-cia-level": {
+                "extension-name": "security-eauth-level",
+                "formal-name": "eAuth Level (OVERALL)",
+                "description": "The overall electronic authentication (eAuth) level applied to the system.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:prop"
+                    },
+                    {
+                        "pattern": "system-characteristics/o:prop[@name='authenticator-assurance-level']"
+                    },
+                    {
+                        "pattern": "system-characteristics/o:prop[@name='federation-assurance-level']"
+                    },
+                    {
+                        "pattern": "system-characteristics/o:prop[@name='identity-assurance-level']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "integer"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "1",
+                                    "label": "Level 1 (Low)",
+                                    "RICHTEXT": "The overall eAuth Level is defined as Level 1 (Low)."
+                                },
+                                {
+                                    "value": "2",
+                                    "label": "Level 2 (Moderate)",
+                                    "RICHTEXT": "The overall eAuth Level is defined as Level 2 (Moderate)."
+                                },
+                                {
+                                    "value": "3",
+                                    "label": "Level 3 (High)",
+                                    "RICHTEXT": "The overall eAuth Level is defined as Level 3 (High)."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "remarks": "FedRAMP requires all Low systems to be at Level 1"
+            },
+            "authorization-type": {
+                "extension-name": "authorization-type",
+                "formal-name": "Authorization Type",
+                "description": "Identifies the FedRAMP authorization type.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "fedramp-jab",
+                                    "label": "JAB P-ATO",
+                                    "RICHTEXT": "A FedRAMP Joint Authorization Board (JAB) Provisional-Authorization to Operate (P-ATO)."
+                                },
+                                {
+                                    "value": "fedramp-agency",
+                                    "label": "Agency ATO",
+                                    "RICHTEXT": "A FedRAMP Agency Authorization to Operate (ATO)."
+                                },
+                                {
+                                    "value": "fedramp-li-saas",
+                                    "label": "Tailored (LI-SaaS) ATO",
+                                    "RICHTEXT": "A FedRAMP Tailored authorization to operate (ATO) for low impact Software as a Service (LI-SaaS) systems."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "users-internal": {
+                "extension-name": "users-internal",
+                "formal-name": "Internal Users",
+                "description": "The current number of users internal to the organization.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-implementation/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "integer"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "users-external": {
+                "extension-name": "users-external",
+                "formal-name": "External Users",
+                "description": "The current number of users external to the organization.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "integer"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "users-internal-future": {
+                "extension-name": "users-internal-future",
+                "formal-name": "Future Internal Users",
+                "description": "The anticipated number of users internal to the organization in one year.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "integer"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "users-external-future": {
+                "extension-name": "users-external-future",
+                "formal-name": "Future External Users",
+                "description": "The anticipated number of users external to the organization in one year.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "integer"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "privacy-designation": {
+                "extension-name": "privacy-designation",
+                "formal-name": "Privacy Designation",
+                "description": "Indicates whether this system is privacy sensitive.",
+                "bindings": [
+                    {
+                        "pattern": "system-information/o:prop[@name='privacy-sensitive']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "yes",
+                                    "label": "Yes",
+                                    "RICHTEXT": "Privacy Sensitive"
+                                },
+                                {
+                                    "value": "no",
+                                    "label": "No",
+                                    "RICHTEXT": "Not Privacy Sensitive"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "privacy-threshold-analysis-q1": {
+                "extension-name": "privacy-threshold-analysis-q1",
+                "formal-name": "Privacy Threshold Analysis Q1",
+                "description": "Does the ISA collect, maintain, or share PII in any identifiable form?",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:system-information/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "yes",
+                                    "label": "Yes",
+                                    "RICHTEXT": "Yes, the ISA collects, maintains, or shares some form of PII."
+                                },
+                                {
+                                    "value": "no",
+                                    "label": "No",
+                                    "RICHTEXT": "No, the ISA does not collect, maintain, or share PII in any form."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "privacy-threshold-analysis-q2": {
+                "extension-name": "privacy-threshold-analysis-q2",
+                "formal-name": "Privacy Threshold Analysis Q2",
+                "description": "Does the ISA collect, maintain, or share PII from or about the public?",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:system-information/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "yes",
+                                    "label": "Yes",
+                                    "RICHTEXT": "Yes, the ISA collects, maintains, or shares PII from or about the public."
+                                },
+                                {
+                                    "value": "no",
+                                    "label": "No",
+                                    "RICHTEXT": "No, the ISA does not collect, maintain, or share PII from or about the public."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "privacy-threshold-analysis-q3": {
+                "extension-name": "privacy-threshold-analysis-q3",
+                "formal-name": "Privacy Threshold Analysis Q3",
+                "description": "Has a Privacy Impact Assessment (PIA) ever been performed for the ISA?",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:system-information/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "yes",
+                                    "label": "Yes",
+                                    "RICHTEXT": "Yes, a PIA has been performed."
+                                },
+                                {
+                                    "value": "no",
+                                    "label": "No",
+                                    "RICHTEXT": "No, a PIA has not been performed.."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "privacy-threshold-analysis-q4": {
+                "extension-name": "privacy-threshold-analysis-q4",
+                "formal-name": "Privacy Threshold Analysis Q4",
+                "description": "Is there a Privacy Act System of Records Notice (SORN) for this ISA system?",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:system-information/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "yes",
+                                    "label": "Yes",
+                                    "RICHTEXT": "Yes, there is a SORN ID for this system."
+                                },
+                                {
+                                    "value": "no",
+                                    "label": "No",
+                                    "RICHTEXT": "No, there is not a SORN ID for this system."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "sorn-id": {
+                "extension-name": "sorn-id",
+                "formal-name": "SORN ID",
+                "description": "An assigned System of Records Notice (SORN) identifier for this system.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:system-information/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "expects": [
+                        {
+                            "test": ".[@name='pta-4'][@ns='https://fedramp.gov/ns/oscal']/@value='yes' and .[@name='sorn-id'][@ns='https://fedramp.gov/ns/oscal']"
+                        }
+                    ]
+                }
+            },
+            "user-sensitivity-level": {
+                "extension-name": "sensitivity",
+                "formal-name": "User Sensitivity Level",
+                "description": "Defines the sensitivity level of the identified user type.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-implementation/o:user/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "unbounded"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "high-risk",
+                                    "label": "High Risk",
+                                    "RICHTEXT": "Misuse of the user's access could result in grave damage to the public's trust."
+                                },
+                                {
+                                    "value": "severe",
+                                    "label": "Severe",
+                                    "RICHTEXT": "Misuse of the user's access could result in a substantial degree of harm or serious damage to the public\u2019s trust."
+                                },
+                                {
+                                    "value": "moderate",
+                                    "label": "Moderate",
+                                    "RICHTEXT": "Misuse of the user's access could result in a fair amount of harm or serious damage to the public\u2019s trust."
+                                },
+                                {
+                                    "value": "limited",
+                                    "label": "Limited",
+                                    "RICHTEXT": "Misuse of the user's access could result in some harm or discernible damage to the public\u2019s trust."
+                                },
+                                {
+                                    "value": "not-applicable",
+                                    "label": "Not Applicable",
+                                    "RICHTEXT": "The user does not have access to the system."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "remarks": "Values are as required by FedRMAP for packages based on NIST 800-53, Revision 4.\n\nAuthoritative source: [OPM Position Designation (Page 18)](#871713A8-5A27-4AC3-8B94-972588469C6B)."
+            },
+            "service-processor": {
+                "extension-name": "service-processor",
+                "formal-name": "Service Processor",
+                "description": "Name of the interconnection service processor.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "unbounded"
+                    }
+                }
+            },
+            "information": {
+                "extension-name": "information",
+                "formal-name": "Transmitted Information",
+                "description": "Describes the information transmitted over the interconnection.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "unbounded"
+                    }
+                }
+            },
+            "asset-type": {
+                "extension-name": "asset-type",
+                "formal-name": "Asset Type",
+                "description": "Identifies the type of asset.",
+                "bindings": [
+                    {
+                        "pattern": "component/o:prop[@name='asset-type']"
+                    },
+                    {
+                        "pattern": "o:inventory-item/o:prop[@name='asset-type']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "allowed-values": [
+                        {
+                            "allow-other": "yes",
+                            "enums": [
+                                {
+                                    "value": "os",
+                                    "RICHTEXT": "Operating System"
+                                },
+                                {
+                                    "value": "database",
+                                    "RICHTEXT": "Database"
+                                },
+                                {
+                                    "value": "web-server",
+                                    "RICHTEXT": "Service"
+                                },
+                                {
+                                    "value": "dns-server",
+                                    "RICHTEXT": "Policy"
+                                },
+                                {
+                                    "value": "email-server",
+                                    "RICHTEXT": "Process"
+                                },
+                                {
+                                    "value": "directory-server",
+                                    "RICHTEXT": "Procedure"
+                                },
+                                {
+                                    "value": "pbx",
+                                    "RICHTEXT": "Private Branch Exchange"
+                                },
+                                {
+                                    "value": "firewall",
+                                    "RICHTEXT": "Firewall"
+                                },
+                                {
+                                    "value": "router",
+                                    "RICHTEXT": "Router"
+                                },
+                                {
+                                    "value": "switch",
+                                    "RICHTEXT": "Switch"
+                                },
+                                {
+                                    "value": "storage-array",
+                                    "RICHTEXT": "Storage Array"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "interconnection-direction": {
+                "extension-name": "interconnection-direction",
+                "formal-name": "Interconnection Direction",
+                "description": "Identifies the direction of information flow for the interconnection.",
+                "bindings": [
+                    {
+                        "pattern": "o:component[@component-type='interconnection']/o:prop[@name='direction'][@ns='https://fedramp.gov/ns/oscal']"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "incoming",
+                                    "RICHTEXT": "Incoming"
+                                },
+                                {
+                                    "value": "outgoing",
+                                    "RICHTEXT": "Outgoing"
+                                },
+                                {
+                                    "value": "incoming-outgoing",
+                                    "RICHTEXT": "Bi-Directional"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "interconnection-security": {
+                "extension-name": "interconnection-security",
+                "formal-name": "Interconnection Security",
+                "description": "Identifies the type of security applied to the interconnection.",
+                "bindings": [
+                    {
+                        "pattern": "o:component[@component-type='interconnection']/o:prop[@name='connection-security'][@ns='https://fedramp.gov/ns/oscal']/@value"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "ipsec",
+                                    "RICHTEXT": "IPsec"
+                                },
+                                {
+                                    "value": "vpn",
+                                    "RICHTEXT": "Virtual Private Network"
+                                },
+                                {
+                                    "value": "ssl",
+                                    "RICHTEXT": "Secure Socket Layer"
+                                },
+                                {
+                                    "value": "certificate",
+                                    "RICHTEXT": "Certificate"
+                                },
+                                {
+                                    "value": "secure-file-transfer",
+                                    "RICHTEXT": "Secure File Transfer"
+                                },
+                                {
+                                    "value": "other",
+                                    "RICHTEXT": "Other"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "port": {
+                "extension-name": "port",
+                "formal-name": "Interconnection Port",
+                "description": "A port used by the interconnection for the communication.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "unbounded"
+                    },
+                    "expects": [
+                        {
+                            "test": ".[@class]"
+                        }
+                    ]
+                }
+            },
+            "transport-type": {
+                "extension-name": "transport-type",
+                "formal-name": "Transport Type",
+                "description": "The internet protocol transport type.",
+                "bindings": [
+                    {
+                        "pattern": "o:component[@component-type='service']/o:protocol/o:port-range/@transport"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "TCP",
+                                    "RICHTEXT": "TCP"
+                                },
+                                {
+                                    "value": "UDP",
+                                    "RICHTEXT": "UDP"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "inventory-item-state": {
+                "extension-name": "inventory-item-state",
+                "formal-name": "Different states of inventory items: public, private, et cetera.",
+                "description": "Indicates if the asset is virtual.",
+                "bindings": [
+                    {
+                        "pattern": "o:inventory-item/o:prop[@name='virtual']"
+                    },
+                    {
+                        "pattern": "o:component/o:prop[@name='virtual']"
+                    },
+                    {
+                        "pattern": "o:inventory-item/o:prop[@name='public']"
+                    },
+                    {
+                        "pattern": "component/o:prop[@name='public']"
+                    },
+                    {
+                        "pattern": "o:inventory-item/o:prop[@name='allows-authenticated-scan']/@value"
+                    },
+                    {
+                        "pattern": "o:component/o:prop[@name='allows-authenticated-scan']/@value"
+                    },
+                    {
+                        "pattern": "o:inventory-item/o:prop[@name='is-scanned']/@value"
+                    },
+                    {
+                        "pattern": "o:component/o:prop[@name='is-scanned']/@value"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "yes",
+                                    "RICHTEXT": "Yes"
+                                },
+                                {
+                                    "value": "no",
+                                    "RICHTEXT": "No"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "circuit": {
+                "extension-name": "circuit",
+                "formal-name": "Service Processor",
+                "description": "A circuit used for the communication.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "unbounded"
+                    }
+                }
+            },
+            "connection-security": {
+                "extension-name": "connection-security",
+                "formal-name": "Connection Security",
+                "description": "Identifies the mechanisms/protocol(s) used to secure the communication.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "unbounded"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "ipsec",
+                                    "label": "IPsec",
+                                    "RICHTEXT": "IPsec"
+                                },
+                                {
+                                    "value": "vpn",
+                                    "label": "VPN",
+                                    "RICHTEXT": "Virtual Private Network"
+                                },
+                                {
+                                    "value": "ssl",
+                                    "label": "SSL",
+                                    "RICHTEXT": "Secure Socket Layer"
+                                },
+                                {
+                                    "value": "certificate",
+                                    "label": "Cert",
+                                    "RICHTEXT": "Certificate"
+                                },
+                                {
+                                    "value": "secure-file-transfer",
+                                    "label": "SFT",
+                                    "RICHTEXT": "Secure File Transfer"
+                                },
+                                {
+                                    "value": "other",
+                                    "label": "Other",
+                                    "RICHTEXT": "Other"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "service-used-by": {
+                "extension-name": "used-by",
+                "formal-name": "Service Used By",
+                "description": "Identifies what uses the service.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-implementation/o:component[@type='service']/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "unbounded"
+                    }
+                }
+            },
+            "scan-type": {
+                "extension-name": "scan-type",
+                "formal-name": "Scan Type",
+                "description": "Identifies the type(s) of scans to be performed on this inventory-item or component.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-implementation/o:component/o:prop"
+                    },
+                    {
+                        "pattern": "/o:system-security-plan/o:system-implementation/o:system-inventory/o:o:inventory-item/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-plan/o:local-definitions/o:component/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-plan/o:local-definitions/o:o:inventory-item/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:local-definitions/o:component/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:local-definitions/o:o:inventory-item/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "unbounded"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "infrastructure",
+                                    "label": "Infrastructure",
+                                    "RICHTEXT": "The component or inventory item is included in operating system (OS) and/or infrastructure scans."
+                                },
+                                {
+                                    "value": "database",
+                                    "label": "Database",
+                                    "RICHTEXT": "The component or inventory item is included in Database scans."
+                                },
+                                {
+                                    "value": "web",
+                                    "label": "Web",
+                                    "RICHTEXT": "The component or inventory item is included in Web interface/application scans."
+                                },
+                                {
+                                    "value": "other",
+                                    "label": "Other",
+                                    "RICHTEXT": "The component or inventory item is included in non-typical scans."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "planned-completion-date": {
+                "extension-name": "planned-completion-date",
+                "formal-name": "Planned Completion Date",
+                "description": "Provides the date the control expects to be implemented. Must be present when Implementation Status is \"Planned\"",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "date"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "authorization-recommendation": {
+                "extension-name": "authorization-recommendation",
+                "formal-name": "Authorization Recommendation",
+                "description": "Indicates whether the assessor recommends the system be authorized by the authorizing official.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-results/o:results/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "yes",
+                                    "label": "Yes",
+                                    "RICHTEXT": "Yes, the assessor recommends the system for authorization."
+                                },
+                                {
+                                    "value": "no",
+                                    "label": "No",
+                                    "RICHTEXT": "No, the assessor does not recommend the system for authorization."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "title-short": {
+                "extension-name": "title-short",
+                "formal-name": "Short Title",
+                "description": "The short name for the system represented in the resource.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:back-matter/o:resource/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:back-matter/o:resource/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "system-id": {
+                "extension-name": "system-id",
+                "formal-name": "System Identifier",
+                "description": "The FedRAMP-assigned identifier for this system.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:back-matter/o:resource/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:back-matter/o:resource/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "import-profile": {
+                "extension-name": "import-profile",
+                "formal-name": "Profile",
+                "description": "The baseline/profile for this sysytem based on its FIPS-199 categorization.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:back-matter/o:resource/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:back-matter/o:resource/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "uri"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "authorization-date": {
+                "extension-name": "authorization-date",
+                "formal-name": "Authorization Date",
+                "description": "The date the system was authorized. Omit or leave blank for an initial authorization.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:back-matter/o:resource/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:back-matter/o:resource/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "date"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "purpose": {
+                "extension-name": "purpose",
+                "formal-name": "Purpose",
+                "description": "Explains the system's purpose.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:back-matter/o:resource/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:back-matter/o:resource/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "description": {
+                "extension-name": "description",
+                "formal-name": "Description",
+                "description": "A brief description of the system.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:back-matter/o:resource/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:back-matter/o:resource/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "sampling": {
+                "extension-name": "sampling",
+                "formal-name": "Sampling",
+                "description": "Indicates whether a sampling methodology was used instead of assessing the entire system.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:assessment-subject/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:results/o:assessment-subject/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "yes",
+                                    "label": "Yes",
+                                    "RICHTEXT": "Yes, a sampling methodology was used."
+                                },
+                                {
+                                    "value": "no",
+                                    "label": "No",
+                                    "RICHTEXT": "No, a sampling methodology was not used."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "POAM-ID": {
+                "extension-name": "POAM-ID",
+                "formal-name": "POA&M ID",
+                "description": "A CSP-assigned POA&M identifier.",
+                "bindings": [
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:poam-item/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "control-objective-implementation-status": {
+                "extension-name": "control-objective-implementation-status",
+                "formal-name": "Objective Implementation Status",
+                "description": "Indicates the implementation status of the control objective.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-results/o:results/o:finding/o:objective-status/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "implemented",
+                                    "label": "Implemented",
+                                    "RICHTEXT": "The assessor finds sufficient evidence to agree the control objective is fully implemented."
+                                },
+                                {
+                                    "value": "partial",
+                                    "label": "Partial",
+                                    "RICHTEXT": "The assessor finds evidence to suggest a portion of the control objective is implemented and a portion is not."
+                                },
+                                {
+                                    "value": "planned",
+                                    "label": "Planned",
+                                    "RICHTEXT": "The assessor finds this control objective is not implemented, but there is evidence the system owner has a plan for implemnting it."
+                                },
+                                {
+                                    "value": "alternative",
+                                    "label": "Alternative Implementation",
+                                    "RICHTEXT": "The assessor finds evidence of an alternative implementation, which the assessor judges to provide protection similar enough to satisfy this control."
+                                },
+                                {
+                                    "value": "not-applicable",
+                                    "label": "Not Applicable (N/A)",
+                                    "RICHTEXT": "The assessor finds this control objective does not apply to this system."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "control-implementation-status": {
+                "extension-name": "implementation-status",
+                "formal-name": "Control Implementation Status",
+                "description": "Indicates the implementation status of the control.",
+                "bindings": [
+                    {
+                        "pattern": "o:implemented-requirement/o:prop[@name='implementation-status']/@value"
+                    }
+                ],
+                "constraint": {
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "unbounded"
+                    },
+                    "remarks": "When an prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the `@value` flag."
+                }
+            },
+            "leveraged-authorization": {
+                "extension-name": "leveraged-authorization-uuid",
+                "formal-name": "Leveraged Authorization",
+                "description": "Indicates a leveraged authorization used for this control.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-results/o:results/o:finding/o:objective-status/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "uuid"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "unbounded"
+                    }
+                },
+                "remarks": "This is for legacy SSP convertion to OSCAL. The preferred approach is to specificy the leveraged system as a `component` and reference it in the control using `by-component`."
+            },
+            "control-origination": {
+                "extension-name": "control-origination",
+                "formal-name": "Control Origination",
+                "description": "The point(s) from which the control satisfaction originates.",
+                "bindings": [
+                    {
+                        "pattern": "implemented-requirement/o:prop[@name='control-origination']/@value"
+                    }
+                ],
+                "constraint": {
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "allow-other": "no",
+                            "enums": [
+                                {
+                                    "value": "sp-corporate",
+                                    "RICHTEXT": "Service Provider (Corporate)"
+                                },
+                                {
+                                    "value": "sp-system",
+                                    "RICHTEXT": "Service Provider (System Specific)"
+                                },
+                                {
+                                    "value": "customer-configured",
+                                    "RICHTEXT": "Configured by Customer"
+                                },
+                                {
+                                    "value": "customer-provided",
+                                    "RICHTEXT": "Provided by Customer"
+                                },
+                                {
+                                    "value": "inherited",
+                                    "RICHTEXT": "Inherited"
+                                }
+                            ]
+                        }
+                    ],
+                    "remarks": "When an prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the `@value` flag."
+                }
+            },
+            "no-oscal-ssp-title-short": {
+                "extension-name": "title-short",
+                "formal-name": "Short System Name",
+                "description": "The abbreviated name for the system, such as an acronym.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "no-oscal-ssp-system-id": {
+                "extension-name": "system-id",
+                "formal-name": "Short System Name",
+                "description": "The FedRAMP-assigned system identifier.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "no-oscal-ssp-import-profile": {
+                "extension-name": "import-profile",
+                "formal-name": "Relevant Baseline",
+                "description": "Identifies the relevant OSCAL baseline.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "uri"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    }
+                },
+                "remarks": "As with all URIs in OSCAL, this may contain a URI fragment, which identifies the local resource containing the relevant profile."
+            },
+            "no-oscal-ssp-purpose": {
+                "extension-name": "system-id",
+                "formal-name": "Short System Name",
+                "description": "The FedRAMP-assigned system identifier.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "no-oscal-ssp-authorization-date": {
+                "extension-name": "authorization-date",
+                "formal-name": "Authorization Date",
+                "description": "The date of the system's initial FedRAMP authorization.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "dateTime-with-timezone"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "task-login-url": {
+                "extension-name": "logn-url",
+                "formal-name": "Login URL",
+                "description": "The login URL for a web application.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-implementation/o:o:inventory-item/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-plan//o:task/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "NCName"
+                        }
+                    ]
+                }
+            },
+            "task-login-id": {
+                "extension-name": "logn-id",
+                "formal-name": "Login ID",
+                "description": "The login ID used to assess the web application.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan//o:task/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "NCName"
+                        }
+                    ]
+                }
+            },
+            "task-test-type": {
+                "extension-name": "test-type",
+                "formal-name": "Test Type",
+                "description": "Indicates the type of test represented by the task.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan//o:task/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "NCName"
+                        }
+                    ],
+                    "allowed-values": [
+                        {
+                            "enums": [
+                                {
+                                    "value": "web-applicaiton",
+                                    "label": "Web Application",
+                                    "RICHTEXT": "This task tests a web application."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "task-user-uuid": {
+                "extension-name": "user-uuid",
+                "formal-name": "User Identifier",
+                "description": "Cites the SSP defined user role to use for testing.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-plan//o:task/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "uuid"
+                        }
+                    ]
+                }
+            },
+            "poam-id": {
+                "extension-name": "POAM-ID",
+                "formal-name": "CSP POA&M Identifier",
+                "description": "A CSP-assigned identifier for this POA&M item.",
+                "bindings": [
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:poam-item/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "NCName"
+                        }
+                    ]
+                }
+            },
+            "poam-impacted-control": {
+                "extension-name": "impacted-control-id",
+                "formal-name": "Impacted Control",
+                "description": "A control impacted by this POA&M item.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:risk/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:risk/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ]
+                },
+                "remarks": "Impacted control is required in the POA&M and optional in the SAR.\n\nIt is allowed in the SAR in anticipation of duplicatng open risks from the SAR to the POA&M."
+            },
+            "sar-risk-priority": {
+                "extension-name": "priority",
+                "formal-name": "Risk Priority",
+                "description": "Assessor's recommended risk priority. Lower numbers are higher priority. One (1) is highest priority.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:risk/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:risk/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "integer"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "sar-recommend-authorization": {
+                "extension-name": "recommend-authorization",
+                "formal-name": "Assessor's Authorization Recommendation",
+                "description": "Indicates the assessor's reommendation for initial or continued authorization.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:attestation/o:part[@name='authorization-statements']/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "NCName"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 1,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "enums": [
+                                {
+                                    "value": "yes",
+                                    "label": "Yes",
+                                    "RICHTEXT": "The assessor recommends initial or continued authorization."
+                                },
+                                {
+                                    "value": "no",
+                                    "label": "No",
+                                    "RICHTEXT": "The assessor does not recommend initial or continued authorization."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "likelihood": {
+                "extension-name": "likelihood",
+                "formal-name": "Likelihood",
+                "description": "The likelihood of a risk.",
+                "bindings": [
+                    {
+                        "pattern": "o:risk/o:risk-metric[@name='likelihood'][@system='https://fedramp.gov']"
+                    }
+                ]
+            },
+            "vulnerability-identifier": {
+                "extension-name": "vulnerability-id",
+                "formal-name": "Vulnerability Identifier",
+                "description": "A tool assigned vulnerability ID.",
+                "bindings": [
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "plugin-identifier": {
+                "extension-name": "plugin-id",
+                "formal-name": "Plugin Identifier",
+                "description": "A tool assigned Plugin ID.",
+                "bindings": [
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:risk/o:characterization/o:origin/o:actor[@type='tool']/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "string"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    }
+                }
+            },
+            "operational-requirement": {
+                "extension-name": "operational-requirement",
+                "formal-name": "Operational Requirement",
+                "description": "The risk cannot be remediated without impact to the system and must be accepted.",
+                "bindings": [
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:risk/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:risk/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:observation/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:observation/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "enums": [
+                                {
+                                    "value": "investigating",
+                                    "label": "Investigating",
+                                    "RICHTEXT": "A possible operational requirement is being investigated."
+                                },
+                                {
+                                    "value": "pending",
+                                    "label": "Tracking",
+                                    "RICHTEXT": "An operational requirement deviation request was submitted to the AO and is pending adjudication."
+                                },
+                                {
+                                    "value": "approved",
+                                    "label": "Approved",
+                                    "RICHTEXT": "The operational requirement has been approved by the AO."
+                                },
+                                {
+                                    "value": "withdrawn",
+                                    "label": "Withdrawn",
+                                    "RICHTEXT": "The operational requirement was withdrawn."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "false-positive": {
+                "extension-name": "false-positive",
+                "formal-name": "False Positive",
+                "description": "The risk was found to be a false positive report.",
+                "bindings": [
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:risk/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:risk/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:observation/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:observation/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "NCName"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "enums": [
+                                {
+                                    "value": "investigating",
+                                    "label": "Investigating",
+                                    "RICHTEXT": "A possible risk adjustment is being investigated."
+                                },
+                                {
+                                    "value": "pending",
+                                    "label": "Tracking",
+                                    "RICHTEXT": "A false positive deviation request was submitted to the AO and is pending adjudication."
+                                },
+                                {
+                                    "value": "approved",
+                                    "label": "Approved",
+                                    "RICHTEXT": "The false positive has been approved by the AO."
+                                },
+                                {
+                                    "value": "withdrawn",
+                                    "label": "Withdrawn",
+                                    "RICHTEXT": "The false positive was withdrawn."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "risk-adjustment": {
+                "extension-name": "risk-adjustment",
+                "formal-name": "Risk Adjustment",
+                "description": "Mitigating factors were identified or implemented, reducing the likelihood or impact of the risk.",
+                "bindings": [
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:risk/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:risk/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:observation/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:observation/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "enums": [
+                                {
+                                    "value": "investigating",
+                                    "label": "Investigating",
+                                    "RICHTEXT": "A possible risk adjustment is being investigated."
+                                },
+                                {
+                                    "value": "pending",
+                                    "label": "Tracking",
+                                    "RICHTEXT": "A risk adjustment deviation request was submitted to the AO and is pending adjudication."
+                                },
+                                {
+                                    "value": "approved",
+                                    "label": "Approved",
+                                    "RICHTEXT": "The risk adjustment has been approved by the AO."
+                                },
+                                {
+                                    "value": "withdrawn",
+                                    "label": "Withdrawn",
+                                    "RICHTEXT": "The risk adjustment was withdrawn."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            },
+            "vendor-dependency": {
+                "extension-name": "vendor-dependency",
+                "formal-name": "Vendor Dependency",
+                "description": "A vendor resolution is pending, but not yet available.",
+                "bindings": [
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:risk/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:risk/o:prop"
+                    },
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:observation/o:prop"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:observation/o:prop"
+                    }
+                ],
+                "constraint": {
+                    "matches": [
+                        {
+                            "data-type": "token"
+                        }
+                    ],
+                    "has-cardinality": {
+                        "min-occurs": 0,
+                        "max-occurs": "1"
+                    },
+                    "allowed-values": [
+                        {
+                            "enums": [
+                                {
+                                    "value": "investigating",
+                                    "label": "Investigating",
+                                    "RICHTEXT": "The risk is a suspected vendor dependency, and is being investigated for verification."
+                                },
+                                {
+                                    "value": "tracking",
+                                    "label": "Tracking",
+                                    "RICHTEXT": "The vendor has confirmed the issue and is working on a resolution."
+                                },
+                                {
+                                    "value": "resolved",
+                                    "label": "Resolved",
+                                    "RICHTEXT": "The vendor released the fix and it has been applied."
+                                },
+                                {
+                                    "value": "withdrawn",
+                                    "label": "Withdrawn",
+                                    "RICHTEXT": "The vendor dependency was withdrawn."
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "constraints": [
+            {
+                "name": "observation-types",
+                "formal-name": "Observation Types",
+                "description": "In addition to the NIST observation types, FedRAMP requires observaton types to support risk deviations and vendor dependencies.",
+                "bindings": [
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:observation/o:type"
+                    },
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:observation/o:type"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "yes",
+                        "enums": [
+                            {
+                                "value": "vendor-dependency",
+                                "label": "Vendor Dependency",
+                                "RICHTEXT": "The observation provides evidence of reliance on a vendor for a pending resolution that is not yet available."
+                            },
+                            {
+                                "value": "false-positive",
+                                "label": "False Positive",
+                                "RICHTEXT": "The observation provides evidence the associated risk is a false positive finding."
+                            },
+                            {
+                                "value": "operational-requirement",
+                                "label": "Operational Requirement",
+                                "RICHTEXT": "The observation provides evidence to substantiate the assertion that remediating the risk will have an adverse impact on the system."
+                            },
+                            {
+                                "value": "risk-adjustment",
+                                "label": "Risk Adjustment",
+                                "RICHTEXT": "The observation provides evidence to justify an adjustment to the likelihood or impact values."
+                            },
+                            {
+                                "value": "closure",
+                                "label": "Closure",
+                                "RICHTEXT": "The observation provides evidence of risk closure."
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "sar-risk-impacted-control",
+                "formal-name": "Impacted Control",
+                "description": "The impacted control field is optional in the SAR, but helpful in anticipation of copying open risks to the POA&M.",
+                "bindings": [
+                    {
+                        "pattern": "/o:assessment-results/o:result/o:risk/o:prop"
+                    }
+                ],
+                "has-cardinality": {
+                    "min-occurs": 0,
+                    "max-occurs": "unbounded"
+                }
+            },
+            {
+                "name": "poam-risk-impacted-control",
+                "formal-name": "Impacted Control",
+                "description": "At least one impacted control field is required in the POA&M.",
+                "bindings": [
+                    {
+                        "pattern": "/o:plan-of-action-and-milestones/o:risk/o:prop"
+                    }
+                ],
+                "has-cardinality": {
+                    "min-occurs": 0,
+                    "max-occurs": "unbounded"
+                }
+            },
+            {
+                "name": "control-origination-constraints",
+                "formal-name": "Control Origination",
+                "description": "The point(s) from which the control satisfaction originates.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"
+                    }
+                ],
+                "matches": [
+                    {
+                        "data-type": "token"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "no",
+                        "enums": [
+                            {
+                                "value": "sp-corporate",
+                                "label": "SP Corporate",
+                                "RICHTEXT": "Service Provider (Corporate)"
+                            },
+                            {
+                                "value": "sp-system",
+                                "label": "SP System",
+                                "RICHTEXT": "Service Provider (System Specific)"
+                            },
+                            {
+                                "value": "customer-configured",
+                                "label": "Cust. Configured",
+                                "RICHTEXT": "Configured by Customer"
+                            },
+                            {
+                                "value": "customer-provided",
+                                "label": "Cust. Provided",
+                                "RICHTEXT": "Provided by Customer"
+                            },
+                            {
+                                "value": "inherited",
+                                "label": "Inherited",
+                                "RICHTEXT": "Inherited"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "control-implementation-status-constraints",
+                "formal-name": "Control Implementation Status Constraints",
+                "description": "Defines the data type and allowed values for the Control Implementation Status",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal']/@value"
+                    }
+                ],
+                "matches": [
+                    {
+                        "data-type": "token"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "no",
+                        "enums": [
+                            {
+                                "value": "implemented",
+                                "label": "Implemented",
+                                "RICHTEXT": "The assessor finds sufficient evidence to agree the control objective is fully implemented."
+                            },
+                            {
+                                "value": "partial",
+                                "label": "Partial",
+                                "RICHTEXT": "The assessor finds evidence to suggest a portion of the control objective is implemented and a portion is not."
+                            },
+                            {
+                                "value": "planned",
+                                "label": "Planned",
+                                "RICHTEXT": "The assessor finds this control objective is not implemented, but there is evidence the system owner has a plan for implemnting it."
+                            },
+                            {
+                                "value": "alternative",
+                                "label": "Alternative Implementation",
+                                "RICHTEXT": "The assessor finds evidence of an alternative implementation, which the assessor judges to provide protection similar enough to satisfy this control."
+                            },
+                            {
+                                "value": "not-applicable",
+                                "label": "Not Applicable (N/A)",
+                                "RICHTEXT": "The assessor finds this control objective does not apply to this system."
+                            }
+                        ]
+                    }
+                ],
+                "remarks": "When an extension is an prop, the data type and allowed values must be defined in a separate constraint."
+            },
+            {
+                "formal-name": "Control Implementation Status Constraints",
+                "description": "Remarks are required for certain Control Implementation Status values.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:control-implmentation/o:implemented-requirement"
+                    }
+                ],
+                "matches": [
+                    {
+                        "data-type": "NCName"
+                    }
+                ],
+                "expects": [
+                    {
+                        "test": "(o:prop[@name='planned-completion'][@ns='https://fedramp.gov/ns/oscal'])"
+                    }
+                ]
+            },
+            {
+                "formal-name": "FedRAMP Facet System Constraints"
+            },
+            {
+                "name": "planned-completion-date",
+                "formal-name": "Planned Implementation Date Exists",
+                "description": "If the control implementation status is \"Planned\" a \"Planned Implementation Date\" must be provided.",
+                "props": [
+                    {
+                        "name": "reference",
+                        "value": "3.1"
+                    }
+                ],
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:control-implementation/o:implemented-requirement[o:prop[@name='implementation-status'][@value='planned']]"
+                    }
+                ],
+                "expects": [
+                    {
+                        "test": "(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='partial']/remarks)"
+                    },
+                    {
+                        "test": "(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='planned']/remarks)"
+                    },
+                    {
+                        "test": "(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='alternative']/remarks)"
+                    },
+                    {
+                        "test": "(o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal'][@value='not-applicable']/remarks)"
+                    }
+                ],
+                "remarks": "In the SSP, if `implemented-requirement` includes `prop[@name='implementation-status']` with `value='planned'`, a `planned-completion-date` extension must be provided."
+            },
+            {
+                "formal-name": "Port Class Exists",
+                "description": "If a port number is provided as part of an interconnection, Local or Remote must be specified.",
+                "bindings": [
+                    {
+                        "pattern": "o:system-security-plan/o:system-implementation/o:component[@component-type='interconnection']/o:prop[@name='port']"
+                    }
+                ],
+                "expects": [
+                    {
+                        "test": "exists(@class)"
+                    }
+                ],
+                "remarks": "The port field is a FedRAMP extension - a property assigned to a component with a component type of 'interconnection'.\n\nWhen this extension is present, it must include a `@class` flag with a value of either 'local' or 'remote'."
+            },
+            {
+                "formal-name": "Port Class Valid Values",
+                "description": "If a port number is provided as part of an interconnection, Local or Remote must be specified.",
+                "bindings": [
+                    {
+                        "pattern": "o:system-security-plan/o:system-implementation/o:component[@component-type='interconnection']/o:prop[@name='port']/@class"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "no",
+                        "enums": [
+                            {
+                                "value": "local",
+                                "label": "Local",
+                                "RICHTEXT": "The identified port number is used by the interconnected system to communicate with this system."
+                            },
+                            {
+                                "value": "remote",
+                                "label": "Remote",
+                                "RICHTEXT": "The identified poart number is used by this system to communicate with the interconnected system."
+                            }
+                        ]
+                    }
+                ],
+                "remarks": "The port field is a FedRAMP extension - a property assigned to a component with a component type of 'interconnection'.\n\nWhen this extension is present, it must include a `@class` flag with a value of either 'local' or 'remote'."
+            },
+            {
+                "formal-name": "Additional Component Types",
+                "description": "Identifies additional component types for Assessment Assets in the SAP and SAR.",
+                "bindings": [
+                    {
+                        "pattern": "o:assessment-plan/o:assessment-assets/o:component/@type"
+                    },
+                    {
+                        "pattern": "o:assessment-results/o:assessment-result/o:local-definitions/o:assessment-assets/o:component/@type"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "no",
+                        "enums": [
+                            {
+                                "value": "assessment-origination",
+                                "label": "Assessment Origination",
+                                "RICHTEXT": "The component identifies one or more IP addresses from which assessment activities may be performed."
+                            }
+                        ]
+                    }
+                ],
+                "remarks": "For FedRAMP, the SAP must identify the IP addresses from which scanning and penetration test activities are performed, and the SAR must identify the actual IP addresses used.\n\nThis requires an additional component type in the SAP's `assessment-assets`, and in the SAR's `result`, `local-definitions`, `assessment-assets`."
+            },
+            {
+                "name": "fedramp-general-role-identifiers",
+                "formal-name": "General Role Identifiers",
+                "description": "FedRAMP additional roles identifiers.",
+                "bindings": [
+                    {
+                        "pattern": "/*/o:metadata/o:role/@id"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "yes",
+                        "enums": [
+                            {
+                                "value": "fedramp-pmo",
+                                "label": "FedRAMP PMO",
+                                "RICHTEXT": "The FedRAMP Program Management Office (PMO)"
+                            },
+                            {
+                                "value": "fedramp-jab",
+                                "label": "FedRAMP JAB",
+                                "RICHTEXT": "The FedRAMP Joint Authorization Board (JAB)"
+                            },
+                            {
+                                "value": "cloud-service-provider",
+                                "label": "CSP",
+                                "RICHTEXT": "Cloud Service Provider"
+                            },
+                            {
+                                "value": "csp-operations-center",
+                                "label": "CSP Operations Center",
+                                "RICHTEXT": "Cloud Service Provider Operations Center"
+                            }
+                        ]
+                    }
+                ],
+                "remarks": "These are in addition to the NIST-defined allowed values for role identifiers, and apply to all OSCAL-based FedRAMP content."
+            },
+            {
+                "name": "fedramp-assessment-role-identifiers",
+                "formal-name": "Assessment Role Identifiers",
+                "description": "FedRAMP additional roles identifiers.",
+                "bindings": [
+                    {
+                        "pattern": "/*/o:metadata/o:role/@id"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "yes",
+                        "enums": [
+                            {
+                                "value": "assessor",
+                                "label": "Assesor",
+                                "RICHTEXT": "Assesor"
+                            },
+                            {
+                                "value": "assessment-team",
+                                "label": "Assessment Team",
+                                "RICHTEXT": "Assessment Team"
+                            },
+                            {
+                                "value": "assessment-lead",
+                                "label": "Assessment Lead",
+                                "RICHTEXT": "Assessment Lead"
+                            },
+                            {
+                                "value": "assessment-executive",
+                                "label": "Assessment Executive",
+                                "RICHTEXT": "Assessment Executive"
+                            },
+                            {
+                                "value": "csp-assessment-poc",
+                                "label": "CSP Assessment PoC",
+                                "RICHTEXT": "Cloud Service Provider Assessment Point(s) of Contact"
+                            },
+                            {
+                                "value": "csp-end-of-testing-poc",
+                                "label": "CSP End of Testing PoC",
+                                "RICHTEXT": "Cloud Service Provider End of Testing Point(s) of Contact"
+                            },
+                            {
+                                "value": "csp-results-poc",
+                                "label": "CSP Results PoC",
+                                "RICHTEXT": "Cloud Service Provider Point(s) of Contact"
+                            },
+                            {
+                                "value": "penetration-test-team",
+                                "label": "Penetration Test Team",
+                                "RICHTEXT": "Penetration Test Team"
+                            },
+                            {
+                                "value": "penetration-test-lead",
+                                "label": "Penetration Test Lead",
+                                "RICHTEXT": "Penetration Test Lead"
+                            }
+                        ]
+                    }
+                ],
+                "remarks": "These are in addition to the NIST-defined allowed values for role identifiers, and apply to OSCAL-based FedRAMP SAP and SAR content."
+            },
+            {
+                "name": "hash-algorithm",
+                "formal-name": "Hash Algorithm",
+                "description": "Identifies the algorithm used to create the hash value of the attachment.",
+                "bindings": [
+                    {
+                        "pattern": "o:resource/o:hash/@algorithm"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "yes",
+                        "enums": [
+                            {
+                                "value": "SHA-224",
+                                "RICHTEXT": "SHA-224"
+                            },
+                            {
+                                "value": "SHA-256",
+                                "RICHTEXT": "SHA-256"
+                            },
+                            {
+                                "value": "SHA-384",
+                                "RICHTEXT": "SHA-384"
+                            },
+                            {
+                                "value": "SHA-512",
+                                "RICHTEXT": "SHA-512"
+                            },
+                            {
+                                "value": "RIPEMD-160",
+                                "RICHTEXT": "RIPEMD-160"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "attachment-type",
+                "formal-name": "Attachment/Resource Types",
+                "description": "FedRAMP additional attachment/resource types.",
+                "bindings": [
+                    {
+                        "pattern": "/*/o:back-matter/o:resource/o:prop[@name='type']"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "yes",
+                        "enums": [
+                            {
+                                "value": "law",
+                                "RICHTEXT": "Law or Statute"
+                            },
+                            {
+                                "value": "regulation",
+                                "RICHTEXT": "Regulation or Directive"
+                            },
+                            {
+                                "value": "standard",
+                                "RICHTEXT": "Industry Standard"
+                            },
+                            {
+                                "value": "guidance",
+                                "RICHTEXT": "Guidance"
+                            },
+                            {
+                                "value": "pii",
+                                "RICHTEXT": "Privacy Impact Information"
+                            },
+                            {
+                                "value": "policy",
+                                "RICHTEXT": "Polciy"
+                            },
+                            {
+                                "value": "procedure",
+                                "RICHTEXT": "Procedure"
+                            },
+                            {
+                                "value": "guide",
+                                "RICHTEXT": "Guidance Document"
+                            },
+                            {
+                                "value": "pia",
+                                "RICHTEXT": "Privacy Impact Assessment"
+                            },
+                            {
+                                "value": "rules-of-behavior",
+                                "RICHTEXT": "Rules of Behavior"
+                            },
+                            {
+                                "value": "plan",
+                                "RICHTEXT": "Plan"
+                            },
+                            {
+                                "value": "system-security-plan",
+                                "RICHTEXT": "System Security Plan"
+                            },
+                            {
+                                "value": "artifact",
+                                "RICHTEXT": "Artifact"
+                            },
+                            {
+                                "value": "evidence",
+                                "RICHTEXT": "Evidence"
+                            },
+                            {
+                                "value": "screen-shot",
+                                "RICHTEXT": "Screen Shot"
+                            },
+                            {
+                                "value": "image",
+                                "RICHTEXT": "Image"
+                            },
+                            {
+                                "value": "tool-report",
+                                "RICHTEXT": "Tool Report"
+                            },
+                            {
+                                "value": "raw-tool-output",
+                                "RICHTEXT": "Raw Tool Output"
+                            },
+                            {
+                                "value": "interview-notes",
+                                "RICHTEXT": "Interview Notes"
+                            },
+                            {
+                                "value": "questionnaire",
+                                "RICHTEXT": "Questions"
+                            },
+                            {
+                                "value": "report",
+                                "RICHTEXT": "Report"
+                            },
+                            {
+                                "value": "fedramp-citations",
+                                "RICHTEXT": "FedRAMP Citations"
+                            },
+                            {
+                                "value": "fedramp-acronyms",
+                                "RICHTEXT": "FedRAMP Acronyms"
+                            },
+                            {
+                                "value": "fedramp-logo",
+                                "RICHTEXT": "FedRAMP Logo"
+                            },
+                            {
+                                "value": "separation-of-duties-matrix",
+                                "RICHTEXT": "Separation of Duties Matrix"
+                            },
+                            {
+                                "value": "logo",
+                                "RICHTEXT": "Logo"
+                            },
+                            {
+                                "value": "Personal-Identifiable-Information",
+                                "RICHTEXT": "Personal Identifiable Information (PII)"
+                            },
+                            {
+                                "value": "agreement",
+                                "RICHTEXT": "Agreement"
+                            },
+                            {
+                                "value": "incident-response-plan",
+                                "RICHTEXT": "Incident Response Plan"
+                            },
+                            {
+                                "value": "information-security-policies-and-procedures",
+                                "RICHTEXT": "Incident Security Policies and Procedures"
+                            },
+                            {
+                                "value": "user-guide",
+                                "RICHTEXT": "User Guide"
+                            },
+                            {
+                                "value": "privacy-impact-assessment",
+                                "RICHTEXT": "Privacy Impact Assessment"
+                            },
+                            {
+                                "value": "information-system-contingency-plan",
+                                "RICHTEXT": "Information System Contingency Plan"
+                            },
+                            {
+                                "value": "configuration-management-plan",
+                                "RICHTEXT": "configuration-management-plan"
+                            }
+                        ]
+                    }
+                ],
+                "remarks": "These are in addition to the NIST-defined allowed values for resource types."
+            },
+            {
+                "name": "media-type",
+                "formal-name": "Attachment/Resource Media Types",
+                "description": "IANA media-types supported by FedRAMP as attachment/resource types.",
+                "bindings": [
+                    {
+                        "pattern": "o:rlink/@media-type"
+                    },
+                    {
+                        "pattern": "o:base64/@media-type"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "enums": [
+                            {
+                                "value": "application/gzip",
+                                "RICHTEXT": "application/gzip"
+                            },
+                            {
+                                "value": "application/msword",
+                                "RICHTEXT": "application/msword"
+                            },
+                            {
+                                "value": "application/octet-stream",
+                                "RICHTEXT": "application/octet-stream"
+                            },
+                            {
+                                "value": "application/pdf",
+                                "RICHTEXT": "application/pdf"
+                            },
+                            {
+                                "value": "application/vnd.ms-excel",
+                                "RICHTEXT": "application/vnd.ms-excel"
+                            },
+                            {
+                                "value": "application/vnd.ms-works",
+                                "RICHTEXT": "application/vnd.ms-works"
+                            },
+                            {
+                                "value": "application/vnd.oasis.opendocument.graphics",
+                                "RICHTEXT": "application/vnd.oasis.opendocument.graphics"
+                            },
+                            {
+                                "value": "application/vnd.oasis.opendocument.presentation",
+                                "RICHTEXT": "application/vnd.oasis.opendocument.presentation"
+                            },
+                            {
+                                "value": "application/vnd.oasis.opendocument.spreadsheet",
+                                "RICHTEXT": "application/vnd.oasis.opendocument.spreadsheet"
+                            },
+                            {
+                                "value": "application/vnd.oasis.opendocument.text",
+                                "RICHTEXT": "application/vnd.oasis.opendocument.text"
+                            },
+                            {
+                                "value": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                                "RICHTEXT": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+                            },
+                            {
+                                "value": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                "RICHTEXT": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                            },
+                            {
+                                "value": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                                "RICHTEXT": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                            },
+                            {
+                                "value": "application/x-bzip",
+                                "RICHTEXT": "application/x-bzip"
+                            },
+                            {
+                                "value": "application/x-bzip2",
+                                "RICHTEXT": "application/x-bzip2"
+                            },
+                            {
+                                "value": "application/x-tar",
+                                "RICHTEXT": "application/x-tar"
+                            },
+                            {
+                                "value": "application/zip",
+                                "RICHTEXT": "application/zip"
+                            },
+                            {
+                                "value": "image/bmp",
+                                "RICHTEXT": "image/bmp"
+                            },
+                            {
+                                "value": "image/jpeg",
+                                "RICHTEXT": "image/jpeg"
+                            },
+                            {
+                                "value": "image/png",
+                                "RICHTEXT": "image/png"
+                            },
+                            {
+                                "value": "image/tiff",
+                                "RICHTEXT": "image/tiff"
+                            },
+                            {
+                                "value": "image/webp",
+                                "RICHTEXT": "image/webp"
+                            },
+                            {
+                                "value": "image/svg+xml",
+                                "RICHTEXT": "image/svg+xml"
+                            },
+                            {
+                                "value": "text/csv",
+                                "RICHTEXT": "text/csv"
+                            },
+                            {
+                                "value": "text/html",
+                                "RICHTEXT": "text/html"
+                            },
+                            {
+                                "value": "text/plain",
+                                "RICHTEXT": "text/plain"
+                            }
+                        ]
+                    }
+                ],
+                "remarks": "These are in addition to the NIST-defined allowed values for resource types."
+            },
+            {
+                "name": "system-identifier-type",
+                "formal-name": "System Identifier Type",
+                "description": "Enables an identifier to be formally recognized as being assigned by FedRAMP.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:system-id/@identifier-type"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "yes",
+                        "enums": [
+                            {
+                                "value": "https://fedramp.gov",
+                                "label": "FedRAMP ID",
+                                "RICHTEXT": "FedRAMP-Assigned Identifier"
+                            },
+                            {
+                                "value": "https://ietf.org/rfc/rfc4122",
+                                "RICHTEXT": "RFC-4122 UUIDv4 Value"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "information-type-system",
+                "formal-name": "Information Type System",
+                "description": "Identifies the system from which the information type was defined.",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:system-information/o:information-type/o:information-type-id/@system"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "no",
+                        "enums": [
+                            {
+                                "value": "https://doi.org/10.6028/NIST.SP.800-60v2r1",
+                                "label": "SP 800-60 V2R1",
+                                "RICHTEXT": "NIST SP 800-60, Volume 2, Revision 1"
+                            }
+                        ]
+                    }
+                ],
+                "remarks": "FedRAMP only allows information types defined in NIST SP 800-60v2r1."
+            },
+            {
+                "name": "security-level",
+                "formal-name": "Security Impact Level",
+                "description": "The security objective level as defined by NIST SP 800-60.",
+                "bindings": [
+                    {
+                        "pattern": "security-sensitivity-level"
+                    },
+                    {
+                        "pattern": "security-impact-level"
+                    },
+                    {
+                        "pattern": "(security-objective-confidentiality|security-objective-integrity|security-objective-availability)"
+                    },
+                    {
+                        "pattern": "system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "no",
+                        "enums": [
+                            {
+                                "value": "fips-199-low",
+                                "label": "L",
+                                "RICHTEXT": "Low"
+                            },
+                            {
+                                "value": "fips-199-moderate",
+                                "label": "M",
+                                "RICHTEXT": "Moderate"
+                            },
+                            {
+                                "value": "fips-199-high",
+                                "label": "H",
+                                "RICHTEXT": "High"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "system-operational-status",
+                "formal-name": "Operational Status (system)",
+                "description": "The operational status of the system",
+                "bindings": [
+                    {
+                        "pattern": "/o:system-security-plan/o:system-characteristics/o:status/@state"
+                    }
+                ],
+                "allowed-values": [
+                    {
+                        "allow-other": "no",
+                        "enums": [
+                            {
+                                "value": "operational",
+                                "RICHTEXT": "Operational"
+                            },
+                            {
+                                "value": "under-development",
+                                "RICHTEXT": "Under Development"
+                            },
+                            {
+                                "value": "disposition",
+                                "RICHTEXT": "Alternative Implementation"
+                            },
+                            {
+                                "value": "other",
+                                "RICHTEXT": "Other"
+                            }
+                        ]
+                    }
+                ],
+                "remarks": "FedRAMP limits the allowed values from a larger NIST-defined list to only those defined here."
+            }
+        ],
+        "back-matter": {
+            "resources": [
+                {
+                    "uuid": "871713A8-5A27-4AC3-8B94-972588469C6B",
+                    "title": "OPM Posiiton Designation",
+                    "props": [
+                        {
+                            "name": "type",
+                            "value": ""
+                        },
+                        {
+                            "name": "published",
+                            "value": "2017-09-01T00:00:00Z"
+                        }
+                    ],
+                    "rlinks": [
+                        {
+                            "href": "https://www.opm.gov/suitability/suitability-executive-agent/position-designation-tool/position-designation-system-with-glossary-2017.pdf",
+                            "media-type": "application/pdf"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

@@ -1,12 +1,12 @@
 {
   "assessment-plan": {
-    "uuid": "35cd0f77-4c33-4942-9119-86c115d9f641",
+    "uuid": "c94691c8-0b83-483c-bc02-f3d3bf026abb",
     "metadata": {
       "title": "[System Name] FedRAMP Security Assessment Plan (SAP)",
       "published": "2021-02-25T00:00:00.00-04:00",
-      "last-modified": "2021-04-12T12:36:27.685737-04:00",
-      "version": "0.3",
-      "oscal-version": "1.0.0-rc2",
+      "last-modified": "2021-06-09T14:27:43.166-04:00",
+      "version": "fedramp1.0.0-oscal1.0.0",
+      "oscal-version": "1.0.0",
       "props": [
         {
           "name": "marking",
@@ -162,12 +162,11 @@
             {
               "type": "work",
               "addr-lines": [
-                "1800 F St. NW",
-                ""
+                "1800 F St. NW"
               ],
               "city": "Washington",
               "state": "DC",
-              "postal-code": "",
+              "postal-code": "20006",
               "country": "US"
             }
           ],
@@ -366,37 +365,43 @@
           ]
         }
       ],
-      "responsible-parties": {
-        "fedramp-pmo": {
+      "responsible-parties": [
+        {
+          "role-id": "fedramp-pmo",
           "party-uuids": [
             "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d"
           ]
         },
-        "prepared-by": {
+        {
+          "role-id": "prepared-by",
           "party-uuids": [
             "49f73135-efab-4275-9a79-003656ad890a"
           ],
           "remarks": "Exactly one party\n\nThis is the assessor."
         },
-        "prepared-for": {
+        {
+          "role-id": "prepared-for",
           "party-uuids": [
             "295f4810-9add-4d64-b28e-06eccd0b6a33"
           ],
           "remarks": "Exactly one party.\n\nThis is the UUID for the CSP in the imported SSP.\n\nIf no OSCAL-based SSP exists, create a CSP party in the SAP, and provide that UUID here."
         },
-        "content-approver": {
+        {
+          "role-id": "content-approver",
           "party-uuids": [
             "f4568fda-c6d2-4640-adec-0012015af7d0"
           ],
           "remarks": "One ore more parties"
         },
-        "assessor": {
+        {
+          "role-id": "assessor",
           "party-uuids": [
             "49f73135-efab-4275-9a79-003656ad890a"
           ],
           "remarks": "Exactly one party\n\nAssessment Organization (3PAO)"
         },
-        "assessment-team": {
+        {
+          "role-id": "assessment-team",
           "party-uuids": [
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe",
             "bcf47707-49e4-4acc-bf43-e63156046390",
@@ -405,13 +410,15 @@
           ],
           "remarks": "One or more parties"
         },
-        "assessment-lead": {
+        {
+          "role-id": "assessment-lead",
           "party-uuids": [
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
           ],
           "remarks": "Exactly one party"
         },
-        "penetration-test-team": {
+        {
+          "role-id": "penetration-test-team",
           "party-uuids": [
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe",
             "ca9fca9c-4a8a-4487-8242-0a06d6fbed1f",
@@ -419,25 +426,29 @@
           ],
           "remarks": "One or more parties"
         },
-        "penetration-test-lead": {
+        {
+          "role-id": "penetration-test-lead",
           "party-uuids": [
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
           ],
           "remarks": "Exactly one party"
         },
-        "assessment-executive": {
+        {
+          "role-id": "assessment-executive",
           "party-uuids": [
             "f4568fda-c6d2-4640-adec-0012015af7d0"
           ],
           "remarks": "Exactly one party"
         },
-        "csp-operations-center": {
+        {
+          "role-id": "csp-operations-center",
           "party-uuids": [
             "4c9df173-6e48-4c4b-ad6a-957f54a2823e"
           ],
           "remarks": "Exactly one party\n\nThe party-uuid should observation-source a party in the SSP.\n\nIf an appropriate party does not exist in the SSP, the SAP tool should add a party to the SAP, or have the CSP add the party to the SSP.\n\nThe SAP tool should not modify the SSP."
         },
-        "csp-assessment-poc": {
+        {
+          "role-id": "csp-assessment-poc",
           "party-uuids": [
             "f4568fda-c6d2-4640-adec-0012015af7d0",
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe",
@@ -445,20 +456,22 @@
           ],
           "remarks": "There should be at least three CSP Assessment POCs.\n\nAt least one should be available 24x7 during assessment activities.\n\nAt least one should be an operations center, such a SOC or NOC.\n\nThe party-uuid should observation-source a party in the SSP or SAP.\n\nIf an appropriate party does not exist in the SSP or SAP, the SAR tool should add a party to the SAR.\n\nThe SAP tool should not modify the SSP."
         },
-        "csp-end-of-testing-poc": {
+        {
+          "role-id": "csp-end-of-testing-poc",
           "party-uuids": [
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
           ],
           "remarks": "One or more parties"
         },
-        "csp-results-poc": {
+        {
+          "role-id": "csp-results-poc",
           "party-uuids": [
             "f4568fda-c6d2-4640-adec-0012015af7d0",
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
           ],
           "remarks": "One or more parties"
         }
-      },
+      ],
       "remarks": "This OSCAL-based FedRAMP SAP Template can be used for the FedRAMP initial or annual assessment planning."
     },
     "import-ssp": {
@@ -466,8 +479,9 @@
       "remarks": "Link the SAP to the SSP.\n\nFedRAMP prefers the path for the SSP be relative to the location of this SAP file. Absolute links will likely not work when FedRAMP tools import the content.\n\nThis may point to a back-matter resource using a URI fragment.\n\nIf no OSCAL-based SSP exists, this must be a URI fragment pointing to a special back-matter resource. The resource must include the `no-oscal-ssp` conformity tag."
     },
     "local-definitions": {
-      "components": {
-        "59406025-116a-4fee-84c3-932a9968de54": {
+      "components": [
+        {
+          "uuid": "59406025-116a-4fee-84c3-932a9968de54",
           "type": "subnet",
           "title": "Subnet ",
           "description": "A known subnet, which is not defined in the SSP inventory.",
@@ -482,7 +496,7 @@
           },
           "remarks": "Use any needed prop/annotation allowed in an SSP inventory-item.\n\nIf correcting existing SSP, use the \\\"updates-uuid\\\" property to cite the original content."
         }
-      },
+      ],
       "inventory-items": [
         {
           "uuid": "ce6b1a6e-0391-45d1-997e-3cc97db97d9f",
@@ -574,16 +588,11 @@
           "remarks": "Use any needed prop/annotation allowed in an SSP inventory-item.\n\nIf correcting existing SSP, use the \\\"updates-uuid\\\" property to cite the original content."
         }
       ],
-      "users": {
-        "ba6b8bd4-c6f1-4b60-aa0f-69875b108f16": {
+      "users": [
+        {
+          "uuid": "ba6b8bd4-c6f1-4b60-aa0f-69875b108f16",
           "title": "Updated Role",
           "description": "# Existing Role - Incorrect Associated Functions",
-          "props": [
-            {
-              "name": "updates-uuid",
-              "value": ""
-            }
-          ],
           "authorized-privileges": [
             {
               "title": "Corrected Function List",
@@ -596,7 +605,8 @@
           ],
           "remarks": "The UUID assigned to the origional incorrect role in the SSP must be cited in the \\\"updates-uuid\\\" property.\n\nThe SAP syntax duplicates the SSP user syntax.\n\nThis local entry completely replaces the entry in the SSP.\n\nTools should duplicate the entire assembly from the SSP to this location, then allow the assesor to add or change the details.\n\nThis ensures the entry here is complete."
         },
-        "58bb5a77-b40a-4104-ac29-299a1691f76a": {
+        {
+          "uuid": "58bb5a77-b40a-4104-ac29-299a1691f76a",
           "title": "Missing Role",
           "authorized-privileges": [
             {
@@ -609,7 +619,7 @@
           ],
           "remarks": "The ID assigned to this missing role must not be used in the SSP user list.\n\nThe SAP user assembly duplicates the SSP user assembly, which requires a role-id.\n\nIf an existing role in the SSP is appropriate, reference it here.\n\nIf no appropriate role exists in the SSP, the role-id may be left blank in the SAP."
         }
-      },
+      ],
       "objectives-and-methods": [
         {
           "control-id": "ac-2",
@@ -626,7 +636,7 @@
                 {
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
-                  "value": ""
+                  "value": "You must fill in this response point."
                 },
                 {
                   "name": "method",
@@ -1084,7 +1094,7 @@
     "reviewed-controls": {
       "control-selections": [
         {
-          "description": "# Control Scope\nInitial assessments include all controls.\n\nAnnual assessment include a subset of controls as defined by FedRAMP Continuous Monitoring Guidance and any adjudicating officials.\n\nThis example demonstrates including all controls identified in the SSP's baseline, and then explicilty excludes AC-1.",
+          "description": "# Control Scope\n\nInitial assessments include all controls.\n\nAnnual assessment include a subset of controls as defined by FedRAMP Continuous Monitoring Guidance and any adjudicating officials.\n\nThis example demonstrates including all controls identified in the SSP's baseline, and then explicilty excludes AC-1.",
           "include-all": {},
           "exclude-controls": [
             {
@@ -1095,7 +1105,7 @@
       ],
       "control-objective-selections": [
         {
-          "description": "# Control Objective Scope\nWithin the OSCAL-based FedRAMP baselines, FedRAMP has defined the control objectives for which an assessor must respond. Those must be explicityly listed here.\n\nThis template only includes the AC-1 response points from the FedRAMP Moderate Baseline based on NIST SP 800-53 Revision 4.\n\nThis is analgous to the individual rows listed in the empty FedRAMP Test Case Workbook ([Moderate](https://www.fedramp.gov/assets/resources/templates/SAP-AA-FedRAMP-Moderate-Security-Test-Case-Procedures-Template.xlsx)).",
+          "description": "# Control Objective Scope\n\nWithin the OSCAL-based FedRAMP baselines, FedRAMP has defined the control objectives for which an assessor must respond. Those must be explicityly listed here.\n\nThis template only includes the AC-1 response points from the FedRAMP Moderate Baseline based on NIST SP 800-53 Revision 4.\n\nThis is analgous to the individual rows listed in the empty FedRAMP Test Case Workbook ([Moderate](https://www.fedramp.gov/assets/resources/templates/SAP-AA-FedRAMP-Moderate-Security-Test-Case-Procedures-Template.xlsx)).",
           "include-objectives": [
             {
               "objective-id": "ac-1.a.1_obj.1"
@@ -1130,51 +1140,56 @@
           ]
         }
       ],
-      "remarks": "# IMPORTANT: RESPONSE POINTS\nWithin each FedRAMP baseline, FedRAMP has added \\\"response-point\\\" properties as a FedRAMP Extension.\n\nThese are found in control statements (for CSPs to use in their SSP) and in control objectives (for assessors to use in their SAP and SAR).\n\nSAP tools should scan the appropriate baseline (as identified by the SSP's `import-profile` statement), find the response points associated with control objectives (ignoring response points associated with statements), and insert one `include-objective` field for each identified response point.\n\nFor this task, tools should either scan the resolved profile catalog version of each baseline, or resolve the profile against its catalog before processing.\n\nXPath for all control objectie response points in a resolved profile catalog: `//control/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id` \n\nXPath for AC-1 control objectie response points in a resolved profile catalog: `//control[@id='ac-1']/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id` "
+      "remarks": "# IMPORTANT: RESPONSE POINTS\n\nWithin each FedRAMP baseline, FedRAMP has added \\\"response-point\\\" properties as a FedRAMP Extension.\n\nThese are found in control statements (for CSPs to use in their SSP) and in control objectives (for assessors to use in their SAP and SAR).\n\nSAP tools should scan the appropriate baseline (as identified by the SSP's `import-profile` statement), find the response points associated with control objectives (ignoring response points associated with statements), and insert one `include-objective` field for each identified response point.\n\nFor this task, tools should either scan the resolved profile catalog version of each baseline, or resolve the profile against its catalog before processing.\n\nXPath for all control objectie response points in a resolved profile catalog: `//control/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id` \n\nXPath for AC-1 control objectie response points in a resolved profile catalog: `//control[@id='ac-1']/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id` "
     },
     "assessment-subjects": [
       {
         "type": "component",
-        "description": "# System Components in Assessment Scope \nA description of the included component.",
+        "description": "# System Components in Assessment Scope \n\nA description of the included component.",
         "include-all": {},
         "exclude-subjects": [
           {
-            "uuid-ref": "0f9049ed-a01f-484a-b70d-b1894fd196b8"
+            "subject-uuid": "0f9049ed-a01f-484a-b70d-b1894fd196b8",
+            "type": "component"
           }
         ],
         "remarks": "FedRAMP and NIST use the term \\\"component\\\" differently. The combination of `component` and `inventory-item` assembly in OSCAL, together are equivalent to a FedRAMP \\\"component\\\".\n\nThis `assessment-subject` is citing OSCAL `component` assemblies in the SSP.\n\nIf the assessor must cite a component which is either not present in the SSP or is inaccurate in the SSP, it must be defined in the `local-definitions` section of this file.\n\nThe assessor must never modify SSP content directly. The assessor may ask the CSP to update the SSP, and then work with a revised SSP delivered by the CSP."
       },
       {
         "type": "inventory-item",
-        "description": "# System Inventory Items in Assessment Scope\n## Include All Example\nA brief description of the included inventory.",
+        "description": "# System Inventory Items in Assessment Scope\n\n## Include All Example\n\nA brief description of the included inventory.",
         "include-all": {},
         "exclude-subjects": [
           {
-            "uuid-ref": "9c04e165-4827-407d-9aa3-25a487de1c65"
+            "subject-uuid": "9c04e165-4827-407d-9aa3-25a487de1c65",
+            "type": "inventory-item"
           }
         ],
         "remarks": "FedRAMP and NIST use the term \\\"component\\\" differently. The combination of `component` and `inventory-item` assembly in OSCAL, together are equivalent to a FedRAMP \\\"component\\\".\n\nThis `assessment-subject` is citing OSCAL `inventory-item` assemblies in the SSP.\n\nIf the assessor must cite an inventory-item which is either not present in the SSP or is inaccurate in the SSP, it must be defined in the `local-definitions` section of this file.\n\nThe assessor must never modify SSP content directly. The assessor may ask the CSP to update the SSP, and then work with a revised SSP delivered by the CSP."
       },
       {
         "type": "inventory-item",
-        "description": "# System Inventory Items in Assessment Scope\n## Selective Example\nA brief description of the included inventory.",
+        "description": "# System Inventory Items in Assessment Scope\n\n## Selective Example\n\nA brief description of the included inventory.",
         "include-subjects": [
           {
-            "uuid-ref": "9c04e165-4827-407d-9aa3-25a487de1c65"
+            "subject-uuid": "9c04e165-4827-407d-9aa3-25a487de1c65",
+            "type": "inventory-item"
           }
         ],
         "remarks": "FedRAMP and NIST use the term \\\"component\\\" differently. The combination of `component` and `inventory-item` assembly in OSCAL, together are equivalent to a FedRAMP \\\"component\\\".\n\nThis `assessment-subject` is citing OSCAL `inventory-item` assemblies in the SSP.\n\nIf the assessor must cite an inventory-item which is either not present in the SSP or is inaccurate in the SSP, it must be defined in the `local-definitions` section of this file.\n\nThe assessor must never modify SSP content directly. The assessor may ask the CSP to update the SSP, and then work with a revised SSP delivered by the CSP."
       },
       {
         "type": "location",
-        "description": "# System Location(s) in Assessment Scope\nAn overall description of the included location.",
+        "description": "# System Location(s) in Assessment Scope\n\nAn overall description of the included location.",
         "include-subjects": [
           {
-            "uuid-ref": "16adcc8d-65d8-4583-80d3-9cf007744fec",
+            "subject-uuid": "16adcc8d-65d8-4583-80d3-9cf007744fec",
+            "type": "location",
             "remarks": "Briefly describe the components at this location."
           },
           {
-            "uuid-ref": "ad321514-7b9f-4374-8409-efb18eea6e5d",
+            "subject-uuid": "ad321514-7b9f-4374-8409-efb18eea6e5d",
+            "type": "location",
             "remarks": "Briefly describe the components at this location."
           }
         ],
@@ -1182,29 +1197,32 @@
       },
       {
         "type": "user",
-        "description": "# System Users in Assessment Scope\n## Include All Example\nBriefly description the included users here.",
+        "description": "# System Users in Assessment Scope\n\n## Include All Example\n\nBriefly description the included users here.",
         "include-all": {},
         "exclude-subjects": [
           {
-            "uuid-ref": "ce1a3dbc-2bf5-4899-9fcf-090e299533bb"
+            "subject-uuid": "ce1a3dbc-2bf5-4899-9fcf-090e299533bb",
+            "type": "user"
           }
         ],
         "remarks": "This refers to user assemblies identified in the system-implementation section of the SSP and the local-definitions of the SAP. \n\nUsing include-all means all user roles defined both in the SSP and in the local-definitions of the SAP are included in the assessment.\n\nIt also provides an example of excluding one user.\n\nThis `assessment-subject` is citing OSCAL `user` assemblies in the SSP.\n\nIf the assessor must cite a user type which is either not present in the SSP or is inaccurate in the SSP, it must be defined in the `local-definitions` section of this file.\n\nThe assessor must never modify SSP content directly. The assessor may ask the CSP to update the SSP, and then work with a revised SSP delivered by the CSP."
       },
       {
         "type": "user",
-        "description": "# System Users in Assessment Scope\n## Selective Example\nBriefly description the included users here.",
+        "description": "# System Users in Assessment Scope\n\n## Selective Example\n\nBriefly description the included users here.",
         "include-subjects": [
           {
-            "uuid-ref": "ce1a3dbc-2bf5-4899-9fcf-090e299533bb"
+            "subject-uuid": "ce1a3dbc-2bf5-4899-9fcf-090e299533bb",
+            "type": "user"
           }
         ],
         "remarks": "This refers to user assemblies identified in the system-implementation section of the SSP and the local-definitions of the SAP. \n\nThis `assessment-subject` is citing OSCAL `user` assemblies in the SSP.\n\nIf the assessor must cite a user type which is either not present in the SSP or is inaccurate in the SSP, it must be defined in the `local-definitions` section of this file.\n\nThe assessor must never modify SSP content directly. The assessor may ask the CSP to update the SSP, and then work with a revised SSP delivered by the CSP."
       }
     ],
     "assessment-assets": {
-      "components": {
-        "BA991C3F-1E00-4C38-BF81-86A9E503F3B9": {
+      "components": [
+        {
+          "uuid": "BA991C3F-1E00-4C38-BF81-86A9E503F3B9",
           "type": "hardware",
           "title": "Assessment Laptop",
           "description": "Describe assessment laptop.",
@@ -1219,7 +1237,8 @@
           },
           "remarks": "Ideally, this assessment laptop would have been defined in the SAP, and not repeated here.\n\nIf the laptop was not known at the time the SAP was drafted, or something different was used, it must be defined here."
         },
-        "040937c3-2e0e-407a-bb3c-d4e61ac1c460": {
+        {
+          "uuid": "040937c3-2e0e-407a-bb3c-d4e61ac1c460",
           "type": "software",
           "title": "XYZ Vulnerability Scanning Tool",
           "description": "Describe the purpose of the tool here.",
@@ -1241,7 +1260,8 @@
             "state": "operational"
           }
         },
-        "c50104b9-69b3-4383-a1f1-d8a6f6f806f7": {
+        {
+          "uuid": "c50104b9-69b3-4383-a1f1-d8a6f6f806f7",
           "type": "software",
           "title": "XYZ Database Scanning Tool",
           "description": "Describe the purpose of the tool here.",
@@ -1263,7 +1283,8 @@
             "state": "operational"
           }
         },
-        "332517E5-2033-47DD-A4D0-6CA9C9786F6B": {
+        {
+          "uuid": "332517E5-2033-47DD-A4D0-6CA9C9786F6B",
           "type": "assessment-origination",
           "title": "Assessment Addresses",
           "description": "Identifies all addresses from which the assessment may be conducted, including scans and penetration testing activities.",
@@ -1271,7 +1292,7 @@
             "state": "operational"
           }
         }
-      },
+      ],
       "assessment-platforms": [
         {
           "uuid": "60218FE9-B01A-4553-B705-DBE9DEC44AA1",
@@ -1508,16 +1529,17 @@
             ],
             "associated-activities": [
               {
-                "activity-uuid": "315b3118-3d2e-420b-b4fb-5acf13b08381"
-              }
-            ],
-            "subjects": [
-              {
-                "type": "inventory-item",
-                "include-subjects": [
+                "activity-uuid": "315b3118-3d2e-420b-b4fb-5acf13b08381",
+                "subjects": [
                   {
-                    "uuid-ref": "779d4e89-bba6-432c-b50d-d699fe534129",
-                    "remarks": "References an inventory item, which is linked to a component. The component has a `scan-type` FedRAMP Extension with a value of \\\"web\\\""
+                    "type": "inventory-item",
+                    "include-subjects": [
+                      {
+                        "subject-uuid": "779d4e89-bba6-432c-b50d-d699fe534129",
+                        "type": "inventory-item",
+                        "remarks": "References an inventory item, which is linked to a component. The component has a `scan-type` FedRAMP Extension with a value of \\\"web\\\""
+                      }
+                    ]
                   }
                 ]
               }
@@ -1546,18 +1568,19 @@
             ],
             "associated-activities": [
               {
-                "activity-uuid": "64142a6f-d8d4-47c6-8bb1-a0e33f17664d"
-              }
-            ],
-            "subjects": [
-              {
-                "type": "inventory-item",
-                "include-subjects": [
+                "activity-uuid": "64142a6f-d8d4-47c6-8bb1-a0e33f17664d",
+                "subjects": [
                   {
-                    "uuid-ref": "779d4e89-bba6-432c-b50d-d699fe534129"
+                    "type": "inventory-item",
+                    "include-subjects": [
+                      {
+                        "subject-uuid": "779d4e89-bba6-432c-b50d-d699fe534129",
+                        "type": "inventory-item"
+                      }
+                    ],
+                    "remarks": "References an inventory item, which is linked to a component. The component has a `scan-type` FedRAMP Extension with a value of \\\"web\\\""
                   }
-                ],
-                "remarks": "References an inventory item, which is linked to a component. The component has a `scan-type` FedRAMP Extension with a value of \\\"web\\\""
+                ]
               }
             ]
           }
@@ -1591,7 +1614,19 @@
             ],
             "associated-activities": [
               {
-                "activity-uuid": "dc858ece-b430-485d-886c-3a812bb77b13"
+                "activity-uuid": "dc858ece-b430-485d-886c-3a812bb77b13",
+                "subjects": [
+                  {
+                    "type": "inventory-item",
+                    "include-subjects": [
+                      {
+                        "subject-uuid": "779d4e89-bba6-432c-b50d-d699fe534129",
+                        "type": "inventory-item"
+                      }
+                    ],
+                    "remarks": "References an inventory item, which is linked to a component. The component has a `scan-type` FedRAMP Extension with a value of \\\"web\\\""
+                  }
+                ]
               }
             ]
           },
@@ -1618,7 +1653,19 @@
             ],
             "associated-activities": [
               {
-                "activity-uuid": "64142a6f-d8d4-47c6-8bb1-a0e33f17664d"
+                "activity-uuid": "64142a6f-d8d4-47c6-8bb1-a0e33f17664d",
+                "subjects": [
+                  {
+                    "type": "inventory-item",
+                    "include-subjects": [
+                      {
+                        "subject-uuid": "779d4e89-bba6-432c-b50d-d699fe534129",
+                        "type": "inventory-item"
+                      }
+                    ],
+                    "remarks": "References an inventory item, which is linked to a component. The component has a `scan-type` FedRAMP Extension with a value of \\\"web\\\""
+                  }
+                ]
               }
             ]
           }
@@ -1630,7 +1677,7 @@
         {
           "uuid": "a78f7e4c-a27a-4b1e-901b-ebfecf2b0301",
           "title": "System's Full Name",
-          "description": "# ONLY USE THIS RESOURCE WHEN NO OSCAL-BASED SSP EXISTS\nBriefly describe the system. This will appear in the SAR.",
+          "description": "# ONLY USE THIS RESOURCE WHEN NO OSCAL-BASED SSP EXISTS\n\nBriefly describe the system. This will appear in the SAR.",
           "props": [
             {
               "name": "type",
