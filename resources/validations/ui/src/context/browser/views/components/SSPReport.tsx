@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import type { ValidationAssert } from '../../../../use-cases/schematron';
-import { assertionRoute, getUrl } from '../../presenter/router';
+import { Routes, getUrl } from '../../presenter/router';
 import { colorTokenForRole } from '../../util/styles';
 import { useAppState } from '../hooks';
 
@@ -74,7 +74,7 @@ export const SSPReport = () => {
             <Assertion
               key={index}
               assert={assert}
-              href={getUrl(assertionRoute({ assertionId: assert.uniqueId }))}
+              href={getUrl(Routes.assertion({ assertionId: assert.uniqueId }))}
             />
           ))}
         </>

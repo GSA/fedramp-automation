@@ -41,7 +41,7 @@ export const getPresenterConfig = (
   initialState: Partial<State> = {},
 ) => {
   const state: State = {
-    currentRoute: router.homeRoute,
+    currentRoute: router.Routes.home,
     baseUrl: '',
     sampleSSPs: [] as SampleSSP[],
     ...initialState,

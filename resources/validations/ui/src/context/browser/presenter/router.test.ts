@@ -21,14 +21,14 @@ describe('router', () => {
   });
   describe('getUrl', () => {
     it('returns HomeRoute', () => {
-      expect(router.getUrl(router.homeRoute)).toEqual('#/');
+      expect(router.getUrl(router.Routes.home)).toEqual('#/');
     });
     it('returns SummaryRoute', () => {
-      expect(router.getUrl(router.summaryRoute)).toEqual('#/summary');
+      expect(router.getUrl(router.Routes.summary)).toEqual('#/summary');
     });
     it('returns AssertionRoute', () => {
       expect(
-        router.getUrl(router.assertionRoute({ assertionId: 'assertion-id' })),
+        router.getUrl(router.Routes.assertion({ assertionId: 'assertion-id' })),
       ).toEqual('#/assertions/assertion-id');
     });
   });

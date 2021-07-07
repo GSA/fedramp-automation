@@ -1,34 +1,32 @@
 import { match } from 'path-to-regexp';
 
-export type BrowserLocation = {
-  getUrl: () => string;
-  replaceState: (url: string) => void;
-};
-
-// Defined concrete objects for each route.
-export type HomeRoute = { type: 'Home' };
-export const homeRoute: HomeRoute = {
-  type: 'Home',
-};
-
-// Defined concrete objects for each route.
-export type SummaryRoute = { type: 'Summary' };
-export const summaryRoute: SummaryRoute = {
-  type: 'Summary',
-};
-
-export type AssertionRoute = { type: 'Assertion'; assertionId: string };
-export const assertionRoute = (options: {
-  assertionId: string;
-}): AssertionRoute => {
-  return {
-    type: 'Assertion',
-    assertionId: options.assertionId,
+export type RouteTypes = {
+  Home: { type: 'Home' };
+  Summary: { type: 'Summary' };
+  Assertion: {
+    type: 'Assertion';
+    assertionId: string;
   };
 };
 
-export type Route = HomeRoute | SummaryRoute | AssertionRoute;
+export type Route = RouteTypes[keyof RouteTypes];
 export type RouteType = Route['type'];
+export namespace Routes {
+  export const home: RouteTypes['Home'] = {
+    type: 'Home',
+  };
+  export const summary: RouteTypes['Summary'] = {
+    type: 'Summary',
+  };
+  export const assertion = (options: {
+    assertionId: string;
+  }): RouteTypes['Assertion'] => {
+    return {
+      type: 'Assertion',
+      assertionId: options.assertionId,
+    };
+  };
+}
 
 export type NotFound = { type: 'NotFound' };
 export const notFound: NotFound = { type: 'NotFound' };
@@ -36,7 +34,8 @@ export const notFound: NotFound = { type: 'NotFound' };
 const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   Home: () => '#/',
   Summary: () => '#/summary',
-  Assertion: (route: AssertionRoute) => `#/assertions/${route.assertionId}`,
+  Assertion: (route: RouteTypes['Assertion']) =>
+    `#/assertions/${route.assertionId}`,
 };
 
 export const getUrl = (route: Route): string => {
@@ -57,9 +56,9 @@ const matchRoute = <L extends Route>(
 };
 
 const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
-  Home: matchRoute('#/', () => homeRoute),
-  Summary: matchRoute('#/summary', () => summaryRoute),
-  Assertion: matchRoute('#/assertions/:assertionId', assertionRoute),
+  Home: matchRoute('#/', () => Routes.home),
+  Summary: matchRoute('#/summary', () => Routes.summary),
+  Assertion: matchRoute('#/assertions/:assertionId', Routes.assertion),
 };
 
 export const getRoute = (url: string): Route | NotFound => {
@@ -83,7 +82,7 @@ export const breadcrumbs: Record<Route['type'], (route: any) => Breadcrumb[]> =
       return [
         {
           text: 'Select SSP',
-          url: getUrl(homeRoute),
+          url: getUrl(Routes.home),
           selected: route.type === 'Home',
         },
       ];
@@ -93,17 +92,17 @@ export const breadcrumbs: Record<Route['type'], (route: any) => Breadcrumb[]> =
         ...breadcrumbs.Home(route),
         {
           text: 'Document name',
-          url: getUrl(summaryRoute),
+          url: getUrl(Routes.summary),
           selected: route.type === 'Summary',
         },
       ];
     },
-    Assertion: (route: AssertionRoute) => {
+    Assertion: (route: RouteTypes['Assertion']) => {
       return [
         ...breadcrumbs.Home(route),
         {
           text: 'Assertion',
-          url: getUrl(assertionRoute({ assertionId: route.assertionId })),
+          url: getUrl(Routes.assertion({ assertionId: route.assertionId })),
           selected: route.type === 'Assertion',
         },
       ];
