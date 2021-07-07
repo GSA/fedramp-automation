@@ -1283,6 +1283,100 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             A FedRAMP OSCAL SSP must have a FedRAMP authorization type.</sch:assert>
         </sch:rule>
     </sch:pattern>
+    <sch:pattern id="general-roles"
+        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans pp14-19">
+        <sch:title>Roles, Locations, Parties, Responsibilities</sch:title>
+        <sch:rule context="oscal:metadata">
+            <sch:assert diagnostics="role-defined-system-owner-diagnostic"
+                id="role-defined-system-owner"
+                role="error"
+                test="oscal:role[@id = 'system-owner']">The system-owner role must be defined.</sch:assert>
+            <sch:assert diagnostics="role-defined-authorizing-official-diagnostic"
+                id="role-defined-authorizing-official"
+                role="error"
+                test="oscal:role[@id = 'authorizing-official']">The authorizing-official role must be defined.</sch:assert>
+            <sch:assert diagnostics="role-defined-system-poc-management-diagnostic"
+                id="role-defined-system-poc-management"
+                role="error"
+                test="oscal:role[@id = 'system-poc-management']">The system-poc-management role must be defined.</sch:assert>
+            <sch:assert diagnostics="role-defined-system-poc-technical-diagnostic"
+                id="role-defined-system-poc-technical"
+                role="error"
+                test="oscal:role[@id = 'system-poc-technical']">The system-poc-technical role must be defined.</sch:assert>
+            <sch:assert diagnostics="role-defined-system-poc-other-diagnostic"
+                id="role-defined-system-poc-other"
+                role="error"
+                test="oscal:role[@id = 'system-poc-other']">The system-poc-other role must be defined.</sch:assert>
+            <sch:assert diagnostics="role-defined-information-system-security-officer-diagnostic"
+                id="role-defined-information-system-security-officer"
+                role="error"
+                test="oscal:role[@id = 'information-system-security-officer']">The information-system-security-officer role must be
+                defined.</sch:assert>
+            <sch:assert diagnostics="role-defined-authorizing-official-poc-diagnostic"
+                id="role-defined-authorizing-official-poc"
+                role="error"
+                test="oscal:role[@id = 'authorizing-official-poc']">The authorizing-official-poc role must be defined.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:role">
+            <sch:assert diagnostics="role-has-title-diagnostic"
+                id="role-has-title"
+                role="error"
+                test="oscal:title">A role must have a title.</sch:assert>
+            <sch:assert diagnostics="role-has-responsible-party-diagnostic"
+                id="role-has-responsible-party"
+                role="error"
+                test="//oscal:responsible-party[@role-id = current()/@id]">One or more responsible parties must be defined for each
+                role.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:responsible-party">
+            <sch:assert diagnostics="responsible-party-has-person-diagnostic"
+                id="responsible-party-has-person"
+                role="error"
+                test="//oscal:party[@uuid = current()/oscal:party-uuid and @type = 'person']">Each responsible-party party-uuid must identify
+                a person.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:party[@type = 'person']">
+            <sch:assert diagnostics="party-has-responsibility-diagnostic"
+                id="party-has-responsibility"
+                role="warning"
+                test="//oscal:responsible-party[oscal:party-uuid = current()/@uuid]">Each person should have a responsibility.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+    <sch:pattern id="implementation-roles"
+        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 36">
+        <sch:title>Roles related to implemented requirements</sch:title>
+        <sch:rule context="oscal:implemented-requirement">
+            <sch:assert diagnostics="implemented-requirement-has-responsible-role-diagnostic"
+                id="implemented-requirement-has-responsible-role"
+                role="error"
+                test="oscal:responsible-role">Each implemented-requirement must have one or more responsible-role definitions.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:responsible-role">
+            <sch:assert diagnostics="responsible-role-has-role-definition-diagnostic"
+                id="responsible-role-has-role-definition"
+                role="error"
+                test="//oscal:role/@id = current()/@role-id">Each responsible-role must reference a role definition.</sch:assert>
+            <sch:assert diagnostics="responsible-role-has-user-diagnostic"
+                id="responsible-role-has-user"
+                role="error"
+                test="//oscal:role-id = current()/@role-id">Each responsible-role must be referenced in a system-implementation user
+                assembly.</sch:assert>
+            <!-- TODO: performance comparison -->
+            <sch:assert diagnostics="distinct-responsible-role-has-user-diagnostic"
+                id="distinct-responsible-role-has-user"
+                role="error"
+                test="
+                every $r in distinct-values(//oscal:responsible-role/@role-id)
+                satisfies exists(//oscal:user/oscal:role-id = $r)">Each distinct responsible-role must be referenced in a
+                system-implementation user assembly.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:role-id">
+            <sch:assert diagnostics="role-id-has-role-definition-diagnostic"
+                id="role-id-has-role-definition"
+                role="error"
+                test="//oscal:role[@id = current()]">Each role-id must reference a role definition.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
     <sch:diagnostics>
         <sch:diagnostic doc:assertion="no-registry-values"
                         doc:context="/o:system-security-plan"
@@ -1879,5 +1973,57 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         <sch:diagnostic doc:assertion="has-fedramp-authorization-type"
                         doc:context="oscal:system-characteristics"
                         id="has-fedramp-authorization-type-diagnostic">This FedRAMP OSCAL SSP lacks a FedRAMP authorization type.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="role-defined-system-owner"
+            doc:context="oscal:metadata"
+            id="role-defined-system-owner-diagnostic">The system-owner role is missing.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="role-defined-authorizing-official"
+            doc:context="oscal:metadata"
+            id="role-defined-authorizing-official-diagnostic">The authorizing-official role is missing.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="role-defined-system-poc-management"
+            doc:context="oscal:metadata"
+            id="role-defined-system-poc-management-diagnostic">The system-poc-management role is missing.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="role-defined-system-poc-technical"
+            doc:context="oscal:metadata"
+            id="role-defined-system-poc-technical-diagnostic">The system-poc-technical role is missing.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="role-defined-system-poc-other"
+            doc:context="oscal:metadata"
+            id="role-defined-system-poc-other-diagnostic">The system-poc-other role is missing.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="role-defined-information-system-security-officer"
+            doc:context="oscal:metadata"
+            id="role-defined-information-system-security-officer-diagnostic">The information-system-security-officer role is
+            missing.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="role-defined-authorizing-official-poc"
+            doc:context="oscal:metadata"
+            id="role-defined-authorizing-official-poc-diagnostic">The authorizing-official-poc role is missing.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="role-has-title"
+            doc:context="oscal:role"
+            id="role-has-title-diagnostic">This role lacks a title.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="role-has-responsible-party"
+            doc:context="oscal:role"
+            id="role-has-responsible-party-diagnostic">This role has no responsible parties.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="responsible-party-has-person"
+            doc:context="oscal:responsible-party"
+            id="responsible-party-has-person-diagnostic">This responsible-party party-uuid does not identify a person.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="party-has-responsibility"
+            doc:context="oscal:party[@type = 'person']"
+            id="party-has-responsibility-diagnostic">This person has no responsibility.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="implemented-requirement-has-responsible-role"
+            doc:context="oscal:implemented-requirement"
+            id="implemented-requirement-has-responsible-role-diagnostic">This implemented-requirement lacks a responsible-role
+            definition.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="responsible-role-has-role-definition"
+            doc:context="oscal:responsible-role"
+            id="responsible-role-has-role-definition-diagnostic">This responsible-role references a non-existent role
+            definition.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="responsible-role-has-user"
+            doc:context="oscal:responsible-role"
+            id="responsible-role-has-user-diagnostic">This responsible-role lacks a system-implementation user assembly.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="distinct-responsible-role-has-user"
+            doc:context="oscal:responsible-role"
+            id="distinct-responsible-role-has-user-diagnostic">Some distinct responsible-role is not referenced in a
+            system-implementation user assembly.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="role-id-has-role-definition"
+            doc:context="oscal:role-id"
+            id="role-id-has-role-definition-diagnostic">This role-id references a non-existent role definition.</sch:diagnostic>
     </sch:diagnostics>
 </sch:schema>
