@@ -504,7 +504,7 @@
                 role="warning"
                 test="$WARNING and @media-type">the &lt;<sch:name/>&gt; element should have a media-type attribute</sch:assert>-->
         </sch:rule>
-        <sch:rule context="@media-type"
+        <sch:rule context="oscal:rlink | oscal:base64"
                   role="error">
             <sch:let name="media-types"
                      value="$fedramp-values//fedramp:value-set[@name = 'media-type']//fedramp:enum/@value" />
@@ -514,7 +514,7 @@
             <sch:assert diagnostics="has-allowed-media-type-diagnostic"
                         id="has-allowed-media-type"
                         role="error"
-                        test="current() = $media-types">A media-type attribute must have an allowed value.</sch:assert>
+                        test="@media-type = $media-types">A media-type attribute must have an allowed value.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern>
@@ -792,8 +792,8 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-consonant-CMVP-validation-reference-diagnostic"
                         id="has-consonant-CMVP-validation-reference"
                         role="error"
-                        test="@value = tokenize(following-sibling::oscal:link[@rel = 'validation-details']/@href,'/')[last()]">A validation-reference
-                        property must be in accord with its sibling validation-details href.</sch:assert>
+                        test="@value = tokenize(following-sibling::oscal:link[@rel = 'validation-details']/@href, '/')[last()]">A
+                        validation-reference property must be in accord with its sibling validation-details href.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:link[@rel = 'validation-details']">
             <sch:assert diagnostics="has-credible-CMVP-validation-details-diagnostic"
