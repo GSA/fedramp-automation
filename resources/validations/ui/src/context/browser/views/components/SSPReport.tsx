@@ -48,7 +48,8 @@ const Assertion = ({
                 data-position="top"
                 title={assert.location}
               >
-                Show XML context
+              >
+                Show context in SSP
               </a>
             </li>
             <li>test: {assert.test}</li>
