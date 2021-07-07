@@ -945,7 +945,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         </sch:rule>
         <sch:rule context="oscal:base | oscal:selected">
             <sch:let name="fips-199-levels"
-                     value="$fedramp-values//fedramp:value-set[@name = 'security-impact-level']//fedramp:enum/@value" />
+                     value="$fedramp-values//fedramp:value-set[@name = 'security-level']//fedramp:enum/@value" />
             <sch:assert diagnostics="cia-impact-has-approved-fips-categorization-diagnostic"
                         id="cia-impact-has-approved-fips-categorization"
                         role="error"
