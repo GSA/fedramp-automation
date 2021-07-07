@@ -400,32 +400,6 @@
                 "remarks": "If \"yes\" a SORN ID must be provided."
             },
             {
-                "name": "security-sensitivity-level",
-                "formal-name": "Security Sensitivity Level",
-                "description": "The security sensitivity level for the system.",
-                "binding": {"pattern": "security-sensitivity-level"},
-                "allowed-values": {
-                    "allow-other": "no",
-                    "enum": [
-                        {
-                            "value": "low",
-                            "short-label": "L",
-                            "#text": "Low"
-                        },
-                        {
-                            "value": "moderate",
-                            "short-label": "M",
-                            "#text": "Moderate"
-                        },
-                        {
-                            "value": "high",
-                            "short-label": "H",
-                            "#text": "High"
-                        }
-                    ]
-                }
-            },
-            {
                 "name": "likelihood",
                 "formal-name": "Likelihood",
                 "description": "The likelihood of a risk.",
