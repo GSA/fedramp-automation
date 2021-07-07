@@ -5188,4 +5188,427 @@
             </x:scenario>
         </x:scenario>
     </x:scenario>
+    <x:scenario
+        label="FedRAMP OSCAL SSP User-related unit tests">
+        <x:scenario
+            label="affirmative">
+            <x:context>
+                <ssp
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <metadata>
+                        <role
+                            id="implemented-requirement-responsible-role">
+                            <title>Implemented Control Responsibility Role</title>
+                        </role>
+                    </metadata>
+                    <system-implementation>
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <prop
+                                name="type"
+                                value="internal" />
+                            <prop
+                                name="privilege-type"
+                                value="privileged" />
+                            <prop
+                                name="sensitivity"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="moderate" />
+                            <role-id>implemented-requirement-responsible-role</role-id>
+                            <authorized-privilege>
+                                <title>title</title>
+                                <function-performed>function</function-performed>
+                            </authorized-privilege>
+                        </user>
+                    </system-implementation>
+                </ssp>
+            </x:context>
+            <x:scenario
+                label="Every user has a role-id.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="user-has-role-id"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every user has a user type property.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="user-has-user-type"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every user has a privilege type property.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="user-has-privilege-type"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every user has a sensitivity level property.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="user-has-sensitivity-level"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every user has one or more authorized-privileges.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="user-has-authorized-privilege"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Each role-id must reference a role definition.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="role-id-has-role-definition"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="User type property has an allowed value.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="user-user-type-has-allowed-value"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="User privilege type property has an allowed value.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="user-privilege-type-has-allowed-value"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="User sensitivity level property has an allowed value.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="user-sensitivity-level-has-allowed-value"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every authorized-privilege has a title.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="authorized-privilege-has-title"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every authorized-privilege has one or more function-performed.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="authorized-privilege-has-function-performed"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every authorized-privilege title is non-empty.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="authorized-privilege-has-non-empty-title"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every authorized-privilege has a non-empty function-performed.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="authorized-privilege-has-non-empty-function-performed"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
+            label="negative">
+            <x:context>
+                <ssp
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <metadata>
+                        <role
+                            id="implemented-requirement-responsible-role">
+                            <title>Implemented Control Responsibility Role</title>
+                        </role>
+                    </metadata>
+                    <system-implementation>
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <prop
+                                name="type"
+                                value="internal" />
+                            <prop
+                                name="privilege-type"
+                                value="privileged" />
+                            <prop
+                                name="sensitivity"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="moderate" />
+                            <role-id>implemented-requirement-responsible-role</role-id>
+                            <authorized-privilege>
+                                <title>title</title>
+                                <function-performed>function</function-performed>
+                            </authorized-privilege>
+                        </user>
+                    </system-implementation>
+                </ssp>
+            </x:context>
+            <x:scenario
+                label="Every user has a role-id.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="user-has-role-id"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every user has a user type property.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="user-has-user-type"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every user has a privilege type property.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="user-has-privilege-type"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every user has a sensitivity level property.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="user-has-sensitivity-level"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every user has one or more authorized-privileges.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="user-has-authorized-privilege"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Each role-id must reference a role definition.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <role-id>some-id</role-id>
+                        </user>
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="role-id-has-role-definition"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="User type property has an allowed value.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <prop
+                                name="type"
+                                value="foreign" />
+                        </user>
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="user-user-type-has-allowed-value"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="User privilege type property has an allowed value.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <prop
+                                name="privilege-type"
+                                value="nomenclatura" />
+                        </user>
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="user-privilege-type-has-allowed-value"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="User sensitivity level property has an allowed value.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <prop
+                                name="sensitivity"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="insensitive" />
+                        </user>
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="user-sensitivity-level-has-allowed-value"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every authorized-privilege has a title.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <authorized-privilege />
+                        </user>
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="authorized-privilege-has-title"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every authorized-privilege has one or more function-performed.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <authorized-privilege />
+                        </user>
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="authorized-privilege-has-function-performed"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every authorized-privilege title is non-empty.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <authorized-privilege>
+                                <title />
+                            </authorized-privilege>
+                        </user>
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="authorized-privilege-has-non-empty-title"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every authorized-privilege has a non-empty function-performed.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user
+                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <authorized-privilege>
+                                <function-performed />
+                            </authorized-privilege>
+                        </user>
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="authorized-privilege-has-non-empty-function-performed"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+    </x:scenario>
 </x:description>
