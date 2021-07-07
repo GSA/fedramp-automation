@@ -15,8 +15,10 @@ describe('router', () => {
       });
     });
     it('returns NotFound', () => {
-      expect(router.getRoute('')).toEqual(router.notFound);
-      expect(router.getRoute('#/does-not-exist')).toEqual(router.notFound);
+      expect(router.getRoute('')).toEqual(router.Routes.notFound);
+      expect(router.getRoute('#/does-not-exist')).toEqual(
+        router.Routes.notFound,
+      );
     });
   });
   describe('getUrl', () => {

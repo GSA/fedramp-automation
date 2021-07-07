@@ -26,10 +26,9 @@ export namespace Routes {
       assertionId: options.assertionId,
     };
   };
+  export type NotFound = { type: 'NotFound' };
+  export const notFound: NotFound = { type: 'NotFound' };
 }
-
-export type NotFound = { type: 'NotFound' };
-export const notFound: NotFound = { type: 'NotFound' };
 
 const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   Home: () => '#/',
@@ -61,14 +60,14 @@ const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
   Assertion: matchRoute('#/assertions/:assertionId', Routes.assertion),
 };
 
-export const getRoute = (url: string): Route | NotFound => {
+export const getRoute = (url: string): Route | Routes.NotFound => {
   for (const routeType of Object.keys(RouteMatch)) {
     const route = RouteMatch[routeType as Route['type']](url);
     if (route) {
       return route;
     }
   }
-  return notFound;
+  return Routes.notFound;
 };
 
 type Breadcrumb = {
