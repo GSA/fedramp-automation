@@ -3,7 +3,7 @@ name: PMO Action Item (FedRAMP PMO Use Only)
 about: Capture an action item intended for follow-up by the FedRAMP PMO.
 title: ''
 labels: ''
-assignees: ''
+assignees: ohsh6o
 
 ---
 
