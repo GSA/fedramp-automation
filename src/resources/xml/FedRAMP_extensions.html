@@ -78,7 +78,7 @@ td.data p { font-size: smaller }
                <p class="binding">/o:assessment-plan/o:local-definitions/o:objectives-and-methods//part/o:prop</p>
                <p class="binding">/o:assessment-results/o:local-definitions/o:objectives-and-methods//part/o:prop</p>
             </td>
-            <td class="mdtype">empty</td>
+            <td class="mdtype">string</td>
             <td class="defined-ids center"> </td>
             <td class="avs center"> </td>
             <td class="notes">
@@ -194,6 +194,9 @@ td.data p { font-size: smaller }
             </td>
             <td class="xpaths">
                <p class="binding">/o:system-security-plan/o:system-characteristics/o:prop</p>
+               <p class="binding">system-characteristics/o:prop[@name='authenticator-assurance-level']</p>
+               <p class="binding">system-characteristics/o:prop[@name='federation-assurance-level']</p>
+               <p class="binding">system-characteristics/o:prop[@name='identity-assurance-level']</p>
             </td>
             <td class="mdtype">integer</td>
             <td class="defined-ids center"> </td>
@@ -223,7 +226,7 @@ td.data p { font-size: smaller }
             <td class="xpaths">
                <p class="binding">/o:system-security-plan/o:system-characteristics/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>
@@ -338,12 +341,12 @@ td.data p { font-size: smaller }
                <p class="pattern">prop</p>
             </td>
             <td class="pname">
-               <p class="extension-name">pta-1</p>
+               <p class="extension-name">privacy-threshold-analysis-q1</p>
             </td>
             <td class="xpaths">
                <p class="binding">/o:system-security-plan/o:system-characteristics/o:system-information/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>
@@ -362,12 +365,12 @@ td.data p { font-size: smaller }
                <p class="pattern">prop</p>
             </td>
             <td class="pname">
-               <p class="extension-name">pta-2</p>
+               <p class="extension-name">privacy-threshold-analysis-q2</p>
             </td>
             <td class="xpaths">
                <p class="binding">/o:system-security-plan/o:system-characteristics/o:system-information/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>
@@ -386,12 +389,12 @@ td.data p { font-size: smaller }
                <p class="pattern">prop</p>
             </td>
             <td class="pname">
-               <p class="extension-name">pta-3</p>
+               <p class="extension-name">privacy-threshold-analysis-q3</p>
             </td>
             <td class="xpaths">
                <p class="binding">/o:system-security-plan/o:system-characteristics/o:system-information/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>
@@ -410,12 +413,12 @@ td.data p { font-size: smaller }
                <p class="pattern">prop</p>
             </td>
             <td class="pname">
-               <p class="extension-name">pta-4</p>
+               <p class="extension-name">privacy-threshold-analysis-q4</p>
             </td>
             <td class="xpaths">
                <p class="binding">/o:system-security-plan/o:system-characteristics/o:system-information/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>
@@ -463,7 +466,7 @@ td.data p { font-size: smaller }
             <td class="xpaths">
                <p class="binding">/o:system-security-plan/o:system-implementation/o:user/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes">
@@ -582,15 +585,15 @@ td.data p { font-size: smaller }
                <p class="description">Identifies the mechanisms/protocol(s) used to secure the communication.</p>
             </td>
             <td class="mtype">
-               <p class="pattern">annotation</p>
+               <p class="pattern">prop</p>
             </td>
             <td class="pname">
                <p class="extension-name">connection-security</p>
             </td>
             <td class="xpaths">
-               <p class="binding">/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:annotation</p>
+               <p class="binding">/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>
@@ -637,13 +640,13 @@ td.data p { font-size: smaller }
             </td>
             <td class="xpaths">
                <p class="binding">/o:system-security-plan/o:system-implementation/o:component/o:prop</p>
-               <p class="binding">/o:system-security-plan/o:system-implementation/o:system-inventory/o:inventory-item/o:prop</p>
+               <p class="binding">/o:system-security-plan/o:system-implementation/o:system-inventory/o:o:inventory-item/o:prop</p>
                <p class="binding">/o:assessment-plan/o:local-definitions/o:component/o:prop</p>
-               <p class="binding">/o:assessment-plan/o:local-definitions/o:inventory-item/o:prop</p>
+               <p class="binding">/o:assessment-plan/o:local-definitions/o:o:inventory-item/o:prop</p>
                <p class="binding">/o:assessment-results/o:result/o:local-definitions/o:component/o:prop</p>
-               <p class="binding">/o:assessment-results/o:result/o:local-definitions/o:inventory-item/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:local-definitions/o:o:inventory-item/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>
@@ -693,7 +696,7 @@ td.data p { font-size: smaller }
             <td class="xpaths">
                <p class="binding">/o:assessment-results/o:results/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>
@@ -869,7 +872,7 @@ td.data p { font-size: smaller }
                <p class="binding">/o:assessment-plan/o:assessment-subject/o:prop</p>
                <p class="binding">/o:assessment-results/o:results/o:assessment-subject/o:prop</p>
             </td>
-            <td class="mdtype">string</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>
@@ -917,33 +920,9 @@ td.data p { font-size: smaller }
             <td class="xpaths">
                <p class="binding">/o:assessment-results/o:results/o:finding/o:objective-status/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
-            <td class="notes"></td>
-         </tr>
-         <tr class="extension">
-            <td class="center"><span class="grey">n/a</span></td>
-            <td class="center"><span class="cardinality">1 to ∞</span></td>
-            <td class="center"><span class="grey">n/a</span></td>
-            <td class="center"><span class="grey">n/a</span></td>
-            <td class="center"><span class="grey">n/a</span></td>
-            <td class="data">
-               <h4 class="formal-name">Control Implementation Status</h4>
-               <p class="description">Indicates the implementation status of the control.</p>
-            </td>
-            <td class="mtype">
-               <p class="pattern">annotation</p>
-            </td>
-            <td class="pname">
-               <p class="extension-name">implementation-status</p>
-            </td>
-            <td class="xpaths">
-               <p class="binding">/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:annotation</p>
-            </td>
-            <td class="mdtype"> </td>
-            <td class="defined-ids center"> </td>
-            <td class="avs center"> </td>
             <td class="notes"></td>
          </tr>
          <tr class="extension">
@@ -978,30 +957,6 @@ td.data p { font-size: smaller }
          </tr>
          <tr class="extension">
             <td class="center"><span class="grey">n/a</span></td>
-            <td class="center"><span class="cardinality">0 or 1</span></td>
-            <td class="center"><span class="grey">n/a</span></td>
-            <td class="center"><span class="grey">n/a</span></td>
-            <td class="center"><span class="grey">n/a</span></td>
-            <td class="data">
-               <h4 class="formal-name">Control Origination</h4>
-               <p class="description">The point(s) from which the control satisfaction originates.</p>
-            </td>
-            <td class="mtype">
-               <p class="pattern">annotation</p>
-            </td>
-            <td class="pname">
-               <p class="extension-name">control-origination</p>
-            </td>
-            <td class="xpaths">
-               <p class="binding">/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:annotation</p>
-            </td>
-            <td class="mdtype"> </td>
-            <td class="defined-ids center"> </td>
-            <td class="avs center"> </td>
-            <td class="notes"></td>
-         </tr>
-         <tr class="extension">
-            <td class="center"><span class="grey">n/a</span></td>
             <td class="center"><span class="grey">n/a</span></td>
             <td class="center"><span class="cardinality">1</span></td>
             <td class="center"><span class="grey">n/a</span></td>
@@ -1017,7 +972,7 @@ td.data p { font-size: smaller }
                <p class="extension-name">title-short</p>
             </td>
             <td class="xpaths">
-               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
+               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
             </td>
             <td class="mdtype">string</td>
             <td class="defined-ids center"> </td>
@@ -1041,7 +996,7 @@ td.data p { font-size: smaller }
                <p class="extension-name">system-id</p>
             </td>
             <td class="xpaths">
-               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
+               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
             </td>
             <td class="mdtype">string</td>
             <td class="defined-ids center"> </td>
@@ -1065,7 +1020,7 @@ td.data p { font-size: smaller }
                <p class="extension-name">import-profile</p>
             </td>
             <td class="xpaths">
-               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
+               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
             </td>
             <td class="mdtype">uri</td>
             <td class="defined-ids center"> </td>
@@ -1095,7 +1050,7 @@ td.data p { font-size: smaller }
                <p class="extension-name">system-id</p>
             </td>
             <td class="xpaths">
-               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
+               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
             </td>
             <td class="mdtype">string</td>
             <td class="defined-ids center"> </td>
@@ -1109,7 +1064,7 @@ td.data p { font-size: smaller }
             <td class="center"><span class="grey">n/a</span></td>
             <td class="center"><span class="grey">n/a</span></td>
             <td class="data">
-               <h4 class="formal-name">Authorization DAte</h4>
+               <h4 class="formal-name">Authorization Date</h4>
                <p class="description">The date of the system's initial FedRAMP authorization.</p>
             </td>
             <td class="mtype">
@@ -1119,7 +1074,7 @@ td.data p { font-size: smaller }
                <p class="extension-name">authorization-date</p>
             </td>
             <td class="xpaths">
-               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
+               <p class="binding">/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop</p>
             </td>
             <td class="mdtype">dateTime-with-timezone</td>
             <td class="defined-ids center"> </td>
@@ -1143,9 +1098,9 @@ td.data p { font-size: smaller }
                <p class="extension-name">logn-url</p>
             </td>
             <td class="xpaths">
-               <p class="binding">/o:system-security-plan/o:system-implementation/o:inventory-item/prop</p>
+               <p class="binding">/o:system-security-plan/o:system-implementation/o:o:inventory-item/o:prop</p>
                <p class="binding">/o:assessment-plan//o:task/o:prop</p>
-               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop</p>
             </td>
             <td class="mdtype">NCName</td>
             <td class="defined-ids center"> </td>
@@ -1170,7 +1125,7 @@ td.data p { font-size: smaller }
             </td>
             <td class="xpaths">
                <p class="binding">/o:assessment-plan//o:task/o:prop</p>
-               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop</p>
             </td>
             <td class="mdtype">NCName</td>
             <td class="defined-ids center"> </td>
@@ -1195,7 +1150,7 @@ td.data p { font-size: smaller }
             </td>
             <td class="xpaths">
                <p class="binding">/o:assessment-plan//o:task/o:prop</p>
-               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop</p>
             </td>
             <td class="mdtype">NCName</td>
             <td class="defined-ids center"> </td>
@@ -1220,7 +1175,7 @@ td.data p { font-size: smaller }
             </td>
             <td class="xpaths">
                <p class="binding">/o:assessment-plan//o:task/o:prop</p>
-               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop</p>
+               <p class="binding">/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop</p>
             </td>
             <td class="mdtype">uuid</td>
             <td class="defined-ids center"> </td>
@@ -1271,7 +1226,7 @@ td.data p { font-size: smaller }
                <p class="binding">/o:assessment-results/o:result/o:risk/o:prop</p>
                <p class="binding">/o:plan-of-action-and-milestones/o:risk/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center"> </td>
             <td class="notes">
@@ -1406,7 +1361,7 @@ td.data p { font-size: smaller }
                <p class="binding">/o:plan-of-action-and-milestones/o:observation/o:prop</p>
                <p class="binding">/o:assessment-results/o:result/o:observation/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>
@@ -1461,7 +1416,7 @@ td.data p { font-size: smaller }
                <p class="binding">/o:plan-of-action-and-milestones/o:observation/o:prop</p>
                <p class="binding">/o:assessment-results/o:result/o:observation/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>
@@ -1488,7 +1443,7 @@ td.data p { font-size: smaller }
                <p class="binding">/o:plan-of-action-and-milestones/o:observation/o:prop</p>
                <p class="binding">/o:assessment-results/o:result/o:observation/o:prop</p>
             </td>
-            <td class="mdtype">NCName</td>
+            <td class="mdtype">token</td>
             <td class="defined-ids center"> </td>
             <td class="avs center">x</td>
             <td class="notes"></td>

@@ -1,12 +1,12 @@
 {
   "assessment-results": {
-    "uuid": "3556429f-3008-4004-8797-66ea8e0f41ce",
+    "uuid": "7ea5c269-ee26-48c8-b32c-91aa26339023",
     "metadata": {
       "title": "[System Name] FedRAMP Security Assessment Report (SAR)",
       "published": "2021-02-25T00:00:00.00-04:00",
-      "last-modified": "2021-04-12T12:36:27.890707-04:00",
-      "version": "0.3",
-      "oscal-version": "1.0.0-rc2",
+      "last-modified": "2021-06-09T14:27:48.374-04:00",
+      "version": "fedramp1.0.0-oscal1.0.0",
+      "oscal-version": "1.0.0",
       "props": [
         {
           "name": "marking",
@@ -157,12 +157,11 @@
             {
               "type": "work",
               "addr-lines": [
-                "1800 F St. NW",
-                ""
+                "1800 F St. NW"
               ],
               "city": "Washington",
               "state": "DC",
-              "postal-code": "",
+              "postal-code": "20006",
               "country": "US"
             }
           ],
@@ -361,37 +360,43 @@
           ]
         }
       ],
-      "responsible-parties": {
-        "fedramp-pmo": {
+      "responsible-parties": [
+        {
+          "role-id": "fedramp-pmo",
           "party-uuids": [
             "8cc0b8e5-9650-4d5f-9796-316f05fa9a2d"
           ]
         },
-        "prepared-by": {
+        {
+          "role-id": "prepared-by",
           "party-uuids": [
             "49f73135-efab-4275-9a79-003656ad890a"
           ],
           "remarks": "Exactly one party\n\nThis is the assessor."
         },
-        "prepared-for": {
+        {
+          "role-id": "prepared-for",
           "party-uuids": [
             "295f4810-9add-4d64-b28e-06eccd0b6a33"
           ],
           "remarks": "Exactly one party.\n\nThis is the UUID for the CSP in the SSP.\n\nIf no OSCAL-based SSP exists, create a CSP party in the SAP, and provide that UUID here."
         },
-        "content-approver": {
+        {
+          "role-id": "content-approver",
           "party-uuids": [
             "f4568fda-c6d2-4640-adec-0012015af7d0"
           ],
           "remarks": "One ore more parties"
         },
-        "assessor": {
+        {
+          "role-id": "assessor",
           "party-uuids": [
             "49f73135-efab-4275-9a79-003656ad890a"
           ],
           "remarks": "Exactly one party\n\nAssessment Organization (3PAO)"
         },
-        "assessment-team": {
+        {
+          "role-id": "assessment-team",
           "party-uuids": [
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe",
             "bcf47707-49e4-4acc-bf43-e63156046390",
@@ -400,13 +405,15 @@
           ],
           "remarks": "One or more parties"
         },
-        "assessment-lead": {
+        {
+          "role-id": "assessment-lead",
           "party-uuids": [
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
           ],
           "remarks": "Exactly one party"
         },
-        "penetration-test-team": {
+        {
+          "role-id": "penetration-test-team",
           "party-uuids": [
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe",
             "ca9fca9c-4a8a-4487-8242-0a06d6fbed1f",
@@ -414,25 +421,29 @@
           ],
           "remarks": "One or more partys"
         },
-        "penetration-test-lead": {
+        {
+          "role-id": "penetration-test-lead",
           "party-uuids": [
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
           ],
           "remarks": "Exactly one party"
         },
-        "assessment-executive": {
+        {
+          "role-id": "assessment-executive",
           "party-uuids": [
             "f4568fda-c6d2-4640-adec-0012015af7d0"
           ],
           "remarks": "Exactly one party"
         },
-        "csp-operations-center": {
+        {
+          "role-id": "csp-operations-center",
           "party-uuids": [
             "4c9df173-6e48-4c4b-ad6a-957f54a2823e"
           ],
           "remarks": "Exactly one party\n\nThe party-uuid should reference a party in the SSP.\n\nIf an appropriate party does not exist in the SSP, the SAP tool should add a party to the SAP, or have the CSP add the party to the SSP..\n\nThe SAP tool should not modify the SSP."
         },
-        "csp-assessment-poc": {
+        {
+          "role-id": "csp-assessment-poc",
           "party-uuids": [
             "f4568fda-c6d2-4640-adec-0012015af7d0",
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe",
@@ -440,20 +451,22 @@
           ],
           "remarks": "There should be at least three CSP Assessment POCs.\n\nAt least one should be available 24x7 during assessment activities.\n\nAt least one should be an operations center, such a SOC or NOC.\n\nThe party-uuid should reference a party in the SSP or SAP.\n\nIf an appropriate party does not exist in the SSP or SAP, the SAR tool should add a party to the SAR.\n\nThe SAP tool should not modify the SSP."
         },
-        "csp-end-of-testing-poc": {
+        {
+          "role-id": "csp-end-of-testing-poc",
           "party-uuids": [
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
           ],
           "remarks": "One or more parties"
         },
-        "csp-results-poc": {
+        {
+          "role-id": "csp-results-poc",
           "party-uuids": [
             "f4568fda-c6d2-4640-adec-0012015af7d0",
             "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
           ],
           "remarks": "One or more parties"
         }
-      },
+      ],
       "remarks": "This OSCAL-based FedRAMP SAR Template can be used for the FedRAMP initial or annual assessment reporting."
     },
     "import-ap": {
@@ -546,8 +559,9 @@
             }
           ],
           "assessment-assets": {
-            "components": {
-              "C1461F8A-684F-4727-8C08-4BB56C33A8DD": {
+            "components": [
+              {
+                "uuid": "C1461F8A-684F-4727-8C08-4BB56C33A8DD",
                 "type": "hardware",
                 "title": "Assessment Laptop",
                 "description": "Describe assessment laptop.",
@@ -562,7 +576,7 @@
                 },
                 "remarks": "Ideally, this assessment laptop would have been defined in the SAP, and not repeated here.\n\nIf the laptop was not known at the time the SAP was drafted, or something different was used, it must be defined here."
               }
-            },
+            ],
             "assessment-platforms": [
               {
                 "uuid": "67D98337-884A-46FF-98B1-42C53A4A7611",
@@ -770,7 +784,7 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   }
                 ],
                 "related-tasks": [
@@ -782,7 +796,7 @@
             ],
             "subjects": [
               {
-                "uuid-ref": "f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7",
+                "subject-uuid": "f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7",
                 "type": "component",
                 "title": "Reviewed Policy",
                 "remarks": "If the policy is defined in the SSP as a component, you can cite it using `subject`, and use the UUID of the policy component in the SSP."
@@ -818,7 +832,7 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   }
                 ],
                 "related-tasks": [
@@ -830,7 +844,7 @@
             ],
             "subjects": [
               {
-                "uuid-ref": "5ff3d794-d2e8-48be-bf9c-95c2328271ce",
+                "subject-uuid": "5ff3d794-d2e8-48be-bf9c-95c2328271ce",
                 "type": "party",
                 "title": "Interviewed Person"
               }
@@ -858,26 +872,26 @@
                 "actors": [
                   {
                     "type": "tool",
-                    "uuid-ref": "9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                    "actor-uuid": "9d194268-a9d1-4c38-839f-9c4aa57bf71e"
                   }
                 ]
               }
             ],
             "subjects": [
               {
-                "uuid-ref": "f61f4408-2cb8-444a-a312-bc88412e7c61",
+                "subject-uuid": "f61f4408-2cb8-444a-a312-bc88412e7c61",
                 "type": "inventory-item"
               },
               {
-                "uuid-ref": "02075556-3660-4112-8982-02fc7d6fac00",
+                "subject-uuid": "02075556-3660-4112-8982-02fc7d6fac00",
                 "type": "inventory-item"
               },
               {
-                "uuid-ref": "5efe2c07-9fdf-453a-8457-6471046082fb",
+                "subject-uuid": "5efe2c07-9fdf-453a-8457-6471046082fb",
                 "type": "inventory-item"
               },
               {
-                "uuid-ref": "75b059f2-a9ba-40b1-a1e0-881196ca1ead",
+                "subject-uuid": "75b059f2-a9ba-40b1-a1e0-881196ca1ead",
                 "type": "component"
               }
             ],
@@ -904,26 +918,26 @@
                 "actors": [
                   {
                     "type": "tool",
-                    "uuid-ref": "9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                    "actor-uuid": "9d194268-a9d1-4c38-839f-9c4aa57bf71e"
                   }
                 ]
               }
             ],
             "subjects": [
               {
-                "uuid-ref": "f61f4408-2cb8-444a-a312-bc88412e7c61",
+                "subject-uuid": "f61f4408-2cb8-444a-a312-bc88412e7c61",
                 "type": "inventory-item"
               },
               {
-                "uuid-ref": "02075556-3660-4112-8982-02fc7d6fac00",
+                "subject-uuid": "02075556-3660-4112-8982-02fc7d6fac00",
                 "type": "inventory-item"
               },
               {
-                "uuid-ref": "5efe2c07-9fdf-453a-8457-6471046082fb",
+                "subject-uuid": "5efe2c07-9fdf-453a-8457-6471046082fb",
                 "type": "inventory-item"
               },
               {
-                "uuid-ref": "75b059f2-a9ba-40b1-a1e0-881196ca1ead",
+                "subject-uuid": "75b059f2-a9ba-40b1-a1e0-881196ca1ead",
                 "type": "component"
               }
             ],
@@ -1017,7 +1031,7 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   }
                 ],
                 "related-tasks": [
@@ -1049,7 +1063,7 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   }
                 ],
                 "related-tasks": [
@@ -1081,7 +1095,7 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   }
                 ]
               }
@@ -1103,7 +1117,7 @@
                   "actors": [
                     {
                       "type": "party",
-                      "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                      "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                     }
                   ]
                 },
@@ -1154,7 +1168,7 @@
                   "actors": [
                     {
                       "type": "party",
-                      "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                      "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                     }
                   ]
                 },
@@ -1195,7 +1209,7 @@
                     "actors": [
                       {
                         "type": "party",
-                        "uuid-ref": "49f73135-efab-4275-9a79-003656ad890a"
+                        "actor-uuid": "49f73135-efab-4275-9a79-003656ad890a"
                       }
                     ]
                   }
@@ -1237,7 +1251,7 @@
                   "actors": [
                     {
                       "type": "tool",
-                      "uuid-ref": "040937c3-2e0e-407a-bb3c-d4e61ac1c460"
+                      "actor-uuid": "040937c3-2e0e-407a-bb3c-d4e61ac1c460"
                     }
                   ]
                 },
@@ -1341,7 +1355,7 @@
                     "actors": [
                       {
                         "type": "tool",
-                        "uuid-ref": "9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                        "actor-uuid": "9d194268-a9d1-4c38-839f-9c4aa57bf71e"
                       }
                     ]
                   }
@@ -1358,7 +1372,7 @@
                     "actors": [
                       {
                         "type": "party",
-                        "uuid-ref": "49f73135-efab-4275-9a79-003656ad890a"
+                        "actor-uuid": "49f73135-efab-4275-9a79-003656ad890a"
                       }
                     ]
                   }
@@ -1397,7 +1411,7 @@
                   "actors": [
                     {
                       "type": "party",
-                      "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                      "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                     }
                   ]
                 },
@@ -1438,7 +1452,7 @@
                     "actors": [
                       {
                         "type": "party",
-                        "uuid-ref": "49f73135-efab-4275-9a79-003656ad890a"
+                        "actor-uuid": "49f73135-efab-4275-9a79-003656ad890a"
                       }
                     ]
                   }
@@ -1458,18 +1472,18 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   },
                   {
                     "type": "party",
-                    "uuid-ref": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
+                    "actor-uuid": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
                   }
                 ]
               }
             ],
             "target": {
               "type": "objective-id",
-              "id-ref": "ac-1.a.1_obj.1",
+              "target-id": "ac-1.a.1_obj.1",
               "props": [
                 {
                   "name": "implementation-status",
@@ -1477,7 +1491,9 @@
                   "value": "implemented"
                 }
               ],
-              "status": "satisfied"
+              "status": {
+                "state": "satisfied"
+              }
             },
             "related-observations": [
               {
@@ -1500,18 +1516,18 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   },
                   {
                     "type": "party",
-                    "uuid-ref": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
+                    "actor-uuid": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
                   }
                 ]
               }
             ],
             "target": {
               "type": "objective-id",
-              "id-ref": "ac-1.a.1_obj.2",
+              "target-id": "ac-1.a.1_obj.2",
               "props": [
                 {
                   "name": "implementation-status",
@@ -1519,7 +1535,9 @@
                   "value": "implemented"
                 }
               ],
-              "status": "satisfied"
+              "status": {
+                "state": "satisfied"
+              }
             },
             "related-observations": [
               {
@@ -1542,18 +1560,18 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   },
                   {
                     "type": "party",
-                    "uuid-ref": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
+                    "actor-uuid": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
                   }
                 ]
               }
             ],
             "target": {
               "type": "objective-id",
-              "id-ref": "ac-1.a.1_obj.3",
+              "target-id": "ac-1.a.1_obj.3",
               "props": [
                 {
                   "name": "implementation-status",
@@ -1561,7 +1579,9 @@
                   "value": "implemented"
                 }
               ],
-              "status": "satisfied"
+              "status": {
+                "state": "satisfied"
+              }
             },
             "related-observations": [
               {
@@ -1587,16 +1607,23 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   },
                   {
                     "type": "party",
-                    "uuid-ref": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
+                    "actor-uuid": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
                   }
                 ]
               }
             ],
-            "implementation-statement-uuid": "7924db51-e44d-4215-ad7e-3a5dda44a631",
+            "target": {
+              "type": "statement-id",
+              "target-id": "au-1_smt.a",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
+            "implementation-statement-uuid": "9a2bd937-226e-4aaf-8261-2cf0c2e3aa10",
             "related-observations": [
               {
                 "observation-uuid": "A38F3BBA-5B71-400D-B8F2-D808E1D4627F"
@@ -1613,15 +1640,22 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   },
                   {
                     "type": "party",
-                    "uuid-ref": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
+                    "actor-uuid": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
                   }
                 ]
               }
             ],
+            "target": {
+              "type": "statement-id",
+              "target-id": "ra-5_smt.a",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
             "related-observations": [
               {
                 "observation-uuid": "6841d8eb-a72c-4672-acc2-2fd265d9617d"
@@ -1638,15 +1672,22 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   },
                   {
                     "type": "party",
-                    "uuid-ref": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
+                    "actor-uuid": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
                   }
                 ]
               }
             ],
+            "target": {
+              "type": "statement-id",
+              "target-id": "cm-2.1_smt.c",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
             "related-observations": [
               {
                 "observation-uuid": "63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"
@@ -1676,15 +1717,22 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   },
                   {
                     "type": "party",
-                    "uuid-ref": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
+                    "actor-uuid": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
                   }
                 ]
               }
             ],
+            "target": {
+              "type": "objective-id",
+              "target-id": "at-2.c_obj.2",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
             "related-observations": [
               {
                 "observation-uuid": "21b26801-2e00-4e59-979c-bf2a4ed93920"
@@ -1701,15 +1749,22 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "f4568fda-c6d2-4640-adec-0012015af7d0"
+                    "actor-uuid": "f4568fda-c6d2-4640-adec-0012015af7d0"
                   },
                   {
                     "type": "party",
-                    "uuid-ref": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
+                    "actor-uuid": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
                   }
                 ]
               }
             ],
+            "target": {
+              "type": "objective-id",
+              "target-id": "ca-8.1_obj",
+              "status": {
+                "state": "not-satisfied"
+              }
+            },
             "related-observations": [
               {
                 "observation-uuid": "21b26801-2e00-4e59-979c-bf2a4ed93920"
@@ -1754,13 +1809,6 @@
             ],
             "collected": "2019-03-01T10:11:12Z"
           }
-        ],
-        "findings": [
-          {
-            "uuid": "30451d68-4b70-42cc-a564-a26696a6ed03",
-            "title": "",
-            "description": ""
-          }
         ]
       },
       {
@@ -1800,7 +1848,7 @@
                 "actors": [
                   {
                     "type": "party",
-                    "uuid-ref": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
+                    "actor-uuid": "e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
                   }
                 ]
               }
@@ -1812,7 +1860,14 @@
           {
             "uuid": "A0A1395D-59CD-46D9-91A2-E6CA62AE9BAB",
             "title": "",
-            "description": ""
+            "description": "",
+            "target": {
+              "type": "statement-id",
+              "target-id": "ac-1_smt.a",
+              "status": {
+                "state": "not-satisfied"
+              }
+            }
           }
         ]
       }

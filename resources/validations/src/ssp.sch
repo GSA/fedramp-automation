@@ -215,7 +215,7 @@
     <sch:pattern>
         <sch:rule context="/o:system-security-plan">
             <sch:let name="ok-values"
-                     value="$registry/f:fedramp-values/f:value-set[@name = 'security-sensitivity-level']" />
+                     value="$registry/f:fedramp-values/f:value-set[@name = 'security-level']" />
             <sch:let name="sensitivity-level"
                      value="/ =&gt; lv:sensitivity-level() =&gt; lv:if-empty-default('')" />
             <sch:let name="corrections"
@@ -945,7 +945,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         </sch:rule>
         <sch:rule context="oscal:base | oscal:selected">
             <sch:let name="fips-199-levels"
-                     value="$fedramp-values//fedramp:value-set[@name = 'security-impact-level']//fedramp:enum/@value" />
+                     value="$fedramp-values//fedramp:value-set[@name = 'security-level']//fedramp:enum/@value" />
             <sch:assert diagnostics="cia-impact-has-approved-fips-categorization-diagnostic"
                         id="cia-impact-has-approved-fips-categorization"
                         role="error"

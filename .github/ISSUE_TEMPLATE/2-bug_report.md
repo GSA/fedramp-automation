@@ -3,7 +3,7 @@ name: Bug report
 about: Create a report to help us improve
 title: ''
 labels: bug
-assignees: ''
+assignees: ohsh6o
 
 ---
 
@@ -12,6 +12,8 @@ assignees: ''
 {A clear and concise description of what the bug is.}
 
 # Who is the bug affecting?
+
+# What version of OSCAL are you using? (Check our info on [supported OSCAL versions](https://github.com/GSA/fedramp-automation/blob/master/README.md#support-and-oscal-deprecation-strategy))
 
 # What is affected by this bug?
 
@@ -23,12 +25,13 @@ assignees: ''
 
 # How do we replicate the issue?
 
-{What are the steps to reproduce the behavior?
+{What are the steps to reproduce the behavior?}
+
 1. Do this...
 1. Then this...
 1. See error
 
-If applicable, add screenshots to help explain your problem.}
+{If applicable, add screenshots to help explain your problem.}
 
 # Expected behavior (i.e. solution)
 

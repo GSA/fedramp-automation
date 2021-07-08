@@ -3,8 +3,8 @@
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values [DRAFT]</title>
       <title-short>FedRAMP Data Values (DRAFT)</title-short>
-      <last-modified>2020-03-03Z</last-modified>
-      <version>DRAFT</version>
+      <last-modified>2021-07-06T12:28:35Z</last-modified>
+      <version>fedramp1.0.0-oscal1.0.0</version>
       <author>FedRAMP PMO</author>
       <description>This EXPERIMENTAL and DRAFT file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
       <remarks />
@@ -116,28 +116,13 @@
       </allowed-values>
    </value-set>
 
-   <value-set name="security-objective-level">
-      <formal-name>Security Objective Level</formal-name>
-      <description>The security objective level as defined by FIPS-199.</description>
-      <binding pattern="system-characteristics/security-impact-level/security-objective-confidentiality" />
-      <binding pattern="system-characteristics/security-impact-level/security-objective-availability" />
-      <binding pattern="system-characteristics/security-impact-level/security-objective-integrity" />
-      <allowed-values allow-other="no">
-         <enum value="fips-199-low" short-label="L">Low</enum>
-         <enum value="fips-199-moderate" short-label="M">Moderate</enum>
-         <enum value="fips-199-high" short-label="H">High</enum>
-      </allowed-values>
-   </value-set>
-
-   <value-set name="security-impact-level">
+   <value-set name="security-level">
       <formal-name>Security Impact Level</formal-name>
       <description>The security objective level as defined by NIST SP 800-60.</description>
-      <binding pattern="information-type/confidentiality-impact/base" />
-      <binding pattern="information-type/confidentiality-impact/selected" />
-      <binding pattern="information-type/availability-impact/base" />
-      <binding pattern="information-type/availability-impact/selected" />
-      <binding pattern="information-type/integrity-impact/base" />
-      <binding pattern="information-type/integrity-impact/selected" />
+      <binding pattern="security-sensitivity-level"/>
+      <binding pattern="security-impact-level"/>
+      <binding pattern="(security-objective-confidentiality|security-objective-integrity|security-objective-availability)"/>
+      <binding pattern="system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)" />
       <allowed-values allow-other="no">
          <enum value="fips-199-low" short-label="L">Low</enum>
          <enum value="fips-199-moderate" short-label="M">Moderate</enum>
@@ -194,17 +179,6 @@
          <enum value="no" short-label="No">No</enum>
       </allowed-values>
       <remarks>If "yes" a SORN ID must be provided.</remarks>
-   </value-set>
-
-   <value-set name="security-sensitivity-level">
-      <formal-name>Security Sensitivity Level</formal-name>
-      <description>The security sensitivity level for the system.</description>
-      <binding pattern="security-sensitivity-level" />
-      <allowed-values allow-other="no">
-         <enum value="low" short-label="L">Low</enum>
-         <enum value="moderate" short-label="M">Moderate</enum>
-         <enum value="high" short-label="H">High</enum>
-      </allowed-values>
    </value-set>
 
    <value-set name="likelihood">
@@ -427,7 +401,7 @@
       <formal-name>Is Scanned</formal-name>
       <description>Indicates if the asset is scan.</description>
       <binding pattern="inventory-item/prop[@name='is-scanned']/@value" />
-      <binding pattern="component/prop[@name='is-scannan']/@value" />
+      <binding pattern="component/prop[@name='is-scanned']/@value" />
       <allowed-values allow-other="no">
          <enum value="yes" short-label="Y">Yes</enum>
          <enum value="no" short-label="N">No</enum>

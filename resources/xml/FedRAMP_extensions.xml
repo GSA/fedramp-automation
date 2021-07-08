@@ -3,10 +3,10 @@
    xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="BA710064-79AC-47D5-8F70-6749B359E7E2" >
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Extensions [DRAFT]</title>
-      <published>2021-02-25T00:00:00Z</published>
-      <last-modified>2021-02-25T00:00:00Z</last-modified>
-      <version>DRAFT-03</version>
-      <oscal-version>1.0.0-rc2</oscal-version>
+      <published>2021-07-06T23:07:21Z</published>
+      <last-modified>2021-07-06T23:07:21Z</last-modified>
+      <version>fedramp1.0.0-oscal1.0.0</version>
+      <oscal-version>oscal-1.0.0</oscal-version>
       <revisions>
          <revision>
             <published>2019-06-01T00:00:00.00-04:00</published>
@@ -111,7 +111,7 @@
       <binding pattern="/o:assessment-results/o:local-definitions/o:objectives-and-methods//part/o:prop" />
       
       <constraint>
-         <matches data-type="empty" />
+         <matches data-type="string" />
          <has-cardinality min-occurs="0" max-occurs="1" />
       </constraint>
       <remarks>
@@ -166,11 +166,14 @@
       </remarks>
    </extension>
    
-   <extension id="security-eauth-level">
+   <extension id="security-cia-level">
       <extension-name>security-eauth-level</extension-name>
       <formal-name>eAuth Level (OVERALL)</formal-name>
       <description>The overall electronic authentication (eAuth) level applied to the system.</description>
       <binding pattern="/o:system-security-plan/o:system-characteristics/o:prop"/>
+      <binding pattern="system-characteristics/o:prop[@name='authenticator-assurance-level']"/>
+      <binding pattern="system-characteristics/o:prop[@name='federation-assurance-level']"/>
+      <binding pattern="system-characteristics/o:prop[@name='identity-assurance-level']"/>
       <constraint>
          <matches data-type="integer"></matches>
          <has-cardinality min-occurs="1" max-occurs="1"></has-cardinality>
@@ -189,7 +192,7 @@
       <description>Identifies the FedRAMP authorization type.</description>
       <binding pattern="/o:system-security-plan/o:system-characteristics/o:prop"/>
       <constraint>
-         <matches data-type="NCName"></matches>
+         <matches data-type="token"></matches>
          <has-cardinality min-occurs="1" max-occurs="1"></has-cardinality>
          <allowed-values allow-other="no">
             <enum value="fedramp-jab" label="JAB P-ATO">A FedRAMP Joint Authorization Board (JAB) Provisional-Authorization to Operate (P-ATO).</enum>
@@ -242,14 +245,29 @@
          <has-cardinality min-occurs="1" max-occurs="1" />
       </constraint>
    </extension>
+
+   <extension id="privacy-designation">
+      <extension-name>privacy-designation</extension-name>
+      <formal-name>Privacy Designation</formal-name>
+      <description>Indicates whether this system is privacy sensitive.</description>
+      <binding pattern="system-information/o:prop[@name='privacy-sensitive']" />
+      <constraint>
+         <matches data-type="token" />
+         <has-cardinality min-occurs="0" max-occurs="1" />         
+         <allowed-values allow-other="no">
+            <enum value="yes" label="Yes">Privacy Sensitive</enum>
+            <enum value="no" label="No">Not Privacy Sensitive</enum>
+         </allowed-values>
+      </constraint>
+   </extension>
    
-   <extension id="pta-1">
-      <extension-name>pta-1</extension-name>
+   <extension id="privacy-threshold-analysis-q1">
+      <extension-name>privacy-threshold-analysis-q1</extension-name>
       <formal-name>Privacy Threshold Analysis Q1</formal-name>
       <description>Does the ISA collect, maintain, or share PII in any identifiable form?</description>
       <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-information/o:prop"/>
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="1" max-occurs="1" />
          <allowed-values allow-other="no">
             <enum value="yes" label="Yes">Yes, the ISA collects, maintains, or shares some form of PII.</enum>
@@ -258,13 +276,13 @@
       </constraint>
    </extension>
    
-   <extension id="pta-2">
-      <extension-name>pta-2</extension-name>
+   <extension id="privacy-threshold-analysis-q2">
+      <extension-name>privacy-threshold-analysis-q2</extension-name>
       <formal-name>Privacy Threshold Analysis Q2</formal-name>
       <description>Does the ISA collect, maintain, or share PII from or about the public?</description>
       <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-information/o:prop"/>
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="1" max-occurs="1" />
          <allowed-values allow-other="no">
             <enum value="yes" label="Yes">Yes, the ISA collects, maintains, or shares PII from or about the public.</enum>
@@ -273,13 +291,13 @@
       </constraint>
    </extension>
    
-   <extension id="pta-3">
-      <extension-name>pta-3</extension-name>
+   <extension id="privacy-threshold-analysis-q3">
+      <extension-name>privacy-threshold-analysis-q3</extension-name>
       <formal-name>Privacy Threshold Analysis Q3</formal-name>
       <description>Has a Privacy Impact Assessment (PIA) ever been performed for the ISA?</description>
       <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-information/o:prop"/>
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="1" max-occurs="1" />
          <allowed-values allow-other="no">
             <enum value="yes" label="Yes">Yes, a PIA has been performed.</enum>
@@ -288,13 +306,13 @@
       </constraint>
    </extension>
    
-   <extension id="pta-4">
-      <extension-name>pta-4</extension-name>
+   <extension id="privacy-threshold-analysis-q4">
+      <extension-name>privacy-threshold-analysis-q4</extension-name>
       <formal-name>Privacy Threshold Analysis Q4</formal-name>
       <description>Is there a Privacy Act System of Records Notice (SORN) for this ISA system?</description>
       <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-information/o:prop"/>
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="1" max-occurs="1" />
          <allowed-values allow-other="no">
             <enum value="yes" label="Yes">Yes, there is a SORN ID for this system.</enum>
@@ -311,7 +329,7 @@
       <constraint>
          <matches data-type="string" />
          <has-cardinality min-occurs="0" max-occurs="1" />
-         <expect test=".[@name='pta-4'][@ns='https://fedramp.gov/ns/oscal']/value='yes' and .[@name='sorn-id'][@ns='https://fedramp.gov/ns/oscal']"></expect>
+         <expect test=".[@name='pta-4'][@ns='https://fedramp.gov/ns/oscal']/@value='yes' and .[@name='sorn-id'][@ns='https://fedramp.gov/ns/oscal']"></expect>
       </constraint>
    </extension>   
 
@@ -321,7 +339,7 @@
       <description>Defines the sensitivity level of the identified user type.</description>
       <binding pattern="/o:system-security-plan/o:system-implementation/o:user/o:prop"/>
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="1" max-occurs="unbounded" />
          <allowed-values allow-other="no">
             <enum value="high-risk"      label="High Risk"     >Misuse of the user's access could result in grave damage to the public's trust.</enum>
@@ -357,6 +375,64 @@
          <has-cardinality min-occurs="1" max-occurs="unbounded" />
       </constraint>
    </extension>
+
+   <extension id="asset-type">
+      <extension-name>asset-type</extension-name>
+      <formal-name>Asset Type</formal-name>
+      <description>Identifies the type of asset.</description>
+      <binding pattern="component/o:prop[@name='asset-type']" />
+      <binding pattern="o:inventory-item/o:prop[@name='asset-type']" />
+      <constraint>
+         <matches data-type="token" />
+         <allowed-values allow-other="yes">
+            <enum value="os" short-label="OS">Operating System</enum>
+            <enum value="database" short-label="DB">Database</enum>
+            <enum value="web-server" short-label="Web">Service</enum>
+            <enum value="dns-server" short-label="DNS">Policy</enum>
+            <enum value="email-server" short-label="eMail">Process</enum>
+            <enum value="directory-server" short-label="LDAP">Procedure</enum>
+            <enum value="pbx" short-label="PBX">Private Branch Exchange</enum>
+            <enum value="firewall" short-label="FW">Firewall</enum>
+            <enum value="router" short-label="Rtr">Router</enum>
+            <enum value="switch" short-label="Swtch">Switch</enum>
+            <enum value="storage-array" short-label="Store">Storage Array</enum>
+         </allowed-values>
+      </constraint>
+   </extension>
+
+   <extension id="interconnection-direction">
+      <extension-name>interconnection-direction</extension-name>
+      <formal-name>Interconnection Direction</formal-name>
+      <description>Identifies the direction of information flow for the interconnection.</description>
+      <binding pattern="o:component[@component-type='interconnection']/o:prop[@name='direction'][@ns='https://fedramp.gov/ns/oscal']" />
+      <constraint>
+         <matches data-type="token" />
+         <allowed-values allow-other="no">
+            <enum value="incoming" short-label="In">Incoming</enum>
+            <enum value="outgoing" short-label="Out">Outgoing</enum>
+            <enum value="incoming-outgoing" short-label="In/Out">Bi-Directional</enum>
+         </allowed-values>
+      </constraint>
+   </extension>
+
+   <extension id="interconnection-security">
+      <extension-name>interconnection-security</extension-name>
+      <formal-name>Interconnection Security</formal-name>
+      <description>Identifies the type of security applied to the interconnection.</description>
+      <binding pattern="o:component[@component-type='interconnection']/o:prop[@name='connection-security'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
+      <constraint>
+         <matches data-type="token" />
+         <allowed-values allow-other="no">
+            <enum value="ipsec" short-label="IPsec">IPsec</enum>
+            <enum value="vpn" short-label="VPN">Virtual Private Network</enum>
+            <enum value="ssl" short-label="SSL">Secure Socket Layer</enum>
+            <enum value="certificate" short-label="Cert">Certificate</enum>
+            <enum value="secure-file-transfer" short-label="SFT">Secure File Transfer</enum>
+            <enum value="other" short-label="Other">Other</enum>
+         </allowed-values>         
+      </constraint>
+   </extension>
+
    <extension id="port" >
       <extension-name>port</extension-name>
       <formal-name>Interconnection Port</formal-name>
@@ -366,6 +442,41 @@
          <matches data-type="string" />
          <has-cardinality min-occurs="1" max-occurs="unbounded" />
          <expect test=".[@class]" />
+      </constraint>
+   </extension>
+
+   <extension id="transport-type">
+      <extension-name>transport-type</extension-name>
+      <formal-name>Transport Type</formal-name>
+      <description>The internet protocol transport type.</description>
+      <binding pattern="o:component[@component-type='service']/o:protocol/o:port-range/@transport" />
+      <constraint>
+         <matches data-type="token" />
+         <allowed-values allow-other="no">
+            <enum value="TCP" short-label="TCP">TCP</enum>
+            <enum value="UDP" short-label="UDP">UDP</enum>
+         </allowed-values>
+      </constraint>
+   </extension>
+
+   <extension id="inventory-item-state">
+      <extension-name>inventory-item-state</extension-name>
+      <formal-name>Different states of inventory items: public, private, et cetera.</formal-name>
+      <description>Indicates if the asset is virtual.</description>
+      <binding pattern="o:inventory-item/o:prop[@name='virtual']" />
+      <binding pattern="o:component/o:prop[@name='virtual']" />
+      <binding pattern="o:inventory-item/o:prop[@name='public']" />
+      <binding pattern="component/o:prop[@name='public']" />
+      <binding pattern="o:inventory-item/o:prop[@name='allows-authenticated-scan']/@value" />
+      <binding pattern="o:component/o:prop[@name='allows-authenticated-scan']/@value" />
+      <binding pattern="o:inventory-item/o:prop[@name='is-scanned']/@value" />
+      <binding pattern="o:component/o:prop[@name='is-scanned']/@value" />
+      <constraint>
+         <matches data-type="token" />
+         <allowed-values allow-other="no">
+            <enum value="yes" short-label="Y">Yes</enum>
+            <enum value="no" short-label="N">No</enum>
+         </allowed-values>
       </constraint>
    </extension>
    
@@ -386,7 +497,7 @@
       <description>Identifies the mechanisms/protocol(s) used to secure the communication.</description>
       <binding pattern="/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop" />
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="1" max-occurs="unbounded" />
          <allowed-values allow-other="no">
             <enum value="ipsec" label="IPsec">IPsec</enum>
@@ -415,13 +526,13 @@
       <formal-name>Scan Type</formal-name>
       <description>Identifies the type(s) of scans to be performed on this inventory-item or component.</description>
       <binding pattern="/o:system-security-plan/o:system-implementation/o:component/o:prop" />
-      <binding pattern="/o:system-security-plan/o:system-implementation/o:system-inventory/o:inventory-item/o:prop" />
+      <binding pattern="/o:system-security-plan/o:system-implementation/o:system-inventory/o:o:inventory-item/o:prop" />
       <binding pattern="/o:assessment-plan/o:local-definitions/o:component/o:prop" />
-      <binding pattern="/o:assessment-plan/o:local-definitions/o:inventory-item/o:prop" />
+      <binding pattern="/o:assessment-plan/o:local-definitions/o:o:inventory-item/o:prop" />
       <binding pattern="/o:assessment-results/o:result/o:local-definitions/o:component/o:prop" />
-      <binding pattern="/o:assessment-results/o:result/o:local-definitions/o:inventory-item/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definitions/o:o:inventory-item/o:prop" />
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="0" max-occurs="unbounded" />
          <allowed-values allow-other="no">
             <enum value="infrastructure" label="Infrastructure">The component or inventory item is included in operating system (OS) and/or infrastructure scans.</enum>
@@ -449,7 +560,7 @@
       <description>Indicates whether the assessor recommends the system be authorized by the authorizing official.</description>
       <binding pattern="/o:assessment-results/o:results/o:prop"/>
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="1" max-occurs="1" />
          <allowed-values allow-other="no">
             <enum value="yes" label="Yes">Yes, the assessor recommends the system for authorization.</enum>
@@ -561,7 +672,7 @@
       <binding pattern="/o:assessment-plan/o:assessment-subject/o:prop"/>
       <binding pattern="/o:assessment-results/o:results/o:assessment-subject/o:prop"/>
       <constraint>
-         <matches data-type="string" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="0" max-occurs="1" />
          <allowed-values allow-other="no">
             <enum value="yes" label="Yes">Yes, a sampling methodology was used.</enum>
@@ -587,7 +698,7 @@
       <description>Indicates the implementation status of the control objective.</description>
       <binding pattern="/o:assessment-results/o:results/o:finding/o:objective-status/o:prop"/>
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="0" max-occurs="1" />
          <allowed-values allow-other="no">
             <enum value="implemented" label="Implemented">The assessor finds sufficient evidence to agree the control objective is fully implemented.</enum>
@@ -603,11 +714,11 @@
       <extension-name>implementation-status</extension-name>
       <formal-name>Control Implementation Status</formal-name>
       <description>Indicates the implementation status of the control.</description>
-      <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop"/>
+      <binding pattern="o:implemented-requirement/o:prop[@name='implementation-status']/@value"/>
       <constraint>
          <has-cardinality min-occurs="1" max-occurs="unbounded" />
          <remarks>
-            <p>When a prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the <code>@value</code> flag.</p>
+            <p>When an prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the <code>@value</code> flag.</p>
          </remarks>
       </constraint>
    </extension>
@@ -630,12 +741,19 @@
       <extension-name>control-origination</extension-name>
       <formal-name>Control Origination</formal-name>
       <description>The point(s) from which the control satisfaction originates.</description>
-      <binding pattern="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:prop"/>
+      <binding pattern="implemented-requirement/o:prop[@name='control-origination']/@value"/>
       <constraint>
          <has-cardinality min-occurs="0" max-occurs="1" />
          <remarks>
-            <p>When a prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the <code>@value</code> flag.</p>
+            <p>When an prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the <code>@value</code> flag.</p>
          </remarks>
+         <allowed-values allow-other="no">
+            <enum value="sp-corporate" short-label="SP Corporate">Service Provider (Corporate)</enum>
+            <enum value="sp-system" short-label="SP System">Service Provider (System Specific)</enum>
+            <enum value="customer-configured" short-label="Cust. Configured">Configured by Customer</enum>
+            <enum value="customer-provided" short-label="Cust. Provided">Provided by Customer</enum>
+            <enum value="inherited" short-label="Inherited">Inherited</enum>
+         </allowed-values>
       </constraint>
    </extension>
    
@@ -643,7 +761,7 @@
       <extension-name>title-short</extension-name>
       <formal-name>Short System Name</formal-name>
       <description>The abbreviated name for the system, such as an acronym.</description>
-      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
       <constraint>
          <matches data-type="string" />
          <has-cardinality min-occurs="1" max-occurs="1" />         
@@ -654,7 +772,7 @@
       <extension-name>system-id</extension-name>
       <formal-name>Short System Name</formal-name>
       <description>The FedRAMP-assigned system identifier.</description>
-      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
       <constraint>
          <matches data-type="string" />
          <has-cardinality min-occurs="1" max-occurs="1" />         
@@ -665,7 +783,7 @@
       <extension-name>import-profile</extension-name>
       <formal-name>Relevant Baseline</formal-name>
       <description>Identifies the relevant OSCAL baseline.</description>
-      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
       <constraint>
          <matches data-type="uri" />
          <has-cardinality min-occurs="1" max-occurs="1" />         
@@ -679,7 +797,7 @@
       <extension-name>system-id</extension-name>
       <formal-name>Short System Name</formal-name>
       <description>The FedRAMP-assigned system identifier.</description>
-      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
       <constraint>
          <matches data-type="string" />
          <has-cardinality min-occurs="1" max-occurs="1" />         
@@ -688,9 +806,9 @@
 
    <extension id="no-oscal-ssp-authorization-date">
       <extension-name>authorization-date</extension-name>
-      <formal-name>Authorization DAte</formal-name>
+      <formal-name>Authorization Date</formal-name>
       <description>The date of the system's initial FedRAMP authorization.</description>
-      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
+      <binding pattern="/o:assessment-plan/o:back-matter/o:resource[./o:prop[@name='type'][.='no-oscal-ssp']]/o:prop"></binding>
       <constraint>
          <matches data-type="dateTime-with-timezone" />
          <has-cardinality min-occurs="1" max-occurs="1" />         
@@ -701,9 +819,9 @@
       <extension-name>logn-url</extension-name>
       <formal-name>Login URL</formal-name>
       <description>The login URL for a web application.</description>
-      <binding pattern="/o:system-security-plan/o:system-implementation/o:inventory-item/prop" />
+      <binding pattern="/o:system-security-plan/o:system-implementation/o:o:inventory-item/o:prop" />
       <binding pattern="/o:assessment-plan//o:task/o:prop" />
-      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop" />
       <constraint>
          <matches data-type="NCName" />
       </constraint>
@@ -714,7 +832,7 @@
       <formal-name>Login ID</formal-name>
       <description>The login ID used to assess the web application.</description>
       <binding pattern="/o:assessment-plan//o:task/o:prop" />
-      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop" />
       <constraint>
          <matches data-type="NCName" />
       </constraint>
@@ -725,7 +843,7 @@
       <formal-name>Test Type</formal-name>
       <description>Indicates the type of test represented by the task.</description>
       <binding pattern="/o:assessment-plan//o:task/o:prop" />
-      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop" />
       <constraint>
          <matches data-type="NCName" />
          <allowed-values>
@@ -739,7 +857,7 @@
       <formal-name>User Identifier</formal-name>
       <description>Cites the SSP defined user role to use for testing.</description>
       <binding pattern="/o:assessment-plan//o:task/o:prop" />
-      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:inventory-item/o:prop" />
+      <binding pattern="/o:assessment-results/o:result/o:local-definition/o:o:inventory-item/o:prop" />
       <constraint>
          <matches data-type="uuid" />
       </constraint>
@@ -762,7 +880,7 @@
       <binding pattern="/o:assessment-results/o:result/o:risk/o:prop" />
       <binding pattern="/o:plan-of-action-and-milestones/o:risk/o:prop" />
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
       </constraint>
       <remarks>
          <p>Impacted control is required in the POA&amp;M and optional in the SAR.</p>
@@ -795,6 +913,18 @@
             <enum value="no" label="No">The assessor does not recommend initial or continued authorization.</enum>
          </allowed-values>
       </constraint>
+   </extension>
+
+   <extension id="likelihood">
+      <extension-name>likelihood</extension-name>
+      <formal-name>Likelihood</formal-name>
+      <description>The likelihood of a risk.</description>
+      <binding pattern="o:risk/o:risk-metric[@name='likelihood'][@system='https://fedramp.gov']" />
+      <allowed-values allow-other="no">
+         <enum value="low" short-label="L">Low</enum>
+         <enum value="moderate" short-label="M">Moderate</enum>
+         <enum value="high" short-label="H">High</enum>
+      </allowed-values>
    </extension>
 
    <extension id="vulnerability-identifier">
@@ -830,7 +960,7 @@
       <binding pattern="/o:plan-of-action-and-milestones/o:observation/o:prop" />
       <binding pattern="/o:assessment-results/o:result/o:observation/o:prop" />
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="0" max-occurs="1" />
          <allowed-values>
             <enum value="investigating" label="Investigating">A possible operational requirement is being investigated.</enum>
@@ -870,7 +1000,7 @@
       <binding pattern="/o:plan-of-action-and-milestones/o:observation/o:prop" />
       <binding pattern="/o:assessment-results/o:result/o:observation/o:prop" />
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="0" max-occurs="1" />
          <allowed-values>
             <enum value="investigating" label="Investigating">A possible risk adjustment is being investigated.</enum>
@@ -890,7 +1020,7 @@
       <binding pattern="/o:plan-of-action-and-milestones/o:observation/o:prop" />
       <binding pattern="/o:assessment-results/o:result/o:observation/o:prop" />
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="token" />
          <has-cardinality min-occurs="0" max-occurs="1" />
          <allowed-values>
             <enum value="investigating" label="Investigating">The risk is a suspected vendor dependency, and is being investigated for verification.</enum>
@@ -935,7 +1065,7 @@
       <formal-name>Control Origination</formal-name>
       <description>The point(s) from which the control satisfaction originates.</description>
       <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
-      <matches data-type="NCName" />
+      <matches data-type="token" />
       <allowed-values allow-other="no">
          <enum value="sp-corporate" label="SP Corporate">Service Provider (Corporate)</enum>
          <enum value="sp-system" label="SP System">Service Provider (System Specific)</enum>
@@ -949,7 +1079,7 @@
       <formal-name>Control Implementation Status Constraints</formal-name>
       <description>Defines the data type and allowed values for the Control Implementation Status</description>
       <binding pattern="/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
-      <matches data-type="NCName" />
+      <matches data-type="token" />
       <allowed-values allow-other="no">
          <enum value="implemented" label="Implemented">The assessor finds sufficient evidence to agree the control objective is fully implemented.</enum>
          <enum value="partial" label="Partial">The assessor finds evidence to suggest a portion of the control objective is implemented and a portion is not.</enum>
@@ -958,7 +1088,7 @@
          <enum value="not-applicable" label="Not Applicable (N/A)">The assessor finds this control objective does not apply to this system.</enum>
       </allowed-values>
       <remarks>
-         <p>When an extension is a prop, the data type and allowed values must be defined in a separate constraint.</p>
+         <p>When an extension is an prop, the data type and allowed values must be defined in a separate constraint.</p>
       </remarks>
    </constraint>
 
@@ -1067,16 +1197,126 @@
          <enum value="penetration-test-lead" label="Penetration Test Lead">Penetration Test Lead</enum>      </allowed-values>
       <remarks><p>These are in addition to the NIST-defined allowed values for role identifiers, and apply to OSCAL-based FedRAMP SAP and SAR content.</p></remarks>
    </constraint>
-   
+
+   <constraint name="hash-algorithm">
+      <extension-name>hash-algorithm</extension-name>
+      <formal-name>Hash Algorithm</formal-name>
+      <description>Identifies the algorithm used to create the hash value of the attachment.</description>
+      <binding pattern="o:resource/o:hash/@algorithm" />
+      <allowed-values allow-other="yes">
+         <enum value="SHA-224" short-label="SHA-224">SHA-224</enum>
+         <enum value="SHA-256" short-label="SHA-256">SHA-256</enum>
+         <enum value="SHA-384" short-label="SHA-384">SHA-384</enum>
+         <enum value="SHA-512" short-label="SHA-512">SHA-512</enum>
+         <enum value="RIPEMD-160" short-label="RIPEMD-160">RIPEMD-160</enum>
+      </allowed-values>
+   </constraint>
+
    <constraint name="attachment-type">
       <formal-name>Attachment/Resource Types</formal-name>
       <description>FedRAMP additional attachment/resource types.</description>
       <binding pattern="/*/o:back-matter/o:resource/o:prop[@name='type']"/>
       <allowed-values allow-other="yes">
-         <enum value="personally-identifiable-information" label="Personally Identifiable Information (PII)">The resource is a citation related to Personally Identifiable Information (PII)</enum>
-         <enum value="privacy-impact-analysis" label="Privacy Impact Assessment (PIA)">The resource represents the FedRAMP Privacy Impact Assessment (PIA).</enum>
-         <enum value="fedramp-citations" label="FedRAMP Laws and Regulations">A resource containng laws and regulations relevant to FedRAMP.</enum>
-         <enum value="system-security-plan" label="System Security Plan (SSP)">A resource representing the system security plan, as imported by a SAP or POA&amp;M.</enum>
+         <enum value="law" short-label="Law">Law or Statute</enum>
+         <enum value="regulation" short-label="Regulation">Regulation or Directive</enum>
+         <enum value="standard" short-label="Standard">Industry Standard</enum>
+         <enum value="guidance" short-label="Guidance">Guidance</enum>
+         <enum value="pii" short-label="P.I.I.">Privacy Impact Information</enum>
+         <enum value="policy" short-label="Policy">Polciy</enum>
+         <enum value="procedure" short-label="Procedure">Procedure</enum>
+         <enum value="guide" short-label="Guidance">Guidance Document</enum>
+         <enum value="pia" short-label="P.I.A.">Privacy Impact Assessment</enum>
+         <enum value="rules-of-behavior" short-label="R.O.B.">Rules of Behavior</enum>
+         <enum value="plan" short-label="Plan">Plan</enum>
+         <enum value="system-security-plan" short-label="SSP">System Security Plan</enum>
+         <enum value="artifact" short-label="artifact">Artifact</enum>
+         <enum value="evidence" short-label="evidence">Evidence</enum>
+         <enum value="screen-shot" short-label="screen">Screen Shot</enum>
+         <enum value="image" short-label="image">Image</enum>
+         <enum value="tool-report" short-label="Report">Tool Report</enum>
+         <enum value="raw-tool-output" short-label="Raw">Raw Tool Output</enum>
+         <enum value="interview-notes" short-label="Notes">Interview Notes</enum>
+         <enum value="questionnaire" short-label="Questions">Questions</enum>
+         <enum value="report" short-label="Report">Report</enum>
+         <enum value="fedramp-citations" short-label="FR Citations">FedRAMP Citations</enum>
+         <enum value="fedramp-acronyms" short-label="FR Acronyms">FedRAMP Acronyms</enum>
+         <enum value="fedramp-logo" short-label="FR Logo">FedRAMP Logo</enum>
+         <enum value="separation-of-duties-matrix" short-label="SoD Matrix">Separation of Duties Matrix</enum>
+         <enum value="logo" short-label="Logo">Logo</enum>
+         <!-- See, e.g., https://www.dol.gov/general/ppii#:~:text=Personal%20Identifiable%20Information%20(PII)%20is,either%20direct%20or%20indirect%20means. -->
+         <!-- All the privacy "types" need rationalization -->
+         <enum value="Personal-Identifiable-Information" short-label="PII">Personal Identifiable Information (PII)</enum>
+         <enum value="agreement" short-label="Agreement">Agreement</enum>
+         <enum value="incident-response-plan" short-label="IRP">Incident Response Plan</enum>
+         <enum value="information-security-policies-and-procedures" short-label="ISPP">Incident Security Policies and Procedures</enum>
+         <enum value="user-guide" short-label="User Guide">User Guide</enum>
+         <enum value="privacy-impact-assessment" short-label="PII">Privacy Impact Assessment</enum>
+         <enum value="information-system-contingency-plan" short-label="ISCP">Information System Contingency Plan</enum>
+         <enum value="configuration-management-plan" short-label="CMP">configuration-management-plan</enum>
+      </allowed-values>
+      <remarks><p>These are in addition to the NIST-defined allowed values for resource types.</p></remarks>
+   </constraint>
+
+   <constraint name="media-type">
+      <formal-name>Attachment/Resource Media Types</formal-name>
+      <description>IANA media-types supported by FedRAMP as attachment/resource types.</description>
+      <binding
+      pattern="o:rlink/@media-type" />
+   <binding
+      pattern="o:base64/@media-type" />
+      <allowed-values>
+         <enum
+            value="application/gzip">application/gzip</enum>
+         <enum
+            value="application/msword">application/msword</enum>
+         <enum
+            value="application/octet-stream">application/octet-stream<!-- (NOTE: Used for a variety of binary formats, often ZIP archives.) --></enum>
+         <enum
+            value="application/pdf">application/pdf</enum>
+         <enum
+            value="application/vnd.ms-excel">application/vnd.ms-excel</enum>
+         <enum
+            value="application/vnd.ms-works">application/vnd.ms-works</enum>
+         <enum
+            value="application/vnd.oasis.opendocument.graphics">application/vnd.oasis.opendocument.graphics</enum>
+         <enum
+            value="application/vnd.oasis.opendocument.presentation">application/vnd.oasis.opendocument.presentation</enum>
+         <enum
+            value="application/vnd.oasis.opendocument.spreadsheet">application/vnd.oasis.opendocument.spreadsheet</enum>
+         <enum
+            value="application/vnd.oasis.opendocument.text">application/vnd.oasis.opendocument.text</enum>
+         <enum
+            value="application/vnd.openxmlformats-officedocument.presentationml.presentation">application/vnd.openxmlformats-officedocument.presentationml.presentation</enum>
+         <enum
+            value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</enum>
+         <enum
+            value="application/vnd.openxmlformats-officedocument.wordprocessingml.document">application/vnd.openxmlformats-officedocument.wordprocessingml.document</enum>
+         <enum
+            value="application/x-bzip">application/x-bzip</enum>
+         <enum
+            value="application/x-bzip2">application/x-bzip2</enum>
+         <enum
+            value="application/x-tar">application/x-tar</enum>
+         <enum
+            value="application/zip">application/zip</enum>
+         <enum
+            value="image/bmp">image/bmp</enum>
+         <enum
+            value="image/jpeg">image/jpeg<!-- (NOTE: Not standard, but very frequently used)--></enum>
+         <enum
+            value="image/png">image/png</enum>
+         <enum
+            value="image/tiff">image/tiff</enum>
+         <enum
+            value="image/webp">image/webp</enum>
+         <enum
+            value="image/svg+xml">image/svg+xml</enum>
+         <enum
+            value="text/csv">text/csv</enum>
+         <enum
+            value="text/html">text/html</enum>
+         <enum
+            value="text/plain">text/plain</enum>
       </allowed-values>
       <remarks><p>These are in addition to the NIST-defined allowed values for resource types.</p></remarks>
    </constraint>
@@ -1087,6 +1327,7 @@
       <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-id/@identifier-type"/>
       <allowed-values allow-other="yes">
          <enum value="https://fedramp.gov" label="FedRAMP ID">FedRAMP-Assigned Identifier</enum>
+         <enum value="https://ietf.org/rfc/rfc4122" short-label="UUIDv4">RFC-4122 UUIDv4 Value</enum>
       </allowed-values>
    </constraint>
    
@@ -1100,15 +1341,13 @@
       <remarks><p>FedRAMP only allows information types defined in NIST SP 800-60v2r1.</p></remarks>
    </constraint>
    
-   <constraint name="security-impact-level">
+   <constraint name="security-level">
       <formal-name>Security Impact Level</formal-name>
       <description>The security objective level as defined by NIST SP 800-60.</description>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-information/o:information-type/o:confidentiality-impact/base"/>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-information/o:information-type/o:confidentiality-impact/selected"/>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-information/o:information-type/o:availability-impact/base"/>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-information/o:information-type/o:availability-impact/selected"/>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-information/o:information-type/o:integrity-impact/base"/>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-information/o:information-type/o:integrity-impact/selected"/>
+      <binding pattern="security-sensitivity-level"/>
+      <binding pattern="security-impact-level"/>
+      <binding pattern="(security-objective-confidentiality|security-objective-integrity|security-objective-availability)"/>
+      <binding pattern="system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)" />
       <allowed-values allow-other="no">
          <enum value="fips-199-low" label="L">Low</enum>
          <enum value="fips-199-moderate" label="M">Moderate</enum>
@@ -1119,43 +1358,15 @@
    <constraint name="system-operational-status">
       <formal-name>Operational Status (system)</formal-name>
       <description>The operational status of the system</description>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:system-characteristics/o:status/@state"/>
+      <binding pattern="/o:system-security-plan/o:system-characteristics/o:status/@state"/>
       <allowed-values allow-other="no">
-         <enum value="operational" label="Operational">Operational</enum>
-         <enum value="under-major-modification" label="Major Mod.">Major Modification</enum>
-         <enum value="other" label="Other">Other</enum>
+         <enum value="operational" short-label="Operational">Operational</enum>
+         <enum value="under-development" short-label="Development">Under Development</enum>
+         <enum value="disposition" short-label="Alternative">Alternative Implementation</enum>
+         <enum value="other" short-label="Other">Other</enum>
       </allowed-values>
       <remarks>
          <p>FedRAMP limits the allowed values from a larger NIST-defined list to only those defined here.</p>
-      </remarks>
-   </constraint>
-   
-   <constraint name="service-model">
-      <formal-name>Service Model</formal-name>
-      <description>The cloud service model.</description>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:prop[@name='service-model']/@value"/>
-      <allowed-values allow-other="no">
-         <enum value="saas" label="SaaS">Software as a Service</enum>
-         <enum value="paas" label="PaaS">Platform as a Service</enum>
-         <enum value="iaas" label="IaaS">Infrastructure as a Service</enum>
-         <enum value="other" label="Other">Other</enum>
-      </allowed-values>
-   </constraint>
-   
-   <constraint name="deployment-model">
-      <formal-name>Deployment Model</formal-name>
-      <description>The cloud deployment model.</description>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:prop[@name='deployment-model']/@value"/>
-      <allowed-values allow-other="no">
-         <enum value="public-cloud" label="Public">Public Cloud</enum>
-         <enum value="private-cloud" label="Private">Private Cloud</enum>
-<!--         <enum value="community-cloud" label="Community">Community Cloud</enum>
--->         <enum value="government-only-cloud" label="USG-Only">U.S. Government Only</enum>
-         <enum value="hybrid-cloud" label="Hybrid">Hybrid</enum>
-         <enum value="other" label="Other">Other</enum>
-      </allowed-values>
-      <remarks>
-         <p>NIST also defines a community cloud model; however, FedRAMP does not accept this response.</p>
       </remarks>
    </constraint>
 
