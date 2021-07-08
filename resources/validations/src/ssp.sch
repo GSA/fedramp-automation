@@ -78,12 +78,6 @@
                   name="lv:profile">
         <xsl:param name="level" />
         <xsl:variable name="profile-map">
-            <!-- 
-            OSCAL releases are tagged, but updates from OSCAL CI/CD pipeline to
-            github.com/usnistgov/oscal-content are not. The 0f78f05 commit is the
-            most recent triggered by the OSCAL 1.0.0-rc1 release. Change this url
-            accordingly if you know what you are doing.
-            -->
             <profile href="{concat($baselines-base-path, '/FedRAMP_rev4_LOW-baseline-resolved-profile_catalog.xml')}"
                      level="low" />
             <profile href="{concat($baselines-base-path, '/FedRAMP_rev4_MODERATE-baseline-resolved-profile_catalog.xml')}"
