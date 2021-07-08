@@ -1405,9 +1405,6 @@ system-implementation user assembly.</sch:assert>
         <sch:rule context="oscal:user/oscal:prop[@name = 'type']">
             <sch:let name="user-types"
                      value="$fedramp-values//fedramp:value-set[@name = 'user-type']//fedramp:enum/@value" />
-            <sch:report role="information"
-                        test="true()">User types are 
-            <sch:value-of select="string-join($user-types, ', ')" />.</sch:report>
             <sch:assert diagnostics="user-user-type-has-allowed-value-diagnostic"
                         id="user-user-type-has-allowed-value"
                         role="error"
@@ -1416,9 +1413,6 @@ system-implementation user assembly.</sch:assert>
         <sch:rule context="oscal:user/oscal:prop[@name = 'privilege-type']">
             <sch:let name="user-privilege-types"
                      value="$fedramp-values//fedramp:value-set[@name = 'user-privilege']//fedramp:enum/@value" />
-            <sch:report role="information"
-                        test="true()">Privilege types are 
-            <sch:value-of select="string-join($user-privilege-types, ', ')" />.</sch:report>
             <sch:assert diagnostics="user-privilege-type-has-allowed-value-diagnostic"
                         id="user-privilege-type-has-allowed-value"
                         role="error"
@@ -1427,9 +1421,6 @@ system-implementation user assembly.</sch:assert>
         <sch:rule context="oscal:user/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal'][@name = 'sensitivity']">
             <sch:let name="user-sensitivity-levels"
                      value="$fedramp-values//fedramp:value-set[@name = 'user-sensitivity-level']//fedramp:enum/@value" />
-            <sch:report role="information"
-                        test="true()">Sensitivity levels are 
-            <sch:value-of select="string-join($user-sensitivity-levels, ', ')" />.</sch:report>
             <sch:assert diagnostics="user-sensitivity-level-has-allowed-value-diagnostic"
                         id="user-sensitivity-level-has-allowed-value"
                         role="error"
