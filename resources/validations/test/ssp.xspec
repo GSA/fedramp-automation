@@ -27,7 +27,7 @@
                     <x:context>
                         <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
+                                <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                             </system-characteristics>
                         </system-security-plan>
                     </x:context>
