@@ -181,17 +181,6 @@
       <remarks>If "yes" a SORN ID must be provided.</remarks>
    </value-set>
 
-   <value-set name="security-sensitivity-level">
-      <formal-name>Security Sensitivity Level</formal-name>
-      <description>The security sensitivity level for the system.</description>
-      <binding pattern="security-sensitivity-level" />
-      <allowed-values allow-other="no">
-         <enum value="low" short-label="L">Low</enum>
-         <enum value="moderate" short-label="M">Moderate</enum>
-         <enum value="high" short-label="H">High</enum>
-      </allowed-values>
-   </value-set>
-
    <value-set name="likelihood">
       <formal-name>Likelihood</formal-name>
       <description>The likelihood of a risk.</description>
