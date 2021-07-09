@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 
-import type { ValidationAssert } from '../../../../../use-cases/schematron';
-import { usePresenter } from '../../../views/hooks';
-import { colorTokenForRole } from '../../../util/styles';
+import type { ValidationAssert } from '../../../../use-cases/schematron';
+import { Routes, getUrl } from '../../presenter/router';
+import { colorTokenForRole } from '../../util/styles';
+import { useAppState } from '../hooks';
 
 const MAX_ASSERT_TEXT_LENGTH = 200;
 
-const Assertion = ({ assert }: { assert: ValidationAssert }) => {
+const Assertion = ({
+  assert,
+  href,
+}: {
+  assert: ValidationAssert;
+  href: string;
+}) => {
   const [expanded, setExpanded] = useState<boolean>(false);
   return (
     <div
@@ -34,7 +41,16 @@ const Assertion = ({ assert }: { assert: ValidationAssert }) => {
           )}
           <ul>
             {assert.see && <li>`see: ${assert.see}`</li>}
-            <li>xpath: {assert.location}</li>
+            <li>
+              <a
+                href={href}
+                className="usa-tooltip"
+                data-position="top"
+                title={assert.location}
+              >
+                Show context in SSP
+              </a>
+            </li>
             <li>test: {assert.test}</li>
           </ul>
         </div>
@@ -44,18 +60,22 @@ const Assertion = ({ assert }: { assert: ValidationAssert }) => {
 };
 
 export const SSPReport = () => {
-  const { state } = usePresenter();
+  const reportState = useAppState().report;
   return (
     <div>
-      {state.report.current === 'VALIDATED' && (
+      {reportState.current === 'VALIDATED' && (
         <>
           <h1>
-            Showing {state.report.visibleAssertions.length} of{' '}
-            {state.report.validationReport &&
-              state.report.validationReport.failedAsserts.length}
+            Showing {reportState.visibleAssertions.length} of{' '}
+            {reportState.validationReport &&
+              reportState.validationReport.failedAsserts.length}
           </h1>
-          {state.report.visibleAssertions.map((assert, index) => (
-            <Assertion key={index} assert={assert} />
+          {reportState.visibleAssertions.map((assert, index) => (
+            <Assertion
+              key={index}
+              assert={assert}
+              href={getUrl(Routes.assertion({ assertionId: assert.uniqueId }))}
+            />
           ))}
         </>
       )}

@@ -1,16 +1,23 @@
-import { createOvermind, createOvermindMock, IConfig } from 'overmind';
+import {
+  createOvermind,
+  createOvermindMock,
+  derived,
+  IContext,
+} from 'overmind';
 import { merge, namespaced } from 'overmind/config';
 
-import * as github from '../../../domain/github';
 import * as actions from './actions';
+import type { AnnotateXMLUseCase } from '../../../use-cases/annotate-xml';
 import type {
   ValidateSSPUseCase,
   ValidateSSPUrlUseCase,
 } from '../../../use-cases/validate-ssp-xml';
 
 import * as report from './report';
+import * as router from './router';
 
 type UseCases = {
+  annotateXML: AnnotateXMLUseCase;
   validateSSP: ValidateSSPUseCase;
   validateSSPUrl: ValidateSSPUrlUseCase;
 };
@@ -21,24 +28,33 @@ type SampleSSP = {
 };
 
 type State = {
+  currentRoute: router.Route;
   baseUrl: string;
-  repositoryUrl: string;
+  repositoryUrl?: string;
   sampleSSPs: SampleSSP[];
+  breadcrumbs: { text: string; selected: boolean; url: string }[];
 };
 
 export const getPresenterConfig = (
+  locationListen: router.LocationListener,
   useCases: UseCases,
   initialState: Partial<State> = {},
 ) => {
+  const state: State = {
+    currentRoute: router.Routes.home,
+    baseUrl: '',
+    sampleSSPs: [] as SampleSSP[],
+    ...initialState,
+    breadcrumbs: derived((state: State) =>
+      router.breadcrumbs[state.currentRoute.type](state.currentRoute),
+    ),
+  };
   return merge(
     {
       actions,
-      state: {
-        baseUrl: '',
-        sampleSSPs: [] as SampleSSP[],
-        ...initialState,
-      },
+      state,
       effects: {
+        locationListen,
         useCases,
       },
     },
@@ -47,22 +63,20 @@ export const getPresenterConfig = (
     }),
   );
 };
-export type PresenterConfig = ReturnType<typeof getPresenterConfig>;
-declare module 'overmind' {
-  interface Config extends IConfig<PresenterConfig> {}
-}
+export type PresenterConfig = IContext<ReturnType<typeof getPresenterConfig>>;
 
 export type PresenterContext = {
   baseUrl: string;
   debug: boolean;
   repositoryUrl: string;
   sampleSSPs: SampleSSP[];
+  locationListen: router.LocationListener;
   useCases: UseCases;
 };
 
 export const createPresenter = (ctx: PresenterContext) => {
   const presenter = createOvermind(
-    getPresenterConfig(ctx.useCases, {
+    getPresenterConfig(ctx.locationListen, ctx.useCases, {
       baseUrl: ctx.baseUrl,
       repositoryUrl: ctx.repositoryUrl,
       sampleSSPs: ctx.sampleSSPs,
@@ -85,6 +99,7 @@ export type Presenter = ReturnType<typeof createPresenter>;
 const getUseCasesShim = (): UseCases => {
   const stub = jest.fn();
   return {
+    annotateXML: stub,
     validateSSP: stub,
     validateSSPUrl: stub,
   };
@@ -97,7 +112,7 @@ type MockPresenterContext = {
 
 export const createPresenterMock = (ctx: MockPresenterContext = {}) => {
   const presenter = createOvermindMock(
-    getPresenterConfig(getUseCasesShim(), ctx.initialState),
+    getPresenterConfig(jest.fn(), getUseCasesShim(), ctx.initialState),
     {
       useCases: ctx.useCases,
     },

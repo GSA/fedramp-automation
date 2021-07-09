@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { usePresenter } from '../hooks';
+import { useActions, useAppState } from '../hooks';
 import { onFileInputChangeGetFile } from '../../util/file-input';
+import { SSPReport } from './SSPReport';
 import { colorTokenForRole } from '../../util/styles';
-import { SSPReport } from './report';
 
-export const SSPValidator = () => {
-  const { state, actions } = usePresenter();
+export const HomePage = () => {
+  const state = useAppState();
+  const actions = useActions();
   const validatedReport = state.report.matches('VALIDATED');
 
   return (

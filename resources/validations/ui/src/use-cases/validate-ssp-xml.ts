@@ -17,9 +17,20 @@ type ValidateSSPUrlUseCaseContext = {
 
 export const ValidateSSPUrlUseCase =
   (ctx: ValidateSSPUrlUseCaseContext) => (xmlUrl: string) => {
+    let xmlText: string;
     return ctx
       .fetch(xmlUrl)
       .then(response => response.text())
-      .then(ctx.generateSchematronValidationReport);
+      .then(text => {
+        xmlText = text;
+        return xmlText;
+      })
+      .then(ctx.generateSchematronValidationReport)
+      .then(validationReport => {
+        return {
+          validationReport,
+          xmlText,
+        };
+      });
   };
-export type ValidateSSPUrlUseCase = ReturnType<typeof ValidateSSPUseCase>;
+export type ValidateSSPUrlUseCase = ReturnType<typeof ValidateSSPUrlUseCase>;

@@ -1,9 +1,9 @@
 import React from 'react';
-import { useActions, useState } from '../hooks';
+import { useActions, useAppState } from '../hooks';
 
 export const Footer = () => {
   const { getAssetUrl } = useActions();
-  const { repositoryUrl } = useState();
+  const { repositoryUrl } = useAppState();
   return (
     <footer className="usa-footer usa-footer--slim">
       <div className="grid-container usa-footer__return-to-top">

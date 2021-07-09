@@ -26,7 +26,8 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
-    "importsNotUsedAsValues": "error"
+    "importsNotUsedAsValues": "error",
+    "downlevelIteration": true,
   },
   "ts-node": {
     "compilerOptions": {

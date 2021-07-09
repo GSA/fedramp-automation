@@ -1,4 +1,3 @@
-import { doesNotMatch } from 'assert/strict';
 import { createPresenterMock } from '..';
 
 describe('report action', () => {
@@ -78,7 +77,10 @@ describe('report action', () => {
             expect(presenter.state.report.current).toEqual('PROCESSING');
             done();
             return Promise.resolve({
-              failedAsserts: [],
+              xmlText: '<xml></xml>',
+              validationReport: {
+                failedAsserts: [],
+              },
             });
           }),
         },
@@ -98,7 +100,10 @@ describe('report action', () => {
       expect(presenter.state.report.current).toEqual('UNLOADED');
       presenter.actions.report.setFilterRole('error');
       expect(presenter.state.report.current).toEqual('UNLOADED');
-      presenter.actions.report.setValidationReport(MOCK_VALIDATION_REPORT);
+      presenter.actions.report.setValidationReport({
+        xmlText: '<xml></xml',
+        validationReport: MOCK_VALIDATION_REPORT,
+      });
     });
   });
 
@@ -112,11 +117,15 @@ describe('report action', () => {
       expect(presenter.state.report.current).toEqual('UNLOADED');
       presenter.actions.report.setFilterText('filter text');
       expect(presenter.state.report.current).toEqual('UNLOADED');
+      const xmlText = '<xml>ignored</xml>';
       presenter.actions.report.setXmlContents({
         fileName: 'file-name.xml',
-        xmlContents: '<xml>ignored</xml>',
+        xmlContents: xmlText,
       });
-      presenter.actions.report.setValidationReport(MOCK_VALIDATION_REPORT);
+      presenter.actions.report.setValidationReport({
+        xmlText,
+        validationReport: MOCK_VALIDATION_REPORT,
+      });
       presenter.actions.report.setFilterText('filter text');
       expect(presenter.state.report).toMatchObject({
         current: 'VALIDATED',
@@ -136,6 +145,7 @@ const MOCK_VALIDATION_REPORT = {
       text: 'ASSERT TEXT 1',
       test: 'not(exists($extraneous-roles))',
       id: 'incorrect-role-association',
+      uniqueId: 'incorrect-role-association-1',
       location:
         "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:metadata[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
     },
@@ -143,6 +153,7 @@ const MOCK_VALIDATION_REPORT = {
       text: 'ASSERT TEXT 2',
       test: 'not(exists($core-missing))',
       id: 'incomplete-core-implemented-requirements',
+      uniqueId: 'incomplete-core-implemented-requirements-1',
       role: 'error',
       location:
         "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:control-implementation[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",

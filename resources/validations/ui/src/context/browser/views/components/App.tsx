@@ -1,10 +1,26 @@
 import React from 'react';
+import { useAppState } from '../hooks';
 import { Banner } from './Banner';
+import { Breadcrumbs } from './Breadcrumbs';
 import { Footer } from './Footer';
 import { Header } from './Header';
-import { SSPValidator } from './SSPValidator';
+import { HomePage } from './HomePage';
+import { SummaryPage } from './SummaryPage';
+import { ViewerPage } from './ViewerPage';
 
-interface AppProps {}
+const CurrentPage = () => {
+  const { currentRoute } = useAppState();
+  if (currentRoute.type === 'Home') {
+    return <HomePage />;
+  } else if (currentRoute.type === 'Summary') {
+    return <SummaryPage />;
+  } else if (currentRoute.type === 'Assertion') {
+    return <ViewerPage assertionId={currentRoute.assertionId} />;
+  } else {
+    const _exhaustiveCheck: never = currentRoute;
+    return <></>;
+  }
+};
 
 export const App = () => {
   return (
@@ -12,7 +28,8 @@ export const App = () => {
       <Banner />
       <Header />
       <div className="grid-container">
-        <SSPValidator />
+        <Breadcrumbs />
+        <CurrentPage />
       </div>
       <Footer />
     </div>

@@ -3,6 +3,7 @@
  */
 
 export type ValidationAssert = {
+  uniqueId: string;
   id: string;
   location: string;
   role?: string;

@@ -1,7 +1,12 @@
 import { browserController } from './browser-controller';
-import { SaxonJsSchematronValidatorGateway } from '../shared/saxon-js-gateway';
+import { highlightXML } from '../shared/highlight-js';
+import {
+  SaxonJsSchematronValidatorGateway,
+  XmlIndenter,
+} from '../shared/saxon-js-gateway';
 import { createPresenter } from './presenter';
 import * as github from '../../domain/github';
+import { AnnotateXMLUseCase } from '../../use-cases/annotate-xml';
 import {
   ValidateSSPUseCase,
   ValidateSSPUrlUseCase,
@@ -40,7 +45,21 @@ export const runBrowserContext = ({
         baseUrl,
         repositoryUrl: github.getBranchTreeUrl(githubRepository),
         sampleSSPs: github.getSampleSSPs(githubRepository),
+        locationListen: (listener: (url: string) => void) => {
+          window.addEventListener('hashchange', event => {
+            listener(`#${event.newURL.split('#')[1]}`);
+          });
+        },
         useCases: {
+          annotateXML: AnnotateXMLUseCase({
+            xml: {
+              formatXML: highlightXML,
+              indentXml: XmlIndenter({
+                SaxonJS: (window as any).SaxonJS,
+              }),
+            },
+            SaxonJS: (window as any).SaxonJS,
+          }),
           validateSSP: ValidateSSPUseCase({
             generateSchematronValidationReport,
           }),
