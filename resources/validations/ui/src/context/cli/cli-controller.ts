@@ -1,8 +1,11 @@
 import { Command } from 'commander';
+import type { ParseSchematronUseCase } from 'src/use-cases/schematron';
 import type { ValidateSSPUseCase } from 'src/use-cases/validate-ssp-xml';
 
 type CommandLineContext = {
   readStringFile: (fileName: string) => string;
+  writeStringFile: (fileName: string, contents: string) => void;
+  parseSchematron: ParseSchematronUseCase;
   validateSSP: ValidateSSPUseCase;
 };
 
@@ -19,5 +22,15 @@ export const CommandLineController = (ctx: CommandLineContext) => {
         );
       });
     });
+  cli
+    .command('parse-schematron <input-sch-xml-file> <output-sch-json-file>')
+    .description('parse Schematron XML and output JSON version')
+    .action((inputSchXmlFile, outputSchJsonFile) => {
+      const xmlString = ctx.readStringFile(inputSchXmlFile);
+      const schematronObject = ctx.parseSchematron(xmlString);
+      ctx.writeStringFile(outputSchJsonFile, JSON.stringify(schematronObject));
+      console.log(`Wrote ${outputSchJsonFile}`);
+    });
   return cli;
 };
+export type CommandLineController = ReturnType<typeof CommandLineController>;

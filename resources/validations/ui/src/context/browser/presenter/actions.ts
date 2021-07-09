@@ -1,7 +1,11 @@
 import type { PresenterConfig } from '.';
 import * as router from './router';
 
-export const onInitializeOvermind = ({ actions, effects }: PresenterConfig) => {
+export const onInitializeOvermind = ({
+  actions,
+  effects,
+  state,
+}: PresenterConfig) => {
   actions.setCurrentRoute(window.location.hash);
   effects.locationListen(url => {
     actions.setCurrentRoute(url);
@@ -10,6 +14,9 @@ export const onInitializeOvermind = ({ actions, effects }: PresenterConfig) => {
     const url = event.newURL.split('#')[1];
     actions.setCurrentRoute(url);
   });
+  effects.useCases
+    .getSSPSchematron()
+    .then(schema => (state.sspSchematron = schema));
 };
 
 export const setCurrentRoute = ({ state }: PresenterConfig, url: string) => {

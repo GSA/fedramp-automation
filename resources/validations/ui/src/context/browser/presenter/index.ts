@@ -8,6 +8,11 @@ import { merge, namespaced } from 'overmind/config';
 
 import * as actions from './actions';
 import type { AnnotateXMLUseCase } from '../../../use-cases/annotate-xml';
+import {
+  EMPTY_SCHEMATRON,
+  GetSSPSchematronUseCase,
+  Schematron,
+} from '../../../use-cases/schematron';
 import type {
   ValidateSSPUseCase,
   ValidateSSPUrlUseCase,
@@ -18,6 +23,7 @@ import * as router from './router';
 
 type UseCases = {
   annotateXML: AnnotateXMLUseCase;
+  getSSPSchematron: GetSSPSchematronUseCase;
   validateSSP: ValidateSSPUseCase;
   validateSSPUrl: ValidateSSPUrlUseCase;
 };
@@ -33,6 +39,7 @@ type State = {
   repositoryUrl?: string;
   sampleSSPs: SampleSSP[];
   breadcrumbs: { text: string; selected: boolean; url: string }[];
+  sspSchematron: Schematron;
 };
 
 export const getPresenterConfig = (
@@ -48,6 +55,7 @@ export const getPresenterConfig = (
     breadcrumbs: derived((state: State) =>
       router.breadcrumbs[state.currentRoute.type](state.currentRoute),
     ),
+    sspSchematron: EMPTY_SCHEMATRON,
   };
   return merge(
     {
@@ -100,6 +108,7 @@ const getUseCasesShim = (): UseCases => {
   const stub = jest.fn();
   return {
     annotateXML: stub,
+    getSSPSchematron: stub,
     validateSSP: stub,
     validateSSPUrl: stub,
   };

@@ -60,6 +60,8 @@ export const runBrowserContext = ({
             },
             SaxonJS: (window as any).SaxonJS,
           }),
+          getSSPSchematron: async () =>
+            fetch(`${baseUrl}/ssp.json`).then(response => response.json()),
           validateSSP: ValidateSSPUseCase({
             generateSchematronValidationReport,
           }),
