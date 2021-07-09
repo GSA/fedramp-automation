@@ -1,4 +1,4 @@
-import { createPresenterMock } from '.';
+import { createPresenterMock } from '..';
 
 describe('action', () => {
   describe('getAssetUrl', () => {

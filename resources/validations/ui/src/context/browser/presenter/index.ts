@@ -1,25 +1,15 @@
-import {
-  createOvermind,
-  createOvermindMock,
-  derived,
-  IContext,
-} from 'overmind';
-import { merge, namespaced } from 'overmind/config';
+import { createOvermind, createOvermindMock, IContext } from 'overmind';
 
 import * as actions from './actions';
 import type { AnnotateXMLUseCase } from '../../../use-cases/annotate-xml';
-import {
-  EMPTY_SCHEMATRON,
-  GetSSPSchematronUseCase,
-  Schematron,
-} from '../../../use-cases/schematron';
+import type { GetSSPSchematronUseCase } from '../../../use-cases/schematron';
 import type {
   ValidateSSPUseCase,
   ValidateSSPUrlUseCase,
 } from '../../../use-cases/validate-ssp-xml';
 
-import * as report from './report';
-import * as router from './router';
+import type { LocationListener } from './router';
+import { state, State, SampleSSP } from './state';
 
 type UseCases = {
   annotateXML: AnnotateXMLUseCase;
@@ -28,48 +18,22 @@ type UseCases = {
   validateSSPUrl: ValidateSSPUrlUseCase;
 };
 
-type SampleSSP = {
-  url: string;
-  displayName: string;
-};
-
-type State = {
-  currentRoute: router.Route;
-  baseUrl: string;
-  repositoryUrl?: string;
-  sampleSSPs: SampleSSP[];
-  breadcrumbs: { text: string; selected: boolean; url: string }[];
-  sspSchematron: Schematron;
-};
-
 export const getPresenterConfig = (
-  locationListen: router.LocationListener,
+  locationListen: LocationListener,
   useCases: UseCases,
   initialState: Partial<State> = {},
 ) => {
-  const state: State = {
-    currentRoute: router.Routes.home,
-    baseUrl: '',
-    sampleSSPs: [] as SampleSSP[],
-    ...initialState,
-    breadcrumbs: derived((state: State) =>
-      router.breadcrumbs[state.currentRoute.type](state.currentRoute),
-    ),
-    sspSchematron: EMPTY_SCHEMATRON,
-  };
-  return merge(
-    {
-      actions,
-      state,
-      effects: {
-        locationListen,
-        useCases,
-      },
+  return {
+    actions,
+    state: {
+      ...state,
+      ...initialState,
     },
-    namespaced({
-      report: report.getPresenterConfig(),
-    }),
-  );
+    effects: {
+      locationListen,
+      useCases,
+    },
+  };
 };
 export type PresenterConfig = IContext<ReturnType<typeof getPresenterConfig>>;
 
@@ -78,7 +42,7 @@ export type PresenterContext = {
   debug: boolean;
   repositoryUrl: string;
   sampleSSPs: SampleSSP[];
-  locationListen: router.LocationListener;
+  locationListen: LocationListener;
   useCases: UseCases;
 };
 

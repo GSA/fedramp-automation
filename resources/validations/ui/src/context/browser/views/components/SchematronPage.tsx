@@ -22,7 +22,33 @@ const RuleListItem = (props: RuleListItemProps) => (
 );
 
 const SampleGarbage = () => {
-  return <ul className="usa-icon-list usa-icon-list--size-lg"></ul>;
+  const { getAssetUrl } = useActions();
+  return (
+    <ul className="usa-icon-list usa-icon-list--size-lg">
+      <li className="usa-icon-list__item">
+        <div className={`usa-icon-list__icon text-green`}>
+          <svg className="usa-icon" aria-hidden="true" role="img">
+            <use
+              xlinkHref={getAssetUrl('uswds/img/sprite.svg#check_circle')}
+            ></use>
+          </svg>
+        </div>
+        <div className="usa-icon-list__content">
+          <h3 className="usa-icon-list__title">Section heading</h3>
+          <p>
+            <span className={`text-green`}>
+              <svg className="usa-icon" aria-hidden="true" role="img">
+                <use
+                  xlinkHref={getAssetUrl('uswds/img/sprite.svg#check_circle')}
+                ></use>
+              </svg>
+            </span>
+            Test text test text
+          </p>
+        </div>
+      </li>
+    </ul>
+  );
 };
 
 export const SchematronPage = () => {

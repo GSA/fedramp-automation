@@ -1,5 +1,7 @@
-import type { PresenterConfig } from '.';
-import * as router from './router';
+export * as report from './report';
+
+import type { PresenterConfig } from '..';
+import * as router from '../router';
 
 export const onInitializeOvermind = ({
   actions,
@@ -7,7 +9,7 @@ export const onInitializeOvermind = ({
   state,
 }: PresenterConfig) => {
   actions.setCurrentRoute(window.location.hash);
-  effects.locationListen(url => {
+  effects.locationListen((url: string) => {
     actions.setCurrentRoute(url);
   });
   window.addEventListener('hashchange', event => {
