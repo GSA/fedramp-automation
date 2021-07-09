@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="file:media-type.sch" schematypens="http://purl.oclc.org/dsdl/schematron" ?>
-<!-- This is an instance document for testing media-types.sch -->
-<stuff>
-    <rlink
-        media-type="text/plain" />
-    <rlink
-        media-type="text/text" />
-</stuff>
