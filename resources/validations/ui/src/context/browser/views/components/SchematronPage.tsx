@@ -34,9 +34,9 @@ export const SchematronPage = () => {
                     </svg>
                   </div>
                   <div className="usa-icon-list__content">
-                    <h3 className="usa-icon-list__title">{assert.title}</h3>
+                    <h3 className="usa-icon-list__title">{assert.message}</h3>
                     <p>
-                      <strong>{assert.title}</strong>: {assert.text}
+                      <strong>{assert.id}</strong>: {assert.message}
                     </p>
                     <ul>
                       {assert.fired.map((firedAssert, index) => (

@@ -34,6 +34,7 @@ type States =
 
 type BaseState = {
   visibleAssertions: ValidationAssert[];
+  assertionsById: Record<ValidationAssert['id'], ValidationAssert[]>;
 };
 
 type Events =
@@ -153,6 +154,15 @@ export const reportMachine = statemachine<States, Events, BaseState>({
           }
           return assertions;
         }),
+        assertionsById: derived((state: ReportMachine) => {
+          return state.visibleAssertions.reduce((acc, assert) => {
+            if (acc[assert.id] === undefined) {
+              acc[assert.id] = [];
+            }
+            acc[assert.id].push(assert);
+            return acc;
+          }, {} as Record<ValidationAssert['id'], ValidationAssert[]>);
+        }),
       };
     },
   },
@@ -162,6 +172,7 @@ export const createReportMachine = () => {
   return reportMachine.create(
     { current: 'UNLOADED' },
     {
+      assertionsById: {},
       visibleAssertions: [],
     },
   );
