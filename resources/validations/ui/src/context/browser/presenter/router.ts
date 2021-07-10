@@ -7,7 +7,6 @@ export type RouteTypes = {
     type: 'Assertion';
     assertionId: string;
   };
-  Schematron: { type: 'Schematron' };
 };
 
 export type Route = RouteTypes[keyof RouteTypes];
@@ -27,9 +26,6 @@ export namespace Routes {
       assertionId: options.assertionId,
     };
   };
-  export const schematron: RouteTypes['Schematron'] = {
-    type: 'Schematron',
-  };
   export type NotFound = { type: 'NotFound' };
   export const notFound: NotFound = { type: 'NotFound' };
 }
@@ -39,7 +35,6 @@ const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   Summary: () => '#/summary',
   Assertion: (route: RouteTypes['Assertion']) =>
     `#/assertions/${route.assertionId}`,
-  Schematron: () => '#/schematron',
 };
 
 export const getUrl = (route: Route): string => {
@@ -63,7 +58,6 @@ const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
   Home: matchRoute('#/', () => Routes.home),
   Summary: matchRoute('#/summary', () => Routes.summary),
   Assertion: matchRoute('#/assertions/:assertionId', Routes.assertion),
-  Schematron: matchRoute('#/schematron', () => Routes.schematron),
 };
 
 export const getRoute = (url: string): Route | Routes.NotFound => {
@@ -109,16 +103,6 @@ export const breadcrumbs: Record<Route['type'], (route: any) => Breadcrumb[]> =
           text: 'Assertion',
           url: getUrl(Routes.assertion({ assertionId: route.assertionId })),
           selected: route.type === 'Assertion',
-        },
-      ];
-    },
-    Schematron: (route: RouteTypes['Schematron']) => {
-      return [
-        ...breadcrumbs.Home(route),
-        {
-          text: 'Schematron',
-          url: getUrl(Routes.schematron),
-          selected: route.type === 'Schematron',
         },
       ];
     },

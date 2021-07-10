@@ -1,9 +1,6 @@
 import { browserController } from './browser-controller';
 import { highlightXML } from '../shared/highlight-js';
-import {
-  SaxonJsSchematronValidatorGateway,
-  XmlIndenter,
-} from '../shared/saxon-js-gateway';
+import { SaxonJsSchematronValidatorGateway } from '../shared/saxon-js-gateway';
 import { createPresenter } from './presenter';
 import * as github from '../../domain/github';
 import { AnnotateXMLUseCase } from '../../use-cases/annotate-xml';
@@ -54,9 +51,8 @@ export const runBrowserContext = ({
           annotateXML: AnnotateXMLUseCase({
             xml: {
               formatXML: highlightXML,
-              indentXml: XmlIndenter({
-                SaxonJS: (window as any).SaxonJS,
-              }),
+              // skip indenting the XML for now.
+              indentXml: s => Promise.resolve(s),
             },
             SaxonJS: (window as any).SaxonJS,
           }),

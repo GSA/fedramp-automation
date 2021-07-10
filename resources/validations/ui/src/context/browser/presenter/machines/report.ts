@@ -30,10 +30,11 @@ type States =
       xmlText: string;
       annotatedSSP: string;
       filterRoles: Role[];
-      visibleAssertions: ValidationAssert[];
     };
 
-type BaseState = {};
+type BaseState = {
+  visibleAssertions: ValidationAssert[];
+};
 
 type Events =
   | {
@@ -158,5 +159,10 @@ export const reportMachine = statemachine<States, Events, BaseState>({
 });
 
 export const createReportMachine = () => {
-  return reportMachine.create({ current: 'UNLOADED' }, {});
+  return reportMachine.create(
+    { current: 'UNLOADED' },
+    {
+      visibleAssertions: [],
+    },
+  );
 };

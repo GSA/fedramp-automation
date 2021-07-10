@@ -12,13 +12,16 @@ import { ViewerPage } from './ViewerPage';
 const CurrentPage = () => {
   const { currentRoute } = useAppState();
   if (currentRoute.type === 'Home') {
-    return <HomePage />;
+    return (
+      <div>
+        <SchematronPage />
+        <HomePage />
+      </div>
+    );
   } else if (currentRoute.type === 'Summary') {
     return <SummaryPage />;
   } else if (currentRoute.type === 'Assertion') {
     return <ViewerPage assertionId={currentRoute.assertionId} />;
-  } else if (currentRoute.type === 'Schematron') {
-    return <SchematronPage />;
   } else {
     const _exhaustiveCheck: never = currentRoute;
     return <></>;
@@ -32,7 +35,6 @@ export const App = () => {
       <Header />
       <div className="grid-container">
         <Breadcrumbs />
-        <a href="#/schematron">Schematron test page</a>
         <CurrentPage />
       </div>
       <Footer />
