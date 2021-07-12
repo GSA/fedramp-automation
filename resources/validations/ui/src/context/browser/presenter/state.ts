@@ -33,13 +33,17 @@ export type State = {
       title: string;
       see: string;
       assertions: {
-        id: string;
-        test: string;
-        message: string;
-        isReport: boolean;
-        icon: typeof checkCircleIcon | typeof helpIcon | typeof cancelIcon;
-        fired: ValidationAssert[];
-      }[];
+        summary: string;
+        summaryColor: 'red' | 'green';
+        assertions: {
+          id: string;
+          test: string;
+          message: string;
+          isReport: boolean;
+          icon: typeof checkCircleIcon;
+          fired: ValidationAssert[];
+        }[];
+      };
     }[];
   };
   sspSchematron: Schematron;
@@ -58,37 +62,59 @@ export const state: State = {
       title: string;
       see: string;
       assertions: {
-        id: string;
-        test: string;
-        message: string;
-        isReport: boolean;
-        icon: typeof checkCircleIcon;
-        fired: ValidationAssert[];
-      }[];
+        summary: string;
+        summaryColor: 'red' | 'green';
+        assertions: {
+          id: string;
+          test: string;
+          message: string;
+          isReport: boolean;
+          icon: typeof checkCircleIcon;
+          fired: ValidationAssert[];
+        }[];
+      };
     }[] = [];
+    const isValidated = state.report.current === 'VALIDATED';
     state.sspSchematron.patterns.forEach(pattern =>
       pattern.rules.forEach(rule => {
+        const assertions = rule.asserts.map(assert => {
+          const fired = state.report.assertionsById[assert.id || ''] || [];
+          return {
+            id: assert.id || '',
+            test: assert.test,
+            message: assert.message.toString(),
+            isReport: assert.isReport,
+            icon: !isValidated
+              ? helpIcon
+              : fired.length
+              ? cancelIcon
+              : checkCircleIcon,
+            fired,
+          };
+        });
+        const passCount = assertions.filter(
+          assert => assert.fired.length === 0,
+        ).length;
         assertionGroups.push({
-          title: `${pattern.id} - ${rule.context}`,
+          title: `Rule #${assertionGroups.length + 1}`,
           see: '(sample) DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 48',
-          assertions: rule.asserts.map(assert => {
-            const fired = state.report.assertionsById[assert.id || ''] || [];
-            return {
-              id: assert.id || '',
-              test: assert.test,
-              message: assert.message.toString(),
-              isReport: assert.isReport,
-              icon: fired.length ? cancelIcon : checkCircleIcon,
-              fired,
-            };
-          }),
+          assertions: {
+            summary: (() => {
+              if (isValidated) {
+                return `${passCount} / ${assertions.length} passed`;
+              } else {
+                return `${assertions.length} assertions`;
+              }
+            })(),
+            summaryColor: passCount === assertions.length ? 'green' : 'red',
+            assertions,
+          },
         });
       }),
     );
 
     return {
-      //summaryText: `Showing ${state.report.visibleAssertions.length} assertions`,
-      summaryText: 'TODO summaryText',
+      summaryText: `Showing ${state.report.visibleAssertions.length} assertions`,
       groups: assertionGroups,
     };
   }),

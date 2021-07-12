@@ -5,7 +5,7 @@ import { Breadcrumbs } from './Breadcrumbs';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { HomePage } from './HomePage';
-import { SchematronPage } from './SchematronPage';
+import { SchematronReport } from './SchematronReport';
 import { SummaryPage } from './SummaryPage';
 import { ViewerPage } from './ViewerPage';
 
@@ -14,7 +14,6 @@ const CurrentPage = () => {
   if (currentRoute.type === 'Home') {
     return (
       <div>
-        <SchematronPage />
         <HomePage />
       </div>
     );

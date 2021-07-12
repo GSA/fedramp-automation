@@ -4,6 +4,7 @@ import { useActions, useAppState } from '../hooks';
 import { onFileInputChangeGetFile } from '../../util/file-input';
 import { SSPReport } from './SSPReport';
 import { colorTokenForRole } from '../../util/styles';
+import { SchematronReport } from './SchematronReport';
 
 export const HomePage = () => {
   const state = useAppState();
@@ -134,6 +135,7 @@ export const HomePage = () => {
         )}
       </div>
       <div className="mobile:grid-col-12 tablet:grid-col-8">
+        <SchematronReport />
         {state.report.current === 'PROCESSING' && <div className="loader" />}
         <SSPReport />
       </div>
