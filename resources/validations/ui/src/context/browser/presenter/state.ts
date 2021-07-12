@@ -114,7 +114,9 @@ export const state: State = {
     );
 
     return {
-      summaryText: `Showing ${state.report.visibleAssertions.length} assertions`,
+      summaryText: isValidated
+        ? `Found ${state.report.visibleAssertions.length} problems`
+        : '',
       groups: assertionGroups,
     };
   }),
