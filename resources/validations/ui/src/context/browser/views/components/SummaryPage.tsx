@@ -2,13 +2,13 @@ import React from 'react';
 import { useAppState } from '../hooks';
 
 export const SummaryPage = () => {
-  const { report } = useAppState();
+  const { validator } = useAppState().schematron;
 
-  if (report.current !== 'VALIDATED') {
+  if (validator.current !== 'VALIDATED') {
     return <div>Not loaded.</div>;
   }
 
   return (
-    <h1>Found {report.validationReport.failedAsserts.length} assertions.</h1>
+    <h1>Found {validator.validationReport.failedAsserts.length} assertions.</h1>
   );
 };

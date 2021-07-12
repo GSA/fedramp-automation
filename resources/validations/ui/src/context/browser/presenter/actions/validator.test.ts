@@ -14,32 +14,36 @@ describe('report action', () => {
 
     it('works on unloaded', () => {
       const presenter = createPresenterMock(config);
-      expect(presenter.state.report.current).toEqual('UNLOADED');
-      presenter.actions.report.reset();
-      expect(presenter.state.report.current).toEqual('UNLOADED');
+      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
+      presenter.actions.validator.reset();
+      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
     });
 
     it('is disabled while processing', async () => {
       const presenter = createPresenterMock(config);
-      const promise = presenter.actions.report.setXmlContents({
+      const promise = presenter.actions.validator.setXmlContents({
         fileName: 'file-name.xml',
         xmlContents: '<xml></xml>',
       });
-      expect(presenter.state.report.current).toEqual('PROCESSING');
-      presenter.actions.report.reset();
-      expect(presenter.state.report.current).toEqual('PROCESSING');
+      expect(presenter.state.schematron.validator.current).toEqual(
+        'PROCESSING',
+      );
+      presenter.actions.validator.reset();
+      expect(presenter.state.schematron.validator.current).toEqual(
+        'PROCESSING',
+      );
       await promise;
     });
 
     it('works on validated', async () => {
       const presenter = createPresenterMock(config);
-      await presenter.actions.report.setXmlContents({
+      await presenter.actions.validator.setXmlContents({
         fileName: 'file-name.xml',
         xmlContents: '<xml></xml>',
       });
-      expect(presenter.state.report.current).toEqual('VALIDATED');
-      presenter.actions.report.reset();
-      expect(presenter.state.report.current).toEqual('UNLOADED');
+      expect(presenter.state.schematron.validator.current).toEqual('VALIDATED');
+      presenter.actions.validator.reset();
+      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
     });
   });
 
@@ -56,14 +60,16 @@ describe('report action', () => {
           }),
         },
       });
-      expect(presenter.state.report.current).toEqual('UNLOADED');
-      const promise = presenter.actions.report.setXmlContents({
+      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
+      const promise = presenter.actions.validator.setXmlContents({
         fileName: 'file-name.xml',
         xmlContents: mockXml,
       });
-      expect(presenter.state.report.current).toEqual('PROCESSING');
+      expect(presenter.state.schematron.validator.current).toEqual(
+        'PROCESSING',
+      );
       await promise;
-      expect(presenter.state.report.current).toEqual('VALIDATED');
+      expect(presenter.state.schematron.validator.current).toEqual('VALIDATED');
     });
   });
 
@@ -74,7 +80,9 @@ describe('report action', () => {
         useCases: {
           validateSSPUrl: jest.fn(async (url: string) => {
             expect(url).toEqual(mockUrl);
-            expect(presenter.state.report.current).toEqual('PROCESSING');
+            expect(presenter.state.schematron.validator.current).toEqual(
+              'PROCESSING',
+            );
             done();
             return Promise.resolve({
               xmlText: '<xml></xml>',
@@ -85,11 +93,11 @@ describe('report action', () => {
           }),
         },
       });
-      expect(presenter.state.report.current).toEqual('UNLOADED');
-      presenter.actions.report.setXmlUrl(mockUrl);
-      presenter.actions.report.setProcessingError('my error');
+      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
+      presenter.actions.validator.setXmlUrl(mockUrl);
+      presenter.actions.validator.setProcessingError('my error');
       const processingState =
-        presenter.state.report.matches('PROCESSING_ERROR');
+        presenter.state.schematron.validator.matches('PROCESSING_ERROR');
       expect(processingState?.errorMessage).toEqual('my error');
     });
   });
@@ -97,10 +105,10 @@ describe('report action', () => {
   describe('setFilterRole', () => {
     it('works', () => {
       const presenter = createPresenterMock();
-      expect(presenter.state.report.current).toEqual('UNLOADED');
-      presenter.actions.report.setFilterRole('error');
-      expect(presenter.state.report.current).toEqual('UNLOADED');
-      presenter.actions.report.setValidationReport({
+      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
+      presenter.actions.validator.setFilterRole('error');
+      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
+      presenter.actions.validator.setValidationReport({
         xmlText: '<xml></xml',
         validationReport: MOCK_VALIDATION_REPORT,
       });
@@ -114,20 +122,20 @@ describe('report action', () => {
           validateSSP: () => Promise.resolve(MOCK_VALIDATION_REPORT),
         },
       });
-      expect(presenter.state.report.current).toEqual('UNLOADED');
-      presenter.actions.report.setFilterText('filter text');
-      expect(presenter.state.report.current).toEqual('UNLOADED');
+      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
+      presenter.actions.validator.setFilterText('filter text');
+      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
       const xmlText = '<xml>ignored</xml>';
-      presenter.actions.report.setXmlContents({
+      presenter.actions.validator.setXmlContents({
         fileName: 'file-name.xml',
         xmlContents: xmlText,
       });
-      presenter.actions.report.setValidationReport({
+      presenter.actions.validator.setValidationReport({
         xmlText,
         validationReport: MOCK_VALIDATION_REPORT,
       });
-      presenter.actions.report.setFilterText('filter text');
-      expect(presenter.state.report).toMatchObject({
+      presenter.actions.validator.setFilterText('filter text');
+      expect(presenter.state.schematron.validator).toMatchObject({
         current: 'VALIDATED',
         filter: {
           text: 'filter text',

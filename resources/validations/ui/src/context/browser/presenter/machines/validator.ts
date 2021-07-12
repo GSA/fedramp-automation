@@ -67,9 +67,9 @@ type Events =
       };
     };
 
-export type ReportMachine = Statemachine<States, Events, BaseState>;
+export type ValidatorMachine = Statemachine<States, Events, BaseState>;
 
-export const reportMachine = statemachine<States, Events, BaseState>({
+export const validatorMachine = statemachine<States, Events, BaseState>({
   PROCESSING_ERROR: {
     RESET: () => {
       return {
@@ -124,7 +124,7 @@ export const reportMachine = statemachine<States, Events, BaseState>({
             ),
           ).sort(),
         ],
-        filterRoles: derived((state: ReportMachine) => {
+        filterRoles: derived((state: ValidatorMachine) => {
           const validatedState = state.matches('VALIDATED');
           if (!validatedState) {
             return [];
@@ -136,7 +136,7 @@ export const reportMachine = statemachine<States, Events, BaseState>({
               return [validatedState.filter.role];
           }
         }),
-        visibleAssertions: derived((state: ReportMachine) => {
+        visibleAssertions: derived((state: ValidatorMachine) => {
           const validatedState = state.matches('VALIDATED');
           if (!validatedState) {
             return [];
@@ -154,7 +154,7 @@ export const reportMachine = statemachine<States, Events, BaseState>({
           }
           return assertions;
         }),
-        assertionsById: derived((state: ReportMachine) => {
+        assertionsById: derived((state: ValidatorMachine) => {
           return state.visibleAssertions.reduce((acc, assert) => {
             if (acc[assert.id] === undefined) {
               acc[assert.id] = [];
@@ -168,8 +168,8 @@ export const reportMachine = statemachine<States, Events, BaseState>({
   },
 });
 
-export const createReportMachine = () => {
-  return reportMachine.create(
+export const createValidatorMachine = () => {
+  return validatorMachine.create(
     { current: 'UNLOADED' },
     {
       assertionsById: {},

@@ -60,17 +60,17 @@ const Assertion = ({
 };
 
 export const SSPReport = () => {
-  const reportState = useAppState().report;
+  const validator = useAppState().schematron.validator;
   return (
     <div>
-      {reportState.current === 'VALIDATED' && (
+      {validator.current === 'VALIDATED' && (
         <>
           <h1>
-            Showing {reportState.visibleAssertions.length} of{' '}
-            {reportState.validationReport &&
-              reportState.validationReport.failedAsserts.length}
+            Showing {validator.visibleAssertions.length} of{' '}
+            {validator.validationReport &&
+              validator.validationReport.failedAsserts.length}
           </h1>
-          {reportState.visibleAssertions.map((assert, index) => (
+          {validator.visibleAssertions.map((assert, index) => (
             <Assertion
               key={index}
               assert={assert}

@@ -1,4 +1,4 @@
-export * as report from './report';
+export * as validator from './validator';
 
 import type { PresenterConfig } from '..';
 import * as router from '../router';
@@ -18,7 +18,7 @@ export const onInitializeOvermind = ({
   });
   effects.useCases
     .getSSPSchematron()
-    .then(schema => (state.sspSchematron = schema));
+    .then(schema => (state.schematron.sourceSchematron = schema));
 };
 
 export const setCurrentRoute = ({ state }: PresenterConfig, url: string) => {
