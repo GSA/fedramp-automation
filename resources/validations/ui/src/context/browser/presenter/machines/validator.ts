@@ -33,8 +33,9 @@ type States =
     };
 
 type BaseState = {
-  visibleAssertions: ValidationAssert[];
   assertionsById: Record<ValidationAssert['id'], ValidationAssert[]>;
+  triggeredAssertions: ValidationAssert[];
+  visibleAssertions: ValidationAssert[];
 };
 
 type Events =
@@ -136,6 +137,13 @@ export const validatorMachine = statemachine<States, Events, BaseState>({
               return [validatedState.filter.role];
           }
         }),
+        triggeredAssertions: derived((state: ValidatorMachine) => {
+          const validatedState = state.matches('VALIDATED');
+          if (!validatedState) {
+            return [];
+          }
+          return validatedState.validationReport.failedAsserts;
+        }),
         visibleAssertions: derived((state: ValidatorMachine) => {
           const validatedState = state.matches('VALIDATED');
           if (!validatedState) {
@@ -173,6 +181,7 @@ export const createValidatorMachine = () => {
     { current: 'UNLOADED' },
     {
       assertionsById: {},
+      triggeredAssertions: [],
       visibleAssertions: [],
     },
   );

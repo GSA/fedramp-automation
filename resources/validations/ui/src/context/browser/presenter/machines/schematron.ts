@@ -18,6 +18,26 @@ type States =
     };
 
 type BaseState = {
+  allAssertionsById: {
+    [assertionId: string]: {
+      id: string | null;
+      test: string;
+      message: (
+        | string
+        | {
+            $type: string;
+            select: string;
+          }
+      )[];
+      isReport: boolean;
+    };
+  };
+  assertionGroups: {
+    title: string;
+    asserts: {
+      id: string;
+    }[];
+  }[];
   schematronReport: {
     summaryText: string;
     groups: {
@@ -29,8 +49,8 @@ type BaseState = {
         assertions: {
           //id: string;
           //test: string;
-          message: string;
           //isReport: boolean;
+          message: string;
           icon: typeof checkCircleIcon;
           fired: ValidationAssert[];
         }[];
@@ -71,34 +91,50 @@ export const createSchematronMachine = () => {
   return schematronMachine.create(
     { current: 'UNLOADED' },
     {
-      schematronReport: derived((state: SchematronMachine) => {
-        const assertionGroups: {
-          title: string;
-          //see: string;
-          assertions: {
-            summary: string;
-            summaryColor: 'red' | 'green';
-            assertions: {
-              //id: string;
-              //test: string;
-              message: string;
-              //isReport: boolean;
-              icon: typeof checkCircleIcon;
-              fired: ValidationAssert[];
-            }[];
-          };
-        }[] = [];
-        const isValidated = state.validator.current === 'VALIDATED';
-        state.sourceSchematron.patterns.forEach(pattern =>
+      allAssertionsById: derived((state: SchematronMachine) => {
+        const assertions: SchematronMachine['allAssertionsById'] = {};
+        state.sourceSchematron.patterns.forEach(pattern => {
           pattern.rules.forEach(rule => {
-            const assertions = rule.asserts.map(assert => {
+            rule.asserts.forEach(assert => {
+              // TODO: after creating custom sch parser, remove `|| ''`
+              assertions[assert.id || ''] = assert;
+            });
+          });
+        });
+        return assertions;
+      }),
+      assertionGroups: derived((state: SchematronMachine) => {
+        // Return a sample assertion group corresponding to the source rules.
+        const groups: SchematronMachine['assertionGroups'] = [];
+        let index = 0;
+        state.sourceSchematron.patterns.forEach(pattern => {
+          pattern.rules.forEach(rule => {
+            groups.push({
+              title: `Group #${++index}`,
+              asserts: rule.asserts.map(assert => ({
+                id: assert.id || '', // TODO: remove `|| ''`
+              })),
+            });
+          });
+        });
+        return groups;
+      }),
+      schematronReport: derived((state: SchematronMachine) => {
+        const isValidated = state.validator.current === 'VALIDATED';
+        return {
+          summaryText: isValidated
+            ? `Found ${state.validator.visibleAssertions.length} problems`
+            : '',
+          groups: state.assertionGroups.map(assertionGroup => {
+            const assertions = assertionGroup.asserts.map(groupAssert => {
+              const assert = state.allAssertionsById[groupAssert.id];
               const fired =
                 state.validator.assertionsById[assert.id || ''] || [];
               return {
-                id: assert.id || '',
-                test: assert.test,
+                //id: assert.id || '',
+                //test: assert.test,
+                //isReport: assert.isReport,
                 message: assert.message.toString(),
-                isReport: assert.isReport,
                 icon: !isValidated
                   ? helpIcon
                   : fired.length
@@ -110,8 +146,8 @@ export const createSchematronMachine = () => {
             const passCount = assertions.filter(
               assert => assert.fired.length === 0,
             ).length;
-            assertionGroups.push({
-              title: `Rule #${assertionGroups.length + 1}`,
+            return {
+              title: assertionGroup.title,
               assertions: {
                 summary: (() => {
                   if (isValidated) {
@@ -123,15 +159,8 @@ export const createSchematronMachine = () => {
                 summaryColor: passCount === assertions.length ? 'green' : 'red',
                 assertions,
               },
-            });
+            };
           }),
-        );
-
-        return {
-          summaryText: isValidated
-            ? `Found ${state.validator.visibleAssertions.length} problems`
-            : '',
-          groups: assertionGroups,
         };
       }),
       sourceSchematron: EMPTY_SCHEMATRON,
