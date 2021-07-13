@@ -78,8 +78,7 @@ export const createSchematronMachine = () => {
       allAssertionsById: derived((state: SchematronMachine) => {
         const assertions: SchematronMachine['allAssertionsById'] = {};
         state.schematronAsserts.forEach(assert => {
-          // TODO: after creating custom sch parser, remove `|| ''`
-          assertions[assert.id || ''] = assert;
+          assertions[assert.id] = assert;
         });
         return assertions;
       }),
@@ -107,7 +106,7 @@ export const createSchematronMachine = () => {
               const assertions = assertionGroup.asserts.map(
                 assertionGroupAssert => {
                   const assert = allAssertionsById[assertionGroupAssert.id];
-                  const fired = validator.assertionsById[assert.id || ''] || [];
+                  const fired = validator.assertionsById[assert.id] || [];
                   return {
                     ...assert,
                     message: `${assert.id} ${assert.message}`,

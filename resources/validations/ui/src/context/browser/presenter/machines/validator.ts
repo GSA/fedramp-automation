@@ -34,7 +34,6 @@ type States =
 
 type BaseState = {
   assertionsById: Record<ValidationAssert['id'], ValidationAssert[]>;
-  triggeredAssertions: ValidationAssert[];
   visibleAssertions: ValidationAssert[];
 };
 
@@ -137,40 +136,6 @@ export const validatorMachine = statemachine<States, Events, BaseState>({
               return [validatedState.filter.role];
           }
         }),
-        triggeredAssertions: derived((state: ValidatorMachine) => {
-          const validatedState = state.matches('VALIDATED');
-          if (!validatedState) {
-            return [];
-          }
-          return validatedState.validationReport.failedAsserts;
-        }),
-        visibleAssertions: derived((state: ValidatorMachine) => {
-          const validatedState = state.matches('VALIDATED');
-          if (!validatedState) {
-            return [];
-          }
-          let assertions = validatedState.validationReport.failedAsserts.filter(
-            (assertion: ValidationAssert) => {
-              return validatedState.filterRoles.includes(assertion.role || '');
-            },
-          );
-          if (validatedState.filter.text.length > 0) {
-            assertions = assertions.filter(assertion => {
-              const allText = Object.values(assertion).join('\n').toLowerCase();
-              return allText.includes(validatedState.filter.text.toLowerCase());
-            });
-          }
-          return assertions;
-        }),
-        assertionsById: derived((state: ValidatorMachine) => {
-          return state.visibleAssertions.reduce((acc, assert) => {
-            if (acc[assert.id] === undefined) {
-              acc[assert.id] = [];
-            }
-            acc[assert.id].push(assert);
-            return acc;
-          }, {} as Record<ValidationAssert['id'], ValidationAssert[]>);
-        }),
       };
     },
   },
@@ -180,9 +145,33 @@ export const createValidatorMachine = () => {
   return validatorMachine.create(
     { current: 'UNLOADED' },
     {
-      assertionsById: {},
-      triggeredAssertions: [],
-      visibleAssertions: [],
+      assertionsById: derived((state: ValidatorMachine) => {
+        return state.visibleAssertions.reduce((acc, assert) => {
+          if (acc[assert.id] === undefined) {
+            acc[assert.id] = [];
+          }
+          acc[assert.id].push(assert);
+          return acc;
+        }, {} as Record<ValidationAssert['id'], ValidationAssert[]>);
+      }),
+      visibleAssertions: derived((state: ValidatorMachine) => {
+        const validatedState = state.matches('VALIDATED');
+        if (!validatedState) {
+          return [];
+        }
+        let assertions = validatedState.validationReport.failedAsserts.filter(
+          (assertion: ValidationAssert) => {
+            return validatedState.filterRoles.includes(assertion.role || '');
+          },
+        );
+        if (validatedState.filter.text.length > 0) {
+          assertions = assertions.filter(assertion => {
+            const allText = Object.values(assertion).join('\n').toLowerCase();
+            return allText.includes(validatedState.filter.text.toLowerCase());
+          });
+        }
+        return assertions;
+      }),
     },
   );
 };

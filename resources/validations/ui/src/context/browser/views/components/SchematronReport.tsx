@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, getUrl } from '../../presenter/router';
+import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
 
 export const SchematronReport = () => {
@@ -29,7 +30,12 @@ export const SchematronReport = () => {
             </summary>
             <ul className="usa-icon-list margin-top-1">
               {group.assertions.assertions.map((assert, index) => (
-                <li key={index} className="usa-icon-list__item">
+                <li
+                  key={index}
+                  className={`usa-icon-list__item bg-${colorTokenForRole(
+                    assert.role,
+                  )}-lighter`}
+                >
                   <div
                     className={`usa-icon-list__icon text-${assert.icon.color}`}
                   >
