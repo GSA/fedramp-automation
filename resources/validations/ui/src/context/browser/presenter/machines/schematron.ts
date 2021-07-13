@@ -1,8 +1,7 @@
 import { derived, Statemachine, statemachine } from 'overmind';
 
-import {
-  EMPTY_SCHEMATRON,
-  Schematron,
+import type {
+  SchematronAssert,
   ValidationAssert,
 } from '../../../../use-cases/schematron';
 import { createValidatorMachine, ValidatorMachine } from './validator';
@@ -19,18 +18,7 @@ type States =
 
 type BaseState = {
   allAssertionsById: {
-    [assertionId: string]: {
-      id: string | null;
-      test: string;
-      message: (
-        | string
-        | {
-            $type: string;
-            select: string;
-          }
-      )[];
-      isReport: boolean;
-    };
+    [assertionId: string]: SchematronAssert;
   };
   assertionGroups: {
     title: string;
@@ -46,24 +34,20 @@ type BaseState = {
       assertions: {
         summary: string;
         summaryColor: 'red' | 'green';
-        assertions: {
-          //id: string;
-          //test: string;
-          //isReport: boolean;
-          message: string;
+        assertions: (SchematronAssert & {
           icon: typeof checkCircleIcon;
           fired: ValidationAssert[];
-        }[];
+        })[];
       };
     }[];
   };
-  sourceSchematron: Schematron;
+  schematronAsserts: SchematronAssert[];
   validator: ValidatorMachine;
 };
 
 type Events = {
   type: 'DATA_LOADED';
-  sourceSchematron: Schematron;
+  schematronAsserts: SchematronAssert[];
 };
 
 export type SchematronMachine = Statemachine<States, Events, BaseState>;
@@ -77,10 +61,10 @@ const cancelIcon = {
 
 const schematronMachine = statemachine<States, Events, BaseState>({
   UNLOADED: {
-    DATA_LOADED: sourceSchematron => {
+    DATA_LOADED: schematronAsserts => {
       return {
         current: 'LOADED',
-        sourceSchematron,
+        schematronAsserts,
       };
     },
   },
@@ -93,77 +77,72 @@ export const createSchematronMachine = () => {
     {
       allAssertionsById: derived((state: SchematronMachine) => {
         const assertions: SchematronMachine['allAssertionsById'] = {};
-        state.sourceSchematron.patterns.forEach(pattern => {
-          pattern.rules.forEach(rule => {
-            rule.asserts.forEach(assert => {
-              // TODO: after creating custom sch parser, remove `|| ''`
-              assertions[assert.id || ''] = assert;
-            });
-          });
+        state.schematronAsserts.forEach(assert => {
+          // TODO: after creating custom sch parser, remove `|| ''`
+          assertions[assert.id || ''] = assert;
         });
         return assertions;
       }),
       assertionGroups: derived((state: SchematronMachine) => {
         // Return a sample assertion group corresponding to the source rules.
-        const groups: SchematronMachine['assertionGroups'] = [];
-        let index = 0;
-        state.sourceSchematron.patterns.forEach(pattern => {
-          pattern.rules.forEach(rule => {
-            groups.push({
-              title: `Group #${++index}`,
-              asserts: rule.asserts.map(assert => ({
-                id: assert.id || '', // TODO: remove `|| ''`
-              })),
-            });
-          });
-        });
-        return groups;
+        return [
+          {
+            title: 'ssp.sch assertions',
+            asserts: state.schematronAsserts,
+          },
+        ];
       }),
-      schematronReport: derived((state: SchematronMachine) => {
-        const isValidated = state.validator.current === 'VALIDATED';
-        return {
-          summaryText: isValidated
-            ? `Found ${state.validator.visibleAssertions.length} problems`
-            : '',
-          groups: state.assertionGroups.map(assertionGroup => {
-            const assertions = assertionGroup.asserts.map(groupAssert => {
-              const assert = state.allAssertionsById[groupAssert.id];
-              const fired =
-                state.validator.assertionsById[assert.id || ''] || [];
+      schematronReport: derived(
+        ({
+          allAssertionsById,
+          assertionGroups,
+          validator,
+        }: SchematronMachine) => {
+          const isValidated = validator.current === 'VALIDATED';
+          return {
+            summaryText: isValidated
+              ? `Found ${validator.visibleAssertions.length} problems`
+              : '',
+            groups: assertionGroups.map(assertionGroup => {
+              const assertions = assertionGroup.asserts.map(
+                assertionGroupAssert => {
+                  const assert = allAssertionsById[assertionGroupAssert.id];
+                  const fired = validator.assertionsById[assert.id || ''] || [];
+                  return {
+                    ...assert,
+                    message: `${assert.id} ${assert.message}`,
+                    icon: !isValidated
+                      ? helpIcon
+                      : fired.length
+                      ? cancelIcon
+                      : checkCircleIcon,
+                    fired,
+                  };
+                },
+              );
+              const passCount = assertions.filter(
+                assert => assert.fired.length === 0,
+              ).length;
               return {
-                //id: assert.id || '',
-                //test: assert.test,
-                //isReport: assert.isReport,
-                message: assert.message.toString(),
-                icon: !isValidated
-                  ? helpIcon
-                  : fired.length
-                  ? cancelIcon
-                  : checkCircleIcon,
-                fired,
+                title: assertionGroup.title,
+                assertions: {
+                  summary: (() => {
+                    if (isValidated) {
+                      return `${passCount} / ${assertions.length} passed`;
+                    } else {
+                      return `${assertions.length} assertions`;
+                    }
+                  })(),
+                  summaryColor:
+                    passCount === assertions.length ? 'green' : 'red',
+                  assertions,
+                },
               };
-            });
-            const passCount = assertions.filter(
-              assert => assert.fired.length === 0,
-            ).length;
-            return {
-              title: assertionGroup.title,
-              assertions: {
-                summary: (() => {
-                  if (isValidated) {
-                    return `${passCount} / ${assertions.length} passed`;
-                  } else {
-                    return `${assertions.length} assertions`;
-                  }
-                })(),
-                summaryColor: passCount === assertions.length ? 'green' : 'red',
-                assertions,
-              },
-            };
-          }),
-        };
-      }),
-      sourceSchematron: EMPTY_SCHEMATRON,
+            }),
+          };
+        },
+      ),
+      schematronAsserts: [] as SchematronAssert[],
       validator: createValidatorMachine(),
     },
   );

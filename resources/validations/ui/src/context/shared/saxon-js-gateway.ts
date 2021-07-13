@@ -1,5 +1,6 @@
 import type { IndentXml } from '../..//domain/xml';
 import type {
+  ParseSchematronAssertions,
   SchematronValidator,
   ValidationAssert,
   ValidationReport,
@@ -9,10 +10,14 @@ const getValidationReport = (
   SaxonJS: any,
   document: DocumentFragment,
 ): ValidationReport => {
-  let failedAsserts = SaxonJS.XPath.evaluate('//svrl:failed-assert', document, {
-    namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
-    resultForm: 'array',
-  });
+  const failedAsserts = SaxonJS.XPath.evaluate(
+    '//svrl:failed-assert',
+    document,
+    {
+      namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
+      resultForm: 'array',
+    },
+  );
   return {
     failedAsserts: Array.prototype.map.call(failedAsserts, (assert, index) => {
       return Object.keys(assert.attributes).reduce(
@@ -275,4 +280,24 @@ export const XmlIndenter =
         console.error(error);
         throw new Error(`Error indenting xml: ${error}`);
       });
+  };
+
+export const SchematronParser =
+  (ctx: { SaxonJS: any }): ParseSchematronAssertions =>
+  (schematron: string) => {
+    const document = ctx.SaxonJS.getPlatform().parseXmlFromString(schematron);
+    const asserts = ctx.SaxonJS.XPath.evaluate(
+      '//(sch:report|sch:assert)',
+      document,
+      {
+        namespaceContext: { sch: 'http://purl.oclc.org/dsdl/schematron' },
+        resultForm: 'array',
+      },
+    );
+    return asserts.map((assert: any) => ({
+      id: assert.getAttribute('id'),
+      isReport: assert.nodeName === 'sch:report',
+      message: assert.getAttribute('message'),
+      role: assert.getAttribute('role'),
+    }));
   };

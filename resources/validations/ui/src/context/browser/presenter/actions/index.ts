@@ -17,8 +17,8 @@ export const onInitializeOvermind = ({
     actions.setCurrentRoute(url);
   });
   effects.useCases
-    .getSSPSchematron()
-    .then(schema => (state.schematron.sourceSchematron = schema));
+    .getSSPSchematronAssertions()
+    .then(schema => (state.schematron.schematronAsserts = schema));
 };
 
 export const setCurrentRoute = ({ state }: PresenterConfig, url: string) => {

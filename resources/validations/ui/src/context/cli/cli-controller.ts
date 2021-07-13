@@ -1,11 +1,11 @@
 import { Command } from 'commander';
-import type { ParseSchematronUseCase } from 'src/use-cases/schematron';
+import type { ParseSchematronAssertions } from 'src/use-cases/schematron';
 import type { ValidateSSPUseCase } from 'src/use-cases/validate-ssp-xml';
 
 type CommandLineContext = {
   readStringFile: (fileName: string) => string;
   writeStringFile: (fileName: string, contents: string) => void;
-  parseSchematron: ParseSchematronUseCase;
+  parseSchematron: ParseSchematronAssertions;
   validateSSP: ValidateSSPUseCase;
 };
 

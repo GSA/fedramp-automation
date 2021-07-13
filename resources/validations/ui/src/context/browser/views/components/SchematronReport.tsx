@@ -3,15 +3,13 @@ import { Routes, getUrl } from '../../presenter/router';
 import { useActions, useAppState } from '../hooks';
 
 export const SchematronReport = () => {
-  const { schematron } = useAppState();
+  const { schematronReport } = useAppState().schematron;
   const { getAssetUrl } = useActions();
   return (
     <div className="grid-row grid-gap">
       <div className="tablet:grid-col">
-        <h1 className="font-heading-lg">
-          {schematron.schematronReport.summaryText}
-        </h1>
-        {schematron.schematronReport.groups.map((group, index) => (
+        <h1 className="font-heading-lg">{schematronReport.summaryText}</h1>
+        {schematronReport.groups.map((group, index) => (
           <details
             key={index}
             className="border-top-1px border-accent-cool-light padding-1"

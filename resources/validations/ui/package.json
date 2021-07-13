@@ -26,7 +26,6 @@
     "classnames": "^2.3.1",
     "commander": "^2.20.3",
     "highlight.js": "^11.0.1",
-    "node-schematron": "^2.0.1",
     "overmind": "^28.0.0",
     "overmind-react": "^29.0.0",
     "patch-package": "^6.4.7",
