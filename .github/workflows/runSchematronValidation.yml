@@ -1,0 +1,51 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Run Schematron Validation
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on: 
+  workflow_dispatch:
+    inputs:
+      schematronFileName:
+        description: the name of the schematron file (.sch) to validate including the relative path from the root of the repository    
+        required: true
+      DOC_TO_VALIDATE:
+        description: the name of the SSP file (XML) to validate including the relative path from the root of the repository
+        required: true
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This job runs schematron validation(s) on the file that is passed in 
+  run-schematron-validation:
+   # Run on ubuntu
+    runs-on: ubuntu-latest
+
+    # Checkout repository and its submodules
+    steps:
+      # Check-out the repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2
+
+      # Check-out submodules
+      - name: Checkout submodules
+        uses: textbook/git-checkout-submodule-action@2.1.1
+        with:
+          remote: true
+
+      # Run validations by calling the shell with appropriate arguments
+      - name: Run Schematron Validations
+        run: |
+          bash ${{ github.workspace }}/resources/validations/bin/validate_with_schematron.sh \
+          -f ${{ github.workspace }}${{ github.event.inputs.DOC_TO_VALIDATE }}  \
+          -s ${{ github.workspace }}${{ github.event.inputs.schematronFileName }} \
+          -b ${{ github.workspace }}/resources/validations \
+          -o /tmp/report
+
+      - name: Upload Resulting Schematron SVRL Report
+        uses: actions/upload-artifact@27bce4eee761b5bc643f46a8dfb41b430c8d05f6
+        with:
+          name: fedramp-automation-validation-reports-${{ github.sha }}
+          path: |
+            /tmp/report/**/*.xml
+            /tmp/report/**/*.html
+          if-no-files-found: error

@@ -1,2 +1,13 @@
+_site
+.history/*
+.vscode
+*.DS_Store
 documents/source
+NOTES.md
+resources/validations/lib/**.jar
+resources/validations/report
+resources/validations/src/ssp.xsl
+resources/validations/target
+resources/validations/test/xspec/*
+resources/validations/ui/coverage/
 utils

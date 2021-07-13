@@ -1,0 +1,67 @@
+# This action runs unit tests for the OSCAL (schematron) validations to ensure validations
+# are working against known samples
+name: "OSCAL Validations: Unit Tests"
+
+# Triggered when code is pushed to any branch in a repository
+on: push
+
+# the job requires some dependencies to be installed (including submodules), runs the tests, and then reports results
+jobs:
+  # one job that runs tests
+  run-tests:
+    # Run on ubuntu
+    runs-on: ubuntu-latest
+
+    # Checkout repository and its submodules
+    steps:
+      # Check-out the repository under $GITHUB_WORKSPACE
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - run: |
+          git submodule update --init --recursive
+
+      # Install Saxon HE to /tmp
+      - name: Install Saxon HE
+        run: |
+          echo "Installing Saxon"
+          mkdir -p /tmp/saxon
+          echo "Dowloading Saxon"
+          export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
+          wget -O "${SAXON_CP}" https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.2/Saxon-HE-10.2.jar
+          echo "saxon_cp is ${SAXON_CP}"
+
+      # Run XSpec after the dependencies are completed
+      - name: Run XSpec
+        run: |
+          echo "Running XSpec"
+          cd $GITHUB_WORKSPACE/resources/validations
+          export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
+          export TEST_DIR=$(pwd)/report/test
+          lib/xspec/bin/xspec.sh -s -j test/test_all.xspec
+      
+      # Sets the test report path for visibility
+      - name: Publish XSpec Test Results
+        uses: mikepenz/action-junit-report@v1
+        with:
+          report_paths: '**/report/test/*junit.xml'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # publish the test summary as comment on the PR
+      - name: Publish XSpec Test Results Summary
+        uses: EnricoMi/publish-unit-test-result-action@v1.15
+        if: always()
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          check_name: XSpec Test Results
+          files: '**/report/test/*junit.xml'
+          report_individual_runs: true
+          deduplicate_classes_by_file_name: false
+
+      - name: Upload Resulting Schematron SVRL Report
+        uses: actions/upload-artifact@27bce4eee761b5bc643f46a8dfb41b430c8d05f6 # v2
+        with:
+          name: fedramp-automation-validation-unit-tests-${{ github.sha }}
+          path: |
+            ./resources/validations/report/schematron/**/*.*
+            ./resources/validations/report/test/**/*.*
+          if-no-files-found: error
