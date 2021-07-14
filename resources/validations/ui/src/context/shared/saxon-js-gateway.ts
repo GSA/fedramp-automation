@@ -297,7 +297,7 @@ export const SchematronParser =
     return asserts.map((assert: any) => ({
       id: assert.getAttribute('id'),
       isReport: assert.nodeName === 'sch:report',
-      message: assert.getAttribute('message'),
+      message: assert.textContent,
       role: assert.getAttribute('role'),
     }));
   };

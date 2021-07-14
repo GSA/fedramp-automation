@@ -2,14 +2,12 @@ import React from 'react';
 
 import { useActions, useAppState } from '../hooks';
 import { onFileInputChangeGetFile } from '../../util/file-input';
-import { SSPReport } from './SSPReport';
 import { colorTokenForRole } from '../../util/styles';
 import { SchematronReport } from './SchematronReport';
 
 export const HomePage = () => {
   const { sampleSSPs, schematron } = useAppState();
   const actions = useActions();
-  const validatedReport = schematron.validator.matches('VALIDATED');
 
   return (
     <div className="grid-row grid-gap">
@@ -53,7 +51,7 @@ export const HomePage = () => {
             ))}
           </ul>
         </div>
-        {validatedReport && (
+        {
           <form className="usa-form">
             <fieldset className="usa-fieldset">
               <div className="usa-search usa-search--small" role="search">
@@ -86,14 +84,14 @@ export const HomePage = () => {
                       if (event && event.target) {
                         text = event.target.value;
                       }
-                      actions.validator.setFilterText(text);
+                      actions.schematron.setFilterText(text);
                     }}
                     placeholder="Search text..."
                   />
                 </div>
               </div>
               <div className="usa-radio">
-                {validatedReport.roles.map((filterRole, index) => (
+                {schematron.roles.map((filterRole, index) => (
                   <div key={index}>
                     <input
                       className="usa-radio__input usa-radio__input--tile"
@@ -101,9 +99,9 @@ export const HomePage = () => {
                       type="radio"
                       name="role"
                       value={filterRole}
-                      checked={validatedReport.filter.role === filterRole}
+                      checked={schematron.filter.role === filterRole}
                       onChange={() =>
-                        actions.validator.setFilterRole(filterRole)
+                        actions.schematron.setFilterRole(filterRole)
                       }
                     />
                     <label
@@ -134,14 +132,13 @@ export const HomePage = () => {
               </div>
             </fieldset>
           </form>
-        )}
+        }
       </div>
       <div className="mobile:grid-col-12 tablet:grid-col-8">
         <SchematronReport />
         {schematron.validator.current === 'PROCESSING' && (
           <div className="loader" />
         )}
-        <SSPReport />
       </div>
     </div>
   );

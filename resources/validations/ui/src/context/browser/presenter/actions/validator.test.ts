@@ -101,50 +101,6 @@ describe('report action', () => {
       expect(processingState?.errorMessage).toEqual('my error');
     });
   });
-
-  describe('setFilterRole', () => {
-    it('works', () => {
-      const presenter = createPresenterMock();
-      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
-      presenter.actions.validator.setFilterRole('error');
-      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
-      presenter.actions.validator.setValidationReport({
-        xmlText: '<xml></xml',
-        validationReport: MOCK_VALIDATION_REPORT,
-      });
-    });
-  });
-
-  describe('setFilterText', () => {
-    it('works', () => {
-      const presenter = createPresenterMock({
-        useCases: {
-          validateSSP: () => Promise.resolve(MOCK_VALIDATION_REPORT),
-        },
-      });
-      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
-      presenter.actions.validator.setFilterText('filter text');
-      expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
-      const xmlText = '<xml>ignored</xml>';
-      presenter.actions.validator.setXmlContents({
-        fileName: 'file-name.xml',
-        xmlContents: xmlText,
-      });
-      presenter.actions.validator.setValidationReport({
-        xmlText,
-        validationReport: MOCK_VALIDATION_REPORT,
-      });
-      presenter.actions.validator.setFilterText('filter text');
-      expect(presenter.state.schematron.validator).toMatchObject({
-        current: 'VALIDATED',
-        filter: {
-          text: 'filter text',
-        },
-        filterRoles: ['all', '', 'error'],
-        visibleAssertions: [],
-      });
-    });
-  });
 });
 
 const MOCK_VALIDATION_REPORT = {

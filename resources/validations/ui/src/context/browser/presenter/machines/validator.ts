@@ -21,20 +21,13 @@ type States =
     }
   | {
       current: 'VALIDATED';
-      filter: {
-        role: Role;
-        text: string;
-      };
-      roles: Role[];
       validationReport: ValidationReport;
       xmlText: string;
       annotatedSSP: string;
-      filterRoles: Role[];
     };
 
 type BaseState = {
   assertionsById: Record<ValidationAssert['id'], ValidationAssert[]>;
-  visibleAssertions: ValidationAssert[];
 };
 
 type Events =
@@ -112,30 +105,6 @@ export const validatorMachine = statemachine<States, Events, BaseState>({
         validationReport,
         annotatedSSP: '',
         xmlText,
-        filter: {
-          role: 'all',
-          text: '',
-        },
-        roles: [
-          'all',
-          ...Array.from(
-            new Set(
-              validationReport.failedAsserts.map(assert => assert.role || ''),
-            ),
-          ).sort(),
-        ],
-        filterRoles: derived((state: ValidatorMachine) => {
-          const validatedState = state.matches('VALIDATED');
-          if (!validatedState) {
-            return [];
-          }
-          switch (validatedState.filter.role) {
-            case 'all':
-              return validatedState.roles;
-            default:
-              return [validatedState.filter.role];
-          }
-        }),
       };
     },
   },
@@ -146,31 +115,20 @@ export const createValidatorMachine = () => {
     { current: 'UNLOADED' },
     {
       assertionsById: derived((state: ValidatorMachine) => {
-        return state.visibleAssertions.reduce((acc, assert) => {
-          if (acc[assert.id] === undefined) {
-            acc[assert.id] = [];
-          }
-          acc[assert.id].push(assert);
-          return acc;
-        }, {} as Record<ValidationAssert['id'], ValidationAssert[]>);
-      }),
-      visibleAssertions: derived((state: ValidatorMachine) => {
         const validatedState = state.matches('VALIDATED');
         if (!validatedState) {
-          return [];
+          return {};
         }
-        let assertions = validatedState.validationReport.failedAsserts.filter(
-          (assertion: ValidationAssert) => {
-            return validatedState.filterRoles.includes(assertion.role || '');
+        return validatedState.validationReport.failedAsserts.reduce(
+          (acc, assert) => {
+            if (acc[assert.id] === undefined) {
+              acc[assert.id] = [];
+            }
+            acc[assert.id].push(assert);
+            return acc;
           },
+          {} as Record<ValidationAssert['id'], ValidationAssert[]>,
         );
-        if (validatedState.filter.text.length > 0) {
-          assertions = assertions.filter(assertion => {
-            const allText = Object.values(assertion).join('\n').toLowerCase();
-            return allText.includes(validatedState.filter.text.toLowerCase());
-          });
-        }
-        return assertions;
       }),
     },
   );

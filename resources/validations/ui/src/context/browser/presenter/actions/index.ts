@@ -1,3 +1,4 @@
+export * as schematron from './schematron';
 export * as validator from './validator';
 
 import type { PresenterConfig } from '..';

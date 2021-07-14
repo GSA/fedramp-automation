@@ -90,15 +90,3 @@ export const setValidationReport = (
     state.schematron.validator.send('VALIDATED', { validationReport, xmlText });
   }
 };
-
-export const setFilterRole = ({ state }: PresenterConfig, filter: Role) => {
-  if (state.schematron.validator.current === 'VALIDATED') {
-    state.schematron.validator.filter.role = filter;
-  }
-};
-
-export const setFilterText = ({ state }: PresenterConfig, text: string) => {
-  if (state.schematron.validator.current === 'VALIDATED') {
-    state.schematron.validator.filter.text = text;
-  }
-};

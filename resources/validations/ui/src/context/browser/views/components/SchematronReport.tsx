@@ -14,6 +14,7 @@ export const SchematronReport = () => {
           <details
             key={index}
             className="border-top-1px border-accent-cool-light padding-1"
+            open={true}
           >
             <summary>
               <span className="font-heading-lg text-primary border-base-light padding-top-1">
@@ -32,7 +33,7 @@ export const SchematronReport = () => {
               {group.assertions.assertions.map((assert, index) => (
                 <li
                   key={index}
-                  className={`usa-icon-list__item bg-${colorTokenForRole(
+                  className={`usa-icon-list__item padding-1 bg-${colorTokenForRole(
                     assert.role,
                   )}-lighter`}
                 >

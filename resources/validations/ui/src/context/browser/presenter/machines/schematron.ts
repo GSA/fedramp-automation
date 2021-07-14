@@ -17,7 +17,7 @@ type States =
     };
 
 type BaseState = {
-  allAssertionsById: {
+  assertionsById: {
     [assertionId: string]: SchematronAssert;
   };
   assertionGroups: {
@@ -26,6 +26,12 @@ type BaseState = {
       id: string;
     }[];
   }[];
+  filter: {
+    role: Role;
+    text: string;
+  };
+  filterRoles: Role[];
+  roles: Role[];
   schematronReport: {
     summaryText: string;
     groups: {
@@ -42,6 +48,7 @@ type BaseState = {
     }[];
   };
   schematronAsserts: SchematronAssert[];
+  schematronAssertsFiltered: SchematronAssert[];
   validator: ValidatorMachine;
 };
 
@@ -73,11 +80,11 @@ const schematronMachine = statemachine<States, Events, BaseState>({
 
 export const createSchematronMachine = () => {
   return schematronMachine.create(
-    { current: 'UNLOADED' },
+    { current: 'LOADED' },
     {
-      allAssertionsById: derived((state: SchematronMachine) => {
-        const assertions: SchematronMachine['allAssertionsById'] = {};
-        state.schematronAsserts.forEach(assert => {
+      assertionsById: derived((state: SchematronMachine) => {
+        const assertions: SchematronMachine['assertionsById'] = {};
+        state.schematronAssertsFiltered.forEach(assert => {
           assertions[assert.id] = assert;
         });
         return assertions;
@@ -91,25 +98,47 @@ export const createSchematronMachine = () => {
           },
         ];
       }),
+      filter: {
+        role: 'all',
+        text: '',
+      },
+      filterRoles: derived((state: SchematronMachine) => {
+        switch (state.filter.role) {
+          case 'all':
+            return state.roles;
+          default:
+            return [state.filter.role];
+        }
+      }),
+      roles: derived((state: SchematronMachine) => [
+        'all',
+        ...Array.from(
+          new Set(state.schematronAsserts.map(assert => assert.role)),
+        ).sort(),
+      ]),
       schematronReport: derived(
-        ({
-          allAssertionsById,
-          assertionGroups,
-          validator,
-        }: SchematronMachine) => {
+        ({ assertionsById, assertionGroups, validator }: SchematronMachine) => {
           const isValidated = validator.current === 'VALIDATED';
           return {
             summaryText: isValidated
-              ? `Found ${validator.visibleAssertions.length} problems`
-              : '',
+              ? 'Processed validations'
+              : 'Unprocessed validations',
             groups: assertionGroups.map(assertionGroup => {
-              const assertions = assertionGroup.asserts.map(
-                assertionGroupAssert => {
-                  const assert = allAssertionsById[assertionGroupAssert.id];
+              type UiAssert = SchematronAssert & {
+                message: string;
+                icon: typeof checkCircleIcon;
+                fired: ValidationAssert[];
+              };
+              const assertions = assertionGroup.asserts
+                .map(assertionGroupAssert => {
+                  const assert = assertionsById[assertionGroupAssert.id];
+                  if (!assert) {
+                    return null;
+                  }
                   const fired = validator.assertionsById[assert.id] || [];
                   return {
                     ...assert,
-                    message: `${assert.id} ${assert.message}`,
+                    // message: `${assert.id} ${assert.message}`,
                     icon: !isValidated
                       ? helpIcon
                       : fired.length
@@ -117,23 +146,25 @@ export const createSchematronMachine = () => {
                       : checkCircleIcon,
                     fired,
                   };
-                },
-              );
-              const passCount = assertions.filter(
-                assert => assert.fired.length === 0,
+                })
+                .filter(
+                  (assert: UiAssert | null): assert is UiAssert =>
+                    assert !== null,
+                );
+              const firedCount = assertions.filter(
+                assert => assert.fired.length > 0,
               ).length;
               return {
                 title: assertionGroup.title,
                 assertions: {
                   summary: (() => {
                     if (isValidated) {
-                      return `${passCount} / ${assertions.length} passed`;
+                      return `${firedCount} / ${assertions.length} triggered`;
                     } else {
                       return `${assertions.length} assertions`;
                     }
                   })(),
-                  summaryColor:
-                    passCount === assertions.length ? 'green' : 'red',
+                  summaryColor: firedCount === 0 ? 'green' : 'red',
                   assertions,
                 },
               };
@@ -142,6 +173,22 @@ export const createSchematronMachine = () => {
         },
       ),
       schematronAsserts: [] as SchematronAssert[],
+      schematronAssertsFiltered: derived(
+        ({ filter, filterRoles, schematronAsserts }: SchematronMachine) => {
+          let assertions = schematronAsserts.filter(
+            (assertion: SchematronAssert) => {
+              return filterRoles.includes(assertion.role || '');
+            },
+          );
+          if (filter.text.length > 0) {
+            assertions = assertions.filter(assert => {
+              const searchText = assert.message.toLowerCase();
+              return searchText.includes(filter.text.toLowerCase());
+            });
+          }
+          return assertions;
+        },
+      ),
       validator: createValidatorMachine(),
     },
   );
