@@ -1548,7 +1548,8 @@
                     <x:expect-not-assert id="has-allowed-media-type"
                                          label="that is correct" />
                 </x:scenario>
-                <x:scenario label="lacks an allowed value" pending="XSpec error resolution">
+                <x:scenario label="lacks an allowed value"
+                            pending="XSpec error resolution">
                     <x:context>
                         <back-matter xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <resource>
@@ -2845,46 +2846,6 @@
                 <x:expect-assert id="has-CMVP-validation"
                                  label="that is an error" />
             </x:scenario>
-            <x:scenario label="has a CMVP validation inventory-item">
-                <x:context>
-                    <system-implementation xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <inventory-item type="validation"
-                                        uuid="772ea84a-0d4e-4225-b82f-66fdc498a934">
-                            <title>FIPS 140-2 Validation</title>
-                            <description>
-                                <p>FIPS 140-2 Validation</p>
-                            </description>
-                            <prop name="validation-reference"
-                                  value="3928" />
-                            <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
-                                  rel="validation-details" />
-                            <status state="active" />
-                        </inventory-item>
-                    </system-implementation>
-                </x:context>
-                <x:expect-not-assert id="has-CMVP-validation"
-                                     label="that is correct" />
-            </x:scenario>
-            <x:scenario label="lacks a CMVP validation inventory-item">
-                <x:context>
-                    <system-implementation xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <inventory-item type="invalidation"
-                                        uuid="772ea84a-0d4e-4225-b82f-66fdc498a934">
-                            <title>FIPS 140-2 Validation</title>
-                            <description>
-                                <p>FIPS 140-2 Validation</p>
-                            </description>
-                            <prop name="validation-reference"
-                                  value="3928" />
-                            <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
-                                  rel="validation-details" />
-                            <status state="active" />
-                        </inventory-item>
-                    </system-implementation>
-                </x:context>
-                <x:expect-assert id="has-CMVP-validation"
-                                 label="that is an error" />
-            </x:scenario>
         </x:scenario>
         <x:scenario label="when a CMVP validation component">
             <x:scenario label="has a validation-reference property">
@@ -2926,46 +2887,6 @@
                                  label="that is an error" />
             </x:scenario>
         </x:scenario>
-        <x:scenario label="when a CMVP validation inventory-item">
-            <x:scenario label="has a validation-reference property">
-                <x:context>
-                    <inventory-item type="validation"
-                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
-                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <title>FIPS 140-2 Validation</title>
-                        <description>
-                            <p>FIPS 140-2 Validation</p>
-                        </description>
-                        <prop name="validation-reference"
-                              value="3928" />
-                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
-                              rel="validation-details" />
-                        <status state="active" />
-                    </inventory-item>
-                </x:context>
-                <x:expect-not-assert id="has-CMVP-validation-reference"
-                                     label="that is correct" />
-            </x:scenario>
-            <x:scenario label="lacks a validation-reference property">
-                <x:context>
-                    <inventory-item type="validation"
-                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
-                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <title>FIPS 140-2 Validation</title>
-                        <description>
-                            <p>FIPS 140-2 Validation</p>
-                        </description>
-                        <prop name="invalidation-reference"
-                              value="3928" />
-                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
-                              rel="validation-details" />
-                        <status state="active" />
-                    </inventory-item>
-                </x:context>
-                <x:expect-assert id="has-CMVP-validation-reference"
-                                 label="that is an error" />
-            </x:scenario>
-        </x:scenario>
         <x:scenario label="when a CMVP validation component">
             <x:scenario label="has a validation-details property">
                 <x:context>
@@ -3001,46 +2922,6 @@
                               rel="invalidation-details" />
                         <status state="active" />
                     </component>
-                </x:context>
-                <x:expect-assert id="has-CMVP-validation-details"
-                                 label="that is an error" />
-            </x:scenario>
-        </x:scenario>
-        <x:scenario label="when a CMVP validation inventory-item">
-            <x:scenario label="has a validation-details property">
-                <x:context>
-                    <inventory-item type="validation"
-                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
-                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <title>FIPS 140-2 Validation</title>
-                        <description>
-                            <p>FIPS 140-2 Validation</p>
-                        </description>
-                        <prop name="validation-reference"
-                              value="3928" />
-                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
-                              rel="validation-details" />
-                        <status state="active" />
-                    </inventory-item>
-                </x:context>
-                <x:expect-not-assert id="has-CMVP-validation-details"
-                                     label="that is correct" />
-            </x:scenario>
-            <x:scenario label="lacks a validation-details property">
-                <x:context>
-                    <inventory-item type="validation"
-                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
-                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <title>FIPS 140-2 Validation</title>
-                        <description>
-                            <p>FIPS 140-2 Validation</p>
-                        </description>
-                        <prop name="validation-reference"
-                              value="3928" />
-                        <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
-                              rel="invalidation-details" />
-                        <status state="active" />
-                    </inventory-item>
                 </x:context>
                 <x:expect-assert id="has-CMVP-validation-details"
                                  label="that is an error" />
@@ -3129,9 +3010,9 @@
         <x:scenario label="when a CMVP validation-details">
             <x:scenario label="is credible">
                 <x:context>
-                    <inventory-item type="validation"
-                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
-                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <component type="validation"
+                               uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                               xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>FIPS 140-2 Validation</title>
                         <description>
                             <p>FIPS 140-2 Validation</p>
@@ -3141,16 +3022,16 @@
                         <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
                               rel="validation-details" />
                         <status state="active" />
-                    </inventory-item>
+                    </component>
                 </x:context>
                 <x:expect-not-assert id="has-credible-CMVP-validation-details"
                                      label="that is correct" />
             </x:scenario>
             <x:scenario label="is not credible">
                 <x:context>
-                    <inventory-item type="validation"
-                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
-                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <component type="validation"
+                               uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                               xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>FIPS 140-2 Validation</title>
                         <description>
                             <p>FIPS 140-2 Validation</p>
@@ -3160,7 +3041,7 @@
                         <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/x3928"
                               rel="validation-details" />
                         <status state="active" />
-                    </inventory-item>
+                    </component>
                 </x:context>
                 <x:expect-assert id="has-credible-CMVP-validation-details"
                                  label="that is an error" />
@@ -3169,9 +3050,9 @@
         <x:scenario label="when a CMVP validation-details">
             <x:scenario label="is consonant">
                 <x:context>
-                    <inventory-item type="validation"
-                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
-                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <component type="validation"
+                               uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                               xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>FIPS 140-2 Validation</title>
                         <description>
                             <p>FIPS 140-2 Validation</p>
@@ -3181,16 +3062,16 @@
                         <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3928"
                               rel="validation-details" />
                         <status state="active" />
-                    </inventory-item>
+                    </component>
                 </x:context>
                 <x:expect-not-assert id="has-consonant-CMVP-validation-details"
                                      label="that is correct" />
             </x:scenario>
             <x:scenario label="is not consonant">
                 <x:context>
-                    <inventory-item type="validation"
-                                    uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
-                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <component type="validation"
+                               uuid="772ea84a-0d4e-4225-b82f-66fdc498a934"
+                               xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>FIPS 140-2 Validation</title>
                         <description>
                             <p>FIPS 140-2 Validation</p>
@@ -3200,7 +3081,7 @@
                         <link href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/0000"
                               rel="validation-details" />
                         <status state="active" />
-                    </inventory-item>
+                    </component>
                 </x:context>
                 <x:expect-assert id="has-consonant-CMVP-validation-details"
                                  label="that is an error" />
@@ -3252,7 +3133,7 @@
             <x:scenario label="has an allowed value">
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <oscal:security-sensitivity-level>Moderate</oscal:security-sensitivity-level>
+                        <oscal:security-sensitivity-level>fips-199-moderate</oscal:security-sensitivity-level>
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert id="has-allowed-security-sensitivity-level"
@@ -3272,7 +3153,7 @@
             <x:scenario label="has a security-objective-confidentiality">
                 <x:context>
                     <security-impact-level xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <oscal:security-objective-confidentiality>Moderate</oscal:security-objective-confidentiality>
+                        <oscal:security-objective-confidentiality>fips-199-moderate</oscal:security-objective-confidentiality>
                     </security-impact-level>
                 </x:context>
                 <x:expect-not-assert id="has-security-objective-confidentiality"
@@ -3281,7 +3162,7 @@
             <x:scenario label="lacks a security-objective-confidentiality">
                 <x:context>
                     <security-impact-level xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <oscal:not-asecurity-objective-confidentiality>Moderate</oscal:not-asecurity-objective-confidentiality>
+                        <oscal:not-asecurity-objective-confidentiality>fips-199-moderate</oscal:not-asecurity-objective-confidentiality>
                     </security-impact-level>
                 </x:context>
                 <x:expect-assert id="has-security-objective-confidentiality"
@@ -3290,7 +3171,7 @@
             <x:scenario label="has a security-objective-integrity">
                 <x:context>
                     <security-impact-level xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <oscal:security-objective-integrity>Moderate</oscal:security-objective-integrity>
+                        <oscal:security-objective-integrity>fips-199-moderate</oscal:security-objective-integrity>
                     </security-impact-level>
                 </x:context>
                 <x:expect-not-assert id="has-security-objective-integrity"
@@ -3299,7 +3180,7 @@
             <x:scenario label="lacks a security-objective-integrity">
                 <x:context>
                     <security-impact-level xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <oscal:not-asecurity-objective-integrity>Moderate</oscal:not-asecurity-objective-integrity>
+                        <oscal:not-asecurity-objective-integrity>fips-199-moderate</oscal:not-asecurity-objective-integrity>
                     </security-impact-level>
                 </x:context>
                 <x:expect-assert id="has-security-objective-integrity"
@@ -3308,7 +3189,7 @@
             <x:scenario label="has a security-objective-availability">
                 <x:context>
                     <security-impact-level xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <oscal:security-objective-availability>Moderate</oscal:security-objective-availability>
+                        <oscal:security-objective-availability>fips-199-moderate</oscal:security-objective-availability>
                     </security-impact-level>
                 </x:context>
                 <x:expect-not-assert id="has-security-objective-availability"
@@ -3317,7 +3198,7 @@
             <x:scenario label="lacks a security-objective-availability">
                 <x:context>
                     <security-impact-level xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <oscal:not-asecurity-objective-availability>Moderate</oscal:not-asecurity-objective-availability>
+                        <oscal:not-asecurity-objective-availability>fips-199-moderate</oscal:not-asecurity-objective-availability>
                     </security-impact-level>
                 </x:context>
                 <x:expect-assert id="has-security-objective-availability"
@@ -3327,7 +3208,7 @@
         <x:scenario label="when a security-objective">
             <x:scenario label="has an allowed security objective value">
                 <x:context>
-                    <security-objective-availability xmlns="http://csrc.nist.gov/ns/oscal/1.0">Moderate</security-objective-availability>
+                    <security-objective-availability xmlns="http://csrc.nist.gov/ns/oscal/1.0">fips-199-moderate</security-objective-availability>
                 </x:context>
                 <x:expect-not-assert id="has-allowed-security-objective-value"
                                      label="that is correct" />
@@ -3822,8 +3703,7 @@
             </x:scenario>
         </x:scenario>
     </x:scenario>
-    <x:scenario label="FedRAMP OSCAL SSP System Inventory"
-                pending="multiple XSpec problems">
+    <x:scenario label="FedRAMP OSCAL SSP System Inventory">
         <x:scenario label="when the system-implementation">
             <x:scenario label="has inventory items">
                 <x:context>
@@ -3982,6 +3862,28 @@
                                  label="error" />
             </x:scenario>
         </x:scenario>
+        <x:scenario label="scan-type property has an allowed value.">
+            <x:scenario label="affirmative">
+                <x:context>
+                    <prop name="scan-type"
+                          ns="https://fedramp.gov/ns/oscal"
+                          value="infrastructure"
+                          xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                </x:context>
+                <x:expect-not-assert id="has-allowed-scan-type"
+                                     label="correct" />
+            </x:scenario>
+            <x:scenario label="negative">
+                <x:context>
+                    <prop name="scan-type"
+                          ns="https://fedramp.gov/ns/oscal"
+                          value="extrastructure"
+                          xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                </x:context>
+                <x:expect-assert id="has-allowed-scan-type"
+                                 label="error" />
+            </x:scenario>
+        </x:scenario>
         <x:scenario label="component has an allowed type.">
             <x:scenario label="affirmative">
                 <x:context>
@@ -3997,6 +3899,47 @@
                                xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
                 </x:context>
                 <x:expect-assert id="component-has-allowed-type"
+                                 label="error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="component has an asset type.">
+            <x:scenario label="affirmative">
+                <x:context>
+                    <component xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type" />
+                    </component>
+                </x:context>
+                <x:expect-not-assert id="component-has-asset-type"
+                                     label="correct" />
+            </x:scenario>
+            <x:scenario label="negative">
+                <x:context>
+                    <component xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="not-a-asset-type" />
+                    </component>
+                </x:context>
+                <x:expect-assert id="component-has-asset-type"
+                                 label="error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="component has only one asset type.">
+            <x:scenario label="affirmative">
+                <x:context>
+                    <component xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type" />
+                    </component>
+                </x:context>
+                <x:expect-not-assert id="component-has-one-asset-type"
+                                     label="correct" />
+            </x:scenario>
+            <x:scenario label="negative">
+                <x:context>
+                    <component xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="asset-type" />
+                        <prop name="asset-type" />
+                    </component>
+                </x:context>
+                <x:expect-assert id="component-has-one-asset-type"
                                  label="error" />
             </x:scenario>
         </x:scenario>
@@ -4263,7 +4206,6 @@
                     <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="asset-type"
                               value="os" />
-                        <!--<prop name="not-a-allows-authenticated-scan" />-->
                     </inventory-item>
                 </x:context>
                 <x:expect-assert id="inventory-item-has-allows-authenticated-scan"
@@ -4333,7 +4275,8 @@
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="asset-type"
                                   value="os" />
-                            <prop name="not-a-baseline-configuration-name" />
+                            <prop name="baseline-configuration-name" />
+                            <prop name="baseline-configuration-name" />
                         </inventory-item>
                     </x:context>
                     <x:expect-assert id="inventory-item-has-one-baseline-configuration-name"
@@ -4495,7 +4438,8 @@
                     <x:expect-not-assert id="inventory-item-has-software-name"
                                          label="correct" />
                 </x:scenario>
-                <x:scenario label="negative">
+                <x:scenario label="negative"
+                            pending="XSpec error resolution">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="not-a-software-name" />
@@ -4505,7 +4449,7 @@
                                      label="error" />
                 </x:scenario>
             </x:scenario>
-            <x:scenario label="&quot;software or database&quot; asset-type has software-name property.">
+            <x:scenario label="&quot;software or database&quot; asset-type has one software-name property.">
                 <x:scenario label="affirmative">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
@@ -4515,7 +4459,8 @@
                     <x:expect-not-assert id="inventory-item-has-one-software-name"
                                          label="correct" />
                 </x:scenario>
-                <x:scenario label="negative">
+                <x:scenario label="negative"
+                            pending="XSpec error resolution">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="software-name" />
@@ -4536,7 +4481,8 @@
                     <x:expect-not-assert id="inventory-item-has-software-version"
                                          label="correct" />
                 </x:scenario>
-                <x:scenario label="negative">
+                <x:scenario label="negative"
+                            pending="XSpec error resolution">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="not-a-software-version" />
@@ -4556,7 +4502,8 @@
                     <x:expect-not-assert id="inventory-item-has-one-software-version"
                                          label="correct" />
                 </x:scenario>
-                <x:scenario label="negative">
+                <x:scenario label="negative"
+                            pending="XSpec error resolution">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="software-version" />
@@ -4577,7 +4524,8 @@
                     <x:expect-not-assert id="inventory-item-has-function"
                                          label="correct" />
                 </x:scenario>
-                <x:scenario label="negative">
+                <x:scenario label="negative"
+                            pending="XSpec error resolution">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="not-a-function" />
@@ -4597,7 +4545,8 @@
                     <x:expect-not-assert id="inventory-item-has-one-function"
                                          label="correct" />
                 </x:scenario>
-                <x:scenario label="negative">
+                <x:scenario label="negative"
+                            pending="XSpec error resolution">
                     <x:context>
                         <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop name="function" />
@@ -4608,612 +4557,405 @@
                                      label="error" />
                 </x:scenario>
             </x:scenario>
-            <x:scenario label="component has an asset type.">
-                <x:scenario label="affirmative">
-                    <x:context>
-                        <component xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="asset-type" />
-                        </component>
-                    </x:context>
-                    <x:expect-not-assert id="component-has-asset-type"
-                                         label="correct" />
-                </x:scenario>
-                <x:scenario label="negative">
-                    <x:context>
-                        <component xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="not-a-asset-type" />
-                        </component>
-                    </x:context>
-                    <x:expect-assert id="component-has-asset-type"
-                                     label="error" />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario label="component has one asset type.">
-                <x:scenario label="affirmative">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="asset-type" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-not-assert id="component-has-one-asset-type"
-                                         label="correct" />
-                </x:scenario>
-                <x:scenario label="negative">
-                    <x:context>
-                        <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="asset-type" />
-                            <prop name="asset-type" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-assert id="component-has-one-asset-type"
-                                     label="error" />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario label="has a scan-type property">
-                <x:context>
-                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <prop name="scan-type" />
-                    </inventory-item>
-                </x:context>
-                <x:expect-not-assert id="inventory-item-has-allowed-scan-type"
-                                     label="that is correct" />
-            </x:scenario>
-            <x:scenario label="lacks a scan-type property">
-                <x:context>
-                    <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <prop name="not-a-scan-type" />
-                    </inventory-item>
-                </x:context>
-                <x:expect-assert id="inventory-item-has-allowed-scan-type"
-                                 label="that is an error" />
-            </x:scenario>
             <!-- FIXME: Software/Database Vendor -->
         </x:scenario>
     </x:scenario>
-    <x:scenario
-        label="FedRAMP OSCAL SSP Roles">
-        <x:scenario
-            label="affirmative">
+    <x:scenario label="FedRAMP OSCAL SSP Roles">
+        <x:scenario label="affirmative">
             <x:context>
-                <metadata
-                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                <metadata xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                     <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 14-->
-                    <role
-                        id="system-owner">
+                    <role id="system-owner">
                         <title>Information System Owner</title>
                         <short-name>ISO</short-name>
                     </role>
                     <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 15-->
-                    <role
-                        id="authorizing-official">
+                    <role id="authorizing-official">
                         <title>Authorizing Official</title>
                         <short-name>AO</short-name>
                     </role>
                     <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 16-->
-                    <role
-                        id="system-poc-management">
+                    <role id="system-poc-management">
                         <title>Information System Management Point of Contact</title>
                         <short-name>ISMPoC</short-name>
                     </role>
                     <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 17-->
-                    <role
-                        id="system-poc-technical">
+                    <role id="system-poc-technical">
                         <title>Information System Technical Point of Contact</title>
                         <short-name>ISTPoC</short-name>
                     </role>
-                    <role
-                        id="system-poc-other">
+                    <role id="system-poc-other">
                         <title>Information System Other Point of Contact</title>
                         <short-name>ISOPoC</short-name>
                     </role>
                     <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 18-->
-                    <role
-                        id="information-system-security-officer">
+                    <role id="information-system-security-officer">
                         <title>Information System Security Officer</title>
                         <short-name>ISSO</short-name>
                     </role>
                     <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 19-->
-                    <role
-                        id="authorizing-official-poc">
+                    <role id="authorizing-official-poc">
                         <title>Authorizing Official (AO) PoC</title>
                         <short-name>AOPoC</short-name>
                     </role>
                 </metadata>
             </x:context>
-            <x:scenario
-                label="The system-owner role must be defined.">
-                <x:scenario
-                    label="When it is">
-                    <x:expect-not-assert
-                        id="role-defined-system-owner"
-                        label="that is correct." />
+            <x:scenario label="The system-owner role must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="role-defined-system-owner"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The authorizing-official role must be defined.">
-                <x:scenario
-                    label="When it is">
-                    <x:expect-not-assert
-                        id="role-defined-authorizing-official"
-                        label="that is correct." />
+            <x:scenario label="The authorizing-official role must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="role-defined-authorizing-official"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The system-poc-management role must be defined.">
-                <x:scenario
-                    label="When it is">
-                    <x:expect-not-assert
-                        id="role-defined-system-poc-management"
-                        label="that is correct." />
+            <x:scenario label="The system-poc-management role must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="role-defined-system-poc-management"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The system-poc-technical role must be defined.">
-                <x:scenario
-                    label="When it is">
-                    <x:expect-not-assert
-                        id="role-defined-system-poc-technical"
-                        label="that is correct." />
+            <x:scenario label="The system-poc-technical role must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="role-defined-system-poc-technical"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The system-poc-other role must be defined.">
-                <x:scenario
-                    label="When it is">
-                    <x:expect-not-assert
-                        id="role-defined-system-poc-other"
-                        label="that is correct." />
+            <x:scenario label="The system-poc-other role must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="role-defined-system-poc-other"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The information-system-security-officer role must be defined.">
-                <x:scenario
-                    label="When it is">
-                    <x:expect-not-assert
-                        id="role-defined-information-system-security-officer"
-                        label="that is correct." />
+            <x:scenario label="The information-system-security-officer role must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="role-defined-information-system-security-officer"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The authorizing-official-poc role must be defined.">
-                <x:scenario
-                    label="When it is">
-                    <x:expect-not-assert
-                        id="role-defined-authorizing-official-poc"
-                        label="that is correct." />
+            <x:scenario label="The authorizing-official-poc role must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="role-defined-authorizing-official-poc"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="A role must have a title.">
+            <x:scenario label="A role must have a title.">
                 <x:context>
-                    <metadata
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <metadata xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <role>
                             <title>title</title>
                         </role>
                     </metadata>
                 </x:context>
-                <x:scenario
-                    label="When it does">
-                    <x:expect-not-assert
-                        id="role-has-title"
-                        label="that is correct." />
+                <x:scenario label="When it does">
+                    <x:expect-not-assert id="role-has-title"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="One or more responsible parties must be defined for each role.">
+            <x:scenario label="One or more responsible parties must be defined for each role.">
                 <x:context>
-                    <metadata
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <role
-                            id="system-owner">
+                    <metadata xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <role id="system-owner">
                             <title>Information System Owner</title>
                             <short-name>ISO</short-name>
                         </role>
-                        <responsible-party
-                            role-id="system-owner">
+                        <responsible-party role-id="system-owner">
                             <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
                         </responsible-party>
                     </metadata>
                 </x:context>
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="role-has-responsible-party"
-                        label="that is correct." />
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="role-has-responsible-party"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each responsible-party party-uuid must identify a person.">
+            <x:scenario label="Each responsible-party party-uuid must identify a person.">
                 <x:context>
-                    <metadata
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <party
-                            type="person"
-                            uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
-                        <responsible-party
-                            role-id="system-owner">
+                    <metadata xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <party type="person"
+                               uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
+                        <responsible-party role-id="system-owner">
                             <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
                         </responsible-party>
                     </metadata>
                 </x:context>
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="responsible-party-has-person"
-                        label="that is correct." />
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="responsible-party-has-person"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each person should have a responsibility.">
+            <x:scenario label="Each person should have a responsibility.">
                 <x:context>
-                    <metadata
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <party
-                            type="person"
-                            uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
-                        <responsible-party
-                            role-id="system-owner">
+                    <metadata xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <party type="person"
+                               uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
+                        <responsible-party role-id="system-owner">
                             <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
                         </responsible-party>
                     </metadata>
                 </x:context>
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="party-has-responsibility"
-                        label="that is correct." />
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="party-has-responsibility"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each implemented-requirement must have one or more responsible-role definitions.">
+            <x:scenario label="Each implemented-requirement must have one or more responsible-role definitions.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <implemented-requirement>
-                            <responsible-role
-                                role-id="implemented-requirement-responsible-role" />
+                            <responsible-role role-id="implemented-requirement-responsible-role" />
                         </implemented-requirement>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="implemented-requirement-has-responsible-role"
-                        label="that is correct." />
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="implemented-requirement-has-responsible-role"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each responsible-role must reference a role definition.">
+            <x:scenario label="Each responsible-role must reference a role definition.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <role
-                            id="implemented-requirement-responsible-role">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <role id="implemented-requirement-responsible-role">
                             <title>Implemented Control Responsibility Role</title>
                         </role>
                         <implemented-requirement>
-                            <responsible-role
-                                role-id="implemented-requirement-responsible-role" />
+                            <responsible-role role-id="implemented-requirement-responsible-role" />
                         </implemented-requirement>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="responsible-role-has-role-definition"
-                        label="that is correct." />
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="responsible-role-has-role-definition"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each responsible-role must be referenced in a system-implementation user assembly.">
+            <x:scenario label="Each responsible-role must be referenced in a system-implementation user assembly.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <role
-                                id="implemented-requirement-responsible-role">
+                            <role id="implemented-requirement-responsible-role">
                                 <title>Implemented Control Responsibility Role</title>
                             </role>
                         </metadata>
                         <system-implementation>
-                            <user
-                                uuid="3c08664f-c6e6-4b3f-b2c9-59fa5f5b2e77">
+                            <user uuid="3c08664f-c6e6-4b3f-b2c9-59fa5f5b2e77">
                                 <role-id>implemented-requirement-responsible-role</role-id>
                             </user>
                         </system-implementation>
                         <control-implementation>
                             <implemented-requirement>
-                                <responsible-role
-                                    role-id="implemented-requirement-responsible-role" />
+                                <responsible-role role-id="implemented-requirement-responsible-role" />
                             </implemented-requirement>
                         </control-implementation>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When it is">
-                    <x:expect-not-assert
-                        id="responsible-role-has-user"
-                        label="that is correct." />
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="responsible-role-has-user"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each role-id must reference a role definition.">
+            <x:scenario label="Each role-id must reference a role definition.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <role
-                                id="implemented-requirement-responsible-role">
+                            <role id="implemented-requirement-responsible-role">
                                 <title>Implemented Control Responsibility Role</title>
                             </role>
                         </metadata>
                         <system-implementation>
-                            <user
-                                uuid="3c08664f-c6e6-4b3f-b2c9-59fa5f5b2e77">
+                            <user uuid="3c08664f-c6e6-4b3f-b2c9-59fa5f5b2e77">
                                 <role-id>implemented-requirement-responsible-role</role-id>
                             </user>
                         </system-implementation>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When it does">
-                    <x:expect-not-assert
-                        id="role-id-has-role-definition"
-                        label="that is correct." />
+                <x:scenario label="When it does">
+                    <x:expect-not-assert id="role-id-has-role-definition"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
         </x:scenario>
-        <x:scenario
-            label="negative">
+        <x:scenario label="negative">
             <x:context>
-                <metadata
-                    xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                <metadata xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
             </x:context>
-            <x:scenario
-                label="The system-owner role must be defined.">
-                <x:scenario
-                    label="When it is not">
-                    <x:expect-assert
-                        id="role-defined-system-owner"
-                        label="that is an error." />
+            <x:scenario label="The system-owner role must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="role-defined-system-owner"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The authorizing-official role must be defined.">
-                <x:scenario
-                    label="When it is not">
-                    <x:expect-assert
-                        id="role-defined-authorizing-official"
-                        label="that is an error." />
+            <x:scenario label="The authorizing-official role must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="role-defined-authorizing-official"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The system-poc-management role must be defined.">
-                <x:scenario
-                    label="When it is not">
-                    <x:expect-assert
-                        id="role-defined-system-poc-management"
-                        label="that is an error." />
+            <x:scenario label="The system-poc-management role must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="role-defined-system-poc-management"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The system-poc-technical role must be defined.">
-                <x:scenario
-                    label="When it is not">
-                    <x:expect-assert
-                        id="role-defined-system-poc-technical"
-                        label="that is an error." />
+            <x:scenario label="The system-poc-technical role must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="role-defined-system-poc-technical"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The system-poc-other role must be defined.">
-                <x:scenario
-                    label="When it is not">
-                    <x:expect-assert
-                        id="role-defined-system-poc-other"
-                        label="that is an error." />
+            <x:scenario label="The system-poc-other role must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="role-defined-system-poc-other"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The information-system-security-officer role must be defined.">
-                <x:scenario
-                    label="When it is not">
-                    <x:expect-assert
-                        id="role-defined-information-system-security-officer"
-                        label="that is an error." />
+            <x:scenario label="The information-system-security-officer role must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="role-defined-information-system-security-officer"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="The authorizing-official-poc role must be defined.">
-                <x:scenario
-                    label="When it is not">
-                    <x:expect-assert
-                        id="role-defined-authorizing-official-poc"
-                        label="that is an error." />
+            <x:scenario label="The authorizing-official-poc role must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="role-defined-authorizing-official-poc"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="A role must have a title.">
+            <x:scenario label="A role must have a title.">
                 <x:context>
-                    <metadata
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <metadata xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <role />
                     </metadata>
                 </x:context>
-                <x:scenario
-                    label="When it does not">
-                    <x:expect-assert
-                        id="role-has-title"
-                        label="that is an error." />
+                <x:scenario label="When it does not">
+                    <x:expect-assert id="role-has-title"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="One or more responsible parties must be defined for each role.">
+            <x:scenario label="One or more responsible parties must be defined for each role.">
                 <x:context>
-                    <metadata
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <role
-                            id="system-owner">
+                    <metadata xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <role id="system-owner">
                             <title>Information System Owner</title>
                             <short-name>ISO</short-name>
                         </role>
                     </metadata>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="role-has-responsible-party"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="role-has-responsible-party"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each responsible-party party-uuid must identify a person.">
+            <x:scenario label="Each responsible-party party-uuid must identify a person.">
                 <x:context>
-                    <metadata
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <responsible-party
-                            role-id="system-owner">
+                    <metadata xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <responsible-party role-id="system-owner">
                             <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
                         </responsible-party>
                     </metadata>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="responsible-party-has-person"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="responsible-party-has-person"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each person should have a responsibility.">
+            <x:scenario label="Each person should have a responsibility.">
                 <x:context>
-                    <metadata
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <party
-                            type="person"
-                            uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
+                    <metadata xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <party type="person"
+                               uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
                     </metadata>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="party-has-responsibility"
-                        label="that is an anomaly." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="party-has-responsibility"
+                                     label="that is an anomaly." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each implemented-requirement must have one or more responsible-role definitions.">
+            <x:scenario label="Each implemented-requirement must have one or more responsible-role definitions.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <implemented-requirement />
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="implemented-requirement-has-responsible-role"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="implemented-requirement-has-responsible-role"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each responsible-role must reference a role definition.">
+            <x:scenario label="Each responsible-role must reference a role definition.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <implemented-requirement>
-                            <responsible-role
-                                role-id="implemented-requirement-responsible-role" />
+                            <responsible-role role-id="implemented-requirement-responsible-role" />
                         </implemented-requirement>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="responsible-role-has-role-definition"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="responsible-role-has-role-definition"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each responsible-role must be referenced in a system-implementation user assembly.">
+            <x:scenario label="Each responsible-role must be referenced in a system-implementation user assembly.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <role
-                                id="implemented-requirement-responsible-role">
+                            <role id="implemented-requirement-responsible-role">
                                 <title>Implemented Control Responsibility Role</title>
                             </role>
                         </metadata>
                         <system-implementation>
-                            <user
-                                uuid="3c08664f-c6e6-4b3f-b2c9-59fa5f5b2e77" />
+                            <user uuid="3c08664f-c6e6-4b3f-b2c9-59fa5f5b2e77" />
                         </system-implementation>
                         <control-implementation>
                             <implemented-requirement>
-                                <responsible-role
-                                    role-id="implemented-requirement-responsible-role" />
+                                <responsible-role role-id="implemented-requirement-responsible-role" />
                             </implemented-requirement>
                         </control-implementation>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When it is not">
-                    <x:expect-assert
-                        id="responsible-role-has-user"
-                        label="that is an error." />
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="responsible-role-has-user"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each role-id must reference a role definition.">
+            <x:scenario label="Each role-id must reference a role definition.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata />
                         <system-implementation>
-                            <user
-                                uuid="3c08664f-c6e6-4b3f-b2c9-59fa5f5b2e77">
+                            <user uuid="3c08664f-c6e6-4b3f-b2c9-59fa5f5b2e77">
                                 <role-id>implemented-requirement-responsible-role</role-id>
                             </user>
                         </system-implementation>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When it does not">
-                    <x:expect-assert
-                        id="role-id-has-role-definition"
-                        label="that is an error." />
+                <x:scenario label="When it does not">
+                    <x:expect-assert id="role-id-has-role-definition"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
         </x:scenario>
     </x:scenario>
-    <x:scenario
-        label="FedRAMP OSCAL SSP User-related unit tests">
-        <x:scenario
-            label="affirmative">
+    <x:scenario label="FedRAMP OSCAL SSP User-related unit tests">
+        <x:scenario label="affirmative">
             <x:context>
-                <ssp
-                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                     <metadata>
-                        <role
-                            id="implemented-requirement-responsible-role">
+                        <role id="implemented-requirement-responsible-role">
                             <title>Implemented Control Responsibility Role</title>
                         </role>
                     </metadata>
                     <system-implementation>
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
-                            <prop
-                                name="type"
-                                value="internal" />
-                            <prop
-                                name="privilege-type"
-                                value="privileged" />
-                            <prop
-                                name="sensitivity"
-                                ns="https://fedramp.gov/ns/oscal"
-                                value="moderate" />
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <prop name="type"
+                                  value="internal" />
+                            <prop name="privilege-level"
+                                  value="privileged" />
+                            <prop name="sensitivity"
+                                  ns="https://fedramp.gov/ns/oscal"
+                                  value="moderate" />
                             <role-id>implemented-requirement-responsible-role</role-id>
                             <authorized-privilege>
                                 <title>title</title>
@@ -5223,148 +4965,102 @@
                     </system-implementation>
                 </ssp>
             </x:context>
-            <x:scenario
-                label="Every user has a role-id.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="user-has-role-id"
-                        label="that is correct." />
+            <x:scenario label="Every user has a role-id.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="user-has-role-id"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every user has a user type property.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="user-has-user-type"
-                        label="that is correct." />
+            <x:scenario label="Every user has a user type property.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="user-has-user-type"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every user has a privilege type property.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="user-has-privilege-type"
-                        label="that is correct." />
+            <x:scenario label="Every user has a privilege type property.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="user-has-privilege-level"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every user has a sensitivity level property.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="user-has-sensitivity-level"
-                        label="that is correct." />
+            <x:scenario label="Every user has a sensitivity level property.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="user-has-sensitivity-level"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every user has one or more authorized-privileges.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="user-has-authorized-privilege"
-                        label="that is correct." />
+            <x:scenario label="Every user has one or more authorized-privileges.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="user-has-authorized-privilege"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each role-id must reference a role definition.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="role-id-has-role-definition"
-                        label="that is correct." />
+            <x:scenario label="Each role-id must reference a role definition.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="role-id-has-role-definition"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="User type property has an allowed value.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="user-user-type-has-allowed-value"
-                        label="that is correct." />
+            <x:scenario label="User type property has an allowed value.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="user-user-type-has-allowed-value"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="User privilege type property has an allowed value.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="user-privilege-type-has-allowed-value"
-                        label="that is correct." />
+            <x:scenario label="User privilege type property has an allowed value.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="user-privilege-level-has-allowed-value"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="User sensitivity level property has an allowed value.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="user-sensitivity-level-has-allowed-value"
-                        label="that is correct." />
+            <x:scenario label="User sensitivity level property has an allowed value.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="user-sensitivity-level-has-allowed-value"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every authorized-privilege has a title.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="authorized-privilege-has-title"
-                        label="that is correct." />
+            <x:scenario label="Every authorized-privilege has a title.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="authorized-privilege-has-title"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every authorized-privilege has one or more function-performed.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="authorized-privilege-has-function-performed"
-                        label="that is correct." />
+            <x:scenario label="Every authorized-privilege has one or more function-performed.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="authorized-privilege-has-function-performed"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every authorized-privilege title is non-empty.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="authorized-privilege-has-non-empty-title"
-                        label="that is correct." />
+            <x:scenario label="Every authorized-privilege title is non-empty.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="authorized-privilege-has-non-empty-title"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every authorized-privilege has a non-empty function-performed.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="authorized-privilege-has-non-empty-function-performed"
-                        label="that is correct." />
+            <x:scenario label="Every authorized-privilege has a non-empty function-performed.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="authorized-privilege-has-non-empty-function-performed"
+                                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
         </x:scenario>
-        <x:scenario
-            label="negative">
+        <x:scenario label="negative">
             <x:context>
-                <ssp
-                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                     <metadata>
-                        <role
-                            id="implemented-requirement-responsible-role">
+                        <role id="implemented-requirement-responsible-role">
                             <title>Implemented Control Responsibility Role</title>
                         </role>
                     </metadata>
                     <system-implementation>
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
-                            <prop
-                                name="type"
-                                value="internal" />
-                            <prop
-                                name="privilege-type"
-                                value="privileged" />
-                            <prop
-                                name="sensitivity"
-                                ns="https://fedramp.gov/ns/oscal"
-                                value="moderate" />
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <prop name="type"
+                                  value="internal" />
+                            <prop name="privilege-level"
+                                  value="privileged" />
+                            <prop name="sensitivity"
+                                  ns="https://fedramp.gov/ns/oscal"
+                                  value="moderate" />
                             <role-id>implemented-requirement-responsible-role</role-id>
                             <authorized-privilege>
                                 <title>title</title>
@@ -5374,239 +5070,171 @@
                     </system-implementation>
                 </ssp>
             </x:context>
-            <x:scenario
-                label="Every user has a role-id.">
+            <x:scenario label="Every user has a role-id.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="user-has-role-id"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="user-has-role-id"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every user has a user type property.">
+            <x:scenario label="Every user has a user type property.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="user-has-user-type"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="user-has-user-type"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every user has a privilege type property.">
+            <x:scenario label="Every user has a privilege type property.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="user-has-privilege-type"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="user-has-privilege-level"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every user has a sensitivity level property.">
+            <x:scenario label="Every user has a sensitivity level property.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="user-has-sensitivity-level"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="user-has-sensitivity-level"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every user has one or more authorized-privileges.">
+            <x:scenario label="Every user has one or more authorized-privileges.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da" />
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="user-has-authorized-privilege"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="user-has-authorized-privilege"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Each role-id must reference a role definition.">
+            <x:scenario label="Each role-id must reference a role definition.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da">
                             <role-id>some-id</role-id>
                         </user>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="role-id-has-role-definition"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="role-id-has-role-definition"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="User type property has an allowed value.">
+            <x:scenario label="User type property has an allowed value.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
-                            <prop
-                                name="type"
-                                value="foreign" />
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <prop name="type"
+                                  value="foreign" />
                         </user>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="user-user-type-has-allowed-value"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="user-user-type-has-allowed-value"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="User privilege type property has an allowed value.">
+            <x:scenario label="User privilege type property has an allowed value.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
-                            <prop
-                                name="privilege-type"
-                                value="nomenclatura" />
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <prop name="privilege-level"
+                                  value="nomenclatura" />
                         </user>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="user-privilege-type-has-allowed-value"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="user-privilege-level-has-allowed-value"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="User sensitivity level property has an allowed value.">
+            <x:scenario label="User sensitivity level property has an allowed value.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
-                            <prop
-                                name="sensitivity"
-                                ns="https://fedramp.gov/ns/oscal"
-                                value="insensitive" />
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                            <prop name="sensitivity"
+                                  ns="https://fedramp.gov/ns/oscal"
+                                  value="insensitive" />
                         </user>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="user-sensitivity-level-has-allowed-value"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="user-sensitivity-level-has-allowed-value"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every authorized-privilege has a title.">
+            <x:scenario label="Every authorized-privilege has a title.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da">
                             <authorized-privilege />
                         </user>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="authorized-privilege-has-title"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="authorized-privilege-has-title"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every authorized-privilege has one or more function-performed.">
+            <x:scenario label="Every authorized-privilege has one or more function-performed.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da">
                             <authorized-privilege />
                         </user>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="authorized-privilege-has-function-performed"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="authorized-privilege-has-function-performed"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every authorized-privilege title is non-empty.">
+            <x:scenario label="Every authorized-privilege title is non-empty.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da">
                             <authorized-privilege>
                                 <title />
                             </authorized-privilege>
                         </user>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="authorized-privilege-has-non-empty-title"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="authorized-privilege-has-non-empty-title"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            <x:scenario
-                label="Every authorized-privilege has a non-empty function-performed.">
+            <x:scenario label="Every authorized-privilege has a non-empty function-performed.">
                 <x:context>
-                    <ssp
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <user
-                            uuid="8c546631-d442-4f7d-b309-4c5af10871da">
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <user uuid="8c546631-d442-4f7d-b309-4c5af10871da">
                             <authorized-privilege>
                                 <function-performed />
                             </authorized-privilege>
                         </user>
                     </ssp>
                 </x:context>
-                <x:scenario
-                    label="When that is false">
-                    <x:expect-assert
-                        id="authorized-privilege-has-non-empty-function-performed"
-                        label="that is an error." />
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="authorized-privilege-has-non-empty-function-performed"
+                                     label="that is an error." />
                 </x:scenario>
             </x:scenario>
         </x:scenario>
