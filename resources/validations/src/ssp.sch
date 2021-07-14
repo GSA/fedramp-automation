@@ -763,10 +763,10 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-CMVP-validation-diagnostic"
                         id="has-CMVP-validation"
                         role="error"
-                        test="oscal:component[@type = 'validation'] or oscal:inventory-item[@type = 'validation']">A FedRAMP OSCAL SSP must
-                        incorporate one or more FIPS 140 validated modules.</sch:assert>
+                        test="oscal:component[@type = 'validation']">A FedRAMP OSCAL SSP must incorporate one or more FIPS 140 validated
+                        modules.</sch:assert>
         </sch:rule>
-        <sch:rule context="oscal:component[@type = 'validation'] | oscal:inventory-item[@type = 'validation']">
+        <sch:rule context="oscal:component[@type = 'validation']">
             <sch:assert diagnostics="has-CMVP-validation-reference-diagnostic"
                         id="has-CMVP-validation-reference"
                         role="error"
@@ -817,11 +817,8 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         test="oscal:security-impact-level">A FedRAMP OSCAL SSP must specify a security impact level.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:security-sensitivity-level">
-            <!--<sch:let
-                name="security-sensitivity-levels"
-                value="$fedramp-values//fedramp:value-set[@name = 'security-sensitivity-level']//fedramp:enum/@value" />-->
             <sch:let name="security-sensitivity-levels"
-                     value="('Low', 'Moderate', 'High')" />
+                     value="$fedramp-values//fedramp:value-set[@name = 'security-level']//fedramp:enum/@value" />
             <sch:assert diagnostics="has-allowed-security-sensitivity-level-diagnostic"
                         id="has-allowed-security-sensitivity-level"
                         role="error"
@@ -846,11 +843,8 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         objective.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability">
-            <!--<sch:let
-                name="security-objective-levels"
-                value="$fedramp-values//fedramp:value-set[@name = 'security-objective-level']//fedramp:enum/@value" />-->
             <sch:let name="security-objective-levels"
-                     value="('Low', 'Moderate', 'High')" />
+                     value="$fedramp-values//fedramp:value-set[@name = 'security-level']//fedramp:enum/@value" />
             <!--<sch:report role="information"
                         test="false()">There are 
             <sch:value-of select="count($security-objective-levels)" />security-objective-levels: 
@@ -1018,18 +1012,19 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         Identity Determination federation-assurance-level property.</sch:assert>
         </sch:rule>
     </sch:pattern>
-    <sch:pattern>
+    <sch:pattern id="system-inventory"
+                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans pp52-60">
+        <sch:title>FedRAMP OSCAL System Inventory</sch:title>
         <sch:title>A FedRAMP OSCAL SSP must specify system inventory items</sch:title>
-        <sch:rule context="/oscal:system-security-plan/oscal:system-implementation"
-                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans pp52-60">
-            <!-- FIXME: determine if essential items are present -->
+        <sch:rule context="/oscal:system-security-plan/oscal:system-implementation">
+            <!-- FIXME: determine if essential inventory items are present -->
             <doc:rule>A FedRAMP OSCAL SSP must incorporate inventory-item elements</doc:rule>
             <sch:assert diagnostics="has-inventory-items-diagnostic"
                         id="has-inventory-items"
                         role="error"
                         test="oscal:inventory-item">A FedRAMP OSCAL SSP must incorporate inventory-item elements.</sch:assert>
         </sch:rule>
-        <sch:title>FedRAMP SSP value constraints</sch:title>
+        <sch:title>FedRAMP SSP property constraints</sch:title>
         <sch:rule context="oscal:prop[@name = 'asset-id']">
             <sch:assert diagnostics="has-unique-asset-id-diagnostic"
                         id="has-unique-asset-id"
@@ -1079,11 +1074,12 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         <sch:rule context="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'scan-type']">
             <sch:let name="scan-types"
                      value="$fedramp-values//fedramp:value-set[@name = 'scan-type']//fedramp:enum/@value" />
-            <sch:assert diagnostics="inventory-item-has-allowed-scan-type-diagnostic"
-                        id="inventory-item-has-allowed-scan-type"
+            <sch:assert diagnostics="has-allowed-scan-type-diagnostic"
+                        id="has-allowed-scan-type"
                         role="error"
                         test="@value = $scan-types">A scan-type property must have an allowed value.</sch:assert>
         </sch:rule>
+        <sch:title>FedRAMP OSCAL SSP inventory components</sch:title>
         <sch:rule context="oscal:component">
             <sch:let name="component-types"
                      value="$fedramp-values//fedramp:value-set[@name = 'component-type']//fedramp:enum/@value" />
@@ -1091,6 +1087,16 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         id="component-has-allowed-type"
                         role="error"
                         test="@type = $component-types">A component must have an allowed type.</sch:assert>
+            <sch:assert diagnostics="component-has-asset-type-diagnostic"
+                        id="component-has-asset-type"
+                        role="error"
+                        test="
+                    (: not(@uuid = //oscal:inventory-item/oscal:implemented-component/@component-uuid) or :)
+                    oscal:prop[@name = 'asset-type']">A component must have an asset type.</sch:assert>
+            <sch:assert diagnostics="component-has-one-asset-type-diagnostic"
+                        id="component-has-one-asset-type"
+                        role="error"
+                        test="not(oscal:prop[@name = 'asset-type'][2])">A component must have only one asset type.</sch:assert>
         </sch:rule>
         <sch:title>FedRAMP OSCAL SSP inventory items</sch:title>
         <sch:rule context="oscal:inventory-item"
@@ -1139,108 +1145,99 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         id="inventory-item-has-one-scan-type"
                         role="error"
                         test="not(oscal:prop[@name = 'scan-type'][2])">An inventory-item has only one scan-type property.</sch:assert>
-        </sch:rule>
-        <sch:rule context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]">
+            <!-- restrict the following to "infrastructure" -->
+            <sch:let name="is-infrastructure"
+                     value="exists(oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')])" />
             <sch:assert diagnostics="inventory-item-has-allows-authenticated-scan-diagnostic"
                         id="inventory-item-has-allows-authenticated-scan"
                         role="error"
-                        test="oscal:prop[@name = 'allows-authenticated-scan']">"infrastructure" inventory-item has
+                        test="not($is-infrastructure) or oscal:prop[@name = 'allows-authenticated-scan']">"infrastructure" inventory-item has
                         allows-authenticated-scan.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-allows-authenticated-scan-diagnostic"
                         id="inventory-item-has-one-allows-authenticated-scan"
                         role="error"
-                        test="not(oscal:prop[@name = 'allows-authenticated-scan'][2])">An inventory-item has one-allows-authenticated-scan
-                        property.</sch:assert>
+                        test="not($is-infrastructure) or not(oscal:prop[@name = 'allows-authenticated-scan'][2])">An inventory-item has
+                        one-allows-authenticated-scan property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-baseline-configuration-name-diagnostic"
                         id="inventory-item-has-baseline-configuration-name"
                         role="error"
-                        test="oscal:prop[@name = 'baseline-configuration-name']">"infrastructure" inventory-item has
+                        test="not($is-infrastructure) or oscal:prop[@name = 'baseline-configuration-name']">"infrastructure" inventory-item has
                         baseline-configuration-name.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-baseline-configuration-name-diagnostic"
                         id="inventory-item-has-one-baseline-configuration-name"
                         role="error"
-                        test="not(oscal:prop[@name = 'baseline-configuration-name'][2])">"infrastructure" inventory-item has only one
-                        baseline-configuration-name.</sch:assert>
+                        test="not($is-infrastructure) or not(oscal:prop[@name = 'baseline-configuration-name'][2])">"infrastructure" inventory-item
+                        has only one baseline-configuration-name.</sch:assert>
             <!-- FIXME: Documentation says vendor name is in FedRAMP @ns -->
             <sch:assert diagnostics="inventory-item-has-vendor-name-diagnostic"
                         id="inventory-item-has-vendor-name"
                         role="error"
-                        test="oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'vendor-name']">"infrastructure" inventory-item has a
-                        vendor-name property.</sch:assert>
+                        test="not($is-infrastructure) or oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'vendor-name']">
+                        "infrastructure" inventory-item has a vendor-name property.</sch:assert>
             <!-- FIXME: Documentation says vendor name is in FedRAMP @ns -->
             <sch:assert diagnostics="inventory-item-has-one-vendor-name-diagnostic"
                         id="inventory-item-has-one-vendor-name"
                         role="error"
-                        test="not(oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'vendor-name'][2])">"infrastructure"
-                        inventory-item must have only one vendor-name property.</sch:assert>
+                        test="not($is-infrastructure) or not(oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'vendor-name'][2])">
+                        "infrastructure" inventory-item must have only one vendor-name property.</sch:assert>
             <!-- FIXME: perversely, hardware-model is not in FedRAMP @ns -->
             <sch:assert diagnostics="inventory-item-has-hardware-model-diagnostic"
                         id="inventory-item-has-hardware-model"
                         role="error"
-                        test="oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'hardware-model']">"infrastructure" inventory-item
-                        must have a hardware-model property.</sch:assert>
+                        test="not($is-infrastructure) or oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'hardware-model']">
+                        "infrastructure" inventory-item must have a hardware-model property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-hardware-model-diagnostic"
                         id="inventory-item-has-one-hardware-model"
                         role="error"
-                        test="not(oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'hardware-model'][2])">"infrastructure"
-                        inventory-item must have only one hardware-model property.</sch:assert>
+                        test="not($is-infrastructure) or not(oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'hardware-model'][2])">
+                        "infrastructure" inventory-item must have only one hardware-model property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-is-scanned-diagnostic"
                         id="inventory-item-has-is-scanned"
                         role="error"
-                        test="oscal:prop[@name = 'is-scanned']">"infrastructure" inventory-item must have is-scanned property.</sch:assert>
+                        test="not($is-infrastructure) or oscal:prop[@name = 'is-scanned']">"infrastructure" inventory-item must have is-scanned
+                        property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-is-scanned-diagnostic"
                         id="inventory-item-has-one-is-scanned"
                         role="error"
-                        test="not(oscal:prop[@name = 'is-scanned'][2])">"infrastructure" inventory-item must have only one is-scanned
-                        property.</sch:assert>
+                        test="not($is-infrastructure) or not(oscal:prop[@name = 'is-scanned'][2])">"infrastructure" inventory-item must have only one
+                        is-scanned property.</sch:assert>
             <!-- FIXME: DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 53 has typo -->
-        </sch:rule>
-        <sch:rule context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]">
-            <!-- FIXME: Software/Database Vendor -->
             <!-- FIXME: vague asset categories -->
+            <!-- restrict the following to "software" -->
+            <sch:let name="is-software-and-database"
+                     value="exists(oscal:prop[@name = 'asset-type' and @value = ('software', 'database')])" />
             <sch:assert diagnostics="inventory-item-has-software-name-diagnostic"
                         id="inventory-item-has-software-name"
                         role="error"
-                        test="oscal:prop[@name = 'software-name']">"software or database" inventory-item must have a software-name
-                        property.</sch:assert>
+                        test="not($is-software-and-database) or oscal:prop[@name = 'software-name']">"software or database" inventory-item must have
+                        a software-name property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-software-name-diagnostic"
                         id="inventory-item-has-one-software-name"
                         role="error"
-                        test="not(oscal:prop[@name = 'software-name'][2])">"software or database" inventory-item must have a software-name
-                        property.</sch:assert>
+                        test="not($is-software-and-database) or not(oscal:prop[@name = 'software-name'][2])">"software or database" inventory-item
+                        must have a software-name property.</sch:assert>
             <!-- FIXME: vague asset categories -->
             <sch:assert diagnostics="inventory-item-has-software-version-diagnostic"
                         id="inventory-item-has-software-version"
                         role="error"
-                        test="oscal:prop[@name = 'software-version']">"software or database" inventory-item must have a software-version
-                        property.</sch:assert>
+                        test="not($is-software-and-database) or oscal:prop[@name = 'software-version']">"software or database" inventory-item must
+                        have a software-version property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-software-version-diagnostic"
                         id="inventory-item-has-one-software-version"
                         role="error"
-                        test="not(oscal:prop[@name = 'software-version'][2])">"software or database" inventory-item must have one software-version
-                        property.</sch:assert>
+                        test="not($is-software-and-database) or not(oscal:prop[@name = 'software-version'][2])">"software or database" inventory-item
+                        must have one software-version property.</sch:assert>
             <!-- FIXME: vague asset categories -->
             <sch:assert diagnostics="inventory-item-has-function-diagnostic"
                         id="inventory-item-has-function"
                         role="error"
-                        test="oscal:prop[@name = 'function']">"software or database" inventory-item must have a function property.</sch:assert>
+                        test="not($is-software-and-database) or oscal:prop[@name = 'function']">"software or database" inventory-item must have a
+                        function property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-function-diagnostic"
                         id="inventory-item-has-one-function"
                         role="error"
-                        test="not(oscal:prop[@name = 'function'][2])">"software or database" inventory-item must have one function
-                        property.</sch:assert>
-        </sch:rule>
-        <sch:title>FedRAMP OSCAL SSP components</sch:title>
-        <sch:rule context="/oscal:system-security-plan/oscal:system-implementation/oscal:component[(: a component referenced by any inventory-item :)@uuid = //oscal:inventory-item/oscal:implemented-component/@component-uuid]"
-                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 54">
-            <sch:assert diagnostics="component-has-asset-type-diagnostic"
-                        id="component-has-asset-type"
-                        role="error"
-                        test="oscal:prop[@name = 'asset-type']">A component must have an asset type.</sch:assert>
-            <sch:assert diagnostics="component-has-one-asset-type-diagnostic"
-                        id="component-has-one-asset-type"
-                        role="error"
-                        test="oscal:prop[@name = 'asset-type']">A component must have one asset type.</sch:assert>
+                        test="not($is-software-and-database) or not(oscal:prop[@name = 'function'][2])">"software or database" inventory-item must
+                        have one function property.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern>
@@ -1375,10 +1372,10 @@ system-implementation user assembly.</sch:assert>
                         id="user-has-user-type"
                         role="error"
                         test="oscal:prop[@name = 'type']">Every user has a user type property.</sch:assert>
-            <sch:assert diagnostics="user-has-privilege-type-diagnostic"
-                        id="user-has-privilege-type"
+            <sch:assert diagnostics="user-has-privilege-level-diagnostic"
+                        id="user-has-privilege-level"
                         role="error"
-                        test="oscal:prop[@name = 'privilege-type']">Every user has a privilege type property.</sch:assert>
+                        test="oscal:prop[@name = 'privilege-level']">Every user has a privilege-level property.</sch:assert>
             <sch:assert diagnostics="user-has-sensitivity-level-diagnostic"
                         id="user-has-sensitivity-level"
                         role="error"
@@ -1404,13 +1401,13 @@ system-implementation user assembly.</sch:assert>
                         role="error"
                         test="current()/@value = $user-types">User type property has an allowed value.</sch:assert>
         </sch:rule>
-        <sch:rule context="oscal:user/oscal:prop[@name = 'privilege-type']">
-            <sch:let name="user-privilege-types"
+        <sch:rule context="oscal:user/oscal:prop[@name = 'privilege-level']">
+            <sch:let name="user-privilege-levels"
                      value="$fedramp-values//fedramp:value-set[@name = 'user-privilege']//fedramp:enum/@value" />
-            <sch:assert diagnostics="user-privilege-type-has-allowed-value-diagnostic"
-                        id="user-privilege-type-has-allowed-value"
+            <sch:assert diagnostics="user-privilege-level-has-allowed-value-diagnostic"
+                        id="user-privilege-level-has-allowed-value"
                         role="error"
-                        test="current()/@value = $user-privilege-types">User privilege type property has an allowed value.</sch:assert>
+                        test="current()/@value = $user-privilege-levels">User privilege-level property has an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:user/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal'][@name = 'sensitivity']">
             <sch:let name="user-sensitivity-levels"
@@ -1602,7 +1599,7 @@ system-implementation user assembly.</sch:assert>
         <sch:diagnostic doc:context=""
                         id="has-allowed-media-type-diagnostic">This 
         <sch:value-of select="name(parent::node())" />has a media-type=" 
-        <sch:value-of select="current()" />" which is not in the list of allowed media types. Allowed media types are 
+        <sch:value-of select="current()/@media-type" />" which is not in the list of allowed media types. Allowed media types are 
         <sch:value-of select="string-join($media-types, ' ∨ ')" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-has-base64"
                         doc:context="oscal:back-matter/oscal:resource"
@@ -1735,11 +1732,11 @@ system-implementation user assembly.</sch:assert>
                         id="has-CMVP-validation-diagnostic">This FedRAMP OSCAL SSP does not declare one or more FIPS 140 validated
                         modules.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-CMVP-validation-reference"
-                        doc:context="oscal:component[@type = 'validation'] | oscal:inventory-item[@type = 'validation']"
+                        doc:context="oscal:component[@type = 'validation']"
                         id="has-CMVP-validation-reference-diagnostic">This validation component or inventory-item lacks a validation-reference
                         property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-CMVP-validation-details"
-                        doc:context="oscal:component[@type = 'validation'] | oscal:inventory-item[@type = 'validation']"
+                        doc:context="oscal:component[@type = 'validation']"
                         id="has-CMVP-validation-details-diagnostic">This validation component or inventory-item lacks a validation-details
                         link.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-credible-CMVP-validation-reference"
@@ -1911,9 +1908,9 @@ system-implementation user assembly.</sch:assert>
         <sch:value-of select="name()" />must have an allowed value 
         <sch:value-of select="string-join($is-scanneds, ' ∨ ')" />(not " 
         <sch:value-of select="@value" />").</sch:diagnostic>
-        <sch:diagnostic doc:assertion="inventory-item-has-allowed-scan-type"
+        <sch:diagnostic doc:assertion="has-allowed-scan-type"
                         doc:context="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'scan-type']"
-                        id="inventory-item-has-allowed-scan-type-diagnostic">
+                        id="has-allowed-scan-type-diagnostic">
         <sch:value-of select="name()" />must have an allowed value 
         <sch:value-of select="string-join($scan-types, ' ∨ ')" />(not " 
         <sch:value-of select="@value" />").</sch:diagnostic>
@@ -2093,28 +2090,28 @@ system-implementation user assembly.</sch:assert>
                         id="role-id-has-role-definition-diagnostic">This role-id references a non-existent role definition.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-has-role-id"
                         doc:context="oscal:user"
-                        id="user-has-role-id-diagnostic">Every user has a role-id.</sch:diagnostic>
+                        id="user-has-role-id-diagnostic">This user lacks a role-id.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-has-user-type"
                         doc:context="oscal:user"
-                        id="user-has-user-type-diagnostic">Every user has a user type property.</sch:diagnostic>
-        <sch:diagnostic doc:assertion="user-has-privilege-type"
+                        id="user-has-user-type-diagnostic">This user lacks a user type property.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="user-has-privilege-level"
                         doc:context="oscal:user"
-                        id="user-has-privilege-type-diagnostic">Every user has a privilege type property.</sch:diagnostic>
+                        id="user-has-privilege-level-diagnostic">This user lacks a privilege-level property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-has-sensitivity-level"
                         doc:context="oscal:user"
-                        id="user-has-sensitivity-level-diagnostic">Every user has a sensitivity level property.</sch:diagnostic>
+                        id="user-has-sensitivity-level-diagnostic">This user lacks a sensitivity level property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-has-authorized-privilege"
                         doc:context="oscal:user"
-                        id="user-has-authorized-privilege-diagnostic">Every user has one or more authorized-privileges.</sch:diagnostic>
+                        id="user-has-authorized-privilege-diagnostic">This user lacks one or more authorized-privileges.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-user-type-has-allowed-value"
                         doc:context="oscal:user/oscal:prop[@name = 'type']"
                         id="user-user-type-has-allowed-value-diagnostic">User type property has an allowed value.</sch:diagnostic>
-        <sch:diagnostic doc:assertion="user-privilege-type-has-allowed-value"
-                        doc:context="oscal:user/oscal:prop[@name = 'privilege-type']"
-                        id="user-privilege-type-has-allowed-value-diagnostic">User privilege type property has an allowed value.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="user-privilege-level-has-allowed-value"
+                        doc:context="oscal:user/oscal:prop[@name = 'privilege-level']"
+                        id="user-privilege-level-has-allowed-value-diagnostic">User privilege-level property has an allowed value.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-sensitivity-level-has-allowed-value"
                         doc:context="oscal:user/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal'][@name = 'sensitivity']"
-                        id="user-sensitivity-level-has-allowed-value-diagnostic">User sensitivity level property has an allowed
+                        id="user-sensitivity-level-has-allowed-value-diagnostic">This user sensitivity level property lacks an allowed
                         value.</sch:diagnostic>
         <sch:diagnostic doc:assertion="authorized-privilege-has-title"
                         doc:context="oscal:user/oscal:authorized-privilege"
