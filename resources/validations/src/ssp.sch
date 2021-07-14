@@ -1375,7 +1375,7 @@ system-implementation user assembly.</sch:assert>
             <sch:assert diagnostics="user-has-privilege-level-diagnostic"
                         id="user-has-privilege-level"
                         role="error"
-                        test="oscal:prop[@name = 'privilege-level']">Every user has a privilege type property.</sch:assert>
+                        test="oscal:prop[@name = 'privilege-level']">Every user has a privilege-level property.</sch:assert>
             <sch:assert diagnostics="user-has-sensitivity-level-diagnostic"
                         id="user-has-sensitivity-level"
                         role="error"
@@ -1407,7 +1407,7 @@ system-implementation user assembly.</sch:assert>
             <sch:assert diagnostics="user-privilege-level-has-allowed-value-diagnostic"
                         id="user-privilege-level-has-allowed-value"
                         role="error"
-                        test="current()/@value = $user-privilege-levels">User privilege type property has an allowed value.</sch:assert>
+                        test="current()/@value = $user-privilege-levels">User privilege-level property has an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:user/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal'][@name = 'sensitivity']">
             <sch:let name="user-sensitivity-levels"
@@ -2090,25 +2090,25 @@ system-implementation user assembly.</sch:assert>
                         id="role-id-has-role-definition-diagnostic">This role-id references a non-existent role definition.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-has-role-id"
                         doc:context="oscal:user"
-                        id="user-has-role-id-diagnostic">Every user has a role-id.</sch:diagnostic>
+                        id="user-has-role-id-diagnostic">This user lacks a role-id.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-has-user-type"
                         doc:context="oscal:user"
-                        id="user-has-user-type-diagnostic">Every user has a user type property.</sch:diagnostic>
+                        id="user-has-user-type-diagnostic">This user lacks a user type property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-has-privilege-level"
                         doc:context="oscal:user"
-                        id="user-has-privilege-level-diagnostic">Every user has a privilege type property.</sch:diagnostic>
+                        id="user-has-privilege-level-diagnostic">This user lacks a privilege-level property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-has-sensitivity-level"
                         doc:context="oscal:user"
                         id="user-has-sensitivity-level-diagnostic">This user lacks a sensitivity level property.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-has-authorized-privilege"
                         doc:context="oscal:user"
-                        id="user-has-authorized-privilege-diagnostic">Every user has one or more authorized-privileges.</sch:diagnostic>
+                        id="user-has-authorized-privilege-diagnostic">This user lacks one or more authorized-privileges.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-user-type-has-allowed-value"
                         doc:context="oscal:user/oscal:prop[@name = 'type']"
                         id="user-user-type-has-allowed-value-diagnostic">User type property has an allowed value.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-privilege-level-has-allowed-value"
                         doc:context="oscal:user/oscal:prop[@name = 'privilege-level']"
-                        id="user-privilege-level-has-allowed-value-diagnostic">User privilege type property has an allowed value.</sch:diagnostic>
+                        id="user-privilege-level-has-allowed-value-diagnostic">User privilege-level property has an allowed value.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-sensitivity-level-has-allowed-value"
                         doc:context="oscal:user/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal'][@name = 'sensitivity']"
                         id="user-sensitivity-level-has-allowed-value-diagnostic">This user sensitivity level property lacks an allowed
