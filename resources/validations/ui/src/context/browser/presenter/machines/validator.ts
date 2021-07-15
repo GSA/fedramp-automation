@@ -1,7 +1,7 @@
 import { derived, Statemachine, statemachine } from 'overmind';
 
 import type {
-  ValidationAssert,
+  FailedAssert,
   ValidationReport,
 } from '../../../../use-cases/schematron';
 
@@ -27,7 +27,7 @@ type States =
     };
 
 type BaseState = {
-  assertionsById: Record<ValidationAssert['id'], ValidationAssert[]>;
+  assertionsById: Record<FailedAssert['id'], FailedAssert[]>;
 };
 
 type Events =
@@ -127,7 +127,7 @@ export const createValidatorMachine = () => {
             acc[assert.id].push(assert);
             return acc;
           },
-          {} as Record<ValidationAssert['id'], ValidationAssert[]>,
+          {} as Record<FailedAssert['id'], FailedAssert[]>,
         );
       }),
     },

@@ -2,8 +2,9 @@ import type { IndentXml } from '../..//domain/xml';
 import type {
   ParseSchematronAssertions,
   SchematronValidator,
-  ValidationAssert,
+  FailedAssert,
   ValidationReport,
+  SuccessfulReport,
 } from '../../use-cases/schematron';
 
 const getValidationReport = (
@@ -18,10 +19,18 @@ const getValidationReport = (
       resultForm: 'array',
     },
   );
+  const successfulReports = SaxonJS.XPath.evaluate(
+    '//svrl:successful-report',
+    document,
+    {
+      namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
+      resultForm: 'array',
+    },
+  );
   return {
     failedAsserts: Array.prototype.map.call(failedAsserts, (assert, index) => {
       return Object.keys(assert.attributes).reduce(
-        (assertMap: Record<string, ValidationAssert>, key: string) => {
+        (assertMap: Record<string, FailedAssert>, key: string) => {
           const name = assert.attributes[key].name;
           if (name) {
             assertMap[name] = assert.attributes[key].value;
@@ -33,7 +42,25 @@ const getValidationReport = (
           uniqueId: `${assert['id']}-${index}` as any,
         },
       );
-    }) as ValidationAssert[],
+    }) as FailedAssert[],
+    successfulReports: Array.prototype.map.call(
+      successfulReports,
+      (report, index) => {
+        return Object.keys(report.attributes).reduce(
+          (assertMap: Record<string, FailedAssert>, key: string) => {
+            const name = report.attributes[key].name;
+            if (name) {
+              assertMap[name] = report.attributes[key].value;
+            }
+            return assertMap;
+          },
+          {
+            text: report.textContent,
+            uniqueId: `${report['id']}-${index}` as any,
+          },
+        );
+      },
+    ) as SuccessfulReport[],
   };
 };
 

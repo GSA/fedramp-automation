@@ -2,7 +2,7 @@
  * Define the core Schematron types used in the application.
  */
 
-export type ValidationAssert = {
+export type FailedAssert = {
   uniqueId: string;
   id: string;
   location: string;
@@ -11,8 +11,17 @@ export type ValidationAssert = {
   test: string;
   text: string;
 };
+export type SuccessfulReport = {
+  uniqueId: string;
+  id: string;
+  location: string;
+  role?: string;
+  test: string;
+  text: string;
+};
 export type ValidationReport = {
-  failedAsserts: ValidationAssert[];
+  failedAsserts: FailedAssert[];
+  successfulReports: SuccessfulReport[];
 };
 
 export type SchematronValidator = (

@@ -2,7 +2,7 @@ import { derived, Statemachine, statemachine } from 'overmind';
 
 import type {
   SchematronAssert,
-  ValidationAssert,
+  FailedAssert,
 } from '../../../../use-cases/schematron';
 import { createValidatorMachine, ValidatorMachine } from './validator';
 
@@ -42,7 +42,7 @@ type BaseState = {
         summaryColor: 'red' | 'green';
         assertions: (SchematronAssert & {
           icon: typeof checkCircleIcon;
-          fired: ValidationAssert[];
+          fired: FailedAssert[];
         })[];
       };
     }[];
@@ -127,7 +127,7 @@ export const createSchematronMachine = () => {
               type UiAssert = SchematronAssert & {
                 message: string;
                 icon: typeof checkCircleIcon;
-                fired: ValidationAssert[];
+                fired: FailedAssert[];
               };
               const assertions = assertionGroup.asserts
                 .map(assertionGroupAssert => {
