@@ -275,6 +275,13 @@
                         role="fatal"
                         test="empty($ok-values) or not(exists($corrections))">[Section C Check 1.a] Sensitivity level has an allowed
                         value.</sch:assert>
+            <sch:let name="implemented"
+                     value="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement" />
+            <sch:report id="implemented-response-points"
+                        role="information"
+                        test="exists($implemented)">[Section C Check 2] This SSP has implemented a statement for each of the following lettered
+                        response points for required controls: 
+            <sch:value-of select="$implemented/@statement-id" />.</sch:report>
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation">
             <sch:let name="registry-ns"
@@ -351,11 +358,6 @@
                         id="invalid-implementation-status"
                         role="error"
                         test="not(exists($corrections))">[Section C Check 2] Implementation status is correct.</sch:assert>
-            <sch:report id="implemented-response-points"
-                        role="information"
-                        test="exists($implemented)">[Section C Check 2] This SSP has implemented a statement for each of the following lettered
-                        response points for required controls: 
-            <sch:value-of select="$implemented/@statement-id" />.</sch:report>
             <sch:assert diagnostics="missing-response-points-diagnostic"
                         doc:organizational-id="section-c.2"
                         id="missing-response-points"
