@@ -29,25 +29,25 @@
 
             <!-- report on related XSpec reference -->
             <sch:report
+                diagnostics="xspec-defined-and-available-diagnostic"
                 id="xspec-defined-and-available"
                 role="information"
-                test="exists(doc:xspec/@href)">doc:xspec is defined and <sch:value-of
+                test="doc:xspec/@href">doc:xspec is defined and <sch:value-of
                     select="doc:xspec/@href" /> is <sch:value-of
                     select="
                         if (doc-available(doc:xspec/@href)) then
                             'available'
                         else
-                            'unavailable'" />
-            </sch:report>
+                            'unavailable'" />. </sch:report>
 
             <!-- report on absolute XSpec path -->
             <sch:report
+                diagnostics="xspec-resolved-uri-diagnostic"
                 id="xspec-resolved-uri"
                 role="information"
                 test="doc:xspec/@href"><sch:value-of
                     select="doc:xspec/@href" /> resolves to <sch:value-of
-                    select="resolve-uri(doc:xspec/@href, base-uri())" />
-            </sch:report>
+                    select="resolve-uri(doc:xspec/@href, base-uri())" />. </sch:report>
 
             <!-- An Schematron document must have a reference to the corresponding XSpec document -->
             <sch:assert
@@ -108,7 +108,7 @@
                 id="has-diagnostics-attribute"
                 role="warning"
                 sqf:fix="add-diagnostics"
-                test="local-name() eq 'assert' and @diagnostics">Every Schematron assertion has diagnostics.</sch:assert>
+                test="local-name() eq 'report' or @diagnostics">Every Schematron assertion has diagnostics.</sch:assert>
 
             <sqf:fix
                 id="add-diagnostics">
@@ -163,9 +163,9 @@
 
     <sch:diagnostics>
         <sch:diagnostic
-            id="xspec-defined-and-available-diagnostic">@href is likely missing or incorrect.</sch:diagnostic>
+            id="xspec-defined-and-available-diagnostic">@href present and available.</sch:diagnostic>
         <sch:diagnostic
-            id="xspec-resolved-uri-diagnostic">@href is likely missing or incorrect.</sch:diagnostic>
+            id="xspec-resolved-uri-diagnostic">@href resolves.</sch:diagnostic>
         <sch:diagnostic
             id="has-id-attribute-diagnostic"><sch:value-of
                 select="name()" /> id="<sch:value-of
