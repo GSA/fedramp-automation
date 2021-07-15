@@ -1440,6 +1440,170 @@ system-implementation user assembly.</sch:assert>
                         test="current() ne ''">Every authorized-privilege has a non-empty function-performed.</sch:assert>
         </sch:rule>
     </sch:pattern>
+    <sch:pattern id="authorization-boundary"
+                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17 Authorization Boundary Diagram page 25">
+        <sch:title>Authorization Boundary Diagram</sch:title>
+        <sch:rule context="oscal:system-characteristics">
+            <sch:assert diagnostics="has-authorization-boundary-diagnostic"
+                        id="has-authorization-boundary"
+                        role="error"
+                        test="oscal:authorization-boundary">A FedRAMP OSCAL SSP includes an authorization-boundary in its
+                        system-characteristics.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:authorization-boundary">
+            <sch:assert diagnostics="has-authorization-boundary-description-diagnostic"
+                        id="has-authorization-boundary-description"
+                        role="error"
+                        test="oscal:description">A FedRAMP OSCAL SSP has an authorization-boundary description.</sch:assert>
+            <sch:assert diagnostics="has-authorization-boundary-diagram-diagnostic"
+                        id="has-authorization-boundary-diagram"
+                        role="error"
+                        test="oscal:diagram">A FedRAMP OSCAL SSP has at least one authorization-boundary diagram.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:authorization-boundary/oscal:diagram">
+            <sch:assert diagnostics="has-authorization-boundary-diagram-uuid-diagnostic"
+                        id="has-authorization-boundary-diagram-uuid"
+                        role="error"
+                        test="@uuid">Each FedRAMP OSCAL SSP authorization-boundary diagram has a uuid attribute.</sch:assert>
+            <sch:assert diagnostics="has-authorization-boundary-diagram-description-diagnostic"
+                        id="has-authorization-boundary-diagram-description"
+                        role="error"
+                        test="oscal:description">Each FedRAMP OSCAL SSP authorization-boundary diagram has a description.</sch:assert>
+            <sch:assert diagnostics="has-authorization-boundary-diagram-link-diagnostic"
+                        id="has-authorization-boundary-diagram-link"
+                        role="error"
+                        test="oscal:link">Each FedRAMP OSCAL SSP authorization-boundary diagram has a link.</sch:assert>
+            <sch:assert diagnostics="has-authorization-boundary-diagram-caption-diagnostic"
+                        id="has-authorization-boundary-diagram-caption"
+                        role="error"
+                        test="oscal:caption">Each FedRAMP OSCAL SSP authorization-boundary diagram has a caption.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:authorization-boundary/oscal:diagram/oscal:link">
+            <sch:assert diagnostics="has-authorization-boundary-diagram-link-rel-diagnostic"
+                        id="has-authorization-boundary-diagram-link-rel"
+                        role="error"
+                        test="@rel">Each FedRAMP OSCAL SSP authorization-boundary diagram has a link rel attribute.</sch:assert>
+            <sch:assert diagnostics="has-authorization-boundary-diagram-link-rel-allowed-value-diagnostic"
+                        id="has-authorization-boundary-diagram-link-rel-allowed-value"
+                        role="error"
+                        test="@rel = 'diagram'">Each FedRAMP OSCAL SSP authorization-boundary diagram has a link rel attribute with the value
+                        "diagram".</sch:assert>
+            <sch:assert diagnostics="has-authorization-boundary-diagram-link-href-target-diagnostic"
+                        id="has-authorization-boundary-diagram-link-href-target"
+                        role="error"
+                        test="exists(//oscal:resource[@uuid = substring-after(current()/@href, '#')])">A FedRAMP OSCAL SSP authorization-boundary
+                        diagram link references a back-matter resource representing the diagram document.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+    <sch:pattern id="network-architecture"
+                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17 Authorization Boundary Diagram page 25">
+        <sch:title>Network Architecture Diagram</sch:title>
+        <sch:rule context="oscal:system-characteristics">
+            <sch:assert diagnostics="has-network-architecture-diagnostic"
+                        id="has-network-architecture"
+                        role="error"
+                        test="oscal:network-architecture">A FedRAMP OSCAL SSP includes a network-architecture in its
+                        system-characteristics.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:network-architecture">
+            <sch:assert diagnostics="has-network-architecture-description-diagnostic"
+                        id="has-network-architecture-description"
+                        role="error"
+                        test="oscal:description">A FedRAMP OSCAL SSP has a network-architecture description.</sch:assert>
+            <sch:assert diagnostics="has-network-architecture-diagram-diagnostic"
+                        id="has-network-architecture-diagram"
+                        role="error"
+                        test="oscal:diagram">A FedRAMP OSCAL SSP has at least one network-architecture diagram.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:network-architecture/oscal:diagram">
+            <sch:assert diagnostics="has-network-architecture-diagram-uuid-diagnostic"
+                        id="has-network-architecture-diagram-uuid"
+                        role="error"
+                        test="@uuid">Each FedRAMP OSCAL SSP network-architecture diagram has a uuid attribute.</sch:assert>
+            <sch:assert diagnostics="has-network-architecture-diagram-description-diagnostic"
+                        id="has-network-architecture-diagram-description"
+                        role="error"
+                        test="oscal:description">Each FedRAMP OSCAL SSP network-architecture diagram has a description.</sch:assert>
+            <sch:assert diagnostics="has-network-architecture-diagram-link-diagnostic"
+                        id="has-network-architecture-diagram-link"
+                        role="error"
+                        test="oscal:link">Each FedRAMP OSCAL SSP network-architecture diagram has a link.</sch:assert>
+            <sch:assert diagnostics="has-network-architecture-diagram-caption-diagnostic"
+                        id="has-network-architecture-diagram-caption"
+                        role="error"
+                        test="oscal:caption">Each FedRAMP OSCAL SSP network-architecture diagram has a caption.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:network-architecture/oscal:diagram/oscal:link">
+            <sch:assert diagnostics="has-network-architecture-diagram-link-rel-diagnostic"
+                        id="has-network-architecture-diagram-link-rel"
+                        role="error"
+                        test="@rel">Each FedRAMP OSCAL SSP network-architecture diagram has a link rel attribute.</sch:assert>
+            <sch:assert diagnostics="has-network-architecture-diagram-link-rel-allowed-value-diagnostic"
+                        id="has-network-architecture-diagram-link-rel-allowed-value"
+                        role="error"
+                        test="@rel = 'diagram'">Each FedRAMP OSCAL SSP network-architecture diagram has a link rel attribute with the value
+                        "diagram".</sch:assert>
+            <sch:assert diagnostics="has-network-architecture-diagram-link-href-target-diagnostic"
+                        id="has-network-architecture-diagram-link-href-target"
+                        role="error"
+                        test="exists(//oscal:resource[@uuid = substring-after(current()/@href, '#')])">A FedRAMP OSCAL SSP network-architecture
+                        diagram link references a back-matter resource representing the diagram document.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+    <sch:pattern id="data-flow"
+                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17 Authorization Boundary Diagram page 25">
+        <sch:title>Data Flow Diagram</sch:title>
+        <sch:rule context="oscal:system-characteristics">
+            <sch:assert diagnostics="has-data-flow-diagnostic"
+                        id="has-data-flow"
+                        role="error"
+                        test="oscal:data-flow">A FedRAMP OSCAL SSP includes a data-flow in its system-characteristics.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:data-flow">
+            <sch:assert diagnostics="has-data-flow-description-diagnostic"
+                        id="has-data-flow-description"
+                        role="error"
+                        test="oscal:description">A FedRAMP OSCAL SSP has a data-flow description.</sch:assert>
+            <sch:assert diagnostics="has-data-flow-diagram-diagnostic"
+                        id="has-data-flow-diagram"
+                        role="error"
+                        test="oscal:diagram">A FedRAMP OSCAL SSP has at least one data-flow diagram.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:data-flow/oscal:diagram">
+            <sch:assert diagnostics="has-data-flow-diagram-uuid-diagnostic"
+                        id="has-data-flow-diagram-uuid"
+                        role="error"
+                        test="@uuid">Each FedRAMP OSCAL SSP data-flow diagram has a uuid attribute.</sch:assert>
+            <sch:assert diagnostics="has-data-flow-diagram-description-diagnostic"
+                        id="has-data-flow-diagram-description"
+                        role="error"
+                        test="oscal:description">Each FedRAMP OSCAL SSP data-flow diagram has a description.</sch:assert>
+            <sch:assert diagnostics="has-data-flow-diagram-link-diagnostic"
+                        id="has-data-flow-diagram-link"
+                        role="error"
+                        test="oscal:link">Each FedRAMP OSCAL SSP data-flow diagram has a link.</sch:assert>
+            <sch:assert diagnostics="has-data-flow-diagram-caption-diagnostic"
+                        id="has-data-flow-diagram-caption"
+                        role="error"
+                        test="oscal:caption">Each FedRAMP OSCAL SSP data-flow diagram has a caption.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:data-flow/oscal:diagram/oscal:link">
+            <sch:assert diagnostics="has-data-flow-diagram-link-rel-diagnostic"
+                        id="has-data-flow-diagram-link-rel"
+                        role="error"
+                        test="@rel">Each FedRAMP OSCAL SSP data-flow diagram has a link rel attribute.</sch:assert>
+            <sch:assert diagnostics="has-data-flow-diagram-link-rel-allowed-value-diagnostic"
+                        id="has-data-flow-diagram-link-rel-allowed-value"
+                        role="error"
+                        test="@rel = 'diagram'">Each FedRAMP OSCAL SSP data-flow diagram has a link rel attribute with the value
+                        "diagram".</sch:assert>
+            <sch:assert diagnostics="has-data-flow-diagram-link-href-target-diagnostic"
+                        id="has-data-flow-diagram-link-href-target"
+                        role="error"
+                        test="exists(//oscal:resource[@uuid = substring-after(current()/@href, '#')])">A FedRAMP OSCAL SSP data-flow diagram link
+                        references a back-matter resource representing the diagram document.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
     <sch:diagnostics>
         <sch:diagnostic doc:assertion="no-registry-values"
                         doc:context="/o:system-security-plan"
@@ -2127,5 +2291,119 @@ system-implementation user assembly.</sch:assert>
                         doc:context="oscal:authorized-privilege/oscal:function-performed"
                         id="authorized-privilege-has-non-empty-function-performed-diagnostic">Every authorized-privilege has a non-empty
                         function-performed.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-authorization-boundary"
+                        doc:context="oscal:system-characteristics"
+                        id="has-authorization-boundary-diagnostic">This FedRAMP OSCAL SSP lacks an authorization-boundary in its
+                        system-characteristics.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-authorization-boundary-description"
+                        doc:context="oscal:authorization-boundary"
+                        id="has-authorization-boundary-description-diagnostic">This FedRAMP OSCAL SSP lacks an authorization-boundary
+                        description.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-authorization-boundary-diagram"
+                        doc:context="oscal:authorization-boundary"
+                        id="has-authorization-boundary-diagram-diagnostic">This FedRAMP OSCAL SSP lacks at least one authorization-boundary
+                        diagram.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-authorization-boundary-diagram-uuid"
+                        doc:context="oscal:authorization-boundary/oscal:diagram"
+                        id="has-authorization-boundary-diagram-uuid-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram lacks a uuid
+                        attribute.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-authorization-boundary-diagram-description"
+                        doc:context="oscal:authorization-boundary/oscal:diagram"
+                        id="has-authorization-boundary-diagram-description-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram lacks a
+                        description.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-authorization-boundary-diagram-link"
+                        doc:context="oscal:authorization-boundary/oscal:diagram"
+                        id="has-authorization-boundary-diagram-link-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram lacks a
+                        link.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-authorization-boundary-diagram-caption"
+                        doc:context="oscal:authorization-boundary/oscal:diagram"
+                        id="has-authorization-boundary-diagram-caption-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram lacks a
+                        caption.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-authorization-boundary-diagram-link-rel"
+                        doc:context="oscal:authorization-boundary/oscal:diagram/oscal:link"
+                        id="has-authorization-boundary-diagram-link-rel-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram lacks a
+                        link rel attribute.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-authorization-boundary-diagram-link-rel-allowed-value"
+                        doc:context="oscal:authorization-boundary/oscal:diagram/oscal:link"
+                        id="has-authorization-boundary-diagram-link-rel-allowed-value-diagnostic">This FedRAMP OSCAL SSP authorization-boundary
+                        diagram lacks a link rel attribute with the value "diagram".</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-authorization-boundary-diagram-link-href-target"
+                        doc:context="oscal:authorization-boundary/oscal:diagram/oscal:link"
+                        id="has-authorization-boundary-diagram-link-href-target-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram
+                        link does not reference a back-matter resource representing the diagram document.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-network-architecture"
+                        doc:context="oscal:system-characteristics"
+                        id="has-network-architecture-diagnostic">This FedRAMP OSCAL SSP lacks an network-architecture in its
+                        system-characteristics.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-network-architecture-description"
+                        doc:context="oscal:network-architecture"
+                        id="has-network-architecture-description-diagnostic">This FedRAMP OSCAL SSP lacks an network-architecture
+                        description.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-network-architecture-diagram"
+                        doc:context="oscal:network-architecture"
+                        id="has-network-architecture-diagram-diagnostic">This FedRAMP OSCAL SSP lacks at least one network-architecture
+                        diagram.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-network-architecture-diagram-uuid"
+                        doc:context="oscal:network-architecture/oscal:diagram"
+                        id="has-network-architecture-diagram-uuid-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram lacks a uuid
+                        attribute.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-network-architecture-diagram-description"
+                        doc:context="oscal:network-architecture/oscal:diagram"
+                        id="has-network-architecture-diagram-description-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram lacks a
+                        description.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-network-architecture-diagram-link"
+                        doc:context="oscal:network-architecture/oscal:diagram"
+                        id="has-network-architecture-diagram-link-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram lacks a
+                        link.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-network-architecture-diagram-caption"
+                        doc:context="oscal:network-architecture/oscal:diagram"
+                        id="has-network-architecture-diagram-caption-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram lacks a
+                        caption.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-network-architecture-diagram-link-rel"
+                        doc:context="oscal:network-architecture/oscal:diagram/oscal:link"
+                        id="has-network-architecture-diagram-link-rel-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram lacks a link
+                        rel attribute.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-network-architecture-diagram-link-rel-allowed-value"
+                        doc:context="oscal:network-architecture/oscal:diagram/oscal:link"
+                        id="has-network-architecture-diagram-link-rel-allowed-value-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram
+                        lacks a link rel attribute with the value "diagram".</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-network-architecture-diagram-link-href-target"
+                        doc:context="oscal:network-architecture/oscal:diagram/oscal:link"
+                        id="has-network-architecture-diagram-link-href-target-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram link
+                        does not reference a back-matter resource representing the diagram document.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-data-flow"
+                        doc:context="oscal:system-characteristics"
+                        id="has-data-flow-diagnostic">This FedRAMP OSCAL SSP lacks an data-flow in its system-characteristics.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-data-flow-description"
+                        doc:context="oscal:data-flow"
+                        id="has-data-flow-description-diagnostic">This FedRAMP OSCAL SSP lacks an data-flow description.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-data-flow-diagram"
+                        doc:context="oscal:data-flow"
+                        id="has-data-flow-diagram-diagnostic">This FedRAMP OSCAL SSP lacks at least one data-flow diagram.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-data-flow-diagram-uuid"
+                        doc:context="oscal:data-flow/oscal:diagram"
+                        id="has-data-flow-diagram-uuid-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a uuid attribute.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-data-flow-diagram-description"
+                        doc:context="oscal:data-flow/oscal:diagram"
+                        id="has-data-flow-diagram-description-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a
+                        description.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-data-flow-diagram-link"
+                        doc:context="oscal:data-flow/oscal:diagram"
+                        id="has-data-flow-diagram-link-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a link.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-data-flow-diagram-caption"
+                        doc:context="oscal:data-flow/oscal:diagram"
+                        id="has-data-flow-diagram-caption-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a caption.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-data-flow-diagram-link-rel"
+                        doc:context="oscal:data-flow/oscal:diagram/oscal:link"
+                        id="has-data-flow-diagram-link-rel-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a link rel
+                        attribute.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-data-flow-diagram-link-rel-allowed-value"
+                        doc:context="oscal:data-flow/oscal:diagram/oscal:link"
+                        id="has-data-flow-diagram-link-rel-allowed-value-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a link rel
+                        attribute with the value "diagram".</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-data-flow-diagram-link-href-target"
+                        doc:context="oscal:data-flow/oscal:diagram/oscal:link"
+                        id="has-data-flow-diagram-link-href-target-diagnostic">This FedRAMP OSCAL SSP data-flow diagram link does not reference a
+                        back-matter resource representing the diagram document.</sch:diagnostic>
     </sch:diagnostics>
 </sch:schema>
