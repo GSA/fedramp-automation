@@ -5239,4 +5239,735 @@
             </x:scenario>
         </x:scenario>
     </x:scenario>
+    <x:scenario label="FedRAMP OSCAL SSP Diagrams">
+        <x:scenario label="affirmative unit tests">
+            <x:context>
+                <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <system-characteristics>
+                        <authorization-boundary>
+                            <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17 Authorization Boundary Diagram page 25-->
+                            <description />
+                            <diagram uuid="e5ce86cd-fa85-45ff-9fca-de0663a757b1">
+                                <description />
+                                <link href="#79834b50-7adc-4540-a195-a7c365fad5de"
+                                      rel="diagram" />
+                                <caption />
+                            </diagram>
+                        </authorization-boundary>
+                        <network-architecture>
+                            <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.22 Authorization Boundary Diagram page 30-->
+                            <description />
+                            <diagram uuid="08be0539-b330-4e32-9ccf-58d755b71055">
+                                <description />
+                                <link href="#a9035c70-605b-4d16-a9a9-43f5db3ffd80"
+                                      rel="diagram" />
+                                <caption />
+                            </diagram>
+                        </network-architecture>
+                        <data-flow>
+                            <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.24 Authorization Boundary Diagram page 32-->
+                            <description />
+                            <diagram uuid="27d8cd8a-c1fc-4319-aee4-0d1279900bb1">
+                                <description />
+                                <link href="#f376c0d4-d278-47e3-851d-b7170a7e640c"
+                                      rel="diagram" />
+                                <caption />
+                            </diagram>
+                        </data-flow>
+                    </system-characteristics>
+                    <back-matter>
+                        <resource uuid="79834b50-7adc-4540-a195-a7c365fad5de">
+                            <title>Authorization Boundary Diagram</title>
+                            <description />
+                            <prop name="type"
+                                  value="diagram" />
+                            <rlink href="sample-ssp-authorization-boundary-diagram.graphml" />
+                            <base64 filename="sample-ssp-authorization-boundary-diagram.graphml"
+                                    media-type="text/xml">ZWxpZGVkIEF1dGhvcml6YXRpb24gQm91bmRhcnkgRGlhZ3JhbQ==</base64>
+                        </resource>
+                        <resource uuid="a9035c70-605b-4d16-a9a9-43f5db3ffd80">
+                            <title>Network Architecture Diagram</title>
+                            <description />
+                            <prop name="type"
+                                  value="diagram" />
+                            <rlink href="sample-ssp-network-architecture-diagram.graphml" />
+                            <base64 filename="sample-ssp-network-architecture-diagram.graphml"
+                                    media-type="text/xml">ZWxpZGVkIE5ldHdvcmsgQXJjaGl0ZWN0dXJlIERpYWdyYW0=</base64>
+                        </resource>
+                        <resource uuid="f376c0d4-d278-47e3-851d-b7170a7e640c">
+                            <title>Data Flow Diagram</title>
+                            <description />
+                            <prop name="type"
+                                  value="diagram" />
+                            <rlink href="sample-ssp-data-flow-diagram.graphml" />
+                            <base64 filename="sample-ssp-data-flow-diagram.graphml"
+                                    media-type="text/xml">ZWxpZGVkIERhdGEgRmxvdyBEaWFncmFt</base64>
+                        </resource>
+                    </back-matter>
+                </ssp>
+            </x:context>
+            <x:scenario label="A FedRAMP OSCAL SSP includes an authorization-boundary in its system-characteristics.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-authorization-boundary"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has an authorization-boundary description.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-authorization-boundary-description"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has at least one authorization-boundary diagram.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-authorization-boundary-diagram"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a uuid attribute.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-authorization-boundary-diagram-uuid"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a description.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-authorization-boundary-diagram-description"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a link.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-authorization-boundary-diagram-link"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a caption.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-authorization-boundary-diagram-caption"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a link rel attribute.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-authorization-boundary-diagram-link-rel"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a link rel attribute with the value &#34;diagram&#34;.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-authorization-boundary-diagram-link-rel-allowed-value"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP authorization-boundary diagram link references a back-matter resource representing the diagram document.">
+
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-authorization-boundary-diagram-link-href-target"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP includes a network-architecture in its system-characteristics.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-network-architecture"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has a network-architecture description.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-network-architecture-description"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has at least one network-architecture diagram.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-network-architecture-diagram"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a uuid attribute.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-network-architecture-diagram-uuid"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a description.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-network-architecture-diagram-description"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a link.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-network-architecture-diagram-link"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a caption.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-network-architecture-diagram-caption"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a link rel attribute.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-network-architecture-diagram-link-rel"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a link rel attribute with the value &#34;diagram&#34;.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-network-architecture-diagram-link-rel-allowed-value"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP network-architecture diagram link references a back-matter resource representing the diagram document.">
+
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-network-architecture-diagram-link-href-target"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP includes a data-flow in its system-characteristics.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-data-flow"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has a data-flow description.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-data-flow-description"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has at least one data-flow diagram.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-data-flow-diagram"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a uuid attribute.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-data-flow-diagram-uuid"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a description.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-data-flow-diagram-description"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a link.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-data-flow-diagram-link"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a caption.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-data-flow-diagram-caption"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a link rel attribute.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-data-flow-diagram-link-rel"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a link rel attribute with the value &#34;diagram&#34;.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-data-flow-diagram-link-rel-allowed-value"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP data-flow diagram link references a back-matter resource representing the diagram document.">
+                <x:scenario label="When that is true">
+                    <x:expect-not-assert id="has-data-flow-diagram-link-href-target"
+                                         label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="negative unit tests">
+            <x:context>
+                <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <system-characteristics>
+                        <authorization-boundary>
+                            <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17 Authorization Boundary Diagram page 25-->
+                            <description />
+                            <diagram uuid="e5ce86cd-fa85-45ff-9fca-de0663a757b1">
+                                <description />
+                                <link href="#79834b50-7adc-4540-a195-a7c365fad5de"
+                                      rel="diagram" />
+                                <caption />
+                            </diagram>
+                        </authorization-boundary>
+                        <network-architecture>
+                            <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.22 Authorization Boundary Diagram page 30-->
+                            <description />
+                            <diagram uuid="08be0539-b330-4e32-9ccf-58d755b71055">
+                                <description />
+                                <link href="#a9035c70-605b-4d16-a9a9-43f5db3ffd80"
+                                      rel="diagram" />
+                                <caption />
+                            </diagram>
+                        </network-architecture>
+                        <data-flow>
+                            <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.24 Authorization Boundary Diagram page 32-->
+                            <description />
+                            <diagram uuid="27d8cd8a-c1fc-4319-aee4-0d1279900bb1">
+                                <description />
+                                <link href="#f376c0d4-d278-47e3-851d-b7170a7e640c"
+                                      rel="diagram" />
+                                <caption />
+                            </diagram>
+                        </data-flow>
+                    </system-characteristics>
+                    <back-matter>
+                        <resource uuid="1cae1a83-e63a-4727-a3a9-6ffb4da22e50">
+                            <title>Authorization Boundary Diagram</title>
+                            <description />
+                            <prop name="type"
+                                  value="diagram" />
+                            <rlink href="sample-ssp-authorization-boundary-diagram.graphml" />
+                            <base64 filename="sample-ssp-authorization-boundary-diagram.graphml"
+                                    media-type="text/xml">ZWxpZGVkIEF1dGhvcml6YXRpb24gQm91bmRhcnkgRGlhZ3JhbQ==</base64>
+                        </resource>
+                        <resource uuid="04a482c5-9769-4020-8a63-d0e92511faaf">
+                            <title>Network Architecture Diagram</title>
+                            <description />
+                            <prop name="type"
+                                  value="diagram" />
+                            <rlink href="sample-ssp-network-architecture-diagram.graphml" />
+                            <base64 filename="sample-ssp-network-architecture-diagram.graphml"
+                                    media-type="text/xml">ZWxpZGVkIE5ldHdvcmsgQXJjaGl0ZWN0dXJlIERpYWdyYW0=</base64>
+                        </resource>
+                        <resource uuid="c84e4270-e394-42bc-8d47-2f4326de22ee">
+                            <title>Data Flow Diagram</title>
+                            <description />
+                            <prop name="type"
+                                  value="diagram" />
+                            <rlink href="sample-ssp-data-flow-diagram.graphml" />
+                            <base64 filename="sample-ssp-data-flow-diagram.graphml"
+                                    media-type="text/xml">ZWxpZGVkIERhdGEgRmxvdyBEaWFncmFt</base64>
+                        </resource>
+                    </back-matter>
+                </ssp>
+            </x:context>
+            <x:scenario label="A FedRAMP OSCAL SSP includes an authorization-boundary in its system-characteristics.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics />
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-authorization-boundary"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has an authorization-boundary description.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <authorization-boundary />
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-authorization-boundary-description"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has at least one authorization-boundary diagram.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <authorization-boundary />
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-authorization-boundary-diagram"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a uuid attribute.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <authorization-boundary>
+                                <diagram />
+                            </authorization-boundary>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-authorization-boundary-diagram-uuid"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a description.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <authorization-boundary>
+                                <diagram />
+                            </authorization-boundary>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-authorization-boundary-diagram-description"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a link.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <authorization-boundary>
+                                <diagram />
+                            </authorization-boundary>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-authorization-boundary-diagram-link"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a caption.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <authorization-boundary>
+                                <diagram />
+                            </authorization-boundary>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-authorization-boundary-diagram-caption"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a link rel attribute.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <authorization-boundary>
+                                <diagram>
+                                    <link></link>
+                                </diagram>
+                            </authorization-boundary>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-authorization-boundary-diagram-link-rel"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP authorization-boundary diagram has a link rel attribute with the value &#34;diagram&#34;.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <authorization-boundary>
+                                <diagram>
+                                    <link rel="thewrongvalue"></link>
+                                </diagram>
+                            </authorization-boundary>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-authorization-boundary-diagram-link-rel-allowed-value"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP authorization-boundary diagram link references a back-matter resource representing the diagram document.">
+
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-authorization-boundary-diagram-link-href-target"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP includes an network-architecture in its system-characteristics.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics />
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-network-architecture"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has an network-architecture description.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <network-architecture />
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-network-architecture-description"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has at least one network-architecture diagram.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <network-architecture />
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-network-architecture-diagram"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a uuid attribute.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <network-architecture>
+                                <diagram />
+                            </network-architecture>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-network-architecture-diagram-uuid"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a description.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <network-architecture>
+                                <diagram />
+                            </network-architecture>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-network-architecture-diagram-description"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a link.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <network-architecture>
+                                <diagram />
+                            </network-architecture>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-network-architecture-diagram-link"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a caption.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <network-architecture>
+                                <diagram />
+                            </network-architecture>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-network-architecture-diagram-caption"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a link rel attribute.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <network-architecture>
+                                <diagram>
+                                    <link></link>
+                                </diagram>
+                            </network-architecture>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-network-architecture-diagram-link-rel"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP network-architecture diagram has a link rel attribute with the value &#34;diagram&#34;.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <network-architecture>
+                                <diagram>
+                                    <link rel="thewrongvalue"></link>
+                                </diagram>
+                            </network-architecture>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-network-architecture-diagram-link-rel-allowed-value"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP network-architecture diagram link references a back-matter resource representing the diagram document.">
+
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-network-architecture-diagram-link-href-target"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP includes an data-flow in its system-characteristics.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics />
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-data-flow"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has an data-flow description.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <data-flow />
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-data-flow-description"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP has at least one data-flow diagram.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <data-flow />
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-data-flow-diagram"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a uuid attribute.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <data-flow>
+                                <diagram />
+                            </data-flow>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-data-flow-diagram-uuid"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a description.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <data-flow>
+                                <diagram />
+                            </data-flow>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-data-flow-diagram-description"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a link.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <data-flow>
+                                <diagram />
+                            </data-flow>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-data-flow-diagram-link"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a caption.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <data-flow>
+                                <diagram />
+                            </data-flow>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-data-flow-diagram-caption"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a link rel attribute.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <data-flow>
+                                <diagram>
+                                    <link></link>
+                                </diagram>
+                            </data-flow>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-data-flow-diagram-link-rel"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="Each FedRAMP OSCAL SSP data-flow diagram has a link rel attribute with the value &#34;diagram&#34;.">
+                <x:context>
+                    <ssp xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <data-flow>
+                                <diagram>
+                                    <link rel="thewrongvalue"></link>
+                                </diagram>
+                            </data-flow>
+                        </system-characteristics>
+                    </ssp>
+                </x:context>
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-data-flow-diagram-link-rel-allowed-value"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="A FedRAMP OSCAL SSP data-flow diagram link references a back-matter resource representing the diagram document.">
+                <x:scenario label="When that is false">
+                    <x:expect-assert id="has-data-flow-diagram-link-href-target"
+                                     label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+    </x:scenario>
 </x:description>
