@@ -62,6 +62,6 @@ jobs:
         with:
           name: fedramp-automation-validation-unit-tests-${{ github.sha }}
           path: |
-            ./dist/resources/validations/report/schematron/**/*.*
-            ./dist/resources/validations/report/test/**/*.*
+            ./src/validations/report/schematron/**/*.*
+            ./src/validations/report/test/**/*.*
           if-no-files-found: error
