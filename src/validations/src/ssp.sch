@@ -21,7 +21,7 @@
                 method="xml" />
     <xsl:param as="xs:string"
                name="registry-base-path"
-               select="'../../xml'" />
+               select="'../../resources/xml'" />
     <xsl:param as="xs:string"
                name="baselines-base-path"
                select="'../../../baselines/rev4/xml'" />
