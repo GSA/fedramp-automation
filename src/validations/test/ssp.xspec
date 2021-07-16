@@ -1,4 +1,4 @@
-<x:description schematron="../src/ssp.sch"
+<x:description schematron="../rules/ssp.sch"
                xmlns:f="https://fedramp.gov/ns/oscal"
                xmlns:lv="local-validations"
                xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
