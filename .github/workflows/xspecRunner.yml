@@ -37,7 +37,7 @@ jobs:
           cd $GITHUB_WORKSPACE/dist/resources/validations
           export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
           export TEST_DIR=$(pwd)/report/test
-          lib/xspec/bin/xspec.sh -s -j test/test_all.xspec
+          $GITHUB_WORKSPACE/vendor/xspec/bin/xspec.sh -s -j test/test_all.xspec
       
       # Sets the test report path for visibility
       - name: Publish XSpec Test Results

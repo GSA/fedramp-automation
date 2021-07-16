@@ -12,8 +12,8 @@ on:
       - master
 name: Process Content
 env:
-  OSCAL_DIR_PATH: oscal
-  CICD_DIR_PATH: oscal/build/ci-cd
+  OSCAL_DIR_PATH: vendor/oscal
+  CICD_DIR_PATH: vendor/oscal/build/ci-cd
   CONTENT_CONFIG_PATH: src/config
   SAXON_VERSION: 9.9.0-1
   HOME_REPO: GSA/fedramp-automation
