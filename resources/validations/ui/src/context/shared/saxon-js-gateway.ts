@@ -29,6 +29,12 @@ const getValidationReport = (
   );
   return {
     failedAsserts: Array.prototype.map.call(failedAsserts, (assert, index) => {
+      console.log(
+        Array.prototype.map.call(
+          assert.querySelectorAll('diagnostic-reference'),
+          (node: Node) => node.textContent,
+        ),
+      );
       return Object.keys(assert.attributes).reduce(
         (assertMap: Record<string, FailedAssert>, key: string) => {
           const name = assert.attributes[key].name;
@@ -38,7 +44,11 @@ const getValidationReport = (
           return assertMap;
         },
         {
-          text: assert.textContent,
+          diagnosticReferences: Array.prototype.map.call(
+            assert.querySelectorAll('diagnostic-reference'),
+            (node: Node) => node.textContent,
+          ) as any,
+          text: assert.querySelector('text').textContent,
           uniqueId: `${assert['id']}-${index}` as any,
         },
       );
@@ -55,7 +65,7 @@ const getValidationReport = (
             return assertMap;
           },
           {
-            text: report.textContent,
+            text: report.querySelector('text').textContent,
             uniqueId: `${report['id']}-${index}` as any,
           },
         );

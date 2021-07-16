@@ -10,6 +10,7 @@ export type FailedAssert = {
   see?: string;
   test: string;
   text: string;
+  diagnosticReferences: string[];
 };
 export type SuccessfulReport = {
   uniqueId: string;

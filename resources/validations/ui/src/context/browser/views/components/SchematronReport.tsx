@@ -54,7 +54,9 @@ export const SchematronReport = () => {
                       <ul className="usa-icon-list__title">
                         {assert.fired.map((firedAssert, index) => (
                           <li key={index}>
-                            {firedAssert.text}
+                            {firedAssert.diagnosticReferences.length > 0
+                              ? firedAssert.diagnosticReferences.join(', ')
+                              : firedAssert.text}
                             <a
                               className="usa-tooltip"
                               data-position="bottom"
