@@ -30,10 +30,10 @@ describe('github', () => {
             branch: 'master',
             repository: 'fedramp-automation',
           },
-          'resources/validations/test/demo/FedRAMP-SSP-OSCAL-Template.xml',
+          'src/validations/test/demo/FedRAMP-SSP-OSCAL-Template.xml',
         ),
       ).toEqual(
-        'https://raw.githubusercontent.com/18F/fedramp-automation/master/resources/validations/test/demo/FedRAMP-SSP-OSCAL-Template.xml',
+        'https://raw.githubusercontent.com/18F/fedramp-automation/master/src/validations/test/demo/FedRAMP-SSP-OSCAL-Template.xml',
       );
     });
   });
