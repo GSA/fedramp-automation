@@ -108,7 +108,7 @@ elif command -v mvn &> /dev/null ;then
         -Dversion="${SAXON_VERSION}"
     SAXON_CP=~/.m2/repository/net/sf/${saxonLocation}
 elif command -v curl &> /dev/null; then
-    SAXON_CP="${BASE_DIR}"/lib/Saxon-HE-"${SAXON_VERSION}".jar
+    SAXON_CP="${BASE_DIR}"/../../vendor/Saxon-HE-"${SAXON_VERSION}".jar
     curl -H "Accept: application/zip" -o "${SAXON_CP}" https://repo1.maven.org/maven2/net/sf/"${saxonLocation}" &> /dev/null
 else
     echo "SAXON_CP environment variable is not set. mvn or curl is required to download dependencies, neither found, please install one and retry"
@@ -150,7 +150,7 @@ for qualifiedSchematronName in "${SCHEMA_LOCATION_DIR}"/*.sch; do
         java -cp "${SAXON_CP}" net.sf.saxon.Transform \
             -o:"${BASE_DIR}"/target/"${schematronRoot}-stage1.sch" \
             -s:"${qualifiedSchematronName}" \
-            "${BASE_DIR}"/lib/schematron/trunk/schematron/code/iso_dsdl_include.xsl \
+            "${BASE_DIR}"/../../vendor/schematron/trunk/schematron/code/iso_dsdl_include.xsl \
             $SAXON_OPTS
 
         # Step 2
@@ -158,7 +158,7 @@ for qualifiedSchematronName in "${SCHEMA_LOCATION_DIR}"/*.sch; do
         java -cp "${SAXON_CP}" net.sf.saxon.Transform \
             -o:"${BASE_DIR}"/target/"${schematronRoot}-stage2.sch" \
             -s:"${BASE_DIR}"/target/"${schematronRoot}-stage1.sch" \
-            "${BASE_DIR}"/lib/schematron/trunk/schematron/code/iso_abstract_expand.xsl \
+            "${BASE_DIR}"/../../vendor/schematron/trunk/schematron/code/iso_abstract_expand.xsl \
             $SAXON_OPTS
 
         # Use Saxon XSL transform to convert our Schematron to pure XSL 2.0 stylesheet
@@ -167,7 +167,7 @@ for qualifiedSchematronName in "${SCHEMA_LOCATION_DIR}"/*.sch; do
         java -cp "${SAXON_CP}" net.sf.saxon.Transform \
             -o:"${BASE_DIR}"/target/"${schematronRoot}".xsl \
             -s:"${BASE_DIR}"/target/"${schematronRoot}-stage2.sch" \
-            "${BASE_DIR}"/lib/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
+            "${BASE_DIR}"/../../vendor/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
             $SAXON_OPTS
     fi
 
@@ -192,7 +192,7 @@ for qualifiedSchematronName in "${SCHEMA_LOCATION_DIR}"/*.sch; do
         java -cp "${SAXON_CP}" net.sf.saxon.Transform \
             -o:"${htmlReportName}" \
             -s:"${reportName}"  \
-            "${BASE_DIR}"/lib/svrl2html.xsl \
+            "${BASE_DIR}"/../../vendor/svrl2html.xsl \
             $SAXON_OPTS
     fi
 done
