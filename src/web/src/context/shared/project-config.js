@@ -12,7 +12,7 @@ const { join } = require('node:path');
 const PROJECT_ROOT = process.cwd();
 
 module.exports = {
-  REGISTRY_PATH: join(PROJECT_ROOT, '../../../resources/xml'),
-  BASELINES_PATH: join(PROJECT_ROOT, '../../../baselines/rev4/xml'),
+  REGISTRY_PATH: join(PROJECT_ROOT, '../../dist/content/resources/xml'),
+  BASELINES_PATH: join(PROJECT_ROOT, '../../dist/content/baselines/rev4/xml'),
   PUBLIC_PATH: join(PROJECT_ROOT, 'public'),
 };
