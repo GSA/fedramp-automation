@@ -6,7 +6,7 @@
   },
   "scripts": {
     "build": "snowpack build",
-    "build:schematron": "npm run build:sch-java && npm run build:sef",
+    "build:schematron": "npm run build:schematron-java && npm run build:sef",
     "build:schematron-ideal": "npm run build:sch-stage-1 && npm run build:sch-stage-2 && npm run build:sch-stage-3 && npm run build:sef",
     "build:schematron-java": "cd ../validations && ./bin/validate_with_schematron.sh && cp target/ssp.xsl ../web/public",
     "build:sch-stage-1": "xslt3 -s:../validations/rules/ssp.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_dsdl_include.xsl -o:../validations/target/ssp-stage1.sch",
