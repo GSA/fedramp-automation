@@ -2,7 +2,7 @@ Project Structure
 ---
 All directory references are local to the `fedramp-automation/resources/validations`
 
-`src` for the sch files
+`rules` for the sch files
 
 `lib` for toolchain dependencies (e.g. Schematron)
 

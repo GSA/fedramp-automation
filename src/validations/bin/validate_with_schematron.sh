@@ -19,8 +19,8 @@ usage() {
 
 # output root defaults to report folder relative to this script
 OUTPUT_ROOT="report/schematron"
-# schematron directory validate the file with each .sch found defaults to src/*.sch relative to this script
-SCHEMA_LOCATION_DIR="src"
+# schematron directory validate the file with each .sch found defaults to rules/*.sch relative to this script
+SCHEMA_LOCATION_DIR="rules"
 # whether or not to compile Schematron to XSLT (if false, will reuse previously-compiled XSLT)
 PREPROCESS_PIPELINE=true
 

@@ -17,7 +17,7 @@ At this time, FedRAMP is primarily focused on standardizing and extending the co
 
 For any error, the error message will be prefix with the section name and the check ID. For example, `[Section C Check 3.1a]` will be proceed the detailed explanation text. This validation suite does provide summary reporting information. As these are not errors in the report, if provided to help a reviewer, they will _not_ contain a section name and check ID.
 
-This format will allow for reviewers to collaborate and communicate improvements with the development team. Therefore, you can direct the development team to the `@organizational-id` in [the validation suite source code](https://github.com/18F/fedramp-automation/blob/master/resources/validations/src/ssp.sch) that maps to these check IDs.
+This format will allow for reviewers to collaborate and communicate improvements with the development team. Therefore, you can direct the development team to the `@organizational-id` in [the validation suite source code](https://github.com/18F/fedramp-automation/blob/master/resources/validations/rules/ssp.sch) that maps to these check IDs.
 ### Section B: Documents Provided Check
 
 - [ ]  1.0	 Initial Authorization Package Checklist
