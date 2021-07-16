@@ -26,6 +26,7 @@ jobs:
         with:
           path: git-content
           submodules: recursive
+          fetch-depth: 0
       # job-validate-content
       - name: Update APT package metadata
         run: |
