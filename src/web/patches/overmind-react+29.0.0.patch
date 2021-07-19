@@ -1,0 +1,23 @@
+diff --git a/node_modules/overmind-react/package.json b/node_modules/overmind-react/package.json
+index f216432..fdce172 100644
+--- a/node_modules/overmind-react/package.json
++++ b/node_modules/overmind-react/package.json
+@@ -28,8 +28,7 @@
+   ],
+   "files": [
+     "lib",
+-    "es",
+-    "react"
++    "es"
+   ],
+   "dependencies": {
+     "overmind": "28.0.0"
+@@ -37,5 +36,8 @@
+   "devDependencies": {
+     "@types/node": "^12.11.6",
+     "tslib": "^2.3.0"
++  },
++  "peerDependencies": {
++    "react": "*"
+   }
+ }
