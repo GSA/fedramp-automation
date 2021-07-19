@@ -26,7 +26,10 @@ jobs:
         with:
           path: git-content
           submodules: recursive
-          fetch-depth: 0
+          # Only update `fetch-depth` for debugging on branches.
+          # If not, this action cannot see other branches for names for the PR to push back changes.
+          # So, on PR branches without this, you will have errors.
+          # fetch-depth: 0
       # job-validate-content
       - name: Update APT package metadata
         run: |
@@ -61,13 +64,14 @@ jobs:
       # job-deploy-artifacts
       - name: Setup SSH key
         # only do this on master
+        # Comment the below `if` conditional if you need to debug this on PR branches.
         if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
         run: |
           eval "$(ssh-agent -s)"
           ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
       - name: Publish Artifacts
         # only do this on master
-        # if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
+        if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
         uses: stefanzweifel/git-auto-commit-action@v4.4.1
         with:
           repository: git-content
