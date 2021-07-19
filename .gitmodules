@@ -1,17 +1,17 @@
 [submodule "oscal"]
-	path = oscal
+	path = vendor/oscal
 	url = https://github.com/usnistgov/OSCAL.git
 	branch = main
 	ignore = dirty
 
 [submodule "resources/validations/lib/xspec"]
-	path = resources/validations/lib/xspec
+	path = vendor/xspec
 	url = https://github.com/xspec/xspec.git
 	branch = master
 	ignore = dirty
 
 [submodule "resources/validations/src/schematron"]
-	path = resources/validations/lib/schematron
+	path = vendor/schematron
 	url = https://github.com/schematron/schematron.git
 	branch = master
 	ignore = dirty
