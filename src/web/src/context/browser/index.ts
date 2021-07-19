@@ -1,13 +1,15 @@
-import { browserController } from './browser-controller';
-import { highlightXML } from '../shared/highlight-js';
-import { SaxonJsSchematronValidatorGateway } from '../shared/saxon-js-gateway';
-import { createPresenter } from './presenter';
-import * as github from '../../domain/github';
-import { AnnotateXMLUseCase } from '../../use-cases/annotate-xml';
+import * as github from '@asap/domain/github';
+import { AnnotateXMLUseCase } from '@asap/use-cases/annotate-xml';
 import {
   ValidateSSPUseCase,
   ValidateSSPUrlUseCase,
-} from '../../use-cases/validate-ssp-xml';
+} from '@asap/use-cases/validate-ssp-xml';
+
+import { highlightXML } from '../shared/highlight-js';
+import { SaxonJsSchematronValidatorGateway } from '../shared/saxon-js-gateway';
+
+import { browserController } from './browser-controller';
+import { createPresenter } from './presenter';
 import { createAppRenderer } from './views';
 
 type BrowserContext = {

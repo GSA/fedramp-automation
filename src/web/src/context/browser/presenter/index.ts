@@ -1,13 +1,13 @@
 import { createOvermind, createOvermindMock, IContext } from 'overmind';
 
-import * as actions from './actions';
-import type { GetSSPSchematronAssertions } from '../../../use-cases/schematron';
-import type { AnnotateXMLUseCase } from '../../../use-cases/annotate-xml';
+import type { AnnotateXMLUseCase } from '@asap/use-cases/annotate-xml';
+import type { GetSSPSchematronAssertions } from '@asap/use-cases/schematron';
 import type {
   ValidateSSPUseCase,
   ValidateSSPUrlUseCase,
-} from '../../../use-cases/validate-ssp-xml';
+} from '@asap/use-cases/validate-ssp-xml';
 
+import * as actions from './actions';
 import type { LocationListener } from './router';
 import { state, State, SampleSSP } from './state';
 

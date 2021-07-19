@@ -9,6 +9,9 @@ const GITHUB = {
 
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
+  alias: {
+    '@asap': './src',
+  },
   env: {
     BASEURL,
     GITHUB,

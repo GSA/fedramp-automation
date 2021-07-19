@@ -1,5 +1,5 @@
-import type { ValidationReport } from '../../../../use-cases/schematron';
-import type { Role } from '../machines/validator';
+import type { ValidationReport } from '@asap/use-cases/schematron';
+
 import type { PresenterConfig } from '..';
 
 export const reset = ({ state }: PresenterConfig) => {

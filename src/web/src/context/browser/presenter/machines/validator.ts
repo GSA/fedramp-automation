@@ -3,7 +3,7 @@ import { derived, Statemachine, statemachine } from 'overmind';
 import type {
   FailedAssert,
   ValidationReport,
-} from '../../../../use-cases/schematron';
+} from '@asap/use-cases/schematron';
 
 export type Role = string;
 

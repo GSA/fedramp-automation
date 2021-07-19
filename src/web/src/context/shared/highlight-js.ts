@@ -1,7 +1,7 @@
 import hljs from 'highlight.js';
 import xml from 'highlight.js/lib/languages/xml';
 
-import type { FormatXml } from '../../use-cases/annotate-xml';
+import type { FormatXml } from '@asap/use-cases/annotate-xml';
 
 hljs.registerLanguage('xml', xml);
 
