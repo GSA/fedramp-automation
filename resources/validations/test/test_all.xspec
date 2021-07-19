@@ -1,4 +1,0 @@
-<x:description schematron="../src/ssp.sch"
-               xmlns:x="http://www.jenitennison.com/xslt/xspec">
-    <x:import href="ssp.xspec" />
-</x:description>
