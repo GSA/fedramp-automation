@@ -3,7 +3,7 @@ import { derived, Statemachine, statemachine } from 'overmind';
 import type {
   SchematronAssert,
   FailedAssert,
-} from '@asap/use-cases/schematron';
+} from '@asap/shared/use-cases/schematron';
 
 import { createValidatorMachine, ValidatorMachine } from './validator';
 

@@ -1,4 +1,4 @@
-import type { ValidationReport } from '@asap/use-cases/schematron';
+import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 
 import type { PresenterConfig } from '..';
 

@@ -1,12 +1,12 @@
-import * as github from '@asap/domain/github';
-import { AnnotateXMLUseCase } from '@asap/use-cases/annotate-xml';
+import * as github from '@asap/shared/domain/github';
+import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import {
   ValidateSSPUseCase,
   ValidateSSPUrlUseCase,
-} from '@asap/use-cases/validate-ssp-xml';
+} from '@asap/shared/use-cases/validate-ssp-xml';
 
-import { highlightXML } from '@asap/shared/highlight-js';
-import { SaxonJsSchematronValidatorGateway } from '@asap/shared/saxon-js-gateway';
+import { highlightXML } from '@asap/shared/adapters/highlight-js';
+import { SaxonJsSchematronValidatorGateway } from '@asap/shared/adapters/saxon-js-gateway';
 
 import { browserController } from './browser-controller';
 import { createPresenter } from './presenter';

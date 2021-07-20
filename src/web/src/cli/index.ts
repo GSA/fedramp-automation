@@ -9,7 +9,7 @@ import * as SaxonJS from 'saxon-js';
 import {
   SaxonJsSchematronValidatorGateway,
   SchematronParser,
-} from '@asap/shared/saxon-js-gateway';
+} from '@asap/shared/adapters/saxon-js-gateway';
 import { CommandLineController } from './cli-controller';
 
 const config = require('@asap/shared/project-config');

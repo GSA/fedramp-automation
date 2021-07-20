@@ -1,4 +1,4 @@
-import type { SchematronValidator } from '@asap/use-cases/schematron';
+import type { SchematronValidator } from '@asap/shared/use-cases/schematron';
 
 type ValidateSSPUseCaseContext = {
   generateSchematronValidationReport: SchematronValidator;

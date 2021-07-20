@@ -1,4 +1,4 @@
-import type { IndentXml } from '@asap/domain/xml';
+import type { IndentXml } from '@asap/shared/domain/xml';
 
 export type FormatXml = (xml: string) => string;
 

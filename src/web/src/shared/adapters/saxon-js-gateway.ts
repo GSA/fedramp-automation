@@ -1,11 +1,11 @@
-import type { IndentXml } from '@asap/domain/xml';
+import type { IndentXml } from '@asap/shared/domain/xml';
 import type {
   ParseSchematronAssertions,
   SchematronValidator,
   FailedAssert,
   ValidationReport,
   SuccessfulReport,
-} from '@asap/use-cases/schematron';
+} from '@asap/shared/use-cases/schematron';
 
 const getValidationReport = (
   SaxonJS: any,
