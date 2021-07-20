@@ -14,6 +14,7 @@ The FedRAMP PMO has [a release strategy and versioning procedures](./documents/a
 Changes to the minimally supported version and deprecation notices will be made in advance of a release.
 
 This repository is for the development and enhancement of OSCAL artifacts only. For issues with the [Word and Excel-based templates and artifacts on the fedramp.gov site](https://www.fedramp.gov/documents-templates/), please send requests to [info@fedramp.gov](mailto:info@gfedramp.gov).
+
 ## We Want Your Feedback!
 
 The FedRAMP PMO is releasing the following files for public review and comment:
