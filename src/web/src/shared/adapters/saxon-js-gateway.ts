@@ -39,11 +39,16 @@ const getValidationReport = (
         },
         {
           diagnosticReferences: Array.prototype.map.call(
-            assert.querySelectorAll('diagnostic-reference'),
+            SaxonJS.XPath.evaluate('svrl:diagnostic-reference', assert, {
+              namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
+              resultForm: 'array',
+            }),
             (node: Node) => node.textContent,
           ) as any,
-          text: assert.querySelector('text').textContent,
-          uniqueId: `${assert['id']}-${index}` as any,
+          text: SaxonJS.XPath.evaluate('svrl:text', assert, {
+            namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
+          }).textContent,
+          uniqueId: `${assert.getAttribute('id')}-${index}` as any,
         },
       );
     }) as FailedAssert[],
@@ -59,8 +64,10 @@ const getValidationReport = (
             return assertMap;
           },
           {
-            text: report.querySelector('text').textContent,
-            uniqueId: `${report['id']}-${index}` as any,
+            text: SaxonJS.XPath.evaluate('svrl:text', report, {
+              namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
+            }).textContent,
+            uniqueId: `${report.getAttribute('id')}-${index}` as any,
           },
         );
       },

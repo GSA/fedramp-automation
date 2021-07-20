@@ -1,4 +1,4 @@
-import hljs from 'highlight.js';
+import hljs from 'highlight.js/lib/core';
 import xml from 'highlight.js/lib/languages/xml';
 
 import type { FormatXml } from '@asap/shared/use-cases/annotate-xml';

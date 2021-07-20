@@ -40,21 +40,67 @@ describe('saxon-js gateway', () => {
     });
     const validationReport = await reportGateway('<xml>ignored</xml');
     expect(SaxonJS.transform).toHaveBeenCalled();
-    expect(validationReport).toHaveProperty('failedAsserts');
+    expect(validationReport).toEqual({
+      failedAsserts: [
+        {
+          diagnosticReferences: ['Diagnostic reference node content.'],
+          id: 'incorrect-role-association',
+          location:
+            "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:metadata[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
+          role: 'error',
+          test: 'not(exists($extraneous-roles))',
+          text: 'Failed assertion text node content.',
+          uniqueId: 'incorrect-role-association-0',
+        },
+      ],
+      successfulReports: [
+        {
+          id: 'control-implemented-requirements-stats',
+          location:
+            "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:control-implementation[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
+          role: 'information',
+          test: 'count($results/errors/error) = 0',
+          text: 'Successful report text content.',
+          uniqueId: 'control-implemented-requirements-stats-0',
+        },
+      ],
+    });
   });
 });
 
 const SAMPLE_SVRL = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<svrl:schematron-output xmlns:f="https://fedramp.gov/ns/oscal" xmlns:iso="http://purl.oclc.org/dsdl/schematron" xmlns:lv="local-validations" xmlns:o="http://csrc.nist.gov/ns/oscal/1.0" xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0" xmlns:saxon="http://saxon.sf.net/" xmlns:schold="http://www.ascc.net/xml/schematron" xmlns:svrl="http://purl.oclc.org/dsdl/svrl" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" title="FedRAMP System Security Plan Validations" schemaVersion="">
-    <svrl:ns-prefix-in-attribute-values uri="https://fedramp.gov/ns/oscal" prefix="f" />
-    <svrl:ns-prefix-in-attribute-values uri="http://csrc.nist.gov/ns/oscal/1.0" prefix="o" />
-    <svrl:ns-prefix-in-attribute-values uri="http://csrc.nist.gov/ns/oscal/1.0" prefix="oscal" />
-    <svrl:ns-prefix-in-attribute-values uri="local-validations" prefix="lv" />
-    <svrl:active-pattern document="" />
-    <svrl:fired-rule context="/o:system-security-plan" />
-    <svrl:failed-assert test="count($registry/f:fedramp-values/f:value-set) &gt; 0" id="no-registry-values" role="fatal" location="/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]">
-        <svrl:text>The registry values at the path '
-            ../../xml?select=*.xml' are not present, this configuration is invalid.</svrl:text>
-    </svrl:failed-assert>
+<svrl:schematron-output xmlns:f="https://fedramp.gov/ns/oscal"
+                        xmlns:fedramp="https://fedramp.gov/ns/oscal"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:lv="local-validations"
+                        xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
+                        xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0"
+                        xmlns:saxon="http://saxon.sf.net/"
+                        xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        title="FedRAMP System Security Plan Validations"
+                        schemaVersion="">
+   <svrl:ns-prefix-in-attribute-values uri="https://fedramp.gov/ns/oscal" prefix="f"/>
+   <svrl:ns-prefix-in-attribute-values uri="http://csrc.nist.gov/ns/oscal/1.0" prefix="o"/>
+   <svrl:ns-prefix-in-attribute-values uri="http://csrc.nist.gov/ns/oscal/1.0" prefix="oscal"/>
+   <svrl:ns-prefix-in-attribute-values uri="https://fedramp.gov/ns/oscal" prefix="fedramp"/>
+   <svrl:ns-prefix-in-attribute-values uri="local-validations" prefix="lv"/>
+   <svrl:fired-rule context="/o:system-security-plan/o:metadata"/>
+   <svrl:failed-assert test="not(exists($extraneous-roles))"
+                       id="incorrect-role-association"
+                       role="error"
+                       location="/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:metadata[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]">
+      <svrl:text>Failed assertion text node content.</svrl:text>
+      <svrl:diagnostic-reference diagnostic="incorrect-role-association-diagnostic">Diagnostic reference node content.</svrl:diagnostic-reference>
+   </svrl:failed-assert>
+   <svrl:successful-report test="count($results/errors/error) = 0"
+                           id="control-implemented-requirements-stats"
+                           role="information"
+                           location="/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:control-implementation[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]">
+      <svrl:text>Successful report text content.</svrl:text>
+   </svrl:successful-report>
 </svrl:schematron-output>
 `;
