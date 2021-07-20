@@ -13,6 +13,10 @@ assignees: ohsh6o
 
 # Who is the bug affecting?
 
+# Is this report specifically related to [the Word or Excel files from fedramp.gov?](fedramp.gov/documents-templates/)
+
+If so, please do not open an issue here. Follow the guidance in [this repository's README](https://github.com/GSA/fedramp-automation#support-and-oscal-deprecation-strategy) and contact [info@fedramp..gov](mailto:info@fedramp.gov).
+
 # What version of OSCAL are you using? (Check our info on [supported OSCAL versions](https://github.com/GSA/fedramp-automation/blob/master/README.md#support-and-oscal-deprecation-strategy))
 
 # What is affected by this bug?

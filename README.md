@@ -13,13 +13,15 @@ The FedRAMP PMO has [a release strategy and versioning procedures](./documents/a
 
 Changes to the minimally supported version and deprecation notices will be made in advance of a release.
 
+This repository is for the development and enhancement of OSCAL artifacts only. For issues with the [Word and Excel-based templates and artifacts on the fedramp.gov site](https://www.fedramp.gov/documents-templates/), please send requests to [info@fedramp.gov](mailto:info@gfedramp.gov).
+
 ## We Want Your Feedback!
 
 The FedRAMP PMO is releasing the following files for public review and comment:
 
-- **FedRAMP Baselines:** The FedRAMP baselines for High, Moderate, Low, and Tailored for Low Impact-Software as a Service (LI-SaaS) in OSCAL (XML and JSON formats) are available [here](./baselines).
+- **FedRAMP Baselines:** The FedRAMP baselines for High, Moderate, Low, and Tailored for Low Impact-Software as a Service (LI-SaaS) in OSCAL (XML and JSON formats) are available [here](./dist/content/baselines).
   
-- **FedRAMP OSCAL Templates:** The template files are pre-populated with FedRAMP extensions, defined-identifiers, and conformity tags where practical. They also include sample data, and are the basis for their respective guidance documents above. The drafts for public comment are available in both XML and JSON formats [here](./templates/).
+- **FedRAMP OSCAL Templates:** The template files are pre-populated with FedRAMP extensions, defined-identifiers, and conformity tags where practical. They also include sample data, and are the basis for their respective guidance documents above. The drafts for public comment are available in both XML and JSON formats [here](./dist/content/templates/).
 
 - **FedRAMP OSCAL Registry** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The draft for public comment is available [here](./documents/FedRAMP_Extensions.pdf).
 
