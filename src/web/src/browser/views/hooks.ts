@@ -5,7 +5,7 @@ import {
   createReactionHook,
 } from 'overmind-react';
 
-import type { PresenterConfig } from '../presenter';
+import type { PresenterConfig } from '@asap/browser/presenter';
 
 export const useAppState = createStateHook<PresenterConfig>();
 export const useActions = createActionsHook<PresenterConfig>();

@@ -9,10 +9,10 @@ import * as SaxonJS from 'saxon-js';
 import {
   SaxonJsSchematronValidatorGateway,
   SchematronParser,
-} from '../shared/saxon-js-gateway';
+} from '@asap/shared/saxon-js-gateway';
 import { CommandLineController } from './cli-controller';
 
-const config = require('../shared/project-config');
+const config = require('@asap/shared/project-config');
 
 const controller = CommandLineController({
   readStringFile: fileName => fs.readFileSync(fileName, 'utf-8'),

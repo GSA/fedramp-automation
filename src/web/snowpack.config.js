@@ -1,4 +1,4 @@
-const config = require('./src/context/shared/project-config');
+const config = require('./src/shared/project-config');
 
 const BASEURL = process.env.BASEURL || '';
 const GITHUB = {
@@ -29,7 +29,7 @@ module.exports = {
     'node_modules/uswds/dist/js': { url: '/uswds/js', static: true },
     //validations: { url: '/validations', static: true },
   },
-  exclude: ['**/node_modules/**/*', '**/src/context/cli/**'],
+  exclude: ['**/node_modules/**/*', '**/src/cli/**'],
   plugins: [
     '@snowpack/plugin-react-refresh',
     '@snowpack/plugin-dotenv',

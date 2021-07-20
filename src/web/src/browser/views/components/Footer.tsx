@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useActions, useAppState } from '../hooks';
 
 export const Footer = () => {

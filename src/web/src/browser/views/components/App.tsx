@@ -5,7 +5,6 @@ import { Breadcrumbs } from './Breadcrumbs';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { HomePage } from './HomePage';
-import { SchematronReport } from './SchematronReport';
 import { SummaryPage } from './SummaryPage';
 import { ViewerPage } from './ViewerPage';
 

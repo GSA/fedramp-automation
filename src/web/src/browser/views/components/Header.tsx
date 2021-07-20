@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useActions } from '../hooks';
 
 export const Header = () => {

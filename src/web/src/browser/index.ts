@@ -5,8 +5,8 @@ import {
   ValidateSSPUrlUseCase,
 } from '@asap/use-cases/validate-ssp-xml';
 
-import { highlightXML } from '../shared/highlight-js';
-import { SaxonJsSchematronValidatorGateway } from '../shared/saxon-js-gateway';
+import { highlightXML } from '@asap/shared/highlight-js';
+import { SaxonJsSchematronValidatorGateway } from '@asap/shared/saxon-js-gateway';
 
 import { browserController } from './browser-controller';
 import { createPresenter } from './presenter';
