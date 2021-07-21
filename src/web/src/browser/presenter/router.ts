@@ -108,4 +108,7 @@ export const breadcrumbs: Record<Route['type'], (route: any) => Breadcrumb[]> =
     },
   };
 
-export type LocationListener = (listener: (url: string) => void) => void;
+export type Location = {
+  listen: (listener: (url: string) => void) => void;
+  replace: (url: string) => void;
+};

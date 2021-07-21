@@ -8,7 +8,7 @@ import type {
 } from '@asap/shared/use-cases/validate-ssp-xml';
 
 import * as actions from './actions';
-import type { LocationListener } from './router';
+import type { Location } from './router';
 import { state, State, SampleSSP } from './state';
 
 type UseCases = {
@@ -19,7 +19,7 @@ type UseCases = {
 };
 
 export const getPresenterConfig = (
-  locationListen: LocationListener,
+  location: Location,
   useCases: UseCases,
   initialState: Partial<State> = {},
 ) => {
@@ -30,7 +30,7 @@ export const getPresenterConfig = (
       ...initialState,
     },
     effects: {
-      locationListen,
+      location,
       useCases,
     },
   };
@@ -42,13 +42,13 @@ export type PresenterContext = {
   debug: boolean;
   repositoryUrl: string;
   sampleSSPs: SampleSSP[];
-  locationListen: LocationListener;
+  location: Location;
   useCases: UseCases;
 };
 
 export const createPresenter = (ctx: PresenterContext) => {
   const presenter = createOvermind(
-    getPresenterConfig(ctx.locationListen, ctx.useCases, {
+    getPresenterConfig(ctx.location, ctx.useCases, {
       baseUrl: ctx.baseUrl,
       repositoryUrl: ctx.repositoryUrl,
       sampleSSPs: ctx.sampleSSPs,
@@ -86,7 +86,11 @@ type MockPresenterContext = {
 
 export const createPresenterMock = (ctx: MockPresenterContext = {}) => {
   const presenter = createOvermindMock(
-    getPresenterConfig(jest.fn(), getUseCasesShim(), ctx.initialState),
+    getPresenterConfig(
+      { listen: jest.fn(), replace: jest.fn() },
+      getUseCasesShim(),
+      ctx.initialState,
+    ),
     {
       useCases: ctx.useCases,
     },
