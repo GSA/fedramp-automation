@@ -9,13 +9,9 @@ import { createValidatorMachine, ValidatorMachine } from './validator';
 
 export type Role = string;
 
-type States =
-  | {
-      current: 'UNLOADED';
-    }
-  | {
-      current: 'LOADED';
-    };
+type States = {
+  current: 'LOADED';
+};
 
 type BaseState = {
   assertionsById: {
@@ -53,10 +49,19 @@ type BaseState = {
   validator: ValidatorMachine;
 };
 
-type Events = {
-  type: 'DATA_LOADED';
-  schematronAsserts: SchematronAssert[];
-};
+type Events =
+  | {
+      type: 'FILTER_TEXT_CHANGED';
+      data: {
+        text: string;
+      };
+    }
+  | {
+      type: 'FILTER_ROLE_CHANGED';
+      data: {
+        role: Role;
+      };
+    };
 
 export type SchematronMachine = Statemachine<States, Events, BaseState>;
 
@@ -68,15 +73,26 @@ const cancelIcon = {
 };
 
 const schematronMachine = statemachine<States, Events, BaseState>({
-  UNLOADED: {
-    DATA_LOADED: schematronAsserts => {
+  LOADED: {
+    FILTER_TEXT_CHANGED: ({ text }, state) => {
       return {
         current: 'LOADED',
-        schematronAsserts,
+        filter: {
+          role: state.filter.role,
+          text,
+        },
+      };
+    },
+    FILTER_ROLE_CHANGED: ({ role }, state) => {
+      return {
+        current: 'LOADED',
+        filter: {
+          role: role,
+          text: state.filter.text,
+        },
       };
     },
   },
-  LOADED: {},
 });
 
 export const createSchematronMachine = () => {
