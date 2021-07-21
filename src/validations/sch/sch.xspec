@@ -1,29 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <x:description
-    schematron="../src/ssp/system-inventory.sch"
+    schematron="sch.sch"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-    xmlns:x="http://www.jenitennison.com/xslt/xspec">
+    xmlns:x="http://www.jenitennison.com/xslt/xspec"
+    xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation">
 
     <x:scenario
         label="In FedRAMP OSCAL Schematron">
+        <x:context>
+            <sch:schema>
+                <doc:xspec
+                    href="sch.xspec" />
+                <sch:pattern>
+                    <sch:assert
+                        diagnostics="has-id-attribute-diagnostic"
+                        id="has-id-attribute"
+                        role="error"
+                        sqf:fix="add-id"
+                        test="@id">Has id.</sch:assert>
+                </sch:pattern>
+            </sch:schema>
+        </x:context>
+
+        <x:scenario
+            label="for the scherma">
+            <x:scenario
+                label="when the XSpec reference is present">
+                <x:expect-not-assert
+                    id="has-xspec-reference"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when the XSpec reference is absent">
+                <x:context />
+                <x:expect-assert
+                    id="has-xspec-reference"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="when the XSpec reference document is available">
+                <x:expect-not-assert
+                    id="has-xspec"
+                    label="that is correct" />
+            </x:scenario>
+        </x:scenario>
+
         <x:scenario
             label="For each Schematron assertion">
-            <x:context>
-                <sch:assert
-                    diagnostics="has-id-attribute-diagnostic"
-                    id="has-id-attribute"
-                    role="error"
-                    sqf:fix="add-id"
-                    test="@id">Has id.</sch:assert>
-            </x:context>
+
+            
             <x:scenario
                 label="when the id attribute is present">
                 <x:expect-not-assert
                     id="has-id-attribute"
                     label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when the id attribute is absent">
+                <x:context>
+                    <sch:assert
+                        diagnostics="has-id-attribute-diagnostic"
+                        role="error"
+                        sqf:fix="add-id"
+                        test="@id">Has id.</sch:assert>
+                </x:context>
+                <x:expect-assert
+                    id="has-id-attribute"
+                    label="that is an error" />
             </x:scenario>
             <x:scenario
                 label="when the role attribute is present">
@@ -39,29 +84,23 @@
             </x:scenario>
             <x:scenario
                 label="when the punctuation is correct">
-                <x:expect-not-assert
-                    id="has-punctuation"
-                    label="that is correct" />
-            </x:scenario>
-
-            <x:scenario
-                label="when the XSpec reference is present">
-                <x:expect-not-assert
-                    id="has-xspec-reference"
-                    label="that is correct" />
-            </x:scenario>
-            <x:scenario
-                label="when the XSpec reference document is available">
-                <x:expect-not-assert
-                    id="has-xspec"
-                    label="that is correct" />
-            </x:scenario>
-            <x:scenario
-                label="when the punctuation is correct">
+                <x:context>
+                    <sch:assert>Message.</sch:assert>
+                </x:context>
                 <x:expect-not-assert
                     id="has-xspec-test"
                     label="that is correct" />
             </x:scenario>
+            <x:scenario
+                label="when the punctuation is incorrect">
+                <x:context>
+                    <sch:assert>Message!</sch:assert>
+                </x:context>
+                <x:expect-assert
+                    id="has-punctuation"
+                    label="that is an error" />
+            </x:scenario>
+
 
         </x:scenario>
 
