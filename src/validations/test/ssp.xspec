@@ -2175,7 +2175,7 @@
                         <x:expect-not-assert id="has-reuse"
                                              label="that is correct" />
                     </x:scenario>
-                    <x:scenario label="when a resource is re-used">
+                    <x:scenario label="when a resource is inappropriately re-used">
                         <x:context>
                             <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <control-implementation>
@@ -2187,7 +2187,7 @@
                                             </by-component>
                                         </statement>
                                     </implemented-requirement>
-                                    <implemented-requirement control-id="YY-1">
+                                    <implemented-requirement control-id="yy-1">
                                         <statement>
                                             <by-component>
                                                 <link href="#target1"
@@ -2208,8 +2208,8 @@
                                 </back-matter>
                             </system-security-plan>
                         </x:context>
-                        <x:expect-not-assert id="has-reuse"
-                                             label="that is an error" />
+                        <x:expect-assert id="has-reuse"
+                                         label="that is an error" />
                     </x:scenario>
                 </x:scenario>
             </x:scenario>
@@ -2661,12 +2661,124 @@
                 </x:scenario>
             </x:scenario>
         </x:scenario>
+        <x:scenario label="A FedRAMP OSCAL SSP must have all PTA questions.">
+            <x:scenario label="When this is true">
+                <x:scenario label="that is correct">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <system-information>
+                                    <prop class="pta"
+                                          name="pta-1"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                    <prop class="pta"
+                                          name="pta-2"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                    <prop class="pta"
+                                          name="pta-3"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                    <prop class="pta"
+                                          name="pta-4"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                </system-information>
+                            </system-characteristics>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="has-all-pta-questions" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="When this is false">
+                <x:scenario label="that is an error">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <system-information>
+                                    <prop class="pta"
+                                          name="pta-1"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                    <prop class="pta"
+                                          name="pta-2"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                    <prop class="pta"
+                                          name="pta-3"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                </system-information>
+                            </system-characteristics>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="has-all-pta-questions" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="A FedRAMP OSCAL SSP must have no duplicate PTA questions.">
+            <x:scenario label="When this is true">
+                <x:scenario label="that is correct">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <system-information>
+                                    <prop class="pta"
+                                          name="pta-1"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                    <prop class="pta"
+                                          name="pta-2"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                    <prop class="pta"
+                                          name="pta-3"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                    <prop class="pta"
+                                          name="pta-4"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                </system-information>
+                            </system-characteristics>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert id="has-correct-pta-question-cardinality" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="When this is false">
+                <x:scenario label="that is an error">
+                    <x:context>
+                        <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <system-information>
+                                    <prop class="pta"
+                                          name="pta-1"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                    <prop class="pta"
+                                          name="pta-1"
+                                          ns="https://fedramp.gov/ns/oscal"
+                                          value="yes" />
+                                </system-information>
+                            </system-characteristics>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert id="has-correct-pta-question-cardinality" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
         <x:scenario label="when the PTA/PIA qualifying question #4 is answered affirmatively">
             <x:scenario label="and the SORN ID is provided">
                 <x:context>
                     <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <system-characteristics>
                             <system-information>
+                                <prop class="pta"
+                                      name="pta-4"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="yes" />
                                 <prop class="pta"
                                       name="sorn-id"
                                       ns="https://fedramp.gov/ns/oscal"
@@ -2684,15 +2796,19 @@
                         <system-characteristics>
                             <system-information>
                                 <prop class="pta"
-                                      name="sorn-id"
+                                      name="pta-4"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="yes" />
+                                <prop class="pta"
+                                      name="not-a-sorn-id"
                                       ns="https://fedramp.gov/ns/oscal"
                                       value="some value" />
                             </system-information>
                         </system-characteristics>
                     </system-security-plan>
                 </x:context>
-                <x:expect-not-assert id="has-sorn"
-                                     label="that is an error" />
+                <x:expect-assert id="has-sorn"
+                                 label="that is an error" />
             </x:scenario>
         </x:scenario>
         <x:scenario label="when the Privacy Impact Assessment">
@@ -4560,6 +4676,95 @@
             <!-- FIXME: Software/Database Vendor -->
         </x:scenario>
     </x:scenario>
+    <x:scenario label="FedRAMP OSCAL SSP System Characteristics">
+        <x:scenario label="Affirmative test:">
+            <x:context>
+                <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <system-characteristics>
+                        <prop name="authorization-type"
+                              ns="https://fedramp.gov/ns/oscal"
+                              value="fedramp-agency" />
+                        <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
+                        <system-name>System's Full Name</system-name>
+                        <system-name-short>System's Short Name or Acronym</system-name-short>
+                    </system-characteristics>
+                    <system-implementation>
+                        <component type="system" />
+                    </system-implementation>
+                </system-security-plan>
+            </x:context>
+            <x:scenario label="The system component must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="has-system-component"
+                                         label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="The system-id must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="has-system-id"
+                                         label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="The system-name must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="has-system-name"
+                                         label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="The system-name-short must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="has-system-name-short"
+                                         label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="The fedramp-authorization-type must be defined.">
+                <x:scenario label="When it is">
+                    <x:expect-not-assert id="has-fedramp-authorization-type"
+                                         label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="Negative test:">
+            <x:context>
+                <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <system-characteristics />
+                </system-security-plan>
+                <system-implementation>
+                    <component />
+                </system-implementation>
+            </x:context>
+            <x:scenario label="The system component must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="has-system-component"
+                                     label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="The system-id must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="has-system-id"
+                                     label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="The system-name must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="has-system-name"
+                                     label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="The system-name-short must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="has-system-name-short"
+                                     label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="The fedramp-authorization-type must be defined.">
+                <x:scenario label="When it is not">
+                    <x:expect-assert id="has-fedramp-authorization-type"
+                                     label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+    </x:scenario>
     <x:scenario label="FedRAMP OSCAL SSP Roles">
         <x:scenario label="affirmative">
             <x:context>
@@ -5658,7 +5863,7 @@
                         <system-characteristics>
                             <authorization-boundary>
                                 <diagram>
-                                    <link></link>
+                                    <link />
                                 </diagram>
                             </authorization-boundary>
                         </system-characteristics>
@@ -5675,7 +5880,7 @@
                         <system-characteristics>
                             <authorization-boundary>
                                 <diagram>
-                                    <link rel="thewrongvalue"></link>
+                                    <link rel="thewrongvalue" />
                                 </diagram>
                             </authorization-boundary>
                         </system-characteristics>
@@ -5796,7 +6001,7 @@
                         <system-characteristics>
                             <network-architecture>
                                 <diagram>
-                                    <link></link>
+                                    <link />
                                 </diagram>
                             </network-architecture>
                         </system-characteristics>
@@ -5813,7 +6018,7 @@
                         <system-characteristics>
                             <network-architecture>
                                 <diagram>
-                                    <link rel="thewrongvalue"></link>
+                                    <link rel="thewrongvalue" />
                                 </diagram>
                             </network-architecture>
                         </system-characteristics>
@@ -5934,7 +6139,7 @@
                         <system-characteristics>
                             <data-flow>
                                 <diagram>
-                                    <link></link>
+                                    <link />
                                 </diagram>
                             </data-flow>
                         </system-characteristics>
@@ -5951,7 +6156,7 @@
                         <system-characteristics>
                             <data-flow>
                                 <diagram>
-                                    <link rel="thewrongvalue"></link>
+                                    <link rel="thewrongvalue" />
                                 </diagram>
                             </data-flow>
                         </system-characteristics>

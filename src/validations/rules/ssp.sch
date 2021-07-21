@@ -42,6 +42,9 @@
         <sch:active pattern="base64" />
         <sch:active pattern="specific-attachments" />
         <sch:active pattern="policy-and-procedure" />
+        <sch:active pattern="authorization-boundary" />
+        <sch:active pattern="network-architecture" />
+        <sch:active pattern="data-flow" />
     </sch:phase>
     <sch:phase id="privacy">
         <sch:active pattern="privacy1" />
@@ -469,7 +472,7 @@
                         doc:organizational-id="section-b.?????"
                         id="resource-uuid-required"
                         role="error"
-                        test="./@uuid">This SSP has back-matter resources each with a UUID.</sch:assert>
+                        test="@uuid">Every resource has a uuid attribute.</sch:assert>
         </sch:rule>
         <!-- The following rule is commented out because doc-available does not provide the desired existence check -->
         <!--<sch:rule
@@ -487,9 +490,9 @@
                      value="@filename" />
             <sch:let name="media-type"
                      value="@media-type" />
-            <sch:assert diagnostics="resource-base64-available-filenamne-diagnostic"
+            <sch:assert diagnostics="resource-base64-available-filename-diagnostic"
                         doc:organizational-id="section-b.?????"
-                        id="resource-base64-available-filenamne"
+                        id="resource-base64-available-filename"
                         role="error"
                         test="./@filename">This base64 has a filename attribute.</sch:assert>
             <sch:assert diagnostics="resource-base64-available-media-type-diagnostic"
@@ -567,7 +570,7 @@
                         role="warning"
                         test="oscal:base64">A resource should have a base64 element.</sch:assert>
             <sch:assert diagnostics="resource-base64-cardinality-diagnostic"
-                        id="resource-base64-cardinality"
+                        id="resource-has-base64-cardinality"
                         role="error"
                         test="not(oscal:base64[2])">A resource must have only one base64 element.</sch:assert>
         </sch:rule>
@@ -702,7 +705,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
     <sch:pattern id="privacy1">
         <sch:title>A FedRAMP OSCAL SSP must specify a Privacy Point of Contact</sch:title>
         <sch:rule context="oscal:metadata"
-                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 49">
+                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 50">
             <sch:assert diagnostics="has-privacy-poc-role-diagnostic"
                         id="has-privacy-poc-role"
                         role="error"
@@ -732,7 +735,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         <sch:title>A FedRAMP OSCAL SSP may need to incorporate a PIA and possibly a SORN</sch:title>
         <!-- The "PTA" appears to be just a few questions, not an attachment -->
         <sch:rule context="oscal:prop[@name = 'privacy-sensitive'] | oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and matches(@name, '^pta-\d$')]"
-                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 51">
+                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 52">
             <sch:assert diagnostics="has-correct-yes-or-no-answer-diagnostic"
                         id="has-correct-yes-or-no-answer"
                         role="error"
@@ -740,7 +743,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         (PIA) qualifying question must have an allowed answer.</sch:assert>
         </sch:rule>
         <sch:rule context="/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information"
-                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 51">
+                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 52">
             <sch:assert diagnostics="has-privacy-sensitive-designation-diagnostic"
                         id="has-privacy-sensitive-designation"
                         role="error"
@@ -784,17 +787,14 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                     not(some $name in ('pta-1', 'pta-2', 'pta-3', 'pta-4')
                         satisfies exists(oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = $name][2]))">[Section B Check
 3.4] A FedRAMP OSCAL SSP must have no duplicate PTA questions.</sch:assert>
-        </sch:rule>
-        <sch:rule context="/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information"
-                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 51">
             <sch:assert diagnostics="has-sorn-diagnostic"
                         id="has-sorn"
                         role="error"
-                        test="/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-4' and @value = 'yes'] and oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'sorn-id' and @value != '']">
+                        test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-4' and @value = 'yes'] and oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'sorn-id'(: and @value != '':)]">
             [Section B Check 3.4] A FedRAMP OSCAL SSP may have a SORN ID.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:back-matter"
-                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 51">
+                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 52">
             <sch:assert diagnostics="has-pia-diagnostic"
                         id="has-pia"
                         role="error"
@@ -805,7 +805,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         </sch:rule>
     </sch:pattern>
     <sch:pattern id="fips-140"
-                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 58">
+                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 64">
         <!-- FIXME: Draft guide is wildly different than template -->
         <sch:title>FIPS 140 Validation</sch:title>
         <sch:rule context="oscal:system-implementation">
@@ -957,8 +957,6 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         role="error"
                         test="oscal:information-type-id">A FedRAMP OSCAL SSP information-type categorization must have at least one
                         information-type-id.</sch:assert>
-            <!-- FIXME: https://github.com/18F/fedramp-automation/blob/master/documents/Guide_to_OSCAL-based_FedRAMP_System_Security_Plans_(SSP).pdf page 11 has schema error -->
-            <!--        confidentiality-impact, integrity-impact, availability-impact are children of <information-type> -->
         </sch:rule>
         <sch:rule context="oscal:information-type-id">
             <sch:let name="information-types"
@@ -1019,6 +1017,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         </sch:rule>
         <sch:rule context="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'security-eauth' and @name = 'security-eauth-level']"
                   role="error">
+            <!-- FIXME -->
             <sch:let name="security-eauth-levels"
                      value="('1', '2', '3')" />
             <sch:assert diagnostics="has-allowed-security-eauth-level-diagnostic"
@@ -1031,6 +1030,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <!--<sch:let
             name="identity-assurance-levels"
             value="('IAL1', 'IAL2', 'IAL3')" />-->
+            <!-- FIXME -->
             <sch:let name="identity-assurance-levels"
                      value="('1', '2', '3')" />
             <sch:assert diagnostics="has-allowed-identity-assurance-level-diagnostic"
@@ -1043,6 +1043,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <!--<sch:let
             name="authenticator-assurance-levels"
             value="('AAL1', 'AAL2', 'AAL3')" />-->
+            <!-- FIXME -->
             <sch:let name="authenticator-assurance-levels"
                      value="('1', '2', '3')" />
             <sch:assert diagnostics="has-allowed-authenticator-assurance-level-diagnostic"
@@ -1055,6 +1056,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <!--<sch:let
             name="federation-assurance-levels"
             value="('FAL1', 'FAL2', 'FAL3')" />-->
+            <!-- FIXME -->
             <sch:let name="federation-assurance-levels"
                      value="('1', '2', '3')" />
             <sch:assert diagnostics="has-allowed-federation-assurance-level-diagnostic"
@@ -1065,7 +1067,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         </sch:rule>
     </sch:pattern>
     <sch:pattern id="system-inventory"
-                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans pp52-60">
+                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans pp54-61">
         <sch:title>FedRAMP OSCAL System Inventory</sch:title>
         <sch:title>A FedRAMP OSCAL SSP must specify system inventory items</sch:title>
         <sch:rule context="/oscal:system-security-plan/oscal:system-implementation">
@@ -1152,7 +1154,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         </sch:rule>
         <sch:title>FedRAMP OSCAL SSP inventory items</sch:title>
         <sch:rule context="oscal:inventory-item"
-                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans pp52-60">
+                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans pp54-61">
             <sch:assert diagnostics="inventory-item-has-uuid-diagnostic"
                         id="inventory-item-has-uuid"
                         role="error"
@@ -1253,7 +1255,6 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         role="error"
                         test="not($is-infrastructure) or not(oscal:prop[@name = 'is-scanned'][2])">"infrastructure" inventory-item must have only one
                         is-scanned property.</sch:assert>
-            <!-- FIXME: DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 53 has typo -->
             <!-- FIXME: vague asset categories -->
             <!-- restrict the following to "software" -->
             <sch:let name="is-software-and-database"
@@ -1294,19 +1295,18 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
     </sch:pattern>
     <sch:pattern id="basic-system-characteristics">
         <sch:rule context="oscal:system-implementation"
-                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 62">
+                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 43">
             <sch:assert diagnostics="has-system-component-diagnostic"
                         id="has-system-component"
                         role="error"
                         test="oscal:component[@type = 'system']">A FedRAMP OSCAL SSP must have a system component.</sch:assert>
-            <!-- required @uuid is defined in XML Schema -->
         </sch:rule>
         <sch:rule context="oscal:system-characteristics"
                   see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 9">
             <sch:assert diagnostics="has-system-id-diagnostic"
                         id="has-system-id"
                         role="error"
-                        test="oscal:system-id[@identifier-type = 'https://fedramp.gov/']">A FedRAMP OSCAL SSP must have a FedRAMP
+                        test="oscal:system-id[@identifier-type = 'https://fedramp.gov']">A FedRAMP OSCAL SSP must have a FedRAMP
                         system-id.</sch:assert>
             <sch:assert diagnostics="has-system-name-diagnostic"
                         id="has-system-name"
@@ -1316,12 +1316,10 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         id="has-system-name-short"
                         role="error"
                         test="oscal:system-name-short">A FedRAMP OSCAL SSP must have a system-name-short.</sch:assert>
-        </sch:rule>
-        <sch:rule context="oscal:system-characteristics"
-                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 10">
             <sch:assert diagnostics="has-fedramp-authorization-type-diagnostic"
                         id="has-fedramp-authorization-type"
                         role="error"
+                        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 10"
                         test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'authorization-type' and @value = ('fedramp-jab', 'fedramp-agency', 'fedramp-li-saas')]">
             A FedRAMP OSCAL SSP must have a FedRAMP authorization type.</sch:assert>
         </sch:rule>
@@ -1404,14 +1402,6 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         role="error"
                         test="//oscal:role-id = current()/@role-id">Each responsible-role must be referenced in a system-implementation user
                         assembly.</sch:assert>
-            <!-- TODO: performance comparison -->
-            <sch:assert diagnostics="distinct-responsible-role-has-user-diagnostic"
-                        id="distinct-responsible-role-has-user"
-                        role="error"
-                        test="
-                    every $r in distinct-values(//oscal:responsible-role/@role-id)
-                        satisfies exists(//oscal:user/oscal:role-id = $r)">Each distinct responsible-role must be referenced in a
-system-implementation user assembly.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern id="user-properties">
@@ -1548,7 +1538,7 @@ system-implementation user assembly.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern id="network-architecture"
-                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17 Authorization Boundary Diagram page 25">
+                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17 Network Architecture Diagram page 30">
         <sch:title>Network Architecture Diagram</sch:title>
         <sch:rule context="oscal:system-characteristics">
             <sch:assert diagnostics="has-network-architecture-diagnostic"
@@ -1603,7 +1593,7 @@ system-implementation user assembly.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern id="data-flow"
-                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17 Authorization Boundary Diagram page 25">
+                 see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17 Data Flow Diagram page 32">
         <sch:title>Data Flow Diagram</sch:title>
         <sch:rule context="oscal:system-characteristics">
             <sch:assert diagnostics="has-data-flow-diagnostic"
@@ -1782,9 +1772,9 @@ system-implementation user assembly.</sch:assert>
                         doc:context="/o:system-security-plan/o:back-matter/o:resource/o:rlink"
                         id="resource-rlink-required-diagnostic">This SSP references back-matter resource: 
         <sch:value-of select="./@href" />.</sch:diagnostic>
-        <sch:diagnostic doc:assertion="resource-base64-available-filenamne"
+        <sch:diagnostic doc:assertion="resource-base64-available-filename"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
-                        id="resource-base64-available-filenamne-diagnostic">This base64 lacks a filename attribute.</sch:diagnostic>
+                        id="resource-base64-available-filename-diagnostic">This base64 lacks a filename attribute.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-base64-available-media-type"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
                         id="resource-base64-available-media-type-diagnostic">This base64 lacks a media-type attribute.</sch:diagnostic>
