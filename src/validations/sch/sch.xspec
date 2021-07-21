@@ -50,7 +50,6 @@
         <x:scenario
             label="For each Schematron assertion">
 
-            
             <x:scenario
                 label="when the id attribute is present">
                 <x:expect-not-assert
@@ -100,7 +99,6 @@
                     id="has-punctuation"
                     label="that is an error" />
             </x:scenario>
-
 
         </x:scenario>
 
