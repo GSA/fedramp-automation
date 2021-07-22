@@ -6,6 +6,6 @@
   "scripts": {
     "link:validation-ui": "ln -sf ./src/web/build _site",
     "build:validation-ui": "cd src/web && npm install && npm run build && cd ../..",
-    "federalist": "npm run build:validation-ui && npm run link:validation-ui"
+    "federalist": "make --version && npm run build:validation-ui && npm run link:validation-ui"
   }
 }
