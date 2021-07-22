@@ -761,8 +761,9 @@
       <component uuid="95beec7e-6f82-4aaa-8211-969cd7c1f1ab" type="validation">
          <title>[SAMPLE]Module Name</title>
          <description>
-            <p>[SAMPLE]FIPS 140-2 Validated Module</p>
+            <p>[SAMPLE]FIPS 140 Validated Module</p>
          </description>
+         <validation-type>fips-140-2</validation-type>
          <!-- identifies the certificate number -->
          <prop name="validation-reference" value="0000"/>
          <link rel="validation-details"
