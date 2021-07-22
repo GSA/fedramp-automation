@@ -6202,5 +6202,29 @@
                                  label="that is an error" />
             </x:scenario>
         </x:scenario>
+        <x:scenario label="Planned completion date is valid.">
+            <x:scenario label="When that is true">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="planned-completion-date"
+                              ns="https://fedramp.gov/ns/oscal"
+                              value="2021-09-23" />
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="planned-completion-date-is-valid"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="When that is false">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="planned-completion-date"
+                              ns="https://fedramp.gov/ns/oscal"
+                              value="202x-09-23" />
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="planned-completion-date-is-valid"
+                                     label="that is an error" />
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
 </x:description>

@@ -1725,8 +1725,14 @@ leveraged-authorization.</sch:assert>
             <sch:assert diagnostics="implemented-requirement-has-implementation-status-remarks-diagnostic"
                         id="implemented-requirement-has-implementation-status-remarks"
                         role="error"
-                        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
                         test="oscal:remarks">Incomplete control implementations have an explanation.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']">
+            <sch:assert diagnostics="planned-completion-date-is-valid-diagnostic"
+                        id="planned-completion-date-is-valid"
+                        role="error"
+                        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                        test="@value castable as xs:date">Planned completion date is valid.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:diagnostics>
@@ -2561,5 +2567,8 @@ leveraged-authorization.</sch:assert>
                         doc:context="oscal:implemented-requirement"
                         id="implemented-requirement-has-leveraged-authorization-diagnostic">This implemented-requirement with a control-origination
                         property of "inherited" does not reference a leveraged-authorization element in the same document.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="planned-completion-date-is-valid"
+                        doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']"
+                        id="planned-completion-date-is-valid-diagnostic">This planned completion date is not valid.</sch:diagnostic>
     </sch:diagnostics>
 </sch:schema>
