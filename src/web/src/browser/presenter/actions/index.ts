@@ -4,17 +4,9 @@ export * as validator from './validator';
 import type { PresenterConfig } from '..';
 import * as router from '../state/router';
 
-export const onInitializeOvermind = ({
-  actions,
-  effects,
-  state,
-}: PresenterConfig) => {
+export const onInitializeOvermind = ({ actions, effects }: PresenterConfig) => {
   actions.setCurrentRoute(window.location.hash);
   effects.location.listen((url: string) => {
-    actions.setCurrentRoute(url);
-  });
-  window.addEventListener('hashchange', event => {
-    const url = event.newURL.split('#')[1];
     actions.setCurrentRoute(url);
   });
   effects.useCases
