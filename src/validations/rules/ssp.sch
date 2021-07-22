@@ -38,9 +38,6 @@
         <sch:active pattern="data-flow" />
         <sch:active pattern="control-implementation" />
     </sch:phase>
-    <sch:phase id="test">
-        <sch:active pattern="control-implementation" />
-    </sch:phase>
     <sch:phase id="attachments">
         <sch:active pattern="resources" />
         <sch:active pattern="base64" />
