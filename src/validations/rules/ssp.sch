@@ -790,7 +790,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-sorn-diagnostic"
                         id="has-sorn"
                         role="error"
-                        test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-4' and @value = 'yes'] and oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'sorn-id'(: and @value != '':)]">
+                        test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-4' and @value = 'yes'] and oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'sorn-id' (: and @value != '':)]">
             [Section B Check 3.4] A FedRAMP OSCAL SSP may have a SORN ID.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:back-matter"
@@ -1296,10 +1296,10 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
     <sch:pattern id="basic-system-characteristics">
         <sch:rule context="oscal:system-implementation"
                   see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 43">
-            <sch:assert diagnostics="has-system-component-diagnostic"
-                        id="has-system-component"
+            <sch:assert diagnostics="has-this-system-component-diagnostic"
+                        id="has-this-system-component"
                         role="error"
-                        test="oscal:component[@type = 'system']">A FedRAMP OSCAL SSP must have a system component.</sch:assert>
+                        test="exists(oscal:component[@type = 'this-system'])">A FedRAMP OSCAL SSP must have a "this-system" component.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:system-characteristics"
                   see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans page 9">
@@ -2227,9 +2227,9 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         doc:context="/oscal:system-security-plan/oscal:system-implementation/oscal:component[(: a component referenced by any inventory-item :)@uuid = //oscal:inventory-item/oscal:implemented-component/@component-uuid]"
                         id="component-has-one-asset-type-diagnostic">
         <sch:value-of select="name()" />has more than one asset-type property.</sch:diagnostic>
-        <sch:diagnostic doc:assertion="has-system-component"
+        <sch:diagnostic doc:assertion="has-this-system-component"
                         doc:context="oscal:system-implementation"
-                        id="has-system-component-diagnostic">This FedRAMP OSCAL SSP lacks a system component.</sch:diagnostic>
+                        id="has-this-system-component-diagnostic">This FedRAMP OSCAL SSP lacks a "this-system" component.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-system-id"
                         doc:context="oscal:system-characteristics"
                         id="has-system-id-diagnostic">This FedRAMP OSCAL SSP lacks a FedRAMP system-id.</sch:diagnostic>

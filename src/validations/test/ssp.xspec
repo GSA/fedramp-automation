@@ -2151,7 +2151,7 @@
                                             </by-component>
                                         </statement>
                                     </implemented-requirement>
-                                    <implemented-requirement control-id="YY-1">
+                                    <implemented-requirement control-id="yy-1">
                                         <statement>
                                             <by-component>
                                                 <link href="#target2"
@@ -2175,7 +2175,8 @@
                         <x:expect-not-assert id="has-reuse"
                                              label="that is correct" />
                     </x:scenario>
-                    <x:scenario label="when a resource is inappropriately re-used">
+                    <x:scenario label="when a resource is inappropriately re-used"
+                                pending="XSpec problem resolution">
                         <x:context>
                             <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <control-implementation>
@@ -4689,13 +4690,13 @@
                         <system-name-short>System's Short Name or Acronym</system-name-short>
                     </system-characteristics>
                     <system-implementation>
-                        <component type="system" />
+                        <component type="this-system" />
                     </system-implementation>
                 </system-security-plan>
             </x:context>
-            <x:scenario label="The system component must be defined.">
+            <x:scenario label="The this-system component must be defined.">
                 <x:scenario label="When it is">
-                    <x:expect-not-assert id="has-system-component"
+                    <x:expect-not-assert id="has-this-system-component"
                                          label="that is correct" />
                 </x:scenario>
             </x:scenario>
@@ -4728,14 +4729,14 @@
             <x:context>
                 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                     <system-characteristics />
+                    <system-implementation>
+                        <component type="not-this-system" />
+                    </system-implementation>
                 </system-security-plan>
-                <system-implementation>
-                    <component />
-                </system-implementation>
             </x:context>
-            <x:scenario label="The system component must be defined.">
+            <x:scenario label="The this-system component must be defined.">
                 <x:scenario label="When it is not">
-                    <x:expect-assert id="has-system-component"
+                    <x:expect-assert id="has-this-system-component"
                                      label="that is an error" />
                 </x:scenario>
             </x:scenario>
