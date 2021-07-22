@@ -19,7 +19,7 @@ export const onInitializeOvermind = ({
   });
   effects.useCases
     .getSSPSchematronAssertions()
-    .then(schema => (state.schematron.schematronAsserts = schema));
+    .then(actions.schematron.setAssertions);
 };
 
 export const setCurrentRoute = (

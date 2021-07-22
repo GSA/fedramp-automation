@@ -15,12 +15,12 @@
     "build:sef": "xslt3 -xsl:public/ssp.xsl -export:public/ssp.sef.json -nogo",
     "build:ssp-json": "ts-node src/context/cli/index.ts parse-schematron ../src/ssp.sch ./public/ssp.json",
     "cli": "ts-node src/context/cli/index.ts",
-    "coverage": "jest --coverage && open ./coverage/lcov-report/index.html",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "postinstall": "patch-package",
     "start": "concurrently \"overmind-devtools\" \"snowpack dev\"",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage && open ./coverage/lcov-report/index.html"
   },
   "dependencies": {
     "classnames": "^2.3.1",

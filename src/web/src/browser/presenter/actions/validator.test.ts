@@ -105,25 +105,3 @@ describe('report action', () => {
     });
   });
 });
-
-const MOCK_VALIDATION_REPORT = {
-  failedAsserts: [
-    {
-      text: 'ASSERT TEXT 1',
-      test: 'not(exists($extraneous-roles))',
-      id: 'incorrect-role-association',
-      uniqueId: 'incorrect-role-association-1',
-      location:
-        "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:metadata[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
-    },
-    {
-      text: 'ASSERT TEXT 2',
-      test: 'not(exists($core-missing))',
-      id: 'incomplete-core-implemented-requirements',
-      uniqueId: 'incomplete-core-implemented-requirements-1',
-      role: 'error',
-      location:
-        "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:control-implementation[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
-    },
-  ],
-};

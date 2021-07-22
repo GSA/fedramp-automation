@@ -14,7 +14,7 @@ type States = {
 };
 
 type BaseState = {
-  assertionsById: {
+  _assertionsById: {
     [assertionId: string]: SchematronAssert;
   };
   assertionGroups: {
@@ -27,7 +27,7 @@ type BaseState = {
     role: Role;
     text: string;
   };
-  filterRoles: Role[];
+  _filterRoles: Role[];
   roles: Role[];
   schematronReport: {
     summaryText: string;
@@ -44,8 +44,8 @@ type BaseState = {
       };
     }[];
   };
-  schematronAsserts: SchematronAssert[];
-  schematronAssertsFiltered: SchematronAssert[];
+  _schematronAsserts: SchematronAssert[];
+  _schematronAssertsFiltered: SchematronAssert[];
   validator: ValidatorMachine;
 };
 
@@ -60,6 +60,12 @@ type Events =
       type: 'FILTER_ROLE_CHANGED';
       data: {
         role: Role;
+      };
+    }
+  | {
+      type: 'ASSERTIONS_FOUND';
+      data: {
+        schematronAsserts: SchematronAssert[];
       };
     };
 
@@ -81,6 +87,7 @@ const schematronMachine = statemachine<States, Events, BaseState>({
           role: state.filter.role,
           text,
         },
+        _schematronAsserts: [...state._schematronAsserts],
       };
     },
     FILTER_ROLE_CHANGED: ({ role }, state) => {
@@ -90,6 +97,14 @@ const schematronMachine = statemachine<States, Events, BaseState>({
           role: role,
           text: state.filter.text,
         },
+        _schematronAsserts: [...state._schematronAsserts],
+      };
+    },
+    ASSERTIONS_FOUND: ({ schematronAsserts }, state) => {
+      return {
+        current: 'LOADED',
+        filter: { ...state.filter },
+        _schematronAsserts: schematronAsserts,
       };
     },
   },
@@ -99,9 +114,9 @@ export const createSchematronMachine = () => {
   return schematronMachine.create(
     { current: 'LOADED' },
     {
-      assertionsById: derived((state: SchematronMachine) => {
-        const assertions: SchematronMachine['assertionsById'] = {};
-        state.schematronAssertsFiltered.forEach(assert => {
+      _assertionsById: derived((state: SchematronMachine) => {
+        const assertions: SchematronMachine['_assertionsById'] = {};
+        state._schematronAssertsFiltered.forEach(assert => {
           assertions[assert.id] = assert;
         });
         return assertions;
@@ -111,7 +126,7 @@ export const createSchematronMachine = () => {
         return [
           {
             title: 'ssp.sch assertions',
-            asserts: state.schematronAsserts,
+            asserts: state._schematronAsserts,
           },
         ];
       }),
@@ -119,7 +134,7 @@ export const createSchematronMachine = () => {
         role: 'all',
         text: '',
       },
-      filterRoles: derived((state: SchematronMachine) => {
+      _filterRoles: derived((state: SchematronMachine) => {
         switch (state.filter.role) {
           case 'all':
             return state.roles;
@@ -130,11 +145,15 @@ export const createSchematronMachine = () => {
       roles: derived((state: SchematronMachine) => [
         'all',
         ...Array.from(
-          new Set(state.schematronAsserts.map(assert => assert.role)),
+          new Set(state._schematronAsserts.map(assert => assert.role)),
         ).sort(),
       ]),
       schematronReport: derived(
-        ({ assertionsById, assertionGroups, validator }: SchematronMachine) => {
+        ({
+          _assertionsById,
+          assertionGroups,
+          validator,
+        }: SchematronMachine) => {
           const isValidated = validator.current === 'VALIDATED';
           return {
             summaryText: isValidated
@@ -148,7 +167,7 @@ export const createSchematronMachine = () => {
               };
               const assertions = assertionGroup.asserts
                 .map(assertionGroupAssert => {
-                  const assert = assertionsById[assertionGroupAssert.id];
+                  const assert = _assertionsById[assertionGroupAssert.id];
                   if (!assert) {
                     return null;
                   }
@@ -189,12 +208,12 @@ export const createSchematronMachine = () => {
           };
         },
       ),
-      schematronAsserts: [] as SchematronAssert[],
-      schematronAssertsFiltered: derived(
-        ({ filter, filterRoles, schematronAsserts }: SchematronMachine) => {
-          let assertions = schematronAsserts.filter(
+      _schematronAsserts: [] as SchematronAssert[],
+      _schematronAssertsFiltered: derived(
+        ({ filter, _filterRoles, _schematronAsserts }: SchematronMachine) => {
+          let assertions = _schematronAsserts.filter(
             (assertion: SchematronAssert) => {
-              return filterRoles.includes(assertion.role || '');
+              return _filterRoles.includes(assertion.role || '');
             },
           );
           if (filter.text.length > 0) {
