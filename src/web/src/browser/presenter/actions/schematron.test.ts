@@ -32,8 +32,8 @@ describe('schematron', () => {
       expect(presenter.state.schematron.schematronReport).toEqual({
         groups: [
           {
-            assertions: {
-              assertions: [
+            checks: {
+              checks: [
                 {
                   fired: [],
                   icon: {
@@ -46,13 +46,19 @@ describe('schematron', () => {
                   role: 'error',
                 },
               ],
-              summary: '1 assertions',
+              summary: '1 checks',
               summaryColor: 'green',
             },
             title: 'System Security Plan',
           },
         ],
-        summaryText: 'Unprocessed validations',
+        summary: {
+          title: 'Unprocessed validations',
+          counts: {
+            assertions: 1,
+            reports: 0,
+          },
+        },
       });
     });
 
@@ -75,8 +81,8 @@ describe('schematron', () => {
       expect(presenter.state.schematron.schematronReport).toEqual({
         groups: [
           {
-            assertions: {
-              assertions: [
+            checks: {
+              checks: [
                 {
                   fired: [],
                   icon: {
@@ -90,13 +96,19 @@ describe('schematron', () => {
                   role: 'info',
                 },
               ],
-              summary: '1 assertions',
+              summary: '1 checks',
               summaryColor: 'green',
             },
             title: 'System Security Plan',
           },
         ],
-        summaryText: 'Unprocessed validations',
+        summary: {
+          title: 'Unprocessed validations',
+          counts: {
+            assertions: 1,
+            reports: 0,
+          },
+        },
       });
     });
   });

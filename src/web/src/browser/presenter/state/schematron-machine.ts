@@ -30,14 +30,20 @@ type BaseState = {
   _filterRoles: Role[];
   roles: Role[];
   schematronReport: {
-    summaryText: string;
+    summary: {
+      title: string;
+      counts: {
+        assertions: number;
+        reports: number;
+      };
+    };
     groups: {
       title: string;
       //see: string;
-      assertions: {
+      checks: {
         summary: string;
         summaryColor: 'red' | 'green';
-        assertions: (SchematronAssert & {
+        checks: (SchematronAssert & {
           icon: typeof checkCircleIcon;
           fired: FailedAssert[];
         })[];
@@ -45,7 +51,7 @@ type BaseState = {
     }[];
   };
   _schematronAsserts: SchematronAssert[];
-  _schematronAssertsFiltered: SchematronAssert[];
+  _schematronChecksFiltered: SchematronAssert[];
   validator: ValidatorMachine;
 };
 
@@ -116,7 +122,7 @@ export const createSchematronMachine = () => {
     {
       _assertionsById: derived((state: SchematronMachine) => {
         const assertions: SchematronMachine['_assertionsById'] = {};
-        state._schematronAssertsFiltered.forEach(assert => {
+        state._schematronChecksFiltered.forEach(assert => {
           assertions[assert.id] = assert;
         });
         return assertions;
@@ -151,21 +157,31 @@ export const createSchematronMachine = () => {
       schematronReport: derived(
         ({
           _assertionsById,
+          _schematronChecksFiltered,
           assertionGroups,
           validator,
         }: SchematronMachine) => {
           const isValidated = validator.current === 'VALIDATED';
+          const reportCount = _schematronChecksFiltered.filter(
+            c => c.isReport,
+          ).length;
           return {
-            summaryText: isValidated
-              ? 'Processed validations'
-              : 'Unprocessed validations',
+            summary: {
+              title: isValidated
+                ? 'Processed validations'
+                : 'Unprocessed validations',
+              counts: {
+                assertions: _schematronChecksFiltered.length - reportCount,
+                reports: reportCount,
+              },
+            },
             groups: assertionGroups.map(assertionGroup => {
               type UiAssert = SchematronAssert & {
                 message: string;
                 icon: typeof checkCircleIcon;
                 fired: FailedAssert[];
               };
-              const assertions = assertionGroup.asserts
+              const checks = assertionGroup.asserts
                 .map(assertionGroupAssert => {
                   const assert = _assertionsById[assertionGroupAssert.id];
                   if (!assert) {
@@ -187,21 +203,21 @@ export const createSchematronMachine = () => {
                   (assert: UiAssert | null): assert is UiAssert =>
                     assert !== null,
                 );
-              const firedCount = assertions.filter(
+              const firedCount = checks.filter(
                 assert => assert.fired.length > 0,
               ).length;
               return {
                 title: assertionGroup.title,
-                assertions: {
+                checks: {
                   summary: (() => {
                     if (isValidated) {
-                      return `${firedCount} / ${assertions.length} triggered`;
+                      return `${firedCount} / ${checks.length} triggered`;
                     } else {
-                      return `${assertions.length} assertions`;
+                      return `${checks.length} checks`;
                     }
                   })(),
                   summaryColor: firedCount === 0 ? 'green' : 'red',
-                  assertions,
+                  checks,
                 },
               };
             }),
@@ -209,7 +225,7 @@ export const createSchematronMachine = () => {
         },
       ),
       _schematronAsserts: [] as SchematronAssert[],
-      _schematronAssertsFiltered: derived(
+      _schematronChecksFiltered: derived(
         ({ filter, _filterRoles, _schematronAsserts }: SchematronMachine) => {
           let assertions = _schematronAsserts.filter(
             (assertion: SchematronAssert) => {

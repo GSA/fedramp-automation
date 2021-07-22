@@ -11,7 +11,18 @@ export const SchematronReport = () => {
   return (
     <div className="grid-row grid-gap">
       <div className="tablet:grid-col">
-        <h1 className="font-heading-lg">{schematronReport.summaryText}</h1>
+        <h1 className="font-heading-lg">
+          {schematronReport.summary.title}
+          <span
+            className="font-heading-sm text-secondary-light"
+            style={{ float: 'right' }}
+          >
+            <span className={`text-blue`}>
+              {schematronReport.summary.counts.assertions} assertions /{' '}
+              {schematronReport.summary.counts.reports} reports
+            </span>
+          </span>
+        </h1>
         {schematronReport.groups.map((group, index) => (
           <details
             key={index}
@@ -25,49 +36,49 @@ export const SchematronReport = () => {
                   className="font-heading-sm text-secondary-light"
                   style={{ float: 'right' }}
                 >
-                  <span className={`text-${group.assertions.summaryColor}`}>
-                    {group.assertions.summary}
+                  <span className={`text-${group.checks.summaryColor}`}>
+                    {group.checks.summary}
                   </span>
                 </span>
               </span>
             </summary>
             <ul className="usa-icon-list margin-top-1">
-              {group.assertions.assertions.map((assert, index) => (
+              {group.checks.checks.map((check, index) => (
                 <li
                   key={index}
                   className={`usa-icon-list__item padding-1 bg-${colorTokenForRole(
-                    assert.role,
+                    check.role,
                   )}-lighter`}
                 >
                   <div
-                    className={`usa-icon-list__icon text-${assert.icon.color}`}
+                    className={`usa-icon-list__icon text-${check.icon.color}`}
                   >
                     <svg className="usa-icon" aria-hidden="true" role="img">
                       <use
                         xlinkHref={getAssetUrl(
-                          `uswds/img/sprite.svg#${assert.icon.sprite}`,
+                          `uswds/img/sprite.svg#${check.icon.sprite}`,
                         )}
                       ></use>
                     </svg>
                   </div>
                   <div className="usa-icon-list__content">
-                    {assert.message}
-                    {assert.fired.length ? (
+                    {check.message}
+                    {check.fired.length ? (
                       <ul className="usa-icon-list__title">
-                        {assert.fired.map((firedAssert, index) => (
+                        {check.fired.map((firedCheck, index) => (
                           <li key={index}>
-                            {firedAssert.diagnosticReferences.length > 0
-                              ? firedAssert.diagnosticReferences.join(', ')
-                              : firedAssert.text}
+                            {firedCheck.diagnosticReferences.length > 0
+                              ? firedCheck.diagnosticReferences.join(', ')
+                              : firedCheck.text}
                             <a
                               className="usa-tooltip"
                               data-position="bottom"
                               href={getUrl(
                                 Routes.assertion({
-                                  assertionId: firedAssert.uniqueId,
+                                  assertionId: firedCheck.uniqueId,
                                 }),
                               )}
-                              title={firedAssert.location}
+                              title={firedCheck.location}
                             >
                               <svg
                                 className="usa-icon"
