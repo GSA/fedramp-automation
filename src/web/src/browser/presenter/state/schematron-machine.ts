@@ -125,7 +125,7 @@ export const createSchematronMachine = () => {
         // Return a sample assertion group corresponding to the source rules.
         return [
           {
-            title: 'ssp.sch assertions',
+            title: 'System Security Plan',
             asserts: state._schematronAsserts,
           },
         ];
