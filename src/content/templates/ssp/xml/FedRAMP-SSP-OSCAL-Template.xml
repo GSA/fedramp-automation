@@ -857,7 +857,7 @@
          </description>
          <purpose>Describe the reason the service is needed.</purpose>
          <!-- TODO: link rel="uses-service" can be added to the component that uses this service. Establish this relationship there. -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="used-by" value="What uses this service?"/>
+         <prop name="used-by" value="What uses this service?"/>
          <status state="operational"/>
          <protocol name="http">
             <port-range start="80" end="80" transport="TCP"/>
