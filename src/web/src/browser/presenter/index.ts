@@ -8,7 +8,7 @@ import type {
 } from '@asap/shared/use-cases/validate-ssp-xml';
 
 import * as actions from './actions';
-import type { Location } from './router';
+import type { Location } from './state/router';
 import { state, State, SampleSSP } from './state';
 
 type UseCases = {

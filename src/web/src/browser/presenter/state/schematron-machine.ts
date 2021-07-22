@@ -5,7 +5,7 @@ import type {
   FailedAssert,
 } from '@asap/shared/use-cases/schematron';
 
-import { createValidatorMachine, ValidatorMachine } from './validator';
+import { createValidatorMachine, ValidatorMachine } from './validator-machine';
 
 export type Role = string;
 

@@ -9,7 +9,7 @@ import { SummaryPage } from './SummaryPage';
 import { ViewerPage } from './ViewerPage';
 
 const CurrentPage = () => {
-  const { currentRoute } = useAppState();
+  const { currentRoute } = useAppState().router;
   if (currentRoute.type === 'Home') {
     return (
       <div>

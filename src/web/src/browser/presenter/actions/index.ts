@@ -1,9 +1,8 @@
 export * as schematron from './schematron';
 export * as validator from './validator';
 
-import { useEffects } from '@asap/browser/views/hooks';
 import type { PresenterConfig } from '..';
-import * as router from '../router';
+import * as router from '../state/router';
 
 export const onInitializeOvermind = ({
   actions,
@@ -29,9 +28,9 @@ export const setCurrentRoute = (
 ) => {
   const route = router.getRoute(url);
   if (route.type !== 'NotFound') {
-    state.currentRoute = route;
+    state.router.send('ROUTE_CHANGED', { route });
   }
-  effects.location.replace(router.getUrl(state.currentRoute));
+  effects.location.replace(router.getUrl(state.router.currentRoute));
 };
 
 export const getAssetUrl = ({ state }: PresenterConfig, assetPath: string) => {

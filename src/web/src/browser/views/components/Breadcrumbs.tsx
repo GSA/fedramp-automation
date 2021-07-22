@@ -3,7 +3,7 @@ import React from 'react';
 import { useAppState } from '../hooks';
 
 export const Breadcrumbs = () => {
-  const breadcrumbs = useAppState().breadcrumbs;
+  const { breadcrumbs } = useAppState().router;
 
   return (
     <nav className="usa-breadcrumb" aria-label="Breadcrumbs">

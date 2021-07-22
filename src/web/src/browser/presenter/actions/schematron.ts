@@ -1,4 +1,4 @@
-import type { Role } from '../machines/schematron';
+import type { Role } from '../state/schematron-machine';
 import type { PresenterConfig } from '..';
 
 export const setFilterRole = ({ state }: PresenterConfig, role: Role) => {
