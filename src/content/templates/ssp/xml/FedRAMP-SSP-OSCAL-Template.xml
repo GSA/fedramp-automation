@@ -1100,7 +1100,7 @@
       </description>
       <implemented-requirement control-id="ac-1" uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1202,17 +1202,17 @@
       <implemented-requirement control-id="ac-2" uuid="7a36cf53-156d-4d1f-9a8b-433f61cc57b7">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date"
             value="Completion Date"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="implementation-status" value="partial">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial">
             <remarks>
                <p>Describe the portion of the control that is not satisfied.</p>
             </remarks>
          </prop>
-         <prop name="implementation-status" value="not-applicable">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="not-applicable">
             <remarks>
                <p>Describe the justification for marking this control Not Applicable.</p>
             </remarks>
@@ -1340,7 +1340,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="at-1" uuid="c332a6f8-bbe6-4ee9-aaea-d89d251c68df">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1392,7 +1392,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="au-1" uuid="381c8d0c-e6ec-41a9-9b16-01657226c70f">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1449,7 +1449,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="ca-1" uuid="43e388d9-3854-44f6-8c6f-17a6d51ee6a2">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1504,7 +1504,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="cm-1" uuid="c8e45d78-2afe-42ae-80e1-c1e2499a0346">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1559,7 +1559,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="cp-1" uuid="13af9343-73e7-4d71-b386-9a0844fa7e45">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1614,7 +1614,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="ia-1" uuid="4050c933-3ecc-4a8d-8da7-391364685cbb">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1669,7 +1669,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="ir-1" uuid="229846dc-83cc-4ff2-a9ed-210490a343d9">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1724,7 +1724,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="ma-1" uuid="f0c6b63f-6b94-448f-bb16-db3d54b91734">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1779,7 +1779,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="mp-1" uuid="fa3a9747-3451-456a-aae9-9896e03a52c8">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1834,7 +1834,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="pe-1" uuid="a85ff28e-517c-4455-8bd4-866103a2c94a">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1890,7 +1890,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="pl-1" uuid="97ba1f95-92a8-480b-a489-960661e4206b">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -1945,7 +1945,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="ps-1" uuid="5e7498de-b540-4a28-b041-4381b023e98a">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -2000,7 +2000,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="ra-1" uuid="789e6c0f-acda-4a94-9b48-7d41dd4c607c">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -2055,7 +2055,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="sa-1" uuid="55358f60-db9b-4d75-a313-5fa6c328273c">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -2110,7 +2110,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="sc-1" uuid="9e2852c6-f48a-47b2-9ea5-77cbbb42b365">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
@@ -2165,7 +2165,7 @@
       </implemented-requirement>
       <implemented-requirement control-id="si-1" uuid="81ba4fe8-1649-437b-9ecf-367fd87336e6">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2020-11-27Z"/>
-         <prop name="implementation-status" value="planned">
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
