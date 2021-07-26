@@ -1,9 +1,23 @@
+REQUIRED_NODE_VERSION = $(shell cat .nvmrc)
+INSTALLED_NODE_VERSION = $(shell node --version)
+
 .PHONY: help
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 all: clean test build  ## Complete clean build with tests
+
+init: init-web  ## Initialize project dependencies
+
+node:
+ifneq ($(REQUIRED_NODE_VERSION),$(INSTALLED_NODE_VERSION))
+	$(error node.js version $(REQUIRED_NODE_VERSION) required)
+endif
+
+init-web: node
+	cd src/web && \
+		npm install
 
 clean: clean-dist clean-validations clean-web  ## Clean all
 
@@ -47,13 +61,7 @@ build-validations:  ## Build Schematron validations
 	cd src/validations && \
 		./bin/validate_with_schematron.sh -t
 
-REQUIRED_NODE_VERSION = $(shell cat .nvmrc)
-INSTALLED_NODE_VERSION = $(shell node --version)
-
-build-web:  ## Build web bundle
+build-web: node ## Build web bundle
 	@echo "Building web bundle..."
-ifneq ($(REQUIRED_NODE_VERSION),$(INSTALLED_NODE_VERSION))
-	$(error node.js version $(REQUIRED_NODE_VERSION) required)
-endif
 	cd src/web && \
 	  npm run build

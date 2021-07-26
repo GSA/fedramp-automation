@@ -1,0 +1,25 @@
+name: Build release artifact
+on: push
+jobs:
+  # This job runs schematron validation(s) on the file that is passed in
+  build-release:
+    # Run on ubuntu
+    runs-on: ubuntu-latest
+
+    # Checkout repository and its submodules
+    steps:
+      # Check-out the repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2
+
+      # Check-out submodules
+      - name: Checkout submodules
+        uses: textbook/git-checkout-submodule-action@2.1.1
+        with:
+          remote: true
+
+      - name: Set up the correct version of node using nvm
+        uses: dcodeIO/setup-node-nvm@v4
+
+        # Initialize workspace and build a release
+      - name: Build release
+        run: make init build
