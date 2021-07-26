@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <x:description
-    schematron="sch.sch"
+    schematron="../sch/sch.sch"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
     xmlns:x="http://www.jenitennison.com/xslt/xspec"
@@ -10,9 +10,10 @@
     <x:scenario
         label="In FedRAMP OSCAL Schematron">
         <x:context>
-            <sch:schema>
+            <sch:schema
+                xmlns="http://purl.oclc.org/dsdl/schematron">
                 <doc:xspec
-                    href="sch.xspec" />
+                    href="../test/sch.xspec" />
                 <sch:pattern>
                     <sch:assert
                         diagnostics="has-id-attribute-diagnostic"
@@ -25,7 +26,7 @@
         </x:context>
 
         <x:scenario
-            label="for the scherma">
+            label="for the schema">
             <x:scenario
                 label="when the XSpec reference is present">
                 <x:expect-not-assert
@@ -33,8 +34,12 @@
                     label="that is correct" />
             </x:scenario>
             <x:scenario
-                label="when the XSpec reference is absent">
-                <x:context />
+                label="when the XSpec reference is absent"
+                pending="XSpec problem resolution">
+                <x:context>
+                    <sch:schema
+                        xmlns="http://purl.oclc.org/dsdl/schematron" />
+                </x:context>
                 <x:expect-assert
                     id="has-xspec-reference"
                     label="that is incorrect" />
@@ -60,6 +65,7 @@
                 label="when the id attribute is absent">
                 <x:context>
                     <sch:assert
+                        xmlns="http://purl.oclc.org/dsdl/schematron"
                         diagnostics="has-id-attribute-diagnostic"
                         role="error"
                         sqf:fix="add-id"
@@ -84,16 +90,19 @@
             <x:scenario
                 label="when the punctuation is correct">
                 <x:context>
-                    <sch:assert>Message.</sch:assert>
+                    <sch:assert
+                        xmlns="http://purl.oclc.org/dsdl/schematron">Message.</sch:assert>
                 </x:context>
                 <x:expect-not-assert
                     id="has-xspec-test"
                     label="that is correct" />
             </x:scenario>
             <x:scenario
+                pending="XSpec problem resolution"
                 label="when the punctuation is incorrect">
                 <x:context>
-                    <sch:assert>Message!</sch:assert>
+                    <sch:assert
+                        xmlns="http://purl.oclc.org/dsdl/schematron">Message!</sch:assert>
                 </x:context>
                 <x:expect-assert
                     id="has-punctuation"
