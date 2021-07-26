@@ -8,12 +8,15 @@ help:
 
 all: clean test build  ## Complete clean build with tests
 
-init: init-web  ## Initialize project dependencies
+init: init-repo init-web  ## Initialize project dependencies
 
 node:
 ifneq ($(REQUIRED_NODE_VERSION),$(INSTALLED_NODE_VERSION))
 	$(error node.js version $(REQUIRED_NODE_VERSION) required)
 endif
+
+init-repo:
+	git submodule update --init --recursive
 
 init-web: node
 	cd src/web && \
