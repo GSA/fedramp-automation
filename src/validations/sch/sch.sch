@@ -36,7 +36,7 @@
     </sch:phase>
 
     <doc:xspec
-        href="sch.xspec" />
+        href="../test/sch.xspec" />
 
     <sch:let
         name="xspec-uri"
@@ -116,6 +116,7 @@
                 id="add-diagnostics-attribute">
                 <sqf:description>
                     <sqf:title>Add the @diagnostics attribute</sqf:title>
+                    <sqf:p>An assertion's message explain what is required. The diagnostic explains what is incorrect and how to correct it.</sqf:p>
                 </sqf:description>
                 <sqf:add
                     node-type="attribute"
@@ -136,7 +137,9 @@
             <sqf:fix
                 id="add-diagnostic-element">
                 <sqf:description>
-                    <sqf:title>Add a diagnostic element for a diagnostic attribute</sqf:title>
+                    <sqf:title>Add a diagnostic element for a dangling reference</sqf:title>
+                    <sqf:p>If a diagnostics attribute is found on a Schematron assert that is bound to a diagnostic id, that diagnostic must be
+                        defined.</sqf:p>
                 </sqf:description>
                 <sqf:user-entry
                     name="message">
@@ -162,7 +165,7 @@
                 id="has-punctuation"
                 role="error"
                 sqf:fix="add-punctuation"
-                test="ends-with(text()[last()], '.')">Every Schematron assertion has a message which is terminated with a period.</sch:assert>
+                test="ends-with(., '.')">Every Schematron assertion has a message which is terminated with a period.</sch:assert>
 
             <sqf:fix
                 id="add-punctuation">
@@ -219,8 +222,6 @@
 
         <sch:rule
             context="doc:xspec">
-
-
 
             <sch:assert
                 diagnostics="has-xspec-affirmative-test-diagnostic"
