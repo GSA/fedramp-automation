@@ -5658,7 +5658,7 @@
                         <system-characteristics>
                             <authorization-boundary>
                                 <diagram>
-                                    <link></link>
+                                    <link />
                                 </diagram>
                             </authorization-boundary>
                         </system-characteristics>
@@ -5675,7 +5675,7 @@
                         <system-characteristics>
                             <authorization-boundary>
                                 <diagram>
-                                    <link rel="thewrongvalue"></link>
+                                    <link rel="thewrongvalue" />
                                 </diagram>
                             </authorization-boundary>
                         </system-characteristics>
@@ -5796,7 +5796,7 @@
                         <system-characteristics>
                             <network-architecture>
                                 <diagram>
-                                    <link></link>
+                                    <link />
                                 </diagram>
                             </network-architecture>
                         </system-characteristics>
@@ -5813,7 +5813,7 @@
                         <system-characteristics>
                             <network-architecture>
                                 <diagram>
-                                    <link rel="thewrongvalue"></link>
+                                    <link rel="thewrongvalue" />
                                 </diagram>
                             </network-architecture>
                         </system-characteristics>
@@ -5934,7 +5934,7 @@
                         <system-characteristics>
                             <data-flow>
                                 <diagram>
-                                    <link></link>
+                                    <link />
                                 </diagram>
                             </data-flow>
                         </system-characteristics>
@@ -5951,7 +5951,7 @@
                         <system-characteristics>
                             <data-flow>
                                 <diagram>
-                                    <link rel="thewrongvalue"></link>
+                                    <link rel="thewrongvalue" />
                                 </diagram>
                             </data-flow>
                         </system-characteristics>
@@ -5967,6 +5967,263 @@
                     <x:expect-assert id="has-data-flow-diagram-link-href-target"
                                      label="that is an error." />
                 </x:scenario>
+            </x:scenario>
+        </x:scenario>
+    </x:scenario>
+    <x:scenario label="FedRAMP OSCAL SSP Control Implementation">
+        <x:scenario label="A FedRAMP OSCAL SSP declares the related FedRAMP OSCAL Profile using an import-profile
+            element.">
+            <x:scenario label="When that is true">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-profile href="some value" />
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="system-security-plan-has-import-profile"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="When that is false">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                </x:context>
+                <x:expect-assert id="system-security-plan-has-import-profile"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="The import-profile element has an href attribute.">
+            <x:scenario label="When that is true">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-profile href="some value" />
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="import-profile-has-href-attribute"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="When that is false">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-profile />
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="import-profile-has-href-attribute"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="Every implemented-requirement has an implementation-status property.">
+            <x:scenario label="When that is true">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop name="implementation-status"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="implemented" />
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="implemented-requirement-has-implementation-status"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="When that is false">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement />
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="implemented-requirement-has-implementation-status"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="Incomplete control implementations have an explanation.">
+            <x:scenario label="When that is true">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop name="implementation-status"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="planned">
+                                    <remarks>
+                                        <p>Explanation</p>
+                                    </remarks>
+                                </prop>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="implemented-requirement-has-implementation-status-remarks"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="When that is false">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <prop name="implementation-status"
+                                  ns="https://fedramp.gov/ns/oscal"
+                                  value="planned" />
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="implemented-requirement-has-implementation-status-remarks"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="Planned control implementations have a planned completion date.">
+            <x:scenario label="When that is true">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop name="implementation-status"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="planned" />
+                                <prop name="planned-completion-date"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="2021-09-23" />
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="implemented-requirement-has-planned-completion-date"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="When that is false">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop name="implementation-status"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="planned" />
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="implemented-requirement-has-planned-completion-date"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="Every implemented-requirement has a control-origination property.">
+            <x:scenario label="When that is true">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop name="control-origination"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="customer-configured" />
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="implemented-requirement-has-control-origination"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="When that is false">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement />
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="implemented-requirement-has-control-origination"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="Every implemented-requirement has an allowed control-origination property.">
+            <x:scenario label="When that is true">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop name="control-origination"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="customer-configured" />
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="implemented-requirement-has-allowed-control-origination"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="When that is false">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <implemented-requirement>
+                            <prop name="control-origination"
+                                  ns="https://fedramp.gov/ns/oscal"
+                                  value="customer-misconfigured" />
+                        </implemented-requirement>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="implemented-requirement-has-allowed-control-origination"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="Every implemented-requirement with a control-origination property of &quot;inherited&quot; references a leveraged-authorization.">
+
+            <x:scenario label="When that is true">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
+                        </system-implementation>
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop name="control-origination"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="inherited" />
+                                <prop name="leveraged-authorization-uuid"
+                                      ns="https://fedramp.gov/ns/oscal"
+                                      value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="implemented-requirement-has-leveraged-authorization"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="When that is false">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <implemented-requirement>
+                            <prop name="control-origination"
+                                  ns="https://fedramp.gov/ns/oscal"
+                                  value="inherited" />
+                        </implemented-requirement>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="implemented-requirement-has-leveraged-authorization"
+                                 label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario label="Planned completion date is valid.">
+            <x:scenario label="When that is true">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="planned-completion-date"
+                              ns="https://fedramp.gov/ns/oscal"
+                              value="2021-09-23" />
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert id="planned-completion-date-is-valid"
+                                     label="that is correct" />
+            </x:scenario>
+            <x:scenario label="When that is false">
+                <x:context>
+                    <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop name="planned-completion-date"
+                              ns="https://fedramp.gov/ns/oscal"
+                              value="202x-09-23" />
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert id="planned-completion-date-is-valid"
+                                     label="that is an error" />
             </x:scenario>
         </x:scenario>
     </x:scenario>

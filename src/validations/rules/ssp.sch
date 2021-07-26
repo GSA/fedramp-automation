@@ -36,6 +36,7 @@
         <sch:active pattern="authorization-boundary" />
         <sch:active pattern="network-architecture" />
         <sch:active pattern="data-flow" />
+        <sch:active pattern="control-implementation" />
     </sch:phase>
     <sch:phase id="attachments">
         <sch:active pattern="resources" />
@@ -1656,6 +1657,81 @@ system-implementation user assembly.</sch:assert>
                         references a back-matter resource representing the diagram document.</sch:assert>
         </sch:rule>
     </sch:pattern>
+    <sch:pattern id="control-implementation">
+        <sch:rule context="oscal:system-security-plan"
+                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.1">
+            <sch:assert diagnostics="system-security-plan-has-import-profile-diagnostic"
+                        id="system-security-plan-has-import-profile"
+                        role="error"
+                        test="exists(oscal:import-profile)">A FedRAMP OSCAL SSP declares the related FedRAMP OSCAL Profile using an import-profile
+                        element.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:import-profile"
+                  see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.1">
+            <sch:assert diagnostics="import-profile-has-href-attribute-diagnostic"
+                        id="import-profile-has-href-attribute"
+                        role="error"
+                        test="@href">The import-profile element has an href attribute.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:implemented-requirement">
+            <sch:assert diagnostics="implemented-requirement-has-implementation-status-diagnostic"
+                        id="implemented-requirement-has-implementation-status"
+                        role="error"
+                        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                        test="exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status'])">Every
+                        implemented-requirement has an implementation-status property.</sch:assert>
+            <sch:assert diagnostics="implemented-requirement-has-planned-completion-date-diagnostic"
+                        id="implemented-requirement-has-planned-completion-date"
+                        role="error"
+                        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                        test="
+                    if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value eq 'planned']) then
+                        exists(current()/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date' and @value castable as xs:date])
+                    else
+                        true()">Planned control implementations have a planned completion date.</sch:assert>
+            <sch:assert diagnostics="implemented-requirement-has-control-origination-diagnostic"
+                        id="implemented-requirement-has-control-origination"
+                        role="error"
+                        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
+                        test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination']">Every implemented-requirement has
+                        a control-origination property.</sch:assert>
+            <sch:let name="control-originations"
+                     value="$fedramp-values//fedramp:value-set[@name eq 'control-origination']//fedramp:enum/@value" />
+            <sch:assert diagnostics="implemented-requirement-has-allowed-control-origination-diagnostic"
+                        id="implemented-requirement-has-allowed-control-origination"
+                        role="error"
+                        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
+                        test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination' and @value = $control-originations]">
+                        Every implemented-requirement has an allowed control-origination property.</sch:assert>
+            <sch:assert diagnostics="implemented-requirement-has-leveraged-authorization-diagnostic"
+                        id="implemented-requirement-has-leveraged-authorization"
+                        role="error"
+                        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
+                        test="
+                    if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination' and @value eq 'inherited']) then
+                        (: there must be a leveraged-authorization-uuid property :)
+                        exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid'])
+                        and
+                        (: the referenced leveraged-authorization must exist :)
+                        exists(//oscal:leveraged-authorization[@uuid = current()/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid']/@value])
+                    else
+                        true()">Every implemented-requirement with a control-origination property of "inherited" references a
+leveraged-authorization.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value ne 'implemented']">
+            <sch:assert diagnostics="implemented-requirement-has-implementation-status-remarks-diagnostic"
+                        id="implemented-requirement-has-implementation-status-remarks"
+                        role="error"
+                        test="oscal:remarks">Incomplete control implementations have an explanation.</sch:assert>
+        </sch:rule>
+        <sch:rule context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']">
+            <sch:assert diagnostics="planned-completion-date-is-valid-diagnostic"
+                        id="planned-completion-date-is-valid"
+                        role="error"
+                        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                        test="@value castable as xs:date">Planned completion date is valid.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
     <sch:diagnostics>
         <sch:diagnostic doc:assertion="no-registry-values"
                         doc:context="/o:system-security-plan"
@@ -2457,5 +2533,39 @@ system-implementation user assembly.</sch:assert>
                         doc:context="oscal:data-flow/oscal:diagram/oscal:link"
                         id="has-data-flow-diagram-link-href-target-diagnostic">This FedRAMP OSCAL SSP data-flow diagram link does not reference a
                         back-matter resource representing the diagram document.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="system-security-plan-has-import-profile"
+                        doc:context="oscal:system-security-plan"
+                        id="system-security-plan-has-import-profile-diagnostic">This FedRAMP OSCAL SSP lacks an import-profile
+                        element.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="import-profile-has-href-attribute"
+                        doc:context="oscal:import-profile"
+                        id="import-profile-has-href-attribute-diagnostic">The import-profile element lacks an href attribute.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="implemented-requirement-has-implementation-status"
+                        doc:context="oscal:implemented-requirement"
+                        id="implemented-requirement-has-implementation-status-diagnostic">This implemented-requirement lacks an
+                        implementation-status.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="implemented-requirement-has-implementation-status-remarks"
+                        doc:context="oscal:implemented-requirement"
+                        id="implemented-requirement-has-implementation-status-remarks-diagnostic">Thgis incomplete control implementation lacks an
+                        explanation.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="implemented-requirement-has-planned-completion-date"
+                        doc:context="oscal:implemented-requirement"
+                        id="implemented-requirement-has-planned-completion-date-diagnostic">This planned control implementations lacks a planned
+                        completion date.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="implemented-requirement-has-control-origination"
+                        doc:context="oscal:implemented-requirement"
+                        id="implemented-requirement-has-control-origination-diagnostic">This implemented-requirement lacks a control-origination
+                        property.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="implemented-requirement-has-allowed-control-origination"
+                        doc:context="oscal:implemented-requirement"
+                        id="implemented-requirement-has-allowed-control-origination-diagnostic">This implemented-requirement lacks an allowed
+                        control-origination property.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="implemented-requirement-has-leveraged-authorization"
+                        doc:context="oscal:implemented-requirement"
+                        id="implemented-requirement-has-leveraged-authorization-diagnostic">This implemented-requirement with a control-origination
+                        property of "inherited" does not reference a leveraged-authorization element in the same document.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="planned-completion-date-is-valid"
+                        doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']"
+                        id="planned-completion-date-is-valid-diagnostic">This planned completion date is not valid.</sch:diagnostic>
     </sch:diagnostics>
 </sch:schema>
