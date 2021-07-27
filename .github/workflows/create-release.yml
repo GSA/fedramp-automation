@@ -22,3 +22,9 @@ jobs:
         # Initialize workspace and build a release
       - name: Build release
         run: make init build
+
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "dist"
+          tag: latest
+          token: ${{ secrets.GITHUB_TOKEN }}
