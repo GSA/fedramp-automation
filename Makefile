@@ -62,7 +62,7 @@ build: build-validations build-web dist  ## Build all artifacts and copy into di
 build-validations:  ## Build Schematron validations
 	@echo "Building Schematron validations..."
 	cd src/validations && \
-		./bin/validate_with_schematron.sh -t
+		./bin/validate_with_schematron.sh
 
 build-web: node ## Build web bundle
 	@echo "Building web bundle..."
