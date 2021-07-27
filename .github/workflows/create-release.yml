@@ -11,8 +11,13 @@ jobs:
       # Check-out the repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
 
-      - name: Set up the correct version of node using nvm
-        uses: dcodeIO/setup-node-nvm@v4
+      - name: Read Node version from .nvmrc
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        id: nvm
+
+      - uses: actions/setup-node@v2.3.0
+        with:
+          node-version: ${{ steps.nvm.outputs.NVMRC }}
 
         # Initialize workspace and build a release
       - name: Build release
