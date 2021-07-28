@@ -50,7 +50,7 @@ test-web:  ## Test web codebase
 	cd src/web && \
 		npm run test
 
-build: build-validations build-web dist  ## Build all artifacts and copy into dist directory	# Symlink for Federalist
+build: build-validations build-web dist  ## Build all artifacts and copy into dist directory
 	# Symlink for Federalist
 	ln -sf ./src/web/build _site
 
