@@ -54,12 +54,19 @@ FedRAMP looks forward to receiving your comments and sharing additional progress
 
 ### Build / test
 
-A top-level Makefile is provided to simplify builds. For usage information, use the default target:
+A top-level Makefile is provided to simplify builds.
+
+Build requirements are:
+
+- gcc make
+- node.js (as versioned in [./nvmrc](./.nvmrc))
+- Java
+
+For usage information, use the default target:
 
 ```
 make
 ```
-
 ### Creating a release
 
 [ADR 0002 (git release version strategy)](./documents/adr/0002-git-release-version-strategy.md)
