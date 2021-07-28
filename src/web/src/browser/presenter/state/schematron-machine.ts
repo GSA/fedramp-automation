@@ -78,7 +78,7 @@ type Events =
 export type SchematronMachine = Statemachine<States, Events, BaseState>;
 
 const checkCircleIcon = { sprite: 'check_circle', color: 'green' };
-const helpIcon = { sprite: 'help', color: 'blue' };
+const navigateNextIcon = { sprite: 'navigate_next', color: 'blue' };
 const cancelIcon = {
   sprite: 'cancel',
   color: 'red',
@@ -192,7 +192,7 @@ export const createSchematronMachine = () => {
                     ...assert,
                     // message: `${assert.id} ${assert.message}`,
                     icon: !isValidated
-                      ? helpIcon
+                      ? navigateNextIcon
                       : fired.length
                       ? cancelIcon
                       : checkCircleIcon,
