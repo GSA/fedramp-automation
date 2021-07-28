@@ -4,12 +4,9 @@ on:
     tags:
       - "*"
 jobs:
-  # This job runs schematron validation(s) on the file that is passed in
   build-release:
-    # Run on ubuntu
     runs-on: ubuntu-latest
 
-    # Checkout repository and its submodules
     steps:
       # Check-out the repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v2
@@ -22,10 +19,11 @@ jobs:
         with:
           node-version: ${{ steps.nvm.outputs.NVMRC }}
 
-        # Initialize workspace and build a release
+      # Initialize workspace with git submodules and build a release
       - name: Build release
         run: make init build
 
+      # Create a release corresponding to the triggered tag
       - uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
