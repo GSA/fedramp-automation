@@ -18,8 +18,8 @@ export const SchematronReport = () => {
             style={{ float: 'right' }}
           >
             <span className={`text-blue`}>
-              {schematronReport.summary.counts.assertions} assertions /{' '}
-              {schematronReport.summary.counts.reports} reports
+              {schematronReport.summary.counts.assertions} concerns and {' '}
+              {schematronReport.summary.counts.reports} notes
             </span>
           </span>
         </h1>
