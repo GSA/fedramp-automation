@@ -1,4 +1,4 @@
-import { runBrowserContext } from './context/browser';
+import { runBrowserContext } from '@asap/browser';
 
 runBrowserContext({
   element: document.getElementById('root') as HTMLElement,

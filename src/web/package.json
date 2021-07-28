@@ -6,20 +6,21 @@
   },
   "scripts": {
     "build": "snowpack build",
-    "build:schematron": "npm run build:schematron-java && npm run build:sef",
+    "build:schematron": "npm run build:schematron-java && npm run build:sef && npm run build:ssp-json",
     "build:schematron-ideal": "npm run build:sch-stage-1 && npm run build:sch-stage-2 && npm run build:sch-stage-3 && npm run build:sef",
     "build:schematron-java": "cd ../validations && ./bin/validate_with_schematron.sh && cp target/ssp.xsl ../web/public",
     "build:sch-stage-1": "xslt3 -s:../validations/rules/ssp.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_dsdl_include.xsl -o:../validations/target/ssp-stage1.sch",
     "build:sch-stage-2": "xslt3 -s:../validations/target/ssp-stage1.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_abstract_expand.xsl -o:../validations/target/ssp-stage2.sch",
     "build:sch-stage-3": "xslt3 -s:../validations/target/ssp-stage2.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl -o:../validations/target/ssp.xsl",
     "build:sef": "xslt3 -xsl:public/ssp.xsl -export:public/ssp.sef.json -nogo",
-    "cli": "ts-node src/context/cli/index.ts",
-    "coverage": "jest --coverage && open ./coverage/lcov-report/index.html",
+    "build:ssp-json": "ts-node -r tsconfig-paths/register src/cli/index.ts parse-schematron ../validations/rules/ssp.sch ./public/ssp.json",
+    "cli": "ts-node -r tsconfig-paths/register src/cli/index.ts",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "postinstall": "patch-package",
     "start": "concurrently \"overmind-devtools\" \"snowpack dev\"",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage && open ./coverage/lcov-report/index.html"
   },
   "dependencies": {
     "classnames": "^2.3.1",
@@ -54,8 +55,10 @@
     "overmind-devtools": "^29.0.0",
     "prettier": "^2.2.1",
     "snowpack": "^3.6.2",
+    "snowpack-plugin-raw-file-loader": "^1.0.9",
     "ts-jest": "^27.0.1",
     "ts-node": "^10.0.0",
+    "tsconfig-paths": "^3.10.1",
     "typescript": "^4.2.4",
     "xslt3": "^2.2.0"
   }

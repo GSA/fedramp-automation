@@ -1,14 +1,17 @@
-const config = require('./src/context/shared/project-config');
+const config = require('./src/shared/project-config');
 
 const BASEURL = process.env.BASEURL || '';
 const GITHUB = {
   owner: process.env.OWNER || '18F',
   repository: process.env.REPOSITORY || 'fedramp-automation',
-  branch: process.env.BRANCH || 'master',
+  branch: process.env.BRANCH || 'develop',
 };
 
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
+  alias: {
+    '@asap': './src',
+  },
   env: {
     BASEURL,
     GITHUB,
@@ -26,7 +29,7 @@ module.exports = {
     'node_modules/uswds/dist/js': { url: '/uswds/js', static: true },
     //validations: { url: '/validations', static: true },
   },
-  exclude: ['**/node_modules/**/*', '**/src/context/cli/**'],
+  exclude: ['**/node_modules/**/*', '**/src/cli/**'],
   plugins: [
     '@snowpack/plugin-react-refresh',
     '@snowpack/plugin-dotenv',
@@ -43,6 +46,12 @@ module.exports = {
       {
         /* Yarn PnP workaround: see https://www.npmjs.com/package/@snowpack/plugin-typescript */
         ...(process.versions.pnp ? { tsc: 'yarn pnpify tsc' } : {}),
+      },
+    ],
+    [
+      'snowpack-plugin-raw-file-loader',
+      {
+        exts: ['.txt', '.sch'],
       },
     ],
   ],
