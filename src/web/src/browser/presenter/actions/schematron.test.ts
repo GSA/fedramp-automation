@@ -53,7 +53,7 @@ describe('schematron', () => {
           },
         ],
         summary: {
-          title: 'Unprocessed validations',
+          title: 'FedRAMP Package Concerns and Notes',
           counts: {
             assertions: 1,
             reports: 0,
