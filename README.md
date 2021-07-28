@@ -60,7 +60,7 @@ Build requirements are:
 
 - gcc make
 - node.js (as versioned in [./nvmrc](./.nvmrc))
-- Java
+- Java 8+
 
 For usage information, use the default target:
 
