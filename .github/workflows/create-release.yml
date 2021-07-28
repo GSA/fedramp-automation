@@ -1,9 +1,8 @@
 name: Build release artifact
-on: push
-# on:
-#   push:
-#     tags:
-#       - "*"
+on:
+  push:
+    tags:
+      - "*"
 jobs:
   # This job runs schematron validation(s) on the file that is passed in
   build-release:
@@ -34,6 +33,5 @@ jobs:
         with:
           allowUpdates: true
           artifacts: dist/validations/ssp.xsl
-          prerelease: true
-          tag: latest
+          prerelease: contains(artifact.name, "pre")
           token: ${{ secrets.GITHUB_TOKEN }}
