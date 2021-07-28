@@ -1105,8 +1105,12 @@
           "uuid": "95beec7e-6f82-4aaa-8211-969cd7c1f1ab",
           "type": "validation",
           "title": "[SAMPLE]Module Name",
-          "description": "[SAMPLE]FIPS 140-2 Validated Module",
+          "description": "[SAMPLE]FIPS 140 Validated Module",
           "props": [
+            {
+              "name": "validation-type",
+              "value": "fips-140-2"
+            },
             {
               "name": "validation-reference",
               "value": "0000"
@@ -1323,7 +1327,6 @@
           "props": [
             {
               "name": "used-by",
-              "ns": "https://fedramp.gov/ns/oscal",
               "value": "What uses this service?"
             }
           ],
@@ -1874,6 +1877,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -1995,16 +1999,19 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "partial",
               "remarks": "Describe the portion of the control that is not satisfied."
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "not-applicable",
               "remarks": "Describe the justification for marking this control Not Applicable."
             },
@@ -2151,6 +2158,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -2248,6 +2256,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -2357,6 +2366,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -2454,6 +2464,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -2551,6 +2562,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -2648,6 +2660,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -2745,6 +2758,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -2842,6 +2856,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -2939,6 +2954,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -3036,6 +3052,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -3139,6 +3156,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -3236,6 +3254,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -3333,6 +3352,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -3430,6 +3450,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -3527,6 +3548,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },
@@ -3624,6 +3646,7 @@
             },
             {
               "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "planned",
               "remarks": "Describe the plan to complete the implementation."
             },

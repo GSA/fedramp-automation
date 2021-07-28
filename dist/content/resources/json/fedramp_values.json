@@ -747,7 +747,7 @@
                             "#text": "Validation"
                         },
                         {
-                            "value": "system",
+                            "value": "this-system",
                             "short-label": "Sys",
                             "#text": "This System"
                         },
@@ -771,7 +771,7 @@
                     "allow-other": "yes",
                     "enum": [
                         {
-                            "value": "os",
+                            "value": "operating-system",
                             "short-label": "OS",
                             "#text": "Operating System"
                         },
