@@ -33,5 +33,4 @@ jobs:
         with:
           allowUpdates: true
           artifacts: dist/validations/ssp.xsl
-          prerelease: contains(artifact.name, "pre")
           token: ${{ secrets.GITHUB_TOKEN }}
