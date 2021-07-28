@@ -15,6 +15,7 @@
     "build:sef": "xslt3 -xsl:public/ssp.xsl -export:public/ssp.sef.json -nogo",
     "build:ssp-json": "ts-node -r tsconfig-paths/register src/cli/index.ts parse-schematron ../validations/rules/ssp.sch ./public/ssp.json",
     "cli": "ts-node -r tsconfig-paths/register src/cli/index.ts",
+    "clean": "rm -rf build coverage",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "postinstall": "patch-package",
