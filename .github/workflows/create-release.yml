@@ -1,5 +1,9 @@
 name: Build release artifact
 on: push
+# on:
+#   push:
+#     tags:
+#       - "*"
 jobs:
   # This job runs schematron validation(s) on the file that is passed in
   build-release:
@@ -23,8 +27,13 @@ jobs:
       - name: Build release
         run: make init build
 
+      - name: ls dist
+        run: ls -l dist
+
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist"
+          allowUpdates: true
+          artifacts: dist/validations/ssp.xsl
+          prerelease: true
           tag: latest
           token: ${{ secrets.GITHUB_TOKEN }}
