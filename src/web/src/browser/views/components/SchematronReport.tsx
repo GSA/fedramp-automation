@@ -78,7 +78,7 @@ export const SchematronReport = () => {
                                   assertionId: firedCheck.uniqueId,
                                 }),
                               )}
-                              title={firedCheck.location}
+                              title="Show source document context"
                             >
                               <svg
                                 className="usa-icon"
