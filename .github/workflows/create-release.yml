@@ -26,9 +26,6 @@ jobs:
       - name: Build release
         run: make init build
 
-      - name: ls dist
-        run: ls -l dist
-
       - uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
