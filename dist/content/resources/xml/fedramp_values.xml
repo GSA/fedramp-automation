@@ -315,7 +315,7 @@
          <enum value="guidance" short-label="Guide">Guidance</enum>
          <enum value="standard" short-label="Std">Standard</enum>
          <enum value="validation" short-label="Val">Validation</enum>
-         <enum value="system" short-label="Sys">This System</enum>
+         <enum value="this-system" short-label="Sys">This System</enum>
          <enum value="interconnection" short-label="Int">Interconnection</enum>
       </allowed-values>
    </value-set>
@@ -326,7 +326,7 @@
       <binding pattern="component/prop[@name='asset-type']" />
       <binding pattern="inventory-item/prop[@name='asset-type']" />
       <allowed-values allow-other="yes">
-         <enum value="os" short-label="OS">Operating System</enum>
+         <enum value="operating-system" short-label="OS">Operating System</enum>
          <enum value="database" short-label="DB">Database</enum>
          <enum value="web-server" short-label="Web">Service</enum>
          <enum value="dns-server" short-label="DNS">Policy</enum>

@@ -3876,7 +3876,7 @@
                 <x:context>
                     <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="asset-type"
-                              value="os" />
+                              value="operating-system" />
                     </inventory-item>
                 </x:context>
                 <x:expect-not-assert id="has-allowed-asset-type"
@@ -3886,7 +3886,7 @@
                 <x:context>
                     <inventory-item xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="asset-type"
-                              value="not-os" />
+                              value="not-operating-system" />
                     </inventory-item>
                 </x:context>
                 <x:expect-assert id="has-allowed-asset-type"

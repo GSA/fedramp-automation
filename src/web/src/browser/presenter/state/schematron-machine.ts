@@ -168,8 +168,8 @@ export const createSchematronMachine = () => {
           return {
             summary: {
               title: isValidated
-                ? 'Processed validations'
-                : 'Unprocessed validations',
+                ? 'FedRAMP Package Concerns and Notes'
+                : 'FedRAMP Package Concerns and Notes (unprocessed)',
               counts: {
                 assertions: _schematronChecksFiltered.length - reportCount,
                 reports: reportCount,

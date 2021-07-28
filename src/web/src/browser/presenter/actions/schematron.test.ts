@@ -38,7 +38,7 @@ describe('schematron', () => {
                   fired: [],
                   icon: {
                     color: 'blue',
-                    sprite: 'help',
+                    sprite: 'navigate_next',
                   },
                   id: 'incorrect-role-association',
                   isReport: false,
@@ -53,7 +53,7 @@ describe('schematron', () => {
           },
         ],
         summary: {
-          title: 'FedRAMP Package Concerns and Notes',
+          title: 'FedRAMP Package Concerns and Notes (unprocessed)',
           counts: {
             assertions: 1,
             reports: 0,
@@ -87,7 +87,7 @@ describe('schematron', () => {
                   fired: [],
                   icon: {
                     color: 'blue',
-                    sprite: 'help',
+                    sprite: 'navigate_next',
                   },
                   id: 'incomplete-core-implemented-requirements',
                   isReport: false,
@@ -103,7 +103,7 @@ describe('schematron', () => {
           },
         ],
         summary: {
-          title: 'Unprocessed validations',
+          title: 'FedRAMP Package Concerns and Notes (unprocessed)',
           counts: {
             assertions: 1,
             reports: 0,
