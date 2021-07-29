@@ -1,0 +1,27 @@
+FROM ubuntu:focal as saxonica-build
+
+# Download and build the Saxon-HE c-library
+# See here for platform-specific packages: https://www.saxonica.com/download/c.xml
+RUN apt-get update \
+  && apt-get install -y wget unzip python3 python3-pip python3-distutils \
+  && rm -rf /var/lib/apt/lists/*
+
+# Download, build, and configure the Saxon-HE c-library
+# See here for platform-specific packages: https://www.saxonica.com/download/c.xml
+RUN wget -O /tmp/saxon.zip https://www.saxonica.com/saxon-c/libsaxon-HEC-setup64-v1.2.1.zip \
+  && unzip /tmp/saxon.zip -d /tmp \
+  && (echo "/opt/saxonica" && cat) | ./tmp/libsaxon-HEC-setup64-v1.2.1 \
+  && ln -s /opt/saxonica/libsaxonhec.so /usr/lib/libsaxonhec.so \
+  && ln -s /opt/saxonica/rt /usr/lib/rt
+ENV LD_LIBRARY_PATH=/usr/lib/rt/lib/amd64:$LD_LIBRARY_PATH
+
+# Build the saxon-c Python extension and put on PYTHONPATH
+RUN cd /opt/saxonica/Saxon.C.API/python-saxon \
+  && pip install cython \
+  && python3 saxon-setup.py build_ext -if
+ENV PYTHONPATH=/opt/saxonica/Saxon.C.API/python-saxon
+
+# Add source code and install Python dependencies
+ADD . /src
+WORKDIR /src
+RUN pip install -r requirements.txt
