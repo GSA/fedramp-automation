@@ -1,0 +1,50 @@
+$theme-show-notifications: false;
+$theme-font-path: '../../../uswds/fonts';
+$theme-image-path: '../../../uswds/img';
+
+@import '../../../node_modules/uswds/dist/scss/uswds.scss';
+@import '../../../node_modules/highlight.js/scss/github.scss';
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin: 1em auto 1em auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Header & Navigation
+.beta-banner {
+  background-color: $theme-color-secondary;
+  color: $theme-color-primary;
+  margin: auto 0;
+  padding: 0.1rem 0;
+
+  p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.bg-error-lighter {
+  background-color: color('error-lighter');
+}
+
+.bg-warning-lighter {
+  background-color: color('warning-lighter');
+}
+
+.bg-info-lighter {
+  background-color: color('info-lighter');
+}

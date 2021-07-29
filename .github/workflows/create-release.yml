@@ -1,0 +1,31 @@
+name: Build release artifact
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check-out the repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v2
+
+      - name: Read Node version from .nvmrc
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        id: nvm
+
+      - uses: actions/setup-node@v2.3.0
+        with:
+          node-version: ${{ steps.nvm.outputs.NVMRC }}
+
+      # Initialize workspace with git submodules and build a release
+      - name: Build release
+        run: make init build
+
+      # Create a release corresponding to the triggered tag
+      - uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifacts: dist/validations/ssp.xsl
+          token: ${{ secrets.GITHUB_TOKEN }}
