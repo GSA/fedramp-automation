@@ -783,6 +783,8 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:let name="ir"
                      value="ancestor::oscal:implemented-requirement" />
             <sch:report diagnostics="has-reuse-diagnostic"
+                        doc:checklist-reference="Section B Check 3.1"
+                        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
                         id="has-reuse"
                         role="error"
                         test="
@@ -2045,13 +2047,22 @@ leveraged-authorization.</sch:assert>
                         role="error"
                         test="oscal:remarks">Incomplete control implementations have an explanation.</sch:assert>
         </sch:rule>
-        <sch:rule context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']">
-            <sch:assert diagnostics="planned-completion-date-is-valid-diagnostic"
-                        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
-                        id="planned-completion-date-is-valid"
-                        role="error"
-                        see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
-                        test="@value castable as xs:date">Planned completion date is valid.</sch:assert>
+        <sch:rule
+            context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']">
+            <sch:assert
+                diagnostics="planned-completion-date-is-valid-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                id="planned-completion-date-is-valid"
+                role="error"
+                see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                test="@value castable as xs:date">Planned completion date is valid.</sch:assert>
+            <sch:assert
+                diagnostics="planned-completion-date-is-not-past-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                id="planned-completion-date-is-not-past"
+                role="error"
+                see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                test="@value castable as xs:date and xs:date(@value) gt current-date()">Planned completion date is not past.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:diagnostics>
@@ -2889,5 +2900,8 @@ leveraged-authorization.</sch:assert>
         <sch:diagnostic doc:assertion="planned-completion-date-is-valid"
                         doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']"
                         id="planned-completion-date-is-valid-diagnostic">This planned completion date is not valid.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="planned-completion-date-is-not-past"
+            doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']"
+            id="planned-completion-date-is-not-past-diagnostic">This planned completion date references a past time.</sch:diagnostic>
     </sch:diagnostics>
 </sch:schema>
