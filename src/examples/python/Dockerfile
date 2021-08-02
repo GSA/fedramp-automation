@@ -1,3 +1,9 @@
+#
+# This Dockerfile includes all dependencies needed to run the Python example
+# code. As the user, you must mount the root of the `fedramp-automation`
+# repository at /src (eg, via docker-compose.yml).
+#
+
 FROM ubuntu:focal as saxonica-build
 
 # Download and build the Saxon-HE c-library
@@ -21,7 +27,6 @@ RUN cd /opt/saxonica/Saxon.C.API/python-saxon \
   && python3 saxon-setup.py build_ext -if
 ENV PYTHONPATH=/opt/saxonica/Saxon.C.API/python-saxon
 
-# Add source code and install Python dependencies
-ADD . /src
-WORKDIR /src
-RUN pip install -r requirements.txt
+# Install Python dependencies
+ADD requirements.txt /tmp
+RUN pip install -r /tmp/requirements.txt
