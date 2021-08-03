@@ -27,8 +27,13 @@ export const Header = () => {
           </button>
           <ul className="usa-nav__primary usa-accordion">
             <li className="usa-nav__primary-item">
-              <a className="usa-nav__link" href="#">
-                <span>SSP</span>
+              <a className="usa-nav__link" href="#/">
+                <span>Welcome</span>
+              </a>
+            </li>
+            <li className="usa-nav__primary-item">
+              <a className="usa-nav__link" href="#/validator">
+                <span>SSP Validator</span>
               </a>
             </li>
           </ul>

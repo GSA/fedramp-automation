@@ -4,18 +4,21 @@ import { Banner } from './Banner';
 import { Breadcrumbs } from './Breadcrumbs';
 import { Footer } from './Footer';
 import { Header } from './Header';
-import { HomePage } from './HomePage';
 import { SummaryPage } from './SummaryPage';
+import { ValidatorPage } from './ValidatorPage';
 import { ViewerPage } from './ViewerPage';
+import { WelcomePage } from './WelcomePage';
 
 const CurrentPage = () => {
   const { currentRoute } = useAppState().router;
   if (currentRoute.type === 'Home') {
     return (
       <div>
-        <HomePage />
+        <WelcomePage />
       </div>
     );
+  } else if (currentRoute.type === 'Validator') {
+    return <ValidatorPage />;
   } else if (currentRoute.type === 'Summary') {
     return <SummaryPage />;
   } else if (currentRoute.type === 'Assertion') {

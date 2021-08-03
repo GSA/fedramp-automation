@@ -2,6 +2,7 @@ import { match } from 'path-to-regexp';
 
 export type RouteTypes = {
   Home: { type: 'Home' };
+  Validator: { type: 'Validator' };
   Summary: { type: 'Summary' };
   Assertion: {
     type: 'Assertion';
@@ -14,6 +15,9 @@ export type RouteType = Route['type'];
 export namespace Routes {
   export const home: RouteTypes['Home'] = {
     type: 'Home',
+  };
+  export const validator: RouteTypes['Validator'] = {
+    type: 'Validator',
   };
   export const summary: RouteTypes['Summary'] = {
     type: 'Summary',
@@ -32,6 +36,7 @@ export namespace Routes {
 
 const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   Home: () => '#/',
+  Validator: () => '#/validator',
   Summary: () => '#/summary',
   Assertion: (route: RouteTypes['Assertion']) =>
     `#/assertions/${route.assertionId}`,
@@ -56,6 +61,7 @@ const matchRoute = <L extends Route>(
 
 const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
   Home: matchRoute('#/', () => Routes.home),
+  Validator: matchRoute('#/validator', () => Routes.validator),
   Summary: matchRoute('#/summary', () => Routes.summary),
   Assertion: matchRoute('#/assertions/:assertionId', Routes.assertion),
 };
@@ -80,9 +86,19 @@ export const breadcrumbs: Record<Route['type'], (route: any) => Breadcrumb[]> =
     Home: (route: Route) => {
       return [
         {
-          text: 'Select SSP',
+          text: 'Welcome',
           url: getUrl(Routes.home),
           selected: route.type === 'Home',
+        },
+      ];
+    },
+    Validator: (route: Route) => {
+      return [
+        ...breadcrumbs.Home(route),
+        {
+          text: 'Validator',
+          url: getUrl(Routes.home),
+          selected: route.type === 'Validator',
         },
       ];
     },

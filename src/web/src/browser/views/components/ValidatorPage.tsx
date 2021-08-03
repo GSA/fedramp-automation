@@ -5,7 +5,7 @@ import { onFileInputChangeGetFile } from '../../util/file-input';
 import { colorTokenForRole } from '../../util/styles';
 import { SchematronReport } from './SchematronReport';
 
-export const HomePage = () => {
+export const ValidatorPage = () => {
   const { sampleSSPs, schematron } = useAppState();
   const actions = useActions();
 
