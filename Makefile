@@ -38,7 +38,7 @@ clean-web:  ## Clean web artifacts
 	cd src/web && \
 		npm run clean
 
-test: test-validations test-web test-example ## Test all
+test: test-validations test-web test-examples ## Test all
 
 test-validations:  ## Test validations
 	@echo "Running validations tests..."
@@ -50,7 +50,7 @@ test-web:  ## Test web codebase
 	cd src/web && \
 		npm run test
 
-test-example:	test-example-java test-example-python  ## Test example code projects
+test-examples: test-example-java test-example-python  ## Test example code projects
 
 test-example-java:  ## Test example Java project
 	@echo "Verifying Java example..."

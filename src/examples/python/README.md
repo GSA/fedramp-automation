@@ -2,9 +2,9 @@
 
 This is a simple example of how to use the fedramp-automation validation rules with `saxonc` and its Python bindings.
 
-`saxonc` is not bundled for installation via PyPI; it is available for download from the Saxonica website, and must be build and installed manually. An example of this process may be found in the provided [Dockerfile](./Dockerfile).
+`saxonc` is not bundled for installation via PyPI; it is available for download from the Saxonica website, and must be built and installed manually. An example of this process may be found in the provided [Dockerfile](./Dockerfile).
 
-This example as implemented as a [pytest](https://pytest.org/) module [./test_validate_ssp.py](./test_validate_ssp.py).
+This example is implemented as a [pytest](https://pytest.org/) module [./test_validate_ssp.py](./test_validate_ssp.py).
 ## Prerequisites
 
 A compiled Schematron XSLT artifact is required to run this example. The following command will build the artifact:
