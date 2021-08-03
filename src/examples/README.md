@@ -5,3 +5,4 @@ As a collection of validation rules for FedRAMP OSCAL documents, `fedramp-automa
 For the purposes of third-party integration, Schematron validation rules are provided in a compiled XSLT format. This repository includes several usage examples using appropriate Saxon XSLT libraries.
 
 - [Python example](./python/README.md)
+- [Java example](./java/README.md)

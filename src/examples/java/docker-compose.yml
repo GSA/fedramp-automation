@@ -2,8 +2,8 @@ version: "3.9"
 
 services:
   example:
-    build: .
+    image: maven:3.8.1-openjdk-17-slim
     volumes:
       - ../../..:/code
-    working_dir: /code/src/examples/python
+    working_dir: /code/src/examples/java
     command: bash -l

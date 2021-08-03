@@ -14,8 +14,6 @@ cd ../../..
 make build-validations
 ```
 
-The [./ssp.xsl](./ssp.xsl) symlink will now reference the built `ssp.xsl` file.
-
 ## Usage
 
 To get a bash prompt within the container, run:

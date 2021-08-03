@@ -38,7 +38,7 @@ clean-web:  ## Clean web artifacts
 	cd src/web && \
 		npm run clean
 
-test: test-validations test-web test-example-python ## Test all
+test: test-validations test-web test-example ## Test all
 
 test-validations:  ## Test validations
 	@echo "Running validations tests..."
@@ -50,7 +50,14 @@ test-web:  ## Test web codebase
 	cd src/web && \
 		npm run test
 
-test-example-python:
+test-example:	test-example-java test-example-python  ## Test example code projects
+
+test-example-java:  ## Test example Java project
+	@echo "Verifying Java example..."
+	cd src/examples/java && \
+		docker-compose run example mvn test
+
+test-example-python:  ## Test example Python project
 	@echo "Verifying Python example..."
 	cd src/examples/python && \
 		docker-compose run example pytest
