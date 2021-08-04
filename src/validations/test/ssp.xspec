@@ -6429,7 +6429,7 @@
                     </system-security-plan>
                 </x:context>
                 <x:expect-assert id="planned-completion-date-is-valid"
-                                     label="that is an error" />
+                                 label="that is an error" />
             </x:scenario>
         </x:scenario>
     </x:scenario>
