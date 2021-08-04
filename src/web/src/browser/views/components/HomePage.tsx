@@ -5,79 +5,39 @@ import { useActions } from '../hooks';
 
 export const HomePage = () => {
   return (
-    <div className="usa-prose">
-      <ProcessList />
+    <>
+      <HomeContent />
       <PartiesGrid />
-      <h1>FedRAMP ASAP</h1>
-      <p>
-        Welcome to ASAP, the upcoming FedRAMP audit validation tool. ASAP is
-        made up of the following components:
-      </p>
-      <ul>
-        <li>
-          <a href="https://pages.nist.gov/OSCAL/">OSCAL</a> validation rules
-          written in Schematron format
-        </li>
-        <li>
-          This user interface, which will apply validations to a FedRAMP OSCAL
-          System Security Plan and display validation errors in-browser.{' '}
-          <a href={getUrl(Routes.validator)}>Try it out</a>.
-        </li>
-        <li>
-          Compiled Schematron rules (XSLT), which may be integrated with
-          third-party OSCAL creation/validation tools.
-        </li>
-      </ul>
-      <h2>Why should I care?</h2>
-      <p>
-        FedRAMP audit approvals are expensive for both FedRAMP and CSPs (Cloud
-        Service Providers). The ASAP validation tool helps CSPs craft correct
-        System Security Plans, and helps the FedRAMP Audit Review Team evaluate
-        them efficiently.
-      </p>
-      <h2>What's next?</h2>
-      <ul>
-        <li>User feedback</li>
-        <li>In addition to SSP, support for POA&M, SAP, and SAR validations</li>
-      </ul>
-      <h2>Contact us</h2>
-      <p>
-        Please give us your feedback via a
-        <a href="https://github.com/18F/fedramp-automation/issues">
-          Github issue
-        </a>
-        .
-      </p>
-    </div>
+    </>
   );
 };
 
 const ProcessList = () => (
   <ol className="usa-process-list">
     <li className="usa-process-list__item padding-bottom-4">
-      <h4 className="usa-process-list__heading font-sans-xl line-height-sans-1">
+      <h4 className="usa-process-list__heading line-height-sans-1">
         Submit with confidence
       </h4>
-      <p className="font-sans-lg margin-top-1 text-light">
+      <p className="margin-top-1 text-light">
         Creation of compliant FedRAMP OSCAL SSPs is enhanced with timely and
         context-sensitive validation errors.
       </p>
     </li>
     <li className="usa-process-list__item padding-bottom-4">
-      <h4 className="usa-process-list__heading font-sans-xl line-height-sans-1">
+      <h4 className="usa-process-list__heading line-height-sans-1">
         Streamlined FedRAMP Review
       </h4>
-      <p className="font-sans-lg margin-top-1 text-light">
+      <p className="margin-top-1 text-light">
         High-quality submissions lead to efficient FedRAMP audit reviews.
         Additionally, FedRAMP Audit Review Team efforts are further streamlined
         by a friendly presentation of complex business rule validations.
       </p>
     </li>
     <li className="usa-process-list__item">
-      <h4 className="usa-process-list__heading font-sans-xl line-height-sans-1">
+      <h4 className="usa-process-list__heading line-height-sans-1">
         Lower-cost agency ATO
       </h4>
-      <p className="font-sans-lg margin-top-1 text-light">
+      <p className="margin-top-1 text-light">
         FedRAMP-approved CSPs with structured OSCAL SSPs are more cost-effective
         for agencies to evaluate as part of their own ATO process.
       </p>
@@ -98,7 +58,7 @@ const PartiesGrid = () => {
         <div className="desktop:grid-col-4">
           <div>
             <img
-              className="float-left margin-1"
+              className="float-left margin-2"
               src={getAssetUrl('partners-cloud.svg')}
               alt=""
             />
@@ -111,7 +71,7 @@ const PartiesGrid = () => {
         </div>
         <div className="desktop:grid-col-4">
           <img
-            className="float-left margin-1"
+            className="float-left margin-2"
             src={getAssetUrl('partners-assessors.svg')}
             alt=""
           />
@@ -122,7 +82,7 @@ const PartiesGrid = () => {
         </div>
         <div className="desktop:grid-col-4">
           <img
-            className="float-left margin-1"
+            className="float-left margin-2"
             src={getAssetUrl('partners-agencies.svg')}
             alt=""
           />
@@ -136,3 +96,49 @@ const PartiesGrid = () => {
     </div>
   );
 };
+
+const HomeContent = () => (
+  <div className="usa-prose">
+    <h1>Accelerate approvals</h1>
+    <p>
+      Welcome to ASAP, the upcoming FedRAMP audit validation tool. ASAP is made
+      up of the following components:
+    </p>
+    <ul>
+      <li>
+        <a href="https://pages.nist.gov/OSCAL/">OSCAL</a> validation rules
+        written in Schematron format
+      </li>
+      <li>
+        This user interface, which will apply validations to a FedRAMP OSCAL
+        System Security Plan and display validation errors in-browser.{' '}
+        <a href={getUrl(Routes.validator)}>Try it out</a>.
+      </li>
+      <li>
+        Compiled Schematron rules (XSLT), which may be integrated with
+        third-party OSCAL creation/validation tools.
+      </li>
+    </ul>
+    <ProcessList />
+    <h2>Why should I care?</h2>
+    <p>
+      FedRAMP audit approvals are expensive for both FedRAMP and CSPs (Cloud
+      Service Providers). The ASAP validation tool helps CSPs craft correct
+      System Security Plans, and helps the FedRAMP Audit Review Team evaluate
+      them efficiently.
+    </p>
+    <h2>What's next?</h2>
+    <ul>
+      <li>User feedback</li>
+      <li>In addition to SSP, support for POA&M, SAP, and SAR validations</li>
+    </ul>
+    <h2>Contact us</h2>
+    <p>
+      Please give us your feedback via a
+      <a href="https://github.com/18F/fedramp-automation/issues">
+        Github issue
+      </a>
+      .
+    </p>
+  </div>
+);
