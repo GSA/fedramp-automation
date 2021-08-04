@@ -13,36 +13,41 @@ export const HomePage = () => {
 };
 
 const ProcessList = () => (
-  <ol className="usa-process-list">
-    <li className="usa-process-list__item padding-bottom-4">
-      <h4 className="usa-process-list__heading line-height-sans-1">
-        Submit with confidence
-      </h4>
-      <p className="margin-top-1 text-light">
-        Creation of compliant FedRAMP OSCAL SSPs is enhanced with timely and
-        context-sensitive validation errors.
-      </p>
-    </li>
-    <li className="usa-process-list__item padding-bottom-4">
-      <h4 className="usa-process-list__heading line-height-sans-1">
-        Streamlined FedRAMP Review
-      </h4>
-      <p className="margin-top-1 text-light">
-        High-quality submissions lead to efficient FedRAMP audit reviews.
-        Additionally, FedRAMP Audit Review Team efforts are further streamlined
-        by a friendly presentation of complex business rule validations.
-      </p>
-    </li>
-    <li className="usa-process-list__item">
-      <h4 className="usa-process-list__heading line-height-sans-1">
-        Lower-cost agency ATO
-      </h4>
-      <p className="margin-top-1 text-light">
-        FedRAMP-approved CSPs with structured OSCAL SSPs are more cost-effective
-        for agencies to evaluate as part of their own ATO process.
-      </p>
-    </li>
-  </ol>
+  <>
+    <h2>How does it work?</h2>
+    <ol className="usa-process-list">
+      <li className="usa-process-list__item padding-bottom-4">
+        <h4 className="usa-process-list__heading line-height-sans-1">
+          Submit with confidence
+        </h4>
+        <p className="margin-top-1 text-light">
+          Creation of compliant FedRAMP OSCAL SSPs is enhanced with timely and
+          context-sensitive validation errors.
+        </p>
+      </li>
+      <li className="usa-process-list__item padding-bottom-4">
+        <h4 className="usa-process-list__heading line-height-sans-1">
+          Streamlined FedRAMP Review
+        </h4>
+        <p className="margin-top-1 text-light">
+          High-quality submissions lead to efficient FedRAMP audit reviews.
+          Additionally, FedRAMP Audit Review Team efforts are further
+          streamlined by a friendly presentation of complex business rule
+          validations.
+        </p>
+      </li>
+      <li className="usa-process-list__item">
+        <h4 className="usa-process-list__heading line-height-sans-1">
+          Lower-cost agency ATO
+        </h4>
+        <p className="margin-top-1 text-light">
+          FedRAMP-approved CSPs with structured OSCAL SSPs are more
+          cost-effective for agencies to evaluate as part of their own ATO
+          process.
+        </p>
+      </li>
+    </ol>
+  </>
 );
 
 const PartiesGrid = () => {
@@ -100,7 +105,7 @@ const PartiesGrid = () => {
 const HomeContent = () => {
   const { developerExampleUrl } = useAppState().sourceRepository;
   return (
-    <div className="usa-prose">
+    <div className="usa-prose padding-top-3">
       <h1>Accelerate approvals</h1>
       <p>
         Welcome to ASAP, the upcoming FedRAMP audit validation tool. ASAP is
@@ -137,7 +142,7 @@ const HomeContent = () => {
       </ul>
       <h2>Contact us</h2>
       <p>
-        Please give us your feedback via a
+        Please give us your feedback via a{' '}
         <a href="https://github.com/18F/fedramp-automation/issues">
           Github issue
         </a>
