@@ -2330,7 +2330,7 @@ leveraged-authorization.</sch:assert>
         <sch:value-of select="$extraneous-parties/o:party-uuid" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-uuid-required"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource"
-                        id="resource-uuid-required-diagnostic">A FedRAMP SSP must include back-matter resource missing a UUID.</sch:diagnostic>
+                        id="resource-uuid-required-diagnostic">A FedRAMP SSP back-matter resource must include a UUID.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-rlink-required"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource/o:rlink"
                         id="resource-rlink-required-diagnostic">A FedRAMP SSP must reference back-matter resource: 
