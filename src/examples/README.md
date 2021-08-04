@@ -13,7 +13,7 @@ For the purposes of third-party integration, Schematron validation rules are pro
 - The compiled XSLT file must be evaluated by an XSLT 3.0 compatible processor. The [Saxon](https://www.saxonica.com/) suite of libraries are the only compatible XSLT 3.0 processors at the time of writing.
   - Java Saxon-HE is open-source and recommended.
   - Javascript Saxon-JS is free, but not open-source. The UI for this project may be referenced as an example.
-  - .NET Saxon-HE is open-source. It requires .NET Framework (ie, not compatible with .NET Core.
+  - .NET Saxon-HE is open-source. It requires .NET Framework (ie, not compatible with .NET Core).
   - Saxon/C is an open-source C-compatibility layer over the Java runtime. It has bindings for Python and PHP. The Python example in this directory utilizes Saxon/C with the Python extension.
 - When evaluated, the XSLT output is an SVRL document (Schematron Validation Report Language). Failed assertions and diagnostic messages may be extracted from the SVRL using XPath. SVRL identifies the locus of the error in the source document via an XPath 3.0 location.
 

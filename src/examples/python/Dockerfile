@@ -1,7 +1,7 @@
 #
 # This Dockerfile includes all dependencies needed to run the Python example
 # code. As the user, you must mount the root of the `fedramp-automation`
-# repository at /src (eg, via docker-compose.yml).
+# repository at /code (eg, via docker-compose.yml).
 #
 
 FROM ubuntu:focal as saxonica-build

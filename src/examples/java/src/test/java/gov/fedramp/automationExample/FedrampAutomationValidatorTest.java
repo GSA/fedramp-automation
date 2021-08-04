@@ -8,9 +8,8 @@ import org.junit.Test;
 
 /** Unit test for simple App. */
 public class FedrampAutomationValidatorTest {
-  private static String DEMO_SSP_PATH =
-      new File("../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml")
-          .getAbsolutePath();
+  private static String DEMO_SSP_PATH = new File(
+      "../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml").getAbsolutePath();
 
   /** Rigorous Test :-) */
   @Test
@@ -22,7 +21,7 @@ public class FedrampAutomationValidatorTest {
       Map<String, String> firstFailedAssert = failedAsserts.get(0);
       Assert.assertEquals(firstFailedAssert.get("test").getClass(), String.class);
     } catch (Exception e) {
-      e.printStackTrace();
+      Assert.fail("Unexpected exception: " + e.getMessage());
     }
   }
 }
