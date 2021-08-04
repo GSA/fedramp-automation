@@ -1,28 +1,36 @@
 import React from 'react';
 import { useAppState } from '../hooks';
 import { Banner } from './Banner';
-import { Breadcrumbs } from './Breadcrumbs';
 import { Footer } from './Footer';
 import { Header } from './Header';
+import { HomePage } from './HomePage';
+import { InnerPageLayout } from './InnerPageLayout';
 import { SummaryPage } from './SummaryPage';
 import { ValidatorPage } from './ValidatorPage';
 import { ViewerPage } from './ViewerPage';
-import { WelcomePage } from './WelcomePage';
 
 const CurrentPage = () => {
   const { currentRoute } = useAppState().router;
   if (currentRoute.type === 'Home') {
-    return (
-      <div>
-        <WelcomePage />
-      </div>
-    );
+    return <HomePage />;
   } else if (currentRoute.type === 'Validator') {
-    return <ValidatorPage />;
+    return (
+      <InnerPageLayout>
+        <ValidatorPage />
+      </InnerPageLayout>
+    );
   } else if (currentRoute.type === 'Summary') {
-    return <SummaryPage />;
+    return (
+      <InnerPageLayout>
+        <SummaryPage />
+      </InnerPageLayout>
+    );
   } else if (currentRoute.type === 'Assertion') {
-    return <ViewerPage assertionId={currentRoute.assertionId} />;
+    return (
+      <InnerPageLayout>
+        <ViewerPage assertionId={currentRoute.assertionId} />
+      </InnerPageLayout>
+    );
   } else {
     const _exhaustiveCheck: never = currentRoute;
     return <></>;
@@ -35,7 +43,6 @@ export const App = () => {
       <Banner />
       <Header />
       <div className="grid-container">
-        <Breadcrumbs />
         <CurrentPage />
       </div>
       <Footer />

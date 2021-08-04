@@ -86,7 +86,7 @@ export const breadcrumbs: Record<Route['type'], (route: any) => Breadcrumb[]> =
     Home: (route: Route) => {
       return [
         {
-          text: 'Welcome',
+          text: 'Home',
           url: getUrl(Routes.home),
           selected: route.type === 'Home',
         },
