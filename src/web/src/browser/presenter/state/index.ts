@@ -11,15 +11,20 @@ export type SampleSSP = {
 
 export type State = {
   baseUrl: string;
-  repositoryUrl?: string;
+  sourceRepository: {
+    treeUrl?: string;
+    sampleSSPs: SampleSSP[];
+    developerExampleUrl?: string;
+  };
   router: RouterMachine;
-  sampleSSPs: SampleSSP[];
   schematron: SchematronMachine;
 };
 
 export const state: State = {
   baseUrl: '',
   router: createRouterMachine(),
-  sampleSSPs: [],
+  sourceRepository: {
+    sampleSSPs: [],
+  },
   schematron: createSchematronMachine(),
 };

@@ -6,7 +6,7 @@ import { colorTokenForRole } from '../../util/styles';
 import { SchematronReport } from './SchematronReport';
 
 export const ValidatorPage = () => {
-  const { sampleSSPs, schematron } = useAppState();
+  const { sourceRepository, schematron } = useAppState();
   const actions = useActions();
 
   return (
@@ -38,7 +38,7 @@ export const ValidatorPage = () => {
             Or use an example file, brought to you by FedRAMP:
           </div>
           <ul>
-            {sampleSSPs.map((sampleSSP, index) => (
+            {sourceRepository.sampleSSPs.map((sampleSSP, index) => (
               <li key={index}>
                 <button
                   className="usa-button usa-button--unstyled"
