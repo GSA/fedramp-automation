@@ -3063,25 +3063,25 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="no-security-sensitivity-level">
             <persona id="reviewer">
-                <affirmative>[Section C Check 1.a] A FedRAMP SSP must define its sensitivity level.</affirmative>
-                <diagnostic>[Section C Check 1.a] No sensitivity level was found As a result, no more validation processing can occur.</diagnostic>
+                <affirmative>A FedRAMP SSP must define its sensitivity level.</affirmative>
+                <diagnostic>No sensitivity level was found As a result, no more validation processing can occur.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section C Check 1.a] A FedRAMP SSP must define its sensitivity level.</affirmative>
-                <diagnostic>[Section C Check 1.a] No sensitivity level was found As a result, no more validation processing can occur.</diagnostic>
+                <affirmative>A FedRAMP SSP must define its sensitivity level.</affirmative>
+                <diagnostic>No sensitivity level was found As a result, no more validation processing can occur.</diagnostic>
             </persona>
         </message>
         <message id="invalid-security-sensitivity-level">
             <persona id="reviewer">
-                <affirmative>[Section C Check 1.a] A FedRAMP SSP must have an allowed sensitivity level.</affirmative>
-                <diagnostic>[Section C Check 1.a] 
+                <affirmative>A FedRAMP SSP must have an allowed sensitivity level.</affirmative>
+                <diagnostic>
                 <sch:value-of select="./name()" />is an invalid value of ' 
                 <sch:value-of select="lv:sensitivity-level(/)" />', not an allowed value of 
                 <sch:value-of select="$corrections" />. No more validation processing can occur.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section C Check 1.a] Sensitivity level has an allowed value.</affirmative>
-                <diagnostic>[Section C Check 1.a] 
+                <affirmative>Sensitivity level has an allowed value.</affirmative>
+                <diagnostic>
                 <sch:value-of select="./name()" />is an invalid value of ' 
                 <sch:value-of select="lv:sensitivity-level(/)" />', not an allowed value of 
                 <sch:value-of select="$corrections" />. No more validation processing can occur.</diagnostic>
@@ -3089,14 +3089,12 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="implemented-response-points">
             <persona id="reviewer">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must implement a statement for each of the following lettered response points for
-                required controls: 
+                <affirmative>A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: 
                 <sch:value-of select="$implemented/@statement-id" />.</affirmative>
                 <diagnostic />
             </persona>
             <persona id="submitter">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must implement a statement for each of the following lettered response points for
-                required controls: 
+                <affirmative>A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: 
                 <sch:value-of select="$implemented/@statement-id" />.</affirmative>
                 <diagnostic />
             </persona>
@@ -3128,7 +3126,7 @@ leveraged-authorization.</sch:assert>
         <message id="incomplete-core-implemented-requirements">
             <persona id="reviewer">
                 <affirmative>A FedRAMP SSP must implement the most important controls.</affirmative>
-                <diagnostic>[Section C Check 3] This FedRAMP SSP has not implemented the most important 
+                <diagnostic>This FedRAMP SSP has not implemented the most important 
                 <sch:value-of select="count($core-missing)" />core 
                 <sch:value-of select="
                             if (count($core-missing) = 1) then
@@ -3139,7 +3137,7 @@ leveraged-authorization.</sch:assert>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP SSP must implement the most important controls.</affirmative>
-                <diagnostic>[Section C Check 3] A FedRAMP SSP must implement the most important 
+                <diagnostic>A FedRAMP SSP must implement the most important 
                 <sch:value-of select="count($core-missing)" />core 
                 <sch:value-of select="
                             if (count($core-missing) = 1) then
@@ -3151,8 +3149,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="incomplete-all-implemented-requirements">
             <persona id="reviewer">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must implement all required controls.</affirmative>
-                <diagnostic>[Section C Check 2] This FedRAMP SSP has not implemented 
+                <affirmative>A FedRAMP SSP must implement all required controls.</affirmative>
+                <diagnostic>This FedRAMP SSP has not implemented 
                 <sch:value-of select="count($all-missing)" />required controls 
                 <sch:value-of select="
                             if (count($all-missing) = 1) then
@@ -3162,8 +3160,8 @@ leveraged-authorization.</sch:assert>
                 <sch:value-of select="$all-missing/@id" />.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must implement all required controls.</affirmative>
-                <diagnostic>[Section C Check 2] A FedRAMP SSP must implement 
+                <affirmative>A FedRAMP SSP must implement all required controls.</affirmative>
+                <diagnostic>A FedRAMP SSP must implement 
                 <sch:value-of select="count($all-missing)" />
                 <sch:value-of select="
                             if (count($all-missing) = 1) then
@@ -3175,20 +3173,19 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="extraneous-implemented-requirements">
             <persona id="reviewer">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must not include implemented controls beyond what is required for the applied
-                baseline.</affirmative>
-                <diagnostic>[Section C Check 2] This FedRAMP SSP has implemented 
+                <affirmative>A FedRAMP SSP must not include implemented controls beyond what is required for the applied baseline.</affirmative>
+                <diagnostic>This FedRAMP SSP has implemented 
                 <sch:value-of select="count($extraneous)" />extraneous 
                 <sch:value-of select="
                             if (count($extraneous) = 1) then
                                 ' control'
                             else
-                            ' controls'" />extraneous controls not needed given the selected profile: 
+                                ' controls'" />extraneous controls not needed given the selected profile: 
                 <sch:value-of select="$extraneous/@control-id" />.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must have no extraneous implemented controls.</affirmative>
-                <diagnostic>[Section C Check 2] A FedRAMP SSP must implement 
+                <affirmative>A FedRAMP SSP must have no extraneous implemented controls.</affirmative>
+                <diagnostic>A FedRAMP SSP must implement 
                 <sch:value-of select="count($extraneous)" />extraneous 
                 <sch:value-of select="
                             if (count($extraneous) = 1) then
@@ -3212,15 +3209,15 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="invalid-implementation-status">
             <persona id="reviewer">
-                <affirmative>[Section C Check 2] Implementation status is correct.</affirmative>
-                <diagnostic>[Section C Check 2] Invalid implementation status ' 
+                <affirmative>Implementation status is correct.</affirmative>
+                <diagnostic>Invalid implementation status ' 
                 <sch:value-of select="$status" />' for 
                 <sch:value-of select="./@control-id" />, must be 
                 <sch:value-of select="$corrections" />.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section C Check 2] Implementation status is correct.</affirmative>
-                <diagnostic>[Section C Check 2] Invalid implementation status ' 
+                <affirmative>Implementation status is correct.</affirmative>
+                <diagnostic>Invalid implementation status ' 
                 <sch:value-of select="$status" />' for 
                 <sch:value-of select="./@control-id" />, must be 
                 <sch:value-of select="$corrections" />.</diagnostic>
@@ -3228,22 +3225,20 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="missing-response-points">
             <persona id="reviewer">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must have required response points.</affirmative>
-                <diagnostic>[Section C Check 2] This FedRAMP SSP lacks a statement for each of the following lettered response points for required
-                controls: 
+                <affirmative>A FedRAMP SSP must have required response points.</affirmative>
+                <diagnostic>This FedRAMP SSP lacks a statement for each of the following lettered response points for required controls: 
                 <sch:value-of select="$missing/@id" />.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must have required response points.</affirmative>
-                <diagnostic>[Section C Check 2] This FedRAMP SSP lacks a statement for each of the following lettered response points for required
-                controls: 
+                <affirmative>A FedRAMP SSP must have required response points.</affirmative>
+                <diagnostic>This FedRAMP SSP lacks a statement for each of the following lettered response points for required controls: 
                 <sch:value-of select="$missing/@id" />.</diagnostic>
             </persona>
         </message>
         <message id="missing-response-components">
             <persona id="reviewer">
-                <affirmative>[Section D Checks] Response statements have sufficient components.</affirmative>
-                <diagnostic>[Section D Checks] Response statements for 
+                <affirmative>Response statements have sufficient components.</affirmative>
+                <diagnostic>Response statements for 
                 <sch:value-of select="./@statement-id" />must have at least 
                 <sch:value-of select="$required-components-count" />
                 <sch:value-of select="
@@ -3254,8 +3249,8 @@ leveraged-authorization.</sch:assert>
                 <sch:value-of select="$components-count" />.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section D Checks] Response statements have sufficient components.</affirmative>
-                <diagnostic>[Section D Checks] Response statements for 
+                <affirmative>Response statements have sufficient components.</affirmative>
+                <diagnostic>Response statements for 
                 <sch:value-of select="./@statement-id" />must have at least 
                 <sch:value-of select="$required-components-count" />
                 <sch:value-of select="
@@ -3268,43 +3263,43 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="extraneous-response-description">
             <persona id="reviewer">
-                <affirmative>[Section D Checks] Response statement does not have a description not within a component.</affirmative>
-                <diagnostic>[Section D Checks] Response statement 
+                <affirmative>Response statement does not have a description not within a component.</affirmative>
+                <diagnostic>Response statement 
                 <sch:value-of select="../@statement-id" />has a description not within a component. That was previously allowed, but not recommended.
                 It will soon be syntactically invalid and deprecated.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section D Checks] Response statement does not have a description not within a component.</affirmative>
-                <diagnostic>[Section D Checks] Response statement 
+                <affirmative>Response statement does not have a description not within a component.</affirmative>
+                <diagnostic>Response statement 
                 <sch:value-of select="../@statement-id" />has a description not within a component. That was previously allowed, but not recommended.
                 It will soon be syntactically invalid and deprecated.</diagnostic>
             </persona>
         </message>
         <message id="extraneous-response-remarks">
             <persona id="reviewer">
-                <affirmative>[Section D Checks] Response statement does not have remarks not within a component.</affirmative>
-                <diagnostic>[Section D Checks] Response statement 
+                <affirmative>Response statement does not have remarks not within a component.</affirmative>
+                <diagnostic>Response statement 
                 <sch:value-of select="../@statement-id" />has remarks not within a component. That was previously allowed, but not recommended. It
                 will soon be syntactically invalid and deprecated.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section D Checks] Response statement does not have remarks not within a component.</affirmative>
-                <diagnostic>[Section D Checks] Response statement 
+                <affirmative>Response statement does not have remarks not within a component.</affirmative>
+                <diagnostic>Response statement 
                 <sch:value-of select="../@statement-id" />has remarks not within a component. That was previously allowed, but not recommended. It
                 will soon be syntactically invalid and deprecated.</diagnostic>
             </persona>
         </message>
         <message id="invalid-component-match">
             <persona id="reviewer">
-                <affirmative>[Section D Checks] Response statement cites a component in the system implementation inventory.</affirmative>
-                <diagnostic>[Section D Checks] Response statement 
+                <affirmative>Response statement cites a component in the system implementation inventory.</affirmative>
+                <diagnostic>Response statement 
                 <sch:value-of select="../@statement-id" />with component reference UUID ' 
                 <sch:value-of select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a
                 control.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section D Checks] Response statement cites a component in the system implementation inventory.</affirmative>
-                <diagnostic>[Section D Checks] Response statement 
+                <affirmative>Response statement cites a component in the system implementation inventory.</affirmative>
+                <diagnostic>Response statement 
                 <sch:value-of select="../@statement-id" />with component reference UUID ' 
                 <sch:value-of select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a
                 control.</diagnostic>
@@ -3312,27 +3307,27 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="missing-component-description">
             <persona id="reviewer">
-                <affirmative>[Section D Checks] Response statement has a component which has a required description node.</affirmative>
-                <diagnostic>[Section D Checks] Response statement 
+                <affirmative>Response statement has a component which has a required description node.</affirmative>
+                <diagnostic>Response statement 
                 <sch:value-of select="../@statement-id" />has a component, but that component is missing a required description node.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section D Checks] Response statement has a component which has a required description node.</affirmative>
-                <diagnostic>[Section D Checks] Response statement 
+                <affirmative>Response statement has a component which has a required description node.</affirmative>
+                <diagnostic>Response statement 
                 <sch:value-of select="../@statement-id" />has a component, but that component is missing a required description node.</diagnostic>
             </persona>
         </message>
         <message id="incomplete-response-description">
             <persona id="reviewer">
-                <affirmative>[Section D Checks] Response statement component description has adequate length.</affirmative>
-                <diagnostic>[Section D Checks] Response statement component description for 
+                <affirmative>Response statement component description has adequate length.</affirmative>
+                <diagnostic>Response statement component description for 
                 <sch:value-of select="../../@statement-id" />is too short with 
                 <sch:value-of select="$description-length" />characters. It must be 
                 <sch:value-of select="$required-length" />characters long.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section D Checks] Response statement component description has adequate length.</affirmative>
-                <diagnostic>[Section D Checks] Response statement component description for 
+                <affirmative>Response statement component description has adequate length.</affirmative>
+                <diagnostic>Response statement component description for 
                 <sch:value-of select="../../@statement-id" />is too short with 
                 <sch:value-of select="$description-length" />characters. It must be 
                 <sch:value-of select="$required-length" />characters long.</diagnostic>
@@ -3340,15 +3335,15 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="incomplete-response-remarks">
             <persona id="reviewer">
-                <affirmative>[Section D Checks] Response statement component remarks have adequate length.</affirmative>
-                <diagnostic>[Section D Checks] Response statement component remarks for 
+                <affirmative>Response statement component remarks have adequate length.</affirmative>
+                <diagnostic>Response statement component remarks for 
                 <sch:value-of select="../../@statement-id" />is too short with 
                 <sch:value-of select="$remarks-length" />characters. It must be 
                 <sch:value-of select="$required-length" />characters long.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section D Checks] Response statement component remarks have adequate length.</affirmative>
-                <diagnostic>[Section D Checks] Response statement component remarks for 
+                <affirmative>Response statement component remarks have adequate length.</affirmative>
+                <diagnostic>Response statement component remarks for 
                 <sch:value-of select="../../@statement-id" />is too short with 
                 <sch:value-of select="$remarks-length" />characters. It must be 
                 <sch:value-of select="$required-length" />characters long.</diagnostic>
@@ -3356,8 +3351,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="incorrect-role-association">
             <persona id="reviewer">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous roles.</affirmative>
-                <diagnostic>[Section C Check 2] Responsible Role in control does not correspond to any entry in Roles and Responsibilities Table: 
+                <affirmative>A FedRAMP SSP must define a responsible party with no extraneous roles.</affirmative>
+                <diagnostic>Responsible Role in control does not correspond to any entry in Roles and Responsibilities Table: 
                 <sch:value-of select="count($extraneous-roles)" />
                 <sch:value-of select="
                             if (count($extraneous-roles) = 1) then
@@ -3367,8 +3362,8 @@ leveraged-authorization.</sch:assert>
                 <sch:value-of select="$extraneous-roles/@role-id" />.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous roles.</affirmative>
-                <diagnostic>[Section C Check 2] A FedRAMP SSP must define a responsible party with 
+                <affirmative>A FedRAMP SSP must define a responsible party with no extraneous roles.</affirmative>
+                <diagnostic>A FedRAMP SSP must define a responsible party with 
                 <sch:value-of select="count($extraneous-roles)" />
                 <sch:value-of select="
                             if (count($extraneous-roles) = 1) then
@@ -3380,8 +3375,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="incorrect-party-association">
             <persona id="reviewer">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous parties.</affirmative>
-                <diagnostic>[Section C Check 2] This FedRAMP SSP has a responsible party with 
+                <affirmative>A FedRAMP SSP must define a responsible party with no extraneous parties.</affirmative>
+                <diagnostic>This FedRAMP SSP has a responsible party with 
                 <sch:value-of select="count($extraneous-parties)" />
                 <sch:value-of select="
                             if (count($extraneous-parties) = 1) then
@@ -3391,8 +3386,8 @@ leveraged-authorization.</sch:assert>
                 <sch:value-of select="$extraneous-parties/o:party-uuid" />.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous parties.</affirmative>
-                <diagnostic>[Section C Check 2] A FedRAMP SSP must define a responsible party with 
+                <affirmative>A FedRAMP SSP must define a responsible party with no extraneous parties.</affirmative>
+                <diagnostic>A FedRAMP SSP must define a responsible party with 
                 <sch:value-of select="count($extraneous-parties)" />
                 <sch:value-of select="
                             if (count($extraneous-parties) = 1) then
@@ -3404,8 +3399,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="resource-uuid-required">
             <persona id="reviewer">
-                <affirmative>Every resource has a uuid attribute.</affirmative>
-                <diagnostic>This FedRAMP SSP has a back-matter resource which lacks a UUID.</diagnostic>
+                <affirmative>Every supporting artifact found in a citation has a uuid attribute.</affirmative>
+                <diagnostic>This FedRAMP SSP has a supporting artifact found in a citation which lacks a UUID.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every resource has a uuid attribute.</affirmative>
@@ -3582,11 +3577,11 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-fedramp-citations">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.12] A FedRAMP OSCAL SSP must have the FedRAMP Applicable Laws and Regulations attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have the FedRAMP Applicable Laws and Regulations attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks the FedRAMP Applicable Laws and Regulations.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.12] A FedRAMP OSCAL SSP must have the FedRAMP Applicable Laws and Regulations attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have the FedRAMP Applicable Laws and Regulations attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks the FedRAMP Applicable Laws and Regulations.</diagnostic>
             </persona>
         </message>
@@ -3602,76 +3597,76 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-user-guide">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.2] A FedRAMP OSCAL SSP must have a User Guide attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a User Guide attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a User Guide.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.2] A FedRAMP OSCAL SSP must have a User Guide attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a User Guide attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a User Guide.</diagnostic>
             </persona>
         </message>
         <message id="has-rules-of-behavior">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.5] A FedRAMP OSCAL SSP must have Rules of Behavior.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have Rules of Behavior.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Rules of Behavior.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.5] A FedRAMP OSCAL SSP must have Rules of Behavior.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have Rules of Behavior.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Rules of Behavior.</diagnostic>
             </persona>
         </message>
         <message id="has-information-system-contingency-plan">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.6] A FedRAMP OSCAL SSP must have a Contingency Plan attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a Contingency Plan attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Contingency Plan.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.6] A FedRAMP OSCAL SSP must have a Contingency Plan attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a Contingency Plan attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Contingency Plan.</diagnostic>
             </persona>
         </message>
         <message id="has-configuration-management-plan">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.7] A FedRAMP OSCAL SSP must have a Configuration Management Plan attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a Configuration Management Plan attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Configuration Management Plan.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.7] A FedRAMP OSCAL SSP must have a Configuration Management Plan attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a Configuration Management Plan attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Configuration Management Plan.</diagnostic>
             </persona>
         </message>
         <message id="has-incident-response-plan">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.8] A FedRAMP OSCAL SSP must have an Incident Response Plan attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have an Incident Response Plan attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks an Incident Response Plan.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.8] A FedRAMP OSCAL SSP must have an Incident Response Plan attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have an Incident Response Plan attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks an Incident Response Plan.</diagnostic>
             </persona>
         </message>
         <message id="has-separation-of-duties-matrix">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.11] A FedRAMP OSCAL SSP must have a Separation of Duties Matrix attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a Separation of Duties Matrix attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Separation of Duties Matrix.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.11] A FedRAMP OSCAL SSP must have a Separation of Duties Matrix attached.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a Separation of Duties Matrix attached.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Separation of Duties Matrix.</diagnostic>
             </persona>
         </message>
         <message id="has-policy-link">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.1] A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4
-                control families.</affirmative>
+                <affirmative>A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control
+                families.</affirmative>
                 <diagnostic>
                 <sch:value-of select="local-name()" />
                 <sch:value-of select="@control-id" />
                 <sch:span class="message">lacks policy reference(s) (via by-component link)</sch:span>.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.1] A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4
-                control families.</affirmative>
+                <affirmative>A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control
+                families.</affirmative>
                 <diagnostic>
                 <sch:value-of select="local-name()" />
                 <sch:value-of select="@control-id" />
@@ -3680,8 +3675,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-policy-attachment-resource">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.1] A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4
-                control families.</affirmative>
+                <affirmative>A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control
+                families.</affirmative>
                 <diagnostic>
                 <sch:value-of select="local-name()" />
                 <sch:value-of select="@control-id" />
@@ -3689,8 +3684,8 @@ leveraged-authorization.</sch:assert>
                 <sch:value-of select="string-join($policy-hrefs, ', ')" />.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.1] A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4
-                control families.</affirmative>
+                <affirmative>A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control
+                families.</affirmative>
                 <diagnostic>
                 <sch:value-of select="local-name()" />
                 <sch:value-of select="@control-id" />
@@ -3700,16 +3695,16 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-procedure-link">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.1] A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4
-                control families.</affirmative>
+                <affirmative>A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control
+                families.</affirmative>
                 <diagnostic>
                 <sch:value-of select="local-name()" />
                 <sch:value-of select="@control-id" />
                 <sch:span class="message">lacks procedure reference(s) (via by-component link)</sch:span>.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.1] A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4
-                control families.</affirmative>
+                <affirmative>A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control
+                families.</affirmative>
                 <diagnostic>
                 <sch:value-of select="local-name()" />
                 <sch:value-of select="@control-id" />
@@ -3718,8 +3713,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-procedure-attachment-resource">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.1] A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4
-                control families.</affirmative>
+                <affirmative>A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control
+                families.</affirmative>
                 <diagnostic>
                 <sch:value-of select="local-name()" />
                 <sch:value-of select="@control-id" />
@@ -3727,8 +3722,8 @@ leveraged-authorization.</sch:assert>
                 <sch:value-of select="string-join($procedure-hrefs, ', ')" />.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.1] A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4
-                control families.</affirmative>
+                <affirmative>A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control
+                families.</affirmative>
                 <diagnostic>
                 <sch:value-of select="local-name()" />
                 <sch:value-of select="@control-id" />
@@ -3738,168 +3733,166 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-reuse">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.1] Policy and procedure documents must have unique per-control-family associations.</affirmative>
+                <affirmative>Policy and procedure documents must have unique per-control-family associations.</affirmative>
                 <diagnostic>A policy or procedure reference was incorrectly re-used.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.1] Policy and procedure documents must have unique per-control-family associations.</affirmative>
+                <affirmative>Policy and procedure documents must have unique per-control-family associations.</affirmative>
                 <diagnostic>A policy or procedure reference was incorrectly re-used.</diagnostic>
             </persona>
         </message>
         <message id="has-privacy-poc-role">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must incorporate a Privacy Point of Contact role.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must incorporate a Privacy Point of Contact role.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Privacy Point of Contact role.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must incorporate a Privacy Point of Contact role.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must incorporate a Privacy Point of Contact role.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Privacy Point of Contact role.</diagnostic>
             </persona>
         </message>
         <message id="has-responsible-party-privacy-poc-role">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role
-                reference.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role reference.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Privacy Point of Contact responsible party role reference.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role
-                reference.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role reference.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Privacy Point of Contact responsible party role reference.</diagnostic>
             </persona>
         </message>
         <message id="has-responsible-privacy-poc-party-uuid">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role reference
-                identifying the party by UUID.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role reference identifying the party by
+                UUID.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Privacy Point of Contact responsible party role reference identifying the party by
                 UUID.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role reference
-                identifying the party by UUID.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role reference identifying the party by
+                UUID.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Privacy Point of Contact responsible party role reference identifying the party by
                 UUID.</diagnostic>
             </persona>
         </message>
         <message id="has-privacy-poc">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must define a Privacy Point of Contact.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must define a Privacy Point of Contact.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Privacy Point of Contact.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must define a Privacy Point of Contact.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must define a Privacy Point of Contact.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Privacy Point of Contact.</diagnostic>
             </persona>
         </message>
         <message id="has-correct-yes-or-no-answer">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question must have an
-                allowed answer.</affirmative>
+                <affirmative>A Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question must have an allowed
+                answer.</affirmative>
                 <diagnostic>This Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question has an invalid answer. This
                 property has an incorrect value: should be "yes" or "no".</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question must have an
-                allowed answer.</affirmative>
+                <affirmative>A Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question must have an allowed
+                answer.</affirmative>
                 <diagnostic>This property has an incorrect value: should be "yes" or "no".</diagnostic>
             </persona>
         </message>
         <message id="has-privacy-sensitive-designation">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have a privacy-sensitive designation.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a privacy-sensitive designation.</affirmative>
                 <diagnostic>The privacy-sensitive designation is missing.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have a privacy-sensitive designation.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a privacy-sensitive designation.</affirmative>
                 <diagnostic>The privacy-sensitive designation is missing.</diagnostic>
             </persona>
         </message>
         <message id="has-pta-question-1">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA)
-                qualifying question #1.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question
+                #1.</affirmative>
                 <diagnostic>The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #1 is missing.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA)
-                qualifying question #1.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question
+                #1.</affirmative>
                 <diagnostic>The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #1 is missing.</diagnostic>
             </persona>
         </message>
         <message id="has-pta-question-2">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA)
-                qualifying question #2.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question
+                #2.</affirmative>
                 <diagnostic>The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #2 is missing.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA)
-                qualifying question #2.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question
+                #2.</affirmative>
                 <diagnostic>The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #2 is missing.</diagnostic>
             </persona>
         </message>
         <message id="has-pta-question-3">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA)
-                qualifying question #3.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question
+                #3.</affirmative>
                 <diagnostic>The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #3 is missing.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA)
-                qualifying question #3.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question
+                #3.</affirmative>
                 <diagnostic>The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #3 is missing.</diagnostic>
             </persona>
         </message>
         <message id="has-pta-question-4">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA)
-                qualifying question #4.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question
+                #4.</affirmative>
                 <diagnostic>The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #4 is missing.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA)
-                qualifying question #4.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question
+                #4.</affirmative>
                 <diagnostic>The Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #4 is missing.</diagnostic>
             </persona>
         </message>
         <message id="has-all-pta-questions">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have all four PTA questions.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have all four PTA questions.</affirmative>
                 <diagnostic>One or more of the four PTA questions is missing.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have all four PTA questions.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have all four PTA questions.</affirmative>
                 <diagnostic>One or more of the four PTA questions is missing.</diagnostic>
             </persona>
         </message>
         <message id="has-correct-pta-question-cardinality">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have no duplicate PTA questions.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have no duplicate PTA questions.</affirmative>
                 <diagnostic>One or more of the four PTA questions is a duplicate.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP must have no duplicate PTA questions.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have no duplicate PTA questions.</affirmative>
                 <diagnostic>One or more of the four PTA questions is a duplicate.</diagnostic>
             </persona>
         </message>
         <message id="has-sorn">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP may have a SORN ID.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP may have a SORN ID.</affirmative>
                 <diagnostic>The SORN ID is missing.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] A FedRAMP OSCAL SSP may have a SORN ID.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP may have a SORN ID.</affirmative>
                 <diagnostic>The SORN ID is missing.</diagnostic>
             </persona>
         </message>
         <message id="has-pia">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.4] This FedRAMP OSCAL SSP must incorporate a Privacy Impact Analysis.</affirmative>
+                <affirmative>This FedRAMP OSCAL SSP must incorporate a Privacy Impact Analysis.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Privacy Impact Analysis.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.4] This FedRAMP OSCAL SSP must incorporate a Privacy Impact Analysis.</affirmative>
+                <affirmative>This FedRAMP OSCAL SSP must incorporate a Privacy Impact Analysis.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Privacy Impact Analysis.</diagnostic>
             </persona>
         </message>
@@ -3936,7 +3929,7 @@ leveraged-authorization.</sch:assert>
         <message id="has-credible-CMVP-validation-reference">
             <persona id="reviewer">
                 <affirmative>A validation reference must provide a CMVP certificate number.</affirmative>
-                <diagnostic>This validation referenc does not resemble a CMVP certificate number.</diagnostic>
+                <diagnostic>This validation reference does not resemble a CMVP certificate number.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A validation-reference property must provide a CMVP certificate number.</affirmative>
@@ -3945,8 +3938,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-consonant-CMVP-validation-reference">
             <persona id="reviewer">
-                <affirmative>A validation-reference property must be in accord with its sibling validation details.</affirmative>
-                <diagnostic>This validation-reference property does not match its sibling validation details.</diagnostic>
+                <affirmative>A validation reference must be in accord with its sibling validation details.</affirmative>
+                <diagnostic>This validation reference does not match its sibling validation details.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A validation-reference property must be in accord with its sibling validation-details href.</affirmative>
@@ -3956,7 +3949,7 @@ leveraged-authorization.</sch:assert>
         <message id="has-credible-CMVP-validation-details">
             <persona id="reviewer">
                 <affirmative>A validation details must refer to a NIST CMVP certificate detail page.</affirmative>
-                <diagnostic>This validation details attribute does not resemble a CMVP certificate URL.</diagnostic>
+                <diagnostic>This validation details does not resemble a CMVP certificate URL.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A validation-details link must refer to a NIST CMVP certificate detail page.</affirmative>
@@ -3966,7 +3959,7 @@ leveraged-authorization.</sch:assert>
         <message id="has-consonant-CMVP-validation-details">
             <persona id="reviewer">
                 <affirmative>A validation details link must be in accord with its sibling validation reference.</affirmative>
-                <diagnostic>This validation details link href attribute does not match its sibling validation reference.</diagnostic>
+                <diagnostic>This validation details link does not match its sibling validation reference.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A validation-details link must be in accord with its sibling validation-reference.</affirmative>
@@ -4213,97 +4206,89 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-security-eauth-level">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP must have a Digital Identity Determination property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a Digital Identity Determination property.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Digital Identity Determination property.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP must have a Digital Identity Determination property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a Digital Identity Determination property.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Digital Identity Determination property.</diagnostic>
             </persona>
         </message>
         <message id="has-identity-assurance-level">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP may have a Digital Identity Determination identity-assurance-level
-                property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination identity-assurance-level property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination identity-assurance-level property.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP may have a Digital Identity Determination identity-assurance-level
-                property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination identity-assurance-level property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination identity-assurance-level property.</diagnostic>
             </persona>
         </message>
         <message id="has-authenticator-assurance-level">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP may have a Digital Identity Determination authenticator-assurance-level
-                property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination authenticator-assurance-level property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination authenticator-assurance-level property.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP may have a Digital Identity Determination authenticator-assurance-level
-                property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination authenticator-assurance-level property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination authenticator-assurance-level property.</diagnostic>
             </persona>
         </message>
         <message id="has-federation-assurance-level">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP may have a Digital Identity Determination federation-assurance-level
-                property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination federation-assurance-level property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination federation-assurance-level property.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP may have a Digital Identity Determination federation-assurance-level
-                property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination federation-assurance-level property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination federation-assurance-level property.</diagnostic>
             </persona>
         </message>
         <message id="has-allowed-security-eauth-level">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP must have a Digital Identity Determination property with an allowed
-                value.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a Digital Identity Determination property with an allowed value.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Digital Identity Determination property with an allowed value.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP must have a Digital Identity Determination property with an allowed
-                value.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must have a Digital Identity Determination property with an allowed value.</affirmative>
                 <diagnostic>This FedRAMP OSCAL SSP lacks a Digital Identity Determination property with an allowed value.</diagnostic>
             </persona>
         </message>
         <message id="has-allowed-identity-assurance-level">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination identity-assurance-level
+                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination identity-assurance-level
                 property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination identity-assurance-level property.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination identity-assurance-level
+                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination identity-assurance-level
                 property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination identity-assurance-level property.</diagnostic>
             </persona>
         </message>
         <message id="has-allowed-authenticator-assurance-level">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination
-                authenticator-assurance-level property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination authenticator-assurance-level
+                property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination authenticator-assurance-level
                 property.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination
-                authenticator-assurance-level property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination authenticator-assurance-level
+                property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination authenticator-assurance-level
                 property.</diagnostic>
             </persona>
         </message>
         <message id="has-allowed-federation-assurance-level">
             <persona id="reviewer">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination
-                federation-assurance-level property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination federation-assurance-level
+                property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination federation-assurance-level property.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section B Check 3.3] A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination
-                federation-assurance-level property.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination federation-assurance-level
+                property.</affirmative>
                 <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination federation-assurance-level property.</diagnostic>
             </persona>
         </message>
@@ -4797,8 +4782,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="role-defined-system-owner">
             <persona id="reviewer">
-                <affirmative>The system-owner role must be defined.</affirmative>
-                <diagnostic>The system-owner role is missing.</diagnostic>
+                <affirmative>The System Owner role must be defined.</affirmative>
+                <diagnostic>The System Owner role is missing.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>The system-owner role must be defined.</affirmative>
@@ -4807,8 +4792,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="role-defined-authorizing-official">
             <persona id="reviewer">
-                <affirmative>The authorizing-official role must be defined.</affirmative>
-                <diagnostic>The authorizing-official role is missing.</diagnostic>
+                <affirmative>The Authorizing Official role must be defined.</affirmative>
+                <diagnostic>The Authorizing Official role is missing.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>The authorizing-official role must be defined.</affirmative>
@@ -4817,8 +4802,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="role-defined-system-poc-management">
             <persona id="reviewer">
-                <affirmative>The system-poc-management role must be defined.</affirmative>
-                <diagnostic>The system-poc-management role is missing.</diagnostic>
+                <affirmative>The System Management PoC role must be defined.</affirmative>
+                <diagnostic>The System Management PoC role is missing.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>The system-poc-management role must be defined.</affirmative>
@@ -4827,8 +4812,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="role-defined-system-poc-technical">
             <persona id="reviewer">
-                <affirmative>The system-poc-technical role must be defined.</affirmative>
-                <diagnostic>The system-poc-technical role is missing.</diagnostic>
+                <affirmative>The System Technical PoC role must be defined.</affirmative>
+                <diagnostic>The System Technical PoC role is missing.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>The system-poc-technical role must be defined.</affirmative>
@@ -4837,8 +4822,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="role-defined-system-poc-other">
             <persona id="reviewer">
-                <affirmative>The system-poc-other role must be defined.</affirmative>
-                <diagnostic>The system-poc-other role is missing.</diagnostic>
+                <affirmative>The System Other PoC role must be defined.</affirmative>
+                <diagnostic>The System Other PoC role is missing.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>The system-poc-other role must be defined.</affirmative>
@@ -4847,8 +4832,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="role-defined-information-system-security-officer">
             <persona id="reviewer">
-                <affirmative>The information-system-security-officer role must be defined.</affirmative>
-                <diagnostic>The information-system-security-officer role is missing.</diagnostic>
+                <affirmative>The Information System Security Officer role must be defined.</affirmative>
+                <diagnostic>The Information System Security Officer role is missing.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>The information-system-security-officer role must be defined.</affirmative>
@@ -4857,8 +4842,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="role-defined-authorizing-official-poc">
             <persona id="reviewer">
-                <affirmative>The authorizing-official-poc role must be defined.</affirmative>
-                <diagnostic>The authorizing-official-poc role is missing.</diagnostic>
+                <affirmative>The Authorizing Official PoC role must be defined.</affirmative>
+                <diagnostic>The Authorizing Official PoC role is missing.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>The authorizing-official-poc role must be defined.</affirmative>
@@ -4937,8 +4922,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="user-has-role-id">
             <persona id="reviewer">
-                <affirmative>Every user has a role-id.</affirmative>
-                <diagnostic>This user lacks a role-id.</diagnostic>
+                <affirmative>Every user has a role identifier.</affirmative>
+                <diagnostic>This user lacks a role identifier.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every user has a role-id.</affirmative>
@@ -4947,8 +4932,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="user-has-user-type">
             <persona id="reviewer">
-                <affirmative>Every user has a user type property.</affirmative>
-                <diagnostic>This user lacks a user type property.</diagnostic>
+                <affirmative>Every user has a user type.</affirmative>
+                <diagnostic>This user lacks a user type.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every user has a user type property.</affirmative>
@@ -4957,8 +4942,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="user-has-privilege-level">
             <persona id="reviewer">
-                <affirmative>Every user has a privilege-level property.</affirmative>
-                <diagnostic>This user lacks a privilege-level property.</diagnostic>
+                <affirmative>Every user has a privilege-level.</affirmative>
+                <diagnostic>This user lacks a privilege-level.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every user has a privilege-level property.</affirmative>
@@ -4967,8 +4952,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="user-has-sensitivity-level">
             <persona id="reviewer">
-                <affirmative>Every user has a sensitivity level property.</affirmative>
-                <diagnostic>This user lacks a sensitivity level property.</diagnostic>
+                <affirmative>Every user has a sensitivity level.</affirmative>
+                <diagnostic>This user lacks a sensitivity level.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every user has a sensitivity level property.</affirmative>
@@ -4977,8 +4962,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="user-has-authorized-privilege">
             <persona id="reviewer">
-                <affirmative>Every user has one or more authorized-privileges.</affirmative>
-                <diagnostic>This user lacks one or more authorized-privileges.</diagnostic>
+                <affirmative>Every user has one or more authorized privileges.</affirmative>
+                <diagnostic>This user lacks one or more authorized privileges.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every user has one or more authorized-privileges.</affirmative>
@@ -4987,8 +4972,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="role-id-has-role-definition">
             <persona id="reviewer">
-                <affirmative>Each role-id must reference a role definition.</affirmative>
-                <diagnostic>This role-id references a non-existent role definition.</diagnostic>
+                <affirmative>Each identified role must reference a role definition.</affirmative>
+                <diagnostic>This identified role references a non-existent role definition.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each role-id must reference a role definition.</affirmative>
@@ -5007,8 +4992,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="user-privilege-level-has-allowed-value">
             <persona id="reviewer">
-                <affirmative>User privilege-level property has an allowed value.</affirmative>
-                <diagnostic>User privilege-level property has an allowed value.</diagnostic>
+                <affirmative>User privilege level has an allowed value.</affirmative>
+                <diagnostic>User privilege level lacks an allowed value.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>User privilege-level property has an allowed value.</affirmative>
@@ -5017,8 +5002,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="user-sensitivity-level-has-allowed-value">
             <persona id="reviewer">
-                <affirmative>User sensitivity level property has an allowed value.</affirmative>
-                <diagnostic>This user sensitivity level property lacks an allowed value.</diagnostic>
+                <affirmative>User sensitivity level has an allowed value.</affirmative>
+                <diagnostic>This user sensitivity level lacks an allowed value.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>User sensitivity level property has an allowed value.</affirmative>
@@ -5027,8 +5012,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="authorized-privilege-has-title">
             <persona id="reviewer">
-                <affirmative>Every authorized-privilege has a title.</affirmative>
-                <diagnostic>This authorized-privilege lacks a title.</diagnostic>
+                <affirmative>Every authorized privilege has a title.</affirmative>
+                <diagnostic>This authorized privilege lacks a title.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every authorized-privilege has a title.</affirmative>
@@ -5037,8 +5022,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="authorized-privilege-has-function-performed">
             <persona id="reviewer">
-                <affirmative>Every authorized-privilege has one or more function-performed.</affirmative>
-                <diagnostic>This authorized-privilege lacks one or more function-performed.</diagnostic>
+                <affirmative>Every authorized privilege is associated with one or more functions performed.</affirmative>
+                <diagnostic>This authorized privilege lacks associations with one or more functions performed.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every authorized-privilege has one or more function-performed.</affirmative>
@@ -5047,8 +5032,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="authorized-privilege-has-non-empty-title">
             <persona id="reviewer">
-                <affirmative>Every authorized-privilege title is non-empty.</affirmative>
-                <diagnostic>This authorized-privilege title is empty.</diagnostic>
+                <affirmative>Every authorized privilege title has a title.</affirmative>
+                <diagnostic>This authorized privilege title lacks a title.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every authorized-privilege title is non-empty.</affirmative>
@@ -5057,8 +5042,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="authorized-privilege-has-non-empty-function-performed">
             <persona id="reviewer">
-                <affirmative>Every authorized-privilege has a non-empty function-performed.</affirmative>
-                <diagnostic>This authorized-privilege lacks a non-empty function-performed.</diagnostic>
+                <affirmative>Every authorized privilege function performed has a definition.</affirmative>
+                <diagnostic>This authorized privilege function performed is empty.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every authorized-privilege has a non-empty function-performed.</affirmative>
@@ -5067,8 +5052,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-authorization-boundary">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP includes an authorization-boundary in its system-characteristics.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP lacks an authorization-boundary in its system-characteristics.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP includes an authorization boundary.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP lacks an authorization boundary.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP includes an authorization-boundary in its system-characteristics.</affirmative>
@@ -5077,8 +5062,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-authorization-boundary-description">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP has an authorization-boundary description.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP lacks an authorization-boundary description.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP has an authorization boundary description.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP lacks an authorization boundary description.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP has an authorization-boundary description.</affirmative>
@@ -5087,8 +5072,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-authorization-boundary-diagram">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP has at least one authorization-boundary diagram.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP lacks at least one authorization-boundary diagram.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP has at least one authorization boundary diagram.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP lacks at least one authorization boundary diagram.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP has at least one authorization-boundary diagram.</affirmative>
@@ -5097,8 +5082,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-authorization-boundary-diagram-uuid">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a uuid attribute.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP authorization-boundary diagram lacks a uuid attribute.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP authorization boundary diagram has a uuid attribute.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP authorization boundary diagram lacks a uuid attribute.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a uuid attribute.</affirmative>
@@ -5107,8 +5092,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-authorization-boundary-diagram-description">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a description.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP authorization-boundary diagram lacks a description.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP authorization boundary diagram has a description.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP authorization boundary diagram lacks a description.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a description.</affirmative>
@@ -5117,8 +5102,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-authorization-boundary-diagram-link">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a link.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP authorization-boundary diagram lacks a link.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP authorization boundary diagram has a link.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP authorization boundary diagram lacks a link.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a link.</affirmative>
@@ -5127,8 +5112,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-authorization-boundary-diagram-caption">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a caption.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP authorization-boundary diagram lacks a caption.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP authorization boundary diagram has a caption.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP authorization boundary diagram lacks a caption.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a caption.</affirmative>
@@ -5137,8 +5122,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-authorization-boundary-diagram-link-rel">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a link rel attribute.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP authorization-boundary diagram lacks a link rel attribute.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP authorization boundary diagram has a link rel attribute.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP authorization boundary diagram lacks a link rel attribute.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a link rel attribute.</affirmative>
@@ -5147,8 +5132,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-authorization-boundary-diagram-link-rel-allowed-value">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a link rel attribute with the value "diagram".</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP authorization-boundary diagram lacks a link rel attribute with the value "diagram".</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP authorization boundary diagram has a link rel attribute with the value "diagram".</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP authorization boundary diagram lacks a link rel attribute with the value "diagram".</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP authorization-boundary diagram has a link rel attribute with the value "diagram".</affirmative>
@@ -5157,9 +5142,9 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-authorization-boundary-diagram-link-href-target">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP authorization-boundary diagram link references a back-matter resource representing the diagram
+                <affirmative>A FedRAMP OSCAL SSP authorization boundary diagram link references a back-matter resource representing the diagram
                 document.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP authorization-boundary diagram link does not reference a back-matter resource representing the
+                <diagnostic>This FedRAMP OSCAL SSP authorization boundary diagram link does not reference a back-matter resource representing the
                 diagram document.</diagnostic>
             </persona>
             <persona id="submitter">
@@ -5171,8 +5156,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-network-architecture">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP includes a network-architecture in its system-characteristics.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP lacks an network-architecture in its system-characteristics.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP includes a network architecture diagram.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP lacks an network architecture diagram.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP includes a network-architecture in its system-characteristics.</affirmative>
@@ -5181,8 +5166,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-network-architecture-description">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP has a network-architecture description.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP lacks an network-architecture description.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP has a network architecture description.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP lacks an network architecture description.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP has a network-architecture description.</affirmative>
@@ -5191,8 +5176,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-network-architecture-diagram">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP has at least one network-architecture diagram.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP lacks at least one network-architecture diagram.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP has at least one network architecture diagram.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP lacks at least one network architecture diagram.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP has at least one network-architecture diagram.</affirmative>
@@ -5201,8 +5186,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-network-architecture-diagram-uuid">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a uuid attribute.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP network-architecture diagram lacks a uuid attribute.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP network architecture diagram has a uuid attribute.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP network architecture diagram lacks a uuid attribute.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a uuid attribute.</affirmative>
@@ -5211,8 +5196,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-network-architecture-diagram-description">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a description.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP network-architecture diagram lacks a description.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP network architecture diagram has a description.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP network architecture diagram lacks a description.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a description.</affirmative>
@@ -5221,8 +5206,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-network-architecture-diagram-link">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a link.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP network-architecture diagram lacks a link.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP network architecture diagram has a link.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP network architecture diagram lacks a link.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a link.</affirmative>
@@ -5231,8 +5216,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-network-architecture-diagram-caption">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a caption.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP network-architecture diagram lacks a caption.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP network architecture diagram has a caption.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP network architecture diagram lacks a caption.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a caption.</affirmative>
@@ -5241,8 +5226,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-network-architecture-diagram-link-rel">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a link rel attribute.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP network-architecture diagram lacks a link rel attribute.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP network architecture diagram has a link rel attribute.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP network architecture diagram lacks a link rel attribute.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a link rel attribute.</affirmative>
@@ -5251,8 +5236,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-network-architecture-diagram-link-rel-allowed-value">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a link rel attribute with the value "diagram".</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP network-architecture diagram lacks a link rel attribute with the value "diagram".</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP network architecture diagram has a link rel attribute with the value "diagram".</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP network architecture diagram lacks a link rel attribute with the value "diagram".</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP network-architecture diagram has a link rel attribute with the value "diagram".</affirmative>
@@ -5261,9 +5246,9 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-network-architecture-diagram-link-href-target">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP network-architecture diagram link references a back-matter resource representing the diagram
+                <affirmative>A FedRAMP OSCAL SSP network architecture diagram link references a back-matter resource representing the diagram
                 document.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP network-architecture diagram link does not reference a back-matter resource representing the
+                <diagnostic>This FedRAMP OSCAL SSP network architecture diagram link does not reference a back-matter resource representing the
                 diagram document.</diagnostic>
             </persona>
             <persona id="submitter">
@@ -5275,8 +5260,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-data-flow">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP includes a data-flow in its system-characteristics.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP lacks an data-flow in its system-characteristics.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP includes a data flow diagram.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP lacks an data-flow diagram.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP includes a data-flow in its system-characteristics.</affirmative>
@@ -5285,8 +5270,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-data-flow-description">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP has a data-flow description.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP lacks an data-flow description.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP has a data flow description.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP lacks an data flow description.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP has a data-flow description.</affirmative>
@@ -5295,8 +5280,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-data-flow-diagram">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP has at least one data-flow diagram.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP lacks at least one data-flow diagram.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP has at least one data flow diagram.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP lacks at least one data flow diagram.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP has at least one data-flow diagram.</affirmative>
@@ -5305,8 +5290,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-data-flow-diagram-uuid">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a uuid attribute.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP data-flow diagram lacks a uuid attribute.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP data flow diagram has a uuid attribute.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP data flow diagram lacks a uuid attribute.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a uuid attribute.</affirmative>
@@ -5315,8 +5300,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-data-flow-diagram-description">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a description.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP data-flow diagram lacks a description.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP data flow diagram has a description.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP data flow diagram lacks a description.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a description.</affirmative>
@@ -5325,8 +5310,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-data-flow-diagram-link">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a link.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP data-flow diagram lacks a link.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP data flow diagram has a link.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP data flow diagram lacks a link.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a link.</affirmative>
@@ -5335,8 +5320,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-data-flow-diagram-caption">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a caption.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP data-flow diagram lacks a caption.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP data flow diagram has a caption.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP data flow diagram lacks a caption.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a caption.</affirmative>
@@ -5345,8 +5330,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-data-flow-diagram-link-rel">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a link rel attribute.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP data-flow diagram lacks a link rel attribute.</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP data flow diagram has a link rel attribute.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP data flow diagram lacks a link rel attribute.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a link rel attribute.</affirmative>
@@ -5355,8 +5340,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-data-flow-diagram-link-rel-allowed-value">
             <persona id="reviewer">
-                <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a link rel attribute with the value "diagram".</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP data-flow diagram lacks a link rel attribute with the value "diagram".</diagnostic>
+                <affirmative>Each FedRAMP OSCAL SSP data flow diagram has a link rel attribute with the value "diagram".</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP data flow diagram lacks a link rel attribute with the value "diagram".</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Each FedRAMP OSCAL SSP data-flow diagram has a link rel attribute with the value "diagram".</affirmative>
@@ -5365,9 +5350,9 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-data-flow-diagram-link-href-target">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP data-flow diagram link references a back-matter resource representing the diagram
+                <affirmative>A FedRAMP OSCAL SSP data flow diagram link references a back-matter resource representing the diagram
                 document.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP data-flow diagram link does not reference a back-matter resource representing the diagram
+                <diagnostic>This FedRAMP OSCAL SSP data flow diagram link does not reference a back-matter resource representing the diagram
                 document.</diagnostic>
             </persona>
             <persona id="submitter">
@@ -5399,8 +5384,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="implemented-requirement-has-implementation-status">
             <persona id="reviewer">
-                <affirmative>Every implemented-requirement has an implementation-status property.</affirmative>
-                <diagnostic>This implemented-requirement lacks an implementation-status.</diagnostic>
+                <affirmative>Every implemented requirement has an implementation-status property.</affirmative>
+                <diagnostic>This implemented requirement lacks an implementation-status.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every implemented-requirement has an implementation-status property.</affirmative>
@@ -5419,8 +5404,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="implemented-requirement-has-control-origination">
             <persona id="reviewer">
-                <affirmative>Every implemented-requirement has a control-origination property.</affirmative>
-                <diagnostic>This implemented-requirement lacks a control-origination property.</diagnostic>
+                <affirmative>Every implemented requirement has a control origin.</affirmative>
+                <diagnostic>This implemented requirement lacks a control origin.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every implemented-requirement has a control-origination property.</affirmative>
@@ -5429,8 +5414,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="implemented-requirement-has-allowed-control-origination">
             <persona id="reviewer">
-                <affirmative>Every implemented-requirement has an allowed control-origination property.</affirmative>
-                <diagnostic>This implemented-requirement lacks an allowed control-origination property.</diagnostic>
+                <affirmative>Every implemented requirement has an allowed control origin.</affirmative>
+                <diagnostic>This implemented requirement lacks an allowed control origin.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every implemented-requirement has an allowed control-origination property.</affirmative>
@@ -5439,10 +5424,9 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="implemented-requirement-has-leveraged-authorization">
             <persona id="reviewer">
-                <affirmative>Every implemented-requirement with a control-origination property of "inherited" references a
-                leveraged-authorization.</affirmative>
-                <diagnostic>This implemented-requirement with a control-origination property of "inherited" does not reference a
-                leveraged-authorization element in the same document.</diagnostic>
+                <affirmative>Every implemented requirement with a control origin of "inherited" references a leveraged-authorization.</affirmative>
+                <diagnostic>This implemented requirement with a control origin of "inherited" does not reference a leveraged-authorization element in
+                the same document.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every implemented-requirement with a control-origination property of "inherited" references a
