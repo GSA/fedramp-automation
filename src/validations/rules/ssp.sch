@@ -3051,29 +3051,29 @@ leveraged-authorization.</sch:assert>
     <messages xmlns="https://fedramp.gov/oscal/fedramp-automation-messages">
         <message id="no-registry-values">
             <persona id="reviewer">
-                <affirmative>The registry values are available.</affirmative>
-                <diagnostic>The registry values at the path ' 
+                <affirmative>The validation technical components are present.</affirmative>
+                <diagnostic>The validation technical components at the path ' 
                 <sch:value-of select="$registry-base-path" />' are not present, this configuration is invalid.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>The registry values are available.</affirmative>
-                <diagnostic>The registry values at the path ' 
+                <affirmative>The validation technical components are available.</affirmative>
+                <diagnostic>The validation technical components at the path ' 
                 <sch:value-of select="$registry-base-path" />' are not present, this configuration is invalid.</diagnostic>
             </persona>
         </message>
         <message id="no-security-sensitivity-level">
             <persona id="reviewer">
-                <affirmative>[Section C Check 1.a] Sensitivity level is defined.</affirmative>
+                <affirmative>[Section C Check 1.a] A FedRAMP SSP must define its sensitivity level.</affirmative>
                 <diagnostic>[Section C Check 1.a] No sensitivity level was found As a result, no more validation processing can occur.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>[Section C Check 1.a] Sensitivity level is defined.</affirmative>
+                <affirmative>[Section C Check 1.a] A FedRAMP SSP must define its sensitivity level.</affirmative>
                 <diagnostic>[Section C Check 1.a] No sensitivity level was found As a result, no more validation processing can occur.</diagnostic>
             </persona>
         </message>
         <message id="invalid-security-sensitivity-level">
             <persona id="reviewer">
-                <affirmative>[Section C Check 1.a] Sensitivity level has an allowed value.</affirmative>
+                <affirmative>[Section C Check 1.a] A FedRAMP SSP must have an allowed sensitivity level.</affirmative>
                 <diagnostic>[Section C Check 1.a] 
                 <sch:value-of select="./name()" />is an invalid value of ' 
                 <sch:value-of select="lv:sensitivity-level(/)" />', not an allowed value of 
@@ -3128,7 +3128,7 @@ leveraged-authorization.</sch:assert>
         <message id="incomplete-core-implemented-requirements">
             <persona id="reviewer">
                 <affirmative>A FedRAMP SSP must implement the most important controls.</affirmative>
-                <diagnostic>[Section C Check 3] A FedRAMP SSP must implement the most important 
+                <diagnostic>[Section C Check 3] This FedRAMP SSP has not implemented the most important 
                 <sch:value-of select="count($core-missing)" />core 
                 <sch:value-of select="
                             if (count($core-missing) = 1) then
@@ -3152,8 +3152,8 @@ leveraged-authorization.</sch:assert>
         <message id="incomplete-all-implemented-requirements">
             <persona id="reviewer">
                 <affirmative>[Section C Check 2] A FedRAMP SSP must implement all required controls.</affirmative>
-                <diagnostic>[Section C Check 2] A FedRAMP SSP must implement 
-                <sch:value-of select="count($all-missing)" />
+                <diagnostic>[Section C Check 2] This FedRAMP SSP has not implemented 
+                <sch:value-of select="count($all-missing)" />required controls 
                 <sch:value-of select="
                             if (count($all-missing) = 1) then
                                 ' control'
@@ -3175,14 +3175,15 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="extraneous-implemented-requirements">
             <persona id="reviewer">
-                <affirmative>[Section C Check 2] A FedRAMP SSP must have no extraneous implemented controls.</affirmative>
-                <diagnostic>[Section C Check 2] A FedRAMP SSP must implement 
+                <affirmative>[Section C Check 2] A FedRAMP SSP must not include implemented controls beyond what is required for the applied
+                baseline.</affirmative>
+                <diagnostic>[Section C Check 2] This FedRAMP SSP has implemented 
                 <sch:value-of select="count($extraneous)" />extraneous 
                 <sch:value-of select="
                             if (count($extraneous) = 1) then
                                 ' control'
                             else
-                                ' controls'" />not needed given the selected profile: 
+                            ' controls'" />extraneous controls not needed given the selected profile: 
                 <sch:value-of select="$extraneous/@control-id" />.</diagnostic>
             </persona>
             <persona id="submitter">
@@ -3212,14 +3213,14 @@ leveraged-authorization.</sch:assert>
         <message id="invalid-implementation-status">
             <persona id="reviewer">
                 <affirmative>[Section C Check 2] Implementation status is correct.</affirmative>
-                <diagnostic>[Section C Check 2] Invalid status ' 
+                <diagnostic>[Section C Check 2] Invalid implementation status ' 
                 <sch:value-of select="$status" />' for 
                 <sch:value-of select="./@control-id" />, must be 
                 <sch:value-of select="$corrections" />.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>[Section C Check 2] Implementation status is correct.</affirmative>
-                <diagnostic>[Section C Check 2] Invalid status ' 
+                <diagnostic>[Section C Check 2] Invalid implementation status ' 
                 <sch:value-of select="$status" />' for 
                 <sch:value-of select="./@control-id" />, must be 
                 <sch:value-of select="$corrections" />.</diagnostic>
@@ -3228,14 +3229,14 @@ leveraged-authorization.</sch:assert>
         <message id="missing-response-points">
             <persona id="reviewer">
                 <affirmative>[Section C Check 2] A FedRAMP SSP must have required response points.</affirmative>
-                <diagnostic>[Section C Check 2] A FedRAMP SSP must implement a statement for each of the following lettered response points for
-                required controls: 
+                <diagnostic>[Section C Check 2] This FedRAMP SSP lacks a statement for each of the following lettered response points for required
+                controls: 
                 <sch:value-of select="$missing/@id" />.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>[Section C Check 2] A FedRAMP SSP must have required response points.</affirmative>
-                <diagnostic>[Section C Check 2] A FedRAMP SSP must implement a statement for each of the following lettered response points for
-                required controls: 
+                <diagnostic>[Section C Check 2] This FedRAMP SSP lacks a statement for each of the following lettered response points for required
+                controls: 
                 <sch:value-of select="$missing/@id" />.</diagnostic>
             </persona>
         </message>
@@ -3356,7 +3357,7 @@ leveraged-authorization.</sch:assert>
         <message id="incorrect-role-association">
             <persona id="reviewer">
                 <affirmative>[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous roles.</affirmative>
-                <diagnostic>[Section C Check 2] A FedRAMP SSP must define a responsible party with 
+                <diagnostic>[Section C Check 2] Responsible Role in control does not correspond to any entry in Roles and Responsibilities Table: 
                 <sch:value-of select="count($extraneous-roles)" />
                 <sch:value-of select="
                             if (count($extraneous-roles) = 1) then
@@ -3380,7 +3381,7 @@ leveraged-authorization.</sch:assert>
         <message id="incorrect-party-association">
             <persona id="reviewer">
                 <affirmative>[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous parties.</affirmative>
-                <diagnostic>[Section C Check 2] A FedRAMP SSP must define a responsible party with 
+                <diagnostic>[Section C Check 2] This FedRAMP SSP has a responsible party with 
                 <sch:value-of select="count($extraneous-parties)" />
                 <sch:value-of select="
                             if (count($extraneous-parties) = 1) then
@@ -3404,76 +3405,76 @@ leveraged-authorization.</sch:assert>
         <message id="resource-uuid-required">
             <persona id="reviewer">
                 <affirmative>Every resource has a uuid attribute.</affirmative>
-                <diagnostic>A FedRAMP SSP must include back-matter resource missing a UUID.</diagnostic>
+                <diagnostic>This FedRAMP SSP has a back-matter resource which lacks a UUID.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every resource has a uuid attribute.</affirmative>
-                <diagnostic>A FedRAMP SSP must include back-matter resource missing a UUID.</diagnostic>
+                <diagnostic>This FedRAMP SSP has a back-matter resource which lacks a UUID.</diagnostic>
             </persona>
         </message>
         <message id="resource-base64-available-filename">
             <persona id="reviewer">
-                <affirmative>This base64 has a filename attribute.</affirmative>
-                <diagnostic>This base64 lacks a filename attribute.</diagnostic>
+                <affirmative>Every declared embedded attachment has a filename attribute.</affirmative>
+                <diagnostic>This declared embedded attachment lacks a filename attribute.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>This base64 has a filename attribute.</affirmative>
+                <affirmative>Every base64 has a filename attribute.</affirmative>
                 <diagnostic>This base64 lacks a filename attribute.</diagnostic>
             </persona>
         </message>
         <message id="resource-base64-available-media-type">
             <persona id="reviewer">
-                <affirmative>This base64 has a media-type attribute.</affirmative>
-                <diagnostic>This base64 lacks a media-type attribute.</diagnostic>
+                <affirmative>Every declared embedded attachment has a media-type attribute.</affirmative>
+                <diagnostic>This declared embedded attachment lacks a media-type attribute.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>This base64 has a media-type attribute.</affirmative>
+                <affirmative>Every base64 has a media-type attribute.</affirmative>
                 <diagnostic>This base64 lacks a media-type attribute.</diagnostic>
             </persona>
         </message>
         <message id="resource-has-uuid">
             <persona id="reviewer">
-                <affirmative>A resource must have a uuid attribute.</affirmative>
-                <diagnostic>This resource lacks a uuid attribute.</diagnostic>
+                <affirmative>Every supporting artifact found in a citation must have a uuid attribute.</affirmative>
+                <diagnostic>This supporting artifact found in a citation lacks a uuid attribute.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>A resource must have a uuid attribute.</affirmative>
+                <affirmative>Every resource must have a uuid attribute.</affirmative>
                 <diagnostic>This resource lacks a uuid attribute.</diagnostic>
             </persona>
         </message>
         <message id="resource-has-title">
             <persona id="reviewer">
-                <affirmative>A resource should have a title.</affirmative>
-                <diagnostic>This resource lacks a title.</diagnostic>
+                <affirmative>Every supporting artifact found in a citation should have a title.</affirmative>
+                <diagnostic>This supporting artifact found in a citation lacks a title.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>A resource should have a title.</affirmative>
+                <affirmative>Every resource should have a title.</affirmative>
                 <diagnostic>This resource lacks a title.</diagnostic>
             </persona>
         </message>
         <message id="resource-has-rlink">
             <persona id="reviewer">
-                <affirmative>A resource must have a rlink element</affirmative>
-                <diagnostic>This resource lacks a rlink element.</diagnostic>
+                <affirmative>Every supporting artifact found in a citation must have a rlink element.</affirmative>
+                <diagnostic>This supporting artifact found in a citation lacks a rlink element.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>A resource must have a rlink element</affirmative>
+                <affirmative>Every resource must have a rlink element</affirmative>
                 <diagnostic>This resource lacks a rlink element.</diagnostic>
             </persona>
         </message>
         <message id="resource-is-referenced">
             <persona id="reviewer">
-                <affirmative>A resource should be referenced from within the document.</affirmative>
-                <diagnostic>This resource lacks a reference within the document (but does not).</diagnostic>
+                <affirmative>Every supporting artifact found in a citation should be referenced from within the document.</affirmative>
+                <diagnostic>This supporting artifact found in a citation lacks a reference within the document.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>A resource should be referenced from within the document.</affirmative>
-                <diagnostic>This resource lacks a reference within the document (but does not).</diagnostic>
+                <affirmative>Every resource should be referenced from within the document.</affirmative>
+                <diagnostic>This resource lacks a reference within the document.</diagnostic>
             </persona>
         </message>
         <message id="attachment-type-is-valid">
             <persona id="reviewer">
-                <affirmative>A resource should have an allowed attachment-type property.</affirmative>
+                <affirmative>A supporting artifact found in a citation should have an allowed attachment-type property.</affirmative>
                 <diagnostic>Found unknown attachment type « 
                 <sch:value-of select="@value" />» in 
                 <sch:value-of select="
@@ -3495,11 +3496,11 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="rlink-has-href">
             <persona id="reviewer">
-                <affirmative>A resource rlink must have an href attribute.</affirmative>
-                <diagnostic>This rlink lacks an href attribute.</diagnostic>
+                <affirmative>Every supporting artifact found in a citation rlink must have an href attribute.</affirmative>
+                <diagnostic>This supporting artifact found in a citationrlink lacks an href attribute.</diagnostic>
             </persona>
             <persona id="submitter">
-                <affirmative>A resource rlink must have an href attribute.</affirmative>
+                <affirmative>Every resource rlink must have an href attribute.</affirmative>
                 <diagnostic>This rlink lacks an href attribute.</diagnostic>
             </persona>
         </message>
@@ -3521,18 +3522,18 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="resource-has-base64">
             <persona id="reviewer">
-                <affirmative>A resource should have a base64 element.</affirmative>
-                <diagnostic>This resource should have a base64 element.</diagnostic>
+                <affirmative>A supporting artifact found in a citation should have an embedded attachment element.</affirmative>
+                <diagnostic>This supporting artifact found in a citation lacks an embedded attachment element.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A resource should have a base64 element.</affirmative>
-                <diagnostic>This resource should have a base64 element.</diagnostic>
+                <diagnostic>This resource lacks a base64 element.</diagnostic>
             </persona>
         </message>
         <message id="resource-has-base64-cardinality">
             <persona id="reviewer">
-                <affirmative>A resource must have only one base64 element.</affirmative>
-                <diagnostic>This resource must not have more than one base64 element.</diagnostic>
+                <affirmative>A supporting artifact found in a citation must have only one embedded attachment element.</affirmative>
+                <diagnostic>This supporting artifact found in a citation must not have more than one embedded attachment element.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A resource must have only one base64 element.</affirmative>
@@ -3541,8 +3542,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="base64-has-filename">
             <persona id="reviewer">
-                <affirmative>A base64 element must have a filename attribute.</affirmative>
-                <diagnostic>This base64 must have a filename attribute.</diagnostic>
+                <affirmative>Every embedded attachment element must have a filename attribute.</affirmative>
+                <diagnostic>This embedded attachment must have a filename attribute.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A base64 element must have a filename attribute.</affirmative>
@@ -3551,22 +3552,22 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="base64-has-media-type">
             <persona id="reviewer">
-                <affirmative>A base64 element must have a media-type attribute.</affirmative>
-                <diagnostic>This base64 must have a media-type attribute.</diagnostic>
+                <affirmative>Every embedded attachment element must have a media-type attribute.</affirmative>
+                <diagnostic>This embedded attachment must have a media-type attribute.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A base64 element must have a media-type attribute.</affirmative>
-                <diagnostic>This base64 must have a media-type attribute.</diagnostic>
+                <diagnostic>This base64 element lacks a media-type attribute.</diagnostic>
             </persona>
         </message>
         <message id="base64-has-content">
             <persona id="reviewer">
-                <affirmative>A base64 element must have content.</affirmative>
-                <diagnostic>This base64 must have content.</diagnostic>
+                <affirmative>Every embedded attachment element must have content.</affirmative>
+                <diagnostic>This embedded attachment lacks content.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A base64 element must have content.</affirmative>
-                <diagnostic>This base64 must have content.</diagnostic>
+                <diagnostic>This base64 element lacks content.</diagnostic>
             </persona>
         </message>
         <message id="has-fedramp-acronyms">
@@ -3795,7 +3796,8 @@ leveraged-authorization.</sch:assert>
             <persona id="reviewer">
                 <affirmative>[Section B Check 3.4] A Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question must have an
                 allowed answer.</affirmative>
-                <diagnostic>This property has an incorrect value: should be "yes" or "no".</diagnostic>
+                <diagnostic>This Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question has an invalid answer. This
+                property has an incorrect value: should be "yes" or "no".</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>[Section B Check 3.4] A Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question must have an
@@ -3913,8 +3915,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-CMVP-validation-reference">
             <persona id="reviewer">
-                <affirmative>A validation component or inventory-item must have a validation-reference property.</affirmative>
-                <diagnostic>This validation component or inventory-item lacks a validation-reference property.</diagnostic>
+                <affirmative>Every FIPS 140 validation citation must have a validation reference.</affirmative>
+                <diagnostic>This FIPS 140 validation citation lacks have a validation reference.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A validation component or inventory-item must have a validation-reference property.</affirmative>
@@ -3923,8 +3925,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-CMVP-validation-details">
             <persona id="reviewer">
-                <affirmative>A validation component or inventory-item must have a validation-details link.</affirmative>
-                <diagnostic>This validation component or inventory-item lacks a validation-details link.</diagnostic>
+                <affirmative>Every FIPS 140 validation citation must have validation details.</affirmative>
+                <diagnostic>This FIPS 140 validation citation lacks have validation details.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A validation component or inventory-item must have a validation-details link.</affirmative>
@@ -3933,8 +3935,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-credible-CMVP-validation-reference">
             <persona id="reviewer">
-                <affirmative>A validation-reference property must provide a CMVP certificate number.</affirmative>
-                <diagnostic>This validation-reference property does not resemble a CMVP certificate number.</diagnostic>
+                <affirmative>A validation reference must provide a CMVP certificate number.</affirmative>
+                <diagnostic>This validation referenc does not resemble a CMVP certificate number.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A validation-reference property must provide a CMVP certificate number.</affirmative>
@@ -3943,8 +3945,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-consonant-CMVP-validation-reference">
             <persona id="reviewer">
-                <affirmative>A validation-reference property must be in accord with its sibling validation-details href.</affirmative>
-                <diagnostic>This validation-reference property does not match its sibling validation-details href.</diagnostic>
+                <affirmative>A validation-reference property must be in accord with its sibling validation details.</affirmative>
+                <diagnostic>This validation-reference property does not match its sibling validation details.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A validation-reference property must be in accord with its sibling validation-details href.</affirmative>
@@ -3953,8 +3955,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-credible-CMVP-validation-details">
             <persona id="reviewer">
-                <affirmative>A validation-details link must refer to a NIST CMVP certificate detail page.</affirmative>
-                <diagnostic>This validation-details link href attribute does not resemble a CMVP certificate URL.</diagnostic>
+                <affirmative>A validation details must refer to a NIST CMVP certificate detail page.</affirmative>
+                <diagnostic>This validation details attribute does not resemble a CMVP certificate URL.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A validation-details link must refer to a NIST CMVP certificate detail page.</affirmative>
@@ -3963,8 +3965,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-consonant-CMVP-validation-details">
             <persona id="reviewer">
-                <affirmative>A validation-details link must be in accord with its sibling validation-reference.</affirmative>
-                <diagnostic>This validation-details link href attribute does not match its sibling validation-reference value.</diagnostic>
+                <affirmative>A validation details link must be in accord with its sibling validation reference.</affirmative>
+                <diagnostic>This validation details link href attribute does not match its sibling validation reference.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A validation-details link must be in accord with its sibling validation-reference.</affirmative>
