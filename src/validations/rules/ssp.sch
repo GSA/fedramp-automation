@@ -331,8 +331,6 @@
                         role="error"
                         test="not(exists($core-missing))">A FedRAMP SSP must implement the most important controls.</sch:assert>
             <sch:assert diagnostics="incomplete-all-implemented-requirements-diagnostic"
-                        test="not(exists($core-missing))">[Section C Check 3] A FedRAMP SSP must implement the most important controls.</sch:assert>
-            <sch:assert diagnostics="incomplete-all-implemented-requirements-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
                         doc:organizational-id="section-c.2"
@@ -2876,7 +2874,7 @@ leveraged-authorization.</sch:assert>
                         id="user-has-authorized-privilege-diagnostic">This user lacks one or more authorized-privileges.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-user-type-has-allowed-value"
                         doc:context="oscal:user/oscal:prop[@name = 'type']"
-                        id="user-user-type-has-allowed-value-diagnostic">User type property has an allowed value.</sch:diagnostic>
+                        id="user-user-type-has-allowed-value-diagnostic">This user type property lacks an allowed value.</sch:diagnostic>
         <sch:diagnostic doc:assertion="user-privilege-level-has-allowed-value"
                         doc:context="oscal:user/oscal:prop[@name = 'privilege-level']"
                         id="user-privilege-level-has-allowed-value-diagnostic">User privilege-level property has an allowed value.</sch:diagnostic>
@@ -2886,17 +2884,17 @@ leveraged-authorization.</sch:assert>
                         value.</sch:diagnostic>
         <sch:diagnostic doc:assertion="authorized-privilege-has-title"
                         doc:context="oscal:user/oscal:authorized-privilege"
-                        id="authorized-privilege-has-title-diagnostic">Every authorized-privilege has a title.</sch:diagnostic>
+                        id="authorized-privilege-has-title-diagnostic">This authorized-privilege lacks a title.</sch:diagnostic>
         <sch:diagnostic doc:assertion="authorized-privilege-has-function-performed"
                         doc:context="oscal:user/oscal:authorized-privilege"
-                        id="authorized-privilege-has-function-performed-diagnostic">Every authorized-privilege has one or more
+                        id="authorized-privilege-has-function-performed-diagnostic">This authorized-privilege lacks one or more
                         function-performed.</sch:diagnostic>
         <sch:diagnostic doc:assertion="authorized-privilege-has-non-empty-title"
                         doc:context="oscal:authorized-privilege/oscal:title"
-                        id="authorized-privilege-has-non-empty-title-diagnostic">Every authorized-privilege title is non-empty.</sch:diagnostic>
+                        id="authorized-privilege-has-non-empty-title-diagnostic">This authorized-privilege title is empty.</sch:diagnostic>
         <sch:diagnostic doc:assertion="authorized-privilege-has-non-empty-function-performed"
                         doc:context="oscal:authorized-privilege/oscal:function-performed"
-                        id="authorized-privilege-has-non-empty-function-performed-diagnostic">Every authorized-privilege has a non-empty
+                        id="authorized-privilege-has-non-empty-function-performed-diagnostic">This authorized-privilege lacks a non-empty
                         function-performed.</sch:diagnostic>
         <sch:diagnostic doc:assertion="has-authorization-boundary"
                         doc:context="oscal:system-characteristics"
