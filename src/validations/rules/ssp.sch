@@ -520,7 +520,7 @@
                 doc:organizational-id="section-b.?????"
                 id="resource-rlink-required"
                 role="error"
-                test="doc-available(./@href)">A FedRAMP SSP must references back-matter resource: <sch:value-of
+                test="doc-available(./@href)">A FedRAMP SSP must reference back-matter resource: <sch:value-of
                     select="./@href" /></sch:assert>
         </sch:rule>-->
         <sch:rule context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
