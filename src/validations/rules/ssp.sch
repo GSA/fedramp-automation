@@ -3419,8 +3419,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="resource-base64-available-media-type">
             <persona id="reviewer">
-                <affirmative>Every declared embedded attachment has a media-type attribute.</affirmative>
-                <diagnostic>This declared embedded attachment lacks a media-type attribute.</diagnostic>
+                <affirmative>Every declared embedded attachment has a media type.</affirmative>
+                <diagnostic>This declared embedded attachment lacks a media type.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>Every base64 has a media-type attribute.</affirmative>
@@ -3469,7 +3469,7 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="attachment-type-is-valid">
             <persona id="reviewer">
-                <affirmative>A supporting artifact found in a citation should have an allowed attachment-type property.</affirmative>
+                <affirmative>A supporting artifact found in a citation should have an allowed attachment type.</affirmative>
                 <diagnostic>Found unknown attachment type « 
                 <sch:value-of select="@value" />» in 
                 <sch:value-of select="
@@ -3547,8 +3547,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="base64-has-media-type">
             <persona id="reviewer">
-                <affirmative>Every embedded attachment element must have a media-type attribute.</affirmative>
-                <diagnostic>This embedded attachment must have a media-type attribute.</diagnostic>
+                <affirmative>Every embedded attachment element must have a media type.</affirmative>
+                <diagnostic>This embedded attachment lacks a media type.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A base64 element must have a media-type attribute.</affirmative>
@@ -3988,7 +3988,7 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-allowed-security-sensitivity-level">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP must specify an allowed security-sensitivity-level.</affirmative>
+                <affirmative>A FedRAMP OSCAL SSP must specify an allowed security sensitivity level.</affirmative>
                 <diagnostic>Invalid security-sensitivity-level " 
                 <sch:value-of select="." />". It must have one of the following 
                 <sch:value-of select="count($security-sensitivity-levels)" />values: 
@@ -4052,8 +4052,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="system-information-has-information-type">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP must specify at least one information-type.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP lacks at least one information-type.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP must specify at least one information type.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP lacks at least one information type.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP must specify at least one information-type.</affirmative>
@@ -4062,8 +4062,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="information-type-has-title">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type must have a title.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type lacks a title.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP information type must have a title.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP information type lacks a title.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP information-type must have a title.</affirmative>
@@ -4072,8 +4072,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="information-type-has-description">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type must have a description.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type lacks a description.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP information type must have a description.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP information type lacks a description.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP information-type must have a description.</affirmative>
@@ -4082,8 +4082,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="information-type-has-categorization">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type must have at least one categorization.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type lacks at least one categorization.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP information type must have at least one categorization.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP information type lacks at least one categorization.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP information-type must have at least one categorization.</affirmative>
@@ -4092,8 +4092,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="information-type-has-confidentiality-impact">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type must have a confidentiality-impact.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type lacks a confidentiality-impact.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP information type must have a confidentiality impact.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP information type lacks a confidentiality impact.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP information-type must have a confidentiality-impact.</affirmative>
@@ -4102,8 +4102,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="information-type-has-integrity-impact">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type must have a integrity-impact.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type lacks a integrity-impact.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP information type must have an integrity impact.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP information type lacks an integrity impact.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP information-type must have a integrity-impact.</affirmative>
@@ -4112,8 +4112,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="information-type-has-availability-impact">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type must have a availability-impact.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type lacks a availability-impact.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP information type must have an availability impact.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP information type lacks an availability impact.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP information-type must have a availability-impact.</affirmative>
@@ -4122,8 +4122,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="categorization-has-system-attribute">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type categorization must have a system attribute.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type categorization lacks a system attribute.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP information type categorization must have a system attribute.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP information type categorization lacks a system attribute.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP information-type categorization must have a system attribute.</affirmative>
@@ -4132,8 +4132,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="categorization-has-correct-system-attribute">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type categorization must have a correct system attribute.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type categorization lacks a correct system attribute. The correct value is
+                <affirmative>A FedRAMP OSCAL SSP information type categorization must have a correct system attribute.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP information type categorization lacks a correct system attribute. The correct value is
                 "https://doi.org/10.6028/NIST.SP.800-60v2r1".</diagnostic>
             </persona>
             <persona id="submitter">
@@ -4144,8 +4144,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="categorization-has-information-type-id">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type categorization must have at least one information-type-id.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type categorization lacks at least one information-type-id.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP information type categorization must have at least one information type identifier.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP information type categorization lacks at least one information type identifier.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP information-type categorization must have at least one information-type-id.</affirmative>
@@ -4164,9 +4164,9 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="cia-impact-has-base">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or availability-impact must have a base
+                <affirmative>A FedRAMP OSCAL SSP information type confidentiality, integrity, or availability impact must have a base
                 element.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or availability-impact lacks a base
+                <diagnostic>A FedRAMP OSCAL SSP information type confidentiality, integrity, or availability impact lacks a base
                 element.</diagnostic>
             </persona>
             <persona id="submitter">
@@ -4178,9 +4178,9 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="cia-impact-has-selected">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or availability-impact must have a selected
+                <affirmative>A FedRAMP OSCAL SSP information type confidentiality, integrity, or availability impact must have a selected
                 element.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or availability-impact lacks a selected
+                <diagnostic>A FedRAMP OSCAL SSP information type confidentiality, integrity, or availability impact lacks a selected
                 element.</diagnostic>
             </persona>
             <persona id="submitter">
@@ -4192,9 +4192,9 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="cia-impact-has-approved-fips-categorization">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or availability-impact base or select element must
-                have an approved value.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or availability-impact base or select element lacks an
+                <affirmative>A FedRAMP OSCAL SSP information type confidentiality, integrity, or availability impact base or select element must have
+                an approved value.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP information type confidentiality, integrity, or availability impact base or select element lacks an
                 approved value.</diagnostic>
             </persona>
             <persona id="submitter">
@@ -4216,8 +4216,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-identity-assurance-level">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination identity-assurance-level property.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination identity-assurance-level property.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination identity assurance level property.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination identity assurance level property.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination identity-assurance-level property.</affirmative>
@@ -4226,8 +4226,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-authenticator-assurance-level">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination authenticator-assurance-level property.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination authenticator-assurance-level property.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination authenticator assurance level property.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination authenticator assurance level property.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination authenticator-assurance-level property.</affirmative>
@@ -4236,8 +4236,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-federation-assurance-level">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination federation-assurance-level property.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination federation-assurance-level property.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination federation assurance level property.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP may lack a Digital Identity Determination federation assurance level property.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP may have a Digital Identity Determination federation-assurance-level property.</affirmative>
@@ -4256,9 +4256,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-allowed-identity-assurance-level">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination identity-assurance-level
-                property.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination identity-assurance-level property.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination identity assurance level.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination identity assurance level.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination identity-assurance-level
@@ -4268,10 +4267,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-allowed-authenticator-assurance-level">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination authenticator-assurance-level
-                property.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination authenticator-assurance-level
-                property.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination authenticator assurance level.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination authenticator assurance level.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination authenticator-assurance-level
@@ -4282,9 +4279,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-allowed-federation-assurance-level">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination federation-assurance-level
-                property.</affirmative>
-                <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination federation-assurance-level property.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination federation assurance level.</affirmative>
+                <diagnostic>A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination federation-assurance-level.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP should have an allowed Digital Identity Determination federation-assurance-level
@@ -4294,8 +4290,8 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-inventory-items">
             <persona id="reviewer">
-                <affirmative>A FedRAMP OSCAL SSP must incorporate inventory-item elements.</affirmative>
-                <diagnostic>This FedRAMP OSCAL SSP lacks inventory-item elements.</diagnostic>
+                <affirmative>A FedRAMP OSCAL SSP must incorporate inventory items.</affirmative>
+                <diagnostic>This FedRAMP OSCAL SSP lacks inventory items.</diagnostic>
             </persona>
             <persona id="submitter">
                 <affirmative>A FedRAMP OSCAL SSP must incorporate inventory-item elements.</affirmative>
@@ -4304,7 +4300,7 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-unique-asset-id">
             <persona id="reviewer">
-                <affirmative>An asset-id must be unique.</affirmative>
+                <affirmative>Every asset identifier must be unique.</affirmative>
                 <diagnostic>This asset id 
                 <sch:value-of select="@asset-id" />is not unique. An asset id must be unique within the scope of a FedRAMP OSCAL SSP
                 document.</diagnostic>
@@ -4318,7 +4314,7 @@ leveraged-authorization.</sch:assert>
         </message>
         <message id="has-allowed-asset-type">
             <persona id="reviewer">
-                <affirmative>An asset-type property must have an allowed value.</affirmative>
+                <affirmative>An asset type must have an allowed value.</affirmative>
                 <diagnostic>
                 <sch:value-of select="name()" />should have a FedRAMP asset type 
                 <sch:value-of select="string-join($asset-types, ' ∨ ')" />(not " 
