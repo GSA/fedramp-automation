@@ -121,7 +121,6 @@
                         select="unparsed-text($css-href)" />
                     <style><xsl:value-of disable-output-escaping="true" select="replace($css, '\s+', ' ')" /></style>
                 </xsl:if>
-
             </head>
             <body>
                 <h1>
@@ -138,28 +137,9 @@
                         href="#FedRAMP_extensions.xml"><code>FedRAMP_extensions.xml</code></a> is presented.</p>
 
                 <xsl:variable
-                    as="xs:string*"
-                    name="docs"
-                    select="
-                        'ssp.sch'" />
-
-                <xsl:variable
                     as="node()*"
-                    name="d">
-                    <xsl:sequence>
-                        <xsl:for-each
-                            select="$docs">
-                            <xsl:if
-                                test="not(doc-available(.))">
-                                <xsl:message
-                                    expand-text="true"
-                                    terminate="true">The expected input document {.} is not available.</xsl:message>
-                            </xsl:if>
-                            <xsl:copy-of
-                                select="doc(.)" />
-                        </xsl:for-each>
-                    </xsl:sequence>
-                </xsl:variable>
+                    name="d"
+                    select="doc('ssp.sch')"> </xsl:variable>
 
                 <h2>Business Rules</h2>
 
@@ -261,26 +241,7 @@
                     </tbody>
                 </table>
 
-                <!--<xsl:result-document
-                    href="rules.xml">
-                    <rules>
-                        <xsl:for-each
-                            select="$d//(assert | report)"
-                            xpath-default-namespace="http://purl.oclc.org/dsdl/schematron">
-                            <rule>
-                                <xsl:attribute
-                                    name="assertions"
-                                    select="@id" />
-                                <xsl:apply-templates
-                                    xpath-default-namespace="https://fedramp.gov/oscal/fedramp-automation-messages"
-                                    mode="serialize"
-                                    select="current()/node()" />
-                            </rule>
-                        </xsl:for-each>
-                    </rules>
-                </xsl:result-document>-->
-
-                <h2>Assertion Messages</h2>
+                <h2>Schematron Assertion Messages</h2>
 
                 <p>The following table shows affirmative (&#x1f44d;) messages and negative (&#x1f44e;), or diagnostic, messages for each Schematron
                     assertion.</p>
@@ -326,6 +287,7 @@
                                 <td>
                                     <div>
                                         <xsl:text>&#x1f44d;</xsl:text>
+                                        <xsl:text> </xsl:text>
                                         <span
                                             class="assertion">
                                             <xsl:apply-templates
@@ -335,6 +297,7 @@
                                     </div>
                                     <div>
                                         <xsl:text>&#x1f44e;</xsl:text>
+                                        <xsl:text> </xsl:text>
                                         <span
                                             class="diagnostic">
                                             <xsl:apply-templates
@@ -461,6 +424,8 @@
                                 </td>
                                 <td>
                                     <div>
+                                        <xsl:text>&#x1f44d;</xsl:text>
+                                        <xsl:text> </xsl:text>
                                         <span
                                             class="assertion">
                                             <xsl:apply-templates
@@ -473,6 +438,8 @@
                                         <xsl:for-each
                                             select="//diagnostic[@id = tokenize(current()/@diagnostics, '\s+')]">
                                             <div>
+                                                <xsl:text>&#x1f44e;</xsl:text>
+                                                <xsl:text> </xsl:text>
                                                 <span
                                                     class="diagnostic">
                                                     <xsl:attribute
@@ -480,7 +447,7 @@
                                                         <xsl:value-of
                                                             select="@id" />
                                                     </xsl:attribute>
-                                                    <xsl:text> </xsl:text>
+
                                                     <xsl:apply-templates
                                                         mode="serialize"
                                                         select="node()" />
@@ -581,8 +548,7 @@
                 <xsl:variable
                     as="document-node()"
                     name="fvxml"
-                    select="doc('file:/Users/gapinski/branches/fedramp-automation/src/content/resources/xml/fedramp_values.xml')" />
-                <!-- file:/Users/gapinski/branches/fedramp-automation/src/content/resources/xml/fedramp_values.xml -->
+                    select="doc('../../content/resources/xml/fedramp_values.xml')" />
                 <table
                     id="fedramp_values.xml">
                     <caption><code>fedramp_values.xml</code> constraints</caption>
@@ -610,7 +576,7 @@
                 <xsl:variable
                     as="document-node()"
                     name="fx"
-                    select="doc('file:/Users/gapinski/branches/fedramp-automation/src/content/resources/xml/FedRAMP_extensions.xml')" />
+                    select="doc('../../content/resources/xml/FedRAMP_extensions.xml')" />
                 <table
                     id="FedRAMP_extensions.xml">
                     <caption><code>FedRAMP_extensions.xml</code> constraints</caption>
