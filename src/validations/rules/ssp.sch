@@ -288,7 +288,7 @@
             <sch:report doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
                         id="implemented-response-points"
                         role="information"
-                        test="exists($implemented)">[Section C Check 2] This SSP has implemented a statement for each of the following lettered
+                        test="exists($implemented)">[Section C Check 2] A FedRAMP SSP must implement a statement for each of the following lettered
                         response points for required controls: 
             <sch:value-of select="$implemented/@statement-id" />.</sch:report>
         </sch:rule>
@@ -329,21 +329,23 @@
                         doc:organizational-id="section-c.3"
                         id="incomplete-core-implemented-requirements"
                         role="error"
-                        test="not(exists($core-missing))">[Section C Check 3] This SSP has implemented the most important controls.</sch:assert>
+                        test="not(exists($core-missing))">A FedRAMP SSP must implement the most important controls.</sch:assert>
+            <sch:assert diagnostics="incomplete-all-implemented-requirements-diagnostic"
+                        test="not(exists($core-missing))">[Section C Check 3] A FedRAMP SSP must implement the most important controls.</sch:assert>
             <sch:assert diagnostics="incomplete-all-implemented-requirements-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
                         doc:organizational-id="section-c.2"
                         id="incomplete-all-implemented-requirements"
                         role="warning"
-                        test="not(exists($all-missing))">[Section C Check 2] This SSP has implemented all required controls.</sch:assert>
+                        test="not(exists($all-missing))">[Section C Check 2] A FedRAMP SSP must implement all required controls.</sch:assert>
             <sch:assert diagnostics="extraneous-implemented-requirements-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
                         doc:organizational-id="section-c.2"
                         id="extraneous-implemented-requirements"
                         role="warning"
-                        test="not(exists($extraneous))">[Section C Check 2] This SSP has no extraneous implemented controls.</sch:assert>
+                        test="not(exists($extraneous))">[Section C Check 2] A FedRAMP SSP must have no extraneous implemented controls.</sch:assert>
             <sch:let name="results"
                      value="$ok-values =&gt; lv:analyze(//o:implemented-requirement/o:prop[@name = 'implementation-status'])" />
             <sch:let name="total"
@@ -384,7 +386,7 @@
                         doc:organizational-id="section-c.2"
                         id="missing-response-points"
                         role="error"
-                        test="not(exists($missing))">[Section C Check 2] This SSP has required response points.</sch:assert>
+                        test="not(exists($missing))">[Section C Check 2] A FedRAMP SSP must have required response points.</sch:assert>
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement">
             <sch:let name="required-components-count"
@@ -493,7 +495,7 @@
                         doc:organizational-id="section-c.6"
                         id="incorrect-role-association"
                         role="error"
-                        test="not(exists($extraneous-roles))">[Section C Check 2] This SSP has defined a responsible party with no extraneous
+                        test="not(exists($extraneous-roles))">[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous
                         roles.</sch:assert>
             <sch:assert diagnostics="incorrect-party-association-diagnostic"
                         doc:checklist-reference="Section C Check 2"
@@ -501,7 +503,7 @@
                         doc:organizational-id="section-c.6"
                         id="incorrect-party-association"
                         role="error"
-                        test="not(exists($extraneous-parties))">[Section C Check 2] This SSP has defined a responsible party with no extraneous
+                        test="not(exists($extraneous-parties))">[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous
                         parties.</sch:assert>
         </sch:rule>
         <sch:rule context="/o:system-security-plan/o:back-matter/o:resource">
@@ -520,7 +522,7 @@
                 doc:organizational-id="section-b.?????"
                 id="resource-rlink-required"
                 role="error"
-                test="doc-available(./@href)">This SSP references back-matter resource: <sch:value-of
+                test="doc-available(./@href)">A FedRAMP SSP must references back-matter resource: <sch:value-of
                     select="./@href" /></sch:assert>
         </sch:rule>-->
         <sch:rule context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
@@ -2226,7 +2228,7 @@ leveraged-authorization.</sch:assert>
         <sch:value-of select="$corrections" />. No more validation processing can occur.</sch:diagnostic>
         <sch:diagnostic doc:assertion="incomplete-core-implemented-requirements"
                         doc:context="/o:system-security-plan/o:control-implementation"
-                        id="incomplete-core-implemented-requirements-diagnostic">[Section C Check 3] This SSP has not implemented the most important 
+                        id="incomplete-core-implemented-requirements-diagnostic">[Section C Check 3] A FedRAMP SSP must implement the most important 
         <sch:value-of select="count($core-missing)" />core 
         <sch:value-of select="
                     if (count($core-missing) = 1) then
@@ -2236,7 +2238,7 @@ leveraged-authorization.</sch:assert>
         <sch:value-of select="$core-missing/@id" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="incomplete-all-implemented-requirements"
                         doc:context="/o:system-security-plan/o:control-implementation"
-                        id="incomplete-all-implemented-requirements-diagnostic">[Section C Check 2] This SSP has not implemented 
+                        id="incomplete-all-implemented-requirements-diagnostic">[Section C Check 2] A FedRAMP SSP must implement 
         <sch:value-of select="count($all-missing)" />
         <sch:value-of select="
                     if (count($all-missing) = 1) then
@@ -2246,7 +2248,7 @@ leveraged-authorization.</sch:assert>
         <sch:value-of select="$all-missing/@id" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="extraneous-implemented-requirements"
                         doc:context="/o:system-security-plan/o:control-implementation"
-                        id="extraneous-implemented-requirements-diagnostic">[Section C Check 2] This SSP has implemented 
+                        id="extraneous-implemented-requirements-diagnostic">[Section C Check 2] A FedRAMP SSP must implement 
         <sch:value-of select="count($extraneous)" />extraneous 
         <sch:value-of select="
                     if (count($extraneous) = 1) then
@@ -2262,7 +2264,7 @@ leveraged-authorization.</sch:assert>
         <sch:value-of select="$corrections" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="missing-response-points"
                         doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement"
-                        id="missing-response-points-diagnostic">[Section C Check 2] This SSP has not implemented a statement for each of the
+                        id="missing-response-points-diagnostic">[Section C Check 2] A FedRAMP SSP must implement a statement for each of the
                         following lettered response points for required controls: 
         <sch:value-of select="$missing/@id" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="missing-response-components"
@@ -2310,7 +2312,7 @@ leveraged-authorization.</sch:assert>
         <sch:value-of select="$required-length" />characters long.</sch:diagnostic>
         <sch:diagnostic doc:assertion="incorrect-role-association"
                         doc:context="/o:system-security-plan/o:metadata"
-                        id="incorrect-role-association-diagnostic">[Section C Check 2] This SSP has defined a responsible party with 
+                        id="incorrect-role-association-diagnostic">[Section C Check 2] A FedRAMP SSP must define a responsible party with 
         <sch:value-of select="count($extraneous-roles)" />
         <sch:value-of select="
                     if (count($extraneous-roles) = 1) then
@@ -2320,7 +2322,7 @@ leveraged-authorization.</sch:assert>
         <sch:value-of select="$extraneous-roles/@role-id" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="incorrect-party-association"
                         doc:context="/o:system-security-plan/o:metadata"
-                        id="incorrect-party-association-diagnostic">[Section C Check 2] This SSP has defined a responsible party with 
+                        id="incorrect-party-association-diagnostic">[Section C Check 2] A FedRAMP SSP must define a responsible party with 
         <sch:value-of select="count($extraneous-parties)" />
         <sch:value-of select="
                     if (count($extraneous-parties) = 1) then
@@ -2330,10 +2332,10 @@ leveraged-authorization.</sch:assert>
         <sch:value-of select="$extraneous-parties/o:party-uuid" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-uuid-required"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource"
-                        id="resource-uuid-required-diagnostic">This SSP includes back-matter resource missing a UUID.</sch:diagnostic>
+                        id="resource-uuid-required-diagnostic">A FedRAMP SSP must include back-matter resource missing a UUID.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-rlink-required"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource/o:rlink"
-                        id="resource-rlink-required-diagnostic">This SSP references back-matter resource: 
+                        id="resource-rlink-required-diagnostic">A FedRAMP SSP must reference back-matter resource: 
         <sch:value-of select="./@href" />.</sch:diagnostic>
         <sch:diagnostic doc:assertion="resource-base64-available-filename"
                         doc:context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
