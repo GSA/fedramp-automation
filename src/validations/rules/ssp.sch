@@ -663,8 +663,8 @@
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-acronyms']]">A
                         FedRAMP OSCAL SSP must have the FedRAMP Master Acronym and Glossary attached.</sch:assert>
             <sch:assert diagnostics="has-fedramp-citations-diagnostic"
-                        doc:attachment="§15 Attachment 12"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP Content §4.10"
+                        doc:template-reference="System Security Plan Template §15 Attachment 12"
                         id="has-fedramp-citations"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-citations']]">
@@ -676,46 +676,41 @@
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-logo']]">A
                         FedRAMP OSCAL SSP must have the FedRAMP Logo attached.</sch:assert>
             <sch:assert diagnostics="has-user-guide-diagnostic"
-                        doc:attachment="§15 Attachment 2"
                         doc:checklist-reference="Section B Check 3.2"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:template-reference="System Security Plan Template §15"
+                        doc:template-reference="System Security Plan Template §15 Attachment 2"
                         id="has-user-guide"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'user-guide']]">[Section
                         B Check 3.2] A FedRAMP OSCAL SSP must have a User Guide attached.</sch:assert>
             <sch:assert diagnostics="has-rules-of-behavior-diagnostic"
-                        doc:attachment="§15 Attachment 5"
                         doc:checklist-reference="Section B Check 3.5"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:template-reference="System Security Plan Template §15"
+                        doc:template-reference="System Security Plan Template §15 Attachment 5"
                         id="has-rules-of-behavior"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'rules-of-behavior']]">
                         [Section B Check 3.5] A FedRAMP OSCAL SSP must have Rules of Behavior.</sch:assert>
             <sch:assert diagnostics="has-information-system-contingency-plan-diagnostic"
-                        doc:attachment="§15 Attachment 6"
                         doc:checklist-reference="Section B Check 3.6"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:template-reference="System Security Plan Template §15"
+                        doc:template-reference="System Security Plan Template §15 Attachment 6"
                         id="has-information-system-contingency-plan"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'information-system-contingency-plan']]">
             [Section B Check 3.6] A FedRAMP OSCAL SSP must have a Contingency Plan attached.</sch:assert>
             <sch:assert diagnostics="has-configuration-management-plan-diagnostic"
-                        doc:attachment="§15 Attachment 7"
                         doc:checklist-reference="Section B Check 3.7"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:template-reference="System Security Plan Template §15"
+                        doc:template-reference="System Security Plan Template §15 Attachment 7"
                         id="has-configuration-management-plan"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'configuration-management-plan']]">
                         [Section B Check 3.7] A FedRAMP OSCAL SSP must have a Configuration Management Plan attached.</sch:assert>
             <sch:assert diagnostics="has-incident-response-plan-diagnostic"
-                        doc:attachment="§15 Attachment 8"
                         doc:checklist-reference="Section B Check 3.8"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:template-reference="System Security Plan Template §15"
+                        doc:template-reference="System Security Plan Template §155 Attachment 8"
                         id="has-incident-response-plan"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'incident-response-plan']]">
@@ -723,10 +718,9 @@
             <!-- Section B Check 3.9 is not used -->
             <!-- Section B Check 3.10 is not used -->
             <sch:assert diagnostics="has-separation-of-duties-matrix-diagnostic"
-                        doc:attachment="§15 Attachment 11"
                         doc:checklist-reference="Section B Check 3.11"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:template-reference="System Security Plan Template §15"
+                        doc:template-reference="System Security Plan Template §15 Attachment 11"
                         id="has-separation-of-duties-matrix"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'separation-of-duties-matrix']]">
@@ -742,14 +736,13 @@
         <!-- TODO: handle attachments declared by component (see implemented-requirement ac-1 for an example) -->
         <!-- FIXME: XSpec testing malfunctions when the following rule context is constrained to XX-1 control-ids -->
         <sch:rule context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-                  doc:attachment="§15 Attachment 1"
                   doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                  doc:template-reference="System Security Plan Template §15"
+                  doc:template-reference="System Security Plan Template §15 Attachment 1"
                   see="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6">
             <sch:assert diagnostics="has-policy-link-diagnostic"
                         doc:checklist-reference="Section B Check 3.1"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:template-reference="System Security Plan Template §15"
+                        doc:template-reference="System Security Plan Template §15 Attachment 1"
                         id="has-policy-link"
                         role="error"
                         test="descendant::oscal:by-component/oscal:link[@rel = 'policy']">[Section B Check 3.1] A FedRAMP SSP must incorporate a
