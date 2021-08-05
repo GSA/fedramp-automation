@@ -8,6 +8,9 @@ export type RouteTypes = {
     type: 'Assertion';
     assertionId: string;
   };
+  Developers: {
+    type: 'Developers';
+  };
 };
 
 export type Route = RouteTypes[keyof RouteTypes];
@@ -30,6 +33,9 @@ export namespace Routes {
       assertionId: options.assertionId,
     };
   };
+  export const developers: RouteTypes['Developers'] = {
+    type: 'Developers',
+  };
   export type NotFound = { type: 'NotFound' };
   export const notFound: NotFound = { type: 'NotFound' };
 }
@@ -40,6 +46,7 @@ const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   Summary: () => '#/summary',
   Assertion: (route: RouteTypes['Assertion']) =>
     `#/assertions/${route.assertionId}`,
+  Developers: () => '#/developers',
 };
 
 export const getUrl = (route: Route): string => {
@@ -64,6 +71,7 @@ const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
   Validator: matchRoute('#/validator', () => Routes.validator),
   Summary: matchRoute('#/summary', () => Routes.summary),
   Assertion: matchRoute('#/assertions/:assertionId', Routes.assertion),
+  Developers: matchRoute('#/developers', () => Routes.developers),
 };
 
 export const getRoute = (url: string): Route | Routes.NotFound => {
@@ -78,51 +86,59 @@ export const getRoute = (url: string): Route | Routes.NotFound => {
 
 type Breadcrumb = {
   text: string;
-  url: string;
-  selected: boolean;
+  linkUrl: string | false;
 };
-export const breadcrumbs: Record<Route['type'], (route: any) => Breadcrumb[]> =
-  {
-    Home: (route: Route) => {
-      return [
-        {
-          text: 'Home',
-          url: getUrl(Routes.home),
-          selected: route.type === 'Home',
-        },
-      ];
-    },
-    Validator: (route: Route) => {
-      return [
-        ...breadcrumbs.Home(route),
-        {
-          text: 'Validator',
-          url: getUrl(Routes.home),
-          selected: route.type === 'Validator',
-        },
-      ];
-    },
-    Summary: (route: Route) => {
-      return [
-        ...breadcrumbs.Home(route),
-        {
-          text: 'Document name',
-          url: getUrl(Routes.summary),
-          selected: route.type === 'Summary',
-        },
-      ];
-    },
-    Assertion: (route: RouteTypes['Assertion']) => {
-      return [
-        ...breadcrumbs.Home(route),
-        {
-          text: 'Assertion',
-          url: getUrl(Routes.assertion({ assertionId: route.assertionId })),
-          selected: route.type === 'Assertion',
-        },
-      ];
-    },
-  };
+export const breadcrumbs: Record<
+  Route['type'] & string,
+  (route: any) => Breadcrumb[]
+> = {
+  Home: (route: Route) => {
+    return [
+      {
+        text: 'Home',
+        linkUrl: route.type !== 'Home' && getUrl(Routes.home),
+      },
+    ];
+  },
+  Validator: (route: Route) => {
+    return [
+      ...breadcrumbs.Home(route),
+      {
+        text: 'Validator',
+        linkUrl: route.type !== 'Validator' && getUrl(Routes.home),
+      },
+    ];
+  },
+  Summary: (route: Route) => {
+    return [
+      ...breadcrumbs.Home(route),
+      {
+        text: 'Document name',
+        linkUrl: route.type !== 'Summary' && getUrl(Routes.summary),
+      },
+    ];
+  },
+  Assertion: (route: RouteTypes['Assertion']) => {
+    return [
+      ...breadcrumbs.Home(route),
+      {
+        text: 'Assertion',
+        linkUrl:
+          route.type !== 'Assertion' &&
+          getUrl(Routes.assertion({ assertionId: route.assertionId })),
+      },
+    ];
+  },
+  Developers: (route: RouteTypes['Developers']) => {
+    return [
+      ...breadcrumbs.Home(route),
+      {
+        text: 'Developer documentation',
+        linkUrl: route.type !== 'Developers' && getUrl(Routes.developers),
+      },
+    ];
+  },
+};
 
 export type Location = {
   listen: (listener: (url: string) => void) => void;

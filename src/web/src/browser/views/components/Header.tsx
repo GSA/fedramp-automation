@@ -49,6 +49,27 @@ export const Header = () => {
                 <span>SSP Validator</span>
               </a>
             </li>
+            <li className="usa-nav__primary-item">
+              <button
+                className={classnames(
+                  'usa-accordion__button',
+                  'usa-nav__link',
+                  {
+                    'usa-current': currentRoute.type === Routes.developers.type,
+                  },
+                )}
+                aria-expanded="false"
+                aria-controls="extended-documentation"
+              >
+                <span>Documentation</span>
+              </button>
+
+              <ul id="extended-documentation" className="usa-nav__submenu">
+                <li className="usa-nav__submenu-item">
+                  <a href={getUrl(Routes.developers)}>Developers</a>
+                </li>
+              </ul>
+            </li>
           </ul>
         </nav>
       </div>

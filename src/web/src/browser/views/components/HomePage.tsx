@@ -21,8 +21,8 @@ const ProcessList = () => (
           Submit with confidence
         </h4>
         <p className="margin-top-1 text-light">
-          Creation of compliant FedRAMP OSCAL SSPs is enhanced with timely and
-          context-sensitive validation errors.
+          Creation of compliant FedRAMP OSCAL System Security Plans is enhanced
+          with timely and context-sensitive validation errors.
         </p>
       </li>
       <li className="usa-process-list__item padding-bottom-4">
@@ -41,8 +41,8 @@ const ProcessList = () => (
           Lower-cost agency ATO
         </h4>
         <p className="margin-top-1 text-light">
-          FedRAMP-approved CSPs with structured OSCAL SSPs are more
-          cost-effective for agencies to evaluate as part of their own ATO
+          FedRAMP-approved CSPs with structured OSCAL System Security Plans are
+          more cost-effective for agencies to evaluate as part of their own ATO
           process.
         </p>
       </li>
@@ -103,13 +103,13 @@ const PartiesGrid = () => {
 };
 
 const HomeContent = () => {
-  const { developerExampleUrl } = useAppState().sourceRepository;
   return (
     <div className="usa-prose padding-top-3">
       <h1>Accelerate approvals</h1>
       <p>
-        Welcome to ASAP, the upcoming FedRAMP audit validation tool. ASAP is
-        made up of the following components:
+        Welcome to ASAP, the upcoming FedRAMP audit validation tool. Funded by{' '}
+        <a href="https://10x.gsa.gov/">10x</a>, ASAP is comprised of the
+        following components:
       </p>
       <ul>
         <li>
@@ -123,8 +123,9 @@ const HomeContent = () => {
         </li>
         <li>
           Compiled Schematron rules (XSLT), which may be integrated with
-          third-party OSCAL creation/validation tools. Developer examples are
-          available in our <a href={developerExampleUrl}>Github repository</a>.
+          third-party OSCAL creation/validation tools. Read our{' '}
+          <a href={getUrl(Routes.developers)}>developer documentation</a> for
+          more information.
         </li>
       </ul>
       <ProcessList />

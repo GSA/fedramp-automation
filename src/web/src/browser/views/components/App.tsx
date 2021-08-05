@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAppState } from '../hooks';
 import { Banner } from './Banner';
+import { DevelopersPage } from './DevelopersPage';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { HomePage } from './HomePage';
@@ -29,6 +30,12 @@ const CurrentPage = () => {
     return (
       <InnerPageLayout>
         <ViewerPage assertionId={currentRoute.assertionId} />
+      </InnerPageLayout>
+    );
+  } else if (currentRoute.type === 'Developers') {
+    return (
+      <InnerPageLayout>
+        <DevelopersPage />
       </InnerPageLayout>
     );
   } else {

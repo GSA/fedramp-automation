@@ -8,7 +8,7 @@ type States = {
 
 type BaseState = {
   currentRoute: router.Route;
-  breadcrumbs: { text: string; selected: boolean; url: string }[];
+  breadcrumbs: { text: string; linkUrl: string | false }[];
 };
 
 type Events = {
@@ -36,9 +36,11 @@ export const createRouterMachine = () => {
     { current: 'VALID_PAGE' },
     {
       currentRoute: router.Routes.home,
-      breadcrumbs: derived((state: BaseState) =>
-        router.breadcrumbs[state.currentRoute.type](state.currentRoute),
-      ),
+      breadcrumbs: derived((state: BaseState) => {
+        const what = router.breadcrumbs[state.currentRoute.type];
+        const test = what(state.currentRoute);
+        return test;
+      }),
     },
   );
 };
