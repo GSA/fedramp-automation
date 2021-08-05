@@ -82,7 +82,8 @@ const PartiesGrid = () => {
           />
           <h3>FedRAMP Reviewers</h3>
           <p className="margin-bottom-4">
-            Evaluate CSP submissions with an efficient workflow.
+            Evaluate CSP submissions with an efficient workflow.{' '}
+            <a href={getUrl(Routes.developers)}>Read more...</a>
           </p>
         </div>
         <div className="desktop:grid-col-4">
