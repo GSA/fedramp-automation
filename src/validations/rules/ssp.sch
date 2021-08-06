@@ -271,14 +271,12 @@
             <sch:assert diagnostics="no-security-sensitivity-level-diagnostic"
                         doc:checklist-reference="Section C Check 1.a"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.2"
-                        doc:organizational-id="section-c.1.a"
                         id="no-security-sensitivity-level"
                         role="fatal"
                         test="$sensitivity-level != ''">[Section C Check 1.a] Sensitivity level is defined.</sch:assert>
             <sch:assert diagnostics="invalid-security-sensitivity-level-diagnostic"
                         doc:checklist-reference="Section C Check 1.a"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.2"
-                        doc:organizational-id="section-c.1.a"
                         id="invalid-security-sensitivity-level"
                         role="fatal"
                         test="empty($ok-values) or not(exists($corrections))">[Section C Check 1.a] Sensitivity level has an allowed
@@ -326,21 +324,18 @@
             <sch:assert diagnostics="incomplete-core-implemented-requirements-diagnostic"
                         doc:checklist-reference="Section C Check 3"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-c.3"
                         id="incomplete-core-implemented-requirements"
                         role="error"
                         test="not(exists($core-missing))">A FedRAMP SSP must implement the most important controls.</sch:assert>
             <sch:assert diagnostics="incomplete-all-implemented-requirements-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-c.2"
                         id="incomplete-all-implemented-requirements"
                         role="warning"
                         test="not(exists($all-missing))">[Section C Check 2] A FedRAMP SSP must implement all required controls.</sch:assert>
             <sch:assert diagnostics="extraneous-implemented-requirements-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-c.2"
                         id="extraneous-implemented-requirements"
                         role="warning"
                         test="not(exists($extraneous))">[Section C Check 2] A FedRAMP SSP must have no extraneous implemented controls.</sch:assert>
@@ -374,14 +369,12 @@
             <sch:assert diagnostics="invalid-implementation-status-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-c.2"
                         id="invalid-implementation-status"
                         role="error"
                         test="not(exists($corrections))">[Section C Check 2] Implementation status is correct.</sch:assert>
             <sch:assert diagnostics="missing-response-points-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-c.2"
                         id="missing-response-points"
                         role="error"
                         test="not(exists($missing))">[Section C Check 2] A FedRAMP SSP must have required response points.</sch:assert>
@@ -400,7 +393,6 @@
             <sch:assert diagnostics="missing-response-components-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-d"
                         id="missing-response-components"
                         role="warning"
                         test="$components-count &gt;= $required-components-count">[Section D Checks] Response statements have sufficient
@@ -410,7 +402,6 @@
             <sch:assert diagnostics="extraneous-response-description-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-d"
                         id="extraneous-response-description"
                         role="warning"
                         test=". =&gt; empty()">[Section D Checks] Response statement does not have a description not within a component.</sch:assert>
@@ -419,7 +410,6 @@
             <sch:assert diagnostics="extraneous-response-remarks-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-d"
                         id="extraneous-response-remarks"
                         role="warning"
                         test=". =&gt; empty()">[Section D Checks] Response statement does not have remarks not within a component.</sch:assert>
@@ -430,7 +420,6 @@
             <sch:assert diagnostics="invalid-component-match-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-d"
                         id="invalid-component-match"
                         role="warning"
                         test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] =&gt; exists()">[Section D Checks]
@@ -438,7 +427,6 @@
             <sch:assert diagnostics="missing-component-description-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-d"
                         id="missing-component-description"
                         role="error"
                         test="./o:description =&gt; exists()">[Section D Checks] Response statement has a component which has a required description
@@ -454,7 +442,6 @@
             <sch:assert diagnostics="incomplete-response-description-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-d"
                         id="incomplete-response-description"
                         role="error"
                         test="$description-length &gt;= $required-length">[Section D Checks] Response statement component description has adequate
@@ -470,7 +457,6 @@
             <sch:assert diagnostics="incomplete-response-remarks-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
-                        doc:organizational-id="section-d"
                         id="incomplete-response-remarks"
                         role="warning"
                         test="$remarks-length &gt;= $required-length">[Section D Checks] Response statement component remarks have adequate
@@ -490,7 +476,6 @@
             <sch:assert diagnostics="incorrect-role-association-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.18"
-                        doc:organizational-id="section-c.6"
                         id="incorrect-role-association"
                         role="error"
                         test="not(exists($extraneous-roles))">[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous
@@ -498,7 +483,6 @@
             <sch:assert diagnostics="incorrect-party-association-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.18"
-                        doc:organizational-id="section-c.6"
                         id="incorrect-party-association"
                         role="error"
                         test="not(exists($extraneous-parties))">[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous
@@ -507,7 +491,6 @@
         <sch:rule context="/o:system-security-plan/o:back-matter/o:resource">
             <sch:assert diagnostics="resource-uuid-required-diagnostic"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:organizational-id="section-b.?????"
                         id="resource-uuid-required"
                         role="error"
                         test="@uuid">Every resource has a uuid attribute.</sch:assert>
@@ -531,13 +514,11 @@
                      value="@media-type" />
             <sch:assert diagnostics="resource-base64-available-filename-diagnostic"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP Content §4.10"
-                        doc:organizational-id="section-b.?????"
                         id="resource-base64-available-filename"
                         role="error"
                         test="./@filename">This base64 has a filename attribute.</sch:assert>
             <sch:assert diagnostics="resource-base64-available-media-type-diagnostic"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP Content §4.10"
-                        doc:organizational-id="section-b.?????"
                         id="resource-base64-available-media-type"
                         role="error"
                         test="./@media-type">This base64 has a media-type attribute.</sch:assert>
