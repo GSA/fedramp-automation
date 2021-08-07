@@ -1,6 +1,10 @@
 import { derived, Statemachine, statemachine } from 'overmind';
 
 import type {
+  AssertionGroup,
+  AssertionView,
+} from '@asap/shared/use-cases/assertion-views';
+import type {
   SchematronAssert,
   FailedAssert,
 } from '@asap/shared/use-cases/schematron';
@@ -9,26 +13,38 @@ import { createValidatorMachine, ValidatorMachine } from './validator-machine';
 
 export type Role = string;
 
-type States = {
-  current: 'LOADED';
+// Schematron rules meta-data
+type SchematronUIConfig = {
+  assertionViews: AssertionView[];
+  schematronAsserts: SchematronAssert[];
 };
+
+type States =
+  | {
+      current: 'INITIALIZED';
+    }
+  | {
+      current: 'UNINITIALIZED';
+    };
 
 type BaseState = {
   _assertionsById: {
     [assertionId: string]: SchematronAssert;
   };
-  assertionGroups: {
-    title: string;
-    asserts: {
-      id: string;
-    }[];
-  }[];
+  assertionView: AssertionView;
+  config: SchematronUIConfig;
   filter: {
     role: Role;
     text: string;
+    assertionViewId: number;
   };
-  _filterRoles: Role[];
-  roles: Role[];
+  filterOptions: {
+    assertionViews: {
+      id: number;
+      title: string;
+    }[];
+    roles: Role[];
+  };
   schematronReport: {
     summary: {
       title: string;
@@ -50,12 +66,17 @@ type BaseState = {
       };
     }[];
   };
-  _schematronAsserts: SchematronAssert[];
   _schematronChecksFiltered: SchematronAssert[];
   validator: ValidatorMachine;
 };
 
 type Events =
+  | {
+      type: 'CONFIG_LOADED';
+      data: {
+        config: SchematronUIConfig;
+      };
+    }
   | {
       type: 'FILTER_TEXT_CHANGED';
       data: {
@@ -69,9 +90,9 @@ type Events =
       };
     }
   | {
-      type: 'ASSERTIONS_FOUND';
+      type: 'FILTER_ASSERTION_VIEW_CHANGED';
       data: {
-        schematronAsserts: SchematronAssert[];
+        assertionViewId: number;
       };
     };
 
@@ -85,32 +106,45 @@ const cancelIcon = {
 };
 
 const schematronMachine = statemachine<States, Events, BaseState>({
-  LOADED: {
+  UNINITIALIZED: {
+    CONFIG_LOADED: ({ config }) => {
+      return {
+        current: 'INITIALIZED',
+        config,
+      };
+    },
+  },
+  INITIALIZED: {
     FILTER_TEXT_CHANGED: ({ text }, state) => {
       return {
-        current: 'LOADED',
+        current: 'INITIALIZED',
+        config: state.config,
         filter: {
           role: state.filter.role,
           text,
+          assertionViewId: state.filter.assertionViewId,
         },
-        _schematronAsserts: [...state._schematronAsserts],
       };
     },
     FILTER_ROLE_CHANGED: ({ role }, state) => {
       return {
-        current: 'LOADED',
+        current: 'INITIALIZED',
+        config: state.config,
         filter: {
           role: role,
           text: state.filter.text,
+          assertionViewId: state.filter.assertionViewId,
         },
-        _schematronAsserts: [...state._schematronAsserts],
       };
     },
-    ASSERTIONS_FOUND: ({ schematronAsserts }, state) => {
+    FILTER_ASSERTION_VIEW_CHANGED: ({ assertionViewId }, state) => {
       return {
-        current: 'LOADED',
-        filter: { ...state.filter },
-        _schematronAsserts: schematronAsserts,
+        current: 'INITIALIZED',
+        config: state.config,
+        filter: {
+          ...state.filter,
+          assertionViewId: assertionViewId,
+        },
       };
     },
   },
@@ -118,8 +152,12 @@ const schematronMachine = statemachine<States, Events, BaseState>({
 
 export const createSchematronMachine = () => {
   return schematronMachine.create(
-    { current: 'LOADED' },
+    { current: 'UNINITIALIZED' },
     {
+      config: {
+        assertionViews: [],
+        schematronAsserts: [],
+      },
       _assertionsById: derived((state: SchematronMachine) => {
         const assertions: SchematronMachine['_assertionsById'] = {};
         state._schematronChecksFiltered.forEach(assert => {
@@ -127,38 +165,47 @@ export const createSchematronMachine = () => {
         });
         return assertions;
       }),
-      assertionGroups: derived((state: SchematronMachine) => {
-        // Return a sample assertion group corresponding to the source rules.
-        return [
-          {
-            title: 'System Security Plan',
-            asserts: state._schematronAsserts,
-          },
-        ];
+      assertionView: derived((state: SchematronMachine) => {
+        if (!state.filter.assertionViewId) {
+          return {
+            title: 'Not specified',
+            groups: [],
+          };
+        }
+        return state.filterOptions.assertionViews
+          .filter(view => view.id === state.filter.assertionViewId)
+          .map(view => {
+            return state.config.assertionViews[state.filter.assertionViewId];
+          })[0];
       }),
       filter: {
         role: 'all',
         text: '',
+        assertionViewId: 0,
       },
-      _filterRoles: derived((state: SchematronMachine) => {
-        switch (state.filter.role) {
-          case 'all':
-            return state.roles;
-          default:
-            return [state.filter.role];
-        }
+      filterOptions: derived((state: SchematronMachine) => {
+        return {
+          assertionViews: state.config.assertionViews.map((view, index) => {
+            return {
+              id: index,
+              title: view.title,
+            };
+          }),
+          roles: [
+            'all',
+            ...Array.from(
+              new Set(
+                state.config.schematronAsserts.map(assert => assert.role),
+              ),
+            ).sort(),
+          ],
+        };
       }),
-      roles: derived((state: SchematronMachine) => [
-        'all',
-        ...Array.from(
-          new Set(state._schematronAsserts.map(assert => assert.role)),
-        ).sort(),
-      ]),
       schematronReport: derived(
         ({
           _assertionsById,
           _schematronChecksFiltered,
-          assertionGroups,
+          assertionView,
           validator,
         }: SchematronMachine) => {
           const isValidated = validator.current === 'VALIDATED';
@@ -168,22 +215,22 @@ export const createSchematronMachine = () => {
           return {
             summary: {
               title: isValidated
-                ? 'FedRAMP Package Concerns and Notes'
-                : 'FedRAMP Package Concerns and Notes (unprocessed)',
+                ? 'FedRAMP Package Concerns'
+                : 'FedRAMP Package Concerns (unprocessed)',
               counts: {
                 assertions: _schematronChecksFiltered.length - reportCount,
                 reports: reportCount,
               },
             },
-            groups: assertionGroups.map(assertionGroup => {
+            groups: assertionView.groups.map(assertionGroup => {
               type UiAssert = SchematronAssert & {
                 message: string;
                 icon: typeof checkCircleIcon;
                 fired: FailedAssert[];
               };
-              const checks = assertionGroup.asserts
+              const checks = assertionGroup.assertionIds
                 .map(assertionGroupAssert => {
-                  const assert = _assertionsById[assertionGroupAssert.id];
+                  const assert = _assertionsById[assertionGroupAssert];
                   if (!assert) {
                     return null;
                   }
@@ -224,12 +271,13 @@ export const createSchematronMachine = () => {
           };
         },
       ),
-      _schematronAsserts: [] as SchematronAssert[],
       _schematronChecksFiltered: derived(
-        ({ filter, _filterRoles, _schematronAsserts }: SchematronMachine) => {
-          let assertions = _schematronAsserts.filter(
+        ({ config, filter, filterOptions }: SchematronMachine) => {
+          const filterRoles =
+            filter.role === 'all' ? filterOptions.roles : filter.role;
+          let assertions = config.schematronAsserts.filter(
             (assertion: SchematronAssert) => {
-              return _filterRoles.includes(assertion.role || '');
+              return filterRoles.includes(assertion.role || '');
             },
           );
           if (filter.text.length > 0) {

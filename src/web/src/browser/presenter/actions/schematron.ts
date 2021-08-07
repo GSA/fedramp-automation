@@ -11,9 +11,9 @@ export const setFilterText = ({ state }: PresenterConfig, text: string) => {
   state.schematron.send('FILTER_TEXT_CHANGED', { text });
 };
 
-export const setAssertions = (
+export const setFilterAssertionView = (
   { state }: PresenterConfig,
-  schematronAsserts: SchematronAssert[],
+  assertionViewId: number,
 ) => {
-  state.schematron.send('ASSERTIONS_FOUND', { schematronAsserts });
+  state.schematron.send('FILTER_ASSERTION_VIEW_CHANGED', { assertionViewId });
 };

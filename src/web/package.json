@@ -5,7 +5,8 @@
     }
   },
   "scripts": {
-    "build": "snowpack build",
+    "build": "npm run build:snowpack && npm run build:assertion-views",
+    "build:assertion-views": "ts-node -r tsconfig-paths/register src/cli/index.ts parse-assertion-view ./test-assertion-view.json ./public/assertion-views.json",
     "build:schematron": "npm run build:schematron-java && npm run build:sef && npm run build:ssp-json",
     "build:schematron-ideal": "npm run build:sch-stage-1 && npm run build:sch-stage-2 && npm run build:sch-stage-3 && npm run build:sef",
     "build:schematron-java": "cd ../validations && ./bin/validate_with_schematron.sh && cp target/ssp.xsl ../web/public",
@@ -13,6 +14,7 @@
     "build:sch-stage-2": "xslt3 -s:../validations/target/ssp-stage1.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_abstract_expand.xsl -o:../validations/target/ssp-stage2.sch",
     "build:sch-stage-3": "xslt3 -s:../validations/target/ssp-stage2.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl -o:../validations/target/ssp.xsl",
     "build:sef": "xslt3 -xsl:public/ssp.xsl -export:public/ssp.sef.json -nogo",
+    "build:snowpack": "snowpack build",
     "build:ssp-json": "ts-node -r tsconfig-paths/register src/cli/index.ts parse-schematron ../validations/rules/ssp.sch ./public/ssp.json",
     "cli": "ts-node -r tsconfig-paths/register src/cli/index.ts",
     "clean": "rm -rf build coverage",
@@ -26,7 +28,9 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "commander": "^2.20.3",
+    "fp-ts": "^2.11.1",
     "highlight.js": "^11.0.1",
+    "io-ts": "^2.2.16",
     "overmind": "^28.0.0",
     "overmind-react": "^29.0.0",
     "patch-package": "^6.4.7",

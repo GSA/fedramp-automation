@@ -64,6 +64,10 @@ export const runBrowserContext = ({
             },
             SaxonJS: (window as any).SaxonJS,
           }),
+          getAssertionViews: async () =>
+            fetch(`${baseUrl}/assertion-views.json`).then(response =>
+              response.json(),
+            ),
           getSSPSchematronAssertions: async () =>
             fetch(`${baseUrl}/ssp.json`).then(response => response.json()),
           validateSSP: ValidateSSPUseCase({

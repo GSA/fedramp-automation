@@ -5,7 +5,12 @@ describe('schematron', () => {
 
   beforeEach(() => {
     presenter = createPresenterMock();
-    presenter.actions.schematron.setAssertions(MOCK_SCHEMATRON_ASSERTIONS);
+    presenter.state.schematron.send('CONFIG_LOADED', {
+      config: {
+        assertionViews: [],
+        schematronAsserts: MOCK_SCHEMATRON_ASSERTIONS,
+      },
+    });
     presenter.actions.validator.setValidationReport({
       validationReport: MOCK_VALIDATION_REPORT,
       xmlText: '<xml></xml>',
@@ -18,7 +23,7 @@ describe('schematron', () => {
         role: 'all',
         text: '',
       });
-      expect(presenter.state.schematron.roles).toEqual([
+      expect(presenter.state.schematron.filterOptions.roles).toEqual([
         'all',
         'error',
         'info',
@@ -67,7 +72,7 @@ describe('schematron', () => {
         role: 'all',
         text: '',
       });
-      expect(presenter.state.schematron.roles).toEqual([
+      expect(presenter.state.schematron.filterOptions.roles).toEqual([
         'all',
         'error',
         'info',
