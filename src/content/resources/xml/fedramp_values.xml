@@ -109,7 +109,7 @@
       <allowed-values allow-other="no">
          <enum value="public-cloud" short-label="Public">Public Cloud</enum>
          <enum value="private-cloud" short-label="Private">Private Cloud</enum>
-         <enum value="community-cloud" short-label="Community">Community Cloud</enum>
+         <!--<enum value="community-cloud" short-label="Community">Community Cloud</enum>-->
          <enum value="government-only-cloud" short-label="USG-Only">U.S. Government Only</enum>
          <enum value="hybrid-cloud" short-label="Hybrid">Hybrid</enum>
          <enum value="other" short-label="Other">Other</enum>
