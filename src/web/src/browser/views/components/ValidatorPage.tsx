@@ -54,7 +54,9 @@ export const ValidatorPage = () => {
         {
           <form className="usa-form">
             <fieldset className="usa-fieldset">
-              <div className="usa-form-label"></div>
+              <legend className="usa-legend usa-legend">
+                Select an assertion view
+              </legend>
               <div className="usa-radio">
                 {schematron.filterOptions.assertionViews.map(assertionView => (
                   <div key={assertionView.id}>

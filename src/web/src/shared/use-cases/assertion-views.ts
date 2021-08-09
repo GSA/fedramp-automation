@@ -38,3 +38,39 @@ export const validateAssertionViews = (input: any): AssertionViews | null => {
 };
 
 export type GetAssertionViews = () => Promise<AssertionViews>;
+
+export type XSLTProcessor = (
+  stylesheetText: string,
+  sourceText: string,
+) => Promise<string>;
+
+export const WriteAssertionViews =
+  (ctx: {
+    paths: {
+      assertionViewSEFPath: string;
+      outputFilePath: string;
+      schematronXMLPath: string;
+    };
+    processXSLT: XSLTProcessor;
+    readStringFile: (fileName: string) => Promise<string>;
+    writeStringFile: (fileName: string, contents: string) => Promise<void>;
+  }) =>
+  async () => {
+    const stylesheetSEFText = await ctx.readStringFile(
+      ctx.paths.assertionViewSEFPath,
+    );
+    const schematronXML = await ctx.readStringFile(ctx.paths.schematronXMLPath);
+    const assertionViewJSON = await ctx.processXSLT(
+      stylesheetSEFText,
+      schematronXML,
+    );
+    const assertionViews = validateAssertionViews(
+      JSON.parse(assertionViewJSON),
+    );
+    await ctx.writeStringFile(
+      ctx.paths.outputFilePath,
+      JSON.stringify(assertionViews),
+    );
+    console.log(`Wrote ${ctx.paths.outputFilePath}`);
+  };
+export type WriteAssertionViews = ReturnType<typeof WriteAssertionViews>;

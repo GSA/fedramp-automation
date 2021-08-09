@@ -6,6 +6,7 @@ import type {
   ValidationReport,
   SuccessfulReport,
 } from '@asap/shared/use-cases/schematron';
+import type { XSLTProcessor } from '../use-cases/assertion-views';
 
 const getValidationReport = (
   SaxonJS: any,
@@ -338,4 +339,36 @@ export const SchematronParser =
       message: assert.textContent,
       role: assert.getAttribute('role'),
     }));
+  };
+
+// Wrapper over an XSLT transform that logs and re-rasies errors.
+const transform = async (SaxonJS: any, options: any) => {
+  try {
+    return SaxonJS.transform(options, 'async') as Promise<DocumentFragment>;
+  } catch (error) {
+    console.error(error);
+    throw new Error(`Error transforming xml: ${error}`);
+  }
+};
+
+/**
+ * Given XSLT in SEF format and an input XML document, return a string of the
+ * transformed XML.
+ **/
+export const SaxonJsProcessor =
+  (ctx: { SaxonJS: any }): XSLTProcessor =>
+  (stylesheetText: string, sourceText: string) => {
+    try {
+      return transform(ctx.SaxonJS, {
+        stylesheetText: stylesheetText,
+        sourceText,
+        destination: 'serialized',
+        stylesheetParams: {},
+      }).then((output: any) => {
+        return output.principalResult as string;
+      });
+    } catch (error) {
+      console.error(error);
+      throw new Error(`Error transforming xml: ${error}`);
+    }
   };
