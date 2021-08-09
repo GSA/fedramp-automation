@@ -18,17 +18,17 @@ These are cast as English prose assertions. References to related FedRAMP docume
 
 ### rules.xsd
 
-The [`rules.xsd`](rules.xsd) document defines an [XML Schema](https://www.w3.org/TR/xmlschema11-1/) definition
+The [`rules.xsd`](rules.xsd) document is an [XML Schema](https://www.w3.org/TR/xmlschema11-1/) definition
 for `rules.xml` syntax.
 
 ### rules.xsl
 
-[`rules.xsl`](rules.xsl) is an XSL transform which combines `rules.xml` with `ssp.sch` to produce an HTML5
+[`rules.xsl`](rules.xsl) is an [XSL Transform](https://www.w3.org/TR/xslt-30/) which combines `rules.xml` with `ssp.sch` to produce an HTML5
 document describing the structured rules and related Schematron assertions.
 
 ### rules.css
 
-[`rules.css`](rules.css) is a companion CSS document used by `rules.xsl`.
+[`rules.css`](rules.css) is a companion [CSS](https://www.w3.org/Style/CSS/) document used by `rules.xsl`.
 
 ### ssp.sch
 
@@ -43,11 +43,11 @@ Schematron `rule` elements specify a context - a locus within an XML document fo
 
 Schematron `assert` elements specify a natural language assertion - i.e., a desired state - and a corresponding test.
 
-fedramp-automation requires that each Schematron `assert` specifies
+fedramp-automation requires that each Schematron `assert` element specifies
 
-- An `id` attribute which is required for related unit tests cast in the XSPec language.
+- An `id` attribute which is required for related unit tests cast in the [XSpec](https://github.com/xspec/xspec) language.
 - A `role` attribute specifying the relative import of a failed test: information, warning, error, fatal.
-- A `test` attribute which is an XPath statement evaluated in the context of the parent `rule`.
+- A `test` attribute which is an [XPath](https://www.w3.org/TR/xpath-31/) statement evaluated in the context of the parent `rule`.
 - The body of an `assert` contains a natural language assertion describing the **desired** outcome of the test.
 - A `diagnostics` attribute identifying one or more messages associated with a negative assertion outcome.
 
