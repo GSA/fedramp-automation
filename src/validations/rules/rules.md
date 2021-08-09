@@ -1,12 +1,5 @@
 # FedRAMP OSCAL System Security Plan Validation Rules
 
-## Related Documents
-
-### rules.xml
-
-The [`rules.xml`](rules.xml) document defines business rules for FedRAMP SSPs.
-These are cast as English prose assertions. References to related FedRAMP documentation are present when possible.
-
 FedRAMP business rules have been inferred from 
 FedRAMP documents, 
 FedRAMP OSCAL SSP documentation, 
@@ -16,6 +9,13 @@ FedRAMP business rules are expected to undergo change over time. It is hoped, an
 of business rule definition and elaboration can be used to maintain both business rules and the
 related code for automated validation thereof.
 
+## Related Documents
+
+### rules.xml
+
+The [`rules.xml`](rules.xml) document defines business rules for FedRAMP SSPs.
+These are cast as English prose assertions. References to related FedRAMP documentation are present when possible.
+
 ### rules.xsd
 
 The [`rules.xsd`](rules.xsd) document defines an [XML Schema](https://www.w3.org/TR/xmlschema11-1/) definition
@@ -23,23 +23,23 @@ for `rules.xml` syntax.
 
 ### rules.xsl
 
-`rules.xsl` is an XSL transform which combines `rules.xml` with `ssp.sch` to produce an HTML5
+[`rules.xsl`](rules.xsl) is an XSL transform which combines `rules.xml` with `ssp.sch` to produce an HTML5
 document describing the structured rules and related Schematron assertions.
 
 ### rules.css
 
-`rules.css` is a companion CSS document used by `rules.xsl`.
+[`rules.css`](rules.css) is a companion CSS document used by `rules.xsl`.
 
 ### ssp.sch
 
-`ssp.sch` is a document containing Schematron assertions which enable automated validation
+[`ssp.sch`](ssp.sch) is a document containing Schematron assertions which enable automated validation
 of FedRAMP OSCAL System Security Plans.
 
-Schematron elements are `pattern`, `rule`, and `assert`.
+The primary Schematron elements are `pattern`, `rule`, and `assert`.
 
-A Schematron `pattern` element allows Schematron `rule`s to be grouped together.
+A Schematron `pattern` element allows Schematron `rule` elements to be grouped together.
 
-Schematron `rule` elements specify a context - a locus within an XML document for which the subordinate assertions apply.
+Schematron `rule` elements specify a context - a locus within an XML document for which subordinate assertions apply.
 
 Schematron `assert` elements specify a natural language assertion - i.e., a desired state - and a corresponding test.
 
