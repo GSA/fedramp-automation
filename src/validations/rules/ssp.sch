@@ -271,12 +271,14 @@
             <sch:assert diagnostics="no-security-sensitivity-level-diagnostic"
                         doc:checklist-reference="Section C Check 1.a"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.2"
+                        doc:template-reference="System Security Plan Template §2.2"
                         id="no-security-sensitivity-level"
                         role="fatal"
                         test="$sensitivity-level != ''">[Section C Check 1.a] Sensitivity level is defined.</sch:assert>
             <sch:assert diagnostics="invalid-security-sensitivity-level-diagnostic"
                         doc:checklist-reference="Section C Check 1.a"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.2"
+                        doc:template-reference="System Security Plan Template §2.2"
                         id="invalid-security-sensitivity-level"
                         role="fatal"
                         test="empty($ok-values) or not(exists($corrections))">[Section C Check 1.a] Sensitivity level has an allowed
@@ -330,12 +332,14 @@
             <sch:assert diagnostics="incomplete-all-implemented-requirements-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                        doc:template-reference="System Security Plan Template §13"
                         id="incomplete-all-implemented-requirements"
                         role="warning"
                         test="not(exists($all-missing))">[Section C Check 2] A FedRAMP SSP must implement all required controls.</sch:assert>
             <sch:assert diagnostics="extraneous-implemented-requirements-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                        doc:template-reference="System Security Plan Template §13"
                         id="extraneous-implemented-requirements"
                         role="warning"
                         test="not(exists($extraneous))">[Section C Check 2] A FedRAMP SSP must have no extraneous implemented controls.</sch:assert>
@@ -368,13 +372,15 @@
                      value="$required-response-points[not(@id = $implemented/@statement-id)]" />
             <sch:assert diagnostics="invalid-implementation-status-diagnostic"
                         doc:checklist-reference="Section C Check 2"
-                        doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                        doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                        doc:template-reference="System Security Plan Template §13"
                         id="invalid-implementation-status"
                         role="error"
                         test="not(exists($corrections))">[Section C Check 2] Implementation status is correct.</sch:assert>
             <sch:assert diagnostics="missing-response-points-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                        doc:template-reference="System Security Plan Template §13"
                         id="missing-response-points"
                         role="error"
                         test="not(exists($missing))">[Section C Check 2] A FedRAMP SSP must have required response points.</sch:assert>
@@ -393,6 +399,7 @@
             <sch:assert diagnostics="missing-response-components-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                        doc:template-reference="System Security Plan Template §13"
                         id="missing-response-components"
                         role="warning"
                         test="$components-count &gt;= $required-components-count">[Section D Checks] Response statements have sufficient
@@ -402,6 +409,7 @@
             <sch:assert diagnostics="extraneous-response-description-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                        doc:template-reference="System Security Plan Template §13"
                         id="extraneous-response-description"
                         role="warning"
                         test=". =&gt; empty()">[Section D Checks] Response statement does not have a description not within a component.</sch:assert>
@@ -410,6 +418,7 @@
             <sch:assert diagnostics="extraneous-response-remarks-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                        doc:template-reference="System Security Plan Template §13"
                         id="extraneous-response-remarks"
                         role="warning"
                         test=". =&gt; empty()">[Section D Checks] Response statement does not have remarks not within a component.</sch:assert>
@@ -420,6 +429,7 @@
             <sch:assert diagnostics="invalid-component-match-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                        doc:template-reference="System Security Plan Template §13"
                         id="invalid-component-match"
                         role="warning"
                         test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] =&gt; exists()">[Section D Checks]
@@ -427,6 +437,7 @@
             <sch:assert diagnostics="missing-component-description-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                        doc:template-reference="System Security Plan Template §13"
                         id="missing-component-description"
                         role="error"
                         test="./o:description =&gt; exists()">[Section D Checks] Response statement has a component which has a required description
@@ -442,6 +453,7 @@
             <sch:assert diagnostics="incomplete-response-description-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                        doc:template-reference="System Security Plan Template §13"
                         id="incomplete-response-description"
                         role="error"
                         test="$description-length &gt;= $required-length">[Section D Checks] Response statement component description has adequate
@@ -457,6 +469,7 @@
             <sch:assert diagnostics="incomplete-response-remarks-diagnostic"
                         doc:checklist-reference="Section D Checks"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                        doc:template-reference="System Security Plan Template §13"
                         id="incomplete-response-remarks"
                         role="warning"
                         test="$remarks-length &gt;= $required-length">[Section D Checks] Response statement component remarks have adequate
@@ -476,6 +489,7 @@
             <sch:assert diagnostics="incorrect-role-association-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
+                        doc:template-reference="System Security Plan Template §9.3"
                         id="incorrect-role-association"
                         role="error"
                         test="not(exists($extraneous-roles))">[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous
@@ -483,6 +497,7 @@
             <sch:assert diagnostics="incorrect-party-association-diagnostic"
                         doc:checklist-reference="Section C Check 2"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
+                        doc:template-reference="System Security Plan Template §9.3"
                         id="incorrect-party-association"
                         role="error"
                         test="not(exists($extraneous-parties))">[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous
@@ -491,6 +506,7 @@
         <sch:rule context="/o:system-security-plan/o:back-matter/o:resource">
             <sch:assert diagnostics="resource-uuid-required-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
+                        doc:template-reference="System Security Plan Template §9.3"
                         id="resource-uuid-required"
                         role="error"
                         test="@uuid">Every resource has a uuid attribute.</sch:assert>
@@ -514,11 +530,13 @@
                      value="@media-type" />
             <sch:assert diagnostics="resource-base64-available-filename-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP Content §4.10"
+                        doc:template-reference="System Security Plan Template §15"
                         id="resource-base64-available-filename"
                         role="error"
                         test="./@filename">This base64 has a filename attribute.</sch:assert>
             <sch:assert diagnostics="resource-base64-available-media-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP Content §4.10"
+                        doc:template-reference="System Security Plan Template §15"
                         id="resource-base64-available-media-type"
                         role="error"
                         test="./@media-type">This base64 has a media-type attribute.</sch:assert>
@@ -538,21 +556,25 @@
             <!-- the following assertion recapitulates the XML Schema constraint -->
             <sch:assert diagnostics="resource-has-uuid-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="resource-has-uuid"
                         role="error"
                         test="@uuid">A resource must have a uuid attribute.</sch:assert>
             <sch:assert diagnostics="resource-has-title-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="resource-has-title"
                         role="warning"
                         test="oscal:title">A resource should have a title.</sch:assert>
             <sch:assert diagnostics="resource-has-rlink-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="resource-has-rlink"
                         role="error"
                         test="oscal:rlink">A resource must have a rlink element</sch:assert>
             <sch:assert diagnostics="resource-is-referenced-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="resource-is-referenced"
                         role="information"
                         test="@uuid = (//@href[matches(., '^#')] ! substring-after(., '#'))">A resource should be referenced from within the
@@ -562,6 +584,7 @@
                   doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1">
             <sch:assert diagnostics="attachment-type-is-valid-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="attachment-type-is-valid"
                         role="warning"
                         test="@value = $attachment-types">A resource should have an allowed attachment-type property.</sch:assert>
@@ -569,6 +592,7 @@
         <sch:rule context="oscal:back-matter/oscal:resource/oscal:rlink">
             <sch:assert diagnostics="rlink-has-href-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="rlink-has-href"
                         role="error"
                         test="@href">A resource rlink must have an href attribute.</sch:assert>
@@ -589,6 +613,7 @@
             <sch:value-of select="count($media-types)" />media types.</sch:report>-->
             <sch:assert diagnostics="has-allowed-media-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="has-allowed-media-type"
                         role="error"
                         test="@media-type = $media-types">A media-type attribute must have an allowed value.</sch:assert>
@@ -601,11 +626,13 @@
                   doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1">
             <sch:assert diagnostics="resource-has-base64-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="resource-has-base64"
                         role="warning"
                         test="oscal:base64">A resource should have a base64 element.</sch:assert>
             <sch:assert diagnostics="resource-base64-cardinality-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="resource-has-base64-cardinality"
                         role="error"
                         test="not(oscal:base64[2])">A resource must have only one base64 element.</sch:assert>
@@ -614,16 +641,19 @@
                   doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1">
             <sch:assert diagnostics="base64-has-filename-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="base64-has-filename"
                         role="error"
                         test="@filename">A base64 element must have a filename attribute.</sch:assert>
             <sch:assert diagnostics="base64-has-media-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="base64-has-media-type"
                         role="error"
                         test="@media-type">A base64 element must have a media-type attribute.</sch:assert>
             <sch:assert diagnostics="base64-has-content-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                        doc:template-reference="System Security Plan Template §15"
                         id="base64-has-content"
                         role="error"
                         test="matches(normalize-space(), '^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/][AQgw]==|[A-Za-z0-9+/]{2}[AEIMQUYcgkosw048]=)?$')">A
@@ -790,6 +820,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-privacy-poc-role-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.2"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-privacy-poc-role"
                         role="error"
                         test="/oscal:system-security-plan/oscal:metadata/oscal:role[@id = 'privacy-poc']">[Section B Check 3.4] A FedRAMP OSCAL SSP
@@ -797,6 +828,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-responsible-party-privacy-poc-role-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.2"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-responsible-party-privacy-poc-role"
                         role="error"
                         test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id = 'privacy-poc']">[Section B Check 3.4] A
@@ -804,6 +836,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-responsible-privacy-poc-party-uuid-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.2"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-responsible-privacy-poc-party-uuid"
                         role="error"
                         test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id = 'privacy-poc']/oscal:party-uuid">[Section
@@ -814,6 +847,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-privacy-poc-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.2"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-privacy-poc"
                         role="error"
                         test="/oscal:system-security-plan/oscal:metadata/oscal:party[@uuid = $poc-uuid]">[Section B Check 3.4] A FedRAMP OSCAL SSP
@@ -829,6 +863,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-correct-yes-or-no-answer-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.4"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-correct-yes-or-no-answer"
                         role="error"
                         test="current()/@value = ('yes', 'no')">[Section B Check 3.4] A Privacy Threshold Analysis (PTA)/Privacy Impact Analysis
@@ -840,6 +875,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-privacy-sensitive-designation-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.4"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-privacy-sensitive-designation"
                         role="error"
                         test="oscal:prop[@name = 'privacy-sensitive']">[Section B Check 3.4] A FedRAMP OSCAL SSP must have a privacy-sensitive
@@ -847,6 +883,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-pta-question-1-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.4"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-pta-question-1"
                         role="error"
                         test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-1']">[Section B Check 3.4] A
@@ -855,6 +892,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-pta-question-2-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.4"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-pta-question-2"
                         role="error"
                         test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-2']">[Section B Check 3.4] A
@@ -863,6 +901,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-pta-question-3-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.4"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-pta-question-3"
                         role="error"
                         test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-3']">[Section B Check 3.4] A
@@ -871,6 +910,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-pta-question-4-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.4"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-pta-question-4"
                         role="error"
                         test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-4']">[Section B Check 3.4] A
@@ -879,6 +919,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-all-pta-questions-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.4"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-all-pta-questions"
                         role="error"
                         test="
@@ -888,6 +929,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-correct-pta-question-cardinality-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.4"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-correct-pta-question-cardinality"
                         role="error"
                         test="
@@ -897,6 +939,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-sorn-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.4"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-sorn"
                         role="error"
                         test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-4' and @value = 'yes'] and oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'sorn-id' (: and @value != '':)]">
@@ -908,6 +951,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <sch:assert diagnostics="has-pia-diagnostic"
                         doc:checklist-reference="Section B Check 3.4"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.4"
+                        doc:template-reference="System Security Plan Template §15 Attachment 4"
                         id="has-pia"
                         role="error"
                         test="
@@ -1289,6 +1333,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <doc:rule>A FedRAMP OSCAL SSP must incorporate inventory-item elements</doc:rule>
             <sch:assert diagnostics="has-inventory-items-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="has-inventory-items"
                         role="error"
                         test="oscal:inventory-item">A FedRAMP OSCAL SSP must incorporate inventory-item elements.</sch:assert>
@@ -1298,6 +1343,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                   doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
             <sch:assert diagnostics="has-unique-asset-id-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="has-unique-asset-id"
                         role="error"
                         test="count(//oscal:prop[@name = 'asset-id'][@value = current()/@value]) = 1">An asset-id must be unique.</sch:assert>
@@ -1308,6 +1354,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                      value="$fedramp-values//fedramp:value-set[@name = 'asset-type']//fedramp:enum/@value" />
             <sch:assert diagnostics="has-allowed-asset-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="has-allowed-asset-type"
                         role="warning"
                         test="@value = $asset-types">An asset-type property must have an allowed value.</sch:assert>
@@ -1318,6 +1365,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                      value="$fedramp-values//fedramp:value-set[@name = 'virtual']//fedramp:enum/@value" />
             <sch:assert diagnostics="has-allowed-virtual-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="has-allowed-virtual"
                         role="error"
                         test="@value = $virtuals">A virtual property must have an allowed value.</sch:assert>
@@ -1328,6 +1376,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                      value="$fedramp-values//fedramp:value-set[@name = 'public']//fedramp:enum/@value" />
             <sch:assert diagnostics="has-allowed-public-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="has-allowed-public"
                         role="error"
                         test="@value = $publics">A public property must have an allowed value.</sch:assert>
@@ -1338,6 +1387,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                      value="$fedramp-values//fedramp:value-set[@name = 'allows-authenticated-scan']//fedramp:enum/@value" />
             <sch:assert diagnostics="has-allowed-allows-authenticated-scan-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="has-allowed-allows-authenticated-scan"
                         role="error"
                         test="@value = $allows-authenticated-scans">An allows-authenticated-scan property has an allowed value.</sch:assert>
@@ -1348,6 +1398,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                      value="$fedramp-values//fedramp:value-set[@name = 'is-scanned']//fedramp:enum/@value" />
             <sch:assert diagnostics="has-allowed-is-scanned-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="has-allowed-is-scanned"
                         role="error"
                         test="@value = $is-scanneds">is-scanned property must have an allowed value.</sch:assert>
@@ -1358,6 +1409,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                      value="$fedramp-values//fedramp:value-set[@name = 'scan-type']//fedramp:enum/@value" />
             <sch:assert diagnostics="has-allowed-scan-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="has-allowed-scan-type"
                         role="error"
                         test="@value = $scan-types">A scan-type property must have an allowed value.</sch:assert>
@@ -1369,11 +1421,13 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                      value="$fedramp-values//fedramp:value-set[@name = 'component-type']//fedramp:enum/@value" />
             <sch:assert diagnostics="component-has-allowed-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="component-has-allowed-type"
                         role="error"
                         test="@type = $component-types">A component must have an allowed type.</sch:assert>
             <sch:assert diagnostics="component-has-asset-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="component-has-asset-type"
                         role="error"
                         test="
@@ -1381,6 +1435,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                     oscal:prop[@name = 'asset-type']">A component must have an asset type.</sch:assert>
             <sch:assert diagnostics="component-has-one-asset-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="component-has-one-asset-type"
                         role="error"
                         test="not(oscal:prop[@name = 'asset-type'][2])">A component must have only one asset type.</sch:assert>
@@ -1391,56 +1446,67 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                   see="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
             <sch:assert diagnostics="inventory-item-has-uuid-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-uuid"
                         role="error"
                         test="@uuid">An inventory-item has a uuid.</sch:assert>
             <sch:assert diagnostics="has-asset-id-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="has-asset-id"
                         role="error"
                         test="oscal:prop[@name = 'asset-id']">An inventory-item must have an asset-id.</sch:assert>
             <sch:assert diagnostics="has-one-asset-id-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="has-one-asset-id"
                         role="error"
                         test="not(oscal:prop[@name = 'asset-id'][2])">An inventory-item must have only one asset-id.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-asset-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-asset-type"
                         role="error"
                         test="oscal:prop[@name = 'asset-type']">An inventory-item must have an asset-type.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-asset-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-asset-type"
                         role="error"
                         test="not(oscal:prop[@name = 'asset-type'][2])">An inventory-item must have only one asset-type.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-virtual-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-virtual"
                         role="error"
                         test="oscal:prop[@name = 'virtual']">An inventory-item must have a virtual property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-virtual-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-virtual"
                         role="error"
                         test="not(oscal:prop[@name = 'virtual'][2])">An inventory-item must have only one virtual property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-public-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-public"
                         role="error"
                         test="oscal:prop[@name = 'public']">An inventory-item must have a public property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-public-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-public"
                         role="error"
                         test="not(oscal:prop[@name = 'public'][2])">An inventory-item must have only one public property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-scan-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-scan-type"
                         role="error"
                         test="oscal:prop[@name = 'scan-type']">An inventory-item must have a scan-type property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-scan-type-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-scan-type"
                         role="error"
                         test="not(oscal:prop[@name = 'scan-type'][2])">An inventory-item has only one scan-type property.</sch:assert>
@@ -1449,24 +1515,28 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                      value="exists(oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')])" />
             <sch:assert diagnostics="inventory-item-has-allows-authenticated-scan-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-allows-authenticated-scan"
                         role="error"
                         test="not($is-infrastructure) or oscal:prop[@name = 'allows-authenticated-scan']">"infrastructure" inventory-item has
                         allows-authenticated-scan.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-allows-authenticated-scan-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-allows-authenticated-scan"
                         role="error"
                         test="not($is-infrastructure) or not(oscal:prop[@name = 'allows-authenticated-scan'][2])">An inventory-item has
                         one-allows-authenticated-scan property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-baseline-configuration-name-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-baseline-configuration-name"
                         role="error"
                         test="not($is-infrastructure) or oscal:prop[@name = 'baseline-configuration-name']">"infrastructure" inventory-item has
                         baseline-configuration-name.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-baseline-configuration-name-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-baseline-configuration-name"
                         role="error"
                         test="not($is-infrastructure) or not(oscal:prop[@name = 'baseline-configuration-name'][2])">"infrastructure" inventory-item
@@ -1474,6 +1544,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <!-- FIXME: Documentation says vendor name is in FedRAMP @ns -->
             <sch:assert diagnostics="inventory-item-has-vendor-name-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-vendor-name"
                         role="error"
                         test="not($is-infrastructure) or oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'vendor-name']">
@@ -1481,6 +1552,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <!-- FIXME: Documentation says vendor name is in FedRAMP @ns -->
             <sch:assert diagnostics="inventory-item-has-one-vendor-name-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-vendor-name"
                         role="error"
                         test="not($is-infrastructure) or not(oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'vendor-name'][2])">
@@ -1488,24 +1560,28 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <!-- FIXME: perversely, hardware-model is not in FedRAMP @ns -->
             <sch:assert diagnostics="inventory-item-has-hardware-model-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-hardware-model"
                         role="error"
                         test="not($is-infrastructure) or oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'hardware-model']">
                         "infrastructure" inventory-item must have a hardware-model property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-hardware-model-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-hardware-model"
                         role="error"
                         test="not($is-infrastructure) or not(oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'hardware-model'][2])">
                         "infrastructure" inventory-item must have only one hardware-model property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-is-scanned-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-is-scanned"
                         role="error"
                         test="not($is-infrastructure) or oscal:prop[@name = 'is-scanned']">"infrastructure" inventory-item must have is-scanned
                         property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-is-scanned-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-is-scanned"
                         role="error"
                         test="not($is-infrastructure) or not(oscal:prop[@name = 'is-scanned'][2])">"infrastructure" inventory-item must have only one
@@ -1516,12 +1592,14 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                      value="exists(oscal:prop[@name = 'asset-type' and @value = ('software', 'database')])" />
             <sch:assert diagnostics="inventory-item-has-software-name-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-software-name"
                         role="error"
                         test="not($is-software-and-database) or oscal:prop[@name = 'software-name']">"software or database" inventory-item must have
                         a software-name property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-software-name-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-software-name"
                         role="error"
                         test="not($is-software-and-database) or not(oscal:prop[@name = 'software-name'][2])">"software or database" inventory-item
@@ -1529,12 +1607,14 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <!-- FIXME: vague asset categories -->
             <sch:assert diagnostics="inventory-item-has-software-version-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-software-version"
                         role="error"
                         test="not($is-software-and-database) or oscal:prop[@name = 'software-version']">"software or database" inventory-item must
                         have a software-version property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-software-version-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-software-version"
                         role="error"
                         test="not($is-software-and-database) or not(oscal:prop[@name = 'software-version'][2])">"software or database" inventory-item
@@ -1542,12 +1622,14 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
             <!-- FIXME: vague asset categories -->
             <sch:assert diagnostics="inventory-item-has-function-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-function"
                         role="error"
                         test="not($is-software-and-database) or oscal:prop[@name = 'function']">"software or database" inventory-item must have a
                         function property.</sch:assert>
             <sch:assert diagnostics="inventory-item-has-one-function-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                        doc:template-reference="System Security Plan Template §15 Attachment 13"
                         id="inventory-item-has-one-function"
                         role="error"
                         test="not($is-software-and-database) or not(oscal:prop[@name = 'function'][2])">"software or database" inventory-item must
