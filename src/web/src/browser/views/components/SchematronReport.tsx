@@ -18,7 +18,7 @@ export const SchematronReport = () => {
             style={{ float: 'right' }}
           >
             <span className={`text-blue`}>
-              {schematronReport.summary.counts.assertions} concerns and {' '}
+              {schematronReport.summary.counts.assertions} concerns and{' '}
               {schematronReport.summary.counts.reports} notes
             </span>
           </span>
@@ -27,7 +27,7 @@ export const SchematronReport = () => {
           <details
             key={index}
             className="border-top-1px border-accent-cool-light padding-1"
-            open={true}
+            open={false}
           >
             <summary>
               <span className="font-heading-lg text-primary border-base-light padding-top-1">
