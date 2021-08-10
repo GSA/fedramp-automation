@@ -54,6 +54,53 @@
                             key="groups">
                             <xsl:for-each
                                 select="$groupitems">
+                                <xsl:sort>
+                                    <!-- attempt to order by text -->
+                                    <xsl:analyze-string
+                                        select="."
+                                        regex="^(\D+)">
+                                        <xsl:matching-substring>
+                                            <xsl:value-of
+                                                select="regex-group(1)" />
+                                        </xsl:matching-substring>
+                                    </xsl:analyze-string>
+                                </xsl:sort>
+                                <xsl:sort>
+                                    <!-- attempt to order by number -->
+                                    <xsl:variable
+                                        name="s"
+                                        as="xs:string">
+                                        <xsl:analyze-string
+                                            select="."
+                                            regex="^\D+([0-9.]+).*$">
+                                            <xsl:matching-substring>
+                                                <xsl:choose>
+                                                    <xsl:when
+                                                        test="ends-with(regex-group(1), '.')">
+                                                        <xsl:text expand-text="true">00{substring-before(regex-group(1),'.')}</xsl:text>
+                                                    </xsl:when>
+                                                    <xsl:when
+                                                        test="matches(regex-group(1), '^\d+$')">
+                                                        <xsl:text expand-text="true">{regex-group(1) ! xs:integer(.) ! format-integer(.,'000')}</xsl:text>
+                                                    </xsl:when>
+                                                    <xsl:when
+                                                        test="matches(regex-group(1), '\.')">
+                                                        <xsl:text expand-text="true">{tokenize(regex-group(1),'\.') ! xs:integer(.) ! format-integer(.,'000')}</xsl:text>
+                                                    </xsl:when>
+                                                    <xsl:otherwise>
+                                                        <xsl:text>999 999</xsl:text>
+                                                    </xsl:otherwise>
+                                                </xsl:choose>
+                                            </xsl:matching-substring>
+                                            <xsl:non-matching-substring>
+                                                <xsl:text>999 999</xsl:text>
+                                            </xsl:non-matching-substring>
+                                        </xsl:analyze-string>
+                                    </xsl:variable>
+                                    <xsl:copy-of
+                                        select="$s" />
+                                </xsl:sort>
+
                                 <xsl:variable
                                     name="item"
                                     as="xs:string"
