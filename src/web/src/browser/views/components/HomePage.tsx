@@ -145,7 +145,7 @@ const HomeContent = () => {
       <h2>Contact us</h2>
       <p>
         Please give us your feedback via a{' '}
-        <a href="https://github.com/18F/fedramp-automation/issues">
+        <a href="https://github.com/GSA/fedramp-automation/issues">
           Github issue
         </a>
         .
