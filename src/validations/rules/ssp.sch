@@ -691,7 +691,7 @@
             <sch:assert diagnostics="has-incident-response-plan-diagnostic"
                         doc:checklist-reference="Section B Check 3.8"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:template-reference="System Security Plan Template §155 Attachment 8"
+                        doc:template-reference="System Security Plan Template §15 Attachment 8"
                         id="has-incident-response-plan"
                         role="error"
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'incident-response-plan']]">
@@ -733,7 +733,7 @@
             <sch:assert diagnostics="has-policy-attachment-resource-diagnostic"
                         doc:checklist-reference="Section B Check 3.1"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:template-reference="System Security Plan Template §15"
+                        doc:template-reference="System Security Plan Template §15 Attachment 1"
                         id="has-policy-attachment-resource"
                         role="error"
                         test="
@@ -754,7 +754,7 @@ FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54
             <sch:assert diagnostics="has-procedure-attachment-resource-diagnostic"
                         doc:checklist-reference="Section B Check 3.1"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:template-reference="System Security Plan Template §15"
+                        doc:template-reference="System Security Plan Template §15 Attachment 1"
                         id="has-procedure-attachment-resource"
                         role="error"
                         test="
@@ -767,13 +767,13 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         <sch:rule context="oscal:by-component/oscal:link[@rel = ('policy', 'procedure')]"
                   doc:checklist-reference="Section B Check 3.1"
                   doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                  doc:template-reference="System Security Plan Template §15">
+                  doc:template-reference="System Security Plan Template §15 Attachment 1">
             <sch:let name="ir"
                      value="ancestor::oscal:implemented-requirement" />
             <sch:report diagnostics="has-reuse-diagnostic"
                         doc:checklist-reference="Section B Check 3.1"
                         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
-                        doc:template-reference="System Security Plan Template §15"
+                        doc:template-reference="System Security Plan Template §15 Attachment 1"
                         id="has-reuse"
                         role="error"
                         test="
