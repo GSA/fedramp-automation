@@ -1731,11 +1731,13 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                   doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10">
             <sch:assert diagnostics="role-has-title-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
+                        doc:template-reference="System Security Plan Template §9.3"
                         id="role-has-title"
                         role="error"
                         test="oscal:title">A role must have a title.</sch:assert>
             <sch:assert diagnostics="role-has-responsible-party-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
+                        doc:template-reference="System Security Plan Template §9.3"
                         id="role-has-responsible-party"
                         role="error"
                         test="//oscal:responsible-party[@role-id = current()/@id]">One or more responsible parties must be defined for each
@@ -1775,11 +1777,13 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                   doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2">
             <sch:assert diagnostics="responsible-role-has-role-definition-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
+                        doc:template-reference="System Security Plan Template §13"
                         id="responsible-role-has-role-definition"
                         role="error"
                         test="//oscal:role/@id = current()/@role-id">Each responsible-role must reference a role definition.</sch:assert>
             <sch:assert diagnostics="responsible-role-has-user-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
+                        doc:template-reference="System Security Plan Template §13"
                         id="responsible-role-has-user"
                         role="error"
                         test="//oscal:role-id = current()/@role-id">Each responsible-role must be referenced in a system-implementation user
@@ -1890,6 +1894,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                   doc:template-reference="System Security Plan Template §9.3">
             <sch:assert diagnostics="authorized-privilege-has-non-empty-title-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
+                        doc:template-reference="System Security Plan Template §9.3"
                         id="authorized-privilege-has-non-empty-title"
                         role="error"
                         test="current() ne ''">Every authorized-privilege title is non-empty.</sch:assert>
@@ -1899,6 +1904,7 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                   doc:template-reference="System Security Plan Template §9.3">
             <sch:assert diagnostics="authorized-privilege-has-non-empty-function-performed-diagnostic"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
+                        doc:template-reference="System Security Plan Template §9.3"
                         id="authorized-privilege-has-non-empty-function-performed"
                         role="error"
                         test="current() ne ''">Every authorized-privilege has a non-empty function-performed.</sch:assert>
