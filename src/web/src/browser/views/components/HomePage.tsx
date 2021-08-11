@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
-import { useActions, useAppState } from '../hooks';
+import { useActions } from '../hooks';
 
 export const HomePage = () => {
   return (
@@ -112,7 +112,8 @@ const HomeContent = () => {
     <div className="usa-prose padding-top-3">
       <h1>Accelerate approvals</h1>
       <p>
-        Welcome to ASAP, the upcoming FedRAMP audit validation tool. Funded by{' '}
+        Welcome to Automated Security Authorization Processing (ASAP), the
+        upcoming FedRAMP audit validation tool. Funded by{' '}
         <a href="https://10x.gsa.gov/">10x</a>, ASAP is comprised of the
         following components:
       </p>
