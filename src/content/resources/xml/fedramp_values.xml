@@ -93,7 +93,7 @@
    <value-set name="service-model">
       <formal-name>Service Model</formal-name>
       <description>The cloud service model.</description>
-      <binding pattern="system-characteristics/prop[@name='service-model']/@value" />
+      <binding pattern="system-characteristics/prop[@name='cloud-service-model']/@value" />
       <allowed-values allow-other="no">
          <enum value="saas" short-label="SaaS">Software as a Service</enum>
          <enum value="paas" short-label="PaaS">Platform as a Service</enum>
@@ -105,11 +105,10 @@
    <value-set name="deployment-model">
       <formal-name>Deployment Model</formal-name>
       <description>The cloud deployment model.</description>
-      <binding pattern="system-characteristics/prop[@name='deployment-model']/@value" />
+      <binding pattern="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" />
       <allowed-values allow-other="no">
          <enum value="public-cloud" short-label="Public">Public Cloud</enum>
          <enum value="private-cloud" short-label="Private">Private Cloud</enum>
-         <enum value="community-cloud" short-label="Community">Community Cloud</enum>
          <enum value="government-only-cloud" short-label="USG-Only">U.S. Government Only</enum>
          <enum value="hybrid-cloud" short-label="Hybrid">Hybrid</enum>
          <enum value="other" short-label="Other">Other</enum>
