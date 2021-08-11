@@ -41,9 +41,9 @@ const ProcessList = () => (
           Lower-cost agency ATO
         </h4>
         <p className="margin-top-1 text-light">
-          FedRAMP-approved CSPs with structured OSCAL System Security Plans are
-          more cost-effective for agencies to evaluate as part of their own ATO
-          process.
+          FedRAMP-approved Cloud Service Providers (CSPs) with structured OSCAL
+          System Security Plans are more cost-effective for agencies to evaluate
+          as part of their own Approval To Operate (ATO) process.
         </p>
       </li>
     </ol>
@@ -56,7 +56,11 @@ const PartiesGrid = () => {
     <div className="grid-container">
       <div className="grid-row">
         <div className="desktop:grid-col-12">
-          <h2 className="text-center">Our stakeholders</h2>
+          <h2 className="text-center">
+            Who will use the SSP Validator?
+            <br />
+            Our stakeholders are:
+          </h2>
         </div>
       </div>
       <div className="grid-row">
@@ -114,8 +118,11 @@ const HomeContent = () => {
       </p>
       <ul>
         <li>
-          <a href="https://pages.nist.gov/OSCAL/">OSCAL</a> validation rules
-          written in Schematron format
+          <a href="https://pages.nist.gov/OSCAL/">
+            Open Security Controls Assessment Language (OSCAL)
+          </a>{' '}
+          validation rules written in{' '}
+          <a href="https://schematron.com/">Schematron</a> format
         </li>
         <li>
           This user interface, which will apply validations to a FedRAMP OSCAL
@@ -140,7 +147,11 @@ const HomeContent = () => {
       <h2>What's next?</h2>
       <ul>
         <li>User feedback</li>
-        <li>In addition to SSP, support for POA&M, SAP, and SAR validations</li>
+        <li>
+          In addition to SSP, support for Plan of Actions and Milestones
+          (POA&M), Security Assessment Plan (SAP), and Security Assessment
+          Report (SAR) validations
+        </li>
       </ul>
       <h2>Contact us</h2>
       <p>
