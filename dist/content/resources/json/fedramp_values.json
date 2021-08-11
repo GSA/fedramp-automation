@@ -194,7 +194,7 @@
                 "name": "service-model",
                 "formal-name": "Service Model",
                 "description": "The cloud service model.",
-                "binding": {"pattern": "system-characteristics/prop[@name='service-model']/@value"},
+                "binding": {"pattern": "system-characteristics/prop[@name='cloud-service-model']/@value"},
                 "allowed-values": {
                     "allow-other": "no",
                     "enum": [
@@ -225,7 +225,7 @@
                 "name": "deployment-model",
                 "formal-name": "Deployment Model",
                 "description": "The cloud deployment model.",
-                "binding": {"pattern": "system-characteristics/prop[@name='deployment-model']/@value"},
+                "binding": {"pattern": "system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value"},
                 "allowed-values": {
                     "allow-other": "no",
                     "enum": [
@@ -238,11 +238,6 @@
                             "value": "private-cloud",
                             "short-label": "Private",
                             "#text": "Private Cloud"
-                        },
-                        {
-                            "value": "community-cloud",
-                            "short-label": "Community",
-                            "#text": "Community Cloud"
                         },
                         {
                             "value": "government-only-cloud",

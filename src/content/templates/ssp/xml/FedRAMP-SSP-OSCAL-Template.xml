@@ -532,7 +532,7 @@
          </remarks>
       </prop>
       <!-- Table 8-2 Cloud Deployment Model Represented in this SSP -->
-      <prop name="cloud-deployment-model" value="government-only-cloud">
+      <prop ns="https://fedramp.gov/ns/oscal" name="cloud-deployment-model" value="government-only-cloud">
          <remarks>
             <p>Remarks are required if deployment model is "hybrid-cloud" or "other". Optional
                otherwise.</p>
