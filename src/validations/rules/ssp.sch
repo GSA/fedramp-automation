@@ -1503,7 +1503,7 @@
                 id="has-allowed-information-type-id"
                 role="error"
                 see="https://doi.org/10.6028/NIST.SP.800-60v2r1"
-                test="current()[. = $information-types]">A FedRAMP SSP information type identifier must employ those found in NIST SP
+                test="current()[. = $information-types]">A FedRAMP SSP information type identifier must be chosen from those found in NIST SP
                 800-60v2r1.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -1516,16 +1516,16 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="cia-impact-has-base"
                 role="error"
-                test="oscal:base">A FedRAMP SSP information type confidentiality, integrity, or availability impact must have a base
-                element.</sch:assert>
+                test="oscal:base">A FedRAMP SSP information type confidentiality, integrity, or availability impact must specify the base
+                impact.</sch:assert>
             <sch:assert
                 diagnostics="cia-impact-has-selected-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
                 doc:template-reference="System Security Plan Template §2.1"
                 id="cia-impact-has-selected"
                 role="error"
-                test="oscal:selected">A FedRAMP SSP information type confidentiality, integrity, or availability impact must have a selected
-                element.</sch:assert>
+                test="oscal:selected">A FedRAMP SSP information type confidentiality, integrity, or availability impact must the selected
+                impact.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:base | oscal:selected"
@@ -1540,7 +1540,7 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="cia-impact-has-approved-fips-categorization"
                 role="error"
-                test=". = $fips-199-levels">A FedRAMP SSP information type confidentiality, integrity, or availability impact base or select element
+                test=". = $fips-199-levels">A FedRAMP SSP information type confidentiality, integrity, or availability impact base or selected impact
                 must have an approved value.</sch:assert>
         </sch:rule>
     </sch:pattern>
