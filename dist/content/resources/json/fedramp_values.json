@@ -2,17 +2,17 @@
     "fedramp-values": {
         "xmlns": "https://fedramp.gov/ns/oscal",
         "metadata": {
-            "title": "[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values [DRAFT]",
-            "title-short": "FedRAMP Data Values (DRAFT)",
-            "last-modified": "2021-07-06T12:28:35Z",
-            "version": "fedramp1.0.0-oscal1.0.0",
+            "title": "[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values",
+            "title-short": "FedRAMP Data Values (Experimental)",
+            "last-modified": "2021-08-11T23:20:58Z",
+            "version": "fedramp1.0.2-oscal1.0.0",
             "author": "FedRAMP PMO",
-            "description": "This EXPERIMENTAL and DRAFT file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.",
+            "description": "This EXPERIMENTAL file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.",
             "remarks": ""
         },
         "namespace": {
             "ns": {
-                "name": "FedRAMP",
+                "name": "fedramp",
                 "ns": "https://fedramp.gov/ns/oscal"
             }
         },
@@ -194,7 +194,7 @@
                 "name": "service-model",
                 "formal-name": "Service Model",
                 "description": "The cloud service model.",
-                "binding": {"pattern": "system-characteristics/prop[@name='service-model']/@value"},
+                "binding": {"pattern": "system-characteristics/prop[@name='cloud-service-model']/@value"},
                 "allowed-values": {
                     "allow-other": "no",
                     "enum": [
@@ -225,7 +225,7 @@
                 "name": "deployment-model",
                 "formal-name": "Deployment Model",
                 "description": "The cloud deployment model.",
-                "binding": {"pattern": "system-characteristics/prop[@name='deployment-model']/@value"},
+                "binding": {"pattern": "system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value"},
                 "allowed-values": {
                     "allow-other": "no",
                     "enum": [
@@ -238,11 +238,6 @@
                             "value": "private-cloud",
                             "short-label": "Private",
                             "#text": "Private Cloud"
-                        },
-                        {
-                            "value": "community-cloud",
-                            "short-label": "Community",
-                            "#text": "Community Cloud"
                         },
                         {
                             "value": "government-only-cloud",
@@ -871,12 +866,12 @@
                     "allow-other": "no",
                     "enum": [
                         {
-                            "value": "TCP",
+                            "value": "tcp",
                             "short-label": "TCP",
                             "#text": "TCP"
                         },
                         {
-                            "value": "UDP",
+                            "value": "udp",
                             "short-label": "UDP",
                             "#text": "UDP"
                         }
@@ -1082,11 +1077,6 @@
                             "#text": "Guidance"
                         },
                         {
-                            "value": "pii",
-                            "short-label": "P.I.I.",
-                            "#text": "Privacy Impact Information"
-                        },
-                        {
                             "value": "policy",
                             "short-label": "Policy",
                             "#text": "Polciy"
@@ -1102,13 +1092,8 @@
                             "#text": "Guidance Document"
                         },
                         {
-                            "value": "pia",
-                            "short-label": "P.I.A.",
-                            "#text": "Privacy Impact Assessment"
-                        },
-                        {
                             "value": "rules-of-behavior",
-                            "short-label": "R.O.B.",
+                            "short-label": "ROB",
                             "#text": "Rules of Behavior"
                         },
                         {
@@ -1192,7 +1177,7 @@
                             "#text": "Logo"
                         },
                         {
-                            "value": "Personal-Identifiable-Information",
+                            "value": "personally-identifiable-information",
                             "short-label": "PII",
                             "#text": "Personal Identifiable Information (PII)"
                         },
@@ -1218,7 +1203,7 @@
                         },
                         {
                             "value": "privacy-impact-assessment",
-                            "short-label": "PII",
+                            "short-label": "PIA",
                             "#text": "Privacy Impact Assessment"
                         },
                         {

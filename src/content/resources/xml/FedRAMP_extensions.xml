@@ -2,10 +2,10 @@
 <extensions  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="BA710064-79AC-47D5-8F70-6749B359E7E2" >
    <metadata>
-      <title>[EXPERIMENTAL] FedRAMP Extensions [DRAFT]</title>
-      <published>2021-07-06T23:07:21Z</published>
-      <last-modified>2021-07-06T23:07:21Z</last-modified>
-      <version>fedramp1.0.0-oscal1.0.0</version>
+      <title>[EXPERIMENTAL] FedRAMP Extensions</title>
+      <published>2021-08-11T23:27:44Z</published>
+      <last-modified>2021-08-11T23:27:44Z</last-modified>
+      <version>fedramp1.0.2-oscal1.0.0</version>
       <oscal-version>oscal-1.0.0</oscal-version>
       <revisions>
          <revision>
@@ -30,6 +30,14 @@
             <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
             <remarks>
                <p>Revised draft to better align with OSCAL RC-1 SSP syntax.</p>
+            </remarks>
+         </revision>
+         <revision>
+            <published>2021-08-11T23:27:44.00-00:00</published>
+            <version>fedramp1.0.2-oscal1.0.0</version>
+            <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+            <remarks>
+               <p>Release reviewed for updated release.</p>
             </remarks>
          </revision>
       </revisions>
@@ -67,7 +75,7 @@
       </responsible-party>
       
       <remarks>
-         <p>This EXPERIMENTAL and DRAFT file exteneds OSCAL to meet FedRAMP requirements.</p>
+         <p>This EXPERIMENTAL file exteneds OSCAL to meet FedRAMP requirements.</p>
          <p>It provides the extensions, defined identifiers, and acceptable values in a machine-readable format necssary to meet FedRAMP Authorization Package requirements.</p>
       </remarks>
    </metadata>
@@ -453,8 +461,8 @@
       <constraint>
          <matches data-type="token" />
          <allowed-values allow-other="no">
-            <enum value="TCP" short-label="TCP">TCP</enum>
-            <enum value="UDP" short-label="UDP">UDP</enum>
+            <enum value="tcp" short-label="TCP">TCP</enum>
+            <enum value="udp" short-label="UDP">UDP</enum>
          </allowed-values>
       </constraint>
    </extension>
@@ -681,17 +689,6 @@
       </constraint>
    </extension>
    
-   <extension id="POAM-ID">
-      <extension-name>POAM-ID</extension-name>
-      <formal-name>POA&amp;M ID</formal-name>
-      <description>A CSP-assigned POA&amp;M identifier.</description>
-      <binding pattern="/o:plan-of-action-and-milestones/o:poam-item/o:prop"/>
-      <constraint>
-         <matches data-type="string" />
-         <has-cardinality min-occurs="0" max-occurs="1" />
-      </constraint>
-   </extension>
-   
    <extension id="control-objective-implementation-status">
       <extension-name>control-objective-implementation-status</extension-name>
       <formal-name>Objective Implementation Status</formal-name>
@@ -864,12 +861,13 @@
    </extension>
    
    <extension id="poam-id">
-      <extension-name>POAM-ID</extension-name>
-      <formal-name>CSP POA&amp;M Identifier</formal-name>
-      <description>A CSP-assigned identifier for this POA&amp;M item.</description>
-      <binding pattern="/o:plan-of-action-and-milestones/o:poam-item/o:prop" />
+      <extension-name>poam-id</extension-name>
+      <formal-name>POA&amp;M ID</formal-name>
+      <description>A CSP-assigned POA&amp;M identifier.</description>
+      <binding pattern="/o:plan-of-action-and-milestones/o:poam-item/o:prop"/>
       <constraint>
-         <matches data-type="NCName" />
+         <matches data-type="string" />
+         <has-cardinality min-occurs="0" max-occurs="1" />
       </constraint>
    </extension>
    
@@ -1221,12 +1219,10 @@
          <enum value="regulation" short-label="Regulation">Regulation or Directive</enum>
          <enum value="standard" short-label="Standard">Industry Standard</enum>
          <enum value="guidance" short-label="Guidance">Guidance</enum>
-         <enum value="pii" short-label="P.I.I.">Privacy Impact Information</enum>
          <enum value="policy" short-label="Policy">Polciy</enum>
          <enum value="procedure" short-label="Procedure">Procedure</enum>
          <enum value="guide" short-label="Guidance">Guidance Document</enum>
-         <enum value="pia" short-label="P.I.A.">Privacy Impact Assessment</enum>
-         <enum value="rules-of-behavior" short-label="R.O.B.">Rules of Behavior</enum>
+         <enum value="rules-of-behavior" short-label="ROB">Rules of Behavior</enum>
          <enum value="plan" short-label="Plan">Plan</enum>
          <enum value="system-security-plan" short-label="SSP">System Security Plan</enum>
          <enum value="artifact" short-label="artifact">Artifact</enum>
@@ -1245,12 +1241,12 @@
          <enum value="logo" short-label="Logo">Logo</enum>
          <!-- See, e.g., https://www.dol.gov/general/ppii#:~:text=Personal%20Identifiable%20Information%20(PII)%20is,either%20direct%20or%20indirect%20means. -->
          <!-- All the privacy "types" need rationalization -->
-         <enum value="Personal-Identifiable-Information" short-label="PII">Personal Identifiable Information (PII)</enum>
+         <enum value="personal-identifiable-information" short-label="PII">Personal Identifiable Information (PII)</enum>
          <enum value="agreement" short-label="Agreement">Agreement</enum>
          <enum value="incident-response-plan" short-label="IRP">Incident Response Plan</enum>
          <enum value="information-security-policies-and-procedures" short-label="ISPP">Incident Security Policies and Procedures</enum>
          <enum value="user-guide" short-label="User Guide">User Guide</enum>
-         <enum value="privacy-impact-assessment" short-label="PII">Privacy Impact Assessment</enum>
+         <enum value="privacy-impact-analysis" short-label="PIA">Privacy Impact Assessment</enum>
          <enum value="information-system-contingency-plan" short-label="ISCP">Information System Contingency Plan</enum>
          <enum value="configuration-management-plan" short-label="CMP">configuration-management-plan</enum>
       </allowed-values>

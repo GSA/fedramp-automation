@@ -510,6 +510,7 @@ system-security-plan:
         value: saas
         remarks: Remarks are required if service model is \"other\". Optional otherwise.
       - name: cloud-deployment-model
+        ns: https://fedramp.gov/ns/oscal
         value: government-only-cloud
         remarks: Remarks are required if deployment model is \"hybrid-cloud\" or
           \"other\". Optional otherwise.
@@ -1173,7 +1174,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         statements:
           - statement-id: ac-1_smt
             uuid: 240fa015-01df-4741-bff5-6958c7fb85e5
@@ -1293,8 +1295,10 @@ system-security-plan:
             value: not-applicable
             remarks: Describe the justification for marking this control Not Applicable.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
           - name: control-origination
+            ns: https://fedramp.gov/ns/oscal
             value: customer-configured
             remarks: Describe any customer-configured requirements for satisfying this
               control.
@@ -1430,7 +1434,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -1482,7 +1487,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -1543,7 +1549,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -1598,7 +1605,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -1653,7 +1661,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -1708,7 +1717,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -1763,7 +1773,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -1818,7 +1829,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -1873,7 +1885,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -1928,7 +1941,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -1986,7 +2000,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -2041,7 +2056,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -2096,7 +2112,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -2151,7 +2168,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -2206,7 +2224,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
@@ -2261,7 +2280,8 @@ system-security-plan:
             value: planned
             remarks: Describe the plan to complete the implementation.
           - name: control-origination
-            value: system-specific
+            ns: https://fedramp.gov/ns/oscal
+            value: sp-system
         responsible-roles:
           - role-id: program-director
         statements:
