@@ -34,11 +34,11 @@ This format will allow for reviewers to collaborate and communicate improvements
 - [X]  3.6	 Att. 6: Information System Contingency Plan (ISCP)
 - [X]  3.7	 Att. 7: Configuration Management Plan (CMP)
 - [X]  3.8	 Att. 8: Incident Response Plan (IRP)
-- [ ]  3.9	 Att. 9: Control Implementation Summary (CIS) Workbook
+- [X]  3.9	 Att. 9: Control Implementation Summary (CIS) Workbook
 - [X]  3.10 Att. 10: Federal Information Processing Standard (FIPS) 199 Categorization
 - [X]  3.11 Att. 11: Separation of Duties Matrix
 - [X]  3.12 Att. 12: FedRAMP Laws and Regulations
-- [ ]  3.13 Att. 13: FedRAMP Integrated Inventory Workbook
+- [X]  3.13 Att. 13: FedRAMP Integrated Inventory Workbook
 
 ### Section C: Overall SSP Checks
 
