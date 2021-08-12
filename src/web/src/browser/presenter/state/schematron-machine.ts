@@ -1,9 +1,6 @@
 import { derived, Statemachine, statemachine } from 'overmind';
 
-import type {
-  AssertionGroup,
-  AssertionView,
-} from '@asap/shared/use-cases/assertion-views';
+import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 import type {
   SchematronAssert,
   FailedAssert,
@@ -31,7 +28,6 @@ type BaseState = {
   _assertionsById: {
     [assertionId: string]: SchematronAssert;
   };
-  assertionView: AssertionView;
   config: SchematronUIConfig;
   filter: {
     role: Role;
@@ -165,19 +161,6 @@ export const createSchematronMachine = () => {
         });
         return assertions;
       }),
-      assertionView: derived((state: SchematronMachine) => {
-        if (!state.filter.assertionViewId) {
-          return {
-            title: 'Not specified',
-            groups: [],
-          };
-        }
-        return state.filterOptions.assertionViews
-          .filter(view => view.id === state.filter.assertionViewId)
-          .map(view => {
-            return state.config.assertionViews[state.filter.assertionViewId];
-          })[0];
-      }),
       filter: {
         role: 'all',
         text: '',
@@ -205,13 +188,34 @@ export const createSchematronMachine = () => {
         ({
           _assertionsById,
           _schematronChecksFiltered,
-          assertionView,
+          config,
+          filter,
+          filterOptions,
           validator,
         }: SchematronMachine) => {
+          const assertionView = filterOptions.assertionViews
+            .filter(view => view.id === filter.assertionViewId)
+            .map(() => {
+              return config.assertionViews[filter.assertionViewId];
+            })[0];
+          if (!assertionView) {
+            return {
+              summary: {
+                title: 'Loading...',
+                counts: {
+                  assertions: 0,
+                  reports: 0,
+                },
+              },
+              groups: [],
+            };
+          }
+
           const isValidated = validator.current === 'VALIDATED';
           const reportCount = _schematronChecksFiltered.filter(
             c => c.isReport,
           ).length;
+
           return {
             summary: {
               title: isValidated
