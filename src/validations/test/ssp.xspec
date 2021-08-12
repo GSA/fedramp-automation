@@ -6437,23 +6437,23 @@
                 <x:context>
                     <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="planned-completion-date"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="9999-12-31" />
+                              ns="https://fedramp.gov/ns/oscal"
+                              value="9999-12-31" />
                     </system-security-plan>
                 </x:context>
                 <x:expect-not-assert id="planned-completion-date-is-not-past"
-                    label="that is correct" />
+                                     label="that is correct" />
             </x:scenario>
             <x:scenario label="When that is false">
                 <x:context>
                     <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="planned-completion-date"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="1949-07-01" />
+                              ns="https://fedramp.gov/ns/oscal"
+                              value="1949-07-01" />
                     </system-security-plan>
                 </x:context>
                 <x:expect-assert id="planned-completion-date-is-not-past"
-                    label="that is an error" />
+                                 label="that is an error" />
             </x:scenario>
         </x:scenario>
     </x:scenario>
@@ -6463,18 +6463,18 @@
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="cloud-service-model"
-                              value="saas" />
+                            value="saas" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert id="has-cloud-service-model"
-                                     label="that is correct" />
+                    label="that is correct" />
             </x:scenario>
             <x:scenario label="When that is false">
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
                 </x:context>
                 <x:expect-assert id="has-cloud-service-model"
-                                 label="that is an error" />
+                    label="that is an error" />
             </x:scenario>
         </x:scenario>
         <x:scenario label="A FedRAMP SSP must specify an allowed cloud service model.">
@@ -6482,27 +6482,27 @@
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="cloud-service-model"
-                              value="saas" />
+                            value="saas" />
                         <prop name="cloud-service-model"
-                              value="paas" />
+                            value="paas" />
                         <prop name="cloud-service-model"
-                              value="iaas" />
+                            value="iaas" />
                         <prop name="cloud-service-model"
-                              value="other" />
+                            value="other" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert id="has-allowed-cloud-service-model"
-                                     label="that is correct" />
+                    label="that is correct" />
             </x:scenario>
             <x:scenario label="When that is false">
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="cloud-service-model"
-                              value="service" />
+                            value="service" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-assert id="has-allowed-cloud-service-model"
-                                 label="that is an error" />
+                    label="that is an error" />
             </x:scenario>
         </x:scenario>
         <x:scenario label="A FedRAMP SSP with a cloud service model of &quot;other&quot; must supply remarks.">
@@ -6510,7 +6510,7 @@
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="cloud-service-model"
-                              value="other">
+                            value="other">
                             <remarks>
                                 <p>Remarks.</p>
                             </remarks>
@@ -6518,17 +6518,17 @@
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert id="has-cloud-service-model-remarks"
-                                     label="that is correct" />
+                    label="that is correct" />
             </x:scenario>
             <x:scenario label="When that is false">
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="cloud-service-model"
-                              value="other" />
+                            value="other" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-assert id="has-cloud-service-model-remarks"
-                                 label="that is an error" />
+                    label="that is an error" />
             </x:scenario>
         </x:scenario>
         <x:scenario label="A FedRAMP SSP must specify a cloud deployment model.">
@@ -6536,18 +6536,18 @@
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="cloud-deployment-model"
-                              value="public-cloud" />
+                            value="public-cloud" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert id="has-cloud-deployment-model"
-                                     label="that is correct" />
+                    label="that is correct" />
             </x:scenario>
             <x:scenario label="When that is false">
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
                 </x:context>
                 <x:expect-assert id="has-cloud-deployment-model"
-                                 label="that is an error" />
+                    label="that is an error" />
             </x:scenario>
         </x:scenario>
         <x:scenario label="A FedRAMP SSP must specify an allowed cloud deployment model.">
@@ -6555,29 +6555,29 @@
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="cloud-deployment-model"
-                              value="public-cloud" />
+                            value="public-cloud" />
                         <prop name="cloud-deployment-model"
-                              value="private-cloud" />
+                            value="private-cloud" />
                         <prop name="cloud-deployment-model"
-                              value="government-only-cloud" />
+                            value="government-only-cloud" />
                         <prop name="cloud-deployment-model"
-                              value="hybrid-cloud" />
+                            value="hybrid-cloud" />
                         <prop name="cloud-deployment-model"
-                              value="other" />
+                            value="other" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert id="has-allowed-cloud-deployment-model"
-                                     label="that is correct" />
+                    label="that is correct" />
             </x:scenario>
             <x:scenario label="When that is false">
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="cloud-deployment-model"
-                              value="deployment" />
+                            value="deployment" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-assert id="has-allowed-cloud-deployment-model"
-                                 label="that is an error" />
+                    label="that is an error" />
             </x:scenario>
         </x:scenario>
         <x:scenario label="A FedRAMP SSP with a cloud deployment model of &quot;hybrid-cloud&quot; must supply remarks.">
@@ -6585,7 +6585,7 @@
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="cloud-deployment-model"
-                              value="hybrid-cloud">
+                            value="hybrid-cloud">
                             <remarks>
                                 <p>Remarks.</p>
                             </remarks>
@@ -6593,17 +6593,17 @@
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert id="has-cloud-deployment-model-remarks"
-                                     label="that is correct" />
+                    label="that is correct" />
             </x:scenario>
             <x:scenario label="When that is false">
                 <x:context>
                     <system-characteristics xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop name="cloud-deployment-model"
-                              value="hybrid-cloud" />
+                            value="hybrid-cloud" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-assert id="has-cloud-deployment-model-remarks"
-                                 label="that is an error" />
+                    label="that is an error" />
             </x:scenario>
         </x:scenario>
         <x:scenario label="When a FedRAMP SSP has public components or inventory items, a cloud deployment model of &quot;public-cloud&quot; must be
@@ -6614,17 +6614,17 @@
                         <system-implementation>
                             <inventory-item uuid="600cf59f-633c-49a3-b930-1cd6004844d5">
                                 <prop name="public"
-                                      value="no" />
+                                    value="no" />
                             </inventory-item>
                         </system-implementation>
                         <system-characteristics>
                             <prop name="cloud-deployment-model"
-                                  value="other" />
+                                value="other" />
                         </system-characteristics>
                     </system-security-plan>
                 </x:context>
                 <x:expect-not-assert id="has-public-cloud-deployment-model"
-                                     label="that is correct" />
+                    label="that is correct" />
             </x:scenario>
             <x:scenario label="When that is true">
                 <x:context>
@@ -6632,17 +6632,17 @@
                         <system-implementation>
                             <inventory-item uuid="600cf59f-633c-49a3-b930-1cd6004844d5">
                                 <prop name="public"
-                                      value="yes" />
+                                    value="yes" />
                             </inventory-item>
                         </system-implementation>
                         <system-characteristics>
                             <prop name="cloud-deployment-model"
-                                  value="public-cloud" />
+                                value="public-cloud" />
                         </system-characteristics>
                     </system-security-plan>
                 </x:context>
                 <x:expect-not-assert id="has-public-cloud-deployment-model"
-                                     label="that is correct" />
+                    label="that is correct" />
             </x:scenario>
             <x:scenario label="When that is false">
                 <x:context>
@@ -6650,17 +6650,17 @@
                         <system-implementation>
                             <inventory-item uuid="600cf59f-633c-49a3-b930-1cd6004844d5">
                                 <prop name="public"
-                                      value="yes" />
+                                    value="yes" />
                             </inventory-item>
                         </system-implementation>
                         <system-characteristics>
                             <prop name="cloud-deployment-model"
-                                  value="other" />
+                                value="other" />
                         </system-characteristics>
                     </system-security-plan>
                 </x:context>
                 <x:expect-assert id="has-public-cloud-deployment-model"
-                                 label="that is an error" />
+                    label="that is an error" />
             </x:scenario>
         </x:scenario>
     </x:scenario>

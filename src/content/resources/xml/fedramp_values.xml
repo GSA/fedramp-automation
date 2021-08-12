@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <fedramp-values xmlns="https://fedramp.gov/ns/oscal">
    <metadata>
-      <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values [DRAFT]</title>
-      <title-short>FedRAMP Data Values (DRAFT)</title-short>
-      <last-modified>2021-07-06T12:28:35Z</last-modified>
-      <version>fedramp1.0.0-oscal1.0.0</version>
+      <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values</title>
+      <title-short>FedRAMP Data Values (Experimental)</title-short>
+      <last-modified>2021-08-11T23:20:58Z</last-modified>
+      <version>fedramp1.0.2-oscal1.0.0</version>
       <author>FedRAMP PMO</author>
-      <description>This EXPERIMENTAL and DRAFT file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
+      <description>This EXPERIMENTAL file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
       <remarks />
    </metadata>
 
    <namespace>
-      <ns name="FedRAMP" ns="https://fedramp.gov/ns/oscal" />
+      <ns name="fedramp" ns="https://fedramp.gov/ns/oscal" />
    </namespace>
 
    <value-set name="system-identifier-type">
@@ -93,7 +93,7 @@
    <value-set name="service-model">
       <formal-name>Service Model</formal-name>
       <description>The cloud service model.</description>
-      <binding pattern="system-characteristics/prop[@name='service-model']/@value" />
+      <binding pattern="system-characteristics/prop[@name='cloud-service-model']/@value" />
       <allowed-values allow-other="no">
          <enum value="saas" short-label="SaaS">Software as a Service</enum>
          <enum value="paas" short-label="PaaS">Platform as a Service</enum>
@@ -105,12 +105,10 @@
    <value-set name="deployment-model">
       <formal-name>Deployment Model</formal-name>
       <description>The cloud deployment model.</description>
-      <binding pattern="system-characteristics/prop[@name='deployment-model']/@value" />
+      <binding pattern="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" />
       <allowed-values allow-other="no">
          <enum value="public-cloud" short-label="Public">Public Cloud</enum>
-         <enum value="private-cloud" short-label="Private">Private Cloud</enum>
-         <!--<enum value="community-cloud" short-label="Community">Community Cloud</enum>-->
-         <enum value="government-only-cloud" short-label="USG-Only">U.S. Government Only</enum>
+         <enum value="private-cloud" short-label="Private">Private Cloud</enum>         <enum value="government-only-cloud" short-label="USG-Only">U.S. Government Only</enum>
          <enum value="hybrid-cloud" short-label="Hybrid">Hybrid</enum>
          <enum value="other" short-label="Other">Other</enum>
       </allowed-values>
@@ -358,8 +356,8 @@
       <description>The internet protocol transport type.</description>
       <binding pattern="component[@component-type='service']/protocol/port-range/@transport" />
       <allowed-values allow-other="no">
-         <enum value="TCP" short-label="TCP">TCP</enum>
-         <enum value="UDP" short-label="UDP">UDP</enum>
+         <enum value="tcp" short-label="TCP">TCP</enum>
+         <enum value="udp" short-label="UDP">UDP</enum>
       </allowed-values>
    </value-set>
 
@@ -444,12 +442,10 @@
          <enum value="regulation" short-label="Regulation">Regulation or Directive</enum>
          <enum value="standard" short-label="Standard">Industry Standard</enum>
          <enum value="guidance" short-label="Guidance">Guidance</enum>
-         <enum value="pii" short-label="P.I.I.">Privacy Impact Information</enum>
          <enum value="policy" short-label="Policy">Polciy</enum>
          <enum value="procedure" short-label="Procedure">Procedure</enum>
          <enum value="guide" short-label="Guidance">Guidance Document</enum>
-         <enum value="pia" short-label="P.I.A.">Privacy Impact Assessment</enum>
-         <enum value="rules-of-behavior" short-label="R.O.B.">Rules of Behavior</enum>
+         <enum value="rules-of-behavior" short-label="ROB">Rules of Behavior</enum>
          <enum value="plan" short-label="Plan">Plan</enum>
          <enum value="system-security-plan" short-label="SSP">System Security Plan</enum>
          <enum value="artifact" short-label="artifact">Artifact</enum>
@@ -468,12 +464,12 @@
          <enum value="logo" short-label="Logo">Logo</enum>
          <!-- See, e.g., https://www.dol.gov/general/ppii#:~:text=Personal%20Identifiable%20Information%20(PII)%20is,either%20direct%20or%20indirect%20means. -->
          <!-- All the privacy "types" need rationalization -->
-         <enum value="Personal-Identifiable-Information" short-label="PII">Personal Identifiable Information (PII)</enum>
+         <enum value="personally-identifiable-information" short-label="PII">Personal Identifiable Information (PII)</enum>
          <enum value="agreement" short-label="Agreement">Agreement</enum>
          <enum value="incident-response-plan" short-label="IRP">Incident Response Plan</enum>
          <enum value="information-security-policies-and-procedures" short-label="ISPP">Incident Security Policies and Procedures</enum>
          <enum value="user-guide" short-label="User Guide">User Guide</enum>
-         <enum value="privacy-impact-assessment" short-label="PII">Privacy Impact Assessment</enum>
+         <enum value="privacy-impact-assessment" short-label="PIA">Privacy Impact Assessment</enum>
          <enum value="information-system-contingency-plan" short-label="ISCP">Information System Contingency Plan</enum>
          <enum value="configuration-management-plan" short-label="CMP">configuration-management-plan</enum>
       </allowed-values>
@@ -513,7 +509,7 @@
          <enum value="penetration-test-lead" label="Penetration Test Lead">Penetration Test Lead</enum>
       </allowed-values>
    </value-set>
-   
+
    <value-set
       name="media-type">
       <formal-name>Resource Media Types</formal-name>

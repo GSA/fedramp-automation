@@ -532,7 +532,7 @@
          </remarks>
       </prop>
       <!-- Table 8-2 Cloud Deployment Model Represented in this SSP -->
-      <prop name="cloud-deployment-model" value="government-only-cloud">
+      <prop ns="https://fedramp.gov/ns/oscal" name="cloud-deployment-model" value="government-only-cloud">
          <remarks>
             <p>Remarks are required if deployment model is "hybrid-cloud" or "other". Optional
                otherwise.</p>
@@ -1106,7 +1106,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <statement statement-id="ac-1_smt" uuid="240fa015-01df-4741-bff5-6958c7fb85e5">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                uuid="d9d1ce66-ff47-474d-8596-5fdf2af60179">
@@ -1218,8 +1218,8 @@
                <p>Describe the justification for marking this control Not Applicable.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
-         <prop name="control-origination" value="customer-configured">
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="customer-configured">
             <remarks>
                <p>Describe any customer-configured requirements for satisfying this control.</p>
             </remarks>
@@ -1346,7 +1346,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="at-1_smt" uuid="ba380f9b-4364-4c0e-8629-cbada5d7d6b9">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1398,7 +1398,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="au-1_smt" uuid="a9a883f4-f550-4f11-941a-2eb9ce9c3faf">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1455,7 +1455,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ca-1_smt" uuid="cf2fa346-171d-48a1-a96a-0c6ca209f19c">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1510,7 +1510,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="cm-1_smt" uuid="ad732048-a744-456f-9555-c80fdf4cd304">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1565,7 +1565,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="cp-1_smt" uuid="a719de81-694c-4455-b8db-5f2b6b1d9076">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1620,7 +1620,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ia-1_smt" uuid="3146724d-b623-45de-a9af-fd7a0556a273">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1675,7 +1675,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ir-1_smt" uuid="c0d7699a-45d8-49af-abba-81c5d2fc5d1b">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1730,7 +1730,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ma-1_smt" uuid="36fd8d6c-4d47-46af-a5be-fca3c0fa143c">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1785,7 +1785,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="_smt" uuid="a2653c46-fbfc-4a70-b318-403f5f13cc46">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1840,7 +1840,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="_smt" uuid="35d98964-5e8c-4068-abed-2729cbb1a5e3">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1896,7 +1896,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="pl-1_smt" uuid="0acd7328-133f-4df8-8518-b9b3cb3bd4ed">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1951,7 +1951,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ps-1_smt" uuid="98f8537b-cce1-4904-b220-02552eae76e5">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -2006,7 +2006,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ra-1_smt" uuid="ffb439c2-3445-495c-ba10-ba0ca4e30465">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -2061,7 +2061,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="sa-1_smt" uuid="d0dc3f13-50cc-40d1-a980-fe78797c7417">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -2116,7 +2116,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="sc-1_smt" uuid="3f1307fa-7405-42ea-a9ad-61b7a94bc704">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -2171,7 +2171,7 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
-         <prop name="control-origination" value="system-specific"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="si-1_smt" uuid="9e061e1e-10fa-4896-8597-294d8fd8e52a">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"

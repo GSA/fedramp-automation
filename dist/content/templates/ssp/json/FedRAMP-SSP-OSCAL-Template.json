@@ -737,6 +737,7 @@
         },
         {
           "name": "cloud-deployment-model",
+          "ns": "https://fedramp.gov/ns/oscal",
           "value": "government-only-cloud",
           "remarks": "Remarks are required if deployment model is \\\"hybrid-cloud\\\" or \\\"other\\\". Optional otherwise."
         }
@@ -1883,7 +1884,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "statements": [
@@ -2017,10 +2019,12 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             },
             {
               "name": "control-origination",
+              "ns": "https://fedramp.gov/ns/oscal",
               "value": "customer-configured",
               "remarks": "Describe any customer-configured requirements for satisfying this control."
             }
@@ -2164,7 +2168,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -2262,7 +2267,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -2372,7 +2378,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -2470,7 +2477,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -2568,7 +2576,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -2666,7 +2675,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -2764,7 +2774,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -2862,7 +2873,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -2960,7 +2972,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -3058,7 +3071,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -3162,7 +3176,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -3260,7 +3275,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -3358,7 +3374,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -3456,7 +3473,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -3554,7 +3572,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
@@ -3652,7 +3671,8 @@
             },
             {
               "name": "control-origination",
-              "value": "system-specific"
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
             }
           ],
           "responsible-roles": [
