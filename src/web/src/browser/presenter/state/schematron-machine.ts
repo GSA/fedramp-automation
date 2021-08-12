@@ -197,19 +197,10 @@ export const createSchematronMachine = () => {
             .filter(view => view.id === filter.assertionViewId)
             .map(() => {
               return config.assertionViews[filter.assertionViewId];
-            })[0];
-          if (!assertionView) {
-            return {
-              summary: {
-                title: 'Loading...',
-                counts: {
-                  assertions: 0,
-                  reports: 0,
-                },
-              },
-              groups: [],
-            };
-          }
+            })[0] || {
+            title: '',
+            groups: [],
+          };
 
           const isValidated = validator.current === 'VALIDATED';
           const reportCount = _schematronChecksFiltered.filter(
