@@ -2,10 +2,10 @@
 
 <x:description
     schematron="../sch/sch.sch"
+    xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
-    xmlns:x="http://www.jenitennison.com/xslt/xspec"
-    xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation">
+    xmlns:x="http://www.jenitennison.com/xslt/xspec">
 
     <x:scenario
         label="In FedRAMP OSCAL Schematron">
@@ -65,11 +65,11 @@
                 label="when the id attribute is absent">
                 <x:context>
                     <sch:assert
-                        xmlns="http://purl.oclc.org/dsdl/schematron"
                         diagnostics="has-id-attribute-diagnostic"
                         role="error"
                         sqf:fix="add-id"
-                        test="@id">Has id.</sch:assert>
+                        test="@id"
+                        xmlns="http://purl.oclc.org/dsdl/schematron">Has id.</sch:assert>
                 </x:context>
                 <x:expect-assert
                     id="has-id-attribute"
@@ -98,8 +98,8 @@
                     label="that is correct" />
             </x:scenario>
             <x:scenario
-                pending="XSpec problem resolution"
-                label="when the punctuation is incorrect">
+                label="when the punctuation is incorrect"
+                pending="XSpec problem resolution">
                 <x:context>
                     <sch:assert
                         xmlns="http://purl.oclc.org/dsdl/schematron">Message!</sch:assert>
