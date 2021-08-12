@@ -3,9 +3,9 @@
    xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="BA710064-79AC-47D5-8F70-6749B359E7E2" >
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Extensions</title>
-      <published>2021-08-11T23:27:44Z</published>
-      <last-modified>2021-08-11T23:27:44Z</last-modified>
-      <version>fedramp1.0.2-oscal1.0.0</version>
+      <published>2021-08-12T12:38:01Z</published>
+      <last-modified>2021-08-12T12:38:01Z</last-modified>
+      <version>fedramp1.1.0-oscal1.0.0</version>
       <oscal-version>oscal-1.0.0</oscal-version>
       <revisions>
          <revision>
@@ -40,6 +40,14 @@
                <p>Release reviewed for updated release.</p>
             </remarks>
          </revision>
+         <revision>
+            <published>2021-08-12T12:38:01.00-00:00</published>
+            <version>fedramp1.1.0-oscal1.0.0</version>
+            <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+            <remarks>
+                <p>Updated version reviewed for fedramp1.1.0-oscal1.0.0 release.</p>
+            </remarks>
+        </revision>
       </revisions>
       
       <role id="prepared-by">
