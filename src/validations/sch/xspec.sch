@@ -67,8 +67,15 @@
         <sch:diagnostic
             id="missing-affirmative-test">The following <sch:value-of
                 select="
-                    count(doc(/x:description/@schematron)//sch:assert[current()/@id != //x:expect-not-assert/@id]/@id)" /> assertions lack an affirmative test: <sch:value-of
-                        select="for $id in doc(/x:description/@schematron)//sch:assert/@id return if ($id != //x:expect-not-assert/@id) then $id else ''
+                    count(doc(/x:description/@schematron)//sch:assert[current()/@id != //x:expect-not-assert/@id]/@id)" /> assertions
+            lack an affirmative test: <sch:value-of
+                select="
+                    for $id in doc(/x:description/@schematron)//sch:assert/@id
+                    return
+                        if ($id != //x:expect-not-assert/@id) then
+                            $id
+                        else
+                            ''
                     " /></sch:diagnostic>
         <sch:diagnostic
             id="missing-negative-test">The following assertions lack a negative test: <sch:value-of

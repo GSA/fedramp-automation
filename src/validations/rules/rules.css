@@ -87,21 +87,33 @@ blockquote {
 }
 .assertion,
 .diagnostic {
-    font-weight: bold;
-    font-size:larger;
+    /*font-weight: bold;*/
+    font-size: inherit;
 }
 .assertion:before,
 .diagnostic:before {
-    content: "assertion: ";
+    /*content: "affirmative message: ";*/
     font-style: normal;
     font-weight: normal;
 }
 .diagnostic:before {
-    content: "diagnostic: ";
+    /*content: "diagnostic message: ";*/
     font-style: normal;
 }
 
 .substitution {
     font-family: monospace;
     background-color: lightgrey;
+}
+
+span.has-assertion {
+    text-decoration: underline;
+    text-decoration-color: green;
+    -moz-text-decoration-color:green;
+}
+
+span.lacks-assertion {
+    text-decoration: underline;
+    text-decoration-color: orange;
+    -moz-text-decoration-color:orange;
 }

@@ -1,145 +1,167 @@
 import React from 'react';
 
-import { useActions, useAppState } from '../hooks';
-import { onFileInputChangeGetFile } from '../../util/file-input';
-import { colorTokenForRole } from '../../util/styles';
-import { SchematronReport } from './SchematronReport';
+import { getUrl, Routes } from '@asap/browser/presenter/state/router';
+import { useActions } from '../hooks';
 
 export const HomePage = () => {
-  const { sampleSSPs, schematron } = useAppState();
-  const actions = useActions();
-
   return (
-    <div className="grid-row grid-gap">
-      <div className="mobile:grid-col-12 tablet:grid-col-4">
-        <label className="usa-label" htmlFor="file-input-specific">
-          FedRAMP OSCAL SSP document
-        </label>
-        <span className="usa-hint" id="file-input-specific-hint">
-          Select XML file
-        </span>
-        <input
-          id="file-input-specific"
-          className="usa-file-input"
-          type="file"
-          name="file-input-specific"
-          aria-describedby="file-input-specific-hint"
-          accept=".xml"
-          onChange={onFileInputChangeGetFile(fileDetails => {
-            actions.validator.setXmlContents({
-              fileName: fileDetails.name,
-              xmlContents: fileDetails.text,
-            });
-          })}
-          disabled={schematron.validator.current === 'PROCESSING'}
-        />
-        <div className="margin-y-1">
-          <div className="usa-hint">
-            Or use an example file, brought to you by FedRAMP:
-          </div>
-          <ul>
-            {sampleSSPs.map((sampleSSP, index) => (
-              <li key={index}>
-                <button
-                  className="usa-button usa-button--unstyled"
-                  onClick={() => actions.validator.setXmlUrl(sampleSSP.url)}
-                  disabled={schematron.validator.current === 'PROCESSING'}
-                >
-                  {sampleSSP.displayName}
-                </button>
-              </li>
-            ))}
-          </ul>
+    <>
+      <HomeContent />
+      <PartiesGrid />
+    </>
+  );
+};
+
+const ProcessList = () => (
+  <>
+    <h2>How does it work?</h2>
+    <ol className="usa-process-list">
+      <li className="usa-process-list__item padding-bottom-4">
+        <h4 className="usa-process-list__heading line-height-sans-1">
+          Submit with confidence
+        </h4>
+        <p className="margin-top-1 text-light">
+          Creation of compliant FedRAMP OSCAL System Security Plans is enhanced
+          with timely and context-sensitive validation errors.
+        </p>
+      </li>
+      <li className="usa-process-list__item padding-bottom-4">
+        <h4 className="usa-process-list__heading line-height-sans-1">
+          Streamlined FedRAMP Review
+        </h4>
+        <p className="margin-top-1 text-light">
+          High-quality submissions lead to efficient FedRAMP audit reviews.
+          Additionally, FedRAMP Audit Review Team efforts are further
+          streamlined by a friendly presentation of complex business rule
+          validations.
+        </p>
+      </li>
+      <li className="usa-process-list__item">
+        <h4 className="usa-process-list__heading line-height-sans-1">
+          Lower-cost agency ATO
+        </h4>
+        <p className="margin-top-1 text-light">
+          FedRAMP-approved Cloud Service Providers (CSPs) with structured OSCAL
+          System Security Plans are more cost-effective for agencies to evaluate
+          as part of their own Approval To Operate (ATO) process.
+        </p>
+      </li>
+    </ol>
+  </>
+);
+
+const PartiesGrid = () => {
+  const { getAssetUrl } = useActions();
+  return (
+    <div className="grid-container">
+      <div className="grid-row">
+        <div className="desktop:grid-col-12">
+          <h2 className="text-center">
+            Who will use the SSP Validator?
+            <br />
+            Our stakeholders are:
+          </h2>
         </div>
-        {
-          <form className="usa-form">
-            <fieldset className="usa-fieldset">
-              <div className="usa-search usa-search--small" role="search">
-                <label className="usa-sr-only" htmlFor="search-field">
-                  Search
-                </label>
-                <div className="usa-input-group">
-                  <div className="usa-input-prefix" aria-hidden="true">
-                    <svg
-                      aria-hidden="true"
-                      role="img"
-                      focusable="false"
-                      className="usa-icon"
-                    >
-                      <use
-                        xmlnsXlink="http://www.w3.org/1999/xlink"
-                        xlinkHref={actions.getAssetUrl(
-                          'uswds/img/sprite.svg#search',
-                        )}
-                      />
-                    </svg>
-                  </div>
-                  <input
-                    id="search-field"
-                    type="search"
-                    className="usa-input"
-                    autoComplete="off"
-                    onChange={event => {
-                      let text = '';
-                      if (event && event.target) {
-                        text = event.target.value;
-                      }
-                      actions.schematron.setFilterText(text);
-                    }}
-                    placeholder="Search text..."
-                  />
-                </div>
-              </div>
-              <div className="usa-radio">
-                {schematron.roles.map((filterRole, index) => (
-                  <div key={index}>
-                    <input
-                      className="usa-radio__input usa-radio__input--tile"
-                      id={`role-${filterRole}`}
-                      type="radio"
-                      name="role"
-                      value={filterRole}
-                      checked={schematron.filter.role === filterRole}
-                      onChange={() =>
-                        actions.schematron.setFilterRole(filterRole)
-                      }
-                    />
-                    <label
-                      className={`usa-radio__label bg-${colorTokenForRole(
-                        filterRole,
-                      )}-lighter`}
-                      htmlFor={`role-${filterRole}`}
-                    >
-                      <svg
-                        aria-hidden="true"
-                        role="img"
-                        focusable="false"
-                        className="usa-icon usa-icon--size-3 margin-right-1 margin-bottom-neg-2px"
-                      >
-                        <use
-                          xmlnsXlink="http://www.w3.org/1999/xlink"
-                          xlinkHref={actions.getAssetUrl(
-                            `uswds/img/sprite.svg#${colorTokenForRole(
-                              filterRole,
-                            )}`,
-                          )}
-                        />
-                      </svg>
-                      {filterRole || '<not specified>'}
-                    </label>
-                  </div>
-                ))}
-              </div>
-            </fieldset>
-          </form>
-        }
       </div>
-      <div className="mobile:grid-col-12 tablet:grid-col-8">
-        <SchematronReport />
-        {schematron.validator.current === 'PROCESSING' && (
-          <div className="loader" />
-        )}
+      <div className="grid-row">
+        <div className="desktop:grid-col-4">
+          <div>
+            <img
+              className="float-left margin-2"
+              src={getAssetUrl('partners-cloud.svg')}
+              alt=""
+            />
+            <h3>Cloud Service Providers</h3>
+            <p className="margin-bottom-4">
+              Submit your FedRAMP-compliant OSCAL System Security Plan with
+              confidence.
+            </p>
+          </div>
+        </div>
+        <div className="desktop:grid-col-4">
+          <img
+            className="float-left margin-2"
+            src={getAssetUrl('partners-assessors.svg')}
+            alt=""
+          />
+          <h3>FedRAMP Reviewers</h3>
+          <p className="margin-bottom-4">
+            Evaluate CSP submissions with an efficient workflow.{' '}
+            <a href={getUrl(Routes.developers)}>Read more...</a>
+          </p>
+        </div>
+        <div className="desktop:grid-col-4">
+          <img
+            className="float-left margin-2"
+            src={getAssetUrl('partners-agencies.svg')}
+            alt=""
+          />
+          <h3>Federal Agencies</h3>
+          <p className="margin-bottom-4">
+            Evaluate FedRAMP-approved cloud service providers with the aid of
+            structured OSCAL documentation.
+          </p>
+        </div>
       </div>
+    </div>
+  );
+};
+
+const HomeContent = () => {
+  return (
+    <div className="usa-prose padding-top-3">
+      <h1>Accelerate approvals</h1>
+      <p>
+        Welcome to Automated Security Authorization Processing (ASAP), the
+        upcoming FedRAMP audit validation tool. Funded by{' '}
+        <a href="https://10x.gsa.gov/">10x</a>, ASAP is comprised of the
+        following components:
+      </p>
+      <ul>
+        <li>
+          <a href="https://pages.nist.gov/OSCAL/">
+            Open Security Controls Assessment Language (OSCAL)
+          </a>{' '}
+          validation rules written in{' '}
+          <a href="https://schematron.com/">Schematron</a> format
+        </li>
+        <li>
+          This user interface, which will apply validations to a FedRAMP OSCAL
+          System Security Plan and display validation errors in-browser.{' '}
+          <a href={getUrl(Routes.validator)}>Try it out</a>.
+        </li>
+        <li>
+          Compiled Schematron rules (XSLT), which may be integrated with
+          third-party OSCAL creation/validation tools. Read our{' '}
+          <a href={getUrl(Routes.developers)}>developer documentation</a> for
+          more information.
+        </li>
+      </ul>
+      <ProcessList />
+      <h2>Why should I care?</h2>
+      <p>
+        FedRAMP audit approvals are expensive for both FedRAMP and CSPs (Cloud
+        Service Providers). The ASAP validation tool helps CSPs craft correct
+        System Security Plans, and helps the FedRAMP Audit Review Team evaluate
+        them efficiently.
+      </p>
+      <h2>What's next?</h2>
+      <ul>
+        <li>User feedback</li>
+        <li>
+          In addition to SSP, support for Plan of Actions and Milestones
+          (POA&M), Security Assessment Plan (SAP), and Security Assessment
+          Report (SAR) validations
+        </li>
+      </ul>
+      <h2>Contact us</h2>
+      <p>
+        Please give us your feedback via a{' '}
+        <a href="https://github.com/GSA/fedramp-automation/issues">
+          Github issue
+        </a>
+        .
+      </p>
     </div>
   );
 };

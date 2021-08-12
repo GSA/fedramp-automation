@@ -3,8 +3,9 @@
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values</title>
       <title-short>FedRAMP Data Values (Experimental)</title-short>
-      <last-modified>2021-08-11T23:20:58Z</last-modified>
-      <version>fedramp1.0.2-oscal1.0.0</version>
+      <published>2021-08-12T12:38:01Z</published>
+      <last-modified>2021-08-12T12:38:01Z</last-modified>
+      <version>fedramp1.1.0-oscal1.0.0</version>
       <author>FedRAMP PMO</author>
       <description>This EXPERIMENTAL file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
       <remarks />
@@ -108,8 +109,7 @@
       <binding pattern="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" />
       <allowed-values allow-other="no">
          <enum value="public-cloud" short-label="Public">Public Cloud</enum>
-         <enum value="private-cloud" short-label="Private">Private Cloud</enum>
-         <enum value="government-only-cloud" short-label="USG-Only">U.S. Government Only</enum>
+         <enum value="private-cloud" short-label="Private">Private Cloud</enum>         <enum value="government-only-cloud" short-label="USG-Only">U.S. Government Only</enum>
          <enum value="hybrid-cloud" short-label="Hybrid">Hybrid</enum>
          <enum value="other" short-label="Other">Other</enum>
       </allowed-values>
@@ -510,7 +510,7 @@
          <enum value="penetration-test-lead" label="Penetration Test Lead">Penetration Test Lead</enum>
       </allowed-values>
    </value-set>
-   
+
    <value-set
       name="media-type">
       <formal-name>Resource Media Types</formal-name>

@@ -47,9 +47,9 @@ example:
 Alternatively, you can also use `docker-compose` to execute the validation script like so.
 
 ```sh
-cd /path/to/fedramp-automation/resources/validations
+cd /path/to/fedramp-automation/src/validations
 docker-compose run \
-  -w /root/resources/validations \
+  -w /root/src/validations \
   validator \
   bin/validate_with_schematron.sh \
   -f test/demo/FedRAMP-SSP-OSCAL-Template.xml

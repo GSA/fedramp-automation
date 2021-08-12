@@ -42,8 +42,11 @@ export const runBrowserContext = ({
       createPresenter({
         debug,
         baseUrl,
-        repositoryUrl: github.getBranchTreeUrl(githubRepository),
-        sampleSSPs: github.getSampleSSPs(githubRepository),
+        sourceRepository: {
+          treeUrl: github.getBranchTreeUrl(githubRepository),
+          sampleSSPs: github.getSampleSSPs(githubRepository),
+          developerExampleUrl: github.getDeveloperExampleUrl(githubRepository),
+        },
         location: {
           listen: (listener: (url: string) => void) => {
             window.addEventListener('hashchange', event => {

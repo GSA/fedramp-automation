@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="rules.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="FedRAMP Automation business rule schema"?>
+<business-rules
+    xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation">
+    <rule
+        doc:checklist-reference="Section A">
+        <statement>A FedRAMP SSP submission must provide an Executive Summary.</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section B Check 1.0">
+        <statement>A FedRAMP SSP submission must provide an Initial Authorization Package Checklist.</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section B Check 2.0">
+        <statement>A FedRAMP SSP submission must provide an Authority to Operate (ATO).</statement>
+    </rule>
+    <rule
+        assertions="has-policy-attachment-resource"
+        doc:checklist-reference="Section B Check 3.1"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
+        doc:template-reference="System Security Plan Template §15">
+        <statement>A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control families.</statement>
+    </rule>
+    <rule
+        assertions="has-procedure-attachment-resource"
+        doc:checklist-reference="Section B Check 3.1"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
+        doc:template-reference="System Security Plan Template §15">
+        <statement>A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control families.</statement>
+    </rule>
+    <rule
+        assertions="has-reuse"
+        doc:checklist-reference="Section B Check 3.1"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
+        doc:template-reference="System Security Plan Template §15">
+        <statement>FedRAMP SSP policy and procedure documents must have unique per-control-family associations.</statement>
+    </rule>
+    <rule
+        assertions="has-user-guide"
+        doc:attachment="§15 Attachment 2"
+        doc:checklist-reference="Section B Check 3.2"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
+        doc:template-reference="System Security Plan Template §15">
+        <statement>A FedRAMP SSP must incorporate a User Guide.</statement>
+    </rule>
+    <rule
+        assertions="has-security-eauth-level"
+        doc:checklist-reference="Section B Check 3.3, Section C Check 7"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.5"
+        doc:template-reference="System Security Plan Template §2.3">
+        <statement>A FedRAMP SSP must incorporate a Digital Identity Determination.</statement>
+    </rule>
+    <rule
+        assertions="has-privacy-poc-role"
+        doc:checklist-reference="Section B Check 3.4"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6.2">
+        <statement>A FedRAMP SSP must incorporate a Privacy Point of Contact role.</statement>
+    </rule>
+    <rule
+        assertions="has-all-pta-questions"
+        doc:checklist-reference="Section B Check 3.4"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6.4">
+        <statement>A FedRAMP SSP must have all four PTA questions answered.</statement>
+    </rule>
+    <rule
+        assertions="has-rules-of-behavior"
+        doc:attachment="§15 Attachment 5"
+        doc:checklist-reference="Section B Check 3.5"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
+        doc:template-reference="System Security Plan Template §15">
+        <statement>A FedRAMP SSP must incorporate Rules of Behavior.</statement>
+    </rule>
+    <rule
+        assertions="has-information-system-contingency-plan"
+        doc:attachment="§15 Attachment 6"
+        doc:checklist-reference="Section B Check 3.6"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
+        doc:template-reference="System Security Plan Template §15">
+        <statement>A FedRAMP SSP must incorporate a Contingency Plan.</statement>
+    </rule>
+    <rule
+        assertions="has-configuration-management-plan"
+        doc:attachment="§15 Attachment 7"
+        doc:checklist-reference="Section B Check 3.7"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
+        doc:template-reference="System Security Plan Template §15">
+        <statement>A FedRAMP SSP must incorporate a Configuration Management Plan.</statement>
+    </rule>
+    <rule
+        assertions="has-incident-response-plan"
+        doc:attachment="§15 Attachment 8"
+        doc:checklist-reference="Section B Check 3.8"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
+        doc:template-reference="System Security Plan Template §15">
+        <statement>A FedRAMP SSP must incorporate an Incident Response Plan.</statement>
+    </rule>
+    <rule
+        assertions="has-incident-response-plan"
+        doc:attachment="§15 Attachment 8"
+        doc:checklist-reference="Section B Check 3.8"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
+        doc:template-reference="System Security Plan Template §15">
+        <statement>A FedRAMP SSP must incorporate a Control Implementation Summary (CIS) Workbook.</statement>
+    </rule>
+    <rule
+        assertions="has-security-sensitivity-level"
+        doc:checklist-reference="Section B Check 3.10"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.4"
+        doc:template-reference="System Security Plan Template §2">
+        <statement>A FedRAMP SSP must specify a FIPS 199 categorization.</statement>
+    </rule>
+    <rule
+        assertions="has-separation-of-duties-matrix"
+        doc:attachment="§15 Attachment 11"
+        doc:checklist-reference="Section B Check 3.11"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
+        doc:template-reference="System Security Plan Template §15">
+        <statement>A FedRAMP SSP must incorporate a Separation of Duties Matrix.</statement>
+    </rule>
+    <rule
+        assertions="has-fedramp-citations"
+        doc:attachment="§15 Attachment 12"
+        doc:checklist-reference="Section B Check 3.12"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP Content §4.10">
+        <statement>A FedRAMP SSP must incorporate the FedRAMP Applicable Laws and Regulations.</statement>
+    </rule>
+    <rule
+        assertions="has-inventory-items"
+        doc:checklist-reference="Section B Check 3.13, Section C Check 14"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6.5">
+        <statement>Within a FedRAMP SSP, the inventory is provided in the FedRAMP Integrated Inventory Workbook.</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section B Check 4.0">
+        <statement>A FedRAMP SSP submission must include a Security Assessment Plan (SAP).</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section B Check 5.0">
+        <statement>A FedRAMP SSP submission must include a Security Assessment Report (SAR).</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section B Check 6.0">
+        <statement>A FedRAMP SSP submission must include Plans of Action and Milestones (POA&amp;Ms).</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section B Check 7.0">
+        <statement>A FedRAMP SSP submission must include a Continuous Monitoring Plan (ConMon Plan).</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 1a">
+        <statement>A FedRAMP SSP must use the correct FedRAMP SSP Template.</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 1b">
+        <statement>A FedRAMP SSP must use the correct FedRAMP Deployment Model.</statement>
+    </rule>
+    <rule
+        assertions="implemented-requirement-has-implementation-status"
+        doc:checklist-reference="Section C Check 2"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+        doc:organizational-id="section-c.6"
+        doc:template-reference="System Security Plan Template §13">
+        <statement>Within a FedRAMP SSP, all controls have at least one implementation status checkbox selected.</statement>
+    </rule>
+    <rule
+        assertions="incomplete-core-implemented-requirements"
+        doc:checklist-reference="Section C Check 3"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
+        doc:organizational-id="section-c.3">
+        <statement>Within a FedRAMP SSP, all critical controls are implemented.</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 4a">
+        <statement>Within a FedRAMP SSP, customer responsibilities are clearly identified in the CIS-CRM Tab, as well as the SSP Controls (by checkbox
+            selected and in the implementation description). The CIS-CRM and SSP controls are consistent for customer responsibilities.</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 4b">
+        <statement>Within a FedRAMP SSP, the Initial Authorizing Agency concurs with the CRM (adequacy and clarity of customer
+            responsibilities).</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 5">
+        <statement>Within a FedRAMP SSP, the Roles Table (User Roles and Privileges) sufficiently describes the range of user roles, responsibilities,
+            and access privileges.</statement>
+    </rule>
+    <rule
+        assertions="implemented-requirement-has-responsible-role"
+        doc:checklist-reference="Section C Check 6"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.2">
+        <statement>Within a FedRAMP SSP, in the control summary tables, the information in the Responsible Role row correctly describes the required
+            entities responsible for fulfilling the control.</statement>
+    </rule>
+    <rule
+        assertions="has-security-eauth-level"
+        doc:checklist-reference="Section B Check 3.3, Section C Check 7"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.5"
+        doc:template-reference="System Security Plan Template §2.3">
+        <statement>Within a FedRAMP SSP, the appropriate Digital Identity Level is selected.</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 8a">
+        <statement>Within a FedRAMP SSP, the authorization boundary is explicitly identified in the network diagram.</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 8b">
+        <statement>Within a FedRAMP SSP, does the CSO provide components to run on the client side?</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 9">
+        <statement>Within a FedRAMP SSP, there is a data flow diagram that clearly illustrates the flow and protection of data going in and out of the
+            service boundary and that includes all traffic flows for both internal and external users.</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 10">
+        <statement>Within a FedRAMP SSP, does the CSP use any third-party or external cloud services that lack FedRAMP Authorization?</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 11a">
+        <statement>Within a FedRAMP SSP, if this is a SaaS or a PaaS, is it "leveraging" another IaaS with a FedRAMP Authorization?</statement>
+    </rule>
+    <rule
+        assertions="implemented-requirement-has-leveraged-authorization"
+        doc:checklist-reference="Section C Check 11b"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
+        doc:template-reference="System Security Plan Template §13">
+        <statement>Within a FedRAMP SSP, if 11a is Yes, the "inherited" controls are clearly identified in the control descriptions.</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 12">
+        <statement>Within a FedRAMP SSP, all interconnections are correctly identified and documented in the SSP.</statement>
+    </rule>
+    <rule
+        assertions="incomplete-all-implemented-requirements"
+        doc:checklist-reference="Section C Check 2"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5"
+        doc:organizational-id="section-c.2">
+        <statement>Within a FedRAMP SSP, all required controls are present.</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 15">
+        <statement>Within a FedRAMP SSP, the CSO is compliant with DNSSEC. (Controls SC-20 and SC-21 apply).</statement>
+    </rule>
+    <rule
+        doc:checklist-reference="Section C Check 16">
+        <statement>Within a FedRAMP SSP, the CSO adequately employs Domain-based Message Authentication, Reporting &amp; Conformance (DMARC)
+            requirements according to DHS BOD 18-01.</statement>
+    </rule>
+    <rule
+        assertions="has-fedramp-acronyms"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP Content §4.8"
+        doc:template-reference="System Security Plan Template §14">
+        <statement>A FedRAMP SSP must incorporate the FedRAMP Master Acronym and Glossary.</statement>
+    </rule>
+    <rule
+        assertions="has-fedramp-logo"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP Content §4.1">
+        <statement>A FedRAMP SSP must incorporate the FedRAMP Logo.</statement>
+    </rule>
+    <rule
+        assertions="has-CMVP-validation"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans Appendix A">
+        <statement>A FedRAMP SSP must incorporate one or more NIST CMVP-validated cryptographic modules (FIPS 140).</statement>
+    </rule>
+    <rule
+        assertions="has-allowed-information-type-id"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.3"
+        doc:template-reference="System Security Plan Template §2.1">
+        <statement>A FedRAMP SSP must specify one or more SP 800-60v2r1 information types.</statement>
+    </rule>
+    <rule
+        assertions="has-inventory-items"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6.5">
+        <statement>A FedRAMP SSP must incorporate a system inventory.</statement>
+    </rule>
+    <rule
+        assertions="has-system-id"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.1"
+        doc:template-reference="System Security Plan Template §1">
+        <statement>A FedRAMP SSP must have a FedRAMP system-id.</statement>
+    </rule>
+    <rule
+        assertions="has-system-name"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.1"
+        doc:template-reference="System Security Plan Template §1">
+        <statement>A FedRAMP SSP must have a system name.</statement>
+    </rule>
+    <rule
+        assertions="has-system-name-short"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.1"
+        doc:template-reference="System Security Plan Template §1">
+        <statement>A FedRAMP SSP must have a short system name.</statement>
+    </rule>
+    <rule
+        assertions="has-fedramp-authorization-type"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.2">
+        <statement>A FedRAMP SSP must have a FedRAMP authorization type.</statement>
+    </rule>
+    <rule
+        assertions="role-defined-system-owner"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.6"
+        doc:template-reference="System Security Plan Template §3">
+        <statement>A FedRAMP SSP must identify the system owner.</statement>
+    </rule>
+    <rule
+        assertions="role-defined-authorizing-official"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.7"
+        doc:template-reference="System Security Plan Template §4">
+        <statement>A FedRAMP SSP must identify the authorizing official.</statement>
+    </rule>
+    <rule
+        assertions="role-defined-system-poc-management"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.8"
+        doc:template-reference="System Security Plan Template §5">
+        <statement>A FedRAMP SSP must identify the system management point of contact.</statement>
+    </rule>
+    <rule
+        assertions="role-defined-system-poc-technical"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.9"
+        doc:template-reference="System Security Plan Template §5">
+        <statement>A FedRAMP SSP must identify the system technical point of contact.</statement>
+    </rule>
+    <rule
+        assertions="role-defined-system-poc-other"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.9"
+        doc:template-reference="System Security Plan Template §5">
+        <statement>A FedRAMP SSP must identify the system other point of contact.</statement>
+    </rule>
+    <rule
+        assertions="has-authorization-boundary"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17 Authorization Boundary Diagram"
+        doc:template-reference="System Security Plan Template §9.2">
+        <statement>A FedRAMP SSP must incorporate an authorization boundary diagram.</statement>
+    </rule>
+    <rule
+        assertions="has-network-architecture"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.22 Network Architecture Diagram"
+        doc:template-reference="System Security Plan Template §9.4">
+        <statement>A FedRAMP SSP must incorporate a network-architecture diagram.</statement>
+    </rule>
+    <rule
+        assertions="has-data-flow"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.24 Data Flow Diagram"
+        doc:template-reference="System Security Plan Template §10.1">
+        <statement>A FedRAMP SSP must incorporate a data-flow diagram.</statement>
+    </rule>
+    <rule
+        assertions="system-security-plan-has-import-profile"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.1"
+        doc:template-reference="System Security Plan Template §13">
+        <statement>A FedRAMP SSP must employ a FedRAMP OSCAL profile.</statement>
+    </rule>
+    <rule
+        assertions="implemented-requirement-has-implementation-status"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+        doc:template-reference="System Security Plan Template §13">
+        <statement>Within a FedRAMP SSP, every required control must have an implementation status.</statement>
+    </rule>
+    <rule
+        assertions="implemented-requirement-has-planned-completion-date"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+        doc:template-reference="System Security Plan Template §13">
+        <statement>Within a FedRAMP SSP, planned control implementations must have a planned completion date.</statement>
+    </rule>
+</business-rules>
