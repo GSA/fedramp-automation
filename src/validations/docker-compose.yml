@@ -4,7 +4,7 @@ services:
   validator:
     image: maven:3.8.1-openjdk-17-slim
     environment:
-      - TEST_DIR=/root/resources/validations/report/test
+      - TEST_DIR=/root/src/validations/report/test
     volumes:
       - ../..:/root
     working_dir: /root
