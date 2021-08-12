@@ -38,7 +38,7 @@ clean-web:  ## Clean web artifacts
 	cd src/web && \
 		npm run clean
 
-test: test-validations test-web ## Test all
+test: test-validations test-web test-examples ## Test all
 
 test-validations:  ## Test validations
 	@echo "Running validations tests..."
@@ -49,6 +49,18 @@ test-web:  ## Test web codebase
 	@echo "Running web tests..."
 	cd src/web && \
 		npm run test
+
+test-examples: test-example-java test-example-python  ## Test example code projects
+
+test-example-java:  ## Test example Java project
+	@echo "Verifying Java example..."
+	cd src/examples/java && \
+		docker-compose run example mvn test
+
+test-example-python:  ## Test example Python project
+	@echo "Verifying Python example..."
+	cd src/examples/python && \
+		docker-compose run example pytest
 
 build: build-validations build-web dist  ## Build all artifacts and copy into dist directory
 	# Symlink for Federalist

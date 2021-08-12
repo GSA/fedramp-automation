@@ -2,10 +2,14 @@ import { match } from 'path-to-regexp';
 
 export type RouteTypes = {
   Home: { type: 'Home' };
+  Validator: { type: 'Validator' };
   Summary: { type: 'Summary' };
   Assertion: {
     type: 'Assertion';
     assertionId: string;
+  };
+  Developers: {
+    type: 'Developers';
   };
 };
 
@@ -14,6 +18,9 @@ export type RouteType = Route['type'];
 export namespace Routes {
   export const home: RouteTypes['Home'] = {
     type: 'Home',
+  };
+  export const validator: RouteTypes['Validator'] = {
+    type: 'Validator',
   };
   export const summary: RouteTypes['Summary'] = {
     type: 'Summary',
@@ -26,15 +33,20 @@ export namespace Routes {
       assertionId: options.assertionId,
     };
   };
+  export const developers: RouteTypes['Developers'] = {
+    type: 'Developers',
+  };
   export type NotFound = { type: 'NotFound' };
   export const notFound: NotFound = { type: 'NotFound' };
 }
 
 const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   Home: () => '#/',
+  Validator: () => '#/validator',
   Summary: () => '#/summary',
   Assertion: (route: RouteTypes['Assertion']) =>
     `#/assertions/${route.assertionId}`,
+  Developers: () => '#/developers',
 };
 
 export const getUrl = (route: Route): string => {
@@ -56,8 +68,10 @@ const matchRoute = <L extends Route>(
 
 const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
   Home: matchRoute('#/', () => Routes.home),
+  Validator: matchRoute('#/validator', () => Routes.validator),
   Summary: matchRoute('#/summary', () => Routes.summary),
   Assertion: matchRoute('#/assertions/:assertionId', Routes.assertion),
+  Developers: matchRoute('#/developers', () => Routes.developers),
 };
 
 export const getRoute = (url: string): Route | Routes.NotFound => {
@@ -72,41 +86,59 @@ export const getRoute = (url: string): Route | Routes.NotFound => {
 
 type Breadcrumb = {
   text: string;
-  url: string;
-  selected: boolean;
+  linkUrl: string | false;
 };
-export const breadcrumbs: Record<Route['type'], (route: any) => Breadcrumb[]> =
-  {
-    Home: (route: Route) => {
-      return [
-        {
-          text: 'Select SSP',
-          url: getUrl(Routes.home),
-          selected: route.type === 'Home',
-        },
-      ];
-    },
-    Summary: (route: Route) => {
-      return [
-        ...breadcrumbs.Home(route),
-        {
-          text: 'Document name',
-          url: getUrl(Routes.summary),
-          selected: route.type === 'Summary',
-        },
-      ];
-    },
-    Assertion: (route: RouteTypes['Assertion']) => {
-      return [
-        ...breadcrumbs.Home(route),
-        {
-          text: 'Assertion',
-          url: getUrl(Routes.assertion({ assertionId: route.assertionId })),
-          selected: route.type === 'Assertion',
-        },
-      ];
-    },
-  };
+export const breadcrumbs: Record<
+  Route['type'] & string,
+  (route: any) => Breadcrumb[]
+> = {
+  Home: (route: Route) => {
+    return [
+      {
+        text: 'Home',
+        linkUrl: route.type !== 'Home' && getUrl(Routes.home),
+      },
+    ];
+  },
+  Validator: (route: Route) => {
+    return [
+      ...breadcrumbs.Home(route),
+      {
+        text: 'Validator',
+        linkUrl: route.type !== 'Validator' && getUrl(Routes.home),
+      },
+    ];
+  },
+  Summary: (route: Route) => {
+    return [
+      ...breadcrumbs.Home(route),
+      {
+        text: 'Document name',
+        linkUrl: route.type !== 'Summary' && getUrl(Routes.summary),
+      },
+    ];
+  },
+  Assertion: (route: RouteTypes['Assertion']) => {
+    return [
+      ...breadcrumbs.Home(route),
+      {
+        text: 'Assertion',
+        linkUrl:
+          route.type !== 'Assertion' &&
+          getUrl(Routes.assertion({ assertionId: route.assertionId })),
+      },
+    ];
+  },
+  Developers: (route: RouteTypes['Developers']) => {
+    return [
+      ...breadcrumbs.Home(route),
+      {
+        text: 'Developer documentation',
+        linkUrl: route.type !== 'Developers' && getUrl(Routes.developers),
+      },
+    ];
+  },
+};
 
 export type Location = {
   listen: (listener: (url: string) => void) => void;

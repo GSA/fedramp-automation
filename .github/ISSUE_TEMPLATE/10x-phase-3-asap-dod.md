@@ -22,7 +22,7 @@ assignees: ''
 **Definition of Done**
  - [ ] Acceptance criteria met - Each user story should meet the acceptance criteria in the description
  - [ ] Unit test coverage of our code > 90%  (*from [QASP](https://github.com/flexion/TTS-10x/wiki/TTS-QASP)*) this may be fuzzy and hard to prove
- - [ ] Code quality checks passed - Enable html tidy with XML code standards as part of the build (*from [QASP](https://github.com/flexion/TTS-10x/wiki/TTS-QASP)*)
+ - [ ] Code quality checks passed (*from [QASP](https://github.com/flexion/TTS-10x/wiki/TTS-QASP)*)
  - [ ] Accessibility: (*from [QASP](https://github.com/flexion/TTS-10x/wiki/TTS-QASP)*) as we create guidance or documentation and reports (semantic tagging including aria tags): demonstrate with 0 errors reported for WCAG 2.1 AA standards using an automated scanner and 0 errors reported in manual testing
  - [ ] Code reviewed - Code reviewed by at least one other team members (or developed by a pair)
  - [ ] Source code merged - Code that’s demoed must be in source control and merged

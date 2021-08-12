@@ -14,14 +14,14 @@ export const Breadcrumbs = () => {
             <li
               key={index}
               className="usa-breadcrumb__list-item"
-              aria-current={breadcrumb.selected && 'page'}
+              aria-current={!breadcrumb.linkUrl && 'page'}
             >
-              {breadcrumb.selected ? (
-                contentNode
-              ) : (
-                <a href={breadcrumb.url} className="usa-breadcrumb__link">
+              {breadcrumb.linkUrl ? (
+                <a href={breadcrumb.linkUrl} className="usa-breadcrumb__link">
                   {contentNode}
                 </a>
+              ) : (
+                contentNode
               )}
             </li>
           );

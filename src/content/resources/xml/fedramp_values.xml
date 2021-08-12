@@ -108,8 +108,7 @@
       <binding pattern="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" />
       <allowed-values allow-other="no">
          <enum value="public-cloud" short-label="Public">Public Cloud</enum>
-         <enum value="private-cloud" short-label="Private">Private Cloud</enum>
-         <enum value="government-only-cloud" short-label="USG-Only">U.S. Government Only</enum>
+         <enum value="private-cloud" short-label="Private">Private Cloud</enum>         <enum value="government-only-cloud" short-label="USG-Only">U.S. Government Only</enum>
          <enum value="hybrid-cloud" short-label="Hybrid">Hybrid</enum>
          <enum value="other" short-label="Other">Other</enum>
       </allowed-values>
@@ -510,7 +509,7 @@
          <enum value="penetration-test-lead" label="Penetration Test Lead">Penetration Test Lead</enum>
       </allowed-values>
    </value-set>
-   
+
    <value-set
       name="media-type">
       <formal-name>Resource Media Types</formal-name>
