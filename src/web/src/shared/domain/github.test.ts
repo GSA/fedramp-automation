@@ -37,4 +37,17 @@ describe('github', () => {
       );
     });
   });
+  describe('getDeveloperExampleUrl', () => {
+    it('returns correct URL for repository', () => {
+      expect(
+        github.getDeveloperExampleUrl({
+          owner: '18F',
+          branch: 'my-branch',
+          repository: 'fedramp-automation',
+        }),
+      ).toEqual(
+        'https://github.com/18F/fedramp-automation/tree/my-branch/src/examples',
+      );
+    });
+  });
 });

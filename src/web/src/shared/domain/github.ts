@@ -14,8 +14,11 @@ const SAMPLE_SSP_PATHS = [
   'src/validations/test/demo/FedRAMP-SSP-OSCAL-Template.xml',
 ];
 
-export const getBranchTreeUrl = (github: GithubRepository) => {
-  if (github.branch === DEFAULT_REPOSITORY.branch) {
+export const getBranchTreeUrl = (
+  github: GithubRepository,
+  useDefaultShortForm = true,
+) => {
+  if (useDefaultShortForm && github.branch === DEFAULT_REPOSITORY.branch) {
     return `https://github.com/${github.owner}/${github.repository}`;
   }
   return `https://github.com/${github.owner}/${github.repository}/tree/${github.branch}`;
@@ -36,4 +39,9 @@ export const getSampleSSPs = (github: GithubRepository) => {
       displayName: urlParts[urlParts.length - 1],
     };
   });
+};
+
+export const getDeveloperExampleUrl = (github: GithubRepository) => {
+  const branchTree = getBranchTreeUrl(github, false);
+  return `${branchTree}/src/examples`;
 };
