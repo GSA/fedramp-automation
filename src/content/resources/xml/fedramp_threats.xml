@@ -3,8 +3,8 @@
 
     <metadata>
         <title>FedRAMP Defined Threat Table [DRAFT]</title>
-        <last-modified>2019-12-15T00:00:00Z</last-modified>
-        <version>DRAFT-02</version>
+        <last-modified>2021-08-11T23:18:00Z</last-modified>
+        <version>fedramp1.0.2-oscal1.0.0</version>
         <revisions>
             <revision>
                 <published>2019-06-01T00:00:00.00-04:00</published>
@@ -20,6 +20,14 @@
                 <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
                 <remarks>
                     <p>Revised draft to align metadata with OSCAL syntax, and to provide a machine-readble definition for threat origination types.</p>
+                </remarks>
+            </revision>
+            <revision>
+                <published>2021-08-11T23:18:00.00-00:00</published>
+                <version>fedramp1.0.2-oscal1.0.0</version>
+                <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+                <remarks>
+                    <p>Updated version reviewed for fedramp1.0.2-oscal1.0.0 releases.</p>
                 </remarks>
             </revision>
         </revisions>
