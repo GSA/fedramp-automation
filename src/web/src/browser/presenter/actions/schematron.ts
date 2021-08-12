@@ -3,6 +3,20 @@ import type { SchematronAssert } from '@asap/shared/use-cases/schematron';
 import type { Role } from '../state/schematron-machine';
 import type { PresenterConfig } from '..';
 
+export const initialize = ({ effects, state }: PresenterConfig) => {
+  Promise.all([
+    effects.useCases.getAssertionViews(),
+    effects.useCases.getSSPSchematronAssertions(),
+  ]).then(([assertionViews, schematronAsserts]) => {
+    state.schematron.send('CONFIG_LOADED', {
+      config: {
+        assertionViews,
+        schematronAsserts,
+      },
+    });
+  });
+};
+
 export const setFilterRole = ({ state }: PresenterConfig, role: Role) => {
   state.schematron.send('FILTER_ROLE_CHANGED', { role });
 };

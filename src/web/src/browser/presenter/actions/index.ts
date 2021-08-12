@@ -4,26 +4,12 @@ export * as validator from './validator';
 import type { PresenterConfig } from '..';
 import * as router from '../state/router';
 
-export const onInitializeOvermind = ({
-  actions,
-  effects,
-  state,
-}: PresenterConfig) => {
+export const onInitializeOvermind = ({ actions, effects }: PresenterConfig) => {
   actions.setCurrentRoute(window.location.hash);
   effects.location.listen((url: string) => {
     actions.setCurrentRoute(url);
   });
-  Promise.all([
-    effects.useCases.getAssertionViews(),
-    effects.useCases.getSSPSchematronAssertions(),
-  ]).then(([assertionViews, schematronAsserts]) => {
-    state.schematron.send('CONFIG_LOADED', {
-      config: {
-        assertionViews,
-        schematronAsserts,
-      },
-    });
-  });
+  actions.schematron.initialize();
 };
 
 export const setCurrentRoute = (

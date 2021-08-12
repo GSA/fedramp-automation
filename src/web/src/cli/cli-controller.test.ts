@@ -4,7 +4,7 @@ describe('command-line controller', () => {
   it('calls validate schematron', () => {
     const mockXml = '<xml></xml>';
     const ctx = {
-      readStringFile: jest.fn().mockReturnValue(mockXml),
+      readStringFile: jest.fn().mockReturnValue(Promise.resolve(mockXml)),
       writeStringFile: jest.fn(),
       useCases: {
         parseSchematron: jest.fn(),
