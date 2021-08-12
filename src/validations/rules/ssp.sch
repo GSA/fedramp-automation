@@ -1075,8 +1075,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-privacy-poc-role"
                 role="error"
-                test="/oscal:system-security-plan/oscal:metadata/oscal:role[@id = 'privacy-poc']">[Section B Check 3.4] A FedRAMP SSP must
-                incorporate a Privacy Point of Contact role.</sch:assert>
+                test="/oscal:system-security-plan/oscal:metadata/oscal:role[@id = 'privacy-poc']">[Section B Check 3.4] A FedRAMP SSP must incorporate
+                a Privacy Point of Contact role.</sch:assert>
             <sch:assert
                 diagnostics="has-responsible-party-privacy-poc-role-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1106,8 +1106,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-privacy-poc"
                 role="error"
-                test="/oscal:system-security-plan/oscal:metadata/oscal:party[@uuid = $poc-uuid]">[Section B Check 3.4] A FedRAMP SSP must define
-                a Privacy Point of Contact.</sch:assert>
+                test="/oscal:system-security-plan/oscal:metadata/oscal:party[@uuid = $poc-uuid]">[Section B Check 3.4] A FedRAMP SSP must define a
+                Privacy Point of Contact.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -1315,8 +1315,7 @@
                 doc:template-reference="System Security Plan Template §2"
                 id="has-security-sensitivity-level"
                 role="error"
-                test="oscal:security-sensitivity-level">[Section B Check 3.10] A FedRAMP SSP must specify a FIPS 199
-                categorization.</sch:assert>
+                test="oscal:security-sensitivity-level">[Section B Check 3.10] A FedRAMP SSP must specify a FIPS 199 categorization.</sch:assert>
             <sch:assert
                 diagnostics="has-security-impact-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.10"
@@ -1340,8 +1339,8 @@
                 doc:template-reference="System Security Plan Template §2"
                 id="has-allowed-security-sensitivity-level"
                 role="error"
-                test="current() = $security-sensitivity-levels">[Section B Check 3.10] A FedRAMP SSP must specify an allowed security
-                sensitivity level.</sch:assert>
+                test="current() = $security-sensitivity-levels">[Section B Check 3.10] A FedRAMP SSP must specify an allowed security sensitivity
+                level.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:security-impact-level"
@@ -1478,8 +1477,8 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="categorization-has-correct-system-attribute"
                 role="error"
-                test="@system = 'https://doi.org/10.6028/NIST.SP.800-60v2r1'">A FedRAMP SSP information type categorization must have a correct
-                system attribute.</sch:assert>
+                test="@system = 'https://doi.org/10.6028/NIST.SP.800-60v2r1'">A FedRAMP SSP information type categorization must have a correct system
+                attribute.</sch:assert>
             <sch:assert
                 diagnostics="categorization-has-information-type-id-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
@@ -1503,6 +1502,7 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="has-allowed-information-type-id"
                 role="error"
+                see="https://doi.org/10.6028/NIST.SP.800-60v2r1"
                 test="current()[. = $information-types]">A FedRAMP SSP information type identifier must employ those found in NIST SP
                 800-60v2r1.</sch:assert>
         </sch:rule>
@@ -1540,8 +1540,8 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="cia-impact-has-approved-fips-categorization"
                 role="error"
-                test=". = $fips-199-levels">A FedRAMP SSP information type confidentiality, integrity, or availability impact base or select
-                element must have an approved value.</sch:assert>
+                test=". = $fips-199-levels">A FedRAMP SSP information type confidentiality, integrity, or availability impact base or select element
+                must have an approved value.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -1581,8 +1581,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-authenticator-assurance-level"
                 role="information"
-                test="oscal:prop[@name = 'authenticator-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a
-                Digital Identity Determination authenticator assurance level property.</sch:assert>
+                test="oscal:prop[@name = 'authenticator-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a Digital
+                Identity Determination authenticator assurance level property.</sch:assert>
             <sch:assert
                 diagnostics="has-federation-assurance-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
@@ -1590,8 +1590,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-federation-assurance-level"
                 role="information"
-                test="oscal:prop[@name = 'federation-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a
-                Digital Identity Determination federation assurance level property.</sch:assert>
+                test="oscal:prop[@name = 'federation-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a Digital
+                Identity Determination federation assurance level property.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'security-eauth' and @name = 'security-eauth-level']"
@@ -1645,8 +1645,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-allowed-authenticator-assurance-level"
                 role="error"
-                test="@value = $authenticator-assurance-levels">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP should have an allowed
-                Digital Identity Determination authenticator assurance level.</sch:assert>
+                test="@value = $authenticator-assurance-levels">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP should have an allowed Digital
+                Identity Determination authenticator assurance level.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@name = 'federation-assurance-level']"
@@ -1663,8 +1663,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-allowed-federation-assurance-level"
                 role="error"
-                test="@value = $federation-assurance-levels">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP should have an allowed
-                Digital Identity Determination federation assurance level.</sch:assert>
+                test="@value = $federation-assurance-levels">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP should have an allowed Digital
+                Identity Determination federation assurance level.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -2062,8 +2062,7 @@
                 id="has-system-id"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
-                test="oscal:system-id[@identifier-type = 'https://fedramp.gov']">A FedRAMP SSP must have a FedRAMP system
-                identifier.</sch:assert>
+                test="oscal:system-id[@identifier-type = 'https://fedramp.gov']">A FedRAMP SSP must have a FedRAMP system identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-system-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
@@ -2174,8 +2173,8 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
                 id="responsible-party-has-person"
                 role="error"
-                test="//oscal:party[@uuid = current()/oscal:party-uuid and @type = 'person']">Each responsible-party party-uuid must identify a
-                person.</sch:assert>
+                test="//oscal:party[@uuid = current()/oscal:party-uuid and @type = 'person']">Each responsible party must identify a person using that
+                person's unique identifier.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:party[@type = 'person']"
@@ -2201,7 +2200,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
                 id="implemented-requirement-has-responsible-role"
                 role="error"
-                test="oscal:responsible-role">Each implemented-requirement must have one or more responsible-role definitions.</sch:assert>
+                test="oscal:responsible-role">Each implemented control must have one or more responsible-role definitions.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:responsible-role"
@@ -2553,8 +2552,7 @@
                 doc:template-reference="System Security Plan Template §9.4"
                 id="has-network-architecture-diagram-link-rel-allowed-value"
                 role="error"
-                test="@rel = 'diagram'">Each FedRAMP SSP network architecture diagram has a link rel attribute with the value
-                "diagram".</sch:assert>
+                test="@rel = 'diagram'">Each FedRAMP SSP network architecture diagram has a link rel attribute with the value "diagram".</sch:assert>
             <sch:assert
                 diagnostics="has-network-architecture-diagram-link-href-target-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.22 Network Architecture Diagram"
@@ -2749,8 +2747,8 @@
                     if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination' and @value eq 'inherited']) then (: there must be a leveraged-authorization-uuid property :)
                         exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid']) and (: the referenced leveraged-authorization must exist :) exists(//oscal:leveraged-authorization[@uuid = current()/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid']/@value])
                     else
-                        true()">Every implemented requirement with a control origin of "inherited" references a
-                leveraged authorization.</sch:assert>
+                        true()">Every implemented requirement with a control origin of "inherited" references a leveraged
+                authorization.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value ne 'implemented']"
