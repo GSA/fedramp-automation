@@ -463,7 +463,7 @@
                         if (count($required-controls) = 1) then
                             ' control'
                         else
-                            ' controls'" />are required: <sch:value-of
+                            ' controls'" /> are required: <sch:value-of
                     select="$required-controls/@id" />.</sch:report>
             <sch:assert
                 diagnostics="incomplete-core-implemented-requirements-diagnostic"
@@ -2855,7 +2855,7 @@
         <sch:diagnostic
             doc:assertion="no-registry-values"
             doc:context="/o:system-security-plan"
-            id="no-registry-values-diagnostic">The validation technical components at the path ' <sch:value-of
+            id="no-registry-values-diagnostic">The validation technical components at the path '<sch:value-of
                 select="$registry-base-path" />' are not present, this configuration is invalid.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="no-security-sensitivity-level"
@@ -2867,14 +2867,14 @@
             doc:context="/o:system-security-plan"
             id="invalid-security-sensitivity-level-diagnostic">
             <sch:value-of
-                select="./name()" />is an invalid value of ' <sch:value-of
+                select="./name()" /> is an invalid value of '<sch:value-of
                 select="lv:sensitivity-level(/)" />', not an allowed value of <sch:value-of
                 select="$corrections" />. No more validation processing can occur.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-core-implemented-requirements"
             doc:context="/o:system-security-plan/o:control-implementation"
             id="incomplete-core-implemented-requirements-diagnostic">A FedRAMP SSP must implement the most important <sch:value-of
-                select="count($core-missing)" />core <sch:value-of
+                select="count($core-missing)" /> core <sch:value-of
                 select="
                     if (count($core-missing) = 1) then
                         ' control'
@@ -2891,23 +2891,23 @@
                     if (count($all-missing) = 1) then
                         ' control'
                     else
-                        ' controls'" />overall: <sch:value-of
+                        ' controls'" /> overall: <sch:value-of
                 select="$all-missing/@id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="extraneous-implemented-requirements"
             doc:context="/o:system-security-plan/o:control-implementation"
             id="extraneous-implemented-requirements-diagnostic">A FedRAMP SSP must implement <sch:value-of
-                select="count($extraneous)" />extraneous <sch:value-of
+                select="count($extraneous)" /> extraneous <sch:value-of
                 select="
                     if (count($extraneous) = 1) then
                         ' control'
                     else
-                        ' controls'" />not needed given the selected profile: <sch:value-of
+                        ' controls'" /> not needed given the selected profile: <sch:value-of
                 select="$extraneous/@control-id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="invalid-implementation-status"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement"
-            id="invalid-implementation-status-diagnostic">Invalid implementation status ' <sch:value-of
+            id="invalid-implementation-status-diagnostic">Invalid implementation status '<sch:value-of
                 select="$status" />' for <sch:value-of
                 select="./@control-id" />, must be <sch:value-of
                 select="$corrections" />.</sch:diagnostic>
@@ -2921,52 +2921,52 @@
             doc:assertion="missing-response-components"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement"
             id="missing-response-components-diagnostic">Response statements for <sch:value-of
-                select="./@statement-id" />must have at least <sch:value-of
+                select="./@statement-id" /> must have at least <sch:value-of
                 select="$required-components-count" />
             <sch:value-of
                 select="
                     if (count($components-count) = 1) then
                         ' component'
                     else
-                        ' components'" />with a description. There are <sch:value-of
+                        ' components'" /> with a description. There are <sch:value-of
                 select="$components-count" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="extraneous-response-description"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description"
             id="extraneous-response-description-diagnostic">Response statement <sch:value-of
-                select="../@statement-id" />has a description not within a component. That was previously allowed, but not recommended. It will soon
+                select="../@statement-id" /> has a description not within a component. That was previously allowed, but not recommended. It will soon
             be syntactically invalid and deprecated.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="extraneous-response-remarks"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks"
             id="extraneous-response-remarks-diagnostic">Response statement <sch:value-of
-                select="../@statement-id" />has remarks not within a component. That was previously allowed, but not recommended. It will soon be
+                select="../@statement-id" /> has remarks not within a component. That was previously allowed, but not recommended. It will soon be
             syntactically invalid and deprecated.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="invalid-component-match"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
             id="invalid-component-match-diagnostic">Response statement <sch:value-of
-                select="../@statement-id" />with component reference UUID ' <sch:value-of
+                select="../@statement-id" /> with component reference UUID ' <sch:value-of
                 select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a control.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="missing-component-description"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
             id="missing-component-description-diagnostic">Response statement <sch:value-of
-                select="../@statement-id" />has a component, but that component is missing a required description node.</sch:diagnostic>
+                select="../@statement-id" /> has a component, but that component is missing a required description node.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-response-description"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:description"
             id="incomplete-response-description-diagnostic">Response statement component description for <sch:value-of
-                select="../../@statement-id" />is too short with <sch:value-of
-                select="$description-length" />characters. It must be <sch:value-of
-                select="$required-length" />characters long.</sch:diagnostic>
+                select="../../@statement-id" /> is too short with <sch:value-of
+                select="$description-length" /> characters. It must be <sch:value-of
+                select="$required-length" /> characters long.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-response-remarks"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:remarks"
             id="incomplete-response-remarks-diagnostic">Response statement component remarks for <sch:value-of
-                select="../../@statement-id" />is too short with <sch:value-of
-                select="$remarks-length" />characters. It must be <sch:value-of
-                select="$required-length" />characters long.</sch:diagnostic>
+                select="../../@statement-id" /> is too short with <sch:value-of
+                select="$remarks-length" /> characters. It must be <sch:value-of
+                select="$required-length" /> characters long.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incorrect-role-association"
             doc:context="/o:system-security-plan/o:metadata"
@@ -2977,7 +2977,7 @@
                     if (count($extraneous-roles) = 1) then
                         ' role'
                     else
-                        ' roles'" />not defined in the role: <sch:value-of
+                        ' roles'" /> not defined in the role: <sch:value-of
                 select="$extraneous-roles/@role-id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incorrect-party-association"
@@ -2989,7 +2989,7 @@
                     if (count($extraneous-parties) = 1) then
                         ' party'
                     else
-                        ' parties'" />is not a defined party: <sch:value-of
+                        ' parties'" /> is not a defined party: <sch:value-of
                 select="$extraneous-parties/o:party-uuid" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="resource-uuid-required"
@@ -3027,13 +3027,13 @@
         <sch:diagnostic
             doc:assertion="attachment-type-is-valid"
             doc:context="oscal:back-matter/oscal:resource/oscal:prop[@name = 'type']"
-            id="attachment-type-is-valid-diagnostic">Found unknown attachment type « <sch:value-of
+            id="attachment-type-is-valid-diagnostic">Found unknown attachment type «<sch:value-of
                 select="@value" />» in <sch:value-of
                 select="
                     if (parent::oscal:resource/oscal:title) then
                         concat('&#34;', parent::oscal:resource/oscal:title, '&#34;')
                     else
-                        'untitled'" />resource.</sch:diagnostic>
+                        'untitled'" /> resource.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="rlink-has-href"
             doc:context="oscal:back-matter/oscal:resource/oscal:rlink"
@@ -3042,7 +3042,7 @@
             doc:assertion="has-allowed-media-type"
             doc:context="oscal:rlink | oscal:base64"
             id="has-allowed-media-type-diagnostic">This <sch:value-of
-                select="name(parent::node())" />has a media-type=" <sch:value-of
+                select="name(parent::node())" /> has a media-type="<sch:value-of
                 select="current()/@media-type" />" which is not in the list of allowed media types. Allowed media types are <sch:value-of
                 select="string-join($media-types, ' ∨ ')" />.</sch:diagnostic>
         <sch:diagnostic
@@ -3113,9 +3113,7 @@
             <sch:value-of
                 select="local-name()" />
             <sch:value-of
-                select="@control-id" />
-            <sch:span
-                class="message">lacks policy reference(s) (via by-component link)</sch:span>.</sch:diagnostic>
+                select="@control-id" /> lacks policy reference(s) (via by-component link).</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-policy-attachment-resource"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
@@ -3123,10 +3121,7 @@
             <sch:value-of
                 select="local-name()" />
             <sch:value-of
-                select="@control-id" />
-            <sch:span
-                class="message">lacks policy attachment resource(s)</sch:span>
-            <sch:value-of
+                select="@control-id" /> lacks policy attachment resource(s) <sch:value-of
                 select="string-join($policy-hrefs, ', ')" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-procedure-link"
@@ -3135,9 +3130,7 @@
             <sch:value-of
                 select="local-name()" />
             <sch:value-of
-                select="@control-id" />
-            <sch:span
-                class="message">lacks procedure reference(s) (via by-component link)</sch:span>.</sch:diagnostic>
+                select="@control-id" /> lacks procedure reference(s) (via by-component link).</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-procedure-attachment-resource"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
@@ -3145,10 +3138,7 @@
             <sch:value-of
                 select="local-name()" />
             <sch:value-of
-                select="@control-id" />
-            <sch:span
-                class="message">lacks procedure attachment resource(s)</sch:span>
-            <sch:value-of
+                select="@control-id" /> lacks procedure attachment resource(s) <sch:value-of
                 select="string-join($procedure-hrefs, ', ')" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-reuse"
@@ -3260,9 +3250,9 @@
         <sch:diagnostic
             doc:assertion="has-allowed-security-sensitivity-level"
             doc:context="oscal:security-sensitivity-level"
-            id="has-allowed-security-sensitivity-level-diagnostic">Invalid security-sensitivity-level " <sch:value-of
+            id="has-allowed-security-sensitivity-level-diagnostic">Invalid security-sensitivity-level "<sch:value-of
                 select="." />". It must have one of the following <sch:value-of
-                select="count($security-sensitivity-levels)" />values: <sch:value-of
+                select="count($security-sensitivity-levels)" /> values: <sch:value-of
                 select="string-join($security-sensitivity-levels, ' ∨ ')" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-security-objective-confidentiality"
@@ -3279,10 +3269,10 @@
         <sch:diagnostic
             doc:assertion="has-allowed-security-objective-value"
             doc:context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
-            id="has-allowed-security-objective-value-diagnostic">Invalid <sch:value-of
+            id="has-allowed-security-objective-value-diagnostic">Invalid "<sch:value-of
                 select="name()" />" <sch:value-of
                 select="." />". It must have one of the following <sch:value-of
-                select="count($security-objective-levels)" />values: <sch:value-of
+                select="count($security-objective-levels)" /> values: <sch:value-of
                 select="string-join($security-objective-levels, ' ∨ ')" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="system-information-has-information-type"
@@ -3396,62 +3386,62 @@
             doc:assertion="has-unique-asset-id"
             doc:context="oscal:prop[@name = 'asset-id']"
             id="has-unique-asset-id-diagnostic">This asset id <sch:value-of
-                select="@asset-id" />is not unique. An asset id must be unique within the scope of a FedRAMP OSCAL SSP document.</sch:diagnostic>
+                select="@asset-id" /> is not unique. An asset id must be unique within the scope of a FedRAMP OSCAL SSP document.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-asset-type"
             doc:context="oscal:prop[@name = 'asset-type']"
             id="has-allowed-asset-type-diagnostic">
             <sch:value-of
-                select="name()" />should have a FedRAMP asset type <sch:value-of
-                select="string-join($asset-types, ' ∨ ')" />(not " <sch:value-of
+                select="name()" /> should have a FedRAMP asset type <sch:value-of
+                select="string-join($asset-types, ' ∨ ')" /> (not " <sch:value-of
                 select="@value" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-virtual"
             doc:context="oscal:prop[@name = 'virtual']"
             id="has-allowed-virtual-diagnostic">
             <sch:value-of
-                select="name()" />must have an allowed value <sch:value-of
-                select="string-join($virtuals, ' ∨ ')" />(not " <sch:value-of
+                select="name()" /> must have an allowed value <sch:value-of
+                select="string-join($virtuals, ' ∨ ')" /> (not " <sch:value-of
                 select="@value" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-public"
             doc:context="oscal:prop[@name = 'public']"
             id="has-allowed-public-diagnostic">
             <sch:value-of
-                select="name()" />must have an allowed value <sch:value-of
-                select="string-join($publics, ' ∨ ')" />(not " <sch:value-of
+                select="name()" /> must have an allowed value <sch:value-of
+                select="string-join($publics, ' ∨ ')" /> (not " <sch:value-of
                 select="@value" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-allows-authenticated-scan"
             doc:context="oscal:prop[@name = 'allows-authenticated-scan']"
             id="has-allowed-allows-authenticated-scan-diagnostic">
             <sch:value-of
-                select="name()" />must have an allowed value <sch:value-of
-                select="string-join($allows-authenticated-scans, ' ∨ ')" />(not " <sch:value-of
+                select="name()" /> must have an allowed value <sch:value-of
+                select="string-join($allows-authenticated-scans, ' ∨ ')" /> (not " <sch:value-of
                 select="@value" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-is-scanned"
             doc:context="oscal:prop[@name = 'is-scanned']"
             id="has-allowed-is-scanned-diagnostic">
             <sch:value-of
-                select="name()" />must have an allowed value <sch:value-of
-                select="string-join($is-scanneds, ' ∨ ')" />(not " <sch:value-of
+                select="name()" /> must have an allowed value <sch:value-of
+                select="string-join($is-scanneds, ' ∨ ')" /> (not " <sch:value-of
                 select="@value" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-scan-type"
             doc:context="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'scan-type']"
             id="has-allowed-scan-type-diagnostic">
             <sch:value-of
-                select="name()" />must have an allowed value <sch:value-of
-                select="string-join($scan-types, ' ∨ ')" />(not " <sch:value-of
+                select="name()" /> must have an allowed value <sch:value-of
+                select="string-join($scan-types, ' ∨ ')" /> (not " <sch:value-of
                 select="@value" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="component-has-allowed-type"
             doc:context="oscal:component"
             id="component-has-allowed-type-diagnostic">
             <sch:value-of
-                select="name()" />must have an allowed component type <sch:value-of
-                select="string-join($component-types, ' ∨ ')" />(not " <sch:value-of
+                select="name()" /> must have an allowed component type <sch:value-of
+                select="string-join($component-types, ' ∨ ')" /> (not " <sch:value-of
                 select="@type" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-uuid"
@@ -3562,27 +3552,27 @@
             doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
             id="inventory-item-has-function-diagnostic">
             <sch:value-of
-                select="name()" />" <sch:value-of
+                select="name()" /> "<sch:value-of
                 select="oscal:prop[@name = 'asset-type']/@value" />" lacks function property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-one-function"
             doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
             id="inventory-item-has-one-function-diagnostic">
             <sch:value-of
-                select="name()" />" <sch:value-of
+                select="name()" /> "<sch:value-of
                 select="oscal:prop[@name = 'asset-type']/@value" />" has more than one function property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="component-has-asset-type"
             doc:context="/oscal:system-security-plan/oscal:system-implementation/oscal:component[(: a component referenced by any inventory-item :)@uuid = //oscal:inventory-item/oscal:implemented-component/@component-uuid]"
             id="component-has-asset-type-diagnostic">
             <sch:value-of
-                select="name()" />lacks an asset-type property.</sch:diagnostic>
+                select="name()" /> lacks an asset-type property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="component-has-one-asset-type"
             doc:context="/oscal:system-security-plan/oscal:system-implementation/oscal:component[(: a component referenced by any inventory-item :)@uuid = //oscal:inventory-item/oscal:implemented-component/@component-uuid]"
             id="component-has-one-asset-type-diagnostic">
             <sch:value-of
-                select="name()" />has more than one asset-type property.</sch:diagnostic>
+                select="name()" /> has more than one asset-type property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-this-system-component"
             doc:context="oscal:system-implementation"
