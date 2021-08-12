@@ -2289,6 +2289,67 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         test="@value castable as xs:date and xs:date(@value) gt current-date()">Planned completion date is not past.</sch:assert>
         </sch:rule>
     </sch:pattern>
+    <sch:pattern doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13-14"
+        id="cloud-models">
+        <sch:title>Cloud Service and Deployment Models</sch:title>
+        <sch:let name="service-models"
+            value="$fedramp-values//fedramp:value-set[@name = 'service-model']//fedramp:enum/@value" />
+        <sch:let name="deployment-models"
+            value="$fedramp-values//fedramp:value-set[@name = 'deployment-model']//fedramp:enum/@value" />
+        <sch:rule context="oscal:system-characteristics">
+            <sch:assert diagnostics="has-cloud-service-model-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
+                doc:template-reference="System Security Plan Template §8.1"
+                id="has-cloud-service-model"
+                test="oscal:prop[@name = 'cloud-service-model']">A FedRAMP SSP must specify a cloud service model.</sch:assert>
+            <sch:assert diagnostics="has-allowed-cloud-service-model-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
+                doc:template-reference="System Security Plan Template §8.1"
+                id="has-allowed-cloud-service-model"
+                test="oscal:prop[@name = 'cloud-service-model' and @value = $service-models]">A FedRAMP SSP must specify an allowed cloud
+                service model.</sch:assert>
+            <sch:assert diagnostics="has-cloud-service-model-remarks-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
+                doc:template-reference="System Security Plan Template §8.1"
+                id="has-cloud-service-model-remarks"
+                test="
+                every $p in oscal:prop[@name = 'cloud-service-model' and @value = 'other']
+                satisfies exists($p/oscal:remarks)
+                ">A FedRAMP SSP with a cloud service model of "other" must supply remarks.</sch:assert>
+            <sch:assert diagnostics="has-cloud-deployment-model-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
+                doc:template-reference="System Security Plan Template §8.2"
+                id="has-cloud-deployment-model"
+                test="oscal:prop[@name = 'cloud-deployment-model']">A FedRAMP SSP must specify a cloud deployment model.</sch:assert>
+            <sch:assert diagnostics="has-allowed-cloud-deployment-model-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
+                doc:template-reference="System Security Plan Template §8.2"
+                id="has-allowed-cloud-deployment-model"
+                test="oscal:prop[@name = 'cloud-deployment-model' and @value = $deployment-models]">A FedRAMP SSP must specify an allowed
+                cloud deployment model.</sch:assert>
+            <sch:assert diagnostics="has-cloud-deployment-model-remarks-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
+                doc:template-reference="System Security Plan Template §8.2"
+                id="has-cloud-deployment-model-remarks"
+                test="
+                every $p in oscal:prop[@name = 'cloud-deployment-model' and @value = 'hybrid-cloud']
+                satisfies exists($p/oscal:remarks)
+                ">A FedRAMP SSP with a cloud deployment model of "hybrid-cloud" must supply remarks.</sch:assert>
+            <sch:assert diagnostics="has-public-cloud-deployment-model-diagnostic"
+                id="has-public-cloud-deployment-model"
+                test="
+                (: either there is no component or inventory-item tagged as 'public' :)
+                not(
+                exists(//oscal:component[oscal:prop[@name = 'public' and @value = 'yes']])
+                or
+                exists(//oscal:inventory-item[oscal:prop[@name = 'public' and @value = 'yes']])
+                )
+                or (: a 'public-cloud' deployment model is employed :)
+                exists(oscal:prop[@name = 'cloud-deployment-model' and @value = 'public-cloud'])
+                ">When a FedRAMP SSP has public components or inventory items, a cloud deployment model of "public-cloud" must be
+                employed.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
     <sch:diagnostics>
         <sch:diagnostic doc:assertion="no-registry-values"
                         doc:context="/o:system-security-plan"
@@ -3227,5 +3288,30 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
         <sch:diagnostic doc:assertion="planned-completion-date-is-not-past"
                         doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']"
                         id="planned-completion-date-is-not-past-diagnostic">This planned completion date references a past time.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-cloud-service-model"
+                        doc:context="oscal:system-characteristics"
+                        id="has-cloud-service-model-diagnostic">A FedRAMP SSP must specify a cloud service model.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-allowed-cloud-service-model"
+                        doc:context="oscal:system-characteristics"
+                        id="has-allowed-cloud-service-model-diagnostic">A FedRAMP SSP must specify an allowed cloud service model.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-cloud-service-model-remarks"
+                        doc:context="oscal:system-characteristics"
+                        id="has-cloud-service-model-remarks-diagnostic">A FedRAMP SSP with a cloud service model of "other" must supply
+                        remarks.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-cloud-deployment-model"
+                        doc:context="oscal:system-characteristics"
+                        id="has-cloud-deployment-model-diagnostic">A FedRAMP SSP must specify a cloud deployment model.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-allowed-cloud-deployment-model"
+                        doc:context="oscal:system-characteristics"
+                        id="has-allowed-cloud-deployment-model-diagnostic">A FedRAMP SSP must specify an allowed cloud deployment
+                        model.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-cloud-deployment-model-remarks"
+                        doc:context="oscal:system-characteristics"
+                        id="has-cloud-deployment-model-remarks-diagnostic">A FedRAMP SSP with a cloud deployment model of "hybrid-cloud" must supply
+                        remarks.</sch:diagnostic>
+        <sch:diagnostic doc:assertion="has-public-cloud-deployment-model"
+                        doc:context="oscal:system-characteristics"
+                        id="has-public-cloud-deployment-model-diagnostic">When a FedRAMP SSP has public components or inventory items, a cloud deployment model of
+                        "public-cloud" must be employed.</sch:diagnostic>
     </sch:diagnostics>
 </sch:schema>
