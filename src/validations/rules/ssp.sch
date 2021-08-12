@@ -616,8 +616,8 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="missing-component-description"
                 role="error"
-                test="./o:description =&gt; exists()">[Section D Checks] Response statement has a component which has a required description
-                node.</sch:assert>
+                test="./o:description =&gt; exists()">[Section D Checks] Response statement has a component which has a required
+                description.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:description">
@@ -705,7 +705,7 @@
                 doc:template-reference="System Security Plan Template §9.3"
                 id="resource-uuid-required"
                 role="error"
-                test="@uuid">Every supporting artifact found in a citation has a uuid attribute.</sch:assert>
+                test="@uuid">Every supporting artifact found in a citation has a unique identifier.</sch:assert>
         </sch:rule>
         <!-- The following rule is commented out because doc-available does not provide the desired existence check -->
         <!--<sch:rule
@@ -765,7 +765,7 @@
                 doc:template-reference="System Security Plan Template §15"
                 id="resource-has-uuid"
                 role="error"
-                test="@uuid">Every supporting artifact found in a citation must have a uuid attribute.</sch:assert>
+                test="@uuid">Every supporting artifact found in a citation must have a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="resource-has-title-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
@@ -808,7 +808,7 @@
                 doc:template-reference="System Security Plan Template §15"
                 id="rlink-has-href"
                 role="error"
-                test="@href">Every supporting artifact found in a citation rlink must have an href attribute.</sch:assert>
+                test="@href">Every supporting artifact found in a citation rlink must have a reference.</sch:assert>
             <!-- Both doc-avail() and unparsed-text-available() are failing on arbitrary hrefs -->
             <!--<sch:assert test="unparsed-text-available(@href)">the &lt;<sch:name/>&gt; element href attribute refers to a non-existent
                 document</sch:assert>-->
@@ -1094,8 +1094,8 @@
                 id="has-responsible-privacy-poc-party-uuid"
                 role="error"
                 test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id = 'privacy-poc']/oscal:party-uuid">[Section B Check
-                3.4] A FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role reference identifying the party by
-                UUID.</sch:assert>
+                3.4] A FedRAMP OSCAL SSP must declare a Privacy Point of Contact responsible party role reference identifying the party by unique
+                identifier.</sch:assert>
             <sch:let
                 name="poc-uuid"
                 value="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id = 'privacy-poc']/oscal:party-uuid" />
@@ -1266,7 +1266,8 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 id="has-credible-CMVP-validation-reference"
                 role="error"
-                test="matches(@value, '^\d{3,4}$')">A validation reference must provide a CMVP certificate number.</sch:assert>
+                test="matches(@value, '^\d{3,4}$')">A validation reference must provide a NIST Cryptographic Module Validation Program (CMVP)
+                certificate number.</sch:assert>
             <sch:assert
                 diagnostics="has-consonant-CMVP-validation-reference-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
@@ -1284,7 +1285,7 @@
                 id="has-credible-CMVP-validation-details"
                 role="error"
                 test="matches(@href, '^https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/\d{3,4}$')">A validation
-                details must refer to a NIST CMVP certificate detail page.</sch:assert>
+                details must refer to a NIST Cryptographic Module Validation Program (CMVP) certificate detail page.</sch:assert>
             <sch:assert
                 diagnostics="has-consonant-CMVP-validation-details-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
@@ -1502,7 +1503,8 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="has-allowed-information-type-id"
                 role="error"
-                test="current()[. = $information-types]">A FedRAMP OSCAL SSP information-type-id must have a SP 800-60v2r1 identifier.</sch:assert>
+                test="current()[. = $information-types]">A FedRAMP OSCAL SSP information type identifier must employ those found in NIST SP
+                800-60v2r1.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:confidentiality-impact | oscal:integrity-impact | oscal:availability-impact"
@@ -1822,77 +1824,77 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-uuid"
                 role="error"
-                test="@uuid">An inventory-item has a uuid.</sch:assert>
+                test="@uuid">An inventory item has a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-asset-id-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="has-asset-id"
                 role="error"
-                test="oscal:prop[@name = 'asset-id']">An inventory-item must have an asset-id.</sch:assert>
+                test="oscal:prop[@name = 'asset-id']">An inventory item must have an asset identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-one-asset-id-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="has-one-asset-id"
                 role="error"
-                test="not(oscal:prop[@name = 'asset-id'][2])">An inventory-item must have only one asset-id.</sch:assert>
+                test="not(oscal:prop[@name = 'asset-id'][2])">An inventory item must have only one asset identifier.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-asset-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-asset-type"
                 role="error"
-                test="oscal:prop[@name = 'asset-type']">An inventory-item must have an asset-type.</sch:assert>
+                test="oscal:prop[@name = 'asset-type']">An inventory item must have an asset-type.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-asset-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-asset-type"
                 role="error"
-                test="not(oscal:prop[@name = 'asset-type'][2])">An inventory-item must have only one asset-type.</sch:assert>
+                test="not(oscal:prop[@name = 'asset-type'][2])">An inventory item must have only one asset-type.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-virtual-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-virtual"
                 role="error"
-                test="oscal:prop[@name = 'virtual']">An inventory-item must have a virtual property.</sch:assert>
+                test="oscal:prop[@name = 'virtual']">An inventory item must have a virtual property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-virtual-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-virtual"
                 role="error"
-                test="not(oscal:prop[@name = 'virtual'][2])">An inventory-item must have only one virtual property.</sch:assert>
+                test="not(oscal:prop[@name = 'virtual'][2])">An inventory item must have only one virtual property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-public-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-public"
                 role="error"
-                test="oscal:prop[@name = 'public']">An inventory-item must have a public property.</sch:assert>
+                test="oscal:prop[@name = 'public']">An inventory item must have a public property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-public-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-public"
                 role="error"
-                test="not(oscal:prop[@name = 'public'][2])">An inventory-item must have only one public property.</sch:assert>
+                test="not(oscal:prop[@name = 'public'][2])">An inventory item must have only one public property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-scan-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-scan-type"
                 role="error"
-                test="oscal:prop[@name = 'scan-type']">An inventory-item must have a scan-type property.</sch:assert>
+                test="oscal:prop[@name = 'scan-type']">An inventory item must have a scan-type property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-scan-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-scan-type"
                 role="error"
-                test="not(oscal:prop[@name = 'scan-type'][2])">An inventory-item has only one scan-type property.</sch:assert>
+                test="not(oscal:prop[@name = 'scan-type'][2])">An inventory item has only one scan-type property.</sch:assert>
             <!-- restrict the following to "infrastructure" -->
             <sch:let
                 name="is-infrastructure"
@@ -1903,7 +1905,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-allows-authenticated-scan"
                 role="error"
-                test="not($is-infrastructure) or oscal:prop[@name = 'allows-authenticated-scan']">"infrastructure" inventory-item has
+                test="not($is-infrastructure) or oscal:prop[@name = 'allows-authenticated-scan']">"infrastructure" inventory item has
                 allows-authenticated-scan.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-allows-authenticated-scan-diagnostic"
@@ -1911,7 +1913,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-allows-authenticated-scan"
                 role="error"
-                test="not($is-infrastructure) or not(oscal:prop[@name = 'allows-authenticated-scan'][2])">An inventory-item has
+                test="not($is-infrastructure) or not(oscal:prop[@name = 'allows-authenticated-scan'][2])">An inventory item has
                 one-allows-authenticated-scan property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-baseline-configuration-name-diagnostic"
@@ -1919,7 +1921,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-baseline-configuration-name"
                 role="error"
-                test="not($is-infrastructure) or oscal:prop[@name = 'baseline-configuration-name']">"infrastructure" inventory-item has
+                test="not($is-infrastructure) or oscal:prop[@name = 'baseline-configuration-name']">"infrastructure" inventory item has
                 baseline-configuration-name.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-baseline-configuration-name-diagnostic"
@@ -1927,7 +1929,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-baseline-configuration-name"
                 role="error"
-                test="not($is-infrastructure) or not(oscal:prop[@name = 'baseline-configuration-name'][2])">"infrastructure" inventory-item has only
+                test="not($is-infrastructure) or not(oscal:prop[@name = 'baseline-configuration-name'][2])">"infrastructure" inventory item has only
                 one baseline-configuration-name.</sch:assert>
             <!-- FIXME: Documentation says vendor name is in FedRAMP @ns -->
             <sch:assert
@@ -1937,7 +1939,7 @@
                 id="inventory-item-has-vendor-name"
                 role="error"
                 test="not($is-infrastructure) or oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'vendor-name']"> "infrastructure"
-                inventory-item has a vendor-name property.</sch:assert>
+                inventory item has a vendor-name property.</sch:assert>
             <!-- FIXME: Documentation says vendor name is in FedRAMP @ns -->
             <sch:assert
                 diagnostics="inventory-item-has-one-vendor-name-diagnostic"
@@ -1946,7 +1948,7 @@
                 id="inventory-item-has-one-vendor-name"
                 role="error"
                 test="not($is-infrastructure) or not(oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'vendor-name'][2])">
-                "infrastructure" inventory-item must have only one vendor-name property.</sch:assert>
+                "infrastructure" inventory item must have only one vendor-name property.</sch:assert>
             <!-- FIXME: perversely, hardware-model is not in FedRAMP @ns -->
             <sch:assert
                 diagnostics="inventory-item-has-hardware-model-diagnostic"
@@ -1955,7 +1957,7 @@
                 id="inventory-item-has-hardware-model"
                 role="error"
                 test="not($is-infrastructure) or oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'hardware-model']"> "infrastructure"
-                inventory-item must have a hardware-model property.</sch:assert>
+                inventory item must have a hardware-model property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-hardware-model-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
@@ -1963,14 +1965,14 @@
                 id="inventory-item-has-one-hardware-model"
                 role="error"
                 test="not($is-infrastructure) or not(oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'hardware-model'][2])">
-                "infrastructure" inventory-item must have only one hardware-model property.</sch:assert>
+                "infrastructure" inventory item must have only one hardware-model property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-is-scanned-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-is-scanned"
                 role="error"
-                test="not($is-infrastructure) or oscal:prop[@name = 'is-scanned']">"infrastructure" inventory-item must have is-scanned
+                test="not($is-infrastructure) or oscal:prop[@name = 'is-scanned']">"infrastructure" inventory item must have is-scanned
                 property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-is-scanned-diagnostic"
@@ -1978,7 +1980,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-is-scanned"
                 role="error"
-                test="not($is-infrastructure) or not(oscal:prop[@name = 'is-scanned'][2])">"infrastructure" inventory-item must have only one
+                test="not($is-infrastructure) or not(oscal:prop[@name = 'is-scanned'][2])">"infrastructure" inventory item must have only one
                 is-scanned property.</sch:assert>
             <!-- FIXME: vague asset categories -->
             <!-- restrict the following to "software" -->
@@ -1991,7 +1993,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-software-name"
                 role="error"
-                test="not($is-software-and-database) or oscal:prop[@name = 'software-name']">"software or database" inventory-item must have a
+                test="not($is-software-and-database) or oscal:prop[@name = 'software-name']">"software or database" inventory item must have a
                 software-name property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-software-name-diagnostic"
@@ -1999,7 +2001,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-software-name"
                 role="error"
-                test="not($is-software-and-database) or not(oscal:prop[@name = 'software-name'][2])">"software or database" inventory-item must have a
+                test="not($is-software-and-database) or not(oscal:prop[@name = 'software-name'][2])">"software or database" inventory item must have a
                 software-name property.</sch:assert>
             <!-- FIXME: vague asset categories -->
             <sch:assert
@@ -2008,7 +2010,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-software-version"
                 role="error"
-                test="not($is-software-and-database) or oscal:prop[@name = 'software-version']">"software or database" inventory-item must have a
+                test="not($is-software-and-database) or oscal:prop[@name = 'software-version']">"software or database" inventory item must have a
                 software-version property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-software-version-diagnostic"
@@ -2016,7 +2018,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-software-version"
                 role="error"
-                test="not($is-software-and-database) or not(oscal:prop[@name = 'software-version'][2])">"software or database" inventory-item must
+                test="not($is-software-and-database) or not(oscal:prop[@name = 'software-version'][2])">"software or database" inventory item must
                 have one software-version property.</sch:assert>
             <!-- FIXME: vague asset categories -->
             <sch:assert
@@ -2025,7 +2027,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-function"
                 role="error"
-                test="not($is-software-and-database) or oscal:prop[@name = 'function']">"software or database" inventory-item must have a function
+                test="not($is-software-and-database) or oscal:prop[@name = 'function']">"software or database" inventory item must have a function
                 property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-function-diagnostic"
@@ -2033,7 +2035,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-function"
                 role="error"
-                test="not($is-software-and-database) or not(oscal:prop[@name = 'function'][2])">"software or database" inventory-item must have one
+                test="not($is-software-and-database) or not(oscal:prop[@name = 'function'][2])">"software or database" inventory item must have one
                 function property.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -2048,7 +2050,8 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6"
                 id="has-this-system-component"
                 role="error"
-                test="exists(oscal:component[@type = 'this-system'])">A FedRAMP OSCAL SSP must have a "this-system" component.</sch:assert>
+                test="exists(oscal:component[@type = 'this-system'])">A FedRAMP OSCAL SSP must have a self-referential (i.e., to the SSP itself)
+                component.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:system-characteristics">
@@ -2059,7 +2062,8 @@
                 id="has-system-id"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
-                test="oscal:system-id[@identifier-type = 'https://fedramp.gov']">A FedRAMP OSCAL SSP must have a FedRAMP system-id.</sch:assert>
+                test="oscal:system-id[@identifier-type = 'https://fedramp.gov']">A FedRAMP OSCAL SSP must have a FedRAMP system
+                identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-system-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
@@ -2067,7 +2071,7 @@
                 id="has-system-name"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
-                test="oscal:system-name">A FedRAMP OSCAL SSP must have a system-name.</sch:assert>
+                test="oscal:system-name">A FedRAMP OSCAL SSP must have a system name.</sch:assert>
             <sch:assert
                 diagnostics="has-system-name-short-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
@@ -2075,7 +2079,7 @@
                 id="has-system-name-short"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
-                test="oscal:system-name-short">A FedRAMP OSCAL SSP must have a system-name-short.</sch:assert>
+                test="oscal:system-name-short">A FedRAMP OSCAL SSP must have a short system name.</sch:assert>
             <sch:assert
                 diagnostics="has-fedramp-authorization-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.2"
@@ -2410,7 +2414,7 @@
                 doc:template-reference="System Security Plan Template §9.2"
                 id="has-authorization-boundary-diagram-uuid"
                 role="error"
-                test="@uuid">Each FedRAMP OSCAL SSP authorization boundary diagram has a uuid attribute.</sch:assert>
+                test="@uuid">Each FedRAMP OSCAL SSP authorization boundary diagram has a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-authorization-boundary-diagram-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.17 Authorization Boundary Diagram"
@@ -2509,7 +2513,7 @@
                 doc:template-reference="System Security Plan Template §9.4"
                 id="has-network-architecture-diagram-uuid"
                 role="error"
-                test="@uuid">Each FedRAMP OSCAL SSP network architecture diagram has a uuid attribute.</sch:assert>
+                test="@uuid">Each FedRAMP OSCAL SSP network architecture diagram has a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-network-architecture-diagram-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.22 Network Architecture Diagram"
@@ -2608,7 +2612,7 @@
                 doc:template-reference="System Security Plan Template §10.1"
                 id="has-data-flow-diagram-uuid"
                 role="error"
-                test="@uuid">Each FedRAMP OSCAL SSP data flow diagram has a uuid attribute.</sch:assert>
+                test="@uuid">Each FedRAMP OSCAL SSP data flow diagram has a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-data-flow-diagram-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.24 Data Flow Diagram"
@@ -2687,7 +2691,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="import-profile-has-href-attribute"
                 role="error"
-                test="@href">The import-profile element has an href attribute.</sch:assert>
+                test="@href">The import-profile element has a reference.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:implemented-requirement"
