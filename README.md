@@ -60,7 +60,7 @@ A top-level Makefile is provided to simplify builds.
 
 Build requirements are:
 
-- gcc make
+- gnu make
 - node.js (as versioned in [./nvmrc](./.nvmrc))
 - Java 8+
 

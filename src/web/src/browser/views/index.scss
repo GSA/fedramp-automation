@@ -2,6 +2,11 @@ $theme-show-notifications: false;
 $theme-font-path: '../../../uswds/fonts';
 $theme-image-path: '../../../uswds/img';
 
+$theme-banner-max-width: 'widescreen';
+$theme-footer-max-width: 'widescreen';
+$theme-grid-container-max-width: 'widescreen';
+$theme-header-max-width: 'widescreen';
+
 @import '../../../node_modules/uswds/dist/scss/uswds.scss';
 @import '../../../node_modules/highlight.js/scss/github.scss';
 

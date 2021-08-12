@@ -4,7 +4,7 @@ import { useActions, useAppState } from '../hooks';
 
 export const Footer = () => {
   const { getAssetUrl } = useActions();
-  const { repositoryUrl } = useAppState();
+  const { sourceRepository } = useAppState();
   return (
     <footer className="usa-footer usa-footer--slim">
       <div className="grid-container usa-footer__return-to-top">
@@ -32,7 +32,10 @@ export const Footer = () => {
                   </a>
                 </li>
                 <li className="mobile-lg:grid-col-4 desktop:grid-col-auto usa-footer__primary-content">
-                  <a className="usa-footer__primary-link" href={repositoryUrl}>
+                  <a
+                    className="usa-footer__primary-link"
+                    href={sourceRepository.treeUrl}
+                  >
                     Source code
                   </a>
                 </li>

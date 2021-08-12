@@ -40,8 +40,11 @@ export type PresenterConfig = IContext<ReturnType<typeof getPresenterConfig>>;
 export type PresenterContext = {
   baseUrl: string;
   debug: boolean;
-  repositoryUrl: string;
-  sampleSSPs: SampleSSP[];
+  sourceRepository: {
+    treeUrl: string;
+    sampleSSPs: SampleSSP[];
+    developerExampleUrl: string;
+  };
   location: Location;
   useCases: UseCases;
 };
@@ -50,8 +53,7 @@ export const createPresenter = (ctx: PresenterContext) => {
   const presenter = createOvermind(
     getPresenterConfig(ctx.location, ctx.useCases, {
       baseUrl: ctx.baseUrl,
-      repositoryUrl: ctx.repositoryUrl,
-      sampleSSPs: ctx.sampleSSPs,
+      sourceRepository: ctx.sourceRepository,
     }),
     {
       devtools: ctx.debug,

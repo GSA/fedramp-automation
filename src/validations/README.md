@@ -3,6 +3,9 @@
 ## What is this?
 
 This is FedRAMP Validations, a framework to take [FedRAMP documentation](https://www.fedramp.gov/templates/) that is properly formatted with [NIST OSCAL schemas](https://pages.nist.gov/OSCAL/) and check the content for correctness. [FedRAMP's adoption of OSCAL](https://www.youtube.com/watch?v=WCPkt56vZ-s) allows you to use this framework to perform logical validations, i.e. business rule checks, on documentation content. Currently, FedRAMP staff manually review the content provided by a cloud service provider for all steps of the [different](https://github.com/GSA/fedramp-gov/blob/master/assets/img/agency-auth.png) [authorization](https://github.com/GSA/fedramp-gov/blob/master/assets/img/ato-auth.png) processes. This framework and the associated business rules will automate as many of these checks as possible. Shared expectations are the goal: system owners, third-party assessors, or any interested party can use them as well.
+
+A [companion document](rules/rules.md) describes the business rule and related Schematron implementation.
+
 ## How does it work?
 
 The [OSCAL data model](https://pages.nist.gov/OSCAL/documentation/schema/overview/) can be expressed in multiple machine-readable formats: XML, JSON, and YAML. This validation suite allows tool authors to receive a FedRAMP documentation artifact in XML and use FedRAMP's own validation framework and business rules using XSLT (Extensible Stylesheet Transformations). These authors can use the programming languages and frameworks of their choice, and the program will received a structured, machine-readable result (the XML SVRL standard). The results will encode:
@@ -17,25 +20,25 @@ At this time, FedRAMP is primarily focused on standardizing and extending the co
 
 For any error, the error message will be prefix with the section name and the check ID. For example, `[Section C Check 3.1a]` will be proceed the detailed explanation text. This validation suite does provide summary reporting information. As these are not errors in the report, if provided to help a reviewer, they will _not_ contain a section name and check ID.
 
-This format will allow for reviewers to collaborate and communicate improvements with the development team. Therefore, you can direct the development team to the `@organizational-id` in [the validation suite source code](https://github.com/18F/fedramp-automation/blob/master/resources/validations/rules/ssp.sch) that maps to these check IDs.
+This format will allow for reviewers to collaborate and communicate improvements with the development team.
 ### Section B: Documents Provided Check
 
 - [ ]  1.0	 Initial Authorization Package Checklist
 - [ ]  2.0	 ATO Provided
-- [ ]  3.0	 System Security Plan (SSP)
-- [ ]  3.1	 Att. 1: Information Security Policies and Procedures
-- [ ]  3.2	 Att. 2: User Guide
-- [ ]  3.3	 Att. 3: Digital Identity Worksheet
-- [ ]  3.4	 Att. 4: Privacy Threshold Analysis (PTA) and Privacy Impact Assessment (PIA)
-- [ ]  3.5	 Att. 5: Rules of Behavior (ROB)
-- [ ]  3.6	 Att. 6: Information System Contingency Plan (ISCP)
-- [ ]  3.7	 Att. 7: Configuration Management Plan (CMP)
-- [ ]  3.8	 Att. 8: Incident Response Plan (IRP)
-- [ ]  3.9	 Att. 9: Control Implementation Summary (CIS) Workbook
-- [ ]  3.10 Att. 10: Federal Information Processing Standard (FIPS) 199 Categorization
-- [ ]  3.11 Att. 11: Separation of Duties Matrix
-- [ ]  3.12 Att. 12: FedRAMP Laws and Regulations
-- [ ]  3.13 Att. 13: FedRAMP Integrated Inventory Workbook
+- [X]  3.0	 System Security Plan (SSP)
+- [X]  3.1	 Att. 1: Information Security Policies and Procedures
+- [X]  3.2	 Att. 2: User Guide
+- [X]  3.3	 Att. 3: Digital Identity Worksheet
+- [X]  3.4	 Att. 4: Privacy Threshold Analysis (PTA) and Privacy Impact Assessment (PIA)
+- [X]  3.5	 Att. 5: Rules of Behavior (ROB)
+- [X]  3.6	 Att. 6: Information System Contingency Plan (ISCP)
+- [X]  3.7	 Att. 7: Configuration Management Plan (CMP)
+- [X]  3.8	 Att. 8: Incident Response Plan (IRP)
+- [X]  3.9	 Att. 9: Control Implementation Summary (CIS) Workbook
+- [X]  3.10 Att. 10: Federal Information Processing Standard (FIPS) 199 Categorization
+- [X]  3.11 Att. 11: Separation of Duties Matrix
+- [X]  3.12 Att. 12: FedRAMP Laws and Regulations
+- [X]  3.13 Att. 13: FedRAMP Integrated Inventory Workbook
 
 ### Section C: Overall SSP Checks
 
@@ -47,7 +50,7 @@ This format will allow for reviewers to collaborate and communicate improvements
 - [ ]  4b Does the Initial Authorizing Agency concur with the CRM (adequacy and clarity of customer responsibilities)?
 - [ ]  5  Does the Roles Table (User Roles and Privileges) sufficiently describe the range of user roles, responsibilities, and access privileges?
 - [X]  6  In the control summary tables, does the information in the Responsible Role row correctly describe the required entities responsible for fulfilling the control? (50% complete, control mapping will complete this work in [18F/fedramp-automation#51](https://github.com/18F/fedramp-automation/issues/51))
-- [ ]  7  Is the appropriate Digital Identity Level selected?
+- [X]  7  Is the appropriate Digital Identity Level selected?
 - [ ]  8a Is the authorization boundary explicitly identified in the network diagram?
 - [ ]  8b Does the CSO provide components to run on the client side?
 - [ ]  9  Is there a data flow diagram that clearly illustrates the flow and protection of data going in and out of the service boundary and that includes all traffic flows for both internal and external users?
