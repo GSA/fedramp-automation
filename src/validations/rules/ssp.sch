@@ -1540,8 +1540,8 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="cia-impact-has-approved-fips-categorization"
                 role="error"
-                test=". = $fips-199-levels">A FedRAMP SSP information type confidentiality, integrity, or availability impact base or selected impact
-                must have an approved value.</sch:assert>
+                test=". = $fips-199-levels">A FedRAMP SSP must indicate for its information system the appropriate categorization for the respective
+                confidentiality, integrity, impact levels of its information types (per FIPS-199).</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
