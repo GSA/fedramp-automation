@@ -5,7 +5,7 @@
     }
   },
   "scripts": {
-    "build": "npm run build:snowpack && npm run build:sef:assertion-grouping && npm run build:assertion-views",
+    "build": "npm run build:sef:assertion-grouping && npm run build:assertion-views && npm run build:snowpack",
     "build:assertion-views": "ts-node -r tsconfig-paths/register src/cli/index.ts create-assertion-view",
     "build:schematron": "npm run build:schematron-java && npm run build:sef && npm run build:ssp-json",
     "build:schematron-ideal": "npm run build:sch-stage-1 && npm run build:sch-stage-2 && npm run build:sch-stage-3 && npm run build:sef",
