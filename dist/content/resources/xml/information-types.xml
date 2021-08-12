@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <information-types xmlns="https://fedramp.gov/ns/oscal" uuid="157BB1F7-8BE7-4642-9D5B-60B5995684F0">
     <metadata>
-        <title>FedRAMP Acceptable Information Types [DRAFT]</title>
+        <title>FedRAMP Acceptable Information Types (Experimental)</title>
         <published>2021-01-15T00:00:00Z</published>
         <last-modified>2021-01-15T00:00:00Z</last-modified>
-        <version>DRAFT-02</version>
+        <version>fedramp1.0.2-oscal1.0.0</version>
         <revisions>
             <revision>
                 <published>2019-06-01T00:00:00.00-04:00</published>
@@ -20,6 +20,14 @@
                 <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
                 <remarks>
                     <p>Revised draft to better align with OSCAL SSP syntax.</p>
+                </remarks>
+            </revision>
+            <revision>
+                <published>2021-08-11T23:18:00.00-00:00</published>
+                <version>fedramp1.0.2-oscal1.0.0</version>
+                <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+                <remarks>
+                    <p>Updated version reviewed for fedramp1.0.2-oscal1.0.0 releases.</p>
                 </remarks>
             </revision>
         </revisions>
