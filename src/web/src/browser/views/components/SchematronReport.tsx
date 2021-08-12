@@ -30,16 +30,16 @@ export const SchematronReport = () => {
             open={false}
           >
             <summary>
+              <span
+                className="font-heading-sm text-secondary-light"
+                style={{ float: 'right' }}
+              >
+                <span className={`text-${group.checks.summaryColor}`}>
+                  {group.checks.summary}
+                </span>
+              </span>
               <span className="font-heading-lg text-primary border-base-light padding-top-1">
                 {group.title}
-                <span
-                  className="font-heading-sm text-secondary-light"
-                  style={{ float: 'right' }}
-                >
-                  <span className={`text-${group.checks.summaryColor}`}>
-                    {group.checks.summary}
-                  </span>
-                </span>
               </span>
             </summary>
             <ul className="usa-icon-list margin-top-1">
