@@ -674,6 +674,7 @@
                         test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-acronyms']]">A
                         FedRAMP OSCAL SSP must have the FedRAMP Master Acronym and Glossary attached.</sch:assert>
             <sch:assert diagnostics="has-fedramp-citations-diagnostic"
+                        doc:checklist-reference="Section B Check 3.12"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP Content §4.10"
                         doc:template-reference="System Security Plan Template §15 Attachment 12"
                         id="has-fedramp-citations"
@@ -1019,33 +1020,39 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         validation-details link must be in accord with its sibling validation-reference.</sch:assert>
         </sch:rule>
     </sch:pattern>
-    <sch:pattern doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
+    <sch:pattern doc:checklist-reference="Section B Check 3.10"
+                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                  doc:template-reference="System Security Plan Template §2"
                  id="fips-199"
                  see="Guide to OSCAL-based FedRAMP System Security Plans §4.4">
         <sch:title>Security Objectives Categorization (FIPS 199)</sch:title>
         <sch:rule context="oscal:system-characteristics"
+                  doc:checklist-reference="Section B Check 3.10"
                   doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                   doc:template-reference="System Security Plan Template §2">
             <!-- These should also be asserted in XML Schema -->
             <sch:assert diagnostics="has-security-sensitivity-level-diagnostic"
+                        doc:checklist-reference="Section B Check 3.10"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                         doc:template-reference="System Security Plan Template §2"
                         id="has-security-sensitivity-level"
                         role="error"
                         test="oscal:security-sensitivity-level">A FedRAMP OSCAL SSP must specify a FIPS 199 categorization.</sch:assert>
             <sch:assert diagnostics="has-security-impact-level-diagnostic"
+                        doc:checklist-reference="Section B Check 3.10"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                         id="has-security-impact-level"
                         role="error"
                         test="oscal:security-impact-level">A FedRAMP OSCAL SSP must specify a security impact level.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:security-sensitivity-level"
+                  doc:checklist-reference="Section B Check 3.10"
                   doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                   doc:template-reference="System Security Plan Template §2">
             <sch:let name="security-sensitivity-levels"
                      value="$fedramp-values//fedramp:value-set[@name = 'security-level']//fedramp:enum/@value" />
             <sch:assert diagnostics="has-allowed-security-sensitivity-level-diagnostic"
+                        doc:checklist-reference="Section B Check 3.10"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                         doc:template-reference="System Security Plan Template §2"
                         id="has-allowed-security-sensitivity-level"
@@ -1054,10 +1061,12 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         security-sensitivity-level.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:security-impact-level"
+                  doc:checklist-reference="Section B Check 3.10"
                   doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                   doc:template-reference="System Security Plan Template §2.2">
             <!-- These should also be asserted in XML Schema -->
             <sch:assert diagnostics="has-security-objective-confidentiality-diagnostic"
+                        doc:checklist-reference="Section B Check 3.10"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                         doc:template-reference="System Security Plan Template §2.2"
                         id="has-security-objective-confidentiality"
@@ -1065,12 +1074,14 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         test="oscal:security-objective-confidentiality">A FedRAMP OSCAL SSP must specify a confidentiality security
                         objective.</sch:assert>
             <sch:assert diagnostics="has-security-objective-integrity-diagnostic"
+                        doc:checklist-reference="Section B Check 3.10"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                         doc:template-reference="System Security Plan Template §2.2"
                         id="has-security-objective-integrity"
                         role="error"
                         test="oscal:security-objective-integrity">A FedRAMP OSCAL SSP must specify an integrity security objective.</sch:assert>
             <sch:assert diagnostics="has-security-objective-availability-diagnostic"
+                        doc:checklist-reference="Section B Check 3.10"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                         doc:template-reference="System Security Plan Template §2.2"
                         id="has-security-objective-availability"
@@ -1079,11 +1090,13 @@ A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 8
                         objective.</sch:assert>
         </sch:rule>
         <sch:rule context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
+                  doc:checklist-reference="Section B Check 3.10"
                   doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                   doc:template-reference="System Security Plan Template §2.2">
             <sch:let name="security-objective-levels"
                      value="$fedramp-values//fedramp:value-set[@name = 'security-level']//fedramp:enum/@value" />
             <sch:assert diagnostics="has-allowed-security-objective-value-diagnostic"
+                        doc:checklist-reference="Section B Check 3.10"
                         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                         doc:template-reference="System Security Plan Template §2.2"
                         id="has-allowed-security-objective-value"
