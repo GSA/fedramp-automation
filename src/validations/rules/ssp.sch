@@ -2734,7 +2734,7 @@
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination' and @value = $control-originations]"> Every
-                implemented requirement has an allowed control origin.</sch:assert>
+                implemented requirement has an allowed control origination.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-leveraged-authorization-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
@@ -2746,7 +2746,7 @@
                     if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination' and @value eq 'inherited']) then (: there must be a leveraged-authorization-uuid property :)
                         exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid']) and (: the referenced leveraged-authorization must exist :) exists(//oscal:leveraged-authorization[@uuid = current()/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid']/@value])
                     else
-                        true()">Every implemented requirement with a control origin of "inherited" references a leveraged
+                        true()">Every implemented requirement with a control origination of "inherited" references a leveraged
                 authorization.</sch:assert>
             <sch:assert
                 diagnostics="partial-implemented-requirement-has-plan-diagnostic"
