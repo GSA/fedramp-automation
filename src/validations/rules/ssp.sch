@@ -149,7 +149,7 @@
 
                 <xsl:value-of
                     select="
-                        if ($item =&gt; string() =&gt; normalize-space() = '') then
+                        if ($item => string() => normalize-space() eq '') then
                             $default
                         else
                             $item" />
@@ -160,7 +160,7 @@
 
                 <xsl:sequence
                     select="
-                        if ($item =&gt; normalize-space() =&gt; not()) then
+                        if ($item => normalize-space() => not()) then
                             $default
                         else
                             $item" />
@@ -228,7 +228,7 @@
         <xsl:choose>
             <!-- If allow-other is set, anything is valid. -->
             <xsl:when
-                test="$value-set/f:allowed-values/@allow-other = 'no' and $value = $values" />
+                test="$value-set/f:allowed-values/@allow-other eq 'no' and $value = $values" />
             <xsl:otherwise>
                 <xsl:value-of
                     select="$values"
@@ -382,10 +382,10 @@
             context="/o:system-security-plan">
             <sch:let
                 name="ok-values"
-                value="$registry/f:fedramp-values/f:value-set[@name = 'security-level']" />
+                value="$registry/f:fedramp-values/f:value-set[@name eq 'security-level']" />
             <sch:let
                 name="sensitivity-level"
-                value="/ =&gt; lv:sensitivity-level() =&gt; lv:if-empty-default('')" />
+                value="/ => lv:sensitivity-level() => lv:if-empty-default('')" />
             <sch:let
                 name="corrections"
                 value="lv:correct($ok-values, $sensitivity-level)" />
@@ -401,7 +401,7 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="no-security-sensitivity-level"
                 role="fatal"
-                test="$sensitivity-level != ''">[Section C Check 1.a] A FedRAMP SSP must define its sensitivity level.</sch:assert>
+                test="$sensitivity-level ne ''">[Section C Check 1.a] A FedRAMP SSP must define its sensitivity level.</sch:assert>
             <sch:assert
                 diagnostics="invalid-security-sensitivity-level-diagnostic"
                 doc:checklist-reference="Section C Check 1.a"
@@ -430,13 +430,13 @@
                 value="$registry/f:fedramp-values/f:namespace/f:ns/@ns" />
             <sch:let
                 name="sensitivity-level"
-                value="/ =&gt; lv:sensitivity-level()" />
+                value="/ => lv:sensitivity-level()" />
             <sch:let
                 name="ok-values"
-                value="$registry/f:fedramp-values/f:value-set[@name = 'control-implementation-status']" />
+                value="$registry/f:fedramp-values/f:value-set[@name eq 'control-implementation-status']" />
             <sch:let
                 name="selected-profile"
-                value="$sensitivity-level =&gt; lv:profile()" />
+                value="$sensitivity-level => lv:profile()" />
             <sch:let
                 name="required-controls"
                 value="$selected-profile/*//o:control" />
@@ -448,7 +448,7 @@
                 value="$required-controls[not(@id = $implemented/@control-id)]" />
             <sch:let
                 name="core-missing"
-                value="$required-controls[o:prop[@name = 'CORE' and @ns = $registry-ns] and @id = $all-missing/@id]" />
+                value="$required-controls[o:prop[@name eq 'CORE' and @ns = $registry-ns] and @id = $all-missing/@id]" />
             <sch:let
                 name="extraneous"
                 value="$implemented[not(@control-id = $required-controls/@id)]" />
@@ -491,7 +491,7 @@
                 the applied baseline.</sch:assert>
             <sch:let
                 name="results"
-                value="$ok-values =&gt; lv:analyze(//o:implemented-requirement/o:prop[@name = 'implementation-status'])" />
+                value="$ok-values => lv:analyze(//o:implemented-requirement/o:prop[@name eq 'implementation-status'])" />
             <sch:let
                 name="total"
                 value="$results/reports/@count" />
@@ -501,28 +501,28 @@
                 role="information"
                 test="count($results/errors/error) = 0">
                 <sch:value-of
-                    select="$results =&gt; lv:report() =&gt; normalize-space()" />.</sch:report>
+                    select="$results => lv:report() => normalize-space()" />.</sch:report>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement">
             <sch:let
                 name="sensitivity-level"
-                value="/ =&gt; lv:sensitivity-level() =&gt; lv:if-empty-default('')" />
+                value="/ => lv:sensitivity-level() => lv:if-empty-default('')" />
             <sch:let
                 name="selected-profile"
-                value="$sensitivity-level =&gt; lv:profile()" />
+                value="$sensitivity-level => lv:profile()" />
             <sch:let
                 name="registry-ns"
                 value="$registry/f:fedramp-values/f:namespace/f:ns/@ns" />
             <sch:let
                 name="status"
-                value="./o:prop[@name = 'implementation-status']/@value" />
+                value="./o:prop[@name eq 'implementation-status']/@value" />
             <sch:let
                 name="corrections"
-                value="lv:correct($registry/f:fedramp-values/f:value-set[@name = 'control-implementation-status'], $status)" />
+                value="lv:correct($registry/f:fedramp-values/f:value-set[@name eq 'control-implementation-status'], $status)" />
             <sch:let
                 name="required-response-points"
-                value="$selected-profile/o:catalog//o:part[@name = 'item']" />
+                value="$selected-profile/o:catalog//o:part[@name eq 'item']" />
             <sch:let
                 name="implemented"
                 value="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement" />
@@ -556,13 +556,13 @@
                 value="20" />
             <sch:let
                 name="components-count"
-                value="./o:by-component =&gt; count()" />
+                value="./o:by-component => count()" />
             <sch:let
                 name="remarks"
-                value="./o:remarks =&gt; normalize-space()" />
+                value="./o:remarks => normalize-space()" />
             <sch:let
                 name="remarks-length"
-                value="$remarks =&gt; string-length()" />
+                value="$remarks => string-length()" />
             <sch:assert
                 diagnostics="missing-response-components-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -570,8 +570,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="missing-response-components"
                 role="warning"
-                test="$components-count &gt;= $required-components-count">[Section D Checks] Response statements have sufficient
-                components.</sch:assert>
+                test="$components-count ge $required-components-count">[Section D Checks] Response statements have sufficient components.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description">
@@ -582,7 +581,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="extraneous-response-description"
                 role="warning"
-                test=". =&gt; empty()">[Section D Checks] Response statement does not have a description not within a component.</sch:assert>
+                test=". => empty()">[Section D Checks] Response statement does not have a description not within a component.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks">
@@ -593,7 +592,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="extraneous-response-remarks"
                 role="warning"
-                test=". =&gt; empty()">[Section D Checks] Response statement does not have remarks not within a component.</sch:assert>
+                test=". => empty()">[Section D Checks] Response statement does not have remarks not within a component.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component">
@@ -607,7 +606,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="invalid-component-match"
                 role="warning"
-                test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] =&gt; exists()">[Section D Checks] Response
+                test="/o:system-security-plan/o:system-implementation/o:component[@uuid eq $component-ref] => exists()">[Section D Checks] Response
                 statement cites a component in the system implementation inventory.</sch:assert>
             <sch:assert
                 diagnostics="missing-component-description-diagnostic"
@@ -616,7 +615,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="missing-component-description"
                 role="error"
-                test="./o:description =&gt; exists()">[Section D Checks] Response statement has a component which has a required
+                test="./o:description => exists()">[Section D Checks] Response statement has a component which has a required
                 description.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -626,10 +625,10 @@
                 value="20" />
             <sch:let
                 name="description"
-                value=". =&gt; normalize-space()" />
+                value=". => normalize-space()" />
             <sch:let
                 name="description-length"
-                value="$description =&gt; string-length()" />
+                value="$description => string-length()" />
             <sch:assert
                 diagnostics="incomplete-response-description-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -637,7 +636,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="incomplete-response-description"
                 role="error"
-                test="$description-length &gt;= $required-length">[Section D Checks] Response statement component description has adequate
+                test="$description-length ge $required-length">[Section D Checks] Response statement component description has adequate
                 length.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -647,10 +646,10 @@
                 value="20" />
             <sch:let
                 name="remarks"
-                value=". =&gt; normalize-space()" />
+                value=". => normalize-space()" />
             <sch:let
                 name="remarks-length"
-                value="$remarks =&gt; string-length()" />
+                value="$remarks => string-length()" />
             <sch:assert
                 diagnostics="incomplete-response-remarks-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -658,8 +657,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="incomplete-response-remarks"
                 role="warning"
-                test="$remarks-length &gt;= $required-length">[Section D Checks] Response statement component remarks have adequate
-                length.</sch:assert>
+                test="$remarks-length ge $required-length">[Section D Checks] Response statement component remarks have adequate length.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:metadata">
@@ -754,7 +752,7 @@
         <sch:title>Basic resource constraints</sch:title>
         <sch:let
             name="attachment-types"
-            value="$fedramp-values//fedramp:value-set[@name = 'attachment-type']//fedramp:enum/@value" />
+            value="$fedramp-values//fedramp:value-set[@name eq 'attachment-type']//fedramp:enum/@value" />
         <sch:rule
             context="oscal:resource"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6">
@@ -790,7 +788,7 @@
                 referenced from within the document.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:back-matter/oscal:resource/oscal:prop[@name = 'type']"
+            context="oscal:back-matter/oscal:resource/oscal:prop[@name eq 'type']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1">
             <sch:assert
                 diagnostics="attachment-type-is-valid-diagnostic"
@@ -822,7 +820,7 @@
             role="error">
             <sch:let
                 name="media-types"
-                value="$fedramp-values//fedramp:value-set[@name = 'media-type']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'media-type']//fedramp:enum/@value" />
             <!--<sch:report role="information"
                         test="false()">There are 
             <sch:value-of select="count($media-types)" />media types.</sch:report>-->
@@ -898,8 +896,8 @@
                 doc:template-reference="System Security Plan Template §14"
                 id="has-fedramp-acronyms"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-acronyms']]">A FedRAMP
-                OSCAL SSP must have the FedRAMP Master Acronym and Glossary attached.</sch:assert>
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'fedramp-acronyms']]">A
+                FedRAMP OSCAL SSP must have the FedRAMP Master Acronym and Glossary attached.</sch:assert>
             <sch:assert
                 diagnostics="has-fedramp-citations-diagnostic"
                 doc:checklist-reference="Section B Check 3.12"
@@ -907,15 +905,15 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 12"
                 id="has-fedramp-citations"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-citations']]"> [Section
-                B Check 3.12] A FedRAMP SSP must have the FedRAMP Applicable Laws and Regulations attached.</sch:assert>
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'fedramp-citations']]">
+                [Section B Check 3.12] A FedRAMP SSP must have the FedRAMP Applicable Laws and Regulations attached.</sch:assert>
             <sch:assert
                 diagnostics="has-fedramp-logo-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Content §4.1"
                 id="has-fedramp-logo"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'fedramp-logo']]">A FedRAMP OSCAL
-                SSP must have the FedRAMP Logo attached.</sch:assert>
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'fedramp-logo']]">A FedRAMP
+                OSCAL SSP must have the FedRAMP Logo attached.</sch:assert>
             <sch:assert
                 diagnostics="has-user-guide-diagnostic"
                 doc:checklist-reference="Section B Check 3.2"
@@ -923,8 +921,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 2"
                 id="has-user-guide"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'user-guide']]">[Section B Check
-                3.2] A FedRAMP SSP must have a User Guide attached.</sch:assert>
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'user-guide']]">[Section B
+                Check 3.2] A FedRAMP SSP must have a User Guide attached.</sch:assert>
             <sch:assert
                 diagnostics="has-rules-of-behavior-diagnostic"
                 doc:checklist-reference="Section B Check 3.5"
@@ -932,8 +930,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 5"
                 id="has-rules-of-behavior"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'rules-of-behavior']]"> [Section
-                B Check 3.5] A FedRAMP SSP must have Rules of Behavior.</sch:assert>
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'rules-of-behavior']]">
+                [Section B Check 3.5] A FedRAMP SSP must have Rules of Behavior.</sch:assert>
             <sch:assert
                 diagnostics="has-information-system-contingency-plan-diagnostic"
                 doc:checklist-reference="Section B Check 3.6"
@@ -941,7 +939,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 6"
                 id="has-information-system-contingency-plan"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'information-system-contingency-plan']]">
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'information-system-contingency-plan']]">
                 [Section B Check 3.6] A FedRAMP SSP must have a Contingency Plan attached.</sch:assert>
             <sch:assert
                 diagnostics="has-configuration-management-plan-diagnostic"
@@ -950,7 +948,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 7"
                 id="has-configuration-management-plan"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'configuration-management-plan']]">
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'configuration-management-plan']]">
                 [Section B Check 3.7] A FedRAMP SSP must have a Configuration Management Plan attached.</sch:assert>
             <sch:assert
                 diagnostics="has-incident-response-plan-diagnostic"
@@ -959,7 +957,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 8"
                 id="has-incident-response-plan"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'incident-response-plan']]">
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'incident-response-plan']]">
                 [Section B Check 3.8] A FedRAMP SSP must have an Incident Response Plan attached.</sch:assert>
             <!-- Section B Check 3.9 is not used -->
             <!-- Section B Check 3.10 is not used -->
@@ -970,7 +968,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 11"
                 id="has-separation-of-duties-matrix"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'separation-of-duties-matrix']]">
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'separation-of-duties-matrix']]">
                 [Section B Check 3.11] A FedRAMP SSP must have a Separation of Duties Matrix attached.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -995,11 +993,11 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 1"
                 id="has-policy-link"
                 role="error"
-                test="descendant::oscal:by-component/oscal:link[@rel = 'policy']">[Section B Check 3.1] A FedRAMP SSP must incorporate a policy
+                test="descendant::oscal:by-component/oscal:link[@rel eq 'policy']">[Section B Check 3.1] A FedRAMP SSP must incorporate a policy
                 document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <sch:let
                 name="policy-hrefs"
-                value="distinct-values(descendant::oscal:by-component/oscal:link[@rel = 'policy']/@href ! substring-after(., '#'))" />
+                value="distinct-values(descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href ! substring-after(., '#'))" />
             <sch:assert
                 diagnostics="has-policy-attachment-resource-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -1009,8 +1007,8 @@
                 role="error"
                 test="
                     every $ref in $policy-hrefs
-                        satisfies exists(//oscal:resource[oscal:prop[@name = 'type' and @value = 'policy']][@uuid = $ref])">[Section B
-                Check 3.1] A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control
+                        satisfies exists(//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'policy']][@uuid eq $ref])">[Section
+                B Check 3.1] A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control
                 families.</sch:assert>
             <!-- TODO: ensure resource has an rlink -->
             <sch:assert
@@ -1020,11 +1018,11 @@
                 doc:template-reference="System Security Plan Template §15"
                 id="has-procedure-link"
                 role="error"
-                test="descendant::oscal:by-component/oscal:link[@rel = 'procedure']">[Section B Check 3.1] A FedRAMP SSP must incorporate a procedure
+                test="descendant::oscal:by-component/oscal:link[@rel eq 'procedure']">[Section B Check 3.1] A FedRAMP SSP must incorporate a procedure
                 document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <sch:let
                 name="procedure-hrefs"
-                value="distinct-values(descendant::oscal:by-component/oscal:link[@rel = 'procedure']/@href ! substring-after(., '#'))" />
+                value="distinct-values(descendant::oscal:by-component/oscal:link[@rel eq 'procedure']/@href ! substring-after(., '#'))" />
             <sch:assert
                 diagnostics="has-procedure-attachment-resource-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -1035,7 +1033,7 @@
                 test="
                     (: targets of links exist in the document :)
                     every $ref in $procedure-hrefs
-                        satisfies exists(//oscal:resource[oscal:prop[@name = 'type' and @value = 'procedure']][@uuid = $ref])">[Section
+                        satisfies exists(//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'procedure']][@uuid eq $ref])">[Section
                 B Check 3.1] A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control
                 families.</sch:assert>
             <!-- TODO: ensure resource has an rlink -->
@@ -1057,7 +1055,7 @@
                 role="error"
                 test="
                     (: the current @href is in :)
-                    @href = (: all controls except the current :) (//oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')] except $ir) (: all their @hrefs :)/descendant::oscal:by-component/oscal:link[@rel = 'policy']/@href">
+                    @href = (: all controls except the current :) (//oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')] except $ir) (: all their @hrefs :)/descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href">
                 [Section B Check 3.1] Policy and procedure documents must have unique per-control-family associations.</sch:report>
         </sch:rule>
     </sch:pattern>
@@ -1075,8 +1073,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-privacy-poc-role"
                 role="error"
-                test="/oscal:system-security-plan/oscal:metadata/oscal:role[@id = 'privacy-poc']">[Section B Check 3.4] A FedRAMP SSP must incorporate
-                a Privacy Point of Contact role.</sch:assert>
+                test="/oscal:system-security-plan/oscal:metadata/oscal:role[@id eq 'privacy-poc']">[Section B Check 3.4] A FedRAMP SSP must
+                incorporate a Privacy Point of Contact role.</sch:assert>
             <sch:assert
                 diagnostics="has-responsible-party-privacy-poc-role-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1084,7 +1082,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-responsible-party-privacy-poc-role"
                 role="error"
-                test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id = 'privacy-poc']">[Section B Check 3.4] A FedRAMP
+                test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id eq 'privacy-poc']">[Section B Check 3.4] A FedRAMP
                 OSCAL SSP must declare a Privacy Point of Contact responsible party role reference.</sch:assert>
             <sch:assert
                 diagnostics="has-responsible-privacy-poc-party-uuid-diagnostic"
@@ -1093,12 +1091,12 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-responsible-privacy-poc-party-uuid"
                 role="error"
-                test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id = 'privacy-poc']/oscal:party-uuid">[Section B Check
+                test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id eq 'privacy-poc']/oscal:party-uuid">[Section B Check
                 3.4] A FedRAMP SSP must declare a Privacy Point of Contact responsible party role reference identifying the party by unique
                 identifier.</sch:assert>
             <sch:let
                 name="poc-uuid"
-                value="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id = 'privacy-poc']/oscal:party-uuid" />
+                value="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id eq 'privacy-poc']/oscal:party-uuid" />
             <sch:assert
                 diagnostics="has-privacy-poc-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1106,7 +1104,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-privacy-poc"
                 role="error"
-                test="/oscal:system-security-plan/oscal:metadata/oscal:party[@uuid = $poc-uuid]">[Section B Check 3.4] A FedRAMP SSP must define a
+                test="/oscal:system-security-plan/oscal:metadata/oscal:party[@uuid eq $poc-uuid]">[Section B Check 3.4] A FedRAMP SSP must define a
                 Privacy Point of Contact.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -1115,7 +1113,7 @@
         <sch:title>A FedRAMP OSCAL SSP may need to incorporate a PIA and possibly a SORN</sch:title>
         <!-- The "PTA" appears to be just a few questions, not an attachment -->
         <sch:rule
-            context="oscal:prop[@name = 'privacy-sensitive'] | oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and matches(@name, '^pta-\d$')]"
+            context="oscal:prop[@name eq 'privacy-sensitive'] | oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and matches(@name, '^pta-\d$')]"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.4"
             see="Guide to OSCAL-based FedRAMP System Security Plans §6.4">
             <sch:assert
@@ -1139,7 +1137,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-privacy-sensitive-designation"
                 role="error"
-                test="oscal:prop[@name = 'privacy-sensitive']">[Section B Check 3.4] A FedRAMP SSP must have a privacy-sensitive
+                test="oscal:prop[@name eq 'privacy-sensitive']">[Section B Check 3.4] A FedRAMP SSP must have a privacy-sensitive
                 designation.</sch:assert>
             <sch:assert
                 diagnostics="has-pta-question-1-diagnostic"
@@ -1148,8 +1146,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-1"
                 role="error"
-                test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-1']">[Section B Check 3.4] A FedRAMP OSCAL
-                SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #1.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-1']">[Section B Check 3.4] A FedRAMP
+                OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #1.</sch:assert>
             <sch:assert
                 diagnostics="has-pta-question-2-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1157,8 +1155,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-2"
                 role="error"
-                test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-2']">[Section B Check 3.4] A FedRAMP OSCAL
-                SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #2.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-2']">[Section B Check 3.4] A FedRAMP
+                OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #2.</sch:assert>
             <sch:assert
                 diagnostics="has-pta-question-3-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1166,8 +1164,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-3"
                 role="error"
-                test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-3']">[Section B Check 3.4] A FedRAMP OSCAL
-                SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #3.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-3']">[Section B Check 3.4] A FedRAMP
+                OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #3.</sch:assert>
             <sch:assert
                 diagnostics="has-pta-question-4-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1175,8 +1173,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-4"
                 role="error"
-                test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-4']">[Section B Check 3.4] A FedRAMP OSCAL
-                SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #4.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4']">[Section B Check 3.4] A FedRAMP
+                OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #4.</sch:assert>
             <sch:assert
                 diagnostics="has-all-pta-questions-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1186,7 +1184,7 @@
                 role="error"
                 test="
                     every $name in ('pta-1', 'pta-2', 'pta-3', 'pta-4')
-                        satisfies exists(oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = $name])">[Section
+                        satisfies exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq $name])">[Section
                 B Check 3.4] A FedRAMP SSP must have all four PTA questions.</sch:assert>
             <sch:assert
                 diagnostics="has-correct-pta-question-cardinality-diagnostic"
@@ -1197,7 +1195,7 @@
                 role="error"
                 test="
                     not(some $name in ('pta-1', 'pta-2', 'pta-3', 'pta-4')
-                        satisfies exists(oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = $name][2]))">[Section
+                        satisfies exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq $name][2]))">[Section
                 B Check 3.4] A FedRAMP SSP must have no duplicate PTA questions.</sch:assert>
             <sch:assert
                 diagnostics="has-sorn-diagnostic"
@@ -1206,7 +1204,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-sorn"
                 role="error"
-                test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'pta-4' and @value = 'yes'] and oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and @name = 'sorn-id' (: and @value != '':)]">
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4' and @value eq 'yes'] and oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'sorn-id' (: and @value ne '':)]">
                 [Section B Check 3.4] A FedRAMP SSP may have a SORN ID.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -1221,8 +1219,8 @@
                 id="has-pia"
                 role="error"
                 test="
-                    every $answer in //oscal:system-information/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and matches(@name, '^pta-\d$')]
-                        satisfies $answer = 'no' or oscal:resource[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'type' and @value = 'pia']] (: a PIA is attached :)">
+                    every $answer in //oscal:system-information/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and matches(@name, '^pta-\d$')]
+                        satisfies $answer eq 'no' or oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'pia']] (: a PIA is attached :)">
                 [Section B Check 3.4] This FedRAMP SSP must incorporate a Privacy Impact Analysis.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -1240,26 +1238,26 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 id="has-CMVP-validation"
                 role="error"
-                test="oscal:component[@type = 'validation']">A FedRAMP SSP must incorporate one or more FIPS 140 validated modules.</sch:assert>
+                test="oscal:component[@type eq 'validation']">A FedRAMP SSP must incorporate one or more FIPS 140 validated modules.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:component[@type = 'validation']"
+            context="oscal:component[@type eq 'validation']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A">
             <sch:assert
                 diagnostics="has-CMVP-validation-reference-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 id="has-CMVP-validation-reference"
                 role="error"
-                test="oscal:prop[@name = 'validation-reference']">Every FIPS 140 validation citation must have a validation reference.</sch:assert>
+                test="oscal:prop[@name eq 'validation-reference']">Every FIPS 140 validation citation must have a validation reference.</sch:assert>
             <sch:assert
                 diagnostics="has-CMVP-validation-details-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 id="has-CMVP-validation-details"
                 role="error"
-                test="oscal:link[@rel = 'validation-details']">Every FIPS 140 validation citation must have validation details.</sch:assert>
+                test="oscal:link[@rel eq 'validation-details']">Every FIPS 140 validation citation must have validation details.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@name = 'validation-reference']"
+            context="oscal:prop[@name eq 'validation-reference']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A">
             <sch:assert
                 diagnostics="has-credible-CMVP-validation-reference-diagnostic"
@@ -1273,11 +1271,11 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 id="has-consonant-CMVP-validation-reference"
                 role="error"
-                test="@value = tokenize(following-sibling::oscal:link[@rel = 'validation-details']/@href, '/')[last()]">A validation reference must be
-                in accord with its sibling validation details.</sch:assert>
+                test="@value = tokenize(following-sibling::oscal:link[@rel eq 'validation-details']/@href, '/')[last()]">A validation reference must
+                be in accord with its sibling validation details.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:link[@rel = 'validation-details']"
+            context="oscal:link[@rel eq 'validation-details']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A">
             <sch:assert
                 diagnostics="has-credible-CMVP-validation-details-diagnostic"
@@ -1291,7 +1289,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 id="has-consonant-CMVP-validation-details"
                 role="error"
-                test="tokenize(@href, '/')[last()] = preceding-sibling::oscal:prop[@name = 'validation-reference']/@value">A validation details link
+                test="tokenize(@href, '/')[last()] = preceding-sibling::oscal:prop[@name eq 'validation-reference']/@value">A validation details link
                 must be in accord with its sibling validation reference.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -1331,7 +1329,7 @@
             doc:template-reference="System Security Plan Template §2">
             <sch:let
                 name="security-sensitivity-levels"
-                value="$fedramp-values//fedramp:value-set[@name = 'security-level']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'security-level']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-security-sensitivity-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.10"
@@ -1383,7 +1381,7 @@
             doc:template-reference="System Security Plan Template §2.2">
             <sch:let
                 name="security-objective-levels"
-                value="$fedramp-values//fedramp:value-set[@name = 'security-level']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'security-level']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-security-objective-value-diagnostic"
                 doc:checklist-reference="Section B Check 3.10"
@@ -1477,8 +1475,8 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="categorization-has-correct-system-attribute"
                 role="error"
-                test="@system = 'https://doi.org/10.6028/NIST.SP.800-60v2r1'">A FedRAMP SSP information type categorization must have a correct system
-                attribute.</sch:assert>
+                test="@system eq 'https://doi.org/10.6028/NIST.SP.800-60v2r1'">A FedRAMP SSP information type categorization must have a correct
+                system attribute.</sch:assert>
             <sch:assert
                 diagnostics="categorization-has-information-type-id-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
@@ -1533,7 +1531,7 @@
             doc:template-reference="System Security Plan Template §2.1">
             <sch:let
                 name="fips-199-levels"
-                value="$fedramp-values//fedramp:value-set[@name = 'security-level']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'security-level']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="cia-impact-has-approved-fips-categorization-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
@@ -1563,8 +1561,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-security-eauth-level"
                 role="error"
-                test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'security-eauth' and @name = 'security-eauth-level']"> [Section B
-                Check 3.3, Section C Check 7] A FedRAMP SSP must have a Digital Identity Determination property.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'security-eauth' and @name eq 'security-eauth-level']"> [Section
+                B Check 3.3, Section C Check 7] A FedRAMP SSP must have a Digital Identity Determination property.</sch:assert>
             <sch:assert
                 diagnostics="has-identity-assurance-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
@@ -1572,7 +1570,7 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-identity-assurance-level"
                 role="information"
-                test="oscal:prop[@name = 'identity-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a Digital
+                test="oscal:prop[@name eq 'identity-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a Digital
                 Identity Determination identity assurance level property.</sch:assert>
             <sch:assert
                 diagnostics="has-authenticator-assurance-level-diagnostic"
@@ -1581,7 +1579,7 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-authenticator-assurance-level"
                 role="information"
-                test="oscal:prop[@name = 'authenticator-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a Digital
+                test="oscal:prop[@name eq 'authenticator-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a Digital
                 Identity Determination authenticator assurance level property.</sch:assert>
             <sch:assert
                 diagnostics="has-federation-assurance-level-diagnostic"
@@ -1590,18 +1588,18 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-federation-assurance-level"
                 role="information"
-                test="oscal:prop[@name = 'federation-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a Digital
+                test="oscal:prop[@name eq 'federation-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a Digital
                 Identity Determination federation assurance level property.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'security-eauth' and @name = 'security-eauth-level']"
+            context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'security-eauth' and @name eq 'security-eauth-level']"
             doc:checklist-reference="Section B Check 3.3, Section C Check 7"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
             doc:template-reference="System Security Plan Template §2.3"
             role="error">
             <sch:let
                 name="eauth-levels"
-                value="$fedramp-values//fedramp:value-set[@name = 'eauth-level']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'eauth-level']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-security-eauth-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
@@ -1613,13 +1611,13 @@
                 property with an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@name = 'identity-assurance-level']"
+            context="oscal:prop[@name eq 'identity-assurance-level']"
             doc:checklist-reference="Section B Check 3.3, Section C Check 7"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
             doc:template-reference="System Security Plan Template §2.3">
             <sch:let
                 name="identity-assurance-levels"
-                value="$fedramp-values//fedramp:value-set[@name = 'identity-assurance-level']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'identity-assurance-level']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-identity-assurance-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
@@ -1631,13 +1629,13 @@
                 Identity Determination identity assurance level.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@name = 'authenticator-assurance-level']"
+            context="oscal:prop[@name eq 'authenticator-assurance-level']"
             doc:checklist-reference="Section B Check 3.3, Section C Check 7"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
             doc:template-reference="System Security Plan Template §2.3">
             <sch:let
                 name="authenticator-assurance-levels"
-                value="$fedramp-values//fedramp:value-set[@name = 'authenticator-assurance-level']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'authenticator-assurance-level']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-authenticator-assurance-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
@@ -1649,13 +1647,13 @@
                 Identity Determination authenticator assurance level.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@name = 'federation-assurance-level']"
+            context="oscal:prop[@name eq 'federation-assurance-level']"
             doc:checklist-reference="Section B Check 3.3, Section C Check 7"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
             doc:template-reference="System Security Plan Template §2.3">
             <sch:let
                 name="federation-assurance-levels"
-                value="$fedramp-values//fedramp:value-set[@name = 'federation-assurance-level']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'federation-assurance-level']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-federation-assurance-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
@@ -1688,7 +1686,7 @@
         </sch:rule>
         <sch:title>FedRAMP SSP property constraints</sch:title>
         <sch:rule
-            context="oscal:prop[@name = 'asset-id']"
+            context="oscal:prop[@name eq 'asset-id']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
             <sch:assert
                 diagnostics="has-unique-asset-id-diagnostic"
@@ -1696,14 +1694,14 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="has-unique-asset-id"
                 role="error"
-                test="count(//oscal:prop[@name = 'asset-id'][@value = current()/@value]) = 1">Every asset identifier must be unique.</sch:assert>
+                test="count(//oscal:prop[@name eq 'asset-id'][@value eq current()/@value]) = 1">Every asset identifier must be unique.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@name = 'asset-type']"
+            context="oscal:prop[@name eq 'asset-type']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
             <sch:let
                 name="asset-types"
-                value="$fedramp-values//fedramp:value-set[@name = 'asset-type']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'asset-type']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-asset-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
@@ -1713,11 +1711,11 @@
                 test="@value = $asset-types">An asset type must have an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@name = 'virtual']"
+            context="oscal:prop[@name eq 'virtual']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
             <sch:let
                 name="virtuals"
-                value="$fedramp-values//fedramp:value-set[@name = 'virtual']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'virtual']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-virtual-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
@@ -1727,11 +1725,11 @@
                 test="@value = $virtuals">A virtual property must have an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@name = 'public']"
+            context="oscal:prop[@name eq 'public']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
             <sch:let
                 name="publics"
-                value="$fedramp-values//fedramp:value-set[@name = 'public']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'public']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-public-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
@@ -1741,11 +1739,11 @@
                 test="@value = $publics">A public property must have an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@name = 'allows-authenticated-scan']"
+            context="oscal:prop[@name eq 'allows-authenticated-scan']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
             <sch:let
                 name="allows-authenticated-scans"
-                value="$fedramp-values//fedramp:value-set[@name = 'allows-authenticated-scan']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'allows-authenticated-scan']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-allows-authenticated-scan-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
@@ -1755,11 +1753,11 @@
                 test="@value = $allows-authenticated-scans">An allows-authenticated-scan property has an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@name = 'is-scanned']"
+            context="oscal:prop[@name eq 'is-scanned']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
             <sch:let
                 name="is-scanneds"
-                value="$fedramp-values//fedramp:value-set[@name = 'is-scanned']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'is-scanned']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-is-scanned-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
@@ -1769,11 +1767,11 @@
                 test="@value = $is-scanneds">is-scanned property must have an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'scan-type']"
+            context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'scan-type']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
             <sch:let
                 name="scan-types"
-                value="$fedramp-values//fedramp:value-set[@name = 'scan-type']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'scan-type']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-allowed-scan-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
@@ -1788,7 +1786,7 @@
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
             <sch:let
                 name="component-types"
-                value="$fedramp-values//fedramp:value-set[@name = 'component-type']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'component-type']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="component-has-allowed-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
@@ -1804,14 +1802,14 @@
                 role="error"
                 test="
                     (: not(@uuid = //oscal:inventory-item/oscal:implemented-component/@component-uuid) or :)
-                    oscal:prop[@name = 'asset-type']">A component must have an asset type.</sch:assert>
+                    oscal:prop[@name eq 'asset-type']">A component must have an asset type.</sch:assert>
             <sch:assert
                 diagnostics="component-has-one-asset-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="component-has-one-asset-type"
                 role="error"
-                test="not(oscal:prop[@name = 'asset-type'][2])">A component must have only one asset type.</sch:assert>
+                test="not(oscal:prop[@name eq 'asset-type'][2])">A component must have only one asset type.</sch:assert>
         </sch:rule>
         <sch:title>FedRAMP OSCAL SSP inventory items</sch:title>
         <sch:rule
@@ -1831,81 +1829,81 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="has-asset-id"
                 role="error"
-                test="oscal:prop[@name = 'asset-id']">An inventory item must have an asset identifier.</sch:assert>
+                test="oscal:prop[@name eq 'asset-id']">An inventory item must have an asset identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-one-asset-id-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="has-one-asset-id"
                 role="error"
-                test="not(oscal:prop[@name = 'asset-id'][2])">An inventory item must have only one asset identifier.</sch:assert>
+                test="not(oscal:prop[@name eq 'asset-id'][2])">An inventory item must have only one asset identifier.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-asset-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-asset-type"
                 role="error"
-                test="oscal:prop[@name = 'asset-type']">An inventory item must have an asset-type.</sch:assert>
+                test="oscal:prop[@name eq 'asset-type']">An inventory item must have an asset-type.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-asset-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-asset-type"
                 role="error"
-                test="not(oscal:prop[@name = 'asset-type'][2])">An inventory item must have only one asset-type.</sch:assert>
+                test="not(oscal:prop[@name eq 'asset-type'][2])">An inventory item must have only one asset-type.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-virtual-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-virtual"
                 role="error"
-                test="oscal:prop[@name = 'virtual']">An inventory item must have a virtual property.</sch:assert>
+                test="oscal:prop[@name eq 'virtual']">An inventory item must have a virtual property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-virtual-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-virtual"
                 role="error"
-                test="not(oscal:prop[@name = 'virtual'][2])">An inventory item must have only one virtual property.</sch:assert>
+                test="not(oscal:prop[@name eq 'virtual'][2])">An inventory item must have only one virtual property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-public-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-public"
                 role="error"
-                test="oscal:prop[@name = 'public']">An inventory item must have a public property.</sch:assert>
+                test="oscal:prop[@name eq 'public']">An inventory item must have a public property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-public-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-public"
                 role="error"
-                test="not(oscal:prop[@name = 'public'][2])">An inventory item must have only one public property.</sch:assert>
+                test="not(oscal:prop[@name eq 'public'][2])">An inventory item must have only one public property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-scan-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-scan-type"
                 role="error"
-                test="oscal:prop[@name = 'scan-type']">An inventory item must have a scan-type property.</sch:assert>
+                test="oscal:prop[@name eq 'scan-type']">An inventory item must have a scan-type property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-scan-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-scan-type"
                 role="error"
-                test="not(oscal:prop[@name = 'scan-type'][2])">An inventory item has only one scan-type property.</sch:assert>
+                test="not(oscal:prop[@name eq 'scan-type'][2])">An inventory item has only one scan-type property.</sch:assert>
             <!-- restrict the following to "infrastructure" -->
             <sch:let
                 name="is-infrastructure"
-                value="exists(oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')])" />
+                value="exists(oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')])" />
             <sch:assert
                 diagnostics="inventory-item-has-allows-authenticated-scan-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-allows-authenticated-scan"
                 role="error"
-                test="not($is-infrastructure) or oscal:prop[@name = 'allows-authenticated-scan']">"infrastructure" inventory item has
+                test="not($is-infrastructure) or oscal:prop[@name eq 'allows-authenticated-scan']">"infrastructure" inventory item has
                 allows-authenticated-scan.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-allows-authenticated-scan-diagnostic"
@@ -1913,7 +1911,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-allows-authenticated-scan"
                 role="error"
-                test="not($is-infrastructure) or not(oscal:prop[@name = 'allows-authenticated-scan'][2])">An inventory item has
+                test="not($is-infrastructure) or not(oscal:prop[@name eq 'allows-authenticated-scan'][2])">An inventory item has
                 one-allows-authenticated-scan property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-baseline-configuration-name-diagnostic"
@@ -1921,7 +1919,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-baseline-configuration-name"
                 role="error"
-                test="not($is-infrastructure) or oscal:prop[@name = 'baseline-configuration-name']">"infrastructure" inventory item has
+                test="not($is-infrastructure) or oscal:prop[@name eq 'baseline-configuration-name']">"infrastructure" inventory item has
                 baseline-configuration-name.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-baseline-configuration-name-diagnostic"
@@ -1929,7 +1927,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-baseline-configuration-name"
                 role="error"
-                test="not($is-infrastructure) or not(oscal:prop[@name = 'baseline-configuration-name'][2])">"infrastructure" inventory item has only
+                test="not($is-infrastructure) or not(oscal:prop[@name eq 'baseline-configuration-name'][2])">"infrastructure" inventory item has only
                 one baseline-configuration-name.</sch:assert>
             <!-- FIXME: Documentation says vendor name is in FedRAMP @ns -->
             <sch:assert
@@ -1938,7 +1936,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-vendor-name"
                 role="error"
-                test="not($is-infrastructure) or oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'vendor-name']"> "infrastructure"
+                test="not($is-infrastructure) or oscal:prop[(: @ns eq 'https://fedramp.gov/ns/oscal' and :)@name eq 'vendor-name']"> "infrastructure"
                 inventory item has a vendor-name property.</sch:assert>
             <!-- FIXME: Documentation says vendor name is in FedRAMP @ns -->
             <sch:assert
@@ -1947,7 +1945,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-vendor-name"
                 role="error"
-                test="not($is-infrastructure) or not(oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'vendor-name'][2])">
+                test="not($is-infrastructure) or not(oscal:prop[(: @ns eq 'https://fedramp.gov/ns/oscal' and :)@name eq 'vendor-name'][2])">
                 "infrastructure" inventory item must have only one vendor-name property.</sch:assert>
             <!-- FIXME: perversely, hardware-model is not in FedRAMP @ns -->
             <sch:assert
@@ -1956,15 +1954,15 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-hardware-model"
                 role="error"
-                test="not($is-infrastructure) or oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'hardware-model']"> "infrastructure"
-                inventory item must have a hardware-model property.</sch:assert>
+                test="not($is-infrastructure) or oscal:prop[(: @ns eq 'https://fedramp.gov/ns/oscal' and :)@name eq 'hardware-model']">
+                "infrastructure" inventory item must have a hardware-model property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-hardware-model-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-hardware-model"
                 role="error"
-                test="not($is-infrastructure) or not(oscal:prop[(: @ns = 'https://fedramp.gov/ns/oscal' and :)@name = 'hardware-model'][2])">
+                test="not($is-infrastructure) or not(oscal:prop[(: @ns eq 'https://fedramp.gov/ns/oscal' and :)@name eq 'hardware-model'][2])">
                 "infrastructure" inventory item must have only one hardware-model property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-is-scanned-diagnostic"
@@ -1972,7 +1970,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-is-scanned"
                 role="error"
-                test="not($is-infrastructure) or oscal:prop[@name = 'is-scanned']">"infrastructure" inventory item must have is-scanned
+                test="not($is-infrastructure) or oscal:prop[@name eq 'is-scanned']">"infrastructure" inventory item must have is-scanned
                 property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-is-scanned-diagnostic"
@@ -1980,20 +1978,20 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-is-scanned"
                 role="error"
-                test="not($is-infrastructure) or not(oscal:prop[@name = 'is-scanned'][2])">"infrastructure" inventory item must have only one
+                test="not($is-infrastructure) or not(oscal:prop[@name eq 'is-scanned'][2])">"infrastructure" inventory item must have only one
                 is-scanned property.</sch:assert>
             <!-- FIXME: vague asset categories -->
             <!-- restrict the following to "software" -->
             <sch:let
                 name="is-software-and-database"
-                value="exists(oscal:prop[@name = 'asset-type' and @value = ('software', 'database')])" />
+                value="exists(oscal:prop[@name eq 'asset-type' and @value = ('software', 'database')])" />
             <sch:assert
                 diagnostics="inventory-item-has-software-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-software-name"
                 role="error"
-                test="not($is-software-and-database) or oscal:prop[@name = 'software-name']">"software or database" inventory item must have a
+                test="not($is-software-and-database) or oscal:prop[@name eq 'software-name']">"software or database" inventory item must have a
                 software-name property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-software-name-diagnostic"
@@ -2001,8 +1999,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-software-name"
                 role="error"
-                test="not($is-software-and-database) or not(oscal:prop[@name = 'software-name'][2])">"software or database" inventory item must have a
-                software-name property.</sch:assert>
+                test="not($is-software-and-database) or not(oscal:prop[@name eq 'software-name'][2])">"software or database" inventory item must have
+                a software-name property.</sch:assert>
             <!-- FIXME: vague asset categories -->
             <sch:assert
                 diagnostics="inventory-item-has-software-version-diagnostic"
@@ -2010,7 +2008,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-software-version"
                 role="error"
-                test="not($is-software-and-database) or oscal:prop[@name = 'software-version']">"software or database" inventory item must have a
+                test="not($is-software-and-database) or oscal:prop[@name eq 'software-version']">"software or database" inventory item must have a
                 software-version property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-software-version-diagnostic"
@@ -2018,7 +2016,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-software-version"
                 role="error"
-                test="not($is-software-and-database) or not(oscal:prop[@name = 'software-version'][2])">"software or database" inventory item must
+                test="not($is-software-and-database) or not(oscal:prop[@name eq 'software-version'][2])">"software or database" inventory item must
                 have one software-version property.</sch:assert>
             <!-- FIXME: vague asset categories -->
             <sch:assert
@@ -2027,7 +2025,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-function"
                 role="error"
-                test="not($is-software-and-database) or oscal:prop[@name = 'function']">"software or database" inventory item must have a function
+                test="not($is-software-and-database) or oscal:prop[@name eq 'function']">"software or database" inventory item must have a function
                 property.</sch:assert>
             <sch:assert
                 diagnostics="inventory-item-has-one-function-diagnostic"
@@ -2035,7 +2033,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="inventory-item-has-one-function"
                 role="error"
-                test="not($is-software-and-database) or not(oscal:prop[@name = 'function'][2])">"software or database" inventory item must have one
+                test="not($is-software-and-database) or not(oscal:prop[@name eq 'function'][2])">"software or database" inventory item must have one
                 function property.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -2050,7 +2048,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6"
                 id="has-this-system-component"
                 role="error"
-                test="exists(oscal:component[@type = 'this-system'])">A FedRAMP SSP must have a self-referential (i.e., to the SSP itself)
+                test="exists(oscal:component[@type eq 'this-system'])">A FedRAMP SSP must have a self-referential (i.e., to the SSP itself)
                 component.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -2062,7 +2060,7 @@
                 id="has-system-id"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
-                test="oscal:system-id[@identifier-type = 'https://fedramp.gov']">A FedRAMP SSP must have a FedRAMP system identifier.</sch:assert>
+                test="oscal:system-id[@identifier-type eq 'https://fedramp.gov']">A FedRAMP SSP must have a FedRAMP system identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-system-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
@@ -2085,7 +2083,7 @@
                 id="has-fedramp-authorization-type"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.2"
-                test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'authorization-type' and @value = ('fedramp-jab', 'fedramp-agency', 'fedramp-li-saas')]">
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'authorization-type' and @value = ('fedramp-jab', 'fedramp-agency', 'fedramp-li-saas')]">
                 A FedRAMP SSP must have a FedRAMP authorization type.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -2102,42 +2100,42 @@
                 doc:template-reference="System Security Plan Template §3"
                 id="role-defined-system-owner"
                 role="error"
-                test="oscal:role[@id = 'system-owner']">The System Owner role must be defined.</sch:assert>
+                test="oscal:role[@id eq 'system-owner']">The System Owner role must be defined.</sch:assert>
             <sch:assert
                 diagnostics="role-defined-authorizing-official-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.7"
                 doc:template-reference="System Security Plan Template §4"
                 id="role-defined-authorizing-official"
                 role="error"
-                test="oscal:role[@id = 'authorizing-official']">The Authorizing Official role must be defined.</sch:assert>
+                test="oscal:role[@id eq 'authorizing-official']">The Authorizing Official role must be defined.</sch:assert>
             <sch:assert
                 diagnostics="role-defined-system-poc-management-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.8"
                 doc:template-reference="System Security Plan Template §5"
                 id="role-defined-system-poc-management"
                 role="error"
-                test="oscal:role[@id = 'system-poc-management']">The System Management PoC role must be defined.</sch:assert>
+                test="oscal:role[@id eq 'system-poc-management']">The System Management PoC role must be defined.</sch:assert>
             <sch:assert
                 diagnostics="role-defined-system-poc-technical-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.9"
                 doc:template-reference="System Security Plan Template §5"
                 id="role-defined-system-poc-technical"
                 role="error"
-                test="oscal:role[@id = 'system-poc-technical']">The System Technical PoC role must be defined.</sch:assert>
+                test="oscal:role[@id eq 'system-poc-technical']">The System Technical PoC role must be defined.</sch:assert>
             <sch:assert
                 diagnostics="role-defined-system-poc-other-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.9"
                 doc:template-reference="System Security Plan Template §5"
                 id="role-defined-system-poc-other"
                 role="error"
-                test="oscal:role[@id = 'system-poc-other']">The System Other PoC role must be defined.</sch:assert>
+                test="oscal:role[@id eq 'system-poc-other']">The System Other PoC role must be defined.</sch:assert>
             <sch:assert
                 diagnostics="role-defined-information-system-security-officer-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.10"
                 doc:template-reference="System Security Plan Template §6"
                 id="role-defined-information-system-security-officer"
                 role="error"
-                test="oscal:role[@id = 'information-system-security-officer']">The Information System Security Officer role must be
+                test="oscal:role[@id eq 'information-system-security-officer']">The Information System Security Officer role must be
                 defined.</sch:assert>
             <sch:assert
                 diagnostics="role-defined-authorizing-official-poc-diagnostic"
@@ -2145,7 +2143,7 @@
                 doc:template-reference="System Security Plan Template §6"
                 id="role-defined-authorizing-official-poc"
                 role="error"
-                test="oscal:role[@id = 'authorizing-official-poc']">The Authorizing Official PoC role must be defined.</sch:assert>
+                test="oscal:role[@id eq 'authorizing-official-poc']">The Authorizing Official PoC role must be defined.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:role"
@@ -2163,7 +2161,8 @@
                 doc:template-reference="System Security Plan Template §9.3"
                 id="role-has-responsible-party"
                 role="error"
-                test="//oscal:responsible-party[@role-id = current()/@id]">One or more responsible parties must be defined for each role.</sch:assert>
+                test="//oscal:responsible-party[@role-id eq current()/@id]">One or more responsible parties must be defined for each
+                role.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:responsible-party"
@@ -2173,11 +2172,11 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
                 id="responsible-party-has-person"
                 role="error"
-                test="//oscal:party[@uuid = current()/oscal:party-uuid and @type = 'person']">Each responsible party must identify a person using that
-                person's unique identifier.</sch:assert>
+                test="//oscal:party[@uuid = current()/oscal:party-uuid and @type eq 'person']">Each responsible party must identify a person using
+                that person's unique identifier.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:party[@type = 'person']"
+            context="oscal:party[@type eq 'person']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10">
             <sch:assert
                 diagnostics="party-has-responsibility-diagnostic"
@@ -2242,21 +2241,21 @@
                 doc:template-reference="System Security Plan Template §9.3"
                 id="user-has-user-type"
                 role="error"
-                test="oscal:prop[@name = 'type']">Every user has a user type.</sch:assert>
+                test="oscal:prop[@name eq 'type']">Every user has a user type.</sch:assert>
             <sch:assert
                 diagnostics="user-has-privilege-level-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
                 doc:template-reference="System Security Plan Template §9.3"
                 id="user-has-privilege-level"
                 role="error"
-                test="oscal:prop[@name = 'privilege-level']">Every user has a privilege-level.</sch:assert>
+                test="oscal:prop[@name eq 'privilege-level']">Every user has a privilege-level.</sch:assert>
             <sch:assert
                 diagnostics="user-has-sensitivity-level-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
                 doc:template-reference="System Security Plan Template §9.3"
                 id="user-has-sensitivity-level"
                 role="error"
-                test="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal'][@name = 'sensitivity']">Every user has a sensitivity level.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal'][@name eq 'sensitivity']">Every user has a sensitivity level.</sch:assert>
             <sch:assert
                 diagnostics="user-has-authorized-privilege-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
@@ -2275,15 +2274,15 @@
                 doc:template-reference="System Security Plan Template §9.3"
                 id="role-id-has-role-definition"
                 role="error"
-                test="//oscal:role[@id = current()]">Each identified role must reference a role definition.</sch:assert>
+                test="//oscal:role[@id eq current()]">Each identified role must reference a role definition.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:user/oscal:prop[@name = 'type']"
+            context="oscal:user/oscal:prop[@name eq 'type']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
             doc:template-reference="System Security Plan Template §9.3">
             <sch:let
                 name="user-types"
-                value="$fedramp-values//fedramp:value-set[@name = 'user-type']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'user-type']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="user-user-type-has-allowed-value-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
@@ -2293,12 +2292,12 @@
                 test="current()/@value = $user-types">User type property has an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:user/oscal:prop[@name = 'privilege-level']"
+            context="oscal:user/oscal:prop[@name eq 'privilege-level']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
             doc:template-reference="System Security Plan Template §9.3">
             <sch:let
                 name="user-privilege-levels"
-                value="$fedramp-values//fedramp:value-set[@name = 'user-privilege']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'user-privilege']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="user-privilege-level-has-allowed-value-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
@@ -2308,12 +2307,12 @@
                 test="current()/@value = $user-privilege-levels">User privilege level has an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:user/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal'][@name = 'sensitivity']"
+            context="oscal:user/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal'][@name eq 'sensitivity']"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
             doc:template-reference="System Security Plan Template §9.3">
             <sch:let
                 name="user-sensitivity-levels"
-                value="$fedramp-values//fedramp:value-set[@name = 'user-sensitivity-level']//fedramp:enum/@value" />
+                value="$fedramp-values//fedramp:value-set[@name eq 'user-sensitivity-level']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="user-sensitivity-level-has-allowed-value-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
@@ -2453,7 +2452,7 @@
                 doc:template-reference="System Security Plan Template §9.2"
                 id="has-authorization-boundary-diagram-link-rel-allowed-value"
                 role="error"
-                test="@rel = 'diagram'">Each FedRAMP SSP authorization boundary diagram has a link rel attribute with the value
+                test="@rel eq 'diagram'">Each FedRAMP SSP authorization boundary diagram has a link rel attribute with the value
                 "diagram".</sch:assert>
             <sch:assert
                 diagnostics="has-authorization-boundary-diagram-link-href-target-diagnostic"
@@ -2461,7 +2460,7 @@
                 doc:template-reference="System Security Plan Template §9.2"
                 id="has-authorization-boundary-diagram-link-href-target"
                 role="error"
-                test="exists(//oscal:resource[@uuid = substring-after(current()/@href, '#')])">A FedRAMP SSP authorization boundary diagram link
+                test="exists(//oscal:resource[@uuid eq substring-after(current()/@href, '#')])">A FedRAMP SSP authorization boundary diagram link
                 references a back-matter resource representing the diagram document.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -2552,14 +2551,14 @@
                 doc:template-reference="System Security Plan Template §9.4"
                 id="has-network-architecture-diagram-link-rel-allowed-value"
                 role="error"
-                test="@rel = 'diagram'">Each FedRAMP SSP network architecture diagram has a link rel attribute with the value "diagram".</sch:assert>
+                test="@rel eq 'diagram'">Each FedRAMP SSP network architecture diagram has a link rel attribute with the value "diagram".</sch:assert>
             <sch:assert
                 diagnostics="has-network-architecture-diagram-link-href-target-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.22 Network Architecture Diagram"
                 doc:template-reference="System Security Plan Template §9.4"
                 id="has-network-architecture-diagram-link-href-target"
                 role="error"
-                test="exists(//oscal:resource[@uuid = substring-after(current()/@href, '#')])">A FedRAMP SSP network architecture diagram link
+                test="exists(//oscal:resource[@uuid eq substring-after(current()/@href, '#')])">A FedRAMP SSP network architecture diagram link
                 references a back-matter resource representing the diagram document.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -2650,14 +2649,14 @@
                 doc:template-reference="System Security Plan Template §10.1"
                 id="has-data-flow-diagram-link-rel-allowed-value"
                 role="error"
-                test="@rel = 'diagram'">Each FedRAMP SSP data flow diagram has a link rel attribute with the value "diagram".</sch:assert>
+                test="@rel eq 'diagram'">Each FedRAMP SSP data flow diagram has a link rel attribute with the value "diagram".</sch:assert>
             <sch:assert
                 diagnostics="has-data-flow-diagram-link-href-target-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.24 Data Flow Diagram"
                 doc:template-reference="System Security Plan Template §10.1"
                 id="has-data-flow-diagram-link-href-target"
                 role="error"
-                test="exists(//oscal:resource[@uuid = substring-after(current()/@href, '#')])">A FedRAMP SSP data flow diagram link references a
+                test="exists(//oscal:resource[@uuid eq substring-after(current()/@href, '#')])">A FedRAMP SSP data flow diagram link references a
                 back-matter resource representing the diagram document.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -2722,7 +2721,8 @@
                 id="implemented-requirement-has-control-origination"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
-                test="oscal:prop[@name eq 'control-origination']">Every implemented requirement has a control origin.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination']">Every implemented requirement has a
+                control origin.</sch:assert>
             <sch:let
                 name="control-originations"
                 value="$fedramp-values//fedramp:value-set[@name eq 'control-origination']//fedramp:enum/@value" />
@@ -2733,8 +2733,8 @@
                 id="implemented-requirement-has-allowed-control-origination"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
-                test="oscal:prop[@name eq 'control-origination' and @value = $control-originations]"> Every implemented requirement has an allowed
-                control origin.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination' and @value = $control-originations]"> Every
+                implemented requirement has an allowed control origin.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-leveraged-authorization-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
@@ -2743,11 +2743,11 @@
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
                 test="
-                    if (oscal:prop[@name eq 'control-origination' and @value eq 'inherited']) then (: there must be a leveraged-authorization-uuid property :)
+                    if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination' and @value eq 'inherited']) then (: there must be a leveraged-authorization-uuid property :)
                         exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid']) and (: the referenced leveraged-authorization must exist :) exists(//oscal:leveraged-authorization[@uuid = current()/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid']/@value])
                     else
-                        true()">Every implemented requirement with a control origin of "inherited" references a
-                leveraged-authorization.</sch:assert>
+                        true()">Every implemented requirement with a control origin of "inherited" references a leveraged
+                authorization.</sch:assert>
             <sch:assert
                 diagnostics="partial-implemented-requirement-has-plan-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
@@ -2769,7 +2769,7 @@
                 test="
                     every $c in string-join(distinct-values((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value)), '-')
                         satisfies $c = ('implemented', 'planned', 'alternative', 'not-applicable', 'partial-planned', 'planned-partial')">An
-                implemented control's implementation status must be implemented, partial+planned, planned, alternative, or not
+                implemented control's implementation status must be implemented, partial and planned, planned, alternative, or not
                 applicable.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -2806,7 +2806,7 @@
                 id="planned-completion-date-is-valid"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
-                test="@value castable as xs:date">Planned completion date is a valid date.</sch:assert>
+                test="@value castable as xs:date">Planned completion date is valid.</sch:assert>
             <sch:assert
                 diagnostics="planned-completion-date-is-not-past-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
@@ -2823,10 +2823,10 @@
         <sch:title>Cloud Service and Deployment Models</sch:title>
         <sch:let
             name="service-models"
-            value="$fedramp-values//fedramp:value-set[@name = 'service-model']//fedramp:enum/@value" />
+            value="$fedramp-values//fedramp:value-set[@name eq 'service-model']//fedramp:enum/@value" />
         <sch:let
             name="deployment-models"
-            value="$fedramp-values//fedramp:value-set[@name = 'deployment-model']//fedramp:enum/@value" />
+            value="$fedramp-values//fedramp:value-set[@name eq 'deployment-model']//fedramp:enum/@value" />
         <sch:rule
             context="oscal:system-characteristics">
             <sch:assert
@@ -2835,14 +2835,14 @@
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-cloud-service-model"
                 role="error"
-                test="oscal:prop[@name = 'cloud-service-model']">A FedRAMP SSP must specify a cloud service model.</sch:assert>
+                test="oscal:prop[@name eq 'cloud-service-model']">A FedRAMP SSP must specify a cloud service model.</sch:assert>
             <sch:assert
                 diagnostics="has-allowed-cloud-service-model-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-allowed-cloud-service-model"
                 role="error"
-                test="oscal:prop[@name = 'cloud-service-model' and @value = $service-models]">A FedRAMP SSP must specify an allowed cloud service
+                test="oscal:prop[@name eq 'cloud-service-model' and @value = $service-models]">A FedRAMP SSP must specify an allowed cloud service
                 model.</sch:assert>
             <sch:assert
                 diagnostics="has-cloud-service-model-remarks-diagnostic"
@@ -2851,7 +2851,7 @@
                 id="has-cloud-service-model-remarks"
                 role="error"
                 test="
-                    every $p in oscal:prop[@name = 'cloud-service-model' and @value = 'other']
+                    every $p in oscal:prop[@name eq 'cloud-service-model' and @value eq 'other']
                         satisfies exists($p/oscal:remarks)
                     ">A FedRAMP SSP with a cloud service model of "other" must supply remarks.</sch:assert>
             <sch:assert
@@ -2860,14 +2860,14 @@
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-cloud-deployment-model"
                 role="error"
-                test="oscal:prop[@name = 'cloud-deployment-model']">A FedRAMP SSP must specify a cloud deployment model.</sch:assert>
+                test="oscal:prop[@name eq 'cloud-deployment-model']">A FedRAMP SSP must specify a cloud deployment model.</sch:assert>
             <sch:assert
                 diagnostics="has-allowed-cloud-deployment-model-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-allowed-cloud-deployment-model"
                 role="error"
-                test="oscal:prop[@name = 'cloud-deployment-model' and @value = $deployment-models]">A FedRAMP SSP must specify an allowed cloud
+                test="oscal:prop[@name eq 'cloud-deployment-model' and @value = $deployment-models]">A FedRAMP SSP must specify an allowed cloud
                 deployment model.</sch:assert>
             <sch:assert
                 diagnostics="has-cloud-deployment-model-remarks-diagnostic"
@@ -2876,7 +2876,7 @@
                 id="has-cloud-deployment-model-remarks"
                 role="error"
                 test="
-                    every $p in oscal:prop[@name = 'cloud-deployment-model' and @value = 'hybrid-cloud']
+                    every $p in oscal:prop[@name eq 'cloud-deployment-model' and @value eq 'hybrid-cloud']
                         satisfies exists($p/oscal:remarks)
                     ">A FedRAMP SSP with a cloud deployment model of "hybrid-cloud" must supply remarks.</sch:assert>
             <sch:assert
@@ -2886,12 +2886,12 @@
                 test="
                     (: either there is no component or inventory-item tagged as 'public' :)
                     not(
-                    exists(//oscal:component[oscal:prop[@name = 'public' and @value = 'yes']])
+                    exists(//oscal:component[oscal:prop[@name eq 'public' and @value eq 'yes']])
                     or
-                    exists(//oscal:inventory-item[oscal:prop[@name = 'public' and @value = 'yes']])
+                    exists(//oscal:inventory-item[oscal:prop[@name eq 'public' and @value eq 'yes']])
                     )
                     or (: a 'public-cloud' deployment model is employed :)
-                    exists(oscal:prop[@name = 'cloud-deployment-model' and @value = 'public-cloud'])
+                    exists(oscal:prop[@name eq 'cloud-deployment-model' and @value eq 'public-cloud'])
                     ">When a FedRAMP SSP has public components or inventory items, a cloud deployment model of "public-cloud" must be
                 employed.</sch:assert>
         </sch:rule>
@@ -3071,7 +3071,7 @@
             id="resource-is-referenced-diagnostic">This resource lacks a reference within the document.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="attachment-type-is-valid"
-            doc:context="oscal:back-matter/oscal:resource/oscal:prop[@name = 'type']"
+            doc:context="oscal:back-matter/oscal:resource/oscal:prop[@name eq 'type']"
             id="attachment-type-is-valid-diagnostic">Found unknown attachment type «<sch:value-of
                 select="@value" />» in <sch:value-of
                 select="
@@ -3209,7 +3209,7 @@
             id="has-privacy-poc-diagnostic">This FedRAMP OSCAL SSP lacks a Privacy Point of Contact.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-correct-yes-or-no-answer"
-            doc:context="oscal:prop[@name = 'privacy-sensitive'] | oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'pta' and matches(@name, '^pta-\d$')]"
+            doc:context="oscal:prop[@name eq 'privacy-sensitive'] | oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and matches(@name, '^pta-\d$')]"
             id="has-correct-yes-or-no-answer-diagnostic">This property has an incorrect value: should be "yes" or "no".</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-privacy-sensitive-designation"
@@ -3257,31 +3257,31 @@
             id="has-CMVP-validation-diagnostic">This FedRAMP OSCAL SSP does not declare one or more FIPS 140 validated modules.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-CMVP-validation-reference"
-            doc:context="oscal:component[@type = 'validation']"
+            doc:context="oscal:component[@type eq 'validation']"
             id="has-CMVP-validation-reference-diagnostic">This validation component or inventory-item lacks a validation-reference
             property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-CMVP-validation-details"
-            doc:context="oscal:component[@type = 'validation']"
+            doc:context="oscal:component[@type eq 'validation']"
             id="has-CMVP-validation-details-diagnostic">This validation component or inventory-item lacks a validation-details link.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-credible-CMVP-validation-reference"
-            doc:context="oscal:prop[@name = 'validation-reference']"
+            doc:context="oscal:prop[@name eq 'validation-reference']"
             id="has-credible-CMVP-validation-reference-diagnostic">This validation-reference property does not resemble a CMVP certificate
             number.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-consonant-CMVP-validation-reference"
-            doc:context="oscal:prop[@name = 'validation-reference']"
+            doc:context="oscal:prop[@name eq 'validation-reference']"
             id="has-consonant-CMVP-validation-reference-diagnostic">This validation-reference property does not match its sibling validation-details
             href.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-credible-CMVP-validation-details"
-            doc:context="oscal:prop[@name = 'validation-details']"
+            doc:context="oscal:prop[@name eq 'validation-details']"
             id="has-credible-CMVP-validation-details-diagnostic">This validation-details link href attribute does not resemble a CMVP certificate
             URL.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-consonant-CMVP-validation-details"
-            doc:context="oscal:prop[@name = 'validation-details']"
+            doc:context="oscal:prop[@name eq 'validation-details']"
             id="has-consonant-CMVP-validation-details-diagnostic">This validation-details link href attribute does not match its sibling
             validation-reference value.</sch:diagnostic>
         <sch:diagnostic
@@ -3405,22 +3405,22 @@
             property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-security-eauth-level"
-            doc:context="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @class = 'security-eauth' and @name = 'security-eauth-level']"
+            doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'security-eauth' and @name eq 'security-eauth-level']"
             id="has-allowed-security-eauth-level-diagnostic">This FedRAMP OSCAL SSP lacks a Digital Identity Determination property with an allowed
             value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-identity-assurance-level"
-            doc:context="oscal:prop[@name = 'identity-assurance-level']"
+            doc:context="oscal:prop[@name eq 'identity-assurance-level']"
             id="has-allowed-identity-assurance-level-diagnostic">A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination
             identity-assurance-level property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-authenticator-assurance-level"
-            doc:context="oscal:prop[@name = 'authenticator-assurance-level']"
+            doc:context="oscal:prop[@name eq 'authenticator-assurance-level']"
             id="has-allowed-authenticator-assurance-level-diagnostic">A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination
             authenticator-assurance-level property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-federation-assurance-level"
-            doc:context="oscal:prop[@name = 'federation-assurance-level']"
+            doc:context="oscal:prop[@name eq 'federation-assurance-level']"
             id="has-allowed-federation-assurance-level-diagnostic">A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination
             federation-assurance-level property.</sch:diagnostic>
         <sch:diagnostic
@@ -3429,12 +3429,12 @@
             id="has-inventory-items-diagnostic">This FedRAMP OSCAL SSP lacks inventory-item elements.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-unique-asset-id"
-            doc:context="oscal:prop[@name = 'asset-id']"
+            doc:context="oscal:prop[@name eq 'asset-id']"
             id="has-unique-asset-id-diagnostic">This asset id <sch:value-of
                 select="@asset-id" /> is not unique. An asset id must be unique within the scope of a FedRAMP OSCAL SSP document.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-asset-type"
-            doc:context="oscal:prop[@name = 'asset-type']"
+            doc:context="oscal:prop[@name eq 'asset-type']"
             id="has-allowed-asset-type-diagnostic">
             <sch:value-of
                 select="name()" /> should have a FedRAMP asset type <sch:value-of
@@ -3442,7 +3442,7 @@
                 select="@value" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-virtual"
-            doc:context="oscal:prop[@name = 'virtual']"
+            doc:context="oscal:prop[@name eq 'virtual']"
             id="has-allowed-virtual-diagnostic">
             <sch:value-of
                 select="name()" /> must have an allowed value <sch:value-of
@@ -3450,7 +3450,7 @@
                 select="@value" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-public"
-            doc:context="oscal:prop[@name = 'public']"
+            doc:context="oscal:prop[@name eq 'public']"
             id="has-allowed-public-diagnostic">
             <sch:value-of
                 select="name()" /> must have an allowed value <sch:value-of
@@ -3458,7 +3458,7 @@
                 select="@value" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-allows-authenticated-scan"
-            doc:context="oscal:prop[@name = 'allows-authenticated-scan']"
+            doc:context="oscal:prop[@name eq 'allows-authenticated-scan']"
             id="has-allowed-allows-authenticated-scan-diagnostic">
             <sch:value-of
                 select="name()" /> must have an allowed value <sch:value-of
@@ -3466,7 +3466,7 @@
                 select="@value" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-is-scanned"
-            doc:context="oscal:prop[@name = 'is-scanned']"
+            doc:context="oscal:prop[@name eq 'is-scanned']"
             id="has-allowed-is-scanned-diagnostic">
             <sch:value-of
                 select="name()" /> must have an allowed value <sch:value-of
@@ -3474,7 +3474,7 @@
                 select="@value" />").</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-scan-type"
-            doc:context="oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'scan-type']"
+            doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'scan-type']"
             id="has-allowed-scan-type-diagnostic">
             <sch:value-of
                 select="name()" /> must have an allowed value <sch:value-of
@@ -3534,78 +3534,78 @@
             id="inventory-item-has-one-scan-type-diagnostic">This inventory-item has more than one scan-type property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-allows-authenticated-scan"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-allows-authenticated-scan-diagnostic">This inventory-item lacks allows-authenticated-scan
             property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-one-allows-authenticated-scan"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-one-allows-authenticated-scan-diagnostic">This inventory-item has more than one allows-authenticated-scan
             property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-baseline-configuration-name"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-baseline-configuration-name-diagnostic">This inventory-item lacks baseline-configuration-name
             property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-one-baseline-configuration-name"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-one-baseline-configuration-name-diagnostic">This inventory-item has more than one baseline-configuration-name
             property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-vendor-name"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-vendor-name-diagnostic">This inventory-item lacks a vendor-name property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-one-vendor-name"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-one-vendor-name-diagnostic">This inventory-item has more than one vendor-name property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-hardware-model"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-hardware-model-diagnostic">This inventory-item lacks a hardware-model property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-one-hardware-model"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-one-hardware-model-diagnostic">This inventory-item has more than one hardware-model property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-is-scanned"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-is-scanned-diagnostic">This inventory-item lacks is-scanned property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-one-is-scanned"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type' and @value = ('os', 'infrastructure')]]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-one-is-scanned-diagnostic">This inventory-item has more than one is-scanned property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-software-name"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type']/@value = ('software', 'database')]"
             id="inventory-item-has-software-name-diagnostic">This inventory-item lacks software-name property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-one-software-name"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type']/@value = ('software', 'database')]"
             id="inventory-item-has-one-software-name-diagnostic">This inventory-item has more than one software-name property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-software-version"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type']/@value = ('software', 'database')]"
             id="inventory-item-has-software-version-diagnostic">This inventory-item lacks software-version property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-one-software-version"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type']/@value = ('software', 'database')]"
             id="inventory-item-has-one-software-version-diagnostic">This inventory-item has more than one software-version property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-function"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type']/@value = ('software', 'database')]"
             id="inventory-item-has-function-diagnostic">
             <sch:value-of
                 select="name()" /> "<sch:value-of
-                select="oscal:prop[@name = 'asset-type']/@value" />" lacks function property.</sch:diagnostic>
+                select="oscal:prop[@name eq 'asset-type']/@value" />" lacks function property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-one-function"
-            doc:context="oscal:inventory-item[oscal:prop[@name = 'asset-type']/@value = ('software', 'database')]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type']/@value = ('software', 'database')]"
             id="inventory-item-has-one-function-diagnostic">
             <sch:value-of
                 select="name()" /> "<sch:value-of
-                select="oscal:prop[@name = 'asset-type']/@value" />" has more than one function property.</sch:diagnostic>
+                select="oscal:prop[@name eq 'asset-type']/@value" />" has more than one function property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="component-has-asset-type"
             doc:context="/oscal:system-security-plan/oscal:system-implementation/oscal:component[(: a component referenced by any inventory-item :)@uuid = //oscal:inventory-item/oscal:implemented-component/@component-uuid]"
@@ -3680,7 +3680,7 @@
             id="responsible-party-has-person-diagnostic">This responsible-party party-uuid does not identify a person.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="party-has-responsibility"
-            doc:context="oscal:party[@type = 'person']"
+            doc:context="oscal:party[@type eq 'person']"
             id="party-has-responsibility-diagnostic">This person has no responsibility.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-responsible-role"
@@ -3726,15 +3726,15 @@
             id="user-has-authorized-privilege-diagnostic">This user lacks one or more authorized-privileges.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="user-user-type-has-allowed-value"
-            doc:context="oscal:user/oscal:prop[@name = 'type']"
+            doc:context="oscal:user/oscal:prop[@name eq 'type']"
             id="user-user-type-has-allowed-value-diagnostic">This user type property lacks an allowed value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="user-privilege-level-has-allowed-value"
-            doc:context="oscal:user/oscal:prop[@name = 'privilege-level']"
+            doc:context="oscal:user/oscal:prop[@name eq 'privilege-level']"
             id="user-privilege-level-has-allowed-value-diagnostic">User privilege-level property has an allowed value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="user-sensitivity-level-has-allowed-value"
-            doc:context="oscal:user/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal'][@name = 'sensitivity']"
+            doc:context="oscal:user/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal'][@name eq 'sensitivity']"
             id="user-sensitivity-level-has-allowed-value-diagnostic">This user sensitivity level property lacks an allowed value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="authorized-privilege-has-title"
@@ -3902,10 +3902,11 @@
             doc:context="oscal:import-profile"
             id="import-profile-has-href-attribute-diagnostic">The import-profile element lacks an href attribute.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="implemented-requirement-has-allowed-implementation-status"
-            doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']"
-            id="implemented-requirement-has-allowed-implementation-status-diagnostic">This implemented-requirement has an invalid
+            doc:assertion="implemented-requirement-has-implementation-status"
+            doc:context="oscal:implemented-requirement"
+            id="implemented-requirement-has-implementation-status-diagnostic">This implemented-requirement lacks an
             implementation-status.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-planned-completion-date"
             doc:context="oscal:implemented-requirement"
@@ -3929,19 +3930,18 @@
         <sch:diagnostic
             doc:assertion="partial-implemented-requirement-has-plan"
             doc:context="oscal:implemented-requirement"
-            id="partial-implemented-requirement-has-plan-diagnostic">This partially implemented control lacks a plan for complete
-            implementation.</sch:diagnostic>
+            id="partial-implemented-requirement-has-plan-diagnostic">This partially complete implemented-requirement is lacking an
+            implementation-status of 'planned' and an accompanying date.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-allowed-composite-implementation-status"
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-allowed-composite-implementation-status-diagnostic">This implemented-requirement has an invalid
-            combination of implementation-status properties (<sch:value-of
-                select="string-join((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value), '+')" />).</sch:diagnostic>
+            implementation-status composition (<sch:value-of
+                select="string-join((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value), ', ')" />)</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="implemented-requirement-has-implementation-status"
+            doc:assertion="implemented-requirement-has-allowed-implementation-status"
             doc:context="oscal:implemented-requirement"
-            id="implemented-requirement-has-implementation-status-diagnostic">This implemented-requirement lacks an
-            implementation-status.</sch:diagnostic>
+            id="implemented-requirement-has-allowed-implementation-status-diagnostic" />
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-implementation-status-remarks"
             doc:context="oscal:implemented-requirement"
