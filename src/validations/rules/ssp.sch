@@ -2172,7 +2172,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
                 id="responsible-party-has-person"
                 role="error"
-                test="//oscal:party[@uuid eq current()/oscal:party-uuid and @type eq 'person']">Each responsible party must identify a person using
+                test="//oscal:party[@uuid = current()/oscal:party-uuid and @type eq 'person']">Each responsible party must identify a person using
                 that person's unique identifier.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -2183,7 +2183,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
                 id="party-has-responsibility"
                 role="warning"
-                test="//oscal:responsible-party[oscal:party-uuid eq current()/@uuid]">Each person should have a responsibility.</sch:assert>
+                test="//oscal:responsible-party[oscal:party-uuid = current()/@uuid]">Each person should have a responsibility.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -2210,14 +2210,14 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="responsible-role-has-role-definition"
                 role="error"
-                test="//oscal:role/@id eq current()/@role-id">Each responsible-role must reference a role definition.</sch:assert>
+                test="//oscal:role/@id = current()/@role-id">Each responsible-role must reference a role definition.</sch:assert>
             <sch:assert
                 diagnostics="responsible-role-has-user-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
                 doc:template-reference="System Security Plan Template §13"
                 id="responsible-role-has-user"
                 role="error"
-                test="//oscal:role-id eq current()/@role-id">Each responsible-role must be referenced in a system-implementation user
+                test="//oscal:role-id = current()/@role-id">Each responsible-role must be referenced in a system-implementation user
                 assembly.</sch:assert>
         </sch:rule>
     </sch:pattern>
