@@ -113,11 +113,6 @@
         <sch:active
             pattern="user-properties" />
     </sch:phase>
-    <sch:phase
-        id="test">
-        <sch:active
-            pattern="control-implementation" />
-    </sch:phase>
     <doc:xspec
         href="../test/ssp.xspec" />
     <sch:title>FedRAMP System Security Plan Validations</sch:title>
