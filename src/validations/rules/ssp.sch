@@ -149,7 +149,7 @@
 
                 <xsl:value-of
                     select="
-                        if ($item =&gt; string() =&gt; normalize-space() = '') then
+                        if ($item => string() => normalize-space() = '') then
                             $default
                         else
                             $item" />
@@ -160,7 +160,7 @@
 
                 <xsl:sequence
                     select="
-                        if ($item =&gt; normalize-space() =&gt; not()) then
+                        if ($item => normalize-space() => not()) then
                             $default
                         else
                             $item" />
@@ -385,7 +385,7 @@
                 value="$registry/f:fedramp-values/f:value-set[@name = 'security-level']" />
             <sch:let
                 name="sensitivity-level"
-                value="/ =&gt; lv:sensitivity-level() =&gt; lv:if-empty-default('')" />
+                value="/ => lv:sensitivity-level() => lv:if-empty-default('')" />
             <sch:let
                 name="corrections"
                 value="lv:correct($ok-values, $sensitivity-level)" />
@@ -430,13 +430,13 @@
                 value="$registry/f:fedramp-values/f:namespace/f:ns/@ns" />
             <sch:let
                 name="sensitivity-level"
-                value="/ =&gt; lv:sensitivity-level()" />
+                value="/ => lv:sensitivity-level()" />
             <sch:let
                 name="ok-values"
                 value="$registry/f:fedramp-values/f:value-set[@name = 'control-implementation-status']" />
             <sch:let
                 name="selected-profile"
-                value="$sensitivity-level =&gt; lv:profile()" />
+                value="$sensitivity-level => lv:profile()" />
             <sch:let
                 name="required-controls"
                 value="$selected-profile/*//o:control" />
@@ -491,7 +491,7 @@
                 the applied baseline.</sch:assert>
             <sch:let
                 name="results"
-                value="$ok-values =&gt; lv:analyze(//o:implemented-requirement/o:prop[@name = 'implementation-status'])" />
+                value="$ok-values => lv:analyze(//o:implemented-requirement/o:prop[@name = 'implementation-status'])" />
             <sch:let
                 name="total"
                 value="$results/reports/@count" />
@@ -501,16 +501,16 @@
                 role="information"
                 test="count($results/errors/error) = 0">
                 <sch:value-of
-                    select="$results =&gt; lv:report() =&gt; normalize-space()" />.</sch:report>
+                    select="$results => lv:report() => normalize-space()" />.</sch:report>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement">
             <sch:let
                 name="sensitivity-level"
-                value="/ =&gt; lv:sensitivity-level() =&gt; lv:if-empty-default('')" />
+                value="/ => lv:sensitivity-level() => lv:if-empty-default('')" />
             <sch:let
                 name="selected-profile"
-                value="$sensitivity-level =&gt; lv:profile()" />
+                value="$sensitivity-level => lv:profile()" />
             <sch:let
                 name="registry-ns"
                 value="$registry/f:fedramp-values/f:namespace/f:ns/@ns" />
@@ -556,13 +556,13 @@
                 value="20" />
             <sch:let
                 name="components-count"
-                value="./o:by-component =&gt; count()" />
+                value="./o:by-component => count()" />
             <sch:let
                 name="remarks"
-                value="./o:remarks =&gt; normalize-space()" />
+                value="./o:remarks => normalize-space()" />
             <sch:let
                 name="remarks-length"
-                value="$remarks =&gt; string-length()" />
+                value="$remarks => string-length()" />
             <sch:assert
                 diagnostics="missing-response-components-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -582,7 +582,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="extraneous-response-description"
                 role="warning"
-                test=". =&gt; empty()">[Section D Checks] Response statement does not have a description not within a component.</sch:assert>
+                test=". => empty()">[Section D Checks] Response statement does not have a description not within a component.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks">
@@ -593,7 +593,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="extraneous-response-remarks"
                 role="warning"
-                test=". =&gt; empty()">[Section D Checks] Response statement does not have remarks not within a component.</sch:assert>
+                test=". => empty()">[Section D Checks] Response statement does not have remarks not within a component.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component">
@@ -607,7 +607,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="invalid-component-match"
                 role="warning"
-                test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] =&gt; exists()">[Section D Checks] Response
+                test="/o:system-security-plan/o:system-implementation/o:component[@uuid = $component-ref] => exists()">[Section D Checks] Response
                 statement cites a component in the system implementation inventory.</sch:assert>
             <sch:assert
                 diagnostics="missing-component-description-diagnostic"
@@ -616,7 +616,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="missing-component-description"
                 role="error"
-                test="./o:description =&gt; exists()">[Section D Checks] Response statement has a component which has a required
+                test="./o:description => exists()">[Section D Checks] Response statement has a component which has a required
                 description.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -626,10 +626,10 @@
                 value="20" />
             <sch:let
                 name="description"
-                value=". =&gt; normalize-space()" />
+                value=". => normalize-space()" />
             <sch:let
                 name="description-length"
-                value="$description =&gt; string-length()" />
+                value="$description => string-length()" />
             <sch:assert
                 diagnostics="incomplete-response-description-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -647,10 +647,10 @@
                 value="20" />
             <sch:let
                 name="remarks"
-                value=". =&gt; normalize-space()" />
+                value=". => normalize-space()" />
             <sch:let
                 name="remarks-length"
-                value="$remarks =&gt; string-length()" />
+                value="$remarks => string-length()" />
             <sch:assert
                 diagnostics="incomplete-response-remarks-diagnostic"
                 doc:checklist-reference="Section D Checks"
