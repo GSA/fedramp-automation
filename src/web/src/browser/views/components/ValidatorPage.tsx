@@ -54,6 +54,36 @@ export const ValidatorPage = () => {
         {
           <form className="usa-form">
             <fieldset className="usa-fieldset">
+              <legend className="usa-legend usa-legend">
+                Select an assertion view
+              </legend>
+              <div className="usa-radio">
+                {schematron.filterOptions.assertionViews.map(assertionView => (
+                  <div key={assertionView.id}>
+                    <input
+                      className="usa-radio__input usa-radio__input--tile"
+                      id={`assertion-view-${assertionView.id}`}
+                      type="radio"
+                      name="assertion-view"
+                      value={assertionView.id}
+                      checked={
+                        schematron.filter.assertionViewId === assertionView.id
+                      }
+                      onChange={() =>
+                        actions.schematron.setFilterAssertionView(
+                          assertionView.id,
+                        )
+                      }
+                    />
+                    <label
+                      className="usa-radio__label"
+                      htmlFor={`assertion-view-${assertionView.id}`}
+                    >
+                      {assertionView.title}
+                    </label>
+                  </div>
+                ))}
+              </div>
               <div className="usa-search usa-search--small" role="search">
                 <label className="usa-sr-only" htmlFor="search-field">
                   Search
@@ -91,7 +121,7 @@ export const ValidatorPage = () => {
                 </div>
               </div>
               <div className="usa-radio">
-                {schematron.roles.map((filterRole, index) => (
+                {schematron.filterOptions.roles.map((filterRole, index) => (
                   <div key={index}>
                     <input
                       className="usa-radio__input usa-radio__input--tile"

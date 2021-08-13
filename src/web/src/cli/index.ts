@@ -1,30 +1,52 @@
 #!/usr/bin/env -S ts-node --script-mode
 
-import * as fs from 'fs';
+import { promises as fs } from 'fs';
 import { join } from 'path';
 
 // @ts-ignore
 import * as SaxonJS from 'saxon-js';
 
 import {
+  SaxonJsProcessor,
   SaxonJsSchematronValidatorGateway,
   SchematronParser,
 } from '@asap/shared/adapters/saxon-js-gateway';
+import { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
+
 import { CommandLineController } from './cli-controller';
 
 const config = require('@asap/shared/project-config');
 
+const readStringFile = async (fileName: string) =>
+  fs.readFile(fileName, 'utf-8');
+const writeStringFile = (fileName: string, data: string) =>
+  fs.writeFile(fileName, data, 'utf-8');
+
 const controller = CommandLineController({
-  readStringFile: fileName => fs.readFileSync(fileName, 'utf-8'),
-  writeStringFile: (fileName, data) =>
-    fs.writeFileSync(fileName, data, 'utf-8'),
-  parseSchematron: SchematronParser({ SaxonJS }),
-  validateSSP: SaxonJsSchematronValidatorGateway({
-    sefUrl: `file://${join(config.PUBLIC_PATH, 'ssp.sef.json')}`,
-    SaxonJS: SaxonJS,
-    baselinesBaseUrl: config.BASELINES_PATH,
-    registryBaseUrl: config.REGISTRY_PATH,
-  }),
+  readStringFile,
+  writeStringFile,
+  useCases: {
+    parseSchematron: SchematronParser({ SaxonJS }),
+    validateSSP: SaxonJsSchematronValidatorGateway({
+      sefUrl: `file://${join(config.PUBLIC_PATH, 'ssp.sef.json')}`,
+      SaxonJS: SaxonJS,
+      baselinesBaseUrl: config.BASELINES_PATH,
+      registryBaseUrl: config.REGISTRY_PATH,
+    }),
+    writeAssertionViews: WriteAssertionViews({
+      paths: {
+        assertionViewSEFPath: join(
+          config.PUBLIC_PATH,
+          'assertion-grouping.sef.json',
+        ),
+        outputFilePath: join(config.PUBLIC_PATH, 'assertion-views.json'),
+        schematronXMLPath: join(config.RULES_PATH, 'ssp.sch'),
+      },
+      processXSLT: SaxonJsProcessor({ SaxonJS }),
+      readStringFile,
+      writeStringFile,
+    }),
+  },
 });
 
 controller.parse(process.argv);

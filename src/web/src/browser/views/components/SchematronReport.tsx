@@ -18,7 +18,7 @@ export const SchematronReport = () => {
             style={{ float: 'right' }}
           >
             <span className={`text-blue`}>
-              {schematronReport.summary.counts.assertions} concerns and {' '}
+              {schematronReport.summary.counts.assertions} concerns and{' '}
               {schematronReport.summary.counts.reports} notes
             </span>
           </span>
@@ -27,19 +27,19 @@ export const SchematronReport = () => {
           <details
             key={index}
             className="border-top-1px border-accent-cool-light padding-1"
-            open={true}
+            open={false}
           >
             <summary>
+              <span
+                className="font-heading-sm text-secondary-light"
+                style={{ float: 'right' }}
+              >
+                <span className={`text-${group.checks.summaryColor}`}>
+                  {group.checks.summary}
+                </span>
+              </span>
               <span className="font-heading-lg text-primary border-base-light padding-top-1">
                 {group.title}
-                <span
-                  className="font-heading-sm text-secondary-light"
-                  style={{ float: 'right' }}
-                >
-                  <span className={`text-${group.checks.summaryColor}`}>
-                    {group.checks.summary}
-                  </span>
-                </span>
               </span>
             </summary>
             <ul className="usa-icon-list margin-top-1">

@@ -9,9 +9,7 @@ export const onInitializeOvermind = ({ actions, effects }: PresenterConfig) => {
   effects.location.listen((url: string) => {
     actions.setCurrentRoute(url);
   });
-  effects.useCases
-    .getSSPSchematronAssertions()
-    .then(actions.schematron.setAssertions);
+  actions.schematron.initialize();
 };
 
 export const setCurrentRoute = (
