@@ -570,8 +570,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="missing-response-components"
                 role="warning"
-                test="$components-count ge $required-components-count">[Section D Checks] Response statements have sufficient
-                components.</sch:assert>
+                test="$components-count ge $required-components-count">[Section D Checks] Response statements have sufficient components.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description">
@@ -2162,7 +2161,8 @@
                 doc:template-reference="System Security Plan Template §9.3"
                 id="role-has-responsible-party"
                 role="error"
-                test="//oscal:responsible-party[@role-id eq current()/@id]">One or more responsible parties must be defined for each role.</sch:assert>
+                test="//oscal:responsible-party[@role-id eq current()/@id]">One or more responsible parties must be defined for each
+                role.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:responsible-party"
@@ -2711,7 +2711,7 @@
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
                 test="
                     if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value eq 'planned']) then
-                        exists(current()/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date' and @value castable as xs:date])
+                        exists(current()/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date'])
                     else
                         true()">Planned control implementations have a planned completion date.</sch:assert>
             <sch:assert
@@ -2734,7 +2734,7 @@
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination' and @value = $control-originations]"> Every
-                implemented requirement has an allowed control origin.</sch:assert>
+                implemented requirement has an allowed control origination.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-leveraged-authorization-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
@@ -2746,19 +2746,55 @@
                     if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination' and @value eq 'inherited']) then (: there must be a leveraged-authorization-uuid property :)
                         exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid']) and (: the referenced leveraged-authorization must exist :) exists(//oscal:leveraged-authorization[@uuid = current()/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid']/@value])
                     else
-                        true()">Every implemented requirement with a control origin of "inherited" references a leveraged
+                        true()">Every implemented requirement with a control origination of "inherited" references a leveraged
                 authorization.</sch:assert>
+            <sch:assert
+                diagnostics="partial-implemented-requirement-has-plan-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                doc:template-reference="System Security Plan Template §13"
+                id="partial-implemented-requirement-has-plan"
+                role="error"
+                test="
+                    if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value eq 'partial'])
+                    then
+                        exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value eq 'planned'])
+                    else
+                        true()">A partially implemented control must have a plan for complete implementation.</sch:assert>
+            <sch:assert
+                diagnostics="implemented-requirement-has-allowed-composite-implementation-status-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                doc:template-reference="System Security Plan Template §13"
+                id="implemented-requirement-has-allowed-composite-implementation-status"
+                role="error"
+                test="
+                    every $c in string-join(distinct-values((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value)), '-')
+                        satisfies $c = ('implemented', 'planned', 'alternative', 'not-applicable', 'partial-planned', 'planned-partial')">An
+                implemented control's implementation status must be implemented, partial and planned, planned, alternative, or not
+                applicable.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value ne 'implemented']"
-            doc:template-reference="System Security Plan Template §13">
+            context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']">
+            <sch:let
+                name="control-implementation-statuses"
+                value="$fedramp-values//fedramp:value-set[@name eq 'control-implementation-status']//fedramp:enum/@value" />
+            <sch:assert
+                diagnostics="implemented-requirement-has-allowed-implementation-status-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                doc:template-reference="System Security Plan Template §13"
+                id="implemented-requirement-has-allowed-implementation-status"
+                role="error"
+                test="@value = $control-implementation-statuses">An implemented control's implementation status has an allowed value.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-implementation-status-remarks-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
                 doc:template-reference="System Security Plan Template §13"
                 id="implemented-requirement-has-implementation-status-remarks"
                 role="error"
-                test="oscal:remarks">Incomplete control implementations have an explanation.</sch:assert>
+                test="
+                    if (@value ne 'implemented') then
+                        oscal:remarks
+                    else
+                        true()">Incomplete control implementations have an explanation.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']"
@@ -2777,7 +2813,8 @@
                 id="planned-completion-date-is-not-past"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
-                test="@value castable as xs:date and xs:date(@value) gt current-date()">Planned completion date is not past.</sch:assert>
+                test="not(@value castable as xs:date) or (@value castable as xs:date and xs:date(@value) gt current-date())">Planned completion date
+                is not past.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -2797,12 +2834,14 @@
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-cloud-service-model"
+                role="error"
                 test="oscal:prop[@name eq 'cloud-service-model']">A FedRAMP SSP must specify a cloud service model.</sch:assert>
             <sch:assert
                 diagnostics="has-allowed-cloud-service-model-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-allowed-cloud-service-model"
+                role="error"
                 test="oscal:prop[@name eq 'cloud-service-model' and @value = $service-models]">A FedRAMP SSP must specify an allowed cloud service
                 model.</sch:assert>
             <sch:assert
@@ -2810,6 +2849,7 @@
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-cloud-service-model-remarks"
+                role="error"
                 test="
                     every $p in oscal:prop[@name eq 'cloud-service-model' and @value eq 'other']
                         satisfies exists($p/oscal:remarks)
@@ -2819,12 +2859,14 @@
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-cloud-deployment-model"
+                role="error"
                 test="oscal:prop[@name eq 'cloud-deployment-model']">A FedRAMP SSP must specify a cloud deployment model.</sch:assert>
             <sch:assert
                 diagnostics="has-allowed-cloud-deployment-model-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-allowed-cloud-deployment-model"
+                role="error"
                 test="oscal:prop[@name eq 'cloud-deployment-model' and @value = $deployment-models]">A FedRAMP SSP must specify an allowed cloud
                 deployment model.</sch:assert>
             <sch:assert
@@ -2832,6 +2874,7 @@
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-cloud-deployment-model-remarks"
+                role="error"
                 test="
                     every $p in oscal:prop[@name eq 'cloud-deployment-model' and @value eq 'hybrid-cloud']
                         satisfies exists($p/oscal:remarks)
@@ -2839,6 +2882,7 @@
             <sch:assert
                 diagnostics="has-public-cloud-deployment-model-diagnostic"
                 id="has-public-cloud-deployment-model"
+                role="error"
                 test="
                     (: either there is no component or inventory-item tagged as 'public' :)
                     not(
@@ -3862,11 +3906,7 @@
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-implementation-status-diagnostic">This implemented-requirement lacks an
             implementation-status.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="implemented-requirement-has-implementation-status-remarks"
-            doc:context="oscal:implemented-requirement"
-            id="implemented-requirement-has-implementation-status-remarks-diagnostic">This incomplete control implementation lacks an
-            explanation.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-planned-completion-date"
             doc:context="oscal:implemented-requirement"
@@ -3887,6 +3927,26 @@
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-leveraged-authorization-diagnostic">This implemented-requirement with a control-origination property of
             "inherited" does not reference a leveraged-authorization element in the same document.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="partial-implemented-requirement-has-plan"
+            doc:context="oscal:implemented-requirement"
+            id="partial-implemented-requirement-has-plan-diagnostic">This partially complete implemented-requirement is lacking an
+            implementation-status of 'planned' and an accompanying date.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="implemented-requirement-has-allowed-composite-implementation-status"
+            doc:context="oscal:implemented-requirement"
+            id="implemented-requirement-has-allowed-composite-implementation-status-diagnostic">This implemented-requirement has an invalid
+            implementation-status composition (<sch:value-of
+                select="string-join((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value), ', ')" />)</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="implemented-requirement-has-allowed-implementation-status"
+            doc:context="oscal:implemented-requirement"
+            id="implemented-requirement-has-allowed-implementation-status-diagnostic" />
+        <sch:diagnostic
+            doc:assertion="implemented-requirement-has-implementation-status-remarks"
+            doc:context="oscal:implemented-requirement"
+            id="implemented-requirement-has-implementation-status-remarks-diagnostic">This incomplete control implementation lacks an
+            explanation.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="planned-completion-date-is-valid"
             doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']"
