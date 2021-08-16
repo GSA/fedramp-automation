@@ -239,7 +239,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <control-implementation />
                             </system-security-plan>
@@ -254,7 +254,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <control-implementation>
                                     <implemented-requirement
@@ -280,7 +280,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <control-implementation>
                                     <implemented-requirement
@@ -307,7 +307,7 @@
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
+                                <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                             </system-characteristics>
                             <control-implementation>
                                 <implemented-requirement
@@ -338,7 +338,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <system-implementation>
                                     <component
@@ -381,7 +381,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <control-implementation>
                                     <component
@@ -423,7 +423,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <control-implementation>
                                     <implemented-requirement
@@ -458,7 +458,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <system-implementation>
                                     <component
@@ -521,7 +521,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <system-implementation>
                                     <component
@@ -547,9 +547,6 @@
                                 </control-implementation>
                             </system-security-plan>
                         </x:context>
-                        <x:expect-not-report
-                            id="implemented-response-points"
-                            label="it does not report on valid response points as they are missing." />
                         <x:expect-assert
                             id="missing-response-points"
                             label="it generates an error because missing response points are invalid."
@@ -562,7 +559,7 @@
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
+                                <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                             </system-characteristics>
                             <control-implementation>
                                 <implemented-requirement
@@ -590,7 +587,7 @@
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
+                                <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                             </system-characteristics>
                             <control-implementation>
                                 <implemented-requirement
@@ -616,7 +613,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <control-implementation>
                                     <implemented-requirement
@@ -648,7 +645,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <control-implementation>
                                     <implemented-requirement
@@ -678,7 +675,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <control-implementation>
                                     <implemented-requirement
@@ -710,7 +707,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <control-implementation>
                                     <implemented-requirement
@@ -744,7 +741,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <control-implementation>
                                     <implemented-requirement
@@ -776,7 +773,7 @@
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <system-characteristics>
-                                    <security-sensitivity-level>low</security-sensitivity-level>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                                 </system-characteristics>
                                 <control-implementation>
                                     <implemented-requirement
@@ -812,7 +809,7 @@
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
+                                <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                             </system-characteristics>
                             <control-implementation />
                         </system-security-plan>
@@ -828,7 +825,7 @@
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-characteristics>
-                                <security-sensitivity-level>low</security-sensitivity-level>
+                                <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                             </system-characteristics>
                             <!-- For thee FedRAMP Low Baseline, there are 62 CORE controls. -->
                             <control-implementation>
@@ -1285,7 +1282,7 @@
                             for the FedRAMP LOW profile. It is required for the FedRAMP
                             HIGH profile, so this is extraneous.
                         -->
-                            <security-sensitivity-level>low</security-sensitivity-level>
+                            <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                         </system-characteristics>
                         <control-implementation>
                             <implemented-requirement
@@ -1316,7 +1313,7 @@
                             the FedRAMP LOW profile. It is required for the FedRAMP
                             HIGH profile, so this is extraneous.
                         -->
-                            <security-sensitivity-level>low</security-sensitivity-level>
+                            <security-sensitivity-level>fips-199-low</security-sensitivity-level>
                         </system-characteristics>
                         <control-implementation>
                             <implemented-requirement
@@ -2833,12 +2830,12 @@
                             </system-security-plan>
                         </x:context>
                         <x:expect-not-assert
-                            id="has-reuse"
+                            id="has-unique-policy-and-procedure"
                             label="that is correct" />
                     </x:scenario>
                     <x:scenario
                         label="when a resource is inappropriately re-used"
-                        pending="XSpec problem resolution">
+                        pending="XSpec error resolution">
                         <x:context>
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
@@ -2881,7 +2878,7 @@
                             </system-security-plan>
                         </x:context>
                         <x:expect-assert
-                            id="has-reuse"
+                            id="has-unique-policy-and-procedure"
                             label="that is an error" />
                     </x:scenario>
                 </x:scenario>
