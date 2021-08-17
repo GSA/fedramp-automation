@@ -43,16 +43,13 @@ $theme-header-max-width: 'widescreen';
 }
 
 .bg-error-lighter {
-  //background-color: color('error-lighter');
   @include checkbox-and-radio-colors('error-lighter');
 }
 
 .bg-warning-lighter {
-  //background-color: color('warning-lighter');
   @include checkbox-and-radio-colors('warning-lighter');
 }
 
 .bg-info-lighter {
-  //background-color: color('info-lighter');
   @include checkbox-and-radio-colors('info-lighter');
 }
