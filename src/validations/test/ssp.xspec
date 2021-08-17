@@ -6505,8 +6505,90 @@
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
+
             <x:scenario
-                label="Each responsible-party party-uuid must identify a person.">
+                label="The role for a responsible party must exist.">
+                <x:context>
+                    <metadata
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <role
+                            id="system-owner">
+                            <title>Information System Owner</title>
+                            <short-name>ISO</short-name>
+                        </role>
+                        <party
+                            type="person"
+                            uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
+                        <responsible-party
+                            role-id="system-owner">
+                            <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
+                        </responsible-party>
+                    </metadata>
+                </x:context>
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="responsible-party-has-role"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="One or more parties must be identified for a responsibility.">
+                <x:context>
+                    <metadata
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <role
+                            id="system-owner">
+                            <title>Information System Owner</title>
+                            <short-name>ISO</short-name>
+                        </role>
+                        <party
+                            type="person"
+                            uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
+                        <responsible-party
+                            role-id="system-owner">
+                            <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
+                        </responsible-party>
+                    </metadata>
+                </x:context>
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="responsible-party-has-party-uuid"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="Every responsible party must be defined.">
+                <x:context>
+                    <metadata
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <role
+                            id="system-owner">
+                            <title>Information System Owner</title>
+                            <short-name>ISO</short-name>
+                        </role>
+                        <party
+                            type="person"
+                            uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
+                        <responsible-party
+                            role-id="system-owner">
+                            <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
+                        </responsible-party>
+                    </metadata>
+                </x:context>
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="responsible-party-has-definition"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="Some responsible parties must be persons.">
                 <x:context>
                     <metadata
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
@@ -6522,10 +6604,11 @@
                 <x:scenario
                     label="When that is true">
                     <x:expect-not-assert
-                        id="responsible-party-has-person"
+                        id="responsible-party-is-person"
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
+
             <x:scenario
                 label="Each person should have a responsibility.">
                 <x:context>
@@ -6749,8 +6832,9 @@
                         label="that is an error." />
                 </x:scenario>
             </x:scenario>
+
             <x:scenario
-                label="Each responsible-party party-uuid must identify a person.">
+                label="The role for a responsible party must exist.">
                 <x:context>
                     <metadata
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
@@ -6763,10 +6847,69 @@
                 <x:scenario
                     label="When that is false">
                     <x:expect-assert
-                        id="responsible-party-has-person"
+                        id="responsible-party-has-role"
                         label="that is an error." />
                 </x:scenario>
             </x:scenario>
+
+            <x:scenario
+                label="One or more parties must be identified for a responsibility.">
+                <x:context>
+                    <metadata
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <responsible-party
+                            role-id="system-owner" />
+                    </metadata>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="responsible-party-has-party-uuid"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="Every responsible party must be defined.">
+                <x:context>
+                    <metadata
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <responsible-party
+                            role-id="system-owner">
+                            <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
+                        </responsible-party>
+                    </metadata>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="responsible-party-has-definition"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="Some responsible parties must be persons.">
+                <x:context>
+                    <metadata
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <party
+                            type="organization"
+                            uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
+                        <responsible-party
+                            role-id="system-owner">
+                            <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
+                        </responsible-party>
+                    </metadata>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="responsible-party-is-person"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+
             <x:scenario
                 label="Each person should have a responsibility.">
                 <x:context>
