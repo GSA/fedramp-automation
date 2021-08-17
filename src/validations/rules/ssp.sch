@@ -195,18 +195,19 @@
         as="document-node()*"
         name="lv:profile">
         <xsl:param
-            name="level" />
+            name="level"
+            required="true" />
         <xsl:variable
             name="profile-map">
             <profile
                 href="{concat($baselines-base-path, '/FedRAMP_rev4_LOW-baseline-resolved-profile_catalog.xml')}"
-                level="low" />
+                level="fips-199-low" />
             <profile
                 href="{concat($baselines-base-path, '/FedRAMP_rev4_MODERATE-baseline-resolved-profile_catalog.xml')}"
-                level="moderate" />
+                level="fips-199-moderate" />
             <profile
                 href="{concat($baselines-base-path, '/FedRAMP_rev4_HIGH-baseline-resolved-profile_catalog.xml')}"
-                level="high" />
+                level="fips-199-high" />
         </xsl:variable>
         <xsl:variable
             name="href"
@@ -346,28 +347,28 @@
             as="element()*"
             name="analysis" />
         <xsl:value-of>There are <xsl:value-of
-                select="$analysis/reports/@count" />  <xsl:value-of
+                select="$analysis/reports/@count" />&#xa0; <xsl:value-of
                 select="$analysis/reports/@formal-name" />
             <xsl:choose>
                 <xsl:when
-                    test="$analysis/reports/report">items total, with</xsl:when>
-                <xsl:otherwise>items total.</xsl:otherwise>
+                    test="$analysis/reports/report"> items total, with </xsl:when>
+                <xsl:otherwise> items total.</xsl:otherwise>
             </xsl:choose>
             <xsl:for-each
                 select="$analysis/reports/report">
                 <xsl:if
                     test="position() gt 0 and not(position() eq last())">
                     <xsl:value-of
-                        select="current()/@count" />set as <xsl:value-of
-                        select="current()/@value" />,</xsl:if>
+                        select="current()/@count" /> set as <xsl:value-of
+                        select="current()/@value" />, </xsl:if>
                 <xsl:if
-                    test="position() gt 0 and position() eq last()">and <xsl:value-of
-                        select="current()/@count" />set as <xsl:value-of
+                    test="position() gt 0 and position() eq last()"> and <xsl:value-of
+                        select="current()/@count" /> set as <xsl:value-of
                         select="current()/@value" />.</xsl:if>
                 <xsl:sequence
                     select="." />
             </xsl:for-each>There are <xsl:value-of
-                select="($analysis/reports/@count - sum($analysis/reports/report/@count))" />invalid items. <xsl:if
+                select="($analysis/reports/@count - sum($analysis/reports/report/@count))" /> invalid items. <xsl:if
                 test="count($analysis/errors/error) &gt; 0">
                 <xsl:message
                     expand-text="yes">hit error block</xsl:message>
@@ -418,8 +419,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 id="implemented-response-points"
                 role="information"
-                test="exists($implemented)">A FedRAMP SSP must implement a statement for each of the following lettered response points for required
-                controls: <sch:value-of
+                test="true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
                     select="$implemented/@statement-id" />.</sch:report>
         </sch:rule>
         <sch:rule
@@ -456,7 +456,8 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 id="each-required-control-report"
                 role="information"
-                test="count($required-controls) &gt; 0">The following <sch:value-of
+                test="true()">Sensitivity-level is <sch:value-of
+                    select="$sensitivity-level" />, the following <sch:value-of
                     select="count($required-controls)" />
                 <sch:value-of
                     select="
@@ -1046,17 +1047,21 @@
             <sch:let
                 name="ir"
                 value="ancestor::oscal:implemented-requirement" />
-            <sch:report
-                diagnostics="has-reuse-diagnostic"
+            <sch:assert
+                diagnostics="has-unique-policy-and-procedure-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §15 Attachment 1"
-                id="has-reuse"
+                id="has-unique-policy-and-procedure"
                 role="error"
                 test="
-                    (: the current @href is in :)
-                    @href = (: all controls except the current :) (//oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')] except $ir) (: all their @hrefs :)/descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href">
-                [Section B Check 3.1] Policy and procedure documents must have unique per-control-family associations.</sch:report>
+                    not(
+                    (: the current @href is not in :)
+                    @href =
+                    (: all controls except the current :) (//oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')] except $ir)
+                    (: all their @hrefs :)/descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href
+                    )"> [Section B Check 3.1] Policy and procedure documents must have unique per-control-family
+                associations.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -3186,9 +3191,9 @@
                 select="@control-id" /> lacks procedure attachment resource(s) <sch:value-of
                 select="string-join($procedure-hrefs, ', ')" />.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="has-reuse"
+            doc:assertion="has-unique-policy-and-procedure"
             doc:context="oscal:by-component/oscal:link[@rel = ('policy', 'procedure')]"
-            id="has-reuse-diagnostic">A policy or procedure reference was incorrectly re-used.</sch:diagnostic>
+            id="has-unique-policy-and-procedure-diagnostic">A policy or procedure reference was incorrectly re-used.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-privacy-poc-role"
             doc:context="oscal:metadata"
