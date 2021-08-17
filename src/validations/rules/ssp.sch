@@ -65,6 +65,12 @@
             pattern="data-flow" />
         <sch:active
             pattern="control-implementation" />
+        <sch:active
+            pattern="info" />
+    </sch:phase>
+    <sch:phase id="information">
+        <sch:active
+            pattern="info" />
     </sch:phase>
     <sch:phase
         id="attachments">
@@ -2899,6 +2905,22 @@
                     exists(oscal:prop[@name eq 'cloud-deployment-model' and @value eq 'public-cloud'])
                     ">When a FedRAMP SSP has public components or inventory items, a cloud deployment model of "public-cloud" must be
                 employed.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+    <sch:pattern
+        id="info">
+        <sch:rule
+            context="oscal:system-security-plan">
+            <sch:report
+                id="info-system-name"
+                role="information"
+                test="true()"><sch:value-of
+                    select="oscal:system-characteristics/oscal:system-name" /></sch:report>
+            <sch:report
+                id="info-ssp-title"
+                role="information"
+                test="true()"><sch:value-of
+                    select="oscal:metadata/oscal:title" /></sch:report>
         </sch:rule>
     </sch:pattern>
     <sch:diagnostics>
