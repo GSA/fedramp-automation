@@ -42,7 +42,7 @@
                     <map>
                         <string
                             key="title">
-                            <xsl:text expand-text="true">FedRAMP {$attribute-local-name} assertion view</xsl:text>
+                            <xsl:text expand-text="true">FedRAMP {$attribute-local-name}</xsl:text>
                         </string>
                         <!-- get the distinct values found in this attribute -->
                         <xsl:variable
@@ -100,7 +100,7 @@
                                     <xsl:copy-of
                                         select="$s" />
                                 </xsl:sort>
-
+                                
                                 <xsl:variable
                                     name="item"
                                     as="xs:string"

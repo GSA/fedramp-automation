@@ -44,6 +44,7 @@ type BaseState = {
   schematronReport: {
     summary: {
       title: string;
+      subtitle: string;
       counts: {
         assertions: number;
         reports: number;
@@ -209,9 +210,11 @@ export const createSchematronMachine = () => {
 
           return {
             summary: {
-              title: isValidated
-                ? 'FedRAMP Package Concerns'
-                : 'FedRAMP Package Concerns (unprocessed)',
+              title:
+                validator.current === 'VALIDATED'
+                  ? 'FedRAMP Package Concerns'
+                  : 'FedRAMP Package Concerns (unprocessed)',
+              subtitle: assertionView.title,
               counts: {
                 assertions: _schematronChecksFiltered.length - reportCount,
                 reports: reportCount,
