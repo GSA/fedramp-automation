@@ -5,7 +5,7 @@ assessment-results:
     title: "[System Name] FedRAMP Security Assessment Report (SAR)"
     published: 2021-02-25T00:00:00.00-04:00
     last-modified: 2021-06-09T14:27:48.374-04:00
-    version: fedramp1.0.0-oscal1.0.0
+    version: fedramp1.1.0-oscal1.0.0
     oscal-version: 1.0.0
     props:
       - name: marking
