@@ -20,14 +20,18 @@ export type SuccessfulReport = {
   test: string;
   text: string;
 };
-export type ValidationReport = {
+export type SchematronResult = {
   failedAsserts: FailedAssert[];
   successfulReports: SuccessfulReport[];
 };
+export type ValidationReport = {
+  title: string;
+  failedAsserts: FailedAssert[];
+};
 
-export type SchematronValidator = (
+export type SchematronProcessor = (
   oscalXmlString: string,
-) => Promise<ValidationReport>;
+) => Promise<SchematronResult>;
 
 export type SchematronAssert = {
   id: string;

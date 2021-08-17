@@ -212,8 +212,8 @@ export const createSchematronMachine = () => {
             summary: {
               title:
                 validator.current === 'VALIDATED'
-                  ? 'FedRAMP Package Concerns'
-                  : 'FedRAMP Package Concerns (unprocessed)',
+                  ? validator.validationReport.title
+                  : 'FedRAMP Package Concerns',
               subtitle: assertionView.title,
               counts: {
                 assertions: _schematronChecksFiltered.length - reportCount,

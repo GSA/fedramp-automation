@@ -157,6 +157,7 @@ const MOCK_SCHEMATRON_ASSERTIONS = [
 ];
 
 const MOCK_VALIDATION_REPORT = {
+  title: 'title',
   failedAsserts: [
     {
       text: 'ASSERT TEXT 1',
@@ -178,5 +179,4 @@ const MOCK_VALIDATION_REPORT = {
       diagnosticReferences: [],
     },
   ],
-  successfulReports: [],
 };
