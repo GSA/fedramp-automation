@@ -11,21 +11,23 @@ export const ValidatorReport = () => {
   return (
     <div className="grid-row grid-gap">
       <div className="tablet:grid-col">
-        <h1 className="font-heading-lg margin-bottom-0">
-          {schematronReport.summary.title}
-          <span
-            className="font-heading-sm text-secondary-light"
-            style={{ float: 'right' }}
-          >
-            <span className={`text-blue`}>
-              {schematronReport.summary.counts.assertions} concerns and{' '}
-              {schematronReport.summary.counts.reports} notes
+        <div className="position-sticky top-0 bg-white padding-top-1 padding-bottom-1">
+          <h1 className="font-heading-lg margin-bottom-0">
+            {schematronReport.summary.title}
+            <span
+              className="font-heading-sm text-secondary-light"
+              style={{ float: 'right' }}
+            >
+              <span className={`text-blue`}>
+                {schematronReport.summary.counts.assertions} concerns and{' '}
+                {schematronReport.summary.counts.reports} notes
+              </span>
             </span>
-          </span>
-        </h1>
-        <h2 className="margin-top-1 font-heading-md text-light">
-          {schematronReport.summary.subtitle}
-        </h2>
+          </h1>
+          <h2 className="margin-top-1 font-heading-md text-light">
+            {schematronReport.summary.subtitle}
+          </h2>
+        </div>
         {schematronReport.groups.map((group, index) => (
           <details
             key={index}

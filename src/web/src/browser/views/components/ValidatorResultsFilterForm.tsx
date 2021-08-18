@@ -8,7 +8,7 @@ export const ValidatorResultsFilterForm = () => {
   const actions = useActions();
 
   return (
-    <form className="usa-form">
+    <form className="usa-form position-sticky top-0 bg-white padding-top-1">
       <fieldset className="usa-fieldset">
         <legend className="usa-legend usa-legend">
           Select an assertion view
