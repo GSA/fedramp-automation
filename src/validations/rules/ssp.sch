@@ -2103,8 +2103,8 @@
         <sch:title>Roles, Locations, Parties, Responsibilities</sch:title>
         <sch:rule
             context="oscal:metadata"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
-            see="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10">
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
+            see="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11">
             <sch:assert
                 diagnostics="role-defined-system-owner-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
@@ -2158,17 +2158,17 @@
         </sch:rule>
         <sch:rule
             context="oscal:role"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10">
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11">
             <sch:assert
                 diagnostics="role-has-title-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
                 doc:template-reference="System Security Plan Template §9.3"
                 id="role-has-title"
                 role="error"
                 test="oscal:title">A role must have a title.</sch:assert>
             <sch:assert
                 diagnostics="role-has-responsible-party-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
                 doc:template-reference="System Security Plan Template §9.3"
                 id="role-has-responsible-party"
                 role="error"
@@ -2177,21 +2177,56 @@
         </sch:rule>
         <sch:rule
             context="oscal:responsible-party"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10">
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11">
             <sch:assert
-                diagnostics="responsible-party-has-person-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
-                id="responsible-party-has-person"
+                diagnostics="responsible-party-has-role-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
+                id="responsible-party-has-role"
                 role="error"
-                test="//oscal:party[@uuid = current()/oscal:party-uuid and @type eq 'person']">Each responsible party must identify a person using
-                that person's unique identifier.</sch:assert>
+                test="exists(//oscal:role[@id eq current()/@role-id])">The role for a responsible party must exist.</sch:assert>
+            <sch:assert
+                diagnostics="responsible-party-has-party-uuid-diagnostic"
+                id="responsible-party-has-party-uuid"
+                role="error"
+                test="exists(oscal:party-uuid)">One or more parties must be identified for a responsibility.</sch:assert>
+            <sch:assert
+                diagnostics="responsible-party-has-definition-diagnostic"
+                id="responsible-party-has-definition"
+                role="error"
+                test="
+                    every $p in oscal:party-uuid
+                        satisfies exists(//oscal:party[@uuid eq $p])">Every responsible party must be defined.</sch:assert>
+            <sch:assert
+                diagnostics="responsible-party-is-person-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
+                id="responsible-party-is-person"
+                role="error"
+                test="
+                    if (
+                    current()/@role-id = (
+                    'system-owner',
+                    'authorizing-official',
+                    'system-poc-management',
+                    'system-poc-technical',
+                    'system-poc-other',
+                    'information-system-security-officer',
+                    'authorizing-official-poc'
+                    )
+                    )
+                    then
+                        every $p in oscal:party-uuid
+                            satisfies
+                            exists(//oscal:party[@uuid eq $p and @type eq 'person'])
+                    else
+                        true()
+                    ">For some roles responsible parties must be persons.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:party[@type eq 'person']"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10">
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11">
             <sch:assert
                 diagnostics="party-has-responsibility-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
                 id="party-has-responsibility"
                 role="warning"
                 test="//oscal:responsible-party[oscal:party-uuid = current()/@uuid]">Each person should have a responsibility.</sch:assert>
@@ -3702,9 +3737,21 @@
             doc:context="oscal:role"
             id="role-has-responsible-party-diagnostic">This role has no responsible parties.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="responsible-party-has-person"
+            doc:assertion="responsible-party-has-role"
             doc:context="oscal:responsible-party"
-            id="responsible-party-has-person-diagnostic">This responsible-party party-uuid does not identify a person.</sch:diagnostic>
+            id="responsible-party-has-role-diagnostic">This responsible-party references a non-existent role.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="responsible-party-has-party-uuid"
+            doc:context="oscal:responsible-party"
+            id="responsible-party-has-party-uuid-diagnostic">This responsible-party lacks one or more party-uuid elements.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="responsible-party-has-definition"
+            doc:context="oscal:responsible-party"
+            id="responsible-party-has-definition-diagnostic">This responsible-party has a party-uuid for a non-existent party.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="responsible-party-is-person"
+            doc:context="oscal:responsible-party"
+            id="responsible-party-is-person-diagnostic">This responsible-party references a party which is not a person.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="party-has-responsibility"
             doc:context="oscal:party[@type eq 'person']"
