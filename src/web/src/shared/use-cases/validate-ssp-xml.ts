@@ -25,7 +25,7 @@ const generateSchematronReport = (
   return {
     title:
       schematronResult.successfulReports
-        .filter(report => report.id === 'info-ssp-title')
+        .filter(report => report.id === 'info-system-name')
         .map(report => report.text)[0] || '<Unspecified system name>',
     failedAsserts: schematronResult.failedAsserts,
   };

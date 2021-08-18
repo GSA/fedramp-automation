@@ -2,7 +2,7 @@ import { ValidateSSPUseCase, ValidateSSPUrlUseCase } from './validate-ssp-xml';
 
 const MOCK_SCHEMATRON_RESULT = {
   failedAsserts: ['assertion 1', 'assertion 2'],
-  successfulReports: [{ id: 'info-ssp-title', text: 'title text' }],
+  successfulReports: [{ id: 'info-system-name', text: 'title text' }],
 };
 const EXPECTED_VALIDATION_REPORT = {
   title: 'title text',
