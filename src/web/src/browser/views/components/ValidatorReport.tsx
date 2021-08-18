@@ -5,7 +5,7 @@ import { Routes, getUrl } from '@asap/browser/presenter/state/router';
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
 
-export const SchematronReport = () => {
+export const ValidatorReport = () => {
   const { schematronReport } = useAppState().schematron;
   const { getAssetUrl } = useActions();
   return (
