@@ -8,7 +8,7 @@ export const ValidatorResultsFilterForm = () => {
   const actions = useActions();
 
   return (
-    <form className="usa-form position-sticky top-0 bg-white padding-top-1">
+    <form className="usa-form bg-white padding-top-1">
       <fieldset className="usa-fieldset">
         <legend className="usa-legend">Select an assertion view</legend>
         <div className="usa-radio">
@@ -30,6 +30,10 @@ export const ValidatorResultsFilterForm = () => {
                 htmlFor={`assertion-view-${assertionView.id}`}
               >
                 {assertionView.title}
+                <span className="usa-checkbox__label-description">
+                  This is optional text that can be used to describe the label
+                  in more detail.
+                </span>
               </label>
             </div>
           ))}
