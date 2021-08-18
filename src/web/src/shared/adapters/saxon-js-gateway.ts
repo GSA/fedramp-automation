@@ -1,9 +1,9 @@
 import type { IndentXml } from '@asap/shared/domain/xml';
 import type {
-  ParseSchematronAssertions,
-  SchematronValidator,
   FailedAssert,
-  ValidationReport,
+  ParseSchematronAssertions,
+  SchematronProcessor,
+  SchematronResult,
   SuccessfulReport,
 } from '@asap/shared/use-cases/schematron';
 import type { XSLTProcessor } from '../use-cases/assertion-views';
@@ -11,7 +11,7 @@ import type { XSLTProcessor } from '../use-cases/assertion-views';
 const getValidationReport = (
   SaxonJS: any,
   document: DocumentFragment,
-): ValidationReport => {
+): SchematronResult => {
   const failedAsserts = SaxonJS.XPath.evaluate(
     '//svrl:failed-assert',
     document,
@@ -76,15 +76,15 @@ const getValidationReport = (
   };
 };
 
-type SaxonJsSchematronValidatorGatewayContext = {
+type SaxonJsSchematronProcessorGatewayContext = {
   sefUrl: string;
   SaxonJS: any;
   baselinesBaseUrl: string;
   registryBaseUrl: string;
 };
 
-export const SaxonJsSchematronValidatorGateway =
-  (ctx: SaxonJsSchematronValidatorGatewayContext): SchematronValidator =>
+export const SaxonJsSchematronProcessorGateway =
+  (ctx: SaxonJsSchematronProcessorGatewayContext): SchematronProcessor =>
   (sourceText: string) => {
     return (
       ctx.SaxonJS.transform(

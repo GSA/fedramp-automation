@@ -8,12 +8,13 @@ import * as SaxonJS from 'saxon-js';
 
 import {
   SaxonJsProcessor,
-  SaxonJsSchematronValidatorGateway,
+  SaxonJsSchematronProcessorGateway,
   SchematronParser,
 } from '@asap/shared/adapters/saxon-js-gateway';
 import { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
 
 import { CommandLineController } from './cli-controller';
+import { ValidateSSPUseCase } from '@asap/shared/use-cases/validate-ssp-xml';
 
 const config = require('@asap/shared/project-config');
 
@@ -27,11 +28,13 @@ const controller = CommandLineController({
   writeStringFile,
   useCases: {
     parseSchematron: SchematronParser({ SaxonJS }),
-    validateSSP: SaxonJsSchematronValidatorGateway({
-      sefUrl: `file://${join(config.PUBLIC_PATH, 'ssp.sef.json')}`,
-      SaxonJS: SaxonJS,
-      baselinesBaseUrl: config.BASELINES_PATH,
-      registryBaseUrl: config.REGISTRY_PATH,
+    validateSSP: ValidateSSPUseCase({
+      processSchematron: SaxonJsSchematronProcessorGateway({
+        sefUrl: `file://${join(config.PUBLIC_PATH, 'ssp.sef.json')}`,
+        SaxonJS: SaxonJS,
+        baselinesBaseUrl: config.BASELINES_PATH,
+        registryBaseUrl: config.REGISTRY_PATH,
+      }),
     }),
     writeAssertionViews: WriteAssertionViews({
       paths: {

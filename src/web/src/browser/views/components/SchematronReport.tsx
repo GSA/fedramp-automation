@@ -11,7 +11,7 @@ export const SchematronReport = () => {
   return (
     <div className="grid-row grid-gap">
       <div className="tablet:grid-col">
-        <h1 className="font-heading-lg">
+        <h1 className="font-heading-lg margin-bottom-0">
           {schematronReport.summary.title}
           <span
             className="font-heading-sm text-secondary-light"
@@ -23,6 +23,9 @@ export const SchematronReport = () => {
             </span>
           </span>
         </h1>
+        <h2 className="margin-top-1 font-heading-md text-light">
+          {schematronReport.summary.subtitle}
+        </h2>
         {schematronReport.groups.map((group, index) => (
           <details
             key={index}

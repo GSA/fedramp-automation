@@ -122,7 +122,10 @@ export const ValidatorPage = () => {
               </div>
               <div className="usa-radio">
                 {schematron.filterOptions.roles.map((filterRole, index) => (
-                  <div key={index}>
+                  <div
+                    key={index}
+                    className={`bg-${colorTokenForRole(filterRole)}-lighter`}
+                  >
                     <input
                       className="usa-radio__input usa-radio__input--tile"
                       id={`role-${filterRole}`}
@@ -135,9 +138,7 @@ export const ValidatorPage = () => {
                       }
                     />
                     <label
-                      className={`usa-radio__label bg-${colorTokenForRole(
-                        filterRole,
-                      )}-lighter`}
+                      className="usa-radio__label"
                       htmlFor={`role-${filterRole}`}
                     >
                       <svg

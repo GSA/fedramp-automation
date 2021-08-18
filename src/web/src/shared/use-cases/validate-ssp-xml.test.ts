@@ -1,21 +1,29 @@
 import { ValidateSSPUseCase, ValidateSSPUrlUseCase } from './validate-ssp-xml';
 
+const MOCK_SCHEMATRON_RESULT = {
+  failedAsserts: ['assertion 1', 'assertion 2'],
+  successfulReports: [{ id: 'info-system-name', text: 'title text' }],
+};
+const EXPECTED_VALIDATION_REPORT = {
+  title: 'title text',
+  failedAsserts: ['assertion 1', 'assertion 2'],
+};
+
 describe('validate ssp use case', () => {
-  it('passes through return value from adapter', () => {
+  it('works', async () => {
     const useCase = ValidateSSPUseCase({
-      generateSchematronValidationReport: jest
+      processSchematron: jest
         .fn()
-        .mockReturnValue('return value'),
+        .mockReturnValue(Promise.resolve(MOCK_SCHEMATRON_RESULT)),
     });
-    const retVal = useCase('<xml>ignored</xml>');
-    expect(retVal).toEqual('return value');
+    const retVal = await useCase('<xml>ignored</xml>');
+    expect(retVal).toEqual(EXPECTED_VALIDATION_REPORT);
   });
 });
 
 describe('validate ssp url use case', () => {
   it('passes through return value from adapter', async () => {
     const xmlText = '<xml>ignored</xml>';
-    const validationReport = 'mock validation report';
     const useCase = ValidateSSPUrlUseCase({
       fetch: jest.fn().mockImplementation((url: string) => {
         return Promise.resolve({
@@ -25,14 +33,15 @@ describe('validate ssp url use case', () => {
           }),
         });
       }),
-      generateSchematronValidationReport: jest
-        .fn()
-        .mockImplementation(xmlStr => {
-          expect(xmlStr).toEqual(xmlText);
-          return validationReport;
-        }),
+      processSchematron: jest.fn().mockImplementation(xmlStr => {
+        expect(xmlStr).toEqual(xmlText);
+        return MOCK_SCHEMATRON_RESULT;
+      }),
     });
     const retVal = await useCase('https://sample.gov/ssp-url.xml');
-    expect(retVal).toEqual({ validationReport, xmlText });
+    expect(retVal).toEqual({
+      validationReport: EXPECTED_VALIDATION_REPORT,
+      xmlText,
+    });
   });
 });
