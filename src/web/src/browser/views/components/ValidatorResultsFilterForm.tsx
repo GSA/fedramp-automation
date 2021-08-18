@@ -10,9 +10,7 @@ export const ValidatorResultsFilterForm = () => {
   return (
     <form className="usa-form position-sticky top-0 bg-white padding-top-1">
       <fieldset className="usa-fieldset">
-        <legend className="usa-legend usa-legend">
-          Select an assertion view
-        </legend>
+        <legend className="usa-legend">Select an assertion view</legend>
         <div className="usa-radio">
           {schematron.filterOptions.assertionViews.map(assertionView => (
             <div key={assertionView.id}>
@@ -36,9 +34,12 @@ export const ValidatorResultsFilterForm = () => {
             </div>
           ))}
         </div>
-        <div className="usa-search usa-search--small" role="search">
+        <div
+          className="usa-search usa-search--small margin-top-1"
+          role="search"
+        >
           <label className="usa-sr-only" htmlFor="search-field">
-            Search
+            Search assertion text
           </label>
           <div className="usa-input-group">
             <div className="usa-input-prefix" aria-hidden="true">
@@ -66,11 +67,12 @@ export const ValidatorResultsFilterForm = () => {
                 }
                 actions.schematron.setFilterText(text);
               }}
-              placeholder="Search text..."
+              placeholder="Search assertion text..."
             />
           </div>
         </div>
         <div className="usa-radio">
+          <legend className="usa-legend">Filter by assertion role</legend>
           {schematron.filterOptions.roles.map((filterRole, index) => (
             <div
               key={index}
@@ -102,7 +104,11 @@ export const ValidatorResultsFilterForm = () => {
                     )}
                   />
                 </svg>
-                {filterRole || '<not specified>'}
+                {filterRole.toLocaleUpperCase() || '<not specified>'}
+                <span className="usa-checkbox__label-description">
+                  This is optional text that can be used to describe the label
+                  in more detail.
+                </span>
               </label>
             </div>
           ))}
