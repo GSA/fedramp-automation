@@ -120,7 +120,7 @@
          <name>Assessment Organization Name</name>
          <short-name>Acronym/Short Name</short-name>
          <prop ns="https://fedramp.gov/ns/oscal" name="iso-iec-17020-identifier" value="0000.00"/>
-         <link href="https://assesor.web.site" rel="home-page"/>
+         <link href="https://assessor.web.site" rel="home-page"/>
          <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
          <remarks>
             <p>Replace sample 3PAO information.</p>

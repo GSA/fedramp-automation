@@ -124,7 +124,7 @@
          <prop ns="https://fedramp.gov/ns/oscal"
                name="iso-iec-17020-identifier"
                value="0000.00"/>
-         <link href="https://assesor.web.site" rel="home-page"/>
+         <link href="https://assessor.web.site" rel="home-page"/>
          <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
          <remarks>
             <p>Replace sample 3PAO information.</p>
@@ -402,7 +402,7 @@
             <p>The UUID assigned to the origional incorrect role in the SSP must be cited in the "updates-uuid" property.</p>
             <p>The SAP syntax duplicates the SSP user syntax.</p>
             <p>This local entry completely replaces the entry in the SSP.</p>
-            <p>Tools should duplicate the entire assembly from the SSP to this location, then allow the assesor to add or change the details.</p>
+            <p>Tools should duplicate the entire assembly from the SSP to this location, then allow the assessor to add or change the details.</p>
             <p>This ensures the entry here is complete.</p>
          </remarks>
       </user>
