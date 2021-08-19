@@ -29,6 +29,49 @@ export const ValidatorFileSelectForm = () => {
         />
       </div>
       <div className="tablet:grid-col-8">
+        {schematron.validator.current === 'UNLOADED' && (
+          <svg
+            className="usa-icon text-primary-lighter font-sans-xl float-right"
+            aria-hidden="true"
+            focusable="false"
+            role="img"
+          >
+            <use
+              xlinkHref={actions.getAssetUrl(
+                'uswds/img/sprite.svg#radio_button_unchecked',
+              )}
+            ></use>
+          </svg>
+        )}
+        {schematron.validator.current === 'PROCESSING' && (
+          <div className="loader float-right" />
+        )}
+        {schematron.validator.current === 'PROCESSING_ERROR' && (
+          <svg
+            className="usa-icon text-secondary-vivid font-sans-xl float-right"
+            aria-hidden="true"
+            focusable="false"
+            role="img"
+          >
+            <use
+              xlinkHref={actions.getAssetUrl('uswds/img/sprite.svg#error')}
+            ></use>
+          </svg>
+        )}
+        {schematron.validator.current === 'VALIDATED' && (
+          <svg
+            className="usa-icon text-primary-vivid font-sans-xl float-right"
+            aria-hidden="true"
+            focusable="false"
+            role="img"
+          >
+            <use
+              xlinkHref={actions.getAssetUrl(
+                'uswds/img/sprite.svg#check_circle',
+              )}
+            ></use>
+          </svg>
+        )}
         <div className="usa-hint">
           Or use an example file, brought to you by FedRAMP:
         </div>

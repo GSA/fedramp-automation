@@ -11,13 +11,12 @@ $theme-header-max-width: 'widescreen';
 @import '../../../node_modules/highlight.js/scss/github.scss';
 
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 2.13rem;
+  height: 2.13rem;
   animation: spin 2s linear infinite;
-  margin: 1em auto 1em auto;
 }
 
 @keyframes spin {

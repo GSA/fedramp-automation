@@ -1,13 +1,10 @@
 import React from 'react';
 
-import { useAppState } from '../hooks';
 import { ValidatorFileSelectForm } from './ValidatorFileSelectForm';
 import { ValidatorReport } from './ValidatorReport';
 import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
 
 export const ValidatorPage = () => {
-  const { schematron } = useAppState();
-
   return (
     <>
       <div className="grid-row">
@@ -31,9 +28,6 @@ export const ValidatorPage = () => {
         </div>
         <div className="mobile:grid-col-12 tablet:grid-col-8">
           <ValidatorReport />
-          {schematron.validator.current === 'PROCESSING' && (
-            <div className="loader" />
-          )}
         </div>
       </div>
     </>
