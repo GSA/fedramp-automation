@@ -1,3 +1,5 @@
+// Import default USWDS theme
+
 $theme-show-notifications: false;
 $theme-font-path: '../../../uswds/fonts';
 $theme-image-path: '../../../uswds/img';
@@ -7,12 +9,21 @@ $theme-footer-max-width: 'widescreen';
 $theme-grid-container-max-width: 'widescreen';
 $theme-header-max-width: 'widescreen';
 
+// @import '../../../node_modules/uswds/dist/scss/theme/uswds-theme-general';
+// @import '../../../node_modules/uswds/dist/scss/theme/uswds-theme-typography';
+// @import '../../../node_modules/uswds/dist/scss/theme/uswds-theme-spacing';
+// @import '../../../node_modules/uswds/dist/scss/theme/uswds-theme-color';
+// @import '../../../node_modules/uswds/dist/scss/theme/uswds-theme-utilities';
+
+// Custom theme overrides
 @import '../../../node_modules/uswds/dist/scss/uswds.scss';
+
 @import '../../../node_modules/highlight.js/scss/github.scss';
 
 .loader {
-  border: 8px solid #f3f3f3; /* Light grey */
-  border-top: 8px solid #3498db; /* Blue */
+  border: 8px solid $theme-color-base-lightest; /* Light grey */
+  //border-top: 8px solid $theme-color-primary-vivid; /* Blue */
+  border-top: 8px solid #0050d8; /* Blue */
   border-radius: 50%;
   width: 2.13rem;
   height: 2.13rem;

@@ -31,7 +31,7 @@ export const ValidatorFileSelectForm = () => {
       <div className="tablet:grid-col-8">
         {schematron.validator.current === 'UNLOADED' && (
           <svg
-            className="usa-icon text-primary-lighter font-sans-xl float-right"
+            className="usa-icon text-info-lighter font-sans-xl float-right"
             aria-hidden="true"
             focusable="false"
             role="img"
@@ -48,7 +48,7 @@ export const ValidatorFileSelectForm = () => {
         )}
         {schematron.validator.current === 'PROCESSING_ERROR' && (
           <svg
-            className="usa-icon text-secondary-vivid font-sans-xl float-right"
+            className="usa-icon text-error font-sans-xl float-right"
             aria-hidden="true"
             focusable="false"
             role="img"
