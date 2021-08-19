@@ -25,7 +25,9 @@ export const ValidatorPage = () => {
       </div>
       <div className="grid-row grid-gap margin-2">
         <div className="mobile:grid-col-12 tablet:grid-col-4">
-          <ValidatorResultsFilterForm />
+          <div className="position-sticky top-0 z-top bg-white padding-top-1 padding-bottom-1">
+            <ValidatorResultsFilterForm />
+          </div>
         </div>
         <div className="mobile:grid-col-12 tablet:grid-col-8">
           <ValidatorReport />
