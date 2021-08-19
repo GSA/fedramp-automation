@@ -66,9 +66,17 @@
         <sch:active
             pattern="control-implementation" />
         <sch:active
+            pattern="interconnects" />
+        <sch:active
             pattern="info" />
     </sch:phase>
-    <sch:phase id="information">
+    <sch:phase
+        id="test">
+        <sch:active
+            pattern="interconnects" />
+    </sch:phase>
+    <sch:phase
+        id="information">
         <sch:active
             pattern="info" />
     </sch:phase>
@@ -2942,6 +2950,215 @@
                 employed.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
+    <sch:pattern
+        id="interconnects">
+        <sch:let
+            name="ipv6-required"
+            value="false()" />
+        <sch:rule
+            context="oscal:component[@type = 'interconnection']/oscal:prop[@name eq 'interconnection-direction']">
+            <sch:let
+                name="interconnection-direction-values"
+                value="$fedramp-values//fedramp:value-set[@name eq 'interconnection-direction']//fedramp:enum/@value" />
+            <sch:assert
+                diagnostics="interconnection-has-allowed-interconnection-direction-value-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-allowed-interconnection-direction-value"
+                role="error"
+                test="@value = $interconnection-direction-values">A system interconnection must have an allowed direction.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:component[@type = 'interconnection']/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']">
+            <sch:let
+                name="interconnection-security-values"
+                value="$fedramp-values//fedramp:value-set[@name eq 'interconnection-security']//fedramp:enum/@value" />
+            <sch:assert
+                diagnostics="interconnection-has-allowed-interconnection-security-value-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-allowed-interconnection-security-value"
+                role="error"
+                test="@value = $interconnection-security-values">A system interconnection must have an allowed direction.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:component[@type eq 'interconnection']">
+            <sch:assert
+                diagnostics="interconnection-has-title-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-title"
+                role="error"
+                test="oscal:title">A system interconnection must provide a remote system name.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-description-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-description"
+                role="error"
+                test="oscal:description">A system interconnection must provide a remote system description.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-direction-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-direction"
+                role="error"
+                test="oscal:prop[@name eq 'interconnection-direction']">A system interconnection must identify the direction of data
+                flows.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-information-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-information"
+                role="error"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'information']">A system interconnection must describe the
+                information being transferred.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-protocol-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-protocol"
+                role="error"
+                test="oscal:protocol">A system interconnection must describe the protocols used for information transfer.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-service-processor-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-service-processor"
+                role="error"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'service-processor']">A system interconnection must describe the
+                service processor.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-local-IPv4-address-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-local-IPv4-address"
+                role="error"
+                test="oscal:prop[@name eq 'ipv4-address' and @class eq 'local']">A system interconnection must specify the local (CSP) IPv4
+                address.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-local-IPv6-address-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-local-IPv6-address"
+                role="error"
+                test="not($ipv6-required) or oscal:prop[@name eq 'ipv6-address' and @class eq 'local']">A system interconnection must specify the
+                local (CSP) IPv6 address.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-remote-IPv4-address-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-remote-IPv4-address"
+                role="error"
+                test="oscal:prop[@name eq 'ipv4-address' and @class eq 'remote']">A system interconnection must specify the external system IPv4
+                address.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-remote-IPv6-address-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-remote-IPv6-address"
+                role="error"
+                test="not($ipv6-required) or oscal:prop[@name eq 'ipv6-address' and @class eq 'remote']">A system interconnection must specify the
+                external system IPv6 address.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-connection-security-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-connection-security"
+                role="error"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'connection-security']">A system interconnection must specify how
+                the connection is secured.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-circuit-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-circuit"
+                role="information"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = ('port', 'circuit')]">A system interconnection which uses a
+                dedicated telecom line must specify the circuit number.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-isa-poc-local-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-isa-poc-local"
+                role="error"
+                test="oscal:responsible-role[@role-id eq 'isa-poc-local']">A system interconnection must specify a responsible local (CSP) point of
+                contact.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-isa-poc-remote-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-isa-poc-remote"
+                role="error"
+                test="oscal:responsible-role[@role-id eq 'isa-poc-remote']">A system interconnection must specify a responsible remote point of
+                contact.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-isa-authorizing-official-local-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-isa-authorizing-official-local"
+                role="error"
+                test="oscal:responsible-role[@role-id eq 'isa-authorizing-official-local']">A system interconnection must specify a local authorizing
+                official.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-isa-authorizing-official-remote-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-isa-authorizing-official-remote"
+                role="error"
+                test="oscal:responsible-role[@role-id eq 'isa-authorizing-official-remote']">A system interconnection must specify a remote
+                authorizing official.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-responsible-persons-diagnostic"
+                id="interconnection-has-responsible-persons"
+                test="
+                    every $rp in descendant::oscal:party-uuid
+                        satisfies exists(//oscal:party[@uuid eq $rp and @type eq 'person'])">Every responsible person for a system
+                interconnect is defined.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-distinct-isa-local-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-distinct-isa-local"
+                role="error"
+                test="oscal:responsible-role[matches(@role-id, 'local$')]/oscal:party-uuid != oscal:responsible-role[matches(@role-id, 'remote$')]/oscal:party-uuid">A
+                system interconnection must specify local responsible parties which are not remote responsible parties.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-distinct-isa-remote-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-distinct-isa-remote"
+                role="error"
+                test="oscal:responsible-role[matches(@role-id, 'remote')]/oscal:party-uuid != oscal:responsible-role[matches(@role-id, 'local$')]/oscal:party-uuid">A
+                system interconnection must specify remote responsible parties which are not local responsible parties.</sch:assert>
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:component[@type eq 'interconnection']/oscal:protocol">
+            <sch:assert
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                role="error"
+                test="@name">A system interconnection protocol must have a name.</sch:assert>
+            <sch:assert
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                role="warning"
+                test="oscal:port-range">A system interconnection protocol should have one or more port range declarations.</sch:assert>
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:component[@type eq 'interconnection']/oscal:protocol/oscal:port-range">
+            <sch:assert
+                test="@transport">A system interconnection protocol port range declaration must state a transport protocol.</sch:assert>
+            <sch:assert
+                test="@start">A system interconnection protocol port range declaration must state a starting port number.</sch:assert>
+            <sch:assert
+                test="@end">A system interconnection protocol port range declaration must state an ending port number.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
     <sch:pattern
         id="info">
         <sch:rule
@@ -4059,5 +4276,106 @@
             doc:context="oscal:system-characteristics"
             id="has-public-cloud-deployment-model-diagnostic">When a FedRAMP SSP has public components or inventory items, a cloud deployment model of
             "public-cloud" must be employed.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-allowed-interconnection-direction-value"
+            doc:context="oscal:component[@type = 'interconnection']/oscal:prop[@name eq 'interconnection-direction']"
+            id="interconnection-has-allowed-interconnection-direction-value-diagnostic">A system interconnection lacks an allowed
+            direction.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-allowed-interconnection-security-value"
+            doc:context="oscal:component[@type = 'interconnection']/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']"
+            id="interconnection-has-allowed-interconnection-security-value-diagnostic">A system interconnection lacks an allowed
+            direction.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-title"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-title-diagnostic">This system interconnection lacks a remote system name.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-description"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-description-diagnostic">This system interconnection lacks a remote system description.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-direction"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-direction-diagnostic">This system interconnection lacks the direction of data flows.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-information"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-information-diagnostic">This system interconnection does not describe the information being
+            transferred.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-protocol"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-protocol-diagnostic">A system interconnection does not describe the protocols used for information
+            transfer.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-service-processor"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-service-processor-diagnostic">This system interconnection does not describe the service
+            processor.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-local-IPv4-address"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-local-IPv4-address-diagnostic">This system interconnection does not specify the local (CSP) IPv4
+            address.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-local-IPv6-address"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-local-IPv6-address-diagnostic">This system interconnection does not specify the local (CSP) IPv6
+            address.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-remote-IPv4-address"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-remote-IPv4-address-diagnostic">This system interconnection does not specify the external system IPv4
+            address.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-remote-IPv6-address"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-remote-IPv6-address-diagnostic">This system interconnection does not specify the external system IPv6
+            address.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-connection-security"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-connection-security-diagnostic">This system interconnection does not specify how the connection is
+            secured.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-circuit"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-circuit-diagnostic">This system interconnection does not specify the port or circuit used.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-isa-poc-local"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-isa-poc-local-diagnostic">This system interconnection does not specify a responsible local (CSP) point of
+            contact.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-isa-poc-remote"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-isa-poc-remote-diagnostic">This system interconnection does not specify a responsible remote point of
+            contact.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-isa-authorizing-official-local"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-isa-authorizing-official-local-diagnostic">This system interconnection does not specify a local authorizing
+            official.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-isa-authorizing-official-remote"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-isa-authorizing-official-remote-diagnostic">This system interconnection does not specify a remote authorizing
+            official.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-responsible-persons"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-responsible-persons-diagnostic">Not every responsible person for this system interconnect is
+            defined.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-distinct-isa-local"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-distinct-isa-local-diagnostic">This system interconnection has local responsible parties which are also remote
+            responsible parties.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-distinct-isa-remote"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-distinct-isa-remote-diagnostic">This system interconnection has remote responsible parties which are also local
+            responsible parties.</sch:diagnostic>
     </sch:diagnostics>
 </sch:schema>
