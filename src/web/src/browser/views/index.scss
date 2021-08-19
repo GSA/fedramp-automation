@@ -21,9 +21,8 @@ $theme-header-max-width: 'widescreen';
 @import '../../../node_modules/highlight.js/scss/github.scss';
 
 .loader {
-  border: 8px solid $theme-color-base-lightest; /* Light grey */
-  //border-top: 8px solid $theme-color-primary-vivid; /* Blue */
-  border-top: 8px solid #0050d8; /* Blue */
+  border: 8px solid color('base-lightest');
+  border-top: 8px solid color('primary-vivid');
   border-radius: 50%;
   width: 2.13rem;
   height: 2.13rem;
@@ -41,8 +40,8 @@ $theme-header-max-width: 'widescreen';
 
 // Header & Navigation
 .beta-banner {
-  background-color: $theme-color-secondary;
-  color: $theme-color-primary;
+  background-color: color('accent-cool-lighter');
+  color: color('ink');
   margin: auto 0;
   padding: 0.1rem 0;
 
