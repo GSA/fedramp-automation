@@ -18,8 +18,7 @@ export const ValidatorReport = () => {
             style={{ float: 'right' }}
           >
             <span className={`text-blue`}>
-              {schematronReport.summary.counts.assertions} concerns and{' '}
-              {schematronReport.summary.counts.reports} notes
+              {schematronReport.summary.counts.assertions} concerns
             </span>
           </span>
         </h1>

@@ -43,6 +43,9 @@ export const ValidatorResultsFilterForm = () => {
               </div>
             ))}
           </div>
+          <legend className="usa-legend text-base font-sans-md">
+            Filter by assertion text
+          </legend>
           <div
             className="usa-search usa-search--small margin-top-1"
             role="search"
@@ -78,7 +81,7 @@ export const ValidatorResultsFilterForm = () => {
                   }
                   actions.schematron.setFilterText(text);
                 }}
-                placeholder="Search assertion text..."
+                placeholder="Search text..."
               />
             </div>
           </div>

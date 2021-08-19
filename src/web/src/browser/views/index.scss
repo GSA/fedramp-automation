@@ -9,6 +9,9 @@ $theme-footer-max-width: 'widescreen';
 $theme-grid-container-max-width: 'widescreen';
 $theme-header-max-width: 'widescreen';
 
+$utilities-use-important: true;
+$output-all-utilities: true;
+
 // @import '../../../node_modules/uswds/dist/scss/theme/uswds-theme-general';
 // @import '../../../node_modules/uswds/dist/scss/theme/uswds-theme-typography';
 // @import '../../../node_modules/uswds/dist/scss/theme/uswds-theme-spacing';
@@ -40,7 +43,7 @@ $theme-header-max-width: 'widescreen';
 
 // Header & Navigation
 .beta-banner {
-  background-color: color('accent-cool-lighter');
+  background-color: color('gold-10v');
   color: color('ink');
   margin: auto 0;
   padding: 0.1rem 0;

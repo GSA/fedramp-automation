@@ -47,7 +47,6 @@ type BaseState = {
       subtitle: string;
       counts: {
         assertions: number;
-        reports: number;
       };
     };
     groups: {
@@ -204,9 +203,6 @@ export const createSchematronMachine = () => {
           };
 
           const isValidated = validator.current === 'VALIDATED';
-          const reportCount = _schematronChecksFiltered.filter(
-            c => c.isReport,
-          ).length;
 
           return {
             summary: {
@@ -216,8 +212,7 @@ export const createSchematronMachine = () => {
                   : 'FedRAMP Package Concerns',
               subtitle: assertionView.title,
               counts: {
-                assertions: _schematronChecksFiltered.length - reportCount,
-                reports: reportCount,
+                assertions: _schematronChecksFiltered.length,
               },
             },
             groups: assertionView.groups.map(assertionGroup => {

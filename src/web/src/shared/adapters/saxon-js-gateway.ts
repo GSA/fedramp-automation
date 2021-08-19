@@ -325,17 +325,12 @@ export const SchematronParser =
   (ctx: { SaxonJS: any }): ParseSchematronAssertions =>
   (schematron: string) => {
     const document = ctx.SaxonJS.getPlatform().parseXmlFromString(schematron);
-    const asserts = ctx.SaxonJS.XPath.evaluate(
-      '//(sch:report|sch:assert)',
-      document,
-      {
-        namespaceContext: { sch: 'http://purl.oclc.org/dsdl/schematron' },
-        resultForm: 'array',
-      },
-    );
+    const asserts = ctx.SaxonJS.XPath.evaluate('//sch:assert', document, {
+      namespaceContext: { sch: 'http://purl.oclc.org/dsdl/schematron' },
+      resultForm: 'array',
+    });
     return asserts.map((assert: any) => ({
       id: assert.getAttribute('id'),
-      isReport: assert.nodeName === 'sch:report',
       message: assert.textContent,
       role: assert.getAttribute('role'),
     }));

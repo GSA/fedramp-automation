@@ -20,9 +20,9 @@ export const ValidatorPage = () => {
         </div>
         <ValidatorFileSelectForm />
       </div>
-      <div className="grid-row grid-gap margin-2">
+      <div className="grid-row grid-gap">
         <div className="mobile:grid-col-12 tablet:grid-col-4">
-          <div className="position-sticky top-0 z-top bg-white padding-top-1 padding-bottom-1">
+          <div className="position-sticky top-0 z-top bg-white padding-top-4">
             <ValidatorResultsFilterForm />
           </div>
         </div>
