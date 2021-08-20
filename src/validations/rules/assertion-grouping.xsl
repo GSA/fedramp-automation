@@ -48,7 +48,7 @@
                         <xsl:variable
                             as="xs:string*"
                             name="groupitems"
-                            select="distinct-values($sch//@doc:*[local-name() eq $attribute-local-name])" />
+                            select="distinct-values($sch//@doc:*[local-name() eq $attribute-local-name] ! tokenize(.,',\s*'))" />
                         <!-- create a list of related assertions for each distinct attribute value-->
                         <array
                             key="groups">
@@ -118,8 +118,6 @@
                                         </string>
                                         <array
                                             key="assertionIds">
-                                            <xsl:message
-                                                expand-text="true">{string-join(tokenize($item, ',\s*'),' and ')}</xsl:message>
                                             <xsl:for-each
                                                 select="$sch//assert">
                                                 <xsl:if
