@@ -215,52 +215,54 @@ export const createSchematronMachine = () => {
                 assertions: _schematronChecksFiltered.length,
               },
             },
-            groups: assertionView.groups.map(assertionGroup => {
-              type UiAssert = SchematronAssert & {
-                message: string;
-                icon: typeof checkCircleIcon;
-                fired: FailedAssert[];
-              };
-              const checks = assertionGroup.assertionIds
-                .map(assertionGroupAssert => {
-                  const assert = _assertionsById[assertionGroupAssert];
-                  if (!assert) {
-                    return null;
-                  }
-                  const fired = validator.assertionsById[assert.id] || [];
-                  return {
-                    ...assert,
-                    // message: `${assert.id} ${assert.message}`,
-                    icon: !isValidated
-                      ? navigateNextIcon
-                      : fired.length
-                      ? cancelIcon
-                      : checkCircleIcon,
-                    fired,
-                  };
-                })
-                .filter(
-                  (assert: UiAssert | null): assert is UiAssert =>
-                    assert !== null,
-                );
-              const firedCount = checks.filter(
-                assert => assert.fired.length > 0,
-              ).length;
-              return {
-                title: assertionGroup.title,
-                checks: {
-                  summary: (() => {
-                    if (isValidated) {
-                      return `${firedCount} / ${checks.length} triggered`;
-                    } else {
-                      return `${checks.length} checks`;
+            groups: assertionView.groups
+              .map(assertionGroup => {
+                type UiAssert = SchematronAssert & {
+                  message: string;
+                  icon: typeof checkCircleIcon;
+                  fired: FailedAssert[];
+                };
+                const checks = assertionGroup.assertionIds
+                  .map(assertionGroupAssert => {
+                    const assert = _assertionsById[assertionGroupAssert];
+                    if (!assert) {
+                      return null;
                     }
-                  })(),
-                  summaryColor: firedCount === 0 ? 'green' : 'red',
-                  checks,
-                },
-              };
-            }),
+                    const fired = validator.assertionsById[assert.id] || [];
+                    return {
+                      ...assert,
+                      // message: `${assert.id} ${assert.message}`,
+                      icon: !isValidated
+                        ? navigateNextIcon
+                        : fired.length
+                        ? cancelIcon
+                        : checkCircleIcon,
+                      fired,
+                    };
+                  })
+                  .filter(
+                    (assert: UiAssert | null): assert is UiAssert =>
+                      assert !== null,
+                  );
+                const firedCount = checks.filter(
+                  assert => assert.fired.length > 0,
+                ).length;
+                return {
+                  title: assertionGroup.title,
+                  checks: {
+                    summary: (() => {
+                      if (isValidated) {
+                        return `${firedCount} / ${checks.length} triggered`;
+                      } else {
+                        return `${checks.length} checks`;
+                      }
+                    })(),
+                    summaryColor: firedCount === 0 ? 'green' : 'red',
+                    checks,
+                  },
+                };
+              })
+              .filter(group => group.checks.checks.length > 0),
           };
         },
       ),
