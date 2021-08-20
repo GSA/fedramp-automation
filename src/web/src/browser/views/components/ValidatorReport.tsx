@@ -22,7 +22,7 @@ export const ValidatorReport = () => {
             </span>
           </span>
         </h1>
-        <h2 className="margin-top-1 text-light">
+        <h2 className="margin-top-1 text-normal">
           {schematronReport.summary.subtitle}
         </h2>
       </div>

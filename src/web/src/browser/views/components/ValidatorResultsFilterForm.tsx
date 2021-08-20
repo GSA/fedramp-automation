@@ -10,7 +10,7 @@ export const ValidatorResultsFilterForm = () => {
   return (
     <>
       <h2>Filtering Options</h2>
-      <form className="usa-form bg-white padding-top-1">
+      <form className="usa-form padding-top-1">
         <fieldset className="usa-fieldset">
           <legend className="usa-legend text-base font-sans-md">
             Select an assertion view
