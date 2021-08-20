@@ -82,7 +82,7 @@ assessment-results:
             ns: https://fedramp.gov/ns/oscal
             value: "0000.00"
         links:
-          - href: https://assesor.web.site
+          - href: https://assessor.web.site
             rel: home-page
         location-uuids:
           - 49f73135-efab-4275-9a79-003656ad890a
