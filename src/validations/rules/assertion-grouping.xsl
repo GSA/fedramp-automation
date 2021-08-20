@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns:math="http://www.w3.org/2005/xpath-functions/math"
     exclude-result-prefixes="xs math sch doc"
     version="3.0"
-    xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+    xmlns:math="http://www.w3.org/2005/xpath-functions/math"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xpath-default-namespace="http://purl.oclc.org/dsdl/schematron">
     <xsl:output
         method="text" />
@@ -15,18 +15,18 @@
         <!-- define a variable for the input (Schematron) document -->
         <!-- because subsequent contexts are strings -->
         <xsl:variable
-            name="sch"
             as="document-node()"
+            name="sch"
             select="current()" />
         <!-- declare the distinct attribute names -->
         <xsl:variable
-            name="groups"
             as="xs:string*"
-            select="distinct-values(//(assert | report)/@doc:* ! local-name())" />
+            name="groups"
+            select="distinct-values(//assert/@doc:* ! local-name())" />
         <!-- create the proto-JSON XML -->
         <xsl:variable
-            name="xml"
-            as="node()">
+            as="node()"
+            name="xml">
             <!-- the outermost structure is an array -->
             <array
                 xmlns="http://www.w3.org/2005/xpath-functions">
@@ -35,8 +35,8 @@
                     select="$groups">
                     <!-- preserve the current context as it will be occluded -->
                     <xsl:variable
-                        name="attribute-local-name"
                         as="xs:string"
+                        name="attribute-local-name"
                         select="current()" />
                     <!-- create a grouping -->
                     <map>
@@ -46,8 +46,8 @@
                         </string>
                         <!-- get the distinct values found in this attribute -->
                         <xsl:variable
-                            name="groupitems"
                             as="xs:string*"
+                            name="groupitems"
                             select="distinct-values($sch//@doc:*[local-name() eq $attribute-local-name])" />
                         <!-- create a list of related assertions for each distinct attribute value-->
                         <array
@@ -57,8 +57,8 @@
                                 <xsl:sort>
                                     <!-- attempt to order by text -->
                                     <xsl:analyze-string
-                                        select="."
-                                        regex="^(\D+)">
+                                        regex="^(\D+)"
+                                        select=".">
                                         <xsl:matching-substring>
                                             <xsl:value-of
                                                 select="regex-group(1)" />
@@ -68,11 +68,11 @@
                                 <xsl:sort>
                                     <!-- attempt to order by number -->
                                     <xsl:variable
-                                        name="s"
-                                        as="xs:string">
+                                        as="xs:string"
+                                        name="s">
                                         <xsl:analyze-string
-                                            select="."
-                                            regex="^\D+([0-9.]+).*$">
+                                            regex="^\D+([0-9.]+).*$"
+                                            select=".">
                                             <xsl:matching-substring>
                                                 <xsl:choose>
                                                     <xsl:when
@@ -100,33 +100,42 @@
                                     <xsl:copy-of
                                         select="$s" />
                                 </xsl:sort>
-                                
+
                                 <xsl:variable
-                                    name="item"
                                     as="xs:string"
+                                    name="item"
                                     select="current()" />
-                                <map>
-                                    <string
-                                        key="title">
-                                        <xsl:value-of
-                                            select="current()" />
-                                    </string>
-                                    <array
-                                        key="assertionIds">
-                                        <xsl:for-each
-                                            select="$sch//(assert | report)">
-                                            <xsl:choose>
-                                                <xsl:when
-                                                    test="@doc:* = $item">
+                                <xsl:if
+                                    test="
+                                        some $d in $sch//assert/@doc:*
+                                            satisfies some $t in tokenize($d, ',\s*')
+                                                satisfies $t = tokenize($item, ',\s*')">
+                                    <map>
+                                        <string
+                                            key="title">
+                                            <xsl:value-of
+                                                select="current()" />
+                                        </string>
+                                        <array
+                                            key="assertionIds">
+                                            <xsl:message
+                                                expand-text="true">{string-join(tokenize($item, ',\s*'),' and ')}</xsl:message>
+                                            <xsl:for-each
+                                                select="$sch//assert">
+                                                <xsl:if
+                                                    test="
+                                                        some $d in @doc:*
+                                                            satisfies some $t in tokenize($d, ',\s*')
+                                                                satisfies $t = tokenize($item, ',\s*')">
                                                     <string>
                                                         <xsl:value-of
                                                             select="@id" />
                                                     </string>
-                                                </xsl:when>
-                                            </xsl:choose>
-                                        </xsl:for-each>
-                                    </array>
-                                </map>
+                                                </xsl:if>
+                                            </xsl:for-each>
+                                        </array>
+                                    </map>
+                                </xsl:if>
                             </xsl:for-each>
                         </array>
                     </map>
