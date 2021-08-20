@@ -13051,6 +13051,10 @@
          <prop name="version" value="Revision 4"/>
          <rlink media-type="application/xml"
                 href="https://raw.githubusercontent.com/usnistgov/oscal-content/v1.0.0/nist.gov/SP800-53/rev4/xml/NIST_SP-800-53_rev4_catalog.xml"/>
+         <rlink media-type="application/oscal.catalog+json"
+                href="https://raw.githubusercontent.com/usnistgov/oscal-content/v1.0.0/nist.gov/SP800-53/rev4/json/NIST_SP-800-53_rev4_catalog.json"/>
+         <rlink media-type="application/oscal.catalog+yaml"
+                href="https://raw.githubusercontent.com/usnistgov/oscal-content/v1.0.0/nist.gov/SP800-53/rev4/yaml/NIST_SP-800-53_rev4_catalog.yaml"/>
       </resource>
    </back-matter>
 </profile>
