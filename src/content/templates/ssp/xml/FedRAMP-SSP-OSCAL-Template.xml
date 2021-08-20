@@ -894,7 +894,7 @@
             </remarks>
          </prop>
          <!-- TODO: Discuss adding "agreement" to core OSCAL -->
-         <link rel="agreement" href="#9d6cf2b4-8e88-4040-a33c-7bc206553a1a"/>
+         <link rel="isa-agreement" href="#9d6cf2b4-8e88-4040-a33c-7bc206553a1a"/>
          <status state="operational"/>
          <responsible-role role-id="isa-poc-remote">
             <party-uuid>09ad840f-aa79-43aa-9f22-25182c2ab11b</party-uuid>

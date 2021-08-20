@@ -277,7 +277,7 @@
    <value-set name="interconnection-direction">
       <formal-name>Interconnection Direction</formal-name>
       <description>Identifies the direction of information flow for the interconnection.</description>
-      <binding pattern="component[@component-type='interconnection']/prop[@name='direction'][@ns='https://fedramp.gov/ns/oscal']" />
+      <binding pattern="component[@component-type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']" />
       <allowed-values allow-other="no">
          <enum value="incoming" short-label="In">Incoming</enum>
          <enum value="outgoing" short-label="Out">Outgoing</enum>
@@ -288,12 +288,13 @@
    <value-set name="interconnection-security">
       <formal-name>Interconnection Security</formal-name>
       <description>Identifies the type of security applied to the interconnection.</description>
-      <binding pattern="component[@component-type='interconnection']/prop[@name='connection-security'][@ns='https://fedramp.gov/ns/oscal']/@value" />
+      <binding pattern="component[@component-type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value" />
       <allowed-values allow-other="no">
          <enum value="ipsec" short-label="IPsec">IPsec</enum>
          <enum value="vpn" short-label="VPN">Virtual Private Network</enum>
-         <enum value="ssl" short-label="SSL">Secure Socket Layer</enum>
-         <enum value="certificate" short-label="Cert">Certificate</enum>
+         <enum value="tls" short-label="TLS">Transport-Layer Security</enum>
+         <enum value="dtls" short-label="TLS">Transport-Layer Security</enum>
+         <enum value="certificate" short-label="Cert">Certificate Authentication Security</enum>
          <enum value="secure-file-transfer" short-label="SFT">Secure File Transfer</enum>
          <enum value="other" short-label="Other">Other</enum>
       </allowed-values>
@@ -467,6 +468,7 @@
          <!-- All the privacy "types" need rationalization -->
          <enum value="personally-identifiable-information" short-label="PII">Personal Identifiable Information (PII)</enum>
          <enum value="agreement" short-label="Agreement">Agreement</enum>
+         <enum value="isa-agreement" short-label="Agreement">Interconnect Security Agreement</enum>
          <enum value="incident-response-plan" short-label="IRP">Incident Response Plan</enum>
          <enum value="information-security-policies-and-procedures" short-label="ISPP">Incident Security Policies and Procedures</enum>
          <enum value="user-guide" short-label="User Guide">User Guide</enum>
