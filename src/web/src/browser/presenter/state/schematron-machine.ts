@@ -257,7 +257,9 @@ export const createSchematronMachine = () => {
                         return `${checks.length} checks`;
                       }
                     })(),
-                    summaryColor: firedCount === 0 ? 'green' : 'red',
+                    summaryColor: (firedCount === 0 ? 'green' : 'red') as
+                      | 'red'
+                      | 'green',
                     checks,
                   },
                 };
@@ -268,23 +270,32 @@ export const createSchematronMachine = () => {
       ),
       _schematronChecksFiltered: derived(
         ({ config, filter, filterOptions }: SchematronMachine) => {
-          const filterRoles =
-            filter.role === 'all' ? filterOptions.roles : filter.role;
-          let assertions = config.schematronAsserts.filter(
-            (assertion: SchematronAssert) => {
-              return filterRoles.includes(assertion.role || '');
-            },
+          return filterAssertions(
+            config.schematronAsserts,
+            filter,
+            filterOptions,
           );
-          if (filter.text.length > 0) {
-            assertions = assertions.filter(assert => {
-              const searchText = assert.message.toLowerCase();
-              return searchText.includes(filter.text.toLowerCase());
-            });
-          }
-          return assertions;
         },
       ),
       validator: createValidatorMachine(),
     },
   );
+};
+
+const filterAssertions = (
+  schematronAsserts: SchematronUIConfig['schematronAsserts'],
+  filter: SchematronMachine['filter'],
+  filterOptions: SchematronMachine['filterOptions'],
+) => {
+  const filterRoles = filter.role === 'all' ? filterOptions.roles : filter.role;
+  let assertions = schematronAsserts.filter((assertion: SchematronAssert) => {
+    return filterRoles.includes(assertion.role || '');
+  });
+  if (filter.text.length > 0) {
+    assertions = assertions.filter(assert => {
+      const searchText = assert.message.toLowerCase();
+      return searchText.includes(filter.text.toLowerCase());
+    });
+  }
+  return assertions;
 };

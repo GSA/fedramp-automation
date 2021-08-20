@@ -121,6 +121,9 @@ export const ValidatorResultsFilterForm = () => {
                     />
                   </svg>
                   {filterRole.toLocaleUpperCase() || '<not specified>'}
+                  <span className="margin-left-1 usa-tag" title={`0 results`}>
+                    0
+                  </span>
                   <span className="usa-checkbox__label-description">
                     This is optional text that can be used to
                   </span>
