@@ -1267,8 +1267,8 @@
                     "enum": [
                         {
                             "value": "assessor",
-                            "label": "Assesor",
-                            "#text": "Assesor"
+                            "label": "Assessor",
+                            "#text": "Assessor"
                         },
                         {
                             "value": "assessment-team",
