@@ -2953,9 +2953,7 @@
 
     <sch:pattern
         id="interconnects">
-        <sch:let
-            name="ipv6-required"
-            value="false()" />
+        <sch:title>Interconnections</sch:title>
         <sch:rule
             context="oscal:component[@type = 'interconnection']/oscal:prop[@name eq 'interconnection-direction']">
             <sch:let
@@ -3053,8 +3051,8 @@
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-local-IPv6-address"
                 role="error"
-                test="not($ipv6-required) or oscal:prop[@name eq 'ipv6-address' and @class eq 'local']">A system interconnection must specify the
-                local (CSP) IPv6 address.</sch:assert>
+                test="oscal:prop[@name eq 'ipv6-address' and @class eq 'local']">A system interconnection must specify the local (CSP) IPv6
+                address.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-remote-IPv4-address-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
@@ -3069,8 +3067,8 @@
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-remote-IPv6-address"
                 role="error"
-                test="not($ipv6-required) or oscal:prop[@name eq 'ipv6-address' and @class eq 'remote']">A system interconnection must specify the
-                external system IPv6 address.</sch:assert>
+                test="oscal:prop[@name eq 'ipv6-address' and @class eq 'remote']">A system interconnection must specify the external system IPv6
+                address.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-interconnection-security-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
@@ -3085,8 +3083,8 @@
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-circuit"
                 role="information"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = ('port', 'circuit')]">A system interconnection which uses a
-                dedicated telecom line must specify the circuit number.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'circuit']">A system interconnection which uses a dedicated
+                telecom line must specify the circuit number.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-isa-poc-local-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
@@ -3122,9 +3120,11 @@
             <sch:assert
                 diagnostics="interconnection-has-responsible-persons-diagnostic"
                 id="interconnection-has-responsible-persons"
+                role="error"
                 test="
-                    every $rp in descendant::oscal:party-uuid
-                        satisfies exists(//oscal:party[@uuid eq $rp and @type eq 'person'])">Every responsible person for a system
+                    exists(oscal:responsible-role/oscal:party-uuid) and
+                    (every $rp in descendant::oscal:party-uuid
+                        satisfies exists(//oscal:party[@uuid eq $rp and @type eq 'person']))">Every responsible person for a system
                 interconnect is defined.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-distinct-isa-local-diagnostic"
@@ -3132,16 +3132,21 @@
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-distinct-isa-local"
                 role="error"
-                test="oscal:responsible-role[matches(@role-id, 'local$')]/oscal:party-uuid != oscal:responsible-role[matches(@role-id, 'remote$')]/oscal:party-uuid">A
-                system interconnection must specify local responsible parties which are not remote responsible parties.</sch:assert>
+                test="
+                    every $p in oscal:responsible-role[matches(@role-id, 'local$')]/oscal:party-uuid
+                        satisfies not($p = oscal:responsible-role[matches(@role-id, 'remote$')]/oscal:party-uuid)
+                    ">A system interconnection must specify local responsible parties which are not remote responsible
+                parties.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-distinct-isa-remote-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-distinct-isa-remote"
                 role="error"
-                test="oscal:responsible-role[matches(@role-id, 'remote')]/oscal:party-uuid != oscal:responsible-role[matches(@role-id, 'local$')]/oscal:party-uuid">A
-                system interconnection must specify remote responsible parties which are not local responsible parties.</sch:assert>
+                test="
+                    every $p in oscal:responsible-role[matches(@role-id, 'remote$')]/oscal:party-uuid
+                        satisfies not($p = oscal:responsible-role[matches(@role-id, 'local$')]/oscal:party-uuid)">A system
+                interconnection must specify remote responsible parties which are not local responsible parties.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-cites-interconnection-agreement-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
@@ -3149,6 +3154,24 @@
                 id="interconnection-cites-interconnection-agreement"
                 role="error"
                 test="oscal:link[@rel eq 'agreement']">A system interconnection must cite an interconnection agreement.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-cites-interconnection-agreement-href-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-cites-interconnection-agreement-href"
+                role="error"
+                test="oscal:link[@rel eq 'agreement' and matches(@href, '^#')]">A system interconnection must cite an intra-document defined
+                interconnection agreement.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-cites-attached-interconnection-agreement-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-cites-attached-interconnection-agreement"
+                role="error"
+                test="
+                    every $href in oscal:link[@rel eq 'agreement']/@href
+                        satisfies exists(//oscal:resource[@uuid eq substring-after($href, '#')])">A system interconnection must cite
+                an intra-document attached interconnection agreement and that agreement must be present in the SSP.</sch:assert>
         </sch:rule>
 
         <sch:rule
@@ -4418,10 +4441,21 @@
             doc:context="oscal:component[@type eq 'interconnection']"
             id="interconnection-has-distinct-isa-remote-diagnostic">This system interconnection has remote responsible parties which are also local
             responsible parties.</sch:diagnostic>
-        <sch:diagnostic 
+        <sch:diagnostic
             doc:assertion="interconnection-cites-interconnection-agreement"
             doc:context="oscal:component[@type eq 'interconnection']"
-            id="interconnection-cites-interconnection-agreement-diagnostic">A system interconnection does not cite an interconnection agreement.</sch:diagnostic>
+            id="interconnection-cites-interconnection-agreement-diagnostic">This system interconnection does not cite an interconnection
+            agreement.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-cites-interconnection-agreement-href"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-cites-interconnection-agreement-href-diagnostic">This system interconnection does not cite an intra-document defined
+            interconnection agreement.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-cites-attached-interconnection-agreement"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-cites-attached-interconnection-agreement-diagnostic">This system interconnection cites an absent interconnection
+            agreement.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="interconnection-protocol-has-name"
             doc:context="oscal:component[@type eq 'interconnection']/oscal:protocol"
