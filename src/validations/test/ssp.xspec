@@ -9075,4 +9075,952 @@
             </x:scenario>
         </x:scenario>
     </x:scenario>
+
+    <x:scenario
+        label="FEDRAMP OSCAL SSP Interconnections">
+        <x:scenario
+            label="Positive tests">
+            <x:context>
+                <system-security-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <metadata>
+                        <role
+                            id="isa-poc-local" />
+                        <role
+                            id="isa-authorizing-official-local" />
+                        <role
+                            id="isa-poc-remote" />
+                        <role
+                            id="isa-authorizing-official-remote" />
+                        <party
+                            type="person"
+                            uuid="59dcd024-db2f-4ba6-bcfe-57f17848d4a6" />
+                        <party
+                            type="person"
+                            uuid="47ffd79c-0e7b-4c4c-ab87-d47120de83ba" />
+                        <party
+                            type="person"
+                            uuid="b04068b8-e758-4d9c-b041-1ea264c226b1" />
+                        <party
+                            type="person"
+                            uuid="fc98bd2b-b615-41de-810c-40a1f9af69f3" />
+                    </metadata>
+                    <system-implementation>
+                        <component
+                            type="interconnection"
+                            uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                            <title>Title</title>
+                            <description>
+                                <p>Description</p>
+                            </description>
+                            <prop
+                                name="interconnection-direction"
+                                value="incoming-outgoing" />
+                            <prop
+                                name="interconnection-security"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="other">
+                                <remarks />
+                            </prop>
+                            <prop
+                                name="information"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="description" />
+                            <prop
+                                name="service-processor"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="description" />
+                            <prop
+                                class="local"
+                                name="ipv4-address"
+                                value="10.0.0.1" />
+                            <prop
+                                class="remote"
+                                name="ipv4-address"
+                                value="10.0.0.1" />
+                            <prop
+                                class="local"
+                                name="ipv6-address"
+                                value="2001:db8:3333:4444:5555:6666:7777:8888." />
+                            <prop
+                                class="remote"
+                                name="ipv6-address"
+                                value="2001:db8:3333:4444:5555:6666:7777:8888." />
+                            <prop
+                                name="circuit"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="description" />
+                            <link
+                                href="#c95172cb-7e95-42b9-a5fd-cf4605c5c4a6"
+                                rel="agreement" />
+                            <status
+                                state="operational" />
+                            <responsible-role
+                                role-id="isa-poc-local">
+                                <party-uuid>59dcd024-db2f-4ba6-bcfe-57f17848d4a6</party-uuid>
+                            </responsible-role>
+                            <responsible-role
+                                role-id="isa-authorizing-official-local">
+                                <party-uuid>47ffd79c-0e7b-4c4c-ab87-d47120de83ba</party-uuid>
+                            </responsible-role>
+                            <responsible-role
+                                role-id="isa-poc-remote">
+                                <party-uuid>b04068b8-e758-4d9c-b041-1ea264c226b1</party-uuid>
+                            </responsible-role>
+                            <responsible-role
+                                role-id="isa-authorizing-official-remote">
+                                <party-uuid>fc98bd2b-b615-41de-810c-40a1f9af69f3</party-uuid>
+                            </responsible-role>
+                            <protocol
+                                name="https">
+                                <port-range
+                                    end="443"
+                                    start="443"
+                                    transport="TCP" />
+                            </protocol>
+                        </component>
+                    </system-implementation>
+                    <back-matter>
+                        <resource
+                            uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                            <prop
+                                name="type"
+                                value="agreement" />
+                        </resource>
+                    </back-matter>
+                </system-security-plan>
+            </x:context>
+            <x:scenario
+                label="A system interconnection must have an allowed interconnection-direction.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-allowed-interconnection-direction-value"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must have an allowed interconnection-security value.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-allowed-interconnection-security-value"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection with an interconnection-security of &#34;other&#34; must have explanatory remarks.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-interconnection-security-remarks"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must provide a remote system name.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-title"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must provide a remote system description.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-description"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must identify the direction of data flows.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-direction"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must describe the information being transferred.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-information"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must describe the protocols used for information transfer.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-protocol"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must describe the service processor.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-service-processor"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify the local (CSP) IPv4 address.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-local-IPv4-address"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify the local (CSP) IPv6 address.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-local-IPv6-address"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify the external system IPv4 address.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-remote-IPv4-address"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify the external system IPv6 address.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-remote-IPv6-address"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify how the connection is secured.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-interconnection-security"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection which uses a dedicated telecom line must specify the circuit number.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-circuit"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify a responsible local (CSP) point of contact.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-isa-poc-local"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify a responsible remote point of contact.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-isa-poc-remote"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify a local authorizing official.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-isa-authorizing-official-local"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify a remote authorizing official.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-isa-authorizing-official-remote"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every responsible person for a system interconnect is defined.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-responsible-persons"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify local responsible parties which are not remote responsible parties.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-distinct-isa-local"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify remote responsible parties which are not local responsible parties.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-has-distinct-isa-remote"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must cite an interconnection agreement.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-cites-interconnection-agreement"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must cite an intra-document defined interconnection agreement.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-cites-interconnection-agreement-href"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must cite an intra-document attached interconnection agreement and that agreement must be present in the SSP.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-cites-attached-interconnection-agreement"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection protocol must have a name.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-protocol-has-name"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection protocol should have one or more port range declarations.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-protocol-has-port-range"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection protocol port range declaration must state a transport protocol.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-protocol-port-range-has-transport"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection protocol port range declaration must state a starting port number.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-protocol-port-range-has-start"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection protocol port range declaration must state an ending port number.">
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="interconnection-protocol-port-range-has-end"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
+            label="Negative tests">
+            <x:context>
+                <system-security-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <metadata />
+                    <system-implementation>
+                        <component
+                            type="interconnection"
+                            uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6" />
+                    </system-implementation>
+                    <back-matter />
+                </system-security-plan>
+            </x:context>
+            <x:scenario
+                label="A system interconnection must have an allowed interconnection-direction.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <prop
+                                        name="interconnection-direction"
+                                        value="downward" />
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-has-allowed-interconnection-direction-value"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must have an allowed interconnection-security value.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <prop
+                                        name="interconnection-security"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="none">
+                                        <remarks />
+                                    </prop>
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-has-allowed-interconnection-security-value"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection with an interconnection-security of &#34;other&#34; must have explanatory remarks.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <prop
+                                        name="interconnection-security"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="other" />
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-has-interconnection-security-remarks"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must provide a remote system name.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-title"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must provide a remote system description.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-description"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must identify the direction of data flows.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-direction"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must describe the information being transferred.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-information"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must describe the protocols used for information transfer.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-protocol"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must describe the service processor.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-service-processor"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify the local (CSP) IPv4 address.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-local-IPv4-address"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify the local (CSP) IPv6 address.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-local-IPv6-address"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify the external system IPv4 address.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-remote-IPv4-address"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify the external system IPv6 address.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-remote-IPv6-address"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify how the connection is secured.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-interconnection-security"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection which uses a dedicated telecom line must specify the circuit number.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-circuit"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify a responsible local (CSP) point of contact.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-isa-poc-local"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify a responsible remote point of contact.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-isa-poc-remote"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify a local authorizing official.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-isa-authorizing-official-local"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify a remote authorizing official.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-has-isa-authorizing-official-remote"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="Every responsible person for a system interconnect is defined.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <party
+                                    type="person"
+                                    uuid="59dcd024-db2f-4ba6-bcfe-57f17848d4a6" />
+                                <party
+                                    type="person"
+                                    uuid="47ffd79c-0e7b-4c4c-ab87-d47120de83ba" />
+                                <party
+                                    type="person"
+                                    uuid="b04068b8-e758-4d9c-b041-1ea264c226b1" />
+                            </metadata>
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <responsible-role
+                                        role-id="isa-poc-local">
+                                        <party-uuid>59dcd024-db2f-4ba6-bcfe-57f17848d4a6</party-uuid>
+                                    </responsible-role>
+                                    <responsible-role
+                                        role-id="isa-authorizing-official-local">
+                                        <party-uuid>47ffd79c-0e7b-4c4c-ab87-d47120de83ba</party-uuid>
+                                    </responsible-role>
+                                    <responsible-role
+                                        role-id="isa-poc-remote">
+                                        <party-uuid>b04068b8-e758-4d9c-b041-1ea264c226b1</party-uuid>
+                                    </responsible-role>
+                                    <responsible-role
+                                        role-id="isa-authorizing-official-remote">
+                                        <party-uuid>fc98bd2b-b615-41de-810c-40a1f9af69f3</party-uuid>
+                                    </responsible-role>
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-has-responsible-persons"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify local responsible parties which are not remote responsible parties.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <party
+                                    type="person"
+                                    uuid="59dcd024-db2f-4ba6-bcfe-57f17848d4a6" />
+                                <party
+                                    type="person"
+                                    uuid="47ffd79c-0e7b-4c4c-ab87-d47120de83ba" />
+                                <party
+                                    type="person"
+                                    uuid="b04068b8-e758-4d9c-b041-1ea264c226b1" />
+                                <party
+                                    type="person"
+                                    uuid="fc98bd2b-b615-41de-810c-40a1f9af69f3" />
+                            </metadata>
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <responsible-role
+                                        role-id="isa-poc-local">
+                                        <party-uuid>59dcd024-db2f-4ba6-bcfe-57f17848d4a6</party-uuid>
+                                    </responsible-role>
+                                    <responsible-role
+                                        role-id="isa-authorizing-official-local">
+                                        <party-uuid>47ffd79c-0e7b-4c4c-ab87-d47120de83ba</party-uuid>
+                                    </responsible-role>
+                                    <responsible-role
+                                        role-id="isa-poc-remote">
+                                        <party-uuid>59dcd024-db2f-4ba6-bcfe-57f17848d4a6</party-uuid>
+                                    </responsible-role>
+                                    <responsible-role
+                                        role-id="isa-authorizing-official-remote">
+                                        <party-uuid>fc98bd2b-b615-41de-810c-40a1f9af69f3</party-uuid>
+                                    </responsible-role>
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-has-distinct-isa-local"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must specify remote responsible parties which are not local responsible parties.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <party
+                                    type="person"
+                                    uuid="59dcd024-db2f-4ba6-bcfe-57f17848d4a6" />
+                                <party
+                                    type="person"
+                                    uuid="47ffd79c-0e7b-4c4c-ab87-d47120de83ba" />
+                                <party
+                                    type="person"
+                                    uuid="b04068b8-e758-4d9c-b041-1ea264c226b1" />
+                                <party
+                                    type="person"
+                                    uuid="fc98bd2b-b615-41de-810c-40a1f9af69f3" />
+                            </metadata>
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <responsible-role
+                                        role-id="isa-poc-local">
+                                        <party-uuid>59dcd024-db2f-4ba6-bcfe-57f17848d4a6</party-uuid>
+                                    </responsible-role>
+                                    <responsible-role
+                                        role-id="isa-authorizing-official-local">
+                                        <party-uuid>47ffd79c-0e7b-4c4c-ab87-d47120de83ba</party-uuid>
+                                    </responsible-role>
+                                    <responsible-role
+                                        role-id="isa-poc-remote">
+                                        <party-uuid>59dcd024-db2f-4ba6-bcfe-57f17848d4a6</party-uuid>
+                                    </responsible-role>
+                                    <responsible-role
+                                        role-id="isa-authorizing-official-remote">
+                                        <party-uuid>fc98bd2b-b615-41de-810c-40a1f9af69f3</party-uuid>
+                                    </responsible-role>
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-has-distinct-isa-remote"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must cite an interconnection agreement.">
+                <x:scenario
+                    label="when it is not">
+                    <x:expect-assert
+                        id="interconnection-cites-interconnection-agreement"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must cite an intra-document defined interconnection agreement.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <link
+                                        href="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6"
+                                        rel="agreement" />
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-cites-interconnection-agreement-href"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection must cite an intra-document attached interconnection agreement and that agreement must be present in the SSP.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <link
+                                        href="#c95172cb-7e95-42b9-a5fd-cf4605c5c4a6"
+                                        rel="agreement" />
+                                </component>
+                            </system-implementation>
+                            <back-matter />
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-cites-attached-interconnection-agreement"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection protocol must have a name.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <protocol>
+                                        <port-range
+                                            end="443"
+                                            start="443"
+                                            transport="TCP" />
+                                    </protocol>
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-protocol-has-name"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection protocol should have one or more port range declarations.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <protocol
+                                        name="https" />
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-protocol-has-port-range"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection protocol port range declaration must state a transport protocol.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <protocol
+                                        name="https">
+                                        <port-range
+                                            end="443"
+                                            start="443" />
+                                    </protocol>
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-protocol-port-range-has-transport"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection protocol port range declaration must state a starting port number.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <protocol
+                                        name="https">
+                                        <port-range
+                                            end="443"
+                                            transport="TCP" />
+                                    </protocol>
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-protocol-port-range-has-start"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A system interconnection protocol port range declaration must state an ending port number.">
+                <x:scenario
+                    label="when it is not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <component
+                                    type="interconnection"
+                                    uuid="c95172cb-7e95-42b9-a5fd-cf4605c5c4a6">
+                                    <protocol
+                                        name="https">
+                                        <port-range
+                                            start="443"
+                                            transport="TCP" />
+                                    </protocol>
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="interconnection-protocol-port-range-has-end"
+                        label="that is an error." />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+    </x:scenario>
 </x:description>
