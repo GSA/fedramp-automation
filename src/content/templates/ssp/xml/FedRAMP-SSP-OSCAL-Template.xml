@@ -878,16 +878,13 @@
          <description>
             <p>Briefly describe the interconnection.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="service-processor" value="[SAMPLE]Telco Name"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="service-processor" value="[SAMPLE] Telco Name"/>
          <prop name="ipv4-address" class="local" value="10.1.1.1"/>
          <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
-         <prop name="direction" value="incoming"/>
-         <prop name="direction" value="outgoing"/>
-         <!-- TODO: discuss adding "information", "port", "circuit", "connection-security" to core OSCAL -->
+         <prop name="direction" value="incoming-outgoing"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="information"
             value="Describe the information being transmitted."/>
          <prop ns="https://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="circuit" value="1"/>
          <prop name="connection-security" ns="https://fedramp.gov/ns/oscal" value="ipsec">
             <remarks>
                <p>If "other", remarks are required. Optional otherwise.</p>

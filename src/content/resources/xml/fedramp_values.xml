@@ -214,10 +214,10 @@
       <remarks>FedRAMP only allows information types defined in NIST SP 800-60v2r1.</remarks>
    </value-set>
 
-   <value-set name="system-operational-status">
+   <value-set name="operational-status">
       <formal-name>Operational Status (system)</formal-name>
       <description>The operational status of the system</description>
-      <binding pattern="system-characteristics/status/@state" />
+      <binding pattern="status/@state" />
       <allowed-values allow-other="no">
          <enum value="operational" short-label="Operational">Operational</enum>
          <enum value="under-development" short-label="Development">Under Development</enum>
@@ -468,7 +468,7 @@
          <!-- All the privacy "types" need rationalization -->
          <enum value="personally-identifiable-information" short-label="PII">Personal Identifiable Information (PII)</enum>
          <enum value="agreement" short-label="Agreement">Agreement</enum>
-         <enum value="isa-agreement" short-label="Agreement">Interconnect Security Agreement</enum>
+         <enum value="isa-agreement" short-label="Agreement">Interconnection Security Agreement</enum>
          <enum value="incident-response-plan" short-label="IRP">Incident Response Plan</enum>
          <enum value="information-security-policies-and-procedures" short-label="ISPP">Incident Security Policies and Procedures</enum>
          <enum value="user-guide" short-label="User Guide">User Guide</enum>
