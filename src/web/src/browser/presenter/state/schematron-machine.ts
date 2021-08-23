@@ -7,6 +7,7 @@ import type {
 } from '@asap/shared/use-cases/schematron';
 
 import { createValidatorMachine, ValidatorMachine } from './validator-machine';
+import { groupSort } from 'fp-ts/lib/ReadonlyNonEmptyArray';
 
 export type Role = string;
 
@@ -33,7 +34,7 @@ type BaseState = {
   };
   filterOptions: {
     assertionViews: {
-      id: number;
+      index: number;
       title: string;
       count: number;
     }[];
@@ -165,31 +166,35 @@ export const createSchematronMachine = () => {
         const assertionViews = state.config.assertionViews.map(
           (view, index) => {
             return {
-              id: index,
+              index,
               title: view.title,
             };
           },
         );
         const assertionView = assertionViews
-          .filter(view => view.id === state.filter.assertionViewId)
+          .filter(view => view.index === state.filter.assertionViewId)
           .map(() => {
             return state.config.assertionViews[state.filter.assertionViewId];
           })[0] || {
           title: '',
           groups: [],
         };
+        const assertionViewIds = assertionView.groups
+          .map(group => group.assertionIds)
+          .flat();
         return {
           assertionViews: assertionViews.map(view => ({
             ...view,
             count: filterAssertions(
               state.config.schematronAsserts,
               {
-                role: 'all',
+                role: state.filter.role,
                 text: state.filter.text,
-                assertionViewId: state.filter.assertionViewId,
+                assertionViewIds: state.config.assertionViews[
+                  view.index
+                ].groups.flatMap(group => group.assertionIds),
               },
               availableRoles,
-              assertionView,
             ).length,
           })),
           roles: [
@@ -200,10 +205,9 @@ export const createSchematronMachine = () => {
                 {
                   role: 'all',
                   text: state.filter.text,
-                  assertionViewId: state.filter.assertionViewId,
+                  assertionViewIds,
                 },
                 availableRoles,
-                assertionView,
               ).length,
             },
             ...availableRoles.sort().map((role: string) => {
@@ -214,10 +218,9 @@ export const createSchematronMachine = () => {
                   {
                     role,
                     text: state.filter.text,
-                    assertionViewId: state.filter.assertionViewId,
+                    assertionViewIds,
                   },
                   availableRoles,
-                  assertionView,
                 ).length,
               };
             }),
@@ -227,7 +230,7 @@ export const createSchematronMachine = () => {
       schematronReport: derived(
         ({ config, filter, filterOptions, validator }: SchematronMachine) => {
           const assertionView = filterOptions.assertionViews
-            .filter(view => view.id === filter.assertionViewId)
+            .filter(view => view.index === filter.assertionViewId)
             .map(() => {
               return config.assertionViews[filter.assertionViewId];
             })[0] || {
@@ -237,9 +240,14 @@ export const createSchematronMachine = () => {
 
           const schematronChecksFiltered = filterAssertions(
             config.schematronAsserts,
-            filter,
+            {
+              role: filter.role,
+              text: filter.text,
+              assertionViewIds: assertionView.groups
+                .map(group => group.assertionIds)
+                .flat(),
+            },
             filterOptions.roles.map(role => role.name),
-            assertionView,
           );
           const assertionsById = getAssertionsById(schematronChecksFiltered);
 
@@ -316,9 +324,12 @@ export const createSchematronMachine = () => {
 
 const filterAssertions = (
   schematronAsserts: SchematronUIConfig['schematronAsserts'],
-  filter: SchematronMachine['filter'],
+  filter: {
+    role: Role;
+    text: string;
+    assertionViewIds: string[];
+  },
   roleOptions: Role[],
-  assertionView: AssertionView,
 ) => {
   const filterRoles =
     filter.role === 'all' ? roleOptions.map(role => role) : filter.role;
@@ -331,14 +342,9 @@ const filterAssertions = (
       return searchText.includes(filter.text.toLowerCase());
     });
   }
-  const assertionViewAssertionIds = assertionView.groups
-    .map(group => group.assertionIds)
-    .flat();
-  console.log(assertionViewAssertionIds);
   assertions = assertions.filter(assert =>
-    assertionViewAssertionIds.includes(assert.id),
+    filter.assertionViewIds.includes(assert.id),
   );
-  console.log(assertions);
   return assertions;
 };
 

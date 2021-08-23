@@ -17,25 +17,33 @@ export const ValidatorResultsFilterForm = () => {
           </legend>
           <div className="usa-radio">
             {schematron.filterOptions.assertionViews.map(assertionView => (
-              <div key={assertionView.id}>
+              <div key={assertionView.index}>
                 <input
                   className="usa-radio__input usa-radio__input--tile"
-                  id={`assertion-view-${assertionView.id}`}
+                  id={`assertion-view-${assertionView.index}`}
                   type="radio"
                   name="assertion-view"
-                  value={assertionView.id}
+                  value={assertionView.index}
                   checked={
-                    schematron.filter.assertionViewId === assertionView.id
+                    schematron.filter.assertionViewId === assertionView.index
                   }
                   onChange={() =>
-                    actions.schematron.setFilterAssertionView(assertionView.id)
+                    actions.schematron.setFilterAssertionView(
+                      assertionView.index,
+                    )
                   }
                 />
                 <label
                   className="usa-radio__label"
-                  htmlFor={`assertion-view-${assertionView.id}`}
+                  htmlFor={`assertion-view-${assertionView.index}`}
                 >
                   {assertionView.title}
+                  <span
+                    className="margin-left-1 usa-tag"
+                    title={`${assertionView.count} results`}
+                  >
+                    {assertionView.count}
+                  </span>
                   <span className="usa-checkbox__label-description">
                     This is optional text that can be used to
                   </span>
