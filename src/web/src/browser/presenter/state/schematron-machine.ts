@@ -25,9 +25,6 @@ type States =
     };
 
 type BaseState = {
-  _assertionsById: {
-    [assertionId: string]: SchematronAssert;
-  };
   config: SchematronUIConfig;
   filter: {
     role: Role;
@@ -51,7 +48,6 @@ type BaseState = {
     };
     groups: {
       title: string;
-      //see: string;
       checks: {
         summary: string;
         summaryColor: 'red' | 'green';
@@ -62,7 +58,6 @@ type BaseState = {
       };
     }[];
   };
-  _schematronChecksFiltered: SchematronAssert[];
   validator: ValidatorMachine;
 };
 
@@ -154,13 +149,6 @@ export const createSchematronMachine = () => {
         assertionViews: [],
         schematronAsserts: [],
       },
-      _assertionsById: derived((state: SchematronMachine) => {
-        const assertions: SchematronMachine['_assertionsById'] = {};
-        state._schematronChecksFiltered.forEach(assert => {
-          assertions[assert.id] = assert;
-        });
-        return assertions;
-      }),
       filter: {
         role: 'all',
         text: '',
@@ -185,14 +173,14 @@ export const createSchematronMachine = () => {
         };
       }),
       schematronReport: derived(
-        ({
-          _assertionsById,
-          _schematronChecksFiltered,
-          config,
-          filter,
-          filterOptions,
-          validator,
-        }: SchematronMachine) => {
+        ({ config, filter, filterOptions, validator }: SchematronMachine) => {
+          const schematronChecksFiltered = filterAssertions(
+            config.schematronAsserts,
+            filter,
+            filterOptions,
+          );
+          const assertionsById = getAssertionsById(schematronChecksFiltered);
+
           const assertionView = filterOptions.assertionViews
             .filter(view => view.id === filter.assertionViewId)
             .map(() => {
@@ -212,7 +200,7 @@ export const createSchematronMachine = () => {
                   : 'FedRAMP Package Concerns',
               subtitle: assertionView.title,
               counts: {
-                assertions: _schematronChecksFiltered.length,
+                assertions: schematronChecksFiltered.length,
               },
             },
             groups: assertionView.groups
@@ -224,7 +212,7 @@ export const createSchematronMachine = () => {
                 };
                 const checks = assertionGroup.assertionIds
                   .map(assertionGroupAssert => {
-                    const assert = _assertionsById[assertionGroupAssert];
+                    const assert = assertionsById[assertionGroupAssert];
                     if (!assert) {
                       return null;
                     }
@@ -268,15 +256,6 @@ export const createSchematronMachine = () => {
           };
         },
       ),
-      _schematronChecksFiltered: derived(
-        ({ config, filter, filterOptions }: SchematronMachine) => {
-          return filterAssertions(
-            config.schematronAsserts,
-            filter,
-            filterOptions,
-          );
-        },
-      ),
       validator: createValidatorMachine(),
     },
   );
@@ -297,5 +276,15 @@ const filterAssertions = (
       return searchText.includes(filter.text.toLowerCase());
     });
   }
+  return assertions;
+};
+
+const getAssertionsById = (asserts: SchematronAssert[]) => {
+  const assertions: {
+    [assertionId: string]: SchematronAssert;
+  } = {};
+  asserts.forEach(assert => {
+    assertions[assert.id] = assert;
+  });
   return assertions;
 };

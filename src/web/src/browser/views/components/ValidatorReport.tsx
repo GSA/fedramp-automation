@@ -26,9 +26,9 @@ export const ValidatorReport = () => {
           {schematronReport.summary.subtitle}
         </h2>
       </div>
-      {schematronReport.groups.map((group, index) => (
+      {schematronReport.groups.map(group => (
         <details
-          key={index}
+          key={group.title}
           className="border-top-1px border-accent-cool-light padding-1"
           open={false}
         >
