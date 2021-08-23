@@ -35,8 +35,12 @@ type BaseState = {
     assertionViews: {
       id: number;
       title: string;
+      count: number;
     }[];
-    roles: Role[];
+    roles: {
+      name: Role;
+      count: number;
+    }[];
   };
   schematronReport: {
     summary: {
@@ -155,32 +159,73 @@ export const createSchematronMachine = () => {
         assertionViewId: 0,
       },
       filterOptions: derived((state: SchematronMachine) => {
-        return {
-          assertionViews: state.config.assertionViews.map((view, index) => {
+        const availableRoles = Array.from(
+          new Set(state.config.schematronAsserts.map(assert => assert.role)),
+        );
+        const assertionViews = state.config.assertionViews.map(
+          (view, index) => {
             return {
               id: index,
               title: view.title,
             };
-          }),
+          },
+        );
+        const assertionView = assertionViews
+          .filter(view => view.id === state.filter.assertionViewId)
+          .map(() => {
+            return state.config.assertionViews[state.filter.assertionViewId];
+          })[0] || {
+          title: '',
+          groups: [],
+        };
+        return {
+          assertionViews: assertionViews.map(view => ({
+            ...view,
+            count: filterAssertions(
+              state.config.schematronAsserts,
+              {
+                role: 'all',
+                text: state.filter.text,
+                assertionViewId: state.filter.assertionViewId,
+              },
+              availableRoles,
+              assertionView,
+            ).length,
+          })),
           roles: [
-            'all',
-            ...Array.from(
-              new Set(
-                state.config.schematronAsserts.map(assert => assert.role),
-              ),
-            ).sort(),
+            {
+              name: 'all',
+              count: filterAssertions(
+                state.config.schematronAsserts,
+                {
+                  role: 'all',
+                  text: state.filter.text,
+                  assertionViewId: state.filter.assertionViewId,
+                },
+                availableRoles,
+                assertionView,
+              ).length,
+            },
+            ...availableRoles.sort().map((role: string) => {
+              return {
+                name: role,
+                count: filterAssertions(
+                  state.config.schematronAsserts,
+                  {
+                    role,
+                    text: state.filter.text,
+                    assertionViewId: state.filter.assertionViewId,
+                  },
+                  availableRoles,
+                  assertionView,
+                ).length,
+              };
+            }),
           ],
         };
       }),
       schematronReport: derived(
         ({ config, filter, filterOptions, validator }: SchematronMachine) => {
-          const schematronChecksFiltered = filterAssertions(
-            config.schematronAsserts,
-            filter,
-            filterOptions,
-          );
-          const assertionsById = getAssertionsById(schematronChecksFiltered);
-
           const assertionView = filterOptions.assertionViews
             .filter(view => view.id === filter.assertionViewId)
             .map(() => {
@@ -189,6 +234,14 @@ export const createSchematronMachine = () => {
             title: '',
             groups: [],
           };
+
+          const schematronChecksFiltered = filterAssertions(
+            config.schematronAsserts,
+            filter,
+            filterOptions.roles.map(role => role.name),
+            assertionView,
+          );
+          const assertionsById = getAssertionsById(schematronChecksFiltered);
 
           const isValidated = validator.current === 'VALIDATED';
 
@@ -264,9 +317,11 @@ export const createSchematronMachine = () => {
 const filterAssertions = (
   schematronAsserts: SchematronUIConfig['schematronAsserts'],
   filter: SchematronMachine['filter'],
-  filterOptions: SchematronMachine['filterOptions'],
+  roleOptions: Role[],
+  assertionView: AssertionView,
 ) => {
-  const filterRoles = filter.role === 'all' ? filterOptions.roles : filter.role;
+  const filterRoles =
+    filter.role === 'all' ? roleOptions.map(role => role) : filter.role;
   let assertions = schematronAsserts.filter((assertion: SchematronAssert) => {
     return filterRoles.includes(assertion.role || '');
   });
@@ -276,6 +331,14 @@ const filterAssertions = (
       return searchText.includes(filter.text.toLowerCase());
     });
   }
+  const assertionViewAssertionIds = assertionView.groups
+    .map(group => group.assertionIds)
+    .flat();
+  console.log(assertionViewAssertionIds);
+  assertions = assertions.filter(assert =>
+    assertionViewAssertionIds.includes(assert.id),
+  );
+  console.log(assertions);
   return assertions;
 };
 

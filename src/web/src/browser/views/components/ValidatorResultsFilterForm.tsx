@@ -92,20 +92,22 @@ export const ValidatorResultsFilterForm = () => {
             {schematron.filterOptions.roles.map((filterRole, index) => (
               <div
                 key={index}
-                className={`bg-${colorTokenForRole(filterRole)}-lighter`}
+                className={`bg-${colorTokenForRole(filterRole.name)}-lighter`}
               >
                 <input
                   className="usa-radio__input usa-radio__input--tile"
-                  id={`role-${filterRole}`}
+                  id={`role-${filterRole.name}`}
                   type="radio"
                   name="role"
-                  value={filterRole}
-                  checked={schematron.filter.role === filterRole}
-                  onChange={() => actions.schematron.setFilterRole(filterRole)}
+                  value={filterRole.name}
+                  checked={schematron.filter.role === filterRole.name}
+                  onChange={() =>
+                    actions.schematron.setFilterRole(filterRole.name)
+                  }
                 />
                 <label
                   className="usa-radio__label"
-                  htmlFor={`role-${filterRole}`}
+                  htmlFor={`role-${filterRole.name}`}
                 >
                   <svg
                     aria-hidden="true"
@@ -116,13 +118,18 @@ export const ValidatorResultsFilterForm = () => {
                     <use
                       xmlnsXlink="http://www.w3.org/1999/xlink"
                       xlinkHref={actions.getAssetUrl(
-                        `uswds/img/sprite.svg#${colorTokenForRole(filterRole)}`,
+                        `uswds/img/sprite.svg#${colorTokenForRole(
+                          filterRole.name,
+                        )}`,
                       )}
                     />
                   </svg>
-                  {filterRole.toLocaleUpperCase() || '<not specified>'}
-                  <span className="margin-left-1 usa-tag" title={`0 results`}>
-                    0
+                  {filterRole.name.toLocaleUpperCase() || '<not specified>'}
+                  <span
+                    className="margin-left-1 usa-tag"
+                    title={`${filterRole.count} results`}
+                  >
+                    {filterRole.count}
                   </span>
                   <span className="usa-checkbox__label-description">
                     This is optional text that can be used to
