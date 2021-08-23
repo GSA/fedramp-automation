@@ -11,7 +11,7 @@ export const ValidatorReport = () => {
   return (
     <>
       <div className="position-sticky top-0 z-top bg-white padding-top-1 padding-bottom-1">
-        <h1 className="margin-bottom-0">
+        <h1 className="margin-0">
           {schematronReport.summary.title}
           <span
             className="font-heading-sm text-secondary-light"
@@ -22,7 +22,7 @@ export const ValidatorReport = () => {
             </span>
           </span>
         </h1>
-        <h2 className="margin-top-1 text-normal">
+        <h2 className="margin-top-05 margin-bottom-0 text-normal">
           {schematronReport.summary.subtitle}
         </h2>
       </div>

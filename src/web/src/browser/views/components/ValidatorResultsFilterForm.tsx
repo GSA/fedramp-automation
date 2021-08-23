@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
@@ -7,9 +7,16 @@ export const ValidatorResultsFilterForm = () => {
   const { schematron } = useAppState();
   const actions = useActions();
 
+  const topRef = useRef<HTMLHeadingElement>(null);
+  const scrollIntoView = () => {
+    if (topRef && topRef.current && topRef.current.parentElement) {
+      topRef.current.parentElement.scrollIntoView();
+    }
+  };
+
   return (
     <>
-      <h2>Filtering Options</h2>
+      <h2 ref={topRef}>Filtering Options</h2>
       <form className="usa-form padding-top-1">
         <fieldset className="usa-fieldset">
           <legend className="usa-legend text-base font-sans-md">
@@ -27,11 +34,12 @@ export const ValidatorResultsFilterForm = () => {
                   checked={
                     schematron.filter.assertionViewId === assertionView.index
                   }
-                  onChange={() =>
+                  onChange={() => {
                     actions.schematron.setFilterAssertionView(
                       assertionView.index,
-                    )
-                  }
+                    );
+                    scrollIntoView();
+                  }}
                 />
                 <label
                   className="usa-radio__label"
@@ -109,9 +117,10 @@ export const ValidatorResultsFilterForm = () => {
                   name="role"
                   value={filterRole.name}
                   checked={schematron.filter.role === filterRole.name}
-                  onChange={() =>
-                    actions.schematron.setFilterRole(filterRole.name)
-                  }
+                  onChange={() => {
+                    actions.schematron.setFilterRole(filterRole.name);
+                    scrollIntoView();
+                  }}
                 />
                 <label
                   className="usa-radio__label"
