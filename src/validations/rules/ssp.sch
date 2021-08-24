@@ -3214,7 +3214,7 @@
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-protocol-port-range-has-end"
                 role="error"
-                test="@end">A system interconnection protocol port range declaration must state an ending port number.</sch:assert>
+                test="@end">A system interconnection protocol port range declaration must state an ending port number. The start and end port number can be the same if there is one port number.</sch:assert>
         </sch:rule>
     </sch:pattern>
 
