@@ -3059,7 +3059,7 @@
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-remote-IPv4-address"
                 role="error"
-                test="oscal:prop[@name eq 'ipv4-address' and @class eq 'remote']">A system interconnection must specify the external system IPv4
+                test="oscal:prop[@name eq 'ipv4-address' and @class eq 'remote']">A system interconnection must specify the external system's IPv4
                 address.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-remote-IPv6-address-diagnostic"
