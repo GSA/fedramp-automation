@@ -4339,7 +4339,7 @@
             doc:assertion="interconnection-has-allowed-interconnection-direction-value"
             doc:context="oscal:component[@type = 'interconnection']/oscal:prop[@name eq 'interconnection-direction']"
             id="interconnection-has-allowed-interconnection-direction-value-diagnostic">A system interconnection lacks an allowed
-            interconnection-direction.</sch:diagnostic>
+            interconnection-direction to explain data direction for information transmitted.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="interconnection-has-allowed-interconnection-security-value"
             doc:context="oscal:component[@type = 'interconnection']/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']"
