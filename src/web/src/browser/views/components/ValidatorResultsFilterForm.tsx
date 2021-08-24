@@ -52,9 +52,6 @@ export const ValidatorResultsFilterForm = () => {
                   >
                     {assertionView.count}
                   </span>
-                  <span className="usa-checkbox__label-description">
-                    This is optional text that can be used to
-                  </span>
                 </label>
               </div>
             ))}
@@ -149,7 +146,7 @@ export const ValidatorResultsFilterForm = () => {
                     {filterRole.count}
                   </span>
                   <span className="usa-checkbox__label-description">
-                    This is optional text that can be used to
+                    {filterRole.subtitle}
                   </span>
                 </label>
               </div>

@@ -40,6 +40,7 @@ type BaseState = {
     }[];
     roles: {
       name: Role;
+      subtitle: string;
       count: number;
     }[];
   };
@@ -198,21 +199,17 @@ export const createSchematronMachine = () => {
             ).length,
           })),
           roles: [
-            {
-              name: 'all',
-              count: filterAssertions(
-                state.config.schematronAsserts,
-                {
-                  role: 'all',
-                  text: state.filter.text,
-                  assertionViewIds,
-                },
-                availableRoles,
-              ).length,
-            },
-            ...availableRoles.sort().map((role: string) => {
+            ...['all', ...availableRoles.sort()].map((role: Role) => {
               return {
                 name: role,
+                subtitle:
+                  {
+                    all: 'View all rules',
+                    error: 'View required, critical rules',
+                    fatal: 'View rules required for rule validation',
+                    information: 'View optional rules',
+                    warning: 'View suggested rules',
+                  }[role] || '',
                 count: filterAssertions(
                   state.config.schematronAsserts,
                   {
