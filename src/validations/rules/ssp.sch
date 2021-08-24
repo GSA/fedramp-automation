@@ -3084,7 +3084,7 @@
                 id="interconnection-has-circuit"
                 role="information"
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'circuit']">A system interconnection which uses a dedicated
-                telecom line must specify the circuit number.</sch:assert>
+                circuit switching network must specify the circuit number.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-isa-poc-local-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
