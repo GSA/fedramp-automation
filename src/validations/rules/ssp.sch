@@ -3214,7 +3214,8 @@
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-protocol-port-range-has-end"
                 role="error"
-                test="@end">A system interconnection protocol port range declaration must state an ending port number. The start and end port number can be the same if there is one port number.</sch:assert>
+                test="@end">A system interconnection protocol port range declaration must state an ending port number. The start and end port number
+                can be the same if there is one port number.</sch:assert>
         </sch:rule>
     </sch:pattern>
 
@@ -4348,8 +4349,9 @@
         <sch:diagnostic
             doc:assertion="interconnection-has-allowed-interconnection-security-remarks"
             doc:context="oscal:component[@type = 'interconnection']/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']"
-            id="interconnection-has-allowed-interconnection-security-remarks-diagnostic">This system interconnection defines an alternate method for securing information in transit, where interconnection-security
-            is defined as &quot;other&quot; and the required explanatory remarks are missing.</sch:diagnostic>
+            id="interconnection-has-allowed-interconnection-security-remarks-diagnostic">This system interconnection defines an alternate method for
+            securing information in transit, where interconnection-security is defined as &quot;other&quot; and the required explanatory remarks are
+            missing.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="interconnection-has-title"
             doc:context="oscal:component[@type eq 'interconnection']"
