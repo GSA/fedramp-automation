@@ -9077,7 +9077,7 @@
     </x:scenario>
 
     <x:scenario
-        label="FEDRAMP OSCAL SSP Interconnections">
+        label="FedRAMP OSCAL SSP Interconnections">
         <x:scenario
             label="Positive tests">
             <x:context>
