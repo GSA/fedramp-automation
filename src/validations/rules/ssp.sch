@@ -4344,7 +4344,7 @@
             doc:assertion="interconnection-has-allowed-interconnection-security-value"
             doc:context="oscal:component[@type = 'interconnection']/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']"
             id="interconnection-has-allowed-interconnection-security-value-diagnostic">A system interconnection lacks an allowed
-            interconnection-security.</sch:diagnostic>
+            interconnection-security that explains what kind of methods are used to secure information transmitted while in transit.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="interconnection-has-allowed-interconnection-security-remarks"
             doc:context="oscal:component[@type = 'interconnection']/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']"
