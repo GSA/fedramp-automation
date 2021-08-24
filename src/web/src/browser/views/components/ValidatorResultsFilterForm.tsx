@@ -20,7 +20,7 @@ export const ValidatorResultsFilterForm = () => {
       <form className="usa-form padding-top-1">
         <fieldset className="usa-fieldset">
           <legend className="usa-legend text-base font-sans-md">
-            Select an assertion view
+            Select a view
           </legend>
           <div className="usa-radio">
             {schematron.filterOptions.assertionViews.map(assertionView => (
@@ -103,7 +103,7 @@ export const ValidatorResultsFilterForm = () => {
           </div>
           <div className="usa-radio">
             <legend className="usa-legend text-base font-sans-md">
-              Filter by assertion role
+              Filter by severity
             </legend>
             {schematron.filterOptions.roles.map((filterRole, index) => (
               <div
