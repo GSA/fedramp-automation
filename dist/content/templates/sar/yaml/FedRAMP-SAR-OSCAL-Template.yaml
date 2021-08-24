@@ -5,7 +5,7 @@ assessment-results:
     title: "[System Name] FedRAMP Security Assessment Report (SAR)"
     published: 2021-02-25T00:00:00.00-04:00
     last-modified: 2021-06-09T14:27:48.374-04:00
-    version: fedramp1.0.0-oscal1.0.0
+    version: fedramp1.1.0-oscal1.0.0
     oscal-version: 1.0.0
     props:
       - name: marking
@@ -82,7 +82,7 @@ assessment-results:
             ns: https://fedramp.gov/ns/oscal
             value: "0000.00"
         links:
-          - href: https://assesor.web.site
+          - href: https://assessor.web.site
             rel: home-page
         location-uuids:
           - 49f73135-efab-4275-9a79-003656ad890a

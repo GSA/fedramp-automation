@@ -1,11 +1,11 @@
 {
   "catalog": {
-    "uuid": "c46c1620-4cab-45da-b831-1566696a68c7",
+    "uuid": "1352c24b-e83d-4227-bc34-b26baced1f46",
     "metadata": {
       "title": "FedRAMP Rev 4 Moderate Baseline",
       "published": "2021-02-05T00:00:00.000-04:00",
-      "last-modified": "2021-08-12T00:51:48.449626Z",
-      "version": "fedramp1.0.0-oscal1.0.0",
+      "last-modified": "2021-08-20T13:46:27.365214Z",
+      "version": "fedramp1.1.0-oscal1.0.0",
       "oscal-version": "1.0.0",
       "links": [
         {

@@ -3,8 +3,9 @@
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values</title>
       <title-short>FedRAMP Data Values (Experimental)</title-short>
-      <last-modified>2021-08-11T23:20:58Z</last-modified>
-      <version>fedramp1.0.2-oscal1.0.0</version>
+      <published>2021-08-12T12:38:01Z</published>
+      <last-modified>2021-08-12T12:38:01Z</last-modified>
+      <version>fedramp1.1.0-oscal1.0.0</version>
       <author>FedRAMP PMO</author>
       <description>This EXPERIMENTAL file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
       <remarks />
@@ -494,7 +495,7 @@
       <description>Identifies the type of role for a responsible party.</description>
       <binding pattern="role/@id" />
       <allowed-values allow-other="yes">
-         <enum value="assessor" label="Assesor">Assesor</enum>
+         <enum value="assessor" label="Assessor">Assessor</enum>
          <enum value="assessment-team" label="Assessment Team">Assessment Team</enum>
          <enum value="assessment-lead" label="Assessment Lead">Assessment Lead</enum>
          <enum value="assessment-executive" label="Assessment Executive">Assessment Executive</enum>

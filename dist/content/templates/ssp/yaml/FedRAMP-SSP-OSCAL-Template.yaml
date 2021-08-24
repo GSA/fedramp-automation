@@ -5,7 +5,7 @@ system-security-plan:
     title: FedRAMP System Security Plan (SSP)
     published: 2021-02-25T00:00:00.00-04:00
     last-modified: 2021-06-09T14:27:50.591-04:00
-    version: fedramp1.0.0-oscal1.0.0
+    version: fedramp1.1.0-oscal1.0.0
     oscal-version: 1.0.0
     revisions:
       - published: 2019-06-01T00:00:00.00-04:00

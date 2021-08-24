@@ -3,9 +3,10 @@
         "xmlns": "https://fedramp.gov/ns/oscal",
         "uuid": "7539047F-158B-4AA0-8FC5-F0530F1CC5CF",
         "metadata": {
-            "title": "FedRAMP Defined Threat Table [DRAFT]",
-            "last-modified": "2021-08-11T23:18:00Z",
-            "version": "fedramp1.0.2-oscal1.0.0",
+            "title": "FedRAMP Defined Threat Table [Experimental]",
+            "published": "2021-08-12T12:38:01Z",
+            "last-modified": "2021-08-12T12:38:01Z",
+            "version": "fedramp1.1.0-oscal1.0.0",
             "revisions": {
                 "revision": [
                     {
@@ -37,6 +38,16 @@
                             "#text": "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"
                         },
                         "remarks": {"p": "Updated version reviewed for fedramp1.0.2-oscal1.0.0 releases."}
+                    },
+                    {
+                        "published": "2021-08-12T12:38:01.00-00:00",
+                        "version": "fedramp1.1.0-oscal1.0.0",
+                        "prop": {
+                            "name": "party-uuid",
+                            "ns": "https://fedramp.gov/ns/oscal",
+                            "#text": "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"
+                        },
+                        "remarks": {"p": "Updated version reviewed for fedramp1.1.0-oscal1.0.0 releasess."}
                     }
                 ]
             },

@@ -4,8 +4,9 @@
         "metadata": {
             "title": "[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values",
             "title-short": "FedRAMP Data Values (Experimental)",
-            "last-modified": "2021-08-11T23:20:58Z",
-            "version": "fedramp1.0.2-oscal1.0.0",
+            "published": "2021-08-12T12:38:01Z",
+            "last-modified": "2021-08-12T12:38:01Z",
+            "version": "fedramp1.1.0-oscal1.0.0",
             "author": "FedRAMP PMO",
             "description": "This EXPERIMENTAL file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.",
             "remarks": ""
@@ -1266,8 +1267,8 @@
                     "enum": [
                         {
                             "value": "assessor",
-                            "label": "Assesor",
-                            "#text": "Assesor"
+                            "label": "Assessor",
+                            "#text": "Assessor"
                         },
                         {
                             "value": "assessment-team",
