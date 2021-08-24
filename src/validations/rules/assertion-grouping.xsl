@@ -48,7 +48,7 @@
                                     <xsl:text>FedRAMP Submission Checklist</xsl:text>
                                 </xsl:when>
                                 <xsl:when
-                                    test="current() eq 'guide-reference'">>FedRAMP OSCAL SSP Guide</xsl:when>
+                                    test="current() eq 'guide-reference'">FedRAMP OSCAL SSP Guide</xsl:when>
                                 <xsl:when
                                     test="current() eq 'template-reference'">FedRAMP SSP Template</xsl:when>
                             </xsl:choose>
