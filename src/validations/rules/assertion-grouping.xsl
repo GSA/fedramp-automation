@@ -42,13 +42,22 @@
                     <map>
                         <string
                             key="title">
-                            <xsl:text expand-text="true">FedRAMP {$attribute-local-name}</xsl:text>
+                            <xsl:choose>
+                                <xsl:when
+                                    test="current() eq 'checklist-reference'">
+                                    <xsl:text>FedRAMP Submission Checklist</xsl:text>
+                                </xsl:when>
+                                <xsl:when
+                                    test="current() eq 'guide-reference'">>FedRAMP OSCAL SSP Guide</xsl:when>
+                                <xsl:when
+                                    test="current() eq 'template-reference'">FedRAMP SSP Template</xsl:when>
+                            </xsl:choose>
                         </string>
                         <!-- get the distinct values found in this attribute -->
                         <xsl:variable
                             as="xs:string*"
                             name="groupitems"
-                            select="distinct-values($sch//@doc:*[local-name() eq $attribute-local-name] ! tokenize(.,',\s*'))" />
+                            select="distinct-values($sch//@doc:*[local-name() eq $attribute-local-name] ! tokenize(., ',\s*'))" />
                         <!-- create a list of related assertions for each distinct attribute value-->
                         <array
                             key="groups">
