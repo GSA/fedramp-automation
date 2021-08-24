@@ -8,7 +8,7 @@ import type { Presenter } from '@asap/browser/presenter';
 
 import type { RenderApp } from '../browser-controller';
 import { App } from './components/App';
-import './index.scss';
+import './styles/index.scss';
 
 export const createAppRenderer =
   (rootElement: HTMLElement, presenter: Presenter): RenderApp =>
