@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sch:schema
     queryBinding="xslt2"
+    xmlns:array="http://www.w3.org/2005/xpath-functions/array"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+    xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -20,6 +22,12 @@
     <sch:ns
         prefix="lv"
         uri="local-validations" />
+    <sch:ns
+        prefix="array"
+        uri="http://www.w3.org/2005/xpath-functions/array" />
+    <sch:ns
+        prefix="map"
+        uri="http://www.w3.org/2005/xpath-functions/map" />
     <sch:phase
         id="Phase2">
         <sch:active
@@ -52,6 +60,8 @@
         <sch:active
             pattern="basic-system-characteristics" />
         <sch:active
+            pattern="fedramp-data" />
+        <sch:active
             pattern="general-roles" />
         <sch:active
             pattern="implementation-roles" />
@@ -66,14 +76,14 @@
         <sch:active
             pattern="control-implementation" />
         <sch:active
-            pattern="interconnects" />
-        <sch:active
             pattern="info" />
     </sch:phase>
     <sch:phase
-        id="test">
+        id="basic">
         <sch:active
-            pattern="interconnects" />
+            pattern="basic-system-characteristics" />
+        <sch:active
+            pattern="fedramp-data" />
     </sch:phase>
     <sch:phase
         id="information">
@@ -2096,16 +2106,66 @@
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
                 test="oscal:system-name-short">A FedRAMP SSP must have a short system name.</sch:assert>
+            <sch:let
+                name="authorization-types"
+                value="$fedramp-values//fedramp:value-set[@name eq 'authorization-type']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-fedramp-authorization-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.2"
                 id="has-fedramp-authorization-type"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.2"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'authorization-type' and @value = ('fedramp-jab', 'fedramp-agency', 'fedramp-li-saas')]">
-                A FedRAMP SSP must have a FedRAMP authorization type.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'authorization-type' and @value = $authorization-types]">A FedRAMP
+                SSP must have an allowed FedRAMP authorization type.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
+    <sch:pattern
+        id="fedramp-data">
+
+        <sch:let
+            name="use-remote-resources"
+            value="
+                if (environment-variable('USE_REMOTE_RESOURCES')) then
+                    true()
+                else
+                    false()" />
+
+        <sch:let
+            name="fedramp_data_href"
+            value="'https://raw.githubusercontent.com/18F/fedramp-data/master/data/data.json'" />
+
+        <sch:let
+            name="fedramp_data"
+            value="
+                if ($use-remote-resources and unparsed-text-available($fedramp_data_href)) then
+                    parse-json(unparsed-text($fedramp_data_href))
+                else
+                    nilled(())" />
+
+        <sch:rule
+            context="oscal:system-characteristics/oscal:system-id[@identifier-type eq 'https://fedramp.gov']">
+
+            <sch:let
+                name="id"
+                value="current()" />
+
+            <sch:assert
+                diagnostics="has-active-system-id-diagnostic"
+                id="has-active-system-id"
+                role="error"
+                test="
+                    not($use-remote-resources) or
+                    (some $p in array:flatten($fedramp_data?data?Providers)
+                        satisfies $p?Package_ID eq current())">A FedRAMP SSP must have an active FedRAMP system
+                identifier.</sch:assert>
+
+            <!-- No unit test is possible -->
+
+        </sch:rule>
+
+    </sch:pattern>
+
     <sch:pattern
         id="general-roles">
         <sch:title>Roles, Locations, Parties, Responsibilities</sch:title>
@@ -3955,6 +4015,10 @@
             doc:assertion="has-fedramp-authorization-type"
             doc:context="oscal:system-characteristics"
             id="has-fedramp-authorization-type-diagnostic">This FedRAMP OSCAL SSP lacks a FedRAMP authorization type.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-active-system-id"
+            doc:context="oscal:system-characteristics/oscal:system-id[@identifier-type eq 'https://fedramp.gov']"
+            id="has-active-system-id-diagnostic">This FedRAMP SSP does not have an active FedRAMP system identifier.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="role-defined-system-owner"
             doc:context="oscal:metadata"
