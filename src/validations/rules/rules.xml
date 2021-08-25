@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="rules.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="FedRAMP Automation business rule schema"?>
+<!--<?xml-model href="rules.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="FedRAMP Automation business rule schema"?>-->
 <business-rules
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation">
     <rule
@@ -29,7 +29,7 @@
         <statement>A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control families.</statement>
     </rule>
     <rule
-        assertions="has-reuse"
+        assertions="has-unique-policy-and-procedure"
         doc:checklist-reference="Section B Check 3.1"
         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
         doc:template-reference="System Security Plan Template §15">
@@ -95,7 +95,6 @@
         <statement>A FedRAMP SSP must incorporate an Incident Response Plan.</statement>
     </rule>
     <rule
-        assertions="has-incident-response-plan"
         doc:attachment="§15 Attachment 8"
         doc:checklist-reference="Section B Check 3.8"
         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6"
@@ -361,5 +360,167 @@
         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.3"
         doc:template-reference="System Security Plan Template §13">
         <statement>Within a FedRAMP SSP, planned control implementations must have a planned completion date.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-allowed-interconnection-direction-value"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must have an allowed interconnection-direction.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-allowed-interconnection-security-value"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must have an allowed interconnection-security value.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-interconnection-security-remarks"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection with an interconnection-security of "other" must have explanatory remarks.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-title"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must provide a remote system name.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-description"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must provide a remote system description.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-direction"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must identify the direction of data flows.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-information"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must describe the information being transferred.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-protocol"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must describe the protocols used for information transfer.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-service-processor"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must describe the service processor.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-local-and-remote-addresses"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must specify local and remote network addresses.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-interconnection-security"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must specify how the connection is secured.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-circuit"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection which uses a dedicated circuit switching network must specify the circuit number.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-isa-poc-local"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must specify a responsible local (CSP) point of contact.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-isa-poc-remote"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must specify a responsible remote point of contact.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-isa-authorizing-official-local"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must specify a local authorizing official.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-isa-authorizing-official-remote"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must specify a remote authorizing official.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-responsible-persons">
+        <statement>Every responsible person for a system interconnect is defined.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-distinct-isa-local"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must specify local responsible parties which are not remote responsible parties.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-has-distinct-isa-remote"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must specify remote responsible parties which are not local responsible parties.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-cites-interconnection-agreement"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must cite an interconnection agreement.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-cites-interconnection-agreement-href"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must cite an intra-document defined interconnection agreement.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-cites-attached-interconnection-agreement"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection must cite an intra-document attached interconnection agreement and that agreement must be present in the
+            SSP.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-protocol-has-name"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection protocol must have a name.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-protocol-has-port-range"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection protocol should have one or more port range declarations.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-protocol-port-range-has-transport"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection protocol port range declaration must state a transport protocol.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-protocol-port-range-has-start"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection protocol port range declaration must state a starting port number.</statement>
+    </rule>
+    <rule
+        assertions="interconnection-protocol-port-range-has-end"
+        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+        doc:template-reference="System Security Plan Template §11">
+        <statement>A system interconnection protocol port range declaration must state an ending port number. The start and end port number can be the
+            same if there is one port number.</statement>
     </rule>
 </business-rules>
