@@ -362,6 +362,10 @@
         <statement>Within a FedRAMP SSP, planned control implementations must have a planned completion date.</statement>
     </rule>
     <rule
+        assertions="has-active-system-id">
+        <statement>A FedRAMP SSP must have an active FedRAMP system identifier.</statement>
+    </rule>
+    <rule
         assertions="interconnection-has-allowed-interconnection-direction-value"
         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
         doc:template-reference="System Security Plan Template §11">
