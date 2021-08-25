@@ -3,15 +3,6 @@ import React from 'react';
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import { useActions } from '../hooks';
 
-export const HomePage = () => {
-  return (
-    <>
-      <HomeContent />
-      <PartiesGrid />
-    </>
-  );
-};
-
 const ProcessList = () => (
   <>
     <h2>How does it work?</h2>
@@ -107,7 +98,7 @@ const PartiesGrid = () => {
   );
 };
 
-const HomeContent = () => {
+export const HomePage = () => {
   return (
     <div className="usa-prose padding-top-3">
       <h1>Accelerate approvals</h1>
@@ -137,6 +128,7 @@ const HomeContent = () => {
           more information.
         </li>
       </ul>
+      <PartiesGrid />
       <ProcessList />
       <h2>Why should I care?</h2>
       <p>

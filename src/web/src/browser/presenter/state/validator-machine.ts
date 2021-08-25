@@ -5,7 +5,7 @@ import type {
   ValidationReport,
 } from '@asap/shared/use-cases/schematron';
 
-export type Role = string;
+import { getAssertionsById } from '../lib/validator';
 
 type States =
   | {
@@ -27,7 +27,7 @@ type States =
     };
 
 type BaseState = {
-  assertionsById: Record<FailedAssert['id'], FailedAssert[]>;
+  assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
 };
 
 type Events =
@@ -114,22 +114,13 @@ export const createValidatorMachine = () => {
   return validatorMachine.create(
     { current: 'UNLOADED' },
     {
-      assertionsById: derived((state: ValidatorMachine) => {
-        const validatedState = state.matches('VALIDATED');
-        if (!validatedState) {
-          return {};
-        }
-        return validatedState.validationReport.failedAsserts.reduce(
-          (acc, assert) => {
-            if (acc[assert.id] === undefined) {
-              acc[assert.id] = [];
-            }
-            acc[assert.id].push(assert);
-            return acc;
-          },
-          {} as Record<FailedAssert['id'], FailedAssert[]>,
-        );
-      }),
+      assertionsById: derived((state: ValidatorMachine) =>
+        state.current === 'VALIDATED'
+          ? getAssertionsById({
+              failedAssertions: state.validationReport.failedAsserts,
+            })
+          : null,
+      ),
     },
   );
 };

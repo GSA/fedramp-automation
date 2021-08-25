@@ -6,8 +6,8 @@ describe('report action', () => {
       useCases: {
         validateSSP: jest.fn(() =>
           Promise.resolve({
+            title: 'title',
             failedAsserts: [],
-            successfulReports: [],
           }),
         ),
       },
@@ -57,7 +57,7 @@ describe('report action', () => {
             expect(xml).toEqual(mockXml);
             return Promise.resolve({
               failedAsserts: [],
-              successfulReports: [],
+              title: 'title',
             });
           }),
         },
@@ -89,8 +89,8 @@ describe('report action', () => {
             return Promise.resolve({
               xmlText: '<xml></xml>',
               validationReport: {
+                title: 'title',
                 failedAsserts: [],
-                successfulReports: [],
               },
             });
           }),

@@ -65,6 +65,20 @@
             pattern="data-flow" />
         <sch:active
             pattern="control-implementation" />
+        <sch:active
+            pattern="interconnects" />
+        <sch:active
+            pattern="info" />
+    </sch:phase>
+    <sch:phase
+        id="test">
+        <sch:active
+            pattern="interconnects" />
+    </sch:phase>
+    <sch:phase
+        id="information">
+        <sch:active
+            pattern="info" />
     </sch:phase>
     <sch:phase
         id="attachments">
@@ -195,18 +209,19 @@
         as="document-node()*"
         name="lv:profile">
         <xsl:param
-            name="level" />
+            name="level"
+            required="true" />
         <xsl:variable
             name="profile-map">
             <profile
                 href="{concat($baselines-base-path, '/FedRAMP_rev4_LOW-baseline-resolved-profile_catalog.xml')}"
-                level="low" />
+                level="fips-199-low" />
             <profile
                 href="{concat($baselines-base-path, '/FedRAMP_rev4_MODERATE-baseline-resolved-profile_catalog.xml')}"
-                level="moderate" />
+                level="fips-199-moderate" />
             <profile
                 href="{concat($baselines-base-path, '/FedRAMP_rev4_HIGH-baseline-resolved-profile_catalog.xml')}"
-                level="high" />
+                level="fips-199-high" />
         </xsl:variable>
         <xsl:variable
             name="href"
@@ -346,28 +361,28 @@
             as="element()*"
             name="analysis" />
         <xsl:value-of>There are <xsl:value-of
-                select="$analysis/reports/@count" />  <xsl:value-of
+                select="$analysis/reports/@count" />&#xa0; <xsl:value-of
                 select="$analysis/reports/@formal-name" />
             <xsl:choose>
                 <xsl:when
-                    test="$analysis/reports/report">items total, with</xsl:when>
-                <xsl:otherwise>items total.</xsl:otherwise>
+                    test="$analysis/reports/report"> items total, with </xsl:when>
+                <xsl:otherwise> items total.</xsl:otherwise>
             </xsl:choose>
             <xsl:for-each
                 select="$analysis/reports/report">
                 <xsl:if
                     test="position() gt 0 and not(position() eq last())">
                     <xsl:value-of
-                        select="current()/@count" />set as <xsl:value-of
-                        select="current()/@value" />,</xsl:if>
+                        select="current()/@count" /> set as <xsl:value-of
+                        select="current()/@value" />, </xsl:if>
                 <xsl:if
-                    test="position() gt 0 and position() eq last()">and <xsl:value-of
-                        select="current()/@count" />set as <xsl:value-of
+                    test="position() gt 0 and position() eq last()"> and <xsl:value-of
+                        select="current()/@count" /> set as <xsl:value-of
                         select="current()/@value" />.</xsl:if>
                 <xsl:sequence
                     select="." />
             </xsl:for-each>There are <xsl:value-of
-                select="($analysis/reports/@count - sum($analysis/reports/report/@count))" />invalid items. <xsl:if
+                select="($analysis/reports/@count - sum($analysis/reports/report/@count))" /> invalid items. <xsl:if
                 test="count($analysis/errors/error) &gt; 0">
                 <xsl:message
                     expand-text="yes">hit error block</xsl:message>
@@ -418,8 +433,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 id="implemented-response-points"
                 role="information"
-                test="exists($implemented)">A FedRAMP SSP must implement a statement for each of the following lettered response points for required
-                controls: <sch:value-of
+                test="true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
                     select="$implemented/@statement-id" />.</sch:report>
         </sch:rule>
         <sch:rule
@@ -456,7 +470,8 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 id="each-required-control-report"
                 role="information"
-                test="count($required-controls) &gt; 0">The following <sch:value-of
+                test="true()">Sensitivity-level is <sch:value-of
+                    select="$sensitivity-level" />, the following <sch:value-of
                     select="count($required-controls)" />
                 <sch:value-of
                     select="
@@ -570,8 +585,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="missing-response-components"
                 role="warning"
-                test="$components-count ge $required-components-count">[Section D Checks] Response statements have sufficient
-                components.</sch:assert>
+                test="$components-count ge $required-components-count">[Section D Checks] Response statements have sufficient components.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description">
@@ -1047,17 +1061,21 @@
             <sch:let
                 name="ir"
                 value="ancestor::oscal:implemented-requirement" />
-            <sch:report
-                diagnostics="has-reuse-diagnostic"
+            <sch:assert
+                diagnostics="has-unique-policy-and-procedure-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §15 Attachment 1"
-                id="has-reuse"
+                id="has-unique-policy-and-procedure"
                 role="error"
                 test="
-                    (: the current @href is in :)
-                    @href = (: all controls except the current :) (//oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')] except $ir) (: all their @hrefs :)/descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href">
-                [Section B Check 3.1] Policy and procedure documents must have unique per-control-family associations.</sch:report>
+                    not(
+                    (: the current @href is not in :)
+                    @href =
+                    (: all controls except the current :) (//oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')] except $ir)
+                    (: all their @hrefs :)/descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href
+                    )"> [Section B Check 3.1] Policy and procedure documents must have unique per-control-family
+                associations.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -2093,8 +2111,8 @@
         <sch:title>Roles, Locations, Parties, Responsibilities</sch:title>
         <sch:rule
             context="oscal:metadata"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
-            see="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10">
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
+            see="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11">
             <sch:assert
                 diagnostics="role-defined-system-owner-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6"
@@ -2148,39 +2166,75 @@
         </sch:rule>
         <sch:rule
             context="oscal:role"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10">
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11">
             <sch:assert
                 diagnostics="role-has-title-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
                 doc:template-reference="System Security Plan Template §9.3"
                 id="role-has-title"
                 role="error"
                 test="oscal:title">A role must have a title.</sch:assert>
             <sch:assert
                 diagnostics="role-has-responsible-party-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
                 doc:template-reference="System Security Plan Template §9.3"
                 id="role-has-responsible-party"
                 role="error"
-                test="//oscal:responsible-party[@role-id eq current()/@id]">One or more responsible parties must be defined for each role.</sch:assert>
+                test="//oscal:responsible-party[@role-id eq current()/@id]">One or more responsible parties must be defined for each
+                role.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:responsible-party"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10">
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11">
             <sch:assert
-                diagnostics="responsible-party-has-person-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
-                id="responsible-party-has-person"
+                diagnostics="responsible-party-has-role-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
+                id="responsible-party-has-role"
                 role="error"
-                test="//oscal:party[@uuid = current()/oscal:party-uuid and @type eq 'person']">Each responsible party must identify a person using
-                that person's unique identifier.</sch:assert>
+                test="exists(//oscal:role[@id eq current()/@role-id])">The role for a responsible party must exist.</sch:assert>
+            <sch:assert
+                diagnostics="responsible-party-has-party-uuid-diagnostic"
+                id="responsible-party-has-party-uuid"
+                role="error"
+                test="exists(oscal:party-uuid)">One or more parties must be identified for a responsibility.</sch:assert>
+            <sch:assert
+                diagnostics="responsible-party-has-definition-diagnostic"
+                id="responsible-party-has-definition"
+                role="error"
+                test="
+                    every $p in oscal:party-uuid
+                        satisfies exists(//oscal:party[@uuid eq $p])">Every responsible party must be defined.</sch:assert>
+            <sch:assert
+                diagnostics="responsible-party-is-person-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
+                id="responsible-party-is-person"
+                role="error"
+                test="
+                    if (
+                    current()/@role-id = (
+                    'system-owner',
+                    'authorizing-official',
+                    'system-poc-management',
+                    'system-poc-technical',
+                    'system-poc-other',
+                    'information-system-security-officer',
+                    'authorizing-official-poc'
+                    )
+                    )
+                    then
+                        every $p in oscal:party-uuid
+                            satisfies
+                            exists(//oscal:party[@uuid eq $p and @type eq 'person'])
+                    else
+                        true()
+                    ">For some roles responsible parties must be persons.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:party[@type eq 'person']"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10">
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11">
             <sch:assert
                 diagnostics="party-has-responsibility-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.10"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
                 id="party-has-responsibility"
                 role="warning"
                 test="//oscal:responsible-party[oscal:party-uuid = current()/@uuid]">Each person should have a responsibility.</sch:assert>
@@ -2711,7 +2765,7 @@
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
                 test="
                     if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value eq 'planned']) then
-                        exists(current()/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date' and @value castable as xs:date])
+                        exists(current()/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date'])
                     else
                         true()">Planned control implementations have a planned completion date.</sch:assert>
             <sch:assert
@@ -2734,7 +2788,7 @@
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination' and @value = $control-originations]"> Every
-                implemented requirement has an allowed control origin.</sch:assert>
+                implemented requirement has an allowed control origination.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-leveraged-authorization-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3.1.1"
@@ -2746,19 +2800,55 @@
                     if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'control-origination' and @value eq 'inherited']) then (: there must be a leveraged-authorization-uuid property :)
                         exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid']) and (: the referenced leveraged-authorization must exist :) exists(//oscal:leveraged-authorization[@uuid = current()/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-authorization-uuid']/@value])
                     else
-                        true()">Every implemented requirement with a control origin of "inherited" references a leveraged
+                        true()">Every implemented requirement with a control origination of "inherited" references a leveraged
                 authorization.</sch:assert>
+            <sch:assert
+                diagnostics="partial-implemented-requirement-has-plan-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                doc:template-reference="System Security Plan Template §13"
+                id="partial-implemented-requirement-has-plan"
+                role="error"
+                test="
+                    if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value eq 'partial'])
+                    then
+                        exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value eq 'planned'])
+                    else
+                        true()">A partially implemented control must have a plan for complete implementation.</sch:assert>
+            <sch:assert
+                diagnostics="implemented-requirement-has-allowed-composite-implementation-status-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                doc:template-reference="System Security Plan Template §13"
+                id="implemented-requirement-has-allowed-composite-implementation-status"
+                role="error"
+                test="
+                    every $c in string-join(distinct-values((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value)), '-')
+                        satisfies $c = ('implemented', 'planned', 'alternative', 'not-applicable', 'partial-planned', 'planned-partial')">An
+                implemented control's implementation status must be implemented, partial and planned, planned, alternative, or not
+                applicable.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value ne 'implemented']"
-            doc:template-reference="System Security Plan Template §13">
+            context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']">
+            <sch:let
+                name="control-implementation-statuses"
+                value="$fedramp-values//fedramp:value-set[@name eq 'control-implementation-status']//fedramp:enum/@value" />
+            <sch:assert
+                diagnostics="implemented-requirement-has-allowed-implementation-status-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
+                doc:template-reference="System Security Plan Template §13"
+                id="implemented-requirement-has-allowed-implementation-status"
+                role="error"
+                test="@value = $control-implementation-statuses">An implemented control's implementation status has an allowed value.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-implementation-status-remarks-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
                 doc:template-reference="System Security Plan Template §13"
                 id="implemented-requirement-has-implementation-status-remarks"
                 role="error"
-                test="oscal:remarks">Incomplete control implementations have an explanation.</sch:assert>
+                test="
+                    if (@value ne 'implemented') then
+                        oscal:remarks
+                    else
+                        true()">Incomplete control implementations have an explanation.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']"
@@ -2777,7 +2867,8 @@
                 id="planned-completion-date-is-not-past"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
-                test="@value castable as xs:date and xs:date(@value) gt current-date()">Planned completion date is not past.</sch:assert>
+                test="not(@value castable as xs:date) or (@value castable as xs:date and xs:date(@value) gt current-date())">Planned completion date
+                is not past.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -2797,12 +2888,14 @@
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-cloud-service-model"
+                role="error"
                 test="oscal:prop[@name eq 'cloud-service-model']">A FedRAMP SSP must specify a cloud service model.</sch:assert>
             <sch:assert
                 diagnostics="has-allowed-cloud-service-model-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-allowed-cloud-service-model"
+                role="error"
                 test="oscal:prop[@name eq 'cloud-service-model' and @value = $service-models]">A FedRAMP SSP must specify an allowed cloud service
                 model.</sch:assert>
             <sch:assert
@@ -2810,6 +2903,7 @@
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-cloud-service-model-remarks"
+                role="error"
                 test="
                     every $p in oscal:prop[@name eq 'cloud-service-model' and @value eq 'other']
                         satisfies exists($p/oscal:remarks)
@@ -2819,12 +2913,14 @@
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-cloud-deployment-model"
+                role="error"
                 test="oscal:prop[@name eq 'cloud-deployment-model']">A FedRAMP SSP must specify a cloud deployment model.</sch:assert>
             <sch:assert
                 diagnostics="has-allowed-cloud-deployment-model-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-allowed-cloud-deployment-model"
+                role="error"
                 test="oscal:prop[@name eq 'cloud-deployment-model' and @value = $deployment-models]">A FedRAMP SSP must specify an allowed cloud
                 deployment model.</sch:assert>
             <sch:assert
@@ -2832,6 +2928,7 @@
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-cloud-deployment-model-remarks"
+                role="error"
                 test="
                     every $p in oscal:prop[@name eq 'cloud-deployment-model' and @value eq 'hybrid-cloud']
                         satisfies exists($p/oscal:remarks)
@@ -2839,6 +2936,7 @@
             <sch:assert
                 diagnostics="has-public-cloud-deployment-model-diagnostic"
                 id="has-public-cloud-deployment-model"
+                role="error"
                 test="
                     (: either there is no component or inventory-item tagged as 'public' :)
                     not(
@@ -2850,6 +2948,269 @@
                     exists(oscal:prop[@name eq 'cloud-deployment-model' and @value eq 'public-cloud'])
                     ">When a FedRAMP SSP has public components or inventory items, a cloud deployment model of "public-cloud" must be
                 employed.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
+    <sch:pattern
+        id="interconnects">
+        <sch:title>Interconnections</sch:title>
+        <sch:rule
+            context="oscal:component[@type = 'interconnection']/oscal:prop[@name eq 'interconnection-direction']">
+            <sch:let
+                name="interconnection-direction-values"
+                value="$fedramp-values//fedramp:value-set[@name eq 'interconnection-direction']//fedramp:enum/@value" />
+            <sch:assert
+                diagnostics="interconnection-has-allowed-interconnection-direction-value-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-allowed-interconnection-direction-value"
+                role="error"
+                test="@value = $interconnection-direction-values">A system interconnection must have an allowed
+                interconnection-direction.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:component[@type = 'interconnection']/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']">
+            <sch:let
+                name="interconnection-security-values"
+                value="$fedramp-values//fedramp:value-set[@name eq 'interconnection-security']//fedramp:enum/@value" />
+            <sch:assert
+                diagnostics="interconnection-has-allowed-interconnection-security-value-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-allowed-interconnection-security-value"
+                role="error"
+                test="@value = $interconnection-security-values">A system interconnection must have an allowed interconnection-security
+                value.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-allowed-interconnection-security-remarks-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-interconnection-security-remarks"
+                role="error"
+                test="@value ne 'other' or exists(oscal:remarks)">A system interconnection with an interconnection-security of &quot;other&quot; must
+                have explanatory remarks.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:component[@type eq 'interconnection']">
+            <sch:assert
+                diagnostics="interconnection-has-title-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-title"
+                role="error"
+                test="oscal:title">A system interconnection must provide a remote system name.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-description-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-description"
+                role="error"
+                test="oscal:description">A system interconnection must provide a remote system description.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-direction-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-direction"
+                role="error"
+                test="oscal:prop[@name eq 'interconnection-direction']">A system interconnection must identify the direction of data
+                flows.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-information-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-information"
+                role="error"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'information']">A system interconnection must describe the
+                information being transferred.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-protocol-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-protocol"
+                role="error"
+                test="oscal:protocol">A system interconnection must describe the protocols used for information transfer.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-service-processor-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-service-processor"
+                role="error"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'service-processor']">A system interconnection must describe the
+                service processor.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-local-and-remote-addresses-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-local-and-remote-addresses"
+                test="
+                    (oscal:prop[@name eq 'ipv4-address' and @class eq 'local'] and oscal:prop[@name eq 'ipv4-address' and @class eq 'remote'])
+                    or
+                    (oscal:prop[@name eq 'ipv6-address' and @class eq 'local'] and oscal:prop[@name eq 'ipv6-address' and @class eq 'remote'])
+                    ">A system interconnection must specify local and remote network addresses.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-interconnection-security-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-interconnection-security"
+                role="error"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']">A system interconnection must specify
+                how the connection is secured.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-circuit-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-circuit"
+                role="information"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'circuit']">A system interconnection which uses a dedicated
+                circuit switching network must specify the circuit number.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-isa-poc-local-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-isa-poc-local"
+                role="error"
+                test="oscal:responsible-role[@role-id eq 'isa-poc-local']">A system interconnection must specify a responsible local (CSP) point of
+                contact.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-isa-poc-remote-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-isa-poc-remote"
+                role="error"
+                test="oscal:responsible-role[@role-id eq 'isa-poc-remote']">A system interconnection must specify a responsible remote point of
+                contact.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-isa-authorizing-official-local-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-isa-authorizing-official-local"
+                role="error"
+                test="oscal:responsible-role[@role-id eq 'isa-authorizing-official-local']">A system interconnection must specify a local authorizing
+                official.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-isa-authorizing-official-remote-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-isa-authorizing-official-remote"
+                role="error"
+                test="oscal:responsible-role[@role-id eq 'isa-authorizing-official-remote']">A system interconnection must specify a remote
+                authorizing official.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-responsible-persons-diagnostic"
+                id="interconnection-has-responsible-persons"
+                role="error"
+                test="
+                    exists(oscal:responsible-role/oscal:party-uuid) and
+                    (every $rp in descendant::oscal:party-uuid
+                        satisfies exists(//oscal:party[@uuid eq $rp and @type eq 'person']))">Every responsible person for a system
+                interconnect is defined.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-distinct-isa-local-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-distinct-isa-local"
+                role="error"
+                test="
+                    every $p in oscal:responsible-role[matches(@role-id, 'local$')]/oscal:party-uuid
+                        satisfies not($p = oscal:responsible-role[matches(@role-id, 'remote$')]/oscal:party-uuid)
+                    ">A system interconnection must specify local responsible parties which are not remote responsible
+                parties.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-has-distinct-isa-remote-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-has-distinct-isa-remote"
+                role="error"
+                test="
+                    every $p in oscal:responsible-role[matches(@role-id, 'remote$')]/oscal:party-uuid
+                        satisfies not($p = oscal:responsible-role[matches(@role-id, 'local$')]/oscal:party-uuid)">A system
+                interconnection must specify remote responsible parties which are not local responsible parties.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-cites-interconnection-agreement-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-cites-interconnection-agreement"
+                role="error"
+                test="oscal:link[@rel eq 'agreement']">A system interconnection must cite an interconnection agreement.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-cites-interconnection-agreement-href-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-cites-interconnection-agreement-href"
+                role="error"
+                test="oscal:link[@rel eq 'agreement' and matches(@href, '^#')]">A system interconnection must cite an intra-document defined
+                interconnection agreement.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-cites-attached-interconnection-agreement-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-cites-attached-interconnection-agreement"
+                role="error"
+                test="
+                    every $href in oscal:link[@rel eq 'agreement']/@href
+                        satisfies exists(//oscal:resource[@uuid eq substring-after($href, '#')])">A system interconnection must cite
+                an intra-document attached interconnection agreement and that agreement must be present in the SSP.</sch:assert>
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:component[@type eq 'interconnection']/oscal:protocol">
+            <sch:assert
+                diagnostics="interconnection-protocol-has-name-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-protocol-has-name"
+                role="error"
+                test="@name">A system interconnection protocol must have a name.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-protocol-has-port-range-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-protocol-has-port-range"
+                role="warning"
+                test="oscal:port-range">A system interconnection protocol should have one or more port range declarations.</sch:assert>
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:component[@type eq 'interconnection']/oscal:protocol/oscal:port-range">
+            <sch:assert
+                diagnostics="interconnection-protocol-port-range-has-transport-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-protocol-port-range-has-transport"
+                role="error"
+                test="@transport">A system interconnection protocol port range declaration must state a transport protocol.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-protocol-port-range-has-start-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-protocol-port-range-has-start"
+                role="error"
+                test="@start">A system interconnection protocol port range declaration must state a starting port number.</sch:assert>
+            <sch:assert
+                diagnostics="interconnection-protocol-port-range-has-end-diagnostic"
+                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:template-reference="System Security Plan Template §11"
+                id="interconnection-protocol-port-range-has-end"
+                role="error"
+                test="@end">A system interconnection protocol port range declaration must state an ending port number. The start and end port number
+                can be the same if there is one port number.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
+    <sch:pattern
+        id="info">
+        <sch:rule
+            context="oscal:system-security-plan">
+            <sch:report
+                id="info-system-name"
+                role="information"
+                test="true()"><sch:value-of
+                    select="oscal:system-characteristics/oscal:system-name" /></sch:report>
+            <sch:report
+                id="info-ssp-title"
+                role="information"
+                test="true()"><sch:value-of
+                    select="oscal:metadata/oscal:title" /></sch:report>
         </sch:rule>
     </sch:pattern>
     <sch:diagnostics>
@@ -3142,9 +3503,9 @@
                 select="@control-id" /> lacks procedure attachment resource(s) <sch:value-of
                 select="string-join($procedure-hrefs, ', ')" />.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="has-reuse"
+            doc:assertion="has-unique-policy-and-procedure"
             doc:context="oscal:by-component/oscal:link[@rel = ('policy', 'procedure')]"
-            id="has-reuse-diagnostic">A policy or procedure reference was incorrectly re-used.</sch:diagnostic>
+            id="has-unique-policy-and-procedure-diagnostic">A policy or procedure reference was incorrectly re-used.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-privacy-poc-role"
             doc:context="oscal:metadata"
@@ -3631,9 +3992,21 @@
             doc:context="oscal:role"
             id="role-has-responsible-party-diagnostic">This role has no responsible parties.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="responsible-party-has-person"
+            doc:assertion="responsible-party-has-role"
             doc:context="oscal:responsible-party"
-            id="responsible-party-has-person-diagnostic">This responsible-party party-uuid does not identify a person.</sch:diagnostic>
+            id="responsible-party-has-role-diagnostic">This responsible-party references a non-existent role.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="responsible-party-has-party-uuid"
+            doc:context="oscal:responsible-party"
+            id="responsible-party-has-party-uuid-diagnostic">This responsible-party lacks one or more party-uuid elements.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="responsible-party-has-definition"
+            doc:context="oscal:responsible-party"
+            id="responsible-party-has-definition-diagnostic">This responsible-party has a party-uuid for a non-existent party.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="responsible-party-is-person"
+            doc:context="oscal:responsible-party"
+            id="responsible-party-is-person-diagnostic">This responsible-party references a party which is not a person.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="party-has-responsibility"
             doc:context="oscal:party[@type eq 'person']"
@@ -3862,11 +4235,7 @@
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-implementation-status-diagnostic">This implemented-requirement lacks an
             implementation-status.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="implemented-requirement-has-implementation-status-remarks"
-            doc:context="oscal:implemented-requirement"
-            id="implemented-requirement-has-implementation-status-remarks-diagnostic">This incomplete control implementation lacks an
-            explanation.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-planned-completion-date"
             doc:context="oscal:implemented-requirement"
@@ -3887,6 +4256,26 @@
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-leveraged-authorization-diagnostic">This implemented-requirement with a control-origination property of
             "inherited" does not reference a leveraged-authorization element in the same document.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="partial-implemented-requirement-has-plan"
+            doc:context="oscal:implemented-requirement"
+            id="partial-implemented-requirement-has-plan-diagnostic">This partially complete implemented-requirement is lacking an
+            implementation-status of 'planned' and an accompanying date.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="implemented-requirement-has-allowed-composite-implementation-status"
+            doc:context="oscal:implemented-requirement"
+            id="implemented-requirement-has-allowed-composite-implementation-status-diagnostic">This implemented-requirement has an invalid
+            implementation-status composition (<sch:value-of
+                select="string-join((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value), ', ')" />)</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="implemented-requirement-has-allowed-implementation-status"
+            doc:context="oscal:implemented-requirement"
+            id="implemented-requirement-has-allowed-implementation-status-diagnostic" />
+        <sch:diagnostic
+            doc:assertion="implemented-requirement-has-implementation-status-remarks"
+            doc:context="oscal:implemented-requirement"
+            id="implemented-requirement-has-implementation-status-remarks-diagnostic">This incomplete control implementation lacks an
+            explanation.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="planned-completion-date-is-valid"
             doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']"
@@ -3925,5 +4314,135 @@
             doc:context="oscal:system-characteristics"
             id="has-public-cloud-deployment-model-diagnostic">When a FedRAMP SSP has public components or inventory items, a cloud deployment model of
             "public-cloud" must be employed.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-allowed-interconnection-direction-value"
+            doc:context="oscal:component[@type = 'interconnection']/oscal:prop[@name eq 'interconnection-direction']"
+            id="interconnection-has-allowed-interconnection-direction-value-diagnostic">A system interconnection lacks an allowed
+            interconnection-direction to explain data direction for information transmitted.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-allowed-interconnection-security-value"
+            doc:context="oscal:component[@type = 'interconnection']/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']"
+            id="interconnection-has-allowed-interconnection-security-value-diagnostic">A system interconnection lacks an allowed
+            interconnection-security that explains what kind of methods are used to secure information transmitted while in transit.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-allowed-interconnection-security-remarks"
+            doc:context="oscal:component[@type = 'interconnection']/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']"
+            id="interconnection-has-allowed-interconnection-security-remarks-diagnostic">This system interconnection defines an alternate method for
+            securing information in transit, where interconnection-security is defined as &quot;other&quot; and the required explanatory remarks are
+            missing.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-title"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-title-diagnostic">This system interconnection lacks a remote system name.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-description"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-description-diagnostic">This system interconnection lacks a remote system description.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-direction"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-direction-diagnostic">This system interconnection lacks the direction of data flows.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-information"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-information-diagnostic">This system interconnection does not describe the information being
+            transferred.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-protocol"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-protocol-diagnostic">A system interconnection does not describe the protocols used for information
+            transfer.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-service-processor"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-service-processor-diagnostic">This system interconnection does not describe the service
+            processor.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-local-and-remote-addresses"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-local-and-remote-addresses-diagnostic">This system interconnection does not specify local and remote network
+            addresses.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-connection-security"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-interconnection-security-diagnostic">This system interconnection does not specify how the connection is
+            secured.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-circuit"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-circuit-diagnostic">This system interconnection does not specify the port or circuit used.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-isa-poc-local"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-isa-poc-local-diagnostic">This system interconnection does not specify a responsible local (CSP) point of
+            contact.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-isa-poc-remote"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-isa-poc-remote-diagnostic">This system interconnection does not specify a responsible remote point of
+            contact.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-isa-authorizing-official-local"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-isa-authorizing-official-local-diagnostic">This system interconnection does not specify a local authorizing
+            official.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-isa-authorizing-official-remote"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-isa-authorizing-official-remote-diagnostic">This system interconnection does not specify a remote authorizing
+            official.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-responsible-persons"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-responsible-persons-diagnostic">Not every responsible person for this system interconnect is
+            defined.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-distinct-isa-local"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-distinct-isa-local-diagnostic">This system interconnection has local responsible parties which are also remote
+            responsible parties.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-has-distinct-isa-remote"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-has-distinct-isa-remote-diagnostic">This system interconnection has remote responsible parties which are also local
+            responsible parties.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-cites-interconnection-agreement"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-cites-interconnection-agreement-diagnostic">This system interconnection does not cite an interconnection
+            agreement.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-cites-interconnection-agreement-href"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-cites-interconnection-agreement-href-diagnostic">This system interconnection does not cite an intra-document defined
+            interconnection agreement.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-cites-attached-interconnection-agreement"
+            doc:context="oscal:component[@type eq 'interconnection']"
+            id="interconnection-cites-attached-interconnection-agreement-diagnostic">This system interconnection cites an absent interconnection
+            agreement.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-protocol-has-name"
+            doc:context="oscal:component[@type eq 'interconnection']/oscal:protocol"
+            id="interconnection-protocol-has-name-diagnostic">This system interconnection protocol lacks a name.</sch:diagnostic>
+        <sch:diagnostic
+            doc:context="oscal:component[@type eq 'interconnection']/oscal:protocol"
+            id="interconnection-protocol-has-port-range-diagnostic">This system interconnection protocol lacks one or more port range
+            declarations.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-protocol-port-range-has-transport"
+            doc:context="oscal:component[@type eq 'interconnection']/oscal:protocol/oscal:port-range"
+            id="interconnection-protocol-port-range-has-transport-diagnostic">\his system interconnection protocol port range declaration does not
+            state a transport protocol.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-protocol-port-range-has-start"
+            doc:context="oscal:component[@type eq 'interconnection']/oscal:protocol/oscal:port-range"
+            id="interconnection-protocol-port-range-has-start-diagnostic">A system interconnection protocol port range declaration does not state a
+            starting port number.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="interconnection-protocol-port-range-has-end"
+            doc:context="oscal:component[@type eq 'interconnection']/oscal:protocol/oscal:port-range"
+            id="interconnection-protocol-port-range-has-end-diagnostic">A system interconnection protocol port range declaration does not state an
+            ending port number.</sch:diagnostic>
     </sch:diagnostics>
 </sch:schema>

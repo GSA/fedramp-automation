@@ -61,7 +61,6 @@ xdescribe('schematron', () => {
                     sprite: 'navigate_next',
                   },
                   id: 'incorrect-role-association',
-                  isReport: false,
                   message: 'incorrect role assertion message',
                   role: 'error',
                 },
@@ -73,10 +72,9 @@ xdescribe('schematron', () => {
           },
         ],
         summary: {
-          title: 'FedRAMP Package Concerns and Notes (unprocessed)',
+          title: 'FedRAMP Package Concerns (unprocessed)',
           counts: {
             assertions: 1,
-            reports: 0,
           },
         },
       });
@@ -111,7 +109,6 @@ xdescribe('schematron', () => {
                     sprite: 'navigate_next',
                   },
                   id: 'incomplete-core-implemented-requirements',
-                  isReport: false,
                   message:
                     'incomplete core implemented requirements assertion message',
                   role: 'info',
@@ -124,10 +121,9 @@ xdescribe('schematron', () => {
           },
         ],
         summary: {
-          title: 'FedRAMP Package Concerns and Notes (unprocessed)',
+          title: 'FedRAMP Package Concerns (unprocessed)',
           counts: {
             assertions: 1,
-            reports: 0,
           },
         },
       });
@@ -139,24 +135,22 @@ const MOCK_SCHEMATRON_ASSERTIONS = [
   {
     id: 'incorrect-role-association',
     message: 'incorrect role assertion message',
-    isReport: false,
     role: 'error',
   },
   {
     id: 'incomplete-core-implemented-requirements',
     message: 'incomplete core implemented requirements assertion message',
-    isReport: false,
     role: 'info',
   },
   {
     id: 'untriggered-requirement',
     message: 'untriggered requirement assertion message',
-    isReport: false,
     role: 'warn',
   },
 ];
 
 const MOCK_VALIDATION_REPORT = {
+  title: 'title',
   failedAsserts: [
     {
       text: 'ASSERT TEXT 1',
@@ -178,5 +172,4 @@ const MOCK_VALIDATION_REPORT = {
       diagnosticReferences: [],
     },
   ],
-  successfulReports: [],
 };

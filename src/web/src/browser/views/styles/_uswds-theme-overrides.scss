@@ -1,0 +1,23 @@
+/**
+ * These styles override the base theme in the USWDS npm package.
+ * Since we are only changing a few things, this makes it easy to upgrade to
+ * the next version of the USWDS without having to audit all variable usage.
+ **/
+
+// Theme colors overrides
+$theme-color-primary: 'blue-warm-70v';
+$theme-color-primary-darker: 'blue-warm-70v';
+$theme-color-success-dark: 'green-cool-50';
+$theme-color-success-darker: 'green-cool-60';
+
+$theme-show-notifications: false;
+$theme-font-path: '../../../../uswds/fonts';
+$theme-image-path: '../../../../uswds/img';
+
+$theme-banner-max-width: 'widescreen';
+$theme-footer-max-width: 'widescreen';
+$theme-grid-container-max-width: 'widescreen';
+$theme-header-max-width: 'widescreen';
+
+$utilities-use-important: true;
+$output-all-utilities: true;
