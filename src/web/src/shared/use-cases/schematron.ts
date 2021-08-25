@@ -36,7 +36,6 @@ export type SchematronProcessor = (
 export type SchematronAssert = {
   id: string;
   message: string;
-  isReport: boolean;
   role: string;
 };
 
