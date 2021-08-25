@@ -1192,7 +1192,7 @@
       <description>FedRAMP additional roles identifiers.</description>
       <binding pattern="/*/o:metadata/o:role/@id"/>
       <allowed-values allow-other="yes">
-         <enum value="assessor" label="Assesor">Assesor</enum>
+         <enum value="assessor" label="Assessor">Assessor</enum>
          <enum value="assessment-team" label="Assessment Team">Assessment Team</enum>
          <enum value="assessment-lead" label="Assessment Lead">Assessment Lead</enum>
          <enum value="assessment-executive" label="Assessment Executive">Assessment Executive</enum>

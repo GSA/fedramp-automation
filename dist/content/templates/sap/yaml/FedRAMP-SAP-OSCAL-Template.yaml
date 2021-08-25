@@ -85,7 +85,7 @@ assessment-plan:
             ns: https://fedramp.gov/ns/oscal
             value: "0000.00"
         links:
-          - href: https://assesor.web.site
+          - href: https://assessor.web.site
             rel: home-page
         location-uuids:
           - 49f73135-efab-4275-9a79-003656ad890a
@@ -441,7 +441,7 @@ assessment-plan:
           This local entry completely replaces the entry in the SSP.
 
 
-          Tools should duplicate the entire assembly from the SSP to this location, then allow the assesor to add or change the details.
+          Tools should duplicate the entire assembly from the SSP to this location, then allow the assessor to add or change the details.
 
 
           This ensures the entry here is complete.
