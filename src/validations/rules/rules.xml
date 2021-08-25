@@ -416,28 +416,10 @@
         <statement>A system interconnection must describe the service processor.</statement>
     </rule>
     <rule
-        assertions="interconnection-has-local-IPv4-address"
+        assertions="interconnection-has-local-and-remote-addresses"
         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
         doc:template-reference="System Security Plan Template §11">
-        <statement>A system interconnection must specify the local (CSP) IPv4 address.</statement>
-    </rule>
-    <rule
-        assertions="interconnection-has-local-IPv6-address"
-        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
-        doc:template-reference="System Security Plan Template §11">
-        <statement>A system interconnection must specify the local (CSP) IPv6 address.</statement>
-    </rule>
-    <rule
-        assertions="interconnection-has-remote-IPv4-address"
-        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
-        doc:template-reference="System Security Plan Template §11">
-        <statement>A system interconnection must specify the external system's IPv4 address.</statement>
-    </rule>
-    <rule
-        assertions="interconnection-has-remote-IPv6-address"
-        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
-        doc:template-reference="System Security Plan Template §11">
-        <statement>A system interconnection must specify the external system IPv6 address.</statement>
+        <statement>A system interconnection must specify local and remote network addresses.</statement>
     </rule>
     <rule
         assertions="interconnection-has-interconnection-security"

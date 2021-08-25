@@ -9272,38 +9272,11 @@
                 </x:scenario>
             </x:scenario>
             <x:scenario
-                label="A system interconnection must specify the local (CSP) IPv4 address.">
+                label="A system interconnection must specify local and remote network addresses.">
                 <x:scenario
                     label="When that is true">
                     <x:expect-not-assert
-                        id="interconnection-has-local-IPv4-address"
-                        label="that is correct." />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario
-                label="A system interconnection must specify the local (CSP) IPv6 address.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="interconnection-has-local-IPv6-address"
-                        label="that is correct." />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario
-                label="A system interconnection must specify the external system IPv4 address.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="interconnection-has-remote-IPv4-address"
-                        label="that is correct." />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario
-                label="A system interconnection must specify the external system IPv6 address.">
-                <x:scenario
-                    label="When that is true">
-                    <x:expect-not-assert
-                        id="interconnection-has-remote-IPv6-address"
+                        id="interconnection-has-local-and-remote-addresses"
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
@@ -9603,38 +9576,11 @@
                 </x:scenario>
             </x:scenario>
             <x:scenario
-                label="A system interconnection must specify the local (CSP) IPv4 address.">
+                label="A system interconnection must specify local and remote network addresses.">
                 <x:scenario
                     label="when it is not">
                     <x:expect-assert
-                        id="interconnection-has-local-IPv4-address"
-                        label="that is an error." />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario
-                label="A system interconnection must specify the local (CSP) IPv6 address.">
-                <x:scenario
-                    label="when it is not">
-                    <x:expect-assert
-                        id="interconnection-has-local-IPv6-address"
-                        label="that is an error." />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario
-                label="A system interconnection must specify the external system IPv4 address.">
-                <x:scenario
-                    label="when it is not">
-                    <x:expect-assert
-                        id="interconnection-has-remote-IPv4-address"
-                        label="that is an error." />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario
-                label="A system interconnection must specify the external system IPv6 address.">
-                <x:scenario
-                    label="when it is not">
-                    <x:expect-assert
-                        id="interconnection-has-remote-IPv6-address"
+                        id="interconnection-has-local-and-remote-addresses"
                         label="that is an error." />
                 </x:scenario>
             </x:scenario>

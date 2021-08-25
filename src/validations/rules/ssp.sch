@@ -3038,37 +3038,15 @@
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'service-processor']">A system interconnection must describe the
                 service processor.</sch:assert>
             <sch:assert
-                diagnostics="interconnection-has-local-IPv4-address-diagnostic"
+                diagnostics="interconnection-has-local-and-remote-addresses-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
-                id="interconnection-has-local-IPv4-address"
-                role="error"
-                test="oscal:prop[@name eq 'ipv4-address' and @class eq 'local']">A system interconnection must specify the local (CSP) IPv4
-                address.</sch:assert>
-            <sch:assert
-                diagnostics="interconnection-has-local-IPv6-address-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
-                doc:template-reference="System Security Plan Template §11"
-                id="interconnection-has-local-IPv6-address"
-                role="error"
-                test="oscal:prop[@name eq 'ipv6-address' and @class eq 'local']">A system interconnection must specify the local (CSP) IPv6
-                address.</sch:assert>
-            <sch:assert
-                diagnostics="interconnection-has-remote-IPv4-address-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
-                doc:template-reference="System Security Plan Template §11"
-                id="interconnection-has-remote-IPv4-address"
-                role="error"
-                test="oscal:prop[@name eq 'ipv4-address' and @class eq 'remote']">A system interconnection must specify the external system's IPv4
-                address.</sch:assert>
-            <sch:assert
-                diagnostics="interconnection-has-remote-IPv6-address-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
-                doc:template-reference="System Security Plan Template §11"
-                id="interconnection-has-remote-IPv6-address"
-                role="error"
-                test="oscal:prop[@name eq 'ipv6-address' and @class eq 'remote']">A system interconnection must specify the external system IPv6
-                address.</sch:assert>
+                id="interconnection-has-local-and-remote-addresses"
+                test="
+                    (oscal:prop[@name eq 'ipv4-address' and @class eq 'local'] and oscal:prop[@name eq 'ipv4-address' and @class eq 'remote'])
+                    or
+                    (oscal:prop[@name eq 'ipv6-address' and @class eq 'local'] and oscal:prop[@name eq 'ipv6-address' and @class eq 'remote'])
+                    ">A system interconnection must specify local and remote network addresses.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-interconnection-security-diagnostic"
                 doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
@@ -4380,25 +4358,10 @@
             id="interconnection-has-service-processor-diagnostic">This system interconnection does not describe the service
             processor.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="interconnection-has-local-IPv4-address"
+            doc:assertion="interconnection-has-local-and-remote-addresses"
             doc:context="oscal:component[@type eq 'interconnection']"
-            id="interconnection-has-local-IPv4-address-diagnostic">This system interconnection does not specify the local (CSP) IPv4
-            address.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="interconnection-has-local-IPv6-address"
-            doc:context="oscal:component[@type eq 'interconnection']"
-            id="interconnection-has-local-IPv6-address-diagnostic">This system interconnection does not specify the local (CSP) IPv6
-            address.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="interconnection-has-remote-IPv4-address"
-            doc:context="oscal:component[@type eq 'interconnection']"
-            id="interconnection-has-remote-IPv4-address-diagnostic">This system interconnection does not specify the external system IPv4
-            address.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="interconnection-has-remote-IPv6-address"
-            doc:context="oscal:component[@type eq 'interconnection']"
-            id="interconnection-has-remote-IPv6-address-diagnostic">This system interconnection does not specify the external system IPv6
-            address.</sch:diagnostic>
+            id="interconnection-has-local-and-remote-addresses-diagnostic">This system interconnection does not specify local and remote network
+            addresses.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="interconnection-has-connection-security"
             doc:context="oscal:component[@type eq 'interconnection']"
