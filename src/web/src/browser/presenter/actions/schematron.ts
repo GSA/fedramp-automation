@@ -1,5 +1,3 @@
-import type { SchematronAssert } from '@asap/shared/use-cases/schematron';
-
 import type { Role } from '../lib/schematron';
 import type { PresenterConfig } from '..';
 

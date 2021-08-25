@@ -36,9 +36,13 @@ type AssertionMap = {
   [assertionId: string]: SchematronAssert;
 };
 
-const checkCircleIcon = { sprite: 'check_circle', color: 'green' };
-const navigateNextIcon = { sprite: 'navigate_next', color: 'blue' };
-const cancelIcon = {
+type Icon = {
+  sprite: string;
+  color: string;
+};
+const checkCircleIcon: Icon = { sprite: 'check_circle', color: 'green' };
+const navigateNextIcon: Icon = { sprite: 'navigate_next', color: 'blue' };
+const cancelIcon: Icon = {
   sprite: 'cancel',
   color: 'red',
 };
@@ -57,7 +61,7 @@ export type SchematronReport = {
       summary: string;
       summaryColor: 'red' | 'green';
       checks: (SchematronAssert & {
-        icon: typeof checkCircleIcon;
+        icon: Icon;
         fired: FailedAssert[];
       })[];
     };
@@ -74,9 +78,8 @@ export const getSchematronReport = ({
   filter: SchematronFilter;
   filterOptions: SchematronFilterOptions;
   validator: {
-    failedAssertionMap: FailedAssertionMap;
+    failedAssertionMap: FailedAssertionMap | null;
     title: string;
-    isValidated: boolean;
   };
 }) => {
   const assertionView = filterOptions.assertionViews
@@ -99,7 +102,6 @@ export const getSchematronReport = ({
     },
     filterOptions.roles.map(role => role.name),
   );
-  const assertionsById = getAssertionsById(schematronChecksFiltered);
 
   return {
     summary: {
@@ -109,55 +111,67 @@ export const getSchematronReport = ({
         assertions: schematronChecksFiltered.length,
       },
     },
-    groups: assertionView.groups
-      .map(assertionGroup => {
-        type UiAssert = SchematronAssert & {
-          message: string;
-          icon: typeof checkCircleIcon;
-          fired: FailedAssert[];
-        };
-        const checks = assertionGroup.assertionIds
-          .map(assertionGroupAssert => {
-            const assert = assertionsById[assertionGroupAssert];
-            if (!assert) {
-              return null;
-            }
-            const fired = validator.failedAssertionMap[assert.id] || [];
-            return {
-              ...assert,
-              icon: !validator.isValidated
+    groups: getReportGroups(
+      assertionView,
+      schematronChecksFiltered,
+      validator.failedAssertionMap,
+    ),
+  };
+};
+
+export const getReportGroups = (
+  assertionView: AssertionView,
+  schematronAssertions: SchematronAssert[],
+  failedAssertionMap: FailedAssertionMap | null,
+): SchematronReport['groups'] => {
+  const assertionsById = getAssertionsById(schematronAssertions);
+  return assertionView.groups
+    .map(assertionGroup => {
+      type UiAssert = SchematronAssert & {
+        message: string;
+        icon: Icon;
+        fired: FailedAssert[];
+      };
+      const checks = assertionGroup.assertionIds
+        .map(assertionGroupAssert => {
+          const assert = assertionsById[assertionGroupAssert];
+          if (!assert) {
+            return null;
+          }
+          const fired = (failedAssertionMap || {})[assert.id] || [];
+          return {
+            ...assert,
+            icon:
+              failedAssertionMap === null
                 ? navigateNextIcon
                 : fired.length
                 ? cancelIcon
                 : checkCircleIcon,
-              fired,
-            };
-          })
-          .filter(
-            (assert: UiAssert | null): assert is UiAssert => assert !== null,
-          );
-        const firedCount = checks.filter(
-          assert => assert.fired.length > 0,
-        ).length;
-        return {
-          title: assertionGroup.title,
-          checks: {
-            summary: (() => {
-              if (validator.isValidated) {
-                return `${firedCount} / ${checks.length} triggered`;
-              } else {
-                return `${checks.length} checks`;
-              }
-            })(),
-            summaryColor: (firedCount === 0 ? 'green' : 'red') as
-              | 'red'
-              | 'green',
-            checks,
-          },
-        };
-      })
-      .filter(group => group.checks.checks.length > 0),
-  };
+            fired,
+          };
+        })
+        .filter(
+          (assert: UiAssert | null): assert is UiAssert => assert !== null,
+        );
+      const firedCount = checks.filter(
+        assert => assert.fired.length > 0,
+      ).length;
+      return {
+        title: assertionGroup.title,
+        checks: {
+          summary: (() => {
+            if (failedAssertionMap) {
+              return `${firedCount} / ${checks.length} triggered`;
+            } else {
+              return `${checks.length} checks`;
+            }
+          })(),
+          summaryColor: (firedCount === 0 ? 'green' : 'red') as 'red' | 'green',
+          checks,
+        },
+      };
+    })
+    .filter(group => group.checks.checks.length > 0);
 };
 
 export const filterAssertions = (
@@ -192,4 +206,73 @@ const getAssertionsById = (asserts: SchematronAssert[]) => {
     assertions[assert.id] = assert;
   });
   return assertions;
+};
+
+export const getFilterOptions = ({
+  config,
+  filter,
+}: {
+  config: SchematronUIConfig;
+  filter: SchematronFilter;
+}) => {
+  const availableRoles = Array.from(
+    new Set(config.schematronAsserts.map(assert => assert.role)),
+  );
+  const assertionViews = config.assertionViews.map((view, index) => {
+    return {
+      index,
+      title: view.title,
+    };
+  });
+  const assertionView = assertionViews
+    .filter(view => view.index === filter.assertionViewId)
+    .map(() => {
+      return config.assertionViews[filter.assertionViewId];
+    })[0] || {
+    title: '',
+    groups: [],
+  };
+  const assertionViewIds = assertionView.groups
+    .map(group => group.assertionIds)
+    .flat();
+  return {
+    assertionViews: assertionViews.map(view => ({
+      ...view,
+      count: filterAssertions(
+        config.schematronAsserts,
+        {
+          role: filter.role,
+          text: filter.text,
+          assertionViewIds: config.assertionViews[view.index].groups.flatMap(
+            group => group.assertionIds,
+          ),
+        },
+        availableRoles,
+      ).length,
+    })),
+    roles: [
+      ...['all', ...availableRoles.sort()].map((role: Role) => {
+        return {
+          name: role,
+          subtitle:
+            {
+              all: 'View all rules',
+              error: 'View required, critical rules',
+              fatal: 'View rules required for rule validation',
+              information: 'View optional rules',
+              warning: 'View suggested rules',
+            }[role] || '',
+          count: filterAssertions(
+            config.schematronAsserts,
+            {
+              role,
+              text: filter.text,
+              assertionViewIds,
+            },
+            availableRoles,
+          ).length,
+        };
+      }),
+    ],
+  };
 };

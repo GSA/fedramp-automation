@@ -27,7 +27,7 @@ type States =
     };
 
 type BaseState = {
-  assertionsById: Record<FailedAssert['id'], FailedAssert[]>;
+  assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
 };
 
 type Events =
@@ -119,7 +119,7 @@ export const createValidatorMachine = () => {
           ? getAssertionsById({
               failedAssertions: state.validationReport.failedAsserts,
             })
-          : {},
+          : null,
       ),
     },
   );
