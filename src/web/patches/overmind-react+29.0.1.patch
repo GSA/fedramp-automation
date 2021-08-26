@@ -1,5 +1,5 @@
 diff --git a/node_modules/overmind-react/package.json b/node_modules/overmind-react/package.json
-index f216432..fdce172 100644
+index 4f6c60e..bb27bce 100644
 --- a/node_modules/overmind-react/package.json
 +++ b/node_modules/overmind-react/package.json
 @@ -28,8 +28,7 @@
@@ -11,7 +11,7 @@ index f216432..fdce172 100644
 +    "es"
    ],
    "dependencies": {
-     "overmind": "28.0.0"
+     "overmind": "28.0.1"
 @@ -37,5 +36,8 @@
    "devDependencies": {
      "@types/node": "^12.11.6",
@@ -20,4 +20,6 @@ index f216432..fdce172 100644
 +  "peerDependencies": {
 +    "react": "*"
    }
- }
+-}
+\ No newline at end of file
++}

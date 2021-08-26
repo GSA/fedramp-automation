@@ -2,7 +2,7 @@ import * as SaxonJS from 'saxon-js';
 
 import {
   XmlIndenter,
-  SaxonJsSchematronValidatorGateway,
+  SaxonJsSchematronProcessorGateway,
 } from './saxon-js-gateway';
 
 describe('xml indent', () => {
@@ -32,7 +32,7 @@ describe('saxon-js gateway', () => {
         principalResult: doc,
       });
     }) as any);
-    const reportGateway = SaxonJsSchematronValidatorGateway({
+    const reportGateway = SaxonJsSchematronProcessorGateway({
       SaxonJS,
       sefUrl: '/test.sef.json',
       baselinesBaseUrl: '/baselines',

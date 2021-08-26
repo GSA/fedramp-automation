@@ -1,6 +1,7 @@
 import { createOvermind, createOvermindMock, IContext } from 'overmind';
 
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
+import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { GetSSPSchematronAssertions } from '@asap/shared/use-cases/schematron';
 import type {
   ValidateSSPUseCase,
@@ -13,6 +14,7 @@ import { state, State, SampleSSP } from './state';
 
 type UseCases = {
   annotateXML: AnnotateXMLUseCase;
+  getAssertionViews: GetAssertionViews;
   getSSPSchematronAssertions: GetSSPSchematronAssertions;
   validateSSP: ValidateSSPUseCase;
   validateSSPUrl: ValidateSSPUrlUseCase;
@@ -75,6 +77,7 @@ const getUseCasesShim = (): UseCases => {
   const stub = jest.fn();
   return {
     annotateXML: stub,
+    getAssertionViews: stub,
     getSSPSchematronAssertions: stub,
     validateSSP: stub,
     validateSSPUrl: stub,

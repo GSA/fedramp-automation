@@ -6,7 +6,7 @@ import {
 } from '@asap/shared/use-cases/validate-ssp-xml';
 
 import { highlightXML } from '@asap/shared/adapters/highlight-js';
-import { SaxonJsSchematronValidatorGateway } from '@asap/shared/adapters/saxon-js-gateway';
+import { SaxonJsSchematronProcessorGateway } from '@asap/shared/adapters/saxon-js-gateway';
 
 import { browserController } from './browser-controller';
 import { createPresenter } from './presenter';
@@ -27,7 +27,7 @@ export const runBrowserContext = ({
   importMetaHot,
   githubRepository,
 }: BrowserContext) => {
-  const generateSchematronValidationReport = SaxonJsSchematronValidatorGateway({
+  const processSchematron = SaxonJsSchematronProcessorGateway({
     sefUrl: `${baseUrl}/ssp.sef.json`,
     // The npm version of saxon-js is for node; currently, we load the
     // browser version via a script tag in index.html.
@@ -64,13 +64,17 @@ export const runBrowserContext = ({
             },
             SaxonJS: (window as any).SaxonJS,
           }),
+          getAssertionViews: async () =>
+            fetch(`${baseUrl}/assertion-views.json`).then(response =>
+              response.json(),
+            ),
           getSSPSchematronAssertions: async () =>
             fetch(`${baseUrl}/ssp.json`).then(response => response.json()),
           validateSSP: ValidateSSPUseCase({
-            generateSchematronValidationReport,
+            processSchematron,
           }),
           validateSSPUrl: ValidateSSPUrlUseCase({
-            generateSchematronValidationReport,
+            processSchematron,
             fetch: window.fetch.bind(window),
           }),
         },

@@ -61,13 +61,19 @@ A reference that a Schematron rule fired, and its corresponding XPath context. E
 
 ### //svrl:successful-report
 
-Similar to `failed-assert`, but purely for informational reporting purposes. At time of writing, `fedramp-automation` does not utilize reporting. Example:
+Similar to `failed-assert`, but purely for informational reporting purposes. At time of writing, `fedramp-automation` utilizes reporting to extract metadata from the source SSP. Example:
 
 ```xml
-<svrl:successful-report test="count($results/errors/error) = 0"
-                        id="control-implemented-requirements-stats"
+<svrl:successful-report test="true()"
+                        id="info-system-name"
                         role="information"
-                        location="/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:control-implementation[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]">
-  <svrl:text>There are 20  Control Implementation Statusitems total, with0set as implemented,1set as partial,18set as planned,0set as alternative,and 1set as not-applicable.There are 0invalid items..</svrl:text>
+                        location="/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]">
+  <svrl:text>System's Full Name</svrl:text>
+</svrl:successful-report>
+<svrl:successful-report test="true()"
+                        id="info-ssp-title"
+                        role="information"
+                        location="/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]">
+  <svrl:text>FedRAMP System Security Plan (SSP)</svrl:text>
 </svrl:successful-report>
 ```
