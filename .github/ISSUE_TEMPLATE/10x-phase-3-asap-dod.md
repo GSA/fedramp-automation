@@ -13,7 +13,7 @@ assignees: ''
 **Preconditions**
 - Preconditions...
 
-**Acceptance Critera**
+**Acceptance Criteria**
 - Acceptance criteria...
 
 **Story Tasks**
