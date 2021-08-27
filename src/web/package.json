@@ -6,9 +6,9 @@
   },
   "scripts": {
     "build": "run-s build:schematron build:json build:snowpack",
-    "build:json": "run-p build:json:*",
-    "build:json:assertion-views": "ts-node -r tsconfig-paths/register src/cli/index.ts create-assertion-view",
-    "build:json:schematron": "ts-node -r tsconfig-paths/register src/cli/index.ts parse-schematron ../validations/rules/ssp.sch ./public/ssp.json",
+    "build:json": "run-p build:json:sef:* && run-p build:json:cli:*",
+    "build:json:cli:assertion-views": "ts-node -r tsconfig-paths/register src/cli/index.ts create-assertion-view",
+    "build:json:cli:schematron": "ts-node -r tsconfig-paths/register src/cli/index.ts parse-schematron ../validations/rules/ssp.sch ./public/ssp.json",
     "build:json:sef:assertion-grouping": "xslt3 -xsl:../validations/rules/assertion-grouping.xsl -export:public/assertion-grouping.sef.json -nogo",
     "build:json:sef:ssp.sch": "xslt3 -xsl:public/ssp.xsl -export:public/ssp.sef.json -nogo",
     "build:schematron": "run-s build:schematron:*",
