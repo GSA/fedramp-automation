@@ -1,3 +1,6 @@
 build
 coverage
 node_modules
+public/assertion-grouping.sef.json
+public/assertion-views.json
+public/ssp.xsl
