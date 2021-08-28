@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="0a94440a-f719-4c7e-a4fa-06005699c4bd">
+         uuid="0ba597c8-162c-4fa3-90ba-e6177565e734">
    <metadata>
       <title>FedRAMP Rev 4 Low Baseline</title>
       <published>2021-02-05T00:00:00.000-04:00</published>
-      <last-modified>2021-08-26T20:28:24.647833Z</last-modified>
+      <last-modified>2021-08-28T12:50:55.172434Z</last-modified>
       <version>fedramp1.1.0-oscal1.0.0</version>
       <oscal-version>1.0.0</oscal-version>
       <link rel="resolution-source" href="FedRAMP_rev4_LOW-baseline_profile.xml"/>
