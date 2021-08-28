@@ -227,18 +227,6 @@
       </allowed-values>
    </value-set>
 
-   <value-set name="component-operational-status">
-      <formal-name>Operational Status (component)</formal-name>
-      <description>The operational status of the component</description>
-      <binding pattern="component/status/@state" />
-      <allowed-values allow-other="no">
-         <enum value="operational" short-label="Operational">Operational</enum>
-         <enum value="under-development" short-label="Development">Under Development</enum>
-         <enum value="disposition" short-label="Alternative">Alternative Implementation</enum>
-         <enum value="other" short-label="Other">Other</enum>
-      </allowed-values>
-   </value-set>
-
    <value-set name="user-type">
       <formal-name>User Type</formal-name>
       <description>Identifies the user type.</description>
