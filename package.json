@@ -5,8 +5,7 @@
   "license": "CC0-1.0",
   "scripts": {
     "build:validation-ui": "cd src/web && npm install && npm run build && cd ../..",
-    "federalist": "npm run init && npm run build:validation-ui && npm run link:validation-ui",
-    "init": "make init-repo",
+    "federalist": "make init-repo && npm run build:validation-ui && npm run link:validation-ui",
     "link:validation-ui": "ln -sf ./src/web/build _site"
   }
 }
