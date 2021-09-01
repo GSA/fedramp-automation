@@ -160,15 +160,15 @@
         href="../test/ssp.xspec" />
 
     <!-- settings for use (or not) of remote resources -->
-    <!-- XSLT parameter USE_REMOTE_RESOURCES -->
+    <!-- XSLT parameter param-use-remote-resources -->
     <xsl:param
         as="xs:boolean"
-        name="USE_REMOTE_RESOURCES"
+        name="param-use-remote-resources"
         select="false()" />
     <!-- Schematron variable use-remote-resources  -->
     <sch:let
         name="use-remote-resources"
-        value="$USE_REMOTE_RESOURCES or exists(environment-variable('USE_REMOTE_RESOURCES'))" />
+        value="$param-use-remote-resources or exists(environment-variable('use-remote-resources'))" />
 
     <sch:pattern
         id="parameters-and-variables">
@@ -176,18 +176,18 @@
             context="/">
 
             <sch:report
-                id="parameter-USE_REMOTE_RESOURCES"
+                id="parameter-use-remote-resources"
                 role="information"
-                test="true()">parameter USE_REMOTE_RESOURCES is <sch:value-of
-                    select="$USE_REMOTE_RESOURCES" />.</sch:report>
+                test="true()">parameter use-remote-resources is <sch:value-of
+                    select="$use-remote-resources" />.</sch:report>
 
             <sch:report
-                id="environment-variable-USE_REMOTE_RESOURCES"
+                id="environment-variable-use-remote-resources"
                 role="information"
-                test="true()">environment-variable USE_REMOTE_RESOURCES is <sch:value-of
+                test="true()">environment-variable use-remote-resources is <sch:value-of
                     select="
-                        if (exists(environment-variable('USE_REMOTE_RESOURCES'))) then
-                            environment-variable('USE_REMOTE_RESOURCES')
+                    if (exists(environment-variable('use-remote-resources'))) then
+                    environment-variable('use-remote-resources')
                         else
                             'not defined'" />.</sch:report>
 
