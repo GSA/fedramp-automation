@@ -7,6 +7,7 @@
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    
     <sch:ns
         prefix="f"
         uri="https://fedramp.gov/ns/oscal" />
@@ -28,11 +29,13 @@
     <sch:ns
         prefix="map"
         uri="http://www.w3.org/2005/xpath-functions/map" />
+
     <sch:phase
         id="Phase2">
         <sch:active
             pattern="phase2" />
     </sch:phase>
+
     <sch:phase
         id="Phase3">
         <sch:active
@@ -78,6 +81,7 @@
         <sch:active
             pattern="info" />
     </sch:phase>
+
     <sch:phase
         id="basic">
         <sch:active
@@ -85,11 +89,13 @@
         <sch:active
             pattern="fedramp-data" />
     </sch:phase>
+
     <sch:phase
         id="information">
         <sch:active
             pattern="info" />
     </sch:phase>
+
     <sch:phase
         id="attachments">
         <sch:active
@@ -107,6 +113,7 @@
         <sch:active
             pattern="data-flow" />
     </sch:phase>
+
     <sch:phase
         id="privacy">
         <sch:active
@@ -114,11 +121,13 @@
         <sch:active
             pattern="privacy2" />
     </sch:phase>
+
     <sch:phase
         id="inventory">
         <sch:active
             pattern="system-inventory" />
     </sch:phase>
+
     <sch:phase
         id="diagrams">
         <sch:active
@@ -128,6 +137,7 @@
         <sch:active
             pattern="data-flow" />
     </sch:phase>
+
     <sch:phase
         id="roles">
         <sch:active
@@ -137,8 +147,59 @@
         <sch:active
             pattern="user-properties" />
     </sch:phase>
+
+    <sch:phase
+        id="remote-resource">
+        <sch:active
+            pattern="fedramp-data" />
+        <sch:active
+            pattern="fips-140" />
+    </sch:phase>
+
     <doc:xspec
         href="../test/ssp.xspec" />
+
+    <!-- settings for use (or not) of remote resources -->
+    <!-- XSLT parameter USE_REMOTE_RESOURCES -->
+    <xsl:param
+        as="xs:boolean"
+        name="USE_REMOTE_RESOURCES"
+        select="false()" />
+    <!-- Schematron variable use-remote-resources  -->
+    <sch:let
+        name="use-remote-resources"
+        value="$USE_REMOTE_RESOURCES or exists(environment-variable('USE_REMOTE_RESOURCES'))" />
+
+    <sch:pattern
+        id="parameters-and-variables">
+        <sch:rule
+            context="/">
+
+            <sch:report
+                id="parameter-USE_REMOTE_RESOURCES"
+                role="information"
+                test="true()">parameter USE_REMOTE_RESOURCES is <sch:value-of
+                    select="$USE_REMOTE_RESOURCES" />.</sch:report>
+
+            <sch:report
+                id="environment-variable-USE_REMOTE_RESOURCES"
+                role="information"
+                test="true()">environment-variable USE_REMOTE_RESOURCES is <sch:value-of
+                    select="
+                        if (exists(environment-variable('USE_REMOTE_RESOURCES'))) then
+                            environment-variable('USE_REMOTE_RESOURCES')
+                        else
+                            'not defined'" />.</sch:report>
+
+            <sch:report
+                id="variable-use-remote-resources"
+                role="information"
+                test="true()">use-remote-resources is <sch:value-of
+                    select="$use-remote-resources" />.</sch:report>
+
+        </sch:rule>
+    </sch:pattern>
+
     <sch:title>FedRAMP System Security Plan Validations</sch:title>
     <xsl:output
         encoding="UTF-8"
@@ -772,6 +833,7 @@
         value="doc(concat($registry-base-path, '/fedramp_values.xml'))" />
     <!-- ↑ stage 2 content ↑ -->
     <!-- ↓ stage 3 content ↓ -->
+
     <sch:pattern
         id="resources">
         <sch:title>Basic resource constraints</sch:title>
@@ -1313,6 +1375,12 @@
                 role="error"
                 test="matches(@href, '^https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/\d{3,4}$')">A validation
                 details must refer to a NIST Cryptographic Module Validation Program (CMVP) certificate detail page.</sch:assert>
+            <sch:assert
+                diagnostics="has-accessible-CMVP-validation-details-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
+                id="has-accessible-CMVP-validation-details"
+                test="not($use-remote-resources) or unparsed-text-available(@href)">The NIST Cryptographic Module Validation Program (CMVP) certificate detail page is
+                available.</sch:assert>
             <sch:assert
                 diagnostics="has-consonant-CMVP-validation-details-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
@@ -2137,14 +2205,6 @@
 
     <sch:pattern
         id="fedramp-data">
-
-        <sch:let
-            name="use-remote-resources"
-            value="
-                if (environment-variable('USE_REMOTE_RESOURCES')) then
-                    true()
-                else
-                    false()" />
 
         <sch:let
             name="fedramp_data_href"
@@ -3671,6 +3731,11 @@
             doc:context="oscal:prop[@name eq 'validation-details']"
             id="has-credible-CMVP-validation-details-diagnostic">This validation-details link href attribute does not resemble a CMVP certificate
             URL.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-accessible-CMVP-validation-details"
+            doc:context="oscal:prop[@name eq 'validation-details']"
+            id="has-accessible-CMVP-validation-details-diagnostic">This validation-details link references an inaccessible NIST CMVP
+            certificate.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-consonant-CMVP-validation-details"
             doc:context="oscal:prop[@name eq 'validation-details']"
