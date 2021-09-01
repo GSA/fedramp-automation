@@ -273,6 +273,18 @@
         <statement>A FedRAMP SSP must incorporate a system inventory.</statement>
     </rule>
     <rule
+        assertions="inventory-item-has-purpose"
+        doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+        doc:template-reference="System Security Plan Template §15 Attachment 13">
+        <statement>An inventory item must have a purpose property.</statement>
+    </rule>
+    <rule
+        assertions="inventory-item-has-sufficient-purpose"
+        doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+        doc:template-reference="System Security Plan Template §15 Attachment 13">
+        <statement>An inventory item must have a purpose property of adequate length (20 characters or more).</statement>
+    </rule>
+    <rule
         assertions="has-system-id"
         doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.1"
         doc:template-reference="System Security Plan Template §1">

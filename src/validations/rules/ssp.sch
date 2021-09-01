@@ -1912,6 +1912,21 @@
                 id="inventory-item-has-one-scan-type"
                 role="error"
                 test="not(oscal:prop[@name eq 'scan-type'][2])">An inventory item has only one scan-type property.</sch:assert>
+            <sch:assert
+                diagnostics="inventory-item-has-purpose-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                id="inventory-item-has-purpose"
+                role="error"
+                test="oscal:prop[@name eq 'purpose']">An inventory item must have a purpose property.</sch:assert>
+            <sch:assert
+                diagnostics="inventory-item-has-sufficient-purpose-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                id="inventory-item-has-sufficient-purpose"
+                role="error"
+                test="oscal:prop[@name eq 'purpose' and string-length(@value) ge 20]">An inventory item must have a purpose property of adequate
+                length (20 characters or more).</sch:assert>
             <!-- restrict the following to "infrastructure" -->
             <sch:let
                 name="is-infrastructure"
@@ -3849,6 +3864,15 @@
             doc:assertion="inventory-item-has-one-scan-type"
             doc:context="oscal:inventory-item"
             id="inventory-item-has-one-scan-type-diagnostic">This inventory-item has more than one scan-type property.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="inventory-item-has-purpose"
+            doc:context="oscal:inventory-item"
+            id="inventory-item-has-purpose-diagnostic">This inventory-item lacks a purpose property.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="inventory-item-has-sufficient-purpose"
+            doc:context="oscal:inventory-item"
+            id="inventory-item-has-sufficient-purpose-diagnostic">This inventory-item purpose is insufficiently described (length must be 20
+            characters or more).</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-allows-authenticated-scan"
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
