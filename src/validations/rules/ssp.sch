@@ -7,7 +7,7 @@
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    
+
     <sch:ns
         prefix="f"
         uri="https://fedramp.gov/ns/oscal" />
@@ -151,6 +151,10 @@
     <sch:phase
         id="remote-resource">
         <sch:active
+            pattern="parameters-and-variables" />
+        <sch:active
+            pattern="resources" />
+        <sch:active
             pattern="fedramp-data" />
         <sch:active
             pattern="fips-140" />
@@ -186,15 +190,15 @@
                 role="information"
                 test="true()">environment-variable use-remote-resources is <sch:value-of
                     select="
-                    if (exists(environment-variable('use-remote-resources'))) then
-                    environment-variable('use-remote-resources')
+                        if (exists(environment-variable('use-remote-resources'))) then
+                            environment-variable('use-remote-resources')
                         else
                             'not defined'" />.</sch:report>
 
             <sch:report
                 id="variable-use-remote-resources"
                 role="information"
-                test="true()">use-remote-resources is <sch:value-of
+                test="true()">variable use-remote-resources is <sch:value-of
                     select="$use-remote-resources" />.</sch:report>
 
         </sch:rule>
@@ -894,9 +898,14 @@
                 id="rlink-has-href"
                 role="error"
                 test="@href">Every supporting artifact found in a citation rlink must have a reference.</sch:assert>
-            <!-- Both doc-avail() and unparsed-text-available() are failing on arbitrary hrefs -->
-            <!--<sch:assert test="unparsed-text-available(@href)">the &lt;<sch:name/>&gt; element href attribute refers to a non-existent
-                document</sch:assert>-->
+            <sch:assert
+                diagnostics="rlink-href-is-available-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                doc:template-reference="System Security Plan Template §15"
+                id="rlink-href-is-available"
+                role="error"
+                test="not($use-remote-resources) or unparsed-text-available(@href)">Every supporting artifact found in a citation rlink must have a
+                reachable reference.</sch:assert>
             <!--<sch:assert id="rlink-has-media-type"
                 role="warning"
                 test="$WARNING and @media-type">the &lt;<sch:name/>&gt; element should have a media-type attribute</sch:assert>-->
@@ -1373,14 +1382,14 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 id="has-credible-CMVP-validation-details"
                 role="error"
-                test="matches(@href, '^https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/\d{3,4}$')">A validation
-                details must refer to a NIST Cryptographic Module Validation Program (CMVP) certificate detail page.</sch:assert>
+                test="matches(@href, '^https://csrc\.nist\.gov/projects/cryptographic-module-validation-program/[Cc]ertificate/\d{3,4}$')">A
+                validation details must refer to a NIST Cryptographic Module Validation Program (CMVP) certificate detail page.</sch:assert>
             <sch:assert
                 diagnostics="has-accessible-CMVP-validation-details-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 id="has-accessible-CMVP-validation-details"
-                test="not($use-remote-resources) or unparsed-text-available(@href)">The NIST Cryptographic Module Validation Program (CMVP) certificate detail page is
-                available.</sch:assert>
+                test="not($use-remote-resources) or unparsed-text-available(@href)">The NIST Cryptographic Module Validation Program (CMVP)
+                certificate detail page is available.</sch:assert>
             <sch:assert
                 diagnostics="has-consonant-CMVP-validation-details-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
@@ -3535,6 +3544,9 @@
             doc:assertion="rlink-has-href"
             doc:context="oscal:back-matter/oscal:resource/oscal:rlink"
             id="rlink-has-href-diagnostic">This rlink lacks an href attribute.</sch:diagnostic>
+        <sch:diagnostic
+            doc:context="oscal:back-matter/oscal:resource/oscal:rlink"
+            id="rlink-href-is-available-diagnostic">This supporting artifact found in a citation rlink has an unreachable reference.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-media-type"
             doc:context="oscal:rlink | oscal:base64"
