@@ -765,9 +765,9 @@
          </description>
          <prop name="validation-type" value="fips-140-2"/>
          <!-- identifies the certificate number -->
-         <prop name="validation-reference" value="0000"/>
+         <prop name="validation-reference" value="3928"/>
          <link rel="validation-details"
-            href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/0000"/>
+            href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/3928"/>
          <status state="operational"/>
       </component>
       <component uuid="05ceb8df-52e7-49db-9719-891723f366bd" type="software">
