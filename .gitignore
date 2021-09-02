@@ -8,5 +8,4 @@ src/validations/lib/**.jar
 src/validations/report
 src/validations/src/ssp.xsl
 src/validations/target
-src/validations/test/*
 utils
