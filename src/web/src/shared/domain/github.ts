@@ -11,7 +11,7 @@ export const DEFAULT_REPOSITORY: GithubRepository = {
 };
 
 const SAMPLE_SSP_PATHS = [
-  'src/validations/test/demo/FedRAMP-SSP-OSCAL-Template.xml',
+  'src/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml',
 ];
 
 export const getBranchTreeUrl = (
