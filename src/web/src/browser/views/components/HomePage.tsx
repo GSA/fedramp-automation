@@ -99,6 +99,7 @@ const PartiesGrid = () => {
 };
 
 export const HomePage = () => {
+  const { getAssetUrl } = useActions();
   return (
     <div className="usa-prose padding-top-3">
       <h1>Accelerate approvals</h1>
@@ -114,7 +115,8 @@ export const HomePage = () => {
             Open Security Controls Assessment Language (OSCAL)
           </a>{' '}
           validation rules written in{' '}
-          <a href="https://schematron.com/">Schematron</a> format
+          <a href="https://schematron.com/">Schematron</a> format. A{' '}
+          <a href={getAssetUrl('rules.html')}>rules summary</a> is available.
         </li>
         <li>
           This user interface, which will apply validations to a FedRAMP OSCAL
