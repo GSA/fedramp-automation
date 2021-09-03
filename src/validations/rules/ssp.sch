@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sch:schema
     queryBinding="xslt2"
+    xmlns:array="http://www.w3.org/2005/xpath-functions/array"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+    xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
     <sch:ns
         prefix="f"
         uri="https://fedramp.gov/ns/oscal" />
@@ -20,11 +23,19 @@
     <sch:ns
         prefix="lv"
         uri="local-validations" />
+    <sch:ns
+        prefix="array"
+        uri="http://www.w3.org/2005/xpath-functions/array" />
+    <sch:ns
+        prefix="map"
+        uri="http://www.w3.org/2005/xpath-functions/map" />
+
     <sch:phase
         id="Phase2">
         <sch:active
             pattern="phase2" />
     </sch:phase>
+
     <sch:phase
         id="Phase3">
         <sch:active
@@ -52,6 +63,8 @@
         <sch:active
             pattern="basic-system-characteristics" />
         <sch:active
+            pattern="fedramp-data" />
+        <sch:active
             pattern="general-roles" />
         <sch:active
             pattern="implementation-roles" />
@@ -66,20 +79,23 @@
         <sch:active
             pattern="control-implementation" />
         <sch:active
-            pattern="interconnects" />
-        <sch:active
             pattern="info" />
     </sch:phase>
+
     <sch:phase
-        id="test">
+        id="basic">
         <sch:active
-            pattern="interconnects" />
+            pattern="basic-system-characteristics" />
+        <sch:active
+            pattern="fedramp-data" />
     </sch:phase>
+
     <sch:phase
         id="information">
         <sch:active
             pattern="info" />
     </sch:phase>
+
     <sch:phase
         id="attachments">
         <sch:active
@@ -97,6 +113,7 @@
         <sch:active
             pattern="data-flow" />
     </sch:phase>
+
     <sch:phase
         id="privacy">
         <sch:active
@@ -104,11 +121,13 @@
         <sch:active
             pattern="privacy2" />
     </sch:phase>
+
     <sch:phase
         id="inventory">
         <sch:active
             pattern="system-inventory" />
     </sch:phase>
+
     <sch:phase
         id="diagrams">
         <sch:active
@@ -118,6 +137,7 @@
         <sch:active
             pattern="data-flow" />
     </sch:phase>
+
     <sch:phase
         id="roles">
         <sch:active
@@ -127,8 +147,63 @@
         <sch:active
             pattern="user-properties" />
     </sch:phase>
+
+    <sch:phase
+        id="remote-resource">
+        <sch:active
+            pattern="parameters-and-variables" />
+        <sch:active
+            pattern="resources" />
+        <sch:active
+            pattern="fedramp-data" />
+        <sch:active
+            pattern="fips-140" />
+    </sch:phase>
+
     <doc:xspec
         href="../test/ssp.xspec" />
+
+    <!-- settings for use (or not) of remote resources -->
+    <!-- XSLT parameter param-use-remote-resources -->
+    <xsl:param
+        as="xs:boolean"
+        name="param-use-remote-resources"
+        select="false()" />
+    <!-- Schematron variable use-remote-resources  -->
+    <sch:let
+        name="use-remote-resources"
+        value="$param-use-remote-resources or exists(environment-variable('use-remote-resources'))" />
+
+    <sch:pattern
+        id="parameters-and-variables">
+        <sch:rule
+            context="/">
+
+            <sch:report
+                id="parameter-use-remote-resources"
+                role="information"
+                test="true()">parameter use-remote-resources is <sch:value-of
+                    select="$use-remote-resources" />.</sch:report>
+
+            <sch:report
+                id="environment-variable-use-remote-resources"
+                role="information"
+                test="true()">environment-variable use-remote-resources is <sch:value-of
+                    select="
+                        if (exists(environment-variable('use-remote-resources'))) then
+                            environment-variable('use-remote-resources')
+                        else
+                            'not defined'" />.</sch:report>
+
+            <sch:report
+                id="variable-use-remote-resources"
+                role="information"
+                test="true()">variable use-remote-resources is <sch:value-of
+                    select="$use-remote-resources" />.</sch:report>
+
+        </sch:rule>
+    </sch:pattern>
+
     <sch:title>FedRAMP System Security Plan Validations</sch:title>
     <xsl:output
         encoding="UTF-8"
@@ -762,6 +837,7 @@
         value="doc(concat($registry-base-path, '/fedramp_values.xml'))" />
     <!-- ↑ stage 2 content ↑ -->
     <!-- ↓ stage 3 content ↓ -->
+
     <sch:pattern
         id="resources">
         <sch:title>Basic resource constraints</sch:title>
@@ -822,9 +898,14 @@
                 id="rlink-has-href"
                 role="error"
                 test="@href">Every supporting artifact found in a citation rlink must have a reference.</sch:assert>
-            <!-- Both doc-avail() and unparsed-text-available() are failing on arbitrary hrefs -->
-            <!--<sch:assert test="unparsed-text-available(@href)">the &lt;<sch:name/>&gt; element href attribute refers to a non-existent
-                document</sch:assert>-->
+            <sch:assert
+                diagnostics="rlink-href-is-available-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
+                doc:template-reference="System Security Plan Template §15"
+                id="rlink-href-is-available"
+                role="error"
+                test="not($use-remote-resources) or unparsed-text-available(@href)">Every supporting artifact found in a citation rlink must have a
+                reachable reference.</sch:assert>
             <!--<sch:assert id="rlink-has-media-type"
                 role="warning"
                 test="$WARNING and @media-type">the &lt;<sch:name/>&gt; element should have a media-type attribute</sch:assert>-->
@@ -1301,8 +1382,14 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 id="has-credible-CMVP-validation-details"
                 role="error"
-                test="matches(@href, '^https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/\d{3,4}$')">A validation
-                details must refer to a NIST Cryptographic Module Validation Program (CMVP) certificate detail page.</sch:assert>
+                test="matches(@href, '^https://csrc\.nist\.gov/projects/cryptographic-module-validation-program/[Cc]ertificate/\d{3,4}$')">A
+                validation details must refer to a NIST Cryptographic Module Validation Program (CMVP) certificate detail page.</sch:assert>
+            <sch:assert
+                diagnostics="has-accessible-CMVP-validation-details-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
+                id="has-accessible-CMVP-validation-details"
+                test="not($use-remote-resources) or unparsed-text-available(@href)">The NIST Cryptographic Module Validation Program (CMVP)
+                certificate detail page is available.</sch:assert>
             <sch:assert
                 diagnostics="has-consonant-CMVP-validation-details-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
@@ -1912,6 +1999,21 @@
                 id="inventory-item-has-one-scan-type"
                 role="error"
                 test="not(oscal:prop[@name eq 'scan-type'][2])">An inventory item has only one scan-type property.</sch:assert>
+            <sch:assert
+                diagnostics="inventory-item-has-purpose-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                id="inventory-item-has-purpose"
+                role="error"
+                test="oscal:prop[@name eq 'purpose']">An inventory item must have a purpose property.</sch:assert>
+            <sch:assert
+                diagnostics="inventory-item-has-sufficient-purpose-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                id="inventory-item-has-sufficient-purpose"
+                role="error"
+                test="oscal:prop[@name eq 'purpose' and string-length(@value) ge 20]">An inventory item must have a purpose property of adequate
+                length (20 characters or more).</sch:assert>
             <!-- restrict the following to "infrastructure" -->
             <sch:let
                 name="is-infrastructure"
@@ -2096,16 +2198,58 @@
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
                 test="oscal:system-name-short">A FedRAMP SSP must have a short system name.</sch:assert>
+            <sch:let
+                name="authorization-types"
+                value="$fedramp-values//fedramp:value-set[@name eq 'authorization-type']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="has-fedramp-authorization-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.2"
                 id="has-fedramp-authorization-type"
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.2"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'authorization-type' and @value = ('fedramp-jab', 'fedramp-agency', 'fedramp-li-saas')]">
-                A FedRAMP SSP must have a FedRAMP authorization type.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'authorization-type' and @value = $authorization-types]">A FedRAMP
+                SSP must have an allowed FedRAMP authorization type.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
+    <sch:pattern
+        id="fedramp-data">
+
+        <sch:let
+            name="fedramp_data_href"
+            value="'https://raw.githubusercontent.com/18F/fedramp-data/master/data/data.json'" />
+
+        <sch:let
+            name="fedramp_data"
+            value="
+                if ($use-remote-resources and unparsed-text-available($fedramp_data_href)) then
+                    parse-json(unparsed-text($fedramp_data_href))
+                else
+                    nilled(())" />
+
+        <sch:rule
+            context="oscal:system-characteristics/oscal:system-id[@identifier-type eq 'https://fedramp.gov']">
+
+            <sch:let
+                name="id"
+                value="current()" />
+
+            <sch:assert
+                diagnostics="has-active-system-id-diagnostic"
+                id="has-active-system-id"
+                role="error"
+                test="
+                    not($use-remote-resources) or
+                    (some $p in array:flatten($fedramp_data?data?Providers)
+                        satisfies $p?Package_ID eq current())">A FedRAMP SSP must have an active FedRAMP system
+                identifier.</sch:assert>
+
+            <!-- No unit test is possible -->
+
+        </sch:rule>
+
+    </sch:pattern>
+
     <sch:pattern
         id="general-roles">
         <sch:title>Roles, Locations, Parties, Responsibilities</sch:title>
@@ -3401,6 +3545,9 @@
             doc:context="oscal:back-matter/oscal:resource/oscal:rlink"
             id="rlink-has-href-diagnostic">This rlink lacks an href attribute.</sch:diagnostic>
         <sch:diagnostic
+            doc:context="oscal:back-matter/oscal:resource/oscal:rlink"
+            id="rlink-href-is-available-diagnostic">This supporting artifact found in a citation rlink has an unreachable reference.</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="has-allowed-media-type"
             doc:context="oscal:rlink | oscal:base64"
             id="has-allowed-media-type-diagnostic">This <sch:value-of
@@ -3596,6 +3743,11 @@
             doc:context="oscal:prop[@name eq 'validation-details']"
             id="has-credible-CMVP-validation-details-diagnostic">This validation-details link href attribute does not resemble a CMVP certificate
             URL.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-accessible-CMVP-validation-details"
+            doc:context="oscal:prop[@name eq 'validation-details']"
+            id="has-accessible-CMVP-validation-details-diagnostic">This validation-details link references an inaccessible NIST CMVP
+            certificate.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-consonant-CMVP-validation-details"
             doc:context="oscal:prop[@name eq 'validation-details']"
@@ -3850,6 +4002,15 @@
             doc:context="oscal:inventory-item"
             id="inventory-item-has-one-scan-type-diagnostic">This inventory-item has more than one scan-type property.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="inventory-item-has-purpose"
+            doc:context="oscal:inventory-item"
+            id="inventory-item-has-purpose-diagnostic">This inventory-item lacks a purpose property.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="inventory-item-has-sufficient-purpose"
+            doc:context="oscal:inventory-item"
+            id="inventory-item-has-sufficient-purpose-diagnostic">This inventory-item purpose is insufficiently described (length must be 20
+            characters or more).</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="inventory-item-has-allows-authenticated-scan"
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-allows-authenticated-scan-diagnostic">This inventory-item lacks allows-authenticated-scan
@@ -3955,6 +4116,10 @@
             doc:assertion="has-fedramp-authorization-type"
             doc:context="oscal:system-characteristics"
             id="has-fedramp-authorization-type-diagnostic">This FedRAMP OSCAL SSP lacks a FedRAMP authorization type.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-active-system-id"
+            doc:context="oscal:system-characteristics/oscal:system-id[@identifier-type eq 'https://fedramp.gov']"
+            id="has-active-system-id-diagnostic">This FedRAMP SSP does not have an active FedRAMP system identifier.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="role-defined-system-owner"
             doc:context="oscal:metadata"

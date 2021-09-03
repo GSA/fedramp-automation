@@ -3,4 +3,6 @@ coverage
 node_modules
 public/assertion-grouping.sef.json
 public/assertion-views.json
+public/ssp.json
 public/ssp.sef.json
+public/ssp.xsl
