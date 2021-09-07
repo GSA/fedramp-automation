@@ -1,6 +1,6 @@
 # 10. Use of remote resources during validation
 
-Date: 2021-09-02
+Date: 2021-09-07
 
 ## Status
 
@@ -28,4 +28,4 @@ assertions which require access to remote resources.
 
 ## Decision
 
-TBD
+The parameter and related variables will be used to enable use of remote resources.
