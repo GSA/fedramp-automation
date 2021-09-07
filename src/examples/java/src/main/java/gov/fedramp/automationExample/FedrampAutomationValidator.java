@@ -90,6 +90,8 @@ public class FedrampAutomationValidator {
     XsltTransformer xsltTransformer = xsltExecutable.load();
     xsltTransformer.setParameter(new QName("baselines-base-path"), new XdmAtomicValue(BASELINES_PATH));
     xsltTransformer.setParameter(new QName("registry-base-path"), new XdmAtomicValue(RESOURCES_PATH));
+    // Set to `true` to validate external resource references.
+    xsltTransformer.setParameter(new QName("param-use-remote-resources"), new XdmAtomicValue(false));
     return xsltTransformer;
   }
 
