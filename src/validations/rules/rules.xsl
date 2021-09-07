@@ -4,7 +4,7 @@
     version="3.0"
     xmlns:msg="https://fedramp.gov/oscal/fedramp-automation-messages"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
-    xmlns:fn="local function"
+    xmlns:fn="local-function"
     xmlns:fv="https://fedramp.gov/ns/oscal"
     xmlns:math="http://www.w3.org/2005/xpath-functions/math"
     xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0"
@@ -129,7 +129,7 @@
                 </h1>
 
                 <p>
-                    <xsl:text expand-text="true">Last updated { format-dateTime(current-dateTime(), '[MNn] [D] [Y] [H01]:[m01] [ZN,*-3]') }.</xsl:text>
+                    <xsl:text expand-text="true">Last updated { format-dateTime(current-dateTime(), '[MNn] [D] [Y] [H01]:[m01] [Z,*-3]') }.</xsl:text>
                 </p>
 
                 <p>Information from <a
