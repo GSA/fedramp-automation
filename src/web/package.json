@@ -5,19 +5,19 @@
     }
   },
   "scripts": {
-    "build": "npm run build:sef:assertion-grouping && npm run build:assertion-views && npm run build:snowpack",
-    "build:assertion-views": "ts-node -r tsconfig-paths/register src/cli/index.ts create-assertion-view",
-    "build:schematron": "npm run build:schematron-java && npm run build:sef && npm run build:ssp-json",
-    "build:schematron-ideal": "npm run build:sch-stage-1 && npm run build:sch-stage-2 && npm run build:sch-stage-3 && npm run build:sef",
-    "build:schematron-java": "cd ../validations && ./bin/validate_with_schematron.sh && cp target/ssp.xsl ../web/public",
-    "build:sch-stage-1": "xslt3 -s:../validations/rules/ssp.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_dsdl_include.xsl -o:../validations/target/ssp-stage1.sch",
-    "build:sch-stage-2": "xslt3 -s:../validations/target/ssp-stage1.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_abstract_expand.xsl -o:../validations/target/ssp-stage2.sch",
-    "build:sch-stage-3": "xslt3 -s:../validations/target/ssp-stage2.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl -o:../validations/target/ssp.xsl",
-    "build:sef": "npm run build:sef:ssp.sch && npm run build:sef:assertion-grouping",
-    "build:sef:ssp.sch": "xslt3 -xsl:public/ssp.xsl -export:public/ssp.sef.json -nogo",
-    "build:sef:assertion-grouping": "xslt3 -xsl:../validations/rules/assertion-grouping.xsl -export:public/assertion-grouping.sef.json -nogo",
+    "build": "mkdir -p build && run-s build:schematron build:json build:snowpack",
+    "build:json": "run-p build:json:sef:* && run-p build:json:cli:*",
+    "build:json:cli:assertion-views": "ts-node -r tsconfig-paths/register src/cli/index.ts create-assertion-view",
+    "build:json:cli:schematron": "ts-node -r tsconfig-paths/register src/cli/index.ts parse-schematron ../validations/rules/ssp.sch ./public/ssp.json",
+    "build:json:sef:assertion-grouping": "xslt3 -xsl:../validations/rules/assertion-grouping.xsl -export:public/assertion-grouping.sef.json -nogo",
+    "build:json:sef:ssp.sch": "xslt3 -xsl:build/ssp.xsl -export:public/ssp.sef.json -nogo",
+    "build:schematron": "run-s build:schematron:*",
+    "build:schematron-java-unused": "cd ../validations && ./bin/validate_with_schematron.sh && cp target/ssp.xsl ../web/public",
+    "build:schematron:stage-1": "xslt3 -s:../validations/rules/ssp.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_dsdl_include.xsl -o:build/ssp-stage1.sch allow-foreign=true diagnose=true",
+    "build:schematron:stage-2": "xslt3 -s:build/ssp-stage1.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_abstract_expand.xsl -o:build/ssp-stage2.sch allow-foreign=true diagnose=true",
+    "build:schematron:stage-3": "xslt3 -s:build/ssp-stage2.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl -o:build/ssp.xsl allow-foreign=true diagnose=true",
+    "build:schematron:summary": "xslt3 -s:../validations/rules/rules.xsl -xsl:../validations/rules/rules.xsl -o:public/rules.html",
     "build:snowpack": "snowpack build",
-    "build:ssp-json": "ts-node -r tsconfig-paths/register src/cli/index.ts parse-schematron ../validations/rules/ssp.sch ./public/ssp.json",
     "cli": "ts-node -r tsconfig-paths/register src/cli/index.ts",
     "clean": "rm -rf build coverage",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
@@ -58,6 +58,7 @@
     "concurrently": "^6.2.0",
     "jest": "^27.0.6",
     "jest-html-reporter": "^3.4.1",
+    "npm-run-all": "^4.1.5",
     "overmind-devtools": "^29.0.0",
     "prettier": "^2.2.1",
     "sass": "1.32.13",
@@ -67,6 +68,6 @@
     "ts-node": "^10.0.0",
     "tsconfig-paths": "^3.10.1",
     "typescript": "^4.3.5",
-    "xslt3": "^2.2.0"
+    "xslt3": "^2.3.0"
   }
 }
