@@ -17,6 +17,14 @@ For the purposes of third-party integration, Schematron validation rules are pro
   - Saxon/C is an open-source C-compatibility layer over the Java runtime. It has bindings for Python and PHP. The Python example in this directory utilizes Saxon/C with the Python extension.
 - When evaluated, the XSLT output is an SVRL document (Schematron Validation Report Language). Failed assertions and diagnostic messages may be extracted from the SVRL using XPath. SVRL identifies the locus of the error in the source document via an XPath 3.0 location.
 
+## Validation parameters
+
+The Schematron rules support a number of parameters that can be applied via XSLT stylesheet parameters.
+
+- `baselines-base-path` - Path to this repository's baselines. Default value is path relative to Schematron source document. Set to local or network root path. See: https://github.com/GSA/fedramp-automation/tree/master/dist/content/baselines/rev4/xml
+- `registry-base-path` - Path to this repository's registry values. Default value is path relative to Schematron source document. Set to local or network root path. See: https://github.com/GSA/fedramp-automation/tree/master/dist/content/resources/xml
+- `param-use-remote-resources` - Boolean, default False. If True, validate references to external resources, which may be remote.
+
 # Schematron Validation Report Language (SVRL)
 
 The result of an evaluated Schematron ruleset is an XML document in SVRL format. This document includes failed assertions, diagnostic messages for each assertion, and the XPath selector that identifies the location of the deficiency in the source OSCAL document.

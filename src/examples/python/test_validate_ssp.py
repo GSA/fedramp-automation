@@ -57,6 +57,10 @@ def xslt_processor(saxon_processor: saxonc.PySaxonProcessor) -> saxonc.PyXsltPro
     xslt_processor.set_parameter(
         "registry-base-path", saxon_processor.make_string_value(REGISTRY_BASE_PATH)
     )
+    xslt_processor.set_parameter(
+        # Set to `True` to validate external resource references.
+        "param-use-remote-resources", saxon_processor.make_boolean_value(False)
+    )
     return xslt_processor
 
 
