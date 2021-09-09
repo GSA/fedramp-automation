@@ -449,32 +449,6 @@
       </constraint>
    </extension>
 
-   <extension id="port" >
-      <extension-name>port</extension-name>
-      <formal-name>Interconnection Port</formal-name>
-      <description>A port used by the interconnection for the communication.</description>
-      <binding pattern="/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop" />
-      <constraint>
-         <matches data-type="string" />
-         <has-cardinality min-occurs="1" max-occurs="unbounded" />
-         <expect test=".[@class]" />
-      </constraint>
-   </extension>
-
-   <extension id="transport-type">
-      <extension-name>transport-type</extension-name>
-      <formal-name>Transport Type</formal-name>
-      <description>The internet protocol transport type.</description>
-      <binding pattern="o:component[@component-type='service']/o:protocol/o:port-range/@transport" />
-      <constraint>
-         <matches data-type="token" />
-         <allowed-values allow-other="no">
-            <enum value="tcp" short-label="TCP">TCP</enum>
-            <enum value="udp" short-label="UDP">UDP</enum>
-         </allowed-values>
-      </constraint>
-   </extension>
-
    <extension id="inventory-item-state">
       <extension-name>inventory-item-state</extension-name>
       <formal-name>Different states of inventory items: public, private, et cetera.</formal-name>
@@ -1251,6 +1225,7 @@
          <!-- All the privacy "types" need rationalization -->
          <enum value="personal-identifiable-information" short-label="PII">Personal Identifiable Information (PII)</enum>
          <enum value="agreement" short-label="Agreement">Agreement</enum>
+         <enum value="isa-agreement" short-label="Agreement">Interconnection Security Agreement</enum>
          <enum value="incident-response-plan" short-label="IRP">Incident Response Plan</enum>
          <enum value="information-security-policies-and-procedures" short-label="ISPP">Incident Security Policies and Procedures</enum>
          <enum value="user-guide" short-label="User Guide">User Guide</enum>
@@ -1359,13 +1334,14 @@
       </allowed-values>
    </constraint>
    
-   <constraint name="system-operational-status">
+   <constraint name="operational-status">
       <formal-name>Operational Status (system)</formal-name>
       <description>The operational status of the system</description>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:status/@state"/>
+      <binding pattern="o:status/@state"/>
       <allowed-values allow-other="no">
          <enum value="operational" short-label="Operational">Operational</enum>
          <enum value="under-development" short-label="Development">Under Development</enum>
+         <enum value="under-major-modification" short-label="Major Mod.">Major Modification</enum>
          <enum value="disposition" short-label="Alternative">Alternative Implementation</enum>
          <enum value="other" short-label="Other">Other</enum>
       </allowed-values>
