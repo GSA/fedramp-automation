@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="sch.sch" phase="basic" title="Schematron Style Guide for FedRAMP Validations" ?>
+<?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="sch.sch" phase="advanced" title="Schematron Style Guide for FedRAMP Validations" ?>
 <sch:schema
     defaultPhase="basic"
     queryBinding="xslt2"
@@ -30,7 +30,15 @@
     <sch:phase
         id="advanced">
         <sch:active
+            pattern="basic-schematron" />
+        <sch:active
             pattern="test-coverage" />
+        <sch:active
+            pattern="FedRAMP-extensions" />
+    </sch:phase>
+
+    <sch:phase
+        id="FedRAMP">
         <sch:active
             pattern="FedRAMP-extensions" />
     </sch:phase>
@@ -56,15 +64,16 @@
         id="basic-schematron">
 
         <sch:rule
-            context="sch:rule">
+            context="sch:assert">
 
             <sch:assert
-                role="warning"
-                id="context-reuse"
                 diagnostics="context-reuse-diagnostic"
+                id="context-reuse"
+                role="warning"
                 test="
-                    every $r in (//sch:rule except current())
-                        satisfies $r/@context ne current()/@context">There are no sch:rule contexts used more than once.</sch:assert>
+                    every $r in (parent::sch:pattern/sch:rule except current())
+                        satisfies $r/@context ne current()/@context">There are no sch:rule contexts used more than once within a
+                pattern.</sch:assert>
 
         </sch:rule>
 
@@ -120,14 +129,14 @@
                 </sqf:description>
                 <sqf:add
                     node-type="attribute"
-                    target="diagnostics"
-                    select="concat(@id, '-diagnostic')" />
+                    select="concat(@id, '-diagnostic')"
+                    target="diagnostics" />
             </sqf:fix>
 
             <sch:assert
-                role="error"
-                id="diagnostic-defined"
                 diagnostics="diagnostic-defined-diagnostic"
+                id="diagnostic-defined"
+                role="error"
                 sqf:fix="add-diagnostic-element"
                 test="
                     every $d in tokenize(@diagnostics)
@@ -148,8 +157,8 @@
                     </sqf:description>
                 </sqf:user-entry>
                 <sqf:add
-                    node-type="element"
                     match="//sch:diagnostic[last()]"
+                    node-type="element"
                     position="after"
                     select="."
                     target="{message}" />
@@ -165,7 +174,7 @@
                 id="has-punctuation"
                 role="error"
                 sqf:fix="add-punctuation"
-                test="ends-with(., '.')">Every Schematron assertion has a message which is terminated with a period.</sch:assert>
+                test="ends-with(., '.')">Every Schematron message is terminated by a period.</sch:assert>
 
             <sqf:fix
                 id="add-punctuation">
@@ -181,9 +190,9 @@
         <sch:rule
             context="sch:diagnostic">
             <sch:assert
+                diagnostics="diagnostic-is-referenced-diagnostic"
                 id="diagnostic-is-referenced"
                 role="warning"
-                diagnostics="diagnostic-is-referenced-diagnostic"
                 test="@id = //@diagnostics ! tokenize(., '\s+')" />
         </sch:rule>
 
@@ -223,20 +232,6 @@
         <sch:rule
             context="doc:xspec">
 
-            <sch:assert
-                diagnostics="has-xspec-affirmative-test-diagnostic"
-                id="has-xspec-affirmative-test"
-                role="warning"
-                test="$xspec//x:expect-not-assert[@id = current()/@id]">Every Schematron assertion has an XSpec test for the affirmative assertion
-                outcome.</sch:assert>
-
-            <sch:assert
-                diagnostics="has-xspec-negative-test-diagnostic"
-                id="has-xspec-negative-test"
-                role="warning"
-                test="$xspec//x:expect-assert[@id = current()/@id]">Every Schematron assertion has an XSpec test for the negative assertion
-                outcome.</sch:assert>
-
             <!-- Provide unit test statistics -->
             <sch:let
                 name="assertions"
@@ -254,13 +249,32 @@
                 name="coverage"
                 value="count($referenced-tests) div (count($assertions) * 2)" />
             <sch:report
+                diagnostics="report-test-coverage-diagnostic"
                 id="report-test-coverage"
                 role="information"
-                diagnostics="report-test-coverage-diagnostic"
                 test="true()">There are <sch:value-of
                     select="count($assertions)" /> assertions and there are <sch:value-of
                     select="count($referenced-tests)" /> unit tests which reference those assertions for test coverage of <sch:value-of
                     select="format-number($coverage, '09.99%')" />.</sch:report>
+
+        </sch:rule>
+
+        <sch:rule
+            context="sch:assert">
+
+            <sch:assert
+                diagnostics="has-xspec-affirmative-test-diagnostic"
+                id="has-xspec-affirmative-test"
+                role="warning"
+                test="$xspec//x:expect-not-assert[@id = current()/@id]">Every Schematron assertion has an XSpec test for the affirmative assertion
+                outcome.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-xspec-negative-test-diagnostic"
+                id="has-xspec-negative-test"
+                role="warning"
+                test="$xspec//x:expect-assert[@id = current()/@id]">Every Schematron assertion has an XSpec test for the negative assertion
+                outcome.</sch:assert>
 
         </sch:rule>
 
@@ -273,29 +287,35 @@
             context="sch:assert">
 
             <sch:assert
-                sqf:fix="insert-doc-reference-attribute"
-                test="@doc:reference"
+                id="has-doc-guide-reference"
                 role="warning"
-                id="has-doc-reference">Every rule has a doc:reference attribute.</sch:assert>
+                test="@doc:guide-reference">Every assertion has a doc:guide-reference attribute.</sch:assert>
 
-            <sqf:fix
-                id="insert-doc-reference-attribute">
-                <sqf:description>
-                    <sqf:title>Add a doc:reference attribute</sqf:title>
-                </sqf:description>
-                <sqf:user-entry
-                    name="URI">
-                    <sqf:description>
-                        <sqf:title>Enter a URI</sqf:title>
-                    </sqf:description>
-                </sqf:user-entry>
-                <sqf:add
-                    match="."
-                    node-type="attribute"
-                    target="doc:reference"
-                    select="'reference'" />
-            </sqf:fix>
+            <sch:assert
+                id="has-doc-template-reference"
+                role="warning"
+                test="@doc:template-reference">Every assertion has a doc:template-reference attribute.</sch:assert>
 
+            <sch:assert
+                id="has-doc-checklist-reference"
+                role="warning"
+                test="@doc:checklist-reference">Every assertion has a doc:checklist-reference attribute.</sch:assert>
+
+        </sch:rule>
+
+        <sch:rule
+            context="sch:diagnostic">
+
+            <sch:assert
+                id="has-doc-assertion-attribute"
+                role="warning"
+                test="@doc:assertion">Every diagnostic has a doc:assertion attribute.</sch:assert>
+            
+            <sch:assert
+                id="has-doc-context-attribute"
+                role="warning"
+                test="@doc:context">Every diagnostic has a doc:context attribute.</sch:assert>
+            
         </sch:rule>
 
     </sch:pattern>
