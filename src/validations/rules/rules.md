@@ -31,7 +31,7 @@ The primary Schematron elements are `pattern`, `rule`, and `assert`.
 
 A Schematron `pattern` element allows Schematron `rule` elements to be grouped together.
 
-Schematron `rule` elements specify a context - a locus within an XML document for which subordinate assertions apply - specified in  [XPath](https://www.w3.org/TR/xpath-31/).
+Schematron `rule` elements specify a context - a locus within an XML document for which subordinate assertions apply - specified in [XPath](https://www.w3.org/TR/xpath-31/).
 
 Schematron `assert` elements specify a natural language assertion - i.e., a desired state - and a corresponding test.
 
@@ -51,7 +51,7 @@ fedramp-automation extends Schematron with some additional constructs.
 
 ### ssp.xspec
 
-[`ssp.xspec`](../test/ssp.xspec) contains unit tests for assertions in `ssp.sch`. The unit tests are written in XSpec[XSpec](https://github.com/xspec/xspec).
+[`ssp.xspec`](../test/ssp.xspec) contains unit tests for assertions in `ssp.sch`. The unit tests are written in [XSpec](https://github.com/xspec/xspec).
 
 ### sch.sch
 
