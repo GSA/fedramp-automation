@@ -1367,7 +1367,7 @@
             {
               "name": "service-processor",
               "ns": "https://fedramp.gov/ns/oscal",
-              "value": "[SAMPLE]Telco Name"
+              "value": "[SAMPLE] Telco Name"
             },
             {
               "name": "ipv4-address",
@@ -1381,11 +1381,7 @@
             },
             {
               "name": "direction",
-              "value": "incoming"
-            },
-            {
-              "name": "direction",
-              "value": "outgoing"
+              "value": "incoming-outgoing"
             },
             {
               "name": "information",
@@ -1399,11 +1395,6 @@
               "class": "remote"
             },
             {
-              "name": "circuit",
-              "ns": "https://fedramp.gov/ns/oscal",
-              "value": "1"
-            },
-            {
               "name": "connection-security",
               "ns": "https://fedramp.gov/ns/oscal",
               "value": "ipsec",
@@ -1413,7 +1404,7 @@
           "links": [
             {
               "href": "#9d6cf2b4-8e88-4040-a33c-7bc206553a1a",
-              "rel": "agreement"
+              "rel": "isa-agreement"
             }
           ],
           "status": {
