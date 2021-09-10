@@ -3017,7 +3017,7 @@
         </sch:rule>
     </sch:pattern>
     <sch:pattern
-        doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13-14"
+        doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.13-14"
         id="cloud-models">
         <sch:title>Cloud Service and Deployment Models</sch:title>
         <sch:let
@@ -3030,14 +3030,14 @@
             context="oscal:system-characteristics">
             <sch:assert
                 diagnostics="has-cloud-service-model-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-cloud-service-model"
                 role="error"
                 test="oscal:prop[@name eq 'cloud-service-model']">A FedRAMP SSP must specify a cloud service model.</sch:assert>
             <sch:assert
                 diagnostics="has-allowed-cloud-service-model-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-allowed-cloud-service-model"
                 role="error"
@@ -3045,7 +3045,7 @@
                 model.</sch:assert>
             <sch:assert
                 diagnostics="has-cloud-service-model-remarks-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-cloud-service-model-remarks"
                 role="error"
@@ -3055,14 +3055,14 @@
                     ">A FedRAMP SSP with a cloud service model of "other" must supply remarks.</sch:assert>
             <sch:assert
                 diagnostics="has-cloud-deployment-model-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.14"
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-cloud-deployment-model"
                 role="error"
                 test="oscal:prop[@name eq 'cloud-deployment-model']">A FedRAMP SSP must specify a cloud deployment model.</sch:assert>
             <sch:assert
                 diagnostics="has-allowed-cloud-deployment-model-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.14"
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-allowed-cloud-deployment-model"
                 role="error"
@@ -3070,7 +3070,7 @@
                 deployment model.</sch:assert>
             <sch:assert
                 diagnostics="has-cloud-deployment-model-remarks-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.14"
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-cloud-deployment-model-remarks"
                 role="error"
@@ -3106,7 +3106,7 @@
                 value="$fedramp-values//fedramp:value-set[@name eq 'interconnection-direction']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="interconnection-has-allowed-interconnection-direction-value-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-allowed-interconnection-direction-value"
                 role="error"
@@ -3120,7 +3120,7 @@
                 value="$fedramp-values//fedramp:value-set[@name eq 'interconnection-security']//fedramp:enum/@value" />
             <sch:assert
                 diagnostics="interconnection-has-allowed-interconnection-security-value-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-allowed-interconnection-security-value"
                 role="error"
@@ -3128,7 +3128,7 @@
                 value.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-allowed-interconnection-security-remarks-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-interconnection-security-remarks"
                 role="error"
@@ -3139,21 +3139,21 @@
             context="oscal:component[@type eq 'interconnection']">
             <sch:assert
                 diagnostics="interconnection-has-title-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-title"
                 role="error"
                 test="oscal:title">A system interconnection must provide a remote system name.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-description-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-description"
                 role="error"
                 test="oscal:description">A system interconnection must provide a remote system description.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-direction-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-direction"
                 role="error"
@@ -3161,7 +3161,7 @@
                 flows.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-information-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-information"
                 role="error"
@@ -3169,14 +3169,14 @@
                 information being transferred.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-protocol-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-protocol"
                 role="error"
                 test="oscal:protocol">A system interconnection must describe the protocols used for information transfer.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-service-processor-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-service-processor"
                 role="error"
@@ -3546,6 +3546,7 @@
             doc:context="oscal:back-matter/oscal:resource/oscal:rlink"
             id="rlink-has-href-diagnostic">This rlink lacks an href attribute.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="rlink-href-is-available"
             doc:context="oscal:back-matter/oscal:resource/oscal:rlink"
             id="rlink-href-is-available-diagnostic">This supporting artifact found in a citation rlink has an unreachable reference.</sch:diagnostic>
         <sch:diagnostic
@@ -4432,11 +4433,12 @@
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-allowed-composite-implementation-status-diagnostic">This implemented-requirement has an invalid
             implementation-status composition (<sch:value-of
-                select="string-join((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value), ', ')" />)</sch:diagnostic>
+                select="string-join((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value), ', ')" />).</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-allowed-implementation-status"
             doc:context="oscal:implemented-requirement"
-            id="implemented-requirement-has-allowed-implementation-status-diagnostic" />
+            id="implemented-requirement-has-allowed-implementation-status-diagnostic">This implemented control's implementation status lacks an
+            allowed value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-implementation-status-remarks"
             doc:context="oscal:implemented-requirement"
@@ -4592,6 +4594,7 @@
             doc:context="oscal:component[@type eq 'interconnection']/oscal:protocol"
             id="interconnection-protocol-has-name-diagnostic">This system interconnection protocol lacks a name.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="interconnection-protocol-has-port-range"
             doc:context="oscal:component[@type eq 'interconnection']/oscal:protocol"
             id="interconnection-protocol-has-port-range-diagnostic">This system interconnection protocol lacks one or more port range
             declarations.</sch:diagnostic>
