@@ -8,12 +8,12 @@ assignees: ''
 ---
 
 **Extended Description**
-- Description...
+- As a ... , in order to ... , I want ...
 
 **Preconditions**
 - Preconditions...
 
-**Acceptance Critera**
+**Acceptance Criteria**
 - Acceptance criteria...
 
 **Story Tasks**

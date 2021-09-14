@@ -1,12 +1,15 @@
 _site
+.bash_history
 .history/*
+.m2
 .vscode
 *.DS_Store
+*.code-workspace
+dist/validations
 documents/source
 NOTES.md
 src/validations/lib/**.jar
 src/validations/report
 src/validations/src/ssp.xsl
 src/validations/target
-src/validations/test/*
 utils

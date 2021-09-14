@@ -95,6 +95,7 @@ export const SaxonJsSchematronProcessorGateway =
           stylesheetParams: {
             'baselines-base-path': ctx.baselinesBaseUrl,
             'registry-base-path': ctx.registryBaseUrl,
+            'param-use-remote-resources': '1',
           },
         },
         'async',

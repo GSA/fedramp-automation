@@ -5687,6 +5687,66 @@
                 </x:scenario>
             </x:scenario>
             <x:scenario
+                label="has purpose property.">
+                <x:scenario
+                    label="affirmative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop
+                                name="purpose" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="inventory-item-has-purpose"
+                        label="correct" />
+                </x:scenario>
+                <x:scenario
+                    label="negative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop
+                                name="not-a-purpose" />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert
+                        id="inventory-item-has-purpose"
+                        label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="has sufficient purpose property.">
+                <x:scenario
+                    label="affirmative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop
+                                name="purpose"
+                                value="This value is more than twenty characters long." />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="inventory-item-has-sufficient-purpose"
+                        label="correct" />
+                </x:scenario>
+                <x:scenario
+                    label="negative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop
+                                name="purpose"
+                                value="This value is less." />
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert
+                        id="inventory-item-has-sufficient-purpose"
+                        label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
                 label="has a allows-authenticated-scan property">
                 <x:context>
                     <inventory-item
