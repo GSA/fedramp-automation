@@ -180,7 +180,7 @@ The following assertion (`id="has-fedramp-authorization-type"`) tests that a chi
 
 ## Example 2 - intra-document references
 
-This exmaple illustrates intro-document references relative to the context.
+This exmaple illustrates intra-document references relative to the context.
 
 Consider the following document fragment
 ```xml
