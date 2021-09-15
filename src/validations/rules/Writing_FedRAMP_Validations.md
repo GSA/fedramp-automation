@@ -16,7 +16,7 @@ Use of Schematron will require familiarity with XPath for context identification
 
 ## Useful resources
 
-[xpather.com](http://xpather.com/) is a browser-based XPath exploration tool.
+[xpather.com](http://xpather.com/) is a browser-based XPath exploration tool. It is not a strict XPath tool: namespaces in the XML document are ignored, and the XPath queries must not use include namespace prefixes. This design makes rapid prototyping easier, but readily copy-pasting XPath into Schematron not error-free.
 
 [XSLT Fiddle](https://xsltfiddle.liberty-development.net/) is a browser-based XSLT exploration tool.
 
