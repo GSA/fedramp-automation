@@ -9,7 +9,7 @@ FedRAMP OSCAL documents are structured XML documents. The document syntax is def
 - [OSCAL](https://pages.nist.gov/OSCAL/) is used to define the several FedRAMP document types in a structured data form. NIST provides XML Schema documents for the various OSCAL document types.
 - [Schematron](https://schematron.com/) is used to declare assertions for documents to be validated
 - [XPath](https://www.w3.org/TR/xpath-31/) is used in Schematron to define rule contexts and assertion tests
-- [XSpec](XSpec) is used to create unit tests for Schematron assertions
+- [XSpec](https://github.com/xspec/xspec) is used to create unit tests for Schematron assertions
 - [XSLT](https://www.w3.org/TR/xslt-30/) is used to manipulate XML documents, and is used to transpile Schematron documents into XSLT documents
 
 Use of Schematron will require familiarity with XPath for context identification and assertion tests, and XSpec for creation of unit tests.
