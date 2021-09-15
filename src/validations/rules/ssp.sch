@@ -161,6 +161,12 @@
             pattern="fips-140" />
     </sch:phase>
 
+    <sch:phase
+        id="ci">
+        <sch:active
+            pattern="control-implementation" />
+    </sch:phase>
+
     <doc:xspec
         href="../test/ssp.xspec" />
 
@@ -628,14 +634,6 @@
                 id="invalid-implementation-status"
                 role="error"
                 test="not(exists($corrections))">[Section C Check 2] Implementation status is correct.</sch:assert>
-            <sch:assert
-                diagnostics="missing-response-points-diagnostic"
-                doc:checklist-reference="Section C Check 2"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                doc:template-reference="System Security Plan Template §13"
-                id="missing-response-points"
-                role="error"
-                test="not(exists($missing))">[Section C Check 2] A FedRAMP SSP must have required response points.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement">
@@ -2970,6 +2968,31 @@
                         satisfies $c = ('implemented', 'planned', 'alternative', 'not-applicable', 'partial-planned', 'planned-partial')">An
                 implemented control's implementation status must be implemented, partial and planned, planned, alternative, or not
                 applicable.</sch:assert>
+
+            <sch:let
+                name="sensitivity-level"
+                value="/ => lv:sensitivity-level() => lv:if-empty-default('')" />
+            <sch:let
+                name="selected-profile"
+                value="$sensitivity-level => lv:profile()" />
+            <sch:let
+                name="required-response-points"
+                value="$selected-profile/oscal:catalog//oscal:control[@id = current()/@control-id]/oscal:part[@name = 'statement']/descendant-or-self::oscal:part[oscal:prop[@name = 'response-point']]/@id" />
+            <sch:let
+                name="provided-response-points"
+                value="oscal:statement/@statement-id" />
+            <sch:assert
+                diagnostics="implemented-requirement-has-required-response-points-diagnostic"
+                doc:checklist-reference="Section C Check 2"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
+                doc:template-reference="System Security Plan Template §13"
+                id="implemented-requirement-has-required-response-points"
+                role="error"
+                test="
+                    every $rrp in $required-response-points
+                        satisfies $rrp = $provided-response-points">[Section C Check 2] An implemented control must include required
+                response point statements.</sch:assert>
+
         </sch:rule>
         <sch:rule
             context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']">
@@ -3184,7 +3207,7 @@
                 service processor.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-local-and-remote-addresses-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-local-and-remote-addresses"
                 test="
@@ -3194,7 +3217,7 @@
                     ">A system interconnection must specify local and remote network addresses.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-interconnection-security-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-interconnection-security"
                 role="error"
@@ -3202,7 +3225,7 @@
                 how the connection is secured.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-circuit-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-circuit"
                 role="information"
@@ -3210,7 +3233,7 @@
                 circuit switching network must specify the circuit number.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-isa-poc-local-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-isa-poc-local"
                 role="error"
@@ -3218,7 +3241,7 @@
                 contact.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-isa-poc-remote-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-isa-poc-remote"
                 role="error"
@@ -3226,7 +3249,7 @@
                 contact.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-isa-authorizing-official-local-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-isa-authorizing-official-local"
                 role="error"
@@ -3234,7 +3257,7 @@
                 official.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-isa-authorizing-official-remote-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-isa-authorizing-official-remote"
                 role="error"
@@ -3251,7 +3274,7 @@
                 interconnect is defined.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-distinct-isa-local-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-distinct-isa-local"
                 role="error"
@@ -3262,7 +3285,7 @@
                 parties.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-distinct-isa-remote-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-distinct-isa-remote"
                 role="error"
@@ -3272,14 +3295,14 @@
                 interconnection must specify remote responsible parties which are not local responsible parties.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-cites-interconnection-agreement-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-cites-interconnection-agreement"
                 role="error"
                 test="oscal:link[@rel eq 'agreement']">A system interconnection must cite an interconnection agreement.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-cites-interconnection-agreement-href-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-cites-interconnection-agreement-href"
                 role="error"
@@ -3287,7 +3310,7 @@
                 interconnection agreement.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-cites-attached-interconnection-agreement-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-cites-attached-interconnection-agreement"
                 role="error"
@@ -3301,14 +3324,14 @@
             context="oscal:component[@type eq 'interconnection']/oscal:protocol">
             <sch:assert
                 diagnostics="interconnection-protocol-has-name-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-protocol-has-name"
                 role="error"
                 test="@name">A system interconnection protocol must have a name.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-protocol-has-port-range-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-protocol-has-port-range"
                 role="warning"
@@ -3319,21 +3342,21 @@
             context="oscal:component[@type eq 'interconnection']/oscal:protocol/oscal:port-range">
             <sch:assert
                 diagnostics="interconnection-protocol-port-range-has-transport-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-protocol-port-range-has-transport"
                 role="error"
                 test="@transport">A system interconnection protocol port range declaration must state a transport protocol.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-protocol-port-range-has-start-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-protocol-port-range-has-start"
                 role="error"
                 test="@start">A system interconnection protocol port range declaration must state a starting port number.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-protocol-port-range-has-end-diagnostic"
-                doc:guide-reference="DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.20"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-protocol-port-range-has-end"
                 role="error"
@@ -3418,12 +3441,6 @@
                 select="$status" />' for <sch:value-of
                 select="./@control-id" />, must be <sch:value-of
                 select="$corrections" />.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="missing-response-points"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement"
-            id="missing-response-points-diagnostic">This FedRAMP SSP lacks a statement for each of the following lettered response points for required
-            controls: <sch:value-of
-                select="$missing/@id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="missing-response-components"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement"
@@ -4434,6 +4451,13 @@
             id="implemented-requirement-has-allowed-composite-implementation-status-diagnostic">This implemented-requirement has an invalid
             implementation-status composition (<sch:value-of
                 select="string-join((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value), ', ')" />).</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="implemented-requirement-has-required-response-points"
+            doc:context="oscal:implemented-requirement"
+            id="implemented-requirement-has-required-response-points-diagnostic">This implemented requirement is missing required response point(s).
+            Required response points are <sch:value-of
+                select="$required-response-points" />; provided response points are <sch:value-of
+                select="$provided-response-points" />).</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-allowed-implementation-status"
             doc:context="oscal:implemented-requirement"
