@@ -6,11 +6,16 @@ import {
 } from '@asap/shared/use-cases/validate-ssp-xml';
 
 import { highlightXML } from '@asap/shared/adapters/highlight-js';
-import { SaxonJsSchematronProcessorGateway } from '@asap/shared/adapters/saxon-js-gateway';
+import {
+  SaxonJsJsonSspToXmlProcessor,
+  SaxonJsSchematronProcessorGateway,
+} from '@asap/shared/adapters/saxon-js-gateway';
 
 import { browserController } from './browser-controller';
 import { createPresenter } from './presenter';
 import { createAppRenderer } from './views';
+
+const SaxonJS = (window as any).SaxonJS;
 
 type BrowserContext = {
   element: HTMLElement;
@@ -27,11 +32,20 @@ export const runBrowserContext = ({
   importMetaHot,
   githubRepository,
 }: BrowserContext) => {
+  // Set SaxonJS log level.
+  SaxonJS.setLogLevel(2);
+
+  const jsonSspToXml = SaxonJsJsonSspToXmlProcessor({
+    sefUrl: `${baseUrl}/oscal_ssp_json-to-xml-converter.sef.json`,
+    // The npm version of saxon-js is for node; currently, we load the
+    // browser version via a script tag in index.html.
+    SaxonJS: SaxonJS,
+  });
   const processSchematron = SaxonJsSchematronProcessorGateway({
     sefUrl: `${baseUrl}/ssp.sef.json`,
     // The npm version of saxon-js is for node; currently, we load the
     // browser version via a script tag in index.html.
-    SaxonJS: (window as any).SaxonJS,
+    SaxonJS: SaxonJS,
     baselinesBaseUrl: `${baseUrl}/baselines`,
     registryBaseUrl: `${baseUrl}/xml`,
   });
@@ -62,7 +76,7 @@ export const runBrowserContext = ({
               // skip indenting the XML for now.
               indentXml: s => Promise.resolve(s),
             },
-            SaxonJS: (window as any).SaxonJS,
+            SaxonJS: SaxonJS,
           }),
           getAssertionViews: async () =>
             fetch(`${baseUrl}/assertion-views.json`).then(response =>
@@ -75,6 +89,7 @@ export const runBrowserContext = ({
           }),
           validateSSPUrl: ValidateSSPUrlUseCase({
             processSchematron,
+            jsonSspToXml,
             fetch: window.fetch.bind(window),
           }),
         },
