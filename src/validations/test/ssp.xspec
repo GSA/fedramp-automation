@@ -510,10 +510,6 @@
                         <x:expect-report
                             id="implemented-response-points"
                             label="those defined are validated." />
-                        <x:expect-assert
-                            id="missing-response-points"
-                            label="it generates an error because missing response points are invalid."
-                            role="error" />
                     </x:scenario>
                     <x:scenario
                         label="and response points are missing">
@@ -547,10 +543,6 @@
                                 </control-implementation>
                             </system-security-plan>
                         </x:context>
-                        <x:expect-assert
-                            id="missing-response-points"
-                            label="it generates an error because missing response points are invalid."
-                            role="error" />
                     </x:scenario>
                 </x:scenario>
                 <x:scenario
@@ -8568,6 +8560,79 @@
                 </x:context>
                 <x:expect-assert
                     id="implemented-requirement-has-implementation-status"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
+            label="An implemented control must include required response point statements.">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="ac-1"
+                                uuid="e5794c46-4ec2-4ef7-9a25-06634b39c563">
+                                <statement
+                                    statement-id="ac-2_smt"
+                                    uuid="4a2428eb-41eb-447a-81db-4f6d98a003ce" />
+                                <statement
+                                    statement-id="ac-1_smt.a.1"
+                                    uuid="79215eb4-8972-4f0b-ad16-7fc5c57c7f52" />
+                                <statement
+                                    statement-id="ac-1_smt.a.2"
+                                    uuid="b34f2110-c6ec-4a9f-af96-efc8b17ff951" />
+                                <statement
+                                    statement-id="ac-1_smt.b.1"
+                                    uuid="9e6abd3c-3e26-431f-8875-9ff40b5f6a14" />
+                                <statement
+                                    statement-id="ac-1_smt.b.2"
+                                    uuid="897be575-5bb8-4043-8147-8f789ed9e63d" />
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="implemented-requirement-has-required-response-points"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="ac-1"
+                                uuid="e5794c46-4ec2-4ef7-9a25-06634b39c563">
+                                <statement
+                                    statement-id="ac-2_smt"
+                                    uuid="4a2428eb-41eb-447a-81db-4f6d98a003ce" />
+                                <statement
+                                    statement-id="ac-1_smt.a.1"
+                                    uuid="79215eb4-8972-4f0b-ad16-7fc5c57c7f52" />
+                                <statement
+                                    statement-id="ac-1_smt.a.2"
+                                    uuid="b34f2110-c6ec-4a9f-af96-efc8b17ff951" />
+                                <statement
+                                    statement-id="ac-1_smt.b.1"
+                                    uuid="9e6abd3c-3e26-431f-8875-9ff40b5f6a14" />
+                                <!--<statement
+                                    statement-id="ac-1_smt.b.2"
+                                    uuid="897be575-5bb8-4043-8147-8f789ed9e63d" />-->
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="implemented-requirement-has-required-response-points"
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
