@@ -39,11 +39,11 @@ export const runBrowserContext = ({
 
   const jsonSspToXml = SaxonJsJsonSspToXmlProcessor({
     sefUrl: `${baseUrl}/oscal_ssp_json-to-xml-converter.sef.json`,
-    SaxonJS: SaxonJS,
+    SaxonJS,
   });
   const processSchematron = SaxonJsSchematronProcessorGateway({
     sefUrl: `${baseUrl}/ssp.sef.json`,
-    SaxonJS: SaxonJS,
+    SaxonJS,
     baselinesBaseUrl: `${baseUrl}/baselines`,
     registryBaseUrl: `${baseUrl}/xml`,
   });
@@ -74,7 +74,7 @@ export const runBrowserContext = ({
               // skip indenting the XML for now.
               indentXml: s => Promise.resolve(s),
             },
-            SaxonJS: SaxonJS,
+            SaxonJS,
           }),
           getAssertionViews: async () =>
             fetch(`${baseUrl}/assertion-views.json`).then(response =>

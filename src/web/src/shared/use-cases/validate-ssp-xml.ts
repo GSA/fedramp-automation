@@ -36,13 +36,18 @@ const generateSchematronReport = (
 export const ValidateSSPUrlUseCase =
   (ctx: ValidateSSPUrlUseCaseContext) => (fileUrl: string) => {
     let xmlText: string;
-    return (() => {
-      if (fileUrl.endsWith('.json')) {
-        return ctx.jsonSspToXml(fileUrl);
-      } else {
-        return ctx.fetch(fileUrl).then(response => response.text());
-      }
-    })()
+
+    return ctx
+      .fetch(fileUrl)
+      .then(response => response.text())
+      .then(text => {
+        // Convert JSON to XML, if necessary.
+        if (fileUrl.endsWith('.json')) {
+          return ctx.jsonSspToXml(text);
+        } else {
+          return text;
+        }
+      })
       .then(text => {
         xmlText = text;
         return xmlText;

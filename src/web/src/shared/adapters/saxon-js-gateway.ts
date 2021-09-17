@@ -377,15 +377,14 @@ type SaxonJsSaxonJsJsonSspToXmlProcessor = {
 
 export const SaxonJsJsonSspToXmlProcessor =
   (ctx: SaxonJsSaxonJsJsonSspToXmlProcessor): SchematronJSONToXMLProcessor =>
-  (jsonUrl: string) => {
+  (jsonString: string) => {
     return ctx.SaxonJS.transform(
       {
         stylesheetLocation: ctx.sefUrl,
         destination: 'serialized',
         initialTemplate: 'from-json',
-        sourceText: '<dummy></dummy>',
         stylesheetParams: {
-          file: jsonUrl,
+          file: 'data:application/json;base64,' + btoa(jsonString),
         },
       },
       'async',
