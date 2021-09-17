@@ -4456,8 +4456,8 @@
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-required-response-points-diagnostic">This implemented requirement is missing required response point(s).
             Required response points are <sch:value-of
-                select="$required-response-points" />; provided response points are <sch:value-of
-                select="$provided-response-points" />).</sch:diagnostic>
+                select="$required-response-points" />; only <sch:value-of
+                select="$provided-response-points" />) response point(s) are provided.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-allowed-implementation-status"
             doc:context="oscal:implemented-requirement"
