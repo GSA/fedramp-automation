@@ -33,6 +33,7 @@ describe('validate ssp url use case', () => {
           }),
         });
       }),
+      jsonSspToXml: jest.fn().mockReturnValue(xmlText),
       processSchematron: jest.fn().mockImplementation(xmlStr => {
         expect(xmlStr).toEqual(xmlText);
         return MOCK_SCHEMATRON_RESULT;
