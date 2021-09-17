@@ -32,8 +32,8 @@ def xslt_processor(saxon_processor: saxonc.PySaxonProcessor) -> saxonc.PyXsltPro
     xslt_processor = saxon_processor.new_xslt30_processor()
     xslt_processor.set_property("it", "from-json")
     xslt_processor.set_parameter(
-        "file", saxon_processor.make_string_value(EXAMPLE_SSP_PATH_JSON)
-        #"file", saxon_processor.make_atomic_value("anyURI", EXAMPLE_SSP_PATH_JSON.encode("utf-8"))
+        #"file", saxon_processor.make_string_value(EXAMPLE_SSP_PATH_JSON)
+        "file", saxon_processor.make_atomic_value("{xs}anyURI", EXAMPLE_SSP_PATH_JSON.encode("utf-8"))
         #"file", saxon_processor.make_atomic_value("AU", EXAMPLE_SSP_PATH_JSON.encode("utf-8"))
     )
     return xslt_processor
@@ -41,7 +41,9 @@ def xslt_processor(saxon_processor: saxonc.PySaxonProcessor) -> saxonc.PyXsltPro
 
 def test_json_to_xml(xslt_processor: saxonc.PyXsltProcessor) -> None:
     xml_string = xslt_processor.transform_to_string(
-        source_file=OSCAL_JSON_TO_XML,
+        #source_file=OSCAL_JSON_TO_XML,
+        xdm_node=saxonc.PyXdmNode(),
         stylesheet_file=OSCAL_JSON_TO_XML,
     )
+    #assert xslt_processor.get_error_message(0) == None
     assert xml_string == 'blah'
