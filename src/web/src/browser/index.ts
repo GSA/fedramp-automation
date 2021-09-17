@@ -15,6 +15,8 @@ import { browserController } from './browser-controller';
 import { createPresenter } from './presenter';
 import { createAppRenderer } from './views';
 
+// The npm version of saxon-js is for node; currently, we load the browser
+// version via a script tag in index.html.
 const SaxonJS = (window as any).SaxonJS;
 
 type BrowserContext = {
@@ -37,14 +39,10 @@ export const runBrowserContext = ({
 
   const jsonSspToXml = SaxonJsJsonSspToXmlProcessor({
     sefUrl: `${baseUrl}/oscal_ssp_json-to-xml-converter.sef.json`,
-    // The npm version of saxon-js is for node; currently, we load the
-    // browser version via a script tag in index.html.
     SaxonJS: SaxonJS,
   });
   const processSchematron = SaxonJsSchematronProcessorGateway({
     sefUrl: `${baseUrl}/ssp.sef.json`,
-    // The npm version of saxon-js is for node; currently, we load the
-    // browser version via a script tag in index.html.
     SaxonJS: SaxonJS,
     baselinesBaseUrl: `${baseUrl}/baselines`,
     registryBaseUrl: `${baseUrl}/xml`,
