@@ -2208,6 +2208,36 @@
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.2"
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'authorization-type' and @value = $authorization-types]">A FedRAMP
                 SSP must have an allowed FedRAMP authorization type.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-users-internal-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.19"
+                id="has-users-internal"
+                role="error"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'users-internal' and @value castable as xs:integer and @value cast as xs:integer ge 0]">A
+                FedRAMP SSP must specify the number of current internal users.</sch:assert>
+            <sch:assert
+                diagnostics="has-users-external-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.19"
+                id="has-users-external"
+                role="error"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'users-external' and @value castable as xs:integer and @value cast as xs:integer ge 0]">A
+                FedRAMP SSP must specify the number of current external users.</sch:assert>
+            <sch:assert
+                diagnostics="has-users-internal-future-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.19"
+                id="has-users-internal-future"
+                role="error"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'users-internal-future' and @value castable as xs:integer and @value cast as xs:integer ge 0]">A
+                FedRAMP SSP must specify the number of future internal users.</sch:assert>
+            <sch:assert
+                diagnostics="has-users-external-future-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.19"
+                id="has-users-external-future"
+                role="error"
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'users-external-future' and @value castable as xs:integer and @value cast as xs:integer ge 0]">A
+                FedRAMP SSP must specify the number of future external users.</sch:assert>
+
         </sch:rule>
     </sch:pattern>
 
@@ -4135,6 +4165,22 @@
             doc:assertion="has-fedramp-authorization-type"
             doc:context="oscal:system-characteristics"
             id="has-fedramp-authorization-type-diagnostic">This FedRAMP OSCAL SSP lacks a FedRAMP authorization type.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-users-internal"
+            doc:context="oscal:system-characteristics"
+            id="has-users-internal-diagnostic">This FedRAMP SSP does not specify the number of current internal users.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-users-external"
+            doc:context="oscal:system-characteristics"
+            id="has-users-external-diagnostic">This FedRAMP SSP does not specify the number of current external users.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-users-internal-future"
+            doc:context="oscal:system-characteristics"
+            id="has-users-internal-future-diagnostic">This FedRAMP SSP does not specify the number of future internal users.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-users-external-future"
+            doc:context="oscal:system-characteristics"
+            id="has-users-external-future-diagnostic">This FedRAMP SSP does not specify the number of future external users.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-active-system-id"
             doc:context="oscal:system-characteristics/oscal:system-id[@identifier-type eq 'https://fedramp.gov']"
