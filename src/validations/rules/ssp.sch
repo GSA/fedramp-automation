@@ -167,6 +167,12 @@
             pattern="control-implementation" />
     </sch:phase>
 
+    <sch:phase
+        id="information-types">
+        <sch:active
+            pattern="sp800-60" />
+    </sch:phase>
+
     <doc:xspec
         href="../test/ssp.xspec" />
 
@@ -1629,6 +1635,17 @@
                 role="error"
                 test="oscal:selected">A FedRAMP SSP information type confidentiality, integrity, or availability impact must the selected
                 impact.</sch:assert>
+            <sch:assert
+                diagnostics="cia-impact-has-adjustment-justification-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
+                id="cia-impact-has-adjustment-justification"
+                role="error"
+                test="
+                    if (oscal:base ne oscal:selected) then
+                        exists(oscal:adjustment-justification)
+                    else
+                        true()">A FedRAMP SSP information type confidentiality, integrity, or availability impact which has differing
+                base and selected impact levels must provide a justification for the difference.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:base | oscal:selected"
@@ -3868,9 +3885,14 @@
             id="cia-impact-has-selected-diagnostic">A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or availability-impact lacks a
             selected element.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="cia-impact-has-adjustment-justification"
+            doc:context="oscal:confidentiality-impact | oscal:integrity-impact | oscal:availability-impact"
+            id="cia-impact-has-adjustment-justification-diagnostic">This FedRAMP SSP information type confidentiality, integrity, or availability
+            impact with differing base and selected impact levels lacks a justification for the difference.</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="cia-impact-has-approved-fips-categorization"
             doc:context="oscal:base | oscal:selected"
-            id="cia-impact-has-approved-fips-categorization-diagnostic">A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or
+            id="cia-impact-has-approved-fips-categorization-diagnostic">This FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or
             availability-impact base or select element lacks an approved value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-security-eauth-level"
