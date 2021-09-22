@@ -998,7 +998,7 @@
                 id="has-fedramp-acronyms"
                 role="error"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'fedramp-acronyms']]">A
-                FedRAMP OSCAL SSP must have the FedRAMP Master Acronym and Glossary attached.</sch:assert>
+                FedRAMP SSP must have the FedRAMP Master Acronym and Glossary attached.</sch:assert>
             <sch:assert
                 diagnostics="has-fedramp-citations-diagnostic"
                 doc:checklist-reference="Section B Check 3.12"
@@ -1014,7 +1014,7 @@
                 id="has-fedramp-logo"
                 role="error"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'fedramp-logo']]">A FedRAMP
-                OSCAL SSP must have the FedRAMP Logo attached.</sch:assert>
+                SSP must have the FedRAMP Logo attached.</sch:assert>
             <sch:assert
                 diagnostics="has-user-guide-diagnostic"
                 doc:checklist-reference="Section B Check 3.2"
@@ -1166,7 +1166,7 @@
     </sch:pattern>
     <sch:pattern
         id="privacy1">
-        <sch:title>A FedRAMP OSCAL SSP must specify a Privacy Point of Contact</sch:title>
+        <sch:title>A FedRAMP SSP must specify a Privacy Point of Contact</sch:title>
         <sch:rule
             context="oscal:metadata"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.2"
@@ -1188,7 +1188,7 @@
                 id="has-responsible-party-privacy-poc-role"
                 role="error"
                 test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id eq 'privacy-poc']">[Section B Check 3.4] A FedRAMP
-                OSCAL SSP must declare a Privacy Point of Contact responsible party role reference.</sch:assert>
+                SSP must declare a Privacy Point of Contact responsible party role reference.</sch:assert>
             <sch:assert
                 diagnostics="has-responsible-privacy-poc-party-uuid-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1215,7 +1215,7 @@
     </sch:pattern>
     <sch:pattern
         id="privacy2">
-        <sch:title>A FedRAMP OSCAL SSP may need to incorporate a PIA and possibly a SORN</sch:title>
+        <sch:title>A FedRAMP SSP may need to incorporate a PIA and possibly a SORN</sch:title>
         <!-- The "PTA" appears to be just a few questions, not an attachment -->
         <sch:rule
             context="oscal:prop[@name eq 'privacy-sensitive'] | oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and matches(@name, '^pta-\d$')]"
@@ -1251,8 +1251,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-1"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-1']">[Section B Check 3.4] A FedRAMP
-                OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #1.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-1']">[Section B Check 3.4] A FedRAMP SSP
+                must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #1.</sch:assert>
             <sch:assert
                 diagnostics="has-pta-question-2-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1260,8 +1260,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-2"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-2']">[Section B Check 3.4] A FedRAMP
-                OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #2.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-2']">[Section B Check 3.4] A FedRAMP SSP
+                must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #2.</sch:assert>
             <sch:assert
                 diagnostics="has-pta-question-3-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1269,8 +1269,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-3"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-3']">[Section B Check 3.4] A FedRAMP
-                OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #3.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-3']">[Section B Check 3.4] A FedRAMP SSP
+                must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #3.</sch:assert>
             <sch:assert
                 diagnostics="has-pta-question-4-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1278,8 +1278,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-4"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4']">[Section B Check 3.4] A FedRAMP
-                OSCAL SSP must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #4.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4']">[Section B Check 3.4] A FedRAMP SSP
+                must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #4.</sch:assert>
             <sch:assert
                 diagnostics="has-all-pta-questions-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1792,12 +1792,12 @@
         id="system-inventory"
         see="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
         <sch:title>FedRAMP OSCAL System Inventory</sch:title>
-        <sch:title>A FedRAMP OSCAL SSP must specify system inventory items</sch:title>
+        <sch:title>A FedRAMP SSP must specify system inventory items</sch:title>
         <sch:rule
             context="/oscal:system-security-plan/oscal:system-implementation"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
             <!-- FIXME: determine if essential inventory items are present -->
-            <doc:rule>A FedRAMP OSCAL SSP must incorporate inventory-item elements</doc:rule>
+            <doc:rule>A FedRAMP SSP must incorporate inventory-item elements</doc:rule>
             <sch:assert
                 diagnostics="has-inventory-items-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
@@ -1902,7 +1902,7 @@
                 role="error"
                 test="@value = $scan-types">A scan-type property must have an allowed value.</sch:assert>
         </sch:rule>
-        <sch:title>FedRAMP OSCAL SSP inventory components</sch:title>
+        <sch:title>FedRAMP SSP inventory components</sch:title>
         <sch:rule
             context="oscal:component"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5">
@@ -1933,7 +1933,7 @@
                 role="error"
                 test="not(oscal:prop[@name eq 'asset-type'][2])">A component must have only one asset type.</sch:assert>
         </sch:rule>
-        <sch:title>FedRAMP OSCAL SSP inventory items</sch:title>
+        <sch:title>FedRAMP SSP inventory items</sch:title>
         <sch:rule
             context="oscal:inventory-item"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
@@ -3618,39 +3618,39 @@
         <sch:diagnostic
             doc:assertion="has-fedramp-acronyms"
             doc:context="oscal:back-matter"
-            id="has-fedramp-acronyms-diagnostic">This FedRAMP OSCAL SSP lacks the FedRAMP Master Acronym and Glossary.</sch:diagnostic>
+            id="has-fedramp-acronyms-diagnostic">This FedRAMP SSP lacks the FedRAMP Master Acronym and Glossary.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-fedramp-citations"
             doc:context="oscal:back-matter"
-            id="has-fedramp-citations-diagnostic">This FedRAMP OSCAL SSP lacks the FedRAMP Applicable Laws and Regulations.</sch:diagnostic>
+            id="has-fedramp-citations-diagnostic">This FedRAMP SSP lacks the FedRAMP Applicable Laws and Regulations.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-fedramp-logo"
             doc:context="oscal:back-matter"
-            id="has-fedramp-logo-diagnostic">This FedRAMP OSCAL SSP lacks the FedRAMP Logo.</sch:diagnostic>
+            id="has-fedramp-logo-diagnostic">This FedRAMP SSP lacks the FedRAMP Logo.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-user-guide"
             doc:context="oscal:back-matter"
-            id="has-user-guide-diagnostic">This FedRAMP OSCAL SSP lacks a User Guide.</sch:diagnostic>
+            id="has-user-guide-diagnostic">This FedRAMP SSP lacks a User Guide.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-rules-of-behavior"
             doc:context="oscal:back-matter"
-            id="has-rules-of-behavior-diagnostic">This FedRAMP OSCAL SSP lacks a Rules of Behavior.</sch:diagnostic>
+            id="has-rules-of-behavior-diagnostic">This FedRAMP SSP lacks a Rules of Behavior.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-information-system-contingency-plan"
             doc:context="oscal:back-matter"
-            id="has-information-system-contingency-plan-diagnostic">This FedRAMP OSCAL SSP lacks a Contingency Plan.</sch:diagnostic>
+            id="has-information-system-contingency-plan-diagnostic">This FedRAMP SSP lacks a Contingency Plan.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-configuration-management-plan"
             doc:context="oscal:back-matter"
-            id="has-configuration-management-plan-diagnostic">This FedRAMP OSCAL SSP lacks a Configuration Management Plan.</sch:diagnostic>
+            id="has-configuration-management-plan-diagnostic">This FedRAMP SSP lacks a Configuration Management Plan.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-incident-response-plan"
             doc:context="oscal:back-matter"
-            id="has-incident-response-plan-diagnostic">This FedRAMP OSCAL SSP lacks an Incident Response Plan.</sch:diagnostic>
+            id="has-incident-response-plan-diagnostic">This FedRAMP SSP lacks an Incident Response Plan.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-separation-of-duties-matrix"
             doc:context="oscal:back-matter"
-            id="has-separation-of-duties-matrix-diagnostic">This FedRAMP OSCAL SSP lacks a Separation of Duties Matrix.</sch:diagnostic>
+            id="has-separation-of-duties-matrix-diagnostic">This FedRAMP SSP lacks a Separation of Duties Matrix.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-policy-link"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
@@ -3692,21 +3692,21 @@
         <sch:diagnostic
             doc:assertion="has-privacy-poc-role"
             doc:context="oscal:metadata"
-            id="has-privacy-poc-role-diagnostic">This FedRAMP OSCAL SSP lacks a Privacy Point of Contact role.</sch:diagnostic>
+            id="has-privacy-poc-role-diagnostic">This FedRAMP SSP lacks a Privacy Point of Contact role.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-responsible-party-privacy-poc-role"
             doc:context="oscal:metadata"
-            id="has-responsible-party-privacy-poc-role-diagnostic">This FedRAMP OSCAL SSP lacks a Privacy Point of Contact responsible party role
+            id="has-responsible-party-privacy-poc-role-diagnostic">This FedRAMP SSP lacks a Privacy Point of Contact responsible party role
             reference.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-responsible-privacy-poc-party-uuid"
             doc:context="oscal:metadata"
-            id="has-responsible-privacy-poc-party-uuid-diagnostic">This FedRAMP OSCAL SSP lacks a Privacy Point of Contact responsible party role
-            reference identifying the party by UUID.</sch:diagnostic>
+            id="has-responsible-privacy-poc-party-uuid-diagnostic">This FedRAMP SSP lacks a Privacy Point of Contact responsible party role reference
+            identifying the party by UUID.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-privacy-poc"
             doc:context="oscal:metadata"
-            id="has-privacy-poc-diagnostic">This FedRAMP OSCAL SSP lacks a Privacy Point of Contact.</sch:diagnostic>
+            id="has-privacy-poc-diagnostic">This FedRAMP SSP lacks a Privacy Point of Contact.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-correct-yes-or-no-answer"
             doc:context="oscal:prop[@name eq 'privacy-sensitive'] | oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and matches(@name, '^pta-\d$')]"
@@ -3750,11 +3750,11 @@
         <sch:diagnostic
             doc:assertion="has-pia"
             doc:context="oscal:back-matter"
-            id="has-pia-diagnostic">This FedRAMP OSCAL SSP lacks a Privacy Impact Analysis.</sch:diagnostic>
+            id="has-pia-diagnostic">This FedRAMP SSP lacks a Privacy Impact Analysis.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-CMVP-validation"
             doc:context="oscal:system-implementation"
-            id="has-CMVP-validation-diagnostic">This FedRAMP OSCAL SSP does not declare one or more FIPS 140 validated modules.</sch:diagnostic>
+            id="has-CMVP-validation-diagnostic">This FedRAMP SSP does not declare one or more FIPS 140 validated modules.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-CMVP-validation-reference"
             doc:context="oscal:component[@type eq 'validation']"
@@ -3792,11 +3792,11 @@
         <sch:diagnostic
             doc:assertion="has-security-sensitivity-level"
             doc:context="oscal:system-characteristics"
-            id="has-security-sensitivity-level-diagnostic">This FedRAMP OSCAL SSP lacks a FIPS 199 categorization.</sch:diagnostic>
+            id="has-security-sensitivity-level-diagnostic">This FedRAMP SSP lacks a FIPS 199 categorization.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-security-impact-level"
             doc:context="oscal:system-characteristics"
-            id="has-security-impact-level-diagnostic">This FedRAMP OSCAL SSP lacks a security impact level.</sch:diagnostic>
+            id="has-security-impact-level-diagnostic">This FedRAMP SSP lacks a security impact level.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-security-sensitivity-level"
             doc:context="oscal:security-sensitivity-level"
@@ -3807,15 +3807,15 @@
         <sch:diagnostic
             doc:assertion="has-security-objective-confidentiality"
             doc:context="oscal:security-impact-level"
-            id="has-security-objective-confidentiality-diagnostic">This FedRAMP OSCAL SSP lacks a confidentiality security objective.</sch:diagnostic>
+            id="has-security-objective-confidentiality-diagnostic">This FedRAMP SSP lacks a confidentiality security objective.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-security-objective-integrity"
             doc:context="oscal:security-impact-level"
-            id="has-security-objective-integrity-diagnostic">This FedRAMP OSCAL SSP lacks an integrity security objective.</sch:diagnostic>
+            id="has-security-objective-integrity-diagnostic">This FedRAMP SSP lacks an integrity security objective.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-security-objective-availability"
             doc:context="oscal:security-impact-level"
-            id="has-security-objective-availability-diagnostic">This FedRAMP OSCAL SSP lacks an availability security objective.</sch:diagnostic>
+            id="has-security-objective-availability-diagnostic">This FedRAMP SSP lacks an availability security objective.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-security-objective-value"
             doc:context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
@@ -3827,62 +3827,60 @@
         <sch:diagnostic
             doc:assertion="system-information-has-information-type"
             doc:context="oscal:system-information"
-            id="system-information-has-information-type-diagnostic">A FedRAMP OSCAL SSP lacks at least one information-type.</sch:diagnostic>
+            id="system-information-has-information-type-diagnostic">A FedRAMP SSP lacks at least one information-type.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="information-type-has-title"
             doc:context="oscal:information-type"
-            id="information-type-has-title-diagnostic">A FedRAMP OSCAL SSP information-type lacks a title.</sch:diagnostic>
+            id="information-type-has-title-diagnostic">A FedRAMP SSP information-type lacks a title.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="information-type-has-description"
             doc:context="oscal:information-type"
-            id="information-type-has-description-diagnostic">A FedRAMP OSCAL SSP information-type lacks a description.</sch:diagnostic>
+            id="information-type-has-description-diagnostic">A FedRAMP SSP information-type lacks a description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="information-type-has-categorization"
             doc:context="oscal:information-type"
-            id="information-type-has-categorization-diagnostic">A FedRAMP OSCAL SSP information-type lacks at least one
-            categorization.</sch:diagnostic>
+            id="information-type-has-categorization-diagnostic">A FedRAMP SSP information-type lacks at least one categorization.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="information-type-has-confidentiality-impact"
             doc:context="oscal:information-type"
-            id="information-type-has-confidentiality-impact-diagnostic">A FedRAMP OSCAL SSP information-type lacks a
+            id="information-type-has-confidentiality-impact-diagnostic">A FedRAMP SSP information-type lacks a
             confidentiality-impact.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="information-type-has-integrity-impact"
             doc:context="oscal:information-type"
-            id="information-type-has-integrity-impact-diagnostic">A FedRAMP OSCAL SSP information-type lacks a integrity-impact.</sch:diagnostic>
+            id="information-type-has-integrity-impact-diagnostic">A FedRAMP SSP information-type lacks a integrity-impact.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="information-type-has-availability-impact"
             doc:context="oscal:information-type"
-            id="information-type-has-availability-impact-diagnostic">A FedRAMP OSCAL SSP information-type lacks a
-            availability-impact.</sch:diagnostic>
+            id="information-type-has-availability-impact-diagnostic">A FedRAMP SSP information-type lacks a availability-impact.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="categorization-has-system-attribute"
             doc:context="oscal:categorization"
-            id="categorization-has-system-attribute-diagnostic">A FedRAMP OSCAL SSP information-type categorization lacks a system
+            id="categorization-has-system-attribute-diagnostic">A FedRAMP SSP information-type categorization lacks a system
             attribute.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="categorization-has-correct-system-attribute"
             doc:context="oscal:categorization"
-            id="categorization-has-correct-system-attribute-diagnostic">A FedRAMP OSCAL SSP information-type categorization lacks a correct system
+            id="categorization-has-correct-system-attribute-diagnostic">A FedRAMP SSP information-type categorization lacks a correct system
             attribute. The correct value is "https://doi.org/10.6028/NIST.SP.800-60v2r1".</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="categorization-has-information-type-id"
             doc:context="oscal:categorization"
-            id="categorization-has-information-type-id-diagnostic">A FedRAMP OSCAL SSP information-type categorization lacks at least one
+            id="categorization-has-information-type-id-diagnostic">A FedRAMP SSP information-type categorization lacks at least one
             information-type-id.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-information-type-id"
             doc:context="oscal:information-type-id"
-            id="has-allowed-information-type-id-diagnostic">A FedRAMP OSCAL SSP information-type-id lacks a SP 800-60v2r1 identifier.</sch:diagnostic>
+            id="has-allowed-information-type-id-diagnostic">A FedRAMP SSP information-type-id lacks a SP 800-60v2r1 identifier.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="cia-impact-has-base"
             doc:context="oscal:confidentiality-impact | oscal:integrity-impact | oscal:availability-impact"
-            id="cia-impact-has-base-diagnostic">A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or availability-impact lacks a base
+            id="cia-impact-has-base-diagnostic">A FedRAMP SSP information-type confidentiality-, integrity-, or availability-impact lacks a base
             element.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="cia-impact-has-selected"
             doc:context="oscal:confidentiality-impact | oscal:integrity-impact | oscal:availability-impact"
-            id="cia-impact-has-selected-diagnostic">A FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or availability-impact lacks a
+            id="cia-impact-has-selected-diagnostic">A FedRAMP SSP information-type confidentiality-, integrity-, or availability-impact lacks a
             selected element.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="cia-impact-has-adjustment-justification"
@@ -3892,56 +3890,56 @@
         <sch:diagnostic
             doc:assertion="cia-impact-has-approved-fips-categorization"
             doc:context="oscal:base | oscal:selected"
-            id="cia-impact-has-approved-fips-categorization-diagnostic">This FedRAMP OSCAL SSP information-type confidentiality-, integrity-, or
+            id="cia-impact-has-approved-fips-categorization-diagnostic">This FedRAMP SSP information-type confidentiality-, integrity-, or
             availability-impact base or select element lacks an approved value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-security-eauth-level"
             doc:context="oscal:system-characteristics"
-            id="has-security-eauth-level-diagnostic">This FedRAMP OSCAL SSP lacks a Digital Identity Determination property.</sch:diagnostic>
+            id="has-security-eauth-level-diagnostic">This FedRAMP SSP lacks a Digital Identity Determination property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-identity-assurance-level"
             doc:context="oscal:system-characteristics"
-            id="has-identity-assurance-level-diagnostic">A FedRAMP OSCAL SSP may lack a Digital Identity Determination identity-assurance-level
+            id="has-identity-assurance-level-diagnostic">A FedRAMP SSP may lack a Digital Identity Determination identity-assurance-level
             property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authenticator-assurance-level"
             doc:context="oscal:system-characteristics"
-            id="has-authenticator-assurance-level-diagnostic">A FedRAMP OSCAL SSP may lack a Digital Identity Determination
-            authenticator-assurance-level property.</sch:diagnostic>
+            id="has-authenticator-assurance-level-diagnostic">A FedRAMP SSP may lack a Digital Identity Determination authenticator-assurance-level
+            property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-federation-assurance-level"
             doc:context="oscal:system-characteristics"
-            id="has-federation-assurance-level-diagnostic">A FedRAMP OSCAL SSP may lack a Digital Identity Determination federation-assurance-level
+            id="has-federation-assurance-level-diagnostic">A FedRAMP SSP may lack a Digital Identity Determination federation-assurance-level
             property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-security-eauth-level"
             doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'security-eauth' and @name eq 'security-eauth-level']"
-            id="has-allowed-security-eauth-level-diagnostic">This FedRAMP OSCAL SSP lacks a Digital Identity Determination property with an allowed
+            id="has-allowed-security-eauth-level-diagnostic">This FedRAMP SSP lacks a Digital Identity Determination property with an allowed
             value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-identity-assurance-level"
             doc:context="oscal:prop[@name eq 'identity-assurance-level']"
-            id="has-allowed-identity-assurance-level-diagnostic">A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination
+            id="has-allowed-identity-assurance-level-diagnostic">A FedRAMP SSP may lack an allowed Digital Identity Determination
             identity-assurance-level property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-authenticator-assurance-level"
             doc:context="oscal:prop[@name eq 'authenticator-assurance-level']"
-            id="has-allowed-authenticator-assurance-level-diagnostic">A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination
+            id="has-allowed-authenticator-assurance-level-diagnostic">A FedRAMP SSP may lack an allowed Digital Identity Determination
             authenticator-assurance-level property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-federation-assurance-level"
             doc:context="oscal:prop[@name eq 'federation-assurance-level']"
-            id="has-allowed-federation-assurance-level-diagnostic">A FedRAMP OSCAL SSP may lack an allowed Digital Identity Determination
+            id="has-allowed-federation-assurance-level-diagnostic">A FedRAMP SSP may lack an allowed Digital Identity Determination
             federation-assurance-level property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-inventory-items"
             doc:context="/oscal:system-security-plan/oscal:system-implementation"
-            id="has-inventory-items-diagnostic">This FedRAMP OSCAL SSP lacks inventory-item elements.</sch:diagnostic>
+            id="has-inventory-items-diagnostic">This FedRAMP SSP lacks inventory-item elements.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-unique-asset-id"
             doc:context="oscal:prop[@name eq 'asset-id']"
             id="has-unique-asset-id-diagnostic">This asset id <sch:value-of
-                select="@asset-id" /> is not unique. An asset id must be unique within the scope of a FedRAMP OSCAL SSP document.</sch:diagnostic>
+                select="@asset-id" /> is not unique. An asset id must be unique within the scope of a FedRAMP SSP document.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-asset-type"
             doc:context="oscal:prop[@name eq 'asset-type']"
@@ -4140,23 +4138,23 @@
         <sch:diagnostic
             doc:assertion="has-this-system-component"
             doc:context="oscal:system-implementation"
-            id="has-this-system-component-diagnostic">This FedRAMP OSCAL SSP lacks a "this-system" component.</sch:diagnostic>
+            id="has-this-system-component-diagnostic">This FedRAMP SSP lacks a "this-system" component.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-system-id"
             doc:context="oscal:system-characteristics"
-            id="has-system-id-diagnostic">This FedRAMP OSCAL SSP lacks a FedRAMP system-id.</sch:diagnostic>
+            id="has-system-id-diagnostic">This FedRAMP SSP lacks a FedRAMP system-id.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-system-name"
             doc:context="oscal:system-characteristics"
-            id="has-system-name-diagnostic">This FedRAMP OSCAL SSP lacks a system-name.</sch:diagnostic>
+            id="has-system-name-diagnostic">This FedRAMP SSP lacks a system-name.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-system-name-short"
             doc:context="oscal:system-characteristics"
-            id="has-system-name-short-diagnostic">This FedRAMP OSCAL SSP lacks a system-name-short.</sch:diagnostic>
+            id="has-system-name-short-diagnostic">This FedRAMP SSP lacks a system-name-short.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-fedramp-authorization-type"
             doc:context="oscal:system-characteristics"
-            id="has-fedramp-authorization-type-diagnostic">This FedRAMP OSCAL SSP lacks a FedRAMP authorization type.</sch:diagnostic>
+            id="has-fedramp-authorization-type-diagnostic">This FedRAMP SSP lacks a FedRAMP authorization type.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-active-system-id"
             doc:context="oscal:system-characteristics/oscal:system-id[@identifier-type eq 'https://fedramp.gov']"
@@ -4292,146 +4290,141 @@
         <sch:diagnostic
             doc:assertion="has-authorization-boundary"
             doc:context="oscal:system-characteristics"
-            id="has-authorization-boundary-diagnostic">This FedRAMP OSCAL SSP lacks an authorization-boundary in its
+            id="has-authorization-boundary-diagnostic">This FedRAMP SSP lacks an authorization-boundary in its
             system-characteristics.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-description"
             doc:context="oscal:authorization-boundary"
-            id="has-authorization-boundary-description-diagnostic">This FedRAMP OSCAL SSP lacks an authorization-boundary
-            description.</sch:diagnostic>
+            id="has-authorization-boundary-description-diagnostic">This FedRAMP SSP lacks an authorization-boundary description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-diagram"
             doc:context="oscal:authorization-boundary"
-            id="has-authorization-boundary-diagram-diagnostic">This FedRAMP OSCAL SSP lacks at least one authorization-boundary
-            diagram.</sch:diagnostic>
+            id="has-authorization-boundary-diagram-diagnostic">This FedRAMP SSP lacks at least one authorization-boundary diagram.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-diagram-uuid"
             doc:context="oscal:authorization-boundary/oscal:diagram"
-            id="has-authorization-boundary-diagram-uuid-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram lacks a uuid
+            id="has-authorization-boundary-diagram-uuid-diagnostic">This FedRAMP SSP authorization-boundary diagram lacks a uuid
             attribute.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-diagram-description"
             doc:context="oscal:authorization-boundary/oscal:diagram"
-            id="has-authorization-boundary-diagram-description-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram lacks a
+            id="has-authorization-boundary-diagram-description-diagnostic">This FedRAMP SSP authorization-boundary diagram lacks a
             description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-diagram-link"
             doc:context="oscal:authorization-boundary/oscal:diagram"
-            id="has-authorization-boundary-diagram-link-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram lacks a
-            link.</sch:diagnostic>
+            id="has-authorization-boundary-diagram-link-diagnostic">This FedRAMP SSP authorization-boundary diagram lacks a link.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-diagram-caption"
             doc:context="oscal:authorization-boundary/oscal:diagram"
-            id="has-authorization-boundary-diagram-caption-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram lacks a
+            id="has-authorization-boundary-diagram-caption-diagnostic">This FedRAMP SSP authorization-boundary diagram lacks a
             caption.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-diagram-link-rel"
             doc:context="oscal:authorization-boundary/oscal:diagram/oscal:link"
-            id="has-authorization-boundary-diagram-link-rel-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram lacks a link rel
+            id="has-authorization-boundary-diagram-link-rel-diagnostic">This FedRAMP SSP authorization-boundary diagram lacks a link rel
             attribute.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-diagram-link-rel-allowed-value"
             doc:context="oscal:authorization-boundary/oscal:diagram/oscal:link"
-            id="has-authorization-boundary-diagram-link-rel-allowed-value-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram lacks a
-            link rel attribute with the value "diagram".</sch:diagnostic>
+            id="has-authorization-boundary-diagram-link-rel-allowed-value-diagnostic">This FedRAMP SSP authorization-boundary diagram lacks a link rel
+            attribute with the value "diagram".</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-diagram-link-href-target"
             doc:context="oscal:authorization-boundary/oscal:diagram/oscal:link"
-            id="has-authorization-boundary-diagram-link-href-target-diagnostic">This FedRAMP OSCAL SSP authorization-boundary diagram link does not
+            id="has-authorization-boundary-diagram-link-href-target-diagnostic">This FedRAMP SSP authorization-boundary diagram link does not
             reference a back-matter resource representing the diagram document.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-network-architecture"
             doc:context="oscal:system-characteristics"
-            id="has-network-architecture-diagnostic">This FedRAMP OSCAL SSP lacks an network-architecture in its
-            system-characteristics.</sch:diagnostic>
+            id="has-network-architecture-diagnostic">This FedRAMP SSP lacks an network-architecture in its system-characteristics.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-network-architecture-description"
             doc:context="oscal:network-architecture"
-            id="has-network-architecture-description-diagnostic">This FedRAMP OSCAL SSP lacks an network-architecture description.</sch:diagnostic>
+            id="has-network-architecture-description-diagnostic">This FedRAMP SSP lacks an network-architecture description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-network-architecture-diagram"
             doc:context="oscal:network-architecture"
-            id="has-network-architecture-diagram-diagnostic">This FedRAMP OSCAL SSP lacks at least one network-architecture diagram.</sch:diagnostic>
+            id="has-network-architecture-diagram-diagnostic">This FedRAMP SSP lacks at least one network-architecture diagram.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-network-architecture-diagram-uuid"
             doc:context="oscal:network-architecture/oscal:diagram"
-            id="has-network-architecture-diagram-uuid-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram lacks a uuid
+            id="has-network-architecture-diagram-uuid-diagnostic">This FedRAMP SSP network-architecture diagram lacks a uuid
             attribute.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-network-architecture-diagram-description"
             doc:context="oscal:network-architecture/oscal:diagram"
-            id="has-network-architecture-diagram-description-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram lacks a
+            id="has-network-architecture-diagram-description-diagnostic">This FedRAMP SSP network-architecture diagram lacks a
             description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-network-architecture-diagram-link"
             doc:context="oscal:network-architecture/oscal:diagram"
-            id="has-network-architecture-diagram-link-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram lacks a link.</sch:diagnostic>
+            id="has-network-architecture-diagram-link-diagnostic">This FedRAMP SSP network-architecture diagram lacks a link.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-network-architecture-diagram-caption"
             doc:context="oscal:network-architecture/oscal:diagram"
-            id="has-network-architecture-diagram-caption-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram lacks a
-            caption.</sch:diagnostic>
+            id="has-network-architecture-diagram-caption-diagnostic">This FedRAMP SSP network-architecture diagram lacks a caption.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-network-architecture-diagram-link-rel"
             doc:context="oscal:network-architecture/oscal:diagram/oscal:link"
-            id="has-network-architecture-diagram-link-rel-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram lacks a link rel
+            id="has-network-architecture-diagram-link-rel-diagnostic">This FedRAMP SSP network-architecture diagram lacks a link rel
             attribute.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-network-architecture-diagram-link-rel-allowed-value"
             doc:context="oscal:network-architecture/oscal:diagram/oscal:link"
-            id="has-network-architecture-diagram-link-rel-allowed-value-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram lacks a link
-            rel attribute with the value "diagram".</sch:diagnostic>
+            id="has-network-architecture-diagram-link-rel-allowed-value-diagnostic">This FedRAMP SSP network-architecture diagram lacks a link rel
+            attribute with the value "diagram".</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-network-architecture-diagram-link-href-target"
             doc:context="oscal:network-architecture/oscal:diagram/oscal:link"
-            id="has-network-architecture-diagram-link-href-target-diagnostic">This FedRAMP OSCAL SSP network-architecture diagram link does not
-            reference a back-matter resource representing the diagram document.</sch:diagnostic>
+            id="has-network-architecture-diagram-link-href-target-diagnostic">This FedRAMP SSP network-architecture diagram link does not reference a
+            back-matter resource representing the diagram document.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-data-flow"
             doc:context="oscal:system-characteristics"
-            id="has-data-flow-diagnostic">This FedRAMP OSCAL SSP lacks an data-flow in its system-characteristics.</sch:diagnostic>
+            id="has-data-flow-diagnostic">This FedRAMP SSP lacks an data-flow in its system-characteristics.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-data-flow-description"
             doc:context="oscal:data-flow"
-            id="has-data-flow-description-diagnostic">This FedRAMP OSCAL SSP lacks an data-flow description.</sch:diagnostic>
+            id="has-data-flow-description-diagnostic">This FedRAMP SSP lacks an data-flow description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-data-flow-diagram"
             doc:context="oscal:data-flow"
-            id="has-data-flow-diagram-diagnostic">This FedRAMP OSCAL SSP lacks at least one data-flow diagram.</sch:diagnostic>
+            id="has-data-flow-diagram-diagnostic">This FedRAMP SSP lacks at least one data-flow diagram.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-data-flow-diagram-uuid"
             doc:context="oscal:data-flow/oscal:diagram"
-            id="has-data-flow-diagram-uuid-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a uuid attribute.</sch:diagnostic>
+            id="has-data-flow-diagram-uuid-diagnostic">This FedRAMP SSP data-flow diagram lacks a uuid attribute.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-data-flow-diagram-description"
             doc:context="oscal:data-flow/oscal:diagram"
-            id="has-data-flow-diagram-description-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a description.</sch:diagnostic>
+            id="has-data-flow-diagram-description-diagnostic">This FedRAMP SSP data-flow diagram lacks a description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-data-flow-diagram-link"
             doc:context="oscal:data-flow/oscal:diagram"
-            id="has-data-flow-diagram-link-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a link.</sch:diagnostic>
+            id="has-data-flow-diagram-link-diagnostic">This FedRAMP SSP data-flow diagram lacks a link.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-data-flow-diagram-caption"
             doc:context="oscal:data-flow/oscal:diagram"
-            id="has-data-flow-diagram-caption-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a caption.</sch:diagnostic>
+            id="has-data-flow-diagram-caption-diagnostic">This FedRAMP SSP data-flow diagram lacks a caption.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-data-flow-diagram-link-rel"
             doc:context="oscal:data-flow/oscal:diagram/oscal:link"
-            id="has-data-flow-diagram-link-rel-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a link rel attribute.</sch:diagnostic>
+            id="has-data-flow-diagram-link-rel-diagnostic">This FedRAMP SSP data-flow diagram lacks a link rel attribute.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-data-flow-diagram-link-rel-allowed-value"
             doc:context="oscal:data-flow/oscal:diagram/oscal:link"
-            id="has-data-flow-diagram-link-rel-allowed-value-diagnostic">This FedRAMP OSCAL SSP data-flow diagram lacks a link rel attribute with the
-            value "diagram".</sch:diagnostic>
+            id="has-data-flow-diagram-link-rel-allowed-value-diagnostic">This FedRAMP SSP data-flow diagram lacks a link rel attribute with the value
+            "diagram".</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-data-flow-diagram-link-href-target"
             doc:context="oscal:data-flow/oscal:diagram/oscal:link"
-            id="has-data-flow-diagram-link-href-target-diagnostic">This FedRAMP OSCAL SSP data-flow diagram link does not reference a back-matter
-            resource representing the diagram document.</sch:diagnostic>
+            id="has-data-flow-diagram-link-href-target-diagnostic">This FedRAMP SSP data-flow diagram link does not reference a back-matter resource
+            representing the diagram document.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="system-security-plan-has-import-profile"
             doc:context="oscal:system-security-plan"
-            id="system-security-plan-has-import-profile-diagnostic">This FedRAMP OSCAL SSP lacks an import-profile element.</sch:diagnostic>
+            id="system-security-plan-has-import-profile-diagnostic">This FedRAMP SSP lacks an import-profile element.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="import-profile-has-href-attribute"
             doc:context="oscal:import-profile"
