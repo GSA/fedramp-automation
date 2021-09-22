@@ -3890,8 +3890,8 @@
         <sch:diagnostic
             doc:assertion="cia-impact-has-approved-fips-categorization"
             doc:context="oscal:base | oscal:selected"
-            id="cia-impact-has-approved-fips-categorization-diagnostic">This FedRAMP SSP information-type confidentiality-, integrity-, or
-            availability-impact base or select element lacks an approved value.</sch:diagnostic>
+            id="cia-impact-has-approved-fips-categorization-diagnostic">This FedRAMP SSP information type's confidentiality, integrity, or
+            availability impact level, either the base or selected value, lacks an approved value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-security-eauth-level"
             doc:context="oscal:system-characteristics"
