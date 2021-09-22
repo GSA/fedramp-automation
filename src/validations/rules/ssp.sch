@@ -1633,7 +1633,7 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="cia-impact-has-selected"
                 role="error"
-                test="oscal:selected">A FedRAMP SSP information type confidentiality, integrity, or availability impact must the selected
+                test="oscal:selected">A FedRAMP SSP information type confidentiality, integrity, or availability impact must specify the selected
                 impact.</sch:assert>
             <sch:assert
                 diagnostics="cia-impact-has-adjustment-justification-diagnostic"
@@ -1644,8 +1644,8 @@
                     if (oscal:base ne oscal:selected) then
                         exists(oscal:adjustment-justification)
                     else
-                        true()">A FedRAMP SSP information type confidentiality, integrity, or availability impact which has differing
-                base and selected impact levels must provide a justification for the difference.</sch:assert>
+                        true()">When SP 800-60 base and selected impacts differ, the SSP must include a justification for the
+                difference.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:base | oscal:selected"
@@ -3885,8 +3885,8 @@
         <sch:diagnostic
             doc:assertion="cia-impact-has-adjustment-justification"
             doc:context="oscal:confidentiality-impact | oscal:integrity-impact | oscal:availability-impact"
-            id="cia-impact-has-adjustment-justification-diagnostic">This FedRAMP SSP information type confidentiality, integrity, or availability
-            impact with differing base and selected impact levels lacks a justification for the difference.</sch:diagnostic>
+            id="cia-impact-has-adjustment-justification-diagnostic">These SP 800-60 base and selected impacts differ, but no
+            justification for the difference is supplied.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="cia-impact-has-approved-fips-categorization"
             doc:context="oscal:base | oscal:selected"
