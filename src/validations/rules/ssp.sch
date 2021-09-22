@@ -3075,6 +3075,20 @@
                 test="not(@value castable as xs:date) or (@value castable as xs:date and xs:date(@value) gt current-date())">Planned completion date
                 is not past.</sch:assert>
         </sch:rule>
+
+        <sch:rule
+            context="oscal:inherited/oscal:description">
+
+            <sch:assert
+                diagnostics="has-inherited-description-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.4.9"
+                id="has-inherited-description"
+                role="error"
+                test="count(tokenize(normalize-space(.), '\s+')) ge 32">An inherited control implementation description must contain at least 32
+                words.</sch:assert>
+
+        </sch:rule>
+        
     </sch:pattern>
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.13-14"
@@ -4533,6 +4547,10 @@
             doc:assertion="planned-completion-date-is-not-past"
             doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'planned-completion-date']"
             id="planned-completion-date-is-not-past-diagnostic">This planned completion date references a past time.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-inherited-description"
+            doc:context="oscal:inherited/oscal:description"
+            id="has-inherited-description-diagnostic">This inherited control implementation description has less than 32 words.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-cloud-service-model"
             doc:context="oscal:system-characteristics"
