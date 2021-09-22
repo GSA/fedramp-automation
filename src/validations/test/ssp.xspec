@@ -6308,6 +6308,10 @@
                             identifier-type="https://fedramp.gov">F00000000</system-id>
                         <system-name>System's Full Name</system-name>
                         <system-name-short>System's Short Name or Acronym</system-name-short>
+                        <description>
+                            <p>word word word word word word word word word word word word word word word word word word word word word word word word
+                                word word word word word word word word word.</p>
+                        </description>
                     </system-characteristics>
                     <system-implementation>
                         <component
@@ -6348,6 +6352,15 @@
                     label="When it is">
                     <x:expect-not-assert
                         id="has-system-name-short"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="The system description must be of adequate length.">
+                <x:scenario
+                    label="When it is">
+                    <x:expect-not-assert
+                        id="has-system-description"
                         label="that is correct" />
                 </x:scenario>
             </x:scenario>
@@ -6448,6 +6461,15 @@
                     <x:expect-assert
                         id="has-system-name-short"
                         label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="The system description must be of adequate length.">
+                <x:scenario
+                    label="When it is not">
+                    <x:expect-assert
+                        id="has-system-description"
+                        label="that is correct" />
                 </x:scenario>
             </x:scenario>
             <x:scenario

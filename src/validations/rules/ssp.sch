@@ -2197,6 +2197,13 @@
                 role="error"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §4.1"
                 test="oscal:system-name-short">A FedRAMP SSP must have a short system name.</sch:assert>
+            <sch:assert
+                diagnostics="has-system-description-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.16"
+                id="has-system-description"
+                role="error"
+                test="count(tokenize(normalize-space(oscal:description), '\s+')) ge 32">A FedRAMP SSP must have a description at least 32 words in
+                length.</sch:assert>
             <sch:let
                 name="authorization-types"
                 value="$fedramp-values//fedramp:value-set[@name eq 'authorization-type']//fedramp:enum/@value" />
@@ -4161,6 +4168,10 @@
             doc:assertion="has-system-name-short"
             doc:context="oscal:system-characteristics"
             id="has-system-name-short-diagnostic">This FedRAMP OSCAL SSP lacks a system-name-short.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-system-description"
+            doc:context="oscal:system-characteristics"
+            id="has-system-description-diagnostic">This FedRAMP SSP has a description less than 32 words in length.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-fedramp-authorization-type"
             doc:context="oscal:system-characteristics"
