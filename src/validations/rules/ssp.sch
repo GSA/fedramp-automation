@@ -3885,7 +3885,7 @@
         <sch:diagnostic
             doc:assertion="cia-impact-has-adjustment-justification"
             doc:context="oscal:confidentiality-impact | oscal:integrity-impact | oscal:availability-impact"
-            id="cia-impact-has-adjustment-justification-diagnostic">These SP 800-60 base and selected impacts differ, but no
+            id="cia-impact-has-adjustment-justification-diagnostic">These SP 800-60 base and selected impact levels differ, but no
             justification for the difference is supplied.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="cia-impact-has-approved-fips-categorization"
