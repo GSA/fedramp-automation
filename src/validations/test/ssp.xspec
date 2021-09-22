@@ -6559,7 +6559,7 @@
                         </system-implementation>
                     </system-security-plan>
                 </x:context>
-                
+
                 <x:scenario
                     label="A FedRAMP SSP must specify a non-negative number of current internal users.">
                     <x:scenario
@@ -6569,7 +6569,7 @@
                             label="that is correct" />
                     </x:scenario>
                 </x:scenario>
-                
+
                 <x:scenario
                     label="A FedRAMP SSP must specify a non-negative number of current external users.">
                     <x:scenario
@@ -6579,7 +6579,7 @@
                             label="that is correct" />
                     </x:scenario>
                 </x:scenario>
-                
+
                 <x:scenario
                     label="A FedRAMP SSP must specify a non-negative number of future internal users.">
                     <x:scenario
@@ -9111,6 +9111,40 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+
+        <x:scenario
+            label="Inherited description is sufficient.">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <inherited
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <description>
+                            <p>word word word word word word word word word word word word word word word word word word word word word word word word
+                                word word word word word word word word.</p>
+                        </description>
+                    </inherited>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-inherited-description"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <inherited
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <description>
+                            <p>word word word word word word.</p>
+                        </description>
+                    </inherited>
+                </x:context>
+                <x:expect-assert
+                    id="has-inherited-description"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+
     </x:scenario>
     <x:scenario
         label="FedRAMP OSCAL SSP Cloud Service and Deployment Models">
