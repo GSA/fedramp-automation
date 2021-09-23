@@ -1,4 +1,5 @@
 import type {
+  SchematronJSONToXMLProcessor,
   SchematronProcessor,
   SchematronResult,
   ValidationReport,
@@ -15,6 +16,7 @@ export const ValidateSSPUseCase =
 export type ValidateSSPUseCase = ReturnType<typeof ValidateSSPUseCase>;
 
 type ValidateSSPUrlUseCaseContext = {
+  jsonSspToXml: SchematronJSONToXMLProcessor;
   processSchematron: SchematronProcessor;
   fetch: typeof fetch;
 };
@@ -32,11 +34,24 @@ const generateSchematronReport = (
 };
 
 export const ValidateSSPUrlUseCase =
-  (ctx: ValidateSSPUrlUseCaseContext) => (xmlUrl: string) => {
+  (ctx: ValidateSSPUrlUseCaseContext) => (fileUrl: string) => {
     let xmlText: string;
+
     return ctx
-      .fetch(xmlUrl)
+      .fetch(fileUrl)
       .then(response => response.text())
+      .then(text => {
+        // Convert JSON to XML, if necessary.
+        if (fileUrl.endsWith('.json')) {
+          return ctx.jsonSspToXml(text);
+        } else {
+          return text;
+        }
+      })
+      .then(text => {
+        xmlText = text;
+        return xmlText;
+      })
       .then(text => {
         xmlText = text;
         return xmlText;

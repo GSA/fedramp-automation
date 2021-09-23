@@ -2,6 +2,7 @@ import type { IndentXml } from '@asap/shared/domain/xml';
 import type {
   FailedAssert,
   ParseSchematronAssertions,
+  SchematronJSONToXMLProcessor,
   SchematronProcessor,
   SchematronResult,
   SuccessfulReport,
@@ -367,4 +368,27 @@ export const SaxonJsProcessor =
       console.error(error);
       throw new Error(`Error transforming xml: ${error}`);
     }
+  };
+
+type SaxonJsSaxonJsJsonSspToXmlProcessor = {
+  sefUrl: string;
+  SaxonJS: any;
+};
+
+export const SaxonJsJsonSspToXmlProcessor =
+  (ctx: SaxonJsSaxonJsJsonSspToXmlProcessor): SchematronJSONToXMLProcessor =>
+  (jsonString: string) => {
+    return ctx.SaxonJS.transform(
+      {
+        stylesheetLocation: ctx.sefUrl,
+        destination: 'serialized',
+        initialTemplate: 'from-json',
+        stylesheetParams: {
+          file: 'data:application/json;base64,' + btoa(jsonString),
+        },
+      },
+      'async',
+    ).then((output: any) => {
+      return output.principalResult as string;
+    });
   };
