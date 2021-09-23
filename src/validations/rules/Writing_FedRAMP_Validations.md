@@ -1,6 +1,7 @@
 # How to create FedRAMP OSCAL validation constraints
 
-FedRAMP OSCAL documents are structured XML documents. The document syntax is defined by OSCAL XML Schema. However, XML Schema cannot express many semantic constraints, and an additional schema language is employed: Schematron.
+FedRAMP OSCAL documents are structured XML documents. The document syntax is defined by OSCAL XML Schema. However, XML Schema cannot express many semantic constraints, and an additional schema language is employed: Schematron, which is used to create validation expressions for FedRAMP OSCAL documents (augmenting those expressed in OSCAL XML Schema).
+
 
 # Technologies used
 
@@ -14,17 +15,11 @@ FedRAMP OSCAL documents are structured XML documents. The document syntax is def
 
 Use of Schematron will require familiarity with XPath for context identification and assertion tests, and XSpec for creation of unit tests.
 
-## Useful resources
-
-[xpather.com](http://xpather.com/) is a browser-based XPath exploration tool. It is not a strict XPath tool: namespaces in the XML document are ignored, and the XPath queries must not use include namespace prefixes. This design makes rapid prototyping easier, but readily copy-pasting XPath into Schematron not error-free.
-
-[XSLT Fiddle](https://xsltfiddle.liberty-development.net/) is a browser-based XSLT exploration tool.
-
 # FedRAMP OSCAL References
 
 NIST has designed OSCAL to be flexible to the needs of different authorization and assessment frameworks, whether or not they originate from NIST's very own [Risk Management Framework](https://csrc.nist.gov/projects/risk-management/about-rmf) or not. OSCAL has a set a syntax. For required or recommended data that must be structured and organized in a specific way within this syntax, OSCAL developers use constraints. In OSCAL, constraints and the constraints model define, given syntactically correct documents, what data is required or recommended.
 
-FedRAMP has adopted and extended NIST OSCAL document types. These adaptations are documented in the GSA [fedramp_automation repository](https://github.com/GSA/fedramp-automation/tree/master/documents).
+FedRAMP has adopted and extended NIST OSCAL document types (e.g. SSP, SAP, SAR, POA&M) in order to support FedRAMP-specific requirements. These adaptations are documented in the GSA [fedramp_automation repository](https://github.com/GSA/fedramp-automation/tree/master/documents).
 
 The pertinent normative documents are
 
@@ -99,9 +94,9 @@ Namespace declarations made on the root element are for that document.
 
 Namespace declarations via the `<sch:ns>` element are for instance documents to be validated.
 
-## Example 1 - Existential and value checks
+## Example 1 - Existence and value checks
 
-This example illustrates existential and value checks.
+This example illustrates simple required element presence and value constraint checks.
 
 Consider the following document fragment
 ```xml
@@ -260,7 +255,8 @@ and the code block
 ```
 The `<rule>` sets the context for the subordinate assertions.
 
-The first (`id="responsible-party-has-role"`) assertion is an existential test for a `<role>` for the `@role-id`. The use of the `//` prefix in the path `//oscal:role[@id eq current()/@role-id]` means "any `<role>` element within the document" matching the context `@role-id`.
+
+The first (`id="responsible-party-has-role"`) assertion is an existence (presence) test for a `<role>` for the `@role-id`. The use of the `//` prefix in the path `//oscal:role[@id eq current()/@role-id]` means "any `<role>` element within the document" matching the context `@role-id`.
 
 The second (`id="responsible-party-has-party-uuid"`) assertion is just an existential test for `<party-uuid>`.
 
@@ -270,7 +266,7 @@ The fourth () assertion ensures that specific role types identify a responsible 
 
 ## Example 3 - remote resource reference
 
-This example uses remote HTTPS resource availability to ensure a CMVP citation is actually found on the related NIST web site.
+This example uses remote HTTPS resource availability to ensure a Cryptographic Module Validation Program (CMVP) citation is actually found on the related NIST web site.
 
 Consider the following document fragment
 ```
