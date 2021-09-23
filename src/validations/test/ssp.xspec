@@ -4613,7 +4613,7 @@
                 <x:context>
                     <availability-impact
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <base>Moderate</base>
+                        <base>fips-199-moderate</base>
                     </availability-impact>
                 </x:context>
                 <x:expect-not-assert
@@ -4625,7 +4625,7 @@
                 <x:context>
                     <availability-impact
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <not-a-base>Moderate</not-a-base>
+                        <not-a-base>fips-199-moderate</not-a-base>
                     </availability-impact>
                 </x:context>
                 <x:expect-assert
@@ -4637,7 +4637,7 @@
                 <x:context>
                     <availability-impact
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <selected>Moderate</selected>
+                        <selected>fips-199-moderate</selected>
                     </availability-impact>
                 </x:context>
                 <x:expect-not-assert
@@ -4649,13 +4649,44 @@
                 <x:context>
                     <availability-impact
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <not-a-selected>Moderate</not-a-selected>
+                        <not-a-selected>fips-199-moderate</not-a-selected>
                     </availability-impact>
                 </x:context>
                 <x:expect-assert
                     id="cia-impact-has-selected"
                     label="that is an error" />
             </x:scenario>
+
+            <x:scenario
+                label="has an adjustment-justification">
+                <x:context>
+                    <availability-impact
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <base>fips-199-moderate</base>
+                        <selected>fips-199-low</selected>
+                        <adjustment-justification>
+                            <p>Why there is a difference.</p>
+                        </adjustment-justification>
+                    </availability-impact>
+                </x:context>
+                <x:expect-not-assert
+                    id="cia-impact-has-adjustment-justification"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="lacks an adjustment-justification">
+                <x:context>
+                    <availability-impact
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <base>fips-199-moderate</base>
+                        <selected>fips-199-low</selected>
+                    </availability-impact>
+                </x:context>
+                <x:expect-assert
+                    id="cia-impact-has-adjustment-justification"
+                    label="that is an error" />
+            </x:scenario>
+
             <x:scenario
                 label="base element">
                 <x:scenario
