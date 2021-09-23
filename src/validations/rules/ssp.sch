@@ -1644,7 +1644,7 @@
                     if (oscal:base ne oscal:selected) then
                         exists(oscal:adjustment-justification)
                     else
-                        true()">When SP 800-60 base and selected impacts differ, the SSP must include a justification for the
+                        true()">When SP 800-60 base and selected impacts levels differ for a given information type, the SSP must include a justification for the
                 difference.</sch:assert>
         </sch:rule>
         <sch:rule
