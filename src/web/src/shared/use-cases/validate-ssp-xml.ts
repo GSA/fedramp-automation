@@ -52,10 +52,6 @@ export const ValidateSSPUrlUseCase =
         xmlText = text;
         return xmlText;
       })
-      .then(text => {
-        xmlText = text;
-        return xmlText;
-      })
       .then(ctx.processSchematron)
       .then(generateSchematronReport)
       .then(validationReport => {
