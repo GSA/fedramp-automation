@@ -62,7 +62,8 @@ export const runBrowserContext = ({
         location: {
           listen: (listener: (url: string) => void) => {
             window.addEventListener('hashchange', event => {
-              listener(`#${event.newURL.split('#')[1]}`);
+              const hashchangeEvent = event as HashChangeEvent;
+              listener(`#${hashchangeEvent.newURL.split('#')[1]}`);
             });
           },
           replace: (url: string) => window.history.replaceState(null, '', url),
@@ -83,6 +84,7 @@ export const runBrowserContext = ({
           getSSPSchematronAssertions: async () =>
             fetch(`${baseUrl}/ssp.json`).then(response => response.json()),
           validateSSP: ValidateSSPUseCase({
+            jsonSspToXml,
             processSchematron,
           }),
           validateSSPUrl: ValidateSSPUrlUseCase({

@@ -77,15 +77,13 @@ const getValidationReport = (
   };
 };
 
-type SaxonJsSchematronProcessorGatewayContext = {
-  sefUrl: string;
-  SaxonJS: any;
-  baselinesBaseUrl: string;
-  registryBaseUrl: string;
-};
-
 export const SaxonJsSchematronProcessorGateway =
-  (ctx: SaxonJsSchematronProcessorGatewayContext): SchematronProcessor =>
+  (ctx: {
+    sefUrl: string;
+    SaxonJS: any;
+    baselinesBaseUrl: string;
+    registryBaseUrl: string;
+  }): SchematronProcessor =>
   (sourceText: string) => {
     return (
       ctx.SaxonJS.transform(
@@ -357,7 +355,7 @@ export const SaxonJsProcessor =
   (stylesheetText: string, sourceText: string) => {
     try {
       return transform(ctx.SaxonJS, {
-        stylesheetText: stylesheetText,
+        stylesheetText,
         sourceText,
         destination: 'serialized',
         stylesheetParams: {},
@@ -370,13 +368,8 @@ export const SaxonJsProcessor =
     }
   };
 
-type SaxonJsSaxonJsJsonSspToXmlProcessor = {
-  sefUrl: string;
-  SaxonJS: any;
-};
-
 export const SaxonJsJsonSspToXmlProcessor =
-  (ctx: SaxonJsSaxonJsJsonSspToXmlProcessor): SchematronJSONToXMLProcessor =>
+  (ctx: { sefUrl: string; SaxonJS: any }): SchematronJSONToXMLProcessor =>
   (jsonString: string) => {
     return ctx.SaxonJS.transform(
       {
