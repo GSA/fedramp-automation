@@ -10,13 +10,32 @@ const EXPECTED_VALIDATION_REPORT = {
 };
 
 describe('validate ssp use case', () => {
-  it('works', async () => {
-    const useCase = ValidateSSPUseCase({
+  const mockJson = '{}';
+  const mockXml = '<xml>xml input</xml>';
+  it('returns schematron for xml input', async () => {
+    const ctx = {
+      jsonSspToXml: jest.fn().mockReturnValue(Promise.resolve('')),
       processSchematron: jest
         .fn()
         .mockReturnValue(Promise.resolve(MOCK_SCHEMATRON_RESULT)),
-    });
-    const retVal = await useCase('<xml>ignored</xml>');
+    };
+    const useCase = ValidateSSPUseCase(ctx);
+    const retVal = await useCase(mockXml);
+    expect(ctx.processSchematron).toHaveBeenCalledWith(mockXml);
+    expect(retVal).toEqual(EXPECTED_VALIDATION_REPORT);
+  });
+
+  it('returns schematron for json input', async () => {
+    const ctx = {
+      jsonSspToXml: jest.fn().mockReturnValue(Promise.resolve(mockXml)),
+      processSchematron: jest
+        .fn()
+        .mockReturnValue(Promise.resolve(MOCK_SCHEMATRON_RESULT)),
+    };
+    const useCase = ValidateSSPUseCase(ctx);
+    const retVal = await useCase(mockJson);
+    expect(ctx.jsonSspToXml).toHaveBeenCalledWith(mockJson);
+    expect(ctx.processSchematron).toHaveBeenCalledWith(mockXml);
     expect(retVal).toEqual(EXPECTED_VALIDATION_REPORT);
   });
 });
@@ -33,6 +52,7 @@ describe('validate ssp url use case', () => {
           }),
         });
       }),
+      jsonSspToXml: jest.fn().mockReturnValue(xmlText),
       processSchematron: jest.fn().mockImplementation(xmlStr => {
         expect(xmlStr).toEqual(xmlText);
         return MOCK_SCHEMATRON_RESULT;
