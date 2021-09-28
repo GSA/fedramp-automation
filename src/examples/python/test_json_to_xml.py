@@ -14,7 +14,7 @@ EXAMPLE_SSP_PATH_JSON = os.path.abspath(
         "../../../dist/content/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json",
     )
 )
-# Schematron rules compiled to an XSLT stylesheet.
+# XSLT stylesheet that converts a JSON SSP to XML.
 OSCAL_JSON_TO_XML = os.path.abspath(
     os.path.join(
         os.path.dirname(__file__),
