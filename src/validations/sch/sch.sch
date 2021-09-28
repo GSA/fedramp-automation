@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="sch.sch" phase="advanced" title="Schematron Style Guide for FedRAMP Validations" ?>
 <sch:schema
     defaultPhase="basic"
     queryBinding="xslt2"
@@ -100,7 +99,7 @@
             <sch:assert
                 diagnostics="has-role-attribute-diagnostic"
                 id="has-role-attribute"
-                role="warning"
+                role="error"
                 sqf:fix="add-role"
                 test="@role">Every Schematron assertion has a role.</sch:assert>
 
@@ -113,11 +112,20 @@
                     node-type="attribute"
                     target="role" />
             </sqf:fix>
+            
+            <sch:assert test="true()"></sch:assert>
+
+            <sch:assert
+                diagnostics="has-allowed-role-attribute-diagnostic"
+                id="has-allowed-role-attribute"
+                role="error"
+                sqf:fix="add-role"
+                test="@role = ('information', 'warning', 'error', 'fatal')">Every Schematron assertion has an allowed role.</sch:assert>
 
             <sch:assert
                 diagnostics="has-diagnostics-attribute-diagnostic"
                 id="has-diagnostics-attribute"
-                role="warning"
+                role="error"
                 sqf:fix="add-diagnostics-attribute"
                 test="local-name() eq 'report' or @diagnostics">Every Schematron assertion has diagnostics.</sch:assert>
 
@@ -310,12 +318,12 @@
                 id="has-doc-assertion-attribute"
                 role="warning"
                 test="@doc:assertion">Every diagnostic has a doc:assertion attribute.</sch:assert>
-            
+
             <sch:assert
                 id="has-doc-context-attribute"
                 role="warning"
                 test="@doc:context">Every diagnostic has a doc:context attribute.</sch:assert>
-            
+
         </sch:rule>
 
     </sch:pattern>
@@ -337,6 +345,10 @@
             id="has-role-attribute-diagnostic"><sch:value-of
                 select="name()" /> id="<sch:value-of
                 select="@id" />" lacks the role attribute.</sch:diagnostic>
+        <sch:diagnostic
+            id="has-allowed-role-attribute-diagnostic"><sch:value-of
+                select="name()" /> id="<sch:value-of
+                select="@id" />" has an invalid role attribute.</sch:diagnostic>
         <sch:diagnostic
             id="has-diagnostics-attribute-diagnostic"><sch:value-of
                 select="name()" /> id="<sch:value-of
