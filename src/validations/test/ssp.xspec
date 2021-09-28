@@ -6319,6 +6319,16 @@
                             name="authorization-type"
                             ns="https://fedramp.gov/ns/oscal"
                             value="fedramp-agency" />
+                        <system-id
+                            identifier-type="https://fedramp.gov">F00000000</system-id>
+                        <system-name>System's Full Name</system-name>
+                        <system-name-short>System's Short Name or Acronym</system-name-short>
+                        <description>
+                            <p>word word word word word word word word word word word word word word word word word word word word word word word word
+                                word word word word word word word word word.</p>
+                        </description>
+                    </system-characteristics>
+                    <system-implementation>
                         <prop
                             name="users-internal"
                             ns="https://fedramp.gov/ns/oscal"
@@ -6335,16 +6345,6 @@
                             name="users-external-future"
                             ns="https://fedramp.gov/ns/oscal"
                             value="1" />
-                        <system-id
-                            identifier-type="https://fedramp.gov">F00000000</system-id>
-                        <system-name>System's Full Name</system-name>
-                        <system-name-short>System's Short Name or Acronym</system-name-short>
-                        <description>
-                            <p>word word word word word word word word word word word word word word word word word word word word word word word word
-                                word word word word word word word word word.</p>
-                        </description>
-                    </system-characteristics>
-                    <system-implementation>
                         <component
                             type="this-system" />
                     </system-implementation>
