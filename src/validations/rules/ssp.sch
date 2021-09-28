@@ -1393,6 +1393,7 @@
                 diagnostics="has-accessible-CMVP-validation-details-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 id="has-accessible-CMVP-validation-details"
+                role="error"
                 test="not($use-remote-resources) or unparsed-text-available(@href)">The NIST Cryptographic Module Validation Program (CMVP)
                 certificate detail page is available.</sch:assert>
             <sch:assert
@@ -1644,8 +1645,8 @@
                     if (oscal:base ne oscal:selected) then
                         exists(oscal:adjustment-justification)
                     else
-                        true()">When SP 800-60 base and selected impacts levels differ for a given information type, the SSP must include a justification for the
-                difference.</sch:assert>
+                        true()">When SP 800-60 base and selected impacts levels differ for a given information type, the SSP must
+                include a justification for the difference.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:base | oscal:selected"
@@ -3105,7 +3106,7 @@
                 words.</sch:assert>
 
         </sch:rule>
-        
+
     </sch:pattern>
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.13-14"
@@ -3278,6 +3279,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-local-and-remote-addresses"
+                role="error"
                 test="
                     (oscal:prop[@name eq 'ipv4-address' and @class eq 'local'] and oscal:prop[@name eq 'ipv4-address' and @class eq 'remote'])
                     or
@@ -3936,8 +3938,8 @@
         <sch:diagnostic
             doc:assertion="cia-impact-has-adjustment-justification"
             doc:context="oscal:confidentiality-impact | oscal:integrity-impact | oscal:availability-impact"
-            id="cia-impact-has-adjustment-justification-diagnostic">These SP 800-60 base and selected impact levels differ, but no
-            justification for the difference is supplied.</sch:diagnostic>
+            id="cia-impact-has-adjustment-justification-diagnostic">These SP 800-60 base and selected impact levels differ, but no justification for
+            the difference is supplied.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="cia-impact-has-approved-fips-categorization"
             doc:context="oscal:base | oscal:selected"
