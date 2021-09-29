@@ -74,7 +74,7 @@ const generateSchematronReport = (
 const detectFormat = (document: string) => {
   // Naive detection of JSON format - first non-whitespace character should be
   // `{` or `[`.
-  if (/\s*[{\[]/.test(document)) {
+  if (/^\s*[\{\[]/.test(document)) {
     return 'json';
   } else {
     return 'xml';
