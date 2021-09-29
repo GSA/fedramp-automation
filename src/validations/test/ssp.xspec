@@ -6516,7 +6516,7 @@
             <x:scenario
                 label="A FedRAMP SSP must specify the number of current internal users.">
                 <x:scenario
-                    label="When it does">
+                    label="When it does not">
                     <x:expect-assert
                         id="has-users-internal"
                         label="that is correct" />
@@ -6526,7 +6526,7 @@
             <x:scenario
                 label="A FedRAMP SSP must specify the number of current external users.">
                 <x:scenario
-                    label="When it does">
+                    label="When it does not">
                     <x:expect-assert
                         id="has-users-external"
                         label="that is correct" />
@@ -6536,7 +6536,7 @@
             <x:scenario
                 label="A FedRAMP SSP must specify the number of future internal users.">
                 <x:scenario
-                    label="When it does">
+                    label="When it does not">
                     <x:expect-assert
                         id="has-users-internal-future"
                         label="that is correct" />
@@ -6546,7 +6546,7 @@
             <x:scenario
                 label="A FedRAMP SSP must specify the number of future external users.">
                 <x:scenario
-                    label="When it does">
+                    label="When it does not">
                     <x:expect-assert
                         id="has-users-external-future"
                         label="that is correct" />
