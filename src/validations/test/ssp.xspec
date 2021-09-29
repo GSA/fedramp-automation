@@ -6500,7 +6500,7 @@
                     label="When it is not">
                     <x:expect-assert
                         id="has-system-description"
-                        label="that is correct" />
+                        label="that is an error" />
                 </x:scenario>
             </x:scenario>
             <x:scenario
@@ -6519,7 +6519,7 @@
                     label="When it does not">
                     <x:expect-assert
                         id="has-users-internal"
-                        label="that is correct" />
+                        label="that is an error" />
                 </x:scenario>
             </x:scenario>
 
@@ -6529,7 +6529,7 @@
                     label="When it does not">
                     <x:expect-assert
                         id="has-users-external"
-                        label="that is correct" />
+                        label="that is an error" />
                 </x:scenario>
             </x:scenario>
 
@@ -6539,7 +6539,7 @@
                     label="When it does not">
                     <x:expect-assert
                         id="has-users-internal-future"
-                        label="that is correct" />
+                        label="that is an error" />
                 </x:scenario>
             </x:scenario>
 
@@ -6549,7 +6549,7 @@
                     label="When it does not">
                     <x:expect-assert
                         id="has-users-external-future"
-                        label="that is correct" />
+                        label="that is an error" />
                 </x:scenario>
             </x:scenario>
 
@@ -6594,39 +6594,39 @@
                 <x:scenario
                     label="A FedRAMP SSP must specify a non-negative number of current internal users.">
                     <x:scenario
-                        label="When it does">
+                        label="When it does not">
                         <x:expect-assert
                             id="has-users-internal"
-                            label="that is correct" />
+                            label="that is an error" />
                     </x:scenario>
                 </x:scenario>
 
                 <x:scenario
                     label="A FedRAMP SSP must specify a non-negative number of current external users.">
                     <x:scenario
-                        label="When it does">
+                        label="When it does not">
                         <x:expect-assert
                             id="has-users-external"
-                            label="that is correct" />
+                            label="that is an error" />
                     </x:scenario>
                 </x:scenario>
 
                 <x:scenario
                     label="A FedRAMP SSP must specify a non-negative number of future internal users.">
                     <x:scenario
-                        label="When it does">
+                        label="When it does not">
                         <x:expect-assert
                             id="has-users-internal-future"
-                            label="that is correct" />
+                            label="that is an error" />
                     </x:scenario>
                 </x:scenario>
                 <x:scenario
                     label="A FedRAMP SSP must specify a non-negative number of future external users.">
                     <x:scenario
-                        label="When it does">
+                        label="When it does not">
                         <x:expect-assert
                             id="has-users-external-future"
-                            label="that is correct" />
+                            label="that is an error" />
                     </x:scenario>
                 </x:scenario>
             </x:scenario>
