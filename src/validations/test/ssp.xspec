@@ -6319,6 +6319,16 @@
                             name="authorization-type"
                             ns="https://fedramp.gov/ns/oscal"
                             value="fedramp-agency" />
+                        <system-id
+                            identifier-type="https://fedramp.gov">F00000000</system-id>
+                        <system-name>System's Full Name</system-name>
+                        <system-name-short>System's Short Name or Acronym</system-name-short>
+                        <description>
+                            <p>word word word word word word word word word word word word word word word word word word word word word word word word
+                                word word word word word word word word word.</p>
+                        </description>
+                    </system-characteristics>
+                    <system-implementation>
                         <prop
                             name="users-internal"
                             ns="https://fedramp.gov/ns/oscal"
@@ -6335,16 +6345,6 @@
                             name="users-external-future"
                             ns="https://fedramp.gov/ns/oscal"
                             value="1" />
-                        <system-id
-                            identifier-type="https://fedramp.gov">F00000000</system-id>
-                        <system-name>System's Full Name</system-name>
-                        <system-name-short>System's Short Name or Acronym</system-name-short>
-                        <description>
-                            <p>word word word word word word word word word word word word word word word word word word word word word word word word
-                                word word word word word word word word word.</p>
-                        </description>
-                    </system-characteristics>
-                    <system-implementation>
                         <component
                             type="this-system" />
                     </system-implementation>
@@ -6500,7 +6500,7 @@
                     label="When it is not">
                     <x:expect-assert
                         id="has-system-description"
-                        label="that is correct" />
+                        label="that is an error" />
                 </x:scenario>
             </x:scenario>
             <x:scenario
@@ -6516,40 +6516,40 @@
             <x:scenario
                 label="A FedRAMP SSP must specify the number of current internal users.">
                 <x:scenario
-                    label="When it does">
+                    label="When it does not">
                     <x:expect-assert
                         id="has-users-internal"
-                        label="that is correct" />
+                        label="that is an error" />
                 </x:scenario>
             </x:scenario>
 
             <x:scenario
                 label="A FedRAMP SSP must specify the number of current external users.">
                 <x:scenario
-                    label="When it does">
+                    label="When it does not">
                     <x:expect-assert
                         id="has-users-external"
-                        label="that is correct" />
+                        label="that is an error" />
                 </x:scenario>
             </x:scenario>
 
             <x:scenario
                 label="A FedRAMP SSP must specify the number of future internal users.">
                 <x:scenario
-                    label="When it does">
+                    label="When it does not">
                     <x:expect-assert
                         id="has-users-internal-future"
-                        label="that is correct" />
+                        label="that is an error" />
                 </x:scenario>
             </x:scenario>
 
             <x:scenario
                 label="A FedRAMP SSP must specify the number of future external users.">
                 <x:scenario
-                    label="When it does">
+                    label="When it does not">
                     <x:expect-assert
                         id="has-users-external-future"
-                        label="that is correct" />
+                        label="that is an error" />
                 </x:scenario>
             </x:scenario>
 
@@ -6563,6 +6563,12 @@
                                 name="authorization-type"
                                 ns="https://fedramp.gov/ns/oscal"
                                 value="fedramp-agency" />
+                            <system-id
+                                identifier-type="https://fedramp.gov">F00000000</system-id>
+                            <system-name>System's Full Name</system-name>
+                            <system-name-short>System's Short Name or Acronym</system-name-short>
+                        </system-characteristics>
+                        <system-implementation>
                             <prop
                                 name="users-internal"
                                 ns="https://fedramp.gov/ns/oscal"
@@ -6579,12 +6585,6 @@
                                 name="users-external-future"
                                 ns="https://fedramp.gov/ns/oscal"
                                 value="-1" />
-                            <system-id
-                                identifier-type="https://fedramp.gov">F00000000</system-id>
-                            <system-name>System's Full Name</system-name>
-                            <system-name-short>System's Short Name or Acronym</system-name-short>
-                        </system-characteristics>
-                        <system-implementation>
                             <component
                                 type="this-system" />
                         </system-implementation>
@@ -6594,39 +6594,39 @@
                 <x:scenario
                     label="A FedRAMP SSP must specify a non-negative number of current internal users.">
                     <x:scenario
-                        label="When it does">
+                        label="When it does not">
                         <x:expect-assert
                             id="has-users-internal"
-                            label="that is correct" />
+                            label="that is an error" />
                     </x:scenario>
                 </x:scenario>
 
                 <x:scenario
                     label="A FedRAMP SSP must specify a non-negative number of current external users.">
                     <x:scenario
-                        label="When it does">
+                        label="When it does not">
                         <x:expect-assert
                             id="has-users-external"
-                            label="that is correct" />
+                            label="that is an error" />
                     </x:scenario>
                 </x:scenario>
 
                 <x:scenario
                     label="A FedRAMP SSP must specify a non-negative number of future internal users.">
                     <x:scenario
-                        label="When it does">
+                        label="When it does not">
                         <x:expect-assert
                             id="has-users-internal-future"
-                            label="that is correct" />
+                            label="that is an error" />
                     </x:scenario>
                 </x:scenario>
                 <x:scenario
                     label="A FedRAMP SSP must specify a non-negative number of future external users.">
                     <x:scenario
-                        label="When it does">
+                        label="When it does not">
                         <x:expect-assert
                             id="has-users-external-future"
-                            label="that is correct" />
+                            label="that is an error" />
                     </x:scenario>
                 </x:scenario>
             </x:scenario>
