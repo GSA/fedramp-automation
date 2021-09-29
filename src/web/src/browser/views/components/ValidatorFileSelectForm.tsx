@@ -20,9 +20,9 @@ export const ValidatorFileSelectForm = () => {
           aria-describedby="file-input-specific-hint"
           accept=".xml,.json"
           onChange={onFileInputChangeGetFile(fileDetails => {
-            actions.validator.setXmlContents({
+            actions.validator.setSspFile({
               fileName: fileDetails.name,
-              xmlContents: fileDetails.text,
+              fileContents: fileDetails.text,
             });
           })}
           disabled={schematron.validator.current === 'PROCESSING'}
