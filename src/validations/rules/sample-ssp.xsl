@@ -70,6 +70,19 @@
         name="data-flow-diagram-resource-uuid"
         select="uuid:randomUUID()" />
     <xsl:variable
+        as="node()*"
+        name="pp-uuid">
+        <xsl:for-each
+            select="//control[matches(@id, '-1$')]">
+            <uuid
+                id="{@id}"
+                pol-c="{uuid:randomUUID()}"
+                pol-r="{uuid:randomUUID()}"
+                pro-c="{uuid:randomUUID()}"
+                pro-r="{uuid:randomUUID()}" />
+        </xsl:for-each>
+    </xsl:variable>
+    <xsl:variable
         as="xs:string"
         name="LF"
         select="'&#x0a;'" />
@@ -702,6 +715,60 @@
                     <status
                         state="operational" />
                 </component>
+
+                <xsl:for-each
+                    select="//control[matches(@id, '-1$')]">
+
+                    <component
+                        type="policy"
+                        uuid="">
+                        <xsl:attribute
+                            name="uuid"
+                            select="$pp-uuid[@id = current()/@id]/@pol-c" />
+                        <title>
+                            <xsl:text expand-text="true">{prop[@name = 'label']/@value} - Policy document</xsl:text>
+                        </title>
+                        <description>
+                            <p>
+                                <xsl:text expand-text="true">{prop[@name = 'label']/@value} {title} - Policy</xsl:text>
+                            </p>
+                        </description>
+                        <prop
+                            name="asset-type"
+                            value="document" />
+                        <link
+                            href="#{$pp-uuid[@id = current()/@id]/@pol-r}"
+                            rel="policy" />
+                        <status
+                            state="operational" />
+                    </component>
+
+                    <component
+                        type="procedure"
+                        uuid="">
+                        <xsl:attribute
+                            name="uuid"
+                            select="$pp-uuid[@id = current()/@id]/@pro-c" />
+                        <title>
+                            <xsl:text expand-text="true">{prop[@name = 'label']/@value} - Procedure document</xsl:text>
+                        </title>
+                        <description>
+                            <p>
+                                <xsl:text expand-text="true">{prop[@name = 'label']/@value} {title} - Procedure</xsl:text>
+                            </p>
+                        </description>
+                        <prop
+                            name="asset-type"
+                            value="document" />
+                        <link
+                            href="#{$pp-uuid[@id = current()/@id]/@pro-r}"
+                            rel="procedure" />
+                        <status
+                            state="operational" />
+                    </component>
+
+                </xsl:for-each>
+
             </system-implementation>
 
             <control-implementation>
@@ -839,6 +906,7 @@
                     </implemented-requirement>
                 </xsl:for-each>
             </control-implementation>
+
             <back-matter>
                 <resource>
                     <xsl:attribute
@@ -930,13 +998,14 @@
                         </xsl:choose>
                     </base64>
                 </resource>
+
                 <xsl:for-each
                     select="//control[matches(@id, '-1$')]">
                     <xsl:comment expand-text="true">{parent::group/title} Policy and Procedures attachments</xsl:comment>
                     <resource>
                         <xsl:attribute
                             name="uuid"
-                            select="uuid:randomUUID()" />
+                            select="$pp-uuid[@id = current()/@id]/@pol-r" />
                         <xsl:variable
                             as="xs:string"
                             expand-text="true"
@@ -960,7 +1029,7 @@
                     <resource>
                         <xsl:attribute
                             name="uuid"
-                            select="uuid:randomUUID()" />
+                            select="$pp-uuid[@id = current()/@id]/@pro-r" />
                         <xsl:variable
                             as="xs:string"
                             expand-text="true"
@@ -1166,9 +1235,27 @@
                         <xsl:attribute
                             name="uuid"
                             select="uuid:randomUUID()" />
-                        <xsl:attribute
-                            name="component-uuid"
-                            select="$component-uuid" />
+
+                        <xsl:choose>
+                            <xsl:when
+                                test="matches(@id, '[a-z]{2}-1_smt\.a\.1')">
+                                <xsl:attribute
+                                    name="component-uuid"
+                                    select="$pp-uuid[@id = current()/ancestor::control/@id]/@pol-c" />
+                            </xsl:when>
+                            <xsl:when
+                                test="matches(@id, '[a-z]{2}-1_smt\.a\.2')">
+                                <xsl:attribute
+                                    name="component-uuid"
+                                    select="$pp-uuid[@id = current()/ancestor::control/@id]/@pro-c" />
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:attribute
+                                    name="component-uuid"
+                                    select="$component-uuid" />
+                            </xsl:otherwise>
+                        </xsl:choose>
+
                         <xsl:element
                             name="description"
                             namespace="http://csrc.nist.gov/ns/oscal/1.0">
