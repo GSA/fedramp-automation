@@ -105,3 +105,10 @@ Developers ought to review the following relevant information sources, in order 
 - The source code of the Metaschema models, filtering on the release tags. Developers can use the Github web interface to compare Metaschema files, [such as this example comparison between release candidate versions `1.0.0-rc1` and `1.0.0-rc2`](https://github.com/usnistgov/OSCAL/compare/v1.0.0-rc1...v1.0.0-rc2). Focus on the files in the `src/metaschema` directory.
 
 Per [18F/fedramp-automation#61](https://github.com/18F/fedramp-automation/issues/61), programmatic diff utilities to semantically analyze the differences between OSCAL versions requires resources not available at this time.
+
+Generating a sample OSCAL System Security Plan XML document
+---
+
+An XSL transform [`sample-ssp.xsl`](rules/sample-ssp.xsl) can be used to produce a (rather rudimentary) OSCAL SSP document in XML form. The transform uses one of the [resolved catalogs](../../dist/content/baselines/rev4/xml) as input.
+
+This transform uses a Java method `java.util.UUID` to generate UUIDs and `expath:encode-string` as well as and when used with Saxon (such as within oXygen XML Editor) must employ Saxon-PE or Saxon-EE (i.e., Saxon-HE is not sufficient).
