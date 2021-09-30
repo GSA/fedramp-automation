@@ -69,10 +69,20 @@
         as="xs:string"
         name="data-flow-diagram-resource-uuid"
         select="uuid:randomUUID()" />
+    <xsl:variable
+        as="xs:string"
+        name="LF"
+        select="'&#x0a;'" />
     <xsl:template
         match="/">
+        <xsl:copy-of
+            select="$LF" />
         <xsl:comment expand-text="true">This document used {base-uri()} as the input.</xsl:comment>
+        <xsl:copy-of
+            select="$LF" />
         <xsl:comment expand-text="true">This document used {static-base-uri()} as the transform.</xsl:comment>
+        <xsl:copy-of
+            select="$LF" />
         <xsl:processing-instruction name="xml-model"> href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"</xsl:processing-instruction>
         <!--<xsl:processing-instruction name="xml-model"> href="https://raw.githubusercontent.com/18F/fedramp-automation/master/resources/validations/src/ssp.sch" schematypens="http://purl.oclc.org/dsdl/schematron" title="FedRAMP SSP constraints"</xsl:processing-instruction>-->
         <!--<xsl:processing-instruction name="xml-model"> href="file:/Users/gapinski/branches/fedramp-automation/resources/validations/src/ssp.sch" schematypens="http://purl.oclc.org/dsdl/schematron" title="FedRAMP SSP constraints"</xsl:processing-instruction>-->
@@ -444,8 +454,11 @@
                 </responsible-party>
 
             </metadata>
-            <import-profile
-                href="" />
+            <import-profile>
+                <xsl:attribute
+                    expand-text="true"
+                    name="href">{//link[@rel='resolution-source']/@href}</xsl:attribute>
+            </import-profile>
             <system-characteristics>
                 <system-id
                     identifier-type="https://fedramp.gov">F00000000</system-id>
