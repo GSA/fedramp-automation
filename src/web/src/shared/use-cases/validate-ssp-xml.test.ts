@@ -10,8 +10,7 @@ const EXPECTED_VALIDATION_REPORT = {
 };
 
 describe('validate ssp use case', () => {
-  const mockJson = '{}';
-  const mockXml = '<xml>xml input</xml>';
+  const mockXml = '<xml>xml {[]} input</xml>';
   it('returns schematron for xml input', async () => {
     const ctx = {
       jsonSspToXml: jest.fn().mockReturnValue(Promise.resolve('')),
@@ -26,17 +25,22 @@ describe('validate ssp use case', () => {
   });
 
   it('returns schematron for json input', async () => {
-    const ctx = {
-      jsonSspToXml: jest.fn().mockReturnValue(Promise.resolve(mockXml)),
-      processSchematron: jest
-        .fn()
-        .mockReturnValue(Promise.resolve(MOCK_SCHEMATRON_RESULT)),
+    const testJson = async (mockJson: string) => {
+      const ctx = {
+        jsonSspToXml: jest.fn().mockReturnValue(Promise.resolve(mockXml)),
+        processSchematron: jest
+          .fn()
+          .mockReturnValue(Promise.resolve(MOCK_SCHEMATRON_RESULT)),
+      };
+      const useCase = ValidateSSPUseCase(ctx);
+      const retVal = await useCase(mockJson);
+      expect(ctx.jsonSspToXml).toHaveBeenCalledWith(mockJson);
+      expect(ctx.processSchematron).toHaveBeenCalledWith(mockXml);
+      expect(retVal).toEqual(EXPECTED_VALIDATION_REPORT);
     };
-    const useCase = ValidateSSPUseCase(ctx);
-    const retVal = await useCase(mockJson);
-    expect(ctx.jsonSspToXml).toHaveBeenCalledWith(mockJson);
-    expect(ctx.processSchematron).toHaveBeenCalledWith(mockXml);
-    expect(retVal).toEqual(EXPECTED_VALIDATION_REPORT);
+
+    testJson('{}');
+    testJson('[]');
   });
 });
 

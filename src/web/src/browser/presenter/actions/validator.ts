@@ -8,9 +8,9 @@ export const reset = ({ state }: PresenterConfig) => {
   }
 };
 
-export const setXmlContents = async (
+export const setSspFile = async (
   { actions, state, effects }: PresenterConfig,
-  options: { fileName: string; xmlContents: string },
+  options: { fileName: string; fileContents: string },
 ) => {
   actions.validator.reset();
   if (
@@ -19,11 +19,11 @@ export const setXmlContents = async (
       .matches('PROCESSING')
   ) {
     return effects.useCases
-      .validateSSP(options.xmlContents)
+      .validateSSP(options.fileContents)
       .then(validationReport =>
         actions.validator.setValidationReport({
           validationReport,
-          xmlText: options.xmlContents,
+          xmlText: options.fileContents,
         }),
       )
       .then(actions.validator.annotateXml)

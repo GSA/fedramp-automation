@@ -22,9 +22,9 @@ describe('report action', () => {
 
     it('is disabled while processing', async () => {
       const presenter = createPresenterMock(config);
-      const promise = presenter.actions.validator.setXmlContents({
+      const promise = presenter.actions.validator.setSspFile({
         fileName: 'file-name.xml',
-        xmlContents: '<xml></xml>',
+        fileContents: '<xml></xml>',
       });
       expect(presenter.state.schematron.validator.current).toEqual(
         'PROCESSING',
@@ -38,9 +38,9 @@ describe('report action', () => {
 
     it('works on validated', async () => {
       const presenter = createPresenterMock(config);
-      await presenter.actions.validator.setXmlContents({
+      await presenter.actions.validator.setSspFile({
         fileName: 'file-name.xml',
-        xmlContents: '<xml></xml>',
+        fileContents: '<xml></xml>',
       });
       expect(presenter.state.schematron.validator.current).toEqual('VALIDATED');
       presenter.actions.validator.reset();
@@ -48,7 +48,7 @@ describe('report action', () => {
     });
   });
 
-  describe('setXmlContents', () => {
+  describe('setSspFile', () => {
     it('should work', async () => {
       const mockXml = 'mock xml';
       const presenter = createPresenterMock({
@@ -63,9 +63,9 @@ describe('report action', () => {
         },
       });
       expect(presenter.state.schematron.validator.current).toEqual('UNLOADED');
-      const promise = presenter.actions.validator.setXmlContents({
+      const promise = presenter.actions.validator.setSspFile({
         fileName: 'file-name.xml',
-        xmlContents: mockXml,
+        fileContents: mockXml,
       });
       expect(presenter.state.schematron.validator.current).toEqual(
         'PROCESSING',
