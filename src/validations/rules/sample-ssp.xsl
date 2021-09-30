@@ -472,6 +472,32 @@
                     ns="https://fedramp.gov/ns/oscal"
                     value="fedramp-agency" />
                 <prop
+                    name="users-internal"
+                    ns="https://fedramp.gov/ns/oscal"
+                    value="1" />
+                <prop
+                    name="users-external"
+                    ns="https://fedramp.gov/ns/oscal"
+                    value="1" />
+                <prop
+                    name="users-internal-future"
+                    ns="https://fedramp.gov/ns/oscal"
+                    value="1" />
+                <prop
+                    name="users-external-future"
+                    ns="https://fedramp.gov/ns/oscal"
+                    value="1" />
+                <prop
+                    name="cloud-service-model"
+                    value="saas" />
+                <prop
+                    name="cloud-deployment-model"
+                    value="public-cloud" />
+                <prop
+                    name="authorization-type"
+                    ns="https://fedramp.gov/ns/oscal"
+                    value="fedramp-agency" />
+                <prop
                     class="security-eauth"
                     name="security-eauth-level"
                     ns="https://fedramp.gov/ns/oscal"
@@ -945,7 +971,7 @@
                         </title>
                         <prop
                             name="type"
-                            value="procedures" />
+                            value="procedure" />
                         <rlink
                             href="SSSP-A1-ISPP-{@id}-procedures.txt" />
                         <base64
