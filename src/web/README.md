@@ -25,7 +25,7 @@ npm start
 
 ### Production build
 
-Production builds are produced with (Snowpack)[https://www.snowpack.dev/] and its (Webpack)[https://webpack.js.org/] plugin. You may parametrize the build via environment variables, as referenced in the (Snowpack configuration)[./snowpack.config.js#L3-L8].
+Production builds are produced with [Snowpack](https://www.snowpack.dev/) and its [Webpack](https://webpack.js.org/) plugin. You may parametrize the build via environment variables, as referenced in the [Snowpack configuration](./snowpack.config.js#L3-L8).
 
 To build a static copy of your site to the `build/` folder:
 
