@@ -69,6 +69,15 @@ For usage information, use the default target:
 ```
 make
 ```
+
+### Implementation details
+
+FedRAMP automation is composed of the following implementation details:
+
+- [./src/validations/README.md](Validation rules) are implemented in Schematron with xspec test coverage.
+- [./src/web/README.md](Web-based frontend) provides a browser of implemented validation rules and may be used to validate a System Security Plan in-browser.
+- [./src/examples/README.md](Example code) is provided to demonstrate how to apply the validation rules using the compiled-XSLT artifact in selected languages.
+
 ### Creating a release
 
 [ADR 0002 (git release version strategy)](./documents/adr/0002-git-release-version-strategy.md)
