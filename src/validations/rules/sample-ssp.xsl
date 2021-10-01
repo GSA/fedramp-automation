@@ -903,6 +903,12 @@
                         </xsl:comment>
                         <xsl:apply-templates
                             select="part" />
+                        <xsl:if
+                            test="matches(@id, '-1$')">
+                            <xsl:call-template
+                                name="pol-pro" />
+                        </xsl:if>
+
                     </implemented-requirement>
                 </xsl:for-each>
             </control-implementation>
@@ -1235,27 +1241,9 @@
                         <xsl:attribute
                             name="uuid"
                             select="uuid:randomUUID()" />
-
-                        <xsl:choose>
-                            <xsl:when
-                                test="matches(@id, '[a-z]{2}-1_smt\.a\.1')">
-                                <xsl:attribute
-                                    name="component-uuid"
-                                    select="$pp-uuid[@id = current()/ancestor::control/@id]/@pol-c" />
-                            </xsl:when>
-                            <xsl:when
-                                test="matches(@id, '[a-z]{2}-1_smt\.a\.2')">
-                                <xsl:attribute
-                                    name="component-uuid"
-                                    select="$pp-uuid[@id = current()/ancestor::control/@id]/@pro-c" />
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:attribute
-                                    name="component-uuid"
-                                    select="$component-uuid" />
-                            </xsl:otherwise>
-                        </xsl:choose>
-
+                        <xsl:attribute
+                            name="component-uuid"
+                            select="$component-uuid" />
                         <xsl:element
                             name="description"
                             namespace="http://csrc.nist.gov/ns/oscal/1.0">
@@ -1284,4 +1272,64 @@
     <xsl:template
         match="part" />
 
+    <xsl:template
+        name="pol-pro">
+
+        <xsl:element
+            name="by-component"
+            namespace="http://csrc.nist.gov/ns/oscal/1.0">
+            <xsl:attribute
+                name="uuid"
+                select="uuid:randomUUID()" />
+            <xsl:attribute
+                name="component-uuid"
+                select="$pp-uuid[@id = current()/@id]/@pol-c" />
+            <xsl:element
+                name="description"
+                namespace="http://csrc.nist.gov/ns/oscal/1.0">
+                <xsl:element
+                    name="p"
+                    namespace="http://csrc.nist.gov/ns/oscal/1.0">This description is more than 20 characters in length</xsl:element>
+            </xsl:element>
+            <xsl:element
+                name="remarks"
+                namespace="http://csrc.nist.gov/ns/oscal/1.0">
+                <xsl:element
+                    name="p"
+                    namespace="http://csrc.nist.gov/ns/oscal/1.0">
+                    <xsl:value-of
+                        select="oscal:p" />
+                </xsl:element>
+            </xsl:element>
+        </xsl:element>
+
+        <xsl:element
+            name="by-component"
+            namespace="http://csrc.nist.gov/ns/oscal/1.0">
+            <xsl:attribute
+                name="uuid"
+                select="uuid:randomUUID()" />
+            <xsl:attribute
+                name="component-uuid"
+                select="$pp-uuid[@id = current()/@id]/@pro-c" />
+            <xsl:element
+                name="description"
+                namespace="http://csrc.nist.gov/ns/oscal/1.0">
+                <xsl:element
+                    name="p"
+                    namespace="http://csrc.nist.gov/ns/oscal/1.0">This description is more than 20 characters in length</xsl:element>
+            </xsl:element>
+            <xsl:element
+                name="remarks"
+                namespace="http://csrc.nist.gov/ns/oscal/1.0">
+                <xsl:element
+                    name="p"
+                    namespace="http://csrc.nist.gov/ns/oscal/1.0">
+                    <xsl:value-of
+                        select="oscal:p" />
+                </xsl:element>
+            </xsl:element>
+        </xsl:element>
+
+    </xsl:template>
 </xsl:stylesheet>
