@@ -1289,16 +1289,8 @@
                 namespace="http://csrc.nist.gov/ns/oscal/1.0">
                 <xsl:element
                     name="p"
-                    namespace="http://csrc.nist.gov/ns/oscal/1.0">This description is more than 20 characters in length</xsl:element>
-            </xsl:element>
-            <xsl:element
-                name="remarks"
-                namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                <xsl:element
-                    name="p"
                     namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                    <xsl:value-of
-                        select="oscal:p" />
+                    <xsl:text expand-text="true">{title}: policy component reference</xsl:text>
                 </xsl:element>
             </xsl:element>
         </xsl:element>
@@ -1317,16 +1309,8 @@
                 namespace="http://csrc.nist.gov/ns/oscal/1.0">
                 <xsl:element
                     name="p"
-                    namespace="http://csrc.nist.gov/ns/oscal/1.0">This description is more than 20 characters in length</xsl:element>
-            </xsl:element>
-            <xsl:element
-                name="remarks"
-                namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                <xsl:element
-                    name="p"
                     namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                    <xsl:value-of
-                        select="oscal:p" />
+                    <xsl:text expand-text="true">{title}: procedure component reference</xsl:text>
                 </xsl:element>
             </xsl:element>
         </xsl:element>
