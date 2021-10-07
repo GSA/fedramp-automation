@@ -748,9 +748,9 @@ system-security-plan:
           - name: validation-type
             value: fips-140-2
           - name: validation-reference
-            value: "0000"
+            value: "3928"
         links:
-          - href: https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/0000
+          - href: https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/3928
             rel: validation-details
         status:
           state: operational
