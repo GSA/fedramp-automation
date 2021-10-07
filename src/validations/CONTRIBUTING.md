@@ -111,4 +111,4 @@ Generating a sample OSCAL System Security Plan XML document
 
 An XSL transform [`sample-ssp.xsl`](rules/sample-ssp.xsl) can be used to produce a (rather rudimentary) OSCAL SSP document in XML form. The transform uses one of the [resolved catalogs](../../dist/content/baselines/rev4/xml) as input.
 
-This transform uses a Java method `java.util.UUID` to generate UUIDs and `expath:encode-string` as well as and when used with Saxon (such as within oXygen XML Editor) must employ Saxon-PE or Saxon-EE (i.e., Saxon-HE is not sufficient).
+Saxon-PE or Saxon-EE is required (such as within oXygen XML Editor). Saxon-HE is not supported, due to extension usage.
