@@ -25,10 +25,18 @@ npm start
 
 ### Production build
 
+Production builds are produced with [Snowpack](https://www.snowpack.dev/) and its [Webpack](https://webpack.js.org/) plugin. You may parametrize the build via environment variables, as referenced in the [Snowpack configuration](./snowpack.config.js#L3-L8).
+
 To build a static copy of your site to the `build/` folder:
 
 ```bash
 npm run build
+```
+
+... or, customized with an environment variable. Here, we set the `BASEURL` so internal links may be mounted at sub-paths:
+
+```bash
+BASEURL=/fedramp-automation npm run build
 ```
 
 To test the production build locally, you could use the Python http server:

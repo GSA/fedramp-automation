@@ -2,24 +2,33 @@
 <xsl:stylesheet
     exclude-result-prefixes="xs math oscal fv fn sch doc msg x"
     version="3.0"
-    xmlns:msg="https://fedramp.gov/oscal/fedramp-automation-messages"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
     xmlns:fn="local-function"
     xmlns:fv="https://fedramp.gov/ns/oscal"
     xmlns:math="http://www.w3.org/2005/xpath-functions/math"
+    xmlns:msg="https://fedramp.gov/oscal/fedramp-automation-messages"
     xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:x="http://www.jenitennison.com/xslt/xspec"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <xsl:param
+        as="xs:boolean"
+        name="identify-assertions-without-rules"
+        required="false"
+        select="false()" />
+
     <xsl:param
         as="xs:string"
         name="title"
         required="false">
         <xsl:text>FedRAMP Validation Logic</xsl:text>
     </xsl:param>
+
     <xsl:mode
         on-no-match="fail" />
+
     <xsl:output
         encoding="UTF-8"
         html-version="5"
@@ -87,6 +96,26 @@
     </xsl:template>
 
     <xsl:template
+        match="*"
+        mode="copy">
+        <xsl:element
+            name="{name()}">
+            <xsl:attribute
+                name="select"
+                select="replace(@select, '\s+', ' ')" />
+            <xsl:apply-templates
+                mode="#current"
+                select="node()" />
+        </xsl:element>
+    </xsl:template>
+    <xsl:template
+        match="text()"
+        mode="copy">
+        <xsl:copy-of
+            select="." />
+    </xsl:template>
+
+    <xsl:template
         match="/">
 
         <!-- ensure input is this transform -->
@@ -104,8 +133,8 @@
         <html>
             <head>
                 <meta
-                    http-equiv="Content-Type"
-                    content="text/html; charset=UTF-8" />
+                    content="text/html; charset=UTF-8"
+                    http-equiv="Content-Type" />
                 <title>
                     <xsl:value-of
                         select="$title" />
@@ -145,8 +174,8 @@
 
                 <p>References to a "checklist" are to the <cite>Agency Authorization Review Report</cite> document.</p>
                 <p>References to a "guide" are to one of the guides found <a
-                        target="_blank"
-                        href="https://github.com/18F/fedramp-automation/tree/develop/documents">here</a>.</p>
+                        href="https://github.com/18F/fedramp-automation/tree/develop/documents"
+                        target="_blank">here</a>.</p>
 
                 <xsl:variable
                     name="br"
@@ -190,10 +219,11 @@
                                                 class="has-assertion"><xsl:text expand-text="true">Has Schematron assertion{if (tokenize(@assertions, '\s+')[2]) then 's' else ''}</xsl:text></span>: <xsl:for-each
                                                 select="tokenize(@assertions, '\s+')">
                                                 <xsl:text> </xsl:text>
-                                                <code>
-                                                    <xsl:value-of
-                                                        select="." />
-                                                </code>
+                                                <a
+                                                    href="#{.}"><code>
+                                                        <xsl:value-of
+                                                            select="." />
+                                                    </code></a>
                                             </xsl:for-each>
                                         </xsl:when>
                                         <xsl:otherwise>
@@ -207,8 +237,8 @@
                                         <xsl:when
                                             test="@assertions">
                                             <xsl:variable
-                                                name="refs"
                                                 as="xs:string*"
+                                                name="refs"
                                                 select="$d//*[@id = current()/@assertions]/@doc:*" />
                                             <xsl:choose>
                                                 <xsl:when
@@ -240,6 +270,76 @@
                         </xsl:for-each>
                     </tbody>
                 </table>
+
+                <xsl:if
+                    test="$identify-assertions-without-rules">
+
+                    <h2>Assertions without a corresponding business rule</h2>
+
+                    <table>
+                        <thead />
+                        <tbody>
+                            <xsl:for-each
+                                select="$d//(assert | report)"
+                                xpath-default-namespace="http://purl.oclc.org/dsdl/schematron">
+                                <xsl:choose>
+                                    <xsl:when
+                                        test="not(@id = $br//rule/@assertions)">
+                                        <tr>
+                                            <td>
+                                                <xsl:value-of
+                                                    select="@id" />
+                                            </td>
+                                            <td>
+                                                <span
+                                                    class="assertion">
+                                                    <xsl:apply-templates
+                                                        mode="serialize"
+                                                        select="node()" />
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </xsl:when>
+                                </xsl:choose>
+                            </xsl:for-each>
+                        </tbody>
+                    </table>
+
+                    <xsl:result-document
+                        href="rule-additions.xml"
+                        indent="true"
+                        method="xml">
+                        <business-rules
+                            xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+                            xmlns:sch="http://purl.oclc.org/dsdl/schematron">
+                            <xsl:for-each
+                                select="$d//(assert | report)"
+                                xpath-default-namespace="http://purl.oclc.org/dsdl/schematron">
+                                <xsl:choose>
+                                    <xsl:when
+                                        test="not(@id = $br//rule/@assertions)">
+                                        <rule>
+                                            <xsl:attribute
+                                                name="sch:pattern"
+                                                select="ancestor::pattern/@id" />
+                                            <xsl:attribute
+                                                name="assertions"
+                                                select="@id" />
+                                            <xsl:copy-of
+                                                select="attribute::doc:*" />
+                                            <statement>
+                                                <xsl:apply-templates
+                                                    mode="copy"
+                                                    select="node()" />
+                                            </statement>
+                                        </rule>
+                                    </xsl:when>
+                                </xsl:choose>
+                            </xsl:for-each>
+                        </business-rules>
+                    </xsl:result-document>
+
+                </xsl:if>
 
                 <h2>Schematron Assertion Messages</h2>
 
@@ -307,8 +407,8 @@
                                     </div>
                                 </td>
                                 <xsl:variable
-                                    name="a"
                                     as="element()"
+                                    name="a"
                                     select="current()" />
                                 <xsl:for-each
                                     select="distinct-values($d//*:persona/@id)"
@@ -318,9 +418,9 @@
                                             <span
                                                 class="assertion">
                                                 <xsl:apply-templates
-                                                    xpath-default-namespace="https://fedramp.gov/oscal/fedramp-automation-messages"
                                                     mode="serialize"
-                                                    select="$d//message[@id = $a/@id]/persona[@id eq current()]/affirmative/node()" />
+                                                    select="$d//message[@id = $a/@id]/persona[@id eq current()]/affirmative/node()"
+                                                    xpath-default-namespace="https://fedramp.gov/oscal/fedramp-automation-messages" />
 
                                             </span>
                                         </div>
@@ -328,9 +428,9 @@
                                             <span
                                                 class="diagnostic">
                                                 <xsl:apply-templates
-                                                    xpath-default-namespace="https://fedramp.gov/oscal/fedramp-automation-messages"
                                                     mode="serialize"
-                                                    select="$d//message[@id = $a/@id]/persona[@id eq current()]/diagnostic/node()" />
+                                                    select="$d//message[@id = $a/@id]/persona[@id eq current()]/diagnostic/node()"
+                                                    xpath-default-namespace="https://fedramp.gov/oscal/fedramp-automation-messages" />
 
                                             </span>
                                         </div>

@@ -3,7 +3,10 @@ import * as SaxonJS from 'saxon-js';
 import {
   XmlIndenter,
   SaxonJsSchematronProcessorGateway,
+  SaxonJsJsonSspToXmlProcessor,
 } from './saxon-js-gateway';
+
+const PUBLIC_PATH = require('../project-config');
 
 describe('xml indent', () => {
   it('works', async () => {
@@ -65,6 +68,15 @@ describe('saxon-js gateway', () => {
         },
       ],
     });
+  });
+
+  it('converts JSON to XML', async () => {
+    const jsonToXml = SaxonJsJsonSspToXmlProcessor({
+      sefUrl: `${PUBLIC_PATH}/oscal_ssp_json-to-xml-converter.sef.json`,
+      SaxonJS,
+    });
+    const convertedXml = await jsonToXml('{}');
+    expect(convertedXml.toString()).toMatch(/^<svrl:schematron-output/);
   });
 });
 

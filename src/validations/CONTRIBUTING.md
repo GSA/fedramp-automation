@@ -106,16 +106,9 @@ Developers ought to review the following relevant information sources, in order 
 
 Per [18F/fedramp-automation#61](https://github.com/18F/fedramp-automation/issues/61), programmatic diff utilities to semantically analyze the differences between OSCAL versions requires resources not available at this time.
 
-__Formatting XML__
+Generating a sample OSCAL System Security Plan XML document
+---
 
-When contributing, please use the provided XML formatter (htmltidy >= 5.6.0). Formatting options are chosen for readability, and for clean git diffs.
+An XSL transform [`sample-ssp.xsl`](rules/sample-ssp.xsl) can be used to produce a (rather rudimentary) OSCAL SSP document in XML form. The transform uses one of the [resolved catalogs](../../dist/content/baselines/rev4/xml) as input.
 
-To format validation XML, you may use the provided `docker-compose` harness:
-
-```sh
-cd /path/to/fedramp-automation/resources/validations
-docker-compose run \
-  -w /root/resources/validations \
-  validator \
-  bin/format_xml.sh
-```
+Saxon-PE or Saxon-EE is required (such as within oXygen XML Editor). Saxon-HE is not supported, due to extension usage.

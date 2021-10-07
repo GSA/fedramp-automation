@@ -510,10 +510,6 @@
                         <x:expect-report
                             id="implemented-response-points"
                             label="those defined are validated." />
-                        <x:expect-assert
-                            id="missing-response-points"
-                            label="it generates an error because missing response points are invalid."
-                            role="error" />
                     </x:scenario>
                     <x:scenario
                         label="and response points are missing">
@@ -547,10 +543,6 @@
                                 </control-implementation>
                             </system-security-plan>
                         </x:context>
-                        <x:expect-assert
-                            id="missing-response-points"
-                            label="it generates an error because missing response points are invalid."
-                            role="error" />
                     </x:scenario>
                 </x:scenario>
                 <x:scenario
@@ -2516,12 +2508,13 @@
                         label="that is an error" />
                 </x:scenario>
             </x:scenario>
+
             <x:scenario
                 label="Policy and Procedure Attachments:">
                 <x:scenario
                     label="for the policy facet of P&amp;P controls, ">
                     <x:scenario
-                        label="when the policy link to the resource declaring the policy document attachment">
+                        label="when the policy link to the resource declaring the policy document attachment is via a direct link and">
                         <x:scenario
                             label="is present">
                             <x:context>
@@ -2585,6 +2578,107 @@
                                 label="that is an error" />
                         </x:scenario>
                     </x:scenario>
+
+                    <x:scenario
+                        label="when the policy link to the resource declaring the policy document attachment is via a component and">
+                        <x:scenario
+                            label="is present">
+                            <x:context>
+                                <system-security-plan
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <system-implementation>
+                                        <component
+                                            type="policy"
+                                            uuid="5a16a6df-730c-47b9-99ae-8d732e5ee478">
+                                            <title>SI-1 - Policy document</title>
+                                            <description>
+                                                <p>SI-1 System and Information Integrity Policy and Procedures - Policy</p>
+                                            </description>
+                                            <prop
+                                                name="asset-type"
+                                                value="document" />
+                                            <link
+                                                href="#232e28ae-1c34-4954-8ed7-31e678ec0d77"
+                                                rel="policy" />
+                                            <status
+                                                state="operational" />
+                                        </component>
+                                    </system-implementation>
+                                    <control-implementation>
+                                        <implemented-requirement
+                                            control-id="si-1">
+                                            <by-component
+                                                component-uuid="5a16a6df-730c-47b9-99ae-8d732e5ee478"
+                                                uuid="f7bce955-cdc2-4976-bc27-2ff1023fff24"><description>
+                                                    <p>System and Information Integrity Policy and Procedures: policy component reference</p>
+                                                </description>
+                                            </by-component>
+                                        </implemented-requirement>
+                                    </control-implementation>
+                                    <back-matter>
+                                        <resource
+                                            uuid="232e28ae-1c34-4954-8ed7-31e678ec0d77">
+                                            <prop
+                                                name="type"
+                                                value="policy" />
+                                        </resource>
+                                    </back-matter>
+                                </system-security-plan>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-policy-link"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="is absent">
+                            <x:context>
+                                <system-security-plan
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <system-implementation>
+                                        <component
+                                            type="policy"
+                                            uuid="5a16a6df-730c-47b9-99ae-8d732e5ee478">
+                                            <title>SI-1 - Policy document</title>
+                                            <description>
+                                                <p>SI-1 System and Information Integrity Policy and Procedures - Policy</p>
+                                            </description>
+                                            <prop
+                                                name="asset-type"
+                                                value="document" />
+                                            <!--<link
+                                                href="#232e28ae-1c34-4954-8ed7-31e678ec0d77"
+                                                rel="policy" />-->
+                                            <status
+                                                state="operational" />
+                                        </component>
+                                    </system-implementation>
+                                    <control-implementation>
+                                        <implemented-requirement
+                                            control-id="si-1">
+                                            <by-component
+                                                component-uuid="5a16a6df-730c-47b9-99ae-8d732e5ee478"
+                                                uuid="f7bce955-cdc2-4976-bc27-2ff1023fff24"><description>
+                                                    <p>System and Information Integrity Policy and Procedures: policy component reference</p>
+                                                </description>
+                                            </by-component>
+                                        </implemented-requirement>
+                                    </control-implementation>
+                                    <back-matter>
+                                        <resource
+                                            uuid="232e28ae-1c34-4954-8ed7-31e678ec0d77">
+                                            <prop
+                                                name="type"
+                                                value="policy" />
+                                        </resource>
+                                    </back-matter>
+                                </system-security-plan>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-policy-link"
+                                label="that is an error" />
+                        </x:scenario>
+                    </x:scenario>
+
                     <x:scenario
                         label="when the policy attachment resource">
                         <x:scenario
@@ -2651,10 +2745,11 @@
                         </x:scenario>
                     </x:scenario>
                 </x:scenario>
+
                 <x:scenario
                     label="for the procedure facet of P&amp;P controls, ">
                     <x:scenario
-                        label="when the procedure link to the resource declaring the procedure document attachment">
+                        label="when the procedure link to the resource declaring the procedure document attachment is via a direct link and">
                         <x:scenario
                             label="is present">
                             <x:context>
@@ -2718,6 +2813,111 @@
                                 label="that is an error" />
                         </x:scenario>
                     </x:scenario>
+
+                    <x:scenario
+                        label="when the procedure link to the resource declaring the procedure document attachment is via a component and">
+                        <x:scenario
+                            label="is present">
+                            <x:context>
+                                <system-security-plan
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <system-implementation>
+                                        <component
+                                            type="procedure"
+                                            uuid="cda2be7f-832f-45a6-9093-d3efbab3ea76">
+                                            <title>SI-1 - Procedure document</title>
+                                            <description>
+                                                <p>SI-1 System and Information Integrity Policy and Procedures - Procedure</p>
+                                            </description>
+                                            <prop
+                                                name="asset-type"
+                                                value="document" />
+                                            <link
+                                                href="#e472377c-487a-4201-8c2a-c04432acd58b"
+                                                rel="procedure" />
+                                            <status
+                                                state="operational" />
+                                        </component>
+                                    </system-implementation>
+                                    <control-implementation>
+                                        <implemented-requirement
+                                            control-id="si-1">
+                                            <by-component
+                                                component-uuid="cda2be7f-832f-45a6-9093-d3efbab3ea76"
+                                                uuid="da8f019b-05bf-4475-9955-ee9e65e534eb">
+                                                <description>
+                                                    <p>System and Information Integrity Policy and Procedures: procedure component reference</p>
+                                                </description>
+                                            </by-component>
+                                        </implemented-requirement>
+                                    </control-implementation>
+                                    <back-matter>
+                                        <resource
+                                            uuid="e472377c-487a-4201-8c2a-c04432acd58b">
+                                            <title>SI-1 System and Information Integrity Policy and Procedures - Procedures</title>
+                                            <prop
+                                                name="type"
+                                                value="procedure" />
+                                        </resource>
+                                    </back-matter>
+                                </system-security-plan>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-procedure-link"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="is absent">
+                            <x:context>
+                                <system-security-plan
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <system-implementation>
+                                        <component
+                                            type="procedure"
+                                            uuid="cda2be7f-832f-45a6-9093-d3efbab3ea76">
+                                            <title>SI-1 - Procedure document</title>
+                                            <description>
+                                                <p>SI-1 System and Information Integrity Policy and Procedures - Procedure</p>
+                                            </description>
+                                            <prop
+                                                name="asset-type"
+                                                value="document" />
+                                            <!--<link
+                                                href="#e472377c-487a-4201-8c2a-c04432acd58b"
+                                                rel="procedure" />-->
+                                            <status
+                                                state="operational" />
+                                        </component>
+                                    </system-implementation>
+                                    <control-implementation>
+                                        <implemented-requirement
+                                            control-id="si-1">
+                                            <by-component
+                                                component-uuid="cda2be7f-832f-45a6-9093-d3efbab3ea76"
+                                                uuid="da8f019b-05bf-4475-9955-ee9e65e534eb">
+                                                <description>
+                                                    <p>System and Information Integrity Policy and Procedures: procedure component reference</p>
+                                                </description>
+                                            </by-component>
+                                        </implemented-requirement>
+                                    </control-implementation>
+                                    <back-matter>
+                                        <resource
+                                            uuid="e472377c-487a-4201-8c2a-c04432acd58b">
+                                            <title>SI-1 System and Information Integrity Policy and Procedures - Procedures</title>
+                                            <prop
+                                                name="type"
+                                                value="procedure" />
+                                        </resource>
+                                    </back-matter>
+                                </system-security-plan>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-procedure-link"
+                                label="that is an error" />
+                        </x:scenario>
+                    </x:scenario>
+
                     <x:scenario
                         label="when the procedure attachment resource">
                         <x:scenario
@@ -4621,7 +4821,7 @@
                 <x:context>
                     <availability-impact
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <base>Moderate</base>
+                        <base>fips-199-moderate</base>
                     </availability-impact>
                 </x:context>
                 <x:expect-not-assert
@@ -4633,7 +4833,7 @@
                 <x:context>
                     <availability-impact
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <not-a-base>Moderate</not-a-base>
+                        <not-a-base>fips-199-moderate</not-a-base>
                     </availability-impact>
                 </x:context>
                 <x:expect-assert
@@ -4645,7 +4845,7 @@
                 <x:context>
                     <availability-impact
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <selected>Moderate</selected>
+                        <selected>fips-199-moderate</selected>
                     </availability-impact>
                 </x:context>
                 <x:expect-not-assert
@@ -4657,13 +4857,44 @@
                 <x:context>
                     <availability-impact
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <not-a-selected>Moderate</not-a-selected>
+                        <not-a-selected>fips-199-moderate</not-a-selected>
                     </availability-impact>
                 </x:context>
                 <x:expect-assert
                     id="cia-impact-has-selected"
                     label="that is an error" />
             </x:scenario>
+
+            <x:scenario
+                label="has an adjustment-justification">
+                <x:context>
+                    <availability-impact
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <base>fips-199-moderate</base>
+                        <selected>fips-199-low</selected>
+                        <adjustment-justification>
+                            <p>Why there is a difference.</p>
+                        </adjustment-justification>
+                    </availability-impact>
+                </x:context>
+                <x:expect-not-assert
+                    id="cia-impact-has-adjustment-justification"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="lacks an adjustment-justification">
+                <x:context>
+                    <availability-impact
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <base>fips-199-moderate</base>
+                        <selected>fips-199-low</selected>
+                    </availability-impact>
+                </x:context>
+                <x:expect-assert
+                    id="cia-impact-has-adjustment-justification"
+                    label="that is an error" />
+            </x:scenario>
+
             <x:scenario
                 label="base element">
                 <x:scenario
@@ -6300,8 +6531,28 @@
                             identifier-type="https://fedramp.gov">F00000000</system-id>
                         <system-name>System's Full Name</system-name>
                         <system-name-short>System's Short Name or Acronym</system-name-short>
+                        <description>
+                            <p>word word word word word word word word word word word word word word word word word word word word word word word word
+                                word word word word word word word word word.</p>
+                        </description>
                     </system-characteristics>
                     <system-implementation>
+                        <prop
+                            name="users-internal"
+                            ns="https://fedramp.gov/ns/oscal"
+                            value="1" />
+                        <prop
+                            name="users-external"
+                            ns="https://fedramp.gov/ns/oscal"
+                            value="1" />
+                        <prop
+                            name="users-internal-future"
+                            ns="https://fedramp.gov/ns/oscal"
+                            value="1" />
+                        <prop
+                            name="users-external-future"
+                            ns="https://fedramp.gov/ns/oscal"
+                            value="1" />
                         <component
                             type="this-system" />
                     </system-implementation>
@@ -6344,6 +6595,15 @@
                 </x:scenario>
             </x:scenario>
             <x:scenario
+                label="The system description must be of adequate length.">
+                <x:scenario
+                    label="When it is">
+                    <x:expect-not-assert
+                        id="has-system-description"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
                 label="The fedramp-authorization-type must be defined.">
                 <x:scenario
                     label="When it is">
@@ -6352,6 +6612,47 @@
                         label="that is correct" />
                 </x:scenario>
             </x:scenario>
+
+            <x:scenario
+                label="A FedRAMP SSP must specify the number of current internal users.">
+                <x:scenario
+                    label="When it does">
+                    <x:expect-not-assert
+                        id="has-users-internal"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="A FedRAMP SSP must specify the number of current external users.">
+                <x:scenario
+                    label="When it does">
+                    <x:expect-not-assert
+                        id="has-users-external"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="A FedRAMP SSP must specify the number of future internal users.">
+                <x:scenario
+                    label="When it does">
+                    <x:expect-not-assert
+                        id="has-users-internal-future"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="A FedRAMP SSP must specify the number of future external users.">
+                <x:scenario
+                    label="When it does">
+                    <x:expect-not-assert
+                        id="has-users-external-future"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+
         </x:scenario>
         <x:scenario
             label="Negative test:">
@@ -6402,6 +6703,15 @@
                 </x:scenario>
             </x:scenario>
             <x:scenario
+                label="The system description must be of adequate length.">
+                <x:scenario
+                    label="When it is not">
+                    <x:expect-assert
+                        id="has-system-description"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
                 label="The fedramp-authorization-type must be defined.">
                 <x:scenario
                     label="When it is not">
@@ -6410,6 +6720,125 @@
                         label="that is an error" />
                 </x:scenario>
             </x:scenario>
+
+            <x:scenario
+                label="A FedRAMP SSP must specify the number of current internal users.">
+                <x:scenario
+                    label="When it does not">
+                    <x:expect-assert
+                        id="has-users-internal"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="A FedRAMP SSP must specify the number of current external users.">
+                <x:scenario
+                    label="When it does not">
+                    <x:expect-assert
+                        id="has-users-external"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="A FedRAMP SSP must specify the number of future internal users.">
+                <x:scenario
+                    label="When it does not">
+                    <x:expect-assert
+                        id="has-users-internal-future"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="A FedRAMP SSP must specify the number of future external users.">
+                <x:scenario
+                    label="When it does not">
+                    <x:expect-assert
+                        id="has-users-external-future"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="Non-negative number tests">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <prop
+                                name="authorization-type"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="fedramp-agency" />
+                            <system-id
+                                identifier-type="https://fedramp.gov">F00000000</system-id>
+                            <system-name>System's Full Name</system-name>
+                            <system-name-short>System's Short Name or Acronym</system-name-short>
+                        </system-characteristics>
+                        <system-implementation>
+                            <prop
+                                name="users-internal"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="-1" />
+                            <prop
+                                name="users-external"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="-1" />
+                            <prop
+                                name="users-internal-future"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="-1" />
+                            <prop
+                                name="users-external-future"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="-1" />
+                            <component
+                                type="this-system" />
+                        </system-implementation>
+                    </system-security-plan>
+                </x:context>
+
+                <x:scenario
+                    label="A FedRAMP SSP must specify a non-negative number of current internal users.">
+                    <x:scenario
+                        label="When it does not">
+                        <x:expect-assert
+                            id="has-users-internal"
+                            label="that is an error" />
+                    </x:scenario>
+                </x:scenario>
+
+                <x:scenario
+                    label="A FedRAMP SSP must specify a non-negative number of current external users.">
+                    <x:scenario
+                        label="When it does not">
+                        <x:expect-assert
+                            id="has-users-external"
+                            label="that is an error" />
+                    </x:scenario>
+                </x:scenario>
+
+                <x:scenario
+                    label="A FedRAMP SSP must specify a non-negative number of future internal users.">
+                    <x:scenario
+                        label="When it does not">
+                        <x:expect-assert
+                            id="has-users-internal-future"
+                            label="that is an error" />
+                    </x:scenario>
+                </x:scenario>
+                <x:scenario
+                    label="A FedRAMP SSP must specify a non-negative number of future external users.">
+                    <x:scenario
+                        label="When it does not">
+                        <x:expect-assert
+                            id="has-users-external-future"
+                            label="that is an error" />
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+
         </x:scenario>
     </x:scenario>
     <x:scenario
@@ -8572,6 +9001,79 @@
             </x:scenario>
         </x:scenario>
         <x:scenario
+            label="An implemented control must include required response point statements.">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="ac-1"
+                                uuid="e5794c46-4ec2-4ef7-9a25-06634b39c563">
+                                <statement
+                                    statement-id="ac-2_smt"
+                                    uuid="4a2428eb-41eb-447a-81db-4f6d98a003ce" />
+                                <statement
+                                    statement-id="ac-1_smt.a.1"
+                                    uuid="79215eb4-8972-4f0b-ad16-7fc5c57c7f52" />
+                                <statement
+                                    statement-id="ac-1_smt.a.2"
+                                    uuid="b34f2110-c6ec-4a9f-af96-efc8b17ff951" />
+                                <statement
+                                    statement-id="ac-1_smt.b.1"
+                                    uuid="9e6abd3c-3e26-431f-8875-9ff40b5f6a14" />
+                                <statement
+                                    statement-id="ac-1_smt.b.2"
+                                    uuid="897be575-5bb8-4043-8147-8f789ed9e63d" />
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="implemented-requirement-has-required-response-points"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="ac-1"
+                                uuid="e5794c46-4ec2-4ef7-9a25-06634b39c563">
+                                <statement
+                                    statement-id="ac-2_smt"
+                                    uuid="4a2428eb-41eb-447a-81db-4f6d98a003ce" />
+                                <statement
+                                    statement-id="ac-1_smt.a.1"
+                                    uuid="79215eb4-8972-4f0b-ad16-7fc5c57c7f52" />
+                                <statement
+                                    statement-id="ac-1_smt.a.2"
+                                    uuid="b34f2110-c6ec-4a9f-af96-efc8b17ff951" />
+                                <statement
+                                    statement-id="ac-1_smt.b.1"
+                                    uuid="9e6abd3c-3e26-431f-8875-9ff40b5f6a14" />
+                                <!--<statement
+                                    statement-id="ac-1_smt.b.2"
+                                    uuid="897be575-5bb8-4043-8147-8f789ed9e63d" />-->
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="implemented-requirement-has-required-response-points"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
             label="Incomplete control implementations have an explanation.">
             <x:scenario
                 label="When that is true">
@@ -8848,6 +9350,40 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+
+        <x:scenario
+            label="Inherited description is sufficient.">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <inherited
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <description>
+                            <p>word word word word word word word word word word word word word word word word word word word word word word word word
+                                word word word word word word word word.</p>
+                        </description>
+                    </inherited>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-inherited-description"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <inherited
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <description>
+                            <p>word word word word word word.</p>
+                        </description>
+                    </inherited>
+                </x:context>
+                <x:expect-assert
+                    id="has-inherited-description"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+
     </x:scenario>
     <x:scenario
         label="FedRAMP OSCAL SSP Cloud Service and Deployment Models">
