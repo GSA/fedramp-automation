@@ -1094,11 +1094,18 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 1"
                 id="has-policy-link"
                 role="error"
-                test="descendant::oscal:by-component/oscal:link[@rel eq 'policy']">[Section B Check 3.1] A FedRAMP SSP must incorporate a policy
-                document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                test="
+                    (: legacy approach :)
+                    (descendant::oscal:by-component/oscal:link[@rel eq 'policy'])
+                    or
+                    (: component approach :)
+                    (some $c in
+                    //oscal:component[@uuid = current()/descendant::oscal:by-component/@component-uuid]
+                        satisfies $c/@type = 'policy' and $c/oscal:link[@rel eq 'policy'])">[Section B Check 3.1] A FedRAMP SSP must
+                incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <sch:let
                 name="policy-hrefs"
-                value="distinct-values(descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href ! substring-after(., '#'))" />
+                value="distinct-values((descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href, //oscal:component[@type = 'policy' and @uuid = current()/descendant::oscal:by-component/@component-uuid]/oscal:link/@href) ! substring-after(., '#'))" />
             <sch:assert
                 diagnostics="has-policy-attachment-resource-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -1119,11 +1126,18 @@
                 doc:template-reference="System Security Plan Template §15"
                 id="has-procedure-link"
                 role="error"
-                test="descendant::oscal:by-component/oscal:link[@rel eq 'procedure']">[Section B Check 3.1] A FedRAMP SSP must incorporate a procedure
-                document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                test="
+                    (: legacy approach :)
+                    (descendant::oscal:by-component/oscal:link[@rel eq 'procedure'])
+                    or
+                    (: component approach :)
+                    (some $c in
+                    //oscal:component[@uuid = current()/descendant::oscal:by-component/@component-uuid]
+                        satisfies $c/@type = 'procedure' and $c/oscal:link[@rel eq 'procedure'])">[Section B Check 3.1] A FedRAMP SSP
+                must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <sch:let
                 name="procedure-hrefs"
-                value="distinct-values(descendant::oscal:by-component/oscal:link[@rel eq 'procedure']/@href ! substring-after(., '#'))" />
+                value="distinct-values((descendant::oscal:by-component/oscal:link[@rel eq 'procedure']/@href, //oscal:component[@type = 'procedure' and @uuid = current()/descendant::oscal:by-component/@component-uuid]/oscal:link/@href) ! substring-after(., '#'))" />
             <sch:assert
                 diagnostics="has-procedure-attachment-resource-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -3712,7 +3726,7 @@
             <sch:value-of
                 select="local-name()" />
             <sch:value-of
-                select="@control-id" /> lacks policy reference(s) (via by-component link).</sch:diagnostic>
+                select="@control-id" /> lacks policy reference(s) via legacy or component approach.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-policy-attachment-resource"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
@@ -3729,7 +3743,7 @@
             <sch:value-of
                 select="local-name()" />
             <sch:value-of
-                select="@control-id" /> lacks procedure reference(s) (via by-component link).</sch:diagnostic>
+                select="@control-id" /> lacks procedure reference(s) via legacy or component approach.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-procedure-attachment-resource"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
