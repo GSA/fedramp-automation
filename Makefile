@@ -1,5 +1,4 @@
-REQUIRED_NODE_VERSION = $(shell cat .nvmrc)
-INSTALLED_NODE_VERSION = $(shell node --version)
+BASE_DIR=$(shell pwd)
 
 # Most of the real work of the build is in sub-project Makefiles.
 include src/examples/module.mk
@@ -13,12 +12,7 @@ help:
 
 all: clean test build  ## Complete clean build with tests
 
-init: init-repo init-web  ## Initialize project dependencies
-
-node:
-ifneq ($(REQUIRED_NODE_VERSION),$(INSTALLED_NODE_VERSION))
-	$(error node.js version $(REQUIRED_NODE_VERSION) required)
-endif
+init: init-repo init-validations init-web  ## Initialize project dependencies
 
 init-repo:
 	git submodule update --init --recursive

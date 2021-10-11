@@ -1,6 +1,14 @@
+REQUIRED_NODE_VERSION = $(shell cat .nvmrc)
+INSTALLED_NODE_VERSION = $(shell node --version)
+
 init-web: node
 	cd src/web && \
 		npm install
+
+node:
+ifneq ($(REQUIRED_NODE_VERSION),$(INSTALLED_NODE_VERSION))
+	$(error node.js version $(REQUIRED_NODE_VERSION) required)
+endif
 
 clean-web:  ## Clean web artifacts
 	@echo "Cleaning web..."
