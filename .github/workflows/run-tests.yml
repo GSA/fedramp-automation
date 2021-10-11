@@ -17,43 +17,41 @@ jobs:
       # Check-out the repository under $GITHUB_WORKSPACE
       - name: Checkout repository
         uses: actions/checkout@v2
-      - run: |
-          git submodule update --init --recursive
 
-      # Install Saxon HE to /tmp
-      - name: Install Saxon HE
-        run: |
-          echo "Installing Saxon"
-          mkdir -p /tmp/saxon
-          echo "Dowloading Saxon"
-          export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
-          wget -O "${SAXON_CP}" https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.2/Saxon-HE-10.2.jar
-          echo "saxon_cp is ${SAXON_CP}"
+      - name: Read node version from `.nvmrc` file
+        id: nvmrc
+        uses: browniebroke/read-nvmrc-action@v1
 
-      # Run XSpec after the dependencies are completed
-      - name: Run XSpec
+      - name: Install required node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: "${{ steps.nvmrc.outputs.node_version }}"
+
+      # Initialize the workspace with submodules and dependencies.
+      - name: Initialize workspace
+        run: make init
+
+      - name: Run test suite
         run: |
-          echo "Running XSpec"
-          cd $GITHUB_WORKSPACE/src/validations
-          export SAXON_CP=/tmp/saxon/Saxon-HE-10.2.jar
-          export TEST_DIR=$(pwd)/report/test
-          $GITHUB_WORKSPACE/vendor/xspec/bin/xspec.sh -s -j test/test_all.xspec
-      
+          make build-validations
+          make test-validations SAXON_CP=~/.m2/repository/net/sf/saxon/Saxon-HE/10.5/Saxon-HE-10.5.jar TEST_DIR=$(pwd)/src/validations/report/test
+          make test-web
+
       # Sets the test report path for visibility
       - name: Publish XSpec Test Results
         uses: mikepenz/action-junit-report@v1
         with:
-          report_paths: '**/report/test/*junit.xml'
+          report_paths: "**/report/test/*junit.xml"
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      # publish the test summary as comment on the PR
+      # Publish the test summary as comment on the PR
       - name: Publish XSpec Test Results Summary
         uses: EnricoMi/publish-unit-test-result-action@v1.15
         if: always()
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           check_name: XSpec Test Results
-          files: '**/report/test/*junit.xml'
+          files: "**/report/test/*junit.xml"
           report_individual_runs: true
           deduplicate_classes_by_file_name: false
 
