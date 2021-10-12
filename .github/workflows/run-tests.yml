@@ -33,9 +33,7 @@ jobs:
 
       - name: Run test suite
         run: |
-          make build-validations
-          make test-validations SAXON_CP=~/.m2/repository/net/sf/saxon/Saxon-HE/10.5/Saxon-HE-10.5.jar TEST_DIR=$(pwd)/src/validations/report/test
-          make test-web
+          make test-web test-validations
 
       # Sets the test report path for visibility
       - name: Publish XSpec Test Results
