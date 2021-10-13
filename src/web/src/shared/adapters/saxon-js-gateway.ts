@@ -2,6 +2,7 @@ import type { IndentXml } from '@asap/shared/domain/xml';
 import type {
   FailedAssert,
   ParseSchematronAssertions,
+  SchematronJSONToXMLProcessor,
   SchematronProcessor,
   SchematronResult,
   SuccessfulReport,
@@ -76,15 +77,13 @@ const getValidationReport = (
   };
 };
 
-type SaxonJsSchematronProcessorGatewayContext = {
-  sefUrl: string;
-  SaxonJS: any;
-  baselinesBaseUrl: string;
-  registryBaseUrl: string;
-};
-
 export const SaxonJsSchematronProcessorGateway =
-  (ctx: SaxonJsSchematronProcessorGatewayContext): SchematronProcessor =>
+  (ctx: {
+    sefUrl: string;
+    SaxonJS: any;
+    baselinesBaseUrl: string;
+    registryBaseUrl: string;
+  }): SchematronProcessor =>
   (sourceText: string) => {
     return (
       ctx.SaxonJS.transform(
@@ -356,7 +355,7 @@ export const SaxonJsProcessor =
   (stylesheetText: string, sourceText: string) => {
     try {
       return transform(ctx.SaxonJS, {
-        stylesheetText: stylesheetText,
+        stylesheetText,
         sourceText,
         destination: 'serialized',
         stylesheetParams: {},
@@ -367,4 +366,22 @@ export const SaxonJsProcessor =
       console.error(error);
       throw new Error(`Error transforming xml: ${error}`);
     }
+  };
+
+export const SaxonJsJsonSspToXmlProcessor =
+  (ctx: { sefUrl: string; SaxonJS: any }): SchematronJSONToXMLProcessor =>
+  (jsonString: string) => {
+    return ctx.SaxonJS.transform(
+      {
+        stylesheetLocation: ctx.sefUrl,
+        destination: 'serialized',
+        initialTemplate: 'from-json',
+        stylesheetParams: {
+          file: 'data:application/json;base64,' + btoa(jsonString),
+        },
+      },
+      'async',
+    ).then((output: any) => {
+      return output.principalResult as string;
+    });
   };

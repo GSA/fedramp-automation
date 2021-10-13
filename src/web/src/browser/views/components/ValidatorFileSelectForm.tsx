@@ -10,7 +10,7 @@ export const ValidatorFileSelectForm = () => {
     <>
       <div className="tablet:grid-col-4">
         <div className="usa-hint" id="file-input-specific-hint">
-          Select FedRAMP OSCAL SSP XML file
+          Select FedRAMP OSCAL SSP XML or JSON file
         </div>
         <input
           id="file-input-specific"
@@ -18,11 +18,11 @@ export const ValidatorFileSelectForm = () => {
           type="file"
           name="file-input-specific"
           aria-describedby="file-input-specific-hint"
-          accept=".xml"
+          accept=".xml,.json"
           onChange={onFileInputChangeGetFile(fileDetails => {
-            actions.validator.setXmlContents({
+            actions.validator.setSspFile({
               fileName: fileDetails.name,
-              xmlContents: fileDetails.text,
+              fileContents: fileDetails.text,
             });
           })}
           disabled={schematron.validator.current === 'PROCESSING'}

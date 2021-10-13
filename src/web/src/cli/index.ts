@@ -7,6 +7,7 @@ import { join } from 'path';
 import * as SaxonJS from 'saxon-js';
 
 import {
+  SaxonJsJsonSspToXmlProcessor,
   SaxonJsProcessor,
   SaxonJsSchematronProcessorGateway,
   SchematronParser,
@@ -29,6 +30,13 @@ const controller = CommandLineController({
   useCases: {
     parseSchematron: SchematronParser({ SaxonJS }),
     validateSSP: ValidateSSPUseCase({
+      jsonSspToXml: SaxonJsJsonSspToXmlProcessor({
+        sefUrl: `file://${join(
+          config.PUBLIC_PATH,
+          'oscal_ssp_json-to-xml-converter.sef.json',
+        )}`,
+        SaxonJS,
+      }),
       processSchematron: SaxonJsSchematronProcessorGateway({
         sefUrl: `file://${join(config.PUBLIC_PATH, 'ssp.sef.json')}`,
         SaxonJS: SaxonJS,

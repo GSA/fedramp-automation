@@ -10,6 +10,7 @@
     "build:json:cli:assertion-views": "ts-node -r tsconfig-paths/register src/cli/index.ts create-assertion-view",
     "build:json:cli:schematron": "ts-node -r tsconfig-paths/register src/cli/index.ts parse-schematron ../validations/rules/ssp.sch ./public/ssp.json",
     "build:json:sef:assertion-grouping": "xslt3 -xsl:../validations/rules/assertion-grouping.xsl -export:public/assertion-grouping.sef.json -nogo",
+    "build:json:sef:ssp-json-to-xml": "xslt3 -xsl:../../vendor/oscal/xml/convert/oscal_ssp_json-to-xml-converter.xsl -export:public/oscal_ssp_json-to-xml-converter.sef.json -nogo",
     "build:json:sef:ssp.sch": "xslt3 -xsl:build/ssp.xsl -export:public/ssp.sef.json -nogo",
     "build:schematron": "run-s build:schematron:*",
     "build:schematron-java-unused": "cd ../validations && ./bin/validate_with_schematron.sh && cp target/ssp.xsl ../web/public",

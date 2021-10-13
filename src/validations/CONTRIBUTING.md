@@ -130,3 +130,9 @@ Per [18F/fedramp-automation#61](https://github.com/18F/fedramp-automation/issues
 ### Formatting XML
 
 When contributing, please use the provided XML formatter (htmltidy >= 5.6.0). Formatting options are chosen for readability, and for clean git diffs.
+
+### Generating a sample OSCAL System Security Plan XML document
+
+An XSL transform [`sample-ssp.xsl`](rules/sample-ssp.xsl) can be used to produce a (rather rudimentary) OSCAL SSP document in XML form. The transform uses one of the [resolved catalogs](../../dist/content/baselines/rev4/xml) as input.
+
+Saxon-PE or Saxon-EE is required (such as within oXygen XML Editor). Saxon-HE is not supported, due to extension usage.

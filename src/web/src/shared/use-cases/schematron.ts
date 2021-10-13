@@ -29,6 +29,10 @@ export type ValidationReport = {
   failedAsserts: FailedAssert[];
 };
 
+export type SchematronJSONToXMLProcessor = (
+  jsonString: string,
+) => Promise<string>;
+
 export type SchematronProcessor = (
   oscalXmlString: string,
 ) => Promise<SchematronResult>;

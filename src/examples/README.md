@@ -25,6 +25,12 @@ The Schematron rules support a number of parameters that can be applied via XSLT
 - `registry-base-path` - Path to this repository's registry values. Default value is path relative to Schematron source document. Set to local or network root path. See: https://github.com/GSA/fedramp-automation/tree/master/dist/content/resources/xml
 - `param-use-remote-resources` - Boolean, default False. If True, validate references to external resources, which may be remote.
 
+# JSON support
+
+OSCAL may be represented via both XML and JSON formats. The FedRAMP OSCAL validation rules, however, require XML. To validate a JSON OSCAL SSP, you must convert the JSON to XML. The OSCAL project provides an collection of JSON to XML converters, in the form of XSLT stylesheets, [available here](https://github.com/usnistgov/OSCAL/tree/main/xml#oscal-json-to-xml-converters).
+
+Both the Java and Python examples in this repository provide examples of usage of these stylesheets.
+
 # Schematron Validation Report Language (SVRL)
 
 The result of an evaluated Schematron ruleset is an XML document in SVRL format. This document includes failed assertions, diagnostic messages for each assertion, and the XPath selector that identifies the location of the deficiency in the source OSCAL document.

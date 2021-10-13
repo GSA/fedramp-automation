@@ -4,7 +4,7 @@
  * `snowpack.config.js` as well as application code.
  */
 
-const { join } = require('node:path');
+const { join } = require('path');
 
 // This should map to the directory containing the package.json.
 // By convention, assume that the originating process was run from the root
