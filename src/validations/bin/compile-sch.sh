@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euxo pipefail
+
 SOURCE=$1
 DESTINATION=$2
 
