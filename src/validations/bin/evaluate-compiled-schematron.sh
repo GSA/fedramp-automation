@@ -11,10 +11,10 @@ java -cp "${SAXON_CP}" net.sf.saxon.Transform \
     -s:"${SOURCE_XML}" \
     "${SOURCE_XSL}" \
     ${SAXON_OPTS}
-if xmllint --xpath '//*[local-name()="failed-assert"]//text()' "${BASE_DIR}/src/validations/target/sch-svrl.xml" ; then
-  echo "Schematron evaluation failed"
-  exit 1
-else
+if "${BASE_DIR}/src/validations/bin/assert-svrl.py" "${SVRL_DESTINATION}" ; then
   echo "Schematron evaluation succeeded"
   exit 0
+else
+  echo "Schematron evaluation failed"
+  exit 1
 fi
