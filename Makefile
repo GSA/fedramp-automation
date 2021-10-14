@@ -1,4 +1,4 @@
-BASE_DIR=$(shell pwd)
+export BASE_DIR=$(shell pwd)
 
 # Most of the real work of the build is in sub-project Makefiles.
 include src/examples/module.mk

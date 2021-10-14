@@ -2,8 +2,8 @@ SAXON_VERSION := 10.5
 SAXON_JAR := Saxon-HE-$(SAXON_VERSION).jar
 SAXON_LOCATION := saxon/Saxon-HE/$(SAXON_VERSION)/$(SAXON_JAR)
 SAXON_URL := https://repo1.maven.org/maven2/net/sf/$(SAXON_LOCATION)
+export SAXON_OPTS := allow-foreign=true diagnose=true
 export SAXON_CP = $(BASE_DIR)/vendor/$(SAXON_JAR)
-#export SAXON_CP=/Users/dan/.m2/repository/net/sf/saxon/Saxon-HE/10.5/Saxon-HE-10.5.jar
 
 init-validations: $(SAXON_CP)  ## Initialize validations dependencies
 
@@ -12,15 +12,31 @@ $(SAXON_CP):  ## Download Saxon-HE to the vendor directory
 
 clean-validations:  ## Clean validations artifact
 	@echo "Cleaning validations..."
-	cd src/validations \
-		rm -rf report target
+	rm -rf $(BASE_DIR)/src/validations/target
+	git clean -xfd $(BASE_DIR)/src/validations/report
 
-test-validations: $(SAXON_CP) build-validations  ## Test validations
+test-validations: test-xspec test-sch  ## Test validations
+
+test-xspec: $(SAXON_CP)
 	@echo "Running validations tests..."
-	SAXON_CP=$(SAXON_CP) TEST_DIR=$(BASE_DIR)/src/validations/report/test \
+	TEST_DIR=$(BASE_DIR)/src/validations/report/test \
 		$(BASE_DIR)/vendor/xspec/bin/xspec.sh -s -j $(BASE_DIR)/src/validations/test/test_all.xspec
 
-build-validations: $(SAXON_CP) ## Build Schematron validations
+$(BASE_DIR)/src/validations/target/sch.xsl: $(BASE_DIR)/src/validations/sch/sch.sch $(SAXON_CP)
+	$(BASE_DIR)/src/validations/bin/compile-sch.sh \
+		$(BASE_DIR)/src/validations/sch/sch.sch \
+		$(BASE_DIR)/src/validations/target/sch.xsl
+
+test-sch: $(BASE_DIR)/src/validations/target/sch.xsl
+	$(BASE_DIR)/src/validations/bin/evaluate-compiled-schematron.sh \
+		"$(BASE_DIR)/src/validations/target/sch.xsl" \
+		"$(BASE_DIR)/src/validations/rules/ssp.sch" \
+		"$(BASE_DIR)/src/validations/target/sch-svrl.xml"
+
+build-validations: $(BASE_DIR)/src/validations/rules/ssp.sch ## Build Schematron validations
+
+$(BASE_DIR)/src/validations/rules/ssp.sch: $(SAXON_CP)
 	@echo "Building Schematron validations..."
-	cd src/validations && \
-		./bin/validate_with_schematron.sh
+	$(BASE_DIR)/src/validations/bin/compile-sch.sh \
+		$(BASE_DIR)/src/validations/rules/ssp.sch \
+		$(BASE_DIR)/src/validations/target/ssp.xsl
