@@ -31,7 +31,7 @@ test-sch: $(BASE_DIR)/src/validations/target/sch.xsl
 	$(BASE_DIR)/src/validations/bin/evaluate-compiled-schematron.sh \
 		"$(BASE_DIR)/src/validations/target/sch.xsl" \
 		"$(BASE_DIR)/src/validations/rules/ssp.sch" \
-		"$(BASE_DIR)/src/validations/target/sch-svrl.xml"
+		"$(BASE_DIR)/src/validations/report/test/sch-svrl.xml"
 
 build-validations: $(BASE_DIR)/src/validations/rules/ssp.sch ## Build Schematron validations
 
