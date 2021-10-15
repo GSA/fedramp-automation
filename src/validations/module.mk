@@ -2,8 +2,14 @@ SAXON_VERSION := 10.5
 SAXON_JAR := Saxon-HE-$(SAXON_VERSION).jar
 SAXON_LOCATION := saxon/Saxon-HE/$(SAXON_VERSION)/$(SAXON_JAR)
 SAXON_URL := https://repo1.maven.org/maven2/net/sf/$(SAXON_LOCATION)
-export SAXON_OPTS := allow-foreign=true diagnose=true
+export SAXON_OPTS = allow-foreign=true diagnose=true
 export SAXON_CP = $(BASE_DIR)/vendor/$(SAXON_JAR)
+
+VALIDATIONS_DIR := $(BASE_DIR)/src/validations
+
+COMPILE_SCH := $(VALIDATIONS_DIR)/bin/compile-sch.sh
+EVAL_SCHEMATRON := $(VALIDATIONS_DIR)/bin/evaluate-compiled-schematron.sh
+EVAL_XSPEC := TEST_DIR=$(VALIDATIONS_DIR)/report/test $(BASE_DIR)/vendor/xspec/bin/xspec.sh -s -j
 
 init-validations: $(SAXON_CP)  ## Initialize validations dependencies
 
@@ -12,31 +18,24 @@ $(SAXON_CP):  ## Download Saxon-HE to the vendor directory
 
 clean-validations:  ## Clean validations artifact
 	@echo "Cleaning validations..."
-	rm -rf $(BASE_DIR)/src/validations/target
-	git clean -xfd $(BASE_DIR)/src/validations/report
+	rm -rf $(VALIDATIONS_DIR)/target
+	git clean -xfd $(VALIDATIONS_DIR)/report
 
-test-validations: test-xspec test-sch  ## Test validations
+test-validations: $(SAXON_CP) test-xspec test-sch  ## Test validations
 
-test-xspec: $(SAXON_CP)
-	@echo "Running validations tests..."
-	TEST_DIR=$(BASE_DIR)/src/validations/report/test \
-		$(BASE_DIR)/vendor/xspec/bin/xspec.sh -s -j $(BASE_DIR)/src/validations/test/test_all.xspec
+test-xspec: $(VALIDATIONS_DIR)/test/test_all.xspec
+	$(EVAL_XSPEC) $^
 
-$(BASE_DIR)/src/validations/target/sch.xsl: $(BASE_DIR)/src/validations/sch/sch.sch $(SAXON_CP)
-	$(BASE_DIR)/src/validations/bin/compile-sch.sh \
-		$(BASE_DIR)/src/validations/sch/sch.sch \
-		$(BASE_DIR)/src/validations/target/sch.xsl
+$(VALIDATIONS_DIR)/target/%.sch.xsl: $(VALIDATIONS_DIR)/sch/%.sch
+	$(COMPILE_SCH) $^ $@
 
-test-sch: $(BASE_DIR)/src/validations/target/sch.xsl
-	$(BASE_DIR)/src/validations/bin/evaluate-compiled-schematron.sh \
-		"$(BASE_DIR)/src/validations/target/sch.xsl" \
-		"$(BASE_DIR)/src/validations/rules/ssp.sch" \
-		"$(BASE_DIR)/src/validations/report/test/sch-svrl.xml"
+$(VALIDATIONS_DIR)/report/test/%.svrl.xml: $(VALIDATIONS_DIR)/target/%.sch.xsl $(VALIDATIONS_DIR)/rules/ssp.sch
+	$(EVAL_SCHEMATRON) $^ $@
 
-build-validations: $(BASE_DIR)/src/validations/rules/ssp.sch ## Build Schematron validations
+test-sch: $(VALIDATIONS_DIR)/report/test/sch.svrl.xml $(VALIDATIONS_DIR)/report/test/xspec.svrl.xml
 
-$(BASE_DIR)/src/validations/rules/ssp.sch: $(SAXON_CP)
+$(VALIDATIONS_DIR)/target/ssp.xsl: $(VALIDATIONS_DIR)/rules/ssp.sch
 	@echo "Building Schematron validations..."
-	$(BASE_DIR)/src/validations/bin/compile-sch.sh \
-		$(BASE_DIR)/src/validations/rules/ssp.sch \
-		$(BASE_DIR)/src/validations/target/ssp.xsl
+	$(COMPILE_SCH) $^ $@
+
+build-validations: $(VALIDATIONS_DIR)/target/ssp.xsl ## Build Schematron validations
