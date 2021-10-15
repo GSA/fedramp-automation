@@ -26,7 +26,7 @@ test-validations: $(SAXON_CP) test-xspec test-sch  ## Test validations
 test-xspec: $(VALIDATIONS_DIR)/test/test_all.xspec
 	$(EVAL_XSPEC) $^
 
-$(VALIDATIONS_DIR)/target/%.sch.xsl: $(VALIDATIONS_DIR)/sch/%.sch
+$(VALIDATIONS_DIR)/target/%.sch.xsl: $(VALIDATIONS_DIR)/styleguides/%.sch
 	$(COMPILE_SCH) $^ $@
 
 $(VALIDATIONS_DIR)/report/test/%.svrl.xml: $(VALIDATIONS_DIR)/target/%.sch.xsl $(VALIDATIONS_DIR)/rules/ssp.sch
@@ -38,4 +38,4 @@ $(VALIDATIONS_DIR)/target/ssp.xsl: $(VALIDATIONS_DIR)/rules/ssp.sch
 	@echo "Building Schematron validations..."
 	$(COMPILE_SCH) $^ $@
 
-build-validations: $(VALIDATIONS_DIR)/target/ssp.xsl ## Build Schematron validations
+build-validations: $(SAXON_CP) $(VALIDATIONS_DIR)/target/ssp.xsl ## Build Schematron validations
