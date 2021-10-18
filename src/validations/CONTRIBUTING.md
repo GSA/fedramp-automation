@@ -6,7 +6,7 @@ All directory references are local to the `fedramp-automation/resources/validati
 
 `lib` for toolchain dependencies (e.g. Schematron)
 
-`report/test` for XSpec outputs
+`report/test` for XSpec and SCH test outputs
 
 `report/schematron` for final validations in Schematron SVRL reporting format
 
@@ -58,6 +58,22 @@ docker-compose run \
 
 To Run Unit Tests
 ---
+
+Unit tests consist of:
+
+- src/validations/test/*.xspec
+- src/validations/styleguides/sch.sch
+
+A make target is provided to run all unit tests:
+
+```sh
+# If you haven't done so previously: initialize your workspace.
+make init
+# Run xspec and Schematron tests
+make test-validations
+```
+
+Alternately, you may follow the instructions below to run the tests manually.
 
 *Prerequesite
 if you haven't done it previously: to add the needed dependencies (declared by .gitmodules), run the following:*
