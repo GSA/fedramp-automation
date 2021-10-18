@@ -62,7 +62,7 @@ To Run Unit Tests
 Unit tests consist of:
 
 - src/validations/test/*.xspec
-- src/validations/sch/sch.sch
+- src/validations/styleguides/sch.sch
 
 A make target is provided to run all unit tests:
 
