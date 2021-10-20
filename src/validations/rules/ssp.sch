@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="../sch/sch.sch" phase="basic" title="Schematron Style Guide for FedRAMP Validations" ?>
+<?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="../styleguides/sch.sch" phase="basic" title="Schematron Style Guide for FedRAMP Validations" ?>
 <sch:schema
     queryBinding="xslt2"
     xmlns:array="http://www.w3.org/2005/xpath-functions/array"

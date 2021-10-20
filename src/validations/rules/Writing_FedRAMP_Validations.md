@@ -45,7 +45,7 @@ Schematron constraints have thus far been for system security plan documents. Th
 
 A companion document [`fedramp_values.xml`](../../dist/content/resources/xml/fedramp_values.xml) defines sets of allowed values for various FedRAMP OSCAL XML elements and their attributes.
 
-An additional Schematron document [`sch.sch`](../sch/sch.sch) defines a style guide for FedRAMP Schematron to ensure developers continue to follow best practices. These augmentations provide
+An additional Schematron document [`sch.sch`](../styleguides/sch.sch) defines a style guide for FedRAMP Schematron to ensure developers continue to follow best practices. These augmentations provide
 
 - References to associated unit tests ([ssp.xspec](../test/ssp.xspec))
 - References to FedRAMP documentation related to the constraint
@@ -58,7 +58,7 @@ Use a validating (XML) editor with the `sch.sch` employed in order to enforce th
 
 The following examples use XML namespace prefixes declared at the root element of the Schematron document.
 
-```
+```xml
 <sch:schema
     queryBinding="xslt2"
     xmlns:array="http://www.w3.org/2005/xpath-functions/array"
@@ -262,14 +262,14 @@ The second (`id="responsible-party-has-party-uuid"`) assertion is just an existe
 
 The third (`id="responsible-party-has-definition"`) assertion is an existential test that every `<party-uuid>` reference (there may be more than one subordinate to `<responsible-party>`) references a `<party>` anywhere within the ndocument. 
 
-The fourth () assertion ensures that specific role types identify a responsible **person** (i.e., a `<party>` defined as a person).
+The fourth (`id="responsible-party-is-person"`) assertion ensures that specific role types identify a responsible **person** (i.e., a `<party>` defined as a person).
 
 ## Example 3 - remote resource reference
 
 This example uses remote HTTPS resource availability to ensure a Cryptographic Module Validation Program (CMVP) citation is actually found on the related NIST web site.
 
 Consider the following document fragment
-```
+```xml
 <component uuid="95beec7e-6f82-4aaa-8211-969cd7c1f1ab" type="validation">
     <title>[SAMPLE]Module Name</title>
     <description>
@@ -284,7 +284,7 @@ Consider the following document fragment
 </component>
 ```
 and the following code block
-```
+```xml
 <sch:rule
     context="oscal:link[@rel eq 'validation-details']"
     doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A">
