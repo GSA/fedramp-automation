@@ -4,6 +4,7 @@ services:
   validator:
     image: maven:3.8.1-openjdk-17-slim
     environment:
+      - SAXON_CP=/root/vendor/Saxon-HE-${version:-10.5}.jar
       - TEST_DIR=/root/src/validations/report/test
     volumes:
       - ../..:/root
