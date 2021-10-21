@@ -55,4 +55,4 @@ fedramp-automation extends Schematron with some additional constructs.
 
 ### sch.sch
 
-[`sch.sch`](../sch/sch.sch) is a set of Schematron assertions which can be employed to enforce FedRAMP Schematron coding rules (such as in a schema-driven editor).
+[`sch.sch`](../styleguides/sch.sch) is a set of Schematron assertions which can be employed to enforce FedRAMP Schematron coding rules (such as in a schema-driven editor).
