@@ -6,7 +6,7 @@ All directory references are local to the `fedramp-automation/src/validations`
 
 * `bin` has the validation script.
 * `docs/adr` has a list of [Architectural Decision Records](https://adr.github.io) in which the product team documented technical decisions for the project.
-* `report/test` for the XSpec outputs.
+* `report/test` for XSpec and SCH test outputs
 * `report/schematron` for the final validations in Schematron SVRL reporting format.
 * `rules` has the Schematron files for the SSP.
 * `sch` for the XSpec and Schematron files.
@@ -70,11 +70,21 @@ docker-compose run \
 
 ## Unit Test
 
-**Prerequesite**: *To ensure that you have all required dependencies (see .gitmodules), run the following command:*
+Unit tests consist of:
+
+- src/validations/test/*.xspec
+- src/validations/styleguides/sch.sch
+
+A make target is provided to run all unit tests:
 
 ```sh
-git submodule update --init --recursive
+# If you haven't done so previously: initialize your workspace.
+make init
+# Run xspec and Schematron tests
+make test-validations
 ```
+
+Alternately, you may follow the instructions below to run the tests manually.
 
 ### Running Unit Test
 
