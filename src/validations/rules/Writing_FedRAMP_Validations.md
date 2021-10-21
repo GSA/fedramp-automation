@@ -151,7 +151,7 @@ and the following code block
 </sch:rule>
 ```
 
-The `<sch:rule>` element sets the locus within the document to be used as a relative reference for the subordinate assertions (`<sch:assert>` elements). In this case, the locus is `oscal:system-characteristics`: an XPath statement identifying the context element using a (namespace-)qualified element name. Statement subordinate to `<rule>` can refer to the con text implicitly or explicitly using the XPath function `current()`.
+The `<sch:rule>` element sets the locus within the document to be used as a relative reference for the subordinate assertions (`<sch:assert>` elements). In this case, the locus is `oscal:system-characteristics`: an XPath statement identifying the context element using a (namespace-)qualified element name. Statement subordinate to `<rule>` can refer to the context implicitly or explicitly using the XPath function `current()`.
 
 The first assertion `id="has-system-id"`has a test (an XPath statement in the `test` attribute stating `oscal:system-id[@identifier-type eq 'https://fedramp.gov']` which asserts "the `oscal:system-characteristics` element has a child element `oscal:system-id` which must have an `@identifier-type eq 'https://fedramp.gov'` with a specific value. The natural language prose equivalent "A FedRAMP SSP must have a FedRAMP system identifier." resides within the `<sch:assert>` element.
 
@@ -175,7 +175,7 @@ The following assertion (`id="has-fedramp-authorization-type"`) tests that a chi
 
 ## Example 2 - intra-document references
 
-This exmaple illustrates intra-document references relative to the context.
+This example illustrates intra-document references relative to the context.
 
 Consider the following document fragment
 ```xml
@@ -319,7 +319,7 @@ The second (`id="has-accessible-CMVP-validation-details"`) assertion uses the XP
 
 The third (`id="has-consonant-CMVP-validation-details"`) assertion uses the preceding-sibling axis to ensure that the certificate number in the `<link>` href matches the value found in the preceding sibling `<prop name="validation-reference">`. (The OSCAL SSP XML Schema constrains the prop to precede the link element.)
 
-## Example 5 - Use of JSON in XPath
+## Example 4 - Use of JSON in XPath
 
 This example uses a network-resident JSON document to validate the FedRAMP package ID of the system security plan.
 
