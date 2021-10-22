@@ -7,7 +7,7 @@
       <title>[System Name] FedRAMP Security Assessment Report (SAR)</title>
       <published>2021-02-25T00:00:00.00-04:00</published>
       <last-modified>2021-06-09T14:27:48.374-04:00</last-modified>
-      <version>fedramp1.1.0-oscal1.0.0</version>
+      <version>fedramp1.2.1-oscal1.0.0</version>
       <oscal-version>1.0.0</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- The following role definitions are required by FedRAMP -->
@@ -831,10 +831,10 @@
             <title>Remediation Title</title>
             <description>
                <p>A description of the recommended remediation.</p>
-               <p>TCW: Assessor's recommended remediation (type='recommendation').</p>
-               <p>Scans: Tool's recommended remediation (type='recommendation')</p>
-               <p>Pen Test: Assessor's recommended remediation (type='recommendation')</p>
-               <p>RET: Assessor's recommended remediation (type='recommendation').</p>
+               <p>TCW: Assessor's recommended remediation (lifecycle="recommendation").</p>
+               <p>Scans: Tool's recommended remediation (lifecycle="recommendation")</p>
+               <p>Pen Test: Assessor's recommended remediation (lifecycle="recommendation")</p>
+               <p>RET: Assessor's recommended remediation (lifecycle="recommendation").</p>
                <p>POA&amp;M: CSP's intended remediation (no type flag).</p>
             </description>
          </response>
@@ -871,10 +871,10 @@
             <title/>
             <description>
                <p>A description of the recommended remediation.</p>
-               <p>TCW: Assessor's recommended remediation (type='recommendation').</p>
-               <p>Scans: Tool's recommended remediation (type='recommendation')</p>
-               <p>Pen Test: Assessor's recommended remediation (type='recommendation')</p>
-               <p>RET: Assessor's recommended remediation (type='recommendation').</p>
+               <p>TCW: Assessor's recommended remediation (lifecycle="recommendation").</p>
+               <p>Scans: Tool's recommended remediation (lifecycle="recommendation")</p>
+               <p>Pen Test: Assessor's recommended remediation (lifecycle="recommendation")</p>
+               <p>RET: Assessor's recommended remediation (lifecycle="recommendation").</p>
                <p>POA&amp;M: CSP's intended remediation (no type flag).</p>
             </description>
             <origin>
