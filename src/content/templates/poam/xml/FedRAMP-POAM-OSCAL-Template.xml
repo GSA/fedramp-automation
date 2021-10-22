@@ -340,7 +340,7 @@
       <!-- TODO: Finish converting these. -->
       <characterization>
          <origin>
-            <actor type="party" actor-uuid="41E10E3B-32E1-4550-AE52-7F5D6B1BA532"/>
+            <actor type="party" actor-uuid="49f73135-efab-4275-9a79-003656ad890a"/>
          </origin>
          <facet name="likelihood" value="high" system="https://fedramp.gov">
             <prop name="state" value="initial"/>
