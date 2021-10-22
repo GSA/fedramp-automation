@@ -4,9 +4,9 @@
         "metadata": {
             "title": "[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values",
             "title-short": "FedRAMP Data Values (Experimental)",
-            "published": "2021-08-12T12:38:01Z",
-            "last-modified": "2021-08-12T12:38:01Z",
-            "version": "fedramp1.1.0-oscal1.0.0",
+            "published": "2021-10-22T05:55:26Z",
+            "last-modified": "2021-10-22T05:55:26Z",
+            "version": "fedramp1.2.1-oscal1.0.0",
             "author": "FedRAMP PMO",
             "description": "This EXPERIMENTAL file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.",
             "remarks": ""
@@ -463,10 +463,10 @@
                 "remarks": "FedRAMP only allows information types defined in NIST SP 800-60v2r1."
             },
             {
-                "name": "system-operational-status",
+                "name": "operational-status",
                 "formal-name": "Operational Status (system)",
                 "description": "The operational status of the system",
-                "binding": {"pattern": "system-characteristics/status/@state"},
+                "binding": {"pattern": "status/@state"},
                 "allowed-values": {
                     "allow-other": "no",
                     "enum": [
@@ -484,37 +484,6 @@
                             "value": "under-major-modification",
                             "short-label": "Major Mod.",
                             "#text": "Major Modification"
-                        },
-                        {
-                            "value": "disposition",
-                            "short-label": "Alternative",
-                            "#text": "Alternative Implementation"
-                        },
-                        {
-                            "value": "other",
-                            "short-label": "Other",
-                            "#text": "Other"
-                        }
-                    ]
-                }
-            },
-            {
-                "name": "component-operational-status",
-                "formal-name": "Operational Status (component)",
-                "description": "The operational status of the component",
-                "binding": {"pattern": "component/status/@state"},
-                "allowed-values": {
-                    "allow-other": "no",
-                    "enum": [
-                        {
-                            "value": "operational",
-                            "short-label": "Operational",
-                            "#text": "Operational"
-                        },
-                        {
-                            "value": "under-development",
-                            "short-label": "Development",
-                            "#text": "Under Development"
                         },
                         {
                             "value": "disposition",
@@ -621,7 +590,7 @@
                 "name": "interconnection-direction",
                 "formal-name": "Interconnection Direction",
                 "description": "Identifies the direction of information flow for the interconnection.",
-                "binding": {"pattern": "component[@component-type='interconnection']/prop[@name='direction'][@ns='https://fedramp.gov/ns/oscal']"},
+                "binding": {"pattern": "component[@component-type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']"},
                 "allowed-values": {
                     "allow-other": "no",
                     "enum": [
@@ -647,7 +616,7 @@
                 "name": "interconnection-security",
                 "formal-name": "Interconnection Security",
                 "description": "Identifies the type of security applied to the interconnection.",
-                "binding": {"pattern": "component[@component-type='interconnection']/prop[@name='connection-security'][@ns='https://fedramp.gov/ns/oscal']/@value"},
+                "binding": {"pattern": "component[@component-type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value"},
                 "allowed-values": {
                     "allow-other": "no",
                     "enum": [
@@ -662,14 +631,19 @@
                             "#text": "Virtual Private Network"
                         },
                         {
-                            "value": "ssl",
-                            "short-label": "SSL",
-                            "#text": "Secure Socket Layer"
+                            "value": "tls",
+                            "short-label": "TLS",
+                            "#text": "Transport-Layer Security"
+                        },
+                        {
+                            "value": "dtls",
+                            "short-label": "TLS",
+                            "#text": "Transport-Layer Security"
                         },
                         {
                             "value": "certificate",
                             "short-label": "Cert",
-                            "#text": "Certificate"
+                            "#text": "Certificate Authentication Security"
                         },
                         {
                             "value": "secure-file-transfer",
@@ -1186,6 +1160,11 @@
                             "value": "agreement",
                             "short-label": "Agreement",
                             "#text": "Agreement"
+                        },
+                        {
+                            "value": "isa-agreement",
+                            "short-label": "Agreement",
+                            "#text": "Interconnection Security Agreement"
                         },
                         {
                             "value": "incident-response-plan",
