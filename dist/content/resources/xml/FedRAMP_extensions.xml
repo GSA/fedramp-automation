@@ -3,9 +3,9 @@
    xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="BA710064-79AC-47D5-8F70-6749B359E7E2" >
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Extensions</title>
-      <published>2021-08-12T12:38:01Z</published>
-      <last-modified>2021-08-12T12:38:01Z</last-modified>
-      <version>fedramp1.1.0-oscal1.0.0</version>
+      <published>2021-10-22T05:55:26Z</published>
+      <last-modified>2021-10-22T05:55:26Z</last-modified>
+      <version>fedramp1.2.1-oscal1.0.0</version>
       <oscal-version>oscal-1.0.0</oscal-version>
       <revisions>
          <revision>
@@ -46,6 +46,14 @@
             <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
             <remarks>
                 <p>Updated version reviewed for fedramp1.1.0-oscal1.0.0 release.</p>
+            </remarks>
+        </revision>
+        <revision>
+           <published>2021-10-22T05:55:26Z</published>
+           <version>fedramp1.2.1-oscal1.0.0</version>
+           <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+           <remarks>
+              <p>Fix missed updates for target and touch-ups from review for fedramp1.2.1-oscal1.0.0 release.</p>
             </remarks>
         </revision>
       </revisions>
@@ -449,32 +457,6 @@
       </constraint>
    </extension>
 
-   <extension id="port" >
-      <extension-name>port</extension-name>
-      <formal-name>Interconnection Port</formal-name>
-      <description>A port used by the interconnection for the communication.</description>
-      <binding pattern="/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop" />
-      <constraint>
-         <matches data-type="string" />
-         <has-cardinality min-occurs="1" max-occurs="unbounded" />
-         <expect test=".[@class]" />
-      </constraint>
-   </extension>
-
-   <extension id="transport-type">
-      <extension-name>transport-type</extension-name>
-      <formal-name>Transport Type</formal-name>
-      <description>The internet protocol transport type.</description>
-      <binding pattern="o:component[@component-type='service']/o:protocol/o:port-range/@transport" />
-      <constraint>
-         <matches data-type="token" />
-         <allowed-values allow-other="no">
-            <enum value="tcp" short-label="TCP">TCP</enum>
-            <enum value="udp" short-label="UDP">UDP</enum>
-         </allowed-values>
-      </constraint>
-   </extension>
-
    <extension id="inventory-item-state">
       <extension-name>inventory-item-state</extension-name>
       <formal-name>Different states of inventory items: public, private, et cetera.</formal-name>
@@ -701,7 +683,7 @@
       <extension-name>control-objective-implementation-status</extension-name>
       <formal-name>Objective Implementation Status</formal-name>
       <description>Indicates the implementation status of the control objective.</description>
-      <binding pattern="/o:assessment-results/o:results/o:finding/o:objective-status/o:prop"/>
+      <binding pattern="/o:assessment-results/o:results/o:finding/o:target/o:prop"/>
       <constraint>
          <matches data-type="token" />
          <has-cardinality min-occurs="0" max-occurs="1" />
@@ -732,7 +714,7 @@
       <extension-name>leveraged-authorization-uuid</extension-name>
       <formal-name>Leveraged Authorization</formal-name>
       <description>Indicates a leveraged authorization used for this control.</description>
-      <binding pattern="/o:assessment-results/o:results/o:finding/o:objective-status/o:prop"/>
+      <binding pattern="/o:assessment-results/o:results/o:finding/o:target/o:prop"/>
       <constraint>
          <matches data-type="uuid" />
          <has-cardinality min-occurs="0" max-occurs="unbounded" />
@@ -1251,6 +1233,7 @@
          <!-- All the privacy "types" need rationalization -->
          <enum value="personal-identifiable-information" short-label="PII">Personal Identifiable Information (PII)</enum>
          <enum value="agreement" short-label="Agreement">Agreement</enum>
+         <enum value="isa-agreement" short-label="Agreement">Interconnection Security Agreement</enum>
          <enum value="incident-response-plan" short-label="IRP">Incident Response Plan</enum>
          <enum value="information-security-policies-and-procedures" short-label="ISPP">Incident Security Policies and Procedures</enum>
          <enum value="user-guide" short-label="User Guide">User Guide</enum>
@@ -1359,13 +1342,14 @@
       </allowed-values>
    </constraint>
    
-   <constraint name="system-operational-status">
+   <constraint name="operational-status">
       <formal-name>Operational Status (system)</formal-name>
       <description>The operational status of the system</description>
-      <binding pattern="/o:system-security-plan/o:system-characteristics/o:status/@state"/>
+      <binding pattern="o:status/@state"/>
       <allowed-values allow-other="no">
          <enum value="operational" short-label="Operational">Operational</enum>
          <enum value="under-development" short-label="Development">Under Development</enum>
+         <enum value="under-major-modification" short-label="Major Mod.">Major Modification</enum>
          <enum value="disposition" short-label="Alternative">Alternative Implementation</enum>
          <enum value="other" short-label="Other">Other</enum>
       </allowed-values>

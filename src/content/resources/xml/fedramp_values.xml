@@ -3,9 +3,9 @@
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values</title>
       <title-short>FedRAMP Data Values (Experimental)</title-short>
-      <published>2021-08-12T12:38:01Z</published>
-      <last-modified>2021-08-12T12:38:01Z</last-modified>
-      <version>fedramp1.1.0-oscal1.0.0</version>
+      <published>2021-10-22T05:55:26Z</published>
+      <last-modified>2021-10-22T05:55:26Z</last-modified>
+      <version>fedramp1.2.1-oscal1.0.0</version>
       <author>FedRAMP PMO</author>
       <description>This EXPERIMENTAL file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
       <remarks />
