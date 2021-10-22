@@ -3,9 +3,9 @@
     "uuid": "7ea5c269-ee26-48c8-b32c-91aa26339023",
     "metadata": {
       "title": "[System Name] FedRAMP Security Assessment Report (SAR)",
-      "published": "2021-02-25T00:00:00.00-04:00",
-      "last-modified": "2021-06-09T14:27:48.374-04:00",
-      "version": "fedramp1.1.0-oscal1.0.0",
+      "published": "2021-10-22T02:22:00.000-04:00",
+      "last-modified": "2021-10-22T02:22:00.000-04:00",
+      "version": "fedramp1.2.1-oscal1.0.0",
       "oscal-version": "1.0.0",
       "props": [
         {
@@ -1152,7 +1152,7 @@
                 "uuid": "fde4758d-6417-4f35-ba71-278af4f008f8",
                 "lifecycle": "recommendation",
                 "title": "Remediation Title",
-                "description": "A description of the recommended remediation.\n\nTCW: Assessor's recommended remediation (type='recommendation').\n\nScans: Tool's recommended remediation (type='recommendation')\n\nPen Test: Assessor's recommended remediation (type='recommendation')\n\nRET: Assessor's recommended remediation (type='recommendation').\n\nPOA&M: CSP's intended remediation (no type flag)."
+                "description": "A description of the recommended remediation.\n\nTCW: Assessor's recommended remediation (lifecycle=\\\"recommendation\\\").\n\nScans: Tool's recommended remediation (lifecycle=\\\"recommendation\\\")\n\nPen Test: Assessor's recommended remediation (lifecycle=\\\"recommendation\\\")\n\nRET: Assessor's recommended remediation (lifecycle=\\\"recommendation\\\").\n\nPOA&M: CSP's intended remediation (no type flag)."
               }
             ]
           },
@@ -1203,7 +1203,7 @@
                 "uuid": "6038458c-9120-4736-b1c8-78f6c1ad3a48",
                 "lifecycle": "recommendation",
                 "title": "",
-                "description": "A description of the recommended remediation.\n\nTCW: Assessor's recommended remediation (type='recommendation').\n\nScans: Tool's recommended remediation (type='recommendation')\n\nPen Test: Assessor's recommended remediation (type='recommendation')\n\nRET: Assessor's recommended remediation (type='recommendation').\n\nPOA&M: CSP's intended remediation (no type flag).",
+                "description": "A description of the recommended remediation.\n\nTCW: Assessor's recommended remediation (lifecycle=\\\"recommendation\\\").\n\nScans: Tool's recommended remediation (lifecycle=\\\"recommendation\\\")\n\nPen Test: Assessor's recommended remediation (lifecycle=\\\"recommendation\\\")\n\nRET: Assessor's recommended remediation (lifecycle=\\\"recommendation\\\").\n\nPOA&M: CSP's intended remediation (no type flag).",
                 "origins": [
                   {
                     "actors": [
