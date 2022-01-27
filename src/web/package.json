@@ -31,7 +31,7 @@
   "dependencies": {
     "classnames": "^2.3.1",
     "commander": "^2.20.3",
-    "fp-ts": "^2.11.1",
+    "fp-ts": "^2.11.6",
     "highlight.js": "^11.0.1",
     "io-ts": "^2.2.16",
     "overmind": "^28.0.1",
