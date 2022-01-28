@@ -32,7 +32,7 @@
     "classnames": "^2.3.1",
     "commander": "^2.20.3",
     "fp-ts": "^2.11.1",
-    "highlight.js": "^11.0.1",
+    "highlight.js": "^11.4.0",
     "io-ts": "^2.2.16",
     "overmind": "^28.0.1",
     "overmind-react": "^29.0.1",
