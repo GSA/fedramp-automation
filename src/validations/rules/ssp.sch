@@ -2452,6 +2452,22 @@
                 role="warning"
                 test="//oscal:responsible-party[oscal:party-uuid = current()/@uuid]">Each person should have a responsibility.</sch:assert>
         </sch:rule>
+        <sch:rule 
+            context="oscal:location[oscal:prop[@value eq 'data-center']]"
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23">
+            <sch:assert 
+                diagnostics="data-center-country-code-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
+                id="data-center-country-code"
+                role="warning"
+                test="oscal:address/oscal:country">Each data center address must contain a country.</sch:assert>    
+            <sch:assert 
+                diagnostics="data-center-US-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
+                id="data-center-US"
+                role="warning"
+                test="oscal:address/oscal:country eq 'US'">Each data center must have an address that is within the United States.</sch:assert>    
+        </sch:rule>
     </sch:pattern>
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
@@ -3467,6 +3483,16 @@
         </sch:rule>
     </sch:pattern>
     <sch:diagnostics>
+        <sch:diagnostic
+            doc:assertion="data-center-country-code"
+            doc:context="/o:location"
+            id="data-center-country-code-diagnostic">The data center address does not show a country.
+        </sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="data-center-US"
+            doc:context="/o:location"
+            id="data-center-US-diagnostic">The location address for a data center is not within the United States.  The country element must contain the string 'US'.
+        </sch:diagnostic>
         <sch:diagnostic
             doc:assertion="no-registry-values"
             doc:context="/o:system-security-plan"
