@@ -7416,6 +7416,62 @@
                         label="that is an anomaly." />
                 </x:scenario>
             </x:scenario>
+            
+            <x:scenario
+                label="Each location that is a data center must have a country">
+                <x:context>
+                    <location 
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                        <title>Primary Data Center</title>
+                        <address>
+                            <addr-line>2222 Main Street</addr-line>
+                            <city>Anywhere</city>
+                            <state>--</state>
+                            <postal-code>00000-0000</postal-code>
+                        </address>
+                        <prop 
+                            name="type" 
+                            class="primary" 
+                            value="data-center" />
+                    </location>                    
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="data-center-country-code"
+                        label="country is missing" />
+                </x:scenario>
+            </x:scenario>
+            
+            <x:scenario
+                label="The country in locations for data centers must be 'US'">
+                <x:context>
+                    <location 
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                        <title>Primary Data Center</title>
+                        <address>
+                            <addr-line>2222 Main Street</addr-line>
+                            <city>Anywhere</city>
+                            <state>--</state>
+                            <postal-code>00000-0000</postal-code>
+                            <country>GB</country>
+                        </address>
+                        <prop 
+                            name="type" 
+                            class="primary" 
+                            value="data-center" />
+                    </location>                    
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="data-center-US"
+                        label="country is not US" />
+                </x:scenario>
+            </x:scenario>
+            
             <x:scenario
                 label="Each implemented-requirement must have one or more responsible-role definitions.">
                 <x:context>
