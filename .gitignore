@@ -13,4 +13,3 @@ src/validations/report
 src/validations/src/ssp.xsl
 src/validations/target
 utils
-src/validations/rules/ssp-compiled.xsl

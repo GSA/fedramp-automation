@@ -3486,13 +3486,11 @@
         <sch:diagnostic
             doc:assertion="data-center-country-code"
             doc:context="/o:location"
-            id="data-center-country-code-diagnostic">The data center address does not show a country.
-        </sch:diagnostic>
+            id="data-center-country-code-diagnostic">The data center address does not show a country.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="data-center-US"
             doc:context="/o:location"
-            id="data-center-US-diagnostic">The location address for a data center is not within the United States.  The country element must contain the string 'US'.
-        </sch:diagnostic>
+            id="data-center-US-diagnostic">The location address for a data center is not within the United States.  The country element must contain the string 'US'.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="no-registry-values"
             doc:context="/o:system-security-plan"
