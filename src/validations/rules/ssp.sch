@@ -2456,11 +2456,29 @@
             context="oscal:location[oscal:prop[@value eq 'data-center']]"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23">
             <sch:assert 
+                diagnostics="data-center-count-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
+                id="data-center-count"
+                role="warning"
+                test="count(../oscal:location[oscal:prop[@value eq 'data-center']]) &gt; 1">There must be at least two (2) data centers listed.</sch:assert>  
+            <sch:assert 
+                diagnostics="data-center-primary-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
+                id="data-center-primary"
+                role="warning"
+                test="count(../oscal:location/oscal:prop[@value eq 'data-center'][@class eq 'primary']) = 1">There is a single primary data center.</sch:assert>   
+            <sch:assert 
+                diagnostics="data-center-alternate-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
+                id="data-center-alternate"
+                role="warning"
+                test="count(../oscal:location/oscal:prop[@value eq 'data-center'][@class eq 'alternate']) &gt; 0">There is one or more alternate data center(s).</sch:assert>   
+            <sch:assert 
                 diagnostics="data-center-country-code-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
                 id="data-center-country-code"
                 role="warning"
-                test="oscal:address/oscal:country">Each data center address must contain a country.</sch:assert>    
+                test="oscal:address/oscal:country">Each data center address must contain a country.</sch:assert>
             <sch:assert 
                 diagnostics="data-center-US-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
@@ -3484,9 +3502,21 @@
     </sch:pattern>
     <sch:diagnostics>
         <sch:diagnostic
+            doc:assertion="data-center-count"
+            doc:context="/o:location"
+            id="data-center-count-diagnostic">There must be at least two (2) data centers listed.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="data-center-primary"
+            doc:context="/o:location"
+            id="data-center-primary-diagnostic">There must be one primary data center location.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="data-center-alternate"
+            doc:context="/o:location"
+            id="data-center-alternate-diagnostic">There must be one or more alternate data center locations(s).</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="data-center-country-code"
             doc:context="/o:location"
-            id="data-center-country-code-diagnostic">The data center address does not show a country.</sch:diagnostic>
+            id="data-center-country-code-diagnostic">The data center address does not show a country.</sch:diagnostic>        
         <sch:diagnostic
             doc:assertion="data-center-US"
             doc:context="/o:location"
