@@ -7119,6 +7119,159 @@
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
+            
+            <x:scenario
+                label="There must be a single primary data center.">
+                <x:context>
+                    <location 
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                        <title>Primary Data Center</title>
+                        <address>
+                            <addr-line>2222 Main Street</addr-line>
+                            <city>Anywhere</city>
+                            <state>--</state>
+                            <postal-code>00000-0000</postal-code>
+                        </address>
+                        <prop 
+                            name="type" 
+                            class="primary" 
+                            value="data-center" />
+                    </location>                    
+                </x:context>
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="data-center-primary"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            
+            <x:scenario
+                label="There must be one (1) or more alternate data center(s).">
+                <x:context>
+                    <location 
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                        <title>Secondary Data Center</title>
+                        <address>
+                            <addr-line>2222 Main Street</addr-line>
+                            <city>Anywhere</city>
+                            <state>--</state>
+                            <postal-code>00000-0000</postal-code>
+                        </address>
+                        <prop 
+                            name="type" 
+                            class="alternate" 
+                            value="data-center" />
+                    </location>   
+                </x:context>
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="data-center-alternate"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            
+            <x:scenario
+                label="There must be at least two (2) data centers listed.">
+                <x:context>
+                    <location 
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                        <title>Primary Data Center</title>
+                        <address>
+                            <addr-line>2222 Main Street</addr-line>
+                            <city>Anywhere</city>
+                            <state>--</state>
+                            <postal-code>00000-0000</postal-code>
+                        </address>
+                        <prop 
+                            name="type" 
+                            class="primary" 
+                            value="data-center" />
+                    </location>   
+                    <location 
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                        <title>Secondary Data Center</title>
+                        <address>
+                            <addr-line>2222 Main Street</addr-line>
+                            <city>Anywhere</city>
+                            <state>--</state>
+                            <postal-code>00000-0000</postal-code>
+                        </address>
+                        <prop 
+                            name="type" 
+                            class="alternate" 
+                            value="data-center" />
+                    </location> 
+                </x:context>
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="data-center-count"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            
+            <x:scenario
+                label="Each location that is a data center must have a country">
+                <x:context>
+                    <location 
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                        <title>Primary Data Center</title>
+                        <address>
+                            <addr-line>2222 Main Street</addr-line>
+                            <city>Anywhere</city>
+                            <state>--</state>
+                            <postal-code>00000-0000</postal-code>
+                            <country>US</country>
+                        </address>
+                        <prop 
+                            name="type" 
+                            class="primary" 
+                            value="data-center" />
+                    </location>                    
+                </x:context>
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="data-center-country-code"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            
+            <x:scenario
+                label="The country in locations for data centers must be 'US'">
+                <x:context>
+                    <location 
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                        <title>Primary Data Center</title>
+                        <address>
+                            <addr-line>2222 Main Street</addr-line>
+                            <city>Anywhere</city>
+                            <state>--</state>
+                            <postal-code>00000-0000</postal-code>
+                            <country>US</country>
+                        </address>
+                        <prop 
+                            name="type" 
+                            class="primary" 
+                            value="data-center" />
+                    </location>                    
+                </x:context>
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="data-center-US"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            
             <x:scenario
                 label="Each implemented-requirement must have one or more responsible-role definitions.">
                 <x:context>
