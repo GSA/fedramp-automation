@@ -1,3 +1,12 @@
+Extended Description
+As a [user], I would like to [action] because [need].
+
+Prerequisites
+
+Acceptance Criteria
+- [ ] 
+- [ ] 
+- [ ] 
 ---
 name: 10x Phase 4 ASAP UI STORIES DOD
 about: For 10x ASAP Phase 4 UI-related Stories
