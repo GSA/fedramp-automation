@@ -1,12 +1,14 @@
-Extended Description
-As a [user], I would like to [action] because [need].
+**Extended Description**
+- As a ... , in order to ... , I want ...
 
-Prerequisites
+**Preconditions**
+- Preconditions...
 
-Acceptance Criteria
-- [ ] 
-- [ ] 
-- [ ] 
+**Acceptance Criteria**
+- Acceptance criteria...
+
+**Story Tasks**
+- [ ] Tasks...
 ---
 name: 10x Phase 4 ASAP UI STORIES DOD
 about: For 10x ASAP Phase 4 UI-related Stories
