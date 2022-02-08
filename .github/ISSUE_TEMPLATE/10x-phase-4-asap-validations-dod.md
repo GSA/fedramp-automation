@@ -1,9 +1,23 @@
+
 ---
 name: 10x Phase 4 ASAP VALIDATIONS DOD
 about: For 10x ASAP Phase 4 non-UI Stories
 title: ''
 labels: template
 assignees: ''
+
+---
+Extended Description**
+- As a ... , in order to ... , I want ...
+
+**Preconditions**
+- Preconditions...
+
+**Acceptance Criteria**
+- Acceptance criteria...
+
+**Story Tasks**
+- [ ] Tasks...
 
 ---
 **Definition of Done**
