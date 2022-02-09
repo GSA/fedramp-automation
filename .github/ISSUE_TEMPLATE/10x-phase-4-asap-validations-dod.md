@@ -5,8 +5,8 @@ about: For 10x ASAP Phase 4 non-UI Stories
 title: ''
 labels: template
 assignees: ''
-
 ---
+
 Extended Description**
 - As a ... , in order to ... , I want ...
 
@@ -19,7 +19,6 @@ Extended Description**
 **Story Tasks**
 - [ ] Tasks...
 
----
 **Definition of Done**
  - [ ] Acceptance criteria met
  - [ ] Unit test coverage of our code > 95%  
