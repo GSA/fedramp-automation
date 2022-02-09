@@ -1,3 +1,11 @@
+---
+name: 10x Phase 4 ASAP UI STORIES DOD
+about: For 10x ASAP Phase 4 UI-related Stories
+title: ''
+labels: template
+assignees: ''
+
+---
 **Extended Description**
 - As a ... , in order to ... , I want ...
 
@@ -9,14 +17,7 @@
 
 **Story Tasks**
 - [ ] Tasks...
----
-name: 10x Phase 4 ASAP UI STORIES DOD
-about: For 10x ASAP Phase 4 UI-related Stories
-title: ''
-labels: template
-assignees: ''
 
----
 **Definition of Done**
  - [ ] Acceptance criteria met
  - [ ] Unit test coverage of our code > 90% - needs automation story
