@@ -8,7 +8,10 @@
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+    <xsl:key 
+        name="PE-control" 
+        match="/o:system-security-plan/o:system-implementation/o:component[@type='leveraged-system']" 
+        use="@uuid"/>
     <sch:ns
         prefix="f"
         uri="https://fedramp.gov/ns/oscal" />
@@ -523,6 +526,19 @@
                 role="information"
                 test="true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
                     select="$implemented/@statement-id" />.</sch:report>
+        </sch:rule>
+        <sch:rule
+            context="/o:system-security-plan/o:control-implementation/o:implemented-requirement[starts-with(@control-id, 'pe-')]/o:statement/o:by-component">
+            <sch:let 
+                name="componentUUID"
+                value="@component-uuid"/>
+            <sch:assert 
+                id="PE-control-1"
+                role="warning"
+                test="if (key('PE-control', $componentUUID)[@uuid eq $componentUUID])
+                then false()
+                else true()">There are PE controls inherited from leveraged authorizations. 
+                <xsl:value-of select="../@statement-id"/>: .</sch:assert> 
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation"
