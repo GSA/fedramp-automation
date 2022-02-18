@@ -8,7 +8,7 @@
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
+    
     <sch:ns
         prefix="f"
         uri="https://fedramp.gov/ns/oscal" />
@@ -523,6 +523,15 @@
                 role="information"
                 test="true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
                     select="$implemented/@statement-id" />.</sch:report>
+        </sch:rule>
+        <sch:rule 
+            context="o:system-security-plan/o:system-implementation/o:component">
+            <sch:assert 
+                diagnostics="no-description-text-in-component-diagnostic"
+                id="no-description-text-in-component"
+                role="error"
+                test="o:description/o:p/text()">A component must have a description with content.
+            </sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation"
@@ -3539,6 +3548,10 @@
                 select="./name()" /> is an invalid value of '<sch:value-of
                 select="lv:sensitivity-level(/)" />', not an allowed value of <sch:value-of
                 select="$corrections" />. No more validation processing can occur.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="no-description-text-in-component"
+            doc:context="o:system-security-plan/o:system-implementation/o:component"
+            id="no-description-text-in-component-diagnostic">Component _<xsl:value-of select="o:title"/>_ is missing a description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-core-implemented-requirements"
             doc:context="/o:system-security-plan/o:control-implementation"
