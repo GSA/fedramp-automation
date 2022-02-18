@@ -3182,7 +3182,7 @@
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-allowed-cloud-service-model"
                 role="error"
-                test="oscal:prop[@name eq 'cloud-service-model' and @value = $service-models]">A FedRAMP SSP must specify an allowed cloud service
+                test="oscal:prop[@name eq 'cloud-service-model' and @value = $service-models]">A FedRAMP SSP must define an allowed cloud service
                 model.</sch:assert>
             <sch:assert
                 diagnostics="has-cloud-service-model-remarks-diagnostic"
@@ -3207,7 +3207,7 @@
                 doc:template-reference="System Security Plan Template §8.2"
                 id="has-allowed-cloud-deployment-model"
                 role="error"
-                test="oscal:prop[@name eq 'cloud-deployment-model' and @value = $deployment-models]">A FedRAMP SSP must specify an allowed cloud
+                test="oscal:prop[@name eq 'cloud-deployment-model' and @value = $deployment-models]">A FedRAMP SSP must define an allowed cloud
                 deployment model.</sch:assert>
             <sch:assert
                 diagnostics="has-cloud-deployment-model-remarks-diagnostic"
@@ -3340,7 +3340,7 @@
                 doc:template-reference="System Security Plan Template §11"
                 id="interconnection-has-interconnection-security"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']">A system interconnection must specify
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'interconnection-security']">A system interconnection must define
                 how the connection is secured.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-circuit-diagnostic"
@@ -3400,7 +3400,7 @@
                 test="
                     every $p in oscal:responsible-role[matches(@role-id, 'local$')]/oscal:party-uuid
                         satisfies not($p = oscal:responsible-role[matches(@role-id, 'remote$')]/oscal:party-uuid)
-                    ">A system interconnection must specify local responsible parties which are not remote responsible
+                    ">A system interconnection must define local responsible parties which are not remote responsible
                 parties.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-has-distinct-isa-remote-diagnostic"
@@ -3411,7 +3411,7 @@
                 test="
                     every $p in oscal:responsible-role[matches(@role-id, 'remote$')]/oscal:party-uuid
                         satisfies not($p = oscal:responsible-role[matches(@role-id, 'local$')]/oscal:party-uuid)">A system
-                interconnection must specify remote responsible parties which are not local responsible parties.</sch:assert>
+                interconnection must define remote responsible parties which are not local responsible parties.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-cites-interconnection-agreement-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
