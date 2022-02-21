@@ -546,6 +546,9 @@
             <sch:let
                 name="id"
                 value="o:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier']/@value"/>
+            <sch:let 
+                name="title"
+                value="o:title"/>
             
             <!-- Not sure how this can be tested in xspec -->
             
@@ -555,8 +558,8 @@
                 test="
                 not($use-remote-resources) or
                 (some $p in array:flatten($fedramp_data?data?Providers)
-                satisfies $p?Package_ID eq $id)">A FedRAMP SSP leveraged authorization must have a matching ATO 
-                identifier in the FedRAMP compilation of ATOs</sch:assert>
+                satisfies ($p?Package_ID eq $id and $p?Cloud_Service_Provider_Name eq $title))">A FedRAMP Leveraged Authorization Name must match a Leveraged ATO Name 
+                in the FedRAMP Compilation List.</sch:assert>
         </sch:rule>
         <sch:rule 
             context="o:system-security-plan/o:system-implementation/o:component">
@@ -3589,8 +3592,7 @@
         <sch:diagnostic 
             doc:assertion="FedRAMP-ATO-Identifier-exists"
             doc:context="o:system-security-plan/o:system-implementation/o:leveraged-authorization"
-            id="FedRAMP-ATO-Identifier-exists-diagnostics">Component _<xsl:value-of select="o:title"/>_ is missing an identifier.
-        </sch:diagnostic>
+            id="FedRAMP-ATO-Identifier-exists-diagnostics">Component _<xsl:value-of select="o:title"/>_ is missing an identifier.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-core-implemented-requirements"
             doc:context="/o:system-security-plan/o:control-implementation"
