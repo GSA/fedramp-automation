@@ -19,9 +19,7 @@ export const ValidatorResultsFilterForm = () => {
       <h2 ref={topRef}>Filtering Options</h2>
       <form className="usa-form padding-top-1">
         <fieldset className="usa-fieldset">
-          <legend className="usa-legend text-base font-sans-md">
-            Select a view
-          </legend>
+          <legend className="usa-legend font-sans-md">Select a view</legend>
           <div className="usa-radio">
             {schematron.filterOptions.assertionViews.map(assertionView => (
               <div key={assertionView.index}>
@@ -56,9 +54,12 @@ export const ValidatorResultsFilterForm = () => {
               </div>
             ))}
           </div>
-          <legend className="usa-legend text-base font-sans-md">
+          <legend className="usa-legend font-sans-md">
             Filter by assertion text
           </legend>
+          <span className="usa-hint">
+            Filtered results appear as you type, showing exact matches.
+          </span>
           <div
             className="usa-search usa-search--small margin-top-1"
             role="search"
@@ -99,7 +100,7 @@ export const ValidatorResultsFilterForm = () => {
             </div>
           </div>
           <div className="usa-radio">
-            <legend className="usa-legend text-base font-sans-md">
+            <legend className="usa-legend font-sans-md">
               Filter by severity
             </legend>
             {schematron.filterOptions.roles.map((filterRole, index) => (
