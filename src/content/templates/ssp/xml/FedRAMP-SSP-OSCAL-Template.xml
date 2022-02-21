@@ -646,12 +646,13 @@
       <prop ns="https://fedramp.gov/ns/oscal" name="users-internal-future" value="0"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="users-external-future" value="0"/>
       <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
-         <title>Name of Underlying System</title>
-         <link href="//path/to/leveraged_system_ssp.xml"/>
+         <title>Name of Underlying System</title>         
+         <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1206061353"/>
+         <link href="//path/to/leveraged_system_ssp.xml"/>         
          <link href="//path/to/leveraged_system_legacy_crm.xslt"/>
          <link href="//path/to/leveraged_system_responsibility_and_inheritance.xml"/>
          <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
-         <date-authorized>2015-01-01</date-authorized>
+         <date-authorized>2015-01-01</date-authorized>         
          <remarks>
             <p>The leveraged-authorizaton assembly is supposed to have a required uuid flag instead
                of an optional id flag. This will be fixed in the syntax shortly.</p>

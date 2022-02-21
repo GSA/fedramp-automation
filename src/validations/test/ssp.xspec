@@ -6691,6 +6691,26 @@
                         label="this is correct." />
                 </x:scenario>
             </x:scenario>
+            <x:scenario
+                label="A FedRAMP SSP leveraged authorization must contain an ATO identifier">
+                <x:scenario
+                    label="When it does">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
+                                    <title>Name of Underlying System</title>         
+                                    <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1206061353"/>
+                                </leveraged-authorization>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="FedRAMP-ATO-Identifier-exists"
+                        label="this is correct." />
+                </x:scenario>
+            </x:scenario>
         </x:scenario>
         <x:scenario
             label="Negative test:">
@@ -6911,7 +6931,25 @@
                         label="this is an error." />
                 </x:scenario>
             </x:scenario>
-            
+            <x:scenario
+                label="A FedRAMP SSP leveraged authorization must contain an ATO identifier">
+                <x:scenario
+                    label="When it does not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
+                                    <title>Name of Underlying System</title>         
+                                </leveraged-authorization>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="FedRAMP-ATO-Identifier-exists"
+                        label="this is an error." />
+                </x:scenario>
+            </x:scenario>
         </x:scenario>
     </x:scenario>
     <x:scenario

@@ -492,6 +492,17 @@
             <sch:let
                 name="corrections"
                 value="lv:correct($ok-values, $sensitivity-level)" />
+            <!--<sch:let
+                name="fedramp_data_href"
+                value="'https://raw.githubusercontent.com/18F/fedramp-data/master/data/data.json'" />
+            
+            <sch:let
+                name="fedramp_data"
+                value="
+                if ($use-remote-resources and unparsed-text-available($fedramp_data_href)) then
+                parse-json(unparsed-text($fedramp_data_href))
+                else
+                nilled(())" />-->            
             <sch:assert
                 diagnostics="no-registry-values-diagnostic"
                 id="no-registry-values"
@@ -523,6 +534,29 @@
                 role="information"
                 test="true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
                     select="$implemented/@statement-id" />.</sch:report>
+        </sch:rule>
+        <sch:rule 
+            context="o:system-security-plan/o:system-implementation/o:leveraged-authorization">
+            <sch:assert 
+                diagnostics="FedRAMP-ATO-Identifier-exists-diagnostics"
+                id="FedRAMP-ATO-Identifier-exists"
+                role="warning"
+                test="o:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier' and @value ne '']">A leveraged authorization must have an identifier.
+            </sch:assert>
+            <sch:let
+                name="id"
+                value="o:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier']/@value"/>
+            
+            <!-- Not sure how this can be tested in xspec -->
+            
+            <sch:assert
+                id="has-matching-ATO-identifier"
+                role="error"
+                test="
+                not($use-remote-resources) or
+                (some $p in array:flatten($fedramp_data?data?Providers)
+                satisfies $p?Package_ID eq $id)">A FedRAMP SSP leveraged authorization must have a matching ATO 
+                identifier in the FedRAMP compilation of ATOs</sch:assert>
         </sch:rule>
         <sch:rule 
             context="o:system-security-plan/o:system-implementation/o:component">
@@ -3552,6 +3586,11 @@
             doc:assertion="no-description-text-in-component"
             doc:context="o:system-security-plan/o:system-implementation/o:component"
             id="no-description-text-in-component-diagnostic">Component _<xsl:value-of select="o:title"/>_ is missing a description.</sch:diagnostic>
+        <sch:diagnostic 
+            doc:assertion="FedRAMP-ATO-Identifier-exists"
+            doc:context="o:system-security-plan/o:system-implementation/o:leveraged-authorization"
+            id="FedRAMP-ATO-Identifier-exists-diagnostics">Component _<xsl:value-of select="o:title"/>_ is missing an identifier.
+        </sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-core-implemented-requirements"
             doc:context="/o:system-security-plan/o:control-implementation"
