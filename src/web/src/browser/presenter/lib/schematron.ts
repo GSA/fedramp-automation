@@ -161,7 +161,7 @@ export const getReportGroups = (
         checks: {
           summary: (() => {
             if (failedAssertionMap) {
-              return `${firedCount} / ${checks.length} triggered`;
+              return `${firedCount} / ${checks.length} flagged`;
             } else {
               return `${checks.length} checks`;
             }
