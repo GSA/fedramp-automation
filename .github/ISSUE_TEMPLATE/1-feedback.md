@@ -1,6 +1,7 @@
 ---
 name: OSCAL-based FedRAMP Resources Feedback
-about: Provide feedback, ask a question, or request an enhancement related to any of the OSCAL-based FedRAMP resources published for public comment
+about: Provide feedback, ask a question, or request an enhancement related to any
+  of the OSCAL-based FedRAMP resources published for public comment
 title: ''
 labels: ''
 assignees: ohsh6o

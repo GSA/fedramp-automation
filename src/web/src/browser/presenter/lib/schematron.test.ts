@@ -107,7 +107,7 @@ describe('presenter schematron library', () => {
                   role: 'error',
                 },
               ],
-              summary: '0 / 2 triggered',
+              summary: '0 / 2 flagged',
               summaryColor: 'green',
             },
             title: 'Assertion group title',
