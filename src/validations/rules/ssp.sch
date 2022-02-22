@@ -8,10 +8,6 @@
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:key 
-        name="PE-control" 
-        match="/o:system-security-plan/o:system-implementation/o:component[@type='leveraged-system']" 
-        use="@uuid"/>
     <sch:ns
         prefix="f"
         uri="https://fedramp.gov/ns/oscal" />
@@ -527,19 +523,7 @@
                 test="true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
                     select="$implemented/@statement-id" />.</sch:report>
         </sch:rule>
-        <sch:rule
-            context="/o:system-security-plan/o:control-implementation/o:implemented-requirement[starts-with(@control-id, 'pe-')]/o:statement/o:by-component">
-            <sch:let 
-                name="componentUUID"
-                value="@component-uuid"/>
-            <sch:assert 
-                id="PE-control-1"
-                role="warning"
-                test="if (key('PE-control', $componentUUID)[@uuid eq $componentUUID])
-                then false()
-                else true()">There are PE controls inherited from leveraged authorizations. 
-                <xsl:value-of select="../@statement-id"/>: .</sch:assert> 
-        </sch:rule>
+        
         <sch:rule
             context="/o:system-security-plan/o:control-implementation"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5">
@@ -710,6 +694,20 @@
             <sch:let
                 name="component-ref"
                 value="./@component-uuid" />
+            <sch:let
+                name="statementID"
+                value="../substring-before(@statement-id, '-')"/>
+            <sch:let
+                name="leveraged"
+                value="/o:system-security-plan/o:system-implementation/o:component[@type='leveraged-system']"/>
+            <sch:assert 
+                diagnostics="leveraged-PE-controls-diagnostic"
+                id="leveraged-PE-controls"
+                role="warning"
+                test="if ($leveraged/@uuid eq $component-ref and $statementID eq 'pe')
+                then false()
+                else true()">This PE Control has a leveraged authorization - 
+                <xsl:value-of select="../@statement-id"/>.</sch:assert>
             <sch:assert
                 diagnostics="invalid-component-match-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -3627,6 +3625,10 @@
             id="invalid-component-match-diagnostic">Response statement <sch:value-of
                 select="../@statement-id" /> with component reference UUID ' <sch:value-of
                 select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a control.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="leveraged-PE-controls"
+            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
+            id="leveraged-PE-controls-diagnostic">There are PE controls inherited from leveraged authorizations.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="missing-component-description"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
