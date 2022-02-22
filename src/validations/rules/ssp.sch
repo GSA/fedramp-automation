@@ -537,29 +537,29 @@
         </sch:rule>
         <sch:rule 
             context="o:system-security-plan/o:system-implementation/o:leveraged-authorization">
-            <sch:assert 
-                diagnostics="FedRAMP-ATO-Identifier-exists-diagnostics"
-                id="FedRAMP-ATO-Identifier-exists"
-                role="warning"
-                test="o:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier' and @value ne '']">A leveraged authorization must have an identifier.
-            </sch:assert>
             <sch:let
                 name="id"
                 value="o:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier']/@value"/>
             <sch:let 
                 name="title"
                 value="o:title"/>
+            <sch:assert 
+                diagnostics="FedRAMP-ATO-Identifier-exists-diagnostics"
+                id="FedRAMP-ATO-Identifier-exists"
+                role="warning"
+                test="o:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier' and @value ne '']">A leveraged authorization must have an identifier.
+            </sch:assert>
             
             <!-- Not sure how this can be tested in xspec -->
             
             <sch:assert
+                diagnostics="has-matching-ATO-identifier-diagnostic"
                 id="has-matching-ATO-identifier"
                 role="error"
                 test="
                 not($use-remote-resources) or
                 (some $p in array:flatten($fedramp_data?data?Providers)
-                satisfies ($p?Package_ID eq $id and $p?Cloud_Service_Provider_Name eq $title))">A FedRAMP Leveraged Authorization Name must match a Leveraged ATO Name 
-                in the FedRAMP Compilation List.</sch:assert>
+                satisfies ($p?Package_ID eq $id and $p?Cloud_Service_Provider_Package eq $title))">Leveraged Authorization ID and Title must match an existing Package ID and Coud Service Provider Package.</sch:assert>
         </sch:rule>
         <sch:rule 
             context="o:system-security-plan/o:system-implementation/o:component">
@@ -4355,6 +4355,11 @@
             doc:assertion="has-active-system-id"
             doc:context="oscal:system-characteristics/oscal:system-id[@identifier-type eq 'https://fedramp.gov']"
             id="has-active-system-id-diagnostic">This FedRAMP SSP does not have an active FedRAMP system identifier.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-matching-ATO-identifier"
+            doc:context="oscal:system-security-plan/oscal:system-implementation/oscal:leveraged-authorization"
+            id="has-matching-ATO-identifier-diagnostic">A FedRAMP Leveraged System Identifier property value and Title must match a Package Identifer and 
+            the associated Cloud Service Provider Package name in the FedRAMP Compilation List.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="role-defined-system-owner"
             doc:context="oscal:metadata"
