@@ -492,17 +492,6 @@
             <sch:let
                 name="corrections"
                 value="lv:correct($ok-values, $sensitivity-level)" />
-            <!--<sch:let
-                name="fedramp_data_href"
-                value="'https://raw.githubusercontent.com/18F/fedramp-data/master/data/data.json'" />
-            
-            <sch:let
-                name="fedramp_data"
-                value="
-                if ($use-remote-resources and unparsed-text-available($fedramp_data_href)) then
-                parse-json(unparsed-text($fedramp_data_href))
-                else
-                nilled(())" />-->            
             <sch:assert
                 diagnostics="no-registry-values-diagnostic"
                 id="no-registry-values"
@@ -559,7 +548,7 @@
                 test="
                 not($use-remote-resources) or
                 (some $p in array:flatten($fedramp_data?data?Providers)
-                satisfies ($p?Package_ID eq $id and $p?Cloud_Service_Provider_Package eq $title))">Leveraged Authorization ID and Title must match an existing Package ID and Coud Service Provider Package.</sch:assert>
+                satisfies ($p?Package_ID eq $id and $p?Cloud_Service_Provider_Package eq $title))">Leveraged Authorization ID and Title must match an existing Package ID and Cloud Service Provider Package.</sch:assert>
         </sch:rule>
         <sch:rule 
             context="o:system-security-plan/o:system-implementation/o:component">
