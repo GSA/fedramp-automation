@@ -9702,7 +9702,33 @@
                     </system-security-plan>
                 </x:context>
                 <x:expect-not-assert
-                    id="PE-control-1"
+                    id="leveraged-PE-controls"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system">
+                                <title>Name of Leveraged System</title>
+                                <description>
+                                    <p>If the leveraged system owner provides a UUID for their system (such as in an
+                                        OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
+                                        property.</p>
+                                </description>
+                            </component>
+                        </system-implementation>
+                        <control-implementation>
+                            <implemented-requirement uuid="uuid-value" control-id="pe-1">
+                                <prop name="leveraged-authorization-uuid" value="e82e6e07-0c62-417e-8a19-3744991b4c65"/>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="leveraged-PE-controls-implemented-requirement"
                     label="that is correct" />
             </x:scenario>
         </x:scenario>
