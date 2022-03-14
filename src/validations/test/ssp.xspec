@@ -7194,6 +7194,28 @@
             </x:scenario>
             
             <x:scenario
+                label="Each person must have no more than one responsibility.">
+                <x:context>
+                    <metadata
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <party
+                            type="person"
+                            uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
+                        <responsible-party
+                            role-id="system-owner">
+                            <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
+                        </responsible-party>
+                    </metadata>
+                </x:context>
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="party-has-one-responsibility"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            
+            <x:scenario
                 label="There must be a single primary data center.">
                 <x:context>
                     <location 
@@ -7639,6 +7661,32 @@
                     label="When that is false">
                     <x:expect-assert
                         id="party-has-responsibility"
+                        label="that is an anomaly." />
+                </x:scenario>
+            </x:scenario>
+            
+            <x:scenario
+                label="Each person must have no more than one responsibility.">
+                <x:context>
+                    <metadata
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <party
+                            type="person"
+                            uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
+                        <responsible-party
+                            role-id="system-owner">
+                            <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
+                        </responsible-party>
+                        <responsible-party
+                            role-id="content-approver">
+                            <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
+                        </responsible-party>
+                    </metadata>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="party-has-one-responsibility"
                         label="that is an anomaly." />
                 </x:scenario>
             </x:scenario>
