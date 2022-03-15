@@ -2485,6 +2485,13 @@
                 id="party-has-responsibility"
                 role="warning"
                 test="//oscal:responsible-party[oscal:party-uuid = current()/@uuid]">Each person should have a responsibility.</sch:assert>
+            <sch:assert
+                diagnostics="party-has-one-responsibility-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
+                id="party-has-one-responsibility"
+                role="warning"
+                test="count(//oscal:responsible-party[oscal:party-uuid = current()/@uuid]) eq 1">Each person should have no more than one responsibility.</sch:assert>
+                
         </sch:rule>
         <sch:rule 
             context="oscal:location[oscal:prop[@value eq 'data-center']]"
@@ -4395,6 +4402,10 @@
             doc:assertion="party-has-responsibility"
             doc:context="oscal:party[@type eq 'person']"
             id="party-has-responsibility-diagnostic">This person has no responsibility.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="party-has-one-responsibility"
+            doc:context="oscal:party[@type eq 'person']"
+            id="party-has-one-responsibility-diagnostic"><xsl:value-of select="o:name"/> - This person has more than one responsibility.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-responsible-role"
             doc:context="oscal:implemented-requirement"
