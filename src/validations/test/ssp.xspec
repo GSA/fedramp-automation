@@ -6181,7 +6181,35 @@
                         id="inventory-item-has-one-vendor-name"
                         label="error" />
                 </x:scenario>
+            </x:scenario>            
+            <x:scenario
+                label="has an acceptable vendor-name value">
+                <x:context>
+                    <inventory-item
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop
+                            name="vendor-name" 
+                            value="Amazon"/>
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert
+                    id="inventory-item-has-prohibited-vendor-name"
+                    label="that is correct" />
             </x:scenario>
+            <x:scenario
+                label="has a prohibited vendor-name value">
+                <x:context>
+                    <inventory-item
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop
+                            name="vendor-name"
+                            value="Huawei"/>
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert
+                    id="inventory-item-has-prohibited-vendor-name"
+                    label="that is an error" />
+            </x:scenario>            
             <x:scenario
                 label="&quot;infrastructure&quot; asset-type has a hardware-model property.">
                 <x:scenario
