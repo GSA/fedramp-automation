@@ -139,7 +139,17 @@ Per [18F/fedramp-automation#61](https://github.com/18F/fedramp-automation/issues
 
 ### Formatting XML
 
-When contributing, please use the provided XML formatter (htmltidy >= 5.6.0). Formatting options are chosen for readability, and for clean git diffs.
+When contributing, please use the following indentation and formatting settings. Formatting options are chosen for readability, and for clean git diffs.
+
+For Oxygen XML Editor: 
+- Indent size 4
+- 150 character line width (folding threshold)
+- Preserve empty lines
+- Preserve line breaks in attributes
+- Indent inline elements
+- Sort attributes
+- Add space before slash in empty elements
+- Break line before an attribute name
 
 ### Generating a sample OSCAL System Security Plan XML document
 
