@@ -536,7 +536,8 @@
                 diagnostics="FedRAMP-ATO-Identifier-exists-diagnostics"
                 id="FedRAMP-ATO-Identifier-exists"
                 role="warning"
-                test="o:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier' and @value ne '']">A leveraged authorization must have an identifier.
+                test="o:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier' and @value ne '']">A leveraged authorization
+                must have an identifier.
             </sch:assert>
             
             <!-- Not sure how this can be tested in xspec -->
@@ -545,10 +546,11 @@
                 diagnostics="has-matching-ATO-identifier-diagnostic"
                 id="has-matching-ATO-identifier"
                 role="error"
-                test="
-                not($use-remote-resources) or
+                test="not($use-remote-resources) or
                 (some $p in array:flatten($fedramp_data?data?Providers)
-                satisfies ($p?Package_ID eq $id and $p?Cloud_Service_Provider_Package eq $title))">Leveraged Authorization ID and Title must match an existing Package ID and Cloud Service Provider Package.</sch:assert>
+                satisfies ($p?Package_ID eq $id and $p?Cloud_Service_Provider_Package eq $title))">Leveraged Authorization ID and Title must match an existing
+                Package ID and Cloud Service Provider Package.
+            </sch:assert>
         </sch:rule>
         <sch:rule 
             context="o:system-security-plan/o:system-implementation/o:component">

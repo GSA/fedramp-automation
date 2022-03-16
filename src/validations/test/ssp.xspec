@@ -6701,7 +6701,10 @@
                             <system-implementation>
                                 <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
                                     <title>Name of Underlying System</title>         
-                                    <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1206061353"/>
+                                    <prop 
+                                        ns="https://fedramp.gov/ns/oscal" 
+                                        name="leveraged-system-identifier" 
+                                        value="F1206061353" />
                                 </leveraged-authorization>
                             </system-implementation>
                         </system-security-plan>
