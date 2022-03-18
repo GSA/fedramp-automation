@@ -9340,7 +9340,7 @@
                     </system-security-plan>
                 </x:context>
                 <x:expect-not-report
-                    id="DMARC-SPF-DKIM-exists-within-implemented-requirement-si8"
+                    id="has-email"
                     label="that is false." />
             </x:scenario>
         </x:scenario>
@@ -9413,7 +9413,7 @@
                     </system-security-plan>
                 </x:context>
                 <x:expect-report
-                    id="DMARC-SPF-DKIM-exists-within-implemented-requirement-si8"
+                    id="has-email"
                     label="that is true." />
             </x:scenario>
         </x:scenario>
