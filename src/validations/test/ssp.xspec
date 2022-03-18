@@ -9412,7 +9412,7 @@
                         </control-implementation>
                     </system-security-plan>
                 </x:context>
-                <x:expect-not-report
+                <x:expect-report
                     id="DMARC-SPF-DKIM-exists-within-implemented-requirement-si8"
                     label="that is true." />
             </x:scenario>
