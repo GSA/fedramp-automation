@@ -731,6 +731,20 @@
             <sch:let
                 name="component-ref"
                 value="./@component-uuid" />
+            <sch:let
+                name="statementID"
+                value="../substring-before(@statement-id, '-')"/>
+            <sch:let
+                name="leveraged"
+                value="/o:system-security-plan/o:system-implementation/o:component[@type='leveraged-system']"/>
+            <sch:assert 
+                diagnostics="leveraged-PE-controls-diagnostic"
+                id="leveraged-PE-controls"
+                role="warning"
+                test="if ($leveraged/@uuid eq $component-ref and $statementID eq 'pe')
+                then false()
+                else true()">This PE Control has a leveraged authorization - 
+                <xsl:value-of select="../@statement-id"/>.</sch:assert>
             <sch:assert
                 diagnostics="invalid-component-match-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -2136,6 +2150,18 @@
                 role="error"
                 test="not($is-infrastructure) or not(oscal:prop[(: @ns eq 'https://fedramp.gov/ns/oscal' and :)@name eq 'vendor-name'][2])">
                 "infrastructure" inventory item must have only one vendor-name property.</sch:assert>
+            <sch:let 
+                name="prohibit-vendor" 
+                value="'Dahua Technology Company', 'Dahua', 'Hangzhou Hikvision Digital Technology', 'Hangzhou', 'Hikvision', 
+                'Hangzhou Hikvision', 'Huawei', 'HyTera', 'Kaspersky Lab', 'Kaspersky', 'ZTE'"/>
+            <sch:assert
+                diagnostics="inventory-item-has-prohibited-vendor-name-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                id="inventory-item-has-prohibited-vendor-name"
+                role="warning"
+                test="not(o:prop[@name eq 'vendor-name']/@value = $prohibit-vendor)">The information system must not contain the banned vendor - 
+                '<xsl:value-of select="o:prop[@name eq 'vendor-name']/@value"/>'.  See FAR 889(a)(1)(B).</sch:assert>
             <!-- FIXME: perversely, hardware-model is not in FedRAMP @ns -->
             <sch:assert
                 diagnostics="inventory-item-has-hardware-model-diagnostic"
@@ -2488,6 +2514,13 @@
                 id="party-has-responsibility"
                 role="warning"
                 test="//oscal:responsible-party[oscal:party-uuid = current()/@uuid]">Each person should have a responsibility.</sch:assert>
+            <sch:assert
+                diagnostics="party-has-one-responsibility-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
+                id="party-has-one-responsibility"
+                role="warning"
+                test="count(//oscal:responsible-party[oscal:party-uuid = current()/@uuid]) eq 1">Each person should have no more than one responsibility.</sch:assert>
+                
         </sch:rule>
         <sch:rule
             context="oscal:location[oscal:prop[@value eq 'data-center']]"
@@ -3663,6 +3696,10 @@
                 select="../@statement-id" /> with component reference UUID ' <sch:value-of
                 select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a control.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="leveraged-PE-controls"
+            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
+            id="leveraged-PE-controls-diagnostic">There are PE controls inherited from leveraged authorizations.</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="missing-component-description"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
             id="missing-component-description-diagnostic">Response statement <sch:value-of
@@ -3827,34 +3864,26 @@
         <sch:diagnostic
             doc:assertion="has-policy-link"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-policy-link-diagnostic">
-            <sch:value-of
-                select="local-name()" />
+            id="has-policy-link-diagnostic">implemented-requirement 
             <sch:value-of
                 select="@control-id" /> lacks policy reference(s) via legacy or component approach.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-policy-attachment-resource"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-policy-attachment-resource-diagnostic">
-            <sch:value-of
-                select="local-name()" />
+            id="has-policy-attachment-resource-diagnostic">implemented-requirement 
             <sch:value-of
                 select="@control-id" /> lacks policy attachment resource(s) <sch:value-of
                 select="string-join($policy-hrefs, ', ')" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-procedure-link"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-procedure-link-diagnostic">
-            <sch:value-of
-                select="local-name()" />
-            <sch:value-of
+            id="has-procedure-link-diagnostic">implemented-requirement 
+            <sch:value-of 
                 select="@control-id" /> lacks procedure reference(s) via legacy or component approach.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-procedure-attachment-resource"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-procedure-attachment-resource-diagnostic">
-            <sch:value-of
-                select="local-name()" />
+            id="has-procedure-attachment-resource-diagnostic">implemented-requirement 
             <sch:value-of
                 select="@control-id" /> lacks procedure attachment resource(s) <sch:value-of
                 select="string-join($procedure-hrefs, ', ')" />.</sch:diagnostic>
@@ -4251,6 +4280,10 @@
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-one-vendor-name-diagnostic">This inventory-item has more than one vendor-name property.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="inventory-item-has-prohibited-vendor-name"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'vendor-name']]"
+            id="inventory-item-has-prohibited-vendor-name-diagnostic">This inventory-item contains a banned vendor.</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="inventory-item-has-hardware-model"
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-hardware-model-diagnostic">This inventory-item lacks a hardware-model property.</sch:diagnostic>
@@ -4413,6 +4446,10 @@
             doc:assertion="party-has-responsibility"
             doc:context="oscal:party[@type eq 'person']"
             id="party-has-responsibility-diagnostic">This person has no responsibility.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="party-has-one-responsibility"
+            doc:context="oscal:party[@type eq 'person']"
+            id="party-has-one-responsibility-diagnostic"><xsl:value-of select="o:name"/> - This person has more than one responsibility.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-responsible-role"
             doc:context="oscal:implemented-requirement"
