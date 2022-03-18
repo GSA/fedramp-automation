@@ -2217,7 +2217,7 @@
             context="oscal:system-implementation"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6"
             see="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6">
-            
+
             <sch:assert
                 diagnostics="has-users-internal-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.19"
@@ -2246,7 +2246,7 @@
                 role="error"
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'users-external-future' and @value castable as xs:integer and @value cast as xs:integer ge 0]">A
                 FedRAMP SSP must specify the number of future external users.</sch:assert>
-            
+
             <sch:assert
                 diagnostics="has-this-system-component-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6"
@@ -2254,6 +2254,25 @@
                 role="error"
                 test="exists(oscal:component[@type eq 'this-system'])">A FedRAMP SSP must have a self-referential (i.e., to the SSP itself)
                 component.</sch:assert>
+            <sch:let
+                name="emailString"
+                value="'email', 'e-mail', 'electronic mail'" />
+            <sch:report
+                diagnostics="has-email-diagnostic"
+                id="has-email"
+                role="warning"
+                test="
+                    if (//*[lower-case(.) = $emailString])
+                    then
+                        (if (../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[. eq 'DMARC'] and
+                        ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[. eq 'SPF'] and
+                        ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[. eq 'DKIM'])
+                        then
+                            (true())
+                        else
+                            (false()))
+                    else
+                        (false())">This FedRAMP SSP has references to 'email', 'e-mail', or 'electronic mail'.</sch:report>
         </sch:rule>
         <sch:rule
             context="oscal:system-characteristics">
@@ -4282,7 +4301,11 @@
         <sch:diagnostic
             doc:assertion="has-this-system-component"
             doc:context="oscal:system-implementation"
-            id="has-this-system-component-diagnostic">This FedRAMP SSP lacks a "this-system" component.</sch:diagnostic>
+            id="has-this-system-component-diagnostic">This FedRAMP SSP lacks a "this-system" component.</sch:diagnostic>        
+        <sch:diagnostic
+            doc:assertion="has-email"
+            doc:context="oscal:system-implementation"
+            id="has-email-diagnostic">DMARC, SPF, and DKIM is referenced in this SSP.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-system-id"
             doc:context="oscal:system-characteristics"
