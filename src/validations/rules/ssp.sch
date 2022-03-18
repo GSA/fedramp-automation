@@ -8,6 +8,7 @@
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
     <sch:ns
         prefix="f"
         uri="https://fedramp.gov/ns/oscal" />
@@ -523,14 +524,42 @@
                 test="true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
                     select="$implemented/@statement-id" />.</sch:report>
         </sch:rule>
-        <sch:rule 
+        <sch:rule
+            context="o:system-security-plan/o:system-implementation/o:leveraged-authorization">
+            <sch:let
+                name="id"
+                value="o:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier']/@value" />
+            <sch:let
+                name="title"
+                value="o:title" />
+            <sch:assert
+                diagnostics="FedRAMP-ATO-Identifier-exists-diagnostics"
+                id="FedRAMP-ATO-Identifier-exists"
+                role="warning"
+                test="
+                    o:prop[
+                    @ns eq 'https://fedramp.gov/ns/oscal' and
+                    @name eq 'leveraged-system-identifier' and
+                    @value ne '']
+                    ">A leveraged authorization must have an identifier.</sch:assert>
+            <sch:assert
+                diagnostics="has-matching-ATO-identifier-diagnostic"
+                id="has-matching-ATO-identifier"
+                role="error"
+                test="
+                    not($use-remote-resources) or
+                    (some $p in array:flatten($fedramp_data?data?Providers)
+                        satisfies ($p?Package_ID eq $id and $p?Cloud_Service_Provider_Package eq $title))
+                    ">Leveraged Authorization ID and Title must match an existing Package ID and Cloud Service Provider
+                Package.</sch:assert>
+        </sch:rule>
+        <sch:rule
             context="o:system-security-plan/o:system-implementation/o:component">
-            <sch:assert 
+            <sch:assert
                 diagnostics="no-description-text-in-component-diagnostic"
                 id="no-description-text-in-component"
                 role="error"
-                test="o:description/o:p/text()">A component must have a description with content.
-            </sch:assert>
+                test="o:description/o:p/text()">A component must have a description with content. </sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation"
@@ -2229,7 +2258,7 @@
             context="oscal:system-implementation"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6"
             see="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6">
-            
+
             <sch:assert
                 diagnostics="has-users-internal-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.19"
@@ -2258,7 +2287,7 @@
                 role="error"
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'users-external-future' and @value castable as xs:integer and @value cast as xs:integer ge 0]">A
                 FedRAMP SSP must specify the number of future external users.</sch:assert>
-            
+
             <sch:assert
                 diagnostics="has-this-system-component-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6"
@@ -2493,39 +2522,42 @@
                 test="count(//oscal:responsible-party[oscal:party-uuid = current()/@uuid]) eq 1">Each person should have no more than one responsibility.</sch:assert>
                 
         </sch:rule>
-        <sch:rule 
+        <sch:rule
             context="oscal:location[oscal:prop[@value eq 'data-center']]"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23">
-            <sch:assert 
+            <sch:assert
                 diagnostics="data-center-count-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
                 id="data-center-count"
                 role="warning"
-                test="count(../oscal:location[oscal:prop[@value eq 'data-center']]) &gt; 1">There must be at least two (2) data centers listed.</sch:assert>  
-            <sch:assert 
+                test="count(../oscal:location[oscal:prop[@value eq 'data-center']]) &gt; 1">There must be at least two (2) data centers
+                listed.</sch:assert>
+            <sch:assert
                 diagnostics="data-center-primary-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
                 id="data-center-primary"
                 role="warning"
-                test="count(../oscal:location/oscal:prop[@value eq 'data-center'][@class eq 'primary']) = 1">There is a single primary data center.</sch:assert>   
-            <sch:assert 
+                test="count(../oscal:location/oscal:prop[@value eq 'data-center'][@class eq 'primary']) = 1">There is a single primary data
+                center.</sch:assert>
+            <sch:assert
                 diagnostics="data-center-alternate-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
                 id="data-center-alternate"
                 role="warning"
-                test="count(../oscal:location/oscal:prop[@value eq 'data-center'][@class eq 'alternate']) &gt; 0">There is one or more alternate data center(s).</sch:assert>   
-            <sch:assert 
+                test="count(../oscal:location/oscal:prop[@value eq 'data-center'][@class eq 'alternate']) &gt; 0">There is one or more alternate data
+                center(s).</sch:assert>
+            <sch:assert
                 diagnostics="data-center-country-code-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
                 id="data-center-country-code"
                 role="warning"
                 test="oscal:address/oscal:country">Each data center address must contain a country.</sch:assert>
-            <sch:assert 
+            <sch:assert
                 diagnostics="data-center-US-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
                 id="data-center-US"
                 role="warning"
-                test="oscal:address/oscal:country eq 'US'">Each data center must have an address that is within the United States.</sch:assert>    
+                test="oscal:address/oscal:country eq 'US'">Each data center must have an address that is within the United States.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -3557,11 +3589,12 @@
         <sch:diagnostic
             doc:assertion="data-center-country-code"
             doc:context="/o:location"
-            id="data-center-country-code-diagnostic">The data center address does not show a country.</sch:diagnostic>        
+            id="data-center-country-code-diagnostic">The data center address does not show a country.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="data-center-US"
             doc:context="/o:location"
-            id="data-center-US-diagnostic">The location address for a data center is not within the United States.  The country element must contain the string 'US'.</sch:diagnostic>
+            id="data-center-US-diagnostic">The location address for a data center is not within the United States. The country element must contain
+            the string 'US'.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="no-registry-values"
             doc:context="/o:system-security-plan"
@@ -3583,7 +3616,13 @@
         <sch:diagnostic
             doc:assertion="no-description-text-in-component"
             doc:context="o:system-security-plan/o:system-implementation/o:component"
-            id="no-description-text-in-component-diagnostic">Component _<xsl:value-of select="o:title"/>_ is missing a description.</sch:diagnostic>
+            id="no-description-text-in-component-diagnostic">Component _<xsl:value-of
+                select="o:title" />_ is missing a description.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="FedRAMP-ATO-Identifier-exists"
+            doc:context="o:system-security-plan/o:system-implementation/o:leveraged-authorization"
+            id="FedRAMP-ATO-Identifier-exists-diagnostics">Component _<xsl:value-of
+                select="o:title" />_ is missing an identifier.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-core-implemented-requirements"
             doc:context="/o:system-security-plan/o:control-implementation"
@@ -4346,6 +4385,11 @@
             doc:assertion="has-active-system-id"
             doc:context="oscal:system-characteristics/oscal:system-id[@identifier-type eq 'https://fedramp.gov']"
             id="has-active-system-id-diagnostic">This FedRAMP SSP does not have an active FedRAMP system identifier.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-matching-ATO-identifier"
+            doc:context="oscal:system-security-plan/oscal:system-implementation/oscal:leveraged-authorization"
+            id="has-matching-ATO-identifier-diagnostic">A FedRAMP Leveraged System Identifier property value and Title must match a Package Identifer
+            and the associated Cloud Service Provider Package name in the FedRAMP Compilation List.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="role-defined-system-owner"
             doc:context="oscal:metadata"
