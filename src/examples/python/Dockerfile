@@ -4,7 +4,7 @@
 # repository at /code (eg, via docker-compose.yml).
 #
 
-FROM ubuntu:focal as saxonica-build
+FROM ubuntu:20.04 as saxonica-build
 
 # Download and build the Saxon-HE c-library
 # See here for platform-specific packages: https://www.saxonica.com/download/c.xml
