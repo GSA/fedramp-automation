@@ -644,7 +644,7 @@
                 name="leveraged"
                 value="/o:system-security-plan/o:system-implementation/o:component[@type='leveraged-system']"/>
             <sch:let 
-                name="controlID"
+                name="familyName"
                 value="substring-before(@control-id, '-')"/>
             <sch:let 
                 name="leveragedUUID"
@@ -653,7 +653,7 @@
                 diagnostics="leveraged-PE-controls-implemented-requirement-diagnostic"
                 id="leveraged-PE-controls-implemented-requirement"
                 role="warning"
-                test="if ($leveraged/@uuid eq $leveragedUUID and  $controlID eq 'pe')
+                test="if ($leveraged/@uuid eq $leveragedUUID and  $familyName eq 'pe')
                 then false()
                 else true()">This PE Control has a leveraged authorization - 
                 <xsl:value-of select="@control-id"/>.</sch:assert>            
