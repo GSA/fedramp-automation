@@ -936,7 +936,7 @@
          </description>
          <prop name="asset-id" value="unique-asset-id"/>
          <prop name="ipv4-address" value="10.1.1.1"/>
-         <prop name="ipv6-address" value="0000:0000:0000:0000"/>
+         <prop name="ipv6-address" value="::"/>
          <prop name="virtual" value="no"/>
          <prop name="public" value="no"/>
          <prop name="fqdn" value="dns.name"/>

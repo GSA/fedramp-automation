@@ -308,6 +308,11 @@
                 id="has-doc-checklist-reference"
                 role="warning"
                 test="@doc:checklist-reference">Every assertion has a doc:checklist-reference attribute.</sch:assert>
+            
+            <sch:assert
+                id="has-feddoc-documentation"
+                role="warning"
+                test="@feddoc:documentation-reference">Every assertion has a feddoc:documentation-reference attribute.</sch:assert>
 
         </sch:rule>
 

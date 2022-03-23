@@ -4,6 +4,7 @@
     queryBinding="xslt2"
     xmlns:array="http://www.w3.org/2005/xpath-functions/array"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+    xmlns:feddoc="http://us.gov/documentation/federal-documentation"
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -733,18 +734,21 @@
                 value="./@component-uuid" />
             <sch:let
                 name="statementID"
-                value="../substring-before(@statement-id, '-')"/>
+                value="../substring-before(@statement-id, '-')" />
             <sch:let
                 name="leveraged"
-                value="/o:system-security-plan/o:system-implementation/o:component[@type='leveraged-system']"/>
-            <sch:assert 
+                value="/o:system-security-plan/o:system-implementation/o:component[@type = 'leveraged-system']" />
+            <sch:assert
                 diagnostics="leveraged-PE-controls-diagnostic"
                 id="leveraged-PE-controls"
                 role="warning"
-                test="if ($leveraged/@uuid eq $component-ref and $statementID eq 'pe')
-                then false()
-                else true()">This PE Control has a leveraged authorization - 
-                <xsl:value-of select="../@statement-id"/>.</sch:assert>
+                test="
+                    if ($leveraged/@uuid eq $component-ref and $statementID eq 'pe')
+                    then
+                        false()
+                    else
+                        true()">This PE Control has a leveraged authorization - <xsl:value-of
+                    select="../@statement-id" />.</sch:assert>
             <sch:assert
                 diagnostics="invalid-component-match-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -2250,6 +2254,73 @@
                 role="error"
                 test="not($is-software-and-database) or not(oscal:prop[@name eq 'function'][2])">"software or database" inventory item must have one
                 function property.</sch:assert>
+            <sch:assert
+                diagnostics="inventory-item-network-address-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="inventory-item-network-address"
+                role="error"
+                test="
+                    if (o:prop[@name eq 'ipv4-address'])
+                    then
+                        (o:prop[@name eq 'ipv6-address'])
+                    else
+                        (true())">If any inventory-item has a prop with a name of 'ipv4-address' it must also have a prop with a name
+                of 'ipv6-address'</sch:assert>
+            <sch:assert
+                diagnostics="ipv4-has-content-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv4-has-content"
+                role="error"
+                test="
+                    if (o:prop[@name eq 'ipv4-address'])
+                    then
+                        (o:prop[matches(@value, '(^[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?$)')])
+                    else
+                        (true())"><xsl:value-of
+                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv4 value.</sch:assert>
+            <sch:assert
+                diagnostics="ipv4-has-non-placeholder-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv4-has-non-placeholder"
+                role="error"
+                test="
+                    if (o:prop[@name eq 'ipv4-address'])
+                    then
+                        (o:prop[matches(@value, '0.0.0.0')])
+                    else
+                        (false())"><xsl:value-of
+                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv4 value.</sch:assert>
+            <sch:let
+                name="IPv6-regex"
+                value="'(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:)
+                {1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:)
+                {1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]
+                {1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:
+                ((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'" />
+            <sch:assert
+                diagnostics="ipv6-has-content-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv6-has-content"
+                role="error"
+                test="
+                    if (o:prop[@name eq 'ipv6-address'])
+                    then
+                        (o:prop[matches(@value, $IPv6-regex)])
+                    else
+                        (true())"><xsl:value-of
+                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv6 value.</sch:assert>
+            <sch:assert
+                diagnostics="ipv6-has-non-placeholder-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv6-has-non-placeholder"
+                role="error"
+                test="
+                    if (o:prop[@name eq 'ipv6-address']/@value eq '::')
+                    then
+                        (false())
+                    else
+                        (true())"><xsl:value-of
+                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv6 value.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -2258,7 +2329,6 @@
             context="oscal:system-implementation"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6"
             see="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6">
-
             <sch:assert
                 diagnostics="has-users-internal-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.19"
@@ -3864,27 +3934,23 @@
         <sch:diagnostic
             doc:assertion="has-policy-link"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-policy-link-diagnostic">implemented-requirement 
-            <sch:value-of
+            id="has-policy-link-diagnostic">implemented-requirement <sch:value-of
                 select="@control-id" /> lacks policy reference(s) via legacy or component approach.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-policy-attachment-resource"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-policy-attachment-resource-diagnostic">implemented-requirement 
-            <sch:value-of
+            id="has-policy-attachment-resource-diagnostic">implemented-requirement <sch:value-of
                 select="@control-id" /> lacks policy attachment resource(s) <sch:value-of
                 select="string-join($policy-hrefs, ', ')" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-procedure-link"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-procedure-link-diagnostic">implemented-requirement 
-            <sch:value-of 
+            id="has-procedure-link-diagnostic">implemented-requirement <sch:value-of
                 select="@control-id" /> lacks procedure reference(s) via legacy or component approach.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-procedure-attachment-resource"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-procedure-attachment-resource-diagnostic">implemented-requirement 
-            <sch:value-of
+            id="has-procedure-attachment-resource-diagnostic">implemented-requirement <sch:value-of
                 select="@control-id" /> lacks procedure attachment resource(s) <sch:value-of
                 select="string-join($procedure-hrefs, ', ')" />.</sch:diagnostic>
         <sch:diagnostic
@@ -4329,6 +4395,30 @@
             <sch:value-of
                 select="name()" /> "<sch:value-of
                 select="oscal:prop[@name eq 'asset-type']/@value" />" has more than one function property.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="inventory-item-network-address"
+            doc:context="o:inventory-item[o:prop[@name eq 'ipv4-address'] or @name eq [@name eq 'ipv6-address']]"
+            id="inventory-item-network-address-diagnostic">
+            <sch:value-of
+                select="o:prop[@name = 'asset-id']/@value" /> has an IPv4 address but does not have an IPv6 address.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="ipv4-has-content"
+            doc:context="o:inventory-item[o:prop[@name eq 'ipv4-address']]"
+            id="ipv4-has-content-diagnostic">The @value content of prop whose @name is 'ipv4-address' has incorrect content.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="ipv4-has-non-placeholder"
+            doc:context="o:inventory-item[o:prop[@name eq 'ipv4-address']]"
+            id="ipv4-has-non-placeholder-diagnostic">The @value content of prop whose @name is 'ipv4-address' has placeholder value of
+            0.0.0.0.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="ipv6-has-non-placeholder"
+            doc:context="o:inventory-item[o:prop[@name eq 'ipv6-address']]"
+            id="ipv6-has-non-placeholder-diagnostic">The @value content of prop whose @name is 'ipv6-address' has placeholder value of
+            ::.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="ipv6-has-content"
+            doc:context="o:inventory-item[o:prop[@name eq 'ipv6-address']]"
+            id="ipv6-has-content-diagnostic">The @value content of prop whose @name is 'ipv6-address' has incorrect content.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="component-has-asset-type"
             doc:context="/oscal:system-security-plan/oscal:system-implementation/oscal:component[(: a component referenced by any inventory-item :)@uuid = //oscal:inventory-item/oscal:implemented-component/@component-uuid]"

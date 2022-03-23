@@ -6541,6 +6541,137 @@
                 </x:scenario>
             </x:scenario>
             <!-- FIXME: Software/Database Vendor -->
+            <x:scenario
+                label="both ipv4 and ipv6 defined in inventory-item">
+                <x:scenario
+                    label="affirmative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="10.2.2.2"/>
+                            <prop 
+                                name="ipv6-address" 
+                                value="0000:0000:0000:0000"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="inventory-item-network-address"
+                        label="correct" />
+                </x:scenario>
+                <x:scenario
+                    label="negative"
+                    pending="XSpec error resolution">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="10.2.2.2"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert
+                        id="inventory-item-network-address"
+                        label="error" />
+                </x:scenario>
+            </x:scenario>            
+            <x:scenario
+                label="ipv4 has appropriate content">
+                <x:scenario
+                    label="affirmative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="10.2.2"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv4-has-content-diagnostic"
+                        label="correct" />
+                </x:scenario>
+                <x:scenario
+                    label="negative"
+                    pending="XSpec error resolution">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="10.2.2.2"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv4-has-content-diagnostic"
+                        label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="inventory-item has property name 'ipv4-address' that is a placeholder value">
+                <x:scenario
+                    label="affirmative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="0.0.0.0"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv4-has-non-placeholder"
+                        label="correct" />
+                </x:scenario>
+                <x:scenario
+                    label="negative"
+                    pending="XSpec error resolution">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="10.2.2.2"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv4-has-non-placeholder"
+                        label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="ipv6 has appropriate content">
+                <x:scenario
+                    label="affirmative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv6-address" 
+                                value="2001:0db8:85a3:0000:0000:8a2e:0370:7334"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv6-has-content"
+                        label="correct" />
+                </x:scenario>
+                <x:scenario
+                    label="negative"
+                    pending="XSpec error resolution">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv6-address" 
+                                value="1234:5678:9012:3456"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv6-has-content"
+                        label="error" />
+                </x:scenario>
+            </x:scenario>
         </x:scenario>
     </x:scenario>
     <x:scenario
