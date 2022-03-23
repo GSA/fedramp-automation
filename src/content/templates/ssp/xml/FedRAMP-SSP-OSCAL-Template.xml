@@ -707,7 +707,7 @@
          <title>This System</title>
          <description>
             <p>The entire system as depicted in the system authorization boundary</p>
-             <p>Email</p>
+             <p>Email is employed</p>
          </description>
          <status state="operational"/>
       </component>
@@ -717,7 +717,7 @@
             <p>If the leveraged system owner provides a UUID for their system (such as in an
                OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
                property.</p>
-             <p>electronic mail</p>
+             <p>electronic mail is employed</p>
          </description>
          <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
          <prop name="implementation-point" value="external"/>
@@ -2238,9 +2238,9 @@
                   uuid="663f84e5-9c13-49a5-b7de-25ced4e8aef8">
                   <description>
                       <p>Describe how the control is satisfied within the system.</p>
-                      <p>DMARC</p>
-                      <p>SPF</p>
-                      <p>DKIM</p>
+                      <p>DMARC is employed.</p>
+                      <p>SPF is employed.</p>
+                      <p>DKIM is employed.</p>
                   </description>
                   <set-parameter param-id="si-8_prm_1">
                       <value>[replace with list of personnel or roles]</value>

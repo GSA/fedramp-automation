@@ -2256,23 +2256,23 @@
                 component.</sch:assert>
             <sch:let
                 name="emailString"
-                value="'email', 'e-mail', 'electronic mail'" />
-            <sch:report
+                value="'email|e-mail|electronic mail'" />
+            <sch:assert
                 diagnostics="has-email-diagnostic"
                 id="has-email"
                 role="warning"
                 test="
-                    if (//*[lower-case(.) = $emailString])
+                    if (//*[matches(lower-case(.), $emailString)])
                     then
-                        (if (../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[. eq 'DMARC'] and
-                        ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[. eq 'SPF'] and
-                        ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[. eq 'DKIM'])
+                        (if (../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'DMARC')] and
+                        ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'SPF')] and
+                        ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'DKIM')])
                         then
-                            (true())
+                            (false())
                         else
-                            (false()))
+                            (true()))
                     else
-                        (false())">This FedRAMP SSP has references to 'email', 'e-mail', or 'electronic mail'.</sch:report>
+                        (true())">This FedRAMP SSP has references to 'email', 'e-mail', or 'electronic mail'.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:system-characteristics">
