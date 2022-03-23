@@ -2258,8 +2258,18 @@
                 name="emailString"
                 value="'email|e-mail|electronic mail'" />
             <sch:assert
-                diagnostics="has-email-diagnostic"
-                id="has-email"
+                diagnostics="not-has-email-diagnostic"
+                id="not-has-email"
+                role="warning"
+                test="
+                    if (//*[matches(lower-case(.), $emailString)])
+                    then
+                        (true())
+                    else
+                        (false())">This FedRAMP SSP does not reference 'email', 'e-mail', or 'electronic mail'.</sch:assert>
+            <sch:assert
+                diagnostics="has-email-and-DMARC-diagnostic"
+                id="has-email-and-DMARC"
                 role="warning"
                 test="
                     if (//*[matches(lower-case(.), $emailString)])
@@ -2268,11 +2278,11 @@
                         ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'SPF')] and
                         ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'DKIM')])
                         then
-                            (false())
+                            (true())
                         else
-                            (true()))
+                            (false()))
                     else
-                        (true())">This FedRAMP SSP has references to 'email', 'e-mail', or 'electronic mail'.</sch:assert>
+                        (true())">This FedRAMP SSP references 'email', 'e-mail', or 'electronic mail'.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:system-characteristics">
@@ -4303,9 +4313,13 @@
             doc:context="oscal:system-implementation"
             id="has-this-system-component-diagnostic">This FedRAMP SSP lacks a "this-system" component.</sch:diagnostic>        
         <sch:diagnostic
-            doc:assertion="has-email"
+            doc:assertion="not-has-email"
             doc:context="oscal:system-implementation"
-            id="has-email-diagnostic">DMARC, SPF, and DKIM is referenced in this SSP.</sch:diagnostic>
+            id="not-has-email-diagnostic">Electronic mail is not specified in this SSP.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-email-and-DMARC"
+            doc:context="oscal:system-implementation"
+            id="has-email-and-DMARC-diagnostic">One or more of the following is missing from this SSP: DMARC, SPF, or DKIM.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-system-id"
             doc:context="oscal:system-characteristics"
