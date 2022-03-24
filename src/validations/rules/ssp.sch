@@ -670,6 +670,23 @@
             <sch:let
                 name="missing"
                 value="$required-response-points[not(@id = $implemented/@statement-id)]" />
+            <sch:let
+                name="leveraged"
+                value="/o:system-security-plan/o:system-implementation/o:component[@type='leveraged-system']"/>
+            <sch:let 
+                name="familyName"
+                value="substring-before(@control-id, '-')"/>
+            <sch:let 
+                name="leveragedUUID"
+                value="prop[@name='leveraged-authorization-uuid']/@value"/>
+            <sch:assert 
+                diagnostics="leveraged-PE-controls-implemented-requirement-diagnostic"
+                id="leveraged-PE-controls-implemented-requirement"
+                role="warning"
+                test="if ($leveraged/@uuid eq $leveragedUUID and  $familyName eq 'pe')
+                then false()
+                else true()">This PE Control has a leveraged authorization - 
+                <xsl:value-of select="@control-id"/>.</sch:assert>            
             <sch:assert
                 diagnostics="invalid-implementation-status-diagnostic"
                 doc:checklist-reference="Section C Check 2"
@@ -3777,6 +3794,10 @@
             doc:assertion="leveraged-PE-controls"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
             id="leveraged-PE-controls-diagnostic">There are PE controls inherited from leveraged authorizations.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="leveraged-PE-controls-implemented-requirement"
+            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement"
+            id="leveraged-PE-controls-implemented-requirement-diagnostic">There are PE controls inherited from leveraged authorizations.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="missing-component-description"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
