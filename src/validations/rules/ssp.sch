@@ -2258,16 +2258,6 @@
                 name="emailString"
                 value="'email|e-mail|electronic mail'" />
             <sch:assert
-                diagnostics="not-has-email-diagnostic"
-                id="not-has-email"
-                role="warning"
-                test="
-                    if (//*[matches(lower-case(.), $emailString)])
-                    then
-                        (true())
-                    else
-                        (false())">This FedRAMP SSP does not reference 'email', 'e-mail', or 'electronic mail'.</sch:assert>
-            <sch:assert
                 diagnostics="has-email-and-DMARC-diagnostic"
                 id="has-email-and-DMARC"
                 role="warning"
@@ -4311,11 +4301,7 @@
         <sch:diagnostic
             doc:assertion="has-this-system-component"
             doc:context="oscal:system-implementation"
-            id="has-this-system-component-diagnostic">This FedRAMP SSP lacks a "this-system" component.</sch:diagnostic>        
-        <sch:diagnostic
-            doc:assertion="not-has-email"
-            doc:context="oscal:system-implementation"
-            id="not-has-email-diagnostic">Electronic mail is not specified in this SSP.</sch:diagnostic>
+            id="has-this-system-component-diagnostic">This FedRAMP SSP lacks a "this-system" component.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-email-and-DMARC"
             doc:context="oscal:system-implementation"

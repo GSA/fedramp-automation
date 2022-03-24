@@ -2239,6 +2239,7 @@
                       <p>Describe how the control is satisfied within the system.</p>
                       <p>DMARC is employed.</p>
                       <p>SPF is employed.</p>
+                      <p>DKIM is employed.</p>
                   </description>
                   <set-parameter param-id="si-8_prm_1">
                       <value>[replace with list of personnel or roles]</value>
