@@ -3328,6 +3328,14 @@
                 test="oscal:prop[@name eq 'cloud-service-model' and @value = $service-models]">A FedRAMP SSP must define an allowed cloud service
                 model.</sch:assert>
             <sch:assert
+                diagnostics="has-leveraged-authorization-with-cloud-service-model-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.15"
+                doc:template-reference="System Security Plan Template §8.1"
+                id="has-leveraged-authorization-with-cloud-service-model"
+                role="warning"
+                test="oscal:prop[@name eq 'cloud-service-model' and @value = ('saas', 'paas')] and ../oscal:system-implementation/oscal:leveraged-authorization">A FedRAMP SSP must define a leveraged authorization for any 'paas' or 'saas' cloud service
+                model.</sch:assert>
+            <sch:assert
                 diagnostics="has-cloud-service-model-remarks-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
@@ -4828,6 +4836,10 @@
             doc:assertion="has-allowed-cloud-service-model"
             doc:context="oscal:system-characteristics"
             id="has-allowed-cloud-service-model-diagnostic">A FedRAMP SSP must specify an allowed cloud service model.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-leveraged-authorization-with-cloud-service-model"
+            doc:context="oscal:system-characteristics"
+            id="has-leveraged-authorization-with-cloud-service-model-diagnostic">A FedRAMP SSP with a cloud service model of 'paas' or 'saas' must specify a leveraged authorization.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-cloud-service-model-remarks"
             doc:context="oscal:system-characteristics"

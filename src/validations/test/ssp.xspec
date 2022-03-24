@@ -10125,6 +10125,49 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+        
+        <x:scenario
+            label="A FedRAMP SSP must define a leveraged authorization for any paas or saas cloud service model.">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-characteristics
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop
+                            name="cloud-service-model"
+                            value="saas" />
+                        <prop
+                            name="cloud-service-model"
+                            value="paas" />
+                    </system-characteristics>
+                    <system-implementation
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <leveraged-authorization 
+                            uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
+                            <title>Name of Underlying System</title>
+                        </leveraged-authorization>
+                    </system-implementation>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-leveraged-authorization-with-cloud-service-model"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-characteristics
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop
+                            name="cloud-service-model"
+                            value="paas" />
+                    </system-characteristics>
+                </x:context>
+                <x:expect-assert
+                    id="has-leveraged-authorization-with-cloud-service-model"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        
         <x:scenario
             label="A FedRAMP SSP with a cloud service model of &quot;other&quot; must supply remarks.">
             <x:scenario
