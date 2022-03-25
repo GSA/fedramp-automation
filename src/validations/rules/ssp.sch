@@ -2396,9 +2396,9 @@
                         ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'SPF')] and
                         ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'DKIM')])
                         then
-                            (true())
+                            (false())
                         else
-                            (false()))
+                            (true()))
                     else
                         (true())">This FedRAMP SSP references 'email', 'e-mail', or 'electronic mail'.</sch:assert>
         </sch:rule>
