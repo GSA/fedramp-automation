@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-Extended Description**
+**Extended Description**
 - As a ... , in order to ... , I want ...
 
 **Preconditions**
@@ -23,7 +23,7 @@ Extended Description**
  - [ ] Acceptance criteria met
  - [ ] Unit test coverage of our code > 95%  
  - [ ] Automated code quality checks passed 
- - [ ] Security reviewed and reported (Wes to be consulted on this)
+ - [ ] Security reviewed and reported
  - [ ] Reviewed against plain language guidelines
  - [ ] Code must be self-documenting
  - [ ] No local tech debt
