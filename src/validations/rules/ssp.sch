@@ -4,10 +4,12 @@
     queryBinding="xslt2"
     xmlns:array="http://www.w3.org/2005/xpath-functions/array"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+    xmlns:feddoc="http://us.gov/documentation/federal-documentation"
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
     <sch:ns
         prefix="f"
         uri="https://fedramp.gov/ns/oscal" />
@@ -523,14 +525,42 @@
                 test="true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
                     select="$implemented/@statement-id" />.</sch:report>
         </sch:rule>
-        <sch:rule 
+        <sch:rule
+            context="o:system-security-plan/o:system-implementation/o:leveraged-authorization">
+            <sch:let
+                name="id"
+                value="o:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier']/@value" />
+            <sch:let
+                name="title"
+                value="o:title" />
+            <sch:assert
+                diagnostics="FedRAMP-ATO-Identifier-exists-diagnostics"
+                id="FedRAMP-ATO-Identifier-exists"
+                role="warning"
+                test="
+                    o:prop[
+                    @ns eq 'https://fedramp.gov/ns/oscal' and
+                    @name eq 'leveraged-system-identifier' and
+                    @value ne '']
+                    ">A leveraged authorization must have an identifier.</sch:assert>
+            <sch:assert
+                diagnostics="has-matching-ATO-identifier-diagnostic"
+                id="has-matching-ATO-identifier"
+                role="error"
+                test="
+                    not($use-remote-resources) or
+                    (some $p in array:flatten($fedramp_data?data?Providers)
+                        satisfies ($p?Package_ID eq $id and $p?Cloud_Service_Provider_Package eq $title))
+                    ">Leveraged Authorization ID and Title must match an existing Package ID and Cloud Service Provider
+                Package.</sch:assert>
+        </sch:rule>
+        <sch:rule
             context="o:system-security-plan/o:system-implementation/o:component">
-            <sch:assert 
+            <sch:assert
                 diagnostics="no-description-text-in-component-diagnostic"
                 id="no-description-text-in-component"
                 role="error"
-                test="o:description/o:p/text()">A component must have a description with content.
-            </sch:assert>
+                test="o:description/o:p/text()">A component must have a description with content. </sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation"
@@ -640,6 +670,23 @@
             <sch:let
                 name="missing"
                 value="$required-response-points[not(@id = $implemented/@statement-id)]" />
+            <sch:let
+                name="leveraged"
+                value="/o:system-security-plan/o:system-implementation/o:component[@type='leveraged-system']"/>
+            <sch:let 
+                name="familyName"
+                value="substring-before(@control-id, '-')"/>
+            <sch:let 
+                name="leveragedUUID"
+                value="prop[@name='leveraged-authorization-uuid']/@value"/>
+            <sch:assert 
+                diagnostics="leveraged-PE-controls-implemented-requirement-diagnostic"
+                id="leveraged-PE-controls-implemented-requirement"
+                role="warning"
+                test="if ($leveraged/@uuid eq $leveragedUUID and  $familyName eq 'pe')
+                then false()
+                else true()">This PE Control has a leveraged authorization - 
+                <xsl:value-of select="@control-id"/>.</sch:assert>            
             <sch:assert
                 diagnostics="invalid-implementation-status-diagnostic"
                 doc:checklist-reference="Section C Check 2"
@@ -704,18 +751,21 @@
                 value="./@component-uuid" />
             <sch:let
                 name="statementID"
-                value="../substring-before(@statement-id, '-')"/>
+                value="../substring-before(@statement-id, '-')" />
             <sch:let
                 name="leveraged"
-                value="/o:system-security-plan/o:system-implementation/o:component[@type='leveraged-system']"/>
-            <sch:assert 
+                value="/o:system-security-plan/o:system-implementation/o:component[@type = 'leveraged-system']" />
+            <sch:assert
                 diagnostics="leveraged-PE-controls-diagnostic"
                 id="leveraged-PE-controls"
                 role="warning"
-                test="if ($leveraged/@uuid eq $component-ref and $statementID eq 'pe')
-                then false()
-                else true()">This PE Control has a leveraged authorization - 
-                <xsl:value-of select="../@statement-id"/>.</sch:assert>
+                test="
+                    if ($leveraged/@uuid eq $component-ref and $statementID eq 'pe')
+                    then
+                        false()
+                    else
+                        true()">This PE Control has a leveraged authorization - <xsl:value-of
+                    select="../@statement-id" />.</sch:assert>
             <sch:assert
                 diagnostics="invalid-component-match-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -2121,6 +2171,18 @@
                 role="error"
                 test="not($is-infrastructure) or not(oscal:prop[(: @ns eq 'https://fedramp.gov/ns/oscal' and :)@name eq 'vendor-name'][2])">
                 "infrastructure" inventory item must have only one vendor-name property.</sch:assert>
+            <sch:let 
+                name="prohibit-vendor" 
+                value="'Dahua Technology Company', 'Dahua', 'Hangzhou Hikvision Digital Technology', 'Hangzhou', 'Hikvision', 
+                'Hangzhou Hikvision', 'Huawei', 'HyTera', 'Kaspersky Lab', 'Kaspersky', 'ZTE'"/>
+            <sch:assert
+                diagnostics="inventory-item-has-prohibited-vendor-name-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
+                doc:template-reference="System Security Plan Template §15 Attachment 13"
+                id="inventory-item-has-prohibited-vendor-name"
+                role="warning"
+                test="not(o:prop[@name eq 'vendor-name']/@value = $prohibit-vendor)">The information system must not contain the banned vendor - 
+                '<xsl:value-of select="o:prop[@name eq 'vendor-name']/@value"/>'.  See FAR 889(a)(1)(B).</sch:assert>
             <!-- FIXME: perversely, hardware-model is not in FedRAMP @ns -->
             <sch:assert
                 diagnostics="inventory-item-has-hardware-model-diagnostic"
@@ -2209,6 +2271,73 @@
                 role="error"
                 test="not($is-software-and-database) or not(oscal:prop[@name eq 'function'][2])">"software or database" inventory item must have one
                 function property.</sch:assert>
+            <sch:assert
+                diagnostics="inventory-item-network-address-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="inventory-item-network-address"
+                role="error"
+                test="
+                    if (o:prop[@name eq 'ipv4-address'])
+                    then
+                        (o:prop[@name eq 'ipv6-address'])
+                    else
+                        (true())">If any inventory-item has a prop with a name of 'ipv4-address' it must also have a prop with a name
+                of 'ipv6-address'</sch:assert>
+            <sch:assert
+                diagnostics="ipv4-has-content-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv4-has-content"
+                role="error"
+                test="
+                    if (o:prop[@name eq 'ipv4-address'])
+                    then
+                        (o:prop[matches(@value, '(^[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?$)')])
+                    else
+                        (true())"><xsl:value-of
+                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv4 value.</sch:assert>
+            <sch:assert
+                diagnostics="ipv4-has-non-placeholder-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv4-has-non-placeholder"
+                role="error"
+                test="
+                    if (o:prop[@name eq 'ipv4-address'])
+                    then
+                        (o:prop[matches(@value, '0.0.0.0')])
+                    else
+                        (false())"><xsl:value-of
+                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv4 value.</sch:assert>
+            <sch:let
+                name="IPv6-regex"
+                value="'(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:)
+                {1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:)
+                {1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]
+                {1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:
+                ((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'" />
+            <sch:assert
+                diagnostics="ipv6-has-content-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv6-has-content"
+                role="error"
+                test="
+                    if (o:prop[@name eq 'ipv6-address'])
+                    then
+                        (o:prop[matches(@value, $IPv6-regex)])
+                    else
+                        (true())"><xsl:value-of
+                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv6 value.</sch:assert>
+            <sch:assert
+                diagnostics="ipv6-has-non-placeholder-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv6-has-non-placeholder"
+                role="error"
+                test="
+                    if (o:prop[@name eq 'ipv6-address']/@value eq '::')
+                    then
+                        (false())
+                    else
+                        (true())"><xsl:value-of
+                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv6 value.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -2217,7 +2346,6 @@
             context="oscal:system-implementation"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6"
             see="Guide to OSCAL-based FedRAMP System Security Plans §5.4.6">
-
             <sch:assert
                 diagnostics="has-users-internal-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.19"
@@ -2492,40 +2620,50 @@
                 id="party-has-responsibility"
                 role="warning"
                 test="//oscal:responsible-party[oscal:party-uuid = current()/@uuid]">Each person should have a responsibility.</sch:assert>
+            <sch:assert
+                diagnostics="party-has-one-responsibility-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
+                id="party-has-one-responsibility"
+                role="warning"
+                test="count(//oscal:responsible-party[oscal:party-uuid = current()/@uuid]) eq 1">Each person should have no more than one responsibility.</sch:assert>
+                
         </sch:rule>
-        <sch:rule 
+        <sch:rule
             context="oscal:location[oscal:prop[@value eq 'data-center']]"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23">
-            <sch:assert 
+            <sch:assert
                 diagnostics="data-center-count-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
                 id="data-center-count"
                 role="warning"
-                test="count(../oscal:location[oscal:prop[@value eq 'data-center']]) &gt; 1">There must be at least two (2) data centers listed.</sch:assert>  
-            <sch:assert 
+                test="count(../oscal:location[oscal:prop[@value eq 'data-center']]) &gt; 1">There must be at least two (2) data centers
+                listed.</sch:assert>
+            <sch:assert
                 diagnostics="data-center-primary-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
                 id="data-center-primary"
                 role="warning"
-                test="count(../oscal:location/oscal:prop[@value eq 'data-center'][@class eq 'primary']) = 1">There is a single primary data center.</sch:assert>   
-            <sch:assert 
+                test="count(../oscal:location/oscal:prop[@value eq 'data-center'][@class eq 'primary']) = 1">There is a single primary data
+                center.</sch:assert>
+            <sch:assert
                 diagnostics="data-center-alternate-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
                 id="data-center-alternate"
                 role="warning"
-                test="count(../oscal:location/oscal:prop[@value eq 'data-center'][@class eq 'alternate']) &gt; 0">There is one or more alternate data center(s).</sch:assert>   
-            <sch:assert 
+                test="count(../oscal:location/oscal:prop[@value eq 'data-center'][@class eq 'alternate']) &gt; 0">There is one or more alternate data
+                center(s).</sch:assert>
+            <sch:assert
                 diagnostics="data-center-country-code-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
                 id="data-center-country-code"
                 role="warning"
                 test="oscal:address/oscal:country">Each data center address must contain a country.</sch:assert>
-            <sch:assert 
+            <sch:assert
                 diagnostics="data-center-US-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.23"
                 id="data-center-US"
                 role="warning"
-                test="oscal:address/oscal:country eq 'US'">Each data center must have an address that is within the United States.</sch:assert>    
+                test="oscal:address/oscal:country eq 'US'">Each data center must have an address that is within the United States.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -3226,6 +3364,14 @@
                 test="oscal:prop[@name eq 'cloud-service-model' and @value = $service-models]">A FedRAMP SSP must define an allowed cloud service
                 model.</sch:assert>
             <sch:assert
+                diagnostics="has-leveraged-authorization-with-cloud-service-model-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.15"
+                doc:template-reference="System Security Plan Template §8.1"
+                id="has-leveraged-authorization-with-cloud-service-model"
+                role="warning"
+                test="oscal:prop[@name eq 'cloud-service-model' and @value = ('saas', 'paas')] and ../oscal:system-implementation/oscal:leveraged-authorization">A FedRAMP SSP must define a leveraged authorization for any 'paas' or 'saas' cloud service
+                model.</sch:assert>
+            <sch:assert
                 diagnostics="has-cloud-service-model-remarks-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.13"
                 doc:template-reference="System Security Plan Template §8.1"
@@ -3557,11 +3703,12 @@
         <sch:diagnostic
             doc:assertion="data-center-country-code"
             doc:context="/o:location"
-            id="data-center-country-code-diagnostic">The data center address does not show a country.</sch:diagnostic>        
+            id="data-center-country-code-diagnostic">The data center address does not show a country.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="data-center-US"
             doc:context="/o:location"
-            id="data-center-US-diagnostic">The location address for a data center is not within the United States.  The country element must contain the string 'US'.</sch:diagnostic>
+            id="data-center-US-diagnostic">The location address for a data center is not within the United States. The country element must contain
+            the string 'US'.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="no-registry-values"
             doc:context="/o:system-security-plan"
@@ -3583,7 +3730,13 @@
         <sch:diagnostic
             doc:assertion="no-description-text-in-component"
             doc:context="o:system-security-plan/o:system-implementation/o:component"
-            id="no-description-text-in-component-diagnostic">Component _<xsl:value-of select="o:title"/>_ is missing a description.</sch:diagnostic>
+            id="no-description-text-in-component-diagnostic">Component _<xsl:value-of
+                select="o:title" />_ is missing a description.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="FedRAMP-ATO-Identifier-exists"
+            doc:context="o:system-security-plan/o:system-implementation/o:leveraged-authorization"
+            id="FedRAMP-ATO-Identifier-exists-diagnostics">Component _<xsl:value-of
+                select="o:title" />_ is missing an identifier.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-core-implemented-requirements"
             doc:context="/o:system-security-plan/o:control-implementation"
@@ -3660,6 +3813,10 @@
             doc:assertion="leveraged-PE-controls"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
             id="leveraged-PE-controls-diagnostic">There are PE controls inherited from leveraged authorizations.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="leveraged-PE-controls-implemented-requirement"
+            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement"
+            id="leveraged-PE-controls-implemented-requirement-diagnostic">There are PE controls inherited from leveraged authorizations.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="missing-component-description"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
@@ -3825,27 +3982,23 @@
         <sch:diagnostic
             doc:assertion="has-policy-link"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-policy-link-diagnostic">implemented-requirement 
-            <sch:value-of
+            id="has-policy-link-diagnostic">implemented-requirement <sch:value-of
                 select="@control-id" /> lacks policy reference(s) via legacy or component approach.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-policy-attachment-resource"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-policy-attachment-resource-diagnostic">implemented-requirement 
-            <sch:value-of
+            id="has-policy-attachment-resource-diagnostic">implemented-requirement <sch:value-of
                 select="@control-id" /> lacks policy attachment resource(s) <sch:value-of
                 select="string-join($policy-hrefs, ', ')" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-procedure-link"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-procedure-link-diagnostic">implemented-requirement 
-            <sch:value-of 
+            id="has-procedure-link-diagnostic">implemented-requirement <sch:value-of
                 select="@control-id" /> lacks procedure reference(s) via legacy or component approach.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-procedure-attachment-resource"
             doc:context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
-            id="has-procedure-attachment-resource-diagnostic">implemented-requirement 
-            <sch:value-of
+            id="has-procedure-attachment-resource-diagnostic">implemented-requirement <sch:value-of
                 select="@control-id" /> lacks procedure attachment resource(s) <sch:value-of
                 select="string-join($procedure-hrefs, ', ')" />.</sch:diagnostic>
         <sch:diagnostic
@@ -4241,6 +4394,10 @@
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-one-vendor-name-diagnostic">This inventory-item has more than one vendor-name property.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="inventory-item-has-prohibited-vendor-name"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'vendor-name']]"
+            id="inventory-item-has-prohibited-vendor-name-diagnostic">This inventory-item contains a banned vendor.</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="inventory-item-has-hardware-model"
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-hardware-model-diagnostic">This inventory-item lacks a hardware-model property.</sch:diagnostic>
@@ -4286,6 +4443,30 @@
             <sch:value-of
                 select="name()" /> "<sch:value-of
                 select="oscal:prop[@name eq 'asset-type']/@value" />" has more than one function property.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="inventory-item-network-address"
+            doc:context="o:inventory-item[o:prop[@name eq 'ipv4-address'] or @name eq [@name eq 'ipv6-address']]"
+            id="inventory-item-network-address-diagnostic">
+            <sch:value-of
+                select="o:prop[@name = 'asset-id']/@value" /> has an IPv4 address but does not have an IPv6 address.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="ipv4-has-content"
+            doc:context="o:inventory-item[o:prop[@name eq 'ipv4-address']]"
+            id="ipv4-has-content-diagnostic">The @value content of prop whose @name is 'ipv4-address' has incorrect content.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="ipv4-has-non-placeholder"
+            doc:context="o:inventory-item[o:prop[@name eq 'ipv4-address']]"
+            id="ipv4-has-non-placeholder-diagnostic">The @value content of prop whose @name is 'ipv4-address' has placeholder value of
+            0.0.0.0.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="ipv6-has-non-placeholder"
+            doc:context="o:inventory-item[o:prop[@name eq 'ipv6-address']]"
+            id="ipv6-has-non-placeholder-diagnostic">The @value content of prop whose @name is 'ipv6-address' has placeholder value of
+            ::.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="ipv6-has-content"
+            doc:context="o:inventory-item[o:prop[@name eq 'ipv6-address']]"
+            id="ipv6-has-content-diagnostic">The @value content of prop whose @name is 'ipv6-address' has incorrect content.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="component-has-asset-type"
             doc:context="/oscal:system-security-plan/oscal:system-implementation/oscal:component[(: a component referenced by any inventory-item :)@uuid = //oscal:inventory-item/oscal:implemented-component/@component-uuid]"
@@ -4347,6 +4528,11 @@
             doc:context="oscal:system-characteristics/oscal:system-id[@identifier-type eq 'https://fedramp.gov']"
             id="has-active-system-id-diagnostic">This FedRAMP SSP does not have an active FedRAMP system identifier.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="has-matching-ATO-identifier"
+            doc:context="oscal:system-security-plan/oscal:system-implementation/oscal:leveraged-authorization"
+            id="has-matching-ATO-identifier-diagnostic">A FedRAMP Leveraged System Identifier property value and Title must match a Package Identifer
+            and the associated Cloud Service Provider Package name in the FedRAMP Compilation List.</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="role-defined-system-owner"
             doc:context="oscal:metadata"
             id="role-defined-system-owner-diagnostic">The system-owner role is missing.</sch:diagnostic>
@@ -4402,6 +4588,10 @@
             doc:assertion="party-has-responsibility"
             doc:context="oscal:party[@type eq 'person']"
             id="party-has-responsibility-diagnostic">This person has no responsibility.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="party-has-one-responsibility"
+            doc:context="oscal:party[@type eq 'person']"
+            id="party-has-one-responsibility-diagnostic"><xsl:value-of select="o:name"/> - This person has more than one responsibility.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-responsible-role"
             doc:context="oscal:implemented-requirement"
@@ -4690,6 +4880,10 @@
             doc:assertion="has-allowed-cloud-service-model"
             doc:context="oscal:system-characteristics"
             id="has-allowed-cloud-service-model-diagnostic">A FedRAMP SSP must specify an allowed cloud service model.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-leveraged-authorization-with-cloud-service-model"
+            doc:context="oscal:system-characteristics"
+            id="has-leveraged-authorization-with-cloud-service-model-diagnostic">A FedRAMP SSP with a cloud service model of 'paas' or 'saas' must specify a leveraged authorization.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-cloud-service-model-remarks"
             doc:context="oscal:system-characteristics"

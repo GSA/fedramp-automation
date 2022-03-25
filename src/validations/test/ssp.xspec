@@ -6181,7 +6181,35 @@
                         id="inventory-item-has-one-vendor-name"
                         label="error" />
                 </x:scenario>
+            </x:scenario>            
+            <x:scenario
+                label="has an acceptable vendor-name value">
+                <x:context>
+                    <inventory-item
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop
+                            name="vendor-name" 
+                            value="Amazon"/>
+                    </inventory-item>
+                </x:context>
+                <x:expect-not-assert
+                    id="inventory-item-has-prohibited-vendor-name"
+                    label="that is correct" />
             </x:scenario>
+            <x:scenario
+                label="has a prohibited vendor-name value">
+                <x:context>
+                    <inventory-item
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop
+                            name="vendor-name"
+                            value="Huawei"/>
+                    </inventory-item>
+                </x:context>
+                <x:expect-assert
+                    id="inventory-item-has-prohibited-vendor-name"
+                    label="that is an error" />
+            </x:scenario>            
             <x:scenario
                 label="&quot;infrastructure&quot; asset-type has a hardware-model property.">
                 <x:scenario
@@ -6513,6 +6541,137 @@
                 </x:scenario>
             </x:scenario>
             <!-- FIXME: Software/Database Vendor -->
+            <x:scenario
+                label="both ipv4 and ipv6 defined in inventory-item">
+                <x:scenario
+                    label="affirmative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="10.2.2.2"/>
+                            <prop 
+                                name="ipv6-address" 
+                                value="0000:0000:0000:0000"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="inventory-item-network-address"
+                        label="correct" />
+                </x:scenario>
+                <x:scenario
+                    label="negative"
+                    pending="XSpec error resolution">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="10.2.2.2"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert
+                        id="inventory-item-network-address"
+                        label="error" />
+                </x:scenario>
+            </x:scenario>            
+            <x:scenario
+                label="ipv4 has appropriate content">
+                <x:scenario
+                    label="affirmative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="10.2.2"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv4-has-content-diagnostic"
+                        label="correct" />
+                </x:scenario>
+                <x:scenario
+                    label="negative"
+                    pending="XSpec error resolution">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="10.2.2.2"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv4-has-content-diagnostic"
+                        label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="inventory-item has property name 'ipv4-address' that is a placeholder value">
+                <x:scenario
+                    label="affirmative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="0.0.0.0"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv4-has-non-placeholder"
+                        label="correct" />
+                </x:scenario>
+                <x:scenario
+                    label="negative"
+                    pending="XSpec error resolution">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv4-address" 
+                                value="10.2.2.2"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv4-has-non-placeholder"
+                        label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="ipv6 has appropriate content">
+                <x:scenario
+                    label="affirmative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv6-address" 
+                                value="2001:0db8:85a3:0000:0000:8a2e:0370:7334"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv6-has-content"
+                        label="correct" />
+                </x:scenario>
+                <x:scenario
+                    label="negative"
+                    pending="XSpec error resolution">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv6-address" 
+                                value="1234:5678:9012:3456"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv6-has-content"
+                        label="error" />
+                </x:scenario>
+            </x:scenario>
         </x:scenario>
     </x:scenario>
     <x:scenario
@@ -6688,6 +6847,29 @@
                     </x:context>
                     <x:expect-not-assert
                         id="no-description-text-in-component"
+                        label="this is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="A FedRAMP SSP leveraged authorization must contain an ATO identifier">
+                <x:scenario
+                    label="When it does">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
+                                    <title>Name of Underlying System</title>         
+                                    <prop 
+                                        ns="https://fedramp.gov/ns/oscal" 
+                                        name="leveraged-system-identifier" 
+                                        value="F1206061353" />
+                                </leveraged-authorization>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="FedRAMP-ATO-Identifier-exists"
                         label="this is correct." />
                 </x:scenario>
             </x:scenario>
@@ -6911,7 +7093,25 @@
                         label="this is an error." />
                 </x:scenario>
             </x:scenario>
-            
+            <x:scenario
+                label="A FedRAMP SSP leveraged authorization must contain an ATO identifier">
+                <x:scenario
+                    label="When it does not">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
+                                    <title>Name of Underlying System</title>         
+                                </leveraged-authorization>
+                            </system-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="FedRAMP-ATO-Identifier-exists"
+                        label="this is an error." />
+                </x:scenario>
+            </x:scenario>
         </x:scenario>
     </x:scenario>
     <x:scenario
@@ -7189,6 +7389,28 @@
                     label="When that is true">
                     <x:expect-not-assert
                         id="party-has-responsibility"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            
+            <x:scenario
+                label="Each person must have no more than one responsibility.">
+                <x:context>
+                    <metadata
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <party
+                            type="person"
+                            uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
+                        <responsible-party
+                            role-id="system-owner">
+                            <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
+                        </responsible-party>
+                    </metadata>
+                </x:context>
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="party-has-one-responsibility"
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
@@ -7639,6 +7861,32 @@
                     label="When that is false">
                     <x:expect-assert
                         id="party-has-responsibility"
+                        label="that is an anomaly." />
+                </x:scenario>
+            </x:scenario>
+            
+            <x:scenario
+                label="Each person must have no more than one responsibility.">
+                <x:context>
+                    <metadata
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <party
+                            type="person"
+                            uuid="9c832af0-0c65-4c29-85e9-38aee0ce6a7b" />
+                        <responsible-party
+                            role-id="system-owner">
+                            <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
+                        </responsible-party>
+                        <responsible-party
+                            role-id="content-approver">
+                            <party-uuid>9c832af0-0c65-4c29-85e9-38aee0ce6a7b</party-uuid>
+                        </responsible-party>
+                    </metadata>
+                </x:context>
+                <x:scenario
+                    label="When that is false">
+                    <x:expect-assert
+                        id="party-has-one-responsibility"
                         label="that is an anomaly." />
                 </x:scenario>
             </x:scenario>
@@ -9835,7 +10083,33 @@
                     </system-security-plan>
                 </x:context>
                 <x:expect-not-assert
-                    id="PE-control-1"
+                    id="leveraged-PE-controls"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system">
+                                <title>Name of Leveraged System</title>
+                                <description>
+                                    <p>If the leveraged system owner provides a UUID for their system (such as in an
+                                        OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
+                                        property.</p>
+                                </description>
+                            </component>
+                        </system-implementation>
+                        <control-implementation>
+                            <implemented-requirement uuid="uuid-value" control-id="pe-1">
+                                <prop name="leveraged-authorization-uuid" value="e82e6e07-0c62-417e-8a19-3744991b4c65"/>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="leveraged-PE-controls-implemented-requirement"
                     label="that is correct" />
             </x:scenario>
         </x:scenario>
@@ -10010,6 +10284,49 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+        
+        <x:scenario
+            label="A FedRAMP SSP must define a leveraged authorization for any paas or saas cloud service model.">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-characteristics
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop
+                            name="cloud-service-model"
+                            value="saas" />
+                        <prop
+                            name="cloud-service-model"
+                            value="paas" />
+                    </system-characteristics>
+                    <system-implementation
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <leveraged-authorization 
+                            uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
+                            <title>Name of Underlying System</title>
+                        </leveraged-authorization>
+                    </system-implementation>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-leveraged-authorization-with-cloud-service-model"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-characteristics
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <prop
+                            name="cloud-service-model"
+                            value="paas" />
+                    </system-characteristics>
+                </x:context>
+                <x:expect-assert
+                    id="has-leveraged-authorization-with-cloud-service-model"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        
         <x:scenario
             label="A FedRAMP SSP with a cloud service model of &quot;other&quot; must supply remarks.">
             <x:scenario

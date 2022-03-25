@@ -27,6 +27,16 @@
         indent="false"
         method="xml" />
     <xsl:variable
+        as="xs:duration"
+        name="UTC"
+        select="xs:dayTimeDuration('PT0H')" />
+    <xsl:variable
+        name="UTC-date"
+        select="adjust-date-to-timezone(current-date(), $UTC)" />
+    <xsl:variable
+        name="UTC-datetime"
+        select="adjust-dateTime-to-timezone(current-dateTime(), $UTC)" />
+    <xsl:variable
         as="xs:string"
         name="user-uuid"
         select="uuid:randomUUID()" />
@@ -120,7 +130,7 @@
                 </title>
                 <last-modified>
                     <xsl:value-of
-                        select="current-dateTime()" />
+                        select="$UTC-datetime" />
                 </last-modified>
                 <version>0.1</version>
                 <oscal-version>1.0.0</oscal-version>
@@ -846,7 +856,7 @@
                             <prop
                                 name="planned-completion-date"
                                 ns="https://fedramp.gov/ns/oscal"
-                                value="2021-09-22Z" />
+                                value="{$UTC-date + xs:dayTimeDuration('P30D')}" />
                         </xsl:if>
                         <xsl:comment>
                             <xsl:choose>
