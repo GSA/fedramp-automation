@@ -2171,10 +2171,19 @@
                 role="error"
                 test="not($is-infrastructure) or not(oscal:prop[(: @ns eq 'https://fedramp.gov/ns/oscal' and :)@name eq 'vendor-name'][2])">
                 "infrastructure" inventory item must have only one vendor-name property.</sch:assert>
+            <!-- Last Updated 2022-03-28 -->
+            <!-- See List of Equipment and Services Covered By Section 2 of The Secure Networks Act - https://www.fcc.gov/supplychain/coveredlist  -->
             <sch:let 
                 name="prohibit-vendor" 
-                value="'Dahua Technology Company', 'Dahua', 'Hangzhou Hikvision Digital Technology', 'Hangzhou', 'Hikvision', 
-                'Hangzhou Hikvision', 'Huawei', 'HyTera', 'Kaspersky Lab', 'Kaspersky', 'ZTE'"/>
+                value="'Dahua Technology Company', 'Dahua',
+                'Hangzhou Hikvision Digital Technology', 'Hangzhou', 
+                'Hikvision', 'Hangzhou Hikvision', 
+                'Huawei', 'Huawei Technologies Company', 
+                'HyTera', 'Hytera Communications Corporation', 
+                'AO Kaspersky Lab', 'Kaspersky Lab', 'Kaspersky', 
+                'ZTE', 'ZTE Corporation', 
+                'China Mobile International USA Inc',
+                'China Telecom (Americas) Corp'"/>
             <sch:assert
                 diagnostics="inventory-item-has-prohibited-vendor-name-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
@@ -4377,7 +4386,7 @@
         <sch:diagnostic
             doc:assertion="inventory-item-has-prohibited-vendor-name"
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'vendor-name']]"
-            id="inventory-item-has-prohibited-vendor-name-diagnostic">This inventory-item contains a banned vendor.</sch:diagnostic>
+            id="inventory-item-has-prohibited-vendor-name-diagnostic">This inventory-item contains a banned vendor.  Please see https://www.fcc.gov/supplychain/coveredlist.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-hardware-model"
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
