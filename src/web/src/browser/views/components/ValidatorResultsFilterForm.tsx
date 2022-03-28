@@ -19,6 +19,40 @@ export const ValidatorResultsFilterForm = () => {
       <h2 ref={topRef}>Filtering Options</h2>
       <form className="usa-form padding-top-1">
         <fieldset className="usa-fieldset">
+          <legend className="usa-legend text-base font-sans-md">
+            Filter by pass status
+          </legend>
+          <div className="usa-radio">
+            {schematron.filterOptions.passStatuses.map(passStatus => (
+              <div key={passStatus.id}>
+                <input
+                  className="usa-radio__input usa-radio__input--tile"
+                  id={`status-${passStatus.id}`}
+                  type="radio"
+                  name="pass-status"
+                  value={passStatus.id}
+                  checked={schematron.filter.passStatus === passStatus.id}
+                  disabled={!passStatus.enabled}
+                  onChange={() => {
+                    actions.schematron.setPassStatus(passStatus.id);
+                    scrollIntoView();
+                  }}
+                />
+                <label
+                  className="usa-radio__label"
+                  htmlFor={`status-${passStatus.id}`}
+                >
+                  {passStatus.title}
+                  <span
+                    className="margin-left-1 usa-tag"
+                    title={`${passStatus.count} results`}
+                  >
+                    {passStatus.count}
+                  </span>
+                </label>
+              </div>
+            ))}
+          </div>
           <legend className="usa-legend font-sans-md">Select a view</legend>
           <div className="usa-radio">
             {schematron.filterOptions.assertionViews.map(assertionView => (

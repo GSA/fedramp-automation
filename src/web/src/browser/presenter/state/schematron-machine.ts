@@ -2,6 +2,7 @@ import { derived, Statemachine, statemachine } from 'overmind';
 
 import {
   getFilterOptions,
+  PassStatus,
   Role,
   SchematronFilter,
   SchematronFilterOptions,
@@ -51,6 +52,12 @@ type Events =
       data: {
         assertionViewId: number;
       };
+    }
+  | {
+      type: 'FILTER_PASS_STATUS_CHANGED';
+      data: {
+        passStatus: PassStatus;
+      };
     };
 
 export type SchematronMachine = Statemachine<States, Events, BaseState>;
@@ -70,9 +77,8 @@ const schematronMachine = statemachine<States, Events, BaseState>({
         current: 'INITIALIZED',
         config: state.config,
         filter: {
-          role: state.filter.role,
+          ...state.filter,
           text,
-          assertionViewId: state.filter.assertionViewId,
         },
       };
     },
@@ -81,9 +87,8 @@ const schematronMachine = statemachine<States, Events, BaseState>({
         current: 'INITIALIZED',
         config: state.config,
         filter: {
-          role: role,
-          text: state.filter.text,
-          assertionViewId: state.filter.assertionViewId,
+          ...state.filter,
+          role,
         },
       };
     },
@@ -93,7 +98,17 @@ const schematronMachine = statemachine<States, Events, BaseState>({
         config: state.config,
         filter: {
           ...state.filter,
-          assertionViewId: assertionViewId,
+          assertionViewId,
+        },
+      };
+    },
+    FILTER_PASS_STATUS_CHANGED: ({ passStatus }, state) => {
+      return {
+        current: 'INITIALIZED',
+        config: state.config,
+        filter: {
+          ...state.filter,
+          passStatus,
         },
       };
     },
@@ -109,12 +124,19 @@ export const createSchematronMachine = () => {
         schematronAsserts: [],
       },
       filter: {
+        passStatus: 'all',
         role: 'all',
         text: '',
         assertionViewId: 0,
       },
       filterOptions: derived((state: SchematronMachine) =>
-        getFilterOptions({ config: state.config, filter: state.filter }),
+        getFilterOptions({
+          config: state.config,
+          filter: state.filter,
+          failedAssertionMap: state.validator.matches('VALIDATED')
+            ? state.validator.assertionsById
+            : null,
+        }),
       ),
       schematronReport: derived((state: SchematronMachine) =>
         getSchematronReport({

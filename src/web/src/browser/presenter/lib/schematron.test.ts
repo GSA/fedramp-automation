@@ -1,3 +1,4 @@
+import type { PassStatus } from './schematron';
 import * as lib from './schematron';
 
 describe('presenter schematron library', () => {
@@ -35,6 +36,7 @@ describe('presenter schematron library', () => {
         ],
       },
       filter: {
+        passStatus: 'all' as PassStatus,
         role: 'error',
         text: '',
         assertionViewId: 0,
@@ -50,6 +52,14 @@ describe('presenter schematron library', () => {
         roles: [
           { name: 'error', subtitle: 'sub1', count: 5 },
           { name: 'warning', subtitle: 'sub2', count: 6 },
+        ],
+        passStatuses: [
+          {
+            id: 'all' as PassStatus,
+            count: 5,
+            title: 'All',
+            enabled: false,
+          },
         ],
       },
       validator: {
@@ -130,10 +140,12 @@ describe('presenter schematron library', () => {
           schematronAsserts: [],
         },
         filter: {
+          passStatus: 'all',
           role: 'error',
           text: '',
           assertionViewId: 1,
         },
+        failedAssertionMap: null,
       });
       expect(options).toEqual({
         assertionViews: [],
@@ -142,6 +154,26 @@ describe('presenter schematron library', () => {
             count: 0,
             name: 'all',
             subtitle: 'View all rules',
+          },
+        ],
+        passStatuses: [
+          {
+            count: 0,
+            enabled: false,
+            id: 'all',
+            title: 'All assertions',
+          },
+          {
+            count: 0,
+            enabled: false,
+            id: 'pass',
+            title: 'Passing assertions',
+          },
+          {
+            count: 0,
+            enabled: false,
+            id: 'fail',
+            title: 'Failing assertions',
           },
         ],
       });
@@ -168,10 +200,12 @@ describe('presenter schematron library', () => {
           ],
         },
         filter: {
+          passStatus: 'all',
           role: 'error',
           text: '',
           assertionViewId: 0,
         },
+        failedAssertionMap: null,
       });
       expect(options).toEqual({
         assertionViews: [
@@ -189,6 +223,26 @@ describe('presenter schematron library', () => {
             count: 2,
           },
         ],
+        passStatuses: [
+          {
+            count: 2,
+            enabled: false,
+            id: 'all',
+            title: 'All assertions',
+          },
+          {
+            count: 2,
+            enabled: false,
+            id: 'pass',
+            title: 'Passing assertions',
+          },
+          {
+            count: 2,
+            enabled: false,
+            id: 'fail',
+            title: 'Failing assertions',
+          },
+        ],
       });
     });
   });
@@ -199,11 +253,13 @@ describe('presenter schematron library', () => {
         lib.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            passStatus: 'all',
             role: 'error',
             text: '',
             assertionViewIds: ['incorrect-role-association'],
           },
           ['error', 'info'],
+          null,
         ),
       ).toEqual([
         {
@@ -218,11 +274,13 @@ describe('presenter schematron library', () => {
         lib.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            passStatus: 'all',
             role: 'all',
             text: 'role assertion',
             assertionViewIds: ['incorrect-role-association'],
           },
           ['error', 'info'],
+          null,
         ),
       ).toEqual([
         {
@@ -237,11 +295,13 @@ describe('presenter schematron library', () => {
         lib.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            passStatus: 'all',
             role: 'non-matching',
             text: 'role assertion',
             assertionViewIds: ['incorrect-role-association'],
           },
           ['error', 'info'],
+          null,
         ),
       ).toEqual([]);
     });
@@ -250,11 +310,13 @@ describe('presenter schematron library', () => {
         lib.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            passStatus: 'all',
             role: 'error',
             text: 'non-matching',
             assertionViewIds: ['incorrect-role-association'],
           },
           ['error', 'info'],
+          null,
         ),
       ).toEqual([]);
     });

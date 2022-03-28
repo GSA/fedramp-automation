@@ -1,4 +1,4 @@
-import type { Role } from '../lib/schematron';
+import type { PassStatus, Role } from '../lib/schematron';
 import type { PresenterConfig } from '..';
 
 export const initialize = ({ effects, state }: PresenterConfig) => {
@@ -28,4 +28,11 @@ export const setFilterAssertionView = (
   assertionViewId: number,
 ) => {
   state.schematron.send('FILTER_ASSERTION_VIEW_CHANGED', { assertionViewId });
+};
+
+export const setPassStatus = (
+  { state }: PresenterConfig,
+  passStatus: PassStatus,
+) => {
+  state.schematron.send('FILTER_PASS_STATUS_CHANGED', { passStatus });
 };
