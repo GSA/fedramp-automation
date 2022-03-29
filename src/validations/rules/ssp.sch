@@ -2186,12 +2186,10 @@
                 'China Telecom', 'China Telecom (Americas) Corp')"/>
             <sch:assert
                 diagnostics="has-prohibited-vendor-name-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="has-prohibited-vendor-name"
+                feddoc:reference-documentation="FAR 889(a)(1)(B)"
                 role="warning"
-                test="not(o:prop[@name eq 'vendor-name']/@value = $prohibit-vendor)">The information system contains a banned vendor - 
-                '<xsl:value-of select="o:prop[@name eq 'vendor-name']/@value"/>'.  See FAR 889(a)(1)(B).</sch:assert>
+                test="not(o:prop[@name eq 'vendor-name']/@value = $prohibit-vendor)">The inventory item does not cite a banned vendor.</sch:assert>
             <!-- FIXME: perversely, hardware-model is not in FedRAMP @ns -->
             <sch:assert
                 diagnostics="inventory-item-has-hardware-model-diagnostic"
