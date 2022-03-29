@@ -17,6 +17,7 @@ assignees: ''
 - [ ] All Schematron assertion messages are declarative statements which affirm the positive test outcome.
 - [ ] All Schematron assertion diagnostic messages are declarative statements which explain the negative test outcome.
 - [ ] The Schematron code has no assertion failures when validated using `src/validations/styleguides/sch.sch` using the `basic` phase.
+- [ ] XSpec unit tests for positive and negative Schematron assertion outcomes accompany all Schematron assertions (where feasible).
 - More acceptance criteria…
 
 **Story Tasks**
