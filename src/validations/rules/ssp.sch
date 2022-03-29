@@ -2400,7 +2400,7 @@
                         else
                             (true()))
                     else
-                        (true())">This FedRAMP SSP references 'email', 'e-mail', or 'electronic mail'.</sch:assert>
+                        (true())">Email is either absent or sufficiently specified.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:system-characteristics">
@@ -4486,7 +4486,7 @@
         <sch:diagnostic
             doc:assertion="has-email-and-DMARC"
             doc:context="oscal:system-implementation"
-            id="has-email-and-DMARC-diagnostic">One or more of the following is missing from this SSP: DMARC, SPF, or DKIM.</sch:diagnostic>
+            id="has-email-and-DMARC-diagnostic">Email is present but one or more of the following is missing from this SSP: DMARC, SPF, or DKIM.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-system-id"
             doc:context="oscal:system-characteristics"
