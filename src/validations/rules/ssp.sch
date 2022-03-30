@@ -672,21 +672,24 @@
                 value="$required-response-points[not(@id = $implemented/@statement-id)]" />
             <sch:let
                 name="leveraged"
-                value="/o:system-security-plan/o:system-implementation/o:component[@type='leveraged-system']"/>
-            <sch:let 
+                value="/o:system-security-plan/o:system-implementation/o:component[@type = 'leveraged-system']" />
+            <sch:let
                 name="familyName"
-                value="substring-before(@control-id, '-')"/>
-            <sch:let 
+                value="substring-before(@control-id, '-')" />
+            <sch:let
                 name="leveragedUUID"
-                value="prop[@name='leveraged-authorization-uuid']/@value"/>
-            <sch:assert 
+                value="prop[@name = 'leveraged-authorization-uuid']/@value" />
+            <sch:assert
                 diagnostics="leveraged-PE-controls-implemented-requirement-diagnostic"
                 id="leveraged-PE-controls-implemented-requirement"
                 role="warning"
-                test="if ($leveraged/@uuid eq $leveragedUUID and  $familyName eq 'pe')
-                then false()
-                else true()">This PE Control has a leveraged authorization - 
-                <xsl:value-of select="@control-id"/>.</sch:assert>            
+                test="
+                    if ($leveraged/@uuid eq $leveragedUUID and $familyName eq 'pe')
+                    then
+                        false()
+                    else
+                        true()">This PE Control has a leveraged authorization - <xsl:value-of
+                    select="@control-id" />.</sch:assert>
             <sch:assert
                 diagnostics="invalid-implementation-status-diagnostic"
                 doc:checklist-reference="Section C Check 2"
@@ -695,6 +698,21 @@
                 id="invalid-implementation-status"
                 role="error"
                 test="not(exists($corrections))">[Section C Check 2] Implementation status is correct.</sch:assert>
+            <sch:assert
+                diagnostics="DNSSEC-described-diagnostic"
+                id="DNSSEC-described"
+                role="warning"
+                test="
+                    if (matches(@control-id, 'sc-20|sc-21'))
+                    then
+                        (if (self::o:implemented-requirement//*[matches(., 'DNSSEC|DNS Security Extensions')])
+                        then
+                            (true())
+                        else
+                            (false()))
+                    else
+                        (true())">Implemented Requirement <xsl:value-of
+                    select="@control-id" /> exists.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement">
@@ -3785,6 +3803,11 @@
                 select="../@statement-id" /> has remarks not within a component. That was previously allowed, but not recommended. It will soon be
             syntactically invalid and deprecated.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="DNSSEC-described"
+            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement"
+            id="DNSSEC-described-diagnostic">The implemented requirement does not contain the strings 'DNSSEC' or 'DNS Security
+            Extensions'.</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="invalid-component-match"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
             id="invalid-component-match-diagnostic">Response statement <sch:value-of
@@ -3797,7 +3820,8 @@
         <sch:diagnostic
             doc:assertion="leveraged-PE-controls-implemented-requirement"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement"
-            id="leveraged-PE-controls-implemented-requirement-diagnostic">There are PE controls inherited from leveraged authorizations.</sch:diagnostic>
+            id="leveraged-PE-controls-implemented-requirement-diagnostic">There are PE controls inherited from leveraged
+            authorizations.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="missing-component-description"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
@@ -4568,7 +4592,8 @@
         <sch:diagnostic
             doc:assertion="party-has-one-responsibility"
             doc:context="oscal:party[@type eq 'person']"
-            id="party-has-one-responsibility-diagnostic"><xsl:value-of select="o:name"/> - This person has more than one responsibility.</sch:diagnostic>
+            id="party-has-one-responsibility-diagnostic"><xsl:value-of
+                select="o:name" /> - This person has more than one responsibility.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-responsible-role"
             doc:context="oscal:implemented-requirement"
@@ -4860,7 +4885,8 @@
         <sch:diagnostic
             doc:assertion="has-leveraged-authorization-with-cloud-service-model"
             doc:context="oscal:system-characteristics"
-            id="has-leveraged-authorization-with-cloud-service-model-diagnostic">A FedRAMP SSP with a cloud service model of 'paas' or 'saas' must specify a leveraged authorization.</sch:diagnostic>
+            id="has-leveraged-authorization-with-cloud-service-model-diagnostic">A FedRAMP SSP with a cloud service model of 'paas' or 'saas' must
+            specify a leveraged authorization.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-cloud-service-model-remarks"
             doc:context="oscal:system-characteristics"
