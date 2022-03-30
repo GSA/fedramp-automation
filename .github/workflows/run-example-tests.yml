@@ -1,0 +1,26 @@
+# This action runs the test suite for the example projects in src/examples.
+name: "Example code: run tests"
+
+# Triggered when code is pushed to any branch in a repository
+on: push
+
+# the job requires some dependencies to be installed (including submodules), then runs the tests
+jobs:
+  # one job that runs tests
+  run-tests:
+    # Run on ubuntu
+    runs-on: ubuntu-latest
+
+    # Checkout repository and its submodules
+    steps:
+      # Check-out the repository under $GITHUB_WORKSPACE
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Initialize the workspace with submodules and dependencies.
+      - name: Initialize workspace
+        run: make init
+
+      - name: Run test suite
+        run: |
+          make test-examples
