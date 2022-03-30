@@ -4949,6 +4949,46 @@
                         label="that is an error" />
                 </x:scenario>
             </x:scenario>
+            <x:scenario
+                label="has a base or selected that matches the security-sensitivity-level">
+                <x:context>
+                    <system-security-plan                        
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                            <information-type>
+                                <availability-impact>
+                                    <base>fips-199-moderate</base>
+                                    <selected>fips-199-moderate</selected>
+                                </availability-impact>
+                            </information-type>
+                        </system-characteristics>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="cia-impact-matches-security-sensitivity-level"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="has a base or selected that does not match the security-sensitivity-level">
+                <x:context>
+                    <system-security-plan                        
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                            <information-type>
+                                <availability-impact>
+                                    <base>fips-199-moderate</base>
+                                    <selected>fips-199-low</selected>
+                                </availability-impact>
+                            </information-type>
+                        </system-characteristics>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="cia-impact-matches-security-sensitivity-level"
+                    label="that is an error" />
+            </x:scenario>
         </x:scenario>
     </x:scenario>
     <x:scenario

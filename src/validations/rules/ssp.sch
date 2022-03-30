@@ -1733,6 +1733,17 @@
                     else
                         true()">When SP 800-60 base and selected impacts levels differ for a given information type, the SSP must
                 include a justification for the difference.</sch:assert>
+            <sch:let
+                name="secSenLevel"
+                value="/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level" />
+            <sch:assert
+                diagnostics="cia-impact-matches-security-sensitivity-level-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
+                id="cia-impact-matches-security-sensitivity-level"
+                role="warning"
+                test="o:base eq $secSenLevel and o:selected eq $secSenLevel">The FedRAMP SSP information type -<xsl:value-of
+                    select="substring-before(local-name(), '-')" /> impact- base and selected elements must match the security sensitivity
+                level.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:base | oscal:selected"
@@ -4150,6 +4161,12 @@
             doc:assertion="information-type-has-availability-impact"
             doc:context="oscal:information-type"
             id="information-type-has-availability-impact-diagnostic">A FedRAMP SSP information-type lacks a availability-impact.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="cia-impact-matches-security-sensitivity-level"
+            doc:context="oscal:information-type"
+            id="cia-impact-matches-security-sensitivity-level-diagnostic">The FedRAMP SSP information type -<xsl:value-of
+                select="substring-before(local-name(), '-')" /> impact- base or selected elements do not match the security sensitivity
+            level.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="categorization-has-system-attribute"
             doc:context="oscal:categorization"
