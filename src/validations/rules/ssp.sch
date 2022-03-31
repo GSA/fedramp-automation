@@ -1571,6 +1571,33 @@
                 role="error"
                 test="oscal:security-objective-availability">[Section B Check 3.10] A FedRAMP SSP must specify an availability security
                 objective.</sch:assert>
+            <sch:let
+                name="securityLevelStr"
+                value="string-join(self::oscal:security-impact-level//text())"/>
+            <sch:let
+                name="securityImpactLevel"
+                value="
+                    if (matches($securityLevelStr, 'high'))
+                    then
+                        ('fips-199-high')
+                    else
+                        (if (matches($securityLevelStr, 'moderate'))
+                        then
+                            ('fips-199-moderate')
+                        else
+                            ('fips-199-low'))" />
+            <sch:let
+                name="securitySensitivityLevel"
+                value="/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level"/>
+            <sch:assert
+                diagnostics="security-sensitivity-level-matches-security-impact-level-diagnostic"
+                doc:checklist-reference="Section B Check 3.10"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
+                doc:template-reference="System Security Plan Template §2.2"
+                id="security-sensitivity-level-matches-security-impact-level"
+                role="error"
+                test="$securityImpactLevel eq $securitySensitivityLevel">A FedRAMP SSP security sensitivity level must match the highest level within
+                the security impact levels.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
@@ -1734,16 +1761,24 @@
                         true()">When SP 800-60 base and selected impacts levels differ for a given information type, the SSP must
                 include a justification for the difference.</sch:assert>
             <sch:let
-                name="secSenLevel"
-                value="/o:system-security-plan/o:system-characteristics/o:security-sensitivity-level" />
+                name="impactValue"
+                value="
+                    if (o:selected)
+                    then
+                        (o:selected)
+                    else
+                        (o:base)" />
+            <sch:let
+                name="impactName"
+                value="substring-before(local-name(), '-')" />
             <sch:assert
-                diagnostics="cia-impact-matches-security-sensitivity-level-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
-                id="cia-impact-matches-security-sensitivity-level"
+                diagnostics="cia-impact-matches-security-objective-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
+                id="cia-impact-matches-security-objective"
                 role="warning"
-                test="o:base eq $secSenLevel and o:selected eq $secSenLevel">The FedRAMP SSP information type -<xsl:value-of
-                    select="substring-before(local-name(), '-')" /> impact- base and selected elements must match the security sensitivity
-                level.</sch:assert>
+                test="
+                    /o:system-security-plan/o:system-characteristics/o:security-impact-level/*[contains(local-name(), $impactName)]/text() eq $impactValue">A
+                FedRAMP SSP security objective value must be the same as the matching information type impact value.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:base | oscal:selected"
@@ -3808,7 +3843,8 @@
         <sch:diagnostic
             doc:assertion="leveraged-PE-controls-implemented-requirement"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement"
-            id="leveraged-PE-controls-implemented-requirement-diagnostic">There are PE controls inherited from leveraged authorizations.</sch:diagnostic>
+            id="leveraged-PE-controls-implemented-requirement-diagnostic">There are PE controls inherited from leveraged
+            authorizations.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="missing-component-description"
             doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
@@ -4125,6 +4161,10 @@
             doc:context="oscal:security-impact-level"
             id="has-security-objective-availability-diagnostic">This FedRAMP SSP lacks an availability security objective.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="security-sensitivity-level-matches-security-impact-level"
+            doc:context="oscal:security-impact-level"
+            id="security-sensitivity-level-matches-security-impact-level-diagnostic">This FedRAMP SSP security sensitivity level does not match the security impact level.</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="has-allowed-security-objective-value"
             doc:context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
             id="has-allowed-security-objective-value-diagnostic">Invalid "<sch:value-of
@@ -4162,11 +4202,11 @@
             doc:context="oscal:information-type"
             id="information-type-has-availability-impact-diagnostic">A FedRAMP SSP information-type lacks a availability-impact.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="cia-impact-matches-security-sensitivity-level"
+            doc:assertion="cia-impact-matches-security-objective"
             doc:context="oscal:information-type"
-            id="cia-impact-matches-security-sensitivity-level-diagnostic">The FedRAMP SSP information type -<xsl:value-of
-                select="substring-before(local-name(), '-')" /> impact- base or selected elements do not match the security sensitivity
-            level.</sch:diagnostic>
+            id="cia-impact-matches-security-objective-diagnostic">The FedRAMP SSP security objective <xsl:value-of
+                select="substring-before(local-name(), '-')" /> does not match the <xsl:value-of
+                select="substring-before(local-name(), '-')" /> impact value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="categorization-has-system-attribute"
             doc:context="oscal:categorization"
@@ -4585,7 +4625,8 @@
         <sch:diagnostic
             doc:assertion="party-has-one-responsibility"
             doc:context="oscal:party[@type eq 'person']"
-            id="party-has-one-responsibility-diagnostic"><xsl:value-of select="o:name"/> - This person has more than one responsibility.</sch:diagnostic>
+            id="party-has-one-responsibility-diagnostic"><xsl:value-of
+                select="o:name" /> - This person has more than one responsibility.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-responsible-role"
             doc:context="oscal:implemented-requirement"
@@ -4877,7 +4918,8 @@
         <sch:diagnostic
             doc:assertion="has-leveraged-authorization-with-cloud-service-model"
             doc:context="oscal:system-characteristics"
-            id="has-leveraged-authorization-with-cloud-service-model-diagnostic">A FedRAMP SSP with a cloud service model of 'paas' or 'saas' must specify a leveraged authorization.</sch:diagnostic>
+            id="has-leveraged-authorization-with-cloud-service-model-diagnostic">A FedRAMP SSP with a cloud service model of 'paas' or 'saas' must
+            specify a leveraged authorization.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-cloud-service-model-remarks"
             doc:context="oscal:system-characteristics"
