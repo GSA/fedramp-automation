@@ -10081,7 +10081,7 @@
             </x:scenario>
         </x:scenario>
         <x:scenario
-            label="A FedRAMP SSP references has a control sc-20 or sc-21 and the specified control makes reference to either 'DNSSEC' or 'DNS Security Extensions'.'">
+            label="A FedRAMP SSP has a control sc-20 or sc-21 and the specified control makes reference to either 'DNSSEC' or 'DNS Security Extensions'.'">
             <x:scenario
                 label="When that is true">
                 <x:context>
