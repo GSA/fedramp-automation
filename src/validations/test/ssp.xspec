@@ -9519,7 +9519,140 @@
         </x:scenario>
     </x:scenario>
     <x:scenario
-        label="FedRAMP OSCAL SSP Control Implementation">
+        label="FedRAMP OSCAL SSP Control Implementation">   
+        <x:scenario
+            label="A FedRAMP SSP references 'email', 'e-mail' or 'electronic mail and 'DMARC', 'SPF', and 'DKIM' are not referenced in control si-8.'">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <component uuid="60f92bcf-f353-4236-9803-2a5d417555f4" type="this-system">
+                                <title>This System</title>
+                                <description>
+                                    <p>The entire system as depicted in the system authorization boundary</p>      
+                                </description>
+                                <status state="operational"/>
+                            </component>
+                            <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system">
+                                <title>Name of Leveraged System</title>
+                                <description>
+                                    <p>If the leveraged system owner provides a UUID for their system (such as in an
+                                        OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
+                                        property.</p>
+                                    <p>Email is employed.</p>
+                                </description>
+                                <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
+                                <prop name="implementation-point" value="external"/>
+                                <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001"/>
+                                <status state="operational"/>
+                            </component>
+                        </system-implementation>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="si-8"
+                                uuid="f33674dc-d16f-4a8c-8902-b8e60f947ce7">
+                                <!--There are no control parameters-->
+                                <responsible-role
+                                    role-id="implemented-requirement-responsible-role" />
+                                <statement statement-id="si-8_smt" uuid="9e061e1e-10fa-4896-8597-294d8fd8e52b">
+                                    <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
+                                        uuid="663f84e5-9c13-49a5-b7de-25ced4e8aef8">
+                                        <description>
+                                            <p>Describe how the control is satisfied within the system.</p>
+                                            <p>DMARC is employed.</p>
+                                            <p>SPF is employed.</p>
+                                        </description>
+                                        <set-parameter param-id="si-8_prm_1">
+                                            <value>[replace with list of personnel or roles]</value>
+                                        </set-parameter>
+                                        <set-parameter param-id="si-8_prm_2">
+                                            <value>[specify frequency]</value>
+                                        </set-parameter>
+                                        <set-parameter param-id="si-8_prm_3">
+                                            <value>[specify frequency]</value>
+                                        </set-parameter>
+                                    </by-component>
+                                </statement>
+                                <!--Required response points are: -->
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-email-and-DMARC"
+                    label="that is an error." />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
+            label="A FedRAMP SSP references 'email', 'e-mail' or 'electronic mail and has 'DMARC', 'SPF', and 'DKIM' referenced in control si-8.'">
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <component uuid="60f92bcf-f353-4236-9803-2a5d417555f4" type="this-system">
+                                <title>This System</title>
+                                <description>
+                                    <p>The entire system as depicted in the system authorization boundary</p>      
+                                </description>
+                                <status state="operational"/>
+                            </component>
+                            <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system">
+                                <title>Name of Leveraged System</title>
+                                <description>
+                                    <p>If the leveraged system owner provides a UUID for their system (such as in an
+                                        OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
+                                        property.</p>
+                                    <p>Email is employed.</p>
+                                </description>
+                                <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
+                                <prop name="implementation-point" value="external"/>
+                                <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001"/>
+                                <status state="operational"/>
+                            </component>
+                        </system-implementation>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="si-8"
+                                uuid="f33674dc-d16f-4a8c-8902-b8e60f947ce7">
+                                <!--There are no control parameters-->
+                                <responsible-role
+                                    role-id="implemented-requirement-responsible-role" />
+                                <statement statement-id="si-8_smt" uuid="9e061e1e-10fa-4896-8597-294d8fd8e52b">
+                                    <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
+                                        uuid="663f84e5-9c13-49a5-b7de-25ced4e8aef8">
+                                        <description>
+                                            <p>Describe how the control is satisfied within the system.</p>
+                                            <p>DMARC is employed.</p>
+                                            <p>SPF is employed.</p>
+                                            <p>DKIM is employed.</p>
+                                        </description>
+                                        <set-parameter param-id="si-8_prm_1">
+                                            <value>[replace with list of personnel or roles]</value>
+                                        </set-parameter>
+                                        <set-parameter param-id="si-8_prm_2">
+                                            <value>[specify frequency]</value>
+                                        </set-parameter>
+                                        <set-parameter param-id="si-8_prm_3">
+                                            <value>[specify frequency]</value>
+                                        </set-parameter>
+                                    </by-component>
+                                </statement>
+                                <!--Required response points are: -->
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-email-and-DMARC"
+                    label="that is correct." />
+            </x:scenario>
+        </x:scenario>
+        
+        
         <x:scenario
             label="A FedRAMP OSCAL SSP declares the related FedRAMP OSCAL Profile using an import-profile
             element.">

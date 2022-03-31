@@ -2400,6 +2400,25 @@
                 role="error"
                 test="exists(oscal:component[@type eq 'this-system'])">A FedRAMP SSP must have a self-referential (i.e., to the SSP itself)
                 component.</sch:assert>
+            <sch:let
+                name="emailString"
+                value="'email|e-mail|electronic mail'" />
+            <sch:assert
+                diagnostics="has-email-and-DMARC-diagnostic"
+                id="has-email-and-DMARC"
+                role="warning"
+                test="
+                    if (//*[matches(lower-case(.), $emailString)])
+                    then
+                        (if (../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'DMARC')] and
+                        ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'SPF')] and
+                        ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'DKIM')])
+                        then
+                            (false())
+                        else
+                            (true()))
+                    else
+                        (true())">Email is either absent or sufficiently specified.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:system-characteristics">
@@ -4488,6 +4507,10 @@
             doc:assertion="has-this-system-component"
             doc:context="oscal:system-implementation"
             id="has-this-system-component-diagnostic">This FedRAMP SSP lacks a "this-system" component.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="has-email-and-DMARC"
+            doc:context="oscal:system-implementation"
+            id="has-email-and-DMARC-diagnostic">Email is present but one or more of the following is missing from this SSP: DMARC, SPF, or DKIM.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-system-id"
             doc:context="oscal:system-characteristics"
