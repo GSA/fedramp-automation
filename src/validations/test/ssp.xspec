@@ -10080,7 +10080,119 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
-
+        <x:scenario
+            label="A FedRAMP SSP has a control sc-20 or sc-21 and the specified control makes reference to either 'DNSSEC' or 'DNS Security Extensions'.'">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <component
+                                type="this-system"
+                                uuid="60f92bcf-f353-4236-9803-2a5d417555f4">
+                                <title>This System</title>
+                                <description>
+                                    <p>The entire system as depicted in the system authorization boundary</p>
+                                </description>
+                                <status
+                                    state="operational" />
+                            </component>
+                        </system-implementation>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="sc-21"
+                                uuid="64da0700-e6d7-4110-9727-ddd8398dc8de">
+                                <!--Secure Name / Address Resolution Service (recursive or Caching Resolver)-->
+                                <prop
+                                    name="control-origination"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="sp-system" />
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="implemented" />
+                                <!--There are no control parameters-->
+                                <responsible-role
+                                    role-id="implemented-requirement-responsible-role" />
+                                <statement
+                                    statement-id="sc-21_smt"
+                                    uuid="eeea34ff-18ab-4c35-bf32-c74dbf746e7c">
+                                    <by-component
+                                        component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
+                                        uuid="ad20ff50-8a7c-4ffc-a918-260960f6fb42">
+                                        <description>
+                                            <p>Describe how DNS Security Extensions are fulfilled in this requirement.</p>
+                                        </description>
+                                    </by-component>
+                                </statement>
+                                <!--Required response points are: -->
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="DNSSEC-described"
+                    label="that is correct." />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <component
+                                type="this-system"
+                                uuid="60f92bcf-f353-4236-9803-2a5d417555f4">
+                                <title>This System</title>
+                                <description>
+                                    <p>The entire system as depicted in the system authorization boundary</p>
+                                </description>
+                                <status
+                                    state="operational" />
+                            </component>
+                        </system-implementation>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="sc-20"
+                                uuid="c3955c3d-3a08-4878-bd9d-31fe9509d669">
+                                <!--Secure Name / Address Resolution Service (authoritative Source)-->
+                                <prop
+                                    name="control-origination"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="sp-system" />
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="alternative">
+                                    <remarks>
+                                        <p>A description of the alternative control.</p>
+                                    </remarks>
+                                </prop>
+                                <!--There are no control parameters-->
+                                <responsible-role
+                                    role-id="implemented-requirement-responsible-role" />
+                                <statement
+                                    statement-id="sc-20_smt"
+                                    uuid="eeea34ff-18ab-4c35-bf32-c74dbf746e7d">
+                                    <by-component
+                                        component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
+                                        uuid="ad20ff50-8a7c-4ffc-a918-260960f6fb42">
+                                        <description>
+                                            <p>Describe how this requirement is fulfilled.</p>
+                                        </description>
+                                    </by-component>
+                                </statement>
+                                <!--Required response points are: -->
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="DNSSEC-described"
+                    label="that is an error." />
+            </x:scenario>
+        </x:scenario>        
     </x:scenario>
     <x:scenario
         label="FedRAMP OSCAL SSP Cloud Service and Deployment Models">
