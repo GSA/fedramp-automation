@@ -2189,18 +2189,25 @@
                 role="error"
                 test="not($is-infrastructure) or not(oscal:prop[(: @ns eq 'https://fedramp.gov/ns/oscal' and :)@name eq 'vendor-name'][2])">
                 "infrastructure" inventory item must have only one vendor-name property.</sch:assert>
+            <!-- Last Updated 2022-03-28 -->
+            <!-- See List of Equipment and Services Covered By Section 2 of The Secure Networks Act - https://www.fcc.gov/supplychain/coveredlist  -->
             <sch:let 
                 name="prohibit-vendor" 
-                value="'Dahua Technology Company', 'Dahua', 'Hangzhou Hikvision Digital Technology', 'Hangzhou', 'Hikvision', 
-                'Hangzhou Hikvision', 'Huawei', 'HyTera', 'Kaspersky Lab', 'Kaspersky', 'ZTE'"/>
+                value="('Dahua Technology Company', 'Dahua',
+                'Hangzhou Hikvision Digital Technology', 'Hangzhou', 
+                'Hikvision', 'Hangzhou Hikvision', 
+                'Huawei', 'Huawei Technologies Company', 
+                'HyTera', 'Hytera Communications Corporation', 
+                'AO Kaspersky Lab', 'Kaspersky Lab', 'Kaspersky', 
+                'ZTE', 'ZTE Corporation', 
+                'China Mobile', 'China Mobile International USA Inc',
+                'China Telecom', 'China Telecom (Americas) Corp')"/>
             <sch:assert
-                diagnostics="inventory-item-has-prohibited-vendor-name-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
-                id="inventory-item-has-prohibited-vendor-name"
+                diagnostics="has-prohibited-vendor-name-diagnostic"
+                id="has-prohibited-vendor-name"
+                feddoc:reference-documentation="FAR 889(a)(1)(B)"
                 role="warning"
-                test="not(o:prop[@name eq 'vendor-name']/@value = $prohibit-vendor)">The information system must not contain the banned vendor - 
-                '<xsl:value-of select="o:prop[@name eq 'vendor-name']/@value"/>'.  See FAR 889(a)(1)(B).</sch:assert>
+                test="not(o:prop[@name eq 'vendor-name']/@value = $prohibit-vendor)">The inventory item does not cite a banned vendor.</sch:assert>
             <!-- FIXME: perversely, hardware-model is not in FedRAMP @ns -->
             <sch:assert
                 diagnostics="inventory-item-has-hardware-model-diagnostic"
@@ -4418,9 +4425,9 @@
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
             id="inventory-item-has-one-vendor-name-diagnostic">This inventory-item has more than one vendor-name property.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="inventory-item-has-prohibited-vendor-name"
+            doc:assertion="has-prohibited-vendor-name"
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'vendor-name']]"
-            id="inventory-item-has-prohibited-vendor-name-diagnostic">This inventory-item contains a banned vendor.</sch:diagnostic>
+            id="has-prohibited-vendor-name-diagnostic">This inventory-item contains a banned vendor.  Please see https://www.fcc.gov/supplychain/coveredlist.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-hardware-model"
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"

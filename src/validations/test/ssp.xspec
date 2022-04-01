@@ -6193,7 +6193,7 @@
                     </inventory-item>
                 </x:context>
                 <x:expect-not-assert
-                    id="inventory-item-has-prohibited-vendor-name"
+                    id="has-prohibited-vendor-name"
                     label="that is correct" />
             </x:scenario>
             <x:scenario
@@ -6207,7 +6207,7 @@
                     </inventory-item>
                 </x:context>
                 <x:expect-assert
-                    id="inventory-item-has-prohibited-vendor-name"
+                    id="has-prohibited-vendor-name"
                     label="that is an error" />
             </x:scenario>            
             <x:scenario
