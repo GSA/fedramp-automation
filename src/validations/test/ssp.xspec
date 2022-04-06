@@ -107,32 +107,35 @@
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-characteristics>
-                                <information-type uuid="06ecba4f-db96-4491-a3a2-7febfa227435">
-                                    <title>Information Type Name</title>
-                                    <description>
-                                        <p>A description of the information.</p>
-                                    </description>
-                                    <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
-                                        <information-type-id>C.2.4.1</information-type-id>
-                                    </categorization>
-                                    <confidentiality-impact>
-                                        <base>fips-199-moderate</base>
-                                        <selected>fips-199-moderate</selected>
-                                    </confidentiality-impact>
-                                    <integrity-impact>
-                                        <base>fips-199-moderate</base>
-                                    </integrity-impact>
-                                    <availability-impact>
-                                        <base>fips-199-moderate</base>
-                                        <selected>fips-199-moderate</selected>
-                                    </availability-impact>
-                                </information-type>
-                                <security-impact-level>
-                                    <security-objective-confidentiality>fips-199-moderate</security-objective-confidentiality>
-                                    <security-objective-integrity>fips-199-moderate</security-objective-integrity>
-                                    <security-objective-availability>fips-199-moderate</security-objective-availability>
-                                </security-impact-level>
+                                <system-information>
+                                    <information-type uuid="06ecba4f-db96-4491-a3a2-7febfa227435">
+                                        <title>Information Type Name</title>
+                                        <description>
+                                            <p>A description of the information.</p>
+                                        </description>
+                                        <categorization system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+                                            <information-type-id>C.2.4.1</information-type-id>
+                                        </categorization>
+                                        <confidentiality-impact>
+                                            <base>fips-199-moderate</base>
+                                            <selected>fips-199-moderate</selected>
+                                        </confidentiality-impact>
+                                        <integrity-impact>
+                                            <base>fips-199-moderate</base>                                        
+                                            <selected>fips-199-moderate</selected>
+                                        </integrity-impact>
+                                        <availability-impact>
+                                            <base>fips-199-moderate</base>
+                                            <selected>fips-199-moderate</selected>
+                                        </availability-impact>
+                                    </information-type>
+                                </system-information>
                             </system-characteristics>
+                            <security-impact-level>
+                                <security-objective-confidentiality>fips-199-moderate</security-objective-confidentiality>
+                                <security-objective-integrity>fips-199-moderate</security-objective-integrity>
+                                <security-objective-availability>fips-199-moderate</security-objective-availability>
+                            </security-impact-level>
                         </system-security-plan>
                     </x:context>
                     <x:expect-not-assert
@@ -145,36 +148,38 @@
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-characteristics>
-                                <information-type
-                                    uuid="06ecba4f-db96-4491-a3a2-7febfa227435">
-                                    <title>Information Type Name</title>
-                                    <description>
-                                        <p>A description of the information.</p>
-                                    </description>
-                                    <categorization
-                                        system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
-                                        <information-type-id>C.2.4.1</information-type-id>
-                                    </categorization>
-                                    <confidentiality-impact>
-                                        <base>fips-199-moderate</base>
-                                    </confidentiality-impact>
-                                    <integrity-impact>
-                                        <base>fips-199-moderate</base>
-                                        <selected>fips-199-low</selected>
-                                        <adjustment-justification>
-                                            <p>Required if the base and selected values do not match.</p>
-                                        </adjustment-justification>
-                                    </integrity-impact>
-                                    <availability-impact>
-                                        <base>fips-199-high</base>
-                                    </availability-impact>
-                                </information-type>
-                                <security-impact-level>
-                                    <security-objective-confidentiality>fips-199-moderate</security-objective-confidentiality>
-                                    <security-objective-integrity>fips-199-moderate</security-objective-integrity>
-                                    <security-objective-availability>fips-199-moderate</security-objective-availability>
-                                </security-impact-level>
-                            </system-characteristics>
+                                <system-information>
+                                    <information-type
+                                        uuid="06ecba4f-db96-4491-a3a2-7febfa227435">
+                                        <title>Information Type Name</title>
+                                        <description>
+                                            <p>A description of the information.</p>
+                                        </description>
+                                        <categorization
+                                            system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+                                            <information-type-id>C.2.4.1</information-type-id>
+                                        </categorization>
+                                        <confidentiality-impact>
+                                            <base>fips-199-moderate</base>
+                                        </confidentiality-impact>
+                                        <integrity-impact>
+                                            <base>fips-199-moderate</base>
+                                            <selected>fips-199-low</selected>
+                                            <adjustment-justification>
+                                                <p>Required if the base and selected values do not match.</p>
+                                            </adjustment-justification>
+                                        </integrity-impact>
+                                        <availability-impact>
+                                            <base>fips-199-high</base>
+                                        </availability-impact>
+                                    </information-type>
+                                </system-information>
+                            </system-characteristics>                            
+                            <security-impact-level>
+                                <security-objective-confidentiality>fips-199-moderate</security-objective-confidentiality>
+                                <security-objective-integrity>fips-199-moderate</security-objective-integrity>
+                                <security-objective-availability>fips-199-moderate</security-objective-availability>
+                            </security-impact-level>
                         </system-security-plan>
                     </x:context>
                     <x:expect-assert
