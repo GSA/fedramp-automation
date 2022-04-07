@@ -269,40 +269,23 @@
                     select="count($assertions)" /> assertions and there are <sch:value-of
                     select="count($referenced-tests)" /> unit tests which reference those assertions for test coverage of <sch:value-of
                     select="format-number($coverage, '09.99%')" />.</sch:report>
-
         </sch:rule>
 
         <sch:rule
             context="sch:assert">
-            <sch:let
-                name="affirmAssertException"
-                value="('no-registry-values|no-security-sensitivity-level|has-matching-ATO-identifier')" />
-            <sch:let
-                name="negAssertException"
-                value="('no-registry-values|has-matching-ATO-identifier')" />
             <sch:assert
                 diagnostics="has-xspec-affirmative-test-diagnostic"
                 id="has-xspec-affirmative-test"
                 role="warning"
-                test="
-                    if (matches(@id, $affirmAssertException))
-                    then
-                        (true())
-                    else
-                        ($xspec//x:expect-not-assert[@id = current()/@id])">Every Schematron assertion has an XSpec test for the
-                affirmative assertion outcome.</sch:assert>
+                test="$xspec//x:expect-not-assert[@id = current()/@id]">Every Schematron assertion has an XSpec test for the affirmative assertion
+                outcome.</sch:assert>
 
             <sch:assert
                 diagnostics="has-xspec-negative-test-diagnostic"
                 id="has-xspec-negative-test"
                 role="warning"
-                test="
-                    if (matches(@id, $negAssertException))
-                    then
-                        (true())
-                    else
-                        ($xspec//x:expect-assert[@id = current()/@id])">Every Schematron assertion has an XSpec test for the negative
-                assertion outcome.</sch:assert>
+                test="$xspec//x:expect-assert[@id = current()/@id]">Every Schematron assertion has an XSpec test for the negative assertion
+                outcome.</sch:assert>
 
         </sch:rule>
 
