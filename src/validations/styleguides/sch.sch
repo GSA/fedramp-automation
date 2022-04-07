@@ -3,6 +3,7 @@
     defaultPhase="basic"
     queryBinding="xslt2"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+    xmlns:feddoc="http://us.gov/documentation/federal-documentation"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
     xmlns:x="http://www.jenitennison.com/xslt/xspec"
@@ -14,6 +15,10 @@
 
     <sch:ns
         prefix="doc"
+        uri="https://fedramp.gov/oscal/fedramp-automation-documentation" />
+    
+    <sch:ns
+        prefix="feddoc"
         uri="https://fedramp.gov/oscal/fedramp-automation-documentation" />
 
     <sch:ns
