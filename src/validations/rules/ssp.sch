@@ -1539,22 +1539,22 @@
                 level.</sch:assert>
             <sch:let
                 name="securityLevelStr"
-                value="string-join(../o:security-impact-level//text())"/>
+                value="string-join(../o:security-impact-level//text())" />
             <sch:let
                 name="securityImpactLevel"
                 value="
-                if (matches($securityLevelStr, 'high'))
-                then
-                ('fips-199-high')
-                else
-                (if (matches($securityLevelStr, 'moderate'))
-                then
-                ('fips-199-moderate')
-                else
-                ('fips-199-low'))" />
+                    if (matches($securityLevelStr, 'high'))
+                    then
+                        ('fips-199-high')
+                    else
+                        (if (matches($securityLevelStr, 'moderate'))
+                        then
+                            ('fips-199-moderate')
+                        else
+                            ('fips-199-low'))" />
             <sch:let
                 name="securitySensitivityLevel"
-                value="."/>
+                value="." />
             <sch:assert
                 diagnostics="security-sensitivity-level-matches-security-impact-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.10"
@@ -1562,8 +1562,9 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="security-sensitivity-level-matches-security-impact-level"
                 role="error"
-                test=". eq $securityImpactLevel"><xsl:value-of select="$securityLevelStr"/> -- A FedRAMP SSP security sensitivity level must match the highest level within
-                the security impact levels.</sch:assert>
+                test=". eq $securityImpactLevel"><xsl:value-of
+                    select="$securityLevelStr" /> -- A FedRAMP SSP security sensitivity level must match the highest level within the security impact
+                levels.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:security-impact-level"
@@ -1640,7 +1641,7 @@
                             then
                                 ('fips-199-low')
                             else
-                                ('')))" />
+                            ('fips-199-low')))" />
             <sch:let
                 name="securityImpactLevelBase"
                 value="
@@ -1656,7 +1657,7 @@
                             then
                                 ('fips-199-low')
                             else
-                                ('')))" />
+                                ('fips-199-low')))" />
             <sch:let
                 name="impactValue"
                 value="
@@ -4200,7 +4201,8 @@
         <sch:diagnostic
             doc:assertion="security-sensitivity-level-matches-security-impact-level"
             doc:context="oscal:security-impact-level"
-            id="security-sensitivity-level-matches-security-impact-level-diagnostic">This FedRAMP SSP security sensitivity level does not match the security impact level.</sch:diagnostic>
+            id="security-sensitivity-level-matches-security-impact-level-diagnostic">This FedRAMP SSP security sensitivity level does not match the
+            security impact level.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-security-objective-value"
             doc:context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
