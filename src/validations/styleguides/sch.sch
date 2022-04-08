@@ -19,7 +19,7 @@
     
     <sch:ns
         prefix="feddoc"
-        uri="https://fedramp.gov/oscal/fedramp-automation-documentation" />
+        uri="http://us.gov/documentation/federal-documentation" />
 
     <sch:ns
         prefix="x"
