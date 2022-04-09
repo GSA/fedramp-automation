@@ -21,7 +21,7 @@ JSON response format is compatible with the XPath functions `unparsed-text()` an
 - Both are established companies.
 - Both DNS services have been available for several years.
 - Both DNS services are widely used
-- Both DNS services support all DNS RR types.
+- Both DNS services support all DNS resource record (RR) types.
 
 ### Proof of Concept
 
