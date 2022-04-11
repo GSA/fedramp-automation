@@ -63,12 +63,16 @@ Build requirements are:
 - gnu make
 - node.js (as versioned in [./nvmrc](./.nvmrc))
 - Java 8+
+- Python 3.9+
+- Docker
 
 For usage information, use the default target:
 
 ```
 make
 ```
+
+If you are developing on Windows, [msys2](https://www.msys2.org/) may be used for the required build tools (`make` and `bash`, in particular). Follow all the suggested installation steps on the msys2 home page for a complete environment. Additionally, make sure all the build requirements (above) are available on your path.
 
 ### Implementation details
 

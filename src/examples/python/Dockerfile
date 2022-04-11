@@ -14,18 +14,18 @@ RUN apt-get update \
 
 # Download, build, and configure the Saxon-HE c-library
 # See here for platform-specific packages: https://www.saxonica.com/download/c.xml
-RUN wget -O /tmp/saxon.zip https://www.saxonica.com/saxon-c/libsaxon-HEC-setup64-v1.2.1.zip \
-  && unzip /tmp/saxon.zip -d /tmp \
-  && (echo "/opt/saxonica" && cat) | ./tmp/libsaxon-HEC-setup64-v1.2.1 \
-  && ln -s /opt/saxonica/libsaxonhec.so /usr/lib/libsaxonhec.so \
-  && ln -s /opt/saxonica/rt /usr/lib/rt
+RUN wget -O /tmp/saxon.zip https://www.saxonica.com/download/libsaxon-HEC-setup64-v11.3.zip \
+  && unzip /tmp/saxon.zip -d /opt/saxonica/ \
+  && ln -s /opt/saxonica/libsaxon-HEC-11.3/libsaxonhec.so /usr/lib/libsaxonhec.so \
+  && ln -s /opt/saxonica/libsaxon-HEC-11.3/rt /usr/lib/rt
+ENV SAXONC_HOME=/usr/lib
 ENV LD_LIBRARY_PATH=/usr/lib/rt/lib/amd64:$LD_LIBRARY_PATH
 
 # Build the saxon-c Python extension and put on PYTHONPATH
-RUN cd /opt/saxonica/Saxon.C.API/python-saxon \
+RUN cd /opt/saxonica/libsaxon-HEC-11.3/Saxon.C.API/python-saxon \
   && pip install cython \
   && python3 saxon-setup.py build_ext -if
-ENV PYTHONPATH=/opt/saxonica/Saxon.C.API/python-saxon
+ENV PYTHONPATH=/opt/saxonica/libsaxon-HEC-11.3/Saxon.C.API/python-saxon
 
 # Install Python dependencies
 ADD requirements.txt /tmp

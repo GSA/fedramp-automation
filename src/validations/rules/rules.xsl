@@ -125,8 +125,7 @@
                 <!-- that's correct --></xsl:when>
             <xsl:otherwise>
                 <xsl:message
-                    expand-text="true"
-                    terminate="true">{base-uri()} is not static-base-uri()</xsl:message>
+                    expand-text="true">{base-uri()} is not static-base-uri(). expected: `{static-base-uri()}`</xsl:message>
             </xsl:otherwise>
         </xsl:choose>
 

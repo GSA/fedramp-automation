@@ -29,32 +29,38 @@ def saxon_processor() -> saxonc.PySaxonProcessor:
 
 
 @pytest.fixture
-def xslt_processor(saxon_processor: saxonc.PySaxonProcessor) -> saxonc.PyXsltProcessor:
-    xslt_processor = saxon_processor.new_xslt_processor()
-    xslt_processor.set_property("it", "from-json")
+def xslt_processor(
+    saxon_processor: saxonc.PySaxonProcessor,
+) -> saxonc.PyXslt30Processor:
+    xslt_processor = saxon_processor.new_xslt30_processor()
 
     # Create a data URI for a JSON sample SSP.
-    with open(EXAMPLE_SSP_PATH_JSON, 'r') as f:
+    with open(EXAMPLE_SSP_PATH_JSON, "r") as f:
         sample_ssp_json = f.read()
-        file_base64_encoded = base64.b64encode(sample_ssp_json.encode('utf-8')).decode("utf-8")
-        data_uri = f'data:application/json;base64,{file_base64_encoded}'
+        file_base64_encoded = base64.b64encode(sample_ssp_json.encode("utf-8")).decode(
+            "utf-8"
+        )
+        data_uri = f"data:application/json;base64,{file_base64_encoded}"
 
     xslt_processor.set_parameter(
         # To process an in-memory JSON string, you may pass it as a data URI.
-        "file", saxon_processor.make_string_value(data_uri)
-
+        "file",
+        saxon_processor.make_string_value(data_uri)
         # To process an external document, you may pass it as a URI.
-        #"file", saxon_processor.make_string_value(EXAMPLE_SSP_PATH_JSON),
+        # "file", saxon_processor.make_string_value(EXAMPLE_SSP_PATH_JSON),
     )
     return xslt_processor
 
 
-def test_json_to_xml(xslt_processor: saxonc.PyXsltProcessor) -> None:
-    xml_string = xslt_processor.transform_to_string(
-        source_file=OSCAL_JSON_TO_XML,
-        stylesheet_file=OSCAL_JSON_TO_XML,
+def test_json_to_xml(xslt_processor: saxonc.PyXslt30Processor) -> None:
+    xslt_executable = xslt_processor.compile_stylesheet(
+        stylesheet_file=OSCAL_JSON_TO_XML
     )
-    assert xslt_processor.exception_count() == 0
-    # To get exception details, use the following:
-    #assert xslt_processor.get_error_message(0) == None
-    assert '<system-security-plan ' in xml_string
+    xslt_executable.set_property("it", "from-json")
+    xslt_executable.set_initial_match_selection(file_name=OSCAL_JSON_TO_XML)
+
+    xml_string = xslt_executable.call_template_returning_string("from-json")
+
+    assert xslt_executable.exception_occurred == False
+    assert xslt_executable.error_message is None
+    assert "<system-security-plan " in xml_string

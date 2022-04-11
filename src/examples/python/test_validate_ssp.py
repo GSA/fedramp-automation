@@ -1,4 +1,6 @@
 import os
+from urllib.request import pathname2url
+from urllib.parse import urljoin
 
 import pytest
 import saxonc  # type: ignore
@@ -21,18 +23,28 @@ SSP_XSL_FILE = os.path.abspath(
     )
 )
 # FedRAMP OSCAL LOW/MODERATE/HIGH/LI baselines
-BASELINES_BASE_PATH = os.path.abspath(
-    os.path.join(
-        os.path.dirname(__file__),
-        "../../../dist/content/baselines/rev4/xml",
-    )
+BASELINES_BASE_PATH = urljoin(
+    "file:",
+    pathname2url(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                "../../../dist/content/baselines/rev4/xml",
+            )
+        )
+    ),
 )
 # FedRAMP OSCAL custom values (fedramp-values.xml)
-REGISTRY_BASE_PATH = os.path.abspath(
-    os.path.join(
-        os.path.dirname(__file__),
-        "../../../dist/content/resources/xml",
-    )
+REGISTRY_BASE_PATH = urljoin(
+    "file:",
+    pathname2url(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                "../../../dist/content/resources/xml",
+            )
+        )
+    ),
 )
 
 
@@ -48,7 +60,9 @@ def saxon_processor() -> saxonc.PySaxonProcessor:
 
 
 @pytest.fixture
-def xslt_processor(saxon_processor: saxonc.PySaxonProcessor) -> saxonc.PyXsltProcessor:
+def xslt_processor(
+    saxon_processor: saxonc.PySaxonProcessor,
+) -> saxonc.PyXslt30Processor:
     xslt_processor = saxon_processor.new_xslt30_processor()
     # Set parameters to `fedramp-automation` baselines and fedramp-values files.
     xslt_processor.set_parameter(
@@ -67,7 +81,7 @@ def xslt_processor(saxon_processor: saxonc.PySaxonProcessor) -> saxonc.PyXsltPro
 
 @pytest.fixture
 def svrl_node(
-    saxon_processor: saxonc.PySaxonProcessor, xslt_processor: saxonc.PyXsltProcessor
+    saxon_processor: saxonc.PySaxonProcessor, xslt_processor: saxonc.PyXslt30Processor
 ) -> saxonc.PyXdmNode:
     # Validate the SSP, returning an SVRL document as a string.
     svrl_string = xslt_processor.transform_to_string(
@@ -85,7 +99,7 @@ def svrl_node(
 
 @pytest.fixture
 def xpath_processor(
-    saxon_processor: saxonc.PyXsltProcessor, svrl_node: saxonc.PyXsltProcessor
+    saxon_processor: saxonc.PyXslt30Processor, svrl_node: saxonc.PyXslt30Processor
 ) -> saxonc.PyXPathProcessor:
     xpath_processor = saxon_processor.new_xpath_processor()
     xpath_processor.set_context(xdm_item=svrl_node)
