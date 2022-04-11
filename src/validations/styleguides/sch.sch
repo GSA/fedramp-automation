@@ -3,6 +3,7 @@
     defaultPhase="basic"
     queryBinding="xslt2"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+    xmlns:feddoc="http://us.gov/documentation/federal-documentation"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
     xmlns:x="http://www.jenitennison.com/xslt/xspec"
@@ -15,6 +16,10 @@
     <sch:ns
         prefix="doc"
         uri="https://fedramp.gov/oscal/fedramp-automation-documentation" />
+    
+    <sch:ns
+        prefix="feddoc"
+        uri="http://us.gov/documentation/federal-documentation" />
 
     <sch:ns
         prefix="x"
@@ -264,12 +269,10 @@
                     select="count($assertions)" /> assertions and there are <sch:value-of
                     select="count($referenced-tests)" /> unit tests which reference those assertions for test coverage of <sch:value-of
                     select="format-number($coverage, '09.99%')" />.</sch:report>
-
         </sch:rule>
 
         <sch:rule
             context="sch:assert">
-
             <sch:assert
                 diagnostics="has-xspec-affirmative-test-diagnostic"
                 id="has-xspec-affirmative-test"
