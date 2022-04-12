@@ -1389,8 +1389,8 @@
                 role="error"
                 test="
                     every $name in ('pta-1', 'pta-2', 'pta-3', 'pta-4')
-                        satisfies exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq $name])">[Section
-                B Check 3.4] A FedRAMP SSP must have all four PTA questions.</sch:assert>
+                        satisfies exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq $name])">A
+                FedRAMP SSP must have all four PTA questions.</sch:assert>
             <sch:assert
                 diagnostics="has-correct-pta-question-cardinality-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1400,8 +1400,7 @@
                 role="error"
                 test="
                     not(some $name in ('pta-1', 'pta-2', 'pta-3', 'pta-4')
-                        satisfies exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq $name][2]))">[Section
-                B Check 3.4] A FedRAMP SSP must have no duplicate PTA questions.</sch:assert>
+                        satisfies exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq $name][2]))">A FedRAMP SSP must have no duplicate PTA questions.</sch:assert>
             <sch:assert
                 diagnostics="has-sorn-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
