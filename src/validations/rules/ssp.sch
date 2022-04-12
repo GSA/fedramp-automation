@@ -505,7 +505,7 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="no-security-sensitivity-level"
                 role="fatal"
-                test="$sensitivity-level ne ''">[Section C Check 1.a] A FedRAMP SSP must define its sensitivity level.</sch:assert>
+                test="$sensitivity-level ne ''">A FedRAMP SSP must define its sensitivity level.</sch:assert>
             <sch:assert
                 diagnostics="invalid-security-sensitivity-level-diagnostic"
                 doc:checklist-reference="Section C Check 1.a"
@@ -513,7 +513,7 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="invalid-security-sensitivity-level"
                 role="fatal"
-                test="empty($ok-values) or not(exists($corrections))">[Section C Check 1.a] A FedRAMP SSP must have an allowed sensitivity
+                test="empty($ok-values) or not(exists($corrections))">A FedRAMP SSP must have an allowed sensitivity
                 level.</sch:assert>
             <sch:let
                 name="implemented"
@@ -612,7 +612,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 id="incomplete-core-implemented-requirements"
                 role="error"
-                test="not(exists($core-missing))">[Section C Check 3] A FedRAMP SSP must implement the most important controls.</sch:assert>
+                test="not(exists($core-missing))">A FedRAMP SSP must implement the most important controls.</sch:assert>
             <sch:assert
                 diagnostics="incomplete-all-implemented-requirements-diagnostic"
                 doc:checklist-reference="Section C Check 2"
@@ -620,7 +620,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="incomplete-all-implemented-requirements"
                 role="warning"
-                test="not(exists($all-missing))">[Section C Check 2] A FedRAMP SSP must implement all required controls.</sch:assert>
+                test="not(exists($all-missing))">A FedRAMP SSP must implement all required controls.</sch:assert>
             <sch:assert
                 diagnostics="extraneous-implemented-requirements-diagnostic"
                 doc:checklist-reference="Section C Check 2"
@@ -628,7 +628,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="extraneous-implemented-requirements"
                 role="warning"
-                test="not(exists($extraneous))">[Section C Check 2] A FedRAMP SSP must not include implemented controls beyond what is required for
+                test="not(exists($extraneous))">A FedRAMP SSP must not include implemented controls beyond what is required for
                 the applied baseline.</sch:assert>
             <sch:let
                 name="results"
@@ -697,7 +697,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="invalid-implementation-status"
                 role="error"
-                test="not(exists($corrections))">[Section C Check 2] Implementation status is correct.</sch:assert>
+                test="not(exists($corrections))">Implementation status is correct.</sch:assert>
             <sch:assert
                 diagnostics="DNSSEC-described-diagnostic"
                 id="DNSSEC-described"
@@ -738,7 +738,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="missing-response-components"
                 role="warning"
-                test="$components-count ge $required-components-count">[Section D Checks] Response statements have sufficient components.</sch:assert>
+                test="$components-count ge $required-components-count">Response statements have sufficient components.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description">
@@ -749,7 +749,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="extraneous-response-description"
                 role="warning"
-                test=". => empty()">[Section D Checks] Response statement does not have a description not within a component.</sch:assert>
+                test=". => empty()">Response statement does not have a description not within a component.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks">
@@ -760,7 +760,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="extraneous-response-remarks"
                 role="warning"
-                test=". => empty()">[Section D Checks] Response statement does not have remarks not within a component.</sch:assert>
+                test=". => empty()">Response statement does not have remarks not within a component.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component">
@@ -791,7 +791,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="invalid-component-match"
                 role="warning"
-                test="/o:system-security-plan/o:system-implementation/o:component[@uuid eq $component-ref] => exists()">[Section D Checks] Response
+                test="/o:system-security-plan/o:system-implementation/o:component[@uuid eq $component-ref] => exists()">Response
                 statement cites a component in the system implementation inventory.</sch:assert>
             <sch:assert
                 diagnostics="missing-component-description-diagnostic"
@@ -800,7 +800,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="missing-component-description"
                 role="error"
-                test="./o:description => exists()">[Section D Checks] Response statement has a component which has a required
+                test="./o:description => exists()">Response statement has a component which has a required
                 description.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -821,7 +821,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="incomplete-response-description"
                 role="error"
-                test="$description-length ge $required-length">[Section D Checks] Response statement component description has adequate
+                test="$description-length ge $required-length">Response statement component description has adequate
                 length.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -842,7 +842,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="incomplete-response-remarks"
                 role="warning"
-                test="$remarks-length ge $required-length">[Section D Checks] Response statement component remarks have adequate length.</sch:assert>
+                test="$remarks-length ge $required-length">Response statement component remarks have adequate length.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:metadata">
@@ -868,7 +868,7 @@
                 doc:template-reference="System Security Plan Template §9.3"
                 id="incorrect-role-association"
                 role="error"
-                test="not(exists($extraneous-roles))">[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous
+                test="not(exists($extraneous-roles))">A FedRAMP SSP must define a responsible party with no extraneous
                 roles.</sch:assert>
             <sch:assert
                 diagnostics="incorrect-party-association-diagnostic"
@@ -877,7 +877,7 @@
                 doc:template-reference="System Security Plan Template §9.3"
                 id="incorrect-party-association"
                 role="error"
-                test="not(exists($extraneous-parties))">[Section C Check 2] A FedRAMP SSP must define a responsible party with no extraneous
+                test="not(exists($extraneous-parties))">A FedRAMP SSP must define a responsible party with no extraneous
                 parties.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -1096,8 +1096,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 12"
                 id="has-fedramp-citations"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'fedramp-citations']]">
-                [Section B Check 3.12] A FedRAMP SSP must have the FedRAMP Applicable Laws and Regulations attached.</sch:assert>
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'fedramp-citations']]">A
+                FedRAMP SSP must have the FedRAMP Applicable Laws and Regulations attached.</sch:assert>
             <sch:assert
                 diagnostics="has-fedramp-logo-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Content §4.1"
@@ -1112,8 +1112,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 2"
                 id="has-user-guide"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'user-guide']]">[Section B
-                Check 3.2] A FedRAMP SSP must have a User Guide attached.</sch:assert>
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'user-guide']]">A FedRAMP SSP
+                must have a User Guide attached.</sch:assert>
             <sch:assert
                 diagnostics="has-rules-of-behavior-diagnostic"
                 doc:checklist-reference="Section B Check 3.5"
@@ -1121,8 +1121,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 5"
                 id="has-rules-of-behavior"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'rules-of-behavior']]">
-                [Section B Check 3.5] A FedRAMP SSP must have Rules of Behavior.</sch:assert>
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'rules-of-behavior']]"> A
+                FedRAMP SSP must have Rules of Behavior.</sch:assert>
             <sch:assert
                 diagnostics="has-information-system-contingency-plan-diagnostic"
                 doc:checklist-reference="Section B Check 3.6"
@@ -1131,7 +1131,7 @@
                 id="has-information-system-contingency-plan"
                 role="error"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'information-system-contingency-plan']]">
-                [Section B Check 3.6] A FedRAMP SSP must have a Contingency Plan attached.</sch:assert>
+                A FedRAMP SSP must have a Contingency Plan attached.</sch:assert>
             <sch:assert
                 diagnostics="has-configuration-management-plan-diagnostic"
                 doc:checklist-reference="Section B Check 3.7"
@@ -1140,7 +1140,7 @@
                 id="has-configuration-management-plan"
                 role="error"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'configuration-management-plan']]">
-                [Section B Check 3.7] A FedRAMP SSP must have a Configuration Management Plan attached.</sch:assert>
+                A FedRAMP SSP must have a Configuration Management Plan attached.</sch:assert>
             <sch:assert
                 diagnostics="has-incident-response-plan-diagnostic"
                 doc:checklist-reference="Section B Check 3.8"
@@ -1148,8 +1148,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 8"
                 id="has-incident-response-plan"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'incident-response-plan']]">
-                [Section B Check 3.8] A FedRAMP SSP must have an Incident Response Plan attached.</sch:assert>
+                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'incident-response-plan']]">A
+                FedRAMP SSP must have an Incident Response Plan attached.</sch:assert>
             <!-- Section B Check 3.9 is not used -->
             <!-- Section B Check 3.10 is not used -->
             <sch:assert
@@ -1160,7 +1160,7 @@
                 id="has-separation-of-duties-matrix"
                 role="error"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'separation-of-duties-matrix']]">
-                [Section B Check 3.11] A FedRAMP SSP must have a Separation of Duties Matrix attached.</sch:assert>
+                A FedRAMP SSP must have a Separation of Duties Matrix attached.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -1191,8 +1191,8 @@
                     (: component approach :)
                     (some $c in
                     //oscal:component[@uuid = current()/descendant::oscal:by-component/@component-uuid]
-                        satisfies $c/@type = 'policy' and $c/oscal:link[@rel eq 'policy'])">[Section B Check 3.1] A FedRAMP SSP must
-                incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                        satisfies $c/@type = 'policy' and $c/oscal:link[@rel eq 'policy'])">A FedRAMP SSP must incorporate a policy
+                document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <sch:let
                 name="policy-hrefs"
                 value="distinct-values((descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href, //oscal:component[@type = 'policy' and @uuid = current()/descendant::oscal:by-component/@component-uuid]/oscal:link/@href) ! substring-after(., '#'))" />
@@ -1223,8 +1223,8 @@
                     (: component approach :)
                     (some $c in
                     //oscal:component[@uuid = current()/descendant::oscal:by-component/@component-uuid]
-                        satisfies $c/@type = 'procedure' and $c/oscal:link[@rel eq 'procedure'])">[Section B Check 3.1] A FedRAMP SSP
-                must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                        satisfies $c/@type = 'procedure' and $c/oscal:link[@rel eq 'procedure'])">A FedRAMP SSP must incorporate a
+                procedure document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <sch:let
                 name="procedure-hrefs"
                 value="distinct-values((descendant::oscal:by-component/oscal:link[@rel eq 'procedure']/@href, //oscal:component[@type = 'procedure' and @uuid = current()/descendant::oscal:by-component/@component-uuid]/oscal:link/@href) ! substring-after(., '#'))" />
@@ -1264,7 +1264,7 @@
                     @href =
                     (: all controls except the current :) (//oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')] except $ir)
                     (: all their @hrefs :)/descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href
-                    )"> [Section B Check 3.1] Policy and procedure documents must have unique per-control-family
+                    )"> Policy and procedure documents must have unique per-control-family
                 associations.</sch:assert>
         </sch:rule>
     </sch:pattern>
@@ -1282,8 +1282,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-privacy-poc-role"
                 role="error"
-                test="/oscal:system-security-plan/oscal:metadata/oscal:role[@id eq 'privacy-poc']">[Section B Check 3.4] A FedRAMP SSP must
-                incorporate a Privacy Point of Contact role.</sch:assert>
+                test="/oscal:system-security-plan/oscal:metadata/oscal:role[@id eq 'privacy-poc']">A FedRAMP SSP must incorporate a Privacy Point of
+                Contact role.</sch:assert>
             <sch:assert
                 diagnostics="has-responsible-party-privacy-poc-role-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1291,8 +1291,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-responsible-party-privacy-poc-role"
                 role="error"
-                test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id eq 'privacy-poc']">[Section B Check 3.4] A FedRAMP
-                SSP must declare a Privacy Point of Contact responsible party role reference.</sch:assert>
+                test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id eq 'privacy-poc']">A FedRAMP SSP must declare a
+                Privacy Point of Contact responsible party role reference.</sch:assert>
             <sch:assert
                 diagnostics="has-responsible-privacy-poc-party-uuid-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1300,9 +1300,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-responsible-privacy-poc-party-uuid"
                 role="error"
-                test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id eq 'privacy-poc']/oscal:party-uuid">[Section B Check
-                3.4] A FedRAMP SSP must declare a Privacy Point of Contact responsible party role reference identifying the party by unique
-                identifier.</sch:assert>
+                test="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id eq 'privacy-poc']/oscal:party-uuid">A FedRAMP SSP
+                must declare a Privacy Point of Contact responsible party role reference identifying the party by unique identifier.</sch:assert>
             <sch:let
                 name="poc-uuid"
                 value="/oscal:system-security-plan/oscal:metadata/oscal:responsible-party[@role-id eq 'privacy-poc']/oscal:party-uuid" />
@@ -1313,8 +1312,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-privacy-poc"
                 role="error"
-                test="/oscal:system-security-plan/oscal:metadata/oscal:party[@uuid eq $poc-uuid]">[Section B Check 3.4] A FedRAMP SSP must define a
-                Privacy Point of Contact.</sch:assert>
+                test="/oscal:system-security-plan/oscal:metadata/oscal:party[@uuid eq $poc-uuid]">A FedRAMP SSP must define a Privacy Point of
+                Contact.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -1332,8 +1331,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-correct-yes-or-no-answer"
                 role="error"
-                test="current()/@value = ('yes', 'no')">[Section B Check 3.4] A Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA)
-                qualifying question must have an allowed answer.</sch:assert>
+                test="current()/@value = ('yes', 'no')">A Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question must have
+                an allowed answer.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information"
@@ -1346,8 +1345,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-privacy-sensitive-designation"
                 role="error"
-                test="oscal:prop[@name eq 'privacy-sensitive']">[Section B Check 3.4] A FedRAMP SSP must have a privacy-sensitive
-                designation.</sch:assert>
+                test="oscal:prop[@name eq 'privacy-sensitive']">A FedRAMP SSP must have a privacy-sensitive designation.</sch:assert>
             <sch:assert
                 diagnostics="has-pta-question-1-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1355,8 +1353,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-1"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-1']">[Section B Check 3.4] A FedRAMP SSP
-                must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #1.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-1']">A FedRAMP SSP must have Privacy
+                Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #1.</sch:assert>
             <sch:assert
                 diagnostics="has-pta-question-2-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1364,8 +1362,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-2"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-2']">[Section B Check 3.4] A FedRAMP SSP
-                must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #2.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-2']">A FedRAMP SSP must have Privacy
+                Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #2.</sch:assert>
             <sch:assert
                 diagnostics="has-pta-question-3-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1373,8 +1371,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-3"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-3']">[Section B Check 3.4] A FedRAMP SSP
-                must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #3.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-3']">A FedRAMP SSP must have Privacy
+                Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #3.</sch:assert>
             <sch:assert
                 diagnostics="has-pta-question-4-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1382,8 +1380,8 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 4"
                 id="has-pta-question-4"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4']">[Section B Check 3.4] A FedRAMP SSP
-                must have Privacy Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #4.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4']">A FedRAMP SSP must have Privacy
+                Threshold Analysis (PTA)/Privacy Impact Analysis (PIA) qualifying question #4.</sch:assert>
             <sch:assert
                 diagnostics="has-all-pta-questions-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
@@ -1414,7 +1412,7 @@
                 id="has-sorn"
                 role="error"
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4' and @value eq 'yes'] and oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'sorn-id' (: and @value ne '':)]">
-                [Section B Check 3.4] A FedRAMP SSP may have a SORN ID.</sch:assert>
+                A FedRAMP SSP may have a SORN ID.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:back-matter"
@@ -1430,7 +1428,7 @@
                 test="
                     every $answer in //oscal:system-information/oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and matches(@name, '^pta-\d$')]
                         satisfies $answer eq 'no' or oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'pia']] (: a PIA is attached :)">
-                [Section B Check 3.4] This FedRAMP SSP must incorporate a Privacy Impact Analysis.</sch:assert>
+                This FedRAMP SSP must incorporate a Privacy Impact Analysis.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -1529,14 +1527,14 @@
                 doc:template-reference="System Security Plan Template §2"
                 id="has-security-sensitivity-level"
                 role="error"
-                test="oscal:security-sensitivity-level">[Section B Check 3.10] A FedRAMP SSP must specify a FIPS 199 categorization.</sch:assert>
+                test="oscal:security-sensitivity-level">A FedRAMP SSP must specify a FIPS 199 categorization.</sch:assert>
             <sch:assert
                 diagnostics="has-security-impact-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.10"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
                 id="has-security-impact-level"
                 role="error"
-                test="oscal:security-impact-level">[Section B Check 3.10] A FedRAMP SSP must specify a security impact level.</sch:assert>
+                test="oscal:security-impact-level">A FedRAMP SSP must specify a security impact level.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:security-sensitivity-level"
@@ -1553,8 +1551,7 @@
                 doc:template-reference="System Security Plan Template §2"
                 id="has-allowed-security-sensitivity-level"
                 role="error"
-                test="current() = $security-sensitivity-levels">[Section B Check 3.10] A FedRAMP SSP must specify an allowed security sensitivity
-                level.</sch:assert>
+                test="current() = $security-sensitivity-levels">A FedRAMP SSP must specify an allowed security sensitivity level.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:security-impact-level"
@@ -1569,8 +1566,7 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="has-security-objective-confidentiality"
                 role="error"
-                test="oscal:security-objective-confidentiality">[Section B Check 3.10] A FedRAMP SSP must specify a confidentiality security
-                objective.</sch:assert>
+                test="oscal:security-objective-confidentiality">A FedRAMP SSP must specify a confidentiality security objective.</sch:assert>
             <sch:assert
                 diagnostics="has-security-objective-integrity-diagnostic"
                 doc:checklist-reference="Section B Check 3.10"
@@ -1578,8 +1574,7 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="has-security-objective-integrity"
                 role="error"
-                test="oscal:security-objective-integrity">[Section B Check 3.10] A FedRAMP SSP must specify an integrity security
-                objective.</sch:assert>
+                test="oscal:security-objective-integrity">A FedRAMP SSP must specify an integrity security objective.</sch:assert>
             <sch:assert
                 diagnostics="has-security-objective-availability-diagnostic"
                 doc:checklist-reference="Section B Check 3.10"
@@ -1587,8 +1582,7 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="has-security-objective-availability"
                 role="error"
-                test="oscal:security-objective-availability">[Section B Check 3.10] A FedRAMP SSP must specify an availability security
-                objective.</sch:assert>
+                test="oscal:security-objective-availability">A FedRAMP SSP must specify an availability security objective.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
@@ -1605,8 +1599,7 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="has-allowed-security-objective-value"
                 role="error"
-                test="current() = $security-objective-levels">[Section B Check 3.10] A FedRAMP SSP must specify an allowed security objective
-                value.</sch:assert>
+                test="current() = $security-objective-levels">A FedRAMP SSP must specify an allowed security objective value.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -1788,8 +1781,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-security-eauth-level"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'security-eauth' and @name eq 'security-eauth-level']"> [Section
-                B Check 3.3, Section C Check 7] A FedRAMP SSP must have a Digital Identity Determination property.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'security-eauth' and @name eq 'security-eauth-level']">A FedRAMP
+                SSP must have a Digital Identity Determination property.</sch:assert>
             <sch:assert
                 diagnostics="has-identity-assurance-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
@@ -1797,8 +1790,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-identity-assurance-level"
                 role="information"
-                test="oscal:prop[@name eq 'identity-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a Digital
-                Identity Determination identity assurance level property.</sch:assert>
+                test="oscal:prop[@name eq 'identity-assurance-level']">A FedRAMP SSP may have a Digital Identity Determination identity assurance
+                level property.</sch:assert>
             <sch:assert
                 diagnostics="has-authenticator-assurance-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
@@ -1806,8 +1799,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-authenticator-assurance-level"
                 role="information"
-                test="oscal:prop[@name eq 'authenticator-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a Digital
-                Identity Determination authenticator assurance level property.</sch:assert>
+                test="oscal:prop[@name eq 'authenticator-assurance-level']">A FedRAMP SSP may have a Digital Identity Determination authenticator
+                assurance level property.</sch:assert>
             <sch:assert
                 diagnostics="has-federation-assurance-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
@@ -1815,8 +1808,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-federation-assurance-level"
                 role="information"
-                test="oscal:prop[@name eq 'federation-assurance-level']">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP may have a Digital
-                Identity Determination federation assurance level property.</sch:assert>
+                test="oscal:prop[@name eq 'federation-assurance-level']">A FedRAMP SSP may have a Digital Identity Determination federation assurance
+                level property.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'security-eauth' and @name eq 'security-eauth-level']"
@@ -1834,8 +1827,7 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-allowed-security-eauth-level"
                 role="error"
-                test="@value = $eauth-levels">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP must have a Digital Identity Determination
-                property with an allowed value.</sch:assert>
+                test="@value = $eauth-levels">A FedRAMP SSP must have a Digital Identity Determination property with an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@name eq 'identity-assurance-level']"
@@ -1852,8 +1844,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-allowed-identity-assurance-level"
                 role="error"
-                test="@value = $identity-assurance-levels">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP should have an allowed Digital
-                Identity Determination identity assurance level.</sch:assert>
+                test="@value = $identity-assurance-levels">A FedRAMP SSP should have an allowed Digital Identity Determination identity assurance
+                level.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@name eq 'authenticator-assurance-level']"
@@ -1870,8 +1862,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-allowed-authenticator-assurance-level"
                 role="error"
-                test="@value = $authenticator-assurance-levels">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP should have an allowed Digital
-                Identity Determination authenticator assurance level.</sch:assert>
+                test="@value = $authenticator-assurance-levels">A FedRAMP SSP should have an allowed Digital Identity Determination authenticator
+                assurance level.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@name eq 'federation-assurance-level']"
@@ -1888,8 +1880,8 @@
                 doc:template-reference="System Security Plan Template §2.3"
                 id="has-allowed-federation-assurance-level"
                 role="error"
-                test="@value = $federation-assurance-levels">[Section B Check 3.3, Section C Check 7] A FedRAMP SSP should have an allowed Digital
-                Identity Determination federation assurance level.</sch:assert>
+                test="@value = $federation-assurance-levels">A FedRAMP SSP should have an allowed Digital Identity Determination federation assurance
+                level.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -3298,8 +3290,8 @@
                 role="error"
                 test="
                     every $rrp in $required-response-points
-                        satisfies $rrp = $provided-response-points">[Section C Check 2] An implemented control must include required
-                response point statements.</sch:assert>
+                        satisfies $rrp = $provided-response-points">An implemented control must include required response point
+                statements.</sch:assert>
 
         </sch:rule>
         <sch:rule
