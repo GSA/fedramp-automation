@@ -1205,9 +1205,8 @@
                 role="error"
                 test="
                     every $ref in $policy-hrefs
-                        satisfies exists(//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'policy']][@uuid eq $ref])">[Section
-                B Check 3.1] A FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control
-                families.</sch:assert>
+                        satisfies exists(//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'policy']][@uuid eq $ref])">A
+                FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <!-- TODO: ensure resource has an rlink -->
             <sch:assert
                 diagnostics="has-procedure-link-diagnostic"
@@ -1238,9 +1237,8 @@
                 test="
                     (: targets of links exist in the document :)
                     every $ref in $procedure-hrefs
-                        satisfies exists(//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'procedure']][@uuid eq $ref])">[Section
-                B Check 3.1] A FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control
-                families.</sch:assert>
+                        satisfies exists(//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'procedure']][@uuid eq $ref])">A
+                FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
             <!-- TODO: ensure resource has an rlink -->
         </sch:rule>
         <sch:rule
