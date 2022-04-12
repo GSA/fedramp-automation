@@ -4244,8 +4244,8 @@
             doc:assertion="cia-impact-matches-security-objective"
             doc:context="oscal:information-type"
             id="cia-impact-matches-security-objective-diagnostic">The FedRAMP SSP security objective <xsl:value-of
-                select="substring-before(local-name(), '-')" /> does not match the <xsl:value-of
-                select="substring-before(local-name(), '-')" /> impact value.</sch:diagnostic>
+                select="substring-after(substring-after(local-name(), '-'), '-')" /> does not match the <xsl:value-of
+                    select="substring-after(substring-after(local-name(), '-'), '-')" /> impact value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="categorization-has-system-attribute"
             doc:context="oscal:categorization"
