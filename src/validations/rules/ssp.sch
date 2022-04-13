@@ -513,8 +513,7 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="invalid-security-sensitivity-level"
                 role="fatal"
-                test="empty($ok-values) or not(exists($corrections))">A FedRAMP SSP must have an allowed sensitivity
-                level.</sch:assert>
+                test="empty($ok-values) or not(exists($corrections))">A FedRAMP SSP must have an allowed sensitivity level.</sch:assert>
             <sch:let
                 name="implemented"
                 value="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement" />
@@ -628,8 +627,8 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="extraneous-implemented-requirements"
                 role="warning"
-                test="not(exists($extraneous))">A FedRAMP SSP must not include implemented controls beyond what is required for
-                the applied baseline.</sch:assert>
+                test="not(exists($extraneous))">A FedRAMP SSP must not include implemented controls beyond what is required for the applied
+                baseline.</sch:assert>
             <sch:let
                 name="results"
                 value="$ok-values => lv:analyze(//o:implemented-requirement/o:prop[@name eq 'implementation-status'])" />
@@ -791,8 +790,8 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="invalid-component-match"
                 role="warning"
-                test="/o:system-security-plan/o:system-implementation/o:component[@uuid eq $component-ref] => exists()">Response
-                statement cites a component in the system implementation inventory.</sch:assert>
+                test="/o:system-security-plan/o:system-implementation/o:component[@uuid eq $component-ref] => exists()">Response statement cites a
+                component in the system implementation inventory.</sch:assert>
             <sch:assert
                 diagnostics="missing-component-description-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -800,8 +799,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="missing-component-description"
                 role="error"
-                test="./o:description => exists()">Response statement has a component which has a required
-                description.</sch:assert>
+                test="./o:description => exists()">Response statement has a component which has a required description.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:description">
@@ -821,8 +819,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="incomplete-response-description"
                 role="error"
-                test="$description-length ge $required-length">Response statement component description has adequate
-                length.</sch:assert>
+                test="$description-length ge $required-length">Response statement component description has adequate length.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:remarks">
@@ -868,8 +865,7 @@
                 doc:template-reference="System Security Plan Template §9.3"
                 id="incorrect-role-association"
                 role="error"
-                test="not(exists($extraneous-roles))">A FedRAMP SSP must define a responsible party with no extraneous
-                roles.</sch:assert>
+                test="not(exists($extraneous-roles))">A FedRAMP SSP must define a responsible party with no extraneous roles.</sch:assert>
             <sch:assert
                 diagnostics="incorrect-party-association-diagnostic"
                 doc:checklist-reference="Section C Check 2"
@@ -877,8 +873,7 @@
                 doc:template-reference="System Security Plan Template §9.3"
                 id="incorrect-party-association"
                 role="error"
-                test="not(exists($extraneous-parties))">A FedRAMP SSP must define a responsible party with no extraneous
-                parties.</sch:assert>
+                test="not(exists($extraneous-parties))">A FedRAMP SSP must define a responsible party with no extraneous parties.</sch:assert>
         </sch:rule>
         <sch:rule
             context="/o:system-security-plan/o:back-matter/o:resource">
@@ -1262,8 +1257,7 @@
                     @href =
                     (: all controls except the current :) (//oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')] except $ir)
                     (: all their @hrefs :)/descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href
-                    )"> Policy and procedure documents must have unique per-control-family
-                associations.</sch:assert>
+                    )"> Policy and procedure documents must have unique per-control-family associations.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -1400,7 +1394,8 @@
                 role="error"
                 test="
                     not(some $name in ('pta-1', 'pta-2', 'pta-3', 'pta-4')
-                        satisfies exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq $name][2]))">A FedRAMP SSP must have no duplicate PTA questions.</sch:assert>
+                        satisfies exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq $name][2]))">A
+                FedRAMP SSP must have no duplicate PTA questions.</sch:assert>
             <sch:assert
                 diagnostics="has-sorn-diagnostic"
                 doc:checklist-reference="Section B Check 3.4"
