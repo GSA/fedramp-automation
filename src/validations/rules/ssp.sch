@@ -4242,7 +4242,7 @@
             id="information-type-has-availability-impact-diagnostic">A FedRAMP SSP information-type lacks a availability-impact.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="cia-impact-matches-security-objective"
-            doc:context="oscal:information-type"
+            doc:context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
             id="cia-impact-matches-security-objective-diagnostic">The FedRAMP SSP security objective <xsl:value-of
                 select="substring-after(substring-after(local-name(), '-'), '-')" /> does not match the <xsl:value-of
                     select="substring-after(substring-after(local-name(), '-'), '-')" /> impact value.</sch:diagnostic>
