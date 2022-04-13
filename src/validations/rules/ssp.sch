@@ -1544,6 +1544,34 @@
                 id="has-allowed-security-sensitivity-level"
                 role="error"
                 test="current() = $security-sensitivity-levels">A FedRAMP SSP must specify an allowed security sensitivity level.</sch:assert>
+            <sch:let
+                name="securityLevelStr"
+                value="string-join(../o:security-impact-level//text())" />
+            <sch:let
+                name="securityImpactLevel"
+                value="
+                    if (matches($securityLevelStr, 'high'))
+                    then
+                        ('fips-199-high')
+                    else
+                        (if (matches($securityLevelStr, 'moderate'))
+                        then
+                            ('fips-199-moderate')
+                        else
+                            ('fips-199-low'))" />
+            <sch:let
+                name="securitySensitivityLevel"
+                value="." />
+            <sch:assert
+                diagnostics="security-sensitivity-level-matches-security-impact-level-diagnostic"
+                doc:checklist-reference="Section B Check 3.10"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
+                doc:template-reference="System Security Plan Template §2.2"
+                id="security-sensitivity-level-matches-security-impact-level"
+                role="error"
+                test=". eq $securityImpactLevel"><xsl:value-of
+                    select="$securityLevelStr" /> -- A FedRAMP SSP security sensitivity level must match the highest level within the security impact
+                levels.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:security-impact-level"
@@ -1592,6 +1620,62 @@
                 id="has-allowed-security-objective-value"
                 role="error"
                 test="current() = $security-objective-levels">A FedRAMP SSP must specify an allowed security objective value.</sch:assert>
+            <sch:let
+                name="impactName"
+                value="substring-after(substring-after(local-name(), '-'), '-')" />
+            <sch:let
+                name="impactSelected"
+                value="string-join(/o:system-security-plan/o:system-characteristics/o:system-information//o:information-type//*[contains(local-name(), $impactName)]/o:selected/text())" />
+            <sch:let
+                name="impactBase"
+                value="string-join(/o:system-security-plan/o:system-characteristics/o:system-information//o:information-type//*[contains(local-name(), $impactName)]/o:base/text())" />
+            <sch:let
+                name="securityImpactLevelSelected"
+                value="
+                    if (matches($impactSelected, 'high'))
+                    then
+                        ('fips-199-high')
+                    else
+                        (if (matches($impactSelected, 'moderate'))
+                        then
+                            ('fips-199-moderate')
+                        else
+                            (if (matches($impactSelected, 'low'))
+                            then
+                                ('fips-199-low')
+                            else
+                            ('fips-199-low')))" />
+            <sch:let
+                name="securityImpactLevelBase"
+                value="
+                    if (matches($impactBase, 'high'))
+                    then
+                        ('fips-199-high')
+                    else
+                        (if (matches($impactBase, 'moderate'))
+                        then
+                            ('fips-199-moderate')
+                        else
+                            (if (matches($impactBase, 'low'))
+                            then
+                                ('fips-199-low')
+                            else
+                                ('fips-199-low')))" />
+            <sch:let
+                name="impactValue"
+                value="
+                    if ($securityImpactLevelSelected ne '')
+                    then
+                        ($securityImpactLevelSelected)
+                    else
+                        ($securityImpactLevelBase)" />
+            <sch:assert
+                diagnostics="cia-impact-matches-security-objective-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
+                id="cia-impact-matches-security-objective"
+                role="warning"
+                test="$impactValue eq .">An SSP security objective value must be the same as highest available value of the same information type
+                impact element.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -4148,6 +4232,11 @@
             doc:context="oscal:security-impact-level"
             id="has-security-objective-availability-diagnostic">This FedRAMP SSP lacks an availability security objective.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="security-sensitivity-level-matches-security-impact-level"
+            doc:context="oscal:security-impact-level"
+            id="security-sensitivity-level-matches-security-impact-level-diagnostic">This FedRAMP SSP security sensitivity level does not match the
+            security impact level.</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="has-allowed-security-objective-value"
             doc:context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
             id="has-allowed-security-objective-value-diagnostic">Invalid "<sch:value-of
@@ -4184,6 +4273,12 @@
             doc:assertion="information-type-has-availability-impact"
             doc:context="oscal:information-type"
             id="information-type-has-availability-impact-diagnostic">A FedRAMP SSP information-type lacks a availability-impact.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="cia-impact-matches-security-objective"
+            doc:context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
+            id="cia-impact-matches-security-objective-diagnostic">The FedRAMP SSP security objective <xsl:value-of
+                select="substring-after(substring-after(local-name(), '-'), '-')" /> does not match the <xsl:value-of
+                    select="substring-after(substring-after(local-name(), '-'), '-')" /> impact value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="categorization-has-system-attribute"
             doc:context="oscal:categorization"
