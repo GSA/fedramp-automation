@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet
     exclude-result-prefixes="xs math uuid expath oscal"
+    expand-text="true"
     version="3.0"
     xmlns:expath="http://expath.org/ns/binary"
     xmlns:math="http://www.w3.org/2005/xpath-functions/math"
@@ -18,13 +19,18 @@
     -->
     <xsl:param
         as="xs:boolean"
+        name="insert-flaws"
+        required="false"
+        select="false()" />
+    <xsl:param
+        as="xs:boolean"
         name="insert-diagrams"
         required="false"
         select="false()" />
     <xsl:mode
         on-no-match="fail" />
     <xsl:output
-        indent="false"
+        indent="true"
         method="xml" />
     <xsl:variable
         as="xs:duration"
@@ -100,17 +106,16 @@
         match="/">
         <xsl:copy-of
             select="$LF" />
-        <xsl:comment expand-text="true">This document used {base-uri()} as the input.</xsl:comment>
+        <xsl:comment>This document used {base-uri()} as the input.</xsl:comment>
         <xsl:copy-of
             select="$LF" />
-        <xsl:comment expand-text="true">This document used {static-base-uri()} as the transform.</xsl:comment>
+        <xsl:comment>This document used {static-base-uri()} as the transform.</xsl:comment>
         <xsl:copy-of
             select="$LF" />
-        <xsl:processing-instruction name="xml-model"> href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"</xsl:processing-instruction>
-        <!--<xsl:processing-instruction name="xml-model"> href="https://raw.githubusercontent.com/18F/fedramp-automation/master/resources/validations/src/ssp.sch" schematypens="http://purl.oclc.org/dsdl/schematron" title="FedRAMP SSP constraints"</xsl:processing-instruction>-->
-        <!--<xsl:processing-instruction name="xml-model"> href="file:/Users/gapinski/branches/fedramp-automation/resources/validations/src/ssp.sch" schematypens="http://purl.oclc.org/dsdl/schematron" title="FedRAMP SSP constraints"</xsl:processing-instruction>-->
-        <!--<xsl:processing-instruction name="xml-model"> href="file:/Users/gapinski/branches/fedramp-automation/resources/validations/src/ssp-test.sch" schematypens="http://purl.oclc.org/dsdl/schematron" title="FedRAMP SSP constraints"</xsl:processing-instruction>-->
-        <xsl:text disable-output-escaping="true">&#x0a;&lt;!--&lt;?xml-model href=&quot;file:/Users/gapinski/branches/fedramp-automation/resources/validations/src/ssp.sch&quot; schematypens=&quot;http://purl.oclc.org/dsdl/schematron&quot; title=&quot;FedRAMP SSP constraints&quot;?&gt;--&gt;&#x0a;</xsl:text>
+        <xsl:processing-instruction name="xml-model"> schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.2/xml/schema/oscal_complete_schema.xsd" </xsl:processing-instruction>
+        <xsl:copy-of
+            select="$LF" />
+        <xsl:processing-instruction name="xml-model"> schematypens="http://purl.oclc.org/dsdl/schematron" title="FedRAMP SSP constraints" href="https://github.com/18F/fedramp-automation/raw/develop/src/validations/rules/ssp.sch" phase="#ALL"</xsl:processing-instruction>
         <xsl:variable
             as="xs:string"
             name="control-role">implemented-requirement-responsible-role</xsl:variable>
@@ -133,7 +138,7 @@
                         select="$UTC-datetime" />
                 </last-modified>
                 <version>0.1</version>
-                <oscal-version>1.0.0</oscal-version>
+                <oscal-version>1.0.2</oscal-version>
 
                 <!-- roles -->
                 <!-- ISO -->
@@ -479,7 +484,6 @@
             </metadata>
             <import-profile>
                 <xsl:attribute
-                    expand-text="true"
                     name="href">{//link[@rel='resolution-source']/@href}</xsl:attribute>
             </import-profile>
             <system-characteristics>
@@ -694,6 +698,20 @@
                         <function-performed>function</function-performed>
                     </authorized-privilege>
                 </user>
+                <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.4.6</xsl:comment>
+                <component
+                    type="this-system"
+                    uuid="">
+                    <xsl:attribute
+                        name="uuid"
+                        select="$component-uuid" />
+                    <title>This system</title>
+                    <description>
+                        <p>This component refers to the system itself.</p>
+                    </description>
+                    <status
+                        state="operational" />
+                </component>
                 <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans Appendix A</xsl:comment>
                 <component
                     type="validation"
@@ -711,20 +729,7 @@
                     <status
                         state="active" />
                 </component>
-                <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.4.6</xsl:comment>
-                <component
-                    type="this-system"
-                    uuid="">
-                    <xsl:attribute
-                        name="uuid"
-                        select="$component-uuid" />
-                    <title />
-                    <description>
-                        <p>This component is the answer to almost everything</p>
-                    </description>
-                    <status
-                        state="operational" />
-                </component>
+
 
                 <xsl:for-each
                     select="//control[matches(@id, '-1$')]">
@@ -736,11 +741,11 @@
                             name="uuid"
                             select="$pp-uuid[@id = current()/@id]/@pol-c" />
                         <title>
-                            <xsl:text expand-text="true">{prop[@name = 'label']/@value} - Policy document</xsl:text>
+                            <xsl:text>{prop[@name = 'label']/@value} - Policy document</xsl:text>
                         </title>
                         <description>
                             <p>
-                                <xsl:text expand-text="true">{prop[@name = 'label']/@value} {title} - Policy</xsl:text>
+                                <xsl:text>{prop[@name = 'label']/@value} {title} - Policy</xsl:text>
                             </p>
                         </description>
                         <prop
@@ -760,11 +765,11 @@
                             name="uuid"
                             select="$pp-uuid[@id = current()/@id]/@pro-c" />
                         <title>
-                            <xsl:text expand-text="true">{prop[@name = 'label']/@value} - Procedure document</xsl:text>
+                            <xsl:text>{prop[@name = 'label']/@value} - Procedure document</xsl:text>
                         </title>
                         <description>
                             <p>
-                                <xsl:text expand-text="true">{prop[@name = 'label']/@value} {title} - Procedure</xsl:text>
+                                <xsl:text>{prop[@name = 'label']/@value} {title} - Procedure</xsl:text>
                             </p>
                         </description>
                         <prop
@@ -792,15 +797,19 @@
                         <xsl:attribute
                             name="uuid"
                             select="uuid:randomUUID()" />
-                        <xsl:comment expand-text="true">{title}</xsl:comment>
+                        <xsl:comment> Control title: {title} </xsl:comment>
                         <xsl:variable
                             as="xs:integer"
-                            expand-text="true"
                             name="r">{floor(random-number-generator(generate-id())?number * 100 ) + 1}</xsl:variable>
                         <xsl:variable
                             as="xs:integer"
                             name="w">
                             <xsl:choose>
+                                <xsl:when
+                                    test="not($insert-flaws)">
+                                    <xsl:value-of
+                                        select="1" />
+                                </xsl:when>
                                 <xsl:when
                                     test="$r gt 5">
                                     <xsl:value-of
@@ -861,13 +870,13 @@
                         <xsl:comment>
                             <xsl:choose>
                                 <xsl:when test="count(param) gt 2">
-                                    <xsl:text expand-text="true">There are {count(param)} control parameters</xsl:text>
+                                    <xsl:text> There are {count(param)} control parameters </xsl:text>
                                 </xsl:when>
                                 <xsl:when test="count(param) eq 1">
-                                    <xsl:text expand-text="true">There is {count(param)} control parameter</xsl:text>
+                                    <xsl:text> There is {count(param)} control parameter </xsl:text>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:text>There are no control parameters</xsl:text>
+                                    <xsl:text> There are no control parameters </xsl:text>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:comment>
@@ -878,9 +887,13 @@
                                 <value>
                                     <xsl:choose>
                                         <xsl:when
-                                            test="label">
+                                            test="constraint">
                                             <xsl:value-of
-                                                select="normalize-space(label)" />
+                                                select="normalize-space(constraint)" />
+                                        </xsl:when>
+                                        <xsl:when
+                                            test="label">
+                                            <xsl:text>The chosen {normalize-space(label)} should appear here.</xsl:text>
                                         </xsl:when>
                                         <xsl:when
                                             test="
@@ -890,17 +903,19 @@
                                         </xsl:when>
                                         <xsl:when
                                             test="select[@how-many]">
-                                            <xsl:text expand-text="true">{select/@how-many} of {string-join(select/choice[not(insert)],', ')}</xsl:text>
+                                            <xsl:text>{select/@how-many} of {string-join(select/choice[not(insert)],', ')}</xsl:text>
                                         </xsl:when>
                                         <xsl:when
                                             test="select">
-                                            <xsl:text expand-text="true">one of {string-join(select/choice[not(insert)],' or ')}</xsl:text>
+                                            <xsl:text>one of {string-join(select/choice[not(insert)],' or ')}</xsl:text>
                                         </xsl:when>
                                     </xsl:choose>
                                 </value>
                                 <xsl:if
                                     test="constraint">
-                                    <xsl:comment expand-text="true">Constraint: {normalize-space(constraint)}></xsl:comment>
+                                    <remarks>
+                                        <p>There is a FedRAMP constraint on this ODP: <q>{normalize-space(constraint)}</q></p>
+                                    </remarks>
                                 </xsl:if>
                             </set-parameter>
                         </xsl:for-each>
@@ -908,8 +923,8 @@
                         <responsible-role
                             role-id="{$control-role}" />
                         <xsl:comment>
-                            <xsl:text>Required response points are: </xsl:text>
-                            <xsl:value-of select="descendant::prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'response-point']/parent::part/@id[matches(., 'smt')]" separator=", " />
+                            <xsl:text> Required response points are: </xsl:text>
+                            <xsl:value-of select="descendant::prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'response-point']/parent::part/@id[matches(., 'smt')]" separator=", " /> 
                         </xsl:comment>
                         <xsl:apply-templates
                             select="part" />
@@ -1017,14 +1032,13 @@
 
                 <xsl:for-each
                     select="//control[matches(@id, '-1$')]">
-                    <xsl:comment expand-text="true">{parent::group/title} Policy and Procedures attachments</xsl:comment>
+                    <xsl:comment>{parent::group/title} Policy and Procedures attachments</xsl:comment>
                     <resource>
                         <xsl:attribute
                             name="uuid"
                             select="$pp-uuid[@id = current()/@id]/@pol-r" />
                         <xsl:variable
                             as="xs:string"
-                            expand-text="true"
                             name="text">{prop[@name = 'label']/@value} {title} - Policy</xsl:variable>
                         <title>
                             <xsl:value-of
@@ -1048,7 +1062,6 @@
                             select="$pp-uuid[@id = current()/@id]/@pro-r" />
                         <xsl:variable
                             as="xs:string"
-                            expand-text="true"
                             name="text">{prop[@name = 'label']/@value} {title} - Procedures</xsl:variable>
                         <title>
                             <xsl:value-of
@@ -1300,7 +1313,7 @@
                 <xsl:element
                     name="p"
                     namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                    <xsl:text expand-text="true">{title}: policy component reference</xsl:text>
+                    <xsl:text>{title}: policy component reference</xsl:text>
                 </xsl:element>
             </xsl:element>
         </xsl:element>
@@ -1320,7 +1333,7 @@
                 <xsl:element
                     name="p"
                     namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                    <xsl:text expand-text="true">{title}: procedure component reference</xsl:text>
+                    <xsl:text>{title}: procedure component reference</xsl:text>
                 </xsl:element>
             </xsl:element>
         </xsl:element>
