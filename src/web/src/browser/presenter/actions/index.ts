@@ -1,15 +1,20 @@
+export * as metrics from './metrics';
 export * as schematron from './schematron';
 export * as validator from './validator';
 
 import type { PresenterConfig } from '..';
 import * as router from '../state/router';
 
-export const onInitializeOvermind = ({ actions, effects }: PresenterConfig) => {
+export const onInitializeOvermind = async ({
+  actions,
+  effects,
+}: PresenterConfig) => {
   actions.setCurrentRoute(window.location.hash);
   effects.location.listen((url: string) => {
     actions.setCurrentRoute(url);
   });
   actions.schematron.initialize();
+  await actions.metrics.initialize();
 };
 
 export const setCurrentRoute = (

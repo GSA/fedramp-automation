@@ -1,12 +1,14 @@
 import React from 'react';
 import { useAppState } from '../hooks';
-import { Banner } from './Banner';
+import { BetaBanner } from './BetaBanner';
 import { DevelopersPage } from './DevelopersPage';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { HomePage } from './HomePage';
 import { InnerPageLayout } from './InnerPageLayout';
 import { SummaryPage } from './SummaryPage';
+import { UsaBanner } from './UsaBanner';
+import { UsageTrackingPage } from './UsageTrackingPage';
 import { ValidatorPage } from './ValidatorPage';
 import { ViewerPage } from './ViewerPage';
 
@@ -38,6 +40,12 @@ const CurrentPage = () => {
         <DevelopersPage />
       </InnerPageLayout>
     );
+  } else if (currentRoute.type === 'UsageTracking') {
+    return (
+      <InnerPageLayout>
+        <UsageTrackingPage />
+      </InnerPageLayout>
+    );
   } else {
     const _exhaustiveCheck: never = currentRoute;
     return <></>;
@@ -47,7 +55,8 @@ const CurrentPage = () => {
 export const App = () => {
   return (
     <div>
-      <Banner />
+      <BetaBanner />
+      <UsaBanner />
       <Header />
       <div className="grid-container">
         <CurrentPage />

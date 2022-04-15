@@ -7,6 +7,11 @@ const GITHUB = {
   branch: process.env.BRANCH || 'develop',
 };
 
+const DEPLOYMENT_ID =
+  process.env.NODE_ENV === 'development'
+    ? 'local'
+    : `${GITHUB.owner}:${GITHUB.branch}`;
+
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
   alias: {
@@ -14,6 +19,7 @@ module.exports = {
   },
   env: {
     BASEURL,
+    DEPLOYMENT_ID,
     GITHUB,
   },
   mount: {

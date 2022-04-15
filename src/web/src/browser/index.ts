@@ -1,11 +1,15 @@
 import * as github from '@asap/shared/domain/github';
 import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
+import { AppMetrics } from '@asap/shared/use-cases/app-metrics';
 import {
   ValidateSSPUseCase,
   ValidateSSPUrlUseCase,
 } from '@asap/shared/use-cases/validate-ssp-xml';
 
+import { createBrowserFingerprintMaker } from '@asap/shared/adapters/browser-fingerprint';
+import { createGoogleFormMetricsLogger } from '@asap/shared/adapters/google-form';
 import { highlightXML } from '@asap/shared/adapters/highlight-js';
+import { AppLocalStorage } from '@asap/shared/adapters/local-storage';
 import {
   SaxonJsJsonSspToXmlProcessor,
   SaxonJsSchematronProcessorGateway,
@@ -21,8 +25,9 @@ const SaxonJS = (window as any).SaxonJS;
 
 type BrowserContext = {
   element: HTMLElement;
-  debug: boolean;
   baseUrl: string;
+  debug: boolean;
+  deploymentId: string;
   importMetaHot: ImportMetaHot | undefined;
   githubRepository: github.GithubRepository;
 };
@@ -31,6 +36,7 @@ export const runBrowserContext = ({
   element,
   baseUrl,
   debug,
+  deploymentId,
   importMetaHot,
   githubRepository,
 }: BrowserContext) => {
@@ -47,6 +53,19 @@ export const runBrowserContext = ({
     baselinesBaseUrl: `${baseUrl}/baselines`,
     registryBaseUrl: `${baseUrl}/xml`,
   });
+  const eventLogger = createGoogleFormMetricsLogger({
+    fetch: window.fetch.bind(window),
+    formUrl:
+      'https://docs.google.com/forms/d/e/1FAIpQLScKRI40pQlpaY9cUUnyTdz-e_NvOb0-DYnPw_6fTqbw-kO6KA/',
+    fieldIds: {
+      deploymentId: 'entry.2078742906',
+      deviceId: 'entry.487426639',
+      userAlias: 'entry.292167116',
+      eventType: 'entry.172225468',
+      data: 'entry.1638260679',
+    },
+  });
+  const localStorageGateway = new AppLocalStorage(window.localStorage);
   browserController({
     importMetaHot,
     renderApp: createAppRenderer(
@@ -76,6 +95,12 @@ export const runBrowserContext = ({
               indentXml: s => Promise.resolve(s),
             },
             SaxonJS,
+          }),
+          appMetrics: new AppMetrics({
+            deploymentId,
+            eventLogger,
+            getBrowserFingerprint: createBrowserFingerprintMaker(),
+            optInGateway: localStorageGateway,
           }),
           getAssertionViews: async () =>
             fetch(`${baseUrl}/assertion-views.json`).then(response =>

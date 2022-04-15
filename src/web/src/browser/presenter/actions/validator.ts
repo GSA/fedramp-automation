@@ -77,7 +77,7 @@ export const setProcessingError = (
 };
 
 export const setValidationReport = (
-  { state }: PresenterConfig,
+  { actions, state }: PresenterConfig,
   {
     validationReport,
     xmlText,
@@ -88,5 +88,6 @@ export const setValidationReport = (
 ) => {
   if (state.schematron.validator.matches('PROCESSING')) {
     state.schematron.validator.send('VALIDATED', { validationReport, xmlText });
+    actions.metrics.logValidationSummary();
   }
 };

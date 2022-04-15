@@ -1,6 +1,8 @@
+import { mock } from 'jest-mock-extended';
 import { createOvermind, createOvermindMock, IContext } from 'overmind';
 
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
+import type { AppMetrics } from '@asap/shared/use-cases/app-metrics';
 import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { GetSSPSchematronAssertions } from '@asap/shared/use-cases/schematron';
 import type {
@@ -16,6 +18,7 @@ type UseCases = {
   annotateXML: AnnotateXMLUseCase;
   getAssertionViews: GetAssertionViews;
   getSSPSchematronAssertions: GetSSPSchematronAssertions;
+  appMetrics: AppMetrics;
   validateSSP: ValidateSSPUseCase;
   validateSSPUrl: ValidateSSPUrlUseCase;
 };
@@ -66,24 +69,6 @@ export const createPresenter = (ctx: PresenterContext) => {
 };
 export type Presenter = ReturnType<typeof createPresenter>;
 
-/**
- * `createOvermindMock` expects actual effect functions. They may be shimmed in
- * with the return value from this function.
- * These use cases will never be called, because Overmind requires mock effects
- * specified as the second parameter of `createOvermindMock`.
- * @returns Stubbed use cases
- */
-const getUseCasesShim = (): UseCases => {
-  const stub = jest.fn();
-  return {
-    annotateXML: stub,
-    getAssertionViews: stub,
-    getSSPSchematronAssertions: stub,
-    validateSSP: stub,
-    validateSSPUrl: stub,
-  };
-};
-
 type MockPresenterContext = {
   useCases?: Partial<UseCases>;
   initialState?: Partial<State>;
@@ -93,7 +78,7 @@ export const createPresenterMock = (ctx: MockPresenterContext = {}) => {
   const presenter = createOvermindMock(
     getPresenterConfig(
       { listen: jest.fn(), replace: jest.fn() },
-      getUseCasesShim(),
+      mock<UseCases>(),
       ctx.initialState,
     ),
     {

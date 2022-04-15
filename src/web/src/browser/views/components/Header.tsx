@@ -68,6 +68,9 @@ export const Header = () => {
                 <li className="usa-nav__submenu-item">
                   <a href={getUrl(Routes.developers)}>Developers</a>
                 </li>
+                <li className="usa-nav__submenu-item">
+                  <a href={getUrl(Routes.usageTracking)}>Usage Tracking</a>
+                </li>
               </ul>
             </li>
           </ul>

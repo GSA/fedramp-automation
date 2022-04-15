@@ -2,18 +2,10 @@ import React from 'react';
 
 import { useActions } from '../hooks';
 
-export const Banner = () => {
+export const UsaBanner = () => {
   const { getAssetUrl } = useActions();
   return (
     <>
-      <section className="beta-banner">
-        <div className="grid-container">
-          <p className="grid-col-auto">
-            <strong>BETA SITE:</strong> We are testing a new validation
-            automation system for FedRAMP audit reviews.
-          </p>
-        </div>
-      </section>
       <section className="usa-banner" aria-label="Official government website">
         <div className="usa-accordion">
           <header className="usa-banner__header">

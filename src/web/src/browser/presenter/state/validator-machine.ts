@@ -28,6 +28,7 @@ type States =
 
 type BaseState = {
   assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
+  failedAssertionCounts: Record<FailedAssert['id'], number> | null;
 };
 
 type Events =
@@ -121,6 +122,17 @@ export const createValidatorMachine = () => {
             })
           : null,
       ),
+      failedAssertionCounts: derived((state: ValidatorMachine) => {
+        return state.current === 'VALIDATED'
+          ? state.validationReport.failedAsserts.reduce<Record<string, number>>(
+              (acc, assert) => {
+                acc[assert.id] = (acc[assert.id] || 0) + 1;
+                return acc;
+              },
+              {},
+            )
+          : null;
+      }),
     },
   );
 };

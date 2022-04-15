@@ -209,10 +209,6 @@ export const filterAssertions = (
   assertions = assertions.filter(assert =>
     filter.assertionViewIds.includes(assert.id),
   );
-  console.log(
-    failedAssertionMap,
-    failedAssertionMap && filter.passStatus !== 'all',
-  );
   if (failedAssertionMap && filter.passStatus !== 'all') {
     assertions = assertions.filter(assert => {
       const failed = !!failedAssertionMap[assert.id];

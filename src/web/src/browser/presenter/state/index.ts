@@ -1,3 +1,4 @@
+import { createMetricsMachine, MetricsMachine } from './metrics';
 import {
   createSchematronMachine,
   SchematronMachine,
@@ -11,20 +12,22 @@ export type SampleSSP = {
 
 export type State = {
   baseUrl: string;
+  metrics: MetricsMachine;
+  router: RouterMachine;
+  schematron: SchematronMachine;
   sourceRepository: {
     treeUrl?: string;
     sampleSSPs: SampleSSP[];
     developerExampleUrl?: string;
   };
-  router: RouterMachine;
-  schematron: SchematronMachine;
 };
 
 export const state: State = {
   baseUrl: '',
+  metrics: createMetricsMachine(),
   router: createRouterMachine(),
+  schematron: createSchematronMachine(),
   sourceRepository: {
     sampleSSPs: [],
   },
-  schematron: createSchematronMachine(),
 };
