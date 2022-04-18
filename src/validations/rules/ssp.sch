@@ -3368,7 +3368,28 @@
                     every $rrp in $required-response-points
                         satisfies $rrp = $provided-response-points">An implemented control must include required response point
                 statements.</sch:assert>
-
+            <sch:assert
+                diagnostics="set-parameter-elements-match-baseline-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
+                id="set-parameter-elements-match-baseline"
+                role="error"
+                test="
+                    every $i in $selected-profile//o:control[@id eq current()/@control-id]/o:param[not(o:value)]/@id
+                        satisfies
+                        exists(o:set-parameter[@param-id eq $i])">In the corresponding baseline-resolved-profile catalog, all param
+                elements, that do not have child value elements, have an @id value that also occurs in the matching implemented-requirement
+                set-parameter element @id in the SSP.</sch:assert>
+            <sch:assert
+                diagnostics="set-parameter-elements-match-baseline1-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
+                id="set-parameter-elements-match-baseline1"
+                role="error"
+                test="
+                    every $i in current()//o:set-parameter/@param-id
+                        satisfies
+                        exists($selected-profile//o:control[@id eq current()/@control-id]/o:param[@id eq $i])">In the SSP, all
+                implemented-requirement set-parameter element @id values also occur in the corresponding baseline-resolved-profile catalog param
+                elements, that do not have child value elements, @id attributes.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']">
@@ -4434,6 +4455,22 @@
             doc:assertion="has-one-asset-id"
             doc:context="oscal:inventory-item"
             id="has-one-asset-id-diagnostic">This inventory-item has more than one asset-id property.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="set-parameter-elements-match-baseline"
+            doc:context="oscal:implemented-requirement"
+            id="set-parameter-elements-match-baseline-diagnostic"> For Control <xsl:value-of
+                select="@control-id" /> - Some values of the SSP set-parameter/@param-id attributes do not match the corresponding control/param/@id
+            values in the baseline catalog. SSP set-parameter/@param-id values - <xsl:value-of
+                select="o:set-parameter/@param-id" /> Catalog param/@id values- <xsl:value-of
+                select="$selected-profile//o:control[@id eq current()/@control-id]/o:param[not(o:value)]/@id" />.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="set-parameter-elements-match-baseline1"
+            doc:context="oscal:implemented-requirement"
+            id="set-parameter-elements-match-baseline1-diagnostic"> For Control <xsl:value-of
+                select="@control-id" /> - Some values of the control/param/@id in the baseline catalog do not match the corresponding SSP
+            set-parameter/@param-id attribute values. Catalog param/@id values- <xsl:value-of
+                select="$selected-profile//o:control[@id eq current()/@control-id]/o:param[not(o:value)]/@id" /> SSP set-parameter/@param-id values - <xsl:value-of
+                select="o:set-parameter/@param-id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-asset-type"
             doc:context="oscal:inventory-item"

@@ -10450,7 +10450,207 @@
                     id="DNSSEC-described"
                     label="that is an error." />
             </x:scenario>
-        </x:scenario>        
+        </x:scenario>
+        <x:scenario
+            label="In the corresponding baseline-resolved-profile catalog, all param elements, that do not have child value elements, have an @id value 
+            that also occurs in the matching implemented-requirement set-parameter element @id in the SSP.">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="ac-1"
+                                uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                <prop
+                                    name="planned-completion-date"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="2020-11-27Z" />
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="planned">
+                                    <remarks>
+                                        <p>Describe the plan to complete the implementation.</p>
+                                    </remarks>
+                                </prop>
+                                <prop
+                                    name="control-origination"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="sp-system" />
+                                <set-parameter
+                                    param-id="ac-1_prm_1">
+                                    <value>[replace with list of personnel or roles]</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_2">
+                                    <value>[specify frequency]</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_3">
+                                    <value>[specify frequency]</value>
+                                </set-parameter>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="set-parameter-elements-match-baseline"
+                    label="that is correct." />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="ac-1"
+                                uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                <prop
+                                    name="planned-completion-date"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="2020-11-27Z" />
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="planned">
+                                    <remarks>
+                                        <p>Describe the plan to complete the implementation.</p>
+                                    </remarks>
+                                </prop>
+                                <prop
+                                    name="control-origination"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="sp-system" />
+                                <set-parameter
+                                    param-id="ac-1_prm_1">
+                                    <value>[replace with list of personnel or roles]</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_2">
+                                    <value>[specify frequency]</value>
+                                </set-parameter>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="set-parameter-elements-match-baseline"
+                    label="that is an error." />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
+            label="In the SSP, all implemented-requirement set-parameter element @id values also occur in the corresponding baseline-resolved-profile 
+            catalog control param elements, that do not have child value elements, @id attributes.">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="ac-1"
+                                uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                <prop
+                                    name="planned-completion-date"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="2020-11-27Z" />
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="planned">
+                                    <remarks>
+                                        <p>Describe the plan to complete the implementation.</p>
+                                    </remarks>
+                                </prop>
+                                <prop
+                                    name="control-origination"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="sp-system" />
+                                <set-parameter
+                                    param-id="ac-1_prm_1">
+                                    <value>[replace with list of personnel or roles]</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_2">
+                                    <value>[specify frequency]</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_3">
+                                    <value>[specify frequency]</value>
+                                </set-parameter>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="set-parameter-elements-match-baseline1"
+                    label="that is correct." />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                        </system-characteristics>
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="ac-1"
+                                uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                <prop
+                                    name="planned-completion-date"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="2020-11-27Z" />
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="planned">
+                                    <remarks>
+                                        <p>Describe the plan to complete the implementation.</p>
+                                    </remarks>
+                                </prop>
+                                <prop
+                                    name="control-origination"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="sp-system" />
+                                <set-parameter
+                                    param-id="ac-1_prm_1">
+                                    <value>[replace with list of personnel or roles]</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_2">
+                                    <value>[specify frequency]</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_3">
+                                    <value>[specify frequency]</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_4">
+                                    <value>[specify frequency]</value>
+                                </set-parameter>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="set-parameter-elements-match-baseline1"
+                    label="that is an error." />
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
     <x:scenario
         label="FedRAMP OSCAL SSP Cloud Service and Deployment Models">
