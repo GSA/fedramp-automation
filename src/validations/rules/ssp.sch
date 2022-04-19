@@ -3810,8 +3810,8 @@
         <sch:diagnostic
             doc:assertion="no-security-sensitivity-level"
             doc:context="/o:system-security-plan"
-            id="no-security-sensitivity-level-diagnostic">No sensitivity level was found As a result, no more validation processing can
-            occur.</sch:diagnostic>
+            id="no-security-sensitivity-level-diagnostic">No sensitivity level was found. Allowed values are: <sch:value-of
+                select="$corrections" />. As a result, no more validation processing can occur.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="invalid-security-sensitivity-level"
             doc:context="/o:system-security-plan"
