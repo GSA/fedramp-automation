@@ -116,6 +116,13 @@
         <xsl:copy-of
             select="$LF" />
         <xsl:processing-instruction name="xml-model"> schematypens="http://purl.oclc.org/dsdl/schematron" title="FedRAMP SSP constraints" href="https://github.com/18F/fedramp-automation/raw/develop/src/validations/rules/ssp.sch" phase="#ALL"</xsl:processing-instruction>
+
+        <xsl:if
+            test="local-name(/*) ne 'catalog'">
+            <xsl:message
+                terminate="true">Invalid input {local-name(/*)}</xsl:message>
+        </xsl:if>
+
         <xsl:variable
             as="xs:string"
             name="control-role">implemented-requirement-responsible-role</xsl:variable>
@@ -198,7 +205,9 @@
                     select="uuid:randomUUID()" />
                 <location
                     uuid="{$location-uuid}">
-                    <address />
+                    <address>
+                        <country>US</country>
+                    </address>
                 </location>
 
                 <!-- organization(s) -->
@@ -529,6 +538,7 @@
                     name="security-eauth-level"
                     ns="https://fedramp.gov/ns/oscal"
                     value="2" />
+
                 <security-sensitivity-level>
                     <xsl:choose>
                         <xsl:when
@@ -545,6 +555,7 @@
                         </xsl:when>
                     </xsl:choose>
                 </security-sensitivity-level>
+
                 <system-information>
                     <xsl:comment> Attachment 4, PTA/PIA Designation </xsl:comment>
                     <prop
@@ -580,44 +591,128 @@
                         name="sorn-id"
                         ns="https://fedramp.gov/ns/oscal"
                         value="[No SORN ID]" />
-                    <information-type>
-                        <xsl:attribute
-                            name="uuid"
-                            select="uuid:randomUUID()" />
-                        <title />
-                        <description />
-                        <categorization
-                            system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
-                            <information-type-id>C.2.4.1</information-type-id>
-                        </categorization>
-                        <confidentiality-impact>
-                            <base>fips-199-moderate</base>
-                            <selected>fips-199-moderate</selected>
-                            <adjustment-justification>
-                                <p>Required if the base and selected values do not match.</p>
-                            </adjustment-justification>
-                        </confidentiality-impact>
-                        <integrity-impact>
-                            <base>fips-199-moderate</base>
-                            <selected>fips-199-moderate</selected>
-                            <adjustment-justification>
-                                <p>Required if the base and selected values do not match.</p>
-                            </adjustment-justification>
-                        </integrity-impact>
-                        <availability-impact>
-                            <base>fips-199-moderate</base>
-                            <selected>fips-199-moderate</selected>
-                            <adjustment-justification>
-                                <p>Required if the base and selected values do not match.</p>
-                            </adjustment-justification>
-                        </availability-impact>
+
+                    <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.3</xsl:comment>
+                    <information-type
+                        uuid="{uuid:randomUUID()}">
+                        <xsl:choose>
+                            <xsl:when
+                                test="matches(base-uri(), 'LOW')">
+                                <title>Security Management</title>
+                                <description>
+                                    <p>Security Management involves the physical protection of an organization’s personnel, assets, and facilities
+                                        (including security clearance management). Impacts to some information and information systems associated with
+                                        security management may affect the security of some critical infrastructure elements and key national assets
+                                        (e.g., nuclear power plants, dams, and other government facilities). Impact levels associated with security
+                                        information directly relate to the potential threat to human life associated with the asset(s) being protected
+                                        (e.g., consequences to the public of terrorist access to dams or nuclear power plants).</p>
+                                </description>
+                                <categorization
+                                    system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+                                    <information-type-id>C.3.1.3</information-type-id>
+                                </categorization>
+                                <confidentiality-impact>
+                                    <base>fips-199-moderate</base>
+                                    <selected>fips-199-moderate</selected>
+                                </confidentiality-impact>
+                                <integrity-impact>
+                                    <base>fips-199-moderate</base>
+                                    <selected>fips-199-moderate</selected>
+                                </integrity-impact>
+                                <availability-impact>
+                                    <base>fips-199-low</base>
+                                    <selected>fips-199-low</selected>
+                                </availability-impact>
+                            </xsl:when>
+                            <xsl:when
+                                test="matches(base-uri(), 'MODERATE')">
+                                <title>Security Management</title>
+                                <description>
+                                    <p>Security Management involves the physical protection of an organization’s personnel, assets, and facilities
+                                        (including security clearance management). Impacts to some information and information systems associated with
+                                        security management may affect the security of some critical infrastructure elements and key national assets
+                                        (e.g., nuclear power plants, dams, and other government facilities). Impact levels associated with security
+                                        information directly relate to the potential threat to human life associated with the asset(s) being protected
+                                        (e.g., consequences to the public of terrorist access to dams or nuclear power plants).</p>
+                                </description>
+                                <categorization
+                                    system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+                                    <information-type-id>C.3.1.3</information-type-id>
+                                </categorization>
+                                <confidentiality-impact>
+                                    <base>fips-199-moderate</base>
+                                    <selected>fips-199-moderate</selected>
+                                </confidentiality-impact>
+                                <integrity-impact>
+                                    <base>fips-199-moderate</base>
+                                    <selected>fips-199-moderate</selected>
+                                </integrity-impact>
+                                <availability-impact>
+                                    <base>fips-199-low</base>
+                                    <selected>fips-199-low</selected>
+                                </availability-impact>
+                            </xsl:when>
+                            <xsl:when
+                                test="matches(base-uri(), 'HIGH')">
+                                <title>Global Trade</title>
+                                <description>
+                                    <p>Global Trade refers to those activities the Federal Government undertakes to advance worldwide economic
+                                        prosperity by increasing trade through the opening of overseas markets and freeing the flow of goods,
+                                        services, and capital. Trade encompasses all activities associated with the importing and exporting of goods
+                                        to and from the United States. This includes goods declaration, fee payments, and delivery/shipment
+                                        authorization. Export promotion involves the development of opportunities for the expansion of U.S. exports.
+                                        Merchandise inspection includes the verification of goods and merchandise as well as the surveillance,
+                                        interdiction, and investigation of imports/exports in violation of various Customs laws. Tariffs/quotas
+                                        monitoring refers to the monitoring and modification of the schedules of items imported and exported to and
+                                        from the United States.</p>
+                                </description>
+                                <categorization
+                                    system="https://doi.org/10.6028/NIST.SP.800-60v2r1">
+                                    <information-type-id>D.5.3</information-type-id>
+                                </categorization>
+                                <confidentiality-impact>
+                                    <base>fips-199-high</base>
+                                    <selected>fips-199-high</selected>
+                                </confidentiality-impact>
+                                <integrity-impact>
+                                    <base>fips-199-high</base>
+                                    <selected>fips-199-high</selected>
+                                </integrity-impact>
+                                <availability-impact>
+                                    <base>fips-199-high</base>
+                                    <selected>fips-199-high</selected>
+                                </availability-impact>
+                            </xsl:when>
+                        </xsl:choose>
                     </information-type>
+
                 </system-information>
+
+                <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.4</xsl:comment>
+                <xsl:variable
+                    as="xs:string"
+                    name="obj">
+                    <xsl:choose>
+                        <xsl:when
+                            test="matches(base-uri(), 'LOW')">
+                            <xsl:text>fips-199-low</xsl:text>
+                        </xsl:when>
+                        <xsl:when
+                            test="matches(base-uri(), 'MODERATE')">
+                            <xsl:text>fips-199-moderate</xsl:text>
+                        </xsl:when>
+                        <xsl:when
+                            test="matches(base-uri(), 'HIGH')">
+                            <xsl:text>fips-199-high</xsl:text>
+                        </xsl:when>
+                    </xsl:choose>
+                </xsl:variable>
                 <security-impact-level>
-                    <security-objective-confidentiality>fips-199-moderate</security-objective-confidentiality>
-                    <security-objective-integrity>fips-199-moderate</security-objective-integrity>
-                    <security-objective-availability>fips-199-moderate</security-objective-availability>
+                    <security-objective-confidentiality>{$obj}</security-objective-confidentiality>
+                    <security-objective-integrity>{$obj}</security-objective-integrity>
+                    <security-objective-availability>{$obj}</security-objective-availability>
                 </security-impact-level>
+
                 <status
                     state="operational" />
                 <authorization-boundary>
@@ -926,13 +1021,20 @@
                             <xsl:text> Required response points are: </xsl:text>
                             <xsl:value-of select="descendant::prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'response-point']/parent::part/@id[matches(., 'smt')]" separator=", " /> 
                         </xsl:comment>
-                        <xsl:apply-templates
-                            select="part" />
-                        <xsl:if
-                            test="matches(@id, '-1$')">
-                            <xsl:call-template
-                                name="pol-pro" />
-                        </xsl:if>
+
+                        <xsl:choose>
+                            <xsl:when
+                                test="matches(@id, '-1$')">
+                                <xsl:apply-templates
+                                    select="part[@name = 'statement']" />
+                                <xsl:call-template
+                                    name="pol-pro" />
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:apply-templates
+                                    select="part[@name = 'statement']" />
+                            </xsl:otherwise>
+                        </xsl:choose>
 
                     </implemented-requirement>
                 </xsl:for-each>
@@ -1198,98 +1300,100 @@
 
     <xsl:template
         match="part[@name = 'statement']">
-        <xsl:choose>
-            <xsl:when
-                test="prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'response-point']">
-                <xsl:element
-                    name="statement"
-                    namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                    <xsl:attribute
-                        name="statement-id"
-                        select="@id" />
-                    <xsl:attribute
-                        name="uuid"
-                        select="uuid:randomUUID()" />
-                    <xsl:element
-                        name="by-component"
-                        namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                        <xsl:attribute
-                            name="uuid"
-                            select="uuid:randomUUID()" />
-                        <xsl:attribute
-                            name="component-uuid"
-                            select="$component-uuid" />
-                        <xsl:element
-                            name="description"
-                            namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                            <xsl:element
-                                name="p"
-                                namespace="http://csrc.nist.gov/ns/oscal/1.0">This description is more than 20 characters in length</xsl:element>
-                        </xsl:element>
-                        <xsl:element
-                            name="remarks"
-                            namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                            <xsl:element
-                                name="p"
-                                namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                                <xsl:value-of
-                                    select="oscal:p" />
-                            </xsl:element>
-                        </xsl:element>
-                    </xsl:element>
-                </xsl:element>
-            </xsl:when>
-        </xsl:choose>
+        <xsl:element
+            name="statement"
+            namespace="http://csrc.nist.gov/ns/oscal/1.0">
+            <xsl:attribute
+                name="statement-id"
+                select="@id" />
+            <xsl:attribute
+                name="uuid"
+                select="uuid:randomUUID()" />
+            <xsl:element
+                name="by-component"
+                namespace="http://csrc.nist.gov/ns/oscal/1.0">
+                <xsl:attribute
+                    name="uuid"
+                    select="uuid:randomUUID()" />
+                <xsl:attribute
+                    name="component-uuid"
+                    select="$component-uuid" />
+                <xsl:apply-templates
+                    select="p" />
+            </xsl:element>
+        </xsl:element>
         <xsl:apply-templates
             select="part" />
     </xsl:template>
 
     <xsl:template
         match="part[@name = 'item']">
-        <xsl:choose>
-            <xsl:when
-                test="prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'response-point']">
+        <xsl:if
+            test="p">
+            <xsl:element
+                name="statement"
+                namespace="http://csrc.nist.gov/ns/oscal/1.0">
+                <xsl:attribute
+                    name="statement-id"
+                    select="@id" />
+                <xsl:attribute
+                    name="uuid"
+                    select="uuid:randomUUID()" />
                 <xsl:element
-                    name="statement"
+                    name="by-component"
                     namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                    <xsl:attribute
-                        name="statement-id"
-                        select="@id" />
                     <xsl:attribute
                         name="uuid"
                         select="uuid:randomUUID()" />
-                    <xsl:element
-                        name="by-component"
-                        namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                        <xsl:attribute
-                            name="uuid"
-                            select="uuid:randomUUID()" />
-                        <xsl:attribute
-                            name="component-uuid"
-                            select="$component-uuid" />
-                        <xsl:element
-                            name="description"
-                            namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                            <xsl:element
-                                name="p"
-                                namespace="http://csrc.nist.gov/ns/oscal/1.0">This description is more than 20 characters in length</xsl:element>
-                        </xsl:element>
-                        <xsl:element
-                            name="remarks"
-                            namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                            <xsl:element
-                                name="p"
-                                namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                                <xsl:value-of
-                                    select="oscal:p" />
-                            </xsl:element>
-                        </xsl:element>
-                    </xsl:element>
+                    <xsl:attribute
+                        name="component-uuid"
+                        select="$component-uuid" />
+                    <xsl:apply-templates
+                        select="p" />
                 </xsl:element>
-            </xsl:when>
-        </xsl:choose>
+            </xsl:element>
+        </xsl:if>
         <xsl:apply-templates
             select="part" />
+    </xsl:template>
+
+    <xsl:template
+        match="p">
+
+        <xsl:element
+            name="description"
+            namespace="http://csrc.nist.gov/ns/oscal/1.0">
+            <xsl:element
+                name="p"
+                namespace="http://csrc.nist.gov/ns/oscal/1.0">
+                <xsl:text>A description of how the organization implements "</xsl:text>
+                <xsl:apply-templates
+                    select="node()" />
+                <xsl:text>"</xsl:text>
+            </xsl:element>
+        </xsl:element>
+
+    </xsl:template>
+
+    <xsl:template
+        match="insert">
+        <xsl:text>[{@id-ref}]</xsl:text>
+    </xsl:template>
+
+    <xsl:template
+        match="em | a">
+        <xsl:element
+            name="{local-name()}"
+            namespace="http://csrc.nist.gov/ns/oscal/1.0">
+            <xsl:apply-templates
+                select="node()" />
+        </xsl:element>
+    </xsl:template>
+
+    <xsl:template
+        match="text()">
+        <xsl:copy-of
+            select="." />
     </xsl:template>
 
     <xsl:template
@@ -1339,4 +1443,5 @@
         </xsl:element>
 
     </xsl:template>
+
 </xsl:stylesheet>
