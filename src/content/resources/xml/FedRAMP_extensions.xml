@@ -3,9 +3,9 @@
    xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="BA710064-79AC-47D5-8F70-6749B359E7E2" >
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Extensions</title>
-      <published>2021-08-12T12:38:01Z</published>
-      <last-modified>2021-08-12T12:38:01Z</last-modified>
-      <version>fedramp1.1.0-oscal1.0.0</version>
+      <published>2021-10-22T05:55:26Z</published>
+      <last-modified>2021-10-22T05:55:26Z</last-modified>
+      <version>fedramp1.2.1-oscal1.0.0</version>
       <oscal-version>oscal-1.0.0</oscal-version>
       <revisions>
          <revision>
@@ -46,6 +46,14 @@
             <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
             <remarks>
                 <p>Updated version reviewed for fedramp1.1.0-oscal1.0.0 release.</p>
+            </remarks>
+        </revision>
+        <revision>
+           <published>2021-10-22T05:55:26Z</published>
+           <version>fedramp1.2.1-oscal1.0.0</version>
+           <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+           <remarks>
+              <p>Fix missed updates for target and touch-ups from review for fedramp1.2.1-oscal1.0.0 release.</p>
             </remarks>
         </revision>
       </revisions>
@@ -675,7 +683,7 @@
       <extension-name>control-objective-implementation-status</extension-name>
       <formal-name>Objective Implementation Status</formal-name>
       <description>Indicates the implementation status of the control objective.</description>
-      <binding pattern="/o:assessment-results/o:results/o:finding/o:objective-status/o:prop"/>
+      <binding pattern="/o:assessment-results/o:results/o:finding/o:target/o:prop"/>
       <constraint>
          <matches data-type="token" />
          <has-cardinality min-occurs="0" max-occurs="1" />
@@ -706,7 +714,7 @@
       <extension-name>leveraged-authorization-uuid</extension-name>
       <formal-name>Leveraged Authorization</formal-name>
       <description>Indicates a leveraged authorization used for this control.</description>
-      <binding pattern="/o:assessment-results/o:results/o:finding/o:objective-status/o:prop"/>
+      <binding pattern="/o:assessment-results/o:results/o:finding/o:target/o:prop"/>
       <constraint>
          <matches data-type="uuid" />
          <has-cardinality min-occurs="0" max-occurs="unbounded" />

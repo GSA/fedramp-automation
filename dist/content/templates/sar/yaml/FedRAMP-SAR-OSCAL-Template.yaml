@@ -3,9 +3,9 @@ assessment-results:
   uuid: 7ea5c269-ee26-48c8-b32c-91aa26339023
   metadata:
     title: "[System Name] FedRAMP Security Assessment Report (SAR)"
-    published: 2021-02-25T00:00:00.00-04:00
-    last-modified: 2021-06-09T14:27:48.374-04:00
-    version: fedramp1.1.0-oscal1.0.0
+    published: 2021-10-22T02:22:00.000-04:00
+    last-modified: 2021-10-22T02:22:00.000-04:00
+    version: fedramp1.2.1-oscal1.0.0
     oscal-version: 1.0.0
     props:
       - name: marking
@@ -816,16 +816,16 @@ assessment-results:
                 A description of the recommended remediation.
 
 
-                TCW: Assessor's recommended remediation (type='recommendation').
+                TCW: Assessor's recommended remediation (lifecycle=\"recommendation\").
 
 
-                Scans: Tool's recommended remediation (type='recommendation')
+                Scans: Tool's recommended remediation (lifecycle=\"recommendation\")
 
 
-                Pen Test: Assessor's recommended remediation (type='recommendation')
+                Pen Test: Assessor's recommended remediation (lifecycle=\"recommendation\")
 
 
-                RET: Assessor's recommended remediation (type='recommendation').
+                RET: Assessor's recommended remediation (lifecycle=\"recommendation\").
 
 
                 POA&M: CSP's intended remediation (no type flag).
@@ -878,16 +878,16 @@ assessment-results:
                 A description of the recommended remediation.
 
 
-                TCW: Assessor's recommended remediation (type='recommendation').
+                TCW: Assessor's recommended remediation (lifecycle=\"recommendation\").
 
 
-                Scans: Tool's recommended remediation (type='recommendation')
+                Scans: Tool's recommended remediation (lifecycle=\"recommendation\")
 
 
-                Pen Test: Assessor's recommended remediation (type='recommendation')
+                Pen Test: Assessor's recommended remediation (lifecycle=\"recommendation\")
 
 
-                RET: Assessor's recommended remediation (type='recommendation').
+                RET: Assessor's recommended remediation (lifecycle=\"recommendation\").
 
 
                 POA&M: CSP's intended remediation (no type flag).
