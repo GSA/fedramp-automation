@@ -115,7 +115,7 @@
         <xsl:processing-instruction name="xml-model"> schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema" href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.2/xml/schema/oscal_complete_schema.xsd" </xsl:processing-instruction>
         <xsl:copy-of
             select="$LF" />
-        <xsl:processing-instruction name="xml-model"> schematypens="http://purl.oclc.org/dsdl/schematron" title="FedRAMP SSP constraints" href="https://github.com/18F/fedramp-automation/raw/develop/src/validations/rules/ssp.sch" phase="#ALL"</xsl:processing-instruction>
+        <xsl:processing-instruction name="xml-model"> schematypens="http://purl.oclc.org/dsdl/schematron" title="FedRAMP SSP constraints" https://github.com/18F/fedramp-automation/raw/master/src/validations/rules/ssp.sch" phase="#ALL"</xsl:processing-instruction>
 
         <xsl:if
             test="local-name(/*) ne 'catalog'">
@@ -1381,7 +1381,7 @@
     </xsl:template>
 
     <xsl:template
-        match="em | a">
+        match="em | a | strong">
         <xsl:element
             name="{local-name()}"
             namespace="http://csrc.nist.gov/ns/oscal/1.0">
