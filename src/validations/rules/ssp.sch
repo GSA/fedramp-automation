@@ -1850,15 +1850,7 @@
             doc:checklist-reference="Section C Check 7"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
             doc:template-reference="System Security Plan Template §2.3">
-            <sch:assert
-                diagnostics="has-security-eauth-level-diagnostic"
-                doc:checklist-reference="Section B Check 3.3, Section C Check 7"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
-                doc:template-reference="System Security Plan Template §2.3"
-                id="has-security-eauth-level"
-                role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'security-eauth' and @name eq 'security-eauth-level']">A FedRAMP
-                SSP must have a Digital Identity Determination property.</sch:assert>
+            <!-- Removed 'has-security-eauth-level' in accordance with NIST SP 800-63-3. -->
             <sch:assert
                 diagnostics="has-identity-assurance-level-diagnostic"
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
@@ -1887,24 +1879,7 @@
                 test="oscal:prop[@name eq 'federation-assurance-level']">A FedRAMP SSP may have a Digital Identity Determination federation assurance
                 level property.</sch:assert>
         </sch:rule>
-        <sch:rule
-            context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'security-eauth' and @name eq 'security-eauth-level']"
-            doc:checklist-reference="Section B Check 3.3, Section C Check 7"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
-            doc:template-reference="System Security Plan Template §2.3"
-            role="error">
-            <sch:let
-                name="eauth-levels"
-                value="$fedramp-values//fedramp:value-set[@name eq 'eauth-level']//fedramp:enum/@value" />
-            <sch:assert
-                diagnostics="has-allowed-security-eauth-level-diagnostic"
-                doc:checklist-reference="Section B Check 3.3, Section C Check 7"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
-                doc:template-reference="System Security Plan Template §2.3"
-                id="has-allowed-security-eauth-level"
-                role="error"
-                test="@value = $eauth-levels">A FedRAMP SSP must have a Digital Identity Determination property with an allowed value.</sch:assert>
-        </sch:rule>
+        <!-- Removed 'has-allowed-security-eauth-level' in accordance with NIST SP 800-63-3. -->
         <sch:rule
             context="oscal:prop[@name eq 'identity-assurance-level']"
             doc:checklist-reference="Section B Check 3.3, Section C Check 7"
@@ -4365,10 +4340,6 @@
             id="cia-impact-has-approved-fips-categorization-diagnostic">This FedRAMP SSP information type's confidentiality, integrity, or
             availability impact level, either the base or selected value, lacks an approved value.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="has-security-eauth-level"
-            doc:context="oscal:system-characteristics"
-            id="has-security-eauth-level-diagnostic">This FedRAMP SSP lacks a Digital Identity Determination property.</sch:diagnostic>
-        <sch:diagnostic
             doc:assertion="has-identity-assurance-level"
             doc:context="oscal:system-characteristics"
             id="has-identity-assurance-level-diagnostic">A FedRAMP SSP may lack a Digital Identity Determination identity-assurance-level
@@ -4383,11 +4354,6 @@
             doc:context="oscal:system-characteristics"
             id="has-federation-assurance-level-diagnostic">A FedRAMP SSP may lack a Digital Identity Determination federation-assurance-level
             property.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="has-allowed-security-eauth-level"
-            doc:context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'security-eauth' and @name eq 'security-eauth-level']"
-            id="has-allowed-security-eauth-level-diagnostic">This FedRAMP SSP lacks a Digital Identity Determination property with an allowed
-            value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-identity-assurance-level"
             doc:context="oscal:prop[@name eq 'identity-assurance-level']"

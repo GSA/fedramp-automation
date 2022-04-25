@@ -36,16 +36,7 @@
       <remarks>FedRAMP requires work addresses.</remarks>
    </value-set>
 
-   <value-set name="eauth-level">
-      <formal-name>eAuth Level</formal-name>
-      <description>The eAuthentication level as defined by NIST SP 800-63, Revision 3.</description>
-      <binding pattern="system-characteristics/prop[@name='security-eauth-level'][@ns='https://fedramp.gov/ns/oscal']" />
-      <allowed-values allow-other="no">
-         <enum value="1" short-label="L">Low</enum>
-         <enum value="2" short-label="M">Moderate</enum>
-         <enum value="3" short-label="H">High</enum>
-      </allowed-values>
-   </value-set>
+    <!-- Removed value-set[@name='eauth-level'] in accordance with NIST SP 800-63-3. -->
 
    <value-set name="identity-assurance-level">
       <formal-name>Identity Assurance Level</formal-name>
