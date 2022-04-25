@@ -5078,39 +5078,7 @@
     </x:scenario>
     <x:scenario
         label="FedRAMP OSCAL SSP Digital Identity Determination">
-        <x:scenario
-            label="when a system-characteristics">
-            <x:scenario
-                label="has a security-eauth-level">
-                <x:context>
-                    <system-characteristics
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <prop
-                            class="security-eauth"
-                            name="security-eauth-level"
-                            ns="https://fedramp.gov/ns/oscal" />
-                    </system-characteristics>
-                </x:context>
-                <x:expect-not-assert
-                    id="has-security-eauth-level"
-                    label="that is correct" />
-            </x:scenario>
-            <x:scenario
-                label="lacks a security-eauth-level">
-                <x:context>
-                    <system-characteristics
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <prop
-                            class="security-eauth"
-                            name="not-a-security-eauth-level"
-                            ns="https://fedramp.gov/ns/oscal" />
-                    </system-characteristics>
-                </x:context>
-                <x:expect-assert
-                    id="has-security-eauth-level"
-                    label="that is an error" />
-            </x:scenario>
-        </x:scenario>
+        <!-- Removed 'has a security-eauth-level' in accordance with NIST SP 800-63-3. -->
         <x:scenario
             label="when a system-characteristics">
             <x:scenario
@@ -5210,41 +5178,7 @@
                     label="that is acceptable" />
             </x:scenario>
         </x:scenario>
-        <x:scenario
-            label="when a system-characteristics">
-            <x:scenario
-                label="has an allowed security-eauth-level">
-                <x:context>
-                    <system-characteristics
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <prop
-                            class="security-eauth"
-                            name="security-eauth-level"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="2" />
-                    </system-characteristics>
-                </x:context>
-                <x:expect-not-assert
-                    id="has-allowed-security-eauth-level"
-                    label="that is correct" />
-            </x:scenario>
-            <x:scenario
-                label="lacks an allowed security-eauth-level">
-                <x:context>
-                    <system-characteristics
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <prop
-                            class="security-eauth"
-                            name="security-eauth-level"
-                            ns="https://fedramp.gov/ns/oscal"
-                            value="0" />
-                    </system-characteristics>
-                </x:context>
-                <x:expect-assert
-                    id="has-allowed-security-eauth-level"
-                    label="that is an error" />
-            </x:scenario>
-        </x:scenario>
+        <!-- Removed 'has an allowed security-eauth-level' in accordance with NIST SP 800-63-3. -->
         <x:scenario
             label="when a system-characteristics">
             <x:scenario
