@@ -12029,4 +12029,58 @@
             </x:scenario>
         </x:scenario>
     </x:scenario>
+    
+    <x:scenario
+        label="SSP Network Protocols">
+        
+        <x:scenario
+            label="When expected network protocols are present">
+            <x:context>
+                <system-implementation
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <component
+                        type="service">
+                        <protocol
+                            name="DNS" />
+                        <protocol
+                            name="NTP" />
+                        <protocol
+                            name="SSH" />
+                        <protocol
+                            name="HTTPS" />
+                        <protocol
+                            name="TLS" />
+                    </component>
+                </system-implementation>
+            </x:context>
+            <x:expect-not-assert
+                id="has-expected-network-protocols"
+                label="that is correct." />
+        </x:scenario>
+        
+        <x:scenario
+            label="When expected network protocols are not present">
+            <x:context>
+                <system-implementation
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <component
+                        type="service">
+                        <protocol
+                            name="NTP" />
+                        <protocol
+                            name="SSH" />
+                        <protocol
+                            name="HTTPS" />
+                        <protocol
+                            name="TLS" />
+                    </component>
+                </system-implementation>
+            </x:context>
+            <x:expect-assert
+                id="has-expected-network-protocols"
+                label="that is an anomaly." />
+        </x:scenario>
+        
+    </x:scenario>
+    
 </x:description>
