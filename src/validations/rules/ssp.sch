@@ -81,6 +81,8 @@
         <sch:active
             pattern="control-implementation" />
         <sch:active
+            pattern="protocols" />
+        <sch:active
             pattern="info" />
     </sch:phase>
 
@@ -172,6 +174,12 @@
         id="information-types">
         <sch:active
             pattern="sp800-60" />
+    </sch:phase>
+    
+    <sch:phase
+        id="protocol">
+        <sch:active
+            pattern="protocols" />
     </sch:phase>
 
     <doc:xspec
@@ -3784,6 +3792,25 @@
                 can be the same if there is one port number.</sch:assert>
         </sch:rule>
     </sch:pattern>
+    
+    <sch:pattern id="protocols">
+        
+        <sch:rule context="oscal:system-implementation">
+            
+            <sch:let
+                name="expected-network-protocols"
+                value="'DNS', 'NTP', 'SSH', 'HTTPS', 'TLS'" />
+            <sch:assert
+                diagnostics="has-expected-network-protocols-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.25"
+                id="has-expected-network-protocols"
+                role="information"
+                test="
+                    every $p in $expected-network-protocols
+                        satisfies exists(//oscal:protocol[@name eq $p])">All expected network protocols are specified.</sch:assert>           
+        </sch:rule>
+        
+    </sch:pattern>
 
     <sch:pattern
         id="info">
@@ -5186,5 +5213,13 @@
             doc:context="oscal:component[@type eq 'interconnection']/oscal:protocol/oscal:port-range"
             id="interconnection-protocol-port-range-has-end-diagnostic">A system interconnection protocol port range declaration does not state an
             ending port number.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assertion="has-expected-network-protocols"
+            doc:context="oscal:system-implementation"
+            id="has-expected-network-protocols-diagnostic">One or more expected network protocols were not defined (within components). The expected
+            network protocols are <sch:value-of
+                select="string-join($expected-network-protocols, ', ')" />.</sch:diagnostic>
+        
     </sch:diagnostics>
 </sch:schema>
