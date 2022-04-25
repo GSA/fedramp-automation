@@ -2002,8 +2002,8 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
                 doc:template-reference="System Security Plan Template §15 Attachment 13"
                 id="has-allowed-asset-type"
-                role="warning"
-                test="@value = $asset-types">An asset type must have an allowed value.</sch:assert>
+                role="information"
+                test="@value = $asset-types">An asset type should have an allowed value.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@name eq 'virtual']"
@@ -4417,9 +4417,8 @@
             doc:context="oscal:prop[@name eq 'asset-type']"
             id="has-allowed-asset-type-diagnostic">
             <sch:value-of
-                select="name()" /> should have a FedRAMP asset type <sch:value-of
-                select="string-join($asset-types, ' ∨ ')" /> (not " <sch:value-of
-                select="@value" />").</sch:diagnostic>
+                select="@name" /> prop may have an asset type other than FedRAMP ones - this one uses "<sch:value-of
+                select="@value" />".</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-allowed-virtual"
             doc:context="oscal:prop[@name eq 'virtual']"
