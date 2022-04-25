@@ -10651,6 +10651,226 @@
                     label="that is an error." />
             </x:scenario>
         </x:scenario>
+        <x:scenario
+            label="A FedRAMP SSP">
+            <x:scenario
+                label="when comparing statement, by-component, set-parameter values against baseline-resolved-profile_catalog param ">
+                <x:scenario
+                    label="matches value of corresponding set-parameter to param constraint">
+                    <x:context>
+                        <system-security-plan
+                            uuid="82038bdc-7f3a-4421-922d-b80b96efc446"
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <description />
+                                <implemented-requirement
+                                    control-id="ac-1">
+                                    <statement
+                                        statement-id="ac-1_smt">
+                                        <by-component>
+                                            <description>
+                                                <p>Describe how the control is satisfied within the system.</p>
+                                            </description>
+                                            <set-parameter
+                                                param-id="ac-1_prm_1">
+                                                <value>organization-defined personnel or roles</value>
+                                            </set-parameter>
+                                            <set-parameter
+                                                param-id="ac-1_prm_2">
+                                                <value>at least every 3 years</value>
+                                            </set-parameter>
+                                            <set-parameter
+                                                param-id="ac-1_prm_3">
+                                                <value>at least annually</value>
+                                            </set-parameter>
+                                        </by-component>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="uses-correct-param-value"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="does not match value of corresponding set-parameter to param constraint">
+                    <x:context>
+                        <system-security-plan
+                            uuid="82038bdc-7f3a-4421-922d-b80b96efc446"
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <description />
+                                <implemented-requirement
+                                    control-id="ac-1">
+                                    <statement
+                                        statement-id="ac-1_smt">
+                                        <by-component>
+                                            <description>
+                                                <p>Describe how the control is satisfied within the system.</p>
+                                            </description>
+                                            <set-parameter
+                                                param-id="ac-1_prm_1">
+                                                <value>organization-defined personnel or roles</value>
+                                            </set-parameter>
+                                            <set-parameter
+                                                param-id="ac-1_prm_2">
+                                                <value>at least every 3 years</value>
+                                            </set-parameter>
+                                            <set-parameter
+                                                param-id="ac-1_prm_3">
+                                                <value>[replace with time value]</value>
+                                            </set-parameter>
+                                        </by-component>
+                                    </statement>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="uses-correct-param-value"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="when comparing implemented-requirement, set-parameter values against baseline-resolved-profile_catalog param ">
+                <x:scenario
+                    label="matches value of corresponding set-parameter value to param constraint description">
+                    <x:context>
+                        <system-security-plan
+                            uuid="82038bdc-7f3a-4421-922d-b80b96efc446"
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <description />
+                                <implemented-requirement
+                                    control-id="ac-1">
+                                    <set-parameter
+                                        param-id="ac-1_prm_1">
+                                        <value>organization-defined personnel or roles</value>
+                                    </set-parameter>
+                                    <set-parameter
+                                        param-id="ac-1_prm_2">
+                                        <value>at least every 3 years</value>
+                                    </set-parameter>
+                                    <set-parameter
+                                        param-id="ac-1_prm_3">
+                                        <value>at least annually</value>
+                                    </set-parameter>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="uses-correct-param-value"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="does not match value of corresponding set-parameter to param constraint description">
+                    <x:context>
+                        <system-security-plan
+                            uuid="82038bdc-7f3a-4421-922d-b80b96efc446"
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <description />
+                                <implemented-requirement
+                                    control-id="ac-1">
+                                    <set-parameter
+                                        param-id="ac-1_prm_1">
+                                        <value>organization-defined personnel or roles</value>
+                                    </set-parameter>
+                                    <set-parameter
+                                        param-id="ac-1_prm_2">
+                                        <value>at least every 3 years</value>
+                                    </set-parameter>
+                                    <set-parameter
+                                        param-id="ac-1_prm_3">
+                                        <value>[replace with time value]</value>
+                                    </set-parameter>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="uses-correct-param-value"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="when comparing control-implementation, set-parameter values against baseline-resolved-profile_catalog param ">
+                <x:scenario
+                    label="matches value of corresponding set-parameter value to param constraint description">
+                    <x:context>
+                        <system-security-plan
+                            uuid="82038bdc-7f3a-4421-922d-b80b96efc446"
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <description />
+                                <set-parameter
+                                    param-id="ac-1_prm_1">
+                                    <value>organization-defined personnel or roles</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_2">
+                                    <value>at least every 3 years</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_3">
+                                    <value>at least annually</value>
+                                </set-parameter>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="uses-correct-param-value"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="does not match value of corresponding set-parameter to param constraint description">
+                    <x:context>
+                        <system-security-plan
+                            uuid="82038bdc-7f3a-4421-922d-b80b96efc446"
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <description />
+                                <set-parameter
+                                    param-id="ac-1_prm_1">
+                                    <value>organization-defined personnel or roles</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_2">
+                                    <value>at least every 3 years</value>
+                                </set-parameter>
+                                <set-parameter
+                                    param-id="ac-1_prm_3">
+                                    <value>[replace with time value]</value>
+                                </set-parameter>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="uses-correct-param-value"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
     <x:scenario
         label="FedRAMP OSCAL SSP Cloud Service and Deployment Models">

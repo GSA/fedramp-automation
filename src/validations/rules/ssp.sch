@@ -3448,7 +3448,26 @@
                 words.</sch:assert>
 
         </sch:rule>
-
+        <sch:rule
+            context="o:set-parameter"
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4">
+            <sch:let
+                name="sensitivity-level"
+                value="/ => lv:sensitivity-level() => lv:if-empty-default('')" />
+            <sch:let
+                name="selected-profile"
+                value="$sensitivity-level => lv:profile()" />
+            <sch:assert
+                diagnostics="uses-correct-param-value-diagnostic"
+                id="uses-correct-param-value"
+                role="error"
+                test="
+                    if ($selected-profile//o:param[@id eq current()/@param-id]/o:constraint)
+                    then
+                        ($selected-profile//o:param[@id eq current()/@param-id][o:constraint/o:description/o:p eq current()/o:value])
+                    else
+                        (true())">A FedRAMP SSP must use correct parameter value.</sch:assert>
+        </sch:rule>
     </sch:pattern>
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.13-14"
@@ -4265,6 +4284,12 @@
                 select="." />". It must have one of the following <sch:value-of
                 select="count($security-objective-levels)" /> values: <sch:value-of
                 select="string-join($security-objective-levels, ' ∨ ')" />.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="uses-correct-param-value"
+            doc:context="o:set-parameter"
+            id="uses-correct-param-value-diagnostic">The parameter <xsl:value-of
+                select="current()/@param-id" /> does not match the corresponding baseline resolved profile catalog parameter constraint description for
+            the control.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="system-information-has-information-type"
             doc:context="oscal:system-information"
