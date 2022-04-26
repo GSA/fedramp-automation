@@ -8,6 +8,7 @@
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+    xmlns:unit="http://us.gov/testing/unit-testing"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <sch:ns
@@ -31,6 +32,9 @@
     <sch:ns
         prefix="map"
         uri="http://www.w3.org/2005/xpath-functions/map" />
+    <sch:ns
+        prefix="unit"
+        uri="http://us.gov/testing/unit-testing" />
 
     <sch:phase
         id="Phase2">
