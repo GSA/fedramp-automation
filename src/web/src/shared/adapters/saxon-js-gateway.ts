@@ -7,7 +7,7 @@ import type {
   SchematronResult,
   SuccessfulReport,
 } from '@asap/shared/use-cases/schematron';
-import type { ParseXSpec } from '../domain/xspec';
+import type { ParseXSpec, XSpecScenario } from '../domain/xspec';
 import type { XSLTProcessor } from '../use-cases/assertion-views';
 
 const getValidationReport = (
@@ -322,6 +322,21 @@ export const XmlIndenter =
       });
   };
 
+// SaxonJS attribute lookup behaves differently on node.js vs the browser.
+const safeGetAttribute = (node: any, name: string) => {
+  if (node.getAttribute) {
+    return node.getAttribute(name);
+  }
+  if (node.attributes) {
+    for (const attribute of node.attributes) {
+      if (attribute.name === name) {
+        return attribute.value;
+      }
+    }
+  }
+  throw new Error(`Attribute "${name}" not found.`);
+};
+
 export const SchematronParser =
   (ctx: { SaxonJS: any }): ParseSchematronAssertions =>
   (schematron: string) => {
@@ -387,30 +402,72 @@ export const SaxonJsJsonSspToXmlProcessor =
     });
   };
 
+const parseScenarioNode = (SaxonJS: any, scenario: any) => {
+  const result: XSpecScenario = {
+    label: safeGetAttribute(scenario, 'label'),
+  };
+
+  const context = SaxonJS.XPath.evaluate('./x:context/*[1]', scenario, {
+    namespaceContext: { x: 'http://www.jenitennison.com/xslt/xspec' },
+  });
+  if (context) {
+    result.context = context.toString();
+  }
+
+  const expectNotAsserts = SaxonJS.XPath.evaluate(
+    './x:expect-not-assert',
+    scenario,
+    {
+      namespaceContext: { x: 'http://www.jenitennison.com/xslt/xspec' },
+      resultForm: 'array',
+    },
+  );
+  if (expectNotAsserts.length > 0) {
+    result.expectNotAssert = expectNotAsserts.map((assert: any) => ({
+      id: safeGetAttribute(assert, 'id'),
+      label: safeGetAttribute(assert, 'label'),
+    }));
+  }
+
+  const expectAsserts = SaxonJS.XPath.evaluate('./x:expect-assert', scenario, {
+    namespaceContext: { x: 'http://www.jenitennison.com/xslt/xspec' },
+    resultForm: 'array',
+  });
+  if (expectAsserts.length > 0) {
+    result.expectAssert = expectAsserts.map((assert: any) => ({
+      id: safeGetAttribute(assert, 'id'),
+      label: safeGetAttribute(assert, 'label'),
+    }));
+  }
+
+  const scenarios = SaxonJS.XPath.evaluate('./x:scenario', scenario, {
+    namespaceContext: { x: 'http://www.jenitennison.com/xslt/xspec' },
+    resultForm: 'array',
+  });
+  if (scenarios?.length > 0) {
+    result.scenarios = scenarios.map((node: any) =>
+      parseScenarioNode(SaxonJS, node),
+    );
+  }
+
+  return result;
+};
+
 export const SaxonJsXSpecParser =
   (ctx: { SaxonJS: any }): ParseXSpec =>
   (xmlString: string) => {
-    // mock data
+    const document = ctx.SaxonJS.getPlatform().parseXmlFromString(xmlString);
+    const scenarios = ctx.SaxonJS.XPath.evaluate(
+      '/x:description/x:scenario',
+      document,
+      {
+        namespaceContext: { x: 'http://www.jenitennison.com/xslt/xspec' },
+        resultForm: 'array',
+      },
+    );
     return {
-      scenarios: [
-        {
-          label: 'scenario label',
-          scenarios: [
-            {
-              label: 'item 1',
-              context: `<resource
-    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-    <prop
-        name="type"
-        value="image" />
-</resource>`,
-              expectNotAssert: {
-                id: 'attachment-type-is-valid',
-                label: 'that is correct',
-              },
-            },
-          ],
-        },
-      ],
+      scenarios: scenarios.map((node: any) =>
+        parseScenarioNode(ctx.SaxonJS, node),
+      ),
     };
   };

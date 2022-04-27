@@ -9,8 +9,8 @@ export type XSpecScenario = {
   label: string;
   scenarios?: XSpecScenario[];
   context?: string;
-  expectAssert?: XspecAssert;
-  expectNotAssert?: XspecAssert;
+  expectAssert?: XspecAssert[];
+  expectNotAssert?: XspecAssert[];
 };
 
 export type XSpec = {
@@ -34,24 +34,28 @@ export const getXSpecScenarioSummaries = async (
     scenario: XSpecScenario,
     parentLabel?: string,
   ): ScenarioSummary[] => {
-    // Assemble this scenario with a concatenation of the parent's label.
-    const finalScenario = {
-      assertionId:
-        scenario.expectAssert?.id || scenario.expectNotAssert?.id || '',
-      label: parentLabel
-        ? [parentLabel, scenario.label].join(' ')
-        : scenario.label,
-      context: scenario.context ? formatXml(scenario.context) : '',
-    };
+    const label = parentLabel
+      ? [parentLabel, scenario.label].join(' ')
+      : scenario.label;
 
     // If there are child scenarios, recurse over ourself.
     if (scenario.scenarios) {
-      return scenario.scenarios.flatMap(s =>
-        getScenarios(s, finalScenario.label),
-      );
+      return scenario.scenarios.flatMap(s => getScenarios(s, label));
     }
 
-    return [finalScenario];
+    const assertions = [
+      ...(scenario.expectAssert || []),
+      ...(scenario.expectNotAssert || []),
+    ];
+
+    // Assemble this scenario with a concatenation of the parent's label.
+    const finalScenarios = assertions.map(assertion => ({
+      assertionId: assertion.id,
+      label,
+      context: scenario.context ? formatXml(scenario.context) : '',
+    }));
+
+    return finalScenarios;
   };
 
   return xspec.scenarios.flatMap(scenario => getScenarios(scenario));

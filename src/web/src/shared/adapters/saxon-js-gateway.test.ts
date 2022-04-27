@@ -4,6 +4,7 @@ import {
   XmlIndenter,
   SaxonJsSchematronProcessorGateway,
   SaxonJsJsonSspToXmlProcessor,
+  SaxonJsXSpecParser,
 } from './saxon-js-gateway';
 
 const PUBLIC_PATH = require('../project-config');
@@ -78,6 +79,63 @@ describe('saxon-js gateway', () => {
     const convertedXml = await jsonToXml('{}');
     expect(convertedXml.toString()).toMatch(/^<svrl:schematron-output/);
   });
+
+  it('parses XSpec', () => {
+    const parseXspec = SaxonJsXSpecParser({ SaxonJS });
+    const xspec = parseXspec(SAMPLE_XSPEC);
+    expect(xspec).toEqual({
+      scenarios: [
+        {
+          label: 'In FedRAMP OSCAL Schematron',
+          context: '<sch:schema xmlns="http://purl.oclc.org/dsdl/schematron"/>',
+          expectAssert: [
+            { id: 'has-xspec-reference', label: 'that is incorrect' },
+          ],
+        },
+        {
+          label: 'FedRAMP OSCAL SSP Attachments',
+          scenarios: [
+            {
+              label: 'General:',
+              scenarios: [
+                {
+                  label: 'when a resource attachment type',
+                  scenarios: [
+                    {
+                      label: 'is allowed',
+                      context:
+                        '<resource xmlns="http://csrc.nist.gov/ns/oscal/1.0">\n              <prop name="type" value="image"/>\n            </resource>',
+                      expectNotAssert: [
+                        {
+                          id: 'attachment-type-is-valid',
+                          label: 'that is correct',
+                        },
+                        {
+                          id: 'attachment-type-is-valid-2',
+                          label: 'that is correct 2',
+                        },
+                      ],
+                    },
+                    {
+                      label: 'is not allowed',
+                      context:
+                        '<resource xmlns="http://csrc.nist.gov/ns/oscal/1.0">\n              <prop name="type" value="notallowed"/>\n            </resource>',
+                      expectAssert: [
+                        {
+                          id: 'attachment-type-is-valid',
+                          label: 'that is an error',
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    });
+  });
 });
 
 const SAMPLE_SVRL = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -115,4 +173,38 @@ const SAMPLE_SVRL = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
       <svrl:text>Successful report text content.</svrl:text>
    </svrl:successful-report>
 </svrl:schematron-output>
+`;
+
+const SAMPLE_XSPEC = `<?xml version="1.0" encoding="UTF-8"?>
+<x:description schematron="../sch/sch.sch" xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:sqf="http://www.schematron-quickfix.com/validator/process" xmlns:x="http://www.jenitennison.com/xslt/xspec">
+  <x:scenario label="In FedRAMP OSCAL Schematron">
+    <x:context>
+      <sch:schema xmlns="http://purl.oclc.org/dsdl/schematron" />
+    </x:context>
+    <x:expect-assert id="has-xspec-reference" label="that is incorrect" />
+  </x:scenario>
+  <x:scenario label="FedRAMP OSCAL SSP Attachments">
+    <x:scenario label="General:">
+      <x:scenario label="when a resource attachment type">
+        <x:scenario label="is allowed">
+          <x:context>
+            <resource xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+              <prop name="type" value="image" />
+            </resource>
+          </x:context>
+          <x:expect-not-assert id="attachment-type-is-valid" label="that is correct" />
+          <x:expect-not-assert id="attachment-type-is-valid-2" label="that is correct 2" />
+        </x:scenario>
+        <x:scenario label="is not allowed" pending="XSpec error resolution">
+          <x:context>
+            <resource xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+              <prop name="type" value="notallowed" />
+            </resource>
+          </x:context>
+          <x:expect-assert id="attachment-type-is-valid" label="that is an error" />
+        </x:scenario>
+      </x:scenario>
+    </x:scenario>
+  </x:scenario>
+</x:description>
 `;

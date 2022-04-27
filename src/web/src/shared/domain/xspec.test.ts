@@ -37,18 +37,22 @@ const MOCK_XSPEC = {
             {
               label: 'child 1',
               context: '<child1></child1>',
-              expectAssert: {
-                id: 'assertion-1',
-                label: 'assertion-1 label',
-              },
+              expectAssert: [
+                {
+                  id: 'assertion-1',
+                  label: 'assertion-1 label',
+                },
+              ],
             },
             {
               label: 'child 2',
               context: '<child2></child2>',
-              expectNotAssert: {
-                id: 'assertion-2',
-                label: 'assertion-2 label',
-              },
+              expectNotAssert: [
+                {
+                  id: 'assertion-2',
+                  label: 'assertion-2 label',
+                },
+              ],
             },
           ],
         },
@@ -57,10 +61,12 @@ const MOCK_XSPEC = {
     {
       label: 'child 3',
       context: '<child3></child3>',
-      expectNotAssert: {
-        id: 'assertion-3',
-        label: 'assertion-3 label',
-      },
+      expectNotAssert: [
+        {
+          id: 'assertion-3',
+          label: 'assertion-3 label',
+        },
+      ],
     },
   ],
 };
