@@ -7,6 +7,7 @@ import type {
   SchematronResult,
   SuccessfulReport,
 } from '@asap/shared/use-cases/schematron';
+import type { ParseXSpec } from '../domain/xspec';
 import type { XSLTProcessor } from '../use-cases/assertion-views';
 
 const getValidationReport = (
@@ -384,4 +385,32 @@ export const SaxonJsJsonSspToXmlProcessor =
     ).then((output: any) => {
       return output.principalResult as string;
     });
+  };
+
+export const SaxonJsXSpecParser =
+  (ctx: { SaxonJS: any }): ParseXSpec =>
+  (xmlString: string) => {
+    // mock data
+    return {
+      scenarios: [
+        {
+          label: 'scenario label',
+          scenarios: [
+            {
+              label: 'item 1',
+              context: `<resource
+    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+    <prop
+        name="type"
+        value="image" />
+</resource>`,
+              expectNotAssert: {
+                id: 'attachment-type-is-valid',
+                label: 'that is correct',
+              },
+            },
+          ],
+        },
+      ],
+    };
   };

@@ -16,4 +16,5 @@ module.exports = {
   BASELINES_PATH: join(PROJECT_ROOT, '../../dist/content/baselines/rev4/xml'),
   PUBLIC_PATH: join(PROJECT_ROOT, 'public'),
   RULES_PATH: join(PROJECT_ROOT, '../validations/rules'),
+  RULES_TEST_PATH: join(PROJECT_ROOT, '../validations/test'),
 };
