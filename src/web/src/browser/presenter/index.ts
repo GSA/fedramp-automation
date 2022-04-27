@@ -3,6 +3,7 @@ import { createOvermind, createOvermindMock, IContext } from 'overmind';
 
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import type { AppMetrics } from '@asap/shared/use-cases/app-metrics';
+import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { GetSSPSchematronAssertions } from '@asap/shared/use-cases/schematron';
 import type {
@@ -18,6 +19,7 @@ type UseCases = {
   annotateXML: AnnotateXMLUseCase;
   getAssertionViews: GetAssertionViews;
   getSSPSchematronAssertions: GetSSPSchematronAssertions;
+  getXSpecScenarioSummaries: GetXSpecScenarioSummaries;
   appMetrics: AppMetrics;
   validateSSP: ValidateSSPUseCase;
   validateSSPUrl: ValidateSSPUrlUseCase;

@@ -1,9 +1,13 @@
+import {
+  AssertionDocumentationMachine,
+  createAssertionDocumentationMachine,
+} from './assertion-documetation';
 import { createMetricsMachine, MetricsMachine } from './metrics';
+import { createRouterMachine, RouterMachine } from './router-machine';
 import {
   createSchematronMachine,
   SchematronMachine,
 } from './schematron-machine';
-import { createRouterMachine, RouterMachine } from './router-machine';
 
 export type SampleSSP = {
   url: string;
@@ -11,6 +15,7 @@ export type SampleSSP = {
 };
 
 export type State = {
+  assertionDocumentation: AssertionDocumentationMachine;
   baseUrl: string;
   metrics: MetricsMachine;
   router: RouterMachine;
@@ -23,6 +28,7 @@ export type State = {
 };
 
 export const state: State = {
+  assertionDocumentation: createAssertionDocumentationMachine(),
   baseUrl: '',
   metrics: createMetricsMachine(),
   router: createRouterMachine(),

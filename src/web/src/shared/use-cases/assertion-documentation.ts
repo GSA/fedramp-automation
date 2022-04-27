@@ -1,5 +1,9 @@
+import {
+  getXSpecScenarioSummaries,
+  ScenarioSummary,
+  XSpec,
+} from '../domain/xspec';
 import type { FormatXml } from '@asap/shared/domain/xml';
-import { getXSpecScenarioSummaries, XSpec } from '../domain/xspec';
 
 type Context = {
   formatXml: FormatXml;
@@ -18,3 +22,5 @@ export const createXSpecScenarioSummaryWriter = (ctx: Context) => async () => {
 export type XSpecScenarioSummaryWriter = ReturnType<
   typeof createXSpecScenarioSummaryWriter
 >;
+
+export type GetXSpecScenarioSummaries = () => Promise<ScenarioSummary[]>;
