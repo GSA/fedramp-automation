@@ -112,7 +112,7 @@ type XmlIndenterContext = {
   SaxonJS: any;
 };
 
-export const XmlIndenter =
+export const SaxonJSXmlIndenter =
   (ctx: XmlIndenterContext): IndentXml =>
   (sourceText: string) => {
     return (

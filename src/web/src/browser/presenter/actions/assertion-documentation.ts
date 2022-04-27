@@ -4,7 +4,7 @@ export const initialize = ({ effects, state }: PresenterConfig) => {
   effects.useCases
     .getXSpecScenarioSummaries()
     .then(xspecSummariesByAssertionId => {
-      state.assertionDocumentation.send('SUMMARIES_LOADED', {
+      state.schematron.assertionDocumentation.send('SUMMARIES_LOADED', {
         xspecSummariesByAssertionId,
       });
     });

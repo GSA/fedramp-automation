@@ -2,6 +2,7 @@
 
 import { promises as fs } from 'fs';
 import { join } from 'path';
+const xmlFormatter = require('xml-formatter');
 
 // @ts-ignore
 import * as SaxonJS from 'saxon-js';
@@ -11,6 +12,7 @@ import {
   SaxonJsJsonSspToXmlProcessor,
   SaxonJsProcessor,
   SaxonJsSchematronProcessorGateway,
+  SaxonJSXmlIndenter,
   SaxonJsXSpecParser,
   SchematronParser,
 } from '@asap/shared/adapters/saxon-js-gateway';
@@ -26,13 +28,15 @@ const readStringFile = async (fileName: string) =>
 const writeStringFile = (fileName: string, data: string) =>
   fs.writeFile(fileName, data, 'utf-8');
 
+const indentXml = SaxonJSXmlIndenter({ SaxonJS });
+
 const controller = CommandLineController({
   readStringFile,
   writeStringFile,
   useCases: {
     parseSchematron: SchematronParser({ SaxonJS }),
     writeXSpecScenarioSummaries: createXSpecScenarioSummaryWriter({
-      formatXml: highlightXML,
+      formatXml: (xml: string) => highlightXML(xmlFormatter(xml)),
       getSspXspec: () =>
         readStringFile(join(config.RULES_TEST_PATH, 'ssp.xspec')),
       parseXspec: SaxonJsXSpecParser({ SaxonJS }),

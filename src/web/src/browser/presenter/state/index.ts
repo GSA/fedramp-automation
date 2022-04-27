@@ -15,7 +15,6 @@ export type SampleSSP = {
 };
 
 export type State = {
-  assertionDocumentation: AssertionDocumentationMachine;
   baseUrl: string;
   metrics: MetricsMachine;
   router: RouterMachine;
@@ -28,7 +27,6 @@ export type State = {
 };
 
 export const state: State = {
-  assertionDocumentation: createAssertionDocumentationMachine(),
   baseUrl: '',
   metrics: createMetricsMachine(),
   router: createRouterMachine(),

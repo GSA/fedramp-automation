@@ -1,7 +1,7 @@
 import * as SaxonJS from 'saxon-js';
 
 import {
-  XmlIndenter,
+  SaxonJSXmlIndenter,
   SaxonJsSchematronProcessorGateway,
   SaxonJsJsonSspToXmlProcessor,
   SaxonJsXSpecParser,
@@ -11,7 +11,7 @@ const PUBLIC_PATH = require('../project-config');
 
 describe('xml indent', () => {
   it('works', async () => {
-    const xmlIndent = XmlIndenter({ SaxonJS });
+    const xmlIndent = SaxonJSXmlIndenter({ SaxonJS });
     const indentedXml = await xmlIndent(
       '<xml><child><node1></node1><!-- comment1 --><node2></node2><!-- comment2 --></child></xml>',
     );

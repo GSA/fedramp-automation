@@ -23,8 +23,9 @@ export type ParseXSpec = (xmlString: string) => XSpec;
 // A flattened summary of an XSpec scenario, suitable for documentation.
 export type ScenarioSummary = {
   assertionId: string;
-  label: string;
+  assertionLabel: string;
   context: string;
+  label: string;
 };
 
 export type SummariesByAssertionId = {
@@ -56,8 +57,9 @@ export const getXSpecScenarioSummaries = async (
     // Assemble this scenario with a concatenation of the parent's label.
     const finalScenarios = assertions.map(assertion => ({
       assertionId: assertion.id,
-      label,
+      assertionLabel: assertion.label,
       context: scenario.context ? formatXml(scenario.context) : '',
+      label,
     }));
 
     return finalScenarios;
