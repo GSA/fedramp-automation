@@ -1,6 +1,6 @@
 import {
   getXSpecScenarioSummaries,
-  ScenarioSummary,
+  SummariesByAssertionId,
   XSpec,
 } from '../domain/xspec';
 import type { FormatXml } from '@asap/shared/domain/xml';
@@ -23,4 +23,4 @@ export type XSpecScenarioSummaryWriter = ReturnType<
   typeof createXSpecScenarioSummaryWriter
 >;
 
-export type GetXSpecScenarioSummaries = () => Promise<ScenarioSummary[]>;
+export type GetXSpecScenarioSummaries = () => Promise<SummariesByAssertionId>;

@@ -1,6 +1,9 @@
 import { Statemachine, statemachine } from 'overmind';
 
-import type { ScenarioSummary } from '@asap/shared/domain/xspec';
+import type {
+  ScenarioSummary,
+  SummariesByAssertionId,
+} from '@asap/shared/domain/xspec';
 
 type States =
   | {
@@ -11,13 +14,13 @@ type States =
     };
 
 type BaseState = {
-  xspecSummaries: ScenarioSummary[];
+  xspecSummariesByAssertionId: SummariesByAssertionId;
 };
 
 type Events = {
   type: 'SUMMARIES_LOADED';
   data: {
-    xspecSummaries: ScenarioSummary[];
+    xspecSummariesByAssertionId: SummariesByAssertionId;
   };
 };
 
@@ -29,10 +32,10 @@ export type AssertionDocumentationMachine = Statemachine<
 
 const assertionDocumentationMachine = statemachine<States, Events, BaseState>({
   UNINITIALIZED: {
-    SUMMARIES_LOADED: ({ xspecSummaries }) => {
+    SUMMARIES_LOADED: ({ xspecSummariesByAssertionId }) => {
       return {
         current: 'INITIALIZED',
-        xspecSummaries,
+        xspecSummariesByAssertionId,
       };
     },
   },
@@ -43,7 +46,7 @@ export const createAssertionDocumentationMachine = () => {
   return assertionDocumentationMachine.create(
     { current: 'UNINITIALIZED' },
     {
-      xspecSummaries: [],
+      xspecSummariesByAssertionId: {},
     },
   );
 };

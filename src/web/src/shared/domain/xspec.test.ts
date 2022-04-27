@@ -6,23 +6,29 @@ describe('xspec', () => {
       MOCK_XSPEC,
       (xml: string) => xml,
     );
-    expect(result).toEqual([
-      {
-        assertionId: 'assertion-1',
-        context: '<child1></child1>',
-        label: 'parent 1 middle parent child 1',
-      },
-      {
-        assertionId: 'assertion-2',
-        context: '<child2></child2>',
-        label: 'parent 1 middle parent child 2',
-      },
-      {
-        assertionId: 'assertion-3',
-        context: '<child3></child3>',
-        label: 'child 3',
-      },
-    ]);
+    expect(result).toEqual({
+      'assertion-1': [
+        {
+          assertionId: 'assertion-1',
+          context: '<child1></child1>',
+          label: 'parent 1 middle parent child 1',
+        },
+      ],
+      'assertion-2': [
+        {
+          assertionId: 'assertion-2',
+          context: '<child2></child2>',
+          label: 'parent 1 middle parent child 2',
+        },
+      ],
+      'assertion-3': [
+        {
+          assertionId: 'assertion-3',
+          context: '<child3></child3>',
+          label: 'child 3',
+        },
+      ],
+    });
   });
 });
 

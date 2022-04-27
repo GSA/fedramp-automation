@@ -1,3 +1,4 @@
+import { groupBy } from '../util';
 import type { FormatXml } from './xml';
 
 type XspecAssert = {
@@ -26,10 +27,14 @@ export type ScenarioSummary = {
   context: string;
 };
 
+export type SummariesByAssertionId = {
+  [key: string]: ScenarioSummary[];
+};
+
 export const getXSpecScenarioSummaries = async (
   xspec: XSpec,
   formatXml: FormatXml,
-) => {
+): Promise<SummariesByAssertionId> => {
   const getScenarios = (
     scenario: XSpecScenario,
     parentLabel?: string,
@@ -58,5 +63,6 @@ export const getXSpecScenarioSummaries = async (
     return finalScenarios;
   };
 
-  return xspec.scenarios.flatMap(scenario => getScenarios(scenario));
+  const summaries = xspec.scenarios.flatMap(scenario => getScenarios(scenario));
+  return groupBy(summaries, summary => summary.assertionId);
 };

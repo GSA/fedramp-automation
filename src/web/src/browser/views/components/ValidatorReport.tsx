@@ -61,6 +61,7 @@ export const ValidatorReport = () => {
                 </div>
                 <div className="usa-icon-list__content">
                   {check.message}
+                  {}
                   {check.fired.length ? (
                     <ul className="usa-icon-list__title">
                       {check.fired.map((firedCheck, index) => (
