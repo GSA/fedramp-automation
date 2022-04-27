@@ -10,6 +10,7 @@ describe('xspec', () => {
       'assertion-1': [
         {
           assertionId: 'assertion-1',
+          assertionLabel: 'assertion-1 label',
           context: '<child1></child1>',
           label: 'parent 1 middle parent child 1',
         },
@@ -17,6 +18,7 @@ describe('xspec', () => {
       'assertion-2': [
         {
           assertionId: 'assertion-2',
+          assertionLabel: 'assertion-2 label',
           context: '<child2></child2>',
           label: 'parent 1 middle parent child 2',
         },
@@ -24,6 +26,7 @@ describe('xspec', () => {
       'assertion-3': [
         {
           assertionId: 'assertion-3',
+          assertionLabel: 'assertion-3 label',
           context: '<child3></child3>',
           label: 'child 3',
         },
