@@ -10,6 +10,7 @@
                 <style>
                     body {margin:8px;}
                     a[href] {color:blue;}
+                    li.diagnostic {background-color:orange;}
                 </style>
             </head>
             <body>
@@ -18,6 +19,7 @@
                 <xsl:for-each select=".//svrl:failed-assert">
                     <ul>
                         <li><b>Text: <xsl:value-of select="svrl:text"/></b></li>
+                        <li class="diagnostic">Error message: <xsl:value-of select="svrl:diagnostic-reference"/></li>
                         <li>Test: <xsl:value-of select="@test"/></li>
                         <li>See: <xsl:value-of select="@see"/></li>
                         <li>Location: <xsl:value-of select="@location"/></li>
