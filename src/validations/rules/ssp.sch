@@ -6,7 +6,7 @@
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
     xmlns:feddoc="http://us.gov/documentation/federal-documentation"
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
-    xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
+    xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:unit="http://us.gov/testing/unit-testing"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -14,9 +14,6 @@
     <sch:ns
         prefix="f"
         uri="https://fedramp.gov/ns/oscal" />
-    <sch:ns
-        prefix="o"
-        uri="http://csrc.nist.gov/ns/oscal/1.0" />
     <sch:ns
         prefix="oscal"
         uri="http://csrc.nist.gov/ns/oscal/1.0" />
@@ -179,7 +176,7 @@
         <sch:active
             pattern="sp800-60" />
     </sch:phase>
-    
+
     <sch:phase
         id="protocol">
         <sch:active
@@ -304,7 +301,7 @@
             as="node()*"
             name="context" />
         <xsl:value-of
-            select="$context//o:security-sensitivity-level" />
+            select="$context//oscal:security-sensitivity-level" />
     </xsl:function>
     <xsl:function
         as="document-node()*"
@@ -495,7 +492,7 @@
     <sch:pattern
         id="phase2">
         <sch:rule
-            context="/o:system-security-plan">
+            context="/oscal:system-security-plan">
             <sch:let
                 name="ok-values"
                 value="$registry/f:fedramp-values/f:value-set[@name eq 'security-level']" />
@@ -528,7 +525,7 @@
                 test="empty($ok-values) or not(exists($corrections))">A FedRAMP SSP must have an allowed sensitivity level.</sch:assert>
             <sch:let
                 name="implemented"
-                value="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement" />
+                value="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement" />
             <sch:report
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 id="implemented-response-points"
@@ -537,19 +534,19 @@
                     select="$implemented/@statement-id" />.</sch:report>
         </sch:rule>
         <sch:rule
-            context="o:system-security-plan/o:system-implementation/o:leveraged-authorization">
+            context="oscal:system-security-plan/oscal:system-implementation/oscal:leveraged-authorization">
             <sch:let
                 name="id"
-                value="o:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier']/@value" />
+                value="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier']/@value" />
             <sch:let
                 name="title"
-                value="o:title" />
+                value="oscal:title" />
             <sch:assert
                 diagnostics="FedRAMP-ATO-Identifier-exists-diagnostics"
                 id="FedRAMP-ATO-Identifier-exists"
                 role="warning"
                 test="
-                    o:prop[
+                    oscal:prop[
                     @ns eq 'https://fedramp.gov/ns/oscal' and
                     @name eq 'leveraged-system-identifier' and
                     @value ne '']
@@ -566,15 +563,15 @@
                 Package.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="o:system-security-plan/o:system-implementation/o:component">
+            context="oscal:system-security-plan/oscal:system-implementation/oscal:component">
             <sch:assert
                 diagnostics="no-description-text-in-component-diagnostic"
                 id="no-description-text-in-component"
                 role="error"
-                test="o:description/o:p/text()">A component must have a description with content. </sch:assert>
+                test="oscal:description/oscal:p/text()">A component must have a description with content. </sch:assert>
         </sch:rule>
         <sch:rule
-            context="/o:system-security-plan/o:control-implementation"
+            context="/oscal:system-security-plan/oscal:control-implementation"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5">
             <sch:let
                 name="registry-ns"
@@ -590,16 +587,16 @@
                 value="$sensitivity-level => lv:profile()" />
             <sch:let
                 name="required-controls"
-                value="$selected-profile/*//o:control" />
+                value="$selected-profile/*//oscal:control" />
             <sch:let
                 name="implemented"
-                value="o:implemented-requirement" />
+                value="oscal:implemented-requirement" />
             <sch:let
                 name="all-missing"
                 value="$required-controls[not(@id = $implemented/@control-id)]" />
             <sch:let
                 name="core-missing"
-                value="$required-controls[o:prop[@name eq 'CORE' and @ns = $registry-ns] and @id = $all-missing/@id]" />
+                value="$required-controls[oscal:prop[@name eq 'CORE' and @ns = $registry-ns] and @id = $all-missing/@id]" />
             <sch:let
                 name="extraneous"
                 value="$implemented[not(@control-id = $required-controls/@id)]" />
@@ -643,7 +640,7 @@
                 baseline.</sch:assert>
             <sch:let
                 name="results"
-                value="$ok-values => lv:analyze(//o:implemented-requirement/o:prop[@name eq 'implementation-status'])" />
+                value="$ok-values => lv:analyze(//oscal:implemented-requirement/oscal:prop[@name eq 'implementation-status'])" />
             <sch:let
                 name="total"
                 value="$results/reports/@count" />
@@ -656,7 +653,7 @@
                     select="$results => lv:report() => normalize-space()" />.</sch:report>
         </sch:rule>
         <sch:rule
-            context="/o:system-security-plan/o:control-implementation/o:implemented-requirement">
+            context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement">
             <sch:let
                 name="sensitivity-level"
                 value="/ => lv:sensitivity-level() => lv:if-empty-default('')" />
@@ -668,22 +665,22 @@
                 value="$registry/f:fedramp-values/f:namespace/f:ns/@ns" />
             <sch:let
                 name="status"
-                value="./o:prop[@name eq 'implementation-status']/@value" />
+                value="./oscal:prop[@name eq 'implementation-status']/@value" />
             <sch:let
                 name="corrections"
                 value="lv:correct($registry/f:fedramp-values/f:value-set[@name eq 'control-implementation-status'], $status)" />
             <sch:let
                 name="required-response-points"
-                value="$selected-profile/o:catalog//o:part[@name eq 'item']" />
+                value="$selected-profile/oscal:catalog//oscal:part[@name eq 'item']" />
             <sch:let
                 name="implemented"
-                value="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement" />
+                value="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement" />
             <sch:let
                 name="missing"
                 value="$required-response-points[not(@id = $implemented/@statement-id)]" />
             <sch:let
                 name="leveraged"
-                value="/o:system-security-plan/o:system-implementation/o:component[@type = 'leveraged-system']" />
+                value="/oscal:system-security-plan/oscal:system-implementation/oscal:component[@type = 'leveraged-system']" />
             <sch:let
                 name="familyName"
                 value="substring-before(@control-id, '-')" />
@@ -716,7 +713,7 @@
                 test="
                     if (matches(@control-id, 'sc-20|sc-21'))
                     then
-                        (if (self::o:implemented-requirement//*[matches(., 'DNSSEC|DNS Security Extensions')])
+                        (if (self::oscal:implemented-requirement//*[matches(., 'DNSSEC|DNS Security Extensions')])
                         then
                             (true())
                         else
@@ -726,7 +723,7 @@
                     select="@control-id" /> exists.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement">
+            context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement">
             <sch:let
                 name="required-components-count"
                 value="1" />
@@ -735,10 +732,10 @@
                 value="20" />
             <sch:let
                 name="components-count"
-                value="./o:by-component => count()" />
+                value="./oscal:by-component => count()" />
             <sch:let
                 name="remarks"
-                value="./o:remarks => normalize-space()" />
+                value="./oscal:remarks => normalize-space()" />
             <sch:let
                 name="remarks-length"
                 value="$remarks => string-length()" />
@@ -752,7 +749,7 @@
                 test="$components-count ge $required-components-count">Response statements have sufficient components.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description">
+            context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:description">
             <sch:assert
                 diagnostics="extraneous-response-description-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -763,7 +760,7 @@
                 test=". => empty()">Response statement does not have a description not within a component.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks">
+            context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:remarks">
             <sch:assert
                 diagnostics="extraneous-response-remarks-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -774,7 +771,7 @@
                 test=". => empty()">Response statement does not have remarks not within a component.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component">
+            context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:by-component">
             <sch:let
                 name="component-ref"
                 value="./@component-uuid" />
@@ -783,7 +780,7 @@
                 value="../substring-before(@statement-id, '-')" />
             <sch:let
                 name="leveraged"
-                value="/o:system-security-plan/o:system-implementation/o:component[@type = 'leveraged-system']" />
+                value="/oscal:system-security-plan/oscal:system-implementation/oscal:component[@type = 'leveraged-system']" />
             <sch:assert
                 diagnostics="leveraged-PE-controls-diagnostic"
                 id="leveraged-PE-controls"
@@ -802,8 +799,8 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="invalid-component-match"
                 role="warning"
-                test="/o:system-security-plan/o:system-implementation/o:component[@uuid eq $component-ref] => exists()">Response statement cites a
-                component in the system implementation inventory.</sch:assert>
+                test="/oscal:system-security-plan/oscal:system-implementation/oscal:component[@uuid eq $component-ref] => exists()">Response statement
+                cites a component in the system implementation inventory.</sch:assert>
             <sch:assert
                 diagnostics="missing-component-description-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -811,10 +808,10 @@
                 doc:template-reference="System Security Plan Template §13"
                 id="missing-component-description"
                 role="error"
-                test="./o:description => exists()">Response statement has a component which has a required description.</sch:assert>
+                test="./oscal:description => exists()">Response statement has a component which has a required description.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:description">
+            context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:by-component/oscal:description">
             <sch:let
                 name="required-length"
                 value="20" />
@@ -834,7 +831,7 @@
                 test="$description-length ge $required-length">Response statement component description has adequate length.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:remarks">
+            context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:by-component/oscal:remarks">
             <sch:let
                 name="required-length"
                 value="20" />
@@ -854,22 +851,22 @@
                 test="$remarks-length ge $required-length">Response statement component remarks have adequate length.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="/o:system-security-plan/o:metadata">
+            context="/oscal:system-security-plan/oscal:metadata">
             <sch:let
                 name="parties"
-                value="o:party" />
+                value="oscal:party" />
             <sch:let
                 name="roles"
-                value="o:role" />
+                value="oscal:role" />
             <sch:let
                 name="responsible-parties"
-                value="./o:responsible-party" />
+                value="./oscal:responsible-party" />
             <sch:let
                 name="extraneous-roles"
                 value="$responsible-parties[not(@role-id = $roles/@id)]" />
             <sch:let
                 name="extraneous-parties"
-                value="$responsible-parties[not(o:party-uuid = $parties/@uuid)]" />
+                value="$responsible-parties[not(oscal:party-uuid = $parties/@uuid)]" />
             <sch:assert
                 diagnostics="incorrect-role-association-diagnostic"
                 doc:checklist-reference="Section C Check 2"
@@ -888,7 +885,7 @@
                 test="not(exists($extraneous-parties))">A FedRAMP SSP must define a responsible party with no extraneous parties.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="/o:system-security-plan/o:back-matter/o:resource">
+            context="/oscal:system-security-plan/oscal:back-matter/oscal:resource">
             <sch:assert
                 diagnostics="resource-uuid-required-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
@@ -899,7 +896,7 @@
         </sch:rule>
         <!-- The following rule is commented out because doc-available does not provide the desired existence check -->
         <!--<sch:rule
-            context="/o:system-security-plan/o:back-matter/o:resource/o:rlink">
+            context="/oscal:system-security-plan/oscal:back-matter/oscal:resource/oscal:rlink">
             <sch:assert
                 diagnostics="resource-rlink-required-diagnostic"
                 doc:organizational-id="section-b.?????"
@@ -909,7 +906,7 @@
                     select="./@href" /></sch:assert>
         </sch:rule>-->
         <sch:rule
-            context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
+            context="/oscal:system-security-plan/oscal:back-matter/oscal:resource/oscal:base64"
             doc:guide-reference="Guide to OSCAL-based FedRAMP Content §4.10">
             <sch:let
                 name="filename"
@@ -1558,7 +1555,7 @@
                 test="current() = $security-sensitivity-levels">A FedRAMP SSP must specify an allowed security sensitivity level.</sch:assert>
             <sch:let
                 name="securityLevelStr"
-                value="string-join(../o:security-impact-level//text())" />
+                value="string-join(../oscal:security-impact-level//text())" />
             <sch:let
                 name="securityImpactLevel"
                 value="
@@ -1637,10 +1634,10 @@
                 value="substring-after(substring-after(local-name(), '-'), '-')" />
             <sch:let
                 name="impactSelected"
-                value="string-join(/o:system-security-plan/o:system-characteristics/o:system-information//o:information-type//*[contains(local-name(), $impactName)]/o:selected/text())" />
+                value="string-join(/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information//oscal:information-type//*[contains(local-name(), $impactName)]/oscal:selected/text())" />
             <sch:let
                 name="impactBase"
-                value="string-join(/o:system-security-plan/o:system-characteristics/o:system-information//o:information-type//*[contains(local-name(), $impactName)]/o:base/text())" />
+                value="string-join(/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information//oscal:information-type//*[contains(local-name(), $impactName)]/oscal:base/text())" />
             <sch:let
                 name="securityImpactLevelSelected"
                 value="
@@ -1656,7 +1653,7 @@
                             then
                                 ('fips-199-low')
                             else
-                            ('fips-199-low')))" />
+                                ('fips-199-low')))" />
             <sch:let
                 name="securityImpactLevelBase"
                 value="
@@ -2246,23 +2243,25 @@
                 "infrastructure" inventory item must have only one vendor-name property.</sch:assert>
             <!-- Last Updated 2022-03-28 -->
             <!-- See List of Equipment and Services Covered By Section 2 of The Secure Networks Act - https://www.fcc.gov/supplychain/coveredlist  -->
-            <sch:let 
-                name="prohibit-vendor" 
-                value="('Dahua Technology Company', 'Dahua',
-                'Hangzhou Hikvision Digital Technology', 'Hangzhou', 
-                'Hikvision', 'Hangzhou Hikvision', 
-                'Huawei', 'Huawei Technologies Company', 
-                'HyTera', 'Hytera Communications Corporation', 
-                'AO Kaspersky Lab', 'Kaspersky Lab', 'Kaspersky', 
-                'ZTE', 'ZTE Corporation', 
-                'China Mobile', 'China Mobile International USA Inc',
-                'China Telecom', 'China Telecom (Americas) Corp')"/>
+            <sch:let
+                name="prohibit-vendor"
+                value="
+                    ('Dahua Technology Company', 'Dahua',
+                    'Hangzhou Hikvision Digital Technology', 'Hangzhou',
+                    'Hikvision', 'Hangzhou Hikvision',
+                    'Huawei', 'Huawei Technologies Company',
+                    'HyTera', 'Hytera Communications Corporation',
+                    'AO Kaspersky Lab', 'Kaspersky Lab', 'Kaspersky',
+                    'ZTE', 'ZTE Corporation',
+                    'China Mobile', 'China Mobile International USA Inc',
+                    'China Telecom', 'China Telecom (Americas) Corp')" />
             <sch:assert
                 diagnostics="has-prohibited-vendor-name-diagnostic"
-                id="has-prohibited-vendor-name"
                 feddoc:reference-documentation="FAR 889(a)(1)(B)"
+                id="has-prohibited-vendor-name"
                 role="warning"
-                test="not(o:prop[@name eq 'vendor-name']/@value = $prohibit-vendor)">The inventory item does not cite a banned vendor.</sch:assert>
+                test="not(oscal:prop[@name eq 'vendor-name']/@value = $prohibit-vendor)">The inventory item does not cite a banned
+                vendor.</sch:assert>
             <!-- FIXME: perversely, hardware-model is not in FedRAMP @ns -->
             <sch:assert
                 diagnostics="inventory-item-has-hardware-model-diagnostic"
@@ -2357,9 +2356,9 @@
                 id="inventory-item-network-address"
                 role="error"
                 test="
-                    if (o:prop[@name eq 'ipv4-address'])
+                    if (oscal:prop[@name eq 'ipv4-address'])
                     then
-                        (o:prop[@name eq 'ipv6-address'])
+                        (oscal:prop[@name eq 'ipv6-address'])
                     else
                         (true())">If any inventory-item has a prop with a name of 'ipv4-address' it must also have a prop with a name
                 of 'ipv6-address'</sch:assert>
@@ -2369,27 +2368,28 @@
                 id="ipv4-has-content"
                 role="error"
                 test="
-                    if (o:prop[@name eq 'ipv4-address'])
+                    if (oscal:prop[@name eq 'ipv4-address'])
                     then
-                        (o:prop[matches(@value, '(^[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?$)')])
+                        (oscal:prop[matches(@value, '(^[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?$)')])
                     else
                         (true())"><xsl:value-of
-                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv4 value.</sch:assert>
+                    select="oscal:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv4 value.</sch:assert>
             <sch:assert
                 diagnostics="ipv4-has-non-placeholder-diagnostic"
                 feddoc:documentation-reference="OMB Mandate M-21-07"
                 id="ipv4-has-non-placeholder"
                 role="error"
                 test="
-                    if (o:prop[@name eq 'ipv4-address'])
+                    if (oscal:prop[@name eq 'ipv4-address'])
                     then
-                        (o:prop[matches(@value, '0.0.0.0')])
+                        (oscal:prop[matches(@value, '0.0.0.0')])
                     else
                         (false())"><xsl:value-of
-                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv4 value.</sch:assert>
+                    select="oscal:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv4 value.</sch:assert>
             <sch:let
                 name="IPv6-regex"
-                value="'(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:)
+                value="
+                    '(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:)
                 {1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:)
                 {1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]
                 {1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:
@@ -2400,24 +2400,24 @@
                 id="ipv6-has-content"
                 role="error"
                 test="
-                    if (o:prop[@name eq 'ipv6-address'])
+                    if (oscal:prop[@name eq 'ipv6-address'])
                     then
-                        (o:prop[matches(@value, $IPv6-regex)])
+                        (oscal:prop[matches(@value, $IPv6-regex)])
                     else
                         (true())"><xsl:value-of
-                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv6 value.</sch:assert>
+                    select="oscal:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv6 value.</sch:assert>
             <sch:assert
                 diagnostics="ipv6-has-non-placeholder-diagnostic"
                 feddoc:documentation-reference="OMB Mandate M-21-07"
                 id="ipv6-has-non-placeholder"
                 role="error"
                 test="
-                    if (o:prop[@name eq 'ipv6-address']/@value eq '::')
+                    if (oscal:prop[@name eq 'ipv6-address']/@value eq '::')
                     then
                         (false())
                     else
                         (true())"><xsl:value-of
-                    select="o:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv6 value.</sch:assert>
+                    select="oscal:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv6 value.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -2705,8 +2705,9 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.6-§4.11"
                 id="party-has-one-responsibility"
                 role="warning"
-                test="count(//oscal:responsible-party[oscal:party-uuid = current()/@uuid]) eq 1">Each person should have no more than one responsibility.</sch:assert>
-                
+                test="count(//oscal:responsible-party[oscal:party-uuid = current()/@uuid]) eq 1">Each person should have no more than one
+                responsibility.</sch:assert>
+
         </sch:rule>
         <sch:rule
             context="oscal:location[oscal:prop[@value eq 'data-center']]"
@@ -3361,10 +3362,10 @@
                 id="set-parameter-elements-match-baseline"
                 role="error"
                 test="
-                    every $i in $selected-profile//o:control[@id eq current()/@control-id]/o:param[not(o:value)]/@id
+                    every $i in $selected-profile//oscal:control[@id eq current()/@control-id]/oscal:param[not(oscal:value)]/@id
                         satisfies
-                        exists(o:set-parameter[@param-id eq $i])">In the corresponding baseline-resolved-profile catalog, all param
-                elements, that do not have child value elements, have an @id value that also occurs in the matching implemented-requirement
+                        exists(oscal:set-parameter[@param-id eq $i])">In the corresponding baseline-resolved-profile catalog, all
+                param elements, that do not have child value elements, have an @id value that also occurs in the matching implemented-requirement
                 set-parameter element @id in the SSP.</sch:assert>
             <sch:assert
                 diagnostics="set-parameter-elements-match-baseline1-diagnostic"
@@ -3372,9 +3373,9 @@
                 id="set-parameter-elements-match-baseline1"
                 role="error"
                 test="
-                    every $i in current()//o:set-parameter/@param-id
+                    every $i in current()//oscal:set-parameter/@param-id
                         satisfies
-                        exists($selected-profile//o:control[@id eq current()/@control-id]/o:param[@id eq $i])">In the SSP, all
+                        exists($selected-profile//oscal:control[@id eq current()/@control-id]/oscal:param[@id eq $i])">In the SSP, all
                 implemented-requirement set-parameter element @id values also occur in the corresponding baseline-resolved-profile catalog param
                 elements, that do not have child value elements, @id attributes.</sch:assert>
         </sch:rule>
@@ -3436,7 +3437,7 @@
 
         </sch:rule>
         <sch:rule
-            context="o:set-parameter"
+            context="oscal:set-parameter"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4">
             <sch:let
                 name="sensitivity-level"
@@ -3449,9 +3450,9 @@
                 id="uses-correct-param-value"
                 role="error"
                 test="
-                    if ($selected-profile//o:param[@id eq current()/@param-id]/o:constraint)
+                    if ($selected-profile//oscal:param[@id eq current()/@param-id]/oscal:constraint)
                     then
-                        ($selected-profile//o:param[@id eq current()/@param-id][o:constraint/o:description/o:p eq current()/o:value])
+                        ($selected-profile//oscal:param[@id eq current()/@param-id][oscal:constraint/oscal:description/oscal:p eq current()/oscal:value])
                     else
                         (true())">A FedRAMP SSP must use correct parameter value.</sch:assert>
         </sch:rule>
@@ -3489,8 +3490,8 @@
                 doc:template-reference="System Security Plan Template §8.1"
                 id="has-leveraged-authorization-with-cloud-service-model"
                 role="warning"
-                test="oscal:prop[@name eq 'cloud-service-model' and @value = ('saas', 'paas')] and ../oscal:system-implementation/oscal:leveraged-authorization">A FedRAMP SSP must define a leveraged authorization for any 'paas' or 'saas' cloud service
-                model.</sch:assert>
+                test="oscal:prop[@name eq 'cloud-service-model' and @value = ('saas', 'paas')] and ../oscal:system-implementation/oscal:leveraged-authorization">A
+                FedRAMP SSP must define a leveraged authorization for any 'paas' or 'saas' cloud service model.</sch:assert>
             <sch:assert
                 diagnostics="has-cloud-service-model-remarks-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.13"
@@ -3790,11 +3791,13 @@
                 can be the same if there is one port number.</sch:assert>
         </sch:rule>
     </sch:pattern>
-    
-    <sch:pattern id="protocols">
-        
-        <sch:rule context="oscal:system-implementation">
-            
+
+    <sch:pattern
+        id="protocols">
+
+        <sch:rule
+            context="oscal:system-implementation">
+
             <sch:let
                 name="expected-network-protocols"
                 value="'DNS', 'NTP', 'SSH', 'HTTPS', 'TLS'" />
@@ -3805,9 +3808,9 @@
                 role="information"
                 test="
                     every $p in $expected-network-protocols
-                        satisfies exists(//oscal:protocol[@name eq $p])">All expected network protocols are specified.</sch:assert>           
+                        satisfies exists(//oscal:protocol[@name eq $p])">All expected network protocols are specified.</sch:assert>
         </sch:rule>
-        
+
     </sch:pattern>
 
     <sch:pattern
@@ -3817,50 +3820,54 @@
             <sch:report
                 id="info-system-name"
                 role="information"
-                test="true()"><sch:value-of
-                    select="oscal:system-characteristics/oscal:system-name" /></sch:report>
+                test="true()">
+                <sch:value-of
+                    select="oscal:system-characteristics/oscal:system-name" />
+            </sch:report>
             <sch:report
                 id="info-ssp-title"
                 role="information"
-                test="true()"><sch:value-of
-                    select="oscal:metadata/oscal:title" /></sch:report>
+                test="true()">
+                <sch:value-of
+                    select="oscal:metadata/oscal:title" />
+            </sch:report>
         </sch:rule>
     </sch:pattern>
     <sch:diagnostics>
         <sch:diagnostic
             doc:assertion="data-center-count"
-            doc:context="/o:location"
+            doc:context="/oscal:location"
             id="data-center-count-diagnostic">There must be at least two (2) data centers listed.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="data-center-primary"
-            doc:context="/o:location"
+            doc:context="/oscal:location"
             id="data-center-primary-diagnostic">There must be one primary data center location.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="data-center-alternate"
-            doc:context="/o:location"
+            doc:context="/oscal:location"
             id="data-center-alternate-diagnostic">There must be one or more alternate data center locations(s).</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="data-center-country-code"
-            doc:context="/o:location"
+            doc:context="/oscal:location"
             id="data-center-country-code-diagnostic">The data center address does not show a country.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="data-center-US"
-            doc:context="/o:location"
+            doc:context="/oscal:location"
             id="data-center-US-diagnostic">The location address for a data center is not within the United States. The country element must contain
             the string 'US'.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="no-registry-values"
-            doc:context="/o:system-security-plan"
+            doc:context="/oscal:system-security-plan"
             id="no-registry-values-diagnostic">The validation technical components at the path '<sch:value-of
                 select="$registry-base-path" />' are not present, this configuration is invalid.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="no-security-sensitivity-level"
-            doc:context="/o:system-security-plan"
+            doc:context="/oscal:system-security-plan"
             id="no-security-sensitivity-level-diagnostic">No sensitivity level was found. Allowed values are: <sch:value-of
                 select="$corrections" />. As a result, no more validation processing can occur.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="invalid-security-sensitivity-level"
-            doc:context="/o:system-security-plan"
+            doc:context="/oscal:system-security-plan"
             id="invalid-security-sensitivity-level-diagnostic">
             <sch:value-of
                 select="./name()" /> is an invalid value of '<sch:value-of
@@ -3868,17 +3875,17 @@
                 select="$corrections" />. No more validation processing can occur.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="no-description-text-in-component"
-            doc:context="o:system-security-plan/o:system-implementation/o:component"
+            doc:context="oscal:system-security-plan/oscal:system-implementation/oscal:component"
             id="no-description-text-in-component-diagnostic">Component _<xsl:value-of
-                select="o:title" />_ is missing a description.</sch:diagnostic>
+                select="oscal:title" />_ is missing a description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="FedRAMP-ATO-Identifier-exists"
-            doc:context="o:system-security-plan/o:system-implementation/o:leveraged-authorization"
+            doc:context="oscal:system-security-plan/oscal:system-implementation/oscal:leveraged-authorization"
             id="FedRAMP-ATO-Identifier-exists-diagnostics">Component _<xsl:value-of
-                select="o:title" />_ is missing an identifier.</sch:diagnostic>
+                select="oscal:title" />_ is missing an identifier.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-core-implemented-requirements"
-            doc:context="/o:system-security-plan/o:control-implementation"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation"
             id="incomplete-core-implemented-requirements-diagnostic">A FedRAMP SSP must implement the most important <sch:value-of
                 select="count($core-missing)" /> core <sch:value-of
                 select="
@@ -3889,7 +3896,7 @@
                 select="$core-missing/@id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-all-implemented-requirements"
-            doc:context="/o:system-security-plan/o:control-implementation"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation"
             id="incomplete-all-implemented-requirements-diagnostic">A FedRAMP SSP must implement <sch:value-of
                 select="count($all-missing)" />
             <sch:value-of
@@ -3901,7 +3908,7 @@
                 select="$all-missing/@id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="extraneous-implemented-requirements"
-            doc:context="/o:system-security-plan/o:control-implementation"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation"
             id="extraneous-implemented-requirements-diagnostic">A FedRAMP SSP must implement <sch:value-of
                 select="count($extraneous)" /> extraneous <sch:value-of
                 select="
@@ -3912,14 +3919,14 @@
                 select="$extraneous/@control-id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="invalid-implementation-status"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement"
             id="invalid-implementation-status-diagnostic">Invalid implementation status '<sch:value-of
                 select="$status" />' for <sch:value-of
                 select="./@control-id" />, must be <sch:value-of
                 select="$corrections" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="missing-response-components"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement"
             id="missing-response-components-diagnostic">Response statements for <sch:value-of
                 select="./@statement-id" /> must have at least <sch:value-of
                 select="$required-components-count" />
@@ -3932,58 +3939,58 @@
                 select="$components-count" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="extraneous-response-description"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:description"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:description"
             id="extraneous-response-description-diagnostic">Response statement <sch:value-of
                 select="../@statement-id" /> has a description not within a component. That was previously allowed, but not recommended. It will soon
             be syntactically invalid and deprecated.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="extraneous-response-remarks"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:remarks"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:remarks"
             id="extraneous-response-remarks-diagnostic">Response statement <sch:value-of
                 select="../@statement-id" /> has remarks not within a component. That was previously allowed, but not recommended. It will soon be
             syntactically invalid and deprecated.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="DNSSEC-described"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement"
             id="DNSSEC-described-diagnostic">The implemented requirement does not contain the strings 'DNSSEC' or 'DNS Security
             Extensions'.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="invalid-component-match"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:by-component"
             id="invalid-component-match-diagnostic">Response statement <sch:value-of
                 select="../@statement-id" /> with component reference UUID ' <sch:value-of
                 select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a control.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="leveraged-PE-controls"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:by-component"
             id="leveraged-PE-controls-diagnostic">There are PE controls inherited from leveraged authorizations.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="leveraged-PE-controls-implemented-requirement"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement"
             id="leveraged-PE-controls-implemented-requirement-diagnostic">There are PE controls inherited from leveraged
             authorizations.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="missing-component-description"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:by-component"
             id="missing-component-description-diagnostic">Response statement <sch:value-of
                 select="../@statement-id" /> has a component, but that component is missing a required description node.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-response-description"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:description"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:by-component/oscal:description"
             id="incomplete-response-description-diagnostic">Response statement component description for <sch:value-of
                 select="../../@statement-id" /> is too short with <sch:value-of
                 select="$description-length" /> characters. It must be <sch:value-of
                 select="$required-length" /> characters long.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incomplete-response-remarks"
-            doc:context="/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:statement/o:by-component/o:remarks"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:by-component/oscal:remarks"
             id="incomplete-response-remarks-diagnostic">Response statement component remarks for <sch:value-of
                 select="../../@statement-id" /> is too short with <sch:value-of
                 select="$remarks-length" /> characters. It must be <sch:value-of
                 select="$required-length" /> characters long.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incorrect-role-association"
-            doc:context="/o:system-security-plan/o:metadata"
+            doc:context="/oscal:system-security-plan/oscal:metadata"
             id="incorrect-role-association-diagnostic">A FedRAMP SSP must define a responsible party with <sch:value-of
                 select="count($extraneous-roles)" />
             <sch:value-of
@@ -3995,7 +4002,7 @@
                 select="$extraneous-roles/@role-id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="incorrect-party-association"
-            doc:context="/o:system-security-plan/o:metadata"
+            doc:context="/oscal:system-security-plan/oscal:metadata"
             id="incorrect-party-association-diagnostic">A FedRAMP SSP must define a responsible party with <sch:value-of
                 select="count($extraneous-parties)" />
             <sch:value-of
@@ -4004,23 +4011,23 @@
                         ' party'
                     else
                         ' parties'" /> is not a defined party: <sch:value-of
-                select="$extraneous-parties/o:party-uuid" />.</sch:diagnostic>
+                select="$extraneous-parties/oscal:party-uuid" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="resource-uuid-required"
-            doc:context="/o:system-security-plan/o:back-matter/o:resource"
+            doc:context="/oscal:system-security-plan/oscal:back-matter/oscal:resource"
             id="resource-uuid-required-diagnostic">This FedRAMP SSP has a back-matter resource which lacks a UUID.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="resource-rlink-required"
-            doc:context="/o:system-security-plan/o:back-matter/o:resource/o:rlink"
+            doc:context="/oscal:system-security-plan/oscal:back-matter/oscal:resource/oscal:rlink"
             id="resource-rlink-required-diagnostic">A FedRAMP SSP must reference back-matter resource: <sch:value-of
                 select="./@href" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="resource-base64-available-filename"
-            doc:context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
+            doc:context="/oscal:system-security-plan/oscal:back-matter/oscal:resource/oscal:base64"
             id="resource-base64-available-filename-diagnostic">This base64 lacks a filename attribute.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="resource-base64-available-media-type"
-            doc:context="/o:system-security-plan/o:back-matter/o:resource/o:base64"
+            doc:context="/oscal:system-security-plan/oscal:back-matter/oscal:resource/oscal:base64"
             id="resource-base64-available-media-type-diagnostic">This base64 lacks a media-type attribute.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="resource-has-uuid"
@@ -4292,10 +4299,10 @@
                 select="string-join($security-objective-levels, ' ∨ ')" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="uses-correct-param-value"
-            doc:context="o:set-parameter"
+            doc:context="oscal:set-parameter"
             id="uses-correct-param-value-diagnostic">The parameter <xsl:value-of
-                select="current()/@param-id" /> does not match the corresponding baseline resolved profile catalog parameter constraint description for
-            the control.</sch:diagnostic>
+                select="current()/@param-id" /> does not match the corresponding baseline resolved profile catalog parameter constraint description
+            for the control.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="system-information-has-information-type"
             doc:context="oscal:system-information"
@@ -4330,7 +4337,7 @@
             doc:context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
             id="cia-impact-matches-security-objective-diagnostic">The FedRAMP SSP security objective <xsl:value-of
                 select="substring-after(substring-after(local-name(), '-'), '-')" /> does not match the <xsl:value-of
-                    select="substring-after(substring-after(local-name(), '-'), '-')" /> impact value.</sch:diagnostic>
+                select="substring-after(substring-after(local-name(), '-'), '-')" /> impact value.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="categorization-has-system-attribute"
             doc:context="oscal:categorization"
@@ -4482,16 +4489,17 @@
             id="set-parameter-elements-match-baseline-diagnostic"> For Control <xsl:value-of
                 select="@control-id" /> - Some values of the SSP set-parameter/@param-id attributes do not match the corresponding control/param/@id
             values in the baseline catalog. SSP set-parameter/@param-id values - <xsl:value-of
-                select="o:set-parameter/@param-id" /> Catalog param/@id values- <xsl:value-of
-                select="$selected-profile//o:control[@id eq current()/@control-id]/o:param[not(o:value)]/@id" />.</sch:diagnostic>
+                select="oscal:set-parameter/@param-id" /> Catalog param/@id values- <xsl:value-of
+                select="$selected-profile//oscal:control[@id eq current()/@control-id]/oscal:param[not(oscal:value)]/@id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="set-parameter-elements-match-baseline1"
             doc:context="oscal:implemented-requirement"
             id="set-parameter-elements-match-baseline1-diagnostic"> For Control <xsl:value-of
                 select="@control-id" /> - Some values of the control/param/@id in the baseline catalog do not match the corresponding SSP
             set-parameter/@param-id attribute values. Catalog param/@id values- <xsl:value-of
-                select="$selected-profile//o:control[@id eq current()/@control-id]/o:param[not(o:value)]/@id" /> SSP set-parameter/@param-id values - <xsl:value-of
-                select="o:set-parameter/@param-id" />.</sch:diagnostic>
+                select="$selected-profile//oscal:control[@id eq current()/@control-id]/oscal:param[not(oscal:value)]/@id" /> SSP
+            set-parameter/@param-id values - <xsl:value-of
+                select="oscal:set-parameter/@param-id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-asset-type"
             doc:context="oscal:inventory-item"
@@ -4564,7 +4572,8 @@
         <sch:diagnostic
             doc:assertion="has-prohibited-vendor-name"
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'vendor-name']]"
-            id="has-prohibited-vendor-name-diagnostic">This inventory-item contains a banned vendor.  Please see https://www.fcc.gov/supplychain/coveredlist.</sch:diagnostic>
+            id="has-prohibited-vendor-name-diagnostic">This inventory-item contains a banned vendor. Please see
+            https://www.fcc.gov/supplychain/coveredlist.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-has-hardware-model"
             doc:context="oscal:inventory-item[oscal:prop[@name eq 'asset-type' and @value = ('os', 'infrastructure')]]"
@@ -4613,27 +4622,27 @@
                 select="oscal:prop[@name eq 'asset-type']/@value" />" has more than one function property.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="inventory-item-network-address"
-            doc:context="o:inventory-item[o:prop[@name eq 'ipv4-address'] or @name eq [@name eq 'ipv6-address']]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'ipv4-address'] or @name eq [@name eq 'ipv6-address']]"
             id="inventory-item-network-address-diagnostic">
             <sch:value-of
-                select="o:prop[@name = 'asset-id']/@value" /> has an IPv4 address but does not have an IPv6 address.</sch:diagnostic>
+                select="oscal:prop[@name = 'asset-id']/@value" /> has an IPv4 address but does not have an IPv6 address.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="ipv4-has-content"
-            doc:context="o:inventory-item[o:prop[@name eq 'ipv4-address']]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'ipv4-address']]"
             id="ipv4-has-content-diagnostic">The @value content of prop whose @name is 'ipv4-address' has incorrect content.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="ipv4-has-non-placeholder"
-            doc:context="o:inventory-item[o:prop[@name eq 'ipv4-address']]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'ipv4-address']]"
             id="ipv4-has-non-placeholder-diagnostic">The @value content of prop whose @name is 'ipv4-address' has placeholder value of
             0.0.0.0.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="ipv6-has-non-placeholder"
-            doc:context="o:inventory-item[o:prop[@name eq 'ipv6-address']]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'ipv6-address']]"
             id="ipv6-has-non-placeholder-diagnostic">The @value content of prop whose @name is 'ipv6-address' has placeholder value of
             ::.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="ipv6-has-content"
-            doc:context="o:inventory-item[o:prop[@name eq 'ipv6-address']]"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'ipv6-address']]"
             id="ipv6-has-content-diagnostic">The @value content of prop whose @name is 'ipv6-address' has incorrect content.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="component-has-asset-type"
@@ -4654,7 +4663,8 @@
         <sch:diagnostic
             doc:assertion="has-email-and-DMARC"
             doc:context="oscal:system-implementation"
-            id="has-email-and-DMARC-diagnostic">Email is present but one or more of the following is missing from this SSP: DMARC, SPF, or DKIM.</sch:diagnostic>
+            id="has-email-and-DMARC-diagnostic">Email is present but one or more of the following is missing from this SSP: DMARC, SPF, or
+            DKIM.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-system-id"
             doc:context="oscal:system-characteristics"
@@ -4760,7 +4770,7 @@
             doc:assertion="party-has-one-responsibility"
             doc:context="oscal:party[@type eq 'person']"
             id="party-has-one-responsibility-diagnostic"><xsl:value-of
-                select="o:name" /> - This person has more than one responsibility.</sch:diagnostic>
+                select="oscal:name" /> - This person has more than one responsibility.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-responsible-role"
             doc:context="oscal:implemented-requirement"
@@ -5195,7 +5205,7 @@
         <sch:diagnostic
             doc:assertion="interconnection-protocol-port-range-has-transport"
             doc:context="oscal:component[@type eq 'interconnection']/oscal:protocol/oscal:port-range"
-            id="interconnection-protocol-port-range-has-transport-diagnostic">\his system interconnection protocol port range declaration does not
+            id="interconnection-protocol-port-range-has-transport-diagnostic">This system interconnection protocol port range declaration does not
             state a transport protocol.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="interconnection-protocol-port-range-has-start"
@@ -5207,13 +5217,11 @@
             doc:context="oscal:component[@type eq 'interconnection']/oscal:protocol/oscal:port-range"
             id="interconnection-protocol-port-range-has-end-diagnostic">A system interconnection protocol port range declaration does not state an
             ending port number.</sch:diagnostic>
-        
         <sch:diagnostic
             doc:assertion="has-expected-network-protocols"
             doc:context="oscal:system-implementation"
             id="has-expected-network-protocols-diagnostic">One or more expected network protocols were not defined (within components). The expected
             network protocols are <sch:value-of
                 select="string-join($expected-network-protocols, ', ')" />.</sch:diagnostic>
-        
     </sch:diagnostics>
 </sch:schema>
