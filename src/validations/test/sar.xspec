@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description
+    schematron="../rules/sar.sch"
+    xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+    xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+    xmlns:x="http://www.jenitennison.com/xslt/xspec">
+    <x:scenario
+        label="In FedRAMP OSCAL SAR">
+        <x:scenario
+            label="when the metadata element">
+            <x:scenario
+                label="is present">
+                <x:context>
+                    <assessment-results
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-results>
+                </x:context>
+                <x:expect-not-assert
+                    id="metadata-element-exists"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is absent">
+                <x:context>
+                    <assessment-results
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                </x:context>
+                <x:expect-assert
+                    id="metadata-element-exists"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+    </x:scenario>
+</x:description>
