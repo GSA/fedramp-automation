@@ -88,6 +88,8 @@ def svrl_node(
         source_file=EXAMPLE_SSP_PATH,
         stylesheet_file=SSP_XSL_FILE,
     )
+    assert xslt_processor.error_message is None
+    assert xslt_processor.exception_occurred == False
     assert "<svrl:schematron-output" in svrl_string
 
     # Parse the SVRL document and check its type.
