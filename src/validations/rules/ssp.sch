@@ -3850,7 +3850,7 @@
 
             <sch:let
                 name="zone-regex"
-                value="'^ ([a-z0-9]+ (-[a-z0-9]+)*\.)+ [a-z]{2,}\.?$'" />
+                value="'^ ([a-z0-9]+ (-[a-z0-9]+)*\.)+ [a-z]{2,} \.? $'" />
             <sch:let
                 name="well-formed"
                 value="matches(@value, $zone-regex, 'ix')" />
