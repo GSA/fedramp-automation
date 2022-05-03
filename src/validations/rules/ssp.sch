@@ -532,36 +532,7 @@
                 role="information"
                 test="true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
                     select="$implemented/@statement-id" />.</sch:report>
-        </sch:rule>
-        <sch:rule
-            context="oscal:system-security-plan/oscal:system-implementation/oscal:leveraged-authorization">
-            <sch:let
-                name="id"
-                value="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier']/@value" />
-            <sch:let
-                name="title"
-                value="oscal:title" />
-            <sch:assert
-                diagnostics="FedRAMP-ATO-Identifier-exists-diagnostics"
-                id="FedRAMP-ATO-Identifier-exists"
-                role="warning"
-                test="
-                    oscal:prop[
-                    @ns eq 'https://fedramp.gov/ns/oscal' and
-                    @name eq 'leveraged-system-identifier' and
-                    @value ne '']
-                    ">A leveraged authorization must have an identifier.</sch:assert>
-            <sch:assert
-                diagnostics="has-matching-ATO-identifier-diagnostic"
-                id="has-matching-ATO-identifier"
-                role="error"
-                test="
-                    not($use-remote-resources) or
-                    (some $p in array:flatten($fedramp_data?data?Providers)
-                        satisfies ($p?Package_ID eq $id and $p?Cloud_Service_Provider_Package eq $title))
-                    ">Leveraged Authorization ID and Title must match an existing Package ID and Cloud Service Provider
-                Package.</sch:assert>
-        </sch:rule>
+        </sch:rule>        
         <sch:rule
             context="oscal:system-security-plan/oscal:system-implementation/oscal:component">
             <sch:assert
@@ -2566,6 +2537,32 @@
 
         </sch:rule>
 
+        <sch:rule
+            context="oscal:system-security-plan/oscal:system-implementation/oscal:leveraged-authorization">
+            <sch:let
+                name="id"
+                value="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'leveraged-system-identifier']/@value" />
+            <sch:assert
+                diagnostics="FedRAMP-ATO-Identifier-exists-diagnostics"
+                id="FedRAMP-ATO-Identifier-exists"
+                role="warning"
+                test="
+                    oscal:prop[
+                    @ns eq 'https://fedramp.gov/ns/oscal' and
+                    @name eq 'leveraged-system-identifier' and
+                    @value ne '']
+                    ">A FedRAMP leveraged authorization must have an identifier.</sch:assert>
+            <sch:assert
+                diagnostics="has-matching-ATO-identifier-diagnostic"
+                id="has-matching-ATO-identifier"
+                role="error"
+                test="
+                    not($use-remote-resources) or
+                    (some $p in array:flatten($fedramp_data?data?Providers)
+                        satisfies ($p?Package_ID eq $id and $p?Cloud_Service_Provider_Package eq current()/oscal:title))
+                    "
+                unit:override-xspec="both">The FedRAMP leveraged authorization must reference a known Cloud Service Provider Package.</sch:assert>
+        </sch:rule>
     </sch:pattern>
 
     <sch:pattern
@@ -4708,8 +4705,8 @@
         <sch:diagnostic
             doc:assertion="has-matching-ATO-identifier"
             doc:context="oscal:system-security-plan/oscal:system-implementation/oscal:leveraged-authorization"
-            id="has-matching-ATO-identifier-diagnostic">A FedRAMP Leveraged System Identifier property value and Title must match a Package Identifer
-            and the associated Cloud Service Provider Package name in the FedRAMP Compilation List.</sch:diagnostic>
+            id="has-matching-ATO-identifier-diagnostic">The FedRAMP Leveraged Authorization title and/or identifier property value does not match a
+            Package Identifer in the FedRAMP Authorized Package List.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="role-defined-system-owner"
             doc:context="oscal:metadata"
