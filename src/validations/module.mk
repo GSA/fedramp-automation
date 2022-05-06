@@ -11,6 +11,14 @@ COMPILE_SCH := bash $(VALIDATIONS_DIR)/bin/compile-sch.sh
 EVAL_SCHEMATRON := bash $(VALIDATIONS_DIR)/bin/evaluate-compiled-schematron.sh
 EVAL_XSPEC := TEST_DIR=$(VALIDATIONS_DIR)/report/test bash vendor/xspec/bin/xspec.sh -s -j
 
+OSCAL_SCHEMATRON := $(wildcard $(VALIDATIONS_DIR)/rules/*.sch)
+STYLEGUIDE_SCHEMATRON := $(wildcard $(VALIDATIONS_DIR)/styleguides/*.sch)
+SRC_SCH := $(OSCAL_SCHEMATRON) $(STYLEGUIDE_SCHEMATRON)
+XSL_SCH := $(patsubst $(VALIDATIONS_DIR)/%.sch,$(VALIDATIONS_DIR)/target/%.sch.xsl,$(SRC_SCH))
+SVRL_SCH := $(patsubst $(VALIDATIONS_DIR)/rules/%.sch,$(VALIDATIONS_DIR)/report/test/%-result.xml,$(OSCAL_SCHEMATRON))
+XSPEC_SRC := $(wildcard $(VALIDATIONS_DIR)/test/*.xspec)
+XSPEC := $(patsubst $(VALIDATIONS_DIR)/test/%.xspec,$(VALIDATIONS_DIR)/report/test/%-junit.xml,$(XSPEC_SRC))
+
 init-validations: $(SAXON_CP)  ## Initialize validations dependencies
 
 $(SAXON_CP):  ## Download Saxon-HE to the vendor directory
@@ -21,21 +29,19 @@ clean-validations:  ## Clean validations artifact
 	rm -rf $(VALIDATIONS_DIR)/target
 	git clean -xfd $(VALIDATIONS_DIR)/report
 
-test-validations: $(SAXON_CP) test-xspec test-sch  ## Test validations
+test-validations: $(SAXON_CP) $(SVRL_SCH) $(XSPEC)  ## Test validations
 
-test-xspec: $(VALIDATIONS_DIR)/test/test_all.xspec
-	$(EVAL_XSPEC) $^
+# Compile all Schematron to XSL
+$(VALIDATIONS_DIR)/target/%.sch.xsl: $(VALIDATIONS_DIR)/%.sch
+	@echo "Building Schematron $< to $@..."
+	$(COMPILE_SCH) $< $@
 
-$(VALIDATIONS_DIR)/target/%.sch.xsl: $(VALIDATIONS_DIR)/styleguides/%.sch
-	$(COMPILE_SCH) $^ $@
+# Apply Schematron styleguide to each rules SCH
+$(VALIDATIONS_DIR)/report/test/%-result.xml: $(VALIDATIONS_DIR)/rules/%.sch
+	$(EVAL_SCHEMATRON) $(VALIDATIONS_DIR)/target/styleguides/sch.sch.xsl $< $@
 
-$(VALIDATIONS_DIR)/report/test/%.svrl.xml: $(VALIDATIONS_DIR)/target/%.sch.xsl $(VALIDATIONS_DIR)/rules/ssp.sch
-	$(EVAL_SCHEMATRON) $^ $@
+# Run each xspec
+$(VALIDATIONS_DIR)/report/test/%-junit.xml: $(VALIDATIONS_DIR)/test/%.xspec
+	$(EVAL_XSPEC) $<
 
-test-sch: $(VALIDATIONS_DIR)/report/test/sch.svrl.xml $(VALIDATIONS_DIR)/report/test/xspec.svrl.xml
-
-$(VALIDATIONS_DIR)/target/ssp.xsl: $(VALIDATIONS_DIR)/rules/ssp.sch
-	@echo "Building Schematron validations..."
-	$(COMPILE_SCH) $^ $@
-
-build-validations: $(SAXON_CP) $(VALIDATIONS_DIR)/target/ssp.xsl ## Build Schematron validations
+build-validations: $(SAXON_CP) $(XSL_SCH)
