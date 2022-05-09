@@ -116,12 +116,13 @@ else
 fi
 
 if test -f "${SAXON_CP}" ; then
-    java -cp "${SAXON_CP}" net.sf.saxon.Transform -? &> /dev/null
+    java_output=$(java -cp "${SAXON_CP}" net.sf.saxon.Transform -? 2>&1)
     retval=$?
-    if  test $retval -eq 0 ; then
+    if test $retval -eq 0 ; then
         echo Saxon JAR at classpath "${SAXON_CP}" is valid
     else
-        echo Saxon JAR at classpath "${SAXON_CP}" does not contain net.sf.saxon.Transform
+        echo Error running Saxon JAR at classpath "${SAXON_CP}":
+        echo $java_output
         exit 1
     fi
 else
