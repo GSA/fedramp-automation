@@ -53,7 +53,7 @@
     </sch:phase>
 
     <doc:xspec
-        href="../test/sch.xspec" />
+        href="../test/styleguides/sch.xspec" />
 
     <sch:let
         name="xspec-uri"

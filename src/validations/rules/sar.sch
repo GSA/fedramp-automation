@@ -39,7 +39,7 @@
     </sch:phase>
 
     <doc:xspec
-        href="../test/sar.xspec" />
+        href="../test/rules/sar.xspec" />
     
     <sch:title>FedRAMP Security Assessment Results Validations</sch:title>
     <xsl:output

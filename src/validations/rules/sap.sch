@@ -39,7 +39,7 @@
     </sch:phase>
 
     <doc:xspec
-        href="../test/sap.xspec" />
+        href="../test/rules/sap.xspec" />
     
     <sch:title>FedRAMP Security Assessment Plan Validations</sch:title>
     <xsl:output

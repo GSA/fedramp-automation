@@ -39,7 +39,7 @@
     </sch:phase>
 
     <doc:xspec
-        href="../test/poam.xspec" />
+        href="../test/rules/poam.xspec" />
     
     <sch:title>FedRAMP Plan of Action and Milestones Validations</sch:title>
 
