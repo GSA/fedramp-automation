@@ -6,6 +6,7 @@
     xmlns:feddoc="http://us.gov/documentation/federal-documentation"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+    xmlns:unit="http://us.gov/testing/unit-testing"
     xmlns:x="http://www.jenitennison.com/xslt/xspec"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
@@ -20,6 +21,10 @@
     <sch:ns
         prefix="feddoc"
         uri="http://us.gov/documentation/federal-documentation" />
+    
+    <sch:ns
+        prefix="unit"
+        uri="http://us.gov/testing/unit-testing" />
 
     <sch:ns
         prefix="x"
@@ -277,15 +282,25 @@
                 diagnostics="has-xspec-affirmative-test-diagnostic"
                 id="has-xspec-affirmative-test"
                 role="warning"
-                test="$xspec//x:expect-not-assert[@id = current()/@id]">Every Schematron assertion has an XSpec test for the affirmative assertion
-                outcome.</sch:assert>
+                test="
+                    if (matches(lower-case(current()/@unit:override-xspec), 'aff|both'))
+                    then
+                        (true())
+                    else
+                        ($xspec//x:expect-not-assert[@id = current()/@id])">Every Schematron assertion has an XSpec test for the
+                affirmative assertion outcome.</sch:assert>
 
             <sch:assert
                 diagnostics="has-xspec-negative-test-diagnostic"
                 id="has-xspec-negative-test"
                 role="warning"
-                test="$xspec//x:expect-assert[@id = current()/@id]">Every Schematron assertion has an XSpec test for the negative assertion
-                outcome.</sch:assert>
+                test="
+                    if (matches(lower-case(current()/@unit:override-xspec), 'neg|both'))
+                    then
+                        (true())
+                    else
+                        ($xspec//x:expect-assert[@id = current()/@id])">Every Schematron assertion has an XSpec test for the negative
+                assertion outcome.</sch:assert>
 
         </sch:rule>
 
