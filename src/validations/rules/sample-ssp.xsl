@@ -196,7 +196,7 @@
             as="xs:string"
             name="FedRAMP-uuid"
             select="uuid:randomUUID()" />
-        
+
         <metadata
             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
 
@@ -223,7 +223,9 @@
                         name="party-uuid"
                         ns="https://fedramp.gov/ns/oscal"
                         value="{$FedRAMP-uuid}" />
-                    <remarks><p>Initial publication.</p></remarks>
+                    <remarks>
+                        <p>Initial publication.</p>
+                    </remarks>
                 </revision>
             </revisions>
 
@@ -307,7 +309,7 @@
             <!-- organization(s) -->
 
             <!-- FedRAMP -->
-             <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP Content §4.6</xsl:comment>
+            <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP Content §4.6</xsl:comment>
             <party
                 type="organization"
                 uuid="{$FedRAMP-uuid}">
@@ -546,50 +548,40 @@
         <system-characteristics
             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
 
+            <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.1</xsl:comment>
             <system-id
                 identifier-type="https://fedramp.gov">F00000000</system-id>
             <system-name>Sample SSP</system-name>
             <system-name-short>SSSP</system-name-short>
+
+            <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.16</xsl:comment>
             <description>
-                <p>This system description is at least 32 words in length.</p>
+                <p>Describe the purpose and functions of this system here in 32 words or more.</p>
             </description>
 
+            <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.2</xsl:comment>
             <prop
                 name="authorization-type"
                 ns="https://fedramp.gov/ns/oscal"
                 value="fedramp-agency" />
-            <prop
-                name="users-internal"
-                ns="https://fedramp.gov/ns/oscal"
-                value="1" />
-            <prop
-                name="users-external"
-                ns="https://fedramp.gov/ns/oscal"
-                value="1" />
-            <prop
-                name="users-internal-future"
-                ns="https://fedramp.gov/ns/oscal"
-                value="1" />
-            <prop
-                name="users-external-future"
-                ns="https://fedramp.gov/ns/oscal"
-                value="1" />
+
+            <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.13</xsl:comment>
             <prop
                 name="cloud-service-model"
                 value="saas" />
+
+            <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.14</xsl:comment>
             <prop
                 name="cloud-deployment-model"
                 value="public-cloud" />
-            <prop
-                name="authorization-type"
-                ns="https://fedramp.gov/ns/oscal"
-                value="fedramp-agency" />
-            <!--<prop
+
+            <!-- obsolete <prop
             class="security-eauth"
             name="security-eauth-level"
             ns="https://fedramp.gov/ns/oscal"
             value="2" />-->
 
+            <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.2</xsl:comment>
             <security-sensitivity-level>
                 <xsl:choose>
                     <xsl:when
@@ -608,7 +600,8 @@
             </security-sensitivity-level>
 
             <system-information>
-                <xsl:comment> Attachment 4, PTA/PIA Designation </xsl:comment>
+
+                <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §6.4</xsl:comment>
                 <prop
                     name="privacy-sensitive"
                     value="yes" />
@@ -763,10 +756,12 @@
                 <security-objective-availability>{$obj}</security-objective-availability>
             </security-impact-level>
 
+            <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.12</xsl:comment>
             <status
                 state="operational" />
+
+            <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17</xsl:comment>
             <authorization-boundary>
-                <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.17</xsl:comment>
                 <description />
                 <diagram
                     uuid="{$authorization-boundary-diagram-uuid}">
@@ -777,8 +772,9 @@
                     <caption />
                 </diagram>
             </authorization-boundary>
+
+            <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.22</xsl:comment>
             <network-architecture>
-                <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.22</xsl:comment>
                 <description />
                 <diagram
                     uuid="{$network-architecture-diagram-uuid}">
@@ -789,8 +785,9 @@
                     <caption />
                 </diagram>
             </network-architecture>
+
+            <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.24</xsl:comment>
             <data-flow>
-                <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.24</xsl:comment>
                 <description />
                 <diagram
                     uuid="{$data-flow-diagram-uuid}">
@@ -804,6 +801,7 @@
         </system-characteristics>
 
     </xsl:template>
+
     <xsl:template
         name="system-implementation">
 
@@ -848,20 +846,27 @@
             <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.2</xsl:comment>
             <user
                 uuid="{$user-uuid}">
+
                 <prop
                     name="type"
                     value="internal" />
+
                 <prop
                     name="privilege-level"
                     value="privileged" />
+
+                <xsl:comment>See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §4.18</xsl:comment>
+                <!-- FIXME: documentation -->
                 <prop
                     name="sensitivity"
                     ns="https://fedramp.gov/ns/oscal"
                     value="moderate" />
+
                 <role-id>
                     <xsl:value-of
                         select="$control-role" />
                 </role-id>
+
                 <authorized-privilege>
                     <title>title</title>
                     <function-performed>function</function-performed>
@@ -872,9 +877,6 @@
             <component
                 type="this-system"
                 uuid="{$this-system-uuid}">
-                <xsl:attribute
-                    name="uuid"
-                    select="$component-uuid" />
                 <title>This system</title>
                 <description>
                     <p>This component refers to the system itself.</p>
@@ -956,10 +958,7 @@
 
                 <component
                     type="policy"
-                    uuid="">
-                    <xsl:attribute
-                        name="uuid"
-                        select="$pp-uuid[@id = current()/@id]/@pol-c" />
+                    uuid="{$pp-uuid[@id = current()/@id]/@pol-c}">
                     <title>
                         <xsl:text>{prop[@name = 'label']/@value} - Policy document</xsl:text>
                     </title>
@@ -980,10 +979,7 @@
 
                 <component
                     type="procedure"
-                    uuid="uuid:randomUUID()">
-                    <xsl:attribute
-                        name="uuid"
-                        select="$pp-uuid[@id = current()/@id]/@pro-c" />
+                    uuid="{$pp-uuid[@id = current()/@id]/@pro-c}">
                     <title>
                         <xsl:text>{prop[@name = 'label']/@value} - Procedure document</xsl:text>
                     </title>
@@ -1016,13 +1012,9 @@
             <description />
             <xsl:for-each
                 select="//control">
-                <implemented-requirement>
-                    <xsl:attribute
-                        name="control-id"
-                        select="@id" />
-                    <xsl:attribute
-                        name="uuid"
-                        select="uuid:randomUUID()" />
+                <implemented-requirement
+                    control-id="{@id}"
+                    uuid="{uuid:randomUUID()}">
                     <xsl:comment> Control title: {title} </xsl:comment>
                     <xsl:variable
                         as="xs:integer"
@@ -1398,10 +1390,8 @@
             </xsl:for-each>
 
             <xsl:comment>User Guide</xsl:comment>
-            <resource>
-                <xsl:attribute
-                    name="uuid"
-                    select="uuid:randomUUID()" />
+            <resource
+                uuid="{uuid:randomUUID()}">
                 <title>User Guide</title>
                 <prop
                     name="type"
@@ -1417,11 +1407,8 @@
             </resource>
 
             <xsl:comment>Privacy Impact Assessment</xsl:comment>
-            <resource>
-                <xsl:attribute
-                    name="uuid"
-                    select="uuid:randomUUID()" />
-                <title>Privacy Impact Assessment</title>
+            <resource
+                uuid="{uuid:randomUUID()}">
                 <prop
                     name="type"
                     value="privacy-impact-assessment" />
@@ -1436,11 +1423,8 @@
             </resource>
 
             <xsl:comment>Rules of Behavior</xsl:comment>
-            <resource>
-                <xsl:attribute
-                    name="uuid"
-                    select="uuid:randomUUID()" />
-                <title>Rules of Behavior</title>
+            <resource
+                uuid="{uuid:randomUUID()}">
                 <prop
                     name="type"
                     value="rules-of-behavior" />
@@ -1455,11 +1439,8 @@
             </resource>
 
             <xsl:comment>Information System Contingency Plan</xsl:comment>
-            <resource>
-                <xsl:attribute
-                    name="uuid"
-                    select="uuid:randomUUID()" />
-                <title>Information System Contingency Plan</title>
+            <resource
+                uuid="{uuid:randomUUID()}">
                 <prop
                     name="type"
                     value="information-system-contingency-plan" />
@@ -1474,11 +1455,8 @@
             </resource>
 
             <xsl:comment>Configuration Management Plan</xsl:comment>
-            <resource>
-                <xsl:attribute
-                    name="uuid"
-                    select="uuid:randomUUID()" />
-                <title>Configuration Management Plan</title>
+            <resource
+                uuid="{uuid:randomUUID()}">
                 <prop
                     name="type"
                     value="configuration-management-plan" />
@@ -1493,11 +1471,8 @@
             </resource>
 
             <xsl:comment>Incident Response Plan</xsl:comment>
-            <resource>
-                <xsl:attribute
-                    name="uuid"
-                    select="uuid:randomUUID()" />
-                <title>Incident Response Plan</title>
+            <resource
+                uuid="{uuid:randomUUID()}">
                 <prop
                     name="type"
                     value="incident-response-plan" />
@@ -1512,11 +1487,8 @@
             </resource>
 
             <xsl:comment>CIS Workbook</xsl:comment>
-            <resource>
-                <xsl:attribute
-                    name="uuid"
-                    select="uuid:randomUUID()" />
-                <title>CIS Workbook</title>
+            <resource
+                uuid="{uuid:randomUUID()}">
                 <prop
                     name="type"
                     value="CIS-workbook" />
@@ -1531,11 +1503,8 @@
             </resource>
 
             <xsl:comment>Inventory</xsl:comment>
-            <resource>
-                <xsl:attribute
-                    name="uuid"
-                    select="uuid:randomUUID()" />
-                <title>Inventory</title>
+            <resource
+                uuid="{uuid:randomUUID()}">
                 <prop
                     name="type"
                     value="inventory" />
@@ -1555,28 +1524,17 @@
 
     <xsl:template
         match="part[@name = 'statement']">
-        <xsl:element
-            name="statement"
-            namespace="http://csrc.nist.gov/ns/oscal/1.0">
-            <xsl:attribute
-                name="statement-id"
-                select="@id" />
-            <xsl:attribute
-                name="uuid"
-                select="uuid:randomUUID()" />
-            <xsl:element
-                name="by-component"
-                namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                <xsl:attribute
-                    name="uuid"
-                    select="uuid:randomUUID()" />
-                <xsl:attribute
-                    name="component-uuid"
-                    select="$component-uuid" />
+        <statement
+            statement-id="{@id}"
+            uuid="{uuid:randomUUID()}"
+            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+            <by-component
+                component-uuid="{$this-system-uuid}"
+                uuid="{uuid:randomUUID()}">
                 <xsl:apply-templates
                     select="p" />
-            </xsl:element>
-        </xsl:element>
+            </by-component>
+        </statement>
         <xsl:apply-templates
             select="part" />
     </xsl:template>
@@ -1585,28 +1543,17 @@
         match="part[@name = 'item']">
         <xsl:if
             test="p">
-            <xsl:element
-                name="statement"
-                namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                <xsl:attribute
-                    name="statement-id"
-                    select="@id" />
-                <xsl:attribute
-                    name="uuid"
-                    select="uuid:randomUUID()" />
-                <xsl:element
-                    name="by-component"
-                    namespace="http://csrc.nist.gov/ns/oscal/1.0">
-                    <xsl:attribute
-                        name="uuid"
-                        select="uuid:randomUUID()" />
-                    <xsl:attribute
-                        name="component-uuid"
-                        select="$component-uuid" />
+            <statement
+                statement-id="{@id}"
+                uuid="{uuid:randomUUID()}"
+                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                <by-component
+                    component-uuid="{$this-system-uuid}"
+                    uuid="{uuid:randomUUID()}">
                     <xsl:apply-templates
                         select="p" />
-                </xsl:element>
-            </xsl:element>
+                </by-component>
+            </statement>
         </xsl:if>
         <xsl:apply-templates
             select="part" />
@@ -1658,6 +1605,7 @@
         name="pol-pro">
 
         <xsl:comment>policy and procedure</xsl:comment>
+        
         <xsl:element
             name="by-component"
             namespace="http://csrc.nist.gov/ns/oscal/1.0">
