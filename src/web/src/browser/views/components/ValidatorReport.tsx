@@ -5,6 +5,7 @@ import { Routes, getUrl } from '@asap/browser/presenter/state/router';
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
 import { CodeViewer } from './CodeViewer';
+import { AssertionXSpecScenarios } from './AssertionXspecScenarios';
 
 export const ValidatorReport = () => {
   const { schematronReport } = useAppState().schematron;
@@ -96,17 +97,9 @@ export const ValidatorReport = () => {
                       ))}
                     </ul>
                   ) : null}
-                  <ul>
-                    {(check.xspecScenarios || []).map((scenario, index) => (
-                      <li key={index}>
-                        {scenario.label}{' '}
-                        <span className="text-red">
-                          {scenario.assertionLabel}
-                        </span>
-                        <CodeViewer codeHTML={scenario.context}></CodeViewer>
-                      </li>
-                    ))}
-                  </ul>
+                  <AssertionXSpecScenarios
+                    scenarioSummaries={check.xspecScenarios || []}
+                  ></AssertionXSpecScenarios>
                 </div>
               </li>
             ))}
