@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <x:description
-    schematron="../styleguides/sch.sch"
+    schematron="../../styleguides/sch.sch"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"

@@ -14,10 +14,8 @@ EVAL_XSPEC := TEST_DIR=$(VALIDATIONS_DIR)/report/test bash vendor/xspec/bin/xspe
 OSCAL_SCHEMATRON := $(wildcard $(VALIDATIONS_DIR)/rules/*.sch)
 STYLEGUIDE_SCHEMATRON := $(wildcard $(VALIDATIONS_DIR)/styleguides/*.sch)
 SRC_SCH := $(OSCAL_SCHEMATRON) $(STYLEGUIDE_SCHEMATRON)
+
 XSL_SCH := $(patsubst $(VALIDATIONS_DIR)/%.sch,$(VALIDATIONS_DIR)/target/%.sch.xsl,$(SRC_SCH))
-SVRL_SCH := $(patsubst $(VALIDATIONS_DIR)/rules/%.sch,$(VALIDATIONS_DIR)/report/test/%-result.xml,$(OSCAL_SCHEMATRON))
-XSPEC_SRC := $(wildcard $(VALIDATIONS_DIR)/test/*.xspec)
-XSPEC := $(patsubst $(VALIDATIONS_DIR)/test/%.xspec,$(VALIDATIONS_DIR)/report/test/%-junit.xml,$(XSPEC_SRC))
 
 init-validations: $(SAXON_CP)  ## Initialize validations dependencies
 
@@ -29,18 +27,18 @@ clean-validations:  ## Clean validations artifact
 	rm -rf $(VALIDATIONS_DIR)/target
 	git clean -xfd $(VALIDATIONS_DIR)/report
 
-test-validations: $(SAXON_CP) $(SVRL_SCH) $(XSPEC)  ## Test validations
+include src/validations/styleguides/module.mk
+include src/validations/test/rules/module.mk
+include src/validations/test/styleguides/module.mk
 
-# Compile all Schematron to XSL
+test-validations: $(SAXON_CP) test-styleguides test-validations-styleguides test-validations-rules  ## Test validations
+
+# Schematron to XSL
 $(VALIDATIONS_DIR)/target/%.sch.xsl: $(VALIDATIONS_DIR)/%.sch
 	@echo "Building Schematron $< to $@..."
 	$(COMPILE_SCH) $< $@
 
-# Apply Schematron styleguide to each rules SCH
-$(VALIDATIONS_DIR)/report/test/%-result.xml: $(VALIDATIONS_DIR)/rules/%.sch
-	$(EVAL_SCHEMATRON) $(VALIDATIONS_DIR)/target/styleguides/sch.sch.xsl $< $@
-
-# Run each xspec
+# Apply xspec
 $(VALIDATIONS_DIR)/report/test/%-junit.xml: $(VALIDATIONS_DIR)/test/%.xspec
 	$(EVAL_XSPEC) $<
 
