@@ -250,7 +250,7 @@
         name="registry"
         value="doc(concat($registry-base-path, '/fedramp_values.xml')) | doc(concat($registry-base-path, '/fedramp_threats.xml')) | doc(concat($registry-base-path, '/information-types.xml'))" />
     <!--xsl:variable name="registry">
-        <xsl:sequence select="doc(concat($registry-base-path, '/fedramp_values.xml')) | 
+        <xsl:sequence select="doc(concat($registry-base-path, '/fedramp_values.xml')) |
                               doc(concat($registry-base-path, '/fedramp_threats.xml')) |
                               doc(concat($registry-base-path, '/information-types.xml'))"/>
     </xsl:variable-->
@@ -284,7 +284,7 @@
                             $item" />
             </xsl:when>
             <xsl:otherwise>
-                <!-- 
+                <!--
                 If no suitable type found, return empty sequence, as that can
                 be falsey and cast to empty string or checked for `not(exist(.))`
                 later.
@@ -1023,7 +1023,7 @@
                 name="media-types"
                 value="$fedramp-values//fedramp:value-set[@name eq 'media-type']//fedramp:enum/@value" />
             <!--<sch:report role="information"
-                        test="false()">There are 
+                        test="false()">There are
             <sch:value-of select="count($media-types)" />media types.</sch:report>-->
             <sch:assert
                 diagnostics="has-allowed-media-type-diagnostic"
@@ -3846,7 +3846,7 @@
         </sch:rule>
 
         <sch:rule
-            context="oscal:component[@type eq 'DNS-authoritative-service' and oscal:status/@state eq 'operational']/oscal:prop[@name eq 'DNS-zone'][$use-remote-resources]">
+            context="oscal:component[$use-remote-resources][@type eq 'DNS-authoritative-service' and oscal:status/@state eq 'operational']/oscal:prop[@name eq 'DNS-zone']">
 
             <sch:let
                 name="zone-regex"
