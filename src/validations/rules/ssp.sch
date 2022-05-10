@@ -195,7 +195,7 @@
     <!-- Schematron variable use-remote-resources  -->
     <sch:let
         name="use-remote-resources"
-        value="$param-use-remote-resources or exists(environment-variable('use-remote-resources'))" />
+        value="$param-use-remote-resources or matches(lower-case(environment-variable('use_remote_resources')), '1|true') " />
 
     <sch:pattern
         id="parameters-and-variables">
@@ -206,15 +206,15 @@
                 id="parameter-use-remote-resources"
                 role="information"
                 test="true()">parameter use-remote-resources is <sch:value-of
-                    select="$use-remote-resources" />.</sch:report>
+                    select="$param-use-remote-resources" />.</sch:report>
 
             <sch:report
                 id="environment-variable-use-remote-resources"
                 role="information"
-                test="true()">environment-variable use-remote-resources is <sch:value-of
+                test="true()">environment-variable use_remote_resources is <sch:value-of
                     select="
-                        if (exists(environment-variable('use-remote-resources'))) then
-                            environment-variable('use-remote-resources')
+                        if (environment-variable('use_remote_resources') ne '') then
+                            environment-variable('use_remote_resources')
                         else
                             'not defined'" />.</sch:report>
 
@@ -2530,11 +2530,8 @@
                 test="
                     not($use-remote-resources) or
                     (some $p in array:flatten($fedramp_data?data?Providers)
-                        satisfies $p?Package_ID eq current())">A FedRAMP SSP must have an active FedRAMP system
-                identifier.</sch:assert>
-
-            <!-- No unit test is possible -->
-
+                        satisfies $p?Package_ID eq current())"
+                unit:override-xspec="both">A FedRAMP SSP must have an active FedRAMP system identifier.</sch:assert>
         </sch:rule>
 
         <sch:rule
