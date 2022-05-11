@@ -13,7 +13,7 @@ export const AssertionXSpecScenarios = ({ scenarioSummaries }: Props) => {
       {scenarioSummaries.map((scenario, index) => (
         <li key={index}>
           {scenario.label}{' '}
-          <span className="text-red">{scenario.assertionLabel}</span>
+          <span className="text-bold">{scenario.assertionLabel}</span>
           <CodeViewer codeHTML={scenario.context}></CodeViewer>
         </li>
       ))}

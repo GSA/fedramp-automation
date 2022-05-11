@@ -94,14 +94,26 @@ export const ValidatorReport = () => {
                         </li>
                       ))}
                     </ul>
-                  ) : null}
+                  ) : null}{' '}
                   <button
                     className="usa-button usa-button--unstyled"
                     onClick={() =>
                       actions.assertionDocumentation.show(check.id)
                     }
+                    title="View examples"
                   >
-                    View examples
+                    <svg
+                      className="usa-icon"
+                      aria-hidden="true"
+                      focusable="false"
+                      role="img"
+                    >
+                      <use
+                        xlinkHref={actions.getAssetUrl(
+                          'uswds/img/sprite.svg#support',
+                        )}
+                      ></use>
+                    </svg>
                   </button>
                 </div>
               </li>

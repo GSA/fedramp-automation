@@ -32,15 +32,13 @@ export const ValidatorContentOverlay = () => {
           <h2>Assertion Examples</h2>
         </div>
         {schematron.assertionDocumentation.visibleDocumentation ? (
-          <div>
-            <AssertionXSpecScenarios
-              scenarioSummaries={
-                schematron.assertionDocumentation.xspecSummariesByAssertionId[
-                  schematron.assertionDocumentation.visibleDocumentation
-                ]
-              }
-            />
-          </div>
+          <AssertionXSpecScenarios
+            scenarioSummaries={
+              schematron.assertionDocumentation.xspecSummariesByAssertionId[
+                schematron.assertionDocumentation.visibleDocumentation
+              ]
+            }
+          />
         ) : null}
       </Modal>
     </div>
