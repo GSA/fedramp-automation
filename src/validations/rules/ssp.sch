@@ -183,6 +183,12 @@
             pattern="protocols" />
     </sch:phase>
 
+    <sch:phase
+        id="DNS">
+        <sch:active
+            pattern="dns" />
+    </sch:phase>
+
     <doc:xspec
         href="../test/ssp.xspec" />
 
@@ -244,7 +250,7 @@
         name="registry"
         value="doc(concat($registry-base-path, '/fedramp_values.xml')) | doc(concat($registry-base-path, '/fedramp_threats.xml')) | doc(concat($registry-base-path, '/information-types.xml'))" />
     <!--xsl:variable name="registry">
-        <xsl:sequence select="doc(concat($registry-base-path, '/fedramp_values.xml')) | 
+        <xsl:sequence select="doc(concat($registry-base-path, '/fedramp_values.xml')) |
                               doc(concat($registry-base-path, '/fedramp_threats.xml')) |
                               doc(concat($registry-base-path, '/information-types.xml'))"/>
     </xsl:variable-->
@@ -278,7 +284,7 @@
                             $item" />
             </xsl:when>
             <xsl:otherwise>
-                <!-- 
+                <!--
                 If no suitable type found, return empty sequence, as that can
                 be falsey and cast to empty string or checked for `not(exist(.))`
                 later.
@@ -988,7 +994,7 @@
                 name="media-types"
                 value="$fedramp-values//fedramp:value-set[@name eq 'media-type']//fedramp:enum/@value" />
             <!--<sch:report role="information"
-                        test="false()">There are 
+                        test="false()">There are
             <sch:value-of select="count($media-types)" />media types.</sch:report>-->
             <sch:assert
                 diagnostics="has-allowed-media-type-diagnostic"
@@ -3808,6 +3814,102 @@
     </sch:pattern>
 
     <sch:pattern
+        id="dns">
+
+        <sch:rule
+            context="oscal:system-implementation">
+
+            <sch:assert
+                diagnostics="has-DNS-authoritative-service-diagnostic"
+                id="has-DNS-authoritative-service"
+                role="information"
+                test="exists(oscal:component[@type eq 'DNS-authoritative-service'])">A DNS authoritative service is defined.</sch:assert>
+
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:component[@type eq 'DNS-authoritative-service']">
+
+            <sch:assert
+                diagnostics="has-DNS-zone-diagnostic"
+                id="has-DNS-zone"
+                role="error"
+                test="exists(oscal:prop[@name eq 'DNS-zone' and exists(@value)])">The DNS authoritative service has one or more zones
+                specified.</sch:assert>
+
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:component[$use-remote-resources][@type eq 'DNS-authoritative-service' and oscal:status/@state eq 'operational']/oscal:prop[@name eq 'DNS-zone']">
+
+            <sch:let
+                name="zone-regex"
+                value="'^ ([a-z0-9]+ (-[a-z0-9]+)*\.)+ [a-z]{2,} \.? $'" />
+            <sch:let
+                name="well-formed"
+                value="matches(@value, $zone-regex, 'ix')" />
+            <sch:assert
+                diagnostics="has-well-formed-DNS-zone-diagnostic"
+                id="has-well-formed-DNS-zone"
+                role="error"
+                test="$well-formed">Each zone name for the DNS authoritative service is well-formed.</sch:assert>
+
+            <!-- ensure zone name used for query ends with dot -->
+            <sch:let
+                name="DoH_target"
+                value="
+                    if (ends-with(@value, '.')) then
+                        @value
+                    else
+                        concat(@value, '.')" />
+
+            <!-- See https://developers.google.com/speed/public-dns/docs/doh -->
+
+            <sch:let
+                name="DoH_query"
+                value="concat('https://dns.google/resolve?name=', $DoH_target, '&amp;type=SOA')" />
+
+            <sch:let
+                name="DoH_response"
+                value="
+                    if ($well-formed) then
+                        unparsed-text($DoH_query)
+                    else
+                        ()" />
+
+            <sch:let
+                name="response"
+                value="
+                    if ($well-formed) then
+                        parse-json($DoH_response)
+                    else
+                        ()" />
+
+            <sch:let
+                name="has-resolved-zone"
+                value="
+                    if ($well-formed) then
+                        $response?Status eq 0 and map:contains($response, 'Answer')
+                    else
+                        false()" />
+
+            <sch:assert
+                diagnostics="has-resolved-zone-diagnostic DoH-response"
+                id="has-resolved-zone"
+                role="error"
+                test="$has-resolved-zone">Each zone for the DNS authoritative service can be resolved.</sch:assert>
+
+            <sch:assert
+                diagnostics="zone-has-DNSSEC-diagnostic DoH-response"
+                id="zone-has-DNSSEC"
+                role="error"
+                test="$has-resolved-zone and $response?AD eq true()">Each zone for the DNS authoritative service has DNSSEC.</sch:assert>
+
+        </sch:rule>
+
+    </sch:pattern>
+
+    <sch:pattern
         id="info">
         <sch:rule
             context="oscal:system-security-plan">
@@ -5217,5 +5319,38 @@
             id="has-expected-network-protocols-diagnostic">One or more expected network protocols were not defined (within components). The expected
             network protocols are <sch:value-of
                 select="string-join($expected-network-protocols, ', ')" />.</sch:diagnostic>
+
+        <sch:diagnostic
+            id="DoH-response">The DNS query returned <sch:value-of
+                select="$DoH_response" />.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-DNS-authoritative-service-diagnostic"
+            doc:context="oscal:system-implementation"
+            id="has-DNS-authoritative-service-diagnostic">No DNS authoritative service is specified in the SSP.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-DNS-zone"
+            doc:context="oscal:component[@type eq 'DNS-authoritative-service']"
+            id="has-DNS-zone-diagnostic">A DNS authoritative service is specified but no zones are specified.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-well-formed-DNS-zone"
+            doc:context="oscal:component[@type eq 'DNS-authoritative-service' and oscal:status/@state eq 'operational']/oscal:prop[@name eq 'DNS-zone'][$use-remote-resources]"
+            id="has-well-formed-DNS-zone-diagnostic">The DNS zone "<sch:value-of
+                select="@value" />" is not well-formed.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-resolved-zone"
+            doc:context="oscal:component[@type eq 'DNS-authoritative-service' and oscal:status/@state eq 'operational']/oscal:prop[@name eq 'DNS-zone'][$use-remote-resources]"
+            id="has-resolved-zone-diagnostic">The DNS zone "<sch:value-of
+                select="@value" />" did not resolve.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="zone-has-DNSSEC"
+            doc:context="oscal:component[@type eq 'DNS-authoritative-service' and oscal:status/@state eq 'operational']/oscal:prop[@name eq 'DNS-zone'][$use-remote-resources]"
+            id="zone-has-DNSSEC-diagnostic">The DNS zone "<sch:value-of
+                select="@value" />" lacks DNSSEC.</sch:diagnostic>
+
     </sch:diagnostics>
 </sch:schema>
