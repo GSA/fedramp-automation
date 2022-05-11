@@ -4,15 +4,13 @@ import { Routes, getUrl } from '@asap/browser/presenter/state/router';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
-import { CodeViewer } from './CodeViewer';
-import { AssertionXSpecScenarios } from './AssertionXspecScenarios';
 
 export const ValidatorReport = () => {
   const { schematronReport } = useAppState().schematron;
-  const { getAssetUrl } = useActions();
+  const actions = useActions();
   return (
     <>
-      <div className="position-sticky top-0 z-top bg-white padding-top-1 padding-bottom-1">
+      <div className="top-0 bg-white padding-top-1 padding-bottom-1">
         <h1 className="margin-0">
           {schematronReport.summary.title}
           <span
@@ -55,7 +53,7 @@ export const ValidatorReport = () => {
                 <div className={`usa-icon-list__icon text-${check.icon.color}`}>
                   <svg className="usa-icon" aria-hidden="true" role="img">
                     <use
-                      xlinkHref={getAssetUrl(
+                      xlinkHref={actions.getAssetUrl(
                         `uswds/img/sprite.svg#${check.icon.sprite}`,
                       )}
                     ></use>
@@ -87,7 +85,7 @@ export const ValidatorReport = () => {
                               role="img"
                             >
                               <use
-                                xlinkHref={getAssetUrl(
+                                xlinkHref={actions.getAssetUrl(
                                   'uswds/img/sprite.svg#link',
                                 )}
                               ></use>
@@ -97,9 +95,14 @@ export const ValidatorReport = () => {
                       ))}
                     </ul>
                   ) : null}
-                  <AssertionXSpecScenarios
-                    scenarioSummaries={check.xspecScenarios || []}
-                  ></AssertionXSpecScenarios>
+                  <button
+                    className="usa-button usa-button--unstyled"
+                    onClick={() =>
+                      actions.assertionDocumentation.show(check.id)
+                    }
+                  >
+                    View examples
+                  </button>
                 </div>
               </li>
             ))}

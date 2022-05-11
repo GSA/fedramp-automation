@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useAppState } from '../hooks';
 import { BetaBanner } from './BetaBanner';
 import { DevelopersPage } from './DevelopersPage';
@@ -9,6 +10,7 @@ import { InnerPageLayout } from './InnerPageLayout';
 import { SummaryPage } from './SummaryPage';
 import { UsaBanner } from './UsaBanner';
 import { UsageTrackingPage } from './UsageTrackingPage';
+import { ValidatorContentOverlay } from './ValidatorContentOverlay';
 import { ValidatorPage } from './ValidatorPage';
 import { ViewerPage } from './ViewerPage';
 
@@ -18,9 +20,12 @@ const CurrentPage = () => {
     return <HomePage />;
   } else if (currentRoute.type === 'Validator') {
     return (
-      <InnerPageLayout>
-        <ValidatorPage />
-      </InnerPageLayout>
+      <>
+        <InnerPageLayout>
+          <ValidatorPage />
+        </InnerPageLayout>
+        <ValidatorContentOverlay />
+      </>
     );
   } else if (currentRoute.type === 'Summary') {
     return (
@@ -58,9 +63,7 @@ export const App = () => {
       <BetaBanner />
       <UsaBanner />
       <Header />
-      <div className="grid-container">
-        <CurrentPage />
-      </div>
+      <CurrentPage />
       <Footer />
     </div>
   );

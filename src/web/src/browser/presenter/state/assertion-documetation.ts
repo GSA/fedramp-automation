@@ -1,9 +1,6 @@
 import { Statemachine, statemachine } from 'overmind';
 
-import type {
-  ScenarioSummary,
-  SummariesByAssertionId,
-} from '@asap/shared/domain/xspec';
+import type { SummariesByAssertionId } from '@asap/shared/domain/xspec';
 
 type States =
   | {
@@ -15,14 +12,26 @@ type States =
 
 type BaseState = {
   xspecSummariesByAssertionId: SummariesByAssertionId;
+  visibleDocumentation: string | null;
 };
 
-type Events = {
-  type: 'SUMMARIES_LOADED';
-  data: {
-    xspecSummariesByAssertionId: SummariesByAssertionId;
-  };
-};
+type Events =
+  | {
+      type: 'SUMMARIES_LOADED';
+      data: {
+        xspecSummariesByAssertionId: SummariesByAssertionId;
+      };
+    }
+  | {
+      type: 'CLOSE';
+      data: {};
+    }
+  | {
+      type: 'SHOW';
+      data: {
+        assertionId: string;
+      };
+    };
 
 export type AssertionDocumentationMachine = Statemachine<
   States,
@@ -36,10 +45,26 @@ const assertionDocumentationMachine = statemachine<States, Events, BaseState>({
       return {
         current: 'INITIALIZED',
         xspecSummariesByAssertionId,
+        visibleDocumentation: null,
       };
     },
   },
-  INITIALIZED: {},
+  INITIALIZED: {
+    CLOSE: (event, state) => {
+      return {
+        current: 'INITIALIZED',
+        xspecSummariesByAssertionId: state.xspecSummariesByAssertionId,
+        visibleDocumentation: null,
+      };
+    },
+    SHOW: ({ assertionId }, state) => {
+      return {
+        current: 'INITIALIZED',
+        xspecSummariesByAssertionId: state.xspecSummariesByAssertionId,
+        visibleDocumentation: assertionId,
+      };
+    },
+  },
 });
 
 export const createAssertionDocumentationMachine = () => {
@@ -47,6 +72,7 @@ export const createAssertionDocumentationMachine = () => {
     { current: 'UNINITIALIZED' },
     {
       xspecSummariesByAssertionId: {},
+      visibleDocumentation: null,
     },
   );
 };
