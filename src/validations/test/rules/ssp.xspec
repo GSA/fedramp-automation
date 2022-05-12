@@ -12082,5 +12082,167 @@
         </x:scenario>
         
     </x:scenario>
+
+    <x:scenario
+        label="Authoritative DNS Service positive tests">
+        
+        <x:context>
+            <system-implementation
+                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                <component
+                    type="DNS-authoritative-server">
+                    <prop
+                        name="DNS-zone"
+                        value="example.com." />
+                    <status
+                        state="operational" />
+                </component>
+            </system-implementation>
+        </x:context>
+        
+        <x:scenario
+            label="When an authoritative DNS service is declared ">
+            <x:expect-not-assert
+                id="has-DNS-authoritative-server"
+                label="that is of interest." />
+        </x:scenario>
+        
+        <x:scenario
+            label="When an authoritative DNS service zone is declared">
+            <x:expect-not-assert
+                id="has-DNS-zone"
+                label="that is correct." />
+        </x:scenario>
+        
+        <x:scenario
+            label="When an authoritative DNS service zone is well-formed">
+            <x:expect-not-assert
+                id="has-well-formed-DNS-zone"
+                label="that is correct." />
+        </x:scenario>
+        
+        <x:scenario
+            label="When an authoritative DNS service zone is resolvable">
+            <x:expect-not-assert
+                id="has-resolved-zone"
+                label="that is correct." />
+        </x:scenario>
+        
+        
+        <x:scenario
+            label="When an authoritative DNS service zone has DNSSEC">
+            <x:expect-not-assert
+                id="zone-has-DNSSEC"
+                label="that is correct." />
+        </x:scenario>
+        
+    </x:scenario>
+    
+    <x:scenario
+        label="Authoritative DNS Service negative tests"
+        pending="pending remote resource resolution">
+        
+        <x:scenario
+            label="When no authoritative DNS service is declared ">
+            <x:context>
+                <system-implementation
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <!--<component
+                        type="DNS-authoritative-server">
+                        <prop
+                            name="DNS-zone"
+                            value="example.com." />
+                        <status
+                            state="operational" />
+                    </component>-->
+                </system-implementation>
+            </x:context>
+            <x:expect-assert
+                id="has-DNS-authoritative-server"
+                label="that is of interest." />
+        </x:scenario>
+        
+        <x:scenario
+            label="When no authoritative DNS service zone is declared">
+            <x:context>
+                <system-implementation
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <component
+                        type="DNS-authoritative-server">
+                        <status
+                            state="operational" />
+                        <!--<prop
+                            name="DNS-zone"
+                            value="example.com." />-->
+                    </component>
+                </system-implementation>
+            </x:context>
+            <x:expect-assert
+                id="has-DNS-zone"
+                label="that is an error." />
+        </x:scenario>
+        
+        <x:scenario
+            label="When an authoritative DNS service zone is not well-formed">
+            <x:context>
+                <system-implementation
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <component
+                        type="DNS-authoritative-server">
+                        <status
+                            state="operational" />
+                        <prop
+                            name="DNS-zone"
+                            value="неразрешимый" />
+                    </component>
+                </system-implementation>
+            </x:context>
+            <x:expect-assert
+                id="has-well-formed-DNS-zone"
+                label="that is an error." />
+        </x:scenario>
+        
+        <x:scenario
+            label="When an authoritative DNS service zone is not resolvable">
+            <x:context>
+                <system-implementation
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <component
+                        type="DNS-authoritative-server">
+                        <status
+                            state="operational" />
+                        <prop
+                            name="DNS-zone"
+                            value="example.any." />
+                    </component>
+                </system-implementation>
+            </x:context>
+            <x:expect-assert
+                id="has-resolved-zone"
+                label="that is an error." />
+        </x:scenario>
+        
+        
+        <x:scenario
+            label="When an authoritative DNS service zone lacks DNSSEC">
+            <x:context>
+                <system-implementation
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <component
+                        type="DNS-authoritative-server">
+                        <status
+                            state="operational" />
+                        <prop
+                            name="DNS-zone"
+                            value="mitm.fun." />
+                    </component>
+                </system-implementation>
+            </x:context>
+            <x:expect-assert
+                id="zone-has-DNSSEC"
+                label="that is an error." />
+        </x:scenario>
+        
+    </x:scenario>
     
 </x:description>
