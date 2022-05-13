@@ -17,7 +17,8 @@ const getValidationReport = (
     '//svrl:failed-assert',
     document,
     {
-      namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
+      // prettier-ignore
+      namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' }, //NOSONAR
       resultForm: 'array',
     },
   );
@@ -25,7 +26,8 @@ const getValidationReport = (
     '//svrl:successful-report',
     document,
     {
-      namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
+      // prettier-ignore
+      namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' }, //NOSONAR
       resultForm: 'array',
     },
   );
@@ -42,13 +44,15 @@ const getValidationReport = (
         {
           diagnosticReferences: Array.prototype.map.call(
             SaxonJS.XPath.evaluate('svrl:diagnostic-reference', assert, {
-              namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
+              // prettier-ignore
+              namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' }, //NOSONAR
               resultForm: 'array',
             }),
             (node: Node) => node.textContent,
           ) as any,
           text: SaxonJS.XPath.evaluate('svrl:text', assert, {
-            namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
+            // prettier-ignore
+            namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' }, //NOSONAR
           }).textContent,
           uniqueId: `${assert.getAttribute('id')}-${index}` as any,
         },
@@ -67,7 +71,8 @@ const getValidationReport = (
           },
           {
             text: SaxonJS.XPath.evaluate('svrl:text', report, {
-              namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' },
+              // prettier-ignore
+              namespaceContext: { svrl: 'http://purl.oclc.org/dsdl/svrl' }, //NOSONAR
             }).textContent,
             uniqueId: `${report.getAttribute('id')}-${index}` as any,
           },
@@ -326,7 +331,8 @@ export const SchematronParser =
   (schematron: string) => {
     const document = ctx.SaxonJS.getPlatform().parseXmlFromString(schematron);
     const asserts = ctx.SaxonJS.XPath.evaluate('//sch:assert', document, {
-      namespaceContext: { sch: 'http://purl.oclc.org/dsdl/schematron' },
+      // prettier-ignore
+      namespaceContext: { sch: 'http://purl.oclc.org/dsdl/schematron' }, //NOSONAR
       resultForm: 'array',
     });
     return asserts.map((assert: any) => ({
