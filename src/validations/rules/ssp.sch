@@ -190,7 +190,7 @@
     </sch:phase>
 
     <doc:xspec
-        href="../test/ssp.xspec" />
+        href="../test/rules/ssp.xspec" />
 
     <!-- settings for use (or not) of remote resources -->
     <!-- XSLT parameter param-use-remote-resources -->

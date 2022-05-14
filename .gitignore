@@ -13,3 +13,7 @@ src/validations/report
 src/validations/src/ssp.xsl
 src/validations/target
 utils
+src/validations/test/poam-result.html
+src/validations/test/sar-result.html
+src/validations/test/ssp-result.html
+src/validations/test/sap-result.html
