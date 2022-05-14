@@ -6,8 +6,8 @@ type Props = {
 };
 
 export const InnerPageLayout = ({ children }: Props) => (
-  <>
+  <div className="grid-container">
     <Breadcrumbs />
     {children}
-  </>
+  </div>
 );

@@ -2,33 +2,47 @@
 
 import { promises as fs } from 'fs';
 import { join } from 'path';
+const xmlFormatter = require('xml-formatter');
 
 // @ts-ignore
 import * as SaxonJS from 'saxon-js';
 
+import { highlightXML } from '@asap/shared/adapters/highlight-js-commonjs';
 import {
   SaxonJsJsonSspToXmlProcessor,
   SaxonJsProcessor,
   SaxonJsSchematronProcessorGateway,
+  SaxonJSXmlIndenter,
+  SaxonJsXSpecParser,
   SchematronParser,
 } from '@asap/shared/adapters/saxon-js-gateway';
+const config = require('@asap/shared/project-config');
+import { createXSpecScenarioSummaryWriter } from '@asap/shared/use-cases/assertion-documentation';
 import { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
-
-import { CommandLineController } from './cli-controller';
 import { ValidateSSPUseCase } from '@asap/shared/use-cases/validate-ssp-xml';
 
-const config = require('@asap/shared/project-config');
+import { CommandLineController } from './cli-controller';
 
 const readStringFile = async (fileName: string) =>
   fs.readFile(fileName, 'utf-8');
 const writeStringFile = (fileName: string, data: string) =>
   fs.writeFile(fileName, data, 'utf-8');
 
+const indentXml = SaxonJSXmlIndenter({ SaxonJS });
+
 const controller = CommandLineController({
   readStringFile,
   writeStringFile,
   useCases: {
     parseSchematron: SchematronParser({ SaxonJS }),
+    writeXSpecScenarioSummaries: createXSpecScenarioSummaryWriter({
+      formatXml: (xml: string) => highlightXML(xmlFormatter(xml)),
+      getSspXspec: () =>
+        readStringFile(join(config.RULES_TEST_PATH, 'ssp.xspec')),
+      parseXspec: SaxonJsXSpecParser({ SaxonJS }),
+      writeSummary: (data: string) =>
+        writeStringFile(join(config.PUBLIC_PATH, 'xspec-scenarios.json'), data),
+    }),
     validateSSP: ValidateSSPUseCase({
       jsonSspToXml: SaxonJsJsonSspToXmlProcessor({
         sefUrl: `file://${join(

@@ -1,6 +1,4 @@
-import type { IndentXml } from '@asap/shared/domain/xml';
-
-export type FormatXml = (xml: string) => string;
+import type { FormatXml, IndentXml } from '@asap/shared/domain/xml';
 
 type AnnotateXMLUseCaseContext = {
   xml: {

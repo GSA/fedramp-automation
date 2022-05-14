@@ -1,5 +1,6 @@
 import { Command } from 'commander';
 
+import type { XSpecScenarioSummaryWriter } from '@asap/shared/use-cases/assertion-documentation';
 import type { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { ParseSchematronAssertions } from '@asap/shared/use-cases/schematron';
 import type { ValidateSSPUseCase } from '@asap/shared/use-cases/validate-ssp-xml';
@@ -11,6 +12,7 @@ type CommandLineContext = {
     parseSchematron: ParseSchematronAssertions;
     validateSSP: ValidateSSPUseCase;
     writeAssertionViews: WriteAssertionViews;
+    writeXSpecScenarioSummaries: XSpecScenarioSummaryWriter;
   };
 };
 
@@ -49,6 +51,16 @@ export const CommandLineController = (ctx: CommandLineContext) => {
     .action(() => {
       ctx.useCases.writeAssertionViews().then(() => {
         console.log(`Wrote assertion views to filesystem`);
+      });
+    });
+  cli
+    .command('create-xspec-summaries')
+    .description(
+      'write UI-optimized JSON of assertion details, including xspec scenarios as usage examples',
+    )
+    .action(() => {
+      ctx.useCases.writeXSpecScenarioSummaries().then(() => {
+        console.log(`Wrote assertion documentation to filesystem`);
       });
     });
   return cli;
