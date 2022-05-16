@@ -10386,6 +10386,53 @@
             </x:scenario>
         </x:scenario>
         <x:scenario
+            label="A FedRAMP SSP has a control">
+            <x:scenario
+                label="ia-2(11)">
+                <x:scenario
+                    label="and the specified control makes reference to either 'CMVP validated' or 'NIAP Certification' or 'NSA approval'.">
+                    <x:scenario
+                        label="When that is true">
+                        <x:context>
+                            <implemented-requirement
+                                control-id="ia-2.11"
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <statement>
+                                    <by-component>
+                                        <description>
+                                            <p>CMVP validated, NIAP Certification, or NSA approval</p>
+                                        </description>
+                                    </by-component>
+                                </statement>
+                            </implemented-requirement>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="remote-multi-factor-authentication-described"
+                            label="that is correct." />
+                    </x:scenario>
+                    <x:scenario
+                        label="When that is false">
+                        <x:context>
+                            <implemented-requirement
+                                control-id="ia-2.11"
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <statement>
+                                    <by-component>
+                                        <description>
+                                            <p>validated</p>
+                                        </description>
+                                    </by-component>
+                                </statement>
+                            </implemented-requirement>
+                        </x:context>
+                        <x:expect-assert
+                            id="remote-multi-factor-authentication-described"
+                            label="that is incorrect." />
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
             label="In the corresponding baseline-resolved-profile catalog, all param elements, that do not have child value elements, have an @id value 
             that also occurs in the matching implemented-requirement set-parameter element @id in the SSP.">
             <x:scenario
