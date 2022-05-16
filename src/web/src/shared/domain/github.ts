@@ -7,7 +7,7 @@ export type GithubRepository = {
 export const DEFAULT_REPOSITORY: GithubRepository = {
   owner: '18F',
   repository: 'fedramp-automation',
-  branch: 'develop',
+  branch: 'master',
 };
 
 const SAMPLE_SSP_PATHS = [

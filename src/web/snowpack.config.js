@@ -4,7 +4,7 @@ const BASEURL = process.env.BASEURL || '';
 const GITHUB = {
   owner: process.env.OWNER || '18F',
   repository: process.env.REPOSITORY || 'fedramp-automation',
-  branch: process.env.BRANCH || 'develop',
+  branch: process.env.BRANCH || 'master',
 };
 
 const DEPLOYMENT_ID =
