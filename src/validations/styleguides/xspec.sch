@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="../styleguides/sch.sch" ?>
+<?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="sch.sch" ?>
 <sch:schema
     queryBinding="xslt2"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
