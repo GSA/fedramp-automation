@@ -45,7 +45,7 @@ jobs:
         shell: bash
         if: runner.os == 'Linux'
         run: |
-          echo "START FIND" ; find dist/content/templates/ssp/ -exec ls -l {} \; ; echo "END FIND" ; make test
+          make test
 
       - name: Run limited test suite
         shell: bash

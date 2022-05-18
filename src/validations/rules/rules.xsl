@@ -173,8 +173,8 @@
 
                 <p>References to a "checklist" are to the <cite>Agency Authorization Review Report</cite> document.</p>
                 <p>References to a "guide" are to one of the guides found <a
-                        href="https://github.com/18F/fedramp-automation/tree/develop/documents"
-                        target="_blank">here</a>.</p>
+                        href="https://github.com/18F/fedramp-automation/tree/master/documents"
+                        target="_blank" rel="noopener">here</a>.</p>
 
                 <xsl:variable
                     name="br"

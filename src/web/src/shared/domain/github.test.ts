@@ -6,7 +6,7 @@ describe('github', () => {
       expect(
         github.getBranchTreeUrl({
           owner: 'owner',
-          branch: 'develop',
+          branch: 'master',
           repository: 'my-repository',
         }),
       ).toEqual('https://github.com/owner/my-repository');
