@@ -2,35 +2,197 @@
 
 <x:description
     schematron="../../rules/sap.sch"
-    xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
-    xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">
+
     <x:scenario
-        label="In FedRAMP OSCAL SAP">
+        label="In an OSCAL SAP">
+
+        <x:context>
+            <assessment-plan
+                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                <terms-and-conditions>
+                    <part
+                        name="methodology">
+                        <prop
+                            name="sampling"
+                            ns="https://fedramp.gov/ns/oscal"
+                            value="no" />
+                    </part>
+                    <part
+                        name="disclosures">
+                        <part
+                            name="disclosure">
+                            <p>A disclosure statement.</p>
+                        </part>
+                        <part
+                            name="disclosure">
+                            <p>Another disclosure statement.</p>
+                        </part>
+                    </part>
+                </terms-and-conditions>
+                <back-matter>
+                    <resource
+                        uuid="64fde0b3-3b15-44e8-a0bd-ce1301f95fbc">
+                        <title>Penetration Testing Plan and Methodology</title>
+                        <prop
+                            name="type"
+                            value="penetration-test-plan" />
+                    </resource>
+                </back-matter>
+            </assessment-plan>
+        </x:context>
+
         <x:scenario
-            label="when the metadata element">
+            label="when the terms-and-conditions element">
             <x:scenario
                 label="is present">
-                <x:context>
-                    <assessment-plan
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <metadata />
-                    </assessment-plan>
-                </x:context>
                 <x:expect-not-assert
-                    id="metadata-element-exists"
+                    id="has-terms-and-conditions"
                     label="that is correct" />
             </x:scenario>
             <x:scenario
                 label="is absent">
                 <x:context>
                     <assessment-plan
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <!--  -->
+                    </assessment-plan>
                 </x:context>
                 <x:expect-assert
-                    id="metadata-element-exists"
+                    id="has-terms-and-conditions"
                     label="that is incorrect" />
             </x:scenario>
         </x:scenario>
+
+        <x:scenario
+            label="when the methodology part">
+            <x:scenario
+                label="is present">
+                <x:expect-not-assert
+                    id="has-methodology"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is absent">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <!--  -->
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-methodology"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when the disclosures part">
+            <x:scenario
+                label="is present">
+                <x:expect-not-assert
+                    id="has-disclosures"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is absent">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <!--  -->
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-disclosures"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when the sampling prop">
+            <x:scenario
+                label="is present">
+                <x:expect-not-assert
+                    id="has-sampling-method"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is absent">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <part
+                                name="methodology">
+                                <!--  -->
+                            </part>
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-sampling-method"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when the sampling prop value">
+            <x:scenario
+                label="is yes or no">
+                <x:expect-not-assert
+                    id="has-allowed-sampling-methodd"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is neither yes nor no">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <part
+                                name="methodology">
+                                <prop
+                                    name="sampling"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="maybe" />
+                            </part>
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-allowed-sampling-method"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when the penetration-test-plan resource">
+            <x:scenario
+                label="is present">
+                <x:expect-not-assert
+                    id="has-penetration-test-plan"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is absent">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <back-matter>
+                            <!--  -->
+                        </back-matter>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-penetration-test-plan"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+
     </x:scenario>
+
 </x:description>
