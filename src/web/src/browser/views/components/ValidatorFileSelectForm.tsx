@@ -99,6 +99,16 @@ export const ValidatorFileSelectForm = () => {
             </li>
           ))}
         </ul>
+        {schematron.validator.current === 'PROCESSING_ERROR' && (
+          <div className="usa-alert usa-alert--error" role="alert">
+            <div className="usa-alert__body">
+              <h4 className="usa-alert__heading">Processing Error</h4>
+              <p className="usa-alert__text">
+                {schematron.validator.errorMessage}
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

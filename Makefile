@@ -31,5 +31,5 @@ build: build-validations build-web dist  ## Build all artifacts and copy into di
 
 	# Copy validations
 	mkdir -p dist/validations
-	cp src/validations/target/ssp.xsl dist/validations
-	cp -r src/validations/rules/ssp.sch dist/validations
+	cp src/validations/target/rules/*.xsl dist/validations
+	cp src/validations/rules/*.sch dist/validations

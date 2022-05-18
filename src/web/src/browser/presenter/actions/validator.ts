@@ -27,7 +27,9 @@ export const setSspFile = async (
         }),
       )
       .then(actions.validator.annotateXml)
-      .catch(actions.validator.setProcessingError);
+      .catch((error: Error) =>
+        actions.validator.setProcessingError(error.message),
+      );
   }
 };
 
