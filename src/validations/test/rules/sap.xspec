@@ -37,6 +37,9 @@
                         <prop
                             name="type"
                             value="penetration-test-plan" />
+                        <rlink
+                            href="penetration-test-plan"
+                            media-type="text/markdown" />
                     </resource>
                 </back-matter>
             </assessment-plan>
