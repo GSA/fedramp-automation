@@ -33,7 +33,6 @@
     <sch:title>FedRAMP Security Assessment Plan Validations</sch:title>
 
     <sch:pattern
-        fedramp:specific="true"
         id="pentest">
 
         <sch:rule
@@ -42,6 +41,7 @@
             <sch:assert
                 diagnostics="has-terms-and-conditions-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.8"
+                fedramp:specific="true"
                 id="has-terms-and-conditions"
                 role="error"
                 test="oscal:terms-and-conditions">The SAP contains terms and conditions.</sch:assert>
@@ -54,6 +54,7 @@
             <sch:assert
                 diagnostics="has-methodology-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.9"
+                fedramp:specific="true"
                 id="has-methodology"
                 role="error"
                 test="oscal:part[@name eq 'methodology']">The SAP terms and conditions must contain a description of the methodology which will be
@@ -62,6 +63,7 @@
             <sch:assert
                 diagnostics="has-disclosures-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.17"
+                fedramp:specific="true"
                 id="has-disclosures"
                 role="error"
                 test="oscal:part[@name eq 'disclosures']">The SAP terms and conditions must contain Rules of Engagement (ROE)
@@ -70,11 +72,12 @@
         </sch:rule>
 
         <sch:rule
-            context="oscal:terms-and-conditions/part[@name eq 'methodology']">
+            context="oscal:terms-and-conditions/oscal:part[@name eq 'methodology']">
 
             <sch:assert
                 diagnostics="has-sampling-method-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.9"
+                fedramp:specific="true"
                 id="has-sampling-method"
                 role="error"
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling']">The SAP declares a sampling method.</sch:assert>
@@ -82,19 +85,21 @@
             <sch:assert
                 diagnostics="has-allowed-sampling-method-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.9"
+                fedramp:specific="true"
                 id="has-allowed-sampling-method"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and matches(@value, 'yes|no')]">The SAP declares
-                whether a sampling method is used.</sch:assert>
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and @value = ('yes', 'no')]">The SAP declares whether a
+                sampling method is used.</sch:assert>
 
         </sch:rule>
 
         <sch:rule
-            context="oscal:terms-and-conditions/part[@name eq 'disclosures']">
+            context="oscal:terms-and-conditions/oscal:part[@name eq 'disclosures']">
 
             <sch:assert
                 diagnostics="has-roe-disclosure-detail-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.17"
+                fedramp:specific="true"
                 id="has-roe-disclosure-detail"
                 role="error"
                 test="oscal:part[@name eq 'disclosure']">The SAP Rules of Engagement (ROE) Disclosures have one or more detail disclosure
@@ -108,6 +113,7 @@
             <sch:assert
                 diagnostics="has-penetration-test-plan-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.26"
+                fedramp:specific="true"
                 id="has-penetration-test-plan"
                 role="warning"
                 test="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'penetration-test-plan']]">The penetration test plan methodology
@@ -118,26 +124,41 @@
     </sch:pattern>
 
     <sch:diagnostics>
+
         <sch:diagnostic
+            doc:assert="has-terms-and-conditions-diagnostic"
+            doc:context="oscal:assessment-plan"
             id="has-terms-and-conditions-diagnostic">The SAP lacks terms and conditions.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-methodology-diagnostic"
+            doc:context="oscal:terms-and-conditions"
             id="has-methodology-diagnostic">The SAP terms and conditions lacks a description of the methodology which will be used.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-disclosures-diagnostic"
+            doc:context="oscal:terms-and-conditions"
             id="has-disclosures-diagnostic">The SAP terms and conditions lacks Rules of Engagement (ROE) Disclosures.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-sampling-method-diagnostic"
+            doc:context="oscal:terms-and-conditions/part[@name eq 'methodology']"
             id="has-sampling-method-diagnostic">The SAP lacks a sampling method.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-allowed-sampling-method-diagnostic"
+            doc:context="oscal:terms-and-conditions/part[@name eq 'methodology']"
             id="has-allowed-sampling-method-diagnostic">The SAP fails to declare whether a sampling method is used.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-roe-disclosure-detail-diagnostic"
+            doc:context="oscal:terms-and-conditions/part[@name eq 'disclosures']"
             id="has-roe-disclosure-detail-diagnostic">The SAP Rules of Engagement (ROE) Disclosures lacks detail disclosure
             statements.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-penetration-test-plan"
+            doc:context="oscal:back-matter"
             id="has-penetration-test-plan-diagnostic">The penetration test plan methodology attachment is not present.</sch:diagnostic>
 
     </sch:diagnostics>
