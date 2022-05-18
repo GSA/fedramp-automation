@@ -3,9 +3,7 @@ import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import type { PresenterConfig } from '..';
 
 export const reset = ({ state }: PresenterConfig) => {
-  if (state.schematron.validator.matches('VALIDATED')) {
-    state.schematron.validator.send('RESET');
-  }
+  state.schematron.validator.send('RESET');
 };
 
 export const setSspFile = async (
