@@ -44,14 +44,16 @@ export const CommandLineController = (ctx: CommandLineContext) => {
       });
     });
   cli
-    .command('create-assertion-view')
+    .command('create-assertion-view <output-file-path> <schematron-xml-path>')
     .description(
       'write UI-optimized JSON of assertion views to target location',
     )
-    .action(() => {
-      ctx.useCases.writeAssertionViews().then(() => {
-        console.log(`Wrote assertion views to filesystem`);
-      });
+    .action((outputFilePath, schematronXMLPath) => {
+      ctx.useCases
+        .writeAssertionViews({ outputFilePath, schematronXMLPath })
+        .then(() => {
+          console.log(`Wrote assertion views to filesystem`);
+        });
     });
   cli
     .command('create-xspec-summaries')

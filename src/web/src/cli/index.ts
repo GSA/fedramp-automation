@@ -64,8 +64,6 @@ const controller = CommandLineController({
           config.PUBLIC_PATH,
           'assertion-grouping.sef.json',
         ),
-        outputFilePath: join(config.PUBLIC_PATH, 'assertion-views.json'),
-        schematronXMLPath: join(config.RULES_PATH, 'ssp.sch'),
       },
       processXSLT: SaxonJsProcessor({ SaxonJS }),
       readStringFile,

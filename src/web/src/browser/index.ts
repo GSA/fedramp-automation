@@ -104,15 +104,24 @@ export const runBrowserContext = ({
           }),
           getAssertionViews: async () => {
             const responses = await Promise.all([
-              fetch(`${baseUrl}/assertion-views.json`).then(response =>
+              fetch(`${baseUrl}/assertion-views-poam.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/assertion-views-sap.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/assertion-views-sar.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/assertion-views-ssp.json`).then(response =>
                 response.json(),
               ),
             ]);
             return {
-              poam: [],
-              sap: [],
-              sar: [],
-              ssp: responses[0],
+              poam: responses[0],
+              sap: responses[1],
+              sar: responses[2],
+              ssp: responses[3],
             };
           },
           getSchematronAssertions: async () => {
