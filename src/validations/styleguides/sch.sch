@@ -193,11 +193,11 @@
         <sch:rule
             context="sch:diagnostic">
 
-            <sch:assert
+            <sch:report
                 diagnostics="diagnostic-is-referenced-diagnostic"
                 id="diagnostic-is-referenced"
                 role="information"
-                test="@id = //@diagnostics ! tokenize(., '\s+')">A diagnostic message is referenced by an assertion.</sch:assert>
+                test="not(@id = //@diagnostics ! tokenize(., '\s+'))">A diagnostic message is referenced by an assertion.</sch:report>
 
         </sch:rule>
 
