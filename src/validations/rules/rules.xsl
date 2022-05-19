@@ -129,7 +129,8 @@
             </xsl:otherwise>
         </xsl:choose>
 
-        <html>
+        <html
+            lang="en">
             <head>
                 <meta
                     content="text/html; charset=UTF-8"
