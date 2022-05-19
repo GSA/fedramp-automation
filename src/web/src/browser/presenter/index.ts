@@ -18,10 +18,7 @@ import { state, State, SampleSSP } from './state';
 type UseCases = {
   annotateXML: AnnotateXMLUseCase;
   getAssertionViews: GetAssertionViews;
-  getPOAMSchematronAssertions: GetSchematronAssertions;
-  getSAPSchematronAssertions: GetSchematronAssertions;
-  getSARSchematronAssertions: GetSchematronAssertions;
-  getSSPSchematronAssertions: GetSchematronAssertions;
+  getSchematronAssertions: GetSchematronAssertions;
   getXSpecScenarioSummaries: GetXSpecScenarioSummaries;
   appMetrics: AppMetrics;
   validateSSP: ValidateSSPUseCase;

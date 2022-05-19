@@ -106,14 +106,20 @@ export const runBrowserContext = ({
             fetch(`${baseUrl}/assertion-views.json`).then(response =>
               response.json(),
             ),
-          getPOAMSchematronAssertions: async () =>
-            fetch(`${baseUrl}/poam.json`).then(response => response.json()),
-          getSAPSchematronAssertions: async () =>
-            fetch(`${baseUrl}/sap.json`).then(response => response.json()),
-          getSARSchematronAssertions: async () =>
-            fetch(`${baseUrl}/sar.json`).then(response => response.json()),
-          getSSPSchematronAssertions: async () =>
-            fetch(`${baseUrl}/ssp.json`).then(response => response.json()),
+          getSchematronAssertions: async () => {
+            const response = await Promise.all([
+              fetch(`${baseUrl}/poam.json`).then(response => response.json()),
+              fetch(`${baseUrl}/sap.json`).then(response => response.json()),
+              fetch(`${baseUrl}/sar.json`).then(response => response.json()),
+              fetch(`${baseUrl}/ssp.json`).then(response => response.json()),
+            ]);
+            return {
+              poam: response[0],
+              sap: response[1],
+              sar: response[2],
+              ssp: response[3],
+            };
+          },
           getXSpecScenarioSummaries: async () =>
             fetch(`${baseUrl}/xspec-scenarios.json`).then(response =>
               response.json(),

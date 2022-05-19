@@ -4,29 +4,18 @@ import type { PresenterConfig } from '..';
 export const initialize = ({ effects, state }: PresenterConfig) => {
   Promise.all([
     effects.useCases.getAssertionViews(),
-    effects.useCases.getPOAMSchematronAssertions(),
-    effects.useCases.getSAPSchematronAssertions(),
-    effects.useCases.getSARSchematronAssertions(),
-    effects.useCases.getSSPSchematronAssertions(),
-  ]).then(
-    ([
-      assertionViews,
-      poamSchematronAsserts,
-      sapSchematronAsserts,
-      sarSchematronAsserts,
-      sspSchematronAsserts,
-    ]) => {
-      state.schematron.send('CONFIG_LOADED', {
-        config: {
-          assertionViews,
-          poamSchematronAsserts,
-          sapSchematronAsserts,
-          sarSchematronAsserts,
-          sspSchematronAsserts,
-        },
-      });
-    },
-  );
+    effects.useCases.getSchematronAssertions(),
+  ]).then(([assertionViews, schematronAssertions]) => {
+    state.schematron.send('CONFIG_LOADED', {
+      config: {
+        assertionViews,
+        poamSchematronAsserts: schematronAssertions.poam,
+        sapSchematronAsserts: schematronAssertions.sap,
+        sarSchematronAsserts: schematronAssertions.sar,
+        sspSchematronAsserts: schematronAssertions.ssp,
+      },
+    });
+  });
 };
 
 export const setFilterRole = ({ state }: PresenterConfig, role: Role) => {
