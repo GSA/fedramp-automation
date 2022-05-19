@@ -166,8 +166,8 @@ export const createSchematronMachine = () => {
                 ? state.validator.validationReport.title
                 : 'FedRAMP Package Concerns',
           },
-          xspecSummariesByAssertionId:
-            state.assertionDocumentation.xspecSummariesByAssertionId,
+          xspecScenarioSummaries:
+            state.assertionDocumentation.xspecScenarioSummaries,
         }),
       ),
       validator: createValidatorMachine(),

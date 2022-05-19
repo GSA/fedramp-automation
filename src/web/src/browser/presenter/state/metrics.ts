@@ -1,7 +1,4 @@
-import type { string } from 'fp-ts';
-import { derived, Statemachine, statemachine } from 'overmind';
-
-import * as router from './router';
+import { Statemachine, statemachine } from 'overmind';
 
 type States =
   | {

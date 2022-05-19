@@ -12,7 +12,6 @@ import {
   SaxonJsJsonSspToXmlProcessor,
   SaxonJsProcessor,
   SaxonJsSchematronProcessorGateway,
-  SaxonJSXmlIndenter,
   SaxonJsXSpecParser,
   SchematronParser,
 } from '@asap/shared/adapters/saxon-js-gateway';
@@ -28,8 +27,6 @@ const readStringFile = async (fileName: string) =>
 const writeStringFile = (fileName: string, data: string) =>
   fs.writeFile(fileName, data, 'utf-8');
 
-const indentXml = SaxonJSXmlIndenter({ SaxonJS });
-
 const controller = CommandLineController({
   readStringFile,
   writeStringFile,
@@ -37,11 +34,9 @@ const controller = CommandLineController({
     parseSchematron: SchematronParser({ SaxonJS }),
     writeXSpecScenarioSummaries: createXSpecScenarioSummaryWriter({
       formatXml: (xml: string) => highlightXML(xmlFormatter(xml)),
-      getSspXspec: () =>
-        readStringFile(join(config.RULES_TEST_PATH, 'ssp.xspec')),
       parseXspec: SaxonJsXSpecParser({ SaxonJS }),
-      writeSummary: (data: string) =>
-        writeStringFile(join(config.PUBLIC_PATH, 'xspec-scenarios.json'), data),
+      readStringFile,
+      writeStringFile,
     }),
     validateSSP: ValidateSSPUseCase({
       jsonSspToXml: SaxonJsJsonSspToXmlProcessor({

@@ -56,14 +56,16 @@ export const CommandLineController = (ctx: CommandLineContext) => {
         });
     });
   cli
-    .command('create-xspec-summaries')
+    .command('create-xspec-summaries <xspec-path> <summary-path>')
     .description(
       'write UI-optimized JSON of assertion details, including xspec scenarios as usage examples',
     )
-    .action(() => {
-      ctx.useCases.writeXSpecScenarioSummaries().then(() => {
-        console.log(`Wrote assertion documentation to filesystem`);
-      });
+    .action((xspecPath, summaryPath) => {
+      ctx.useCases
+        .writeXSpecScenarioSummaries(xspecPath, summaryPath)
+        .then(() => {
+          console.log(`Wrote assertion documentation to filesystem`);
+        });
     });
   return cli;
 };

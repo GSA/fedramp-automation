@@ -1,6 +1,7 @@
 import { Statemachine, statemachine } from 'overmind';
 
 import type { SummariesByAssertionId } from '@asap/shared/domain/xspec';
+import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 
 type States =
   | {
@@ -11,7 +12,7 @@ type States =
     };
 
 type BaseState = {
-  xspecSummariesByAssertionId: SummariesByAssertionId;
+  xspecScenarioSummaries: XSpecScenarioSummaries;
   visibleDocumentation: string | null;
 };
 
@@ -19,7 +20,7 @@ type Events =
   | {
       type: 'SUMMARIES_LOADED';
       data: {
-        xspecSummariesByAssertionId: SummariesByAssertionId;
+        xspecScenarioSummaries: XSpecScenarioSummaries;
       };
     }
   | {
@@ -41,10 +42,10 @@ export type AssertionDocumentationMachine = Statemachine<
 
 const assertionDocumentationMachine = statemachine<States, Events, BaseState>({
   UNINITIALIZED: {
-    SUMMARIES_LOADED: ({ xspecSummariesByAssertionId }) => {
+    SUMMARIES_LOADED: ({ xspecScenarioSummaries }) => {
       return {
         current: 'INITIALIZED',
-        xspecSummariesByAssertionId,
+        xspecScenarioSummaries,
         visibleDocumentation: null,
       };
     },
@@ -53,14 +54,14 @@ const assertionDocumentationMachine = statemachine<States, Events, BaseState>({
     CLOSE: (event, state) => {
       return {
         current: 'INITIALIZED',
-        xspecSummariesByAssertionId: state.xspecSummariesByAssertionId,
+        xspecScenarioSummaries: state.xspecScenarioSummaries,
         visibleDocumentation: null,
       };
     },
     SHOW: ({ assertionId }, state) => {
       return {
         current: 'INITIALIZED',
-        xspecSummariesByAssertionId: state.xspecSummariesByAssertionId,
+        xspecScenarioSummaries: state.xspecScenarioSummaries,
         visibleDocumentation: assertionId,
       };
     },
@@ -71,7 +72,12 @@ export const createAssertionDocumentationMachine = () => {
   return assertionDocumentationMachine.create(
     { current: 'UNINITIALIZED' },
     {
-      xspecSummariesByAssertionId: {},
+      xspecScenarioSummaries: {
+        poam: {},
+        sap: {},
+        sar: {},
+        ssp: {},
+      },
       visibleDocumentation: null,
     },
   );

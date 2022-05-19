@@ -2,6 +2,7 @@ import type {
   ScenarioSummary,
   SummariesByAssertionId,
 } from '@asap/shared/domain/xspec';
+import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 import type {
   SchematronAssert,
@@ -96,7 +97,7 @@ export const getSchematronReport = ({
   filter,
   filterOptions,
   validator,
-  xspecSummariesByAssertionId,
+  xspecScenarioSummaries,
 }: {
   config: SchematronUIConfig;
   filter: SchematronFilter;
@@ -105,7 +106,7 @@ export const getSchematronReport = ({
     failedAssertionMap: FailedAssertionMap | null;
     title: string;
   };
-  xspecSummariesByAssertionId: SummariesByAssertionId;
+  xspecScenarioSummaries: XSpecScenarioSummaries;
 }) => {
   const assertionView = filterOptions.assertionViews
     .filter(view => view.index === filter.assertionViewId)
@@ -142,7 +143,7 @@ export const getSchematronReport = ({
       assertionView,
       schematronChecksFiltered,
       validator.failedAssertionMap,
-      xspecSummariesByAssertionId,
+      xspecScenarioSummaries.ssp,
     ),
   };
 };

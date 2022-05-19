@@ -34,7 +34,7 @@ export const ValidatorContentOverlay = () => {
         {schematron.assertionDocumentation.visibleDocumentation ? (
           <AssertionXSpecScenarios
             scenarioSummaries={
-              schematron.assertionDocumentation.xspecSummariesByAssertionId[
+              schematron.assertionDocumentation.xspecScenarioSummaries.ssp[
                 schematron.assertionDocumentation.visibleDocumentation
               ]
             }

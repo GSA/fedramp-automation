@@ -97,27 +97,32 @@ describe('presenter schematron library', () => {
           ],
         },
       },
-      xspecSummariesByAssertionId: {
-        'no-security-sensitivity-level': [
-          {
-            assertionId: 'no-security-sensitivity-level',
-            assertionLabel: 'it is invalid.',
-            context:
-              '<span class="hljs-tag">&lt;<span class="hljs-name">system-security-plan</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://csrc.nist.gov/ns/oscal/1.0&quot;</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n        <span class="hljs-tag">&lt;<span class="hljs-name">security-sensitivity-level</span>/&gt;</span>\r\n    <span class="hljs-tag">&lt;/<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n<span class="hljs-tag">&lt;/<span class="hljs-name">system-security-plan</span>&gt;</span>',
-            label:
-              'For an OSCAL FedRAMP SSP Section 2.1 when the security sensitivity level is not defined at all',
-          },
-        ],
-        'invalid-security-sensitivity-level': [
-          {
-            assertionId: 'invalid-security-sensitivity-level',
-            assertionLabel: 'it is valid.',
-            context:
-              '<span class="hljs-tag">&lt;<span class="hljs-name">system-security-plan</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://csrc.nist.gov/ns/oscal/1.0&quot;</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n        <span class="hljs-tag">&lt;<span class="hljs-name">security-sensitivity-level</span>&gt;</span>\r\n            fips-199-low\r\n        <span class="hljs-tag">&lt;/<span class="hljs-name">security-sensitivity-level</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;/<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n<span class="hljs-tag">&lt;/<span class="hljs-name">system-security-plan</span>&gt;</span>',
-            label:
-              'For an OSCAL FedRAMP SSP Section 2.1 when the security sensitivity level is set to a value from the official FedRAMP list',
-          },
-        ],
+      xspecScenarioSummaries: {
+        poam: {},
+        sap: {},
+        sar: {},
+        ssp: {
+          'no-security-sensitivity-level': [
+            {
+              assertionId: 'no-security-sensitivity-level',
+              assertionLabel: 'it is invalid.',
+              context:
+                '<span class="hljs-tag">&lt;<span class="hljs-name">system-security-plan</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://csrc.nist.gov/ns/oscal/1.0&quot;</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n        <span class="hljs-tag">&lt;<span class="hljs-name">security-sensitivity-level</span>/&gt;</span>\r\n    <span class="hljs-tag">&lt;/<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n<span class="hljs-tag">&lt;/<span class="hljs-name">system-security-plan</span>&gt;</span>',
+              label:
+                'For an OSCAL FedRAMP SSP Section 2.1 when the security sensitivity level is not defined at all',
+            },
+          ],
+          'invalid-security-sensitivity-level': [
+            {
+              assertionId: 'invalid-security-sensitivity-level',
+              assertionLabel: 'it is valid.',
+              context:
+                '<span class="hljs-tag">&lt;<span class="hljs-name">system-security-plan</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://csrc.nist.gov/ns/oscal/1.0&quot;</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n        <span class="hljs-tag">&lt;<span class="hljs-name">security-sensitivity-level</span>&gt;</span>\r\n            fips-199-low\r\n        <span class="hljs-tag">&lt;/<span class="hljs-name">security-sensitivity-level</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;/<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n<span class="hljs-tag">&lt;/<span class="hljs-name">system-security-plan</span>&gt;</span>',
+              label:
+                'For an OSCAL FedRAMP SSP Section 2.1 when the security sensitivity level is set to a value from the official FedRAMP list',
+            },
+          ],
+        },
       },
     };
 

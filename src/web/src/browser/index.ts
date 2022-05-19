@@ -138,10 +138,28 @@ export const runBrowserContext = ({
               ssp: responses[3],
             };
           },
-          getXSpecScenarioSummaries: async () =>
-            fetch(`${baseUrl}/xspec-scenarios.json`).then(response =>
-              response.json(),
-            ),
+          getXSpecScenarioSummaries: async () => {
+            const responses = await Promise.all([
+              fetch(`${baseUrl}/xspec-scenarios-poam.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/xspec-scenarios-sap.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/xspec-scenarios-sar.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/xspec-scenarios-ssp.json`).then(response =>
+                response.json(),
+              ),
+            ]);
+            return {
+              poam: responses[0],
+              sap: responses[1],
+              sar: responses[2],
+              ssp: responses[3],
+            };
+          },
           validateSSP: ValidateSSPUseCase({
             jsonSspToXml,
             processSchematron,
