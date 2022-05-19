@@ -12,7 +12,10 @@ import type { FailedAssertionMap } from './validator';
 // Schematron rules meta-data
 export type SchematronUIConfig = {
   assertionViews: AssertionView[];
-  schematronAsserts: SchematronAssert[];
+  poamSchematronAsserts: SchematronAssert[];
+  sapSchematronAsserts: SchematronAssert[];
+  sarSchematronAsserts: SchematronAssert[];
+  sspSchematronAsserts: SchematronAssert[];
 };
 
 export type Role = string;
@@ -107,7 +110,7 @@ export const getSchematronReport = ({
   };
 
   const schematronChecksFiltered = filterAssertions(
-    config.schematronAsserts,
+    config.sspSchematronAsserts,
     {
       passStatus: filter.passStatus,
       role: filter.role,
@@ -250,7 +253,7 @@ export const getFilterOptions = ({
   failedAssertionMap: FailedAssertionMap | null;
 }): SchematronFilterOptions => {
   const availableRoles = Array.from(
-    new Set(config.schematronAsserts.map(assert => assert.role)),
+    new Set(config.sspSchematronAsserts.map(assert => assert.role)),
   );
   const assertionViews = config.assertionViews.map((view, index) => {
     return {
@@ -273,7 +276,7 @@ export const getFilterOptions = ({
     assertionViews: assertionViews.map(view => ({
       ...view,
       count: filterAssertions(
-        config.schematronAsserts,
+        config.sspSchematronAsserts,
         {
           passStatus: filter.passStatus,
           role: filter.role,
@@ -299,7 +302,7 @@ export const getFilterOptions = ({
               warning: 'View suggested rules',
             }[role] || '',
           count: filterAssertions(
-            config.schematronAsserts,
+            config.sspSchematronAsserts,
             {
               passStatus: filter.passStatus,
               role,
@@ -318,7 +321,7 @@ export const getFilterOptions = ({
         title: 'All assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
-          config.schematronAsserts,
+          config.sspSchematronAsserts,
           {
             passStatus: 'all',
             role: filter.role,
@@ -334,7 +337,7 @@ export const getFilterOptions = ({
         title: 'Passing assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
-          config.schematronAsserts,
+          config.sspSchematronAsserts,
           {
             passStatus: 'pass',
             role: filter.role,
@@ -350,7 +353,7 @@ export const getFilterOptions = ({
         title: 'Failing assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
-          config.schematronAsserts,
+          config.sspSchematronAsserts,
           {
             passStatus: 'fail',
             role: filter.role,

@@ -127,7 +127,10 @@ export const createSchematronMachine = () => {
       assertionDocumentation: createAssertionDocumentationMachine(),
       config: {
         assertionViews: [],
-        schematronAsserts: [],
+        poamSchematronAsserts: [],
+        sapSchematronAsserts: [],
+        sarSchematronAsserts: [],
+        sspSchematronAsserts: [],
       },
       filter: {
         passStatus: 'all',

@@ -106,6 +106,12 @@ export const runBrowserContext = ({
             fetch(`${baseUrl}/assertion-views.json`).then(response =>
               response.json(),
             ),
+          getPOAMSchematronAssertions: async () =>
+            fetch(`${baseUrl}/poam.json`).then(response => response.json()),
+          getSAPSchematronAssertions: async () =>
+            fetch(`${baseUrl}/sap.json`).then(response => response.json()),
+          getSARSchematronAssertions: async () =>
+            fetch(`${baseUrl}/sar.json`).then(response => response.json()),
           getSSPSchematronAssertions: async () =>
             fetch(`${baseUrl}/ssp.json`).then(response => response.json()),
           getXSpecScenarioSummaries: async () =>

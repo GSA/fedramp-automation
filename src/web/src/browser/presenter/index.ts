@@ -5,7 +5,7 @@ import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import type { AppMetrics } from '@asap/shared/use-cases/app-metrics';
 import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
-import type { GetSSPSchematronAssertions } from '@asap/shared/use-cases/schematron';
+import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron';
 import type {
   ValidateSSPUseCase,
   ValidateSSPUrlUseCase,
@@ -18,7 +18,10 @@ import { state, State, SampleSSP } from './state';
 type UseCases = {
   annotateXML: AnnotateXMLUseCase;
   getAssertionViews: GetAssertionViews;
-  getSSPSchematronAssertions: GetSSPSchematronAssertions;
+  getPOAMSchematronAssertions: GetSchematronAssertions;
+  getSAPSchematronAssertions: GetSchematronAssertions;
+  getSARSchematronAssertions: GetSchematronAssertions;
+  getSSPSchematronAssertions: GetSchematronAssertions;
   getXSpecScenarioSummaries: GetXSpecScenarioSummaries;
   appMetrics: AppMetrics;
   validateSSP: ValidateSSPUseCase;

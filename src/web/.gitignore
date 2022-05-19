@@ -3,6 +3,14 @@ coverage
 node_modules
 public/assertion-grouping.sef.json
 public/assertion-views.json
+public/oscal_ssp_json-to-xml-converter.sef.json
+public/rules.html
+public/poam.json
+public/sap.json
+public/sar.json
 public/ssp.json
+public/poam.sef.json
+public/sap.sef.json
+public/sar.sef.json
 public/ssp.sef.json
-public/ssp.xsl
+public/xspec-scenarios.json

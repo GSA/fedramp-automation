@@ -17,7 +17,10 @@ describe('presenter schematron library', () => {
             ],
           },
         ],
-        schematronAsserts: [
+        poamSchematronAsserts: [],
+        sapSchematronAsserts: [],
+        sarSchematronAsserts: [],
+        sspSchematronAsserts: [
           {
             id: 'unique-1',
             message: 'Assertion message',
@@ -159,7 +162,10 @@ describe('presenter schematron library', () => {
       const options = lib.getFilterOptions({
         config: {
           assertionViews: [],
-          schematronAsserts: [],
+          poamSchematronAsserts: [],
+          sapSchematronAsserts: [],
+          sarSchematronAsserts: [],
+          sspSchematronAsserts: [],
         },
         filter: {
           passStatus: 'all',
@@ -215,7 +221,10 @@ describe('presenter schematron library', () => {
               ],
             },
           ],
-          schematronAsserts: [
+          poamSchematronAsserts: [],
+          sapSchematronAsserts: [],
+          sarSchematronAsserts: [],
+          sspSchematronAsserts: [
             { id: '0', message: 'msg0', role: 'error' },
             { id: '1', message: 'msg1', role: 'error' },
             { id: '2', message: 'msg2', role: 'error' },

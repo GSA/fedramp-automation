@@ -46,4 +46,4 @@ export type SchematronAssert = {
 export type ParseSchematronAssertions = (
   schematron: string,
 ) => SchematronAssert[];
-export type GetSSPSchematronAssertions = () => Promise<SchematronAssert[]>;
+export type GetSchematronAssertions = () => Promise<SchematronAssert[]>;

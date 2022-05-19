@@ -30,7 +30,10 @@ xdescribe('schematron', () => {
               ],
             },
           ],
-          schematronAsserts: MOCK_SCHEMATRON_ASSERTIONS,
+          poamSchematronAsserts: MOCK_SCHEMATRON_ASSERTIONS,
+          sapSchematronAsserts: MOCK_SCHEMATRON_ASSERTIONS,
+          sarSchematronAsserts: MOCK_SCHEMATRON_ASSERTIONS,
+          sspSchematronAsserts: MOCK_SCHEMATRON_ASSERTIONS,
         },
       });
       expect(presenter.state.schematron.filter).toEqual({
