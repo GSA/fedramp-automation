@@ -11,11 +11,18 @@ import type { FailedAssertionMap } from './validator';
 
 // Schematron rules meta-data
 export type SchematronUIConfig = {
-  assertionViews: AssertionView[];
-  poamSchematronAsserts: SchematronAssert[];
-  sapSchematronAsserts: SchematronAssert[];
-  sarSchematronAsserts: SchematronAssert[];
-  sspSchematronAsserts: SchematronAssert[];
+  assertionViews: {
+    poam: AssertionView[];
+    sap: AssertionView[];
+    sar: AssertionView[];
+    ssp: AssertionView[];
+  };
+  schematronAsserts: {
+    poam: SchematronAssert[];
+    sap: SchematronAssert[];
+    sar: SchematronAssert[];
+    ssp: SchematronAssert[];
+  };
 };
 
 export type Role = string;
@@ -103,14 +110,14 @@ export const getSchematronReport = ({
   const assertionView = filterOptions.assertionViews
     .filter(view => view.index === filter.assertionViewId)
     .map(() => {
-      return config.assertionViews[filter.assertionViewId];
+      return config.assertionViews.ssp[filter.assertionViewId];
     })[0] || {
     title: '',
     groups: [],
   };
 
   const schematronChecksFiltered = filterAssertions(
-    config.sspSchematronAsserts,
+    config.schematronAsserts.ssp,
     {
       passStatus: filter.passStatus,
       role: filter.role,
@@ -253,9 +260,9 @@ export const getFilterOptions = ({
   failedAssertionMap: FailedAssertionMap | null;
 }): SchematronFilterOptions => {
   const availableRoles = Array.from(
-    new Set(config.sspSchematronAsserts.map(assert => assert.role)),
+    new Set(config.schematronAsserts.ssp.map(assert => assert.role)),
   );
-  const assertionViews = config.assertionViews.map((view, index) => {
+  const assertionViews = config.assertionViews.ssp.map((view, index) => {
     return {
       index,
       title: view.title,
@@ -264,7 +271,7 @@ export const getFilterOptions = ({
   const assertionView = assertionViews
     .filter(view => view.index === filter.assertionViewId)
     .map(() => {
-      return config.assertionViews[filter.assertionViewId];
+      return config.assertionViews.ssp[filter.assertionViewId];
     })[0] || {
     title: '',
     groups: [],
@@ -276,14 +283,14 @@ export const getFilterOptions = ({
     assertionViews: assertionViews.map(view => ({
       ...view,
       count: filterAssertions(
-        config.sspSchematronAsserts,
+        config.schematronAsserts.ssp,
         {
           passStatus: filter.passStatus,
           role: filter.role,
           text: filter.text,
-          assertionViewIds: config.assertionViews[view.index].groups.flatMap(
-            group => group.assertionIds,
-          ),
+          assertionViewIds: config.assertionViews.ssp[
+            view.index
+          ].groups.flatMap(group => group.assertionIds),
         },
         availableRoles,
         failedAssertionMap,
@@ -302,7 +309,7 @@ export const getFilterOptions = ({
               warning: 'View suggested rules',
             }[role] || '',
           count: filterAssertions(
-            config.sspSchematronAsserts,
+            config.schematronAsserts.ssp,
             {
               passStatus: filter.passStatus,
               role,
@@ -321,7 +328,7 @@ export const getFilterOptions = ({
         title: 'All assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
-          config.sspSchematronAsserts,
+          config.schematronAsserts.ssp,
           {
             passStatus: 'all',
             role: filter.role,
@@ -337,7 +344,7 @@ export const getFilterOptions = ({
         title: 'Passing assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
-          config.sspSchematronAsserts,
+          config.schematronAsserts.ssp,
           {
             passStatus: 'pass',
             role: filter.role,
@@ -353,7 +360,7 @@ export const getFilterOptions = ({
         title: 'Failing assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
-          config.sspSchematronAsserts,
+          config.schematronAsserts.ssp,
           {
             passStatus: 'fail',
             role: filter.role,

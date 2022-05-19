@@ -5,38 +5,45 @@ describe('presenter schematron library', () => {
   describe('getSchematronReport', () => {
     const testData = {
       config: {
-        assertionViews: [
-          {
-            title: 'Assertion view title',
-            groups: [
-              {
-                title: 'Assertion group title',
-                assertionIds: ['unique-1', 'unique-2'],
-                groups: undefined,
-              },
-            ],
-          },
-        ],
-        poamSchematronAsserts: [],
-        sapSchematronAsserts: [],
-        sarSchematronAsserts: [],
-        sspSchematronAsserts: [
-          {
-            id: 'unique-1',
-            message: 'Assertion message',
-            role: 'error',
-          },
-          {
-            id: 'unique-2',
-            message: 'Assertion message',
-            role: 'error',
-          },
-          {
-            id: 'unique-3',
-            message: 'Assertion message',
-            role: 'error',
-          },
-        ],
+        assertionViews: {
+          poam: [],
+          sap: [],
+          sar: [],
+          ssp: [
+            {
+              title: 'Assertion view title',
+              groups: [
+                {
+                  title: 'Assertion group title',
+                  assertionIds: ['unique-1', 'unique-2'],
+                  groups: undefined,
+                },
+              ],
+            },
+          ],
+        },
+        schematronAsserts: {
+          poam: [],
+          sap: [],
+          sar: [],
+          ssp: [
+            {
+              id: 'unique-1',
+              message: 'Assertion message',
+              role: 'error',
+            },
+            {
+              id: 'unique-2',
+              message: 'Assertion message',
+              role: 'error',
+            },
+            {
+              id: 'unique-3',
+              message: 'Assertion message',
+              role: 'error',
+            },
+          ],
+        },
       },
       filter: {
         passStatus: 'all' as PassStatus,
@@ -161,11 +168,18 @@ describe('presenter schematron library', () => {
     it('handles empty state', () => {
       const options = lib.getFilterOptions({
         config: {
-          assertionViews: [],
-          poamSchematronAsserts: [],
-          sapSchematronAsserts: [],
-          sarSchematronAsserts: [],
-          sspSchematronAsserts: [],
+          assertionViews: {
+            poam: [],
+            sap: [],
+            sar: [],
+            ssp: [],
+          },
+          schematronAsserts: {
+            poam: [],
+            sap: [],
+            sar: [],
+            ssp: [],
+          },
         },
         filter: {
           passStatus: 'all',
@@ -209,26 +223,33 @@ describe('presenter schematron library', () => {
     it('handles group with two assertions', () => {
       const options = lib.getFilterOptions({
         config: {
-          assertionViews: [
-            {
-              title: 'assertion view 1',
-              groups: [
-                {
-                  title: 'assertion group 1',
-                  assertionIds: ['0', '1'],
-                  groups: [],
-                },
-              ],
-            },
-          ],
-          poamSchematronAsserts: [],
-          sapSchematronAsserts: [],
-          sarSchematronAsserts: [],
-          sspSchematronAsserts: [
-            { id: '0', message: 'msg0', role: 'error' },
-            { id: '1', message: 'msg1', role: 'error' },
-            { id: '2', message: 'msg2', role: 'error' },
-          ],
+          assertionViews: {
+            poam: [],
+            sap: [],
+            sar: [],
+            ssp: [
+              {
+                title: 'assertion view 1',
+                groups: [
+                  {
+                    title: 'assertion group 1',
+                    assertionIds: ['0', '1'],
+                    groups: [],
+                  },
+                ],
+              },
+            ],
+          },
+          schematronAsserts: {
+            poam: [],
+            sap: [],
+            sar: [],
+            ssp: [
+              { id: '0', message: 'msg0', role: 'error' },
+              { id: '1', message: 'msg1', role: 'error' },
+              { id: '2', message: 'msg2', role: 'error' },
+            ],
+          },
         },
         filter: {
           passStatus: 'all',

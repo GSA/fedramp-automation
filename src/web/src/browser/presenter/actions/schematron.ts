@@ -5,14 +5,11 @@ export const initialize = ({ effects, state }: PresenterConfig) => {
   Promise.all([
     effects.useCases.getAssertionViews(),
     effects.useCases.getSchematronAssertions(),
-  ]).then(([assertionViews, schematronAssertions]) => {
+  ]).then(([assertionViews, schematronAsserts]) => {
     state.schematron.send('CONFIG_LOADED', {
       config: {
         assertionViews,
-        poamSchematronAsserts: schematronAssertions.poam,
-        sapSchematronAsserts: schematronAssertions.sap,
-        sarSchematronAsserts: schematronAssertions.sar,
-        sspSchematronAsserts: schematronAssertions.ssp,
+        schematronAsserts,
       },
     });
   });

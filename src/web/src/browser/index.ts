@@ -102,22 +102,31 @@ export const runBrowserContext = ({
             getBrowserFingerprint: createBrowserFingerprintMaker(),
             optInGateway: localStorageGateway,
           }),
-          getAssertionViews: async () =>
-            fetch(`${baseUrl}/assertion-views.json`).then(response =>
-              response.json(),
-            ),
+          getAssertionViews: async () => {
+            const responses = await Promise.all([
+              fetch(`${baseUrl}/assertion-views.json`).then(response =>
+                response.json(),
+              ),
+            ]);
+            return {
+              poam: [],
+              sap: [],
+              sar: [],
+              ssp: responses[0],
+            };
+          },
           getSchematronAssertions: async () => {
-            const response = await Promise.all([
+            const responses = await Promise.all([
               fetch(`${baseUrl}/poam.json`).then(response => response.json()),
               fetch(`${baseUrl}/sap.json`).then(response => response.json()),
               fetch(`${baseUrl}/sar.json`).then(response => response.json()),
               fetch(`${baseUrl}/ssp.json`).then(response => response.json()),
             ]);
             return {
-              poam: response[0],
-              sap: response[1],
-              sar: response[2],
-              ssp: response[3],
+              poam: responses[0],
+              sap: responses[1],
+              sar: responses[2],
+              ssp: responses[3],
             };
           },
           getXSpecScenarioSummaries: async () =>

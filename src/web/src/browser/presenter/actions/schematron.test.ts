@@ -15,25 +15,32 @@ xdescribe('schematron', () => {
     it('by role works', () => {
       presenter.state.schematron.send('CONFIG_LOADED', {
         config: {
-          assertionViews: [
-            {
-              title: 'test view',
-              groups: [
-                {
-                  title: 'test group',
-                  assertionIds: [
-                    'incorrect-role-association',
-                    'incomplete-core-implemented-requirements',
-                  ],
-                  groups: [],
-                },
-              ],
-            },
-          ],
-          poamSchematronAsserts: MOCK_SCHEMATRON_ASSERTIONS,
-          sapSchematronAsserts: MOCK_SCHEMATRON_ASSERTIONS,
-          sarSchematronAsserts: MOCK_SCHEMATRON_ASSERTIONS,
-          sspSchematronAsserts: MOCK_SCHEMATRON_ASSERTIONS,
+          assertionViews: {
+            poam: [],
+            sap: [],
+            sar: [],
+            ssp: [
+              {
+                title: 'test view',
+                groups: [
+                  {
+                    title: 'test group',
+                    assertionIds: [
+                      'incorrect-role-association',
+                      'incomplete-core-implemented-requirements',
+                    ],
+                    groups: [],
+                  },
+                ],
+              },
+            ],
+          },
+          schematronAsserts: {
+            poam: MOCK_SCHEMATRON_ASSERTIONS,
+            sap: MOCK_SCHEMATRON_ASSERTIONS,
+            sar: MOCK_SCHEMATRON_ASSERTIONS,
+            ssp: MOCK_SCHEMATRON_ASSERTIONS,
+          },
         },
       });
       expect(presenter.state.schematron.filter).toEqual({

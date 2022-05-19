@@ -37,7 +37,12 @@ export const validateAssertionViews = (input: any): AssertionViews | null => {
   );
 };
 
-export type GetAssertionViews = () => Promise<AssertionViews>;
+export type GetAssertionViews = () => Promise<{
+  poam: AssertionViews;
+  sap: AssertionViews;
+  sar: AssertionViews;
+  ssp: AssertionViews;
+}>;
 
 export type XSLTProcessor = (
   stylesheetText: string,
