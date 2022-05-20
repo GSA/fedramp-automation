@@ -1,6 +1,5 @@
 import { Statemachine, statemachine } from 'overmind';
 
-import type { SummariesByAssertionId } from '@asap/shared/domain/xspec';
 import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 
 type States =
@@ -12,6 +11,7 @@ type States =
     };
 
 type BaseState = {
+  documentType: keyof XSpecScenarioSummaries | null;
   xspecScenarioSummaries: XSpecScenarioSummaries;
   visibleDocumentation: string | null;
 };
@@ -31,6 +31,7 @@ type Events =
       type: 'SHOW';
       data: {
         assertionId: string;
+        documentType: string;
       };
     };
 
@@ -54,15 +55,17 @@ const assertionDocumentationMachine = statemachine<States, Events, BaseState>({
     CLOSE: (event, state) => {
       return {
         current: 'INITIALIZED',
-        xspecScenarioSummaries: state.xspecScenarioSummaries,
+        documentType: state.documentType,
         visibleDocumentation: null,
+        xspecScenarioSummaries: state.xspecScenarioSummaries,
       };
     },
-    SHOW: ({ assertionId }, state) => {
+    SHOW: ({ assertionId, documentType }, state) => {
       return {
         current: 'INITIALIZED',
-        xspecScenarioSummaries: state.xspecScenarioSummaries,
+        documentType,
         visibleDocumentation: assertionId,
+        xspecScenarioSummaries: state.xspecScenarioSummaries,
       };
     },
   },
@@ -72,6 +75,7 @@ export const createAssertionDocumentationMachine = () => {
   return assertionDocumentationMachine.create(
     { current: 'UNINITIALIZED' },
     {
+      documentType: null,
       xspecScenarioSummaries: {
         poam: {},
         sap: {},

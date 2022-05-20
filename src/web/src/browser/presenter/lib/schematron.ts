@@ -1,8 +1,4 @@
-import type {
-  ScenarioSummary,
-  SummariesByAssertionId,
-} from '@asap/shared/domain/xspec';
-import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
+import type { ScenarioSummary } from '@asap/shared/domain/xspec';
 import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 import type {
   SchematronAssert,
@@ -12,18 +8,8 @@ import type { FailedAssertionMap } from './validator';
 
 // Schematron rules meta-data
 export type SchematronUIConfig = {
-  assertionViews: {
-    poam: AssertionView[];
-    sap: AssertionView[];
-    sar: AssertionView[];
-    ssp: AssertionView[];
-  };
-  schematronAsserts: {
-    poam: SchematronAssert[];
-    sap: SchematronAssert[];
-    sar: SchematronAssert[];
-    ssp: SchematronAssert[];
-  };
+  assertionViews: AssertionView[];
+  schematronAsserts: SchematronAssert[];
 };
 
 export type Role = string;
@@ -86,7 +72,6 @@ export type SchematronReport = {
       checks: (SchematronAssert & {
         icon: Icon;
         fired: FailedAssert[];
-        xspecScenarios: ScenarioSummary[];
       })[];
     };
   }[];
@@ -97,7 +82,6 @@ export const getSchematronReport = ({
   filter,
   filterOptions,
   validator,
-  xspecScenarioSummaries,
 }: {
   config: SchematronUIConfig;
   filter: SchematronFilter;
@@ -106,19 +90,18 @@ export const getSchematronReport = ({
     failedAssertionMap: FailedAssertionMap | null;
     title: string;
   };
-  xspecScenarioSummaries: XSpecScenarioSummaries;
 }) => {
   const assertionView = filterOptions.assertionViews
     .filter(view => view.index === filter.assertionViewId)
     .map(() => {
-      return config.assertionViews.ssp[filter.assertionViewId];
+      return config.assertionViews[filter.assertionViewId];
     })[0] || {
     title: '',
     groups: [],
   };
 
   const schematronChecksFiltered = filterAssertions(
-    config.schematronAsserts.ssp,
+    config.schematronAsserts,
     {
       passStatus: filter.passStatus,
       role: filter.role,
@@ -143,7 +126,6 @@ export const getSchematronReport = ({
       assertionView,
       schematronChecksFiltered,
       validator.failedAssertionMap,
-      xspecScenarioSummaries.ssp,
     ),
   };
 };
@@ -152,7 +134,6 @@ export const getReportGroups = (
   assertionView: AssertionView,
   schematronAssertions: SchematronAssert[],
   failedAssertionMap: FailedAssertionMap | null,
-  xspecSummariesByAssertionId: SummariesByAssertionId,
 ): SchematronReport['groups'] => {
   const assertionsById = getAssertionsById(schematronAssertions);
   return assertionView.groups
@@ -161,7 +142,6 @@ export const getReportGroups = (
         message: string;
         icon: Icon;
         fired: FailedAssert[];
-        xspecScenarios: ScenarioSummary[];
       };
       const checks = assertionGroup.assertionIds
         .map(assertionGroupAssert => {
@@ -179,7 +159,6 @@ export const getReportGroups = (
                 ? cancelIcon
                 : checkCircleIcon,
             fired,
-            xspecScenarios: xspecSummariesByAssertionId[assert.id],
           };
         })
         .filter(
@@ -261,9 +240,9 @@ export const getFilterOptions = ({
   failedAssertionMap: FailedAssertionMap | null;
 }): SchematronFilterOptions => {
   const availableRoles = Array.from(
-    new Set(config.schematronAsserts.ssp.map(assert => assert.role)),
+    new Set(config.schematronAsserts.map(assert => assert.role)),
   );
-  const assertionViews = config.assertionViews.ssp.map((view, index) => {
+  const assertionViews = config.assertionViews.map((view, index) => {
     return {
       index,
       title: view.title,
@@ -272,7 +251,7 @@ export const getFilterOptions = ({
   const assertionView = assertionViews
     .filter(view => view.index === filter.assertionViewId)
     .map(() => {
-      return config.assertionViews.ssp[filter.assertionViewId];
+      return config.assertionViews[filter.assertionViewId];
     })[0] || {
     title: '',
     groups: [],
@@ -284,14 +263,14 @@ export const getFilterOptions = ({
     assertionViews: assertionViews.map(view => ({
       ...view,
       count: filterAssertions(
-        config.schematronAsserts.ssp,
+        config.schematronAsserts,
         {
           passStatus: filter.passStatus,
           role: filter.role,
           text: filter.text,
-          assertionViewIds: config.assertionViews.ssp[
-            view.index
-          ].groups.flatMap(group => group.assertionIds),
+          assertionViewIds: config.assertionViews[view.index].groups.flatMap(
+            group => group.assertionIds,
+          ),
         },
         availableRoles,
         failedAssertionMap,
@@ -310,7 +289,7 @@ export const getFilterOptions = ({
               warning: 'View suggested rules',
             }[role] || '',
           count: filterAssertions(
-            config.schematronAsserts.ssp,
+            config.schematronAsserts,
             {
               passStatus: filter.passStatus,
               role,
@@ -329,7 +308,7 @@ export const getFilterOptions = ({
         title: 'All assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
-          config.schematronAsserts.ssp,
+          config.schematronAsserts,
           {
             passStatus: 'all',
             role: filter.role,
@@ -345,7 +324,7 @@ export const getFilterOptions = ({
         title: 'Passing assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
-          config.schematronAsserts.ssp,
+          config.schematronAsserts,
           {
             passStatus: 'pass',
             role: filter.role,
@@ -361,7 +340,7 @@ export const getFilterOptions = ({
         title: 'Failing assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
-          config.schematronAsserts.ssp,
+          config.schematronAsserts,
           {
             passStatus: 'fail',
             role: filter.role,

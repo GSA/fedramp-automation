@@ -10,10 +10,6 @@ import {
   SchematronUIConfig,
 } from '../lib/schematron';
 import { getSchematronReport } from '../lib/schematron';
-import {
-  AssertionDocumentationMachine,
-  createAssertionDocumentationMachine,
-} from './assertion-documetation';
 import { createValidatorMachine, ValidatorMachine } from './validator-machine';
 
 type States =
@@ -25,7 +21,6 @@ type States =
     };
 
 type BaseState = {
-  assertionDocumentation: AssertionDocumentationMachine;
   config: SchematronUIConfig;
   filter: SchematronFilter;
   filterOptions: SchematronFilterOptions;
@@ -124,20 +119,9 @@ export const createSchematronMachine = () => {
   return schematronMachine.create(
     { current: 'UNINITIALIZED' },
     {
-      assertionDocumentation: createAssertionDocumentationMachine(),
       config: {
-        assertionViews: {
-          poam: [],
-          sap: [],
-          sar: [],
-          ssp: [],
-        },
-        schematronAsserts: {
-          poam: [],
-          sap: [],
-          sar: [],
-          ssp: [],
-        },
+        assertionViews: [],
+        schematronAsserts: [],
       },
       filter: {
         passStatus: 'all',
@@ -166,8 +150,6 @@ export const createSchematronMachine = () => {
                 ? state.validator.validationReport.title
                 : 'FedRAMP Package Concerns',
           },
-          xspecScenarioSummaries:
-            state.assertionDocumentation.xspecScenarioSummaries,
         }),
       ),
       validator: createValidatorMachine(),

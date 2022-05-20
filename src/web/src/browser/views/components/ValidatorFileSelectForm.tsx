@@ -4,8 +4,12 @@ import { onFileInputChangeGetFile } from '../../util/file-input';
 import { useActions, useAppState } from '../hooks';
 
 export const ValidatorFileSelectForm = () => {
-  const { sourceRepository, schematron } = useAppState();
   const actions = useActions();
+  const state = useAppState();
+
+  const sourceRepository = state.sourceRepository;
+  const schematron = state.schematron.ssp;
+
   return (
     <>
       <div className="tablet:grid-col-4">

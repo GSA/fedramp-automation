@@ -8,14 +8,13 @@ import { AssertionXSpecScenarios } from './AssertionXSpecScenarios';
 Modal.setAppElement('#root');
 
 export const ValidatorContentOverlay = () => {
-  const { schematron } = useAppState();
+  const assertionDocumentation = useAppState().assertionDocumentation;
   const actions = useActions();
-
   return (
     <div>
       <Modal
         className="position-absolute top-2 bottom-2 right-2 left-2 margin-2 bg-white overflow-scroll"
-        isOpen={schematron.assertionDocumentation.visibleDocumentation !== null}
+        isOpen={assertionDocumentation.visibleDocumentation !== null}
         onRequestClose={actions.assertionDocumentation.close}
         contentLabel="Assertion rule examples"
         style={{
@@ -31,12 +30,13 @@ export const ValidatorContentOverlay = () => {
           </button>
           <h2>Assertion Examples</h2>
         </div>
-        {schematron.assertionDocumentation.visibleDocumentation ? (
+        {assertionDocumentation.visibleDocumentation &&
+        assertionDocumentation.documentType ? (
           <AssertionXSpecScenarios
             scenarioSummaries={
-              schematron.assertionDocumentation.xspecScenarioSummaries.ssp[
-                schematron.assertionDocumentation.visibleDocumentation
-              ]
+              assertionDocumentation.xspecScenarioSummaries[
+                assertionDocumentation.documentType
+              ][assertionDocumentation.visibleDocumentation]
             }
           />
         ) : null}

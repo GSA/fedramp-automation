@@ -5,45 +5,35 @@ describe('presenter schematron library', () => {
   describe('getSchematronReport', () => {
     const testData = {
       config: {
-        assertionViews: {
-          poam: [],
-          sap: [],
-          sar: [],
-          ssp: [
-            {
-              title: 'Assertion view title',
-              groups: [
-                {
-                  title: 'Assertion group title',
-                  assertionIds: ['unique-1', 'unique-2'],
-                  groups: undefined,
-                },
-              ],
-            },
-          ],
-        },
-        schematronAsserts: {
-          poam: [],
-          sap: [],
-          sar: [],
-          ssp: [
-            {
-              id: 'unique-1',
-              message: 'Assertion message',
-              role: 'error',
-            },
-            {
-              id: 'unique-2',
-              message: 'Assertion message',
-              role: 'error',
-            },
-            {
-              id: 'unique-3',
-              message: 'Assertion message',
-              role: 'error',
-            },
-          ],
-        },
+        assertionViews: [
+          {
+            title: 'Assertion view title',
+            groups: [
+              {
+                title: 'Assertion group title',
+                assertionIds: ['unique-1', 'unique-2'],
+                groups: undefined,
+              },
+            ],
+          },
+        ],
+        schematronAsserts: [
+          {
+            id: 'unique-1',
+            message: 'Assertion message',
+            role: 'error',
+          },
+          {
+            id: 'unique-2',
+            message: 'Assertion message',
+            role: 'error',
+          },
+          {
+            id: 'unique-3',
+            message: 'Assertion message',
+            role: 'error',
+          },
+        ],
       },
       filter: {
         passStatus: 'all' as PassStatus,
@@ -97,32 +87,27 @@ describe('presenter schematron library', () => {
           ],
         },
       },
-      xspecScenarioSummaries: {
-        poam: {},
-        sap: {},
-        sar: {},
-        ssp: {
-          'no-security-sensitivity-level': [
-            {
-              assertionId: 'no-security-sensitivity-level',
-              assertionLabel: 'it is invalid.',
-              context:
-                '<span class="hljs-tag">&lt;<span class="hljs-name">system-security-plan</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://csrc.nist.gov/ns/oscal/1.0&quot;</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n        <span class="hljs-tag">&lt;<span class="hljs-name">security-sensitivity-level</span>/&gt;</span>\r\n    <span class="hljs-tag">&lt;/<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n<span class="hljs-tag">&lt;/<span class="hljs-name">system-security-plan</span>&gt;</span>',
-              label:
-                'For an OSCAL FedRAMP SSP Section 2.1 when the security sensitivity level is not defined at all',
-            },
-          ],
-          'invalid-security-sensitivity-level': [
-            {
-              assertionId: 'invalid-security-sensitivity-level',
-              assertionLabel: 'it is valid.',
-              context:
-                '<span class="hljs-tag">&lt;<span class="hljs-name">system-security-plan</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://csrc.nist.gov/ns/oscal/1.0&quot;</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n        <span class="hljs-tag">&lt;<span class="hljs-name">security-sensitivity-level</span>&gt;</span>\r\n            fips-199-low\r\n        <span class="hljs-tag">&lt;/<span class="hljs-name">security-sensitivity-level</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;/<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n<span class="hljs-tag">&lt;/<span class="hljs-name">system-security-plan</span>&gt;</span>',
-              label:
-                'For an OSCAL FedRAMP SSP Section 2.1 when the security sensitivity level is set to a value from the official FedRAMP list',
-            },
-          ],
-        },
+      summariesByAssertionId: {
+        'no-security-sensitivity-level': [
+          {
+            assertionId: 'no-security-sensitivity-level',
+            assertionLabel: 'it is invalid.',
+            context:
+              '<span class="hljs-tag">&lt;<span class="hljs-name">system-security-plan</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://csrc.nist.gov/ns/oscal/1.0&quot;</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n        <span class="hljs-tag">&lt;<span class="hljs-name">security-sensitivity-level</span>/&gt;</span>\r\n    <span class="hljs-tag">&lt;/<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n<span class="hljs-tag">&lt;/<span class="hljs-name">system-security-plan</span>&gt;</span>',
+            label:
+              'For an OSCAL FedRAMP SSP Section 2.1 when the security sensitivity level is not defined at all',
+          },
+        ],
+        'invalid-security-sensitivity-level': [
+          {
+            assertionId: 'invalid-security-sensitivity-level',
+            assertionLabel: 'it is valid.',
+            context:
+              '<span class="hljs-tag">&lt;<span class="hljs-name">system-security-plan</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://csrc.nist.gov/ns/oscal/1.0&quot;</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n        <span class="hljs-tag">&lt;<span class="hljs-name">security-sensitivity-level</span>&gt;</span>\r\n            fips-199-low\r\n        <span class="hljs-tag">&lt;/<span class="hljs-name">security-sensitivity-level</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;/<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n<span class="hljs-tag">&lt;/<span class="hljs-name">system-security-plan</span>&gt;</span>',
+            label:
+              'For an OSCAL FedRAMP SSP Section 2.1 when the security sensitivity level is set to a value from the official FedRAMP list',
+          },
+        ],
       },
     };
 
@@ -173,18 +158,8 @@ describe('presenter schematron library', () => {
     it('handles empty state', () => {
       const options = lib.getFilterOptions({
         config: {
-          assertionViews: {
-            poam: [],
-            sap: [],
-            sar: [],
-            ssp: [],
-          },
-          schematronAsserts: {
-            poam: [],
-            sap: [],
-            sar: [],
-            ssp: [],
-          },
+          assertionViews: [],
+          schematronAsserts: [],
         },
         filter: {
           passStatus: 'all',
@@ -228,33 +203,23 @@ describe('presenter schematron library', () => {
     it('handles group with two assertions', () => {
       const options = lib.getFilterOptions({
         config: {
-          assertionViews: {
-            poam: [],
-            sap: [],
-            sar: [],
-            ssp: [
-              {
-                title: 'assertion view 1',
-                groups: [
-                  {
-                    title: 'assertion group 1',
-                    assertionIds: ['0', '1'],
-                    groups: [],
-                  },
-                ],
-              },
-            ],
-          },
-          schematronAsserts: {
-            poam: [],
-            sap: [],
-            sar: [],
-            ssp: [
-              { id: '0', message: 'msg0', role: 'error' },
-              { id: '1', message: 'msg1', role: 'error' },
-              { id: '2', message: 'msg2', role: 'error' },
-            ],
-          },
+          assertionViews: [
+            {
+              title: 'assertion view 1',
+              groups: [
+                {
+                  title: 'assertion group 1',
+                  assertionIds: ['0', '1'],
+                  groups: [],
+                },
+              ],
+            },
+          ],
+          schematronAsserts: [
+            { id: '0', message: 'msg0', role: 'error' },
+            { id: '1', message: 'msg1', role: 'error' },
+            { id: '2', message: 'msg2', role: 'error' },
+          ],
         },
         filter: {
           passStatus: 'all',

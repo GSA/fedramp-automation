@@ -3,7 +3,6 @@ import { match } from 'path-to-regexp';
 export type RouteTypes = {
   Home: { type: 'Home' };
   Validator: { type: 'Validator' };
-  Summary: { type: 'Summary' };
   Assertion: {
     type: 'Assertion';
     assertionId: string;
@@ -24,9 +23,6 @@ export namespace Routes {
   };
   export const validator: RouteTypes['Validator'] = {
     type: 'Validator',
-  };
-  export const summary: RouteTypes['Summary'] = {
-    type: 'Summary',
   };
   export const assertion = (options: {
     assertionId: string;
@@ -49,7 +45,6 @@ export namespace Routes {
 const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   Home: () => '#/',
   Validator: () => '#/validator',
-  Summary: () => '#/summary',
   Assertion: (route: RouteTypes['Assertion']) =>
     `#/assertions/${route.assertionId}`,
   Developers: () => '#/developers',
@@ -76,7 +71,6 @@ const matchRoute = <L extends Route>(
 const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
   Home: matchRoute('#/', () => Routes.home),
   Validator: matchRoute('#/validator', () => Routes.validator),
-  Summary: matchRoute('#/summary', () => Routes.summary),
   Assertion: matchRoute('#/assertions/:assertionId', Routes.assertion),
   Developers: matchRoute('#/developers', () => Routes.developers),
   UsageTracking: matchRoute('#/usage-tracking', () => Routes.usageTracking),
@@ -114,15 +108,6 @@ export const breadcrumbs: Record<
       {
         text: 'Validator',
         linkUrl: route.type !== 'Validator' && getUrl(Routes.home),
-      },
-    ];
-  },
-  Summary: (route: Route) => {
-    return [
-      ...breadcrumbs.Home(route),
-      {
-        text: 'Document name',
-        linkUrl: route.type !== 'Summary' && getUrl(Routes.summary),
       },
     ];
   },

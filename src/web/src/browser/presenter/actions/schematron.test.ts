@@ -13,53 +13,43 @@ xdescribe('schematron', () => {
 
   describe('filtering', () => {
     it('by role works', () => {
-      presenter.state.schematron.send('CONFIG_LOADED', {
+      presenter.state.schematron.ssp.send('CONFIG_LOADED', {
         config: {
-          assertionViews: {
-            poam: [],
-            sap: [],
-            sar: [],
-            ssp: [
-              {
-                title: 'test view',
-                groups: [
-                  {
-                    title: 'test group',
-                    assertionIds: [
-                      'incorrect-role-association',
-                      'incomplete-core-implemented-requirements',
-                    ],
-                    groups: [],
-                  },
-                ],
-              },
-            ],
-          },
-          schematronAsserts: {
-            poam: MOCK_SCHEMATRON_ASSERTIONS,
-            sap: MOCK_SCHEMATRON_ASSERTIONS,
-            sar: MOCK_SCHEMATRON_ASSERTIONS,
-            ssp: MOCK_SCHEMATRON_ASSERTIONS,
-          },
+          assertionViews: [
+            {
+              title: 'test view',
+              groups: [
+                {
+                  title: 'test group',
+                  assertionIds: [
+                    'incorrect-role-association',
+                    'incomplete-core-implemented-requirements',
+                  ],
+                  groups: [],
+                },
+              ],
+            },
+          ],
+          schematronAsserts: MOCK_SCHEMATRON_ASSERTIONS,
         },
       });
-      expect(presenter.state.schematron.filter).toEqual({
+      expect(presenter.state.schematron.ssp.filter).toEqual({
         assertionViewId: 0,
         role: 'all',
         text: '',
       });
-      expect(presenter.state.schematron.filterOptions.roles).toEqual([
+      expect(presenter.state.schematron.ssp.filterOptions.roles).toEqual([
         'all',
         'error',
         'info',
         'warn',
       ]);
       presenter.actions.schematron.setFilterRole('error');
-      expect(presenter.state.schematron.filter).toEqual({
+      expect(presenter.state.schematron.ssp.filter).toEqual({
         role: 'error',
         text: '',
       });
-      expect(presenter.state.schematron.schematronReport).toEqual({
+      expect(presenter.state.schematron.ssp.schematronReport).toEqual({
         groups: [
           {
             checks: {
@@ -91,23 +81,23 @@ xdescribe('schematron', () => {
     });
 
     it('by text works', () => {
-      expect(presenter.state.schematron.filter).toEqual({
+      expect(presenter.state.schematron.ssp.filter).toEqual({
         assertionViewId: 0,
         role: 'all',
         text: '',
       });
-      expect(presenter.state.schematron.filterOptions.roles).toEqual([
+      expect(presenter.state.schematron.ssp.filterOptions.roles).toEqual([
         'all',
         'error',
         'info',
         'warn',
       ]);
       presenter.actions.schematron.setFilterText('incomplete');
-      expect(presenter.state.schematron.filter).toEqual({
+      expect(presenter.state.schematron.ssp.filter).toEqual({
         role: 'all',
         text: 'incomplete',
       });
-      expect(presenter.state.schematron.schematronReport).toEqual({
+      expect(presenter.state.schematron.ssp.schematronReport).toEqual({
         groups: [
           {
             checks: {

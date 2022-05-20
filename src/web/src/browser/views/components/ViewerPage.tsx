@@ -8,7 +8,7 @@ type ViewerProps = {
 };
 
 export const ViewerPage = (props: ViewerProps) => {
-  const validator = useAppState().schematron.validator;
+  const validator = useAppState().schematron.ssp.validator;
   let ref = createRef<HTMLDivElement>();
 
   useEffect(() => {

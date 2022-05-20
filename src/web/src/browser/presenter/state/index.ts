@@ -15,10 +15,16 @@ export type SampleSSP = {
 };
 
 export type State = {
+  assertionDocumentation: AssertionDocumentationMachine;
   baseUrl: string;
   metrics: MetricsMachine;
   router: RouterMachine;
-  schematron: SchematronMachine;
+  schematron: {
+    poam: SchematronMachine;
+    sap: SchematronMachine;
+    sar: SchematronMachine;
+    ssp: SchematronMachine;
+  };
   sourceRepository: {
     treeUrl?: string;
     sampleSSPs: SampleSSP[];
@@ -27,10 +33,16 @@ export type State = {
 };
 
 export const state: State = {
+  assertionDocumentation: createAssertionDocumentationMachine(),
   baseUrl: '',
   metrics: createMetricsMachine(),
   router: createRouterMachine(),
-  schematron: createSchematronMachine(),
+  schematron: {
+    poam: createSchematronMachine(),
+    sap: createSchematronMachine(),
+    sar: createSchematronMachine(),
+    ssp: createSchematronMachine(),
+  },
   sourceRepository: {
     sampleSSPs: [],
   },

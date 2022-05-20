@@ -7,7 +7,6 @@ import { Footer } from './Footer';
 import { Header } from './Header';
 import { HomePage } from './HomePage';
 import { InnerPageLayout } from './InnerPageLayout';
-import { SummaryPage } from './SummaryPage';
 import { UsaBanner } from './UsaBanner';
 import { UsageTrackingPage } from './UsageTrackingPage';
 import { ValidatorContentOverlay } from './ValidatorContentOverlay';
@@ -26,12 +25,6 @@ const CurrentPage = () => {
         </InnerPageLayout>
         <ValidatorContentOverlay />
       </>
-    );
-  } else if (currentRoute.type === 'Summary') {
-    return (
-      <InnerPageLayout>
-        <SummaryPage />
-      </InnerPageLayout>
     );
   } else if (currentRoute.type === 'Assertion') {
     return (

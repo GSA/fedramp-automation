@@ -1,12 +1,19 @@
 import React from 'react';
 
+import type { Presenter } from '@asap/browser/presenter';
 import { Routes, getUrl } from '@asap/browser/presenter/state/router';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
 
-export const ValidatorReport = () => {
-  const { schematronReport } = useAppState().schematron;
+type Props = {
+  documentType: keyof Presenter['state']['schematron'];
+};
+
+export const ValidatorReport = ({ documentType }: Props) => {
+  const schematronReport =
+    useAppState().schematron[documentType].schematronReport;
+
   const actions = useActions();
   return (
     <>
@@ -98,7 +105,10 @@ export const ValidatorReport = () => {
                   <button
                     className="usa-button usa-button--unstyled"
                     onClick={() =>
-                      actions.assertionDocumentation.show(check.id)
+                      actions.assertionDocumentation.show({
+                        assertionId: check.id,
+                        documentType,
+                      })
                     }
                     title="View examples"
                   >

@@ -5,9 +5,6 @@ describe('router', () => {
     it('parses /', () => {
       expect(router.getRoute('#/')).toEqual({ type: 'Home' });
     });
-    it('parses /summary', () => {
-      expect(router.getRoute('#/summary')).toEqual({ type: 'Summary' });
-    });
     it('parses /assertions/assertion-id', () => {
       expect(router.getRoute('#/assertions/assertion-id')).toEqual({
         type: 'Assertion',
@@ -24,9 +21,6 @@ describe('router', () => {
   describe('getUrl', () => {
     it('returns HomeRoute', () => {
       expect(router.getUrl(router.Routes.home)).toEqual('#/');
-    });
-    it('returns SummaryRoute', () => {
-      expect(router.getUrl(router.Routes.summary)).toEqual('#/summary');
     });
     it('returns AssertionRoute', () => {
       expect(

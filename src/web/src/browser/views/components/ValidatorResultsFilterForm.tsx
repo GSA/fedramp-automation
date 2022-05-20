@@ -1,10 +1,15 @@
+import type { Presenter } from '@asap/browser/presenter';
 import React, { useRef } from 'react';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
 
-export const ValidatorResultsFilterForm = () => {
-  const { schematron } = useAppState();
+type Props = {
+  documentType: keyof Presenter['state']['schematron'];
+};
+
+export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
+  const schematron = useAppState().schematron[documentType];
   const actions = useActions();
 
   const topRef = useRef<HTMLHeadingElement>(null);

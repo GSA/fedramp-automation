@@ -3,7 +3,7 @@ import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import type { PresenterConfig } from '..';
 
 export const reset = ({ state }: PresenterConfig) => {
-  state.schematron.validator.send('RESET');
+  state.schematron.ssp.validator.send('RESET');
 };
 
 export const setSspFile = async (
@@ -12,7 +12,7 @@ export const setSspFile = async (
 ) => {
   actions.validator.reset();
   if (
-    state.schematron.validator
+    state.schematron.ssp.validator
       .send('PROCESSING_STRING', { fileName: options.fileName })
       .matches('PROCESSING')
   ) {
@@ -37,7 +37,7 @@ export const setXmlUrl = async (
 ) => {
   actions.validator.reset();
   if (
-    state.schematron.validator
+    state.schematron.ssp.validator
       .send('PROCESSING_URL', { xmlFileUrl })
       .matches('PROCESSING')
   ) {
@@ -50,11 +50,11 @@ export const setXmlUrl = async (
 };
 
 export const annotateXml = async ({ effects, state }: PresenterConfig) => {
-  if (state.schematron.validator.current === 'VALIDATED') {
+  if (state.schematron.ssp.validator.current === 'VALIDATED') {
     const annotatedSSP = await effects.useCases.annotateXML({
-      xmlString: state.schematron.validator.xmlText,
+      xmlString: state.schematron.ssp.validator.xmlText,
       annotations:
-        state.schematron.validator.validationReport.failedAsserts.map(
+        state.schematron.ssp.validator.validationReport.failedAsserts.map(
           assert => {
             return {
               uniqueId: assert.uniqueId,
@@ -63,7 +63,7 @@ export const annotateXml = async ({ effects, state }: PresenterConfig) => {
           },
         ),
     });
-    state.schematron.validator.annotatedSSP = annotatedSSP;
+    state.schematron.ssp.validator.annotatedSSP = annotatedSSP;
   }
 };
 
@@ -71,8 +71,8 @@ export const setProcessingError = (
   { state }: PresenterConfig,
   errorMessage: string,
 ) => {
-  if (state.schematron.validator.matches('PROCESSING')) {
-    state.schematron.validator.send('PROCESSING_ERROR', { errorMessage });
+  if (state.schematron.ssp.validator.matches('PROCESSING')) {
+    state.schematron.ssp.validator.send('PROCESSING_ERROR', { errorMessage });
   }
 };
 
@@ -86,8 +86,11 @@ export const setValidationReport = (
     xmlText: string;
   },
 ) => {
-  if (state.schematron.validator.matches('PROCESSING')) {
-    state.schematron.validator.send('VALIDATED', { validationReport, xmlText });
+  if (state.schematron.ssp.validator.matches('PROCESSING')) {
+    state.schematron.ssp.validator.send('VALIDATED', {
+      validationReport,
+      xmlText,
+    });
     actions.metrics.logValidationSummary();
   }
 };

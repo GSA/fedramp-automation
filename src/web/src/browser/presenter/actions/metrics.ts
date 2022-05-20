@@ -23,12 +23,12 @@ export const logAppInitialization = ({ effects, state }: PresenterConfig) => {
 };
 
 export const logValidationSummary = ({ effects, state }: PresenterConfig) => {
-  if (state.schematron.validator.current === 'VALIDATED') {
+  if (state.schematron.ssp.validator.current === 'VALIDATED') {
     effects.useCases.appMetrics.log({
       eventType: 'validation-summary',
       userAlias: undefined,
       data: {
-        failedAsserts: state.schematron.validator.failedAssertionCounts,
+        failedAsserts: state.schematron.ssp.validator.failedAssertionCounts,
       },
     });
   }
