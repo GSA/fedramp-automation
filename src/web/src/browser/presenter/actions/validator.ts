@@ -1,41 +1,49 @@
+import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 
 import type { PresenterConfig } from '..';
 
-export const reset = ({ state }: PresenterConfig) => {
-  state.schematron.ssp.validator.send('RESET');
+export const reset = (
+  { state }: PresenterConfig,
+  documentType: OscalDocumentKey,
+) => {
+  state.schematron[documentType].validator.send('RESET');
 };
 
-export const setSspFile = async (
+export const validateOscalDocument = async (
   { actions, state, effects }: PresenterConfig,
   options: { fileName: string; fileContents: string },
 ) => {
-  actions.validator.reset();
-  if (
-    state.schematron.ssp.validator
-      .send('PROCESSING_STRING', { fileName: options.fileName })
-      .matches('PROCESSING')
-  ) {
-    return effects.useCases
-      .validateSSP(options.fileContents)
-      .then(validationReport =>
-        actions.validator.setValidationReport({
-          validationReport,
-          xmlText: options.fileContents,
-        }),
-      )
-      .then(actions.validator.annotateXml)
-      .catch((error: Error) =>
-        actions.validator.setProcessingError(error.message),
-      );
-  }
+  effects.useCases.oscalService
+    .initDocument(options.fileContents)
+    .then(({ documentType, xmlString }) => {
+      actions.validator.reset(documentType);
+      if (
+        state.schematron[documentType].validator
+          .send('PROCESSING_STRING', { fileName: options.fileName })
+          .matches('PROCESSING')
+      ) {
+        return effects.useCases
+          .validateSSP(xmlString)
+          .then(validationReport =>
+            actions.validator.setValidationReport({
+              validationReport,
+              xmlText: xmlString,
+            }),
+          )
+          .then(actions.validator.annotateXml)
+          .catch((error: Error) =>
+            actions.validator.setProcessingError(error.message),
+          );
+      }
+    });
 };
 
 export const setXmlUrl = async (
   { actions, effects, state }: PresenterConfig,
   xmlFileUrl: string,
 ) => {
-  actions.validator.reset();
+  actions.validator.reset('ssp');
   if (
     state.schematron.ssp.validator
       .send('PROCESSING_URL', { xmlFileUrl })

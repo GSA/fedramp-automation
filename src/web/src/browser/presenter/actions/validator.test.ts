@@ -18,7 +18,7 @@ describe('report action', () => {
       expect(presenter.state.schematron.ssp.validator.current).toEqual(
         'UNLOADED',
       );
-      presenter.actions.validator.reset();
+      presenter.actions.validator.reset('ssp');
       expect(presenter.state.schematron.ssp.validator.current).toEqual(
         'UNLOADED',
       );
@@ -26,14 +26,14 @@ describe('report action', () => {
 
     it('is disabled while processing', async () => {
       const presenter = createPresenterMock(config);
-      const promise = presenter.actions.validator.setSspFile({
+      const promise = presenter.actions.validator.validateOscalDocument({
         fileName: 'file-name.xml',
         fileContents: '<xml></xml>',
       });
       expect(presenter.state.schematron.ssp.validator.current).toEqual(
         'PROCESSING',
       );
-      presenter.actions.validator.reset();
+      presenter.actions.validator.reset('ssp');
       expect(presenter.state.schematron.ssp.validator.current).toEqual(
         'PROCESSING',
       );
@@ -42,21 +42,21 @@ describe('report action', () => {
 
     it('works on validated', async () => {
       const presenter = createPresenterMock(config);
-      await presenter.actions.validator.setSspFile({
+      await presenter.actions.validator.validateOscalDocument({
         fileName: 'file-name.xml',
         fileContents: '<xml></xml>',
       });
       expect(presenter.state.schematron.ssp.validator.current).toEqual(
         'VALIDATED',
       );
-      presenter.actions.validator.reset();
+      presenter.actions.validator.reset('ssp');
       expect(presenter.state.schematron.ssp.validator.current).toEqual(
         'UNLOADED',
       );
     });
   });
 
-  describe('setSspFile', () => {
+  describe('validateOscalDocument', () => {
     it('should work', async () => {
       const mockXml = 'mock xml';
       const presenter = createPresenterMock({
@@ -73,7 +73,7 @@ describe('report action', () => {
       expect(presenter.state.schematron.ssp.validator.current).toEqual(
         'UNLOADED',
       );
-      const promise = presenter.actions.validator.setSspFile({
+      const promise = presenter.actions.validator.validateOscalDocument({
         fileName: 'file-name.xml',
         fileContents: mockXml,
       });

@@ -1,5 +1,7 @@
 import type { PassStatus, Role } from '../lib/schematron';
-import type { PresenterConfig } from '..';
+import type { Presenter, PresenterConfig } from '..';
+
+type SchematronDoc = keyof Presenter['state']['schematron'];
 
 export const initialize = ({ effects, state }: PresenterConfig) => {
   Promise.all([
@@ -33,26 +35,40 @@ export const initialize = ({ effects, state }: PresenterConfig) => {
   });
 };
 
-export const setFilterRole = ({ state }: PresenterConfig, role: Role) => {
-  state.schematron.ssp.send('FILTER_ROLE_CHANGED', { role });
+export const setFilterRole = (
+  { state }: PresenterConfig,
+  { documentType, role }: { documentType: SchematronDoc; role: Role },
+) => {
+  state.schematron[documentType].send('FILTER_ROLE_CHANGED', { role });
 };
 
-export const setFilterText = ({ state }: PresenterConfig, text: string) => {
-  state.schematron.ssp.send('FILTER_TEXT_CHANGED', { text });
+export const setFilterText = (
+  { state }: PresenterConfig,
+  { documentType, text }: { documentType: SchematronDoc; text: string },
+) => {
+  state.schematron[documentType].send('FILTER_TEXT_CHANGED', { text });
 };
 
 export const setFilterAssertionView = (
   { state }: PresenterConfig,
-  assertionViewId: number,
+  {
+    documentType,
+    assertionViewId,
+  }: { documentType: SchematronDoc; assertionViewId: number },
 ) => {
-  state.schematron.ssp.send('FILTER_ASSERTION_VIEW_CHANGED', {
+  state.schematron[documentType].send('FILTER_ASSERTION_VIEW_CHANGED', {
     assertionViewId,
   });
 };
 
 export const setPassStatus = (
   { state }: PresenterConfig,
-  passStatus: PassStatus,
+  {
+    documentType,
+    passStatus,
+  }: { documentType: SchematronDoc; passStatus: PassStatus },
 ) => {
-  state.schematron.ssp.send('FILTER_PASS_STATUS_CHANGED', { passStatus });
+  state.schematron[documentType].send('FILTER_PASS_STATUS_CHANGED', {
+    passStatus,
+  });
 };

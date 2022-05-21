@@ -14,7 +14,7 @@ export const ValidatorFileSelectForm = () => {
     <>
       <div className="tablet:grid-col-4">
         <div className="usa-hint" id="file-input-specific-hint">
-          Select FedRAMP OSCAL SSP XML or JSON file
+          Select FedRAMP OSCAL XML or JSON file (SSP, SAP, SAR, or POA&M)
         </div>
         <input
           id="file-input-specific"
@@ -24,7 +24,7 @@ export const ValidatorFileSelectForm = () => {
           aria-describedby="file-input-specific-hint"
           accept=".xml,.json"
           onChange={onFileInputChangeGetFile(fileDetails => {
-            actions.validator.setSspFile({
+            actions.validator.validateOscalDocument({
               fileName: fileDetails.name,
               fileContents: fileDetails.text,
             });

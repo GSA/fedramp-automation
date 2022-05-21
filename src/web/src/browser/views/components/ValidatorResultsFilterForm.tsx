@@ -14,14 +14,15 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
 
   const topRef = useRef<HTMLHeadingElement>(null);
   const scrollIntoView = () => {
-    if (topRef && topRef.current && topRef.current.parentElement) {
-      topRef.current.parentElement.scrollIntoView();
+    if (topRef && topRef.current) {
+      console.log('Skipping scroll until multi-document UI is done...');
+      //topRef.current.scrollIntoView();
     }
   };
 
   return (
     <>
-      <h2 ref={topRef}>Filtering Options</h2>
+      <h2 ref={topRef}>Filtering Options {documentType}</h2>
       <form className="usa-form padding-top-1">
         <fieldset className="usa-fieldset">
           <legend className="usa-legend text-base font-sans-md">
@@ -39,7 +40,10 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   checked={schematron.filter.passStatus === passStatus.id}
                   disabled={!passStatus.enabled}
                   onChange={() => {
-                    actions.schematron.setPassStatus(passStatus.id);
+                    actions.schematron.setPassStatus({
+                      documentType,
+                      passStatus: passStatus.id,
+                    });
                     scrollIntoView();
                   }}
                 />
@@ -72,9 +76,10 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                     schematron.filter.assertionViewId === assertionView.index
                   }
                   onChange={() => {
-                    actions.schematron.setFilterAssertionView(
-                      assertionView.index,
-                    );
+                    actions.schematron.setFilterAssertionView({
+                      documentType,
+                      assertionViewId: assertionView.index,
+                    });
                     scrollIntoView();
                   }}
                 />
@@ -132,7 +137,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   if (event && event.target) {
                     text = event.target.value;
                   }
-                  actions.schematron.setFilterText(text);
+                  actions.schematron.setFilterText({ documentType, text });
                 }}
                 placeholder="Search text..."
               />
@@ -155,7 +160,10 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   value={filterRole.name}
                   checked={schematron.filter.role === filterRole.name}
                   onChange={() => {
-                    actions.schematron.setFilterRole(filterRole.name);
+                    actions.schematron.setFilterRole({
+                      documentType,
+                      role: filterRole.name,
+                    });
                     scrollIntoView();
                   }}
                 />

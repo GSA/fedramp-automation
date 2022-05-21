@@ -1,6 +1,7 @@
 import * as github from '@asap/shared/domain/github';
 import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import { AppMetrics } from '@asap/shared/use-cases/app-metrics';
+import { OscalService } from '@asap/shared/use-cases/oscal';
 import {
   ValidateSSPUseCase,
   ValidateSSPUrlUseCase,
@@ -160,6 +161,7 @@ export const runBrowserContext = ({
               ssp: responses[3],
             };
           },
+          oscalService: new OscalService(jsonSspToXml),
           validateSSP: ValidateSSPUseCase({
             jsonSspToXml,
             processSchematron,

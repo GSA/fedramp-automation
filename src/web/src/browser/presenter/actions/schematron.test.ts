@@ -44,7 +44,10 @@ xdescribe('schematron', () => {
         'info',
         'warn',
       ]);
-      presenter.actions.schematron.setFilterRole('error');
+      presenter.actions.schematron.setFilterRole({
+        documentType: 'ssp',
+        role: 'error',
+      });
       expect(presenter.state.schematron.ssp.filter).toEqual({
         role: 'error',
         text: '',
@@ -92,7 +95,10 @@ xdescribe('schematron', () => {
         'info',
         'warn',
       ]);
-      presenter.actions.schematron.setFilterText('incomplete');
+      presenter.actions.schematron.setFilterText({
+        documentType: 'ssp',
+        text: 'incomplete',
+      });
       expect(presenter.state.schematron.ssp.filter).toEqual({
         role: 'all',
         text: 'incomplete',
