@@ -8,6 +8,7 @@ import {
   createSchematronMachine,
   SchematronMachine,
 } from './schematron-machine';
+import { createValidatorMachine, ValidatorMachine } from './validator-machine';
 
 export type SampleSSP = {
   url: string;
@@ -30,6 +31,7 @@ export type State = {
     sampleSSPs: SampleSSP[];
     developerExampleUrl?: string;
   };
+  validator: ValidatorMachine;
 };
 
 export const state: State = {
@@ -46,4 +48,5 @@ export const state: State = {
   sourceRepository: {
     sampleSSPs: [],
   },
+  validator: createValidatorMachine(),
 };

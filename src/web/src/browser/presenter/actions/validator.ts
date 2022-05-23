@@ -3,30 +3,26 @@ import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 
 import type { PresenterConfig } from '..';
 
-export const reset = (
-  { state }: PresenterConfig,
-  documentType: OscalDocumentKey,
-) => {
-  state.schematron[documentType].validator.send('RESET');
+export const reset = ({ state }: PresenterConfig) => {
+  state.validator.send('RESET');
 };
 
 export const validateOscalDocument = async (
   { actions, state, effects }: PresenterConfig,
   options: { fileName: string; fileContents: string },
 ) => {
-  effects.useCases.oscalService
-    .initDocument(options.fileContents)
-    .then(({ documentType, xmlString }) => {
-      actions.validator.reset(documentType);
-      if (
-        state.schematron[documentType].validator
-          .send('PROCESSING_STRING', { fileName: options.fileName })
-          .matches('PROCESSING')
-      ) {
+  actions.validator.reset();
+  if (
+    state.validator.send('PROCESSING_STRING', { fileName: options.fileName })
+  ) {
+    effects.useCases.oscalService
+      .initDocument(options.fileContents)
+      .then(({ documentType, xmlString }) => {
         effects.useCases.oscalService
           .validateOscal({ documentType, xmlString })
           .then(validationReport =>
             actions.validator.setValidationReport({
+              documentType,
               validationReport,
               xmlText: xmlString,
             }),
@@ -35,27 +31,26 @@ export const validateOscalDocument = async (
           .catch((error: Error) =>
             actions.validator.setProcessingError(error.message),
           );
-      }
-    });
+      });
+  }
 };
 
 export const setXmlUrl = async (
   { actions, effects, state }: PresenterConfig,
   xmlFileUrl: string,
 ) => {
-  effects.useCases.oscalService
-    .initDocumentByUrl(xmlFileUrl)
-    .then(({ documentType, xmlString }) => {
-      actions.validator.reset(documentType);
-      if (
-        state.schematron[documentType].validator
-          .send('PROCESSING_URL', { xmlFileUrl })
-          .matches('PROCESSING')
-      ) {
+  actions.validator.reset();
+  if (
+    state.validator.send('PROCESSING_URL', { xmlFileUrl }).matches('PROCESSING')
+  ) {
+    effects.useCases.oscalService
+      .initDocumentByUrl(xmlFileUrl)
+      .then(({ documentType, xmlString }) => {
         effects.useCases.oscalService
           .validateOscal({ documentType, xmlString })
           .then(validationReport =>
             actions.validator.setValidationReport({
+              documentType,
               validationReport,
               xmlText: xmlString,
             }),
@@ -64,25 +59,24 @@ export const setXmlUrl = async (
           .catch((error: Error) =>
             actions.validator.setProcessingError(error.message),
           );
-      }
-    });
+      });
+  }
 };
 
 export const annotateXml = async ({ effects, state }: PresenterConfig) => {
-  if (state.schematron.ssp.validator.current === 'VALIDATED') {
+  if (state.validator.current === 'VALIDATED') {
     const annotatedSSP = await effects.useCases.annotateXML({
-      xmlString: state.schematron.ssp.validator.xmlText,
-      annotations:
-        state.schematron.ssp.validator.validationReport.failedAsserts.map(
-          assert => {
-            return {
-              uniqueId: assert.uniqueId,
-              xpath: assert.location,
-            };
-          },
-        ),
+      xmlString: state.validator.xmlText,
+      annotations: state.validator.validationReport.failedAsserts.map(
+        assert => {
+          return {
+            uniqueId: assert.uniqueId,
+            xpath: assert.location,
+          };
+        },
+      ),
     });
-    state.schematron.ssp.validator.annotatedSSP = annotatedSSP;
+    state.validator.annotatedSSP = annotatedSSP;
   }
 };
 
@@ -90,26 +84,28 @@ export const setProcessingError = (
   { state }: PresenterConfig,
   errorMessage: string,
 ) => {
-  if (state.schematron.ssp.validator.matches('PROCESSING')) {
-    state.schematron.ssp.validator.send('PROCESSING_ERROR', { errorMessage });
+  if (state.validator.matches('PROCESSING')) {
+    state.validator.send('PROCESSING_ERROR', { errorMessage });
   }
 };
 
 export const setValidationReport = (
   { actions, state }: PresenterConfig,
   {
+    documentType,
     validationReport,
     xmlText,
   }: {
+    documentType: OscalDocumentKey;
     validationReport: ValidationReport;
     xmlText: string;
   },
 ) => {
-  if (state.schematron.ssp.validator.matches('PROCESSING')) {
-    state.schematron.ssp.validator.send('VALIDATED', {
+  if (state.validator.matches('PROCESSING')) {
+    state.validator.send('VALIDATED', {
       validationReport,
       xmlText,
     });
-    actions.metrics.logValidationSummary();
+    actions.metrics.logValidationSummary(documentType);
   }
 };

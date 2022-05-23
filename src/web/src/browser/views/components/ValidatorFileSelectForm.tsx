@@ -8,7 +8,6 @@ export const ValidatorFileSelectForm = () => {
   const state = useAppState();
 
   const sourceRepository = state.sourceRepository;
-  const schematron = state.schematron.ssp;
 
   return (
     <>
@@ -29,11 +28,11 @@ export const ValidatorFileSelectForm = () => {
               fileContents: fileDetails.text,
             });
           })}
-          disabled={schematron.validator.current === 'PROCESSING'}
+          disabled={state.validator.current === 'PROCESSING'}
         />
       </div>
       <div className="tablet:grid-col-8">
-        {schematron.validator.current === 'UNLOADED' && (
+        {state.validator.current === 'UNLOADED' && (
           <svg
             className="usa-icon text-info-lighter font-sans-xl float-right"
             aria-hidden="true"
@@ -47,10 +46,10 @@ export const ValidatorFileSelectForm = () => {
             ></use>
           </svg>
         )}
-        {schematron.validator.current === 'PROCESSING' && (
+        {state.validator.current === 'PROCESSING' && (
           <div className="loader float-right" />
         )}
-        {schematron.validator.current === 'PROCESSING_ERROR' && (
+        {state.validator.current === 'PROCESSING_ERROR' && (
           <svg
             className="usa-icon text-error font-sans-xl float-right"
             aria-hidden="true"
@@ -62,7 +61,7 @@ export const ValidatorFileSelectForm = () => {
             ></use>
           </svg>
         )}
-        {schematron.validator.current === 'VALIDATED' && (
+        {state.validator.current === 'VALIDATED' && (
           <svg
             className="usa-icon text-primary-vivid font-sans-xl float-right"
             aria-hidden="true"
@@ -95,7 +94,7 @@ export const ValidatorFileSelectForm = () => {
                 <button
                   className="usa-button usa-button--unstyled"
                   onClick={() => actions.validator.setXmlUrl(sampleSSP.url)}
-                  disabled={schematron.validator.current === 'PROCESSING'}
+                  disabled={state.validator.current === 'PROCESSING'}
                 >
                   {sampleSSP.displayName}
                 </button>
@@ -103,13 +102,11 @@ export const ValidatorFileSelectForm = () => {
             </li>
           ))}
         </ul>
-        {schematron.validator.current === 'PROCESSING_ERROR' && (
+        {state.validator.current === 'PROCESSING_ERROR' && (
           <div className="usa-alert usa-alert--error" role="alert">
             <div className="usa-alert__body">
               <h4 className="usa-alert__heading">Processing Error</h4>
-              <p className="usa-alert__text">
-                {schematron.validator.errorMessage}
-              </p>
+              <p className="usa-alert__text">{state.validator.errorMessage}</p>
             </div>
           </div>
         )}

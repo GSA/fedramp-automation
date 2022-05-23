@@ -1,5 +1,9 @@
 import { derived, Statemachine, statemachine } from 'overmind';
 
+import type {
+  FailedAssert,
+  ValidationReport,
+} from '@asap/shared/use-cases/schematron';
 import {
   getFilterOptions,
   PassStatus,
@@ -10,6 +14,7 @@ import {
   SchematronUIConfig,
 } from '../lib/schematron';
 import { getSchematronReport } from '../lib/schematron';
+import { getAssertionsById } from '../lib/validator';
 import { createValidatorMachine, ValidatorMachine } from './validator-machine';
 
 type States =
@@ -18,10 +23,16 @@ type States =
     }
   | {
       current: 'UNINITIALIZED';
+    }
+  | {
+      current: 'REPORT_LOADED';
+      validationReport: ValidationReport;
     };
 
 type BaseState = {
+  assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
   config: SchematronUIConfig;
+  failedAssertionCounts: Record<FailedAssert['id'], number> | null;
   filter: SchematronFilter;
   filterOptions: SchematronFilterOptions;
   schematronReport: SchematronReport;
@@ -33,6 +44,12 @@ type Events =
       type: 'CONFIG_LOADED';
       data: {
         config: SchematronUIConfig;
+      };
+    }
+  | {
+      type: 'SET_VALIDATION_REPORT';
+      data: {
+        validationReport: ValidationReport;
       };
     }
   | {
@@ -72,6 +89,14 @@ const schematronMachine = statemachine<States, Events, BaseState>({
     },
   },
   INITIALIZED: {
+    SET_VALIDATION_REPORT: ({ validationReport }) => {
+      return {
+        current: 'REPORT_LOADED',
+        validationReport,
+      };
+    },
+  },
+  REPORT_LOADED: {
     FILTER_TEXT_CHANGED: ({ text }, state) => {
       return {
         current: 'INITIALIZED',
@@ -119,10 +144,28 @@ export const createSchematronMachine = () => {
   return schematronMachine.create(
     { current: 'UNINITIALIZED' },
     {
+      assertionsById: derived((state: SchematronMachine) =>
+        state.current === 'REPORT_LOADED'
+          ? getAssertionsById({
+              failedAssertions: state.validationReport.failedAsserts,
+            })
+          : null,
+      ),
       config: {
         assertionViews: [],
         schematronAsserts: [],
       },
+      failedAssertionCounts: derived((state: SchematronMachine) => {
+        return state.current === 'REPORT_LOADED'
+          ? state.validationReport.failedAsserts.reduce<Record<string, number>>(
+              (acc, assert) => {
+                acc[assert.id] = (acc[assert.id] || 0) + 1;
+                return acc;
+              },
+              {},
+            )
+          : null;
+      }),
       filter: {
         passStatus: 'all',
         role: 'all',
@@ -134,7 +177,7 @@ export const createSchematronMachine = () => {
           config: state.config,
           filter: state.filter,
           failedAssertionMap: state.validator.matches('VALIDATED')
-            ? state.validator.assertionsById
+            ? state.assertionsById
             : null,
         }),
       ),
@@ -144,7 +187,7 @@ export const createSchematronMachine = () => {
           filter: state.filter,
           filterOptions: state.filterOptions,
           validator: {
-            failedAssertionMap: state.validator.assertionsById,
+            failedAssertionMap: state.assertionsById,
             title:
               state.validator.current === 'VALIDATED'
                 ? state.validator.validationReport.title

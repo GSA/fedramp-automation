@@ -15,13 +15,9 @@ describe('report action', () => {
 
     it('works on unloaded', () => {
       const presenter = createPresenterMock(config);
-      expect(presenter.state.schematron.ssp.validator.current).toEqual(
-        'UNLOADED',
-      );
-      presenter.actions.validator.reset('ssp');
-      expect(presenter.state.schematron.ssp.validator.current).toEqual(
-        'UNLOADED',
-      );
+      expect(presenter.state.validator.current).toEqual('UNLOADED');
+      presenter.actions.validator.reset();
+      expect(presenter.state.validator.current).toEqual('UNLOADED');
     });
 
     it('is disabled while processing', async () => {
@@ -30,13 +26,9 @@ describe('report action', () => {
         fileName: 'file-name.xml',
         fileContents: '<xml></xml>',
       });
-      expect(presenter.state.schematron.ssp.validator.current).toEqual(
-        'PROCESSING',
-      );
-      presenter.actions.validator.reset('ssp');
-      expect(presenter.state.schematron.ssp.validator.current).toEqual(
-        'PROCESSING',
-      );
+      expect(presenter.state.validator.current).toEqual('PROCESSING');
+      presenter.actions.validator.reset();
+      expect(presenter.state.validator.current).toEqual('PROCESSING');
       await promise;
     });
 
@@ -46,13 +38,9 @@ describe('report action', () => {
         fileName: 'file-name.xml',
         fileContents: '<xml></xml>',
       });
-      expect(presenter.state.schematron.ssp.validator.current).toEqual(
-        'VALIDATED',
-      );
-      presenter.actions.validator.reset('ssp');
-      expect(presenter.state.schematron.ssp.validator.current).toEqual(
-        'UNLOADED',
-      );
+      expect(presenter.state.validator.current).toEqual('VALIDATED');
+      presenter.actions.validator.reset();
+      expect(presenter.state.validator.current).toEqual('UNLOADED');
     });
   });
 
@@ -70,20 +58,14 @@ describe('report action', () => {
           }),
         },
       });
-      expect(presenter.state.schematron.ssp.validator.current).toEqual(
-        'UNLOADED',
-      );
+      expect(presenter.state.validator.current).toEqual('UNLOADED');
       const promise = presenter.actions.validator.validateOscalDocument({
         fileName: 'file-name.xml',
         fileContents: mockXml,
       });
-      expect(presenter.state.schematron.ssp.validator.current).toEqual(
-        'PROCESSING',
-      );
+      expect(presenter.state.validator.current).toEqual('PROCESSING');
       await promise;
-      expect(presenter.state.schematron.ssp.validator.current).toEqual(
-        'VALIDATED',
-      );
+      expect(presenter.state.validator.current).toEqual('VALIDATED');
     });
   });
 
@@ -94,9 +76,7 @@ describe('report action', () => {
         useCases: {
           validateSSPUrl: jest.fn(async (url: string) => {
             expect(url).toEqual(mockUrl);
-            expect(presenter.state.schematron.ssp.validator.current).toEqual(
-              'PROCESSING',
-            );
+            expect(presenter.state.validator.current).toEqual('PROCESSING');
             done();
             return Promise.resolve({
               xmlText: '<xml></xml>',
@@ -108,13 +88,11 @@ describe('report action', () => {
           }),
         },
       });
-      expect(presenter.state.schematron.ssp.validator.current).toEqual(
-        'UNLOADED',
-      );
+      expect(presenter.state.validator.current).toEqual('UNLOADED');
       presenter.actions.validator.setXmlUrl(mockUrl);
       presenter.actions.validator.setProcessingError('my error');
       const processingState =
-        presenter.state.schematron.ssp.validator.matches('PROCESSING_ERROR');
+        presenter.state.validator.matches('PROCESSING_ERROR');
       expect(processingState?.errorMessage).toEqual('my error');
     });
   });

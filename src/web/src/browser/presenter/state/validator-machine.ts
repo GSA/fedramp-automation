@@ -1,11 +1,6 @@
 import { derived, Statemachine, statemachine } from 'overmind';
 
-import type {
-  FailedAssert,
-  ValidationReport,
-} from '@asap/shared/use-cases/schematron';
-
-import { getAssertionsById } from '../lib/validator';
+import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 
 type States =
   | {
@@ -26,10 +21,7 @@ type States =
       annotatedSSP: string;
     };
 
-type BaseState = {
-  assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
-  failedAssertionCounts: Record<FailedAssert['id'], number> | null;
-};
+type BaseState = {};
 
 type Events =
   | {
@@ -112,27 +104,5 @@ export const validatorMachine = statemachine<States, Events, BaseState>({
 });
 
 export const createValidatorMachine = () => {
-  return validatorMachine.create(
-    { current: 'UNLOADED' },
-    {
-      assertionsById: derived((state: ValidatorMachine) =>
-        state.current === 'VALIDATED'
-          ? getAssertionsById({
-              failedAssertions: state.validationReport.failedAsserts,
-            })
-          : null,
-      ),
-      failedAssertionCounts: derived((state: ValidatorMachine) => {
-        return state.current === 'VALIDATED'
-          ? state.validationReport.failedAsserts.reduce<Record<string, number>>(
-              (acc, assert) => {
-                acc[assert.id] = (acc[assert.id] || 0) + 1;
-                return acc;
-              },
-              {},
-            )
-          : null;
-      }),
-    },
-  );
+  return validatorMachine.create({ current: 'UNLOADED' }, {});
 };
