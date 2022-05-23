@@ -256,7 +256,7 @@
                 id="has-penetration-test-plan"
                 role="warning"
                 test="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'penetration-test-plan']]">The penetration test plan methodology
-                attachment should be present</sch:assert>
+                attachment should be present.</sch:assert>
 
         </sch:rule>
 

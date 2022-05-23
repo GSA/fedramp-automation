@@ -32,7 +32,7 @@ import net.sf.saxon.s9api.XsltTransformer;
  * rules to an OSCAL Fedramp System Security Plan.
  */
 public class FedrampAutomationValidator {
-  private static final String FEDRAMP_AUTOMATION_XSLT = new File("../../../src/validations/target/ssp.xsl")
+  private static final String FEDRAMP_AUTOMATION_XSLT = new File("../../../src/validations/target/rules/ssp.sch.xsl")
       .getAbsolutePath();
   private static final String BASELINES_PATH = new File("../../../dist/content/baselines/rev4/xml").getAbsolutePath();
   private static final String RESOURCES_PATH = new File("../../../dist/content/resources/xml").getAbsolutePath();

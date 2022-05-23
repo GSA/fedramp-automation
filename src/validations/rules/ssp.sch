@@ -2338,7 +2338,7 @@
                         (oscal:prop[@name eq 'ipv6-address'])
                     else
                         (true())">If any inventory-item has a prop with a name of 'ipv4-address' it must also have a prop with a name
-                of 'ipv6-address'</sch:assert>
+                of 'ipv6-address'.</sch:assert>
             <sch:assert
                 diagnostics="ipv4-has-content-diagnostic"
                 feddoc:documentation-reference="OMB Mandate M-21-07"
