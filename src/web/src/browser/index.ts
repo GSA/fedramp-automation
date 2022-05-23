@@ -2,17 +2,13 @@ import * as github from '@asap/shared/domain/github';
 import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import { AppMetrics } from '@asap/shared/use-cases/app-metrics';
 import { OscalService } from '@asap/shared/use-cases/oscal';
-import {
-  ValidateSSPUseCase,
-  ValidateSSPUrlUseCase,
-} from '@asap/shared/use-cases/validate-ssp-xml';
 
 import { createBrowserFingerprintMaker } from '@asap/shared/adapters/browser-fingerprint';
 import { createGoogleFormMetricsLogger } from '@asap/shared/adapters/google-form';
 import { highlightXML } from '@asap/shared/adapters/highlight-js';
 import { AppLocalStorage } from '@asap/shared/adapters/local-storage';
 import {
-  SaxonJsJsonSspToXmlProcessor,
+  SaxonJsJsonOscalToXmlProcessor,
   SaxonJsSchematronProcessorGateway,
 } from '@asap/shared/adapters/saxon-js-gateway';
 
@@ -44,8 +40,8 @@ export const runBrowserContext = ({
   // Set SaxonJS log level.
   SaxonJS.setLogLevel(2);
 
-  const jsonSspToXml = SaxonJsJsonSspToXmlProcessor({
-    sefUrl: `${baseUrl}/oscal_ssp_json-to-xml-converter.sef.json`,
+  const jsonOscalToXml = SaxonJsJsonOscalToXmlProcessor({
+    sefUrl: `${baseUrl}/oscal_complete_json-to-xml-converter.sef.json`,
     SaxonJS,
   });
   const processSchematron = SaxonJsSchematronProcessorGateway({
@@ -161,16 +157,17 @@ export const runBrowserContext = ({
               ssp: responses[3],
             };
           },
-          oscalService: new OscalService(jsonSspToXml),
-          validateSSP: ValidateSSPUseCase({
-            jsonSspToXml,
-            processSchematron,
-          }),
-          validateSSPUrl: ValidateSSPUrlUseCase({
-            processSchematron,
-            jsonSspToXml,
-            fetch: window.fetch.bind(window),
-          }),
+          getOscalService: () =>
+            new OscalService(
+              jsonOscalToXml,
+              {
+                poam: processSchematron,
+                sap: processSchematron,
+                sar: processSchematron,
+                ssp: processSchematron,
+              },
+              window.fetch.bind(window),
+            ),
         },
       }),
     ),

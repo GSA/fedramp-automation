@@ -3,7 +3,7 @@ import * as SaxonJS from 'saxon-js';
 import {
   SaxonJSXmlIndenter,
   SaxonJsSchematronProcessorGateway,
-  SaxonJsJsonSspToXmlProcessor,
+  SaxonJsJsonOscalToXmlProcessor,
   SaxonJsXSpecParser,
 } from './saxon-js-gateway';
 
@@ -72,8 +72,8 @@ describe('saxon-js gateway', () => {
   });
 
   it('converts JSON to XML', async () => {
-    const jsonToXml = SaxonJsJsonSspToXmlProcessor({
-      sefUrl: `${PUBLIC_PATH}/oscal_ssp_json-to-xml-converter.sef.json`,
+    const jsonToXml = SaxonJsJsonOscalToXmlProcessor({
+      sefUrl: `${PUBLIC_PATH}/oscal_complete_json-to-xml-converter.sef.json`,
       SaxonJS,
     });
     const convertedXml = await jsonToXml('{}');

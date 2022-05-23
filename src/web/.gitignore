@@ -6,7 +6,7 @@ public/assertion-views-poam.json
 public/assertion-views-sap.json
 public/assertion-views-sar.json
 public/assertion-views-ssp.json
-public/oscal_ssp_json-to-xml-converter.sef.json
+public/oscal_complete_json-to-xml-converter.sef.json
 public/rules.html
 public/poam.json
 public/sap.json

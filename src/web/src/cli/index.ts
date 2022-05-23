@@ -9,7 +9,7 @@ import * as SaxonJS from 'saxon-js';
 
 import { highlightXML } from '@asap/shared/adapters/highlight-js-commonjs';
 import {
-  SaxonJsJsonSspToXmlProcessor,
+  SaxonJsJsonOscalToXmlProcessor,
   SaxonJsProcessor,
   SaxonJsSchematronProcessorGateway,
   SaxonJsXSpecParser,
@@ -39,10 +39,10 @@ const controller = CommandLineController({
       writeStringFile,
     }),
     validateSSP: ValidateSSPUseCase({
-      jsonSspToXml: SaxonJsJsonSspToXmlProcessor({
+      jsonOscalToXml: SaxonJsJsonOscalToXmlProcessor({
         sefUrl: `file://${join(
           config.PUBLIC_PATH,
-          'oscal_ssp_json-to-xml-converter.sef.json',
+          'oscal_complete_json-to-xml-converter.sef.json',
         )}`,
         SaxonJS,
       }),

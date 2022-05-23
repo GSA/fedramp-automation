@@ -7,14 +7,14 @@ import type {
 
 export const ValidateSSPUseCase =
   (ctx: {
-    jsonSspToXml: SchematronJSONToXMLProcessor;
+    jsonOscalToXml: SchematronJSONToXMLProcessor;
     processSchematron: SchematronProcessor;
   }) =>
   (oscalString: string) => {
     return (() => {
       // Convert JSON to XML, if necessary.
       if (detectFormat(oscalString) === 'json') {
-        return ctx.jsonSspToXml(oscalString);
+        return ctx.jsonOscalToXml(oscalString);
       } else {
         return Promise.resolve(oscalString);
       }
@@ -26,7 +26,7 @@ export type ValidateSSPUseCase = ReturnType<typeof ValidateSSPUseCase>;
 
 export const ValidateSSPUrlUseCase =
   (ctx: {
-    jsonSspToXml: SchematronJSONToXMLProcessor;
+    jsonOscalToXml: SchematronJSONToXMLProcessor;
     processSchematron: SchematronProcessor;
     fetch: typeof fetch;
   }) =>
@@ -39,7 +39,7 @@ export const ValidateSSPUrlUseCase =
       .then(text => {
         // Convert JSON to XML, if necessary.
         if (detectFormat(text) === 'json') {
-          return ctx.jsonSspToXml(text);
+          return ctx.jsonOscalToXml(text);
         } else {
           return Promise.resolve(text);
         }

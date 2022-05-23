@@ -7,10 +7,6 @@ import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/assertion
 import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
 import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron';
-import type {
-  ValidateSSPUseCase,
-  ValidateSSPUrlUseCase,
-} from '@asap/shared/use-cases/validate-ssp-xml';
 
 import * as actions from './actions';
 import type { Location } from './state/router';
@@ -22,9 +18,7 @@ type UseCases = {
   getSchematronAssertions: GetSchematronAssertions;
   getXSpecScenarioSummaries: GetXSpecScenarioSummaries;
   appMetrics: AppMetrics;
-  oscalService: OscalService;
-  validateSSP: ValidateSSPUseCase;
-  validateSSPUrl: ValidateSSPUrlUseCase;
+  getOscalService: () => OscalService;
 };
 
 export const getPresenterConfig = (

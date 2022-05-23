@@ -14,7 +14,8 @@ export const validateOscalDocument = async (
   { actions, state, effects }: PresenterConfig,
   options: { fileName: string; fileContents: string },
 ) => {
-  effects.useCases.oscalService
+  effects.useCases
+    .getOscalService()
     .initDocument(options.fileContents)
     .then(({ documentType, xmlString }) => {
       actions.validator.reset(documentType);
@@ -23,8 +24,9 @@ export const validateOscalDocument = async (
           .send('PROCESSING_STRING', { fileName: options.fileName })
           .matches('PROCESSING')
       ) {
-        return effects.useCases
-          .validateSSP(xmlString)
+        effects.useCases
+          .getOscalService()
+          .validateOscal({ documentType, xmlString })
           .then(validationReport =>
             actions.validator.setValidationReport({
               validationReport,
@@ -43,18 +45,31 @@ export const setXmlUrl = async (
   { actions, effects, state }: PresenterConfig,
   xmlFileUrl: string,
 ) => {
-  actions.validator.reset('ssp');
-  if (
-    state.schematron.ssp.validator
-      .send('PROCESSING_URL', { xmlFileUrl })
-      .matches('PROCESSING')
-  ) {
-    return effects.useCases
-      .validateSSPUrl(xmlFileUrl)
-      .then(actions.validator.setValidationReport)
-      .then(actions.validator.annotateXml)
-      .catch(actions.validator.setProcessingError);
-  }
+  effects.useCases
+    .getOscalService()
+    .initDocumentByUrl(xmlFileUrl)
+    .then(({ documentType, xmlString }) => {
+      actions.validator.reset(documentType);
+      if (
+        state.schematron[documentType].validator
+          .send('PROCESSING_URL', { xmlFileUrl })
+          .matches('PROCESSING')
+      ) {
+        effects.useCases
+          .getOscalService()
+          .validateOscal({ documentType, xmlString })
+          .then(validationReport =>
+            actions.validator.setValidationReport({
+              validationReport,
+              xmlText: xmlString,
+            }),
+          )
+          .then(actions.validator.annotateXml)
+          .catch((error: Error) =>
+            actions.validator.setProcessingError(error.message),
+          );
+      }
+    });
 };
 
 export const annotateXml = async ({ effects, state }: PresenterConfig) => {

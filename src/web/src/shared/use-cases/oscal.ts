@@ -3,28 +3,54 @@ import type { OscalDocumentKey } from '../domain/oscal';
 import type {
   SchematronJSONToXMLProcessor,
   SchematronProcessor,
+  SchematronResult,
+  ValidationReport,
 } from './schematron';
+
+type OscalDocument = {
+  documentType: OscalDocumentKey;
+  xmlString: string;
+};
+
+type Fetch = typeof fetch;
 
 export class OscalService {
   constructor(
-    private jsonOscalToXml: SchematronJSONToXMLProcessor, //private processSchematron: SchematronProcessor,
+    private jsonOscalToXml: SchematronJSONToXMLProcessor,
+    private schematronProcessors: {
+      poam: SchematronProcessor;
+      sap: SchematronProcessor;
+      sar: SchematronProcessor;
+      ssp: SchematronProcessor;
+    },
+    private fetch: Fetch,
   ) {}
 
-  async initDocument(oscalString: string): Promise<{
-    documentType: OscalDocumentKey;
-    xmlString: string;
-  }> {
+  async initDocument(oscalString: string): Promise<OscalDocument> {
     const xmlString = await this.ensureXml(oscalString);
+    const documentType = getOscalDocumentTypeFromXml(oscalString);
     return {
-      documentType: 'ssp',
+      documentType,
       xmlString,
     };
   }
 
-  private ensureXml(oscalString: string) {
+  async initDocumentByUrl(fileUrl: string): Promise<OscalDocument> {
+    return await this.fetch(fileUrl)
+      .then(response => response.text())
+      .then(this.initDocument);
+  }
+
+  async validateOscal({ documentType, xmlString }: OscalDocument) {
+    const processSchematron = this.schematronProcessors[documentType];
+    const schematronResult = await processSchematron(xmlString);
+    return generateSchematronReport(schematronResult);
+  }
+
+  private async ensureXml(oscalString: string) {
     // Convert JSON to XML, if necessary.
     if (detectFormat(oscalString) === 'json') {
-      return this.jsonOscalToXml(oscalString);
+      return await this.jsonOscalToXml(oscalString);
     } else {
       return Promise.resolve(oscalString);
     }
@@ -39,4 +65,22 @@ const detectFormat = (document: string) => {
   } else {
     return 'xml';
   }
+};
+
+const generateSchematronReport = (
+  schematronResult: SchematronResult,
+): ValidationReport => {
+  return {
+    title:
+      schematronResult.successfulReports
+        .filter(report => report.id === 'info-system-name')
+        .map(report => report.text)[0] || '<Unspecified system name>',
+    failedAsserts: schematronResult.failedAsserts,
+  };
+};
+
+export const getOscalDocumentTypeFromXml = (
+  oscalXml: string,
+): OscalDocumentKey => {
+  return 'ssp';
 };

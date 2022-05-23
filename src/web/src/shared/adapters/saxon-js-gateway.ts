@@ -390,7 +390,7 @@ export const SaxonJsProcessor =
     }
   };
 
-export const SaxonJsJsonSspToXmlProcessor =
+export const SaxonJsJsonOscalToXmlProcessor =
   (ctx: { sefUrl: string; SaxonJS: any }): SchematronJSONToXMLProcessor =>
   (jsonString: string) => {
     return ctx.SaxonJS.transform(
