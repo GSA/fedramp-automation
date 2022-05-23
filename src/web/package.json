@@ -14,7 +14,7 @@
     "build:json:sef:ssp-json-to-xml": "xslt3 -xsl:../../vendor/oscal/xml/convert/oscal_ssp_json-to-xml-converter.xsl -export:public/oscal_ssp_json-to-xml-converter.sef.json -nogo",
     "build:json:sef:ssp.sch": "xslt3 -xsl:build/ssp.xsl -export:public/ssp.sef.json -nogo",
     "build:schematron": "run-s build:schematron:*",
-    "build:schematron-java-unused": "cd ../validations && ./bin/validate_with_schematron.sh && cp target/ssp.xsl ../web/public",
+    "build:schematron-java-unused": "cd ../validations && ./bin/validate_with_schematron.sh && cp target/rules/ssp.sch.xsl ../web/public",
     "build:schematron:stage-1": "xslt3 -s:../validations/rules/ssp.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_dsdl_include.xsl -o:build/ssp-stage1.sch allow-foreign=true diagnose=true",
     "build:schematron:stage-2": "xslt3 -s:build/ssp-stage1.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_abstract_expand.xsl -o:build/ssp-stage2.sch allow-foreign=true diagnose=true",
     "build:schematron:stage-3": "xslt3 -s:build/ssp-stage2.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl -o:build/ssp.xsl allow-foreign=true diagnose=true",
