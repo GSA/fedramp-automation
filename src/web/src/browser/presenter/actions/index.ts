@@ -1,3 +1,4 @@
+export * as assertionDocumentation from './assertion-documentation';
 export * as metrics from './metrics';
 export * as schematron from './schematron';
 export * as validator from './validator';
@@ -14,6 +15,7 @@ export const onInitializeOvermind = async ({
     actions.setCurrentRoute(url);
   });
   actions.schematron.initialize();
+  actions.assertionDocumentation.initialize();
   await actions.metrics.initialize();
 };
 

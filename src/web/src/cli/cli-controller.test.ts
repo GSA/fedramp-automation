@@ -14,6 +14,7 @@ describe('command-line controller', () => {
           }),
         ),
         writeAssertionViews: jest.fn(),
+        writeXSpecScenarioSummaries: jest.fn(),
       },
     };
     const cli = CommandLineController(ctx);

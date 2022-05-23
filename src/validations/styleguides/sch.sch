@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="sch.sch" phase="basic" title="Schematron Style Guide for FedRAMP Validations" ?>
 <sch:schema
     defaultPhase="basic"
     queryBinding="xslt2"
@@ -7,8 +8,7 @@
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
     xmlns:unit="http://us.gov/testing/unit-testing"
-    xmlns:x="http://www.jenitennison.com/xslt/xspec"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    xmlns:x="http://www.jenitennison.com/xslt/xspec">
 
     <sch:ns
         prefix="sch"
@@ -17,11 +17,11 @@
     <sch:ns
         prefix="doc"
         uri="https://fedramp.gov/oscal/fedramp-automation-documentation" />
-    
+
     <sch:ns
         prefix="feddoc"
         uri="http://us.gov/documentation/federal-documentation" />
-    
+
     <sch:ns
         prefix="unit"
         uri="http://us.gov/testing/unit-testing" />
@@ -34,6 +34,8 @@
         id="basic">
         <sch:active
             pattern="basic-schematron" />
+        <sch:active
+            pattern="punctuation" />
     </sch:phase>
 
     <sch:phase
@@ -41,19 +43,25 @@
         <sch:active
             pattern="basic-schematron" />
         <sch:active
-            pattern="test-coverage" />
+            pattern="punctuation" />
         <sch:active
-            pattern="FedRAMP-extensions" />
+            pattern="test-coverage" />
     </sch:phase>
 
     <sch:phase
         id="FedRAMP">
         <sch:active
+            pattern="basic-schematron" />
+        <sch:active
+            pattern="punctuation" />
+        <sch:active
+            pattern="test-coverage" />
+        <sch:active
             pattern="FedRAMP-extensions" />
     </sch:phase>
 
     <doc:xspec
-        href="../test/sch.xspec" />
+        href="../test/styleguides/sch.xspec" />
 
     <sch:let
         name="xspec-uri"
@@ -73,7 +81,7 @@
         id="basic-schematron">
 
         <sch:rule
-            context="sch:assert">
+            context="sch:rule">
 
             <sch:assert
                 diagnostics="context-reuse-diagnostic"
@@ -87,14 +95,14 @@
         </sch:rule>
 
         <sch:rule
-            context="sch:assert | sch:report">
+            context="sch:assert">
 
             <sch:assert
                 diagnostics="has-id-attribute-diagnostic"
                 id="has-id-attribute"
                 role="error"
                 sqf:fix="add-id"
-                test="@id">Every Schematron assertion has an id.</sch:assert>
+                test="exists(@id)">Every Schematron assertion has an id.</sch:assert>
 
             <sqf:fix
                 id="add-id">
@@ -111,7 +119,7 @@
                 id="has-role-attribute"
                 role="error"
                 sqf:fix="add-role"
-                test="@role">Every Schematron assertion has a role.</sch:assert>
+                test="exists(@role)">Every Schematron assertion has a role.</sch:assert>
 
             <sqf:fix
                 id="add-role">
@@ -122,8 +130,6 @@
                     node-type="attribute"
                     target="role" />
             </sqf:fix>
-            
-            <sch:assert test="true()"></sch:assert>
 
             <sch:assert
                 diagnostics="has-allowed-role-attribute-diagnostic"
@@ -137,7 +143,7 @@
                 id="has-diagnostics-attribute"
                 role="error"
                 sqf:fix="add-diagnostics-attribute"
-                test="local-name() eq 'report' or @diagnostics">Every Schematron assertion has diagnostics.</sch:assert>
+                test="exists(@diagnostics)">Every Schematron assertion has diagnostics.</sch:assert>
 
             <sqf:fix
                 id="add-diagnostics-attribute">
@@ -157,7 +163,7 @@
                 role="error"
                 sqf:fix="add-diagnostic-element"
                 test="
-                    every $d in tokenize(@diagnostics)
+                    every $d in tokenize(@diagnostics, '\s+')
                         satisfies exists(//sch:diagnostic[@id eq $d])">Every diagnostics attribute IDREF has a corresponding
                 diagnostic element.</sch:assert>
 
@@ -185,14 +191,30 @@
         </sch:rule>
 
         <sch:rule
-            context="sch:assert | sch:report | sch:diagnostic">
+            context="sch:diagnostic">
+
+            <sch:report
+                diagnostics="diagnostic-is-referenced-diagnostic"
+                id="diagnostic-is-referenced"
+                role="information"
+                test="not(@id = //@diagnostics ! tokenize(., '\s+'))">A diagnostic message is referenced by an assertion.</sch:report>
+
+        </sch:rule>
+
+    </sch:pattern>
+
+    <sch:pattern
+        id="punctuation">
+
+        <sch:rule
+            context="sch:assert | sch:diagnostic">
 
             <sch:assert
                 diagnostics="has-punctuation-diagnostic"
                 id="has-punctuation"
                 role="error"
                 sqf:fix="add-punctuation"
-                test="ends-with(., '.')">Every Schematron message is terminated by a period.</sch:assert>
+                test="ends-with(normalize-space(.), '.')">Every assertion message is terminated by a period.</sch:assert>
 
             <sqf:fix
                 id="add-punctuation">
@@ -205,20 +227,10 @@
 
         </sch:rule>
 
-        <sch:rule
-            context="sch:diagnostic">
-            <sch:assert
-                diagnostics="diagnostic-is-referenced-diagnostic"
-                id="diagnostic-is-referenced"
-                role="warning"
-                test="@id = //@diagnostics ! tokenize(., '\s+')" />
-        </sch:rule>
-
     </sch:pattern>
 
     <sch:pattern
         id="test-coverage">
-
 
         <sch:rule
             context="sch:schema">
@@ -228,7 +240,7 @@
                 diagnostics="has-xspec-reference-diagnostic"
                 id="has-xspec-reference"
                 role="error"
-                test="doc:xspec/@href">Has reference to XSpec document.</sch:assert>
+                test="exists(doc:xspec/@href)">Has reference to XSpec document.</sch:assert>
 
             <!-- report on absolute XSpec path -->
             <sch:report
@@ -253,7 +265,7 @@
             <!-- Provide unit test statistics -->
             <sch:let
                 name="assertions"
-                value="//(sch:assert | sch:report)" />
+                value="//(sch:assert)" />
             <sch:let
                 name="assertion-ids"
                 value="$assertions/@id" />
@@ -278,6 +290,7 @@
 
         <sch:rule
             context="sch:assert">
+
             <sch:assert
                 diagnostics="has-xspec-affirmative-test-diagnostic"
                 id="has-xspec-affirmative-test"
@@ -313,24 +326,28 @@
             context="sch:assert">
 
             <sch:assert
+                diagnostics="has-doc-guide-reference-diagnostic"
                 id="has-doc-guide-reference"
                 role="warning"
-                test="@doc:guide-reference">Every assertion has a doc:guide-reference attribute.</sch:assert>
+                test="exists(@doc:guide-reference)">Every assertion has a doc:guide-reference attribute.</sch:assert>
 
             <sch:assert
+                diagnostics="has-doc-template-reference-diagnostic"
                 id="has-doc-template-reference"
                 role="warning"
-                test="@doc:template-reference">Every assertion has a doc:template-reference attribute.</sch:assert>
+                test="exists(@doc:template-reference)">Every assertion has a doc:template-reference attribute.</sch:assert>
 
             <sch:assert
+                diagnostics="has-doc-checklist-reference-diagnostic"
                 id="has-doc-checklist-reference"
                 role="warning"
-                test="@doc:checklist-reference">Every assertion has a doc:checklist-reference attribute.</sch:assert>
-            
+                test="exists(@doc:checklist-reference)">Every assertion has a doc:checklist-reference attribute.</sch:assert>
+
             <sch:assert
+                diagnostics="has-feddoc-documentation-diagnostic"
                 id="has-feddoc-documentation"
                 role="warning"
-                test="@feddoc:documentation-reference">Every assertion has a feddoc:documentation-reference attribute.</sch:assert>
+                test="exists(@feddoc:documentation-reference)">Every assertion has a feddoc:documentation-reference attribute.</sch:assert>
 
         </sch:rule>
 
@@ -338,71 +355,103 @@
             context="sch:diagnostic">
 
             <sch:assert
+                diagnostics="has-doc-assertion-attribute-diagnostic"
                 id="has-doc-assertion-attribute"
                 role="warning"
-                test="@doc:assertion">Every diagnostic has a doc:assertion attribute.</sch:assert>
+                test="exists(@doc:assertion)">Every diagnostic has a doc:assertion attribute.</sch:assert>
 
             <sch:assert
+                diagnostics="has-doc-context-attribute-diagnostic"
                 id="has-doc-context-attribute"
                 role="warning"
-                test="@doc:context">Every diagnostic has a doc:context attribute.</sch:assert>
+                test="exists(@doc:context)">Every diagnostic has a doc:context attribute.</sch:assert>
 
         </sch:rule>
 
     </sch:pattern>
 
     <sch:diagnostics>
-        <sch:diagnostic
-            id="xspec-defined-and-available-diagnostic">@href present and available.</sch:diagnostic>
+
         <sch:diagnostic
             id="xspec-resolved-uri-diagnostic">This is informational message (not an error).</sch:diagnostic>
+
         <sch:diagnostic
             id="report-test-coverage-diagnostic">This is informational message (not an error).</sch:diagnostic>
+
         <sch:diagnostic
             id="context-reuse-diagnostic">This sch:rule context is used elsewhere. This can cause XSpec evaluation problems.</sch:diagnostic>
+
         <sch:diagnostic
-            id="has-id-attribute-diagnostic"><sch:value-of
-                select="name()" /> id="<sch:value-of
-                select="@id" />" lacks the id attribute.</sch:diagnostic>
+            id="has-id-attribute-diagnostic">This assertion lacks the id attribute.</sch:diagnostic>
+
         <sch:diagnostic
             id="has-role-attribute-diagnostic"><sch:value-of
                 select="name()" /> id="<sch:value-of
                 select="@id" />" lacks the role attribute.</sch:diagnostic>
+
         <sch:diagnostic
             id="has-allowed-role-attribute-diagnostic"><sch:value-of
                 select="name()" /> id="<sch:value-of
                 select="@id" />" has an invalid role attribute.</sch:diagnostic>
+
         <sch:diagnostic
             id="has-diagnostics-attribute-diagnostic"><sch:value-of
                 select="name()" /> id="<sch:value-of
                 select="@id" />" lacks the diagnostics attribute.</sch:diagnostic>
+
         <sch:diagnostic
             id="has-punctuation-diagnostic"><sch:value-of
                 select="name()" /> id="<sch:value-of
                 select="@id" />" text does not end with a period.</sch:diagnostic>
+
         <sch:diagnostic
             id="diagnostic-defined-diagnostic">This diagnostic message is missing.</sch:diagnostic>
+
         <sch:diagnostic
             id="has-xspec-reference-diagnostic"><sch:value-of
                 select="name()" /> id="<sch:value-of
                 select="@id" />" lacks an XSpec reference.</sch:diagnostic>
+
         <sch:diagnostic
             id="has-xspec-diagnostic"><sch:value-of
                 select="name()" /> referenced XSpec document is not available.</sch:diagnostic>
+
         <sch:diagnostic
             id="has-xspec-affirmative-test-diagnostic"><sch:value-of
                 select="name()" /> id="<sch:value-of
                 select="@id" />" lacks an XSpec test for the affirmative assertion outcome.</sch:diagnostic>
+
         <sch:diagnostic
             id="has-xspec-negative-test-diagnostic"><sch:value-of
                 select="name()" /> id="<sch:value-of
                 select="@id" />" lacks an XSpec test for the negative assertion outcome.</sch:diagnostic>
+
         <sch:diagnostic
-            id="diagnostic-is-referenced-diagnostic">diagnostic <sch:value-of
-                select="@id" /> is not referenced.</sch:diagnostic>
+            id="diagnostic-is-referenced-diagnostic">Diagnostic "<sch:value-of
+                select="@id" />" is not referenced.</sch:diagnostic>
+
         <sch:diagnostic
             id="XPath">XPath: The context for this error is <sch:value-of
                 select="replace(path(), 'Q\{[^\{]+\}', '')" />.</sch:diagnostic>
+
+        <sch:diagnostic
+            id="has-doc-guide-reference-diagnostic">This assertion lacks a doc:guide-reference attribute.</sch:diagnostic>
+
+        <sch:diagnostic
+            id="has-doc-template-reference-diagnostic">This assertion lacks a doc:template-reference attribute.</sch:diagnostic>
+
+        <sch:diagnostic
+            id="has-doc-checklist-reference-diagnostic">This assertion lacks a doc:checklist-reference attribute.</sch:diagnostic>
+
+        <sch:diagnostic
+            id="has-feddoc-documentation-diagnostic">This assertion lacks a feddoc:documentation-reference attribute.</sch:diagnostic>
+
+        <sch:diagnostic
+            id="has-doc-assertion-attribute-diagnostic">This diagnostic lacks a doc:assertion attribute.</sch:diagnostic>
+
+        <sch:diagnostic
+            id="has-doc-context-attribute-diagnostic">This diagnostic lacks a doc:context attribute.</sch:diagnostic>
+
     </sch:diagnostics>
 
 </sch:schema>

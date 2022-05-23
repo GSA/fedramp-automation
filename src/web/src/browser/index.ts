@@ -108,6 +108,10 @@ export const runBrowserContext = ({
             ),
           getSSPSchematronAssertions: async () =>
             fetch(`${baseUrl}/ssp.json`).then(response => response.json()),
+          getXSpecScenarioSummaries: async () =>
+            fetch(`${baseUrl}/xspec-scenarios.json`).then(response =>
+              response.json(),
+            ),
           validateSSP: ValidateSSPUseCase({
             jsonSspToXml,
             processSchematron,

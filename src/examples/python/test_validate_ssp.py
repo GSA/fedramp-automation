@@ -19,7 +19,7 @@ EXAMPLE_SSP_PATH = os.path.abspath(
 SSP_XSL_FILE = os.path.abspath(
     os.path.join(
         os.path.dirname(__file__),
-        "../../validations/target/ssp.xsl",
+        "../../validations/target/rules/ssp.sch.xsl",
     )
 )
 # FedRAMP OSCAL LOW/MODERATE/HIGH/LI baselines
