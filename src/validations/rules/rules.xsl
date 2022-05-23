@@ -129,7 +129,8 @@
             </xsl:otherwise>
         </xsl:choose>
 
-        <html>
+        <html
+            lang="en">
             <head>
                 <meta
                     content="text/html; charset=UTF-8"
@@ -181,7 +182,7 @@
                     select="doc('rules.xml')" />
 
                 <table>
-
+                    <caption>List of business rules and guide references</caption>
                     <thead>
                         <tr>
                             <th>Rule</th>
@@ -276,6 +277,7 @@
                     <h2>Assertions without a corresponding business rule</h2>
 
                     <table>
+                      <caption>List of Assertion IDs and Schematron Messages</caption>
                         <thead />
                         <tbody>
                             <xsl:for-each
