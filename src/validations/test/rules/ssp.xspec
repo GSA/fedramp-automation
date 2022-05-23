@@ -357,7 +357,8 @@
             <x:scenario
                 label="when control implementations are defined">
                 <x:scenario
-                    label="and requirements are implemented">
+                    label="and requirements are implemented"
+                    pending="">
                     <x:scenario
                         label="a count of all total controls">
                         <x:context>
@@ -400,7 +401,8 @@
                             label="it is invalid." />
                     </x:scenario>
                     <x:scenario
-                        label="summary counts of controls' implementated requirements and those with valid and invalid statuses">
+                        label="summary counts of controls' implementated requirements and those with valid and invalid statuses"
+                        pending="">
                         <x:context>
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
@@ -578,7 +580,8 @@
                 <x:scenario
                     label="and the profile defines specific response points to address specific control requirements">
                     <x:scenario
-                        label="and response points are properly defined">
+                        label="and response points are properly defined"
+                        pending="">
                         <x:context>
                             <system-security-plan
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">

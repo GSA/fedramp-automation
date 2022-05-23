@@ -203,6 +203,18 @@
         name="use-remote-resources"
         value="$param-use-remote-resources or matches(lower-case(environment-variable('use_remote_resources')), '1|true') " />
 
+    <!-- setting for use of debug mode -->
+    <!-- XSLT parameter param-use-debug-mode -->
+    <xsl:param
+        as="xs:boolean"
+        name="param-use-debug-mode"
+        select="false()" />
+    
+    <!-- schematron variable use-debug-mode -->
+    <sch:let
+        name="use-debug-mode"
+        value="$param-use-debug-mode or matches(lower-case(environment-variable('use_debug_mode')), '1|true')" />
+    
     <sch:pattern
         id="parameters-and-variables">
         <sch:rule
@@ -211,13 +223,13 @@
             <sch:report
                 id="parameter-use-remote-resources"
                 role="information"
-                test="true()">parameter use-remote-resources is <sch:value-of
+                test="$use-debug-mode eq true()">parameter use-remote-resources is <sch:value-of
                     select="$param-use-remote-resources" />.</sch:report>
 
             <sch:report
                 id="environment-variable-use-remote-resources"
                 role="information"
-                test="true()">environment-variable use_remote_resources is <sch:value-of
+                test="$use-debug-mode eq true()">environment-variable use_remote_resources is <sch:value-of
                     select="
                         if (environment-variable('use_remote_resources') ne '') then
                             environment-variable('use_remote_resources')
@@ -227,9 +239,30 @@
             <sch:report
                 id="variable-use-remote-resources"
                 role="information"
-                test="true()">variable use-remote-resources is <sch:value-of
+                test="$use-debug-mode eq true()">variable use-remote-resources is <sch:value-of
                     select="$use-remote-resources" />.</sch:report>
 
+            <sch:report
+                id="parameter-use-debug-mode"
+                role="information"
+                test="$use-debug-mode eq true()">parameter use-debug-mode is <sch:value-of
+                    select="$param-use-debug-mode" />.</sch:report>
+
+            <sch:report
+                id="environment-variable-use-debug-mode"
+                role="information"
+                test="$use-debug-mode eq true()">environment-variable use_debug_mode is <sch:value-of
+                    select="
+                        if (environment-variable('use_debug_mode') ne '') then
+                            environment-variable('use_debug_mode')
+                        else
+                            'not defined'" />.</sch:report>
+            
+            <sch:report
+                id="variable-use-debug-mode"
+                role="information"
+                test="$use-debug-mode eq true()">variable use-debug-mode is <sch:value-of
+                    select="$use-debug-mode" />.</sch:report>
         </sch:rule>
     </sch:pattern>
 
@@ -536,7 +569,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 id="implemented-response-points"
                 role="information"
-                test="true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
+                test="$use-debug-mode eq true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
                     select="$implemented/@statement-id" />.</sch:report>
         </sch:rule>        
         <sch:rule
@@ -581,7 +614,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 id="each-required-control-report"
                 role="information"
-                test="true()">Sensitivity-level is <sch:value-of
+                test="$use-debug-mode eq true()">Sensitivity-level is <sch:value-of
                     select="$sensitivity-level" />, the following <sch:value-of
                     select="count($required-controls)" />
                 <sch:value-of
@@ -625,7 +658,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 id="control-implemented-requirements-stats"
                 role="information"
-                test="count($results/errors/error) = 0">
+                test="count($results/errors/error) = 0 and $use-debug-mode eq true()">
                 <sch:value-of
                     select="$results => lv:report() => normalize-space()" />.</sch:report>
         </sch:rule>
@@ -2338,7 +2371,7 @@
                         (oscal:prop[@name eq 'ipv6-address'])
                     else
                         (true())">If any inventory-item has a prop with a name of 'ipv4-address' it must also have a prop with a name
-                of 'ipv6-address'</sch:assert>
+                of 'ipv6-address'.</sch:assert>
             <sch:assert
                 diagnostics="ipv4-has-content-diagnostic"
                 feddoc:documentation-reference="OMB Mandate M-21-07"

@@ -29,7 +29,6 @@
     "build:json:sef:sar.sch": "xslt3 -xsl:build/sar.xsl -export:public/sar.sef.json -nogo",
     "build:json:sef:ssp.sch": "xslt3 -xsl:build/ssp.xsl -export:public/ssp.sef.json -nogo",
     "build:schematron": "run-s build:schematron:*",
-    "build:schematron-java-unused": "cd ../validations && ./bin/validate_with_schematron.sh && cp target/ssp.xsl ../web/public",
     "build:schematron:poam": "run-s build:schematron:poam:*",
     "build:schematron:poam:stage-1": "xslt3 -s:../validations/rules/poam.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_dsdl_include.xsl -o:build/poam-stage1.sch allow-foreign=true diagnose=true",
     "build:schematron:poam:stage-2": "xslt3 -s:build/poam-stage1.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_abstract_expand.xsl -o:build/poam-stage2.sch allow-foreign=true diagnose=true",
