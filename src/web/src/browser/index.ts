@@ -157,17 +157,16 @@ export const runBrowserContext = ({
               ssp: responses[3],
             };
           },
-          getOscalService: () =>
-            new OscalService(
-              jsonOscalToXml,
-              {
-                poam: processSchematron,
-                sap: processSchematron,
-                sar: processSchematron,
-                ssp: processSchematron,
-              },
-              window.fetch.bind(window),
-            ),
+          oscalService: new OscalService(
+            jsonOscalToXml,
+            {
+              poam: processSchematron,
+              sap: processSchematron,
+              sar: processSchematron,
+              ssp: processSchematron,
+            },
+            window.fetch.bind(window),
+          ),
         },
       }),
     ),

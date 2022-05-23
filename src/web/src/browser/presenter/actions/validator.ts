@@ -14,8 +14,7 @@ export const validateOscalDocument = async (
   { actions, state, effects }: PresenterConfig,
   options: { fileName: string; fileContents: string },
 ) => {
-  effects.useCases
-    .getOscalService()
+  effects.useCases.oscalService
     .initDocument(options.fileContents)
     .then(({ documentType, xmlString }) => {
       actions.validator.reset(documentType);
@@ -24,8 +23,7 @@ export const validateOscalDocument = async (
           .send('PROCESSING_STRING', { fileName: options.fileName })
           .matches('PROCESSING')
       ) {
-        effects.useCases
-          .getOscalService()
+        effects.useCases.oscalService
           .validateOscal({ documentType, xmlString })
           .then(validationReport =>
             actions.validator.setValidationReport({
@@ -45,8 +43,7 @@ export const setXmlUrl = async (
   { actions, effects, state }: PresenterConfig,
   xmlFileUrl: string,
 ) => {
-  effects.useCases
-    .getOscalService()
+  effects.useCases.oscalService
     .initDocumentByUrl(xmlFileUrl)
     .then(({ documentType, xmlString }) => {
       actions.validator.reset(documentType);
@@ -55,8 +52,7 @@ export const setXmlUrl = async (
           .send('PROCESSING_URL', { xmlFileUrl })
           .matches('PROCESSING')
       ) {
-        effects.useCases
-          .getOscalService()
+        effects.useCases.oscalService
           .validateOscal({ documentType, xmlString })
           .then(validationReport =>
             actions.validator.setValidationReport({

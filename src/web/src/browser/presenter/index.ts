@@ -18,7 +18,7 @@ type UseCases = {
   getSchematronAssertions: GetSchematronAssertions;
   getXSpecScenarioSummaries: GetXSpecScenarioSummaries;
   appMetrics: AppMetrics;
-  getOscalService: () => OscalService;
+  oscalService: OscalService;
 };
 
 export const getPresenterConfig = (

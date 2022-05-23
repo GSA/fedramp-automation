@@ -1,4 +1,3 @@
-import type { string } from 'fp-ts';
 import type { OscalDocumentKey } from '../domain/oscal';
 import type {
   SchematronJSONToXMLProcessor,
@@ -26,31 +25,33 @@ export class OscalService {
     private fetch: Fetch,
   ) {}
 
-  async initDocument(oscalString: string): Promise<OscalDocument> {
-    const xmlString = await this.ensureXml(oscalString);
-    const documentType = getOscalDocumentTypeFromXml(oscalString);
-    return {
-      documentType,
-      xmlString,
-    };
+  initDocument(oscalString: string): Promise<OscalDocument> {
+    return this.ensureXml(oscalString).then(xmlString => {
+      return {
+        documentType: getOscalDocumentTypeFromXml(xmlString),
+        xmlString,
+      };
+    });
   }
 
-  async initDocumentByUrl(fileUrl: string): Promise<OscalDocument> {
-    return await this.fetch(fileUrl)
+  initDocumentByUrl(fileUrl: string): Promise<OscalDocument> {
+    return this.fetch(fileUrl)
       .then(response => response.text())
-      .then(this.initDocument);
+      .then(value => this.initDocument(value));
   }
 
-  async validateOscal({ documentType, xmlString }: OscalDocument) {
+  validateOscal({
+    documentType,
+    xmlString,
+  }: OscalDocument): Promise<ValidationReport> {
     const processSchematron = this.schematronProcessors[documentType];
-    const schematronResult = await processSchematron(xmlString);
-    return generateSchematronReport(schematronResult);
+    return processSchematron(xmlString).then(generateSchematronReport);
   }
 
-  private async ensureXml(oscalString: string) {
+  async ensureXml(oscalString: string): Promise<string> {
     // Convert JSON to XML, if necessary.
     if (detectFormat(oscalString) === 'json') {
-      return await this.jsonOscalToXml(oscalString);
+      return this.jsonOscalToXml(oscalString);
     } else {
       return Promise.resolve(oscalString);
     }
