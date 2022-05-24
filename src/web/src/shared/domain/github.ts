@@ -11,7 +11,13 @@ export const DEFAULT_REPOSITORY: GithubRepository = {
 };
 
 const SAMPLE_SSP_PATHS = [
-  'src/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml',
+  'dist/content/templates/poam/xml/FedRAMP-POAM-OSCAL-Template.xml',
+  'dist/content/templates/poam/json/FedRAMP-POAM-OSCAL-Template.json',
+  'dist/content/templates/sap/xml/FedRAMP-SAP-OSCAL-Template.xml',
+  'dist/content/templates/sap/json/FedRAMP-SAP-OSCAL-Template.json',
+  'dist/content/templates/sar/xml/FedRAMP-SAR-OSCAL-Template.xml',
+  'dist/content/templates/sar/json/FedRAMP-SAR-OSCAL-Template.json',
+  'dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml',
   'dist/content/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json',
 ];
 
