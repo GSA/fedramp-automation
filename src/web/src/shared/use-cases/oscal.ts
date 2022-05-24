@@ -20,19 +20,32 @@ export class OscalService {
     private fetch: Fetch,
   ) {}
 
-  initDocument(oscalString: string): Promise<string> {
-    return this.ensureXml(oscalString).then(xmlString => {
-      return xmlString;
-    });
+  validateXmlOrJson(oscalString: string): Promise<{
+    documentType: OscalDocumentKey;
+    validationReport: ValidationReport;
+    xmlString: string;
+  }> {
+    let xmlString = '';
+    return this.ensureXml(oscalString)
+      .then(str => {
+        xmlString = str;
+        return this.validateXml(xmlString);
+      })
+      .then(result => {
+        return {
+          ...result,
+          xmlString,
+        };
+      });
   }
 
-  initDocumentByUrl(fileUrl: string): Promise<string> {
+  validateXmlOrJsonByUrl(fileUrl: string) {
     return this.fetch(fileUrl)
       .then(response => response.text())
-      .then(value => this.initDocument(value));
+      .then(value => this.validateXmlOrJson(value));
   }
 
-  validateOscal(xmlString: string): Promise<{
+  validateXml(xmlString: string): Promise<{
     documentType: OscalDocumentKey;
     validationReport: ValidationReport;
   }> {

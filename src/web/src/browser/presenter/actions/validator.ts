@@ -16,21 +16,17 @@ export const validateOscalDocument = async (
     state.validator.send('PROCESSING_STRING', { fileName: options.fileName })
   ) {
     effects.useCases.oscalService
-      .initDocument(options.fileContents)
-      .then(xmlString => {
-        effects.useCases.oscalService
-          .validateOscal(xmlString)
-          .then(({ documentType, validationReport }) => {
-            actions.validator.setValidationReport({
-              documentType,
-              validationReport,
-              xmlString,
-            });
-          })
-          .catch((error: Error) =>
-            actions.validator.setProcessingError(error.message),
-          );
-      });
+      .validateXmlOrJson(options.fileContents)
+      .then(({ documentType, validationReport, xmlString }) => {
+        actions.validator.setValidationReport({
+          documentType,
+          validationReport,
+          xmlString,
+        });
+      })
+      .catch((error: Error) =>
+        actions.validator.setProcessingError(error.message),
+      );
   }
 };
 
@@ -43,21 +39,17 @@ export const setXmlUrl = async (
     state.validator.send('PROCESSING_URL', { xmlFileUrl }).matches('PROCESSING')
   ) {
     effects.useCases.oscalService
-      .initDocumentByUrl(xmlFileUrl)
-      .then(xmlString => {
-        effects.useCases.oscalService
-          .validateOscal(xmlString)
-          .then(({ documentType, validationReport }) => {
-            actions.validator.setValidationReport({
-              documentType,
-              validationReport,
-              xmlString,
-            });
-          })
-          .catch((error: Error) =>
-            actions.validator.setProcessingError(error.message),
-          );
-      });
+      .validateXmlOrJsonByUrl(xmlFileUrl)
+      .then(({ documentType, validationReport, xmlString }) => {
+        actions.validator.setValidationReport({
+          documentType,
+          validationReport,
+          xmlString,
+        });
+      })
+      .catch((error: Error) =>
+        actions.validator.setProcessingError(error.message),
+      );
   }
 };
 

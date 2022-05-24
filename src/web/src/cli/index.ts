@@ -18,9 +18,9 @@ import {
 const config = require('@asap/shared/project-config');
 import { createXSpecScenarioSummaryWriter } from '@asap/shared/use-cases/assertion-documentation';
 import { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
-import { ValidateSSPUseCase } from '@asap/shared/use-cases/validate-ssp-xml';
 
 import { CommandLineController } from './cli-controller';
+import { OscalService } from '@asap/shared/use-cases/oscal';
 
 const readStringFile = async (fileName: string) =>
   fs.readFile(fileName, 'utf-8');
@@ -38,15 +38,15 @@ const controller = CommandLineController({
       readStringFile,
       writeStringFile,
     }),
-    validateSSP: ValidateSSPUseCase({
-      jsonOscalToXml: SaxonJsJsonOscalToXmlProcessor({
+    oscalService: new OscalService(
+      SaxonJsJsonOscalToXmlProcessor({
         sefUrl: `file://${join(
           config.PUBLIC_PATH,
           'oscal_complete_json-to-xml-converter.sef.json',
         )}`,
         SaxonJS,
       }),
-      processSchematron: SaxonJsSchematronProcessorGateway({
+      SaxonJsSchematronProcessorGateway({
         sefUrls: {
           poam: `file://${join(config.PUBLIC_PATH, 'poam.sef.json')}`,
           sap: `file://${join(config.PUBLIC_PATH, 'sap.sef.json')}`,
@@ -57,7 +57,8 @@ const controller = CommandLineController({
         baselinesBaseUrl: config.BASELINES_PATH,
         registryBaseUrl: config.REGISTRY_PATH,
       }),
-    }),
+      fetch,
+    ),
     writeAssertionViews: WriteAssertionViews({
       paths: {
         assertionViewSEFPath: join(

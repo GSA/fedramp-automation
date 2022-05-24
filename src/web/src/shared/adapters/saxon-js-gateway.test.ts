@@ -47,32 +47,37 @@ describe('saxon-js gateway', () => {
       baselinesBaseUrl: '/baselines',
       registryBaseUrl: '/xml',
     });
-    const validationReport = await reportGateway('<xml>ignored</xml');
+    const result = await reportGateway(
+      '<system-security-plan>ignored</system-security-plan>',
+    );
     expect(SaxonJS.transform).toHaveBeenCalled();
-    expect(validationReport).toEqual({
-      failedAsserts: [
-        {
-          diagnosticReferences: ['Diagnostic reference node content.'],
-          id: 'incorrect-role-association',
-          location:
-            "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:metadata[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
-          role: 'error',
-          test: 'not(exists($extraneous-roles))',
-          text: 'Failed assertion text node content.',
-          uniqueId: 'incorrect-role-association-0',
-        },
-      ],
-      successfulReports: [
-        {
-          id: 'control-implemented-requirements-stats',
-          location:
-            "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:control-implementation[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
-          role: 'information',
-          test: 'count($results/errors/error) = 0',
-          text: 'Successful report text content.',
-          uniqueId: 'control-implemented-requirements-stats-0',
-        },
-      ],
+    expect(result).toEqual({
+      documentType: 'ssp',
+      validationReport: {
+        failedAsserts: [
+          {
+            diagnosticReferences: ['Diagnostic reference node content.'],
+            id: 'incorrect-role-association',
+            location:
+              "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:metadata[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
+            role: 'error',
+            test: 'not(exists($extraneous-roles))',
+            text: 'Failed assertion text node content.',
+            uniqueId: 'incorrect-role-association-0',
+          },
+        ],
+        successfulReports: [
+          {
+            id: 'control-implemented-requirements-stats',
+            location:
+              "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:control-implementation[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
+            role: 'information',
+            test: 'count($results/errors/error) = 0',
+            text: 'Successful report text content.',
+            uniqueId: 'control-implemented-requirements-stats-0',
+          },
+        ],
+      },
     });
   });
 

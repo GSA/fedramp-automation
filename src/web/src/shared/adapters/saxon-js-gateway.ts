@@ -7,10 +7,11 @@ import type {
   SchematronResult,
   SuccessfulReport,
 } from '@asap/shared/use-cases/schematron';
-import type { string } from 'fp-ts';
+
 import { getDocumentTypeForRootNode, OscalDocumentKey } from '../domain/oscal';
 import type { ParseXSpec, XSpecScenario } from '../domain/xspec';
 import type { XSLTProcessor } from '../use-cases/assertion-views';
+import { base64DataUriForJson } from '../util';
 
 const getValidationReport = (
   SaxonJS: any,
@@ -408,19 +409,23 @@ export const SaxonJsProcessor =
 export const SaxonJsJsonOscalToXmlProcessor =
   (ctx: { sefUrl: string; SaxonJS: any }): SchematronJSONToXMLProcessor =>
   (jsonString: string) => {
-    return ctx.SaxonJS.transform(
-      {
-        stylesheetLocation: ctx.sefUrl,
-        destination: 'serialized',
-        initialTemplate: 'from-json',
-        stylesheetParams: {
-          file: 'data:application/json;base64,' + btoa(jsonString),
-        },
-      },
-      'async',
-    ).then((output: any) => {
-      return output.principalResult as string;
-    });
+    return base64DataUriForJson(jsonString)
+      .then(base64Json =>
+        ctx.SaxonJS.transform(
+          {
+            stylesheetLocation: ctx.sefUrl,
+            destination: 'serialized',
+            initialTemplate: 'from-json',
+            stylesheetParams: {
+              file: base64Json,
+            },
+          },
+          'async',
+        ),
+      )
+      .then((output: any) => {
+        return output.principalResult as string;
+      });
   };
 
 const parseScenarioNode = (SaxonJS: any, scenario: any) => {

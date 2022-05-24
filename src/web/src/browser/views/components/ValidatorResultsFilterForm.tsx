@@ -21,7 +21,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
   };
   return (
     <>
-      <h2 ref={topRef}>Filtering Options {documentType}</h2>
+      <h2 ref={topRef}>Filtering Options</h2>
       <form className="usa-form padding-top-1">
         <fieldset className="usa-fieldset">
           <legend className="usa-legend text-base font-sans-md">

@@ -3,14 +3,14 @@ import { Command } from 'commander';
 import type { XSpecScenarioSummaryWriter } from '@asap/shared/use-cases/assertion-documentation';
 import type { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { ParseSchematronAssertions } from '@asap/shared/use-cases/schematron';
-import type { ValidateSSPUseCase } from '@asap/shared/use-cases/validate-ssp-xml';
+import type { OscalService } from '@asap/shared/use-cases/oscal';
 
 type CommandLineContext = {
   readStringFile: (fileName: string) => Promise<string>;
   writeStringFile: (fileName: string, contents: string) => Promise<void>;
   useCases: {
     parseSchematron: ParseSchematronAssertions;
-    validateSSP: ValidateSSPUseCase;
+    oscalService: OscalService;
     writeAssertionViews: WriteAssertionViews;
     writeXSpecScenarioSummaries: XSpecScenarioSummaryWriter;
   };
@@ -23,9 +23,9 @@ export const CommandLineController = (ctx: CommandLineContext) => {
     .description('validate OSCAL systems security plan document')
     .action(sspXmlFile => {
       ctx.readStringFile(sspXmlFile).then(xmlString => {
-        ctx.useCases.validateSSP(xmlString).then(validationReport => {
+        ctx.useCases.oscalService.validateXmlOrJson(xmlString).then(result => {
           console.log(
-            `Found ${validationReport.failedAsserts.length} assertions`,
+            `Found ${result.validationReport.failedAsserts.length} assertions in ${result.documentType}`,
           );
         });
       });

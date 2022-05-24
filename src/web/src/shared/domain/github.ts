@@ -10,7 +10,7 @@ export const DEFAULT_REPOSITORY: GithubRepository = {
   branch: 'master',
 };
 
-const SAMPLE_SSP_PATHS = [
+const SAMPLE_OSCAL_PATHS = [
   'dist/content/templates/poam/xml/FedRAMP-POAM-OSCAL-Template.xml',
   'dist/content/templates/poam/json/FedRAMP-POAM-OSCAL-Template.json',
   'dist/content/templates/sap/xml/FedRAMP-SAP-OSCAL-Template.xml',
@@ -38,8 +38,8 @@ export const getRepositoryRawUrl = (
   return `https://raw.githubusercontent.com/${github.owner}/${github.repository}/${github.branch}/${repositoryPath}`;
 };
 
-export const getSampleSSPs = (github: GithubRepository) => {
-  return SAMPLE_SSP_PATHS.map(url => {
+export const getSampleOscalDocuments = (github: GithubRepository) => {
+  return SAMPLE_OSCAL_PATHS.map(url => {
     const urlParts = url.split('/');
     return {
       url: getRepositoryRawUrl(github, url),
