@@ -59,7 +59,7 @@ export const setValidationReport = async (
       };
     }),
   });
-  state.schematron[documentType].send('SET_VALIDATION_REPORT', {
+  state.schematron[documentType].validationResults.send('SET_RESULTS', {
     annotatedXML,
     validationReport,
   });

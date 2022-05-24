@@ -19,7 +19,6 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
       //topRef.current.scrollIntoView();
     }
   };
-
   return (
     <>
       <h2 ref={topRef}>Filtering Options {documentType}</h2>
@@ -33,7 +32,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
               <div key={passStatus.id}>
                 <input
                   className="usa-radio__input usa-radio__input--tile"
-                  id={`status-${passStatus.id}`}
+                  id={`${documentType}-status-${passStatus.id}`}
                   type="radio"
                   name="pass-status"
                   value={passStatus.id}
@@ -49,7 +48,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                 />
                 <label
                   className="usa-radio__label"
-                  htmlFor={`status-${passStatus.id}`}
+                  htmlFor={`${documentType}-status-${passStatus.id}`}
                 >
                   {passStatus.title}
                   <span
@@ -68,7 +67,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
               <div key={assertionView.index}>
                 <input
                   className="usa-radio__input usa-radio__input--tile"
-                  id={`assertion-view-${assertionView.index}`}
+                  id={`${documentType}-assertion-view-${assertionView.index}`}
                   type="radio"
                   name="assertion-view"
                   value={assertionView.index}
@@ -85,7 +84,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                 />
                 <label
                   className="usa-radio__label"
-                  htmlFor={`assertion-view-${assertionView.index}`}
+                  htmlFor={`${documentType}-assertion-view-${assertionView.index}`}
                 >
                   {assertionView.title}
                   <span
@@ -108,7 +107,10 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
             className="usa-search usa-search--small margin-top-1"
             role="search"
           >
-            <label className="usa-sr-only" htmlFor="search-field">
+            <label
+              className="usa-sr-only"
+              htmlFor={`${documentType}-search-field`}
+            >
               Search assertion text
             </label>
             <div className="usa-input-group">
@@ -128,7 +130,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                 </svg>
               </div>
               <input
-                id="search-field"
+                id={`${documentType}-search-field`}
                 type="search"
                 className="usa-input"
                 autoComplete="off"
@@ -154,7 +156,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
               >
                 <input
                   className="usa-radio__input usa-radio__input--tile"
-                  id={`role-${filterRole.name}`}
+                  id={`${documentType}-role-${filterRole.name}`}
                   type="radio"
                   name="role"
                   value={filterRole.name}
@@ -169,7 +171,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                 />
                 <label
                   className="usa-radio__label"
-                  htmlFor={`role-${filterRole.name}`}
+                  htmlFor={`${documentType}-role-${filterRole.name}`}
                 >
                   <svg
                     aria-hidden="true"

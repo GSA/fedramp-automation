@@ -1,9 +1,6 @@
 import { derived, Statemachine, statemachine } from 'overmind';
 
-import type {
-  FailedAssert,
-  ValidationReport,
-} from '@asap/shared/use-cases/schematron';
+import type { FailedAssert } from '@asap/shared/use-cases/schematron';
 import {
   getFilterOptions,
   PassStatus,
@@ -14,9 +11,10 @@ import {
   SchematronUIConfig,
 } from '../lib/schematron';
 import { getSchematronReport } from '../lib/schematron';
-import { getAssertionsById } from '../lib/validator';
-import { createValidatorMachine, ValidatorMachine } from './validator-machine';
-import { state } from 'fp-ts';
+import {
+  createValidationResultsMachine,
+  ValidationResultsMachine,
+} from './validation-results-machine';
 
 type States =
   | {
@@ -24,21 +22,15 @@ type States =
     }
   | {
       current: 'UNINITIALIZED';
-    }
-  | {
-      current: 'REPORT_LOADED';
-      annotatedXML: string;
-      validationReport: ValidationReport;
     };
 
 type BaseState = {
-  assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
   config: SchematronUIConfig;
   failedAssertionCounts: Record<FailedAssert['id'], number> | null;
   filter: SchematronFilter;
   filterOptions: SchematronFilterOptions;
   schematronReport: SchematronReport;
-  validator: ValidatorMachine;
+  validationResults: ValidationResultsMachine;
 };
 
 type Events =
@@ -46,13 +38,6 @@ type Events =
       type: 'CONFIG_LOADED';
       data: {
         config: SchematronUIConfig;
-      };
-    }
-  | {
-      type: 'SET_VALIDATION_REPORT';
-      data: {
-        annotatedXML: string;
-        validationReport: ValidationReport;
       };
     }
   | {
@@ -92,16 +77,6 @@ const schematronMachine = statemachine<States, Events, BaseState>({
     },
   },
   INITIALIZED: {
-    SET_VALIDATION_REPORT: ({ annotatedXML, validationReport }, state) => {
-      return {
-        current: 'REPORT_LOADED',
-        config: state.config,
-        annotatedXML,
-        validationReport,
-      };
-    },
-  },
-  REPORT_LOADED: {
     FILTER_TEXT_CHANGED: ({ text }, state) => {
       return {
         current: 'INITIALIZED',
@@ -149,26 +124,18 @@ export const createSchematronMachine = () => {
   return schematronMachine.create(
     { current: 'UNINITIALIZED' },
     {
-      assertionsById: derived((state: SchematronMachine) =>
-        state.current === 'REPORT_LOADED'
-          ? getAssertionsById({
-              failedAssertions: state.validationReport.failedAsserts,
-            })
-          : null,
-      ),
       config: {
         assertionViews: [],
         schematronAsserts: [],
       },
       failedAssertionCounts: derived((state: SchematronMachine) => {
-        return state.current === 'REPORT_LOADED'
-          ? state.validationReport.failedAsserts.reduce<Record<string, number>>(
-              (acc, assert) => {
-                acc[assert.id] = (acc[assert.id] || 0) + 1;
-                return acc;
-              },
-              {},
-            )
+        return state.validationResults.current === 'HAS_RESULT'
+          ? state.validationResults.validationReport.failedAsserts.reduce<
+              Record<string, number>
+            >((acc, assert) => {
+              acc[assert.id] = (acc[assert.id] || 0) + 1;
+              return acc;
+            }, {})
           : null;
       }),
       filter: {
@@ -177,30 +144,28 @@ export const createSchematronMachine = () => {
         text: '',
         assertionViewId: 0,
       },
-      filterOptions: derived((state: SchematronMachine) =>
-        getFilterOptions({
+      filterOptions: derived((state: SchematronMachine) => {
+        return getFilterOptions({
           config: state.config,
           filter: state.filter,
-          failedAssertionMap: state.validator.matches('VALIDATED')
-            ? state.assertionsById
-            : null,
-        }),
-      ),
+          failedAssertionMap: state.validationResults.assertionsById,
+        });
+      }),
       schematronReport: derived((state: SchematronMachine) =>
         getSchematronReport({
           config: state.config,
           filter: state.filter,
           filterOptions: state.filterOptions,
           validator: {
-            failedAssertionMap: state.assertionsById,
+            failedAssertionMap: state.validationResults.assertionsById,
             title:
-              state.current === 'REPORT_LOADED'
-                ? state.validationReport.title
+              state.validationResults.current === 'HAS_RESULT'
+                ? state.validationResults.validationReport.title
                 : 'FedRAMP Package Concerns',
           },
         }),
       ),
-      validator: createValidatorMachine(),
+      validationResults: createValidationResultsMachine(),
     },
   );
 };

@@ -36,8 +36,10 @@ export const ViewerPage = (props: ViewerProps) => {
   return (
     <div className="grid-row grid-gap">
       <div ref={ref} className="mobile:grid-col-12">
-        {schematron.ssp.current === 'REPORT_LOADED' ? (
-          <CodeViewer codeHTML={schematron.ssp.annotatedXML} />
+        {schematron.ssp.validationResults.current === 'HAS_RESULT' ? (
+          <CodeViewer
+            codeHTML={schematron.ssp.validationResults.annotatedXML}
+          />
         ) : (
           <p>No report validated.</p>
         )}
