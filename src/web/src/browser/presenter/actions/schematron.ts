@@ -1,7 +1,10 @@
 import type { PassStatus, Role } from '../lib/schematron';
-import type { Presenter, PresenterConfig } from '..';
-
-type SchematronDoc = keyof Presenter['state']['schematron'];
+import type { PresenterConfig } from '..';
+import type {
+  FailedAssert,
+  ValidationReport,
+} from '@asap/shared/use-cases/schematron';
+import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 export const initialize = ({ effects, state }: PresenterConfig) => {
   Promise.all([
@@ -35,16 +38,43 @@ export const initialize = ({ effects, state }: PresenterConfig) => {
   });
 };
 
+export const setValidationReport = async (
+  { effects, state }: PresenterConfig,
+  {
+    documentType,
+    validationReport,
+    xmlString,
+  }: {
+    documentType: OscalDocumentKey;
+    validationReport: ValidationReport;
+    xmlString: string;
+  },
+) => {
+  const annotatedXML = await effects.useCases.annotateXML({
+    xmlString,
+    annotations: validationReport.failedAsserts.map(assert => {
+      return {
+        uniqueId: assert.uniqueId,
+        xpath: assert.location,
+      };
+    }),
+  });
+  state.schematron[documentType].send('SET_VALIDATION_REPORT', {
+    annotatedXML,
+    validationReport,
+  });
+};
+
 export const setFilterRole = (
   { state }: PresenterConfig,
-  { documentType, role }: { documentType: SchematronDoc; role: Role },
+  { documentType, role }: { documentType: OscalDocumentKey; role: Role },
 ) => {
   state.schematron[documentType].send('FILTER_ROLE_CHANGED', { role });
 };
 
 export const setFilterText = (
   { state }: PresenterConfig,
-  { documentType, text }: { documentType: SchematronDoc; text: string },
+  { documentType, text }: { documentType: OscalDocumentKey; text: string },
 ) => {
   state.schematron[documentType].send('FILTER_TEXT_CHANGED', { text });
 };
@@ -54,7 +84,7 @@ export const setFilterAssertionView = (
   {
     documentType,
     assertionViewId,
-  }: { documentType: SchematronDoc; assertionViewId: number },
+  }: { documentType: OscalDocumentKey; assertionViewId: number },
 ) => {
   state.schematron[documentType].send('FILTER_ASSERTION_VIEW_CHANGED', {
     assertionViewId,
@@ -66,7 +96,7 @@ export const setPassStatus = (
   {
     documentType,
     passStatus,
-  }: { documentType: SchematronDoc; passStatus: PassStatus },
+  }: { documentType: OscalDocumentKey; passStatus: PassStatus },
 ) => {
   state.schematron[documentType].send('FILTER_PASS_STATUS_CHANGED', {
     passStatus,

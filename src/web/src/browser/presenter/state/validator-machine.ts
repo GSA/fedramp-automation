@@ -16,9 +16,6 @@ type States =
     }
   | {
       current: 'VALIDATED';
-      validationReport: ValidationReport;
-      xmlText: string;
-      annotatedSSP: string;
     };
 
 type BaseState = {};
@@ -47,10 +44,7 @@ type Events =
     }
   | {
       type: 'VALIDATED';
-      data: {
-        validationReport: ValidationReport;
-        xmlText: string;
-      };
+      data: {};
     };
 
 export type ValidatorMachine = Statemachine<States, Events, BaseState>;
@@ -92,12 +86,9 @@ export const validatorMachine = statemachine<States, Events, BaseState>({
         errorMessage,
       };
     },
-    VALIDATED: ({ validationReport, xmlText }) => {
+    VALIDATED: () => {
       return {
         current: 'VALIDATED',
-        validationReport,
-        annotatedSSP: '',
-        xmlText,
       };
     },
   },

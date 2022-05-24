@@ -8,7 +8,7 @@ type ViewerProps = {
 };
 
 export const ViewerPage = (props: ViewerProps) => {
-  const validator = useAppState().validator;
+  const schematron = useAppState().schematron;
   let ref = createRef<HTMLDivElement>();
 
   useEffect(() => {
@@ -36,8 +36,8 @@ export const ViewerPage = (props: ViewerProps) => {
   return (
     <div className="grid-row grid-gap">
       <div ref={ref} className="mobile:grid-col-12">
-        {validator.current === 'VALIDATED' ? (
-          <CodeViewer codeHTML={validator.annotatedSSP} />
+        {schematron.ssp.current === 'REPORT_LOADED' ? (
+          <CodeViewer codeHTML={schematron.ssp.annotatedXML} />
         ) : (
           <p>No report validated.</p>
         )}

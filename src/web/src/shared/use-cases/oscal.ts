@@ -16,36 +16,34 @@ type Fetch = typeof fetch;
 export class OscalService {
   constructor(
     private jsonOscalToXml: SchematronJSONToXMLProcessor,
-    private schematronProcessors: {
-      poam: SchematronProcessor;
-      sap: SchematronProcessor;
-      sar: SchematronProcessor;
-      ssp: SchematronProcessor;
-    },
+    private schematronProcessor: SchematronProcessor,
     private fetch: Fetch,
   ) {}
 
-  initDocument(oscalString: string): Promise<OscalDocument> {
+  initDocument(oscalString: string): Promise<string> {
     return this.ensureXml(oscalString).then(xmlString => {
-      return {
-        documentType: getOscalDocumentTypeFromXml(xmlString),
-        xmlString,
-      };
+      return xmlString;
     });
   }
 
-  initDocumentByUrl(fileUrl: string): Promise<OscalDocument> {
+  initDocumentByUrl(fileUrl: string): Promise<string> {
     return this.fetch(fileUrl)
       .then(response => response.text())
       .then(value => this.initDocument(value));
   }
 
-  validateOscal({
-    documentType,
-    xmlString,
-  }: OscalDocument): Promise<ValidationReport> {
-    const processSchematron = this.schematronProcessors[documentType];
-    return processSchematron(xmlString).then(generateSchematronReport);
+  validateOscal(xmlString: string): Promise<{
+    documentType: OscalDocumentKey;
+    validationReport: ValidationReport;
+  }> {
+    return this.schematronProcessor(xmlString).then(
+      ({ documentType, validationReport }) => {
+        return {
+          documentType,
+          validationReport: generateSchematronReport(validationReport),
+        };
+      },
+    );
   }
 
   async ensureXml(oscalString: string): Promise<string> {
@@ -78,10 +76,4 @@ const generateSchematronReport = (
         .map(report => report.text)[0] || '<Unspecified system name>',
     failedAsserts: schematronResult.failedAsserts,
   };
-};
-
-export const getOscalDocumentTypeFromXml = (
-  oscalXml: string,
-): OscalDocumentKey => {
-  return 'ssp';
 };

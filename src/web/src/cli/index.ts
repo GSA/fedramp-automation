@@ -47,7 +47,12 @@ const controller = CommandLineController({
         SaxonJS,
       }),
       processSchematron: SaxonJsSchematronProcessorGateway({
-        sefUrl: `file://${join(config.PUBLIC_PATH, 'ssp.sef.json')}`,
+        sefUrls: {
+          poam: `file://${join(config.PUBLIC_PATH, 'poam.sef.json')}`,
+          sap: `file://${join(config.PUBLIC_PATH, 'sap.sef.json')}`,
+          sar: `file://${join(config.PUBLIC_PATH, 'sar.sef.json')}`,
+          ssp: `file://${join(config.PUBLIC_PATH, 'ssp.sef.json')}`,
+        },
         SaxonJS: SaxonJS,
         baselinesBaseUrl: config.BASELINES_PATH,
         registryBaseUrl: config.REGISTRY_PATH,

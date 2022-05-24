@@ -2,6 +2,8 @@
  * Define the core Schematron types used in the application.
  */
 
+import type { OscalDocumentKey } from '../domain/oscal';
+
 export type FailedAssert = {
   uniqueId: string;
   id: string;
@@ -33,9 +35,10 @@ export type SchematronJSONToXMLProcessor = (
   jsonString: string,
 ) => Promise<string>;
 
-export type SchematronProcessor = (
-  oscalXmlString: string,
-) => Promise<SchematronResult>;
+export type SchematronProcessor = (oscalXmlString: string) => Promise<{
+  documentType: OscalDocumentKey;
+  validationReport: SchematronResult;
+}>;
 
 export type SchematronAssert = {
   id: string;

@@ -1,4 +1,3 @@
-import type { ScenarioSummary } from '@asap/shared/domain/xspec';
 import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 import type {
   SchematronAssert,

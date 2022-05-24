@@ -38,7 +38,12 @@ describe('saxon-js gateway', () => {
     }) as any);
     const reportGateway = SaxonJsSchematronProcessorGateway({
       SaxonJS,
-      sefUrl: '/test.sef.json',
+      sefUrls: {
+        poam: '/test.sef.json',
+        sap: '/test.sef.json',
+        sar: '/test.sef.json',
+        ssp: '/test.sef.json',
+      },
       baselinesBaseUrl: '/baselines',
       registryBaseUrl: '/xml',
     });

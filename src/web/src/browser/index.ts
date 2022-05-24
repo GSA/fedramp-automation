@@ -45,7 +45,12 @@ export const runBrowserContext = ({
     SaxonJS,
   });
   const processSchematron = SaxonJsSchematronProcessorGateway({
-    sefUrl: `${baseUrl}/ssp.sef.json`,
+    sefUrls: {
+      poam: `${baseUrl}/poam.sef.json`,
+      sap: `${baseUrl}/sap.sef.json`,
+      sar: `${baseUrl}/sar.sef.json`,
+      ssp: `${baseUrl}/ssp.sef.json`,
+    },
     SaxonJS,
     baselinesBaseUrl: `${baseUrl}/baselines`,
     registryBaseUrl: `${baseUrl}/xml`,
@@ -159,12 +164,7 @@ export const runBrowserContext = ({
           },
           oscalService: new OscalService(
             jsonOscalToXml,
-            {
-              poam: processSchematron,
-              sap: processSchematron,
-              sar: processSchematron,
-              ssp: processSchematron,
-            },
+            processSchematron,
             window.fetch.bind(window),
           ),
         },

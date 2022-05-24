@@ -17,17 +17,16 @@ export const validateOscalDocument = async (
   ) {
     effects.useCases.oscalService
       .initDocument(options.fileContents)
-      .then(({ documentType, xmlString }) => {
+      .then(xmlString => {
         effects.useCases.oscalService
-          .validateOscal({ documentType, xmlString })
-          .then(validationReport =>
+          .validateOscal(xmlString)
+          .then(({ documentType, validationReport }) => {
             actions.validator.setValidationReport({
               documentType,
               validationReport,
-              xmlText: xmlString,
-            }),
-          )
-          .then(actions.validator.annotateXml)
+              xmlString,
+            });
+          })
           .catch((error: Error) =>
             actions.validator.setProcessingError(error.message),
           );
@@ -45,38 +44,20 @@ export const setXmlUrl = async (
   ) {
     effects.useCases.oscalService
       .initDocumentByUrl(xmlFileUrl)
-      .then(({ documentType, xmlString }) => {
+      .then(xmlString => {
         effects.useCases.oscalService
-          .validateOscal({ documentType, xmlString })
-          .then(validationReport =>
+          .validateOscal(xmlString)
+          .then(({ documentType, validationReport }) => {
             actions.validator.setValidationReport({
               documentType,
               validationReport,
-              xmlText: xmlString,
-            }),
-          )
-          .then(actions.validator.annotateXml)
+              xmlString,
+            });
+          })
           .catch((error: Error) =>
             actions.validator.setProcessingError(error.message),
           );
       });
-  }
-};
-
-export const annotateXml = async ({ effects, state }: PresenterConfig) => {
-  if (state.validator.current === 'VALIDATED') {
-    const annotatedSSP = await effects.useCases.annotateXML({
-      xmlString: state.validator.xmlText,
-      annotations: state.validator.validationReport.failedAsserts.map(
-        assert => {
-          return {
-            uniqueId: assert.uniqueId,
-            xpath: assert.location,
-          };
-        },
-      ),
-    });
-    state.validator.annotatedSSP = annotatedSSP;
   }
 };
 
@@ -94,18 +75,20 @@ export const setValidationReport = (
   {
     documentType,
     validationReport,
-    xmlText,
+    xmlString,
   }: {
     documentType: OscalDocumentKey;
     validationReport: ValidationReport;
-    xmlText: string;
+    xmlString: string;
   },
 ) => {
   if (state.validator.matches('PROCESSING')) {
-    state.validator.send('VALIDATED', {
-      validationReport,
-      xmlText,
-    });
+    state.validator.send('VALIDATED', {});
     actions.metrics.logValidationSummary(documentType);
   }
+  actions.schematron.setValidationReport({
+    documentType,
+    validationReport,
+    xmlString,
+  });
 };

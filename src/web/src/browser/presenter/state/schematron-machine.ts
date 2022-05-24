@@ -16,6 +16,7 @@ import {
 import { getSchematronReport } from '../lib/schematron';
 import { getAssertionsById } from '../lib/validator';
 import { createValidatorMachine, ValidatorMachine } from './validator-machine';
+import { state } from 'fp-ts';
 
 type States =
   | {
@@ -26,6 +27,7 @@ type States =
     }
   | {
       current: 'REPORT_LOADED';
+      annotatedXML: string;
       validationReport: ValidationReport;
     };
 
@@ -49,6 +51,7 @@ type Events =
   | {
       type: 'SET_VALIDATION_REPORT';
       data: {
+        annotatedXML: string;
         validationReport: ValidationReport;
       };
     }
@@ -89,9 +92,11 @@ const schematronMachine = statemachine<States, Events, BaseState>({
     },
   },
   INITIALIZED: {
-    SET_VALIDATION_REPORT: ({ validationReport }) => {
+    SET_VALIDATION_REPORT: ({ annotatedXML, validationReport }, state) => {
       return {
         current: 'REPORT_LOADED',
+        config: state.config,
+        annotatedXML,
         validationReport,
       };
     },
@@ -189,8 +194,8 @@ export const createSchematronMachine = () => {
           validator: {
             failedAssertionMap: state.assertionsById,
             title:
-              state.validator.current === 'VALIDATED'
-                ? state.validator.validationReport.title
+              state.current === 'REPORT_LOADED'
+                ? state.validationReport.title
                 : 'FedRAMP Package Concerns',
           },
         }),
