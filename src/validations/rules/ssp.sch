@@ -3411,6 +3411,21 @@
                         exists($selected-profile//oscal:control[@id eq current()/@control-id]/oscal:param[@id eq $i])">In the SSP, all
                 implemented-requirement set-parameter element @id values also occur in the corresponding baseline-resolved-profile catalog param
                 elements, that do not have child value elements, @id attributes.</sch:assert>
+            <sch:assert
+                diagnostics="remote-multi-factor-authentication-described-diagnostic"
+                id="remote-multi-factor-authentication-described"
+                role="warning"
+                test="
+                    if (matches(@control-id, 'ia-2.11'))
+                    then
+                    (if (self::oscal:implemented-requirement//*[matches(., 'CMVP validated|NIAP Certification|NSA approval')])
+                        then
+                            (true())
+                        else
+                            (false()))
+                    else
+                        (true())">Implemented Requirement <xsl:value-of
+                    select="@control-id" /> exists.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']">
@@ -4083,6 +4098,11 @@
             doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement"
             id="DNSSEC-described-diagnostic">The implemented requirement does not contain the strings 'DNSSEC' or 'DNS Security
             Extensions'.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="remote-multi-factor-authentication-described"
+            doc:context="oscal:implemented-requirement"
+            id="remote-multi-factor-authentication-described-diagnostic">The implemented requirement <xsl:value-of
+                select="@control-id" /> does not contain the strings 'CMVP validated' or 'NIAP Certification' or 'NSA approval'.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="invalid-component-match"
             doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:by-component"
