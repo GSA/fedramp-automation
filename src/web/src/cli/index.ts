@@ -1,7 +1,6 @@
 #!/usr/bin/env -S ts-node --script-mode
 
 import { promises as fs } from 'fs';
-import nodeFetch from 'node-fetch';
 import { join } from 'path';
 const xmlFormatter = require('xml-formatter');
 
@@ -58,7 +57,7 @@ const controller = CommandLineController({
         baselinesBaseUrl: config.BASELINES_PATH,
         registryBaseUrl: config.REGISTRY_PATH,
       }),
-      nodeFetch as typeof fetch,
+      null as unknown as typeof fetch,
     ),
     writeAssertionViews: WriteAssertionViews({
       paths: {

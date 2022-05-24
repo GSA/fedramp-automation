@@ -63,7 +63,6 @@
     "fp-ts": "^2.11.1",
     "highlight.js": "^11.5.1",
     "io-ts": "^2.2.16",
-    "node-fetch": "^3.2.4",
     "overmind": "^28.0.1",
     "overmind-react": "^29.0.1",
     "patch-package": "^6.4.7",
