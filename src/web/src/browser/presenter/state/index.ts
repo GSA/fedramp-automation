@@ -10,7 +10,7 @@ import {
 } from './schematron-machine';
 import { createValidatorMachine, ValidatorMachine } from './validator-machine';
 
-export type SampleSSP = {
+export type SampleDocument = {
   url: string;
   displayName: string;
 };
@@ -28,7 +28,7 @@ export type State = {
   };
   sourceRepository: {
     treeUrl?: string;
-    sampleSSPs: SampleSSP[];
+    sampleDocuments: SampleDocument[];
     developerExampleUrl?: string;
   };
   validator: ValidatorMachine;
@@ -46,7 +46,7 @@ export const state: State = {
     ssp: createSchematronMachine(),
   },
   sourceRepository: {
-    sampleSSPs: [],
+    sampleDocuments: [],
   },
   validator: createValidatorMachine(),
 };

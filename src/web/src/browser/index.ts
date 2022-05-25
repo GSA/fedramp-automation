@@ -77,7 +77,7 @@ export const runBrowserContext = ({
         baseUrl,
         sourceRepository: {
           treeUrl: github.getBranchTreeUrl(githubRepository),
-          sampleSSPs: github.getSampleOscalDocuments(githubRepository),
+          sampleDocuments: github.getSampleOscalDocuments(githubRepository),
           developerExampleUrl: github.getDeveloperExampleUrl(githubRepository),
         },
         location: {

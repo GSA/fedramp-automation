@@ -142,7 +142,7 @@ export const breadcrumbs: Record<
     return [
       ...breadcrumbs.Home(route),
       {
-        text: 'OSCAL Documents',
+        text: 'Document Rules',
         linkUrl:
           route.type !== 'DocumentSummary' && getUrl(Routes.documentSummary),
       },

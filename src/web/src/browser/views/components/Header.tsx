@@ -47,7 +47,7 @@ export const Header = () => {
                 })}
                 href={getUrl(Routes.documentSummary)}
               >
-                <span>OSCAL Documents</span>
+                <span>Document Rules</span>
               </a>
             </li>
             <li className="usa-nav__primary-item">

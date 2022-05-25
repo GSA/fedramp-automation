@@ -75,33 +75,31 @@ export const ValidatorFileSelectForm = () => {
             ></use>
           </svg>
         )}
-        <div className="usa-hint">
+        <label className="usa-label usa-hint" htmlFor="sample-document">
           Or use an example file, brought to you by FedRAMP:
-        </div>
-        <ul className="usa-icon-list margin-top-2">
-          {sourceRepository.sampleSSPs.map((sampleSSP, index) => (
-            <li key={index} className="usa-icon-list__item">
-              <div className="usa-icon-list__icon text-primary">
-                <svg className="usa-icon" aria-hidden="true" role="img">
-                  <use
-                    xlinkHref={actions.getAssetUrl(
-                      'uswds/img/sprite.svg#upload_file',
-                    )}
-                  ></use>
-                </svg>
-              </div>
-              <div className="usa-icon-list__content">
-                <button
-                  className="usa-button usa-button--unstyled"
-                  onClick={() => actions.validator.setXmlUrl(sampleSSP.url)}
-                  disabled={state.validator.current === 'PROCESSING'}
-                >
-                  {sampleSSP.displayName}
-                </button>
-              </div>
-            </li>
+        </label>
+        <select
+          className="usa-select"
+          name="sample-document"
+          id="sample-document"
+          disabled={state.validator.current === 'PROCESSING'}
+          onChange={event => {
+            actions.validator.setXmlUrl(
+              event.target.options[event.target.selectedIndex].value,
+            );
+          }}
+        >
+          <option value=""></option>
+          {sourceRepository.sampleDocuments.map((sampleDocument, index) => (
+            <option
+              key={index}
+              onSelect={() => actions.validator.setXmlUrl(sampleDocument.url)}
+              value={sampleDocument.url}
+            >
+              {sampleDocument.displayName}
+            </option>
           ))}
-        </ul>
+        </select>
         {state.validator.current === 'PROCESSING_ERROR' && (
           <div className="usa-alert usa-alert--error" role="alert">
             <div className="usa-alert__body">

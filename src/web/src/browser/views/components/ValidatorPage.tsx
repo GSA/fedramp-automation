@@ -34,15 +34,15 @@ export const ValidatorPage = ({
   return (
     <>
       <div className="grid-row">
-        <h1>FedRAMP OSCAL SSP Validator</h1>
+        <h1>FedRAMP OSCAL Document Rules</h1>
         <div className="mobile:grid-col-12">
-          You may use this tool to browse FedRAMP OSCAL SSP validation rules and
-          validation results.
+          You may use this tool to browse FedRAMP OSCAL validation rules and
+          apply them to your own documents.
         </div>
       </div>
       <div className="grid-row grid-gap">
         <div className="tablet:grid-col-12">
-          <h1>Choose an XML file to process</h1>
+          <h2>Choose an XML file to process</h2>
         </div>
         <ValidatorFileSelectForm />
       </div>

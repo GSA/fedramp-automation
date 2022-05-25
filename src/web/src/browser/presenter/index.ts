@@ -10,7 +10,7 @@ import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron'
 
 import * as actions from './actions';
 import type { Location } from './state/router';
-import { state, State, SampleSSP } from './state';
+import { state, State, SampleDocument } from './state';
 
 type UseCases = {
   annotateXML: AnnotateXMLUseCase;
@@ -45,7 +45,7 @@ export type PresenterContext = {
   debug: boolean;
   sourceRepository: {
     treeUrl: string;
-    sampleSSPs: SampleSSP[];
+    sampleDocuments: SampleDocument[];
     developerExampleUrl: string;
   };
   location: Location;
