@@ -37,9 +37,8 @@ export const createRouterMachine = () => {
     {
       currentRoute: router.Routes.home,
       breadcrumbs: derived((state: BaseState) => {
-        const what = router.breadcrumbs[state.currentRoute.type];
-        const test = what(state.currentRoute);
-        return test;
+        const getBreadcrumbs = router.breadcrumbs[state.currentRoute.type];
+        return getBreadcrumbs(state.currentRoute);
       }),
     },
   );

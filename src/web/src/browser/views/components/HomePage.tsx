@@ -121,7 +121,7 @@ export const HomePage = () => {
         <li>
           This user interface, which will apply validations to a FedRAMP OSCAL
           System Security Plan and display validation errors in-browser.{' '}
-          <a href={getUrl(Routes.validator)}>Try it out</a>.
+          <a href={getUrl(Routes.documentSummary)}>Try it out</a>.
         </li>
         <li>
           Compiled Schematron rules (XSLT), which may be integrated with

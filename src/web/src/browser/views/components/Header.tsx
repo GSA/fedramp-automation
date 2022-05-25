@@ -42,11 +42,12 @@ export const Header = () => {
             <li className="usa-nav__primary-item">
               <a
                 className={classnames('usa-nav__link', {
-                  'usa-current': currentRoute.type === Routes.validator.type,
+                  'usa-current':
+                    currentRoute.type === Routes.documentSummary.type,
                 })}
-                href={getUrl(Routes.validator)}
+                href={getUrl(Routes.documentSummary)}
               >
-                <span>SSP Validator</span>
+                <span>OSCAL Documents</span>
               </a>
             </li>
             <li className="usa-nav__primary-item">

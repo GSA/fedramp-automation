@@ -1,3 +1,5 @@
+import { getUrl, Routes } from '@asap/browser/presenter/state/router';
+import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import React from 'react';
 
 import { useAppState } from '../hooks';
@@ -17,11 +19,27 @@ const CurrentPage = () => {
   const { currentRoute } = useAppState().router;
   if (currentRoute.type === 'Home') {
     return <HomePage />;
-  } else if (currentRoute.type === 'Validator') {
+  } else if (
+    currentRoute.type === 'DocumentSummary' ||
+    currentRoute.type === 'DocumentPOAM' ||
+    currentRoute.type === 'DocumentSAP' ||
+    currentRoute.type === 'DocumentSAR' ||
+    currentRoute.type === 'DocumentSSP'
+  ) {
     return (
       <>
         <InnerPageLayout>
-          <ValidatorPage />
+          <ValidatorPage
+            documentType={
+              {
+                DocumentSummary: null,
+                DocumentPOAM: 'poam',
+                DocumentSAP: 'sap',
+                DocumentSAR: 'sar',
+                DocumentSSP: 'ssp',
+              }[currentRoute.type] as OscalDocumentKey | null
+            }
+          />
         </InnerPageLayout>
         <ValidatorContentOverlay />
       </>

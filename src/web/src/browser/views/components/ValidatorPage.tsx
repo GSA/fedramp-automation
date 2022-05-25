@@ -4,12 +4,13 @@ import type { Presenter } from '@asap/browser/presenter';
 import { ValidatorFileSelectForm } from './ValidatorFileSelectForm';
 import { ValidatorReport } from './ValidatorReport';
 import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
+import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 
-type Props = {
+const DocumentValidator = ({
+  documentType,
+}: {
   documentType: keyof Presenter['state']['schematron'];
-};
-
-const DocumentValidator = ({ documentType }: Props) => (
+}) => (
   <>
     <h1>{documentType.toUpperCase()}</h1>
     <div className="grid-row grid-gap">
@@ -25,7 +26,11 @@ const DocumentValidator = ({ documentType }: Props) => (
   </>
 );
 
-export const ValidatorPage = () => {
+export const ValidatorPage = ({
+  documentType,
+}: {
+  documentType: keyof Presenter['state']['schematron'] | null;
+}) => {
   return (
     <>
       <div className="grid-row">
@@ -41,10 +46,35 @@ export const ValidatorPage = () => {
         </div>
         <ValidatorFileSelectForm />
       </div>
-      <DocumentValidator documentType="ssp" />
-      <DocumentValidator documentType="sap" />
-      <DocumentValidator documentType="sar" />
-      <DocumentValidator documentType="poam" />
+      <div>
+        <ul>
+          <li>
+            <a href={getUrl(Routes.documentSummary)}>Summary</a>
+          </li>
+          <li>
+            <a href={getUrl(Routes.documentPOAM)}>
+              Plan of Action and Milestones
+            </a>
+          </li>
+          <li>
+            <a href={getUrl(Routes.documentSAP)}>Security Assessment Plan</a>
+          </li>
+          <li>
+            <a href={getUrl(Routes.documentSAR)}>Security Assessment Report</a>
+          </li>
+          <li>
+            <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
+          </li>
+        </ul>
+      </div>
+      {documentType ? (
+        <DocumentValidator documentType={documentType} />
+      ) : (
+        <div>
+          Document Summary here... this might include a count of rules and a
+          validation summary.
+        </div>
+      )}
     </>
   );
 };

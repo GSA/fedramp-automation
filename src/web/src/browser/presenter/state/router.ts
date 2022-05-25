@@ -2,7 +2,11 @@ import { match } from 'path-to-regexp';
 
 export type RouteTypes = {
   Home: { type: 'Home' };
-  Validator: { type: 'Validator' };
+  DocumentSummary: { type: 'DocumentSummary' };
+  DocumentPOAM: { type: 'DocumentPOAM' };
+  DocumentSAP: { type: 'DocumentSAP' };
+  DocumentSAR: { type: 'DocumentSAR' };
+  DocumentSSP: { type: 'DocumentSSP' };
   Assertion: {
     type: 'Assertion';
     assertionId: string;
@@ -21,8 +25,20 @@ export namespace Routes {
   export const home: RouteTypes['Home'] = {
     type: 'Home',
   };
-  export const validator: RouteTypes['Validator'] = {
-    type: 'Validator',
+  export const documentSummary: RouteTypes['DocumentSummary'] = {
+    type: 'DocumentSummary',
+  };
+  export const documentPOAM: RouteTypes['DocumentPOAM'] = {
+    type: 'DocumentPOAM',
+  };
+  export const documentSAP: RouteTypes['DocumentSAP'] = {
+    type: 'DocumentSAP',
+  };
+  export const documentSAR: RouteTypes['DocumentSAR'] = {
+    type: 'DocumentSAR',
+  };
+  export const documentSSP: RouteTypes['DocumentSSP'] = {
+    type: 'DocumentSSP',
   };
   export const assertion = (options: {
     assertionId: string;
@@ -44,7 +60,11 @@ export namespace Routes {
 
 const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   Home: () => '#/',
-  Validator: () => '#/validator',
+  DocumentSummary: () => '#/documents',
+  DocumentPOAM: () => '#/documents/plan-of-action-and-milestones',
+  DocumentSAP: () => '#/documents/security-assessment-plan',
+  DocumentSAR: () => '#/documents/security-assessment-report',
+  DocumentSSP: () => '#/documents/system-security-plan',
   Assertion: (route: RouteTypes['Assertion']) =>
     `#/assertions/${route.assertionId}`,
   Developers: () => '#/developers',
@@ -70,7 +90,23 @@ const matchRoute = <L extends Route>(
 
 const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
   Home: matchRoute('#/', () => Routes.home),
-  Validator: matchRoute('#/validator', () => Routes.validator),
+  DocumentSummary: matchRoute('#/documents', () => Routes.documentSummary),
+  DocumentPOAM: matchRoute(
+    '#/documents/plan-of-action-and-milestones',
+    () => Routes.documentPOAM,
+  ),
+  DocumentSAP: matchRoute(
+    '#/documents/security-assessment-plan',
+    () => Routes.documentSAP,
+  ),
+  DocumentSAR: matchRoute(
+    '#/documents/security-assessment-report',
+    () => Routes.documentSAR,
+  ),
+  DocumentSSP: matchRoute(
+    '#/documents/system-security-plan',
+    () => Routes.documentSSP,
+  ),
   Assertion: matchRoute('#/assertions/:assertionId', Routes.assertion),
   Developers: matchRoute('#/developers', () => Routes.developers),
   UsageTracking: matchRoute('#/usage-tracking', () => Routes.usageTracking),
@@ -102,12 +138,49 @@ export const breadcrumbs: Record<
       },
     ];
   },
-  Validator: (route: Route) => {
+  DocumentSummary: (route: Route) => {
     return [
       ...breadcrumbs.Home(route),
       {
-        text: 'Validator',
-        linkUrl: route.type !== 'Validator' && getUrl(Routes.home),
+        text: 'OSCAL Documents',
+        linkUrl:
+          route.type !== 'DocumentSummary' && getUrl(Routes.documentSummary),
+      },
+    ];
+  },
+  DocumentPOAM: (route: Route) => {
+    return [
+      ...breadcrumbs.DocumentSummary(route),
+      {
+        text: 'Plan of Action and Milestones',
+        linkUrl: route.type !== 'DocumentPOAM' && getUrl(Routes.documentPOAM),
+      },
+    ];
+  },
+  DocumentSAP: (route: Route) => {
+    return [
+      ...breadcrumbs.DocumentSummary(route),
+      {
+        text: 'Security Assessment Plan',
+        linkUrl: route.type !== 'DocumentSAP' && getUrl(Routes.documentSAP),
+      },
+    ];
+  },
+  DocumentSAR: (route: Route) => {
+    return [
+      ...breadcrumbs.DocumentSummary(route),
+      {
+        text: 'Security Assessment Report',
+        linkUrl: route.type !== 'DocumentSAR' && getUrl(Routes.documentSAR),
+      },
+    ];
+  },
+  DocumentSSP: (route: Route) => {
+    return [
+      ...breadcrumbs.DocumentSummary(route),
+      {
+        text: 'System Security Plan',
+        linkUrl: route.type !== 'DocumentSSP' && getUrl(Routes.documentSSP),
       },
     ];
   },
