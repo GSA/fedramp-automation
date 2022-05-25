@@ -32,7 +32,7 @@ export const logValidationSummary = (
       eventType: 'validation-summary',
       userAlias: undefined,
       data: {
-        failedAsserts: state.schematron[documentType].failedAssertionCounts,
+        failedAsserts: state.oscalDocuments[documentType].failedAssertionCounts,
       },
     });
   }

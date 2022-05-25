@@ -8,7 +8,7 @@ type ViewerProps = {
 };
 
 export const ViewerPage = (props: ViewerProps) => {
-  const schematron = useAppState().schematron;
+  const oscalDocuments = useAppState().oscalDocuments;
   let ref = createRef<HTMLDivElement>();
 
   useEffect(() => {
@@ -36,9 +36,9 @@ export const ViewerPage = (props: ViewerProps) => {
   return (
     <div className="grid-row grid-gap">
       <div ref={ref} className="mobile:grid-col-12">
-        {schematron.ssp.validationResults.current === 'HAS_RESULT' ? (
+        {oscalDocuments.ssp.validationResults.current === 'HAS_RESULT' ? (
           <CodeViewer
-            codeHTML={schematron.ssp.validationResults.annotatedXML}
+            codeHTML={oscalDocuments.ssp.validationResults.annotatedXML}
           />
         ) : (
           <p>No report validated.</p>

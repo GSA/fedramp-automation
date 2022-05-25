@@ -1,16 +1,17 @@
 import React from 'react';
 
-import type { Presenter } from '@asap/browser/presenter';
+import { getUrl, Routes } from '@asap/browser/presenter/state/router';
+import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
+
 import { ValidatorFileSelectForm } from './ValidatorFileSelectForm';
 import { ValidatorReport } from './ValidatorReport';
 import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
-import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import { useAppState } from '../hooks';
 
 const DocumentValidator = ({
   documentType,
 }: {
-  documentType: keyof Presenter['state']['schematron'];
+  documentType: OscalDocumentKey;
 }) => (
   <>
     <div className="grid-row grid-gap">
@@ -29,7 +30,7 @@ const DocumentValidator = ({
 export const ValidatorPage = ({
   documentType,
 }: {
-  documentType: keyof Presenter['state']['schematron'] | null;
+  documentType: OscalDocumentKey | null;
 }) => {
   const currentRoute = useAppState().router.currentRoute;
   return (

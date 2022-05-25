@@ -20,7 +20,7 @@ export type State = {
   baseUrl: string;
   metrics: MetricsMachine;
   router: RouterMachine;
-  schematron: {
+  oscalDocuments: {
     poam: SchematronMachine;
     sap: SchematronMachine;
     sar: SchematronMachine;
@@ -38,13 +38,13 @@ export const state: State = {
   assertionDocumentation: createAssertionDocumentationMachine(),
   baseUrl: '',
   metrics: createMetricsMachine(),
-  router: createRouterMachine(),
-  schematron: {
+  oscalDocuments: {
     poam: createSchematronMachine(),
     sap: createSchematronMachine(),
     sar: createSchematronMachine(),
     ssp: createSchematronMachine(),
   },
+  router: createRouterMachine(),
   sourceRepository: {
     sampleDocuments: [],
   },

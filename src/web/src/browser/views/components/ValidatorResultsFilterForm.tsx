@@ -1,15 +1,16 @@
-import type { Presenter } from '@asap/browser/presenter';
 import React, { useRef } from 'react';
+
+import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
 
 type Props = {
-  documentType: keyof Presenter['state']['schematron'];
+  documentType: OscalDocumentKey;
 };
 
 export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
-  const schematron = useAppState().schematron[documentType];
+  const oscalDocument = useAppState().oscalDocuments[documentType];
   const actions = useActions();
 
   const topRef = useRef<HTMLHeadingElement>(null);
@@ -27,7 +28,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
             Filter by pass status
           </legend>
           <div className="usa-radio">
-            {schematron.filterOptions.passStatuses.map(passStatus => (
+            {oscalDocument.filterOptions.passStatuses.map(passStatus => (
               <div key={passStatus.id}>
                 <input
                   className="usa-radio__input usa-radio__input--tile"
@@ -35,7 +36,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   type="radio"
                   name="pass-status"
                   value={passStatus.id}
-                  checked={schematron.filter.passStatus === passStatus.id}
+                  checked={oscalDocument.filter.passStatus === passStatus.id}
                   disabled={!passStatus.enabled}
                   onChange={() => {
                     actions.schematron.setPassStatus({
@@ -62,7 +63,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
           </div>
           <legend className="usa-legend font-sans-md">Select a view</legend>
           <div className="usa-radio">
-            {schematron.filterOptions.assertionViews.map(assertionView => (
+            {oscalDocument.filterOptions.assertionViews.map(assertionView => (
               <div key={assertionView.index}>
                 <input
                   className="usa-radio__input usa-radio__input--tile"
@@ -71,7 +72,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   name="assertion-view"
                   value={assertionView.index}
                   checked={
-                    schematron.filter.assertionViewId === assertionView.index
+                    oscalDocument.filter.assertionViewId === assertionView.index
                   }
                   onChange={() => {
                     actions.schematron.setFilterAssertionView({
@@ -148,7 +149,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
             <legend className="usa-legend font-sans-md">
               Filter by severity
             </legend>
-            {schematron.filterOptions.roles.map((filterRole, index) => (
+            {oscalDocument.filterOptions.roles.map((filterRole, index) => (
               <div
                 key={index}
                 className={`bg-${colorTokenForRole(filterRole.name)}-lighter`}
@@ -159,7 +160,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   type="radio"
                   name="role"
                   value={filterRole.name}
-                  checked={schematron.filter.role === filterRole.name}
+                  checked={oscalDocument.filter.role === filterRole.name}
                   onChange={() => {
                     actions.schematron.setFilterRole({
                       documentType,

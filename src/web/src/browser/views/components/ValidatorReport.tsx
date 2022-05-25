@@ -1,18 +1,18 @@
 import React from 'react';
 
-import type { Presenter } from '@asap/browser/presenter';
+import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { Routes, getUrl } from '@asap/browser/presenter/state/router';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
 
 type Props = {
-  documentType: keyof Presenter['state']['schematron'];
+  documentType: OscalDocumentKey;
 };
 
 export const ValidatorReport = ({ documentType }: Props) => {
   const schematronReport =
-    useAppState().schematron[documentType].schematronReport;
+    useAppState().oscalDocuments[documentType].schematronReport;
 
   const actions = useActions();
   return (
