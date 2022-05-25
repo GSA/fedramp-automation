@@ -45,8 +45,13 @@ export const Header = () => {
                   'usa-accordion__button',
                   'usa-nav__link',
                   {
-                    'usa-current':
-                      currentRoute.type === Routes.documentSummary.type,
+                    'usa-current': [
+                      Routes.documentSummary.type,
+                      Routes.documentPOAM.type,
+                      Routes.documentSAP.type,
+                      Routes.documentSAR.type,
+                      Routes.documentSSP.type,
+                    ].includes(currentRoute.type as any),
                   },
                 )}
                 aria-expanded="false"
@@ -55,6 +60,9 @@ export const Header = () => {
                 <span>Document Rules</span>
               </button>
               <ul id="document-rules" className="usa-nav__submenu">
+                <li className="usa-nav__submenu-item">
+                  <a href={getUrl(Routes.documentSummary)}>Summary</a>
+                </li>
                 <li className="usa-nav__submenu-item">
                   <a href={getUrl(Routes.documentPOAM)}>
                     Plan of Action and Milestones

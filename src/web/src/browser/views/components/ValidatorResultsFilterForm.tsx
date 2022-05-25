@@ -14,9 +14,8 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
 
   const topRef = useRef<HTMLHeadingElement>(null);
   const scrollIntoView = () => {
-    if (topRef && topRef.current) {
-      console.log('Skipping scroll until multi-document UI is done...');
-      //topRef.current.scrollIntoView();
+    if (topRef && topRef.current && topRef.current.parentElement) {
+      topRef.current.parentElement.scrollIntoView();
     }
   };
   return (

@@ -5,6 +5,7 @@ import { ValidatorFileSelectForm } from './ValidatorFileSelectForm';
 import { ValidatorReport } from './ValidatorReport';
 import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
+import { useAppState } from '../hooks';
 
 const DocumentValidator = ({
   documentType,
@@ -12,7 +13,6 @@ const DocumentValidator = ({
   documentType: keyof Presenter['state']['schematron'];
 }) => (
   <>
-    <h1>{documentType.toUpperCase()}</h1>
     <div className="grid-row grid-gap">
       <div className="mobile:grid-col-12 tablet:grid-col-4">
         <div className="position-sticky top-0bg-white padding-top-4">
@@ -31,6 +31,7 @@ export const ValidatorPage = ({
 }: {
   documentType: keyof Presenter['state']['schematron'] | null;
 }) => {
+  const currentRoute = useAppState().router.currentRoute;
   return (
     <>
       <div className="grid-row">
@@ -49,21 +50,43 @@ export const ValidatorPage = ({
       <div>
         <ul>
           <li>
-            <a href={getUrl(Routes.documentSummary)}>Summary</a>
+            {currentRoute.type === 'DocumentSummary' ? (
+              'Summary'
+            ) : (
+              <a href={getUrl(Routes.documentSummary)}>Summary</a>
+            )}
           </li>
           <li>
-            <a href={getUrl(Routes.documentPOAM)}>
-              Plan of Action and Milestones
-            </a>
+            {currentRoute.type === 'DocumentPOAM' ? (
+              'Plan of Action and Milestones'
+            ) : (
+              <a href={getUrl(Routes.documentPOAM)}>
+                Plan of Action and Milestones
+              </a>
+            )}
           </li>
           <li>
-            <a href={getUrl(Routes.documentSAP)}>Security Assessment Plan</a>
+            {currentRoute.type === 'DocumentSAP' ? (
+              'Security Assessment Plan'
+            ) : (
+              <a href={getUrl(Routes.documentSAP)}>Security Assessment Plan</a>
+            )}
           </li>
           <li>
-            <a href={getUrl(Routes.documentSAR)}>Security Assessment Report</a>
+            {currentRoute.type === 'DocumentSAR' ? (
+              'Security Assessment Report'
+            ) : (
+              <a href={getUrl(Routes.documentSAR)}>
+                Security Assessment Report
+              </a>
+            )}
           </li>
           <li>
-            <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
+            {currentRoute.type === 'DocumentSSP' ? (
+              'System Security Plan'
+            ) : (
+              <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
+            )}
           </li>
         </ul>
       </div>
