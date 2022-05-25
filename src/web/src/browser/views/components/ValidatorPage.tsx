@@ -42,7 +42,7 @@ export const ValidatorPage = ({
       </div>
       <div className="grid-row grid-gap">
         <div className="tablet:grid-col-12">
-          <h2>Choose an XML file to process</h2>
+          <h1>Choose an XML file to process</h1>
         </div>
         <ValidatorFileSelectForm />
       </div>

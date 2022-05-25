@@ -40,15 +40,40 @@ export const Header = () => {
               </a>
             </li>
             <li className="usa-nav__primary-item">
-              <a
-                className={classnames('usa-nav__link', {
-                  'usa-current':
-                    currentRoute.type === Routes.documentSummary.type,
-                })}
-                href={getUrl(Routes.documentSummary)}
+              <button
+                className={classnames(
+                  'usa-accordion__button',
+                  'usa-nav__link',
+                  {
+                    'usa-current':
+                      currentRoute.type === Routes.documentSummary.type,
+                  },
+                )}
+                aria-expanded="false"
+                aria-controls="document-rules"
               >
                 <span>Document Rules</span>
-              </a>
+              </button>
+              <ul id="document-rules" className="usa-nav__submenu">
+                <li className="usa-nav__submenu-item">
+                  <a href={getUrl(Routes.documentPOAM)}>
+                    Plan of Action and Milestones
+                  </a>
+                </li>
+                <li className="usa-nav__submenu-item">
+                  <a href={getUrl(Routes.documentSAP)}>
+                    Security Assessment Plan
+                  </a>
+                </li>
+                <li className="usa-nav__submenu-item">
+                  <a href={getUrl(Routes.documentSAR)}>
+                    Security Assessment Report
+                  </a>
+                </li>
+                <li className="usa-nav__submenu-item">
+                  <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
+                </li>
+              </ul>
             </li>
             <li className="usa-nav__primary-item">
               <button
@@ -64,7 +89,6 @@ export const Header = () => {
               >
                 <span>Documentation</span>
               </button>
-
               <ul id="extended-documentation" className="usa-nav__submenu">
                 <li className="usa-nav__submenu-item">
                   <a href={getUrl(Routes.developers)}>Developers</a>
