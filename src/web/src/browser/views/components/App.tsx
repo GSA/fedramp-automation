@@ -1,4 +1,3 @@
-import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import React from 'react';
 
@@ -18,7 +17,11 @@ import { ViewerPage } from './ViewerPage';
 const CurrentPage = () => {
   const { currentRoute } = useAppState().router;
   if (currentRoute.type === 'Home') {
-    return <HomePage />;
+    return (
+      <div className="grid-container">
+        <HomePage />
+      </div>
+    );
   } else if (
     currentRoute.type === 'DocumentSummary' ||
     currentRoute.type === 'DocumentPOAM' ||
