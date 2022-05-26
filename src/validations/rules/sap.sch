@@ -262,6 +262,57 @@
 
     </sch:pattern>
 
+    <sch:pattern
+        id="signed-sap">
+
+        <sch:rule
+            context="oscal:back-matter">
+
+            <sch:assert
+                diagnostics="has-signed-sap-resource-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.26"
+                id="has-signed-sap-resource"
+                role="error"
+                test="exists(oscal:resource[oscal:prop[@name eq 'type' and @value eq 'signed-sap']])">An OSCAL SAP must have a `signed-sap`
+                resource.</sch:assert>
+
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'signed-sap']]">
+
+            <sch:assert
+                diagnostics="signed-sap-resource-has-description-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.26"
+                id="signed-sap-resource-has-description"
+                role="warning"
+                test="exists(oscal:description)">An OSCAL SAP `signed-sap` resource must have a description.</sch:assert>
+
+            <sch:assert
+                diagnostics="signed-sap-resource-has-rlink-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.26"
+                id="signed-sap-resource-has-rlink"
+                role="error"
+                test="exists(oscal:rlink)">An OSCAL SAP `signed-sap` resource must have an rlink.</sch:assert>
+
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'signed-sap']]/oscal:rlink">
+
+            <sch:assert
+                diagnostics="signed-sap-rlink-has-media-type-pdf-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.26"
+                id="signed-sap-rlink-has-media-type-pdf"
+                role="warning"
+                test="@media-type eq 'application/pdf'">An OSCAL SAP `signed-sap` resource rlink should use 'application/pdf' media-type.</sch:assert>
+
+        </sch:rule>
+
+        <!-- TODO: see https://github.com/GSA/fedramp-automation-guides/issues/16 regarding base64 resolution -->
+
+    </sch:pattern>
+
     <sch:diagnostics>
 
         <sch:diagnostic
@@ -349,6 +400,27 @@
             doc:assert="has-penetration-test-plan"
             doc:context="oscal:back-matter"
             id="has-penetration-test-plan-diagnostic">The penetration test plan methodology attachment is not present.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-signed-sap-resource"
+            doc:context="oscal:back-matter"
+            id="has-signed-sap-resource-diagnostic">This OSCAL SAP lacks a `signed-sap` resource.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="signed-sap-resource-has-description"
+            doc:context="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'signed-sap']]"
+            id="signed-sap-resource-has-description-diagnostic">This OSCAL SAP `signed-sap` resource lacks a description.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="signed-sap-resource-has-rlink"
+            doc:context="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'signed-sap']]"
+            id="signed-sap-resource-has-rlink-diagnostic">This OSCAL SAP `signed-sap` resource lacks an rlink.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="signed-sap-rlink-has-media-type-pdf"
+            doc:context="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'signed-sap']]/oscal:rlink"
+            id="signed-sap-rlink-has-media-type-pdf-diagnostic">This OSCAL SAP `signed-sap` resource rlink does not use 'application/pdf'
+            media-type.</sch:diagnostic>
 
     </sch:diagnostics>
 

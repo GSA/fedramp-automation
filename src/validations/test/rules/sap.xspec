@@ -567,6 +567,149 @@
             </x:scenario>
         </x:scenario>
 
+        <x:scenario
+            label="signed-sap">
+
+            <x:context>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <!-- … -->
+                    <back-matter>
+                        <resource
+                            uuid="1e083471-9a3c-4469-8926-5b93215c6a11">
+                            <description>
+                                <p>Signed SAP</p>
+                            </description>
+                            <prop
+                                name="type"
+                                value="signed-sap" />
+                            <rlink
+                                href="signed-sap.pdf"
+                                media-type="application/pdf" />
+                        </resource>
+                    </back-matter>
+                </assessment-plan>
+            </x:context>
+
+            <x:scenario
+                label="when the signed-sap resource">
+
+                <x:scenario
+                    label="is present">
+                    <x:expect-not-assert
+                        id="has-signed-sap-resource"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="is absent">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <!-- … -->
+                            <back-matter>
+                                <!-- missing signed-sap resource -->
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-signed-sap-resource"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has a description">
+                    <x:expect-not-assert
+                        id="signed-sap-resource-has-description"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="lacks a description">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <!-- … -->
+                            <back-matter>
+                                <resource
+                                    uuid="1e083471-9a3c-4469-8926-5b93215c6a11">
+                                    <!-- missing description -->
+                                    <prop
+                                        name="type"
+                                        value="signed-sap" />
+                                </resource>
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="signed-sap-resource-has-description"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has an rlink">
+                    <x:expect-not-assert
+                        id="signed-sap-resource-has-rlink"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="lacks an rlink">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <!-- … -->
+                            <back-matter>
+                                <resource
+                                    uuid="1e083471-9a3c-4469-8926-5b93215c6a11">
+                                    <prop
+                                        name="type"
+                                        value="signed-sap" />
+                                    <!-- missing rlink -->
+                                </resource>
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="signed-sap-resource-has-rlink"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="rlink has a PDF media-type">
+                    <x:expect-not-assert
+                        id="signed-sap-rlink-has-media-type-pdf"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="rlink does not have a PDF media-type">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <!-- … -->
+                            <back-matter>
+                                <resource
+                                    uuid="1e083471-9a3c-4469-8926-5b93215c6a11">
+                                    <prop
+                                        name="type"
+                                        value="signed-sap" />
+                                    <rlink
+                                        href="signed-sap.pdf"
+                                        media-type="test/xml" />
+                                </resource>
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="signed-sap-rlink-has-media-type-pdf"
+                        label="that is an error" />
+                </x:scenario>
+
+
+            </x:scenario>
+        </x:scenario>
+
     </x:scenario>
 
 </x:description>
