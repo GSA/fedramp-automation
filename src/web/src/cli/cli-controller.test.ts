@@ -1,3 +1,6 @@
+import type { OscalService } from '@asap/shared/use-cases/oscal';
+import type { ValidationReport } from '@asap/shared/use-cases/schematron';
+import { mock } from 'jest-mock-extended';
 import { CommandLineController } from './cli-controller';
 
 describe('command-line controller', () => {
@@ -8,11 +11,18 @@ describe('command-line controller', () => {
       writeStringFile: jest.fn().mockReturnValue(Promise.resolve()),
       useCases: {
         parseSchematron: jest.fn(),
-        validateSSP: jest.fn().mockReturnValue(
-          Promise.resolve({
-            failedAsserts: [],
-          }),
-        ),
+        oscalService: mock<OscalService>({
+          validateXmlOrJson: jest.fn((xmlString: string) =>
+            Promise.resolve({
+              documentType: 'ssp',
+              validationReport: {
+                title: 'test report',
+                failedAsserts: [],
+              },
+              xmlString,
+            }),
+          ),
+        }),
         writeAssertionViews: jest.fn(),
         writeXSpecScenarioSummaries: jest.fn(),
       },
@@ -20,6 +30,8 @@ describe('command-line controller', () => {
     const cli = CommandLineController(ctx);
     await cli.parse(['ts-node', 'index.ts', 'validate', 'ssp.xml']);
     expect(ctx.readStringFile).toHaveBeenCalledWith('ssp.xml');
-    expect(ctx.useCases.validateSSP).toHaveBeenCalledWith(mockXml);
+    expect(ctx.useCases.oscalService.validateXmlOrJson).toHaveBeenCalledWith(
+      mockXml,
+    );
   });
 });

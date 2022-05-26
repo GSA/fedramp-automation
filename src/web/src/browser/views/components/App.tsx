@@ -1,3 +1,4 @@
+import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import React from 'react';
 
 import { useAppState } from '../hooks';
@@ -7,7 +8,6 @@ import { Footer } from './Footer';
 import { Header } from './Header';
 import { HomePage } from './HomePage';
 import { InnerPageLayout } from './InnerPageLayout';
-import { SummaryPage } from './SummaryPage';
 import { UsaBanner } from './UsaBanner';
 import { UsageTrackingPage } from './UsageTrackingPage';
 import { ValidatorContentOverlay } from './ValidatorContentOverlay';
@@ -17,21 +17,35 @@ import { ViewerPage } from './ViewerPage';
 const CurrentPage = () => {
   const { currentRoute } = useAppState().router;
   if (currentRoute.type === 'Home') {
-    return <HomePage />;
-  } else if (currentRoute.type === 'Validator') {
+    return (
+      <div className="grid-container">
+        <HomePage />
+      </div>
+    );
+  } else if (
+    currentRoute.type === 'DocumentSummary' ||
+    currentRoute.type === 'DocumentPOAM' ||
+    currentRoute.type === 'DocumentSAP' ||
+    currentRoute.type === 'DocumentSAR' ||
+    currentRoute.type === 'DocumentSSP'
+  ) {
     return (
       <>
         <InnerPageLayout>
-          <ValidatorPage />
+          <ValidatorPage
+            documentType={
+              {
+                DocumentSummary: null,
+                DocumentPOAM: 'poam',
+                DocumentSAP: 'sap',
+                DocumentSAR: 'sar',
+                DocumentSSP: 'ssp',
+              }[currentRoute.type] as OscalDocumentKey | null
+            }
+          />
         </InnerPageLayout>
         <ValidatorContentOverlay />
       </>
-    );
-  } else if (currentRoute.type === 'Summary') {
-    return (
-      <InnerPageLayout>
-        <SummaryPage />
-      </InnerPageLayout>
     );
   } else if (currentRoute.type === 'Assertion') {
     return (

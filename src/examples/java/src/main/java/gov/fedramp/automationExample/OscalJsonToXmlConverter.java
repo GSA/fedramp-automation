@@ -30,7 +30,7 @@ import net.sf.saxon.s9api.XsltTransformer;
  */
 public class OscalJsonToXmlConverter {
   private static final String JSON_TO_XML_XSLT = new File(
-      "../../../vendor/oscal/xml/convert/oscal_ssp_json-to-xml-converter.xsl").getAbsolutePath();
+      "../../../vendor/oscal/xml/convert/oscal_complete_json-to-xml-converter.xsl").getAbsolutePath();
 
   private Processor processor;
   private XsltExecutable xsltExecutable;

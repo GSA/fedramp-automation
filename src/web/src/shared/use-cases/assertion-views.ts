@@ -37,7 +37,12 @@ export const validateAssertionViews = (input: any): AssertionViews | null => {
   );
 };
 
-export type GetAssertionViews = () => Promise<AssertionViews>;
+export type GetAssertionViews = () => Promise<{
+  poam: AssertionViews;
+  sap: AssertionViews;
+  sar: AssertionViews;
+  ssp: AssertionViews;
+}>;
 
 export type XSLTProcessor = (
   stylesheetText: string,
@@ -48,18 +53,22 @@ export const WriteAssertionViews =
   (ctx: {
     paths: {
       assertionViewSEFPath: string;
-      outputFilePath: string;
-      schematronXMLPath: string;
     };
     processXSLT: XSLTProcessor;
     readStringFile: (fileName: string) => Promise<string>;
     writeStringFile: (fileName: string, contents: string) => Promise<void>;
   }) =>
-  async () => {
+  async ({
+    outputFilePath,
+    schematronXMLPath,
+  }: {
+    outputFilePath: string;
+    schematronXMLPath: string;
+  }) => {
     const stylesheetSEFText = await ctx.readStringFile(
       ctx.paths.assertionViewSEFPath,
     );
-    const schematronXML = await ctx.readStringFile(ctx.paths.schematronXMLPath);
+    const schematronXML = await ctx.readStringFile(schematronXMLPath);
     const assertionViewJSON = await ctx.processXSLT(
       stylesheetSEFText,
       schematronXML,
@@ -67,10 +76,7 @@ export const WriteAssertionViews =
     const assertionViews = validateAssertionViews(
       JSON.parse(assertionViewJSON),
     );
-    await ctx.writeStringFile(
-      ctx.paths.outputFilePath,
-      JSON.stringify(assertionViews),
-    );
-    console.log(`Wrote ${ctx.paths.outputFilePath}`);
+    await ctx.writeStringFile(outputFilePath, JSON.stringify(assertionViews));
+    console.log(`Wrote ${outputFilePath}`);
   };
 export type WriteAssertionViews = ReturnType<typeof WriteAssertionViews>;

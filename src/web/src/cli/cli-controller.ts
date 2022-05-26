@@ -3,14 +3,14 @@ import { Command } from 'commander';
 import type { XSpecScenarioSummaryWriter } from '@asap/shared/use-cases/assertion-documentation';
 import type { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { ParseSchematronAssertions } from '@asap/shared/use-cases/schematron';
-import type { ValidateSSPUseCase } from '@asap/shared/use-cases/validate-ssp-xml';
+import type { OscalService } from '@asap/shared/use-cases/oscal';
 
 type CommandLineContext = {
   readStringFile: (fileName: string) => Promise<string>;
   writeStringFile: (fileName: string, contents: string) => Promise<void>;
   useCases: {
     parseSchematron: ParseSchematronAssertions;
-    validateSSP: ValidateSSPUseCase;
+    oscalService: OscalService;
     writeAssertionViews: WriteAssertionViews;
     writeXSpecScenarioSummaries: XSpecScenarioSummaryWriter;
   };
@@ -23,9 +23,9 @@ export const CommandLineController = (ctx: CommandLineContext) => {
     .description('validate OSCAL systems security plan document')
     .action(sspXmlFile => {
       ctx.readStringFile(sspXmlFile).then(xmlString => {
-        ctx.useCases.validateSSP(xmlString).then(validationReport => {
+        ctx.useCases.oscalService.validateXmlOrJson(xmlString).then(result => {
           console.log(
-            `Found ${validationReport.failedAsserts.length} assertions`,
+            `Found ${result.validationReport.failedAsserts.length} assertions in ${result.documentType}`,
           );
         });
       });
@@ -44,24 +44,28 @@ export const CommandLineController = (ctx: CommandLineContext) => {
       });
     });
   cli
-    .command('create-assertion-view')
+    .command('create-assertion-view <output-file-path> <schematron-xml-path>')
     .description(
       'write UI-optimized JSON of assertion views to target location',
     )
-    .action(() => {
-      ctx.useCases.writeAssertionViews().then(() => {
-        console.log(`Wrote assertion views to filesystem`);
-      });
+    .action((outputFilePath, schematronXMLPath) => {
+      ctx.useCases
+        .writeAssertionViews({ outputFilePath, schematronXMLPath })
+        .then(() => {
+          console.log(`Wrote assertion views to filesystem`);
+        });
     });
   cli
-    .command('create-xspec-summaries')
+    .command('create-xspec-summaries <xspec-path> <summary-path>')
     .description(
       'write UI-optimized JSON of assertion details, including xspec scenarios as usage examples',
     )
-    .action(() => {
-      ctx.useCases.writeXSpecScenarioSummaries().then(() => {
-        console.log(`Wrote assertion documentation to filesystem`);
-      });
+    .action((xspecPath, summaryPath) => {
+      ctx.useCases
+        .writeXSpecScenarioSummaries(xspecPath, summaryPath)
+        .then(() => {
+          console.log(`Wrote assertion documentation to filesystem`);
+        });
     });
   return cli;
 };

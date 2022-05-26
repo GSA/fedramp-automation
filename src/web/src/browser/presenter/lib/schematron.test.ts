@@ -87,7 +87,7 @@ describe('presenter schematron library', () => {
           ],
         },
       },
-      xspecSummariesByAssertionId: {
+      summariesByAssertionId: {
         'no-security-sensitivity-level': [
           {
             assertionId: 'no-security-sensitivity-level',

@@ -4,13 +4,16 @@ import { onFileInputChangeGetFile } from '../../util/file-input';
 import { useActions, useAppState } from '../hooks';
 
 export const ValidatorFileSelectForm = () => {
-  const { sourceRepository, schematron } = useAppState();
   const actions = useActions();
+  const state = useAppState();
+
+  const sourceRepository = state.sourceRepository;
+
   return (
     <>
       <div className="tablet:grid-col-4">
         <div className="usa-hint" id="file-input-specific-hint">
-          Select FedRAMP OSCAL SSP XML or JSON file
+          Select FedRAMP OSCAL XML or JSON file (SSP, SAP, SAR, or POA&M)
         </div>
         <input
           id="file-input-specific"
@@ -20,16 +23,16 @@ export const ValidatorFileSelectForm = () => {
           aria-describedby="file-input-specific-hint"
           accept=".xml,.json"
           onChange={onFileInputChangeGetFile(fileDetails => {
-            actions.validator.setSspFile({
+            actions.validator.validateOscalDocument({
               fileName: fileDetails.name,
               fileContents: fileDetails.text,
             });
           })}
-          disabled={schematron.validator.current === 'PROCESSING'}
+          disabled={state.validator.current === 'PROCESSING'}
         />
       </div>
       <div className="tablet:grid-col-8">
-        {schematron.validator.current === 'UNLOADED' && (
+        {state.validator.current === 'UNLOADED' && (
           <svg
             className="usa-icon text-info-lighter font-sans-xl float-right"
             aria-hidden="true"
@@ -43,10 +46,10 @@ export const ValidatorFileSelectForm = () => {
             ></use>
           </svg>
         )}
-        {schematron.validator.current === 'PROCESSING' && (
+        {state.validator.current === 'PROCESSING' && (
           <div className="loader float-right" />
         )}
-        {schematron.validator.current === 'PROCESSING_ERROR' && (
+        {state.validator.current === 'PROCESSING_ERROR' && (
           <svg
             className="usa-icon text-error font-sans-xl float-right"
             aria-hidden="true"
@@ -58,7 +61,7 @@ export const ValidatorFileSelectForm = () => {
             ></use>
           </svg>
         )}
-        {schematron.validator.current === 'VALIDATED' && (
+        {state.validator.current === 'VALIDATED' && (
           <svg
             className="usa-icon text-primary-vivid font-sans-xl float-right"
             aria-hidden="true"
@@ -72,40 +75,36 @@ export const ValidatorFileSelectForm = () => {
             ></use>
           </svg>
         )}
-        <div className="usa-hint">
+        <label className="usa-label usa-hint" htmlFor="sample-document">
           Or use an example file, brought to you by FedRAMP:
-        </div>
-        <ul className="usa-icon-list margin-top-2">
-          {sourceRepository.sampleSSPs.map((sampleSSP, index) => (
-            <li key={index} className="usa-icon-list__item">
-              <div className="usa-icon-list__icon text-primary">
-                <svg className="usa-icon" aria-hidden="true" role="img">
-                  <use
-                    xlinkHref={actions.getAssetUrl(
-                      'uswds/img/sprite.svg#upload_file',
-                    )}
-                  ></use>
-                </svg>
-              </div>
-              <div className="usa-icon-list__content">
-                <button
-                  className="usa-button usa-button--unstyled"
-                  onClick={() => actions.validator.setXmlUrl(sampleSSP.url)}
-                  disabled={schematron.validator.current === 'PROCESSING'}
-                >
-                  {sampleSSP.displayName}
-                </button>
-              </div>
-            </li>
+        </label>
+        <select
+          className="usa-select"
+          name="sample-document"
+          id="sample-document"
+          disabled={state.validator.current === 'PROCESSING'}
+          onChange={event => {
+            actions.validator.setXmlUrl(
+              event.target.options[event.target.selectedIndex].value,
+            );
+          }}
+        >
+          <option value=""></option>
+          {sourceRepository.sampleDocuments.map((sampleDocument, index) => (
+            <option
+              key={index}
+              onSelect={() => actions.validator.setXmlUrl(sampleDocument.url)}
+              value={sampleDocument.url}
+            >
+              {sampleDocument.displayName}
+            </option>
           ))}
-        </ul>
-        {schematron.validator.current === 'PROCESSING_ERROR' && (
+        </select>
+        {state.validator.current === 'PROCESSING_ERROR' && (
           <div className="usa-alert usa-alert--error" role="alert">
             <div className="usa-alert__body">
               <h4 className="usa-alert__heading">Processing Error</h4>
-              <p className="usa-alert__text">
-                {schematron.validator.errorMessage}
-              </p>
+              <p className="usa-alert__text">{state.validator.errorMessage}</p>
             </div>
           </div>
         )}

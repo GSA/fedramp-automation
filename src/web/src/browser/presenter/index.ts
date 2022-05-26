@@ -5,24 +5,20 @@ import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import type { AppMetrics } from '@asap/shared/use-cases/app-metrics';
 import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
-import type { GetSSPSchematronAssertions } from '@asap/shared/use-cases/schematron';
-import type {
-  ValidateSSPUseCase,
-  ValidateSSPUrlUseCase,
-} from '@asap/shared/use-cases/validate-ssp-xml';
+import type { OscalService } from '@asap/shared/use-cases/oscal';
+import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron';
 
 import * as actions from './actions';
 import type { Location } from './state/router';
-import { state, State, SampleSSP } from './state';
+import { state, State, SampleDocument } from './state';
 
 type UseCases = {
   annotateXML: AnnotateXMLUseCase;
   getAssertionViews: GetAssertionViews;
-  getSSPSchematronAssertions: GetSSPSchematronAssertions;
+  getSchematronAssertions: GetSchematronAssertions;
   getXSpecScenarioSummaries: GetXSpecScenarioSummaries;
   appMetrics: AppMetrics;
-  validateSSP: ValidateSSPUseCase;
-  validateSSPUrl: ValidateSSPUrlUseCase;
+  oscalService: OscalService;
 };
 
 export const getPresenterConfig = (
@@ -49,7 +45,7 @@ export type PresenterContext = {
   debug: boolean;
   sourceRepository: {
     treeUrl: string;
-    sampleSSPs: SampleSSP[];
+    sampleDocuments: SampleDocument[];
     developerExampleUrl: string;
   };
   location: Location;

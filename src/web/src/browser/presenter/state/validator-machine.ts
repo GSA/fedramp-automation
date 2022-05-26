@@ -1,11 +1,6 @@
-import { derived, Statemachine, statemachine } from 'overmind';
+import { Statemachine, statemachine } from 'overmind';
 
-import type {
-  FailedAssert,
-  ValidationReport,
-} from '@asap/shared/use-cases/schematron';
-
-import { getAssertionsById } from '../lib/validator';
+import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 
 type States =
   | {
@@ -21,15 +16,9 @@ type States =
     }
   | {
       current: 'VALIDATED';
-      validationReport: ValidationReport;
-      xmlText: string;
-      annotatedSSP: string;
     };
 
-type BaseState = {
-  assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
-  failedAssertionCounts: Record<FailedAssert['id'], number> | null;
-};
+type BaseState = {};
 
 type Events =
   | {
@@ -55,10 +44,7 @@ type Events =
     }
   | {
       type: 'VALIDATED';
-      data: {
-        validationReport: ValidationReport;
-        xmlText: string;
-      };
+      data: {};
     };
 
 export type ValidatorMachine = Statemachine<States, Events, BaseState>;
@@ -100,39 +86,14 @@ export const validatorMachine = statemachine<States, Events, BaseState>({
         errorMessage,
       };
     },
-    VALIDATED: ({ validationReport, xmlText }) => {
+    VALIDATED: () => {
       return {
         current: 'VALIDATED',
-        validationReport,
-        annotatedSSP: '',
-        xmlText,
       };
     },
   },
 });
 
 export const createValidatorMachine = () => {
-  return validatorMachine.create(
-    { current: 'UNLOADED' },
-    {
-      assertionsById: derived((state: ValidatorMachine) =>
-        state.current === 'VALIDATED'
-          ? getAssertionsById({
-              failedAssertions: state.validationReport.failedAsserts,
-            })
-          : null,
-      ),
-      failedAssertionCounts: derived((state: ValidatorMachine) => {
-        return state.current === 'VALIDATED'
-          ? state.validationReport.failedAsserts.reduce<Record<string, number>>(
-              (acc, assert) => {
-                acc[assert.id] = (acc[assert.id] || 0) + 1;
-                return acc;
-              },
-              {},
-            )
-          : null;
-      }),
-    },
-  );
+  return validatorMachine.create({ current: 'UNLOADED' }, {});
 };

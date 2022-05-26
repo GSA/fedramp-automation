@@ -1,5 +1,6 @@
 import { derived, Statemachine, statemachine } from 'overmind';
 
+import type { FailedAssert } from '@asap/shared/use-cases/schematron';
 import {
   getFilterOptions,
   PassStatus,
@@ -11,10 +12,9 @@ import {
 } from '../lib/schematron';
 import { getSchematronReport } from '../lib/schematron';
 import {
-  AssertionDocumentationMachine,
-  createAssertionDocumentationMachine,
-} from './assertion-documetation';
-import { createValidatorMachine, ValidatorMachine } from './validator-machine';
+  createValidationResultsMachine,
+  ValidationResultsMachine,
+} from './validation-results-machine';
 
 type States =
   | {
@@ -25,12 +25,16 @@ type States =
     };
 
 type BaseState = {
-  assertionDocumentation: AssertionDocumentationMachine;
   config: SchematronUIConfig;
+  failedAssertionCounts: Record<FailedAssert['id'], number> | null;
   filter: SchematronFilter;
   filterOptions: SchematronFilterOptions;
+  counts: {
+    fired: number | null;
+    total: number | null;
+  };
   schematronReport: SchematronReport;
-  validator: ValidatorMachine;
+  validationResults: ValidationResultsMachine;
 };
 
 type Events =
@@ -124,43 +128,62 @@ export const createSchematronMachine = () => {
   return schematronMachine.create(
     { current: 'UNINITIALIZED' },
     {
-      assertionDocumentation: createAssertionDocumentationMachine(),
       config: {
         assertionViews: [],
         schematronAsserts: [],
       },
+      failedAssertionCounts: derived((state: SchematronMachine) => {
+        return state.validationResults.current === 'HAS_RESULT'
+          ? state.validationResults.validationReport.failedAsserts.reduce<
+              Record<string, number>
+            >((acc, assert) => {
+              acc[assert.id] = (acc[assert.id] || 0) + 1;
+              return acc;
+            }, {})
+          : null;
+      }),
       filter: {
         passStatus: 'all',
         role: 'all',
         text: '',
         assertionViewId: 0,
       },
-      filterOptions: derived((state: SchematronMachine) =>
-        getFilterOptions({
+      filterOptions: derived((state: SchematronMachine) => {
+        return getFilterOptions({
           config: state.config,
           filter: state.filter,
-          failedAssertionMap: state.validator.matches('VALIDATED')
-            ? state.validator.assertionsById
-            : null,
-        }),
-      ),
+          failedAssertionMap: state.validationResults.assertionsById,
+        });
+      }),
+      counts: derived((state: SchematronMachine) => {
+        console.log(
+          state.validationResults.current === 'HAS_RESULT'
+            ? state.validationResults.validationReport.failedAsserts
+            : '',
+        );
+        return {
+          fired:
+            state.validationResults.current === 'HAS_RESULT'
+              ? state.validationResults.validationReport.failedAsserts.length
+              : null,
+          total: state.config.schematronAsserts.length,
+        };
+      }),
       schematronReport: derived((state: SchematronMachine) =>
         getSchematronReport({
           config: state.config,
           filter: state.filter,
           filterOptions: state.filterOptions,
           validator: {
-            failedAssertionMap: state.validator.assertionsById,
+            failedAssertionMap: state.validationResults.assertionsById,
             title:
-              state.validator.current === 'VALIDATED'
-                ? state.validator.validationReport.title
+              state.validationResults.current === 'HAS_RESULT'
+                ? state.validationResults.validationReport.title
                 : 'FedRAMP Package Concerns',
           },
-          xspecSummariesByAssertionId:
-            state.assertionDocumentation.xspecSummariesByAssertionId,
         }),
       ),
-      validator: createValidatorMachine(),
+      validationResults: createValidationResultsMachine(),
     },
   );
 };

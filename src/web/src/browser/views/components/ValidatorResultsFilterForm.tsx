@@ -1,10 +1,16 @@
 import React, { useRef } from 'react';
 
+import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
+
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
 
-export const ValidatorResultsFilterForm = () => {
-  const { schematron } = useAppState();
+type Props = {
+  documentType: OscalDocumentKey;
+};
+
+export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
+  const oscalDocument = useAppState().oscalDocuments[documentType];
   const actions = useActions();
 
   const topRef = useRef<HTMLHeadingElement>(null);
@@ -13,7 +19,6 @@ export const ValidatorResultsFilterForm = () => {
       topRef.current.parentElement.scrollIntoView();
     }
   };
-
   return (
     <>
       <h2 ref={topRef}>Filtering Options</h2>
@@ -23,24 +28,27 @@ export const ValidatorResultsFilterForm = () => {
             Filter by pass status
           </legend>
           <div className="usa-radio">
-            {schematron.filterOptions.passStatuses.map(passStatus => (
+            {oscalDocument.filterOptions.passStatuses.map(passStatus => (
               <div key={passStatus.id}>
                 <input
                   className="usa-radio__input usa-radio__input--tile"
-                  id={`status-${passStatus.id}`}
+                  id={`${documentType}-status-${passStatus.id}`}
                   type="radio"
                   name="pass-status"
                   value={passStatus.id}
-                  checked={schematron.filter.passStatus === passStatus.id}
+                  checked={oscalDocument.filter.passStatus === passStatus.id}
                   disabled={!passStatus.enabled}
                   onChange={() => {
-                    actions.schematron.setPassStatus(passStatus.id);
+                    actions.schematron.setPassStatus({
+                      documentType,
+                      passStatus: passStatus.id,
+                    });
                     scrollIntoView();
                   }}
                 />
                 <label
                   className="usa-radio__label"
-                  htmlFor={`status-${passStatus.id}`}
+                  htmlFor={`${documentType}-status-${passStatus.id}`}
                 >
                   {passStatus.title}
                   <span
@@ -55,27 +63,28 @@ export const ValidatorResultsFilterForm = () => {
           </div>
           <legend className="usa-legend font-sans-md">Select a view</legend>
           <div className="usa-radio">
-            {schematron.filterOptions.assertionViews.map(assertionView => (
+            {oscalDocument.filterOptions.assertionViews.map(assertionView => (
               <div key={assertionView.index}>
                 <input
                   className="usa-radio__input usa-radio__input--tile"
-                  id={`assertion-view-${assertionView.index}`}
+                  id={`${documentType}-assertion-view-${assertionView.index}`}
                   type="radio"
                   name="assertion-view"
                   value={assertionView.index}
                   checked={
-                    schematron.filter.assertionViewId === assertionView.index
+                    oscalDocument.filter.assertionViewId === assertionView.index
                   }
                   onChange={() => {
-                    actions.schematron.setFilterAssertionView(
-                      assertionView.index,
-                    );
+                    actions.schematron.setFilterAssertionView({
+                      documentType,
+                      assertionViewId: assertionView.index,
+                    });
                     scrollIntoView();
                   }}
                 />
                 <label
                   className="usa-radio__label"
-                  htmlFor={`assertion-view-${assertionView.index}`}
+                  htmlFor={`${documentType}-assertion-view-${assertionView.index}`}
                 >
                   {assertionView.title}
                   <span
@@ -98,7 +107,10 @@ export const ValidatorResultsFilterForm = () => {
             className="usa-search usa-search--small margin-top-1"
             role="search"
           >
-            <label className="usa-sr-only" htmlFor="search-field">
+            <label
+              className="usa-sr-only"
+              htmlFor={`${documentType}-search-field`}
+            >
               Search assertion text
             </label>
             <div className="usa-input-group">
@@ -118,7 +130,7 @@ export const ValidatorResultsFilterForm = () => {
                 </svg>
               </div>
               <input
-                id="search-field"
+                id={`${documentType}-search-field`}
                 type="search"
                 className="usa-input"
                 autoComplete="off"
@@ -127,7 +139,7 @@ export const ValidatorResultsFilterForm = () => {
                   if (event && event.target) {
                     text = event.target.value;
                   }
-                  actions.schematron.setFilterText(text);
+                  actions.schematron.setFilterText({ documentType, text });
                 }}
                 placeholder="Search text..."
               />
@@ -137,26 +149,29 @@ export const ValidatorResultsFilterForm = () => {
             <legend className="usa-legend font-sans-md">
               Filter by severity
             </legend>
-            {schematron.filterOptions.roles.map((filterRole, index) => (
+            {oscalDocument.filterOptions.roles.map((filterRole, index) => (
               <div
                 key={index}
                 className={`bg-${colorTokenForRole(filterRole.name)}-lighter`}
               >
                 <input
                   className="usa-radio__input usa-radio__input--tile"
-                  id={`role-${filterRole.name}`}
+                  id={`${documentType}-role-${filterRole.name}`}
                   type="radio"
                   name="role"
                   value={filterRole.name}
-                  checked={schematron.filter.role === filterRole.name}
+                  checked={oscalDocument.filter.role === filterRole.name}
                   onChange={() => {
-                    actions.schematron.setFilterRole(filterRole.name);
+                    actions.schematron.setFilterRole({
+                      documentType,
+                      role: filterRole.name,
+                    });
                     scrollIntoView();
                   }}
                 />
                 <label
                   className="usa-radio__label"
-                  htmlFor={`role-${filterRole.name}`}
+                  htmlFor={`${documentType}-role-${filterRole.name}`}
                 >
                   <svg
                     aria-hidden="true"

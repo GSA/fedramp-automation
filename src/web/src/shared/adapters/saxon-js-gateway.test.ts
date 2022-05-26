@@ -3,7 +3,7 @@ import * as SaxonJS from 'saxon-js';
 import {
   SaxonJSXmlIndenter,
   SaxonJsSchematronProcessorGateway,
-  SaxonJsJsonSspToXmlProcessor,
+  SaxonJsJsonOscalToXmlProcessor,
   SaxonJsXSpecParser,
 } from './saxon-js-gateway';
 
@@ -38,42 +38,52 @@ describe('saxon-js gateway', () => {
     }) as any);
     const reportGateway = SaxonJsSchematronProcessorGateway({
       SaxonJS,
-      sefUrl: '/test.sef.json',
+      sefUrls: {
+        poam: '/test.sef.json',
+        sap: '/test.sef.json',
+        sar: '/test.sef.json',
+        ssp: '/test.sef.json',
+      },
       baselinesBaseUrl: '/baselines',
       registryBaseUrl: '/xml',
     });
-    const validationReport = await reportGateway('<xml>ignored</xml');
+    const result = await reportGateway(
+      '<system-security-plan>ignored</system-security-plan>',
+    );
     expect(SaxonJS.transform).toHaveBeenCalled();
-    expect(validationReport).toEqual({
-      failedAsserts: [
-        {
-          diagnosticReferences: ['Diagnostic reference node content.'],
-          id: 'incorrect-role-association',
-          location:
-            "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:metadata[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
-          role: 'error',
-          test: 'not(exists($extraneous-roles))',
-          text: 'Failed assertion text node content.',
-          uniqueId: 'incorrect-role-association-0',
-        },
-      ],
-      successfulReports: [
-        {
-          id: 'control-implemented-requirements-stats',
-          location:
-            "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:control-implementation[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
-          role: 'information',
-          test: 'count($results/errors/error) = 0',
-          text: 'Successful report text content.',
-          uniqueId: 'control-implemented-requirements-stats-0',
-        },
-      ],
+    expect(result).toEqual({
+      documentType: 'ssp',
+      validationReport: {
+        failedAsserts: [
+          {
+            diagnosticReferences: ['Diagnostic reference node content.'],
+            id: 'incorrect-role-association',
+            location:
+              "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:metadata[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
+            role: 'error',
+            test: 'not(exists($extraneous-roles))',
+            text: 'Failed assertion text node content.',
+            uniqueId: 'incorrect-role-association-0',
+          },
+        ],
+        successfulReports: [
+          {
+            id: 'control-implemented-requirements-stats',
+            location:
+              "/*:system-security-plan[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]/*:control-implementation[namespace-uri()='http://csrc.nist.gov/ns/oscal/1.0'][1]",
+            role: 'information',
+            test: 'count($results/errors/error) = 0',
+            text: 'Successful report text content.',
+            uniqueId: 'control-implemented-requirements-stats-0',
+          },
+        ],
+      },
     });
   });
 
   it('converts JSON to XML', async () => {
-    const jsonToXml = SaxonJsJsonSspToXmlProcessor({
-      sefUrl: `${PUBLIC_PATH}/oscal_ssp_json-to-xml-converter.sef.json`,
+    const jsonToXml = SaxonJsJsonOscalToXmlProcessor({
+      sefUrl: `${PUBLIC_PATH}/oscal_complete_json-to-xml-converter.sef.json`,
       SaxonJS,
     });
     const convertedXml = await jsonToXml('{}');

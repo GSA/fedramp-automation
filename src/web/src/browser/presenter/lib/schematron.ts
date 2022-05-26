@@ -1,7 +1,3 @@
-import type {
-  ScenarioSummary,
-  SummariesByAssertionId,
-} from '@asap/shared/domain/xspec';
 import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 import type {
   SchematronAssert,
@@ -75,7 +71,6 @@ export type SchematronReport = {
       checks: (SchematronAssert & {
         icon: Icon;
         fired: FailedAssert[];
-        xspecScenarios: ScenarioSummary[];
       })[];
     };
   }[];
@@ -86,7 +81,6 @@ export const getSchematronReport = ({
   filter,
   filterOptions,
   validator,
-  xspecSummariesByAssertionId,
 }: {
   config: SchematronUIConfig;
   filter: SchematronFilter;
@@ -95,7 +89,6 @@ export const getSchematronReport = ({
     failedAssertionMap: FailedAssertionMap | null;
     title: string;
   };
-  xspecSummariesByAssertionId: SummariesByAssertionId;
 }) => {
   const assertionView = filterOptions.assertionViews
     .filter(view => view.index === filter.assertionViewId)
@@ -132,7 +125,6 @@ export const getSchematronReport = ({
       assertionView,
       schematronChecksFiltered,
       validator.failedAssertionMap,
-      xspecSummariesByAssertionId,
     ),
   };
 };
@@ -141,7 +133,6 @@ export const getReportGroups = (
   assertionView: AssertionView,
   schematronAssertions: SchematronAssert[],
   failedAssertionMap: FailedAssertionMap | null,
-  xspecSummariesByAssertionId: SummariesByAssertionId,
 ): SchematronReport['groups'] => {
   const assertionsById = getAssertionsById(schematronAssertions);
   return assertionView.groups
@@ -150,7 +141,6 @@ export const getReportGroups = (
         message: string;
         icon: Icon;
         fired: FailedAssert[];
-        xspecScenarios: ScenarioSummary[];
       };
       const checks = assertionGroup.assertionIds
         .map(assertionGroupAssert => {
@@ -168,7 +158,6 @@ export const getReportGroups = (
                 ? cancelIcon
                 : checkCircleIcon,
             fired,
-            xspecScenarios: xspecSummariesByAssertionId[assert.id],
           };
         })
         .filter(

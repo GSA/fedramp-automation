@@ -1,17 +1,14 @@
 import * as github from '@asap/shared/domain/github';
 import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import { AppMetrics } from '@asap/shared/use-cases/app-metrics';
-import {
-  ValidateSSPUseCase,
-  ValidateSSPUrlUseCase,
-} from '@asap/shared/use-cases/validate-ssp-xml';
+import { OscalService } from '@asap/shared/use-cases/oscal';
 
 import { createBrowserFingerprintMaker } from '@asap/shared/adapters/browser-fingerprint';
 import { createGoogleFormMetricsLogger } from '@asap/shared/adapters/google-form';
 import { highlightXML } from '@asap/shared/adapters/highlight-js';
 import { AppLocalStorage } from '@asap/shared/adapters/local-storage';
 import {
-  SaxonJsJsonSspToXmlProcessor,
+  SaxonJsJsonOscalToXmlProcessor,
   SaxonJsSchematronProcessorGateway,
 } from '@asap/shared/adapters/saxon-js-gateway';
 
@@ -43,12 +40,17 @@ export const runBrowserContext = ({
   // Set SaxonJS log level.
   SaxonJS.setLogLevel(2);
 
-  const jsonSspToXml = SaxonJsJsonSspToXmlProcessor({
-    sefUrl: `${baseUrl}/oscal_ssp_json-to-xml-converter.sef.json`,
+  const jsonOscalToXml = SaxonJsJsonOscalToXmlProcessor({
+    sefUrl: `${baseUrl}/oscal_complete_json-to-xml-converter.sef.json`,
     SaxonJS,
   });
   const processSchematron = SaxonJsSchematronProcessorGateway({
-    sefUrl: `${baseUrl}/ssp.sef.json`,
+    sefUrls: {
+      poam: `${baseUrl}/poam.sef.json`,
+      sap: `${baseUrl}/sap.sef.json`,
+      sar: `${baseUrl}/sar.sef.json`,
+      ssp: `${baseUrl}/ssp.sef.json`,
+    },
     SaxonJS,
     baselinesBaseUrl: `${baseUrl}/baselines`,
     registryBaseUrl: `${baseUrl}/xml`,
@@ -75,7 +77,7 @@ export const runBrowserContext = ({
         baseUrl,
         sourceRepository: {
           treeUrl: github.getBranchTreeUrl(githubRepository),
-          sampleSSPs: github.getSampleSSPs(githubRepository),
+          sampleDocuments: github.getSampleOscalDocuments(githubRepository),
           developerExampleUrl: github.getDeveloperExampleUrl(githubRepository),
         },
         location: {
@@ -102,25 +104,69 @@ export const runBrowserContext = ({
             getBrowserFingerprint: createBrowserFingerprintMaker(),
             optInGateway: localStorageGateway,
           }),
-          getAssertionViews: async () =>
-            fetch(`${baseUrl}/assertion-views.json`).then(response =>
-              response.json(),
-            ),
-          getSSPSchematronAssertions: async () =>
-            fetch(`${baseUrl}/ssp.json`).then(response => response.json()),
-          getXSpecScenarioSummaries: async () =>
-            fetch(`${baseUrl}/xspec-scenarios.json`).then(response =>
-              response.json(),
-            ),
-          validateSSP: ValidateSSPUseCase({
-            jsonSspToXml,
+          getAssertionViews: async () => {
+            const responses = await Promise.all([
+              fetch(`${baseUrl}/assertion-views-poam.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/assertion-views-sap.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/assertion-views-sar.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/assertion-views-ssp.json`).then(response =>
+                response.json(),
+              ),
+            ]);
+            return {
+              poam: responses[0],
+              sap: responses[1],
+              sar: responses[2],
+              ssp: responses[3],
+            };
+          },
+          getSchematronAssertions: async () => {
+            const responses = await Promise.all([
+              fetch(`${baseUrl}/poam.json`).then(response => response.json()),
+              fetch(`${baseUrl}/sap.json`).then(response => response.json()),
+              fetch(`${baseUrl}/sar.json`).then(response => response.json()),
+              fetch(`${baseUrl}/ssp.json`).then(response => response.json()),
+            ]);
+            return {
+              poam: responses[0],
+              sap: responses[1],
+              sar: responses[2],
+              ssp: responses[3],
+            };
+          },
+          getXSpecScenarioSummaries: async () => {
+            const responses = await Promise.all([
+              fetch(`${baseUrl}/xspec-scenarios-poam.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/xspec-scenarios-sap.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/xspec-scenarios-sar.json`).then(response =>
+                response.json(),
+              ),
+              fetch(`${baseUrl}/xspec-scenarios-ssp.json`).then(response =>
+                response.json(),
+              ),
+            ]);
+            return {
+              poam: responses[0],
+              sap: responses[1],
+              sar: responses[2],
+              ssp: responses[3],
+            };
+          },
+          oscalService: new OscalService(
+            jsonOscalToXml,
             processSchematron,
-          }),
-          validateSSPUrl: ValidateSSPUrlUseCase({
-            processSchematron,
-            jsonSspToXml,
-            fetch: window.fetch.bind(window),
-          }),
+            window.fetch.bind(window),
+          ),
         },
       }),
     ),

@@ -7,8 +7,11 @@ import type {
   SchematronResult,
   SuccessfulReport,
 } from '@asap/shared/use-cases/schematron';
+
+import { getDocumentTypeForRootNode, OscalDocumentKey } from '../domain/oscal';
 import type { ParseXSpec, XSpecScenario } from '../domain/xspec';
 import type { XSLTProcessor } from '../use-cases/assertion-views';
+import { base64DataUriForJson } from '../util';
 
 const getValidationReport = (
   SaxonJS: any,
@@ -85,31 +88,44 @@ const getValidationReport = (
 
 export const SaxonJsSchematronProcessorGateway =
   (ctx: {
-    sefUrl: string;
+    sefUrls: Record<OscalDocumentKey, string>;
     SaxonJS: any;
     baselinesBaseUrl: string;
     registryBaseUrl: string;
   }): SchematronProcessor =>
   (sourceText: string) => {
-    return (
-      ctx.SaxonJS.transform(
-        {
-          stylesheetLocation: ctx.sefUrl,
-          destination: 'document',
-          sourceText: sourceText,
-          stylesheetParams: {
-            'baselines-base-path': ctx.baselinesBaseUrl,
-            'registry-base-path': ctx.registryBaseUrl,
-            'param-use-remote-resources': '1',
+    return ctx.SaxonJS.getResource({
+      text: sourceText,
+      type: 'xml',
+    }).then((resource: any) => {
+      const rootNodeName = resource.documentElement.nodeName as string;
+      const documentType = getDocumentTypeForRootNode(rootNodeName);
+      if (documentType === null) {
+        throw new Error(`Unknown root node "{rootNodeName}"`);
+      }
+      return (
+        ctx.SaxonJS.transform(
+          {
+            stylesheetLocation: ctx.sefUrls[documentType],
+            destination: 'document',
+            sourceNode: resource,
+            stylesheetParams: {
+              'baselines-base-path': ctx.baselinesBaseUrl,
+              'registry-base-path': ctx.registryBaseUrl,
+              'param-use-remote-resources': '1',
+            },
           },
-        },
-        'async',
-      ) as Promise<DocumentFragment>
-    ).then((output: any) => {
-      return getValidationReport(
-        ctx.SaxonJS,
-        output.principalResult as DocumentFragment,
-      );
+          'async',
+        ) as Promise<DocumentFragment>
+      ).then((output: any) => {
+        return {
+          documentType,
+          validationReport: getValidationReport(
+            ctx.SaxonJS,
+            output.principalResult as DocumentFragment,
+          ),
+        };
+      });
     });
   };
 
@@ -390,22 +406,26 @@ export const SaxonJsProcessor =
     }
   };
 
-export const SaxonJsJsonSspToXmlProcessor =
+export const SaxonJsJsonOscalToXmlProcessor =
   (ctx: { sefUrl: string; SaxonJS: any }): SchematronJSONToXMLProcessor =>
   (jsonString: string) => {
-    return ctx.SaxonJS.transform(
-      {
-        stylesheetLocation: ctx.sefUrl,
-        destination: 'serialized',
-        initialTemplate: 'from-json',
-        stylesheetParams: {
-          file: 'data:application/json;base64,' + btoa(jsonString),
-        },
-      },
-      'async',
-    ).then((output: any) => {
-      return output.principalResult as string;
-    });
+    return base64DataUriForJson(jsonString)
+      .then(base64Json =>
+        ctx.SaxonJS.transform(
+          {
+            stylesheetLocation: ctx.sefUrl,
+            destination: 'serialized',
+            initialTemplate: 'from-json',
+            stylesheetParams: {
+              file: base64Json,
+            },
+          },
+          'async',
+        ),
+      )
+      .then((output: any) => {
+        return output.principalResult as string;
+      });
   };
 
 const parseScenarioNode = (SaxonJS: any, scenario: any) => {

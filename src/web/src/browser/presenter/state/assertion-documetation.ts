@@ -1,6 +1,6 @@
 import { Statemachine, statemachine } from 'overmind';
 
-import type { SummariesByAssertionId } from '@asap/shared/domain/xspec';
+import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 
 type States =
   | {
@@ -11,7 +11,8 @@ type States =
     };
 
 type BaseState = {
-  xspecSummariesByAssertionId: SummariesByAssertionId;
+  documentType: keyof XSpecScenarioSummaries | null;
+  xspecScenarioSummaries: XSpecScenarioSummaries;
   visibleDocumentation: string | null;
 };
 
@@ -19,7 +20,7 @@ type Events =
   | {
       type: 'SUMMARIES_LOADED';
       data: {
-        xspecSummariesByAssertionId: SummariesByAssertionId;
+        xspecScenarioSummaries: XSpecScenarioSummaries;
       };
     }
   | {
@@ -30,6 +31,7 @@ type Events =
       type: 'SHOW';
       data: {
         assertionId: string;
+        documentType: string;
       };
     };
 
@@ -41,10 +43,10 @@ export type AssertionDocumentationMachine = Statemachine<
 
 const assertionDocumentationMachine = statemachine<States, Events, BaseState>({
   UNINITIALIZED: {
-    SUMMARIES_LOADED: ({ xspecSummariesByAssertionId }) => {
+    SUMMARIES_LOADED: ({ xspecScenarioSummaries }) => {
       return {
         current: 'INITIALIZED',
-        xspecSummariesByAssertionId,
+        xspecScenarioSummaries,
         visibleDocumentation: null,
       };
     },
@@ -53,15 +55,17 @@ const assertionDocumentationMachine = statemachine<States, Events, BaseState>({
     CLOSE: (event, state) => {
       return {
         current: 'INITIALIZED',
-        xspecSummariesByAssertionId: state.xspecSummariesByAssertionId,
+        documentType: state.documentType,
         visibleDocumentation: null,
+        xspecScenarioSummaries: state.xspecScenarioSummaries,
       };
     },
-    SHOW: ({ assertionId }, state) => {
+    SHOW: ({ assertionId, documentType }, state) => {
       return {
         current: 'INITIALIZED',
-        xspecSummariesByAssertionId: state.xspecSummariesByAssertionId,
+        documentType,
         visibleDocumentation: assertionId,
+        xspecScenarioSummaries: state.xspecScenarioSummaries,
       };
     },
   },
@@ -71,7 +75,13 @@ export const createAssertionDocumentationMachine = () => {
   return assertionDocumentationMachine.create(
     { current: 'UNINITIALIZED' },
     {
-      xspecSummariesByAssertionId: {},
+      documentType: null,
+      xspecScenarioSummaries: {
+        poam: {},
+        sap: {},
+        sar: {},
+        ssp: {},
+      },
       visibleDocumentation: null,
     },
   );

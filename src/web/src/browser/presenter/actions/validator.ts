@@ -1,30 +1,30 @@
+import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 
 import type { PresenterConfig } from '..';
+import { getUrl, Routes } from '../state/router';
 
 export const reset = ({ state }: PresenterConfig) => {
-  state.schematron.validator.send('RESET');
+  state.validator.send('RESET');
 };
 
-export const setSspFile = async (
+export const validateOscalDocument = async (
   { actions, state, effects }: PresenterConfig,
   options: { fileName: string; fileContents: string },
 ) => {
   actions.validator.reset();
   if (
-    state.schematron.validator
-      .send('PROCESSING_STRING', { fileName: options.fileName })
-      .matches('PROCESSING')
+    state.validator.send('PROCESSING_STRING', { fileName: options.fileName })
   ) {
-    return effects.useCases
-      .validateSSP(options.fileContents)
-      .then(validationReport =>
+    effects.useCases.oscalService
+      .validateXmlOrJson(options.fileContents)
+      .then(({ documentType, validationReport, xmlString }) => {
         actions.validator.setValidationReport({
+          documentType,
           validationReport,
-          xmlText: options.fileContents,
-        }),
-      )
-      .then(actions.validator.annotateXml)
+          xmlString,
+        });
+      })
       .catch((error: Error) =>
         actions.validator.setProcessingError(error.message),
       );
@@ -37,33 +37,20 @@ export const setXmlUrl = async (
 ) => {
   actions.validator.reset();
   if (
-    state.schematron.validator
-      .send('PROCESSING_URL', { xmlFileUrl })
-      .matches('PROCESSING')
+    state.validator.send('PROCESSING_URL', { xmlFileUrl }).matches('PROCESSING')
   ) {
-    return effects.useCases
-      .validateSSPUrl(xmlFileUrl)
-      .then(actions.validator.setValidationReport)
-      .then(actions.validator.annotateXml)
-      .catch(actions.validator.setProcessingError);
-  }
-};
-
-export const annotateXml = async ({ effects, state }: PresenterConfig) => {
-  if (state.schematron.validator.current === 'VALIDATED') {
-    const annotatedSSP = await effects.useCases.annotateXML({
-      xmlString: state.schematron.validator.xmlText,
-      annotations:
-        state.schematron.validator.validationReport.failedAsserts.map(
-          assert => {
-            return {
-              uniqueId: assert.uniqueId,
-              xpath: assert.location,
-            };
-          },
-        ),
-    });
-    state.schematron.validator.annotatedSSP = annotatedSSP;
+    effects.useCases.oscalService
+      .validateXmlOrJsonByUrl(xmlFileUrl)
+      .then(({ documentType, validationReport, xmlString }) => {
+        actions.validator.setValidationReport({
+          documentType,
+          validationReport,
+          xmlString,
+        });
+      })
+      .catch((error: Error) =>
+        actions.validator.setProcessingError(error.message),
+      );
   }
 };
 
@@ -71,23 +58,40 @@ export const setProcessingError = (
   { state }: PresenterConfig,
   errorMessage: string,
 ) => {
-  if (state.schematron.validator.matches('PROCESSING')) {
-    state.schematron.validator.send('PROCESSING_ERROR', { errorMessage });
+  if (state.validator.matches('PROCESSING')) {
+    state.validator.send('PROCESSING_ERROR', { errorMessage });
   }
 };
 
 export const setValidationReport = (
   { actions, state }: PresenterConfig,
   {
+    documentType,
     validationReport,
-    xmlText,
+    xmlString,
   }: {
+    documentType: OscalDocumentKey;
     validationReport: ValidationReport;
-    xmlText: string;
+    xmlString: string;
   },
 ) => {
-  if (state.schematron.validator.matches('PROCESSING')) {
-    state.schematron.validator.send('VALIDATED', { validationReport, xmlText });
-    actions.metrics.logValidationSummary();
+  if (state.validator.matches('PROCESSING')) {
+    state.validator.send('VALIDATED', {});
+    actions.metrics.logValidationSummary(documentType);
   }
+  actions.schematron.setValidationReport({
+    documentType,
+    validationReport,
+    xmlString,
+  });
+  actions.setCurrentRoute(
+    getUrl(
+      {
+        poam: Routes.documentPOAM,
+        sap: Routes.documentSAP,
+        sar: Routes.documentSAR,
+        ssp: Routes.documentSSP,
+      }[documentType],
+    ),
+  );
 };
