@@ -29,6 +29,10 @@ type BaseState = {
   failedAssertionCounts: Record<FailedAssert['id'], number> | null;
   filter: SchematronFilter;
   filterOptions: SchematronFilterOptions;
+  counts: {
+    fired: number | null;
+    total: number | null;
+  };
   schematronReport: SchematronReport;
   validationResults: ValidationResultsMachine;
 };
@@ -150,6 +154,20 @@ export const createSchematronMachine = () => {
           filter: state.filter,
           failedAssertionMap: state.validationResults.assertionsById,
         });
+      }),
+      counts: derived((state: SchematronMachine) => {
+        console.log(
+          state.validationResults.current === 'HAS_RESULT'
+            ? state.validationResults.validationReport.failedAsserts
+            : '',
+        );
+        return {
+          fired:
+            state.validationResults.current === 'HAS_RESULT'
+              ? state.validationResults.validationReport.failedAsserts.length
+              : null,
+          total: state.config.schematronAsserts.length,
+        };
       }),
       schematronReport: derived((state: SchematronMachine) =>
         getSchematronReport({

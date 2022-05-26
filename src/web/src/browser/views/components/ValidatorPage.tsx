@@ -32,7 +32,7 @@ export const ValidatorPage = ({
 }: {
   documentType: OscalDocumentKey | null;
 }) => {
-  const currentRoute = useAppState().router.currentRoute;
+  const { oscalDocuments, router } = useAppState();
   return (
     <>
       <div className="grid-row">
@@ -51,14 +51,14 @@ export const ValidatorPage = ({
       <div>
         <ul>
           <li>
-            {currentRoute.type === 'DocumentSummary' ? (
+            {router.currentRoute.type === 'DocumentSummary' ? (
               'Summary'
             ) : (
               <a href={getUrl(Routes.documentSummary)}>Summary</a>
             )}
           </li>
           <li>
-            {currentRoute.type === 'DocumentPOAM' ? (
+            {router.currentRoute.type === 'DocumentPOAM' ? (
               'Plan of Action and Milestones'
             ) : (
               <a href={getUrl(Routes.documentPOAM)}>
@@ -67,14 +67,14 @@ export const ValidatorPage = ({
             )}
           </li>
           <li>
-            {currentRoute.type === 'DocumentSAP' ? (
+            {router.currentRoute.type === 'DocumentSAP' ? (
               'Security Assessment Plan'
             ) : (
               <a href={getUrl(Routes.documentSAP)}>Security Assessment Plan</a>
             )}
           </li>
           <li>
-            {currentRoute.type === 'DocumentSAR' ? (
+            {router.currentRoute.type === 'DocumentSAR' ? (
               'Security Assessment Report'
             ) : (
               <a href={getUrl(Routes.documentSAR)}>
@@ -83,7 +83,7 @@ export const ValidatorPage = ({
             )}
           </li>
           <li>
-            {currentRoute.type === 'DocumentSSP' ? (
+            {router.currentRoute.type === 'DocumentSSP' ? (
               'System Security Plan'
             ) : (
               <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
@@ -94,10 +94,49 @@ export const ValidatorPage = ({
       {documentType ? (
         <DocumentValidator documentType={documentType} />
       ) : (
-        <div>
-          Document Summary here... this might include a count of rules and a
-          validation summary.
-        </div>
+        <table className="usa-table">
+          <thead>
+            <th>Document</th>
+            <th>Rules</th>
+            <th>Flagged</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
+              </td>
+              <td>{oscalDocuments.ssp.counts.total}</td>
+              <td>{oscalDocuments.ssp.counts.fired}</td>
+            </tr>
+            <tr>
+              <td>
+                <a href={getUrl(Routes.documentSAR)}>
+                  Security Assessment Report
+                </a>
+              </td>
+              <td>{oscalDocuments.sar.counts.total}</td>
+              <td>{oscalDocuments.sar.counts.fired}</td>
+            </tr>
+            <tr>
+              <td>
+                <a href={getUrl(Routes.documentSAP)}>
+                  Security Assessment Plan
+                </a>
+              </td>
+              <td>{oscalDocuments.sap.counts.total}</td>
+              <td>{oscalDocuments.sap.counts.fired}</td>
+            </tr>
+            <tr>
+              <td>
+                <a href={getUrl(Routes.documentPOAM)}>
+                  Plan of Action and Milestones
+                </a>
+              </td>
+              <td>{oscalDocuments.poam.counts.total}</td>
+              <td>{oscalDocuments.poam.counts.fired}</td>
+            </tr>
+          </tbody>
+        </table>
       )}
     </>
   );
