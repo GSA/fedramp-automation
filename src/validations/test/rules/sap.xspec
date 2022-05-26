@@ -30,15 +30,14 @@
 
         <x:scenario
             label="when the import-ssp element">
+            
             <x:scenario
                 label="is present">
                 <x:expect-not-assert
                     id="has-import-ssp"
                     label="that is correct" />
             </x:scenario>
-        </x:scenario>
-        <x:scenario
-            label="when the import-ssp element">
+        
             <x:scenario
                 label="is absent">
                 <x:context>
@@ -51,19 +50,14 @@
                     id="has-import-ssp"
                     label="that is an error" />
             </x:scenario>
-        </x:scenario>
-
-        <x:scenario
-            label="when the import-ssp">
+       
             <x:scenario
                 label="has an href attribute">
                 <x:expect-not-assert
                     id="has-import-ssp-href"
                     label="that is correct" />
             </x:scenario>
-        </x:scenario>
-        <x:scenario
-            label="when the import-ssp">
+      
             <x:scenario
                 label="lacks an href attribute">
                 <x:context>
@@ -76,6 +70,7 @@
                     id="has-import-ssp-href"
                     label="that is an error" />
             </x:scenario>
+            
         </x:scenario>
 
         <x:scenario
