@@ -32,7 +32,7 @@
 
             <x:scenario
                 label="when the import-ap element">
-                
+
                 <x:scenario
                     label="is present">
                     <x:expect-not-assert
@@ -72,7 +72,7 @@
                         id="has-import-ap-href"
                         label="that is an error" />
                 </x:scenario>
-                
+
             </x:scenario>
 
             <x:scenario
@@ -289,6 +289,216 @@
                     </x:context>
                     <x:expect-assert
                         id="has-no-base64"
+                        label="that is an error" />
+                </x:scenario>
+
+            </x:scenario>
+
+        </x:scenario>
+
+        <x:scenario
+            label="age-checks">
+
+            <!-- WARNING: The related checks depend on current-dateTime() -->
+            <!-- These contexts will drift out of relevance unless updated -->
+
+            <x:scenario
+                label="when a result">
+
+                <x:scenario
+                    label="has an end">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <end>2022-05-06T00:00:00Z</end>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="assessment-has-ended"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="lacks an end">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <!--<end>2022-05-06T00:00:00Z</end>-->
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="assessment-has-ended"
+                        label="that is a warning" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has start prior to end">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <end>2022-05-06T00:00:00Z</end>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="start-precedes-end"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has end prior to start">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-06T00:00:00Z</start>
+                                <end>2022-05-02T00:00:00Z</end>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="start-precedes-end"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has contemporary assessment">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <end>2022-05-06T00:00:00Z</end>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-contemporary-assessment"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="lacks contemporary assessment">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2021-05-02T00:00:00Z</start>
+                                <end>2021-05-06T00:00:00Z</end>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-contemporary-assessment"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has recent observation">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <end>2022-05-06T00:00:00Z</end>
+                                <observation
+                                    uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96">
+                                    <collected>2022-05-04T12:00:00Z</collected>
+                                </observation>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="observation-is-recent"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="lacks recent observation">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <end>2022-05-06T00:00:00Z</end>
+                                <observation
+                                    uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96">
+                                    <collected>2021-05-04T00:00:00Z</collected>
+                                </observation>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="observation-is-recent"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has recent finding observation">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <end>2022-05-06T00:00:00Z</end>
+                                <observation
+                                    uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96">
+                                    <collected>2022-05-04T00:00:00Z</collected>
+                                </observation>
+                                <finding
+                                    uuid="44f63cfc-f018-40df-aff8-cb071083a202">
+                                    <related-observation
+                                        observation-uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96" />
+                                </finding>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="finding-observation-is-recent"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has stale finding observation"
+                    pending="XSpec problem resolution">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2021-05-02T00:00:00Z</start>
+                                <end>2021-05-06T00:00:00Z</end>
+                                <observation
+                                    uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96">
+                                    <collected>2021-05-04T00:00:00Z</collected>
+                                </observation>
+                                <finding
+                                    uuid="44f63cfc-f018-40df-aff8-cb071083a202">
+                                    <related-observation
+                                        observation-uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96" />
+                                </finding>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="finding-observation-is-recent"
                         label="that is an error" />
                 </x:scenario>
 

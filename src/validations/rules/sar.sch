@@ -5,6 +5,7 @@
     xmlns:array="http://www.w3.org/2005/xpath-functions/array"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
     xmlns:feddoc="http://us.gov/documentation/federal-documentation"
+    xmlns:fedramp="https://fedramp.gov/ns/oscal"
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -140,7 +141,6 @@
 
         </sch:rule>
 
-
         <sch:rule
             context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'security-assessment-plan']]/oscal:rlink">
 
@@ -161,7 +161,7 @@
             but it also uses href on base64 so may be bogus.
             Commented out base64 restriction until verified.
         -->
-        
+
         <!--<sch:rule
             context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'security-assessment-plan']]/oscal:base64">
 
@@ -173,6 +173,99 @@
                 test="false()">An OSCAL SAR must not use a base64 element in a security-assessment-plan resource.</sch:assert>
 
         </sch:rule>-->
+
+    </sch:pattern>
+
+    <sch:pattern
+        id="sar-age-checks">
+
+        <!-- Note that there are no Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) references -->
+
+        <sch:rule
+            context="oscal:result">
+            <!-- This (single) context was used to avoid Schematron implementation problems -->
+            <!-- Rule contexts which differ only by predicate are mishandled -->
+
+
+            <!-- the most recent result -->
+            <sch:let
+                name="start-uuid"
+                value="//oscal:result[xs:dateTime(oscal:start) eq max(//oscal:result/oscal:start ! xs:dateTime(.))]/@uuid" />
+
+            <!-- the most recent completed result -->
+            <sch:let
+                name="end-uuid"
+                value="//oscal:result[xs:dateTime(oscal:end) eq max(//oscal:result/oscal:end ! xs:dateTime(.))]/@uuid" />
+
+            <sch:assert
+                diagnostics="assessment-has-ended-diagnostic"
+                id="assessment-has-ended"
+                role="warning"
+                test="exists(oscal:end)">All assessments should be completed.</sch:assert>
+
+            <sch:assert
+                diagnostics="start-precedes-end-diagnostic"
+                id="start-precedes-end"
+                role="error"
+                test="
+                    if (exists(oscal:start) and exists(oscal:end)) then
+                        xs:dateTime(oscal:start) lt xs:dateTime(oscal:end)
+                    else
+                        true()">Assessment start precedes assessment end.</sch:assert>
+
+            <sch:let
+                name="P365D"
+                value="xs:dayTimeDuration('P365D')" />
+
+            <sch:assert
+                diagnostics="has-contemporary-assessment-diagnostic"
+                id="has-contemporary-assessment"
+                role="error"
+                see="https://github.com/18F/fedramp-automation/issues/348"
+                test="
+                    if (@uuid eq $end-uuid) then
+                        xs:dateTime(oscal:end) gt current-dateTime() - $P365D
+                    else
+                        true()">The most recently completed assessment must have been completed within the last 12
+                months.</sch:assert>
+
+            <!-- TODO: there are no intra-document indicators of currency of authorization in SSP, SAP, SAR, and POA&M -->
+            <!-- Thus the 4-month assessment rule for unauthorized SSPs cannot (yet) be implemented -->
+
+            <sch:let
+                name="P180D"
+                value="current-dateTime() - xs:dayTimeDuration('P180D')" />
+
+            <sch:assert
+                diagnostics="observation-is-recent-diagnostic"
+                fedramp:specific="true"
+                id="observation-is-recent"
+                role="error"
+                see="https://github.com/18F/fedramp-automation/issues/348"
+                test="
+                    if (@uuid eq $end-uuid) then
+                        xs:dateTime(descendant::oscal:collected) gt $P180D
+                    else
+                        true()">Every observation is recently collected.</sch:assert>
+
+            <sch:assert
+                diagnostics="finding-observation-is-recent-diagnostic"
+                fedramp:specific="true"
+                id="finding-observation-is-recent"
+                role="error"
+                see="https://github.com/18F/fedramp-automation/issues/348"
+                test="
+                    if (@uuid eq $end-uuid) then
+                        (every $ro in (preceding-sibling::oscal:observation[@uuid = current()/oscal:related-observation/@observation-uuid])
+                            satisfies xs:dateTime($ro/oscal:collected) gt $P180D)
+                    else
+                        true()">A finding has related observations which were recently collected.</sch:assert>
+
+        </sch:rule>
+
+        <!-- Automated tools result typification has not been defined for FedRAMP -->
+        <!-- Vulnerability scan typification has not been defined for FedRAMP -->
+        <!-- Thus such scans cannot be evaluated for timeliness -->
 
     </sch:pattern>
 
@@ -222,6 +315,35 @@
             doc:assert="has-no-base64"
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'security-assessment-plan']]/oscal:base64"
             id="has-no-base64-diagnostic">This OSCAL SAR has a base64 element in a security-assessment-plan resource.</sch:diagnostic>-->
+
+        <!-- age checks -->
+
+        <sch:diagnostic
+            doc:assert="start-precedes-end"
+            doc:context="oscal:result"
+            id="start-precedes-end-diagnostic">Assessment start date is greater than assessment end date.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="assessment-has-ended"
+            doc:context="oscal:result"
+            id="assessment-has-ended-diagnostic">This assessment has not ended.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-contemporary-assessment"
+            doc:context="oscal:result"
+            id="has-contemporary-assessment-diagnostic">The most recently completed assessment is older than 12 months.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="observation-is-recent"
+            doc:context="oscal:result"
+            id="observation-is-recent-diagnostic">This observation is stale (older than <sch:value-of
+                select="$P180D" />).</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="finding-observation-is-recent"
+            doc:context="oscal:result"
+            id="finding-observation-is-recent-diagnostic">This finding has a related observation which is stale (older than <sch:value-of
+                select="$P180D" />).</sch:diagnostic>
 
     </sch:diagnostics>
 
