@@ -28,20 +28,21 @@ import net.sf.saxon.s9api.XsltExecutable;
 import net.sf.saxon.s9api.XsltTransformer;
 
 /**
- * Simple example of how to use Saxon-HE to apply fedramp-automation validation
- * rules to an OSCAL Fedramp System Security Plan.
+ * Simple example of how to use Saxon-HE to apply fedramp-automation validation rules to an OSCAL
+ * Fedramp System Security Plan.
  */
 public class FedrampAutomationValidator {
-  private String compiledSchXslt = new File("../../../src/validations/target/rules/ssp.sch.xsl")
-      .getAbsolutePath();
-  private String baselinesPath = new File("../../../dist/content/baselines/rev4/xml").getAbsolutePath();
+  private String compiledSchXslt =
+      new File("../../../src/validations/target/rules/ssp.sch.xsl").getAbsolutePath();
+  private String baselinesPath =
+      new File("../../../dist/content/baselines/rev4/xml").getAbsolutePath();
   private String resourcesPath = new File("../../../dist/content/resources/xml").getAbsolutePath();
 
   private Processor processor;
   private XsltExecutable xsltExecutable;
 
-  public FedrampAutomationValidator(String compiledSchXslt, String baselinesPath, String resourcesPath)
-      throws SaxonApiException {
+  public FedrampAutomationValidator(
+      String compiledSchXslt, String baselinesPath, String resourcesPath) throws SaxonApiException {
     this.compiledSchXslt = compiledSchXslt;
     this.baselinesPath = baselinesPath;
     this.resourcesPath = resourcesPath;
@@ -54,11 +55,9 @@ public class FedrampAutomationValidator {
     xsltExecutable = xsltCompiler.compile(xslDocument);
   }
 
-  /**
-   * Validate the OSCAL document with the fedramp-automation rules as compiled to
-   * XSLT.
-   */
-  public List<Map<String, String>> validateOscalDocument(String sspPath) throws IOException, SaxonApiException {
+  /** Validate the OSCAL document with the fedramp-automation rules as compiled to XSLT. */
+  public List<Map<String, String>> validateOscalDocument(String sspPath)
+      throws IOException, SaxonApiException {
     XsltTransformer xsltTransformer = getTransformer();
 
     // Read the source SSP document
@@ -96,10 +95,13 @@ public class FedrampAutomationValidator {
 
   private XsltTransformer getTransformer() {
     XsltTransformer xsltTransformer = xsltExecutable.load();
-    xsltTransformer.setParameter(new QName("baselines-base-path"), new XdmAtomicValue(this.baselinesPath));
-    xsltTransformer.setParameter(new QName("registry-base-path"), new XdmAtomicValue(this.resourcesPath));
+    xsltTransformer.setParameter(
+        new QName("baselines-base-path"), new XdmAtomicValue(this.baselinesPath));
+    xsltTransformer.setParameter(
+        new QName("registry-base-path"), new XdmAtomicValue(this.resourcesPath));
     // Set to `true` to validate external resource references.
-    xsltTransformer.setParameter(new QName("param-use-remote-resources"), new XdmAtomicValue(false));
+    xsltTransformer.setParameter(
+        new QName("param-use-remote-resources"), new XdmAtomicValue(false));
     return xsltTransformer;
   }
 
