@@ -12801,7 +12801,7 @@
                 </system-implementation>
             </x:context>
             <x:expect-assert
-                id="has-DNS-authoritative-server"
+                id="has-DNS-authoritative-service"
                 label="that is of interest." />
         </x:scenario>
         
