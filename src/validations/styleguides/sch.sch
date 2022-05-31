@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="sch.sch" phase="basic" title="Schematron Style Guide for FedRAMP Validations" ?>
 <sch:schema
-    defaultPhase="basic"
+    defaultPhase="advanced"
     queryBinding="xslt2"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
     xmlns:feddoc="http://us.gov/documentation/federal-documentation"
