@@ -8,18 +8,69 @@ import org.junit.Test;
 
 /** Unit test for simple App. */
 public class FedrampAutomationValidatorTest {
-  private static String DEMO_SSP_PATH = new File(
-      "../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml").getAbsolutePath();
+  /** Rigorous Test :-) */
+  @Test
+  public void shouldValidateSSP() {
+    try {
+      FedrampAutomationValidator validator = new FedrampAutomationValidator(
+          new File("../../../src/validations/target/rules/ssp.sch.xsl")
+              .getAbsolutePath(),
+          new File("../../../dist/content/baselines/rev4/xml").getAbsolutePath(),
+          new File("../../../dist/content/resources/xml").getAbsolutePath());
+      List<Map<String, String>> failedAsserts = validator.validateOscalDocument(new File(
+          "../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml").getAbsolutePath());
+      Assert.assertNotNull(failedAsserts);
+    } catch (Exception e) {
+      Assert.fail("Unexpected exception: " + e.getMessage());
+    }
+  }
 
   /** Rigorous Test :-) */
   @Test
-  public void shouldReturnAssertions() {
+  public void shouldValidateSAP() {
     try {
-      FedrampAutomationValidator validator = new FedrampAutomationValidator();
-      List<Map<String, String>> failedAsserts = validator.validateSSP(DEMO_SSP_PATH);
-      // Confirm that we received a list of assertions with expected attribute types
-      Map<String, String> firstFailedAssert = failedAsserts.get(0);
-      Assert.assertEquals(firstFailedAssert.get("test").getClass(), String.class);
+      FedrampAutomationValidator validator = new FedrampAutomationValidator(
+          new File("../../../src/validations/target/rules/sap.sch.xsl")
+              .getAbsolutePath(),
+          new File("../../../dist/content/baselines/rev4/xml").getAbsolutePath(),
+          new File("../../../dist/content/resources/xml").getAbsolutePath());
+      List<Map<String, String>> failedAsserts = validator.validateOscalDocument(new File(
+          "../../../dist/content/templates/sap/xml/FedRAMP-SAP-OSCAL-Template.xml").getAbsolutePath());
+      Assert.assertNotNull(failedAsserts);
+    } catch (Exception e) {
+      Assert.fail("Unexpected exception: " + e.getMessage());
+    }
+  }
+
+  /** Rigorous Test :-) */
+  @Test
+  public void shouldValidateSAR() {
+    try {
+      FedrampAutomationValidator validator = new FedrampAutomationValidator(
+          new File("../../../src/validations/target/rules/sar.sch.xsl")
+              .getAbsolutePath(),
+          new File("../../../dist/content/baselines/rev4/xml").getAbsolutePath(),
+          new File("../../../dist/content/resources/xml").getAbsolutePath());
+      List<Map<String, String>> failedAsserts = validator.validateOscalDocument(new File(
+          "../../../dist/content/templates/sar/xml/FedRAMP-SAR-OSCAL-Template.xml").getAbsolutePath());
+      Assert.assertNotNull(failedAsserts);
+    } catch (Exception e) {
+      Assert.fail("Unexpected exception: " + e.getMessage());
+    }
+  }
+
+  /** Rigorous Test :-) */
+  @Test
+  public void shouldValidatePOAM() {
+    try {
+      FedrampAutomationValidator validator = new FedrampAutomationValidator(
+          new File("../../../src/validations/target/rules/poam.sch.xsl")
+              .getAbsolutePath(),
+          new File("../../../dist/content/baselines/rev4/xml").getAbsolutePath(),
+          new File("../../../dist/content/resources/xml").getAbsolutePath());
+      List<Map<String, String>> failedAsserts = validator.validateOscalDocument(new File(
+          "../../../dist/content/templates/poam/xml/FedRAMP-POAM-OSCAL-Template.xml").getAbsolutePath());
+      Assert.assertNotNull(failedAsserts);
     } catch (Exception e) {
       Assert.fail("Unexpected exception: " + e.getMessage());
     }

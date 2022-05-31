@@ -1,8 +1,6 @@
 package gov.fedramp.automationExample;
 
 import java.io.File;
-import java.util.List;
-import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 
