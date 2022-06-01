@@ -3359,7 +3359,7 @@
                         exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value eq 'planned'])
                     else
                         true()">A partially implemented control must have a plan for complete implementation.</sch:assert>
-            <!--<sch:assert
+            <sch:assert
                 diagnostics="implemented-requirement-has-allowed-composite-implementation-status-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
                 doc:template-reference="System Security Plan Template §13"
@@ -3369,7 +3369,7 @@
                     every $c in string-join(distinct-values((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value)), '-')
                         satisfies $c = ('implemented', 'planned', 'alternative', 'not-applicable', 'partial-planned', 'planned-partial')">An
                 implemented control's implementation status must be implemented, partial and planned, planned, alternative, or not
-                applicable.</sch:assert>-->
+                applicable.</sch:assert>
 
             <sch:let
                 name="sensitivity-level"
@@ -5169,12 +5169,12 @@
             doc:context="oscal:implemented-requirement"
             id="partial-implemented-requirement-has-plan-diagnostic">This partially complete implemented-requirement is lacking an
             implementation-status of 'planned' and an accompanying date.</sch:diagnostic>
-        <!--<sch:diagnostic
+        <sch:diagnostic
             doc:assertion="implemented-requirement-has-allowed-composite-implementation-status"
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-allowed-composite-implementation-status-diagnostic">This implemented-requirement has an invalid
             implementation-status composition (<sch:value-of
-                select="string-join((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value), ', ')" />).</sch:diagnostic>-->
+                select="string-join((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value), ', ')" />).</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-required-response-points"
             doc:context="oscal:implemented-requirement"
