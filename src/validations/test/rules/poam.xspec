@@ -111,7 +111,7 @@
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <import-ssp
-                                href="file:/dev/null" />
+                                href="../../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml" />
                         </assessment-plan>
                     </x:context>
                     <x:expect-not-assert
@@ -119,8 +119,7 @@
                         label="that is correct" />
                 </x:scenario>
                 <x:scenario
-                    label="which is not available"
-                    pending="XSpec problem resolution">
+                    label="which is not available">
                     <x:context>
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
