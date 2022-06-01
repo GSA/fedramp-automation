@@ -10721,50 +10721,6 @@
         <x:scenario
             label="There are PE family controls inherited from leveraged authorizations.">
             <x:scenario
-                label="When that is true">
-                <x:context>
-                    <system-security-plan
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <system-implementation>
-                            <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system"/>                            
-                        </system-implementation>
-                        <control-implementation>
-                            <implemented-requirement>
-                                <statement statement-id="pe-2">
-                                    <by-component component-uuid="e82e6e07-0c62-417e-8a19-3744991b4c65"
-                                        uuid="84de735f-ba37-4bb4-b784-79760f986a40"/>                                
-                                </statement>
-                            </implemented-requirement>
-                        </control-implementation>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-not-assert
-                    id="leveraged-PE-controls"
-                    label="that is correct" />
-            </x:scenario>
-            <x:scenario
-                label="When that is false">
-                <x:context>
-                    <system-security-plan
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <system-implementation>
-                            <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c66" type="leveraged-system"/>                            
-                        </system-implementation>
-                        <control-implementation>
-                            <implemented-requirement>
-                                <statement statement-id="pe-2">
-                                    <by-component component-uuid="e82e6e07-0c62-417e-8a19-3744991b4c65"
-                                        uuid="84de735f-ba37-4bb4-b784-79760f986a40"/>                                
-                                </statement>
-                            </implemented-requirement>
-                        </control-implementation>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-assert
-                    id="leveraged-PE-controls"
-                    label="that is incorrect" />
-            </x:scenario>
-            <x:scenario
                 label="And the PE control's leveraged authorization UUID value matches the leveraged system component UUID ">
                 <x:scenario label="when this is true">
                     <x:context>

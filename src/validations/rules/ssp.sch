@@ -705,7 +705,7 @@
                 test="
                     if ($familyName eq 'pe')
                     then
-                        if ($leveraged/@uuid eq $leveragedUUID)
+                        if ($leveraged/@uuid = $leveragedUUID)
                         then
                             (true())
                         else
@@ -784,27 +784,6 @@
             <sch:let
                 name="component-ref"
                 value="./@component-uuid" />
-            <sch:let
-                name="statementID"
-                value="../substring-before(@statement-id, '-')" />
-            <sch:let
-                name="leveraged"
-                value="/oscal:system-security-plan/oscal:system-implementation/oscal:component[@type = 'leveraged-system']" />
-            <sch:assert
-                diagnostics="leveraged-PE-controls-diagnostic"
-                id="leveraged-PE-controls"
-                role="warning"
-                test="
-                    if ($statementID eq 'pe')
-                    then
-                        if ($leveraged/@uuid eq $component-ref)
-                        then
-                            true()
-                        else
-                            false()
-                    else
-                        true()">This PE Control has a matching leveraged authorization - <xsl:value-of
-                    select="../@statement-id" />.</sch:assert>
             <sch:assert
                 diagnostics="invalid-component-match-diagnostic"
                 doc:checklist-reference="Section D Checks"
@@ -4114,14 +4093,10 @@
                 select="../@statement-id" /> with component reference UUID ' <sch:value-of
                 select="$component-ref" />' is not in the system implementation inventory, and cannot be used to define a control.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="leveraged-PE-controls"
-            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:by-component"
-            id="leveraged-PE-controls-diagnostic">There are PE controls that do not match leveraged authorizations.</sch:diagnostic>
-        <sch:diagnostic
             doc:assertion="leveraged-PE-controls-implemented-requirement"
             doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement"
-            id="leveraged-PE-controls-implemented-requirement-diagnostic">There are PE controls inherited from leveraged
-            authorizations.</sch:diagnostic>
+            id="leveraged-PE-controls-implemented-requirement-diagnostic">This PE Control does not have a matching leveraged authorization - <xsl:value-of
+                select="@control-id" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="missing-component-description"
             doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement/oscal:by-component"
