@@ -1026,7 +1026,7 @@
                                 <implemented-requirement>
                                     <statement>
                                         <remarks>
-                                            <p>This shoud not be here.</p>
+                                            <p>This should not be here.</p>
                                         </remarks>                                        
                                     </statement>
                                 </implemented-requirement>
@@ -10364,6 +10364,44 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+        
+        <x:scenario
+            label="An implemented control must have a prop with only the allowed values.">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop ns='https://fedramp.gov/ns/oscal' name='implementation-status' value='implemented'/>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="implemented-requirement-has-allowed-composite-implementation-status"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop ns='https://fedramp.gov/ns/oscal' name='implementation-status' value='completed'/>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="implemented-requirement-has-allowed-composite-implementation-status"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        
+        
         <x:scenario
             label="Incomplete control implementations have an explanation.">
             <x:scenario
