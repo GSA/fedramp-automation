@@ -178,7 +178,7 @@
         <sch:diagnostic
             doc:assert="has-import-ssp"
             doc:context="oscal:assessment-plan"
-            id="has-import-ssp-diagnostic">This OSCAL SAP lacks have an import-ssp element.</sch:diagnostic>
+            id="has-import-ssp-diagnostic">This OSCAL SAP lacks an import-ssp element.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-import-ssp-href"
