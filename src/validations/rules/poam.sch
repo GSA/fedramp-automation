@@ -45,7 +45,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
                 id="has-import-ssp"
                 role="error"
-                test="oscal:import-ssp">An OSCAL SAP must have an import-ssp element.</sch:assert>
+                test="oscal:import-ssp">An OSCAL POA&amp;M must have an import-ssp element.</sch:assert>
 
         </sch:rule>
 
@@ -57,7 +57,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
                 id="has-import-ssp-href"
                 role="error"
-                test="exists(@href)">An OSCAL SAP import-ssp element must have an href attribute.</sch:assert>
+                test="exists(@href)">An OSCAL POA&amp;M import-ssp element must have an href attribute.</sch:assert>
 
             <sch:assert
                 diagnostics="has-import-ssp-internal-href-diagnostic"
@@ -71,7 +71,7 @@
                         exists(//oscal:resource[@uuid eq substring-after(current()/@href, '#')])
                     else
                         (: the assertion succeeds :)
-                        true()">An OSCAL SAP import-ssp element href attribute which is document-relative must identify a target
+                        true()">An OSCAL POA&amp;M import-ssp element href attribute which is document-relative must identify a target
                 within the document. <sch:value-of
                     select="@href" />.</sch:assert>
 
@@ -92,8 +92,8 @@
                     else
                         (: the assertion succeeds :)
                         true()"
-                unit:override-xspec="both">An OSCAL SAP import-ssp element href attribute which is an external reference must identify an available
-                target.</sch:assert>
+                unit:override-xspec="both">An OSCAL POA&amp;M import-ssp element href attribute which is an external reference must identify an
+                available target.</sch:assert>
 
         </sch:rule>
 
@@ -112,7 +112,7 @@
                         exists(oscal:resource[oscal:prop[@name eq 'type' and @value eq 'system-security-plan']])
                     else
                         (: the assertion succeeds :)
-                        true()">An OSCAL SAP which does not directly import the SSP must declare the SSP as a back-matter
+                        true()">An OSCAL POA&amp;M which does not directly import the SSP must declare the SSP as a back-matter
                 resource.</sch:assert>
 
         </sch:rule>
@@ -125,8 +125,8 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
                 id="has-ssp-rlink"
                 role="error"
-                test="exists(oscal:rlink) and not(exists(oscal:rlink[2]))">An OSCAL SAP with a SSP resource declaration must have one and only one
-                rlink element.</sch:assert>
+                test="exists(oscal:rlink) and not(exists(oscal:rlink[2]))">An OSCAL POA&amp;M with a SSP resource declaration must have one and only
+                one rlink element.</sch:assert>
 
         </sch:rule>
 
@@ -140,7 +140,7 @@
                 role="warning"
                 test="
                     (: always warn :)
-                    false()">An OSCAL SAP which lacks an OSCAL SSP must declare a no-oscal-ssp resource.</sch:assert>
+                    false()">An OSCAL POA&amp;M which lacks an OSCAL SSP must declare a no-oscal-ssp resource.</sch:assert>
 
         </sch:rule>
 
@@ -152,7 +152,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
                 id="has-acceptable-system-security-plan-rlink-media-type"
                 role="error"
-                test="@media-type = ('text/xml', 'application/json')">An OSCAL SAP SSP rlink must have a 'text/xml' or 'application/json'
+                test="@media-type = ('text/xml', 'application/json')">An OSCAL POA&amp;M SSP rlink must have a 'text/xml' or 'application/json'
                 media-type.</sch:assert>
 
             <!-- TODO: check document availability when $use-remote-resources is made common -->
@@ -167,7 +167,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
                 id="has-no-base64"
                 role="error"
-                test="false()">An OSCAL SAP must not use a base64 element in a system-security-plan resource.</sch:assert>
+                test="false()">An OSCAL POA&amp;M must not use a base64 element in a system-security-plan resource.</sch:assert>
 
         </sch:rule>
 
@@ -178,52 +178,52 @@
         <sch:diagnostic
             doc:assert="has-import-ssp"
             doc:context="oscal:assessment-plan"
-            id="has-import-ssp-diagnostic">This OSCAL SAP lacks an import-ssp element.</sch:diagnostic>
+            id="has-import-ssp-diagnostic">This OSCAL POA&amp;M lacks an import-ssp element.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-import-ssp-href"
             doc:context="oscal:import-ssp"
-            id="has-import-ssp-href-diagnostic">This OSCAL SAP import-ssp element lacks an href attribute.</sch:diagnostic>
+            id="has-import-ssp-href-diagnostic">This OSCAL POA&amp;M import-ssp element lacks an href attribute.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-import-ssp-internal-href"
             doc:context="oscal:import-ssp"
-            id="has-import-ssp-internal-href-diagnostic">This OSCAL SAP import-ssp element href attribute which is document-relative does not identify
-            a target within the document.</sch:diagnostic>
+            id="has-import-ssp-internal-href-diagnostic">This OSCAL POA&amp;M import-ssp element href attribute which is document-relative does not
+            identify a target within the document.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-import-ssp-external-href"
             doc:context="oscal:import-ssp"
-            id="has-import-ssp-external-href-diagnostic">This OSCAL SAP import-ssp element href attribute which is an external reference does not
-            identify an available target.</sch:diagnostic>
+            id="has-import-ssp-external-href-diagnostic">This OSCAL POA&amp;M import-ssp element href attribute which is an external reference does
+            not identify an available target.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-system-security-plan-resource"
             doc:context="oscal:back-matter"
-            id="has-system-security-plan-resource-diagnostic">This OSCAL SAP which does not directly import the SSP does not declare the SSP as a
-            back-matter resource.</sch:diagnostic>
+            id="has-system-security-plan-resource-diagnostic">This OSCAL POA&amp;M which does not directly import the SSP does not declare the SSP as
+            a back-matter resource.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-ssp-rlink"
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'system-security-plan']]"
-            id="has-ssp-rlink-diagnostic">This OSCAL SAP with a SSP resource declaration does not have one and only one rlink
+            id="has-ssp-rlink-diagnostic">This OSCAL POA&amp;M with a SSP resource declaration does not have one and only one rlink
             element.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-non-OSCAL-system-security-plan-resource"
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'no-oscal-ssp]]"
-            id="has-non-OSCAL-system-security-plan-resource-diagnostic">This OSCAL SAP has a non-OSCAL SSP.</sch:diagnostic>
+            id="has-non-OSCAL-system-security-plan-resource-diagnostic">This OSCAL POA&amp;M has a non-OSCAL SSP.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-acceptable-system-security-plan-rlink-media-type"
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'system-security-plan']]/oscal:rlink"
-            id="has-acceptable-system-security-plan-rlink-media-type-diagnostic">This OSCAL SAP SSP rlink does not have a 'text/xml' or
+            id="has-acceptable-system-security-plan-rlink-media-type-diagnostic">This OSCAL POA&amp;M SSP rlink does not have a 'text/xml' or
             'application/json' media-type.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-no-base64"
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'system-security-plan']]/oscal:base64"
-            id="has-no-base64-diagnostic">This OSCAL SAP has a base64 element in a system-security-plan resource.</sch:diagnostic>
+            id="has-no-base64-diagnostic">This OSCAL POA&amp;M has a base64 element in a system-security-plan resource.</sch:diagnostic>
 
     </sch:diagnostics>
 </sch:schema>
