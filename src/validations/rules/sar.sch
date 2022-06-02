@@ -38,7 +38,7 @@
     <sch:pattern
         id="import-ap">
 
-        <!-- 
+        <!--
             NB:
             Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5 asserts
             "The SAR must import an OSCAL-based SAP, even if no OSCAL-based SSP exists."
@@ -156,7 +156,7 @@
 
         </sch:rule>
 
-        <!-- TODO: 
+        <!-- TODO:
             Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5 allows base64
             but it also uses href on base64 so may be bogus.
             Commented out base64 restriction until verified.
@@ -244,7 +244,7 @@
                 see="https://github.com/18F/fedramp-automation/issues/348"
                 test="
                     if (@uuid eq $end-uuid) then
-                        xs:dateTime(descendant::oscal:collected) gt $P180D
+                        xs:dateTime(descendant::oscal:collected[1]) gt $P180D
                     else
                         true()">Every observation is recently collected.</sch:assert>
 
