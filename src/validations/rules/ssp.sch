@@ -691,7 +691,7 @@
                 value="$required-response-points[not(@id = $implemented/@statement-id)]" />
             <sch:let
                 name="leveraged"
-                value="/oscal:system-security-plan/oscal:system-implementation/oscal:component[@type = 'leveraged-system']" />
+                value="//oscal:system-implementation/oscal:leveraged-authorization" />
             <sch:let
                 name="familyName"
                 value="substring-before(@control-id, '-')" />

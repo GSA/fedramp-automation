@@ -10721,13 +10721,13 @@
         <x:scenario
             label="There are PE family controls inherited from leveraged authorizations.">
             <x:scenario
-                label="And the PE control's leveraged authorization UUID value matches the leveraged system component UUID ">
+                label="And the PE control's leveraged authorization UUID value matches the system-implementation's leveraged authorization UUID value">
                 <x:scenario label="when this is true">
                     <x:context>
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-implementation>
-                                <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system"/>                                
+                                <leveraged-authorization uuid="e82e6e07-0c62-417e-8a19-3744991b4c65"/>                              
                             </system-implementation>
                             <control-implementation>
                                 <implemented-requirement uuid="uuid-value" control-id="pe-1">
@@ -10744,9 +10744,9 @@
                 <x:scenario label="when this is false">
                     <x:context>
                         <system-security-plan
-                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
                             <system-implementation>
-                                <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system"/>                                
+                                <leveraged-authorization uuid="e82e6e07-0c62-417e-8a19-3744991b4c65"/>                              
                             </system-implementation>
                             <control-implementation>
                                 <implemented-requirement uuid="uuid-value" control-id="pe-1">
