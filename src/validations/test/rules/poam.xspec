@@ -103,10 +103,10 @@
             </x:scenario>
 
             <x:scenario
-                label="when the import-ssp has an external href"
-                pending="XSpec problem resolution">
+                label="when the import-ssp has an external href">
                 <x:scenario
-                    label="which is available">
+                    label="which is available"
+                    pending="XSpec problem resolution">
                     <x:context>
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
