@@ -18,7 +18,21 @@
         <x:scenario
             label="Section 2.1">
             <x:scenario
-                label="when the security sensitivity level">
+                label="when the security sensitivity level">                
+                <x:scenario
+                    label="is defined">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
+                            </system-characteristics>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="no-security-sensitivity-level"
+                        label="it is valid." />
+                </x:scenario>
                 <x:scenario
                     label="is not defined at all">
                     <x:context>
@@ -375,6 +389,32 @@
                             label="must be reported." />
                     </x:scenario>
                     <x:scenario
+                        label="and any control's implemented requirement is defined with an valid status">
+                        <x:context>
+                            <system-security-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <system-characteristics>
+                                    <security-sensitivity-level>fips-199-low</security-sensitivity-level>
+                                </system-characteristics>
+                                <control-implementation>
+                                    <implemented-requirement
+                                        control-id="at-1"
+                                        uuid="eee8697a-bc39-45aa-accc-d3e534932efb">
+                                        <prop
+                                            name="implementation-status"
+                                            ns="https://fedramp.gov/ns/oscal"
+                                            value="implemented">
+                                            <remarks />
+                                        </prop>
+                                    </implemented-requirement>
+                                </control-implementation>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="invalid-implementation-status"
+                            label="it is valid." />
+                    </x:scenario>
+                    <x:scenario
                         label="and any control's implemented requirement is defined with an invalid status">
                         <x:context>
                             <system-security-plan
@@ -427,6 +467,272 @@
                             id="control-implemented-requirements-stats"
                             label="must be reported." />
                     </x:scenario>
+                </x:scenario>
+                <x:scenario
+                    label="and all required implementations are complete">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-characteristics>
+                                <security-sensitivity-level>fips-199-low</security-sensitivity-level>
+                            </system-characteristics>
+                            <control-implementation>
+                                <implemented-requirement
+                                    control-id="ac-1" />
+                                <implemented-requirement
+                                    control-id="ac-2" />
+                                <implemented-requirement
+                                    control-id="ac-3" />
+                                <implemented-requirement
+                                    control-id="ac-7" />
+                                <implemented-requirement
+                                    control-id="ac-8" />
+                                <implemented-requirement
+                                    control-id="ac-14" />
+                                <implemented-requirement
+                                    control-id="ac-17" />
+                                <implemented-requirement
+                                    control-id="ac-18" />
+                                <implemented-requirement
+                                    control-id="ac-19" />
+                                <implemented-requirement
+                                    control-id="ac-20" />
+                                <implemented-requirement
+                                    control-id="ac-22" />
+                                <implemented-requirement
+                                    control-id="at-1" />
+                                <implemented-requirement
+                                    control-id="at-2" />
+                                <implemented-requirement
+                                    control-id="at-3" />
+                                <implemented-requirement
+                                    control-id="at-4" />
+                                <implemented-requirement
+                                    control-id="au-1" />
+                                <implemented-requirement
+                                    control-id="au-2" />
+                                <implemented-requirement
+                                    control-id="au-3" />
+                                <implemented-requirement
+                                    control-id="au-4" />
+                                <implemented-requirement
+                                    control-id="au-5" />
+                                <implemented-requirement
+                                    control-id="au-6" />
+                                <implemented-requirement
+                                    control-id="au-8" />
+                                <implemented-requirement
+                                    control-id="au-9" />
+                                <implemented-requirement
+                                    control-id="au-11" />
+                                <implemented-requirement
+                                    control-id="au-12" />
+                                <implemented-requirement
+                                    control-id="ca-1" />
+                                <implemented-requirement
+                                    control-id="ca-2" />
+                                <implemented-requirement
+                                    control-id="ca-2.1" />
+                                <implemented-requirement
+                                    control-id="ca-3" />
+                                <implemented-requirement
+                                    control-id="ca-5" />
+                                <implemented-requirement
+                                    control-id="ca-6" />
+                                <implemented-requirement
+                                    control-id="ca-7" />
+                                <implemented-requirement
+                                    control-id="ca-9" />
+                                <implemented-requirement
+                                    control-id="cm-1" />
+                                <implemented-requirement
+                                    control-id="cm-2" />
+                                <implemented-requirement
+                                    control-id="cm-4" />
+                                <implemented-requirement
+                                    control-id="cm-6" />
+                                <implemented-requirement
+                                    control-id="cm-7" />
+                                <implemented-requirement
+                                    control-id="cm-8" />
+                                <implemented-requirement
+                                    control-id="cm-10" />
+                                <implemented-requirement
+                                    control-id="cm-11" />
+                                <implemented-requirement
+                                    control-id="cp-1" />
+                                <implemented-requirement
+                                    control-id="cp-2" />
+                                <implemented-requirement
+                                    control-id="cp-3" />
+                                <implemented-requirement
+                                    control-id="cp-4" />
+                                <implemented-requirement
+                                    control-id="cp-9" />
+                                <implemented-requirement
+                                    control-id="cp-10" />
+                                <implemented-requirement
+                                    control-id="ia-1" />
+                                <implemented-requirement
+                                    control-id="ia-2" />
+                                <implemented-requirement
+                                    control-id="ia-2.1" />
+                                <implemented-requirement
+                                    control-id="ia-2.12" />
+                                <implemented-requirement
+                                    control-id="ia-4" />
+                                <implemented-requirement
+                                    control-id="ia-5" />
+                                <implemented-requirement
+                                    control-id="ia-5.1" />
+                                <implemented-requirement
+                                    control-id="ia-5.11" />
+                                <implemented-requirement
+                                    control-id="ia-6" />
+                                <implemented-requirement
+                                    control-id="ia-7" />
+                                <implemented-requirement
+                                    control-id="ia-8" />
+                                <implemented-requirement
+                                    control-id="ia-8.1" />
+                                <implemented-requirement
+                                    control-id="ia-8.2" />
+                                <implemented-requirement
+                                    control-id="ia-8.3" />
+                                <implemented-requirement
+                                    control-id="ia-8.4" />
+                                <implemented-requirement
+                                    control-id="ir-1" />
+                                <implemented-requirement
+                                    control-id="ir-2" />
+                                <implemented-requirement
+                                    control-id="ir-4" />
+                                <implemented-requirement
+                                    control-id="ir-5" />
+                                <implemented-requirement
+                                    control-id="ir-6" />
+                                <implemented-requirement
+                                    control-id="ir-7" />
+                                <implemented-requirement
+                                    control-id="ir-8" />
+                                <implemented-requirement
+                                    control-id="ma-1" />
+                                <implemented-requirement
+                                    control-id="ma-2" />
+                                <implemented-requirement
+                                    control-id="ma-4" />
+                                <implemented-requirement
+                                    control-id="ma-5" />
+                                <implemented-requirement
+                                    control-id="mp-1" />
+                                <implemented-requirement
+                                    control-id="mp-2" />
+                                <implemented-requirement
+                                    control-id="mp-6" />
+                                <implemented-requirement
+                                    control-id="mp-7" />
+                                <implemented-requirement
+                                    control-id="pe-1" />
+                                <implemented-requirement
+                                    control-id="pe-2" />
+                                <implemented-requirement
+                                    control-id="pe-3" />
+                                <implemented-requirement
+                                    control-id="pe-6" />
+                                <implemented-requirement
+                                    control-id="pe-8" />
+                                <implemented-requirement
+                                    control-id="pe-12" />
+                                <implemented-requirement
+                                    control-id="pe-13" />
+                                <implemented-requirement
+                                    control-id="pe-14" />
+                                <implemented-requirement
+                                    control-id="pe-15" />
+                                <implemented-requirement
+                                    control-id="pe-16" />
+                                <implemented-requirement
+                                    control-id="pl-1" />
+                                <implemented-requirement
+                                    control-id="pl-2" />
+                                <implemented-requirement
+                                    control-id="pl-4" />
+                                <implemented-requirement
+                                    control-id="ps-1" />
+                                <implemented-requirement
+                                    control-id="ps-2" />
+                                <implemented-requirement
+                                    control-id="ps-3" />
+                                <implemented-requirement
+                                    control-id="ps-4" />
+                                <implemented-requirement
+                                    control-id="ps-5" />
+                                <implemented-requirement
+                                    control-id="ps-6" />
+                                <implemented-requirement
+                                    control-id="ps-7" />
+                                <implemented-requirement
+                                    control-id="ps-8" />
+                                <implemented-requirement
+                                    control-id="ra-1" />
+                                <implemented-requirement
+                                    control-id="ra-2" />
+                                <implemented-requirement
+                                    control-id="ra-3" />
+                                <implemented-requirement
+                                    control-id="ra-5" />
+                                <implemented-requirement
+                                    control-id="sa-1" />
+                                <implemented-requirement
+                                    control-id="sa-2" />
+                                <implemented-requirement
+                                    control-id="sa-3" />
+                                <implemented-requirement
+                                    control-id="sa-4" />
+                                <implemented-requirement
+                                    control-id="sa-5" />
+                                <implemented-requirement
+                                    control-id="sa-9" />
+                                <implemented-requirement
+                                    control-id="sc-1" />
+                                <implemented-requirement
+                                    control-id="sc-5" />
+                                <implemented-requirement
+                                    control-id="sc-7" />
+                                <implemented-requirement
+                                    control-id="sc-12" />
+                                <implemented-requirement
+                                    control-id="sc-13" />
+                                <implemented-requirement
+                                    control-id="sc-15" />
+                                <implemented-requirement
+                                    control-id="sc-20" />
+                                <implemented-requirement
+                                    control-id="sc-21" />
+                                <implemented-requirement
+                                    control-id="sc-22" />
+                                <implemented-requirement
+                                    control-id="sc-39" />
+                                <implemented-requirement
+                                    control-id="si-1" />
+                                <implemented-requirement
+                                    control-id="si-2" />
+                                <implemented-requirement
+                                    control-id="si-3" />
+                                <implemented-requirement
+                                    control-id="si-4" />
+                                <implemented-requirement
+                                    control-id="si-5" />
+                                <implemented-requirement
+                                    control-id="si-12" />
+                                <implemented-requirement
+                                    control-id="si-16" />
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="incomplete-all-implemented-requirements"
+                        label="it is valid." />
                 </x:scenario>
                 <x:scenario
                     label="and all required implementations are not yet complete">
@@ -678,18 +984,11 @@
                     <x:context>
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>fips-199-low</security-sensitivity-level>
-                            </system-characteristics>
                             <control-implementation>
-                                <implemented-requirement
-                                    control-id="ac-2"
-                                    uuid="68aae076-23ce-4620-bf66-32a8da15d696">
-                                    <statement
-                                        statement-id="ac-2_stmt.a"
-                                        uuid="8c0b01ec-e20f-4d95-adf7-eddb83a6dddb">
+                                <implemented-requirement>
+                                    <statement>
                                         <description>
-                                            <p>This shouldn not be here.</p>
+                                            <p>This should not be here.</p>
                                         </description>
                                     </statement>
                                 </implemented-requirement>
@@ -698,32 +997,63 @@
                     </x:context>
                     <x:expect-assert
                         id="extraneous-response-description"
-                        label="it generates a warning."
-                        role="warning" />
+                        label="this is invalid."
+                        role="error" />
+                </x:scenario>
+                <x:scenario
+                    label="and implemented requirements do not have explanatory statement descriptions defined directly in the statement">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <control-implementation>
+                                <implemented-requirement>
+                                    <statement/>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="extraneous-response-description"
+                        label="this is valid."
+                        role="error" />
                 </x:scenario>
                 <x:scenario
                     label="and implemented requirements have explanatory statement remarks defined directly in the statement">
                     <x:context>
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <system-characteristics>
-                                <security-sensitivity-level>fips-199-low</security-sensitivity-level>
-                            </system-characteristics>
                             <control-implementation>
-                                <implemented-requirement
-                                    control-id="ac-2"
-                                    uuid="4325e92d-e888-42ff-9d49-f5231129c4d3">"&gt; <statement
-                                        statement-id="ac-2_stmt.a"
-                                        uuid="a8419fd8-2666-4851-8191-94d054c9ef1c">"&gt; <remarks>
-                                            <p>This shouldn not be here.</p>
-                                        </remarks></statement></implemented-requirement>
+                                <implemented-requirement>
+                                    <statement>
+                                        <remarks>
+                                            <p>This should not be here.</p>
+                                        </remarks>                                        
+                                    </statement>
+                                </implemented-requirement>
                             </control-implementation>
                         </system-security-plan>
                     </x:context>
                     <x:expect-assert
                         id="extraneous-response-remarks"
-                        label="it generates a warning."
-                        role="warning" />
+                        label="this is invalid."
+                        role="error" />
+                </x:scenario>
+                <x:scenario
+                    label="and implemented requirements do not have explanatory statement remarks defined directly in the statement">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <control-implementation>
+                                <implemented-requirement>
+                                    <statement/>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="extraneous-response-remarks"
+                        label="this is valid."
+                        role="error" />
                 </x:scenario>
                 <x:scenario
                     label="and implemented requirements have explanatory statement in a component reference">
@@ -1453,6 +1783,47 @@
                     id="extraneous-implemented-requirements"
                     label="it is valid." />
             </x:scenario>
+            <x:scenario
+                label="when statements have sufficient components">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <statement>
+                                    <by-component />
+                                </statement>
+                                <statement>
+                                    <by-component />
+                                    <by-component />
+                                </statement>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="missing-response-components"
+                    label="it is valid."/>
+            </x:scenario>
+            <x:scenario
+                label="when statements have insufficient components">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <statement>
+                                    <prop/>
+                                </statement>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="missing-response-components"
+                    label="it is invalid."
+                    role="error" />
+            </x:scenario>
         </x:scenario>
         <x:scenario
             label="Chapter 15">
@@ -1525,6 +1896,22 @@
                             label="back-matter resource missing uuid attribute." />
                         <!--<x:expect-assert id="resource-rlink-required"
                                          label="back-matter resource rlink missing href attribute." />-->
+                    </x:scenario>
+                    <x:scenario
+                        label="has @uuid">
+                        <x:context>
+                            <system-security-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
+                                        <rlink />
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="resource-uuid-required"
+                            label="back-matter resource has uuid attribute." />
                     </x:scenario>
                     <x:scenario
                         label="has valid rlink">
@@ -1731,6 +2118,72 @@
                         <x:expect-not-assert
                             id="attachment-required-incident-response-plan"
                             label="it should exist." />
+                    </x:scenario>
+                    <x:scenario label="has a base64 element">
+                        <x:scenario
+                            label="that has a @filename">
+                            <x:context>
+                                <system-security-plan
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <back-matter>
+                                        <resource>
+                                            <base64 filename="logo.png"/>
+                                        </resource>
+                                    </back-matter>
+                                </system-security-plan>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="resource-base64-available-filename"
+                                label="this is correct." />
+                        </x:scenario>
+                        <x:scenario
+                            label="that does not have a @filename">
+                            <x:context>
+                                <system-security-plan
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <back-matter>
+                                        <resource>
+                                            <base64/>
+                                        </resource>
+                                    </back-matter>
+                                </system-security-plan>
+                            </x:context>
+                            <x:expect-assert
+                                id="resource-base64-available-filename"
+                                label="this is incorrect." />
+                        </x:scenario>
+                        <x:scenario
+                            label="that has a @media-type">
+                            <x:context>
+                                <system-security-plan
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <back-matter>
+                                        <resource>
+                                            <base64 media-type="image/png"/>
+                                        </resource>
+                                    </back-matter>
+                                </system-security-plan>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="resource-base64-available-media-type"
+                                label="this is correct." />
+                        </x:scenario>
+                        <x:scenario
+                            label="that does not have a @media-type">
+                            <x:context>
+                                <system-security-plan
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <back-matter>
+                                        <resource>
+                                            <base64/>
+                                        </resource>
+                                    </back-matter>
+                                </system-security-plan>
+                            </x:context>
+                            <x:expect-assert
+                                id="resource-base64-available-media-type"
+                                label="this is incorrect." />
+                        </x:scenario>
                     </x:scenario>
                 </x:scenario>
             </x:scenario>
@@ -6647,11 +7100,11 @@
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop 
                                 name="ipv4-address" 
-                                value="10.2.2"/>
+                                value="10.2.2.2"/>
                         </inventory-item>
                     </x:context>
                     <x:expect-not-assert
-                        id="ipv4-has-content-diagnostic"
+                        id="ipv4-has-content"
                         label="correct" />
                 </x:scenario>
                 <x:scenario
@@ -6662,11 +7115,11 @@
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop 
                                 name="ipv4-address" 
-                                value="10.2.2.2"/>
+                                value="10.2.2"/>
                         </inventory-item>
                     </x:context>
                     <x:expect-assert
-                        id="ipv4-has-content-diagnostic"
+                        id="ipv4-has-content"
                         label="error" />
                 </x:scenario>
             </x:scenario>
@@ -6731,6 +7184,38 @@
                     </x:context>
                     <x:expect-assert
                         id="ipv6-has-content"
+                        label="error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="ipv6 has non-placeholder content">
+                <x:scenario
+                    label="affirmative">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv6-address" 
+                                value="1234:5678:9012:3456"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv6-has-non-placeholder"
+                        label="correct" />
+                </x:scenario>
+                <x:scenario
+                    label="negative"
+                    pending="XSpec error resolution">
+                    <x:context>
+                        <inventory-item
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop 
+                                name="ipv6-address" 
+                                value="1234:5678:9012:3456"/>
+                        </inventory-item>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv6-has-non-placeholder"
                         label="error" />
                 </x:scenario>
             </x:scenario>
@@ -9879,6 +10364,44 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+        
+        <x:scenario
+            label="An implemented control must have a prop with only the allowed values.">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop ns='https://fedramp.gov/ns/oscal' name='implementation-status' value='implemented'/>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="implemented-requirement-has-allowed-composite-implementation-status"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop ns='https://fedramp.gov/ns/oscal' name='implementation-status' value='completed'/>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="implemented-requirement-has-allowed-composite-implementation-status"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        
+        
         <x:scenario
             label="Incomplete control implementations have an explanation.">
             <x:scenario
@@ -10090,89 +10613,153 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
-        
         <x:scenario
-            label="There are PE family controls inherited from leveraged authorizations.">
+            label="A partially implemented control must have a plan for complete implementation.">
             <x:scenario
                 label="When that is true">
                 <x:context>
                     <system-security-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <system-implementation>
-                            <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system">
-                                <title>Name of Leveraged System</title>
-                                <description>
-                                    <p>If the leveraged system owner provides a UUID for their system (such as in an
-                                        OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
-                                        property.</p>
-                                </description>
-                            </component>
+                            <leveraged-authorization
+                                uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
                         </system-implementation>
                         <control-implementation>
-                            <statement statement-id="pe-1" uuid="24a85abb-25ad-4686-850c-5c0e8ab69a0c">
-                                <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
-                                    uuid="8a72663c-28c7-41c2-8739-f1ee2d5761ac">
-                                    <description>
-                                        <p>For the portion of the control satisfied by the application component of this
-                                            system, describe <strong>how</strong> the control is met.</p>
-                                    </description>
-                                </by-component>
-                                <by-component component-uuid="e82e6e07-0c62-417e-8a19-3744991b4c65"
-                                    uuid="84de735f-ba37-4bb4-b784-79760f986a40">
-                                    <description>
-                                        <p>For the portion inherited from an underlying FedRAMP-authorized provider,
-                                            describe <strong>what</strong> is inherited.</p>
-                                    </description>
-                                </by-component>
-                            </statement>
-                            <statement statement-id="pe-2" uuid="24a85abb-25ad-4686-850c-5c0e8ab69a0c">
-                                <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
-                                    uuid="8a72663c-28c7-41c2-8739-f1ee2d5761ac">
-                                    <description>
-                                        <p>For the portion of the control satisfied by the application component of this
-                                            system, describe <strong>how</strong> the control is met.</p>
-                                    </description>
-                                </by-component>
-                                <by-component component-uuid="e82e6e07-0c62-417e-8a19-3744991b4c65"
-                                    uuid="84de735f-ba37-4bb4-b784-79760f986a40">
-                                    <description>
-                                        <p>For the portion inherited from an underlying FedRAMP-authorized provider,
-                                            describe <strong>what</strong> is inherited.</p>
-                                    </description>
-                                </by-component>
-                            </statement>
-                        </control-implementation>
-                    </system-security-plan>
-                </x:context>
-                <x:expect-not-assert
-                    id="leveraged-PE-controls"
-                    label="that is correct" />
-            </x:scenario>
-            <x:scenario
-                label="When that is true">
-                <x:context>
-                    <system-security-plan
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <system-implementation>
-                            <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system">
-                                <title>Name of Leveraged System</title>
-                                <description>
-                                    <p>If the leveraged system owner provides a UUID for their system (such as in an
-                                        OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
-                                        property.</p>
-                                </description>
-                            </component>
-                        </system-implementation>
-                        <control-implementation>
-                            <implemented-requirement uuid="uuid-value" control-id="pe-1">
-                                <prop name="leveraged-authorization-uuid" value="e82e6e07-0c62-417e-8a19-3744991b4c65"/>
+                            <implemented-requirement>
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="partial" />
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="planned" />
                             </implemented-requirement>
                         </control-implementation>
                     </system-security-plan>
                 </x:context>
                 <x:expect-not-assert
-                    id="leveraged-PE-controls-implemented-requirement"
+                    id="partial-implemented-requirement-has-plan"
                     label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <leveraged-authorization
+                                uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
+                        </system-implementation>
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="partial" />
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="partial-implemented-requirement-has-plan"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>   
+        
+        <x:scenario
+            label="An implemented control's implementation status must be implemented, partial and planned, planned, alternative, or not applicable.">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <leveraged-authorization
+                                uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
+                        </system-implementation>
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="partial" />
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="implemented-requirement-has-allowed-implementation-status"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-implementation>
+                            <leveraged-authorization
+                                uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
+                        </system-implementation>
+                        <control-implementation>
+                            <implemented-requirement>
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="complete" />
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="implemented-requirement-has-allowed-implementation-status"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+        
+        
+        <x:scenario
+            label="There are PE family controls inherited from leveraged authorizations.">
+            <x:scenario
+                label="And the PE control's leveraged authorization UUID value matches the system-implementation's leveraged authorization UUID value">
+                <x:scenario label="when this is true">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <leveraged-authorization uuid="e82e6e07-0c62-417e-8a19-3744991b4c65"/>                              
+                            </system-implementation>
+                            <control-implementation>
+                                <implemented-requirement uuid="uuid-value" control-id="pe-1">
+                                    <prop name="leveraged-authorization-uuid" value="e82e6e07-0c62-417e-8a19-3744991b4c65"/>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="leveraged-PE-controls-implemented-requirement"
+                        label="that is correct" 
+                    role="warning"/>
+                </x:scenario>
+                <x:scenario label="when this is false">
+                    <x:context>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
+                            <system-implementation>
+                                <leveraged-authorization uuid="e82e6e07-0c62-417e-8a19-3744991b4c65"/>                              
+                            </system-implementation>
+                            <control-implementation>
+                                <implemented-requirement uuid="uuid-value" control-id="pe-1">
+                                    <prop name="leveraged-authorization-uuid" value="e82e6e07-0c62-417e-8a19-3744991b4c66"/>
+                                </implemented-requirement>
+                            </control-implementation>
+                        </system-security-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="leveraged-PE-controls-implemented-requirement"
+                        label="that is incorrect" 
+                        role="warning" />
+                </x:scenario>
             </x:scenario>
         </x:scenario>
         
@@ -12140,7 +12727,7 @@
             <system-implementation
                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                 <component
-                    type="DNS-authoritative-server">
+                    type="DNS-authoritative-service">
                     <prop
                         name="DNS-zone"
                         value="example.com." />
@@ -12153,7 +12740,7 @@
         <x:scenario
             label="When an authoritative DNS service is declared ">
             <x:expect-not-assert
-                id="has-DNS-authoritative-server"
+                id="has-DNS-authoritative-service"
                 label="that is of interest." />
         </x:scenario>
         
@@ -12208,7 +12795,7 @@
                 </system-implementation>
             </x:context>
             <x:expect-assert
-                id="has-DNS-authoritative-server"
+                id="has-DNS-authoritative-service"
                 label="that is of interest." />
         </x:scenario>
         
