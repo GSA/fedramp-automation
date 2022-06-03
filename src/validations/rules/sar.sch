@@ -244,9 +244,9 @@
                 see="https://github.com/18F/fedramp-automation/issues/348"
                 test="
                     if (@uuid eq $end-uuid) then
-                        every $o in descendant::oscal:collected
+                        every $c in descendant::oscal:observation/oscal:collected
                             satisfies
-                            $o castable as xs:dateTime and xs:dateTime($o) gt $P180D
+                            $c castable as xs:dateTime and xs:dateTime($c) gt $P180D
                     else
                         true()">Every observation within this most recent result is recently collected.</sch:assert>
 
