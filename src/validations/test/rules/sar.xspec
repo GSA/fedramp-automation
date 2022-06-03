@@ -424,7 +424,7 @@
                         </assessment-plan>
                     </x:context>
                     <x:expect-not-assert
-                        id="observation-is-recent"
+                        id="result-observations-are-recent"
                         label="that is correct" />
                 </x:scenario>
 
@@ -445,60 +445,7 @@
                         </assessment-plan>
                     </x:context>
                     <x:expect-assert
-                        id="observation-is-recent"
-                        label="that is an error" />
-                </x:scenario>
-
-                <x:scenario
-                    label="has recent finding observation">
-                    <x:context>
-                        <assessment-plan
-                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <result
-                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
-                                <start>2022-05-02T00:00:00Z</start>
-                                <end>2022-05-06T00:00:00Z</end>
-                                <observation
-                                    uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96">
-                                    <collected>2022-05-04T00:00:00Z</collected>
-                                </observation>
-                                <finding
-                                    uuid="44f63cfc-f018-40df-aff8-cb071083a202">
-                                    <related-observation
-                                        observation-uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96" />
-                                </finding>
-                            </result>
-                        </assessment-plan>
-                    </x:context>
-                    <x:expect-not-assert
-                        id="finding-observation-is-recent"
-                        label="that is correct" />
-                </x:scenario>
-
-                <x:scenario
-                    label="has stale finding observation"
-                    pending="XSpec problem resolution">
-                    <x:context>
-                        <assessment-plan
-                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <result
-                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
-                                <start>2021-05-02T00:00:00Z</start>
-                                <end>2021-05-06T00:00:00Z</end>
-                                <observation
-                                    uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96">
-                                    <collected>2021-05-04T00:00:00Z</collected>
-                                </observation>
-                                <finding
-                                    uuid="44f63cfc-f018-40df-aff8-cb071083a202">
-                                    <related-observation
-                                        observation-uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96" />
-                                </finding>
-                            </result>
-                        </assessment-plan>
-                    </x:context>
-                    <x:expect-assert
-                        id="finding-observation-is-recent"
+                        id="result-observations-are-recent"
                         label="that is an error" />
                 </x:scenario>
 

@@ -237,29 +237,18 @@
                 value="current-dateTime() - xs:dayTimeDuration('P180D')" />
 
             <sch:assert
-                diagnostics="observation-is-recent-diagnostic"
+                diagnostics="result-observations-are-recent-diagnostic"
                 fedramp:specific="true"
-                id="observation-is-recent"
+                id="result-observations-are-recent"
                 role="error"
                 see="https://github.com/18F/fedramp-automation/issues/348"
                 test="
                     if (@uuid eq $end-uuid) then
-                        xs:dateTime(descendant::oscal:collected) gt $P180D
+                        every $c in descendant::oscal:observation/oscal:collected
+                            satisfies
+                            $c castable as xs:dateTime and xs:dateTime($c) gt $P180D
                     else
-                        true()">Every observation is recently collected.</sch:assert>
-
-            <sch:assert
-                diagnostics="finding-observation-is-recent-diagnostic"
-                fedramp:specific="true"
-                id="finding-observation-is-recent"
-                role="error"
-                see="https://github.com/18F/fedramp-automation/issues/348"
-                test="
-                    if (@uuid eq $end-uuid) then
-                        (every $ro in (preceding-sibling::oscal:observation[@uuid = current()/oscal:related-observation/@observation-uuid])
-                            satisfies xs:dateTime($ro/oscal:collected) gt $P180D)
-                    else
-                        true()">A finding has related observations which were recently collected.</sch:assert>
+                        true()">Every observation within this most recent result is recently collected.</sch:assert>
 
         </sch:rule>
 
@@ -334,16 +323,10 @@
             id="has-contemporary-assessment-diagnostic">The most recently completed assessment is older than 12 months.</sch:diagnostic>
 
         <sch:diagnostic
-            doc:assert="observation-is-recent"
+            doc:assert="result-observations-are-recent"
             doc:context="oscal:result"
-            id="observation-is-recent-diagnostic">This observation is stale (older than <sch:value-of
-                select="$P180D" />).</sch:diagnostic>
-
-        <sch:diagnostic
-            doc:assert="finding-observation-is-recent"
-            doc:context="oscal:result"
-            id="finding-observation-is-recent-diagnostic">This finding has a related observation which is stale (older than <sch:value-of
-                select="$P180D" />).</sch:diagnostic>
+            id="result-observations-are-recent-diagnostic">This most recent result has observations older than <sch:value-of
+                select="$P180D" /> (180 days ago).</sch:diagnostic>
 
     </sch:diagnostics>
 
