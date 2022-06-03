@@ -244,7 +244,7 @@
                 see="https://github.com/18F/fedramp-automation/issues/348"
                 test="
                     if (@uuid eq $end-uuid) then
-                        xs:dateTime(descendant::oscal:collected[1]) gt $P180D
+                        xs:dateTime(descendant::oscal:collected) gt $P180D
                     else
                         true()">Every observation is recently collected.</sch:assert>
 
