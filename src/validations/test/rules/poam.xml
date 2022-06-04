@@ -46,7 +46,7 @@
         uuid="f85976a4-c5e8-44a1-b7bd-36c0ef1509b9">
 
         <!-- Note that there is no creation date for a risk. Time of creation must be inferred from something else. -->
-        <!-- related-observation (and this the time thereof) is not assured. -->
+        <!-- related-observation (and thus the time thereof) is not assured. -->
 
         <title><!-- Note that while title is required, no content therein is required. --></title>
 
