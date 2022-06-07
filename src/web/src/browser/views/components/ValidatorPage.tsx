@@ -96,9 +96,11 @@ export const ValidatorPage = ({
       ) : (
         <table className="usa-table">
           <thead>
-            <th>Document</th>
-            <th>Rules</th>
-            <th>Flagged</th>
+            <tr>
+              <th>Document</th>
+              <th>Rules</th>
+              <th>Flagged</th>
+            </tr>
           </thead>
           <tbody>
             <tr>

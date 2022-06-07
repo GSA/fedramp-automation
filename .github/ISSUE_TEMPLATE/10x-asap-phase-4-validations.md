@@ -1,6 +1,6 @@
 ---
 name: 10x ASAP Phase 4 Validations
-about: For 10x ASAP Phase4 validation-related issues
+about: For 10x ASAP phase 4 validation-related issues
 title: ''
 labels: ''
 assignees: ''
@@ -25,8 +25,8 @@ assignees: ''
 
 **Definition of Done**
  - [ ] Acceptance criteria met
- - [ ] Unit test coverage of our code > 95%  
- - [ ] Automated code quality checks passed 
+ - [ ] Unit test coverage of our code > 95%
+ - [ ] Automated code quality checks passed
  - [ ] Security reviewed and reported
  - [ ] Reviewed against plain language guidelines
  - [ ] Code must be self-documenting
