@@ -1,6 +1,6 @@
 ---
-name: 10x Phase 4 ASAP UI STORIES DOD
-about: For 10x ASAP Phase 4 UI-related Stories
+name: 10x Phase 4 ASAP Tooling DoD
+about: For 10x ASAP phase 4 tooling-related stories
 title: ''
 labels: ''
 assignees: ''
