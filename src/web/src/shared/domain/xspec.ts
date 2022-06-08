@@ -39,14 +39,19 @@ export const getXSpecScenarioSummaries = async (
   const getScenarios = (
     scenario: XSpecScenario,
     parentLabel?: string,
+    parentContext?: string,
   ): ScenarioSummary[] => {
+    // This scenario's label is the concatenation of all parent labels.
     const label = parentLabel
       ? [parentLabel, scenario.label].join(' ')
       : scenario.label;
 
+    // The context for this scenario is either specified on the node, or inherited.
+    const context = scenario.context || parentContext;
+
     // If there are child scenarios, recurse over ourself.
     if (scenario.scenarios) {
-      return scenario.scenarios.flatMap(s => getScenarios(s, label));
+      return scenario.scenarios.flatMap(s => getScenarios(s, label, context));
     }
 
     const assertions = [
@@ -58,7 +63,7 @@ export const getXSpecScenarioSummaries = async (
     const finalScenarios = assertions.map(assertion => ({
       assertionId: assertion.id,
       assertionLabel: assertion.label,
-      context: scenario.context ? formatXml(scenario.context) : '',
+      context: context ? formatXml(context) : '',
       label,
     }));
 

@@ -1,9 +1,7 @@
 package gov.fedramp.automationExample;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,25 +30,24 @@ import net.sf.saxon.s9api.XsltTransformer;
  * Fedramp System Security Plan.
  */
 public class FedrampAutomationValidator {
-  private String compiledSchXslt =
-      new File("../../../src/validations/target/rules/ssp.sch.xsl").getAbsolutePath();
-  private String baselinesPath =
-      new File("../../../dist/content/baselines/rev4/xml").getAbsolutePath();
-  private String resourcesPath = new File("../../../dist/content/resources/xml").getAbsolutePath();
+  private String compiledSchXsltPath;
+  private String baselinesPath;
+  private String resourcesPath;
 
   private Processor processor;
   private XsltExecutable xsltExecutable;
 
   public FedrampAutomationValidator(
-      String compiledSchXslt, String baselinesPath, String resourcesPath) throws SaxonApiException {
-    this.compiledSchXslt = compiledSchXslt;
+      String compiledSchXsltPath, String baselinesPath, String resourcesPath)
+      throws SaxonApiException {
+    this.compiledSchXsltPath = compiledSchXsltPath;
     this.baselinesPath = baselinesPath;
     this.resourcesPath = resourcesPath;
 
     // Create a Saxon processor
     processor = new Processor(false);
     // Compile the source XSLT to an XsltExecutable.
-    StreamSource xslDocument = new StreamSource(new File(this.compiledSchXslt));
+    StreamSource xslDocument = new StreamSource(new File(this.compiledSchXsltPath));
     XsltCompiler xsltCompiler = processor.newXsltCompiler();
     xsltExecutable = xsltCompiler.compile(xslDocument);
   }
@@ -106,8 +103,7 @@ public class FedrampAutomationValidator {
   }
 
   private XdmNode getInputNode(String sspPath) throws SaxonApiException, FileNotFoundException {
-    BufferedReader inputReader = new BufferedReader(new FileReader(sspPath));
-    StreamSource inputSource = new StreamSource(inputReader);
+    StreamSource inputSource = new StreamSource(new File(sspPath));
     DocumentBuilder documentBuilder = processor.newDocumentBuilder();
     return documentBuilder.build(inputSource);
   }
