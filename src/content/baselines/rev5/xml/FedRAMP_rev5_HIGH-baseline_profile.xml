@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
+<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="9af0a7d3-252c-4f18-9baf-4f10e82bfac8">
+	<metadata>
+		<title>FedRAMP Rev 5 High Baseline</title>
+		<published>2022-06-01T00:00:00.000-04:00</published>
+		<last-modified>2022-04-01T00:00:00.000-04:00</last-modified>
+		<version>fedramp1.1.0-oscal1.0.0</version>
+		<oscal-version>1.0.4</oscal-version>
+		<role id="prepared-by">
+			<title>Document creator</title>
+		</role>
+		<role id="fedramp-pmo">
+			<title>The FedRAMP Program Management Office (PMO)</title>
+			<short-name>CSP</short-name>
+		</role>
+		<role id="fedramp-jab">
+			<title>The FedRAMP Joint Authorization Board (JAB)</title>
+			<short-name>CSP</short-name>
+		</role>
+		<party uuid="8cc0b8e5-9650-4d5f-9796-316f05fa9a2d" type="organization">
+			<name>Federal Risk and Authorization Management Program: Program Management Office</name>
+			<short-name>FedRAMP PMO</short-name>
+			<link href="https://fedramp.gov" rel="homepage"/>
+			<link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
+			<link href="#985475ee-d4d6-4581-8fdf-d84d3d8caa48" rel="reference"/>
+			<link href="#1a23a771-d481-4594-9a1a-71d584fa4123" rel="reference"/>
+			<email-address>info@fedramp.gov</email-address>
+			<address type="work">
+				<addr-line>1800 F St. NW</addr-line>
+				<city>Washington</city>
+				<state>DC</state>
+				<postal-code>20006</postal-code>
+				<country>US</country>
+			</address>
+		</party>
+		<party uuid="ca9ba80e-1342-4bfd-b32a-abac468c24b4" type="organization">
+			<name>Federal Risk and Authorization Management Program: Joint Authorization Board</name>
+			<short-name>FedRAMP JAB</short-name>
+			<link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
+		</party>
+		<responsible-party role-id="prepared-by">
+			<party-uuid>8cc0b8e5-9650-4d5f-9796-316f05fa9a2d</party-uuid>
+		</responsible-party>
+		<responsible-party role-id="fedramp-pmo">
+			<party-uuid>8cc0b8e5-9650-4d5f-9796-316f05fa9a2d</party-uuid>
+		</responsible-party>
+		<responsible-party role-id="fedramp-jab">
+			<party-uuid>ca9ba80e-1342-4bfd-b32a-abac468c24b4</party-uuid>
+		</responsible-party>
+	</metadata>
+	<import href="#051a77c1-b61d-4995-8275-dacfe688d510">
+		<include-controls>
+			<with-id>ac-1</with-id>
+			<with-id>ac-2</with-id>
+			<with-id>ac-2.1</with-id>
+			<with-id>ac-2.2</with-id>
+			<with-id>ac-2.3</with-id>
+			<with-id>ac-2.4</with-id>
+			<with-id>ac-2.5</with-id>
+			<with-id>ac-2.7</with-id>
+			<with-id>ac-2.9</with-id>
+			<with-id>ac-2.11</with-id>
+			<with-id>ac-2.12</with-id>
+			<with-id>ac-2.13</with-id>
+			<with-id>ac-3</with-id>
+			<with-id>ac-4</with-id>
+			<with-id>ac-4.4</with-id>
+			<with-id>ac-5</with-id>
+			<with-id>ac-6</with-id>
+			<with-id>ac-6.1</with-id>
+			<with-id>ac-6.2</with-id>
+			<with-id>ac-6.3</with-id>
+			<with-id>ac-6.5</with-id>
+			<with-id>ac-6.7</with-id>
+			<with-id>ac-6.8</with-id>
+			<with-id>ac-6.9</with-id>
+			<with-id>ac-6.10</with-id>
+			<with-id>ac-7</with-id>
+			<with-id>ac-8</with-id>
+			<with-id>ac-10</with-id>
+			<with-id>ac-11</with-id>
+			<with-id>ac-11.1</with-id>
+			<with-id>ac-12</with-id>
+			<with-id>ac-14</with-id>
+			<with-id>ac-17</with-id>
+			<with-id>ac-17.1</with-id>
+			<with-id>ac-17.2</with-id>
+			<with-id>ac-17.3</with-id>
+			<with-id>ac-17.4</with-id>
+			<with-id>ac-18</with-id>
+			<with-id>ac-18.1</with-id>
+			<with-id>ac-18.3</with-id>
+			<with-id>ac-18.4</with-id>
+			<with-id>ac-18.5</with-id>
+			<with-id>ac-19</with-id>
+			<with-id>ac-19.5</with-id>
+			<with-id>ac-20</with-id>
+			<with-id>ac-20.1</with-id>
+			<with-id>ac-20.2</with-id>
+			<with-id>ac-21</with-id>
+			<with-id>ac-22</with-id>
+			<with-id>at-1</with-id>
+			<with-id>at-2</with-id>
+			<with-id>at-2.2</with-id>
+			<with-id>at-2.3</with-id>
+			<with-id>at-3</with-id>
+			<with-id>at-4</with-id>
+			<with-id>au-1</with-id>
+			<with-id>au-2</with-id>
+			<with-id>au-3</with-id>
+			<with-id>au-3.1</with-id>
+			<with-id>au-4</with-id>
+			<with-id>au-5</with-id>
+			<with-id>au-5.1</with-id>
+			<with-id>au-5.2</with-id>
+			<with-id>au-6</with-id>
+			<with-id>au-6.1</with-id>
+			<with-id>au-6.3</with-id>
+			<with-id>au-6.4</with-id>
+			<with-id>au-6.5</with-id>
+			<with-id>au-6.6</with-id>
+			<with-id>au-6.7</with-id>
+			<with-id>au-7</with-id>
+			<with-id>au-7.1</with-id>
+			<with-id>au-8</with-id>
+			<with-id>au-9</with-id>
+			<with-id>au-9.2</with-id>
+			<with-id>au-9.3</with-id>
+			<with-id>au-9.4</with-id>
+			<with-id>au-10</with-id>
+			<with-id>au-11</with-id>
+			<with-id>au-12</with-id>
+			<with-id>au-12.1</with-id>
+			<with-id>au-12.3</with-id>
+			<with-id>ca-1</with-id>
+			<with-id>ca-2</with-id>
+			<with-id>ca-2.1</with-id>
+			<with-id>ca-2.2</with-id>
+			<with-id>ca-3</with-id>
+			<with-id>ca-3.6</with-id>
+			<with-id>ca-5</with-id>
+			<with-id>ca-6</with-id>
+			<with-id>ca-7</with-id>
+			<with-id>ca-7.1</with-id>
+			<with-id>ca-7.4</with-id>
+			<with-id>ca-8</with-id>
+			<with-id>ca-8.1</with-id>
+			<with-id>ca-9</with-id>
+			<with-id>cm-1</with-id>
+			<with-id>cm-2</with-id>
+			<with-id>cm-2.2</with-id>
+			<with-id>cm-2.3</with-id>
+			<with-id>cm-2.7</with-id>
+			<with-id>cm-3</with-id>
+			<with-id>cm-3.1</with-id>
+			<with-id>cm-3.2</with-id>
+			<with-id>cm-3.4</with-id>
+			<with-id>cm-3.6</with-id>
+			<with-id>cm-4</with-id>
+			<with-id>cm-4.1</with-id>
+			<with-id>cm-4.2</with-id>
+			<with-id>cm-5</with-id>
+			<with-id>cm-5.1</with-id>
+			<with-id>cm-5.5</with-id>
+			<with-id>cm-6</with-id>
+			<with-id>cm-6.1</with-id>
+			<with-id>cm-6.2</with-id>
+			<with-id>cm-7</with-id>
+			<with-id>cm-7.1</with-id>
+			<with-id>cm-7.2</with-id>
+			<with-id>cm-7.5</with-id>
+			<with-id>cm-8</with-id>
+			<with-id>cm-8.1</with-id>
+			<with-id>cm-8.2</with-id>
+			<with-id>cm-8.3</with-id>
+			<with-id>cm-8.4</with-id>
+			<with-id>cm-9</with-id>
+			<with-id>cm-10</with-id>
+			<with-id>cm-11</with-id>
+			<with-id>cm-12</with-id>
+			<with-id>cm-12.1</with-id>
+			<with-id>cp-1</with-id>
+			<with-id>cp-2</with-id>
+			<with-id>cp-2.1</with-id>
+			<with-id>cp-2.2</with-id>
+			<with-id>cp-2.3</with-id>
+			<with-id>cp-2.5</with-id>
+			<with-id>cp-2.8</with-id>
+			<with-id>cp-3</with-id>
+			<with-id>cp-3.1</with-id>
+			<with-id>cp-4</with-id>
+			<with-id>cp-4.1</with-id>
+			<with-id>cp-4.2</with-id>
+			<with-id>cp-6</with-id>
+			<with-id>cp-6.1</with-id>
+			<with-id>cp-6.2</with-id>
+			<with-id>cp-6.3</with-id>
+			<with-id>cp-7</with-id>
+			<with-id>cp-7.1</with-id>
+			<with-id>cp-7.2</with-id>
+			<with-id>cp-7.3</with-id>
+			<with-id>cp-7.4</with-id>
+			<with-id>cp-8</with-id>
+			<with-id>cp-8.1</with-id>
+			<with-id>cp-8.2</with-id>
+			<with-id>cp-8.3</with-id>
+			<with-id>cp-8.4</with-id>
+			<with-id>cp-9</with-id>
+			<with-id>cp-9.1</with-id>
+			<with-id>cp-9.2</with-id>
+			<with-id>cp-9.3</with-id>
+			<with-id>cp-9.5</with-id>
+			<with-id>cp-9.8</with-id>
+			<with-id>cp-10</with-id>
+			<with-id>cp-10.2</with-id>
+			<with-id>cp-10.4</with-id>
+			<with-id>ia-1</with-id>
+			<with-id>ia-2</with-id>
+			<with-id>ia-2.1</with-id>
+			<with-id>ia-2.2</with-id>
+			<with-id>ia-2.5</with-id>
+			<with-id>ia-2.6</with-id>
+			<with-id>ia-2.8</with-id>
+			<with-id>ia-2.12</with-id>
+			<with-id>ia-3</with-id>
+			<with-id>ia-4</with-id>
+			<with-id>ia-4.4</with-id>
+			<with-id>ia-5</with-id>
+			<with-id>ia-5.1</with-id>
+			<with-id>ia-5.2</with-id>
+			<with-id>ia-5.6</with-id>
+			<with-id>ia-5.7</with-id>
+			<with-id>ia-5.8</with-id>
+			<with-id>ia-5.13</with-id>
+			<with-id>ia-6</with-id>
+			<with-id>ia-7</with-id>
+			<with-id>ia-8</with-id>
+			<with-id>ia-8.1</with-id>
+			<with-id>ia-8.2</with-id>
+			<with-id>ia-8.4</with-id>
+			<with-id>ia-11</with-id>
+			<with-id>ia-12</with-id>
+			<with-id>ia-12.2</with-id>
+			<with-id>ia-12.3</with-id>
+			<with-id>ia-12.4</with-id>
+			<with-id>ia-12.5</with-id>
+			<with-id>ir-1</with-id>
+			<with-id>ir-2</with-id>
+			<with-id>ir-2.1</with-id>
+			<with-id>ir-2.2</with-id>
+			<with-id>ir-3</with-id>
+			<with-id>ir-3.2</with-id>
+			<with-id>ir-4</with-id>
+			<with-id>ir-4.1</with-id>
+			<with-id>ir-4.2</with-id>
+			<with-id>ir-4.4</with-id>
+			<with-id>ir-4.6</with-id>
+			<with-id>ir-4.11</with-id>
+			<with-id>ir-5</with-id>
+			<with-id>ir-5.1</with-id>
+			<with-id>ir-6</with-id>
+			<with-id>ir-6.1</with-id>
+			<with-id>ir-6.3</with-id>
+			<with-id>ir-7</with-id>
+			<with-id>ir-7.1</with-id>
+			<with-id>ir-8</with-id>
+			<with-id>ma-1</with-id>
+			<with-id>ma-2</with-id>
+			<with-id>ma-2.2</with-id>
+			<with-id>ma-3</with-id>
+			<with-id>ma-3.1</with-id>
+			<with-id>ma-3.2</with-id>
+			<with-id>ma-3.3</with-id>
+			<with-id>ma-4</with-id>
+			<with-id>ma-4.3</with-id>
+			<with-id>ma-5</with-id>
+			<with-id>ma-5.1</with-id>
+			<with-id>ma-6</with-id>
+			<with-id>mp-1</with-id>
+			<with-id>mp-2</with-id>
+			<with-id>mp-3</with-id>
+			<with-id>mp-4</with-id>
+			<with-id>mp-5</with-id>
+			<with-id>mp-6</with-id>
+			<with-id>mp-6.1</with-id>
+			<with-id>mp-6.2</with-id>
+			<with-id>mp-6.3</with-id>
+			<with-id>mp-7</with-id>
+			<with-id>pe-1</with-id>
+			<with-id>pe-2</with-id>
+			<with-id>pe-3</with-id>
+			<with-id>pe-3.1</with-id>
+			<with-id>pe-4</with-id>
+			<with-id>pe-5</with-id>
+			<with-id>pe-6</with-id>
+			<with-id>pe-6.1</with-id>
+			<with-id>pe-6.4</with-id>
+			<with-id>pe-8</with-id>
+			<with-id>pe-8.1</with-id>
+			<with-id>pe-9</with-id>
+			<with-id>pe-10</with-id>
+			<with-id>pe-11</with-id>
+			<with-id>pe-11.1</with-id>
+			<with-id>pe-12</with-id>
+			<with-id>pe-13</with-id>
+			<with-id>pe-13.1</with-id>
+			<with-id>pe-13.2</with-id>
+			<with-id>pe-14</with-id>
+			<with-id>pe-15</with-id>
+			<with-id>pe-15.1</with-id>
+			<with-id>pe-16</with-id>
+			<with-id>pe-17</with-id>
+			<with-id>pe-18</with-id>
+			<with-id>pl-1</with-id>
+			<with-id>pl-2</with-id>
+			<with-id>pl-4</with-id>
+			<with-id>pl-4.1</with-id>
+			<with-id>pl-8</with-id>
+			<with-id>pl-10</with-id>
+			<with-id>pl-11</with-id>
+			<with-id>ps-1</with-id>
+			<with-id>ps-2</with-id>
+			<with-id>ps-3</with-id>
+			<with-id>ps-4</with-id>
+			<with-id>ps-4.2</with-id>
+			<with-id>ps-5</with-id>
+			<with-id>ps-6</with-id>
+			<with-id>ps-7</with-id>
+			<with-id>ps-8</with-id>
+			<with-id>ps-9</with-id>
+			<with-id>ra-1</with-id>
+			<with-id>ra-2</with-id>
+			<with-id>ra-3</with-id>
+			<with-id>ra-3.1</with-id>
+			<with-id>ra-5</with-id>
+			<with-id>ra-5.2</with-id>
+			<with-id>ra-5.3</with-id>
+			<with-id>ra-5.4</with-id>
+			<with-id>ra-5.5</with-id>
+			<with-id>ra-5.11</with-id>
+			<with-id>ra-7</with-id>
+			<with-id>ra-9</with-id>
+			<with-id>sa-1</with-id>
+			<with-id>sa-2</with-id>
+			<with-id>sa-3</with-id>
+			<with-id>sa-4</with-id>
+			<with-id>sa-4.1</with-id>
+			<with-id>sa-4.2</with-id>
+			<with-id>sa-4.5</with-id>
+			<with-id>sa-4.9</with-id>
+			<with-id>sa-4.10</with-id>
+			<with-id>sa-5</with-id>
+			<with-id>sa-8</with-id>
+			<with-id>sa-9</with-id>
+			<with-id>sa-9.2</with-id>
+			<with-id>sa-9.5</with-id>
+			<with-id>sa-10</with-id>
+			<with-id>sa-11</with-id>
+			<with-id>sa-15</with-id>
+			<with-id>sa-15.3</with-id>
+			<with-id>sa-16</with-id>
+			<with-id>sa-17</with-id>
+			<with-id>sa-21</with-id>
+			<with-id>sa-22</with-id>
+			<with-id>sc-1</with-id>
+			<with-id>sc-2</with-id>
+			<with-id>sc-3</with-id>
+			<with-id>sc-4</with-id>
+			<with-id>sc-5</with-id>
+			<with-id>sc-7</with-id>
+			<with-id>sc-7.3</with-id>
+			<with-id>sc-7.4</with-id>
+			<with-id>sc-7.5</with-id>
+			<with-id>sc-7.7</with-id>
+			<with-id>sc-7.8</with-id>
+			<with-id>sc-7.12</with-id>
+			<with-id>sc-7.18</with-id>
+			<with-id>sc-7.20</with-id>
+			<with-id>sc-7.21</with-id>
+			<with-id>sc-8</with-id>
+			<with-id>sc-8.1</with-id>
+			<with-id>sc-10</with-id>
+			<with-id>sc-12</with-id>
+			<with-id>sc-12.1</with-id>
+			<with-id>sc-13</with-id>
+			<with-id>sc-15</with-id>
+			<with-id>sc-17</with-id>
+			<with-id>sc-18</with-id>
+			<with-id>sc-20</with-id>
+			<with-id>sc-21</with-id>
+			<with-id>sc-22</with-id>
+			<with-id>sc-23</with-id>
+			<with-id>sc-24</with-id>
+			<with-id>sc-28</with-id>
+			<with-id>sc-28.1</with-id>
+			<with-id>sc-39</with-id>
+			<with-id>si-1</with-id>
+			<with-id>si-2</with-id>
+			<with-id>si-2.2</with-id>
+			<with-id>si-2.3</with-id>
+			<with-id>si-3</with-id>
+			<with-id>si-4</with-id>
+			<with-id>si-4.1</with-id>
+			<with-id>si-4.2</with-id>
+			<with-id>si-4.4</with-id>
+			<with-id>si-4.5</with-id>
+			<with-id>si-4.10</with-id>
+			<with-id>si-4.11</with-id>
+			<with-id>si-4.12</with-id>
+			<with-id>si-4.14</with-id>
+			<with-id>si-4.16</with-id>
+			<with-id>si-4.19</with-id>
+			<with-id>si-4.20</with-id>
+			<with-id>si-4.22</with-id>
+			<with-id>si-4.23</with-id>
+			<with-id>si-5</with-id>
+			<with-id>si-5.1</with-id>
+			<with-id>si-6</with-id>
+			<with-id>si-7</with-id>
+			<with-id>si-7.1</with-id>
+			<with-id>si-7.2</with-id>
+			<with-id>si-7.5</with-id>
+			<with-id>si-7.7</with-id>
+			<with-id>si-7.15</with-id>
+			<with-id>si-8</with-id>
+			<with-id>si-8.2</with-id>
+			<with-id>si-10</with-id>
+			<with-id>si-11</with-id>
+			<with-id>si-12</with-id>
+			<with-id>si-16</with-id>
+			<with-id>sr-1</with-id>
+			<with-id>sr-2</with-id>
+			<with-id>sr-2.1</with-id>
+			<with-id>sr-3</with-id>
+			<with-id>sr-5</with-id>
+			<with-id>sr-6</with-id>
+			<with-id>sr-8</with-id>
+			<with-id>sr-9</with-id>
+			<with-id>sr-9.1</with-id>
+			<with-id>sr-10</with-id>
+			<with-id>sr-11</with-id>
+			<with-id>sr-11.1</with-id>
+			<with-id>sr-11.2</with-id>
+			<with-id>sr-12</with-id>
+		</include-controls>
+	</import>
+	<merge>
+		<as-is>true</as-is>
+	</merge>
+	<modify>
+		<set-parameter param-id='ac-1_smt.c.1'>
+			<constraint>
+				<description>
+					<p>at least annually</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-1_smt.c.1'>
+			<constraint>
+				<description>TBD</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-1_smt.c.2'>
+			<constraint>
+				<description>
+					<p>at least annually</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-1_smt.c.2'>
+			<constraint>
+				<description>
+					<p>significant changes</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2_smt.h.1'>
+			<constraint>
+				<description>
+					<p>twenty-four (24) hours</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2_smt.h.2'>
+			<constraint>
+				<description>
+					<p>eight (8) hours</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2_smt.h.3'>
+			<constraint>
+				<description>
+					<p>eight (8) hours</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2_smt.j'>
+			<constraint>
+				<description>
+					<p>monthly for privileged accessed, every six (6) months for non-privileged access</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2.2_smt'>
+			<constraint>
+				<description>
+					<p>Selection: disables</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2.2_smt'>
+			<constraint>
+				<description>
+					<p>Assignment: no more than 24 hours from last use</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2.3_smt'>
+			<constraint>
+				<description>
+					<p>24 hours for user accounts</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2.3_smt.d'>
+			<constraint>
+				<description>
+					<p>thirty-five (35) days (See additional requirements and guidance.)</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2.5_smt'>
+			<constraint>
+				<description>
+					<p>inactivity is anticipated to exceed Fifteen (15) minutes</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2.9_smt'>
+			<constraint>
+				<description>
+					<p>organization-defined need with justification statement that explains why such accounts are necessary</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2.12_smt.b'>
+			<constraint>
+				<description>
+					<p>at a minimum, the ISSO and/or similar role within the organization</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2.13_smt'>
+			<constraint>
+				<description>
+					<p>one (1) hour</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-2.13_smt'>
+			<constraint>
+				<description>TBD</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-4.4_smt'>
+			<constraint>
+				<description>
+					<p>intrusion detection mechanisms</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-4.4_smt'>
+			<constraint>
+				<description>TBD</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-6.1_smt.a'>
+			<constraint>
+				<description>
+					<p>all functions not publicly accessible</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-6.1_smt.b'>
+			<constraint>
+				<description>
+					<p>all security-relevant information not publicly available</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-6.2_smt'>
+			<constraint>
+				<description>
+					<p>all security functions</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-6.3_smt'>
+			<constraint>
+				<description>
+					<p>all privileged commands</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-6.3_smt'>
+			<constraint>
+				<description>TBD</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-6.7_smt.a'>
+			<constraint>
+				<description>
+					<p>at a minimum, annually</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-6.7_smt.a'>
+			<constraint>
+				<description>
+					<p>all users with privileges</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-6.8_smt'>
+			<constraint>
+				<description>
+					<p>any software except software explicitly documented</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id='ac-7_smt.a'>
+			<constraint>
+				<description>
+					<p>not more than three (3)</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<!-- 
+            For each control:
+            1. Add prop to indicate if it is a core control
+            2. For each test objectives (by-id)
+                a. add response point
+                b. add corresponding method (EXAMINE, INTERVIEW, TEST)
+            3. For each control part, add response-point
+            4. Add FedRAMP requirement and/or guidance 
+		-->
+	</modify>
+	<back-matter>
+		<resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
+			<title>FedRAMP Applicable Laws and Regulations</title>
+			<rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
+		</resource>
+		<resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
+			<title>FedRAMP Master Acronym and Glossary</title>
+			<rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
+		</resource>
+		<resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
+			<description>
+				<p>FedRAMP Logo</p>
+			</description>
+			<prop name="type" value="logo"/>
+			<rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
+		</resource>
+		<!-- 
+		<resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
+			<title>NIST Special Publication (SP) 800-53</title>
+			<prop name="version" value="Revision 5"/>
+			<rlink media-type="application/oscal.catalog+xml" href="https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_catalog.xml"/>
+		</resource>
+		-->
+		<resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
+			<title>NIST Special Publication (SP) 800-53</title>
+			<prop name="version" value="Revision 5"/>
+			<rlink media-type="application/oscal.catalog+xml" href="NIST_SP-800-53_rev5_catalog.xml"/>
+		</resource>
+	</back-matter>
+</profile>
