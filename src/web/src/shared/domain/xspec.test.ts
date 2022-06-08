@@ -31,6 +31,14 @@ describe('xspec', () => {
           label: 'child 3',
         },
       ],
+      'assertion-4': [
+        {
+          assertionId: 'assertion-4',
+          assertionLabel: 'assertion-4 label',
+          context: '<middle-parent-context></middle-parent-context>',
+          label: 'parent 1 middle parent child 4 no context',
+        },
+      ],
     });
   });
 });
@@ -42,6 +50,7 @@ const MOCK_XSPEC = {
       scenarios: [
         {
           label: 'middle parent',
+          context: '<middle-parent-context></middle-parent-context>',
           scenarios: [
             {
               label: 'child 1',
@@ -60,6 +69,15 @@ const MOCK_XSPEC = {
                 {
                   id: 'assertion-2',
                   label: 'assertion-2 label',
+                },
+              ],
+            },
+            {
+              label: 'child 4 no context',
+              expectNotAssert: [
+                {
+                  id: 'assertion-4',
+                  label: 'assertion-4 label',
                 },
               ],
             },
