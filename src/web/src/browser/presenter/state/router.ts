@@ -216,6 +216,7 @@ export const breadcrumbs: Record<
 };
 
 export type Location = {
+  getCurrent: () => string;
   listen: (listener: (url: string) => void) => void;
   replace: (url: string) => void;
 };

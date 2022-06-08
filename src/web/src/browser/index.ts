@@ -81,6 +81,7 @@ export const runBrowserContext = ({
           developerExampleUrl: github.getDeveloperExampleUrl(githubRepository),
         },
         location: {
+          getCurrent: () => window.location.hash,
           listen: (listener: (url: string) => void) => {
             window.addEventListener('hashchange', event => {
               const hashchangeEvent = event as HashChangeEvent;

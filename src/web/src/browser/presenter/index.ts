@@ -75,7 +75,7 @@ type MockPresenterContext = {
 export const createPresenterMock = (ctx: MockPresenterContext = {}) => {
   const presenter = createOvermindMock(
     getPresenterConfig(
-      { listen: jest.fn(), replace: jest.fn() },
+      { getCurrent: jest.fn(), listen: jest.fn(), replace: jest.fn() },
       mock<UseCases>(),
       ctx.initialState,
     ),

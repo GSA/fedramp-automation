@@ -10,7 +10,7 @@ export const onInitializeOvermind = async ({
   actions,
   effects,
 }: PresenterConfig) => {
-  actions.setCurrentRoute(window.location.hash);
+  actions.setCurrentRoute(effects.location.getCurrent());
   effects.location.listen((url: string) => {
     actions.setCurrentRoute(url);
   });
