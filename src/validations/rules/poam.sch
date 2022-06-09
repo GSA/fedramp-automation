@@ -300,11 +300,45 @@
                 test="exists(oscal:response/oscal:task[@type eq 'milestone'])">A risk associated with a poam-item must have one or more milestones
                 (response tasks).</sch:assert>
 
+            <!-- https://github.com/18F/fedramp-automation/issues/353 follows-->
+
+            <sch:let
+                name="threshold"
+                value="
+                    map {
+                        'low': xs:dayTimeDuration('P180D'),
+                        'moderate': xs:dayTimeDuration('P90D'),
+                        'high': xs:dayTimeDuration('P30D')
+                    }" />
+
+            <sch:let
+                name="detected"
+                value="//oscal:observation[@uuid = current()/oscal:related-observation/@observation-uuid]/oscal:collected" />
+
+            <sch:let
+                name="impact"
+                value="(oscal:characterization/oscal:facet[@name eq 'impact'][last()]/@value)[last()]" />
+
             <sch:report
                 role="information"
                 test="false() (: until global debug variable :)">risk <sch:value-of
                     select="@uuid" /> has <sch:value-of
-                    select="(oscal:characterization/oscal:facet[@name eq 'impact'][last()]/@value)[last()]" /> impact.</sch:report>
+                    select="$impact" /> impact.</sch:report>
+
+            <sch:let
+                name="no-later-than"
+                value="xs:dateTime($detected) + map:get($threshold, $impact)" />
+
+            <sch:let
+                name="scheduled-completion"
+                value="xs:dateTime(oscal:deadline)" />
+
+            <sch:assert
+                diagnostics="has-timely-completion-date-diagnostic"
+                id="has-timely-completion-date"
+                role="error"
+                see="https://github.com/18F/fedramp-automation/issues/353"
+                test="$scheduled-completion lt $no-later-than">Scheduled completion date is within detection response threshold.</sch:assert>
 
         </sch:rule>
 
@@ -527,6 +561,13 @@
             doc:assert="risk-has-milestones"
             doc:context="oscal:risk[@uuid = //oscal:poam-item/oscal:associated-risk/@risk-uuid]"
             id="risk-has-milestones-diagnostic">This risk associated with a poam-item lacks one or more milestones (response tasks).</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-timely-completion-date"
+            doc:context="oscal:risk[@uuid = //oscal:poam-item/oscal:associated-risk/@risk-uuid]"
+            id="has-timely-completion-date-diagnostic">Scheduled completion date (<sch:value-of
+                select="$scheduled-completion" />) is after detection response threshold (<sch:value-of
+                select="$no-later-than" />).</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="deadline-is-valid-datetime"
