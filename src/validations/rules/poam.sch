@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="../styleguides/sch.sch" phase="basic" title="Schematron Style Guide for FedRAMP Validations" ?>
-<sch:schema 
+<sch:schema
     queryBinding="xslt2"
     xmlns:array="http://www.w3.org/2005/xpath-functions/array"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
@@ -203,7 +203,7 @@
     </sch:pattern>
 
     <sch:pattern
-        id="timeframe">
+        id="basics">
 
         <sch:rule
             context="oscal:poam-item">
@@ -233,8 +233,8 @@
             <sch:report
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3.1"
                 role="information"
-                test="true()">POA&amp;M derived completion date is <sch:value-of
-                    select="max(//oscal:risk[@uuid eq current()/oscal:associated-risk/@risk-uuid]/descendant::oscal:within-date-range/@end ! xs:dateTime(.))" /></sch:report>
+                test="false() (: until global debug variable :)">POA&amp;M derived completion date is <sch:value-of
+                    select="max(//oscal:risk[@uuid = current()/oscal:associated-risk/@risk-uuid]/descendant::oscal:within-date-range/@end ! xs:dateTime(.))" /></sch:report>
 
         </sch:rule>
 
@@ -283,7 +283,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3"
                 id="risk-has-recommendation"
                 role="error"
-                test="oscal:response[@lifecycle eq 'planned']">A risk must have a recommendation response.</sch:assert>
+                test="oscal:response[@lifecycle eq 'recommendation']">A risk must have a recommendation response.</sch:assert>
 
             <sch:assert
                 diagnostics="risk-has-planned-response-diagnostic"
@@ -302,26 +302,14 @@
 
             <sch:report
                 role="information"
-                test="true()">risk <sch:value-of
+                test="false() (: until global debug variable :)">risk <sch:value-of
                     select="@uuid" /> has <sch:value-of
                     select="(oscal:characterization/oscal:facet[@name eq 'impact'][last()]/@value)[last()]" /> impact.</sch:report>
 
         </sch:rule>
 
         <sch:rule
-            context="oscal:risk/oscal:response[@lifecyle eq 'planned']">
-
-            <sch:assert
-                diagnostics="planned-response-has-milestones-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3.1"
-                id="planned-response-has-milestones"
-                role="error"
-                test="exists(oscal:task[@type eq 'milestone'])">A planned response must have one or more milestones.</sch:assert>
-
-        </sch:rule>
-
-        <sch:rule
-            context="oscal:risk/oscal:response[@lifecyle eq 'planned']/oscal:task (: [@type eq 'milestone'] - documentation is ambiguous :)"
+            context="oscal:task[@type eq 'milestone']"
             see="https://github.com/GSA/fedramp-automation-guides/issues/18">
 
             <sch:assert
@@ -329,26 +317,27 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3.1"
                 id="milestone-has-description"
                 role="error"
-                test="oscal:description">A milestone task has a description.</sch:assert>
+                test="exists(oscal:description)">A milestone task has a description.</sch:assert>
 
             <sch:assert
                 diagnostics="milestone-has-timing-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3.1"
                 id="milestone-has-timing"
                 role="error"
-                test="oscal:timing">A milestone task has a timing element.</sch:assert>
+                test="exists(oscal:timing)">A milestone task has a timing element.</sch:assert>
 
             <sch:assert
                 diagnostics="milestone-has-timing-within-date-range-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3.1"
                 id="milestone-has-timing-within-date-range"
                 role="error"
-                test="oscal:timing/oscal:within-date-range">A milestone task has a timing within-date-range element.</sch:assert>
+                test="exists(oscal:timing/oscal:within-date-range) (: accept on-date as well :) or exists(oscal:timing/oscal:on-date)">A milestone
+                task has a timing within-date-range element.</sch:assert>
 
         </sch:rule>
 
         <sch:rule
-            context="oscal:risk[@uuid = //oscal:poam-item/oscal:associated-risk/@risk-uuid]/oscal:deadline">
+            context="oscal:deadline">
 
             <sch:assert
                 diagnostics="deadline-is-valid-datetime-diagnostic"
@@ -360,7 +349,7 @@
         </sch:rule>
 
         <sch:rule
-            context="oscal:timing/oscal:on-date">
+            context="oscal:on-date">
 
             <sch:assert
                 diagnostics="on-date-date-is-valid-datetime-diagnostic"
@@ -370,7 +359,7 @@
         </sch:rule>
 
         <sch:rule
-            context="oscal:timing/oscal:within-date-range">
+            context="oscal:within-date-range">
 
             <sch:assert
                 diagnostics="within-date-range-start-is-valid-datetime-diagnostic"
@@ -397,6 +386,27 @@
             <!-- TODO: nothing here yet -->
         </sch:rule>
 
+        <sch:rule
+            context="oscal:risk-log/oscal:entry">
+
+            <sch:assert
+                diagnostics="risk-log-entry-has-title-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.4"
+                fedramp:specific="true"
+                id="risk-log-entry-has-title"
+                role="error"
+                test="exists(oscal:title)">A risk-log entry must have a title.</sch:assert>
+
+            <sch:assert
+                diagnostics="risk-log-entry-has-start-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.4"
+                fedramp:specific="true"
+                id="risk-log-entry-has-start"
+                role="error"
+                test="exists(oscal:start)">A risk-log entry must have a start.</sch:assert>
+
+        </sch:rule>
+
     </sch:pattern>
 
     <sch:diagnostics>
@@ -404,9 +414,13 @@
         <!-- sanity checks -->
 
         <sch:diagnostic
+            doc:assert="document-is-OSCAL-document"
+            doc:context="/"
             id="document-is-OSCAL-document-diagnostic">This document is NOT an OSCAL 1.0 document.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="document-is-plan-of-action-and-milestones"
+            doc:context="/"
             id="document-is-plan-of-action-and-milestones-diagnostic">This document is NOT a plan-of-action-and-milestones.</sch:diagnostic>
 
         <!-- import-ssp -->
@@ -461,65 +475,108 @@
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'system-security-plan']]/oscal:base64"
             id="has-no-base64-diagnostic">This OSCAL POA&amp;M has a base64 element in a system-security-plan resource.</sch:diagnostic>
 
-        <!-- timeframe -->
+        <!-- basics -->
 
         <sch:diagnostic
+            doc:assert="poam-item-has-associated-risk"
+            doc:context="oscal:poam-item"
             id="poam-item-has-associated-risk-diagnostic">This poam-item lacks associated-risk.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="poam-item-has-one-associated-risk"
+            doc:context="oscal:poam-item"
             id="poam-item-has-one-associated-risk-diagnostic">This poam-item has more than one associated-risk.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="poam-item-has-related-observation"
+            doc:context="oscal:poam-item"
             id="poam-item-has-related-observation-diagnostic">This poam-item lacks related-observation.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="associated-risk-has-target"
+            doc:context="oscal:poam-item/oscal:associated-risk"
             id="associated-risk-has-target-diagnostic">This associated-risk does not reference a risk in this document.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="associated-risk-has-planned-response"
+            doc:context="oscal:poam-item/oscal:associated-risk"
             id="associated-risk-has-planned-response-diagnostic">This associated-risk references a risk without a planned response.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="related-observation-has-observation"
+            doc:context="oscal:poam-item/oscal:related-observation"
             id="related-observation-has-observation-diagnostic">This related-observation does not reference an observation in this
             document.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="risk-has-deadline"
+            doc:context="oscal:risk[@uuid = //oscal:poam-item/oscal:associated-risk/@risk-uuid]"
             id="risk-has-deadline-diagnostic">This risk lacks a deadline.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="risk-has-planned-response"
+            doc:context="oscal:risk[@uuid = //oscal:poam-item/oscal:associated-risk/@risk-uuid]"
             id="risk-has-planned-response-diagnostic">This risk has no planned response.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="risk-has-recommendation"
+            doc:context="oscal:risk[@uuid = //oscal:poam-item/oscal:associated-risk/@risk-uuid]"
             id="risk-has-recommendation-diagnostic">This risk has no recommendation response.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="risk-has-milestones"
+            doc:context="oscal:risk[@uuid = //oscal:poam-item/oscal:associated-risk/@risk-uuid]"
             id="risk-has-milestones-diagnostic">This risk associated with a poam-item lacks one or more milestones (response tasks).</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="deadline-is-valid-datetime"
+            doc:context="oscal:deadline"
             id="deadline-is-valid-datetime-diagnostic">This risk deadline is not a valid xs:dateTime().</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="on-date-date-is-valid-datetime"
+            doc:context="oscal:on-date"
             id="on-date-date-is-valid-datetime-diagnostic">on-date element date is not a valid xs:dateTime.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="within-date-range-start-is-valid-datetime"
+            doc:context="oscal:within-date-range"
             id="within-date-range-start-is-valid-datetime-diagnostic">within-date-range start is not a valid xs:dateTime.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="within-date-range-end-is-valid-datetime"
+            doc:context="oscal:within-date-range"
             id="within-date-range-end-is-valid-datetime-diagnostic">within-date-range end is not a valid xs:dateTime.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="within-date-range-start-precedes-end"
+            doc:context="oscal:within-date-range"
             id="within-date-range-start-precedes-end-diagnostic">within-date-range start does not precede end.</sch:diagnostic>
 
         <sch:diagnostic
-            id="planned-response-has-milestones-diagnostic">This planned response lacks one or more milestones.</sch:diagnostic>
-
-        <sch:diagnostic
+            doc:assert="milestone-has-description"
+            doc:context="oscal:task[@type eq 'milestone']"
             id="milestone-has-description-diagnostic">This milestone task lacks a description.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="milestone-has-timing"
+            doc:context="oscal:task[@type eq 'milestone']"
             id="milestone-has-timing-diagnostic">A milestone task lacks a timing element.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="milestone-has-timing-within-date-range"
+            doc:context="oscal:task[@type eq 'milestone']"
             id="milestone-has-timing-within-date-range-diagnostic">This milestone task lacks a timing within-date-range element.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="risk-log-entry-has-title"
+            doc:context="oscal:risk-log/oscal:entry"
+            id="risk-log-entry-has-title-diagnostic">This risk-log entry lacks a title.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="risk-log-entry-has-start"
+            doc:context="oscal:risk-log/oscal:entry"
+            id="risk-log-entry-has-start-diagnostic">This risk-log entry lacks a start.</sch:diagnostic>
 
     </sch:diagnostics>
 </sch:schema>
