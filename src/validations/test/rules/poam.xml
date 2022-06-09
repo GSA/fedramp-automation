@@ -105,6 +105,13 @@
         <deadline>2022-11-29T13:37:22Z</deadline>
 
         <response
+            lifecycle="recommendation"
+            uuid="8bea3be1-96a4-475f-a991-096ae19587a2">
+            <title />
+            <description />
+        </response>
+
+        <response
             lifecycle="planned"
             uuid="0ae485ea-e372-4eb8-8d67-ee486f1b99f7">
 
@@ -136,6 +143,8 @@
 
                 <title><!-- Note that while title is required, no content therein is required. --></title>
 
+                <description><!-- description is optional in OSCAL; required by FedRAMP --></description>
+
                 <timing>
                     <within-date-range
                         end="2022-08-01T13:25:59Z"
@@ -149,6 +158,8 @@
 
                 <title><!-- Note that while title is required, no content therein is required. --></title>
 
+                <description><!-- description is optional in OSCAL; required by FedRAMP --></description>
+
                 <timing>
                     <within-date-range
                         end="2022-09-30T13:25:14Z"
@@ -159,7 +170,11 @@
             <task
                 type="milestone"
                 uuid="1f5fcf35-8e8c-499e-bd26-1141c8b52890">
+
                 <title>Close POA&amp;M</title>
+
+                <description><!-- description is optional in OSCAL; required by FedRAMP --></description>
+
                 <timing>
                     <on-date
                         date="2022-11-29T13:37:22Z"><!-- The element name implies a date but the attribute demands a dateTime. --></on-date>
@@ -172,7 +187,13 @@
         <risk-log>
             <entry
                 uuid="e5ed128c-3c2d-4d42-9151-f460020c0687">
+
+                <title><!-- title is optional in OSCAL; required by FedRAMP --></title>
+
+                <description><!-- description is optional in OSCAL; required by FedRAMP --></description>
+
                 <start>2022-06-02T11:38:29Z</start>
+
             </entry>
         </risk-log>
 
