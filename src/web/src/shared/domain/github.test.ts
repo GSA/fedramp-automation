@@ -1,3 +1,5 @@
+import { it, describe, expect } from 'vitest';
+
 import * as github from './github';
 
 describe('github', () => {

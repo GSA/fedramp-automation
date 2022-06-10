@@ -1,3 +1,5 @@
+import { it, describe, expect } from 'vitest';
+
 import { getXSpecScenarioSummaries } from './xspec';
 
 describe('xspec', () => {

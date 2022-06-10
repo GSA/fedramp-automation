@@ -1,3 +1,5 @@
+import { it, describe, expect } from 'vitest';
+
 import type { PassStatus } from './schematron';
 import * as lib from './schematron';
 

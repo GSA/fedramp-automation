@@ -1,3 +1,5 @@
+import { it, describe, expect } from 'vitest';
+
 import { AnnotateXMLUseCase } from './annotate-xml';
 
 // @ts-ignore

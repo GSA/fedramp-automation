@@ -1,18 +1,19 @@
+import { it, describe, expect, vi } from 'vitest';
+
 import type { OscalService } from '@asap/shared/use-cases/oscal';
-import type { ValidationReport } from '@asap/shared/use-cases/schematron';
-import { mock } from 'jest-mock-extended';
+import { mock } from 'vitest-mock-extended';
 import { CommandLineController } from './cli-controller';
 
 describe('command-line controller', () => {
   it('calls validate schematron', async () => {
     const mockXml = '<xml></xml>';
     const ctx = {
-      readStringFile: jest.fn().mockReturnValue(Promise.resolve(mockXml)),
-      writeStringFile: jest.fn().mockReturnValue(Promise.resolve()),
+      readStringFile: vi.fn().mockReturnValue(Promise.resolve(mockXml)),
+      writeStringFile: vi.fn().mockReturnValue(Promise.resolve()),
       useCases: {
-        parseSchematron: jest.fn(),
+        parseSchematron: vi.fn(),
         oscalService: mock<OscalService>({
-          validateXmlOrJson: jest.fn((xmlString: string) =>
+          validateXmlOrJson: vi.fn((xmlString: string) =>
             Promise.resolve({
               documentType: 'ssp',
               validationReport: {
@@ -23,8 +24,8 @@ describe('command-line controller', () => {
             }),
           ),
         }),
-        writeAssertionViews: jest.fn(),
-        writeXSpecScenarioSummaries: jest.fn(),
+        writeAssertionViews: vi.fn(),
+        writeXSpecScenarioSummaries: vi.fn(),
       },
     };
     const cli = CommandLineController(ctx);

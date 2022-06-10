@@ -1,3 +1,5 @@
+import { it, describe, expect } from 'vitest';
+
 import * as router from './router';
 
 describe('router', () => {

@@ -1,11 +1,13 @@
+import { it, describe, expect, vi } from 'vitest';
+
 import { browserController } from './browser-controller';
 
 describe('browser adapter', () => {
   it('renders the ui with hot reloading', () => {
     const importMetaHot = {
-      accept: jest.fn(),
+      accept: vi.fn(),
     } as unknown as ImportMetaHot;
-    const renderApp = jest.fn();
+    const renderApp = vi.fn();
     browserController({
       importMetaHot,
       renderApp,
@@ -15,7 +17,7 @@ describe('browser adapter', () => {
   });
 
   it('renders the ui without hot reloading', () => {
-    const renderApp = jest.fn();
+    const renderApp = vi.fn();
     browserController({
       importMetaHot: undefined,
       renderApp,

@@ -1,5 +1,6 @@
-import { mock } from 'jest-mock-extended';
+import { mock } from 'vitest-mock-extended';
 import { createOvermind, createOvermindMock, IContext } from 'overmind';
+import { vi } from 'vitest';
 
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import type { AppMetrics } from '@asap/shared/use-cases/app-metrics';
@@ -75,7 +76,7 @@ type MockPresenterContext = {
 export const createPresenterMock = (ctx: MockPresenterContext = {}) => {
   const presenter = createOvermindMock(
     getPresenterConfig(
-      { getCurrent: jest.fn(), listen: jest.fn(), replace: jest.fn() },
+      { getCurrent: vi.fn(), listen: vi.fn(), replace: vi.fn() },
       mock<UseCases>(),
       ctx.initialState,
     ),

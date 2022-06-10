@@ -1,9 +1,14 @@
+import { it, describe, expect, vi } from 'vitest';
 import type { ChangeEvent } from 'react';
+
 import { onFileInputChangeGetFile } from './file-input';
 
+/**
+ * @vitest-environment jsdom
+ */
 describe('onFileInputChangeGetFile', () => {
   it('returns file details on file select', done => {
-    const setFile = jest.fn().mockImplementation(details => {
+    const setFile = vi.fn().mockImplementation(details => {
       expect(details).toEqual({
         name: 'file-name.xml',
         text: '',
