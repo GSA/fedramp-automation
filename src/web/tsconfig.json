@@ -1,40 +1,36 @@
 {
-  "include": ["src", "types"],
   "compilerOptions": {
-    "module": "es2020",
-    "target": "es5",
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "baseUrl": "./",
+    "target": "ESNext",
+    "useDefineForClassFields": true,
     "lib": [
-      "ESNext",
       "DOM",
+      "DOM.Iterable",
+      "ESNext"
     ],
-    /* paths - import rewriting/resolving */
     "paths": {
-      // If you configured any Snowpack aliases, add them here.
       "@asap/*": [
         "src/*"
       ],
-      // Add this line to get types for streaming imports (packageOptions.source="remote"):
-      //     "*": [".snowpack/types/*"]
-      // More info: https://www.snowpack.dev/guides/streaming-imports
     },
-    /* noEmit - Snowpack builds (emits) files, not tsc. */
-    "noEmit": true,
-    /* Additional Options */
-    "strict": true,
+    "allowJs": false,
     "skipLibCheck": true,
-    "types": ["jest", "node", "snowpack-env"],
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
+    "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
-    "importsNotUsedAsValues": "error",
-    "downlevelIteration": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
   },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "commonJS"
+  "include": [
+    "src"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
     }
-  }
+  ]
 }
