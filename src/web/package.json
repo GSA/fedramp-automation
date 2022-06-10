@@ -75,6 +75,7 @@
     "xml-formatter": "^2.6.1"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^4.1.3",
     "@snowpack/plugin-dotenv": "^2.1.0",
     "@snowpack/plugin-postcss": "^1.4.3",
     "@snowpack/plugin-react-refresh": "^2.5.0",

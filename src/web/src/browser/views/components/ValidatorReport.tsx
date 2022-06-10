@@ -1,4 +1,5 @@
 import React from 'react';
+import spriteSvg from 'uswds/img/sprite.svg';
 
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { Routes, getUrl } from '@asap/browser/presenter/state/router';
@@ -59,11 +60,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
               >
                 <div className={`usa-icon-list__icon text-${check.icon.color}`}>
                   <svg className="usa-icon" aria-hidden="true" role="img">
-                    <use
-                      xlinkHref={actions.getAssetUrl(
-                        `uswds/img/sprite.svg#${check.icon.sprite}`,
-                      )}
-                    ></use>
+                    <use xlinkHref={`${spriteSvg}#${check.icon.sprite}`}></use>
                   </svg>
                 </div>
                 <div className="usa-icon-list__content">
@@ -91,11 +88,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                               focusable="false"
                               role="img"
                             >
-                              <use
-                                xlinkHref={actions.getAssetUrl(
-                                  'uswds/img/sprite.svg#link',
-                                )}
-                              ></use>
+                              <use xlinkHref={`${spriteSvg}#link`}></use>
                             </svg>
                           </a>
                         </li>
@@ -118,11 +111,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                       focusable="false"
                       role="img"
                     >
-                      <use
-                        xlinkHref={actions.getAssetUrl(
-                          'uswds/img/sprite.svg#support',
-                        )}
-                      ></use>
+                      <use xlinkHref={`${spriteSvg}#support`}></use>
                     </svg>
                   </button>
                 </div>

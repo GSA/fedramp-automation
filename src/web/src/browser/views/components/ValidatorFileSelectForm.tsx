@@ -1,4 +1,5 @@
 import React from 'react';
+import spriteSvg from 'uswds/img/sprite.svg';
 
 import { onFileInputChangeGetFile } from '../../util/file-input';
 import { useActions, useAppState } from '../hooks';
@@ -39,11 +40,7 @@ export const ValidatorFileSelectForm = () => {
             focusable="false"
             role="img"
           >
-            <use
-              xlinkHref={actions.getAssetUrl(
-                'uswds/img/sprite.svg#radio_button_unchecked',
-              )}
-            ></use>
+            <use xlinkHref={`${spriteSvg}#radio_button_unchecked`}></use>
           </svg>
         )}
         {state.validator.current === 'PROCESSING' && (
@@ -56,9 +53,7 @@ export const ValidatorFileSelectForm = () => {
             focusable="false"
             role="img"
           >
-            <use
-              xlinkHref={actions.getAssetUrl('uswds/img/sprite.svg#error')}
-            ></use>
+            <use xlinkHref={`${spriteSvg}#error`}></use>
           </svg>
         )}
         {state.validator.current === 'VALIDATED' && (
@@ -68,11 +63,7 @@ export const ValidatorFileSelectForm = () => {
             focusable="false"
             role="img"
           >
-            <use
-              xlinkHref={actions.getAssetUrl(
-                'uswds/img/sprite.svg#check_circle',
-              )}
-            ></use>
+            <use xlinkHref={`${spriteSvg}#check_circle`}></use>
           </svg>
         )}
         <label className="usa-label usa-hint" htmlFor="sample-document">

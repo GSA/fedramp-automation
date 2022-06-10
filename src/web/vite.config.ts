@@ -27,20 +27,19 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      input: glob
-        .sync(path.resolve(__dirname, 'src') + '/**/*.html')
-        .reduce((acc, cur) => {
-          let name = cur
-            .replace(path.join(__dirname) + '/src/', '')
-            .replace('/index.html', '');
-          // If name is blank, make up a name for it, like 'home'
-          if (name === '') {
-            name = 'home';
-          }
-
-          acc[name] = cur;
-          return acc;
-        }, {}),
+      // input: glob
+      //   .sync(path.resolve(__dirname, 'src') + '/**/*.html')
+      //   .reduce((acc, cur) => {
+      //     let name = cur
+      //       .replace(path.join(__dirname) + '/src/', '')
+      //       .replace('/index.html', '');
+      //     // If name is blank, make up a name for it, like 'home'
+      //     if (name === '') {
+      //       name = 'home';
+      //     }
+      //     acc[name] = cur;
+      //     return acc;
+      //   }, {}),
     },
   },
 });
