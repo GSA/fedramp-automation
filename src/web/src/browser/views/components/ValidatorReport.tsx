@@ -65,6 +65,25 @@ export const ValidatorReport = ({ documentType }: Props) => {
                 </div>
                 <div className="usa-icon-list__content">
                   {check.message}
+                  <button
+                    className="usa-button usa-button--unstyled"
+                    onClick={() =>
+                      actions.assertionDocumentation.show({
+                        assertionId: check.id,
+                        documentType,
+                      })
+                    }
+                    title="View examples"
+                  >
+                    <svg
+                      className="usa-icon"
+                      aria-hidden="true"
+                      focusable="false"
+                      role="img"
+                    >
+                      <use xlinkHref={`${spriteSvg}#support`}></use>
+                    </svg>
+                  </button>
                   {check.fired.length ? (
                     <ul className="usa-icon-list__title">
                       {check.fired.map((firedCheck, index) => (
@@ -94,26 +113,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                         </li>
                       ))}
                     </ul>
-                  ) : null}{' '}
-                  <button
-                    className="usa-button usa-button--unstyled"
-                    onClick={() =>
-                      actions.assertionDocumentation.show({
-                        assertionId: check.id,
-                        documentType,
-                      })
-                    }
-                    title="View examples"
-                  >
-                    <svg
-                      className="usa-icon"
-                      aria-hidden="true"
-                      focusable="false"
-                      role="img"
-                    >
-                      <use xlinkHref={`${spriteSvg}#support`}></use>
-                    </svg>
-                  </button>
+                  ) : null}
                 </div>
               </li>
             ))}

@@ -7,14 +7,15 @@
       "DOM.Iterable",
       "ESNext"
     ],
+    "baseUrl": ".",
     "paths": {
       "@asap/*": [
-        "src/*"
+        "./src/*"
       ],
     },
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,

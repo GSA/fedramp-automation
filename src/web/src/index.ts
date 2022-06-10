@@ -1,5 +1,5 @@
 import { runBrowserContext } from '@asap/browser';
-console.log(import.meta.env);
+
 runBrowserContext({
   element: document.getElementById('root') as HTMLElement,
   baseUrl: import.meta.env.BASE_URL,

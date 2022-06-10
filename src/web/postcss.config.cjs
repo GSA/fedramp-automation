@@ -1,7 +1,7 @@
 module.exports = {
   plugins: {
     autoprefixer: {},
-    ...(process.env.NODE_ENV === 'production'
+    ...(false //process.env.NODE_ENV === 'production'
       ? {
           '@fullhuman/postcss-purgecss': {
             content: ['./src/browser/**/*.tsx'],
