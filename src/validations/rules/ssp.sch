@@ -3451,8 +3451,65 @@
                 test="@href">The import-profile element has a reference.</sch:assert>
         </sch:rule>
         <sch:rule
+            context="oscal:control-implementation">
+            <sch:let
+                name="sensitivity-level"
+                value="/ => lv:sensitivity-level()" />
+            <sch:let
+                name="selected-profile"
+                value="$sensitivity-level => lv:profile()" />
+            <sch:let
+                name="required-controls"
+                value="$selected-profile/*//oscal:control/@id ! xs:string(.)" />
+            <sch:let
+                name="implemented-controls"
+                value="oscal:implemented-requirement/@control-id ! xs:string(.)" />
+            <sch:let
+                name="technical-controls"
+                value="$fedramp-values//fedramp:value-set[@name eq 'technical-control-id']//fedramp:enum/@value ! xs:string(.)" />
+            <sch:let
+                name="required-technical-controls"
+                value="$technical-controls[. = $required-controls]" />
+            <sch:let
+                name="missing-required-technical-controls"
+                value="$required-technical-controls[not(. = $implemented-controls)]" />
+            <sch:assert
+                diagnostics="technical-control-exists-diagnostic"
+                id="technical-control-exists"
+                role="error"
+                test="
+                    every $item in $missing-required-technical-controls
+                        satisfies exists(//oscal:implemented-requirement[@control-id eq $item])">Every required technical control is
+                implemented.</sch:assert>
+        </sch:rule>
+        <sch:rule
             context="oscal:implemented-requirement"
             doc:template-reference="System Security Plan Template §13">
+            <sch:let
+                name="sensitivity-level"
+                value="/ => lv:sensitivity-level()" />
+            <sch:let
+                name="selected-profile"
+                value="$sensitivity-level => lv:profile()" />
+            <sch:let
+                name="technical-controls"
+                value="$fedramp-values//fedramp:value-set[@name eq 'technical-control-id']//fedramp:enum/@value ! xs:string(.)" />
+            <sch:assert
+                diagnostics="technical-control-is-implemented-diagnostic"
+                id="technical-control-is-implemented"
+                role="error"
+                test="
+                    if (@control-id = $technical-controls)
+                    then
+                        (
+                        if (exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'implementation-status' and @value eq 'implemented']))
+                        then
+                            (true())
+                        else
+                            (false()))
+                    else
+                        (true())">The technical control-implementation <xsl:value-of
+                    select="@control-id" /> has a status of 'implemented'.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-implementation-status-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
@@ -5337,6 +5394,16 @@
             doc:assertion="import-profile-has-href-attribute"
             doc:context="oscal:import-profile"
             id="import-profile-has-href-attribute-diagnostic">The import-profile element lacks an href attribute.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="technical-control-exists"
+            doc:context="oscal:control-implementation"
+            id="technical-control-exists-diagnostic">The technical control implementation <sch:value-of
+                select="@control-id" /> does not exist in the SSP document.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="technical-control-is-implemented"
+            doc:context="oscal:implemented-requirement"
+            id="technical-control-is-implemented-diagnostic">The technical control implementation <sch:value-of
+                select="@control-id" /> does not have an implementation status of 'implemented'.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-implementation-status"
             doc:context="oscal:implemented-requirement"
