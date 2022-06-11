@@ -1,6 +1,6 @@
 import { it, describe, expect } from 'vitest';
 
-import { createPresenterMock } from '.';
+import { createPresenterMock } from './mock';
 
 describe('presenter', () => {
   describe('derived state', () => {
