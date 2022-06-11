@@ -1,6 +1,6 @@
 import { it, describe, expect } from 'vitest';
 
-import { createPresenterMock } from '..';
+import { createPresenterMock } from '../mock';
 
 describe('action', () => {
   describe('getAssetUrl', () => {
@@ -13,7 +13,7 @@ describe('action', () => {
     it('should work with baseUrl specified', async () => {
       const presenter = createPresenterMock({
         initialState: {
-          baseUrl: 'https://baseurl',
+          baseUrl: 'https://baseurl/',
         },
       });
       const assetUrl = presenter.actions.getAssetUrl('assets/test.png');

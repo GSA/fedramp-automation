@@ -3,7 +3,7 @@ import { join } from 'path';
 import xmlFormatter from 'xml-formatter';
 
 // @ts-ignore
-import * as SaxonJS from 'saxon-js';
+import SaxonJS from 'saxon-js';
 
 import { highlightXML } from '@asap/shared/adapters/highlight-js';
 import {

@@ -1,4 +1,4 @@
-import * as SaxonJS from 'saxon-js';
+import SaxonJS from 'saxon-js';
 import { it, describe, expect, vi } from 'vitest';
 
 import {
