@@ -13,6 +13,9 @@
         "./src/*"
       ],
     },
+    "types": [
+      "vite/client"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,

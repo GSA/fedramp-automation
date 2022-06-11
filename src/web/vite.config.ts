@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-const BASEURL = process.env.BASEURL || '';
+const BASEURL = process.env.BASEURL || '/';
 const GITHUB = {
   owner: process.env.OWNER || '18F',
   repository: process.env.REPOSITORY || 'fedramp-automation',

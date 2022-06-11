@@ -40,7 +40,7 @@ export const getPresenterConfig = (
 export type PresenterConfig = IContext<ReturnType<typeof getPresenterConfig>>;
 
 export type PresenterContext = {
-  baseUrl: string;
+  baseUrl: `${string}/`;
   debug: boolean;
   sourceRepository: {
     treeUrl: string;

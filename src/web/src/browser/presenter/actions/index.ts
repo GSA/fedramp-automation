@@ -31,5 +31,5 @@ export const setCurrentRoute = (
 };
 
 export const getAssetUrl = ({ state }: PresenterConfig, assetPath: string) => {
-  return `${state.baseUrl}/${assetPath}`;
+  return `${state.baseUrl}${assetPath}`;
 };
