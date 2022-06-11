@@ -57,7 +57,7 @@
   "dependencies": {
     "@fingerprintjs/fingerprintjs": "^3.3.3",
     "classnames": "^2.3.1",
-    "commander": "^2.20.3",
+    "commander": "^9.3.0",
     "fp-ts": "^2.11.1",
     "highlight.js": "^11.5.1",
     "io-ts": "^2.2.16",

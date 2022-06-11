@@ -26,6 +26,7 @@ const writeStringFile = (fileName: string, data: string) =>
   fs.writeFile(fileName, data, 'utf-8');
 
 const controller = CommandLineController({
+  console,
   readStringFile,
   writeStringFile,
   useCases: {
@@ -71,4 +72,4 @@ const controller = CommandLineController({
   },
 });
 
-controller.parse(process.argv);
+controller.parseAsync(process.argv).then(() => console.log('Done'));

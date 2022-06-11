@@ -8,12 +8,15 @@ describe('command-line controller', () => {
   it('calls validate schematron', async () => {
     const mockXml = '<xml></xml>';
     const ctx = {
+      console: {
+        log: vi.fn(),
+      } as any as Console,
       readStringFile: vi.fn().mockReturnValue(Promise.resolve(mockXml)),
       writeStringFile: vi.fn().mockReturnValue(Promise.resolve()),
       useCases: {
         parseSchematron: vi.fn(),
         oscalService: mock<OscalService>({
-          validateXmlOrJson: vi.fn((xmlString: string) =>
+          validateXmlOrJson: (xmlString: string) =>
             Promise.resolve({
               documentType: 'ssp',
               validationReport: {
@@ -22,17 +25,14 @@ describe('command-line controller', () => {
               },
               xmlString,
             }),
-          ),
         }),
         writeAssertionViews: vi.fn(),
         writeXSpecScenarioSummaries: vi.fn(),
       },
     };
     const cli = CommandLineController(ctx);
-    await cli.parse(['ts-node', 'index.ts', 'validate', 'ssp.xml']);
+    await cli.parseAsync(['node', 'index.ts', 'validate', 'ssp.xml']);
     expect(ctx.readStringFile).toHaveBeenCalledWith('ssp.xml');
-    expect(ctx.useCases.oscalService.validateXmlOrJson).toHaveBeenCalledWith(
-      mockXml,
-    );
+    expect(ctx.console.log).toHaveBeenCalledWith('Found 0 assertions in ssp');
   });
 });
