@@ -8,9 +8,9 @@ describe('command-line controller', () => {
   it('calls validate schematron', async () => {
     const mockXml = '<xml></xml>';
     const ctx = {
-      console: {
+      console: mock<Console>({
         log: vi.fn(),
-      } as any as Console,
+      }),
       readStringFile: vi.fn().mockReturnValue(Promise.resolve(mockXml)),
       writeStringFile: vi.fn().mockReturnValue(Promise.resolve()),
       useCases: {

@@ -7,19 +7,21 @@ import { onFileInputChangeGetFile } from './file-input';
  * @vitest-environment jsdom
  */
 describe('onFileInputChangeGetFile', () => {
-  it('returns file details on file select', done => {
-    const setFile = vi.fn().mockImplementation(details => {
-      expect(details).toEqual({
-        name: 'file-name.xml',
-        text: '',
+  it('returns file details on file select', async () => {
+    return new Promise<void>(resolve => {
+      const setFile = vi.fn().mockImplementation(details => {
+        expect(details).toEqual({
+          name: 'file-name.xml',
+          text: '',
+        });
+        resolve();
       });
-      done();
+      const handler = onFileInputChangeGetFile(setFile);
+      handler({
+        target: {
+          files: [new File([], 'file-name.xml')] as unknown as FileList,
+        },
+      } as ChangeEvent<HTMLInputElement>);
     });
-    const handler = onFileInputChangeGetFile(setFile);
-    handler({
-      target: {
-        files: [new File([], 'file-name.xml')] as unknown as FileList,
-      },
-    } as ChangeEvent<HTMLInputElement>);
   });
 });

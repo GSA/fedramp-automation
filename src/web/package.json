@@ -51,7 +51,7 @@
     "postinstall": "patch-package",
     "preview": "vite preview",
     "start": "vite",
-    "test": "vitest",
+    "test": "vitest run",
     "test:coverage": "vitest --coverage && open ./coverage/lcov-report/index.html"
   },
   "dependencies": {
