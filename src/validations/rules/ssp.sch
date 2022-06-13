@@ -5396,7 +5396,8 @@
         <sch:diagnostic
             doc:assertion="technical-control-exists"
             doc:context="oscal:control-implementation"
-            id="technical-control-exists-diagnostic">The technical control implementation does not exist in the SSP document.</sch:diagnostic>
+            id="technical-control-exists-diagnostic">The SSP document does not contain the following implemented requirement(s) <sch:value-of
+                select="$missing-required-technical-controls" />.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="technical-control-is-implemented"
             doc:context="oscal:implemented-requirement"
