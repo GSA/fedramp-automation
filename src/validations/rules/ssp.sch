@@ -3475,11 +3475,10 @@
                 value="$required-technical-controls[not(. = $implemented-controls)]" />
             <sch:assert
                 diagnostics="technical-control-exists-diagnostic"
+                fedramp:specific="true"
                 id="technical-control-exists"
                 role="error"
-                test="
-                    every $item in $missing-required-technical-controls
-                        satisfies exists(//oscal:implemented-requirement[@control-id eq $item])">Every required technical control is
+                test="count($missing-required-technical-controls eq 0)">Every required technical control is
                 implemented.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -3496,6 +3495,7 @@
                 value="$fedramp-values//fedramp:value-set[@name eq 'technical-control-id']//fedramp:enum/@value ! xs:string(.)" />
             <sch:assert
                 diagnostics="technical-control-is-implemented-diagnostic"
+                fedramp:specific="true"
                 id="technical-control-is-implemented"
                 role="error"
                 test="
@@ -3508,8 +3508,7 @@
                         else
                             (false()))
                     else
-                        (true())">The technical control-implementation <xsl:value-of
-                    select="@control-id" /> has a status of 'implemented'.</sch:assert>
+                        (true())">Every technical control is fully implemented.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-implementation-status-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
@@ -5397,8 +5396,7 @@
         <sch:diagnostic
             doc:assertion="technical-control-exists"
             doc:context="oscal:control-implementation"
-            id="technical-control-exists-diagnostic">The technical control implementation <sch:value-of
-                select="@control-id" /> does not exist in the SSP document.</sch:diagnostic>
+            id="technical-control-exists-diagnostic">The technical control implementation does not exist in the SSP document.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="technical-control-is-implemented"
             doc:context="oscal:implemented-requirement"
