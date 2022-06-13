@@ -3478,7 +3478,7 @@
                 fedramp:specific="true"
                 id="technical-control-exists"
                 role="error"
-                test="count($missing-required-technical-controls eq 0)">Every required technical control is
+                test="count($missing-required-technical-controls) eq 0">Every required technical control is
                 implemented.</sch:assert>
         </sch:rule>
         <sch:rule
