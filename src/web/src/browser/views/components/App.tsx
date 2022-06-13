@@ -1,6 +1,7 @@
-import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import React from 'react';
 
+import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
+import { AssertionDocumentationOverlay } from './AssertionDocumentationOverlay';
 import { useAppState } from '../hooks';
 import { BetaBanner } from './BetaBanner';
 import { DevelopersPage } from './DevelopersPage';
@@ -10,7 +11,6 @@ import { HomePage } from './HomePage';
 import { InnerPageLayout } from './InnerPageLayout';
 import { UsaBanner } from './UsaBanner';
 import { UsageTrackingPage } from './UsageTrackingPage';
-import { ValidatorContentOverlay } from './ValidatorContentOverlay';
 import { ValidatorPage } from './ValidatorPage';
 import { ViewerPage } from './ViewerPage';
 
@@ -44,7 +44,7 @@ const CurrentPage = () => {
             }
           />
         </InnerPageLayout>
-        <ValidatorContentOverlay />
+        <AssertionDocumentationOverlay />
       </>
     );
   } else if (currentRoute.type === 'Assertion') {

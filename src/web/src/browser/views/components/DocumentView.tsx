@@ -4,10 +4,7 @@ import Modal from 'react-modal';
 import { useActions, useAppState } from '../hooks';
 import { AssertionXSpecScenarios } from './AssertionXSpecScenarios';
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#root');
-
-export const ValidatorContentOverlay = () => {
+export const DocumentViewerOverlay = () => {
   const assertionDocumentation = useAppState().assertionDocumentation;
   const actions = useActions();
   return (

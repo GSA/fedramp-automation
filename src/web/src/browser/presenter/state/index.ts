@@ -1,4 +1,3 @@
-import { derived } from 'overmind';
 import {
   AssertionDocumentationMachine,
   createAssertionDocumentationMachine,
