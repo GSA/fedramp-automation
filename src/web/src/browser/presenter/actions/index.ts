@@ -1,4 +1,5 @@
 export * as assertionDocumentation from './assertion-documentation';
+export * as documentViewer from './document-viewer';
 export * as metrics from './metrics';
 export * as schematron from './schematron';
 export * as validator from './validator';

@@ -92,13 +92,15 @@ export const ValidatorReport = ({ documentType }: Props) => {
                             ? firedCheck.diagnosticReferences.join(', ')
                             : firedCheck.text}
                           <a
+                            href="#"
                             className="usa-tooltip"
                             data-position="bottom"
-                            href={getUrl(
-                              Routes.assertion({
+                            onClick={() =>
+                              actions.documentViewer.showAssertionContext({
                                 assertionId: firedCheck.uniqueId,
-                              }),
-                            )}
+                                documentType,
+                              })
+                            }
                             title="Show source document context"
                           >
                             <svg

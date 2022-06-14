@@ -1,8 +1,11 @@
 import React from 'react';
 
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import { AssertionDocumentationOverlay } from './AssertionDocumentationOverlay';
+
 import { useAppState } from '../hooks';
+
+import { AssertionDocumentationOverlay } from './AssertionDocumentationOverlay';
+import { DocumentViewerOverlay } from './DocumentViewerOverlay';
 import { BetaBanner } from './BetaBanner';
 import { DevelopersPage } from './DevelopersPage';
 import { Footer } from './Footer';
@@ -12,7 +15,6 @@ import { InnerPageLayout } from './InnerPageLayout';
 import { UsaBanner } from './UsaBanner';
 import { UsageTrackingPage } from './UsageTrackingPage';
 import { ValidatorPage } from './ValidatorPage';
-import { ViewerPage } from './ViewerPage';
 
 const CurrentPage = () => {
   const { currentRoute } = useAppState().router;
@@ -29,29 +31,23 @@ const CurrentPage = () => {
     currentRoute.type === 'DocumentSAR' ||
     currentRoute.type === 'DocumentSSP'
   ) {
+    const documentType = {
+      DocumentSummary: null,
+      DocumentPOAM: 'poam',
+      DocumentSAP: 'sap',
+      DocumentSAR: 'sar',
+      DocumentSSP: 'ssp',
+    }[currentRoute.type] as OscalDocumentKey | null;
     return (
       <>
         <InnerPageLayout>
-          <ValidatorPage
-            documentType={
-              {
-                DocumentSummary: null,
-                DocumentPOAM: 'poam',
-                DocumentSAP: 'sap',
-                DocumentSAR: 'sar',
-                DocumentSSP: 'ssp',
-              }[currentRoute.type] as OscalDocumentKey | null
-            }
-          />
+          <ValidatorPage documentType={documentType} />
         </InnerPageLayout>
         <AssertionDocumentationOverlay />
+        {documentType ? (
+          <DocumentViewerOverlay documentType={documentType} />
+        ) : null}
       </>
-    );
-  } else if (currentRoute.type === 'Assertion') {
-    return (
-      <InnerPageLayout>
-        <ViewerPage assertionId={currentRoute.assertionId} />
-      </InnerPageLayout>
     );
   } else if (currentRoute.type === 'Developers') {
     return (
