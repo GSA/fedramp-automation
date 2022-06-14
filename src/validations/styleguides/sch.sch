@@ -278,12 +278,26 @@
             <sch:let
                 name="coverage"
                 value="count($referenced-tests) div (count($assertions) * 2)" />
+            <sch:let
+                name="assertions-without-unitoverride"
+                value="$assertions[not(@unit:override-xspec)]" />
+            <sch:let
+                name="coverage-without-unitoverride"
+                value="count($referenced-tests) div (count($assertions-without-unitoverride) * 2)" />
+            <sch:report
+                diagnostics="report-test-coverage-without-unitoverride-diagnostic"
+                id="report-test-coverage-without-unitoverride"
+                role="information"
+                test="true()">Excluding assertions designated as not having xspec tests, there are <sch:value-of
+                    select="count($assertions-without-unitoverride)" /> assertions and there are <sch:value-of
+                    select="count($referenced-tests)" /> unit tests which reference those assertions for test coverage of <sch:value-of
+                    select="format-number($coverage-without-unitoverride, '09.99%')" />.</sch:report>
             <sch:report
                 diagnostics="report-test-coverage-diagnostic"
                 id="report-test-coverage"
                 role="information"
                 test="true()">There are <sch:value-of
-                    select="count($assertions)" /> assertions and there are <sch:value-of
+                    select="count($assertions)" /> total assertions and there are <sch:value-of
                     select="count($referenced-tests)" /> unit tests which reference those assertions for test coverage of <sch:value-of
                     select="format-number($coverage, '09.99%')" />.</sch:report>
         </sch:rule>
@@ -377,6 +391,9 @@
 
         <sch:diagnostic
             id="report-test-coverage-diagnostic">This is informational message (not an error).</sch:diagnostic>
+        
+        <sch:diagnostic
+            id="report-test-coverage-without-unitoverride-diagnostic">This is informational message (not an error).</sch:diagnostic>
 
         <sch:diagnostic
             id="context-reuse-diagnostic">This sch:rule context is used elsewhere. This can cause XSpec evaluation problems.</sch:diagnostic>
