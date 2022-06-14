@@ -1,6 +1,6 @@
 import * as assertionDocumentation from './assertion-documetation';
 import * as metrics from './metrics';
-import { createRouterMachine, RouterMachine } from './router-machine';
+import * as routerMachine from './router-machine';
 import {
   createSchematronMachine,
   SchematronMachine,
@@ -16,7 +16,7 @@ export type State = {
   assertionDocumentation: assertionDocumentation.State;
   baseUrl: `${string}/`;
   metrics: metrics.State;
-  router: RouterMachine;
+  router: routerMachine.State;
   oscalDocuments: {
     poam: SchematronMachine;
     sap: SchematronMachine;
@@ -42,7 +42,7 @@ export const state: State = {
     sar: createSchematronMachine(),
     ssp: createSchematronMachine(),
   },
-  router: createRouterMachine(),
+  router: routerMachine.createRouterMachine(),
   sourceRepository: {
     sampleDocuments: [],
   },

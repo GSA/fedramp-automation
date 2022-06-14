@@ -6,6 +6,7 @@ export * as validator from './validator';
 
 import type { PresenterConfig } from '..';
 import * as router from '../state/router';
+import * as routerMachine from '../state/router-machine';
 
 export const onInitializeOvermind = async ({
   actions,
@@ -26,7 +27,10 @@ export const setCurrentRoute = (
 ) => {
   const route = router.getRoute(url);
   if (route.type !== 'NotFound') {
-    state.router.send('ROUTE_CHANGED', { route });
+    state.router = routerMachine.nextState(state.router, {
+      type: 'ROUTE_CHANGED',
+      data: { route },
+    });
   }
   effects.location.replace(router.getUrl(state.router.currentRoute));
 };
