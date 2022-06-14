@@ -3,9 +3,12 @@ import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 
 import type { PresenterConfig } from '..';
 import { getUrl, Routes } from '../state/router';
+import * as validatorMachine from '../state/validator-machine';
 
 export const reset = ({ state }: PresenterConfig) => {
-  state.validator.send('RESET');
+  state.validator = validatorMachine.nextState(state.validator, {
+    type: 'RESET',
+  });
 };
 
 export const validateOscalDocument = async (
@@ -13,9 +16,11 @@ export const validateOscalDocument = async (
   options: { fileName: string; fileContents: string },
 ) => {
   actions.validator.reset();
-  if (
-    state.validator.send('PROCESSING_STRING', { fileName: options.fileName })
-  ) {
+  state.validator = validatorMachine.nextState(state.validator, {
+    type: 'PROCESSING_STRING',
+    data: { fileName: options.fileName },
+  });
+  if (state.validator.current === 'PROCESSING') {
     effects.useCases.oscalService
       .validateXmlOrJson(options.fileContents)
       .then(({ documentType, validationReport, xmlString }) => {
@@ -36,9 +41,11 @@ export const setXmlUrl = async (
   xmlFileUrl: string,
 ) => {
   actions.validator.reset();
-  if (
-    state.validator.send('PROCESSING_URL', { xmlFileUrl }).matches('PROCESSING')
-  ) {
+  state.validator = validatorMachine.nextState(state.validator, {
+    type: 'PROCESSING_URL',
+    data: { xmlFileUrl },
+  });
+  if (state.validator.current === 'PROCESSING') {
     effects.useCases.oscalService
       .validateXmlOrJsonByUrl(xmlFileUrl)
       .then(({ documentType, validationReport, xmlString }) => {
@@ -58,8 +65,11 @@ export const setProcessingError = (
   { state }: PresenterConfig,
   errorMessage: string,
 ) => {
-  if (state.validator.matches('PROCESSING')) {
-    state.validator.send('PROCESSING_ERROR', { errorMessage });
+  if (state.validator.current === 'PROCESSING') {
+    state.validator = validatorMachine.nextState(state.validator, {
+      type: 'PROCESSING_ERROR',
+      data: { errorMessage },
+    });
   }
 };
 
@@ -75,8 +85,10 @@ export const setValidationReport = (
     xmlString: string;
   },
 ) => {
-  if (state.validator.matches('PROCESSING')) {
-    state.validator.send('VALIDATED', {});
+  if (state.validator.current === 'PROCESSING') {
+    state.validator = validatorMachine.nextState(state.validator, {
+      type: 'VALIDATED',
+    });
     actions.metrics.logValidationSummary(documentType);
   }
   actions.schematron.setValidationReport({

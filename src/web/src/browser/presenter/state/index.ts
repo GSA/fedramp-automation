@@ -5,7 +5,7 @@ import {
   createSchematronMachine,
   SchematronMachine,
 } from './schematron-machine';
-import { createValidatorMachine, ValidatorMachine } from './validator-machine';
+import * as validatorMachine from './validator-machine';
 
 export type SampleDocument = {
   url: string;
@@ -28,7 +28,7 @@ export type State = {
     sampleDocuments: SampleDocument[];
     developerExampleUrl?: string;
   };
-  validator: ValidatorMachine;
+  validator: validatorMachine.State;
 };
 
 export const state: State = {
@@ -46,5 +46,5 @@ export const state: State = {
   sourceRepository: {
     sampleDocuments: [],
   },
-  validator: createValidatorMachine(),
+  validator: validatorMachine.createValidatorMachine(),
 };
