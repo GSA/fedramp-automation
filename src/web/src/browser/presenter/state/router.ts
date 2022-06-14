@@ -7,10 +7,6 @@ export type RouteTypes = {
   DocumentSAP: { type: 'DocumentSAP' };
   DocumentSAR: { type: 'DocumentSAR' };
   DocumentSSP: { type: 'DocumentSSP' };
-  Assertion: {
-    type: 'Assertion';
-    assertionId: string;
-  };
   Developers: {
     type: 'Developers';
   };
@@ -40,14 +36,6 @@ export namespace Routes {
   export const documentSSP: RouteTypes['DocumentSSP'] = {
     type: 'DocumentSSP',
   };
-  export const assertion = (options: {
-    assertionId: string;
-  }): RouteTypes['Assertion'] => {
-    return {
-      type: 'Assertion',
-      assertionId: options.assertionId,
-    };
-  };
   export const developers: RouteTypes['Developers'] = {
     type: 'Developers',
   };
@@ -65,8 +53,6 @@ const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   DocumentSAP: () => '#/documents/security-assessment-plan',
   DocumentSAR: () => '#/documents/security-assessment-report',
   DocumentSSP: () => '#/documents/system-security-plan',
-  Assertion: (route: RouteTypes['Assertion']) =>
-    `#/assertions/${route.assertionId}`,
   Developers: () => '#/developers',
   UsageTracking: () => '#/usage-tracking',
 };
@@ -107,7 +93,6 @@ const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
     '#/documents/system-security-plan',
     () => Routes.documentSSP,
   ),
-  Assertion: matchRoute('#/assertions/:assertionId', Routes.assertion),
   Developers: matchRoute('#/developers', () => Routes.developers),
   UsageTracking: matchRoute('#/usage-tracking', () => Routes.usageTracking),
 };
@@ -184,17 +169,6 @@ export const breadcrumbs: Record<
       },
     ];
   },
-  Assertion: (route: RouteTypes['Assertion']) => {
-    return [
-      ...breadcrumbs.Home(route),
-      {
-        text: 'Assertion',
-        linkUrl:
-          route.type !== 'Assertion' &&
-          getUrl(Routes.assertion({ assertionId: route.assertionId })),
-      },
-    ];
-  },
   Developers: (route: RouteTypes['Developers']) => {
     return [
       ...breadcrumbs.Home(route),
@@ -216,6 +190,7 @@ export const breadcrumbs: Record<
 };
 
 export type Location = {
+  getCurrent: () => string;
   listen: (listener: (url: string) => void) => void;
   replace: (url: string) => void;
 };

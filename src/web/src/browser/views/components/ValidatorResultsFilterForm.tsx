@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-
+import spriteSvg from 'uswds/img/sprite.svg';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { colorTokenForRole } from '../../util/styles';
@@ -123,9 +123,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                 >
                   <use
                     xmlnsXlink="http://www.w3.org/1999/xlink"
-                    xlinkHref={actions.getAssetUrl(
-                      'uswds/img/sprite.svg#search',
-                    )}
+                    xlinkHref={`${spriteSvg}#search`}
                   />
                 </svg>
               </div>
@@ -181,11 +179,9 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   >
                     <use
                       xmlnsXlink="http://www.w3.org/1999/xlink"
-                      xlinkHref={actions.getAssetUrl(
-                        `uswds/img/sprite.svg#${colorTokenForRole(
-                          filterRole.name,
-                        )}`,
-                      )}
+                      xlinkHref={`${spriteSvg}#${colorTokenForRole(
+                        filterRole.name,
+                      )}`}
                     />
                   </svg>
                   {filterRole.name.toLocaleUpperCase() || '<not specified>'}

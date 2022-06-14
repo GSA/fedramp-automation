@@ -14,6 +14,12 @@ type States =
       current: 'HAS_RESULT';
       annotatedXML: string;
       validationReport: ValidationReport;
+    }
+  | {
+      current: 'ASSERTION_CONTEXT';
+      annotatedXML: string;
+      assertionId: string;
+      validationReport: ValidationReport;
     };
 
 type Events =
@@ -23,6 +29,15 @@ type Events =
         annotatedXML: string;
         validationReport: ValidationReport;
       };
+    }
+  | {
+      type: 'SET_ASSERTION_CONTEXT';
+      data: {
+        assertionId: string;
+      };
+    }
+  | {
+      type: 'CLEAR_ASSERTION_CONTEXT';
     }
   | {
       type: 'RESET';
@@ -49,6 +64,27 @@ export const validationResultsMachine = statemachine<States, Events, BaseState>(
       RESET: () => {
         return {
           current: 'NO_RESULTS',
+        };
+      },
+      SET_ASSERTION_CONTEXT: ({ assertionId }, state) => {
+        return {
+          current: 'ASSERTION_CONTEXT',
+          assertionId,
+          annotatedXML: state.annotatedXML,
+          validationReport: {
+            ...state.validationReport,
+          },
+        };
+      },
+    },
+    ASSERTION_CONTEXT: {
+      CLEAR_ASSERTION_CONTEXT: (_, state) => {
+        return {
+          current: 'HAS_RESULT',
+          annotatedXML: state.annotatedXML,
+          validationReport: {
+            ...state.validationReport,
+          },
         };
       },
     },

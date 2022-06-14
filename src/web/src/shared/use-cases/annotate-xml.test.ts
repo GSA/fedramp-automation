@@ -1,7 +1,9 @@
+import { it, describe, expect } from 'vitest';
+
 import { AnnotateXMLUseCase } from './annotate-xml';
 
 // @ts-ignore
-import * as SaxonJS from 'saxon-js';
+import SaxonJS from 'saxon-js';
 
 describe('xml annotation integrated with SaxonJS', () => {
   const annotateXML = AnnotateXMLUseCase({
