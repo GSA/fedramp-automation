@@ -3473,12 +3473,28 @@
             <sch:let
                 name="missing-required-technical-controls"
                 value="$required-technical-controls[not(. = $implemented-controls)]" />
+            <sch:let
+                name="automation-controls"
+                value="$fedramp-values//fedramp:value-set[@name eq 'automation-control-id']//fedramp:enum/@value ! xs:string(.)" />
+            <sch:let
+                name="required-automation-controls"
+                value="$automation-controls[. = $required-controls]" />
+            <sch:let
+                name="missing-required-automation-controls"
+                value="$required-automation-controls[not(. = $implemented-controls)]" />
             <sch:assert
                 diagnostics="technical-control-exists-diagnostic"
                 fedramp:specific="true"
                 id="technical-control-exists"
                 role="error"
                 test="count($missing-required-technical-controls) eq 0">Every required technical control is
+                implemented.</sch:assert>
+            <sch:assert
+                diagnostics="automation-control-exists-diagnostic"
+                fedramp:specific="true"
+                id="automation-control-exists"
+                role="error"
+                test="count($missing-required-automation-controls) eq 0">Every required automation control is
                 implemented.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -3493,6 +3509,9 @@
             <sch:let
                 name="technical-controls"
                 value="$fedramp-values//fedramp:value-set[@name eq 'technical-control-id']//fedramp:enum/@value ! xs:string(.)" />
+            <sch:let
+                name="automation-controls"
+                value="$fedramp-values//fedramp:value-set[@name eq 'automation-control-id']//fedramp:enum/@value ! xs:string(.)" />
             <sch:assert
                 diagnostics="technical-control-is-implemented-diagnostic"
                 fedramp:specific="true"
@@ -3509,6 +3528,22 @@
                             (false()))
                     else
                         (true())">Every technical control is fully implemented.</sch:assert>
+            <sch:assert
+                diagnostics="automation-control-is-implemented-diagnostic"
+                fedramp:specific="true"
+                id="automation-control-is-implemented"
+                role="error"
+                test="
+                    if (@control-id = $automation-controls)
+                    then
+                        (
+                        if (exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'implementation-status' and @value eq 'implemented']))
+                        then
+                            (true())
+                        else
+                            (false()))
+                    else
+                        (true())">Every automation control is fully implemented.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-implementation-status-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
@@ -5402,6 +5437,16 @@
             doc:assertion="technical-control-is-implemented"
             doc:context="oscal:implemented-requirement"
             id="technical-control-is-implemented-diagnostic">The technical control implementation <sch:value-of
+                select="@control-id" /> does not have an implementation status of 'implemented'.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="automation-control-exists"
+            doc:context="oscal:control-implementation"
+            id="automation-control-exists-diagnostic">The SSP document does not contain the following implemented requirement(s) <sch:value-of
+                select="$missing-required-automation-controls" />.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="automation-control-is-implemented"
+            doc:context="oscal:implemented-requirement"
+            id="automation-control-is-implemented-diagnostic">The technical control implementation <sch:value-of
                 select="@control-id" /> does not have an implementation status of 'implemented'.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-implementation-status"
