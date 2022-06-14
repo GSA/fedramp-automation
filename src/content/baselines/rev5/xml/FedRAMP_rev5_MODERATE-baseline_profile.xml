@@ -363,1801 +363,1801 @@
 	<modify>
 		<set-parameter param-id="ac-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>twenty-four (24) hours</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>eight (8) hours</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>eight (8) hours</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02_odp.10">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02.02_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>Selection: disables </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02.02_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02.03_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>24 hours for user accounts</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02.03_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>ninety (90) days (See additional requirements and guidance.)</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02.09_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>organization-defined need with justification statement that explains why such accounts are necessary</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02.12_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at a minimum, the ISSO and/or similar role within the organization</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02.13_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>one (1) hour</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-02.13_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-06.02_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>all security functions</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-06.07_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>all users with privileges</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-06.07_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-07_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>fifteen (15) minutes </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-07_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-07_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>locks the account/node for a minimum of thirty minutes or until unlocked by an administrator</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-08_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>see additional Requirements and Guidance</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-11_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>fifteen (15) minutes; requiring the user to initiate a device lock before leaving the system unattended</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ac-22_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least quarterly</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="at-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="at-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="at-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="at-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="at-2_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="at-02_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="at-02_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="at-03_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="at-03_odp.04">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="at-03_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="at-04_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least one (1) year or 1 years after completion of a specific training program</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-02_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>successful and unsuccessful account logon events, account management events, object access, policy change, privilege functions, process tracking, and system events. For Web applications: all administrator activity, authentication checks, authorization checks, data deletions, data access, data changes, and permission changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-2_prm_2">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>organization-defined subset of the auditable events defined in AU-2a to be audited continually for each identified event.</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-02_odp.04">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>annually or whenever there is a change in the threat environment</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-03.01_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>session, connection, transaction, or activity duration; for client-server transactions, the number of bytes received and bytes sent; additional informational messages to diagnose or identify the event; characteristics that describe or identify the object or resource being acted upon; individual identities of group account users; full-text of privileged commands</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-05_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>overwrite oldest record</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-06_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least weekly</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-06_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-11_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least ninety days</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-12_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>all information system and network components where audit capability is deployed/available</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-02_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-02_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>individuals or roles to include FedRAMP PMO</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-03_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually and on input from JAB/AO</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-05_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least monthly</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-06_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every three (3) years or when a significant change occurs</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-7_prm_4">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>to include JAB/AO</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-7_prm_5">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ca-09_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-02_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually or when a significant change occurs</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-02_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>to include when directed by the JAB</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-3.4_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>Configuration control board (CCB) or similar (as defined in CM-3)</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-03.04_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-5.5_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least quarterly</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-06_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>United States Government Configuration Baseline (USGCB)</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-7_prm_2">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>United States Government Configuration Baseline (USGCB)</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-07.01_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-07.05_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually or when there is a change</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-08_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least monthly</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-8.3_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>Continuously, using automated mechanisms with a maximum five-minute delay in detection.</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-08.03_odp.04">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cm-11_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>Continuously (via CM-7 (5))</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-02_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-02.03_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>time period defined in service provider and organization SLA</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-02.03_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-03_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>ten (10) days</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-03_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-03_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-03_odp.04">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-04_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>functional exercises</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-4_prm_2">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-09_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>daily incremental; weekly full</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-09_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-09_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>daily incremental; weekly full</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-09_odp.04">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>daily incremental; weekly full</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-9.1_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="cp-09.08_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>all backup files</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-02.06_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>privileged accounts; non-privileged accounts </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-02.06_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-02.06_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>FIPS 140, NIAP Certification, or NSA approval</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-02.08_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>privileged accounts; non-privileged accounts</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-04_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at a minimum, the ISSO (or similar role within the organization) </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-04_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least two (2) years</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-04.04_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>contractors; foreign nationals</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-05.01_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>organization-defined composition, including at least 50% of the password changed when new passwords are created; and prohibits password reuse for twenty four (24) generations</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-02_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>ten (10) days</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-02_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-02_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-02_odp.04">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-03_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>functionally, at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-03_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-06_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>US-CERT incident reporting timelines as specified in NIST Special Publication 800-61 (as amended)</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-08_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-08_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-08_odp.04">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>see additional FedRAMP Requirements and Guidance</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ir-8_prm_5">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>see additional FedRAMP Requirements and Guidance</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ma-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ma-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ma-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ma-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ma-03_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ma-03.03_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>the information owner explicitly authorizing removal of the equipment from the facility</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-03_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>organization-defined security safeguards not applicable</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-03_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-4_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>see additional FedRAMP requirements and guidance</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-4_prm_2">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-05_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>all media with sensitive information </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-5_prm_2">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>prior to leaving secure/controlled environment: for digital media, encryption using a FIPS 140 validated encryption module; for non-digital media, secured in locked container</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-6_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>techniques and procedures IAW NIST SP 800-88 Section 4: Reuse and Disposal of Storage Media and Hardware</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-6_prm_2">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-02_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-03_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>CSP defined physical access control systems/devices AND guards</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-03_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>in all circumstances within restricted access area where the information system resides</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-03_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-03_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-3_prm_9">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-06_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least monthly</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-06_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-08_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>for a minimum of one (1) year</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-08_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least monthly</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-13.01_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>service provider emergency responders with incident response responsibilities</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-13.01_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-14_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>consistent with American Society of Heating, Refrigerating and Air-conditioning Engineers (ASHRAE) document entitled Thermal Guidelines for Data Processing Environments</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-14_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-14_odp.04">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>continuously</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-16_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>all information system components</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-02_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-04_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-04_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually and when the rules are revised or changed</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pl-08_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually or when a significant change occurs</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-02_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every three years</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-3_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>for national security clearances; a reinvestigation is required during the fifth (5th) year for top secret security clearance, the tenth (10th) year for secret security clearance, and fifteenth (15th) year for confidential security clearance.</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-04_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>same day</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-05_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>twenty-four (24) hours </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-05_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-05_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>twenty-four (24) hours</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-05_odp.04">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-06_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-06_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually and any time there is a change to the user's level of access</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-07_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>organization-defined time period – same day</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-07_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-08_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at a minimum, the ISSO and/or similar role within the organization</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ps-08_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-03_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>security assessment report</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-03_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every three (3) years or when a significant change occurs</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-03_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every three (3) years</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-5_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>monthly operating system/infrastructure; monthly web applications (including APIs) and databases</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-05_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>high-risk vulnerabilities mitigated within thirty (30) days from date of discovery; moderate-risk vulnerabilities mitigated within ninety (90) days from date of discovery; low risk vulnerabilities mitigated within one hundred and eighty (180) days from date of discovery</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-05.02_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>prior to a new scan</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-05.05_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>all scans</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-05.05_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-04.02_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at a minimum to include security-relevant external system interfaces; high-level design; low-level design; source code or network and data flow diagram; </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-04.02_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>organization-defined design/implementation information</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-05_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at a minimum, the ISSO (or similar role within the organization)</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-09_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>Appropriate FedRAMP Security Controls Baseline (s) if Federal information is processed or stored within the external system</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-09_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>Federal/FedRAMP Continuous Monitoring requirements must be met for external systems where Federal information is processed or stored</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-09.02_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>all external systems where Federal information is processed or stored</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-10_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>development, implementation, AND operation</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-15_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>organization and service provider- defined security requirements</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-15_prm_2">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-07.04_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-07.05_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>any systems</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-07.12_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>Host Intrusion Prevention System (HIPS), Host Intrusion Detection System (HIDS), or minimally a host-based firewall</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-07.12_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-08_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>confidentiality AND integrity</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-08.01_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>prevent unauthorized disclosure of information AND detect changes to information</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-10_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>no longer than thirty (30) minutes for privileged sessions and no longer than sixty (60) minutes for user sessions</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-13_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>FIPS-validated or NSA-approved cryptography</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-15_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>no exceptions for computing devices</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-28_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>confidentiality AND integrity</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-28_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-28.01_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>all information system components storing customer data deemed sensitive</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sc-28.01_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least every 3 years </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-02_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>within thirty (30) days of release of updates</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-02.02_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least monthly </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-02.02_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-03_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>signature based and non-signature based</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-03_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>to include endpoints and network entry and exit points</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-03_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-03_odp.04">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>to include blocking and quarantining malicious code and alerting administrator or defined security personnel near-realtime</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-03_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-4.4_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>continuously</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-4.4_prm_2">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-05_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>to include US-CERT</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-05_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>to include system security personnel and administrators with configuration/patch-management responsibilities</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-06_odp.03">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>to include upon system startup and/or restart -2 </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-06_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>to include system administrators and security personnel</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-7.1_prm_1">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least monthly</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-7.1_prm_2">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sr-01_odp.05">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sr-01_odp.06">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>TBD</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sr-01_odp.07">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually </p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sr-01_odp.08">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>significant changes</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sr-02_odp.02">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sr-06_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>at least annually</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sr-08_odp.01">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>notification of supply chain compromises and results of assessment or audits</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sr-11.02_odp">
 			<constraint>
-				<descriptions>
+				<description>
 					<p>all</p>
-				</descriptions>
+				</description>
 			</constraint>
 		</set-parameter>
 		<!-- 
