@@ -16,7 +16,12 @@ const DEPLOYMENT_ID =
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [tsconfigPaths(), react()],
+  plugins: [
+    tsconfigPaths(),
+    react({
+      jsxImportSource: '@emotion/react',
+    }),
+  ],
   base: BASEURL,
   define: {
     'import.meta.env.DEPLOYMENT_ID': JSON.stringify(DEPLOYMENT_ID),
