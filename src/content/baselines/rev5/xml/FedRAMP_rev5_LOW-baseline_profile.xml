@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="9af0a7d3-252c-4f18-9baf-4f10e82bfac8">
+<profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="2387b2f8-e004-41a6-b65c-f935acff9c3f">
 	<metadata>
-		<title>FedRAMP Rev 5 High Baseline</title>
+		<title>FedRAMP Rev 5 Moderate Baseline</title>
 		<published>2022-06-01T00:00:00.000-04:00</published>
 		<last-modified>2022-06-13T00:00:00.000-04:00</last-modified>
 		<version>fedramp1.1.0-oscal1.0.0</version>
@@ -53,186 +53,63 @@
 		<include-controls>
 			<with-id>ac-1</with-id>
 			<with-id>ac-2</with-id>
-			<with-id>ac-2.1</with-id>
-			<with-id>ac-2.2</with-id>
-			<with-id>ac-2.3</with-id>
-			<with-id>ac-2.4</with-id>
-			<with-id>ac-2.5</with-id>
-			<with-id>ac-2.7</with-id>
-			<with-id>ac-2.9</with-id>
-			<with-id>ac-2.11</with-id>
-			<with-id>ac-2.12</with-id>
-			<with-id>ac-2.13</with-id>
 			<with-id>ac-3</with-id>
-			<with-id>ac-4</with-id>
-			<with-id>ac-4.4</with-id>
-			<with-id>ac-5</with-id>
-			<with-id>ac-6</with-id>
-			<with-id>ac-6.1</with-id>
-			<with-id>ac-6.2</with-id>
-			<with-id>ac-6.3</with-id>
-			<with-id>ac-6.5</with-id>
-			<with-id>ac-6.7</with-id>
-			<with-id>ac-6.8</with-id>
-			<with-id>ac-6.9</with-id>
-			<with-id>ac-6.10</with-id>
 			<with-id>ac-7</with-id>
 			<with-id>ac-8</with-id>
-			<with-id>ac-10</with-id>
-			<with-id>ac-11</with-id>
-			<with-id>ac-11.1</with-id>
-			<with-id>ac-12</with-id>
 			<with-id>ac-14</with-id>
 			<with-id>ac-17</with-id>
-			<with-id>ac-17.1</with-id>
-			<with-id>ac-17.2</with-id>
-			<with-id>ac-17.3</with-id>
-			<with-id>ac-17.4</with-id>
 			<with-id>ac-18</with-id>
-			<with-id>ac-18.1</with-id>
-			<with-id>ac-18.3</with-id>
-			<with-id>ac-18.4</with-id>
-			<with-id>ac-18.5</with-id>
 			<with-id>ac-19</with-id>
-			<with-id>ac-19.5</with-id>
 			<with-id>ac-20</with-id>
-			<with-id>ac-20.1</with-id>
-			<with-id>ac-20.2</with-id>
-			<with-id>ac-21</with-id>
 			<with-id>ac-22</with-id>
 			<with-id>at-1</with-id>
 			<with-id>at-2</with-id>
 			<with-id>at-2.2</with-id>
-			<with-id>at-2.3</with-id>
 			<with-id>at-3</with-id>
 			<with-id>at-4</with-id>
 			<with-id>au-1</with-id>
 			<with-id>au-2</with-id>
 			<with-id>au-3</with-id>
-			<with-id>au-3.1</with-id>
 			<with-id>au-4</with-id>
 			<with-id>au-5</with-id>
-			<with-id>au-5.1</with-id>
-			<with-id>au-5.2</with-id>
 			<with-id>au-6</with-id>
-			<with-id>au-6.1</with-id>
-			<with-id>au-6.3</with-id>
-			<with-id>au-6.4</with-id>
-			<with-id>au-6.5</with-id>
-			<with-id>au-6.6</with-id>
-			<with-id>au-6.7</with-id>
-			<with-id>au-7</with-id>
-			<with-id>au-7.1</with-id>
 			<with-id>au-8</with-id>
 			<with-id>au-9</with-id>
-			<with-id>au-9.2</with-id>
-			<with-id>au-9.3</with-id>
-			<with-id>au-9.4</with-id>
-			<with-id>au-10</with-id>
 			<with-id>au-11</with-id>
 			<with-id>au-12</with-id>
-			<with-id>au-12.1</with-id>
-			<with-id>au-12.3</with-id>
 			<with-id>ca-1</with-id>
 			<with-id>ca-2</with-id>
 			<with-id>ca-2.1</with-id>
-			<with-id>ca-2.2</with-id>
 			<with-id>ca-3</with-id>
-			<with-id>ca-3.6</with-id>
 			<with-id>ca-5</with-id>
 			<with-id>ca-6</with-id>
 			<with-id>ca-7</with-id>
-			<with-id>ca-7.1</with-id>
 			<with-id>ca-7.4</with-id>
-			<with-id>ca-8</with-id>
-			<with-id>ca-8.1</with-id>
 			<with-id>ca-9</with-id>
 			<with-id>cm-1</with-id>
 			<with-id>cm-2</with-id>
-			<with-id>cm-2.2</with-id>
-			<with-id>cm-2.3</with-id>
-			<with-id>cm-2.7</with-id>
-			<with-id>cm-3</with-id>
-			<with-id>cm-3.1</with-id>
-			<with-id>cm-3.2</with-id>
-			<with-id>cm-3.4</with-id>
-			<with-id>cm-3.6</with-id>
 			<with-id>cm-4</with-id>
-			<with-id>cm-4.1</with-id>
-			<with-id>cm-4.2</with-id>
 			<with-id>cm-5</with-id>
-			<with-id>cm-5.1</with-id>
-			<with-id>cm-5.5</with-id>
 			<with-id>cm-6</with-id>
-			<with-id>cm-6.1</with-id>
-			<with-id>cm-6.2</with-id>
 			<with-id>cm-7</with-id>
-			<with-id>cm-7.1</with-id>
-			<with-id>cm-7.2</with-id>
-			<with-id>cm-7.5</with-id>
 			<with-id>cm-8</with-id>
-			<with-id>cm-8.1</with-id>
-			<with-id>cm-8.2</with-id>
-			<with-id>cm-8.3</with-id>
-			<with-id>cm-8.4</with-id>
-			<with-id>cm-9</with-id>
 			<with-id>cm-10</with-id>
 			<with-id>cm-11</with-id>
-			<with-id>cm-12</with-id>
-			<with-id>cm-12.1</with-id>
 			<with-id>cp-1</with-id>
 			<with-id>cp-2</with-id>
-			<with-id>cp-2.1</with-id>
-			<with-id>cp-2.2</with-id>
-			<with-id>cp-2.3</with-id>
-			<with-id>cp-2.5</with-id>
-			<with-id>cp-2.8</with-id>
 			<with-id>cp-3</with-id>
-			<with-id>cp-3.1</with-id>
 			<with-id>cp-4</with-id>
-			<with-id>cp-4.1</with-id>
-			<with-id>cp-4.2</with-id>
-			<with-id>cp-6</with-id>
-			<with-id>cp-6.1</with-id>
-			<with-id>cp-6.2</with-id>
-			<with-id>cp-6.3</with-id>
-			<with-id>cp-7</with-id>
-			<with-id>cp-7.1</with-id>
-			<with-id>cp-7.2</with-id>
-			<with-id>cp-7.3</with-id>
-			<with-id>cp-7.4</with-id>
-			<with-id>cp-8</with-id>
-			<with-id>cp-8.1</with-id>
-			<with-id>cp-8.2</with-id>
-			<with-id>cp-8.3</with-id>
-			<with-id>cp-8.4</with-id>
 			<with-id>cp-9</with-id>
-			<with-id>cp-9.1</with-id>
-			<with-id>cp-9.2</with-id>
-			<with-id>cp-9.3</with-id>
-			<with-id>cp-9.5</with-id>
-			<with-id>cp-9.8</with-id>
 			<with-id>cp-10</with-id>
-			<with-id>cp-10.2</with-id>
-			<with-id>cp-10.4</with-id>
 			<with-id>ia-1</with-id>
 			<with-id>ia-2</with-id>
 			<with-id>ia-2.1</with-id>
 			<with-id>ia-2.2</with-id>
-			<with-id>ia-2.5</with-id>
-			<with-id>ia-2.6</with-id>
 			<with-id>ia-2.8</with-id>
 			<with-id>ia-2.12</with-id>
-			<with-id>ia-3</with-id>
 			<with-id>ia-4</with-id>
-			<with-id>ia-4.4</with-id>
 			<with-id>ia-5</with-id>
 			<with-id>ia-5.1</with-id>
-			<with-id>ia-5.2</with-id>
-			<with-id>ia-5.6</with-id>
-			<with-id>ia-5.7</with-id>
-			<with-id>ia-5.8</with-id>
-			<with-id>ia-5.13</with-id>
 			<with-id>ia-6</with-id>
 			<with-id>ia-7</with-id>
 			<with-id>ia-8</with-id>
@@ -240,90 +117,41 @@
 			<with-id>ia-8.2</with-id>
 			<with-id>ia-8.4</with-id>
 			<with-id>ia-11</with-id>
-			<with-id>ia-12</with-id>
-			<with-id>ia-12.2</with-id>
-			<with-id>ia-12.3</with-id>
-			<with-id>ia-12.4</with-id>
-			<with-id>ia-12.5</with-id>
 			<with-id>ir-1</with-id>
 			<with-id>ir-2</with-id>
-			<with-id>ir-2.1</with-id>
-			<with-id>ir-2.2</with-id>
-			<with-id>ir-3</with-id>
-			<with-id>ir-3.2</with-id>
 			<with-id>ir-4</with-id>
-			<with-id>ir-4.1</with-id>
-			<with-id>ir-4.2</with-id>
-			<with-id>ir-4.4</with-id>
-			<with-id>ir-4.6</with-id>
-			<with-id>ir-4.11</with-id>
 			<with-id>ir-5</with-id>
-			<with-id>ir-5.1</with-id>
 			<with-id>ir-6</with-id>
-			<with-id>ir-6.1</with-id>
-			<with-id>ir-6.3</with-id>
 			<with-id>ir-7</with-id>
-			<with-id>ir-7.1</with-id>
 			<with-id>ir-8</with-id>
 			<with-id>ma-1</with-id>
 			<with-id>ma-2</with-id>
-			<with-id>ma-2.2</with-id>
-			<with-id>ma-3</with-id>
-			<with-id>ma-3.1</with-id>
-			<with-id>ma-3.2</with-id>
-			<with-id>ma-3.3</with-id>
 			<with-id>ma-4</with-id>
-			<with-id>ma-4.3</with-id>
 			<with-id>ma-5</with-id>
-			<with-id>ma-5.1</with-id>
-			<with-id>ma-6</with-id>
 			<with-id>mp-1</with-id>
 			<with-id>mp-2</with-id>
-			<with-id>mp-3</with-id>
-			<with-id>mp-4</with-id>
-			<with-id>mp-5</with-id>
 			<with-id>mp-6</with-id>
-			<with-id>mp-6.1</with-id>
-			<with-id>mp-6.2</with-id>
-			<with-id>mp-6.3</with-id>
 			<with-id>mp-7</with-id>
 			<with-id>pe-1</with-id>
 			<with-id>pe-2</with-id>
 			<with-id>pe-3</with-id>
-			<with-id>pe-3.1</with-id>
-			<with-id>pe-4</with-id>
-			<with-id>pe-5</with-id>
 			<with-id>pe-6</with-id>
-			<with-id>pe-6.1</with-id>
-			<with-id>pe-6.4</with-id>
 			<with-id>pe-8</with-id>
-			<with-id>pe-8.1</with-id>
-			<with-id>pe-9</with-id>
-			<with-id>pe-10</with-id>
-			<with-id>pe-11</with-id>
-			<with-id>pe-11.1</with-id>
 			<with-id>pe-12</with-id>
 			<with-id>pe-13</with-id>
-			<with-id>pe-13.1</with-id>
-			<with-id>pe-13.2</with-id>
 			<with-id>pe-14</with-id>
 			<with-id>pe-15</with-id>
-			<with-id>pe-15.1</with-id>
 			<with-id>pe-16</with-id>
-			<with-id>pe-17</with-id>
-			<with-id>pe-18</with-id>
 			<with-id>pl-1</with-id>
 			<with-id>pl-2</with-id>
 			<with-id>pl-4</with-id>
 			<with-id>pl-4.1</with-id>
-			<with-id>pl-8</with-id>
 			<with-id>pl-10</with-id>
 			<with-id>pl-11</with-id>
 			<with-id>ps-1</with-id>
 			<with-id>ps-2</with-id>
 			<with-id>ps-3</with-id>
 			<with-id>ps-4</with-id>
-			<with-id>ps-4.2</with-id>
 			<with-id>ps-5</with-id>
 			<with-id>ps-6</with-id>
 			<with-id>ps-7</with-id>
@@ -335,114 +163,44 @@
 			<with-id>ra-3.1</with-id>
 			<with-id>ra-5</with-id>
 			<with-id>ra-5.2</with-id>
-			<with-id>ra-5.3</with-id>
-			<with-id>ra-5.4</with-id>
-			<with-id>ra-5.5</with-id>
 			<with-id>ra-5.11</with-id>
 			<with-id>ra-7</with-id>
-			<with-id>ra-9</with-id>
 			<with-id>sa-1</with-id>
 			<with-id>sa-2</with-id>
 			<with-id>sa-3</with-id>
 			<with-id>sa-4</with-id>
-			<with-id>sa-4.1</with-id>
-			<with-id>sa-4.2</with-id>
-			<with-id>sa-4.5</with-id>
-			<with-id>sa-4.9</with-id>
 			<with-id>sa-4.10</with-id>
 			<with-id>sa-5</with-id>
 			<with-id>sa-8</with-id>
 			<with-id>sa-9</with-id>
-			<with-id>sa-9.2</with-id>
-			<with-id>sa-9.5</with-id>
-			<with-id>sa-10</with-id>
-			<with-id>sa-11</with-id>
-			<with-id>sa-15</with-id>
-			<with-id>sa-15.3</with-id>
-			<with-id>sa-16</with-id>
-			<with-id>sa-17</with-id>
-			<with-id>sa-21</with-id>
 			<with-id>sa-22</with-id>
 			<with-id>sc-1</with-id>
-			<with-id>sc-2</with-id>
-			<with-id>sc-3</with-id>
-			<with-id>sc-4</with-id>
 			<with-id>sc-5</with-id>
 			<with-id>sc-7</with-id>
-			<with-id>sc-7.3</with-id>
-			<with-id>sc-7.4</with-id>
-			<with-id>sc-7.5</with-id>
-			<with-id>sc-7.7</with-id>
-			<with-id>sc-7.8</with-id>
-			<with-id>sc-7.12</with-id>
-			<with-id>sc-7.18</with-id>
-			<with-id>sc-7.20</with-id>
-			<with-id>sc-7.21</with-id>
-			<with-id>sc-8</with-id>
-			<with-id>sc-8.1</with-id>
-			<with-id>sc-10</with-id>
 			<with-id>sc-12</with-id>
-			<with-id>sc-12.1</with-id>
 			<with-id>sc-13</with-id>
 			<with-id>sc-15</with-id>
-			<with-id>sc-17</with-id>
-			<with-id>sc-18</with-id>
 			<with-id>sc-20</with-id>
 			<with-id>sc-21</with-id>
 			<with-id>sc-22</with-id>
-			<with-id>sc-23</with-id>
-			<with-id>sc-24</with-id>
-			<with-id>sc-28</with-id>
-			<with-id>sc-28.1</with-id>
 			<with-id>sc-39</with-id>
 			<with-id>si-1</with-id>
 			<with-id>si-2</with-id>
-			<with-id>si-2.2</with-id>
-			<with-id>si-2.3</with-id>
 			<with-id>si-3</with-id>
 			<with-id>si-4</with-id>
-			<with-id>si-4.1</with-id>
-			<with-id>si-4.2</with-id>
-			<with-id>si-4.4</with-id>
-			<with-id>si-4.5</with-id>
-			<with-id>si-4.10</with-id>
-			<with-id>si-4.11</with-id>
-			<with-id>si-4.12</with-id>
-			<with-id>si-4.14</with-id>
-			<with-id>si-4.16</with-id>
-			<with-id>si-4.19</with-id>
-			<with-id>si-4.20</with-id>
-			<with-id>si-4.22</with-id>
-			<with-id>si-4.23</with-id>
 			<with-id>si-5</with-id>
-			<with-id>si-5.1</with-id>
-			<with-id>si-6</with-id>
-			<with-id>si-7</with-id>
-			<with-id>si-7.1</with-id>
-			<with-id>si-7.2</with-id>
-			<with-id>si-7.5</with-id>
-			<with-id>si-7.7</with-id>
-			<with-id>si-7.15</with-id>
-			<with-id>si-8</with-id>
-			<with-id>si-8.2</with-id>
-			<with-id>si-10</with-id>
-			<with-id>si-11</with-id>
 			<with-id>si-12</with-id>
-			<with-id>si-16</with-id>
 			<with-id>sr-1</with-id>
 			<with-id>sr-2</with-id>
 			<with-id>sr-2.1</with-id>
 			<with-id>sr-3</with-id>
 			<with-id>sr-5</with-id>
-			<with-id>sr-6</with-id>
 			<with-id>sr-8</with-id>
-			<with-id>sr-9</with-id>
-			<with-id>sr-9.1</with-id>
 			<with-id>sr-10</with-id>
 			<with-id>sr-11</with-id>
 			<with-id>sr-11.1</with-id>
 			<with-id>sr-11.2</with-id>
-			<with-id>sr-12</with-id>
+			<with-id>sr-12</with-id>			
 		</include-controls>
 	</import>
 	<merge>
@@ -452,7 +210,7 @@
 		<set-parameter param-id="ac-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -501,140 +259,7 @@
 		<set-parameter param-id="ac-02_odp.10">
 			<constraint>
 				<descriptions>
-					<p>monthly for privileged accessed, every six (6) months for non-privileged access</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-02.02_odp.01">
-			<constraint>
-				<descriptions>
-					<p>Selection: disables </p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-02.02_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-02.03_odp.01">
-			<constraint>
-				<descriptions>
-					<p>24 hours for user accounts</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-02.03_odp.02">
-			<constraint>
-				<descriptions>
-					<p>thirty-five (35) days (See additional requirements and guidance.)</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-02.05_odp">
-			<constraint>
-				<descriptions>
-					<p>inactivity is anticipated to exceed Fifteen (15) minutes</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-02.09_odp">
-			<constraint>
-				<descriptions>
-					<p>organization-defined need with justification statement that explains why such accounts are necessary</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-02.12_odp.02">
-			<constraint>
-				<descriptions>
-					<p>at a minimum, the ISSO and/or similar role within the organization</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-02.13_odp.01">
-			<constraint>
-				<descriptions>
-					<p>one (1) hour</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-02.13_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-04.04_odp.01">
-			<constraint>
-				<descriptions>
-					<p>intrusion detection mechanisms</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-04.04_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-6.1_prm_2">
-			<constraint>
-				<descriptions>
-					<p>all functions not publicly accessible</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-06.01_odp.05">
-			<constraint>
-				<descriptions>
-					<p>all security-relevant information not publicly available</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-06.02_odp">
-			<constraint>
-				<descriptions>
-					<p>all security functions</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-06.03_odp.01">
-			<constraint>
-				<descriptions>
-					<p>all privileged commands</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-06.03_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-06.07_odp.01">
-			<constraint>
-				<descriptions>
-					<p>all users with privileges</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-06.07_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-06.08_odp">
-			<constraint>
-				<descriptions>
-					<p>any software except software explicitly documented</p>
+					<p>at least annually</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -655,7 +280,7 @@
 		<set-parameter param-id="ac-07_odp.03">
 			<constraint>
 				<descriptions>
-					<p>locks the account/node for a minimum of three (3) hours or until unlocked by an administrator</p>
+					<p>locks the account/node for a minimum of thirty minutes or until unlocked by an administrator</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -663,27 +288,6 @@
 			<constraint>
 				<descriptions>
 					<p>see additional Requirements and Guidance</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-10_odp.01">
-			<constraint>
-				<descriptions>
-					<p>three (3) sessions for privileged access and two (2) sessions for non-privileged access</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-10_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ac-11_odp.01">
-			<constraint>
-				<descriptions>
-					<p>fifteen (15) minutes; requiring the user to initiate a device lock before leaving the system unattended</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -697,7 +301,7 @@
 		<set-parameter param-id="at-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -767,14 +371,14 @@
 		<set-parameter param-id="at-04_odp">
 			<constraint>
 				<descriptions>
-					<p>five (5) years or 5 years after completion of a specific training program</p>
+					<p>at least one (1) year or 1 years after completion of a specific training program</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -820,38 +424,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="au-03.01_odp">
-			<constraint>
-				<descriptions>
-					<p>session, connection, transaction, or activity duration; for client-server transactions, the number of bytes received and bytes sent; additional informational messages to diagnose or identify the event; characteristics that describe or identify the object or resource being acted upon; individual identities of group account users; full-text of privileged commands</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="au-05_odp.03">
 			<constraint>
 				<descriptions>
 					<p>overwrite oldest record</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-05.02_odp.01">
-			<constraint>
-				<descriptions>
-					<p>audit failure events requiring real-time alerts, as defined by organization audit policy.</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-05.02_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-05.02_odp.03">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -869,45 +445,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="au-06.05_odp.01">
-			<constraint>
-				<descriptions>
-					<p>Selection (one or more): vulnerability scanning information; performance data; information system monitoring information; penetration test data; </p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-06.07_odp">
-			<constraint>
-				<descriptions>
-					<p>information system process; role; user</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-08_odp">
-			<constraint>
-				<descriptions>
-					<p>one second granularity of time measurement</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-09.02_odp">
-			<constraint>
-				<descriptions>
-					<p>at least weekly</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-10_odp">
-			<constraint>
-				<descriptions>
-					<p>minimum actions including the addition, modification, deletion, approval, sending, or receiving of data</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="au-11_odp">
 			<constraint>
 				<descriptions>
-					<p>at least one (1) year</p>
+					<p>at least ninety days</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -918,52 +459,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="au-12.01_odp.01">
-			<constraint>
-				<descriptions>
-					<p>all network, data storage, and computing devices</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-12.01_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-12.03_odp.01">
-			<constraint>
-				<descriptions>
-					<p>all network, data storage, and computing devices</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-12.03_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-12.03_odp.03">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="au-12.03_odp.04">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="ca-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1002,27 +501,6 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ca-02.02_odp.01">
-			<constraint>
-				<descriptions>
-					<p>at least annually</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ca-02.02_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ca-02.02_odp.03">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="ca-03_odp.03">
 			<constraint>
 				<descriptions>
@@ -1058,31 +536,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ca-08_odp.01">
-			<constraint>
-				<descriptions>
-					<p>at least annually</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ca-08_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ca-09_odp.03">
-			<constraint>
-				<descriptions>
-					<p>at least annually</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="cm-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1121,55 +578,6 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="cm-02.03_odp">
-			<constraint>
-				<descriptions>
-					<p>organization-defined number of previous versions of baseline configurations of the previously approved baseline configuration of IS components</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cm-03.01_odp.03">
-			<constraint>
-				<descriptions>
-					<p>organization agreed upon time period </p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cm-03.01_odp.04">
-			<constraint>
-				<descriptions>
-					<p>organization defined configuration management approval authorities</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cm-3.4_prm_1">
-			<constraint>
-				<descriptions>
-					<p>Configuration control board (CCB) or similar (as defined in CM-3)</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cm-03.04_odp.03">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cm-03.06_odp">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cm-5.5_prm_1">
-			<constraint>
-				<descriptions>
-					<p>at least quarterly</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="cm-06_odp.01">
 			<constraint>
 				<descriptions>
@@ -1184,45 +592,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="cm-07.01_odp.01">
-			<constraint>
-				<descriptions>
-					<p>at least annually</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cm-07.05_odp.02">
-			<constraint>
-				<descriptions>
-					<p>at least quarterly or when there is a change</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="cm-08_odp.02">
 			<constraint>
 				<descriptions>
 					<p>at least monthly</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cm-8.3_prm_1">
-			<constraint>
-				<descriptions>
-					<p>Continuously, using automated mechanisms with a maximum five-minute delay in detection.</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cm-08.03_odp.04">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cm-08.04_odp">
-			<constraint>
-				<descriptions>
-					<p>position and role</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1236,7 +609,7 @@
 		<set-parameter param-id="cp-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1265,27 +638,6 @@
 			<constraint>
 				<descriptions>
 					<p>at least annually</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cp-02.03_odp.01">
-			<constraint>
-				<descriptions>
-					<p>time period defined in service provider and organization SLA</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cp-02.03_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cp-02.05_odp">
-			<constraint>
-				<descriptions>
-					<p>essential</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1320,7 +672,7 @@
 		<set-parameter param-id="cp-04_odp.01">
 			<constraint>
 				<descriptions>
-					<p>functional exercises</p>
+					<p>classroom exercise/table top written tests</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1328,13 +680,6 @@
 			<constraint>
 				<descriptions>
 					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cp-8.4_prm_1">
-			<constraint>
-				<descriptions>
-					<p>annually</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1366,38 +711,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="cp-9.1_prm_1">
-			<constraint>
-				<descriptions>
-					<p>at least monthly</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cp-9.5_prm_1">
-			<constraint>
-				<descriptions>
-					<p>time period and transfer rate consistent with the recovery time and recovery point objectives defined in the service provider and organization SLA.</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cp-09.08_odp">
-			<constraint>
-				<descriptions>
-					<p>all backup files</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="cp-10.04_odp">
-			<constraint>
-				<descriptions>
-					<p>time period consistent with the restoration time-periods defined in the service provider and organization SLA</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="ia-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1422,34 +739,6 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ia-02.06_odp.01">
-			<constraint>
-				<descriptions>
-					<p>privileged accounts; non-privileged accounts</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ia-02.06_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ia-02.06_odp.03">
-			<constraint>
-				<descriptions>
-					<p>FIPS 140, NIAP Certification, or NSA approval</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ia-02.08_odp">
-			<constraint>
-				<descriptions>
-					<p>privileged accounts; non-privileged accounts</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="ia-04_odp.01">
 			<constraint>
 				<descriptions>
@@ -1464,13 +753,6 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ia-04.04_odp">
-			<constraint>
-				<descriptions>
-					<p>contractors; foreign nationals</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="ia-05.01_odp.02">
 			<constraint>
 				<descriptions>
@@ -1478,17 +760,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ia-05.08_odp">
-			<constraint>
-				<descriptions>
-					<p>different authenticators on different systems</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="ir-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1541,34 +816,6 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ir-03_odp.01">
-			<constraint>
-				<descriptions>
-					<p>at least every six (6) months, including functional at least annually</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ir-03_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ir-04.02_odp.02">
-			<constraint>
-				<descriptions>
-					<p>all network, data storage, and computing devices</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ir-04.02_odp.01">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="ir-06_odp.01">
 			<constraint>
 				<descriptions>
@@ -1607,7 +854,7 @@
 		<set-parameter param-id="ma-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually</p>
+					<p>at least every 3 years</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1632,24 +879,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ma-03_odp">
-			<constraint>
-				<descriptions>
-					<p>at least annually</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ma-03.03_odp">
-			<constraint>
-				<descriptions>
-					<p>the information owner explicitly authorizing removal of the equipment from the facility</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="mp-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1674,62 +907,6 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="mp-2_prm_1">
-			<constraint>
-				<descriptions>
-					<p>any digital and non-digital media deemed sensitive</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="mp-2_prm_2">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="mp-03_odp.01">
-			<constraint>
-				<descriptions>
-					<p>organization-defined security safeguards not applicable</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="mp-03_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="mp-4_prm_1">
-			<constraint>
-				<descriptions>
-					<p>see additional FedRAMP requirements and guidance</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="mp-4_prm_2">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="mp-05_odp.01">
-			<constraint>
-				<descriptions>
-					<p>all media with sensitive information </p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="mp-5_prm_2">
-			<constraint>
-				<descriptions>
-					<p>prior to leaving secure/controlled environment: for digital media, encryption using a FIPS 140 validated encryption module; for non-digital media, secured in locked container</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="mp-6_prm_1">
 			<constraint>
 				<descriptions>
@@ -1744,17 +921,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="mp-6.2_prm_1">
-			<constraint>
-				<descriptions>
-					<p>at least every six (6) months</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="pe-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1782,7 +952,7 @@
 		<set-parameter param-id="pe-02_odp">
 			<constraint>
 				<descriptions>
-					<p>at least every ninety (90) days</p>
+					<p>at least annually</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1849,27 +1019,6 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="pe-11.01_odp">
-			<constraint>
-				<descriptions>
-					<p>automatically</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="pe-13.01_odp.01">
-			<constraint>
-				<descriptions>
-					<p>service provider emergency responders with incident response responsibilities</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="pe-13.01_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="pe-14_odp.01">
 			<constraint>
 				<descriptions>
@@ -1891,20 +1040,6 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="pe-15.01_odp.01">
-			<constraint>
-				<descriptions>
-					<p>service provider building maintenance/physical security personnel</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="pe-15.01_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="pe-16_prm_1">
 			<constraint>
 				<descriptions>
@@ -1912,17 +1047,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="pe-18_odp">
-			<constraint>
-				<descriptions>
-					<p>physical and environmental hazards identified during threat assessment</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="pl-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1957,7 +1085,7 @@
 		<set-parameter param-id="pl-04_odp.01">
 			<constraint>
 				<descriptions>
-					<p>at least annually</p>
+					<p>at least every 3 years</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -1968,17 +1096,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="pl-08_odp">
-			<constraint>
-				<descriptions>
-					<p>at least annually or when a significant change occurs</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="ps-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -2006,7 +1127,7 @@
 		<set-parameter param-id="ps-02_odp">
 			<constraint>
 				<descriptions>
-					<p>at least annually</p>
+					<p>at least every three years</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -2020,21 +1141,7 @@
 		<set-parameter param-id="ps-04_odp.01">
 			<constraint>
 				<descriptions>
-					<p>eight (8) hours</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ps-04.02_odp.01">
-			<constraint>
-				<descriptions>
-					<p>access control personnel responsible for disabling access to the system</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ps-04.02_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
+					<p>same day</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -2083,7 +1190,7 @@
 		<set-parameter param-id="ps-07_odp.01">
 			<constraint>
 				<descriptions>
-					<p>terminations: immediately; transfers: within twenty-four (24) hours</p>
+					<p>organization-defined time period – same day</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -2111,7 +1218,7 @@
 		<set-parameter param-id="ra-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -2146,14 +1253,14 @@
 		<set-parameter param-id="ra-03_odp.03">
 			<constraint>
 				<descriptions>
-					<p>at least annually or whenever a significant change occurs</p>
+					<p>at least every three (3) years or when a significant change occurs</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ra-03_odp.05">
 			<constraint>
 				<descriptions>
-					<p>annually</p>
+					<p>at least every three (3) years</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -2178,31 +1285,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ra-05.04_odp">
-			<constraint>
-				<descriptions>
-					<p>notify appropriate service provider personnel and follow procedures for organization and service provider-defined corrective actions</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ra-05.05_odp.01">
-			<constraint>
-				<descriptions>
-					<p>all scans</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="ra-05.05_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="sa-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -2227,20 +1313,6 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="sa-04.02_odp.01">
-			<constraint>
-				<descriptions>
-					<p>at a minimum to include security-relevant external system interfaces; high-level design; low-level design; source code or network and data flow diagram; </p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sa-04.02_odp.03">
-			<constraint>
-				<descriptions>
-					<p>organization-defined design/implementation information</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="sa-05_odp.02">
 			<constraint>
 				<descriptions>
@@ -2262,59 +1334,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="sa-09.02_odp">
-			<constraint>
-				<descriptions>
-					<p>all external systems where Federal information is processed or stored</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sa-09.05_odp.01">
-			<constraint>
-				<descriptions>
-					<p>all High impact data, systems, or services</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sa-09.05_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sa-09.05_odp.03">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sa-10_odp.01">
-			<constraint>
-				<descriptions>
-					<p>development, implementation, AND operation</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sa-15_odp.01">
-			<constraint>
-				<descriptions>
-					<p>organization and service provider- defined security requirements</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sa-15_prm_2">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="sc-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -2339,55 +1362,6 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="sc-07.04_odp">
-			<constraint>
-				<descriptions>
-					<p>at least every ninety (90) days or whenever there is a change in the threat environment that warrants a review of the exceptions</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sc-07.05_odp.01">
-			<constraint>
-				<descriptions>
-					<p>any systems</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sc-07.12_odp.01">
-			<constraint>
-				<descriptions>
-					<p>Host Intrusion Prevention System (HIPS), Host Intrusion Detection System (HIDS), or minimally a host-based firewall</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sc-07.12_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sc-08_odp">
-			<constraint>
-				<descriptions>
-					<p>confidentiality AND integrity</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sc-08.01_odp">
-			<constraint>
-				<descriptions>
-					<p>prevent unauthorized disclosure of information AND detect changes to information</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sc-10_odp">
-			<constraint>
-				<descriptions>
-					<p>no longer than ten (10) minutes for privileged sessions and no longer than fifteen (15) minutes for user sessions</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="sc-13_odp.02">
 			<constraint>
 				<descriptions>
@@ -2402,38 +1376,10 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="sc-28_odp.01">
-			<constraint>
-				<descriptions>
-					<p>confidentiality AND integrity</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sc-28_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sc-28.01_odp.02">
-			<constraint>
-				<descriptions>
-					<p>all information system components storing customer data deemed sensitive</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sc-28.01_odp.01">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="si-01_odp.05">
 			<constraint>
 				<descriptions>
-					<p>at least annually </p>
+					<p>at least every 3 years </p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -2462,20 +1408,6 @@
 			<constraint>
 				<descriptions>
 					<p>within thirty (30) days of release of updates</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="si-02.02_odp.01">
-			<constraint>
-				<descriptions>
-					<p>at least monthly </p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="si-02.02_odp.02">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -2514,20 +1446,6 @@
 				</descriptions>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="si-4.4_prm_1">
-			<constraint>
-				<descriptions>
-					<p>continuously</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="si-4.4_prm_2">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
 		<set-parameter param-id="si-05_odp.01">
 			<constraint>
 				<descriptions>
@@ -2539,34 +1457,6 @@
 			<constraint>
 				<descriptions>
 					<p>to include system security personnel and administrators with configuration/patch-management responsibilities</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="si-06_odp.03">
-			<constraint>
-				<descriptions>
-					<p>to include upon system startup and/or restart -2 </p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="si-06_odp.06">
-			<constraint>
-				<descriptions>
-					<p>to include system administrators and security personnel</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="si-7.1_prm_1">
-			<constraint>
-				<descriptions>
-					<p>at least monthly</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="si-7.1_prm_2">
-			<constraint>
-				<descriptions>
-					<p>TBD</p>
 				</descriptions>
 			</constraint>
 		</set-parameter>
@@ -2599,13 +1489,6 @@
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sr-02_odp.02">
-			<constraint>
-				<descriptions>
-					<p>at least annually</p>
-				</descriptions>
-			</constraint>
-		</set-parameter>
-		<set-parameter param-id="sr-06_odp">
 			<constraint>
 				<descriptions>
 					<p>at least annually</p>
