@@ -11,10 +11,7 @@ import {
   SchematronUIConfig,
 } from '../lib/schematron';
 import { getSchematronReport } from '../lib/schematron';
-import {
-  createValidationResultsMachine,
-  ValidationResultsMachine,
-} from './validation-results-machine';
+import * as validationResultsMachine from './validation-results-machine';
 
 type States =
   | {
@@ -34,7 +31,7 @@ type BaseState = {
     total: number | null;
   };
   schematronReport: SchematronReport;
-  validationResults: ValidationResultsMachine;
+  validationResults: validationResultsMachine.State;
 };
 
 type Events =
@@ -178,7 +175,8 @@ export const createSchematronMachine = () => {
           },
         }),
       ),
-      validationResults: createValidationResultsMachine(),
+      validationResults:
+        validationResultsMachine.createValidationResultsMachine(),
     },
   );
 };

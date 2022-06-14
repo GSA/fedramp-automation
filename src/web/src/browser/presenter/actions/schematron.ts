@@ -1,10 +1,9 @@
 import type { PassStatus, Role } from '../lib/schematron';
 import type { PresenterConfig } from '..';
-import type {
-  FailedAssert,
-  ValidationReport,
-} from '@asap/shared/use-cases/schematron';
+import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
+
+import * as validationResultsMachine from '../state/validation-results-machine';
 
 export const initialize = ({ effects, state }: PresenterConfig) => {
   Promise.all([
@@ -59,10 +58,17 @@ export const setValidationReport = async (
       };
     }),
   });
-  state.oscalDocuments[documentType].validationResults.send('SET_RESULTS', {
-    annotatedXML,
-    validationReport,
-  });
+  state.oscalDocuments[documentType].validationResults =
+    validationResultsMachine.nextState(
+      state.oscalDocuments[documentType].validationResults,
+      {
+        type: 'SET_RESULTS',
+        data: {
+          annotatedXML,
+          validationReport,
+        },
+      },
+    );
 };
 
 export const setFilterRole = (
