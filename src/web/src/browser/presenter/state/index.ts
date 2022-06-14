@@ -1,7 +1,4 @@
-import {
-  AssertionDocumentationMachine,
-  createAssertionDocumentationMachine,
-} from './assertion-documetation';
+import * as assertionDocumentation from './assertion-documetation';
 import * as metrics from './metrics';
 import { createRouterMachine, RouterMachine } from './router-machine';
 import {
@@ -16,7 +13,7 @@ export type SampleDocument = {
 };
 
 export type State = {
-  assertionDocumentation: AssertionDocumentationMachine;
+  assertionDocumentation: assertionDocumentation.State;
   baseUrl: `${string}/`;
   metrics: metrics.State;
   router: RouterMachine;
@@ -35,7 +32,8 @@ export type State = {
 };
 
 export const state: State = {
-  assertionDocumentation: createAssertionDocumentationMachine(),
+  assertionDocumentation:
+    assertionDocumentation.createAssertionDocumentationMachine(),
   baseUrl: '/',
   metrics: metrics.createMetricsMachine(),
   oscalDocuments: {

@@ -1,16 +1,6 @@
-import { derived, Statemachine, statemachine } from 'overmind';
-
 import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import { ScenarioSummary } from '@asap/shared/domain/xspec';
 import { OscalDocumentKey } from '@asap/shared/domain/oscal';
-
-type States =
-  | {
-      current: 'INITIALIZED';
-    }
-  | {
-      current: 'UNINITIALIZED';
-    };
 
 type BaseState = {
   xspecScenarioSummaries: XSpecScenarioSummaries;
@@ -21,7 +11,15 @@ type BaseState = {
   } | null;
 };
 
-type Events =
+export type State =
+  | (BaseState & {
+      current: 'INITIALIZED';
+    })
+  | (BaseState & {
+      current: 'UNINITIALIZED';
+    });
+
+type Event =
   | {
       type: 'SUMMARIES_LOADED';
       data: {
@@ -30,7 +28,6 @@ type Events =
     }
   | {
       type: 'CLOSE';
-      data: {};
     }
   | {
       type: 'SHOW';
@@ -40,68 +37,55 @@ type Events =
       };
     };
 
-export type AssertionDocumentationMachine = Statemachine<
-  States,
-  Events,
-  BaseState
->;
-
-const assertionDocumentationMachine = statemachine<States, Events, BaseState>({
-  UNINITIALIZED: {
-    SUMMARIES_LOADED: ({ xspecScenarioSummaries }) => {
+export const nextState = (state: State, event: Event): State => {
+  if (state.current === 'UNINITIALIZED') {
+    if (event.type === 'SUMMARIES_LOADED') {
       return {
         current: 'INITIALIZED',
-        xspecScenarioSummaries,
+        xspecScenarioSummaries: event.data.xspecScenarioSummaries,
         visibleAssertion: null,
+        visibleScenarioSummaries: [],
       };
-    },
-  },
-  INITIALIZED: {
-    CLOSE: (event, state) => {
+    }
+  } else if (state.current === 'INITIALIZED') {
+    if (event.type === 'CLOSE') {
       return {
         current: 'INITIALIZED',
         visibleAssertion: null,
+        visibleScenarioSummaries: [],
         xspecScenarioSummaries: {
           ...state.xspecScenarioSummaries,
         },
       };
-    },
-    SHOW: ({ assertionId, documentType }, state) => {
+    } else if (event.type === 'SHOW') {
+      const visibleAssertion = {
+        assertionId: event.data.assertionId,
+        documentType: event.data.documentType,
+      };
       return {
         current: 'INITIALIZED',
         xspecScenarioSummaries: {
           ...state.xspecScenarioSummaries,
         },
-        visibleAssertion: {
-          assertionId,
-          documentType,
-        },
+        visibleAssertion,
+        visibleScenarioSummaries:
+          state.xspecScenarioSummaries[visibleAssertion.documentType][
+            visibleAssertion.assertionId
+          ],
       };
-    },
-  },
-});
-
-export const createAssertionDocumentationMachine = () => {
-  return assertionDocumentationMachine.create(
-    { current: 'UNINITIALIZED' },
-    {
-      visibleAssertion: null,
-      xspecScenarioSummaries: {
-        poam: {},
-        sap: {},
-        sar: {},
-        ssp: {},
-      },
-      visibleScenarioSummaries: derived(
-        (state: AssertionDocumentationMachine) => {
-          if (!state.visibleAssertion || !state.xspecScenarioSummaries) {
-            return [];
-          }
-          return state.xspecScenarioSummaries[
-            state.visibleAssertion.documentType
-          ][state.visibleAssertion.assertionId];
-        },
-      ),
-    },
-  );
+    }
+  }
+  return state;
 };
+
+export const createAssertionDocumentationMachine = (): State => ({
+  current: 'UNINITIALIZED',
+  visibleAssertion: null,
+  xspecScenarioSummaries: {
+    poam: {},
+    sap: {},
+    sar: {},
+    ssp: {},
+  },
+  visibleScenarioSummaries: [],
+});
