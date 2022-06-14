@@ -59,7 +59,7 @@ export const createPresenter = (ctx: PresenterContext) => {
     }),
     {
       devtools: ctx.debug,
-      strict: true,
+      strict: false,
     },
   );
   return presenter;

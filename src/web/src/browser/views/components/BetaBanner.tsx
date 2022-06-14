@@ -22,7 +22,7 @@ export const BetaBanner = () => {
               aria-controls="usage-tracking-disclosure"
             >
               <span className="usa-banner__button-text">
-                {metrics.matches('OPT_IN')
+                {metrics.current === 'OPT_IN'
                   ? 'We are collecting your usage data.'
                   : 'We are NOT collecting your usage data.'}
               </span>
@@ -34,8 +34,8 @@ export const BetaBanner = () => {
                     <h2 className="text-bold margin-bottom-0">
                       <svg
                         className={classnames('usa-icon', {
-                          'text-blue': metrics.matches('OPT_IN'),
-                          'text-red': metrics.matches('OPT_OUT'),
+                          'text-blue': metrics.current === 'OPT_IN',
+                          'text-red': metrics.current === 'OPT_OUT',
                         })}
                         style={{ verticalAlign: 'middle' }}
                         aria-hidden="true"
@@ -44,7 +44,7 @@ export const BetaBanner = () => {
                       >
                         <use
                           xlinkHref={
-                            metrics.matches('OPT_IN')
+                            metrics.current === 'OPT_IN'
                               ? `${spriteSvg}#visibility`
                               : `${spriteSvg}#visibility_off`
                           }
@@ -62,7 +62,7 @@ export const BetaBanner = () => {
                       </p>
                       <p>
                         We do not collect usage data without your consent.{' '}
-                        {metrics.matches('OPT_IN') ? (
+                        {metrics.current === 'OPT_IN' ? (
                           <strong>
                             We are currently collecting usage data.
                           </strong>

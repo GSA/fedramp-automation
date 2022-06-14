@@ -1,5 +1,6 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import type { PresenterConfig } from '..';
+import * as metrics from '../state/metrics';
 
 export const initialize = async ({
   actions,
@@ -7,8 +8,8 @@ export const initialize = async ({
   state,
 }: PresenterConfig) => {
   const optInStatus = await effects.useCases.appMetrics.getOptInStatus();
-  if (optInStatus && state.metrics.matches('OPT_OUT')) {
-    state.metrics.send('TOGGLE');
+  if (optInStatus && state.metrics.current === 'OPT_OUT') {
+    state.metrics = metrics.nextState(state.metrics, { type: 'TOGGLE' });
   }
   actions.metrics.logAppInitialization();
 };
@@ -39,15 +40,15 @@ export const logValidationSummary = (
 };
 
 export const setOptInStatusOn = ({ effects, state }: PresenterConfig) => {
-  if (state.metrics.matches('OPT_OUT')) {
-    state.metrics.send('TOGGLE');
+  if (state.metrics.current === 'OPT_OUT') {
+    state.metrics = metrics.nextState(state.metrics, { type: 'TOGGLE' });
     effects.useCases.appMetrics.setOptInStatus(true);
   }
 };
 
 export const setOptInStatusOff = ({ effects, state }: PresenterConfig) => {
-  if (state.metrics.matches('OPT_IN')) {
-    state.metrics.send('TOGGLE');
+  if (state.metrics.current === 'OPT_IN') {
+    state.metrics = metrics.nextState(state.metrics, { type: 'TOGGLE' });
     effects.useCases.appMetrics.setOptInStatus(false);
   }
 };

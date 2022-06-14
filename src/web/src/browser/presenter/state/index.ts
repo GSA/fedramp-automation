@@ -2,7 +2,7 @@ import {
   AssertionDocumentationMachine,
   createAssertionDocumentationMachine,
 } from './assertion-documetation';
-import { createMetricsMachine, MetricsMachine } from './metrics';
+import * as metrics from './metrics';
 import { createRouterMachine, RouterMachine } from './router-machine';
 import {
   createSchematronMachine,
@@ -18,7 +18,7 @@ export type SampleDocument = {
 export type State = {
   assertionDocumentation: AssertionDocumentationMachine;
   baseUrl: `${string}/`;
-  metrics: MetricsMachine;
+  metrics: metrics.State;
   router: RouterMachine;
   oscalDocuments: {
     poam: SchematronMachine;
@@ -37,7 +37,7 @@ export type State = {
 export const state: State = {
   assertionDocumentation: createAssertionDocumentationMachine(),
   baseUrl: '/',
-  metrics: createMetricsMachine(),
+  metrics: metrics.createMetricsMachine(),
   oscalDocuments: {
     poam: createSchematronMachine(),
     sap: createSchematronMachine(),

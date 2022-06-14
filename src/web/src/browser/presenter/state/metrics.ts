@@ -1,6 +1,4 @@
-import { Statemachine, statemachine } from 'overmind';
-
-type States =
+export type State =
   | {
       current: 'OPT_IN';
       userAlias: string;
@@ -9,41 +7,40 @@ type States =
       current: 'OPT_OUT';
     };
 
-type Events =
+type Event =
   | {
       type: 'TOGGLE';
     }
   | {
       type: 'SET_USER_ALIAS';
-      data: { userAlias: string };
+      userAlias: string;
     };
 
-export type MetricsMachine = Statemachine<States, Events>;
+export const createMetricsMachine = (): State => {
+  return {
+    current: 'OPT_OUT',
+  };
+};
 
-export const metricsMachine = statemachine<States, Events>({
-  OPT_IN: {
-    TOGGLE: () => {
+export const nextState = (state: State, event: Event): State => {
+  if (state.current === 'OPT_IN') {
+    if (event.type === 'TOGGLE') {
       return {
         current: 'OPT_OUT',
       };
-    },
-    SET_USER_ALIAS: ({ userAlias }, state) => {
+    } else if (event.type === 'SET_USER_ALIAS') {
       return {
         current: 'OPT_IN',
-        userAlias,
+        userAlias: state.userAlias,
       };
-    },
-  },
-  OPT_OUT: {
-    TOGGLE: () => {
+    }
+  } else if (state.current === 'OPT_OUT') {
+    if (event.type === 'TOGGLE') {
       return {
         current: 'OPT_IN',
         userAlias: '',
       };
-    },
-  },
-});
-
-export const createMetricsMachine = () => {
-  return metricsMachine.create({ current: 'OPT_OUT' });
+    }
+  }
+  return state;
 };
