@@ -728,8 +728,8 @@
                 doc:checklist-reference="Section C Check 2"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
                 doc:template-reference="System Security Plan Template §13"
-                id="invalid-implementation-status"
                 fedramp:specific="true"
+                id="invalid-implementation-status"
                 role="error"
                 test="not(exists($corrections))">Implementation status is correct.</sch:assert>
             <sch:assert
@@ -747,6 +747,22 @@
                     else
                         (true())">Implemented Requirement <xsl:value-of
                     select="@control-id" /> exists.</sch:assert>
+            <sch:assert
+                diagnostics="configuration-management-controls-described-diagnostic"
+                id="configuration-management-controls-described"
+                role="warning"
+                test="
+                    if (matches(@control-id, 'cm-9'))
+                    then
+                        (if (self::oscal:implemented-requirement//*[matches(., 'CIS|Center for Internet Security|SCAP')])
+                        then
+                            (true())
+                        else
+                            (false()))
+                    else
+                        (true())">Implemented Requirement <xsl:value-of
+                    select="@control-id" /> exists and has acceptable keywords.</sch:assert>
+
         </sch:rule>
         <sch:rule
             context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement">
@@ -4362,6 +4378,11 @@
             id="DNSSEC-described-diagnostic">The implemented requirement does not contain the strings 'DNSSEC' or 'DNS Security
             Extensions'.</sch:diagnostic>
         <sch:diagnostic
+            doc:assertion="configuration-management-controls-described"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement"
+            id="configuration-management-controls-described-diagnostic">The implemented requirement <sch:value-of
+                select="@control-id" /> does not contain the strings 'CIS' or 'Center for Internet Security' or 'SCAP'.</sch:diagnostic>
+        <sch:diagnostic
             doc:assertion="remote-multi-factor-authentication-described"
             doc:context="oscal:implemented-requirement"
             id="remote-multi-factor-authentication-described-diagnostic">The implemented requirement <xsl:value-of
@@ -5259,7 +5280,8 @@
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-description"
             doc:context="oscal:authorization-boundary"
-            id="has-authorization-boundary-description-diagnostic">This OSCAL SSP document lacks an authorization-boundary description.</sch:diagnostic>
+            id="has-authorization-boundary-description-diagnostic">This OSCAL SSP document lacks an authorization-boundary
+            description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-diagram"
             doc:context="oscal:authorization-boundary"
