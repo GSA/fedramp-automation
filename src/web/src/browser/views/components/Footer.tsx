@@ -1,9 +1,9 @@
 import React from 'react';
+import logoImg from 'uswds/img/logo-img.png';
 
-import { useActions, useAppState } from '../hooks';
+import { useAppState } from '../hooks';
 
 export const Footer = () => {
-  const { getAssetUrl } = useActions();
   const { sourceRepository } = useAppState();
   return (
     <footer className="usa-footer usa-footer--slim">
@@ -48,11 +48,7 @@ export const Footer = () => {
         <div className="grid-container">
           <div className="usa-footer__logo grid-row grid-gap-2">
             <div className="grid-col-auto">
-              <img
-                className="usa-footer__logo-img"
-                src={getAssetUrl('uswds/img/logo-img.png')}
-                alt=""
-              />
+              <img className="usa-footer__logo-img" src={logoImg} alt="" />
             </div>
             <div className="grid-col-auto">
               <p className="usa-footer__logo-heading">

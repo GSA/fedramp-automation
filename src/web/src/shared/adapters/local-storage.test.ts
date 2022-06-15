@@ -1,6 +1,10 @@
-import { mock } from 'jest-mock-extended';
+import { it, describe, expect } from 'vitest';
+
 import { AppLocalStorage } from './local-storage';
 
+/**
+ * @vitest-environment jsdom
+ */
 describe('local storage adapter', () => {
   describe('metrics preference', () => {
     it('should work', () => {

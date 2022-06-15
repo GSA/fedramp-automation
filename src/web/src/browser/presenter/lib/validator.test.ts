@@ -1,3 +1,5 @@
+import { it, describe, expect } from 'vitest';
+
 import { getAssertionsById } from './validator';
 
 describe('presenter validator library', () => {

@@ -1,5 +1,4 @@
-import { mock } from 'jest-mock-extended';
-import { createOvermind, createOvermindMock, IContext } from 'overmind';
+import { createOvermind, IContext } from 'overmind';
 
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import type { AppMetrics } from '@asap/shared/use-cases/app-metrics';
@@ -12,7 +11,7 @@ import * as actions from './actions';
 import type { Location } from './state/router';
 import { state, State, SampleDocument } from './state';
 
-type UseCases = {
+export type UseCases = {
   annotateXML: AnnotateXMLUseCase;
   getAssertionViews: GetAssertionViews;
   getSchematronAssertions: GetSchematronAssertions;
@@ -41,7 +40,7 @@ export const getPresenterConfig = (
 export type PresenterConfig = IContext<ReturnType<typeof getPresenterConfig>>;
 
 export type PresenterContext = {
-  baseUrl: string;
+  baseUrl: `${string}/`;
   debug: boolean;
   sourceRepository: {
     treeUrl: string;
@@ -66,23 +65,3 @@ export const createPresenter = (ctx: PresenterContext) => {
   return presenter;
 };
 export type Presenter = ReturnType<typeof createPresenter>;
-
-type MockPresenterContext = {
-  useCases?: Partial<UseCases>;
-  initialState?: Partial<State>;
-};
-
-export const createPresenterMock = (ctx: MockPresenterContext = {}) => {
-  const presenter = createOvermindMock(
-    getPresenterConfig(
-      { listen: jest.fn(), replace: jest.fn() },
-      mock<UseCases>(),
-      ctx.initialState,
-    ),
-    {
-      useCases: ctx.useCases,
-    },
-  );
-  return presenter;
-};
-export type PresenterMock = ReturnType<typeof createPresenterMock>;

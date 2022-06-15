@@ -1,9 +1,9 @@
 import React from 'react';
-
-import { useActions } from '../hooks';
+import iconDotGov from 'uswds/img/icon-dot-gov.svg';
+import iconHttps from 'uswds/src/img/icon-https.svg';
+import usFlagSmall from 'uswds/src/img/us_flag_small.png';
 
 export const UsaBanner = () => {
-  const { getAssetUrl } = useActions();
   return (
     <>
       <section className="usa-banner" aria-label="Official government website">
@@ -13,7 +13,7 @@ export const UsaBanner = () => {
               <div className="grid-col-auto">
                 <img
                   className="usa-banner__header-flag"
-                  src={getAssetUrl('uswds/img/us_flag_small.png')}
+                  src={usFlagSmall}
                   alt="U.S. flag"
                 />
               </div>
@@ -44,7 +44,7 @@ export const UsaBanner = () => {
               <div className="usa-banner__guidance tablet:grid-col-6">
                 <img
                   className="usa-banner__icon usa-media-block__img"
-                  src={getAssetUrl('uswds/img/icon-dot-gov.svg')}
+                  src={iconDotGov}
                   role="img"
                   alt=""
                   aria-hidden="true"
@@ -60,7 +60,7 @@ export const UsaBanner = () => {
               <div className="usa-banner__guidance tablet:grid-col-6">
                 <img
                   className="usa-banner__icon usa-media-block__img"
-                  src={getAssetUrl('uswds/img/icon-https.svg')}
+                  src={iconHttps}
                   role="img"
                   alt=""
                   aria-hidden="true"

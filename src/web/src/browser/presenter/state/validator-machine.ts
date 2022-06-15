@@ -1,7 +1,5 @@
 import { Statemachine, statemachine } from 'overmind';
 
-import type { ValidationReport } from '@asap/shared/use-cases/schematron';
-
 type States =
   | {
       current: 'UNLOADED';

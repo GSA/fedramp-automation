@@ -1,4 +1,5 @@
 export * as assertionDocumentation from './assertion-documentation';
+export * as documentViewer from './document-viewer';
 export * as metrics from './metrics';
 export * as schematron from './schematron';
 export * as validator from './validator';
@@ -10,7 +11,7 @@ export const onInitializeOvermind = async ({
   actions,
   effects,
 }: PresenterConfig) => {
-  actions.setCurrentRoute(window.location.hash);
+  actions.setCurrentRoute(effects.location.getCurrent());
   effects.location.listen((url: string) => {
     actions.setCurrentRoute(url);
   });
@@ -31,5 +32,5 @@ export const setCurrentRoute = (
 };
 
 export const getAssetUrl = ({ state }: PresenterConfig, assetPath: string) => {
-  return `${state.baseUrl}/${assetPath}`;
+  return `${state.baseUrl}${assetPath}`;
 };

@@ -1,4 +1,5 @@
-import * as SaxonJS from 'saxon-js';
+import SaxonJS from 'saxon-js';
+import { it, describe, expect, vi } from 'vitest';
 
 import {
   SaxonJSXmlIndenter,
@@ -7,8 +8,11 @@ import {
   SaxonJsXSpecParser,
 } from './saxon-js-gateway';
 
-const PUBLIC_PATH = require('../project-config');
+import { BUILD_PATH } from '../project-config';
 
+/**
+ * @vitest-environment jsdom
+ */
 describe('xml indent', () => {
   it('works', async () => {
     const xmlIndent = SaxonJSXmlIndenter({ SaxonJS });
@@ -28,7 +32,7 @@ describe('xml indent', () => {
 
 describe('saxon-js gateway', () => {
   it('produces validation results for transformation', async () => {
-    jest.spyOn(SaxonJS, 'transform').mockImplementation((() => {
+    vi.spyOn(SaxonJS, 'transform').mockImplementation((() => {
       const doc = (SaxonJS as any)
         .getPlatform()
         .parseXmlFromString(SAMPLE_SVRL);
@@ -83,7 +87,7 @@ describe('saxon-js gateway', () => {
 
   it('converts JSON to XML', async () => {
     const jsonToXml = SaxonJsJsonOscalToXmlProcessor({
-      sefUrl: `${PUBLIC_PATH}/oscal_complete_json-to-xml-converter.sef.json`,
+      sefUrl: `${BUILD_PATH}/oscal_complete_json-to-xml-converter.sef.json`,
       SaxonJS,
     });
     const convertedXml = await jsonToXml('{}');

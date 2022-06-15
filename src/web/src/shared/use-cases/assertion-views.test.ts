@@ -1,3 +1,5 @@
+import { it, describe, expect } from 'vitest';
+
 import { validateAssertionViews } from './assertion-views';
 
 describe('assertion view parser', () => {

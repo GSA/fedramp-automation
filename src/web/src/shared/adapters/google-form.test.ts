@@ -1,8 +1,10 @@
+import { it, describe, expect, vi } from 'vitest';
+
 import { createGoogleFormMetricsLogger } from './google-form';
 
 describe('google form metrics', () => {
   it('posts event data', () => {
-    const fetchMock = jest.fn();
+    const fetchMock = vi.fn();
     const logEvent = createGoogleFormMetricsLogger({
       fetch: fetchMock,
       formUrl:

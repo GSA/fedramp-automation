@@ -1,18 +1,22 @@
+import { it, describe, expect, vi } from 'vitest';
+
 import type { OscalService } from '@asap/shared/use-cases/oscal';
-import type { ValidationReport } from '@asap/shared/use-cases/schematron';
-import { mock } from 'jest-mock-extended';
+import { mock } from 'vitest-mock-extended';
 import { CommandLineController } from './cli-controller';
 
 describe('command-line controller', () => {
   it('calls validate schematron', async () => {
     const mockXml = '<xml></xml>';
     const ctx = {
-      readStringFile: jest.fn().mockReturnValue(Promise.resolve(mockXml)),
-      writeStringFile: jest.fn().mockReturnValue(Promise.resolve()),
+      console: mock<Console>({
+        log: vi.fn(),
+      }),
+      readStringFile: vi.fn().mockReturnValue(Promise.resolve(mockXml)),
+      writeStringFile: vi.fn().mockReturnValue(Promise.resolve()),
       useCases: {
-        parseSchematron: jest.fn(),
+        parseSchematron: vi.fn(),
         oscalService: mock<OscalService>({
-          validateXmlOrJson: jest.fn((xmlString: string) =>
+          validateXmlOrJson: (xmlString: string) =>
             Promise.resolve({
               documentType: 'ssp',
               validationReport: {
@@ -21,17 +25,14 @@ describe('command-line controller', () => {
               },
               xmlString,
             }),
-          ),
         }),
-        writeAssertionViews: jest.fn(),
-        writeXSpecScenarioSummaries: jest.fn(),
+        writeAssertionViews: vi.fn(),
+        writeXSpecScenarioSummaries: vi.fn(),
       },
     };
     const cli = CommandLineController(ctx);
-    await cli.parse(['ts-node', 'index.ts', 'validate', 'ssp.xml']);
+    await cli.parseAsync(['node', 'index.ts', 'validate', 'ssp.xml']);
     expect(ctx.readStringFile).toHaveBeenCalledWith('ssp.xml');
-    expect(ctx.useCases.oscalService.validateXmlOrJson).toHaveBeenCalledWith(
-      mockXml,
-    );
+    expect(ctx.console.log).toHaveBeenCalledWith('Found 0 assertions in ssp');
   });
 });
