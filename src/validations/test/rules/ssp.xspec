@@ -11200,6 +11200,57 @@
             </x:scenario>
         </x:scenario>
         <x:scenario
+            label="A FedRAMP SSP has a control cm-9 and the specified control makes reference to 'CIS' or 'Center for Internet Security' or 'SCAP'.'">
+            <x:scenario
+                label="When that is true">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="cm-9">
+                                <statement
+                                    statement-id="cm-9_smt">
+                                    <by-component>
+                                        <description>
+                                            <p>Describe how CIS is employed in this requirement.</p>
+                                        </description>
+                                    </by-component>
+                                </statement>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="configuration-management-controls-described"
+                    label="that is correct." />
+            </x:scenario>
+            <x:scenario
+                label="When that is false">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <control-implementation>
+                            <implemented-requirement
+                                control-id="cm-9">
+                                <statement
+                                    statement-id="cm-9_smt">
+                                    <by-component>
+                                        <description>
+                                            <p>Describe how this requirement is fullfilled.</p>
+                                        </description>
+                                    </by-component>
+                                </statement>
+                            </implemented-requirement>
+                        </control-implementation>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-assert
+                    id="configuration-management-controls-described"
+                    label="that is an error." />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
             label="A FedRAMP SSP has a control">
             <x:scenario
                 label="ia-2(11)">
