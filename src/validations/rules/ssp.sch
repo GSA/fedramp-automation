@@ -750,7 +750,9 @@
             <sch:assert
                 diagnostics="configuration-management-controls-described-diagnostic"
                 id="configuration-management-controls-described"
+                fedramp:specific="true"
                 role="warning"
+                see="https://github.com/18F/fedramp-automation/issues/313"
                 test="
                     if (matches(@control-id, 'cm-9'))
                     then
