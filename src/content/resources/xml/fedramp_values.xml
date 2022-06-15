@@ -432,6 +432,7 @@
             <enum value="cm-3.1" short-label="cm-3.1">cm-3.1</enum>
             <enum value="cm-3.6" short-label="cm-3.6">cm-3.6</enum>
             <enum value="cm-6.1" short-label="cm-6.1">cm-6.1</enum>
+            <enum value="cm-8.2" short-label="cm-8.2">cm-8.2</enum>
             <enum value="cm-8.3" short-label="cm-8.3">cm-8.3</enum>
             <enum value="cm-11" short-label="cm-11">cm-11</enum>
             <enum value="cp-10" short-label="cp-10">cp-10</enum>
@@ -450,6 +451,7 @@
             <enum value="si-2.2" short-label="si-2.2">si-2.2</enum>
             <enum value="si-3.2" short-label="si-3.2">si-3.2</enum>
             <enum value="si-4.2" short-label="si-4.2">si-4.2</enum>
+            <enum value="si-4.20" short-label="si-4.20">si-4.20</enum>
             <enum value="si-5.1" short-label="si-5.1">si-5.1</enum>
             <enum value="si-7.2" short-label="si-7.2">si-7.2</enum>
             <enum value="si-7.5" short-label="si-7.5">si-7.5</enum>
