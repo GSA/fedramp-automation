@@ -3,11 +3,12 @@ import classnames from 'classnames';
 import spriteSvg from 'uswds/img/sprite.svg';
 
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
-import { useActions, useAppState } from '../hooks';
+import { useActions } from '../hooks';
+import { useAppContext } from '../context';
 
 export const BetaBanner = () => {
   const actions = useActions();
-  const { metrics } = useAppState();
+  const { state } = useAppContext();
 
   return (
     <section className="beta-banner">
@@ -22,7 +23,7 @@ export const BetaBanner = () => {
               aria-controls="usage-tracking-disclosure"
             >
               <span className="usa-banner__button-text">
-                {metrics.current === 'OPT_IN'
+                {state.metrics.current === 'METRICS_OPT_IN'
                   ? 'We are collecting your usage data.'
                   : 'We are NOT collecting your usage data.'}
               </span>
@@ -34,8 +35,10 @@ export const BetaBanner = () => {
                     <h2 className="text-bold margin-bottom-0">
                       <svg
                         className={classnames('usa-icon', {
-                          'text-blue': metrics.current === 'OPT_IN',
-                          'text-red': metrics.current === 'OPT_OUT',
+                          'text-blue':
+                            state.metrics.current === 'METRICS_OPT_IN',
+                          'text-red':
+                            state.metrics.current === 'METRICS_OPT_OUT',
                         })}
                         style={{ verticalAlign: 'middle' }}
                         aria-hidden="true"
@@ -44,7 +47,7 @@ export const BetaBanner = () => {
                       >
                         <use
                           xlinkHref={
-                            metrics.current === 'OPT_IN'
+                            state.metrics.current === 'METRICS_OPT_IN'
                               ? `${spriteSvg}#visibility`
                               : `${spriteSvg}#visibility_off`
                           }
@@ -62,7 +65,7 @@ export const BetaBanner = () => {
                       </p>
                       <p>
                         We do not collect usage data without your consent.{' '}
-                        {metrics.current === 'OPT_IN' ? (
+                        {state.metrics.current === 'METRICS_OPT_IN' ? (
                           <strong>
                             We are currently collecting usage data.
                           </strong>

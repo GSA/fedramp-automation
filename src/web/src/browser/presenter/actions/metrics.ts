@@ -8,8 +8,11 @@ export const initialize = async ({
   state,
 }: PresenterConfig) => {
   const optInStatus = await effects.useCases.appMetrics.getOptInStatus();
-  if (optInStatus && state.metrics.current === 'OPT_OUT') {
-    state.metrics = metrics.nextState(state.metrics, { type: 'TOGGLE' });
+  if (
+    optInStatus &&
+    state.newAppContext.state.metrics.current === 'METRICS_OPT_OUT'
+  ) {
+    state.newAppContext.dispatch({ type: 'METRICS_TOGGLE' });
   }
   actions.metrics.logAppInitialization();
 };
@@ -40,15 +43,15 @@ export const logValidationSummary = (
 };
 
 export const setOptInStatusOn = ({ effects, state }: PresenterConfig) => {
-  if (state.metrics.current === 'OPT_OUT') {
-    state.metrics = metrics.nextState(state.metrics, { type: 'TOGGLE' });
+  if (state.newAppContext.state.metrics.current === 'METRICS_OPT_OUT') {
+    state.newAppContext.dispatch({ type: 'METRICS_TOGGLE' });
     effects.useCases.appMetrics.setOptInStatus(true);
   }
 };
 
 export const setOptInStatusOff = ({ effects, state }: PresenterConfig) => {
-  if (state.metrics.current === 'OPT_IN') {
-    state.metrics = metrics.nextState(state.metrics, { type: 'TOGGLE' });
+  if (state.newAppContext.state.metrics.current === 'METRICS_OPT_IN') {
+    state.newAppContext.dispatch({ type: 'METRICS_TOGGLE' });
     effects.useCases.appMetrics.setOptInStatus(false);
   }
 };

@@ -1,43 +1,41 @@
 export type State =
   | {
-      current: 'OPT_IN';
+      current: 'METRICS_OPT_IN';
       userAlias: string;
     }
   | {
-      current: 'OPT_OUT';
+      current: 'METRICS_OPT_OUT';
     };
 
-type Event =
+export type Event =
   | {
-      type: 'TOGGLE';
+      type: 'METRICS_TOGGLE';
     }
   | {
-      type: 'SET_USER_ALIAS';
+      type: 'METRICS_SET_USER_ALIAS';
       userAlias: string;
     };
 
-export const createMetricsMachine = (): State => {
-  return {
-    current: 'OPT_OUT',
-  };
+export const initialState: State = {
+  current: 'METRICS_OPT_OUT',
 };
 
 export const nextState = (state: State, event: Event): State => {
-  if (state.current === 'OPT_IN') {
-    if (event.type === 'TOGGLE') {
+  if (state.current === 'METRICS_OPT_IN') {
+    if (event.type === 'METRICS_TOGGLE') {
       return {
-        current: 'OPT_OUT',
+        current: 'METRICS_OPT_OUT',
       };
-    } else if (event.type === 'SET_USER_ALIAS') {
+    } else if (event.type === 'METRICS_SET_USER_ALIAS') {
       return {
-        current: 'OPT_IN',
+        current: 'METRICS_OPT_IN',
         userAlias: state.userAlias,
       };
     }
-  } else if (state.current === 'OPT_OUT') {
-    if (event.type === 'TOGGLE') {
+  } else if (state.current === 'METRICS_OPT_OUT') {
+    if (event.type === 'METRICS_TOGGLE') {
       return {
-        current: 'OPT_IN',
+        current: 'METRICS_OPT_IN',
         userAlias: '',
       };
     }
