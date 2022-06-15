@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
-import { useActions, useAppState } from '../hooks';
+import { useActions } from '../hooks';
 
 import { AssertionDocumentationOverlay } from './AssertionDocumentationOverlay';
 import { DocumentViewerOverlay } from './DocumentViewerOverlay';
@@ -18,7 +18,7 @@ import { ValidatorPage } from './ValidatorPage';
 import { useAppContext } from '../context';
 
 const CurrentPage = () => {
-  const { currentRoute } = useAppState().router;
+  const currentRoute = useAppContext().state.router.currentRoute;
   const actions = useActions();
 
   // Temporary - provide state and reducers to Overmind state, as a

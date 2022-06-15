@@ -28,12 +28,14 @@ export const setCurrentRoute = (
 ) => {
   const route = router.getRoute(url);
   if (route.type !== 'NotFound') {
-    state.router = routerMachine.nextState(state.router, {
+    state.newAppContext.dispatch({
       type: 'ROUTE_CHANGED',
       data: { route },
     });
   }
-  effects.location.replace(router.getUrl(state.router.currentRoute));
+  effects.location.replace(
+    router.getUrl(state.newAppContext.state.router.currentRoute),
+  );
 };
 
 export const getAssetUrl = ({ state }: PresenterConfig, assetPath: string) => {

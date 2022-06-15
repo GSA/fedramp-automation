@@ -9,7 +9,7 @@ export type State = BaseState & {
   current: 'VALID_PAGE';
 };
 
-type Event = {
+export type Event = {
   type: 'ROUTE_CHANGED';
   data: {
     route: router.Route;
@@ -31,12 +31,8 @@ export const nextState = (state: State, event: Event): State => {
   return state;
 };
 
-export const createRouterMachine = (): State => {
-  return {
-    current: 'VALID_PAGE',
-    currentRoute: router.Routes.home,
-    breadcrumbs: router.breadcrumbs[router.Routes.home.type](
-      router.Routes.home,
-    ),
-  };
+export const initialState: State = {
+  current: 'VALID_PAGE',
+  currentRoute: router.Routes.home,
+  breadcrumbs: router.breadcrumbs[router.Routes.home.type](router.Routes.home),
 };

@@ -22,7 +22,7 @@ export const logAppInitialization = ({ effects, state }: PresenterConfig) => {
     eventType: 'app-loaded',
     userAlias: undefined,
     data: {
-      route: state.router.currentRoute.type,
+      route: state.newAppContext.state.router.currentRoute.type,
     },
   });
 };

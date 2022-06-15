@@ -1,9 +1,8 @@
 import React from 'react';
-
-import { useAppState } from '../hooks';
+import { useAppContext } from '../context';
 
 export const Breadcrumbs = () => {
-  const { breadcrumbs } = useAppState().router;
+  const { breadcrumbs } = useAppContext().state.router;
 
   return (
     <nav className="usa-breadcrumb" aria-label="Breadcrumbs">

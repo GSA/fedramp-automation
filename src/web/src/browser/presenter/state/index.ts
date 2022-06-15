@@ -11,13 +11,18 @@ import * as validatorMachine from './validator-machine';
 export type NewState = {
   assertionDocumentation: assertionDocumentation.State;
   metrics: metrics.State;
+  router: routerMachine.State;
 };
 
-export type NewEvent = assertionDocumentation.Event | metrics.Event;
+export type NewEvent =
+  | assertionDocumentation.Event
+  | metrics.Event
+  | routerMachine.Event;
 
 export const initialState: NewState = {
   assertionDocumentation: assertionDocumentation.initialState,
   metrics: metrics.initialState,
+  router: routerMachine.initialState,
 };
 
 export const rootReducer = (state: NewState, event: NewEvent) => ({
@@ -26,6 +31,7 @@ export const rootReducer = (state: NewState, event: NewEvent) => ({
     <assertionDocumentation.Event>event,
   ),
   metrics: metrics.nextState(state.metrics, <metrics.Event>event),
+  router: routerMachine.nextState(state.router, <routerMachine.Event>event),
 });
 
 export type SampleDocument = {
@@ -36,7 +42,6 @@ export type SampleDocument = {
 export type State = {
   newAppContext: NewAppContext;
   baseUrl: `${string}/`;
-  router: routerMachine.State;
   oscalDocuments: {
     poam: SchematronMachine;
     sap: SchematronMachine;
@@ -60,7 +65,6 @@ export const state: State = {
     sar: createSchematronMachine(),
     ssp: createSchematronMachine(),
   },
-  router: routerMachine.createRouterMachine(),
   sourceRepository: {
     sampleDocuments: [],
   },
