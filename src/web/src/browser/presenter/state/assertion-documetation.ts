@@ -1,6 +1,8 @@
-import { Statemachine, statemachine } from 'overmind';
+import { derived, Statemachine, statemachine } from 'overmind';
 
 import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
+import { ScenarioSummary } from '@asap/shared/domain/xspec';
+import { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 type States =
   | {
@@ -11,9 +13,12 @@ type States =
     };
 
 type BaseState = {
-  documentType: keyof XSpecScenarioSummaries | null;
   xspecScenarioSummaries: XSpecScenarioSummaries;
-  visibleDocumentation: string | null;
+  visibleScenarioSummaries: ScenarioSummary[];
+  visibleAssertion: {
+    assertionId: string;
+    documentType: OscalDocumentKey;
+  } | null;
 };
 
 type Events =
@@ -31,7 +36,7 @@ type Events =
       type: 'SHOW';
       data: {
         assertionId: string;
-        documentType: string;
+        documentType: OscalDocumentKey;
       };
     };
 
@@ -47,7 +52,7 @@ const assertionDocumentationMachine = statemachine<States, Events, BaseState>({
       return {
         current: 'INITIALIZED',
         xspecScenarioSummaries,
-        visibleDocumentation: null,
+        visibleAssertion: null,
       };
     },
   },
@@ -55,17 +60,22 @@ const assertionDocumentationMachine = statemachine<States, Events, BaseState>({
     CLOSE: (event, state) => {
       return {
         current: 'INITIALIZED',
-        documentType: state.documentType,
-        visibleDocumentation: null,
-        xspecScenarioSummaries: state.xspecScenarioSummaries,
+        visibleAssertion: null,
+        xspecScenarioSummaries: {
+          ...state.xspecScenarioSummaries,
+        },
       };
     },
     SHOW: ({ assertionId, documentType }, state) => {
       return {
         current: 'INITIALIZED',
-        documentType,
-        visibleDocumentation: assertionId,
-        xspecScenarioSummaries: state.xspecScenarioSummaries,
+        xspecScenarioSummaries: {
+          ...state.xspecScenarioSummaries,
+        },
+        visibleAssertion: {
+          assertionId,
+          documentType,
+        },
       };
     },
   },
@@ -75,14 +85,23 @@ export const createAssertionDocumentationMachine = () => {
   return assertionDocumentationMachine.create(
     { current: 'UNINITIALIZED' },
     {
-      documentType: null,
+      visibleAssertion: null,
       xspecScenarioSummaries: {
         poam: {},
         sap: {},
         sar: {},
         ssp: {},
       },
-      visibleDocumentation: null,
+      visibleScenarioSummaries: derived(
+        (state: AssertionDocumentationMachine) => {
+          if (!state.visibleAssertion || !state.xspecScenarioSummaries) {
+            return [];
+          }
+          return state.xspecScenarioSummaries[
+            state.visibleAssertion.documentType
+          ][state.visibleAssertion.assertionId];
+        },
+      ),
     },
   );
 };

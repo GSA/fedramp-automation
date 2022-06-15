@@ -1,4 +1,5 @@
 import React from 'react';
+import spriteSvg from 'uswds/img/sprite.svg';
 
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { Routes, getUrl } from '@asap/browser/presenter/state/router';
@@ -59,49 +60,11 @@ export const ValidatorReport = ({ documentType }: Props) => {
               >
                 <div className={`usa-icon-list__icon text-${check.icon.color}`}>
                   <svg className="usa-icon" aria-hidden="true" role="img">
-                    <use
-                      xlinkHref={actions.getAssetUrl(
-                        `uswds/img/sprite.svg#${check.icon.sprite}`,
-                      )}
-                    ></use>
+                    <use xlinkHref={`${spriteSvg}#${check.icon.sprite}`}></use>
                   </svg>
                 </div>
                 <div className="usa-icon-list__content">
                   {check.message}
-                  {check.fired.length ? (
-                    <ul className="usa-icon-list__title">
-                      {check.fired.map((firedCheck, index) => (
-                        <li key={index}>
-                          {firedCheck.diagnosticReferences.length > 0
-                            ? firedCheck.diagnosticReferences.join(', ')
-                            : firedCheck.text}
-                          <a
-                            className="usa-tooltip"
-                            data-position="bottom"
-                            href={getUrl(
-                              Routes.assertion({
-                                assertionId: firedCheck.uniqueId,
-                              }),
-                            )}
-                            title="Show source document context"
-                          >
-                            <svg
-                              className="usa-icon"
-                              aria-hidden="true"
-                              focusable="false"
-                              role="img"
-                            >
-                              <use
-                                xlinkHref={actions.getAssetUrl(
-                                  'uswds/img/sprite.svg#link',
-                                )}
-                              ></use>
-                            </svg>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}{' '}
                   <button
                     className="usa-button usa-button--unstyled"
                     onClick={() =>
@@ -118,13 +81,41 @@ export const ValidatorReport = ({ documentType }: Props) => {
                       focusable="false"
                       role="img"
                     >
-                      <use
-                        xlinkHref={actions.getAssetUrl(
-                          'uswds/img/sprite.svg#support',
-                        )}
-                      ></use>
+                      <use xlinkHref={`${spriteSvg}#support`}></use>
                     </svg>
                   </button>
+                  {check.fired.length ? (
+                    <ul className="usa-icon-list__title">
+                      {check.fired.map((firedCheck, index) => (
+                        <li key={index}>
+                          {firedCheck.diagnosticReferences.length > 0
+                            ? firedCheck.diagnosticReferences.join(', ')
+                            : firedCheck.text}
+                          <a
+                            href="#"
+                            className="usa-tooltip"
+                            data-position="bottom"
+                            onClick={() =>
+                              actions.documentViewer.showAssertionContext({
+                                assertionId: firedCheck.uniqueId,
+                                documentType,
+                              })
+                            }
+                            title="Show source document context"
+                          >
+                            <svg
+                              className="usa-icon"
+                              aria-hidden="true"
+                              focusable="false"
+                              role="img"
+                            >
+                              <use xlinkHref={`${spriteSvg}#link`}></use>
+                            </svg>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </div>
               </li>
             ))}

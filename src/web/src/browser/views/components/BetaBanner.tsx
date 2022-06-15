@@ -1,5 +1,6 @@
-import classnames from 'classnames';
 import React from 'react';
+import classnames from 'classnames';
+import spriteSvg from 'uswds/img/sprite.svg';
 
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import { useActions, useAppState } from '../hooks';
@@ -42,11 +43,11 @@ export const BetaBanner = () => {
                         role="img"
                       >
                         <use
-                          xlinkHref={actions.getAssetUrl(
+                          xlinkHref={
                             metrics.matches('OPT_IN')
-                              ? 'uswds/img/sprite.svg#visibility'
-                              : 'uswds/img/sprite.svg#visibility_off',
-                          )}
+                              ? `${spriteSvg}#visibility`
+                              : `${spriteSvg}#visibility_off`
+                          }
                         ></use>
                       </svg>
                       {'  '}Usage tracking on 10x ASAP

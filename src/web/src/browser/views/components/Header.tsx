@@ -1,11 +1,11 @@
+import classnames from 'classnames';
 import React from 'react';
+import closeSvg from 'uswds/img/usa-icons/close.svg';
 
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
-import { useActions, useAppState } from '../hooks';
-import classnames from 'classnames';
+import { useAppState } from '../hooks';
 
 export const Header = () => {
-  const { getAssetUrl } = useActions();
   const { currentRoute } = useAppState().router;
   return (
     <header className="usa-header usa-header--basic usa-header--megamenu">
@@ -22,11 +22,7 @@ export const Header = () => {
         </div>
         <nav aria-label="Primary navigation" className="usa-nav">
           <button className="usa-nav__close">
-            <img
-              src={getAssetUrl('uswds/img/usa-icons/close.svg')}
-              role="img"
-              alt="close"
-            />
+            <img src={closeSvg} role="img" alt="close" />
           </button>
           <ul className="usa-nav__primary usa-accordion">
             <li className="usa-nav__primary-item">

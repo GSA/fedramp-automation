@@ -1,3 +1,5 @@
+import { it, describe, expect, vi } from 'vitest';
+
 import { OscalService } from './oscal';
 
 const MOCK_SCHEMATRON_RESULT = {
@@ -13,14 +15,14 @@ describe('validate ssp use case', () => {
   const mockXml = '<xml>xml {[]} input</xml>';
   it('returns schematron for xml input', async () => {
     const ctx = {
-      jsonOscalToXml: jest.fn().mockReturnValue(Promise.resolve('')),
-      processSchematron: jest.fn().mockReturnValue(
+      jsonOscalToXml: vi.fn().mockReturnValue(Promise.resolve('')),
+      processSchematron: vi.fn().mockReturnValue(
         Promise.resolve({
           documentType: 'ssp',
           validationReport: MOCK_SCHEMATRON_RESULT,
         }),
       ),
-      fetch: jest.fn(),
+      fetch: vi.fn(),
     };
     const oscalService = new OscalService(
       ctx.jsonOscalToXml,
@@ -37,14 +39,14 @@ describe('validate ssp use case', () => {
   it('returns schematron for json input', async () => {
     const testJson = async (mockJson: string) => {
       const ctx = {
-        jsonOscalToXml: jest.fn().mockReturnValue(Promise.resolve(mockXml)),
-        processSchematron: jest.fn().mockReturnValue(
+        jsonOscalToXml: vi.fn().mockReturnValue(Promise.resolve(mockXml)),
+        processSchematron: vi.fn().mockReturnValue(
           Promise.resolve({
             documentType: 'ssp',
             validationReport: MOCK_SCHEMATRON_RESULT,
           }),
         ),
-        fetch: jest.fn(),
+        fetch: vi.fn(),
       };
       const oscalService = new OscalService(
         ctx.jsonOscalToXml,
@@ -70,16 +72,16 @@ describe('validate ssp url use case', () => {
   it('passes through return value from adapter', async () => {
     const xmlString = '<xml>ignored</xml>';
     const ctx = {
-      fetch: jest.fn().mockImplementation((url: string) => {
+      fetch: vi.fn().mockImplementation((url: string) => {
         return Promise.resolve({
-          text: jest.fn().mockImplementation(async () => {
+          text: vi.fn().mockImplementation(async () => {
             expect(url).toEqual('https://sample.gov/ssp-url.xml');
             return xmlString;
           }),
         });
       }),
-      jsonOscalToXml: jest.fn().mockReturnValue(xmlString),
-      processSchematron: jest.fn().mockImplementation(xmlStr => {
+      jsonOscalToXml: vi.fn().mockReturnValue(xmlString),
+      processSchematron: vi.fn().mockImplementation(xmlStr => {
         expect(xmlStr).toEqual(xmlString);
         return Promise.resolve({
           documentType: 'ssp',

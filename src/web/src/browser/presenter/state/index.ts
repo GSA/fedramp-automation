@@ -1,4 +1,3 @@
-import { derived } from 'overmind';
 import {
   AssertionDocumentationMachine,
   createAssertionDocumentationMachine,
@@ -18,7 +17,7 @@ export type SampleDocument = {
 
 export type State = {
   assertionDocumentation: AssertionDocumentationMachine;
-  baseUrl: string;
+  baseUrl: `${string}/`;
   metrics: MetricsMachine;
   router: RouterMachine;
   oscalDocuments: {
@@ -37,7 +36,7 @@ export type State = {
 
 export const state: State = {
   assertionDocumentation: createAssertionDocumentationMachine(),
-  baseUrl: '',
+  baseUrl: '/',
   metrics: createMetricsMachine(),
   oscalDocuments: {
     poam: createSchematronMachine(),

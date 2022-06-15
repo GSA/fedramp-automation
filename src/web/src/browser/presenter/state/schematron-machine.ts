@@ -156,11 +156,6 @@ export const createSchematronMachine = () => {
         });
       }),
       counts: derived((state: SchematronMachine) => {
-        console.log(
-          state.validationResults.current === 'HAS_RESULT'
-            ? state.validationResults.validationReport.failedAsserts
-            : '',
-        );
         return {
           fired:
             state.validationResults.current === 'HAS_RESULT'
