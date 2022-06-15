@@ -2,7 +2,7 @@ import React from 'react';
 
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
-import { useAppState } from '../hooks';
+import { useActions, useAppState } from '../hooks';
 
 import { AssertionDocumentationOverlay } from './AssertionDocumentationOverlay';
 import { DocumentViewerOverlay } from './DocumentViewerOverlay';
@@ -15,9 +15,17 @@ import { InnerPageLayout } from './InnerPageLayout';
 import { UsaBanner } from './UsaBanner';
 import { UsageTrackingPage } from './UsageTrackingPage';
 import { ValidatorPage } from './ValidatorPage';
+import { useAppContext } from '../context';
 
 const CurrentPage = () => {
   const { currentRoute } = useAppState().router;
+  const actions = useActions();
+
+  // Temporary - provide state and reducers to Overmind state, as a
+  // transitional way to migrate action logic away from Overmind.
+  const newAppContext = useAppContext();
+  actions.setNewAppContext(newAppContext);
+
   if (currentRoute.type === 'Home') {
     return (
       <div className="grid-container">

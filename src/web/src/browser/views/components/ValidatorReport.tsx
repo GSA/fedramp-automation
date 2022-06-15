@@ -2,7 +2,6 @@ import React from 'react';
 import spriteSvg from 'uswds/img/sprite.svg';
 
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import { Routes, getUrl } from '@asap/browser/presenter/state/router';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';

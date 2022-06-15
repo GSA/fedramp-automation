@@ -4,6 +4,7 @@ export * as metrics from './metrics';
 export * as schematron from './schematron';
 export * as validator from './validator';
 
+import { NewAppContext } from '@asap/browser/views/context';
 import type { PresenterConfig } from '..';
 import * as router from '../state/router';
 import * as routerMachine from '../state/router-machine';
@@ -37,4 +38,11 @@ export const setCurrentRoute = (
 
 export const getAssetUrl = ({ state }: PresenterConfig, assetPath: string) => {
   return `${state.baseUrl}${assetPath}`;
+};
+
+export const setNewAppContext = (
+  { state }: PresenterConfig,
+  newAppContext: NewAppContext,
+) => {
+  state.newAppContext = newAppContext;
 };

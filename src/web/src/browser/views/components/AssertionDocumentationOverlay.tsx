@@ -1,17 +1,19 @@
 import React from 'react';
 import Modal from 'react-modal';
+import { useAppContext } from '../context';
 
-import { useActions, useAppState } from '../hooks';
+import { useActions } from '../hooks';
 import { AssertionXSpecScenarios } from './AssertionXSpecScenarios';
 
 export const AssertionDocumentationOverlay = () => {
-  const assertionDocumentation = useAppState().assertionDocumentation;
+  const { state } = useAppContext();
   const actions = useActions();
+
   return (
     <div>
       <Modal
         className="position-absolute top-2 bottom-2 right-2 left-2 margin-2 bg-white overflow-scroll"
-        isOpen={assertionDocumentation.visibleAssertion !== null}
+        isOpen={state.assertionDocumentation.visibleAssertion !== null}
         onRequestClose={actions.assertionDocumentation.close}
         contentLabel="Assertion rule examples"
         style={{
@@ -28,7 +30,9 @@ export const AssertionDocumentationOverlay = () => {
           <h2>Assertion Examples</h2>
         </div>
         <AssertionXSpecScenarios
-          scenarioSummaries={assertionDocumentation.visibleScenarioSummaries}
+          scenarioSummaries={
+            state.assertionDocumentation.visibleScenarioSummaries
+          }
         />
       </Modal>
     </div>

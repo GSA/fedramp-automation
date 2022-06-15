@@ -19,7 +19,7 @@ export type State =
       current: 'UNINITIALIZED';
     });
 
-type Event =
+export type Event =
   | {
       type: 'SUMMARIES_LOADED';
       data: {
@@ -78,7 +78,7 @@ export const nextState = (state: State, event: Event): State => {
   return state;
 };
 
-export const createAssertionDocumentationMachine = (): State => ({
+export const initialState: State = {
   current: 'UNINITIALIZED',
   visibleAssertion: null,
   xspecScenarioSummaries: {
@@ -88,4 +88,4 @@ export const createAssertionDocumentationMachine = (): State => ({
     ssp: {},
   },
   visibleScenarioSummaries: [],
-});
+};
