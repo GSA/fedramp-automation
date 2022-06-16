@@ -728,8 +728,8 @@
                 doc:checklist-reference="Section C Check 2"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
                 doc:template-reference="System Security Plan Template §13"
-                id="invalid-implementation-status"
                 fedramp:specific="true"
+                id="invalid-implementation-status"
                 role="error"
                 test="not(exists($corrections))">Implementation status is correct.</sch:assert>
             <sch:assert
@@ -747,6 +747,24 @@
                     else
                         (true())">Implemented Requirement <xsl:value-of
                     select="@control-id" /> exists.</sch:assert>
+            <sch:assert
+                diagnostics="configuration-management-controls-described-diagnostic"
+                id="configuration-management-controls-described"
+                fedramp:specific="true"
+                role="warning"
+                see="https://github.com/18F/fedramp-automation/issues/313"
+                test="
+                    if (matches(@control-id, 'cm-9'))
+                    then
+                        (if (self::oscal:implemented-requirement//*[matches(., 'CIS|Center for Internet Security|SCAP')])
+                        then
+                            (true())
+                        else
+                            (false()))
+                    else
+                        (true())">Implemented Requirement <xsl:value-of
+                    select="@control-id" /> exists and has acceptable keywords.</sch:assert>
+
         </sch:rule>
         <sch:rule
             context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement">
@@ -3476,12 +3494,28 @@
             <sch:let
                 name="missing-required-technical-controls"
                 value="$required-technical-controls[not(. = $implemented-controls)]" />
+            <sch:let
+                name="automation-controls"
+                value="$fedramp-values//fedramp:value-set[@name eq 'automation-control-id']//fedramp:enum/@value ! xs:string(.)" />
+            <sch:let
+                name="required-automation-controls"
+                value="$automation-controls[. = $required-controls]" />
+            <sch:let
+                name="missing-required-automation-controls"
+                value="$required-automation-controls[not(. = $implemented-controls)]" />
             <sch:assert
                 diagnostics="technical-control-exists-diagnostic"
                 fedramp:specific="true"
                 id="technical-control-exists"
                 role="error"
                 test="count($missing-required-technical-controls) eq 0">Every required technical control is
+                implemented.</sch:assert>
+            <sch:assert
+                diagnostics="automation-control-exists-diagnostic"
+                fedramp:specific="true"
+                id="automation-control-exists"
+                role="error"
+                test="count($missing-required-automation-controls) eq 0">Every required automation control is
                 implemented.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -3496,6 +3530,9 @@
             <sch:let
                 name="technical-controls"
                 value="$fedramp-values//fedramp:value-set[@name eq 'technical-control-id']//fedramp:enum/@value ! xs:string(.)" />
+            <sch:let
+                name="automation-controls"
+                value="$fedramp-values//fedramp:value-set[@name eq 'automation-control-id']//fedramp:enum/@value ! xs:string(.)" />
             <sch:assert
                 diagnostics="technical-control-is-implemented-diagnostic"
                 fedramp:specific="true"
@@ -3512,6 +3549,22 @@
                             (false()))
                     else
                         (true())">Every technical control is fully implemented.</sch:assert>
+            <sch:assert
+                diagnostics="automation-control-is-implemented-diagnostic"
+                fedramp:specific="true"
+                id="automation-control-is-implemented"
+                role="error"
+                test="
+                    if (@control-id = $automation-controls)
+                    then
+                        (
+                        if (exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'implementation-status' and @value eq 'implemented']))
+                        then
+                            (true())
+                        else
+                            (false()))
+                    else
+                        (true())">Every automation control is fully implemented.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-implementation-status-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
@@ -4364,6 +4417,11 @@
             doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement"
             id="DNSSEC-described-diagnostic">The implemented requirement does not contain the strings 'DNSSEC' or 'DNS Security
             Extensions'.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="configuration-management-controls-described"
+            doc:context="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement"
+            id="configuration-management-controls-described-diagnostic">The implemented requirement <sch:value-of
+                select="@control-id" /> does not contain the strings 'CIS' or 'Center for Internet Security' or 'SCAP'.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="remote-multi-factor-authentication-described"
             doc:context="oscal:implemented-requirement"
@@ -5262,7 +5320,8 @@
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-description"
             doc:context="oscal:authorization-boundary"
-            id="has-authorization-boundary-description-diagnostic">This OSCAL SSP document lacks an authorization-boundary description.</sch:diagnostic>
+            id="has-authorization-boundary-description-diagnostic">This OSCAL SSP document lacks an authorization-boundary
+            description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="has-authorization-boundary-diagram"
             doc:context="oscal:authorization-boundary"
@@ -5405,6 +5464,16 @@
             doc:assertion="technical-control-is-implemented"
             doc:context="oscal:implemented-requirement"
             id="technical-control-is-implemented-diagnostic">The technical control implementation <sch:value-of
+                select="@control-id" /> does not have an implementation status of 'implemented'.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="automation-control-exists"
+            doc:context="oscal:control-implementation"
+            id="automation-control-exists-diagnostic">The SSP document does not contain the following implemented requirement(s) <sch:value-of
+                select="$missing-required-automation-controls" />.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="automation-control-is-implemented"
+            doc:context="oscal:implemented-requirement"
+            id="automation-control-is-implemented-diagnostic">The technical control implementation <sch:value-of
                 select="@control-id" /> does not have an implementation status of 'implemented'.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-implementation-status"
