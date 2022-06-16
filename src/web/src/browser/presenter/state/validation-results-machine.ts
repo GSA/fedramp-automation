@@ -8,21 +8,23 @@ type BaseState = {
   assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
 };
 
-export type State =
-  | (BaseState & {
-      current: 'NO_RESULTS';
-    })
-  | (BaseState & {
-      current: 'HAS_RESULT';
-      annotatedXML: string;
-      validationReport: ValidationReport;
-    })
-  | (BaseState & {
-      current: 'ASSERTION_CONTEXT';
-      annotatedXML: string;
-      assertionId: string;
-      validationReport: ValidationReport;
-    });
+export type State = BaseState &
+  (
+    | {
+        current: 'NO_RESULTS';
+      }
+    | {
+        current: 'HAS_RESULT';
+        annotatedXML: string;
+        validationReport: ValidationReport;
+      }
+    | {
+        current: 'ASSERTION_CONTEXT';
+        annotatedXML: string;
+        assertionId: string;
+        validationReport: ValidationReport;
+      }
+  );
 
 type Event =
   | {

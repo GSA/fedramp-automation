@@ -11,13 +11,15 @@ type BaseState = {
   } | null;
 };
 
-export type State =
-  | (BaseState & {
-      current: 'INITIALIZED';
-    })
-  | (BaseState & {
-      current: 'UNINITIALIZED';
-    });
+export type State = BaseState &
+  (
+    | {
+        current: 'INITIALIZED';
+      }
+    | {
+        current: 'UNINITIALIZED';
+      }
+  );
 
 export type Event =
   | {

@@ -9,7 +9,7 @@ import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron'
 
 import * as actions from './actions';
 import type { Location } from './state/router';
-import { state, State, SampleDocument, initialState, NewState } from './state';
+import { state, State, SampleDocument } from './state';
 
 export type UseCases = {
   annotateXML: AnnotateXMLUseCase;
