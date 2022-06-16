@@ -1,6 +1,5 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import type { PresenterConfig } from '..';
-import * as metrics from '../state/metrics';
 
 export const initialize = async ({
   actions,
@@ -31,7 +30,7 @@ export const logValidationSummary = (
   { effects, state }: PresenterConfig,
   documentType: OscalDocumentKey,
 ) => {
-  if (state.validator.current === 'VALIDATED') {
+  if (state.newAppContext.state.validator.current === 'VALIDATED') {
     effects.useCases.appMetrics.log({
       eventType: 'validation-summary',
       userAlias: undefined,

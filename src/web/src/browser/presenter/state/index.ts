@@ -12,26 +12,33 @@ export type NewState = {
   assertionDocumentation: assertionDocumentation.State;
   metrics: metrics.State;
   router: routerMachine.State;
+  validator: validatorMachine.State;
 };
 
 export type NewEvent =
   | assertionDocumentation.Event
   | metrics.Event
-  | routerMachine.Event;
+  | routerMachine.Event
+  | validatorMachine.Event;
 
 export const initialState: NewState = {
   assertionDocumentation: assertionDocumentation.initialState,
   metrics: metrics.initialState,
   router: routerMachine.initialState,
+  validator: validatorMachine.initialState,
 };
 
 export const rootReducer = (state: NewState, event: NewEvent) => ({
   assertionDocumentation: assertionDocumentation.nextState(
     state.assertionDocumentation,
-    <assertionDocumentation.Event>event,
+    event as assertionDocumentation.Event,
   ),
-  metrics: metrics.nextState(state.metrics, <metrics.Event>event),
-  router: routerMachine.nextState(state.router, <routerMachine.Event>event),
+  metrics: metrics.nextState(state.metrics, event as metrics.Event),
+  router: routerMachine.nextState(state.router, event as routerMachine.Event),
+  validator: validatorMachine.nextState(
+    state.validator,
+    event as validatorMachine.Event,
+  ),
 });
 
 export type SampleDocument = {
@@ -53,7 +60,6 @@ export type State = {
     sampleDocuments: SampleDocument[];
     developerExampleUrl?: string;
   };
-  validator: validatorMachine.State;
 };
 
 export const state: State = {
@@ -68,5 +74,4 @@ export const state: State = {
   sourceRepository: {
     sampleDocuments: [],
   },
-  validator: validatorMachine.createValidatorMachine(),
 };

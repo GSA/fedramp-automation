@@ -29,11 +29,13 @@ export const ValidatorFileSelectForm = () => {
               fileContents: fileDetails.text,
             });
           })}
-          disabled={state.validator.current === 'PROCESSING'}
+          disabled={
+            state.newAppContext.state.validator.current === 'PROCESSING'
+          }
         />
       </div>
       <div className="tablet:grid-col-8">
-        {state.validator.current === 'UNLOADED' && (
+        {state.newAppContext.state.validator.current === 'UNLOADED' && (
           <svg
             className="usa-icon text-info-lighter font-sans-xl float-right"
             aria-hidden="true"
@@ -43,10 +45,10 @@ export const ValidatorFileSelectForm = () => {
             <use xlinkHref={`${spriteSvg}#radio_button_unchecked`}></use>
           </svg>
         )}
-        {state.validator.current === 'PROCESSING' && (
+        {state.newAppContext.state.validator.current === 'PROCESSING' && (
           <div className="loader float-right" />
         )}
-        {state.validator.current === 'PROCESSING_ERROR' && (
+        {state.newAppContext.state.validator.current === 'PROCESSING_ERROR' && (
           <svg
             className="usa-icon text-error font-sans-xl float-right"
             aria-hidden="true"
@@ -56,7 +58,7 @@ export const ValidatorFileSelectForm = () => {
             <use xlinkHref={`${spriteSvg}#error`}></use>
           </svg>
         )}
-        {state.validator.current === 'VALIDATED' && (
+        {state.newAppContext.state.validator.current === 'VALIDATED' && (
           <svg
             className="usa-icon text-primary-vivid font-sans-xl float-right"
             aria-hidden="true"
@@ -73,10 +75,14 @@ export const ValidatorFileSelectForm = () => {
           className="usa-select"
           name="sample-document"
           id="sample-document"
-          disabled={state.validator.current === 'PROCESSING'}
+          disabled={
+            state.newAppContext.state.validator.current === 'PROCESSING'
+          }
           onChange={event => {
-            actions.validator.setXmlUrl(
-              event.target.options[event.target.selectedIndex].value,
+            window.requestAnimationFrame(() =>
+              actions.validator.setXmlUrl(
+                event.target.options[event.target.selectedIndex].value,
+              ),
             );
           }}
         >
@@ -91,11 +97,13 @@ export const ValidatorFileSelectForm = () => {
             </option>
           ))}
         </select>
-        {state.validator.current === 'PROCESSING_ERROR' && (
+        {state.newAppContext.state.validator.current === 'PROCESSING_ERROR' && (
           <div className="usa-alert usa-alert--error" role="alert">
             <div className="usa-alert__body">
               <h4 className="usa-alert__heading">Processing Error</h4>
-              <p className="usa-alert__text">{state.validator.errorMessage}</p>
+              <p className="usa-alert__text">
+                {state.newAppContext.state.validator.errorMessage}
+              </p>
             </div>
           </div>
         )}

@@ -175,8 +175,7 @@ export const createSchematronMachine = () => {
           },
         }),
       ),
-      validationResults:
-        validationResultsMachine.createValidationResultsMachine(),
+      validationResults: validationResultsMachine.initialState,
     },
   );
 };

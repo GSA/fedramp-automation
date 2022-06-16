@@ -3,12 +3,9 @@ import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 
 import type { PresenterConfig } from '..';
 import { getUrl, Routes } from '../state/router';
-import * as validatorMachine from '../state/validator-machine';
 
 export const reset = ({ state }: PresenterConfig) => {
-  state.validator = validatorMachine.nextState(state.validator, {
-    type: 'RESET',
-  });
+  state.newAppContext.dispatch({ type: 'VALIDATOR_RESET' });
 };
 
 export const validateOscalDocument = async (
@@ -16,11 +13,11 @@ export const validateOscalDocument = async (
   options: { fileName: string; fileContents: string },
 ) => {
   actions.validator.reset();
-  state.validator = validatorMachine.nextState(state.validator, {
-    type: 'PROCESSING_STRING',
+  state.newAppContext.dispatch({
+    type: 'VALIDATOR_PROCESSING_STRING',
     data: { fileName: options.fileName },
   });
-  if (state.validator.current === 'PROCESSING') {
+  if (state.newAppContext.state.validator.current === 'PROCESSING') {
     effects.useCases.oscalService
       .validateXmlOrJson(options.fileContents)
       .then(({ documentType, validationReport, xmlString }) => {
@@ -41,11 +38,11 @@ export const setXmlUrl = async (
   xmlFileUrl: string,
 ) => {
   actions.validator.reset();
-  state.validator = validatorMachine.nextState(state.validator, {
-    type: 'PROCESSING_URL',
+  state.newAppContext.dispatch({
+    type: 'VALIDATOR_PROCESSING_URL',
     data: { xmlFileUrl },
   });
-  if (state.validator.current === 'PROCESSING') {
+  if (state.newAppContext.state.validator.current === 'PROCESSING') {
     effects.useCases.oscalService
       .validateXmlOrJsonByUrl(xmlFileUrl)
       .then(({ documentType, validationReport, xmlString }) => {
@@ -65,9 +62,9 @@ export const setProcessingError = (
   { state }: PresenterConfig,
   errorMessage: string,
 ) => {
-  if (state.validator.current === 'PROCESSING') {
-    state.validator = validatorMachine.nextState(state.validator, {
-      type: 'PROCESSING_ERROR',
+  if (state.newAppContext.state.validator.current === 'PROCESSING') {
+    state.newAppContext.dispatch({
+      type: 'VALIDATOR_PROCESSING_ERROR',
       data: { errorMessage },
     });
   }
@@ -85,9 +82,9 @@ export const setValidationReport = (
     xmlString: string;
   },
 ) => {
-  if (state.validator.current === 'PROCESSING') {
-    state.validator = validatorMachine.nextState(state.validator, {
-      type: 'VALIDATED',
+  if (state.newAppContext.state.validator.current === 'PROCESSING') {
+    state.newAppContext.dispatch({
+      type: 'VALIDATOR_VALIDATED',
     });
     actions.metrics.logValidationSummary(documentType);
   }

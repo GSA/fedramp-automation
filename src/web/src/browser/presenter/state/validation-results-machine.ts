@@ -91,7 +91,7 @@ export const nextState = (state: State, event: Event): State => {
   return state;
 };
 
-export const createValidationResultsMachine = (): State => ({
+export const initialState: State = {
   current: 'NO_RESULTS',
   assertionsById: null,
-});
+};

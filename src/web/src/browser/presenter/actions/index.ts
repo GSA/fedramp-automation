@@ -7,7 +7,6 @@ export * as validator from './validator';
 import { NewAppContext } from '@asap/browser/views/context';
 import type { PresenterConfig } from '..';
 import * as router from '../state/router';
-import * as routerMachine from '../state/router-machine';
 
 export const onInitializeOvermind = async ({
   actions,
@@ -32,10 +31,8 @@ export const setCurrentRoute = (
       type: 'ROUTE_CHANGED',
       data: { route },
     });
+    effects.location.replace(router.getUrl(route));
   }
-  effects.location.replace(
-    router.getUrl(state.newAppContext.state.router.currentRoute),
-  );
 };
 
 export const getAssetUrl = ({ state }: PresenterConfig, assetPath: string) => {
