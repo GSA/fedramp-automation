@@ -1,6 +1,8 @@
-import React from 'react';
-
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
+import partnersCloudSvg from '../images/partners-cloud.svg';
+import partnersAssessorsSvg from '../images/partners-assessors.svg';
+import partnersAgenciesSvg from '../images/partners-agencies.svg';
+
 import { useActions } from '../hooks';
 
 const ProcessList = () => (
@@ -42,7 +44,6 @@ const ProcessList = () => (
 );
 
 const PartiesGrid = () => {
-  const { getAssetUrl } = useActions();
   return (
     <div className="grid-container">
       <div className="grid-row">
@@ -59,7 +60,7 @@ const PartiesGrid = () => {
           <div>
             <img
               className="float-left margin-2"
-              src={getAssetUrl('partners-cloud.svg')}
+              src={partnersCloudSvg}
               alt=""
             />
             <h3>Cloud Service Providers</h3>
@@ -72,7 +73,7 @@ const PartiesGrid = () => {
         <div className="desktop:grid-col-4">
           <img
             className="float-left margin-2"
-            src={getAssetUrl('partners-assessors.svg')}
+            src={partnersAssessorsSvg}
             alt=""
           />
           <h3>FedRAMP Reviewers</h3>
@@ -84,7 +85,7 @@ const PartiesGrid = () => {
         <div className="desktop:grid-col-4">
           <img
             className="float-left margin-2"
-            src={getAssetUrl('partners-agencies.svg')}
+            src={partnersAgenciesSvg}
             alt=""
           />
           <h3>Federal Agencies</h3>

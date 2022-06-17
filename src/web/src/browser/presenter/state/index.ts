@@ -1,4 +1,3 @@
-import { NewAppContext } from '@asap/browser/views/context';
 import * as assertionDocumentation from './assertion-documetation';
 import * as metrics from './metrics';
 import * as routerMachine from './router-machine';
@@ -47,7 +46,7 @@ export type SampleDocument = {
 };
 
 export type State = {
-  newAppContext: NewAppContext;
+  newAppContext: any;
   baseUrl: `${string}/`;
   oscalDocuments: {
     poam: SchematronMachine;
