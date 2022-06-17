@@ -2,24 +2,25 @@ import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-do
 import { ScenarioSummary } from '@asap/shared/domain/xspec';
 import { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
-type BaseState = {
+type LoadedState = {
   xspecScenarioSummaries: XSpecScenarioSummaries;
-  visibleScenarioSummaries: ScenarioSummary[];
-  visibleAssertion: {
-    assertionId: string;
-    documentType: OscalDocumentKey;
-  } | null;
 };
 
-export type State = BaseState &
-  (
-    | {
-        current: 'INITIALIZED';
-      }
-    | {
-        current: 'UNINITIALIZED';
-      }
-  );
+export type State =
+  | {
+      current: 'UNINITIALIZED';
+    }
+  | (LoadedState & {
+      current: 'INITIALIZED';
+    })
+  | (LoadedState & {
+      current: 'SHOWING';
+      visibleScenarioSummaries: ScenarioSummary[];
+      visibleAssertion: {
+        assertionId: string;
+        documentType: OscalDocumentKey;
+      } | null;
+    });
 
 export type Event =
   | {
@@ -45,35 +46,25 @@ export const nextState = (state: State, event: Event): State => {
       return {
         current: 'INITIALIZED',
         xspecScenarioSummaries: event.data.xspecScenarioSummaries,
-        visibleAssertion: null,
-        visibleScenarioSummaries: [],
       };
     }
   } else if (state.current === 'INITIALIZED') {
+    if (event.type === 'ASSERTION_DOCUMENTATION_SHOW') {
+      return {
+        current: 'SHOWING',
+        xspecScenarioSummaries: state.xspecScenarioSummaries,
+        visibleAssertion: event.data,
+        visibleScenarioSummaries:
+          state.xspecScenarioSummaries[event.data.documentType][
+            event.data.assertionId
+          ],
+      };
+    }
+  } else if (state.current === 'SHOWING') {
     if (event.type === 'ASSERTION_DOCUMENTATION_CLOSE') {
       return {
         current: 'INITIALIZED',
-        visibleAssertion: null,
-        visibleScenarioSummaries: [],
-        xspecScenarioSummaries: {
-          ...state.xspecScenarioSummaries,
-        },
-      };
-    } else if (event.type === 'ASSERTION_DOCUMENTATION_SHOW') {
-      const visibleAssertion = {
-        assertionId: event.data.assertionId,
-        documentType: event.data.documentType,
-      };
-      return {
-        current: 'INITIALIZED',
-        xspecScenarioSummaries: {
-          ...state.xspecScenarioSummaries,
-        },
-        visibleAssertion,
-        visibleScenarioSummaries:
-          state.xspecScenarioSummaries[visibleAssertion.documentType][
-            visibleAssertion.assertionId
-          ],
+        xspecScenarioSummaries: state.xspecScenarioSummaries,
       };
     }
   }
@@ -82,12 +73,4 @@ export const nextState = (state: State, event: Event): State => {
 
 export const initialState: State = {
   current: 'UNINITIALIZED',
-  visibleAssertion: null,
-  xspecScenarioSummaries: {
-    poam: {},
-    sap: {},
-    sar: {},
-    ssp: {},
-  },
-  visibleScenarioSummaries: [],
 };

@@ -11,7 +11,7 @@ export const AssertionDocumentationOverlay = () => {
     <div>
       <Modal
         className="position-absolute top-2 bottom-2 right-2 left-2 margin-2 bg-white overflow-scroll"
-        isOpen={state.assertionDocumentation.visibleAssertion !== null}
+        isOpen={state.assertionDocumentation.current === 'SHOWING'}
         onRequestClose={() => dispatch(assertionDocumentation.close)}
         contentLabel="Assertion rule examples"
         style={{
@@ -29,7 +29,9 @@ export const AssertionDocumentationOverlay = () => {
         </div>
         <AssertionXSpecScenarios
           scenarioSummaries={
-            state.assertionDocumentation.visibleScenarioSummaries
+            state.assertionDocumentation.current === 'SHOWING'
+              ? state.assertionDocumentation.visibleScenarioSummaries
+              : []
           }
         />
       </Modal>

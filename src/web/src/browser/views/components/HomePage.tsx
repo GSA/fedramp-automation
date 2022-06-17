@@ -117,8 +117,8 @@ export const HomePage = () => {
           </a>{' '}
           validation rules written in{' '}
           <a href="https://schematron.com/">Schematron</a> format. A{' '}
-          <a href={`${state.baseUrl}rules/rules.html`}>rules summary</a> is
-          available.
+          <a href={`${state.config.baseUrl}rules/rules.html`}>rules summary</a>{' '}
+          is available.
         </li>
         <li>
           This user interface, which will apply validations to a FedRAMP OSCAL
