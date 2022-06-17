@@ -72,14 +72,14 @@ export const runBrowserContext = ({
     element,
     getInitialState({
       baseUrl,
-    }),
-    createPresenter({
-      debug,
       sourceRepository: {
         treeUrl: github.getBranchTreeUrl(githubRepository),
         sampleDocuments: github.getSampleOscalDocuments(githubRepository),
         developerExampleUrl: github.getDeveloperExampleUrl(githubRepository),
       },
+    }),
+    createPresenter({
+      debug,
       location: {
         getCurrent: () => window.location.hash,
         listen: (listener: (url: string) => void) => {

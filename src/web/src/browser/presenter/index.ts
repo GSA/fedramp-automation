@@ -9,14 +9,7 @@ import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron'
 
 import * as actions from './actions';
 import type { Location } from './state/router';
-import {
-  state,
-  State,
-  SampleDocument,
-  NewState,
-  NewEvent,
-  initialState,
-} from './state';
+import { state, State, NewState, NewEvent, initialState } from './state';
 import { ThunkDispatch } from '../views/hooks';
 
 export type UseCases = {
@@ -49,27 +42,20 @@ export type PresenterConfig = IContext<ReturnType<typeof getPresenterConfig>>;
 
 export type PresenterContext = {
   debug: boolean;
-  sourceRepository: {
-    treeUrl: string;
-    sampleDocuments: SampleDocument[];
-    developerExampleUrl: string;
-  };
   location: Location;
   useCases: UseCases;
 };
 
-export const getInitialState = (options: { baseUrl: `${string}/` }) => {
+export const getInitialState = (config: NewState['config']) => {
   return {
     ...initialState,
-    ...options,
+    config,
   };
 };
 
 export const createPresenter = (ctx: PresenterContext) => {
   const presenter = createOvermind(
-    getPresenterConfig(ctx.location, ctx.useCases, {
-      sourceRepository: ctx.sourceRepository,
-    }),
+    getPresenterConfig(ctx.location, ctx.useCases, {}),
     {
       devtools: ctx.debug,
       strict: false,

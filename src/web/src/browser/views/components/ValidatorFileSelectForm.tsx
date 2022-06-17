@@ -1,15 +1,11 @@
 import spriteSvg from 'uswds/img/sprite.svg';
 
 import { onFileInputChangeGetFile } from '../../util/file-input';
-import { useAppState } from '../hooks';
 import * as validator from '../../presenter/actions/validator';
 import { useAppContext } from '../context';
 
 export const ValidatorFileSelectForm = () => {
-  const oldState = useAppState();
   const { dispatch, state } = useAppContext();
-
-  const sourceRepository = oldState.sourceRepository;
 
   return (
     <>
@@ -88,15 +84,19 @@ export const ValidatorFileSelectForm = () => {
           }}
         >
           <option value=""></option>
-          {sourceRepository.sampleDocuments.map((sampleDocument, index) => (
-            <option
-              key={index}
-              onSelect={() => dispatch(validator.setXmlUrl(sampleDocument.url))}
-              value={sampleDocument.url}
-            >
-              {sampleDocument.displayName}
-            </option>
-          ))}
+          {state.config.sourceRepository.sampleDocuments.map(
+            (sampleDocument, index) => (
+              <option
+                key={index}
+                onSelect={() =>
+                  dispatch(validator.setXmlUrl(sampleDocument.url))
+                }
+                value={sampleDocument.url}
+              >
+                {sampleDocument.displayName}
+              </option>
+            ),
+          )}
         </select>
         {state.validator.current === 'PROCESSING_ERROR' && (
           <div className="usa-alert usa-alert--error" role="alert">

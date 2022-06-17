@@ -8,7 +8,14 @@ import {
 import * as validatorMachine from './validator-machine';
 
 export type NewState = {
-  baseUrl: `${string}/`;
+  config: {
+    baseUrl: `${string}/`;
+    sourceRepository: {
+      treeUrl?: string;
+      sampleDocuments: SampleDocument[];
+      developerExampleUrl?: string;
+    };
+  };
   assertionDocumentation: assertionDocumentation.State;
   metrics: metrics.State;
   router: routerMachine.State;
@@ -22,7 +29,12 @@ export type NewEvent =
   | validatorMachine.Event;
 
 export const initialState: NewState = {
-  baseUrl: '/',
+  config: {
+    baseUrl: '/',
+    sourceRepository: {
+      sampleDocuments: [],
+    },
+  },
   assertionDocumentation: assertionDocumentation.initialState,
   metrics: metrics.initialState,
   router: routerMachine.initialState,
@@ -30,7 +42,7 @@ export const initialState: NewState = {
 };
 
 export const rootReducer = (state: NewState, event: NewEvent): NewState => ({
-  baseUrl: state.baseUrl,
+  config: state.config,
   assertionDocumentation: assertionDocumentation.nextState(
     state.assertionDocumentation,
     event as assertionDocumentation.Event,
@@ -56,11 +68,6 @@ export type State = {
     sar: SchematronMachine;
     ssp: SchematronMachine;
   };
-  sourceRepository: {
-    treeUrl?: string;
-    sampleDocuments: SampleDocument[];
-    developerExampleUrl?: string;
-  };
 };
 
 export const state: State = {
@@ -70,8 +77,5 @@ export const state: State = {
     sap: createSchematronMachine(),
     sar: createSchematronMachine(),
     ssp: createSchematronMachine(),
-  },
-  sourceRepository: {
-    sampleDocuments: [],
   },
 };
