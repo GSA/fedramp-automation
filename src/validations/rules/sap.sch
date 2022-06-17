@@ -182,9 +182,6 @@
         <sch:let
             name="ssp-locations"
             value="$ssp-doc/oscal:system-security-plan/oscal:metadata//oscal:location/@uuid ! xs:string(.)" />
-        <sch:let
-            name="sap-locations"
-            value="oscal:include-subject/@subject-uuid ! xs:string(.)" />
         <sch:rule
             context="oscal:assessment-subject[@type = 'location']">
             <sch:assert
