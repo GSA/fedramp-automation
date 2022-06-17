@@ -9,14 +9,14 @@ export type State = BaseState & {
   current: 'VALID_PAGE';
 };
 
-export type Event = {
+export type StateTransition = {
   type: 'ROUTE_CHANGED';
   data: {
     route: router.Route;
   };
 };
 
-export const nextState = (state: State, event: Event): State => {
+export const nextState = (state: State, event: StateTransition): State => {
   if (state.current === 'VALID_PAGE') {
     if (event.type === 'ROUTE_CHANGED') {
       return {

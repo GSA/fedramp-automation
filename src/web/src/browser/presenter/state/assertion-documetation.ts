@@ -22,7 +22,7 @@ export type State =
       } | null;
     });
 
-export type Event =
+export type StateTransition =
   | {
       type: 'ASSERTION_DOCUMENTATION_SUMMARIES_LOADED';
       data: {
@@ -40,7 +40,7 @@ export type Event =
       };
     };
 
-export const nextState = (state: State, event: Event): State => {
+export const nextState = (state: State, event: StateTransition): State => {
   if (state.current === 'UNINITIALIZED') {
     if (event.type === 'ASSERTION_DOCUMENTATION_SUMMARIES_LOADED') {
       return {

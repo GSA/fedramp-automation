@@ -14,7 +14,7 @@ export type State =
       current: 'VALIDATED';
     };
 
-export type Event =
+export type StateTransition =
   | {
       type: 'VALIDATOR_RESET';
     }
@@ -40,7 +40,7 @@ export type Event =
       type: 'VALIDATOR_VALIDATED';
     };
 
-export const nextState = (state: State, event: Event): State => {
+export const nextState = (state: State, event: StateTransition): State => {
   if (state.current === 'PROCESSING_ERROR') {
     if (event.type === 'VALIDATOR_RESET') {
       return {

@@ -26,7 +26,7 @@ export type State = BaseState &
       }
   );
 
-type Event =
+type StateTransition =
   | {
       type: 'SET_RESULTS';
       data: {
@@ -47,7 +47,7 @@ type Event =
       type: 'RESET';
     };
 
-export const nextState = (state: State, event: Event): State => {
+export const nextState = (state: State, event: StateTransition): State => {
   if (state.current === 'NO_RESULTS') {
     if (event.type === 'SET_RESULTS') {
       return {

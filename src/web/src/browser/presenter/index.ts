@@ -9,7 +9,7 @@ import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron'
 
 import * as actions from './actions';
 import type { Location } from './state/router';
-import { state, State, NewState, NewEvent, initialState } from './state';
+import { state, OldState, State, StateTransition, initialState } from './state';
 import { ThunkDispatch } from '../views/hooks';
 
 export type UseCases = {
@@ -24,7 +24,7 @@ export type UseCases = {
 export const getPresenterConfig = (
   location: Location,
   useCases: UseCases,
-  initialState: Partial<State> = {},
+  initialState: Partial<OldState> = {},
 ) => {
   return {
     actions,
@@ -46,7 +46,7 @@ export type PresenterContext = {
   useCases: UseCases;
 };
 
-export const getInitialState = (config: NewState['config']) => {
+export const getInitialState = (config: State['config']) => {
   return {
     ...initialState,
     config,
@@ -70,6 +70,6 @@ export type NewPresenterConfig = {
     location: Location;
     useCases: UseCases;
   };
-  getState: () => NewState;
-  dispatch: ThunkDispatch<NewState, NewEvent, Presenter['effects']>;
+  getState: () => State;
+  dispatch: ThunkDispatch<State, StateTransition, Presenter['effects']>;
 };

@@ -7,7 +7,7 @@ export type State =
       current: 'METRICS_OPT_OUT';
     };
 
-export type Event =
+export type StateTransition =
   | {
       type: 'METRICS_TOGGLE';
     }
@@ -20,7 +20,7 @@ export const initialState: State = {
   current: 'METRICS_OPT_OUT',
 };
 
-export const nextState = (state: State, event: Event): State => {
+export const nextState = (state: State, event: StateTransition): State => {
   if (state.current === 'METRICS_OPT_IN') {
     if (event.type === 'METRICS_TOGGLE') {
       return {

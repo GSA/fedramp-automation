@@ -40,9 +40,9 @@ export function useThunkReducer<State, Event, Effects>(
   const state = useRef(hookState);
   const getState = useCallback(() => state.current, [state]);
   const setState = useCallback(
-    (newState: State) => {
-      state.current = newState;
-      setHookState(newState);
+    (State: State) => {
+      state.current = State;
+      setHookState(State);
     },
     [state, setHookState],
   );

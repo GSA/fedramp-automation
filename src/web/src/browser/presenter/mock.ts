@@ -3,11 +3,11 @@ import { mock } from 'vitest-mock-extended';
 import { vi } from 'vitest';
 
 import { getPresenterConfig, UseCases } from '.';
-import { State } from './state';
+import { OldState } from './state';
 
 type MockPresenterContext = {
   useCases?: Partial<UseCases>;
-  initialState?: Partial<State>;
+  initialState?: Partial<OldState>;
 };
 
 export const createPresenterMock = (ctx: MockPresenterContext = {}) => {

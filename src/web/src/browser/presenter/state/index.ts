@@ -7,7 +7,7 @@ import {
 } from './schematron-machine';
 import * as validatorMachine from './validator-machine';
 
-export type NewState = {
+export type State = {
   config: {
     baseUrl: `${string}/`;
     sourceRepository: {
@@ -22,13 +22,13 @@ export type NewState = {
   validator: validatorMachine.State;
 };
 
-export type NewEvent =
+export type StateTransition =
   | assertionDocumentation.Event
   | metrics.Event
   | routerMachine.Event
   | validatorMachine.Event;
 
-export const initialState: NewState = {
+export const initialState: State = {
   config: {
     baseUrl: '/',
     sourceRepository: {
@@ -41,7 +41,7 @@ export const initialState: NewState = {
   validator: validatorMachine.initialState,
 };
 
-export const rootReducer = (state: NewState, event: NewEvent): NewState => ({
+export const rootReducer = (state: State, event: StateTransition): State => ({
   config: state.config,
   assertionDocumentation: assertionDocumentation.nextState(
     state.assertionDocumentation,
@@ -60,7 +60,7 @@ export type SampleDocument = {
   displayName: string;
 };
 
-export type State = {
+export type OldState = {
   newAppContext: any;
   oscalDocuments: {
     poam: SchematronMachine;
@@ -70,7 +70,7 @@ export type State = {
   };
 };
 
-export const state: State = {
+export const state: OldState = {
   newAppContext: { state: initialState, dispatch: () => {} },
   oscalDocuments: {
     poam: createSchematronMachine(),
