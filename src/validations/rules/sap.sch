@@ -172,6 +172,73 @@
     </sch:pattern>
 
     <sch:pattern
+        id="control-selection">
+        <sch:let
+            name="ssp-href"
+            value="/oscal:assessment-plan/oscal:import-ssp/@href" />
+        <sch:let
+            name="ssp-doc"
+            value="document($ssp-href)" />
+        <sch:let
+            name="ssp-controls"
+            value="$ssp-doc//oscal:implemented-requirement/@control-id" />
+        <sch:rule
+            context="oscal:control-selection">
+            <sch:let
+                name="exclude-control-ids"
+                value="oscal:exclude-control/@control-id ! xs:string(.)" />
+            <sch:let
+                name="include-control-ids"
+                value="oscal:include-control/@control-id ! xs:string(.)" />
+            <sch:let
+                name="matching-control-ids"
+                value="$exclude-control-ids[. = $include-control-ids]" />
+            <sch:assert
+                diagnostics="include-all-or-include-control-diagnostic"
+                id="include-all-or-include-control"
+                role="fatal"
+                test="(oscal:include-all and not(oscal:include-control)) or (oscal:include-control and not(oscal:include-all))">An OSCAL SAP control
+                selection elements must have either an include-all element or include-control element(s) children.</sch:assert>
+            <sch:assert
+                diagnostics="duplicate-exclude-control-and-include-control-values-diagnostic"
+                id="duplicate-exclude-control-and-include-control-values"
+                role="error"
+                test="count($matching-control-ids) = 0">The exclude-control and include-control sibling element @control-id values must be
+                different.</sch:assert>
+            <sch:assert
+                diagnostics="duplicate-include-control-values-diagnostic"
+                id="duplicate-include-control-values"
+                role="error"
+                test="count($include-control-ids) eq count(distinct-values($include-control-ids))">The include-control/@control-id values must be
+                different.</sch:assert>
+            <sch:assert
+                diagnostics="duplicate-exclude-control-values-diagnostic"
+                id="duplicate-exclude-control-values"
+                role="error"
+                test="count($exclude-control-ids) eq count(distinct-values($exclude-control-ids))">The exclude-control/@control-id values must be
+                different.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:include-control">
+            <sch:assert
+                diagnostics="control-inclusion-values-exist-in-ssp-diagnostic"
+                id="control-inclusion-values-exist-in-ssp"
+                role="error"
+                test="@control-id[. = $ssp-controls]"
+                unit:override-xspec="both">SAP included controls are identified in the associated SSP. </sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:exclude-control">
+            <sch:assert
+                diagnostics="control-exclusion-values-exist-in-ssp-diagnostic"
+                id="control-exclusion-values-exist-in-ssp"
+                role="error"
+                test="@control-id[. = $ssp-controls]"
+                unit:override-xspec="both">SAP excluded controls are identified in the associated SSP. </sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
+    <sch:pattern
         id="pentest">
 
         <sch:rule
@@ -364,7 +431,36 @@
             doc:assert="has-no-base64"
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'system-security-plan']]/oscal:base64"
             id="has-no-base64-diagnostic">This OSCAL SAP has a base64 element in a system-security-plan resource.</sch:diagnostic>
-
+        <sch:diagnostic
+            doc:assert="include-all-or-include-control"
+            doc:context="oscal:control-selection"
+            id="include-all-or-include-control-diagnostic">A control-selection element may not have both include-all and include-control element
+            children.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="duplicate-exclude-control-and-include-control-values"
+            doc:context="oscal:control-selection"
+            id="duplicate-exclude-control-and-include-control-values-diagnostic">The @control-id values <sch:value-of
+                select="$matching-control-ids" /> are not allowed to occur more than once in this control-selection element.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="duplicate-include-control-values"
+            doc:context="oscal:included-control"
+            id="duplicate-include-control-values-diagnostic">Duplicate values are not allowed to occur in include-control/@control-id
+            elements.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="duplicate-exclude-control-values"
+            doc:context="oscal:included-control"
+            id="duplicate-exclude-control-values-diagnostic">Duplicate values are not allowed to occur in exclude-control/@control-id
+            elements.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="control-inclusion-values-exist-in-ssp"
+            doc:context="oscal:included-control"
+            id="control-inclusion-values-exist-in-ssp-diagnostic">The included control <sch:value-of
+                select="@control-id" /> does not exist in the associated SSP.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="control-exclusion-values-exist-in-ssp"
+            doc:context="oscal:excluded-control"
+            id="control-exclusion-values-exist-in-ssp-diagnostic">The excluded control <sch:value-of
+                select="@control-id" /> does not exist in the associated SSP.</sch:diagnostic>
         <sch:diagnostic
             doc:assert="has-terms-and-conditions-diagnostic"
             doc:context="oscal:assessment-plan"

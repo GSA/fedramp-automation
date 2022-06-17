@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <x:description
+    run-as="external"
     schematron="../../rules/sap.sch"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">
 
@@ -704,7 +705,120 @@
 
             </x:scenario>
         </x:scenario>
-
+        <x:scenario label="when in a control-selection element">
+            <x:scenario
+                label="and an include-all or include-control, but not both, is present">
+                <x:scenario label="when that is true">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <include-all/>
+                            <exclude-control control-id="ac-1"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="include-all-or-include-control"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when that is false">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <include-all/>
+                            <include-control control-id="ac-1"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-assert
+                        id="include-all-or-include-control"
+                        label="this is an error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="and the include-control/@control-id and exclude-control/@control-id values are all different">
+                <x:scenario label="when that is true">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <exclude-control control-id="ac-1"/>
+                            <include-control control-id="ac-2"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="duplicate-exclude-control-and-include-control-values"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when that is false">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
+                            <exclude-control control-id="ac-1"/>
+                            <include-control control-id="ac-1"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-assert
+                        id="duplicate-exclude-control-and-include-control-values"
+                        label="this is incorrect" />
+                </x:scenario>
+            </x:scenario>            
+            <x:scenario
+                label="and the include-control/@control-id values are all different">
+                <x:scenario label="when that is true">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <include-control control-id="ac-1"/>
+                            <include-control control-id="ac-2"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="duplicate-include-control-values"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when that is false">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
+                            <include-control control-id="ac-1"/>
+                            <include-control control-id="ac-1"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-assert
+                        id="duplicate-include-control-values"
+                        label="this is incorrect" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="and the exclude-control/@control-id values are all different">
+                <x:scenario label="when that is true">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <exclude-control control-id="ac-1"/>
+                            <exclude-control control-id="ac-2"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="duplicate-exclude-control-values"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when that is false">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
+                            <exclude-control control-id="ac-1"/>
+                            <exclude-control control-id="ac-1"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-assert
+                        id="duplicate-exclude-control-values"
+                        label="this is incorrect" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
 
 </x:description>
