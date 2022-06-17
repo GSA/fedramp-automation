@@ -195,6 +195,7 @@
                 value="$exclude-control-ids[. = $include-control-ids]" />
             <sch:assert
                 diagnostics="include-all-or-include-control-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.1"
                 id="include-all-or-include-control"
                 role="fatal"
                 test="(oscal:include-all and not(oscal:include-control)) or (oscal:include-control and not(oscal:include-all))">An OSCAL SAP control
@@ -222,6 +223,7 @@
             context="oscal:include-control">
             <sch:assert
                 diagnostics="control-inclusion-values-exist-in-ssp-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.1"
                 id="control-inclusion-values-exist-in-ssp"
                 role="error"
                 test="@control-id[. = $ssp-controls]"
@@ -231,6 +233,7 @@
             context="oscal:exclude-control">
             <sch:assert
                 diagnostics="control-exclusion-values-exist-in-ssp-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.1"
                 id="control-exclusion-values-exist-in-ssp"
                 role="error"
                 test="@control-id[. = $ssp-controls]"
