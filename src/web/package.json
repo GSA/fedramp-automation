@@ -50,7 +50,9 @@
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "postinstall": "patch-package",
     "preview": "vite preview",
-    "start": "vite",
+    "start": "run-p start:*",
+    "start:typecheck": "tsc --noEmit",
+    "start:vite": "vite",
     "test": "vitest run",
     "test:coverage": "vitest --coverage && open ./coverage/lcov-report/index.html"
   },
