@@ -1,5 +1,6 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import type { ValidationReport } from '@asap/shared/use-cases/schematron';
+import { setCurrentRoute } from '.';
 
 import type { PresenterConfig } from '..';
 import { getUrl, Routes } from '../state/router';
@@ -93,14 +94,16 @@ export const setValidationReport = (
     validationReport,
     xmlString,
   });
-  actions.setCurrentRoute(
-    getUrl(
-      {
-        poam: Routes.documentPOAM,
-        sap: Routes.documentSAP,
-        sar: Routes.documentSAR,
-        ssp: Routes.documentSSP,
-      }[documentType],
+  state.newAppContext.dispatch(
+    setCurrentRoute(
+      getUrl(
+        {
+          poam: Routes.documentPOAM,
+          sap: Routes.documentSAP,
+          sar: Routes.documentSAR,
+          ssp: Routes.documentSSP,
+        }[documentType],
+      ),
     ),
   );
 };
