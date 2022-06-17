@@ -10,13 +10,18 @@ import { Presenter } from '@asap/browser/presenter';
 import { App } from './components/App';
 import { AppContextProvider } from './context';
 import './styles/index.scss';
+import { NewState } from '../presenter/state';
 
 export const createAppRenderer =
-  (rootElement: HTMLElement, presenter: Presenter) => () => {
+  (rootElement: HTMLElement, initialState: NewState, presenter: Presenter) =>
+  () => {
     Modal.setAppElement(rootElement);
     ReactDOM.render(
       <React.StrictMode>
-        <AppContextProvider effects={presenter.effects}>
+        <AppContextProvider
+          effects={presenter.effects}
+          initialState={initialState}
+        >
           <Provider value={presenter}>
             <App />
           </Provider>

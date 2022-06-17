@@ -2,12 +2,7 @@ import { createContext, useContext, useState } from 'react';
 import { Presenter } from '../presenter';
 import { initializeApplication } from '../presenter/actions';
 
-import {
-  initialState,
-  NewState,
-  rootReducer,
-  NewEvent,
-} from '../presenter/state';
+import { NewState, rootReducer, NewEvent } from '../presenter/state';
 import { ThunkDispatch, useThunkReducer } from './hooks';
 
 export type AppContextType = {
@@ -15,7 +10,7 @@ export type AppContextType = {
   dispatch: ThunkDispatch<NewState, NewEvent, Presenter['effects']>;
 };
 export const AppContext = createContext<AppContextType>({
-  state: initialState,
+  state: {} as NewState,
   dispatch: () => null,
 });
 
@@ -26,9 +21,11 @@ export const useAppContext = () => {
 export const AppContextProvider = ({
   children,
   effects,
+  initialState,
 }: {
   children: React.ReactNode;
   effects: Presenter['effects'];
+  initialState: NewState;
 }) => {
   const [appInitialized, setAppInitialized] = useState(false);
   const [state, dispatch] = useThunkReducer<

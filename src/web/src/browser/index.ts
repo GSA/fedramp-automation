@@ -12,7 +12,7 @@ import {
   SaxonJsSchematronProcessorGateway,
 } from '@asap/shared/adapters/saxon-js-gateway';
 
-import { createPresenter } from './presenter';
+import { createPresenter, getInitialState } from './presenter';
 import { createAppRenderer } from './views';
 
 // The npm version of saxon-js is for node; currently, we load the browser
@@ -70,9 +70,11 @@ export const runBrowserContext = ({
 
   const renderApp = createAppRenderer(
     element,
+    getInitialState({
+      baseUrl,
+    }),
     createPresenter({
       debug,
-      baseUrl,
       sourceRepository: {
         treeUrl: github.getBranchTreeUrl(githubRepository),
         sampleDocuments: github.getSampleOscalDocuments(githubRepository),

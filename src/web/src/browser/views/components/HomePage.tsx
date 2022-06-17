@@ -3,7 +3,7 @@ import partnersCloudSvg from '../images/partners-cloud.svg';
 import partnersAssessorsSvg from '../images/partners-assessors.svg';
 import partnersAgenciesSvg from '../images/partners-agencies.svg';
 
-import { useActions } from '../hooks';
+import { useAppContext } from '../context';
 
 const ProcessList = () => (
   <>
@@ -100,7 +100,7 @@ const PartiesGrid = () => {
 };
 
 export const HomePage = () => {
-  const { getAssetUrl } = useActions();
+  const { state } = useAppContext();
   return (
     <div className="usa-prose padding-top-3">
       <h1>Accelerate approvals</h1>
@@ -117,7 +117,8 @@ export const HomePage = () => {
           </a>{' '}
           validation rules written in{' '}
           <a href="https://schematron.com/">Schematron</a> format. A{' '}
-          <a href={getAssetUrl('rules.html')}>rules summary</a> is available.
+          <a href={`${state.baseUrl}rules/rules.html`}>rules summary</a> is
+          available.
         </li>
         <li>
           This user interface, which will apply validations to a FedRAMP OSCAL
