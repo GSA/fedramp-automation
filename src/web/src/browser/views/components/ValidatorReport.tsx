@@ -1,10 +1,11 @@
-import React from 'react';
 import spriteSvg from 'uswds/img/sprite.svg';
 
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
+import { useAppContext } from '../context';
+import * as assertionDocumentation from '../../presenter/actions/assertion-documentation';
 
 type Props = {
   documentType: OscalDocumentKey;
@@ -15,6 +16,8 @@ export const ValidatorReport = ({ documentType }: Props) => {
     useAppState().oscalDocuments[documentType].schematronReport;
 
   const actions = useActions();
+  const { dispatch } = useAppContext();
+
   return (
     <>
       <div className="top-0 bg-white padding-top-1 padding-bottom-1">
@@ -67,10 +70,12 @@ export const ValidatorReport = ({ documentType }: Props) => {
                   <button
                     className="usa-button usa-button--unstyled"
                     onClick={() =>
-                      actions.assertionDocumentation.show({
-                        assertionId: check.id,
-                        documentType,
-                      })
+                      dispatch(
+                        assertionDocumentation.show({
+                          assertionId: check.id,
+                          documentType,
+                        }),
+                      )
                     }
                     title="View examples"
                   >

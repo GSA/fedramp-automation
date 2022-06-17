@@ -9,7 +9,8 @@ import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron'
 
 import * as actions from './actions';
 import type { Location } from './state/router';
-import { state, State, SampleDocument } from './state';
+import { state, State, SampleDocument, NewState, NewEvent } from './state';
+import { ThunkDispatch } from '../views/hooks';
 
 export type UseCases = {
   annotateXML: AnnotateXMLUseCase;
@@ -65,3 +66,12 @@ export const createPresenter = (ctx: PresenterContext) => {
   return presenter;
 };
 export type Presenter = ReturnType<typeof createPresenter>;
+
+export type NewPresenterConfig = {
+  effects: {
+    location: Location;
+    useCases: UseCases;
+  };
+  getState: () => NewState;
+  dispatch: ThunkDispatch<NewState, NewEvent, Presenter['effects']>;
+};

@@ -23,16 +23,16 @@ export type State = BaseState &
 
 export type Event =
   | {
-      type: 'SUMMARIES_LOADED';
+      type: 'ASSERTION_DOCUMENTATION_SUMMARIES_LOADED';
       data: {
         xspecScenarioSummaries: XSpecScenarioSummaries;
       };
     }
   | {
-      type: 'CLOSE';
+      type: 'ASSERTION_DOCUMENTATION_CLOSE';
     }
   | {
-      type: 'SHOW';
+      type: 'ASSERTION_DOCUMENTATION_SHOW';
       data: {
         assertionId: string;
         documentType: OscalDocumentKey;
@@ -41,7 +41,7 @@ export type Event =
 
 export const nextState = (state: State, event: Event): State => {
   if (state.current === 'UNINITIALIZED') {
-    if (event.type === 'SUMMARIES_LOADED') {
+    if (event.type === 'ASSERTION_DOCUMENTATION_SUMMARIES_LOADED') {
       return {
         current: 'INITIALIZED',
         xspecScenarioSummaries: event.data.xspecScenarioSummaries,
@@ -50,7 +50,7 @@ export const nextState = (state: State, event: Event): State => {
       };
     }
   } else if (state.current === 'INITIALIZED') {
-    if (event.type === 'CLOSE') {
+    if (event.type === 'ASSERTION_DOCUMENTATION_CLOSE') {
       return {
         current: 'INITIALIZED',
         visibleAssertion: null,
@@ -59,7 +59,7 @@ export const nextState = (state: State, event: Event): State => {
           ...state.xspecScenarioSummaries,
         },
       };
-    } else if (event.type === 'SHOW') {
+    } else if (event.type === 'ASSERTION_DOCUMENTATION_SHOW') {
       const visibleAssertion = {
         assertionId: event.data.assertionId,
         documentType: event.data.documentType,

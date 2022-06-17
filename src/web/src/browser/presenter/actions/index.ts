@@ -1,11 +1,12 @@
 export * as assertionDocumentation from './assertion-documentation';
+import * as assertionDocumentation from './assertion-documentation';
 export * as documentViewer from './document-viewer';
 export * as metrics from './metrics';
 export * as schematron from './schematron';
 export * as validator from './validator';
 
-import { NewAppContext } from '@asap/browser/views/context';
-import type { PresenterConfig } from '..';
+import { AppContextType } from '@asap/browser/views/context';
+import type { NewPresenterConfig, PresenterConfig } from '..';
 import * as router from '../state/router';
 
 export const onInitializeOvermind = async ({
@@ -17,8 +18,11 @@ export const onInitializeOvermind = async ({
     actions.setCurrentRoute(url);
   });
   actions.schematron.initialize();
-  actions.assertionDocumentation.initialize();
   await actions.metrics.initialize();
+};
+
+export const initializeApplication = (config: NewPresenterConfig) => {
+  assertionDocumentation.initialize(config);
 };
 
 export const setCurrentRoute = (
@@ -41,7 +45,7 @@ export const getAssetUrl = ({ state }: PresenterConfig, assetPath: string) => {
 
 export const setNewAppContext = (
   { state }: PresenterConfig,
-  newAppContext: NewAppContext,
+  newAppContext: AppContextType,
 ) => {
   state.newAppContext = newAppContext;
 };

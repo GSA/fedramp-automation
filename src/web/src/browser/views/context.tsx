@@ -1,4 +1,6 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useState } from 'react';
+import { Presenter } from '../presenter';
+import { initializeApplication } from '../presenter/actions';
 
 import {
   initialState,
@@ -6,30 +8,45 @@ import {
   rootReducer,
   NewEvent,
 } from '../presenter/state';
+import { ThunkDispatch, useThunkReducer } from './hooks';
 
-export const AppContext = createContext<{
+export type AppContextType = {
   state: NewState;
-  dispatch: React.Dispatch<NewEvent>;
-}>({
+  dispatch: ThunkDispatch<NewState, NewEvent, Presenter['effects']>;
+};
+export const AppContext = createContext<AppContextType>({
   state: initialState,
   dispatch: () => null,
 });
 
-export const useAppReducer = () => {
-  return useReducer(rootReducer, initialState);
-};
-
 export const useAppContext = () => {
-  const { state, dispatch } = useContext(AppContext);
-  return { state, dispatch };
+  return useContext(AppContext);
 };
-export type NewAppContext = ReturnType<typeof useAppContext>;
 
-export const AppProvider: React.FC = ({ children }) => {
-  const [state, dispatch] = useAppReducer();
-  return (
-    <AppContext.Provider value={{ state, dispatch }}>
-      {children}
-    </AppContext.Provider>
-  );
+export const AppContextProvider = ({
+  children,
+  effects,
+}: {
+  children: React.ReactNode;
+  effects: Presenter['effects'];
+}) => {
+  const [appInitialized, setAppInitialized] = useState(false);
+  const [state, dispatch] = useThunkReducer<
+    NewState,
+    NewEvent,
+    Presenter['effects']
+  >(rootReducer, effects, initialState);
+
+  const value = {
+    state,
+    dispatch,
+  };
+
+  // TODO: Move somewhere else?
+  if (!appInitialized) {
+    dispatch(initializeApplication);
+    setAppInitialized(true);
+  }
+
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

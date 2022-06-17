@@ -8,7 +8,7 @@ import Modal from 'react-modal';
 import { Presenter } from '@asap/browser/presenter';
 
 import { App } from './components/App';
-import { AppProvider } from './context';
+import { AppContextProvider } from './context';
 import './styles/index.scss';
 
 export const createAppRenderer =
@@ -16,11 +16,11 @@ export const createAppRenderer =
     Modal.setAppElement(rootElement);
     ReactDOM.render(
       <React.StrictMode>
-        <AppProvider>
+        <AppContextProvider effects={presenter.effects}>
           <Provider value={presenter}>
             <App />
           </Provider>
-        </AppProvider>
+        </AppContextProvider>
       </React.StrictMode>,
       rootElement,
     );
