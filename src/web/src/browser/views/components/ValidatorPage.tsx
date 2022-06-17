@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 

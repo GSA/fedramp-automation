@@ -1,6 +1,7 @@
-import { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import React, { createRef, useCallback, useEffect, useRef } from 'react';
+import { useCallback } from 'react';
 import Modal from 'react-modal';
+
+import { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { useActions, useAppState } from '../hooks';
 import { CodeViewer } from './CodeViewer';

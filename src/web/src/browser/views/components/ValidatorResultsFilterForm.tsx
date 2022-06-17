@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import spriteSvg from 'uswds/img/sprite.svg';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 

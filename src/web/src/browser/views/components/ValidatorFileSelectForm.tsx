@@ -1,4 +1,3 @@
-import React from 'react';
 import spriteSvg from 'uswds/img/sprite.svg';
 
 import { onFileInputChangeGetFile } from '../../util/file-input';

@@ -1,14 +1,13 @@
-import React from 'react';
 import classnames from 'classnames';
 import spriteSvg from 'uswds/img/sprite.svg';
 
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import { useActions } from '../hooks';
 import { useAppContext } from '../context';
+import * as metrics from '../../presenter/actions/metrics';
 
 export const BetaBanner = () => {
-  const actions = useActions();
-  const { state } = useAppContext();
+  const { dispatch, state } = useAppContext();
 
   return (
     <section className="beta-banner">
@@ -86,7 +85,7 @@ export const BetaBanner = () => {
                       type="button"
                       name="usage-tracking"
                       className="usa-button"
-                      onClick={() => actions.metrics.setOptInStatusOn()}
+                      onClick={() => dispatch(metrics.setOptInStatusOn)}
                     >
                       Accept usage tracking
                     </button>
@@ -97,7 +96,7 @@ export const BetaBanner = () => {
                       type="button"
                       name="usage-tracking"
                       className="usa-button usa-button--outline"
-                      onClick={() => actions.metrics.setOptInStatusOff()}
+                      onClick={() => dispatch(metrics.setOptInStatusOff)}
                     >
                       Reject usage tracking
                     </button>

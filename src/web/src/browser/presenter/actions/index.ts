@@ -2,6 +2,7 @@ export * as assertionDocumentation from './assertion-documentation';
 import * as assertionDocumentation from './assertion-documentation';
 export * as documentViewer from './document-viewer';
 export * as metrics from './metrics';
+import * as metrics from './metrics';
 export * as schematron from './schematron';
 export * as validator from './validator';
 
@@ -11,7 +12,6 @@ import * as router from '../state/router';
 
 export const onInitializeOvermind = async ({ actions }: PresenterConfig) => {
   actions.schematron.initialize();
-  await actions.metrics.initialize();
 };
 
 export const initializeApplication = (config: NewPresenterConfig) => {
@@ -20,6 +20,7 @@ export const initializeApplication = (config: NewPresenterConfig) => {
   config.effects.location.listen((url: string) => {
     setCurrentRoute(url)(config);
   });
+  metrics.initialize(config);
 };
 
 export const setCurrentRoute =

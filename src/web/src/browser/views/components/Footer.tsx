@@ -1,4 +1,3 @@
-import React from 'react';
 import logoImg from 'uswds/img/logo-img.png';
 
 import { useAppState } from '../hooks';

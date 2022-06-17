@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { useActions } from '../hooks';
