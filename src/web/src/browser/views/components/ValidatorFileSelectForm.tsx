@@ -1,11 +1,13 @@
 import spriteSvg from 'uswds/img/sprite.svg';
 
 import { onFileInputChangeGetFile } from '../../util/file-input';
-import { useActions, useAppState } from '../hooks';
+import { useAppState } from '../hooks';
+import * as validator from '../../presenter/actions/validator';
+import { useAppContext } from '../context';
 
 export const ValidatorFileSelectForm = () => {
-  const actions = useActions();
   const state = useAppState();
+  const { dispatch } = useAppContext();
 
   const sourceRepository = state.sourceRepository;
 
@@ -23,10 +25,12 @@ export const ValidatorFileSelectForm = () => {
           aria-describedby="file-input-specific-hint"
           accept=".xml,.json"
           onChange={onFileInputChangeGetFile(fileDetails => {
-            actions.validator.validateOscalDocument({
-              fileName: fileDetails.name,
-              fileContents: fileDetails.text,
-            });
+            dispatch(
+              validator.validateOscalDocument({
+                fileName: fileDetails.name,
+                fileContents: fileDetails.text,
+              }),
+            );
           })}
           disabled={
             state.newAppContext.state.validator.current === 'PROCESSING'
@@ -79,8 +83,10 @@ export const ValidatorFileSelectForm = () => {
           }
           onChange={event => {
             window.requestAnimationFrame(() =>
-              actions.validator.setXmlUrl(
-                event.target.options[event.target.selectedIndex].value,
+              dispatch(
+                validator.setXmlUrl(
+                  event.target.options[event.target.selectedIndex].value,
+                ),
               ),
             );
           }}
@@ -89,7 +95,7 @@ export const ValidatorFileSelectForm = () => {
           {sourceRepository.sampleDocuments.map((sampleDocument, index) => (
             <option
               key={index}
-              onSelect={() => actions.validator.setXmlUrl(sampleDocument.url)}
+              onSelect={() => dispatch(validator.setXmlUrl(sampleDocument.url))}
               value={sampleDocument.url}
             >
               {sampleDocument.displayName}

@@ -1,8 +1,8 @@
-import type { PassStatus, Role } from '../lib/schematron';
-import type { PresenterConfig } from '..';
 import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
+import type { PresenterConfig } from '..';
+import type { PassStatus, Role } from '../lib/schematron';
 import * as validationResultsMachine from '../state/validation-results-machine';
 
 export const initialize = ({ effects, state }: PresenterConfig) => {
