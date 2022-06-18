@@ -1,7 +1,5 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
-import { useActions } from '../hooks';
-
 import { AssertionDocumentationOverlay } from './AssertionDocumentationOverlay';
 import { DocumentViewerOverlay } from './DocumentViewerOverlay';
 import { BetaBanner } from './BetaBanner';
@@ -17,12 +15,6 @@ import { useAppContext } from '../context';
 
 const CurrentPage = () => {
   const currentRoute = useAppContext().state.router.currentRoute;
-  const actions = useActions();
-
-  // Temporary - provide state and reducers to Overmind state, as a
-  // transitional way to migrate action logic away from Overmind.
-  const newAppContext = useAppContext();
-  actions.setNewAppContext(newAppContext);
 
   if (currentRoute.type === 'Home') {
     return (

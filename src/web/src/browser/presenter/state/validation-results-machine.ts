@@ -26,7 +26,7 @@ export type State = BaseState &
       }
   );
 
-type StateTransition =
+export type StateTransition =
   | {
       type: 'SET_RESULTS';
       data: {

@@ -4,22 +4,22 @@ export * as documentViewer from './document-viewer';
 export * as metrics from './metrics';
 import * as metrics from './metrics';
 export * as schematron from './schematron';
+import * as schematron from './schematron';
 export * as validator from './validator';
 
 import { AppContextType } from '@asap/browser/views/context';
 import type { NewPresenterConfig, PresenterConfig } from '..';
 import * as router from '../state/router';
 
-export const onInitializeOvermind = async ({ actions }: PresenterConfig) => {
-  actions.schematron.initialize();
-};
+export const onInitializeOvermind = async ({ actions }: PresenterConfig) => {};
 
 export const initializeApplication = (config: NewPresenterConfig) => {
-  assertionDocumentation.initialize(config);
   setCurrentRoute(config.effects.location.getCurrent())(config);
   config.effects.location.listen((url: string) => {
     setCurrentRoute(url)(config);
   });
+  schematron.initialize(config);
+  assertionDocumentation.initialize(config);
   metrics.initialize(config);
 };
 

@@ -1,17 +1,19 @@
 import { useRef } from 'react';
 import spriteSvg from 'uswds/img/sprite.svg';
+
+import * as schematron from '@asap/browser/presenter/actions/schematron';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { colorTokenForRole } from '../../util/styles';
-import { useActions, useAppState } from '../hooks';
+import { useAppContext } from '../context';
 
 type Props = {
   documentType: OscalDocumentKey;
 };
 
 export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
-  const oscalDocument = useAppState().oscalDocuments[documentType];
-  const actions = useActions();
+  const oscalDocument = useAppContext().state.oscalDocuments[documentType];
+  const { dispatch } = useAppContext();
 
   const topRef = useRef<HTMLHeadingElement>(null);
   const scrollIntoView = () => {
@@ -39,10 +41,12 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   checked={oscalDocument.filter.passStatus === passStatus.id}
                   disabled={!passStatus.enabled}
                   onChange={() => {
-                    actions.schematron.setPassStatus({
-                      documentType,
-                      passStatus: passStatus.id,
-                    });
+                    dispatch(
+                      schematron.setPassStatus({
+                        documentType,
+                        passStatus: passStatus.id,
+                      }),
+                    );
                     scrollIntoView();
                   }}
                 />
@@ -75,10 +79,12 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                     oscalDocument.filter.assertionViewId === assertionView.index
                   }
                   onChange={() => {
-                    actions.schematron.setFilterAssertionView({
-                      documentType,
-                      assertionViewId: assertionView.index,
-                    });
+                    dispatch(
+                      schematron.setFilterAssertionView({
+                        documentType,
+                        assertionViewId: assertionView.index,
+                      }),
+                    );
                     scrollIntoView();
                   }}
                 />
@@ -137,7 +143,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   if (event && event.target) {
                     text = event.target.value;
                   }
-                  actions.schematron.setFilterText({ documentType, text });
+                  dispatch(schematron.setFilterText({ documentType, text }));
                 }}
                 placeholder="Search text..."
               />
@@ -160,10 +166,12 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   value={filterRole.name}
                   checked={oscalDocument.filter.role === filterRole.name}
                   onChange={() => {
-                    actions.schematron.setFilterRole({
-                      documentType,
-                      role: filterRole.name,
-                    });
+                    dispatch(
+                      schematron.setFilterRole({
+                        documentType,
+                        role: filterRole.name,
+                      }),
+                    );
                     scrollIntoView();
                   }}
                 />

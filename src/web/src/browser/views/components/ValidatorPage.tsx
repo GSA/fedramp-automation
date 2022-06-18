@@ -4,7 +4,6 @@ import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { ValidatorFileSelectForm } from './ValidatorFileSelectForm';
 import { ValidatorReport } from './ValidatorReport';
 import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
-import { useAppState } from '../hooks';
 import { useAppContext } from '../context';
 
 const DocumentValidator = ({
@@ -32,7 +31,7 @@ export const ValidatorPage = ({
   documentType: OscalDocumentKey | null;
 }) => {
   const { router } = useAppContext().state;
-  const { oscalDocuments } = useAppState();
+  const { oscalDocuments } = useAppContext().state;
   return (
     <>
       <div className="grid-row">

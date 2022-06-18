@@ -13,14 +13,6 @@ import {
 import { getSchematronReport } from '../lib/schematron';
 import * as validationResultsMachine from './validation-results-machine';
 
-type States =
-  | {
-      current: 'INITIALIZED';
-    }
-  | {
-      current: 'UNINITIALIZED';
-    };
-
 type BaseState = {
   config: SchematronUIConfig;
   failedAssertionCounts: Record<FailedAssert['id'], number> | null;
@@ -34,7 +26,15 @@ type BaseState = {
   validationResults: validationResultsMachine.State;
 };
 
-type Events =
+export type State =
+  | (BaseState & {
+      current: 'INITIALIZED';
+    })
+  | (BaseState & {
+      current: 'UNINITIALIZED';
+    });
+
+export type StateTransition =
   | {
       type: 'CONFIG_LOADED';
       data: {
@@ -66,116 +66,172 @@ type Events =
       };
     };
 
-export type SchematronMachine = Statemachine<States, Events, BaseState>;
-
-const schematronMachine = statemachine<States, Events, BaseState>({
-  UNINITIALIZED: {
-    CONFIG_LOADED: ({ config }) => {
-      return {
-        current: 'INITIALIZED',
-        config,
-      };
+const derivedState = (state: State): BaseState => {
+  return {
+    get failedAssertionCounts() {
+      return state.validationResults.current === 'HAS_RESULT'
+        ? state.validationResults.validationReport.failedAsserts.reduce<
+            Record<string, number>
+          >((acc, assert) => {
+            acc[assert.id] = (acc[assert.id] || 0) + 1;
+            return acc;
+          }, {})
+        : null;
     },
-  },
-  INITIALIZED: {
-    FILTER_TEXT_CHANGED: ({ text }, state) => {
-      return {
-        current: 'INITIALIZED',
+    get filterOptions() {
+      return getFilterOptions({
         config: state.config,
-        filter: {
-          ...state.filter,
-          text,
-        },
-      };
+        filter: state.filter,
+        failedAssertionMap: state.validationResults.assertionsById,
+      });
     },
-    FILTER_ROLE_CHANGED: ({ role }, state) => {
+    get counts() {
       return {
-        current: 'INITIALIZED',
-        config: state.config,
-        filter: {
-          ...state.filter,
-          role,
-        },
+        fired:
+          state.validationResults.current === 'HAS_RESULT'
+            ? state.validationResults.validationReport.failedAsserts.length
+            : null,
+        total: state.config.schematronAsserts.length,
       };
     },
-    FILTER_ASSERTION_VIEW_CHANGED: ({ assertionViewId }, state) => {
-      return {
-        current: 'INITIALIZED',
+    get schematronReport() {
+      return getSchematronReport({
         config: state.config,
-        filter: {
-          ...state.filter,
-          assertionViewId,
-        },
-      };
-    },
-    FILTER_PASS_STATUS_CHANGED: ({ passStatus }, state) => {
-      return {
-        current: 'INITIALIZED',
-        config: state.config,
-        filter: {
-          ...state.filter,
-          passStatus,
-        },
-      };
-    },
-  },
-});
-
-export const createSchematronMachine = () => {
-  return schematronMachine.create(
-    { current: 'UNINITIALIZED' },
-    {
-      config: {
-        assertionViews: [],
-        schematronAsserts: [],
-      },
-      failedAssertionCounts: derived((state: SchematronMachine) => {
-        return state.validationResults.current === 'HAS_RESULT'
-          ? state.validationResults.validationReport.failedAsserts.reduce<
-              Record<string, number>
-            >((acc, assert) => {
-              acc[assert.id] = (acc[assert.id] || 0) + 1;
-              return acc;
-            }, {})
-          : null;
-      }),
-      filter: {
-        passStatus: 'all',
-        role: 'all',
-        text: '',
-        assertionViewId: 0,
-      },
-      filterOptions: derived((state: SchematronMachine) => {
-        return getFilterOptions({
-          config: state.config,
-          filter: state.filter,
+        filter: state.filter,
+        filterOptions: state.filterOptions,
+        validator: {
           failedAssertionMap: state.validationResults.assertionsById,
-        });
-      }),
-      counts: derived((state: SchematronMachine) => {
-        return {
-          fired:
+          title:
             state.validationResults.current === 'HAS_RESULT'
-              ? state.validationResults.validationReport.failedAsserts.length
-              : null,
-          total: state.config.schematronAsserts.length,
-        };
-      }),
-      schematronReport: derived((state: SchematronMachine) =>
-        getSchematronReport({
-          config: state.config,
-          filter: state.filter,
-          filterOptions: state.filterOptions,
-          validator: {
-            failedAssertionMap: state.validationResults.assertionsById,
-            title:
-              state.validationResults.current === 'HAS_RESULT'
-                ? state.validationResults.validationReport.title
-                : 'FedRAMP Package Concerns',
-          },
-        }),
-      ),
-      validationResults: validationResultsMachine.initialState,
+              ? state.validationResults.validationReport.title
+              : 'FedRAMP Package Concerns',
+        },
+      });
     },
-  );
+  } as BaseState;
+};
+
+export const nextState = (state: State, event: StateTransition): State => {
+  if (state.current === 'UNINITIALIZED') {
+    if (event.type === 'CONFIG_LOADED') {
+      return {
+        current: 'INITIALIZED',
+        ...derivedState(state),
+        filter: {
+          passStatus: 'all',
+          role: 'all',
+          text: '',
+          assertionViewId: 0,
+        },
+        config: event.data.config,
+        validationResults: state.validationResults,
+      };
+    }
+  } else if (state.current === 'INITIALIZED') {
+    if (event.type === 'FILTER_TEXT_CHANGED') {
+      return {
+        current: 'INITIALIZED',
+        ...derivedState(state),
+        config: state.config,
+        filter: {
+          ...state.filter,
+          text: event.data.text,
+        },
+        validationResults: state.validationResults,
+      };
+    } else if (event.type === 'FILTER_ROLE_CHANGED') {
+      return {
+        current: 'INITIALIZED',
+        ...derivedState(state),
+        config: state.config,
+        filter: {
+          ...state.filter,
+          role: event.data.role,
+        },
+        validationResults: state.validationResults,
+      };
+    } else if (event.type === 'FILTER_ASSERTION_VIEW_CHANGED') {
+      return {
+        current: 'INITIALIZED',
+        ...derivedState(state),
+        config: state.config,
+        filter: {
+          ...state.filter,
+          assertionViewId: event.data.assertionViewId,
+        },
+        validationResults: state.validationResults,
+      };
+    } else if (event.type === 'FILTER_PASS_STATUS_CHANGED') {
+      return {
+        current: 'INITIALIZED',
+        ...derivedState(state),
+        config: state.config,
+        filter: {
+          ...state.filter,
+          passStatus: event.data.passStatus,
+        },
+        validationResults: state.validationResults,
+      };
+    }
+  }
+  return state;
+};
+
+export const initialState: State = {
+  current: 'UNINITIALIZED',
+  config: {
+    assertionViews: [],
+    schematronAsserts: [],
+  },
+  filter: {
+    passStatus: 'all',
+    role: 'all',
+    text: '',
+    assertionViewId: 0,
+  },
+  get failedAssertionCounts() {
+    const state = this;
+    return state.validationResults.current === 'HAS_RESULT'
+      ? state.validationResults.validationReport.failedAsserts.reduce<
+          Record<string, number>
+        >((acc, assert) => {
+          acc[assert.id] = (acc[assert.id] || 0) + 1;
+          return acc;
+        }, {})
+      : null;
+  },
+  get filterOptions() {
+    const state = this;
+    return getFilterOptions({
+      config: state.config,
+      filter: state.filter,
+      failedAssertionMap: state.validationResults.assertionsById,
+    });
+  },
+  get counts() {
+    const state = this;
+    return {
+      fired:
+        state.validationResults.current === 'HAS_RESULT'
+          ? state.validationResults.validationReport.failedAsserts.length
+          : null,
+      total: state.config.schematronAsserts.length,
+    };
+  },
+  get schematronReport() {
+    const state = this;
+    return getSchematronReport({
+      config: state.config,
+      filter: state.filter,
+      filterOptions: state.filterOptions,
+      validator: {
+        failedAssertionMap: state.validationResults.assertionsById,
+        title:
+          state.validationResults.current === 'HAS_RESULT'
+            ? state.validationResults.validationReport.title
+            : 'FedRAMP Package Concerns',
+      },
+    });
+  },
+  validationResults: validationResultsMachine.initialState,
 };

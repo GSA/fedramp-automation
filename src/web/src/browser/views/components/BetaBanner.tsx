@@ -2,7 +2,6 @@ import classnames from 'classnames';
 import spriteSvg from 'uswds/img/sprite.svg';
 
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
-import { useActions } from '../hooks';
 import { useAppContext } from '../context';
 import * as metrics from '../../presenter/actions/metrics';
 

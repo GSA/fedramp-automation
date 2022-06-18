@@ -3,9 +3,10 @@ import spriteSvg from 'uswds/img/sprite.svg';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { colorTokenForRole } from '../../util/styles';
-import { useActions, useAppState } from '../hooks';
+import { useActions } from '../hooks';
 import { useAppContext } from '../context';
 import * as assertionDocumentation from '../../presenter/actions/assertion-documentation';
+import { showAssertionContext } from '@asap/browser/presenter/actions/document-viewer';
 
 type Props = {
   documentType: OscalDocumentKey;
@@ -13,7 +14,7 @@ type Props = {
 
 export const ValidatorReport = ({ documentType }: Props) => {
   const schematronReport =
-    useAppState().oscalDocuments[documentType].schematronReport;
+    useAppContext().state.oscalDocuments[documentType].schematronReport;
 
   const actions = useActions();
   const { dispatch } = useAppContext();
@@ -100,10 +101,12 @@ export const ValidatorReport = ({ documentType }: Props) => {
                             className="usa-tooltip"
                             data-position="bottom"
                             onClick={() =>
-                              actions.documentViewer.showAssertionContext({
-                                assertionId: firedCheck.uniqueId,
-                                documentType,
-                              })
+                              dispatch(
+                                showAssertionContext({
+                                  assertionId: firedCheck.uniqueId,
+                                  documentType,
+                                }),
+                              )
                             }
                             title="Show source document context"
                           >
