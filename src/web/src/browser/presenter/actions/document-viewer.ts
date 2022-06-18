@@ -1,6 +1,5 @@
 import { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import type { NewPresenterConfig, PresenterConfig } from '..';
-import * as validationResultsMachine from '../state/validation-results-machine';
+import type { NewPresenterConfig } from '..';
 
 export const showAssertionContext =
   ({

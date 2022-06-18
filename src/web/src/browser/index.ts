@@ -1,8 +1,3 @@
-import * as github from '@asap/shared/domain/github';
-import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
-import { AppMetrics } from '@asap/shared/use-cases/app-metrics';
-import { OscalService } from '@asap/shared/use-cases/oscal';
-
 import { createBrowserFingerprintMaker } from '@asap/shared/adapters/browser-fingerprint';
 import { createGoogleFormMetricsLogger } from '@asap/shared/adapters/google-form';
 import { highlightXML } from '@asap/shared/adapters/highlight-js';
@@ -11,8 +6,12 @@ import {
   SaxonJsJsonOscalToXmlProcessor,
   SaxonJsSchematronProcessorGateway,
 } from '@asap/shared/adapters/saxon-js-gateway';
+import * as github from '@asap/shared/domain/github';
+import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
+import { AppMetrics } from '@asap/shared/use-cases/app-metrics';
+import { OscalService } from '@asap/shared/use-cases/oscal';
 
-import { createPresenter, getInitialState } from './presenter';
+import { getInitialState } from './presenter';
 import { createAppRenderer } from './views';
 
 // The npm version of saxon-js is for node; currently, we load the browser
@@ -78,8 +77,7 @@ export const runBrowserContext = ({
         developerExampleUrl: github.getDeveloperExampleUrl(githubRepository),
       },
     }),
-    createPresenter({
-      debug,
+    {
       location: {
         getCurrent: () => window.location.hash,
         listen: (listener: (url: string) => void) => {
@@ -169,7 +167,7 @@ export const runBrowserContext = ({
           window.fetch.bind(window),
         ),
       },
-    }),
+    },
   );
   renderApp();
 };

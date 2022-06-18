@@ -7,11 +7,8 @@ export * as schematron from './schematron';
 import * as schematron from './schematron';
 export * as validator from './validator';
 
-import { AppContextType } from '@asap/browser/views/context';
-import type { NewPresenterConfig, PresenterConfig } from '..';
+import type { NewPresenterConfig } from '..';
 import * as router from '../state/router';
-
-export const onInitializeOvermind = async ({ actions }: PresenterConfig) => {};
 
 export const initializeApplication = (config: NewPresenterConfig) => {
   setCurrentRoute(config.effects.location.getCurrent())(config);
@@ -35,10 +32,3 @@ export const setCurrentRoute =
       effects.location.replace(router.getUrl(route));
     }
   };
-
-export const setNewAppContext = (
-  { state }: PresenterConfig,
-  newAppContext: AppContextType,
-) => {
-  state.newAppContext = newAppContext;
-};

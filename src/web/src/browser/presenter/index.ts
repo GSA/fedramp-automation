@@ -1,5 +1,3 @@
-import { createOvermind, IContext } from 'overmind';
-
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import type { AppMetrics } from '@asap/shared/use-cases/app-metrics';
 import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
@@ -7,9 +5,8 @@ import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
 import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron';
 
-import * as actions from './actions';
 import type { Location } from './state/router';
-import { state, OldState, State, StateTransition, initialState } from './state';
+import { State, StateTransition, initialState } from './state';
 import { ThunkDispatch } from '../views/hooks';
 
 export type UseCases = {
@@ -21,24 +18,10 @@ export type UseCases = {
   oscalService: OscalService;
 };
 
-export const getPresenterConfig = (
-  location: Location,
-  useCases: UseCases,
-  initialState: Partial<OldState> = {},
-) => {
-  return {
-    actions,
-    state: {
-      ...state,
-      ...initialState,
-    },
-    effects: {
-      location,
-      useCases,
-    },
-  };
+export type Effects = {
+  location: Location;
+  useCases: UseCases;
 };
-export type PresenterConfig = IContext<ReturnType<typeof getPresenterConfig>>;
 
 export type PresenterContext = {
   debug: boolean;
@@ -53,23 +36,11 @@ export const getInitialState = (config: State['config']) => {
   };
 };
 
-export const createPresenter = (ctx: PresenterContext) => {
-  const presenter = createOvermind(
-    getPresenterConfig(ctx.location, ctx.useCases, {}),
-    {
-      devtools: ctx.debug,
-      strict: false,
-    },
-  );
-  return presenter;
-};
-export type Presenter = ReturnType<typeof createPresenter>;
-
 export type NewPresenterConfig = {
   effects: {
     location: Location;
     useCases: UseCases;
   };
   getState: () => State;
-  dispatch: ThunkDispatch<State, StateTransition, Presenter['effects']>;
+  dispatch: ThunkDispatch<State, StateTransition, Effects>;
 };
