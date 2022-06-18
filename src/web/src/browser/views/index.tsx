@@ -1,6 +1,5 @@
 import 'uswds';
 
-import { Provider } from 'overmind-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
@@ -22,9 +21,7 @@ export const createAppRenderer =
           effects={presenter.effects}
           initialState={initialState}
         >
-          <Provider value={presenter}>
-            <App />
-          </Provider>
+          <App />
         </AppContextProvider>
       </React.StrictMode>,
       rootElement,

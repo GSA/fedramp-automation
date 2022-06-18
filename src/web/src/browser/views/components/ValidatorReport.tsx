@@ -3,7 +3,6 @@ import spriteSvg from 'uswds/img/sprite.svg';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { colorTokenForRole } from '../../util/styles';
-import { useActions } from '../hooks';
 import { useAppContext } from '../context';
 import * as assertionDocumentation from '../../presenter/actions/assertion-documentation';
 import { showAssertionContext } from '@asap/browser/presenter/actions/document-viewer';
@@ -13,11 +12,8 @@ type Props = {
 };
 
 export const ValidatorReport = ({ documentType }: Props) => {
-  const schematronReport =
-    useAppContext().state.oscalDocuments[documentType].schematronReport;
-
-  const actions = useActions();
-  const { dispatch } = useAppContext();
+  const { dispatch, state } = useAppContext();
+  const schematronReport = state.oscalDocuments[documentType].schematronReport;
 
   return (
     <>
