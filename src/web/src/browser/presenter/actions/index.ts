@@ -7,10 +7,10 @@ export * as schematron from './schematron';
 import * as schematron from './schematron';
 export * as validator from './validator';
 
-import type { NewPresenterConfig } from '..';
+import type { ActionContext } from '..';
 import * as router from '../state/router';
 
-export const initializeApplication = (config: NewPresenterConfig) => {
+export const initializeApplication = (config: ActionContext) => {
   setCurrentRoute(config.effects.location.getCurrent())(config);
   config.effects.location.listen((url: string) => {
     setCurrentRoute(url)(config);
@@ -22,7 +22,7 @@ export const initializeApplication = (config: NewPresenterConfig) => {
 
 export const setCurrentRoute =
   (url: string) =>
-  ({ dispatch, effects }: NewPresenterConfig) => {
+  ({ dispatch, effects }: ActionContext) => {
     const route = router.getRoute(url);
     if (route.type !== 'NotFound') {
       dispatch({

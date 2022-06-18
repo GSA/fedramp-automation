@@ -1,10 +1,10 @@
 import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
-import type { NewPresenterConfig } from '..';
+import type { ActionContext } from '..';
 import type { PassStatus, Role } from '../lib/schematron';
 
-export const initialize = (config: NewPresenterConfig) => {
+export const initialize = (config: ActionContext) => {
   Promise.all([
     config.effects.useCases.getAssertionViews(),
     config.effects.useCases.getSchematronAssertions(),
@@ -59,7 +59,7 @@ export const setValidationReport =
     validationReport: ValidationReport;
     xmlString: string;
   }) =>
-  (config: NewPresenterConfig) => {
+  (config: ActionContext) => {
     config.effects.useCases
       .annotateXML({
         xmlString,
@@ -84,14 +84,14 @@ export const setValidationReport =
 
 export const setFilterRole =
   ({ documentType, role }: { documentType: OscalDocumentKey; role: Role }) =>
-  (config: NewPresenterConfig) => {
+  (config: ActionContext) => {
     // TODO: handle documentType
     config.dispatch({ type: 'FILTER_ROLE_CHANGED', data: { role } });
   };
 
 export const setFilterText =
   ({ documentType, text }: { documentType: OscalDocumentKey; text: string }) =>
-  (config: NewPresenterConfig) => {
+  (config: ActionContext) => {
     // TODO: handle documentType
     config.dispatch({ type: 'FILTER_TEXT_CHANGED', data: { text } });
   };
@@ -104,7 +104,7 @@ export const setFilterAssertionView =
     documentType: OscalDocumentKey;
     assertionViewId: number;
   }) =>
-  ({ dispatch }: NewPresenterConfig) => {
+  ({ dispatch }: ActionContext) => {
     dispatch({
       type: 'FILTER_ASSERTION_VIEW_CHANGED',
       data: {
@@ -121,7 +121,7 @@ export const setPassStatus =
     documentType: OscalDocumentKey;
     passStatus: PassStatus;
   }) =>
-  (config: NewPresenterConfig) => {
+  (config: ActionContext) => {
     // TODO: handle documentType
     config.dispatch({
       type: 'FILTER_PASS_STATUS_CHANGED',

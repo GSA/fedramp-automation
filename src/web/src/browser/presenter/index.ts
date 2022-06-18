@@ -23,12 +23,6 @@ export type Effects = {
   useCases: UseCases;
 };
 
-export type PresenterContext = {
-  debug: boolean;
-  location: Location;
-  useCases: UseCases;
-};
-
 export const getInitialState = (config: State['config']) => {
   return {
     ...initialState,
@@ -36,7 +30,7 @@ export const getInitialState = (config: State['config']) => {
   };
 };
 
-export type NewPresenterConfig = {
+export type ActionContext = {
   effects: {
     location: Location;
     useCases: UseCases;

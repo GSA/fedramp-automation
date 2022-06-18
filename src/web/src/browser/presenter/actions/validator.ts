@@ -2,17 +2,17 @@ import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import { setCurrentRoute } from '.';
 
-import type { NewPresenterConfig } from '..';
+import type { ActionContext } from '..';
 import * as metrics from './metrics';
 import { getUrl, Routes } from '../state/router';
 
-export const reset = ({ dispatch }: NewPresenterConfig) => {
+export const reset = ({ dispatch }: ActionContext) => {
   dispatch({ type: 'VALIDATOR_RESET' });
 };
 
 export const validateOscalDocument =
   (options: { fileName: string; fileContents: string }) =>
-  async (config: NewPresenterConfig) => {
+  async (config: ActionContext) => {
     reset(config);
     config.dispatch({
       type: 'VALIDATOR_PROCESSING_STRING',
@@ -33,7 +33,7 @@ export const validateOscalDocument =
   };
 
 export const setXmlUrl =
-  (xmlFileUrl: string) => async (config: NewPresenterConfig) => {
+  (xmlFileUrl: string) => async (config: ActionContext) => {
     reset(config);
     config.dispatch({
       type: 'VALIDATOR_PROCESSING_URL',
@@ -55,7 +55,7 @@ export const setXmlUrl =
 
 export const setProcessingError =
   (errorMessage: string) =>
-  ({ dispatch, getState }: NewPresenterConfig) => {
+  ({ dispatch, getState }: ActionContext) => {
     if (getState().validator.current === 'PROCESSING') {
       dispatch({
         type: 'VALIDATOR_PROCESSING_ERROR',
@@ -74,7 +74,7 @@ export const setValidationReport =
     validationReport: ValidationReport;
     xmlString: string;
   }) =>
-  (config: NewPresenterConfig) => {
+  (config: ActionContext) => {
     if (config.getState().validator.current === 'PROCESSING') {
       config.dispatch({
         type: 'VALIDATOR_VALIDATED',

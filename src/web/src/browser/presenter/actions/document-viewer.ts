@@ -1,5 +1,5 @@
 import { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import type { NewPresenterConfig } from '..';
+import type { ActionContext } from '..';
 
 export const showAssertionContext =
   ({
@@ -9,7 +9,7 @@ export const showAssertionContext =
     assertionId: string;
     documentType: OscalDocumentKey;
   }) =>
-  ({ dispatch }: NewPresenterConfig) => {
+  ({ dispatch }: ActionContext) => {
     // TODO: handle documentType
     dispatch({
       type: 'SET_ASSERTION_CONTEXT',
@@ -21,7 +21,7 @@ export const showAssertionContext =
 
 export const clearAssertionContext =
   (documentType: OscalDocumentKey) =>
-  ({ dispatch }: NewPresenterConfig) => {
+  ({ dispatch }: ActionContext) => {
     // TODO: handle documentType
     dispatch({
       type: 'CLEAR_ASSERTION_CONTEXT',

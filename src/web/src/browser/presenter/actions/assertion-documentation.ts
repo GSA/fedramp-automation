@@ -1,7 +1,7 @@
 import { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import type { NewPresenterConfig } from '..';
+import type { ActionContext } from '..';
 
-export const initialize = ({ dispatch, effects }: NewPresenterConfig) => {
+export const initialize = ({ dispatch, effects }: ActionContext) => {
   effects.useCases.getXSpecScenarioSummaries().then(xspecScenarioSummaries => {
     dispatch({
       type: 'ASSERTION_DOCUMENTATION_SUMMARIES_LOADED',
@@ -12,7 +12,7 @@ export const initialize = ({ dispatch, effects }: NewPresenterConfig) => {
   });
 };
 
-export const close = ({ dispatch }: NewPresenterConfig) => {
+export const close = ({ dispatch }: ActionContext) => {
   dispatch({ type: 'ASSERTION_DOCUMENTATION_CLOSE' });
 };
 
@@ -24,7 +24,7 @@ export const show =
     assertionId: string;
     documentType: OscalDocumentKey;
   }) =>
-  ({ dispatch }: NewPresenterConfig) => {
+  ({ dispatch }: ActionContext) => {
     dispatch({
       type: 'ASSERTION_DOCUMENTATION_SHOW',
       data: { assertionId, documentType },

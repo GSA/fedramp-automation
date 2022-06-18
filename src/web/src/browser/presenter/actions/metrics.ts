@@ -1,7 +1,7 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import type { NewPresenterConfig } from '..';
+import type { ActionContext } from '..';
 
-export const initialize = async (config: NewPresenterConfig) => {
+export const initialize = async (config: ActionContext) => {
   const optInStatus = await config.effects.useCases.appMetrics.getOptInStatus();
   if (optInStatus && config.getState().metrics.current === 'METRICS_OPT_OUT') {
     config.dispatch({ type: 'METRICS_TOGGLE' });
@@ -9,10 +9,7 @@ export const initialize = async (config: NewPresenterConfig) => {
   logAppInitialization(config);
 };
 
-export const logAppInitialization = ({
-  effects,
-  getState,
-}: NewPresenterConfig) => {
+export const logAppInitialization = ({ effects, getState }: ActionContext) => {
   effects.useCases.appMetrics.log({
     eventType: 'app-loaded',
     userAlias: undefined,
@@ -24,7 +21,7 @@ export const logAppInitialization = ({
 
 export const logValidationSummary =
   (documentType: OscalDocumentKey) =>
-  ({ effects, getState }: NewPresenterConfig) => {
+  ({ effects, getState }: ActionContext) => {
     if (getState().validator.current === 'VALIDATED') {
       effects.useCases.appMetrics.log({
         eventType: 'validation-summary',
@@ -40,7 +37,7 @@ export const setOptInStatusOn = ({
   dispatch,
   effects,
   getState,
-}: NewPresenterConfig) => {
+}: ActionContext) => {
   if (getState().metrics.current === 'METRICS_OPT_OUT') {
     dispatch({ type: 'METRICS_TOGGLE' });
     effects.useCases.appMetrics.setOptInStatus(true);
@@ -51,7 +48,7 @@ export const setOptInStatusOff = ({
   dispatch,
   effects,
   getState,
-}: NewPresenterConfig) => {
+}: ActionContext) => {
   if (getState().metrics.current === 'METRICS_OPT_IN') {
     dispatch({ type: 'METRICS_TOGGLE' });
     effects.useCases.appMetrics.setOptInStatus(false);
