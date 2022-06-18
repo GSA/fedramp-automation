@@ -34,16 +34,20 @@ export const AppContextProvider = ({
     initialState,
   );
 
-  const value = {
-    state,
-    dispatch,
-  };
-
   // TODO: Move somewhere else?
   if (!appInitialized) {
     dispatch(initializeApplication);
     setAppInitialized(true);
   }
 
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider
+      value={{
+        state,
+        dispatch,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
 };
