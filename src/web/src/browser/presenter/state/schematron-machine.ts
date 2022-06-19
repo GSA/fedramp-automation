@@ -1,4 +1,5 @@
 import type { FailedAssert } from '@asap/shared/use-cases/schematron';
+import { state } from '.';
 import {
   getFilterOptions,
   PassStatus,
@@ -64,57 +65,15 @@ export type StateTransition =
       };
     };
 
-const derivedState = (state: State): BaseState => {
-  return {
-    get failedAssertionCounts() {
-      return state.validationResults.current === 'HAS_RESULT'
-        ? state.validationResults.validationReport.failedAsserts.reduce<
-            Record<string, number>
-          >((acc, assert) => {
-            acc[assert.id] = (acc[assert.id] || 0) + 1;
-            return acc;
-          }, {})
-        : null;
-    },
-    get filterOptions() {
-      return getFilterOptions({
-        config: state.config,
-        filter: state.filter,
-        failedAssertionMap: state.validationResults.assertionsById,
-      });
-    },
-    get counts() {
-      return {
-        fired:
-          state.validationResults.current === 'HAS_RESULT'
-            ? state.validationResults.validationReport.failedAsserts.length
-            : null,
-        total: state.config.schematronAsserts.length,
-      };
-    },
-    get schematronReport() {
-      return getSchematronReport({
-        config: state.config,
-        filter: state.filter,
-        filterOptions: state.filterOptions,
-        validator: {
-          failedAssertionMap: state.validationResults.assertionsById,
-          title:
-            state.validationResults.current === 'HAS_RESULT'
-              ? state.validationResults.validationReport.title
-              : 'FedRAMP Package Concerns',
-        },
-      });
-    },
-  } as BaseState;
-};
-
 export const nextState = (state: State, event: StateTransition): State => {
   if (state.current === 'UNINITIALIZED') {
     if (event.type === 'CONFIG_LOADED') {
       return {
         current: 'INITIALIZED',
-        ...derivedState(state),
+        failedAssertionCounts: state.failedAssertionCounts,
+        filterOptions: state.filterOptions,
+        counts: state.counts,
+        schematronReport: state.schematronReport,
         filter: {
           passStatus: 'all',
           role: 'all',
@@ -129,7 +88,10 @@ export const nextState = (state: State, event: StateTransition): State => {
     if (event.type === 'FILTER_TEXT_CHANGED') {
       return {
         current: 'INITIALIZED',
-        ...derivedState(state),
+        failedAssertionCounts: state.failedAssertionCounts,
+        filterOptions: state.filterOptions,
+        counts: state.counts,
+        schematronReport: state.schematronReport,
         config: state.config,
         filter: {
           ...state.filter,
@@ -140,7 +102,10 @@ export const nextState = (state: State, event: StateTransition): State => {
     } else if (event.type === 'FILTER_ROLE_CHANGED') {
       return {
         current: 'INITIALIZED',
-        ...derivedState(state),
+        failedAssertionCounts: state.failedAssertionCounts,
+        filterOptions: state.filterOptions,
+        counts: state.counts,
+        schematronReport: state.schematronReport,
         config: state.config,
         filter: {
           ...state.filter,
@@ -151,7 +116,10 @@ export const nextState = (state: State, event: StateTransition): State => {
     } else if (event.type === 'FILTER_ASSERTION_VIEW_CHANGED') {
       return {
         current: 'INITIALIZED',
-        ...derivedState(state),
+        failedAssertionCounts: state.failedAssertionCounts,
+        filterOptions: state.filterOptions,
+        counts: state.counts,
+        schematronReport: state.schematronReport,
         config: state.config,
         filter: {
           ...state.filter,
@@ -162,7 +130,10 @@ export const nextState = (state: State, event: StateTransition): State => {
     } else if (event.type === 'FILTER_PASS_STATUS_CHANGED') {
       return {
         current: 'INITIALIZED',
-        ...derivedState(state),
+        failedAssertionCounts: state.failedAssertionCounts,
+        filterOptions: state.filterOptions,
+        counts: state.counts,
+        schematronReport: state.schematronReport,
         config: state.config,
         filter: {
           ...state.filter,
@@ -188,7 +159,7 @@ export const initialState: State = {
     assertionViewId: 0,
   },
   get failedAssertionCounts() {
-    const state = this;
+    const state: State = this;
     return state.validationResults.current === 'HAS_RESULT'
       ? state.validationResults.validationReport.failedAsserts.reduce<
           Record<string, number>
@@ -199,7 +170,7 @@ export const initialState: State = {
       : null;
   },
   get filterOptions() {
-    const state = this;
+    const state: State = this;
     return getFilterOptions({
       config: state.config,
       filter: state.filter,
@@ -207,7 +178,7 @@ export const initialState: State = {
     });
   },
   get counts() {
-    const state = this;
+    const state: State = this;
     return {
       fired:
         state.validationResults.current === 'HAS_RESULT'
@@ -217,7 +188,7 @@ export const initialState: State = {
     };
   },
   get schematronReport() {
-    const state = this;
+    const state: State = this;
     return getSchematronReport({
       config: state.config,
       filter: state.filter,

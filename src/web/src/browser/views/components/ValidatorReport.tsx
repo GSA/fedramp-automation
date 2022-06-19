@@ -14,7 +14,6 @@ type Props = {
 export const ValidatorReport = ({ documentType }: Props) => {
   const { dispatch, state } = useAppContext();
   const schematronReport = state.oscalDocuments[documentType].schematronReport;
-  console.log(state);
   return (
     <>
       <div className="top-0 bg-white padding-top-1 padding-bottom-1">
