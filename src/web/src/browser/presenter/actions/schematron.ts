@@ -9,8 +9,8 @@ export const initialize = (config: ActionContext) => {
     config.effects.useCases.getAssertionViews(),
     config.effects.useCases.getSchematronAssertions(),
   ]).then(([assertionViews, schematronAsserts]) => {
-    // TODO: handle each documentType
     config.dispatch({
+      machine: 'oscalDocuments.poam',
       type: 'CONFIG_LOADED',
       data: {
         config: {
@@ -20,6 +20,7 @@ export const initialize = (config: ActionContext) => {
       },
     });
     config.dispatch({
+      machine: 'oscalDocuments.sap',
       type: 'CONFIG_LOADED',
       data: {
         config: {
@@ -29,6 +30,7 @@ export const initialize = (config: ActionContext) => {
       },
     });
     config.dispatch({
+      machine: 'oscalDocuments.sar',
       type: 'CONFIG_LOADED',
       data: {
         config: {
@@ -38,6 +40,7 @@ export const initialize = (config: ActionContext) => {
       },
     });
     config.dispatch({
+      machine: 'oscalDocuments.ssp',
       type: 'CONFIG_LOADED',
       data: {
         config: {
@@ -71,8 +74,8 @@ export const setValidationReport =
         }),
       })
       .then(annotatedXML => {
-        // TODO: handle documentType
         config.dispatch({
+          machine: `oscalDocuments.${documentType}`,
           type: 'SET_RESULTS',
           data: {
             annotatedXML,
@@ -85,15 +88,21 @@ export const setValidationReport =
 export const setFilterRole =
   ({ documentType, role }: { documentType: OscalDocumentKey; role: Role }) =>
   (config: ActionContext) => {
-    // TODO: handle documentType
-    config.dispatch({ type: 'FILTER_ROLE_CHANGED', data: { role } });
+    config.dispatch({
+      machine: `oscalDocuments.${documentType}`,
+      type: 'FILTER_ROLE_CHANGED',
+      data: { role },
+    });
   };
 
 export const setFilterText =
   ({ documentType, text }: { documentType: OscalDocumentKey; text: string }) =>
   (config: ActionContext) => {
-    // TODO: handle documentType
-    config.dispatch({ type: 'FILTER_TEXT_CHANGED', data: { text } });
+    config.dispatch({
+      machine: `oscalDocuments.${documentType}`,
+      type: 'FILTER_TEXT_CHANGED',
+      data: { text },
+    });
   };
 
 export const setFilterAssertionView =
@@ -106,6 +115,7 @@ export const setFilterAssertionView =
   }) =>
   ({ dispatch }: ActionContext) => {
     dispatch({
+      machine: `oscalDocuments.${documentType}`,
       type: 'FILTER_ASSERTION_VIEW_CHANGED',
       data: {
         assertionViewId,
@@ -122,8 +132,8 @@ export const setPassStatus =
     passStatus: PassStatus;
   }) =>
   (config: ActionContext) => {
-    // TODO: handle documentType
     config.dispatch({
+      machine: `oscalDocuments.${documentType}`,
       type: 'FILTER_PASS_STATUS_CHANGED',
       data: { passStatus },
     });

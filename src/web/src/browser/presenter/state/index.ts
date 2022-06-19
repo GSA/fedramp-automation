@@ -26,13 +26,45 @@ export type State = {
   validator: validatorMachine.State;
 };
 
+type ScopedTransition = {
+  machine: string;
+};
+
 export type StateTransition =
-  | assertionDocumentation.StateTransition
-  | metrics.StateTransition
-  | routerMachine.StateTransition
-  | schematronMachine.StateTransition
-  | validatorMachine.StateTransition
-  | validationResultsMachine.StateTransition;
+  | ScopedTransition &
+      (
+        | assertionDocumentation.StateTransition
+        | metrics.StateTransition
+        | routerMachine.StateTransition
+        | schematronMachine.StateTransition
+        | validatorMachine.StateTransition
+        | validationResultsMachine.StateTransition
+      );
+
+/*type BaseReducer = (state: State, event: StateTransition) => State;
+type Reducer<S, ST> = (state: S, event: ST) => S;
+
+type ReducerParts = BaseReducer extends (
+  state: infer MachineState,
+  event: infer MachineStateTransition,
+) => infer MachineState
+  ? { State: MachineState; StateTransition: MachineStateTransition }
+  : never;
+
+type MachineKey = string;
+const reduceMachine = <R extends ReducerParts>(
+  machine: string,
+  state: R['State'],
+  reducer: Reducer<R['State'], R['StateTransition']>,
+) => {
+  return (state: R['State'], event: R['StateTransition']) => {
+    if (event.machine === machine) {
+      return reducer(state, event);
+    }
+    return state;
+  };
+};
+*/
 
 export const initialState: State = {
   config: {
@@ -61,22 +93,42 @@ export const rootReducer = (state: State, event: StateTransition): State => ({
   ),
   metrics: metrics.nextState(state.metrics, event as metrics.StateTransition),
   oscalDocuments: {
-    poam: schematronMachine.nextState(
-      state.oscalDocuments.poam,
-      event as unknown as schematronMachine.StateTransition,
-    ),
-    sap: schematronMachine.nextState(
-      state.oscalDocuments.poam,
-      event as unknown as schematronMachine.StateTransition,
-    ),
-    sar: schematronMachine.nextState(
-      state.oscalDocuments.poam,
-      event as unknown as schematronMachine.StateTransition,
-    ),
-    ssp: schematronMachine.nextState(
-      state.oscalDocuments.poam,
-      event as unknown as schematronMachine.StateTransition,
-    ),
+    poam: ((state: schematronMachine.State, event: StateTransition) => {
+      if (event.machine === 'oscalDocuments.poam') {
+        return schematronMachine.nextState(
+          state,
+          event as unknown as schematronMachine.StateTransition,
+        );
+      }
+      return state;
+    })(state.oscalDocuments.poam, event),
+    sap: ((state: schematronMachine.State, event: StateTransition) => {
+      if (event.machine === 'oscalDocuments.sap') {
+        return schematronMachine.nextState(
+          state,
+          event as unknown as schematronMachine.StateTransition,
+        );
+      }
+      return state;
+    })(state.oscalDocuments.sap, event),
+    sar: ((state: schematronMachine.State, event: StateTransition) => {
+      if (event.machine === 'oscalDocuments.poam') {
+        return schematronMachine.nextState(
+          state,
+          event as unknown as schematronMachine.StateTransition,
+        );
+      }
+      return state;
+    })(state.oscalDocuments.sar, event),
+    ssp: ((state: schematronMachine.State, event: StateTransition) => {
+      if (event.machine === 'oscalDocuments.ssp') {
+        return schematronMachine.nextState(
+          state,
+          event as unknown as schematronMachine.StateTransition,
+        );
+      }
+      return state;
+    })(state.oscalDocuments.ssp, event),
   },
   router: routerMachine.nextState(
     state.router,

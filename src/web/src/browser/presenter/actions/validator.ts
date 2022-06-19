@@ -4,10 +4,14 @@ import { setCurrentRoute } from '.';
 
 import type { ActionContext } from '..';
 import * as metrics from './metrics';
+import * as schematron from './schematron';
 import { getUrl, Routes } from '../state/router';
 
 export const reset = ({ dispatch }: ActionContext) => {
-  dispatch({ type: 'VALIDATOR_RESET' });
+  dispatch({
+    machine: 'validator',
+    type: 'VALIDATOR_RESET',
+  });
 };
 
 export const validateOscalDocument =
@@ -15,6 +19,7 @@ export const validateOscalDocument =
   async (config: ActionContext) => {
     reset(config);
     config.dispatch({
+      machine: 'validator',
       type: 'VALIDATOR_PROCESSING_STRING',
       data: { fileName: options.fileName },
     });
@@ -36,6 +41,7 @@ export const setXmlUrl =
   (xmlFileUrl: string) => async (config: ActionContext) => {
     reset(config);
     config.dispatch({
+      machine: 'validator',
       type: 'VALIDATOR_PROCESSING_URL',
       data: { xmlFileUrl },
     });
@@ -58,6 +64,7 @@ export const setProcessingError =
   ({ dispatch, getState }: ActionContext) => {
     if (getState().validator.current === 'PROCESSING') {
       dispatch({
+        machine: 'validator',
         type: 'VALIDATOR_PROCESSING_ERROR',
         data: { errorMessage },
       });
@@ -77,15 +84,16 @@ export const setValidationReport =
   (config: ActionContext) => {
     if (config.getState().validator.current === 'PROCESSING') {
       config.dispatch({
+        machine: 'validator',
         type: 'VALIDATOR_VALIDATED',
       });
       metrics.logValidationSummary(documentType)(config);
     }
-    /* TODO: actions.schematron.setValidationReport({
+    schematron.setValidationReport({
       documentType,
       validationReport,
       xmlString,
-    });*/
+    })(config);
     config.dispatch(
       setCurrentRoute(
         getUrl(

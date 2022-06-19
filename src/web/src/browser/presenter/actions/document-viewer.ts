@@ -10,8 +10,8 @@ export const showAssertionContext =
     documentType: OscalDocumentKey;
   }) =>
   ({ dispatch }: ActionContext) => {
-    // TODO: handle documentType
     dispatch({
+      machine: `oscalDocuments.${documentType}`,
       type: 'SET_ASSERTION_CONTEXT',
       data: {
         assertionId,
@@ -22,8 +22,8 @@ export const showAssertionContext =
 export const clearAssertionContext =
   (documentType: OscalDocumentKey) =>
   ({ dispatch }: ActionContext) => {
-    // TODO: handle documentType
     dispatch({
+      machine: `oscalDocuments.${documentType}`,
       type: 'CLEAR_ASSERTION_CONTEXT',
     });
   };

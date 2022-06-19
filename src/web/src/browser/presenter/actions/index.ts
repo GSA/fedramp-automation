@@ -26,6 +26,7 @@ export const setCurrentRoute =
     const route = router.getRoute(url);
     if (route.type !== 'NotFound') {
       dispatch({
+        machine: 'router',
         type: 'ROUTE_CHANGED',
         data: { route },
       });

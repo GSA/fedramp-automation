@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
+
 import { Effects } from '../presenter';
 import { initializeApplication } from '../presenter/actions';
-
 import { State, rootReducer, StateTransition } from '../presenter/state';
 import { ThunkDispatch, useThunkReducer } from './hooks';
 
