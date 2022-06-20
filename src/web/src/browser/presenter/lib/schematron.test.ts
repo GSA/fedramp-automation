@@ -1,69 +1,71 @@
 import { it, describe, expect } from 'vitest';
 
-import type { PassStatus } from './schematron';
+import type { BaseState, PassStatus } from '../state/schematron-machine';
 import * as lib from './schematron';
 
 describe('presenter schematron library', () => {
   describe('getSchematronReport', () => {
     const testData = {
-      config: {
-        assertionViews: [
-          {
-            title: 'Assertion view title',
-            groups: [
-              {
-                title: 'Assertion group title',
-                assertionIds: ['unique-1', 'unique-2'],
-                groups: undefined,
-              },
-            ],
-          },
-        ],
-        schematronAsserts: [
-          {
-            id: 'unique-1',
-            message: 'Assertion message',
-            role: 'error',
-          },
-          {
-            id: 'unique-2',
-            message: 'Assertion message',
-            role: 'error',
-          },
-          {
-            id: 'unique-3',
-            message: 'Assertion message',
-            role: 'error',
-          },
-        ],
-      },
-      filter: {
-        passStatus: 'all' as PassStatus,
-        role: 'error',
-        text: '',
-        assertionViewId: 0,
-      },
-      filterOptions: {
-        assertionViews: [
-          {
-            index: 0,
-            title: 'Assertion view title',
-            count: 5,
-          },
-        ],
-        roles: [
-          { name: 'error', subtitle: 'sub1', count: 5 },
-          { name: 'warning', subtitle: 'sub2', count: 6 },
-        ],
-        passStatuses: [
-          {
-            id: 'all' as PassStatus,
-            count: 5,
-            title: 'All',
-            enabled: false,
-          },
-        ],
-      },
+      state: {
+        config: {
+          assertionViews: [
+            {
+              title: 'Assertion view title',
+              groups: [
+                {
+                  title: 'Assertion group title',
+                  assertionIds: ['unique-1', 'unique-2'],
+                  groups: undefined,
+                },
+              ],
+            },
+          ],
+          schematronAsserts: [
+            {
+              id: 'unique-1',
+              message: 'Assertion message',
+              role: 'error',
+            },
+            {
+              id: 'unique-2',
+              message: 'Assertion message',
+              role: 'error',
+            },
+            {
+              id: 'unique-3',
+              message: 'Assertion message',
+              role: 'error',
+            },
+          ],
+        },
+        filter: {
+          passStatus: 'all' as PassStatus,
+          role: 'error',
+          text: '',
+          assertionViewId: 0,
+        },
+        filterOptions: {
+          assertionViews: [
+            {
+              index: 0,
+              title: 'Assertion view title',
+              count: 5,
+            },
+          ],
+          roles: [
+            { name: 'error', subtitle: 'sub1', count: 5 },
+            { name: 'warning', subtitle: 'sub2', count: 6 },
+          ],
+          passStatuses: [
+            {
+              id: 'all' as PassStatus,
+              count: 5,
+              title: 'All',
+              enabled: false,
+            },
+          ],
+        },
+      } as unknown as BaseState,
       validator: {
         title: 'Validator title',
         failedAssertionMap: {

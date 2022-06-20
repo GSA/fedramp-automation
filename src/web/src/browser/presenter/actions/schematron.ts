@@ -2,7 +2,7 @@ import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import type { ActionContext } from '..';
-import type { PassStatus, Role } from '../lib/schematron';
+import type { PassStatus, Role } from '../state/schematron-machine';
 
 export const initialize = (config: ActionContext) => {
   Promise.all([

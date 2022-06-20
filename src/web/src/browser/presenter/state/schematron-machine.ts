@@ -1,27 +1,51 @@
-import type { FailedAssert } from '@asap/shared/use-cases/schematron';
-import { state } from '.';
-import {
-  getFilterOptions,
-  PassStatus,
-  Role,
-  SchematronFilter,
-  SchematronFilterOptions,
-  SchematronReport,
-  SchematronUIConfig,
-} from '../lib/schematron';
+import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
+import type {
+  FailedAssert,
+  SchematronAssert,
+} from '@asap/shared/use-cases/schematron';
+
+import * as lib from '../lib/schematron';
 import { getSchematronReport } from '../lib/schematron';
 import * as validationResultsMachine from './validation-results-machine';
 
-type BaseState = {
-  config: SchematronUIConfig;
+export type Role = string;
+export type PassStatus = 'pass' | 'fail' | 'all';
+
+export type BaseState = {
+  config: {
+    assertionViews: AssertionView[];
+    schematronAsserts: SchematronAssert[];
+  };
   failedAssertionCounts: Record<FailedAssert['id'], number> | null;
-  filter: SchematronFilter;
-  filterOptions: SchematronFilterOptions;
+  filter: {
+    role: Role;
+    text: string;
+    assertionViewId: number;
+    passStatus: PassStatus;
+  };
+  filterOptions: {
+    assertionViews: {
+      index: number;
+      title: string;
+      count: number;
+    }[];
+    roles: {
+      name: Role;
+      subtitle: string;
+      count: number;
+    }[];
+    passStatuses: {
+      id: PassStatus;
+      title: string;
+      enabled: boolean;
+      count: number;
+    }[];
+  };
   counts: {
     fired: number | null;
     total: number | null;
   };
-  schematronReport: SchematronReport;
+  schematronReport: lib.SchematronReport;
   validationResults: validationResultsMachine.State;
 };
 
@@ -37,7 +61,7 @@ export type StateTransition =
   | {
       type: 'CONFIG_LOADED';
       data: {
-        config: SchematronUIConfig;
+        config: State['config'];
       };
     }
   | {
@@ -171,7 +195,7 @@ export const initialState: State = {
   },
   get filterOptions() {
     const state: State = this;
-    return getFilterOptions({
+    return lib.getFilterOptions({
       config: state.config,
       filter: state.filter,
       failedAssertionMap: state.validationResults.assertionsById,
@@ -190,9 +214,7 @@ export const initialState: State = {
   get schematronReport() {
     const state: State = this;
     return getSchematronReport({
-      config: state.config,
-      filter: state.filter,
-      filterOptions: state.filterOptions,
+      state: state,
       validator: {
         failedAssertionMap: state.validationResults.assertionsById,
         title:

@@ -5,40 +5,7 @@ import type {
 } from '@asap/shared/use-cases/schematron';
 import type { FailedAssertionMap } from './validator';
 
-// Schematron rules meta-data
-export type SchematronUIConfig = {
-  assertionViews: AssertionView[];
-  schematronAsserts: SchematronAssert[];
-};
-
-export type Role = string;
-export type PassStatus = 'pass' | 'fail' | 'all';
-
-export type SchematronFilter = {
-  role: Role;
-  text: string;
-  assertionViewId: number;
-  passStatus: PassStatus;
-};
-
-export type SchematronFilterOptions = {
-  assertionViews: {
-    index: number;
-    title: string;
-    count: number;
-  }[];
-  roles: {
-    name: Role;
-    subtitle: string;
-    count: number;
-  }[];
-  passStatuses: {
-    id: PassStatus;
-    title: string;
-    enabled: boolean;
-    count: number;
-  }[];
-};
+import * as state from '../state/schematron-machine';
 
 type AssertionMap = {
   [assertionId: string]: SchematronAssert;
@@ -77,39 +44,35 @@ export type SchematronReport = {
 };
 
 export const getSchematronReport = ({
-  config,
-  filter,
-  filterOptions,
+  state,
   validator,
 }: {
-  config: SchematronUIConfig;
-  filter: SchematronFilter;
-  filterOptions: SchematronFilterOptions;
+  state: state.BaseState;
   validator: {
     failedAssertionMap: FailedAssertionMap | null;
     title: string;
   };
 }) => {
-  const assertionView = filterOptions.assertionViews
-    .filter(view => view.index === filter.assertionViewId)
+  const assertionView = state.filterOptions.assertionViews
+    .filter(view => view.index === state.filter.assertionViewId)
     .map(() => {
-      return config.assertionViews[filter.assertionViewId];
+      return state.config.assertionViews[state.filter.assertionViewId];
     })[0] || {
     title: '',
     groups: [],
   };
 
   const schematronChecksFiltered = filterAssertions(
-    config.schematronAsserts,
+    state.config.schematronAsserts,
     {
-      passStatus: filter.passStatus,
-      role: filter.role,
-      text: filter.text,
+      passStatus: state.filter.passStatus,
+      role: state.filter.role,
+      text: state.filter.text,
       assertionViewIds: assertionView.groups
         .map(group => group.assertionIds)
         .flat(),
     },
-    filterOptions.roles.map(role => role.name),
+    state.filterOptions.roles.map(role => role.name),
     validator.failedAssertionMap,
   );
 
@@ -129,7 +92,7 @@ export const getSchematronReport = ({
   };
 };
 
-export const getReportGroups = (
+const getReportGroups = (
   assertionView: AssertionView,
   schematronAssertions: SchematronAssert[],
   failedAssertionMap: FailedAssertionMap | null,
@@ -187,12 +150,12 @@ export const getReportGroups = (
 export const filterAssertions = (
   schematronAsserts: SchematronAssert[],
   filter: {
-    passStatus: PassStatus;
-    role: Role;
+    passStatus: state.PassStatus;
+    role: state.Role;
     text: string;
     assertionViewIds: string[];
   },
-  roleOptions: Role[],
+  roleOptions: state.Role[],
   failedAssertionMap: FailedAssertionMap | null,
 ) => {
   const filterRoles =
@@ -234,10 +197,10 @@ export const getFilterOptions = ({
   filter,
   failedAssertionMap,
 }: {
-  config: SchematronUIConfig;
-  filter: SchematronFilter;
+  config: state.State['config'];
+  filter: state.State['filter'];
   failedAssertionMap: FailedAssertionMap | null;
-}): SchematronFilterOptions => {
+}): state.State['filterOptions'] => {
   const availableRoles = Array.from(
     new Set(config.schematronAsserts.map(assert => assert.role)),
   );
@@ -276,7 +239,7 @@ export const getFilterOptions = ({
       ).length,
     })),
     roles: [
-      ...['all', ...availableRoles.sort()].map((role: Role) => {
+      ...['all', ...availableRoles.sort()].map((role: state.Role) => {
         return {
           name: role,
           subtitle:
@@ -303,7 +266,7 @@ export const getFilterOptions = ({
     ],
     passStatuses: [
       {
-        id: 'all' as PassStatus,
+        id: 'all' as state.PassStatus,
         title: 'All assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
@@ -319,7 +282,7 @@ export const getFilterOptions = ({
         ).length,
       },
       {
-        id: 'pass' as PassStatus,
+        id: 'pass' as state.PassStatus,
         title: 'Passing assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
@@ -335,7 +298,7 @@ export const getFilterOptions = ({
         ).length,
       },
       {
-        id: 'fail' as PassStatus,
+        id: 'fail' as state.PassStatus,
         title: 'Failing assertions',
         enabled: failedAssertionMap !== null,
         count: filterAssertions(
