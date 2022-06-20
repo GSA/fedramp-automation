@@ -7,8 +7,7 @@ import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
 import { useAppState } from '../hooks';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import classNames from 'classNames';
-import { number } from 'fp-ts';
+import classnames from 'classnames';
 
 const NavLink = styled.a`
   color: var(--theme-grey-text);
@@ -51,8 +50,8 @@ export const ValidatorPage = ({
         secondaryText="Browse FedRAMP OSCAL validation rules and
           apply them to your own documents"
       />
-      {/* 
-      TODO: Decide on implementation of this
+
+      {/* TODO: Decide on implementation of this
       <div className="grid-container">
         <nav
           aria-label="Secondary navigation"
@@ -66,7 +65,7 @@ export const ValidatorPage = ({
             <ul className="usa-nav__primary usa-accordion">
               <li className="usa-nav__primary-item">
                 <NavLink
-                  className={classNames('usa-nav-link', {
+                  className={classnames('usa-nav-link', {
                     'usa-current':
                       router.currentRoute.type === 'DocumentSummary',
                   })}
@@ -77,7 +76,7 @@ export const ValidatorPage = ({
               </li>
               <li className="usa-nav__primary-item">
                 <NavLink
-                  className={classNames({
+                  className={classnames({
                     'usa-current': router.currentRoute.type === 'DocumentPOAM',
                   })}
                   href={getUrl(Routes.documentPOAM)}
@@ -87,7 +86,7 @@ export const ValidatorPage = ({
               </li>
               <li className="usa-nav__primary-item">
                 <NavLink
-                  className={classNames({
+                  className={classnames({
                     'usa-current': router.currentRoute.type === 'DocumentSAP',
                   })}
                   href={getUrl(Routes.documentSAP)}
@@ -97,7 +96,7 @@ export const ValidatorPage = ({
               </li>
               <li className="usa-nav__primary-item">
                 <NavLink
-                  className={classNames({
+                  className={classnames({
                     'usa-current': router.currentRoute.type === 'DocumentSAR',
                   })}
                   href={getUrl(Routes.documentSAR)}
@@ -107,7 +106,7 @@ export const ValidatorPage = ({
               </li>
               <li className="usa-nav__primary-item">
                 <NavLink
-                  className={classNames({
+                  className={classnames({
                     'usa-current': router.currentRoute.type === 'DocumentSSP',
                   })}
                   href={getUrl(Routes.documentSSP)}
@@ -122,7 +121,7 @@ export const ValidatorPage = ({
       <nav className="padding-y-2 border-base-light border-bottom-1px">
         <div className="grid-container grid-row flex-row flex-justify">
           <NavLink
-            className={classNames({
+            className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSummary',
             })}
             href={getUrl(Routes.documentSummary)}
@@ -130,7 +129,7 @@ export const ValidatorPage = ({
             Summary
           </NavLink>
           <NavLink
-            className={classNames({
+            className={classnames({
               'active-link': router.currentRoute.type === 'DocumentPOAM',
             })}
             href={getUrl(Routes.documentPOAM)}
@@ -148,7 +147,7 @@ export const ValidatorPage = ({
             )}
           </NavLink>
           <NavLink
-            className={classNames({
+            className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSAP',
             })}
             href={getUrl(Routes.documentSAP)}
@@ -166,7 +165,7 @@ export const ValidatorPage = ({
             )}
           </NavLink>
           <NavLink
-            className={classNames({
+            className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSAR',
             })}
             href={getUrl(Routes.documentSAR)}
@@ -184,7 +183,7 @@ export const ValidatorPage = ({
             )}
           </NavLink>
           <NavLink
-            className={classNames({
+            className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSSP',
             })}
             href={getUrl(Routes.documentSSP)}
