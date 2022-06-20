@@ -50,75 +50,7 @@ export const ValidatorPage = ({
         secondaryText="Browse FedRAMP OSCAL validation rules and
           apply them to your own documents"
       />
-
-      {/* TODO: Decide on implementation of this
-      <div className="grid-container">
-        <nav
-          aria-label="Secondary navigation"
-          className="usa-nav"
-          css={css`
-            float: none;
-            border-bottom: 1px solid var(--theme-light-grey);
-          `}
-        >
-          <div className="usa-nav__inner">
-            <ul className="usa-nav__primary usa-accordion">
-              <li className="usa-nav__primary-item">
-                <NavLink
-                  className={classnames('usa-nav-link', {
-                    'usa-current':
-                      router.currentRoute.type === 'DocumentSummary',
-                  })}
-                  href={getUrl(Routes.documentSummary)}
-                >
-                  <span>Summary</span>
-                </NavLink>
-              </li>
-              <li className="usa-nav__primary-item">
-                <NavLink
-                  className={classnames({
-                    'usa-current': router.currentRoute.type === 'DocumentPOAM',
-                  })}
-                  href={getUrl(Routes.documentPOAM)}
-                >
-                  Plan of Action and Milestones
-                </NavLink>
-              </li>
-              <li className="usa-nav__primary-item">
-                <NavLink
-                  className={classnames({
-                    'usa-current': router.currentRoute.type === 'DocumentSAP',
-                  })}
-                  href={getUrl(Routes.documentSAP)}
-                >
-                  Security Assessment Plan
-                </NavLink>
-              </li>
-              <li className="usa-nav__primary-item">
-                <NavLink
-                  className={classnames({
-                    'usa-current': router.currentRoute.type === 'DocumentSAR',
-                  })}
-                  href={getUrl(Routes.documentSAR)}
-                >
-                  Security Assessment Report
-                </NavLink>
-              </li>
-              <li className="usa-nav__primary-item">
-                <NavLink
-                  className={classnames({
-                    'usa-current': router.currentRoute.type === 'DocumentSSP',
-                  })}
-                  href={getUrl(Routes.documentSSP)}
-                >
-                  System Security Plan
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div> */}
-      <nav className="padding-y-2 border-base-light border-bottom-1px">
+      <nav className="display-none desktop:display-block padding-y-2 border-base-light border-bottom-1px">
         <div className="grid-container grid-row flex-row flex-justify">
           <NavLink
             className={classnames({
