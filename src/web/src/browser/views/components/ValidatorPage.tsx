@@ -50,7 +50,10 @@ export const ValidatorPage = ({
         secondaryText="Browse FedRAMP OSCAL validation rules and
           apply them to your own documents"
       />
-      <nav className="display-none desktop:display-block padding-y-2 border-base-light border-bottom-1px">
+      <nav
+        aria-label="Secondary navigation"
+        className="display-none desktop:display-block padding-y-2 border-base-light border-bottom-1px"
+      >
         <div className="grid-container grid-row flex-row flex-justify">
           <NavLink
             className={classnames({
