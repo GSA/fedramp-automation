@@ -4,7 +4,6 @@ import { setCurrentRoute } from '.';
 
 import type { ActionContext } from '..';
 import * as metrics from './metrics';
-import * as schematron from './schematron';
 import { getUrl, Routes } from '../state/router';
 
 export const reset = ({ dispatch }: ActionContext) => {
@@ -89,11 +88,26 @@ export const setValidationReport =
       });
       metrics.logValidationSummary(documentType)(config);
     }
-    schematron.setValidationReport({
-      documentType,
-      validationReport,
-      xmlString,
-    })(config);
+    config.effects.useCases
+      .annotateXML({
+        xmlString,
+        annotations: validationReport.failedAsserts.map(assert => {
+          return {
+            uniqueId: assert.uniqueId,
+            xpath: assert.location,
+          };
+        }),
+      })
+      .then(annotatedXML => {
+        config.dispatch({
+          machine: `validationResults.${documentType}`,
+          type: 'SET_RESULTS',
+          data: {
+            annotatedXML,
+            validationReport,
+          },
+        });
+      });
     config.dispatch(
       setCurrentRoute(
         getUrl(
@@ -106,4 +120,31 @@ export const setValidationReport =
         ),
       ),
     );
+  };
+
+export const showAssertionContext =
+  ({
+    assertionId,
+    documentType,
+  }: {
+    assertionId: string;
+    documentType: OscalDocumentKey;
+  }) =>
+  ({ dispatch }: ActionContext) => {
+    dispatch({
+      machine: `validationResults.${documentType}`,
+      type: 'SET_ASSERTION_CONTEXT',
+      data: {
+        assertionId,
+      },
+    });
+  };
+
+export const clearAssertionContext =
+  (documentType: OscalDocumentKey) =>
+  ({ dispatch }: ActionContext) => {
+    dispatch({
+      machine: `validationResults.${documentType}`,
+      type: 'CLEAR_ASSERTION_CONTEXT',
+    });
   };

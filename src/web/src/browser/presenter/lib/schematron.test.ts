@@ -44,28 +44,28 @@ describe('presenter schematron library', () => {
           text: '',
           assertionViewId: 0,
         },
-        filterOptions: {
-          assertionViews: [
-            {
-              index: 0,
-              title: 'Assertion view title',
-              count: 5,
-            },
-          ],
-          roles: [
-            { name: 'error', subtitle: 'sub1', count: 5 },
-            { name: 'warning', subtitle: 'sub2', count: 6 },
-          ],
-          passStatuses: [
-            {
-              id: 'all' as PassStatus,
-              count: 5,
-              title: 'All',
-              enabled: false,
-            },
-          ],
-        },
       } as unknown as BaseState,
+      filterOptions: {
+        assertionViews: [
+          {
+            index: 0,
+            title: 'Assertion view title',
+            count: 5,
+          },
+        ],
+        roles: [
+          { name: 'error', subtitle: 'sub1', count: 5 },
+          { name: 'warning', subtitle: 'sub2', count: 6 },
+        ],
+        passStatuses: [
+          {
+            id: 'all' as PassStatus,
+            count: 5,
+            title: 'All',
+            enabled: false,
+          },
+        ],
+      },
       validator: {
         title: 'Validator title',
         failedAssertionMap: {

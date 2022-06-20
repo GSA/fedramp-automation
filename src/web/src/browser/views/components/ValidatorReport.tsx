@@ -1,11 +1,16 @@
 import spriteSvg from 'uswds/img/sprite.svg';
 
+import { showAssertionContext } from '@asap/browser/presenter/actions/validator';
+import {
+  getFilterOptions,
+  getSchematronReport,
+} from '@asap/browser/presenter/lib/schematron';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useAppContext } from '../context';
 import * as assertionDocumentation from '../../presenter/actions/assertion-documentation';
-import { showAssertionContext } from '@asap/browser/presenter/actions/document-viewer';
+import { getAssertionViewTitleByIndex } from '@asap/browser/presenter/state/schematron-machine';
 
 type Props = {
   documentType: OscalDocumentKey;
@@ -13,23 +18,45 @@ type Props = {
 
 export const ValidatorReport = ({ documentType }: Props) => {
   const { dispatch, state } = useAppContext();
-  const schematronReport = state.oscalDocuments[documentType].schematronReport;
+  const oscalDocument = state.oscalDocuments[documentType];
+  const validationResult = state.validationResults[documentType];
+
+  // TODO: Move these into state
+  const filterOptions = getFilterOptions({
+    config: oscalDocument.config,
+    filter: oscalDocument.filter,
+    failedAssertionMap: validationResult.assertionsById,
+  });
+  const schematronReport = getSchematronReport({
+    state: oscalDocument,
+    filterOptions,
+    validator: {
+      failedAssertionMap: validationResult.assertionsById,
+      title: validationResult.summary.title,
+    },
+  });
+  const viewTitle = getAssertionViewTitleByIndex(
+    filterOptions.assertionViews,
+    oscalDocument.filter.assertionViewId,
+  );
+
   return (
     <>
       <div className="top-0 bg-white padding-top-1 padding-bottom-1">
         <h1 className="margin-0">
-          {schematronReport.summary.title}
+          {validationResult.summary.title}
           <span
             className="font-heading-sm text-secondary-light"
             style={{ float: 'right' }}
           >
             <span className={`text-blue`}>
-              {schematronReport.summary.counts.assertions} concerns
+              {validationResult.summary.firedCount} concerns TODO: This should
+              be count of filtered assertions
             </span>
           </span>
         </h1>
         <h2 className="margin-top-05 margin-bottom-0 text-normal">
-          {schematronReport.summary.subtitle}
+          {viewTitle}
         </h2>
       </div>
       {schematronReport.groups.map(group => (
@@ -127,3 +154,6 @@ export const ValidatorReport = ({ documentType }: Props) => {
     </>
   );
 };
+function getAssertionViewByIndex(assertionViews: any, assertionViewId: any) {
+  throw new Error('Function not implemented.');
+}

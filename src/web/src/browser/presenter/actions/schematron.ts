@@ -52,39 +52,6 @@ export const initialize = (config: ActionContext) => {
   });
 };
 
-export const setValidationReport =
-  ({
-    documentType,
-    validationReport,
-    xmlString,
-  }: {
-    documentType: OscalDocumentKey;
-    validationReport: ValidationReport;
-    xmlString: string;
-  }) =>
-  (config: ActionContext) => {
-    config.effects.useCases
-      .annotateXML({
-        xmlString,
-        annotations: validationReport.failedAsserts.map(assert => {
-          return {
-            uniqueId: assert.uniqueId,
-            xpath: assert.location,
-          };
-        }),
-      })
-      .then(annotatedXML => {
-        config.dispatch({
-          machine: `oscalDocuments.${documentType}`,
-          type: 'SET_RESULTS',
-          data: {
-            annotatedXML,
-            validationReport,
-          },
-        });
-      });
-  };
-
 export const setFilterRole =
   ({ documentType, role }: { documentType: OscalDocumentKey; role: Role }) =>
   (config: ActionContext) => {

@@ -1,6 +1,5 @@
 export * as assertionDocumentation from './assertion-documentation';
 import * as assertionDocumentation from './assertion-documentation';
-export * as documentViewer from './document-viewer';
 export * as metrics from './metrics';
 import * as metrics from './metrics';
 export * as schematron from './schematron';

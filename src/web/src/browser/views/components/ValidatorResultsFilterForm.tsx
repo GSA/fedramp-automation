@@ -6,14 +6,24 @@ import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useAppContext } from '../context';
+import { getFilterOptions } from '@asap/browser/presenter/lib/schematron';
 
 type Props = {
   documentType: OscalDocumentKey;
 };
 
 export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
-  const oscalDocument = useAppContext().state.oscalDocuments[documentType];
+  const { state } = useAppContext();
+  const oscalDocument = state.oscalDocuments[documentType];
+  const validationResult = state.validationResults[documentType];
   const { dispatch } = useAppContext();
+
+  // TODO: Move this into state
+  const filterOptions = getFilterOptions({
+    config: oscalDocument.config,
+    filter: oscalDocument.filter,
+    failedAssertionMap: validationResult.assertionsById,
+  });
 
   const topRef = useRef<HTMLHeadingElement>(null);
   const scrollIntoView = () => {
@@ -30,7 +40,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
             Filter by pass status
           </legend>
           <div className="usa-radio">
-            {oscalDocument.filterOptions.passStatuses.map(passStatus => (
+            {filterOptions.passStatuses.map(passStatus => (
               <div key={passStatus.id}>
                 <input
                   className="usa-radio__input usa-radio__input--tile"
@@ -67,7 +77,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
           </div>
           <legend className="usa-legend font-sans-md">Select a view</legend>
           <div className="usa-radio">
-            {oscalDocument.filterOptions.assertionViews.map(assertionView => (
+            {filterOptions.assertionViews.map(assertionView => (
               <div key={assertionView.index}>
                 <input
                   className="usa-radio__input usa-radio__input--tile"
@@ -153,7 +163,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
             <legend className="usa-legend font-sans-md">
               Filter by severity
             </legend>
-            {oscalDocument.filterOptions.roles.map((filterRole, index) => (
+            {filterOptions.roles.map((filterRole, index) => (
               <div
                 key={index}
                 className={`bg-${colorTokenForRole(filterRole.name)}-lighter`}

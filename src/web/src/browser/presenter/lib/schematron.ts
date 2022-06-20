@@ -23,13 +23,6 @@ const cancelIcon: Icon = {
 };
 
 export type SchematronReport = {
-  summary: {
-    title: string;
-    subtitle: string;
-    counts: {
-      assertions: number;
-    };
-  };
   groups: {
     title: string;
     checks: {
@@ -45,15 +38,17 @@ export type SchematronReport = {
 
 export const getSchematronReport = ({
   state,
+  filterOptions,
   validator,
 }: {
   state: state.BaseState;
+  filterOptions: state.FilterOptions;
   validator: {
     failedAssertionMap: FailedAssertionMap | null;
     title: string;
   };
 }) => {
-  const assertionView = state.filterOptions.assertionViews
+  const assertionView = filterOptions.assertionViews
     .filter(view => view.index === state.filter.assertionViewId)
     .map(() => {
       return state.config.assertionViews[state.filter.assertionViewId];
@@ -72,18 +67,11 @@ export const getSchematronReport = ({
         .map(group => group.assertionIds)
         .flat(),
     },
-    state.filterOptions.roles.map(role => role.name),
+    filterOptions.roles.map(role => role.name),
     validator.failedAssertionMap,
   );
 
   return {
-    summary: {
-      title: validator.title,
-      subtitle: assertionView.title,
-      counts: {
-        assertions: schematronChecksFiltered.length,
-      },
-    },
     groups: getReportGroups(
       assertionView,
       schematronChecksFiltered,
@@ -200,7 +188,7 @@ export const getFilterOptions = ({
   config: state.State['config'];
   filter: state.State['filter'];
   failedAssertionMap: FailedAssertionMap | null;
-}): state.State['filterOptions'] => {
+}): state.FilterOptions => {
   const availableRoles = Array.from(
     new Set(config.schematronAsserts.map(assert => assert.role)),
   );

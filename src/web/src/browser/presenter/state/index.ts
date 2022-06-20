@@ -24,6 +24,12 @@ export type State = {
   };
   router: routerMachine.State;
   validator: validatorMachine.State;
+  validationResults: {
+    poam: validationResultsMachine.State;
+    sap: validationResultsMachine.State;
+    sar: validationResultsMachine.State;
+    ssp: validationResultsMachine.State;
+  };
 };
 
 type ScopedTransition = {
@@ -83,6 +89,12 @@ export const initialState: State = {
   },
   router: routerMachine.initialState,
   validator: validatorMachine.initialState,
+  validationResults: {
+    poam: validationResultsMachine.initialState,
+    sap: validationResultsMachine.initialState,
+    sar: validationResultsMachine.initialState,
+    ssp: validationResultsMachine.initialState,
+  },
 };
 
 export const rootReducer = (state: State, event: StateTransition): State => ({
@@ -138,6 +150,44 @@ export const rootReducer = (state: State, event: StateTransition): State => ({
     state.validator,
     event as validatorMachine.StateTransition,
   ),
+  validationResults: {
+    poam: ((state: validationResultsMachine.State, event: StateTransition) => {
+      if (event.machine === 'validationResults.poam') {
+        return validationResultsMachine.nextState(
+          state,
+          event as unknown as validationResultsMachine.StateTransition,
+        );
+      }
+      return state;
+    })(state.validationResults.poam, event),
+    sap: ((state: validationResultsMachine.State, event: StateTransition) => {
+      if (event.machine === 'validationResults.sap') {
+        return validationResultsMachine.nextState(
+          state,
+          event as unknown as validationResultsMachine.StateTransition,
+        );
+      }
+      return state;
+    })(state.validationResults.sap, event),
+    sar: ((state: validationResultsMachine.State, event: StateTransition) => {
+      if (event.machine === 'validationResults.poam') {
+        return validationResultsMachine.nextState(
+          state,
+          event as unknown as validationResultsMachine.StateTransition,
+        );
+      }
+      return state;
+    })(state.validationResults.sar, event),
+    ssp: ((state: validationResultsMachine.State, event: StateTransition) => {
+      if (event.machine === 'validationResults.ssp') {
+        return validationResultsMachine.nextState(
+          state,
+          event as unknown as validationResultsMachine.StateTransition,
+        );
+      }
+      return state;
+    })(state.validationResults.ssp, event),
+  },
 });
 
 export type SampleDocument = {

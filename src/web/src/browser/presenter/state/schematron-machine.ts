@@ -1,52 +1,39 @@
 import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
-import type {
-  FailedAssert,
-  SchematronAssert,
-} from '@asap/shared/use-cases/schematron';
-
-import * as lib from '../lib/schematron';
-import { getSchematronReport } from '../lib/schematron';
-import * as validationResultsMachine from './validation-results-machine';
+import type { SchematronAssert } from '@asap/shared/use-cases/schematron';
 
 export type Role = string;
 export type PassStatus = 'pass' | 'fail' | 'all';
+
+export type FilterOptions = {
+  assertionViews: {
+    index: number;
+    title: string;
+    count: number;
+  }[];
+  roles: {
+    name: Role;
+    subtitle: string;
+    count: number;
+  }[];
+  passStatuses: {
+    id: PassStatus;
+    title: string;
+    enabled: boolean;
+    count: number;
+  }[];
+};
 
 export type BaseState = {
   config: {
     assertionViews: AssertionView[];
     schematronAsserts: SchematronAssert[];
   };
-  failedAssertionCounts: Record<FailedAssert['id'], number> | null;
   filter: {
     role: Role;
     text: string;
     assertionViewId: number;
     passStatus: PassStatus;
   };
-  filterOptions: {
-    assertionViews: {
-      index: number;
-      title: string;
-      count: number;
-    }[];
-    roles: {
-      name: Role;
-      subtitle: string;
-      count: number;
-    }[];
-    passStatuses: {
-      id: PassStatus;
-      title: string;
-      enabled: boolean;
-      count: number;
-    }[];
-  };
-  counts: {
-    fired: number | null;
-    total: number | null;
-  };
-  schematronReport: lib.SchematronReport;
-  validationResults: validationResultsMachine.State;
 };
 
 export type State =
@@ -89,15 +76,25 @@ export type StateTransition =
       };
     };
 
+export const getAssertionViewTitleByIndex = (
+  assertionViews: FilterOptions['assertionViews'],
+  index: number,
+) => {
+  if (assertionViews.length === 0) {
+    return '';
+  }
+  return assertionViews
+    .filter(view => view.index === index)
+    .map(() => {
+      return assertionViews[index];
+    })[0].title;
+};
+
 export const nextState = (state: State, event: StateTransition): State => {
   if (state.current === 'UNINITIALIZED') {
     if (event.type === 'CONFIG_LOADED') {
       return {
         current: 'INITIALIZED',
-        failedAssertionCounts: state.failedAssertionCounts,
-        filterOptions: state.filterOptions,
-        counts: state.counts,
-        schematronReport: state.schematronReport,
         filter: {
           passStatus: 'all',
           role: 'all',
@@ -105,65 +102,40 @@ export const nextState = (state: State, event: StateTransition): State => {
           assertionViewId: 0,
         },
         config: event.data.config,
-        validationResults: state.validationResults,
       };
     }
   } else if (state.current === 'INITIALIZED') {
     if (event.type === 'FILTER_TEXT_CHANGED') {
       return {
-        current: 'INITIALIZED',
-        failedAssertionCounts: state.failedAssertionCounts,
-        filterOptions: state.filterOptions,
-        counts: state.counts,
-        schematronReport: state.schematronReport,
-        config: state.config,
+        ...state,
         filter: {
           ...state.filter,
           text: event.data.text,
         },
-        validationResults: state.validationResults,
       };
     } else if (event.type === 'FILTER_ROLE_CHANGED') {
       return {
-        current: 'INITIALIZED',
-        failedAssertionCounts: state.failedAssertionCounts,
-        filterOptions: state.filterOptions,
-        counts: state.counts,
-        schematronReport: state.schematronReport,
-        config: state.config,
+        ...state,
         filter: {
           ...state.filter,
           role: event.data.role,
         },
-        validationResults: state.validationResults,
       };
     } else if (event.type === 'FILTER_ASSERTION_VIEW_CHANGED') {
       return {
-        current: 'INITIALIZED',
-        failedAssertionCounts: state.failedAssertionCounts,
-        filterOptions: state.filterOptions,
-        counts: state.counts,
-        schematronReport: state.schematronReport,
-        config: state.config,
+        ...state,
         filter: {
           ...state.filter,
           assertionViewId: event.data.assertionViewId,
         },
-        validationResults: state.validationResults,
       };
     } else if (event.type === 'FILTER_PASS_STATUS_CHANGED') {
       return {
-        current: 'INITIALIZED',
-        failedAssertionCounts: state.failedAssertionCounts,
-        filterOptions: state.filterOptions,
-        counts: state.counts,
-        schematronReport: state.schematronReport,
-        config: state.config,
+        ...state,
         filter: {
           ...state.filter,
           passStatus: event.data.passStatus,
         },
-        validationResults: state.validationResults,
       };
     }
   }
@@ -182,47 +154,4 @@ export const initialState: State = {
     text: '',
     assertionViewId: 0,
   },
-  get failedAssertionCounts() {
-    const state: State = this;
-    return state.validationResults.current === 'HAS_RESULT'
-      ? state.validationResults.validationReport.failedAsserts.reduce<
-          Record<string, number>
-        >((acc, assert) => {
-          acc[assert.id] = (acc[assert.id] || 0) + 1;
-          return acc;
-        }, {})
-      : null;
-  },
-  get filterOptions() {
-    const state: State = this;
-    return lib.getFilterOptions({
-      config: state.config,
-      filter: state.filter,
-      failedAssertionMap: state.validationResults.assertionsById,
-    });
-  },
-  get counts() {
-    const state: State = this;
-    return {
-      fired:
-        state.validationResults.current === 'HAS_RESULT'
-          ? state.validationResults.validationReport.failedAsserts.length
-          : null,
-      total: state.config.schematronAsserts.length,
-    };
-  },
-  get schematronReport() {
-    const state: State = this;
-    return getSchematronReport({
-      state: state,
-      validator: {
-        failedAssertionMap: state.validationResults.assertionsById,
-        title:
-          state.validationResults.current === 'HAS_RESULT'
-            ? state.validationResults.validationReport.title
-            : 'FedRAMP Package Concerns',
-      },
-    });
-  },
-  validationResults: validationResultsMachine.initialState,
 };
