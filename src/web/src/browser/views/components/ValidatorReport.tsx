@@ -25,13 +25,19 @@ export const ValidatorReport = ({ documentType }: Props) => {
   const filterOptions = getFilterOptions({
     config: oscalDocument.config,
     filter: oscalDocument.filter,
-    failedAssertionMap: validationResult.assertionsById,
+    failedAssertionMap:
+      validationResult.current !== 'NO_RESULTS'
+        ? validationResult.assertionsById
+        : null,
   });
   const schematronReport = getSchematronReport({
     state: oscalDocument,
     filterOptions,
     validator: {
-      failedAssertionMap: validationResult.assertionsById,
+      failedAssertionMap:
+        validationResult.current !== 'NO_RESULTS'
+          ? validationResult.assertionsById
+          : null,
       title: validationResult.summary.title,
     },
   });

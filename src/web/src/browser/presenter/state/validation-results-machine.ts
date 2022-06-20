@@ -6,16 +6,16 @@ import type {
 import { getAssertionsById } from '../lib/validator';
 
 type BaseState = {
-  assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
+  summary: {
+    firedCount: null | number;
+    title: string;
+  };
 };
 
 type ResultState = BaseState & {
   annotatedXML: string;
+  assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
   failedAssertionCounts: Record<FailedAssert['id'], number> | null;
-  summary: {
-    firedCount: number;
-    title: string;
-  };
   validationReport: ValidationReport;
 };
 
@@ -115,7 +115,6 @@ export const nextState = (state: State, event: StateTransition): State => {
 
 export const initialState: State = {
   current: 'NO_RESULTS',
-  assertionsById: null,
   summary: {
     firedCount: null,
     title: 'FedRAMP Package Concerns',

@@ -22,7 +22,10 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
   const filterOptions = getFilterOptions({
     config: oscalDocument.config,
     filter: oscalDocument.filter,
-    failedAssertionMap: validationResult.assertionsById,
+    failedAssertionMap:
+      validationResult.current !== 'NO_RESULTS'
+        ? validationResult.assertionsById
+        : null,
   });
 
   const topRef = useRef<HTMLHeadingElement>(null);
