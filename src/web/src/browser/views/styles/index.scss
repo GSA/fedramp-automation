@@ -17,6 +17,7 @@
   --theme-red: #c71f25;
   --theme-light-grey: #f2f2f2;
   --theme-grey-text: #757575;
+  --theme-dark-text: #5a5353;
 }
 
 .loader {
@@ -55,4 +56,9 @@
 
 .bg-info-lighter {
   @include checkbox-and-radio-colors('info-lighter');
+}
+
+.active-link {
+  color: var(--theme-dark-text) !important;
+  font-weight: bold;
 }
