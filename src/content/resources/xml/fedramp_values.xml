@@ -414,6 +414,51 @@
       </allowed-values>
    </value-set>
     
+    <value-set name="automation-control-id">
+        <formal-name>Automation Control IDs</formal-name>
+        <description>The control IDs for implemented requirements that are focused on automation aspects.</description>
+        <binding pattern="implemented-requirement/@control-id"/>
+        <allowed-values allow-other="no">
+            <enum value="ac-2.1" short-label="ac-2.1">ac-2.1</enum>
+            <enum value="ac-12" short-label="ac-12">ac-12</enum>
+            <enum value="ac-18.3" short-label="ac-18.3">ac-18.3</enum>
+            <enum value="au-6.1" short-label="au-6.1">au-6.1</enum>
+            <enum value="au-3.2" short-label="au-3.2">au-3.2</enum>
+            <enum value="au-6.4" short-label="au-6.4">au-6.4</enum>
+            <enum value="au-7.1" short-label="au-7.1">au-7.1</enum>
+            <enum value="at-3.4" short-label="at-3.4">at-3.4</enum>
+            <enum value="ca-7" short-label="ca-7">ca-7</enum>
+            <enum value="cm-2.2" short-label="cm-2.2">cm-2.2</enum>
+            <enum value="cm-3.1" short-label="cm-3.1">cm-3.1</enum>
+            <enum value="cm-3.6" short-label="cm-3.6">cm-3.6</enum>
+            <enum value="cm-6.1" short-label="cm-6.1">cm-6.1</enum>
+            <enum value="cm-8.2" short-label="cm-8.2">cm-8.2</enum>
+            <enum value="cm-8.3" short-label="cm-8.3">cm-8.3</enum>
+            <enum value="cm-11" short-label="cm-11">cm-11</enum>
+            <enum value="cp-10" short-label="cp-10">cp-10</enum>
+            <enum value="ir-4.1" short-label="ir-4.1">ir-4.1</enum>
+            <enum value="ir-5.1" short-label="ir-5.1">ir-5.1</enum>
+            <enum value="ir-6.1" short-label="ir-6.1">ir-6.1</enum>
+            <enum value="pe-3" short-label="pe-3">pe-3</enum>
+            <enum value="pe-8.1" short-label="pe-8.1">pe-8.1</enum>
+            <enum value="pe-11.1" short-label="pe-11.1">pe-11.1</enum>
+            <enum value="pe-13.1" short-label="pe-13.1">pe-13.1</enum>
+            <enum value="pe-13.2" short-label="pe-13.2">pe-13.2</enum>
+            <enum value="pe-13.3" short-label="pe-13.3">pe-13.3</enum>
+            <enum value="pe-15.1" short-label="pe-15.1">pe-15.1</enum>
+            <enum value="ps-4.2" short-label="ps-4.2">ps-4.2</enum>
+            <enum value="sc-23.1" short-label="sc-23.1">sc-23.1</enum>
+            <enum value="si-2.2" short-label="si-2.2">si-2.2</enum>
+            <enum value="si-3.2" short-label="si-3.2">si-3.2</enum>
+            <enum value="si-4.2" short-label="si-4.2">si-4.2</enum>
+            <enum value="si-4.20" short-label="si-4.20">si-4.20</enum>
+            <enum value="si-5.1" short-label="si-5.1">si-5.1</enum>
+            <enum value="si-7.2" short-label="si-7.2">si-7.2</enum>
+            <enum value="si-7.5" short-label="si-7.5">si-7.5</enum>
+            <enum value="si-8.2" short-label="si-8.2">si-8.2</enum>
+        </allowed-values>
+    </value-set>
+    
     <value-set name="technical-control-id">
         <formal-name>Technical Control IDs</formal-name>
         <description>The control IDs for implemented requirements that are focused on technical aspects.</description>
