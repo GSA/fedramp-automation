@@ -1,49 +1,44 @@
-import { Statemachine, statemachine } from 'overmind';
-
-type States =
+export type State =
   | {
-      current: 'OPT_IN';
+      current: 'METRICS_OPT_IN';
       userAlias: string;
     }
   | {
-      current: 'OPT_OUT';
+      current: 'METRICS_OPT_OUT';
     };
 
-type Events =
+export type StateTransition =
   | {
-      type: 'TOGGLE';
+      type: 'METRICS_TOGGLE';
     }
   | {
-      type: 'SET_USER_ALIAS';
-      data: { userAlias: string };
+      type: 'METRICS_SET_USER_ALIAS';
+      userAlias: string;
     };
 
-export type MetricsMachine = Statemachine<States, Events>;
+export const initialState: State = {
+  current: 'METRICS_OPT_OUT',
+};
 
-export const metricsMachine = statemachine<States, Events>({
-  OPT_IN: {
-    TOGGLE: () => {
+export const nextState = (state: State, event: StateTransition): State => {
+  if (state.current === 'METRICS_OPT_IN') {
+    if (event.type === 'METRICS_TOGGLE') {
       return {
-        current: 'OPT_OUT',
+        current: 'METRICS_OPT_OUT',
       };
-    },
-    SET_USER_ALIAS: ({ userAlias }, state) => {
+    } else if (event.type === 'METRICS_SET_USER_ALIAS') {
       return {
-        current: 'OPT_IN',
-        userAlias,
+        current: 'METRICS_OPT_IN',
+        userAlias: state.userAlias,
       };
-    },
-  },
-  OPT_OUT: {
-    TOGGLE: () => {
+    }
+  } else if (state.current === 'METRICS_OPT_OUT') {
+    if (event.type === 'METRICS_TOGGLE') {
       return {
-        current: 'OPT_IN',
+        current: 'METRICS_OPT_IN',
         userAlias: '',
       };
-    },
-  },
-});
-
-export const createMetricsMachine = () => {
-  return metricsMachine.create({ current: 'OPT_OUT' });
+    }
+  }
+  return state;
 };

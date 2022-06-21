@@ -1,12 +1,10 @@
-import React from 'react';
-
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { ValidatorFileSelectForm } from './ValidatorFileSelectForm';
 import { ValidatorReport } from './ValidatorReport';
 import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
-import { useAppState } from '../hooks';
+import { useAppContext } from '../context';
 
 const DocumentValidator = ({
   documentType,
@@ -32,7 +30,8 @@ export const ValidatorPage = ({
 }: {
   documentType: OscalDocumentKey | null;
 }) => {
-  const { oscalDocuments, router } = useAppState();
+  const { router } = useAppContext().state;
+  const { oscalDocuments, validationResults } = useAppContext().state;
   return (
     <>
       <div className="grid-row">
@@ -107,8 +106,8 @@ export const ValidatorPage = ({
               <td>
                 <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
               </td>
-              <td>{oscalDocuments.ssp.counts.total}</td>
-              <td>{oscalDocuments.ssp.counts.fired}</td>
+              <td>{oscalDocuments.ssp.config.schematronAsserts.length}</td>
+              <td>{validationResults.ssp.summary.firedCount}</td>
             </tr>
             <tr>
               <td>
@@ -116,8 +115,8 @@ export const ValidatorPage = ({
                   Security Assessment Report
                 </a>
               </td>
-              <td>{oscalDocuments.sar.counts.total}</td>
-              <td>{oscalDocuments.sar.counts.fired}</td>
+              <td>{oscalDocuments.sar.config.schematronAsserts.length}</td>
+              <td>{validationResults.sar.summary.firedCount}</td>
             </tr>
             <tr>
               <td>
@@ -125,8 +124,8 @@ export const ValidatorPage = ({
                   Security Assessment Plan
                 </a>
               </td>
-              <td>{oscalDocuments.sap.counts.total}</td>
-              <td>{oscalDocuments.sap.counts.fired}</td>
+              <td>{oscalDocuments.sap.config.schematronAsserts.length}</td>
+              <td>{validationResults.sap.summary.firedCount}</td>
             </tr>
             <tr>
               <td>
@@ -134,8 +133,8 @@ export const ValidatorPage = ({
                   Plan of Action and Milestones
                 </a>
               </td>
-              <td>{oscalDocuments.poam.counts.total}</td>
-              <td>{oscalDocuments.poam.counts.fired}</td>
+              <td>{oscalDocuments.poam.config.schematronAsserts.length}</td>
+              <td>{validationResults.poam.summary.firedCount}</td>
             </tr>
           </tbody>
         </table>

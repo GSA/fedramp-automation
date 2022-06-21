@@ -1,53 +1,71 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import type { PresenterConfig } from '..';
+import type { ActionContext } from '..';
 
-export const initialize = async ({
-  actions,
-  effects,
-  state,
-}: PresenterConfig) => {
-  const optInStatus = await effects.useCases.appMetrics.getOptInStatus();
-  if (optInStatus && state.metrics.matches('OPT_OUT')) {
-    state.metrics.send('TOGGLE');
+export const initialize = async (config: ActionContext) => {
+  const optInStatus = await config.effects.useCases.appMetrics.getOptInStatus();
+  if (optInStatus && config.getState().metrics.current === 'METRICS_OPT_OUT') {
+    config.dispatch({
+      machine: 'metrics',
+      type: 'METRICS_TOGGLE',
+    });
   }
-  actions.metrics.logAppInitialization();
+  logAppInitialization(config);
 };
 
-export const logAppInitialization = ({ effects, state }: PresenterConfig) => {
+export const logAppInitialization = ({ effects, getState }: ActionContext) => {
   effects.useCases.appMetrics.log({
     eventType: 'app-loaded',
     userAlias: undefined,
     data: {
-      route: state.router.currentRoute.type,
+      route: getState().router.currentRoute.type,
     },
   });
 };
 
-export const logValidationSummary = (
-  { effects, state }: PresenterConfig,
-  documentType: OscalDocumentKey,
-) => {
-  if (state.validator.current === 'VALIDATED') {
-    effects.useCases.appMetrics.log({
-      eventType: 'validation-summary',
-      userAlias: undefined,
-      data: {
-        failedAsserts: state.oscalDocuments[documentType].failedAssertionCounts,
-      },
-    });
-  }
-};
+export const logValidationSummary =
+  (documentType: OscalDocumentKey) =>
+  ({ effects, getState }: ActionContext) => {
+    if (getState().validator.current === 'VALIDATED') {
+      const validationResult = getState().validationResults[documentType];
+      effects.useCases.appMetrics.log({
+        eventType: 'validation-summary',
+        userAlias: undefined,
+        data: {
+          failedAsserts:
+            validationResult.current === 'HAS_RESULT'
+              ? validationResult.validationReport.failedAsserts.map(
+                  assert => assert.id,
+                )
+              : null,
+        },
+      });
+    }
+  };
 
-export const setOptInStatusOn = ({ effects, state }: PresenterConfig) => {
-  if (state.metrics.matches('OPT_OUT')) {
-    state.metrics.send('TOGGLE');
+export const setOptInStatusOn = ({
+  dispatch,
+  effects,
+  getState,
+}: ActionContext) => {
+  if (getState().metrics.current === 'METRICS_OPT_OUT') {
+    dispatch({
+      machine: 'metrics',
+      type: 'METRICS_TOGGLE',
+    });
     effects.useCases.appMetrics.setOptInStatus(true);
   }
 };
 
-export const setOptInStatusOff = ({ effects, state }: PresenterConfig) => {
-  if (state.metrics.matches('OPT_IN')) {
-    state.metrics.send('TOGGLE');
+export const setOptInStatusOff = ({
+  dispatch,
+  effects,
+  getState,
+}: ActionContext) => {
+  if (getState().metrics.current === 'METRICS_OPT_IN') {
+    dispatch({
+      machine: 'metrics',
+      type: 'METRICS_TOGGLE',
+    });
     effects.useCases.appMetrics.setOptInStatus(false);
   }
 };
