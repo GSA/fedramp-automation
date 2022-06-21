@@ -6,10 +6,7 @@ type HeadingOneProps = {
 
 export const HeadingOne = ({ heading, secondaryText }: HeadingOneProps) => {
   return (
-    <div
-      className="padding-y-5 text-white text-center"
-      style={{ backgroundColor: 'var(--theme-light-blue)' }}
-    >
+    <div className="padding-y-5 text-white text-center bg-primary-dark">
       <h1 className="font-sans-2xl line-height-heading-1 text-light">
         {heading.toUpperCase()}
       </h1>

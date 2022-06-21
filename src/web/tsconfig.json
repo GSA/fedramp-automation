@@ -14,7 +14,6 @@
       ],
     },
     "types": [
-      "@emotion/core",
       "vite/client"
     ],
     "allowJs": false,

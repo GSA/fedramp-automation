@@ -56,8 +56,6 @@
     "test:coverage": "vitest --coverage && open ./coverage/lcov-report/index.html"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
     "@fingerprintjs/fingerprintjs": "^3.3.3",
     "classnames": "^2.3.1",
     "commander": "^9.3.0",

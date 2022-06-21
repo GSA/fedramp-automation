@@ -7,8 +7,8 @@ import { HeadingOne } from './HeadingOne';
 import { ValidatorFileSelectForm } from './ValidatorFileSelectForm';
 import { ValidatorReport } from './ValidatorReport';
 import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
-import { useAppContext } from '../context';
 
+import { useAppContext } from '../context';
 import '../styles/ValidatorPage.scss';
 
 const DocumentValidator = ({
