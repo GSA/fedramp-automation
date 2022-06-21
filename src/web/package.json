@@ -50,7 +50,7 @@
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
     "preview": "vite preview",
     "start": "run-p start:*",
-    "start:typecheck": "tsc --noEmit",
+    "start:typecheck": "tsc --noEmit --watch",
     "start:vite": "vite",
     "test": "vitest run",
     "test:coverage": "vitest --coverage && open ./coverage/lcov-report/index.html"

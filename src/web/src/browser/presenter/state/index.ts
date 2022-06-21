@@ -156,11 +156,3 @@ export type SampleDocument = {
   url: string;
   displayName: string;
 };
-
-export type OldState = {
-  newAppContext: any;
-};
-
-export const state: OldState = {
-  newAppContext: { state: initialState, dispatch: () => {} },
-};
