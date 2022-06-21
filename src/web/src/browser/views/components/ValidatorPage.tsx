@@ -2,12 +2,10 @@ import classnames from 'classnames';
 
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-
 import { HeadingOne } from './HeadingOne';
 import { ValidatorFileSelectForm } from './ValidatorFileSelectForm';
 import { ValidatorReport } from './ValidatorReport';
 import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
-
 import { useAppContext } from '../context';
 import '../styles/ValidatorPage.scss';
 
@@ -63,9 +61,11 @@ export const ValidatorPage = ({
             href={getUrl(Routes.documentPOAM)}
           >
             Plan of Action and Milestones
-            <span className="usa-tag margin-left-1 bg-theme-red">
-              {validationResults.poam.summary.firedCount}
-            </span>
+            {validationResults.poam.current === 'HAS_RESULT' && (
+              <span className="usa-tag margin-left-1 bg-theme-red">
+                {validationResults.poam.summary.firedCount}
+              </span>
+            )}
           </a>
           <a
             className={classnames({
@@ -74,9 +74,11 @@ export const ValidatorPage = ({
             href={getUrl(Routes.documentSAP)}
           >
             Security Assessment Plan
-            <span className="usa-tag margin-left-1 bg-theme-red">
-              {validationResults.sap.summary.firedCount}
-            </span>
+            {validationResults.sap.current === 'HAS_RESULT' && (
+              <span className="usa-tag margin-left-1 bg-theme-red">
+                {validationResults.sap.summary.firedCount}
+              </span>
+            )}
           </a>
           <a
             className={classnames({
@@ -85,9 +87,11 @@ export const ValidatorPage = ({
             href={getUrl(Routes.documentSAR)}
           >
             Security Assessment Report
-            <span className="usa-tag margin-left-1 bg-theme-red">
-              {validationResults.sar.summary.firedCount}
-            </span>
+            {validationResults.sar.current === 'HAS_RESULT' && (
+              <span className="usa-tag margin-left-1 bg-theme-red">
+                {validationResults.sar.summary.firedCount}
+              </span>
+            )}
           </a>
           <a
             className={classnames({
@@ -96,9 +100,11 @@ export const ValidatorPage = ({
             href={getUrl(Routes.documentSSP)}
           >
             System Security Plan
-            <span className="usa-tag margin-left-1 bg-theme-red">
-              {validationResults.ssp.summary.firedCount}
-            </span>
+            {validationResults.ssp.current === 'HAS_RESULT' && (
+              <span className="usa-tag margin-left-1 bg-theme-red">
+                {validationResults.ssp.summary.firedCount}
+              </span>
+            )}
           </a>
         </div>
       </nav>
