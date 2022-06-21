@@ -1,6 +1,4 @@
-import { Statemachine, statemachine } from 'overmind';
-
-type States =
+export type State =
   | {
       current: 'UNLOADED';
     }
@@ -16,82 +14,82 @@ type States =
       current: 'VALIDATED';
     };
 
-type BaseState = {};
-
-type Events =
+export type StateTransition =
   | {
-      type: 'RESET';
+      type: 'VALIDATOR_RESET';
     }
   | {
-      type: 'PROCESSING_URL';
+      type: 'VALIDATOR_PROCESSING_URL';
       data: {
         xmlFileUrl: string;
       };
     }
   | {
-      type: 'PROCESSING_STRING';
+      type: 'VALIDATOR_PROCESSING_STRING';
       data: {
         fileName: string;
       };
     }
   | {
-      type: 'PROCESSING_ERROR';
+      type: 'VALIDATOR_PROCESSING_ERROR';
       data: {
         errorMessage: string;
       };
     }
   | {
-      type: 'VALIDATED';
-      data: {};
+      type: 'VALIDATOR_VALIDATED';
     };
 
-export type ValidatorMachine = Statemachine<States, Events, BaseState>;
-
-export const validatorMachine = statemachine<States, Events, BaseState>({
-  PROCESSING_ERROR: {
-    RESET: () => {
+export const nextState = (state: State, event: StateTransition): State => {
+  if (state.current === 'PROCESSING_ERROR') {
+    if (event.type === 'VALIDATOR_RESET') {
       return {
         current: 'UNLOADED',
       };
-    },
-  },
-  VALIDATED: {
-    RESET: () => {
+    }
+  } else if (state.current === 'VALIDATED') {
+    if (event.type === 'VALIDATOR_RESET') {
       return {
         current: 'UNLOADED',
       };
-    },
-  },
-  UNLOADED: {
-    PROCESSING_URL: ({ xmlFileUrl }) => {
+    }
+  } else if (state.current === 'UNLOADED') {
+    if (event.type === 'VALIDATOR_RESET') {
+      return {
+        current: 'UNLOADED',
+      };
+    }
+    if (event.type === 'VALIDATOR_PROCESSING_URL') {
       return {
         current: 'PROCESSING',
-        message: `Processing ${xmlFileUrl}...`,
+        message: `Processing ${event.data.xmlFileUrl}...`,
       };
-    },
-    PROCESSING_STRING: ({ fileName }) => {
+    }
+    if (event.type === 'VALIDATOR_PROCESSING_STRING') {
       return {
         current: 'PROCESSING',
         message: `Processing local file...`,
       };
-    },
-    PROCESSING_ERROR: () => {},
-  },
-  PROCESSING: {
-    PROCESSING_ERROR: ({ errorMessage }) => {
+    }
+    if (event.type === 'VALIDATOR_PROCESSING_ERROR') {
       return {
         current: 'PROCESSING_ERROR',
-        errorMessage,
+        errorMessage: event.data.errorMessage,
       };
-    },
-    VALIDATED: () => {
+    }
+  } else if (state.current === 'PROCESSING') {
+    if (event.type === 'VALIDATOR_PROCESSING_ERROR') {
+      return {
+        current: 'PROCESSING_ERROR',
+        errorMessage: event.data.errorMessage,
+      };
+    } else if (event.type === 'VALIDATOR_VALIDATED') {
       return {
         current: 'VALIDATED',
       };
-    },
-  },
-});
-
-export const createValidatorMachine = () => {
-  return validatorMachine.create({ current: 'UNLOADED' }, {});
+    }
+  }
+  return state;
 };
+
+export const initialState: State = { current: 'UNLOADED' };

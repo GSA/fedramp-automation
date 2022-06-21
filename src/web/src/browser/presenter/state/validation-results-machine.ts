@@ -1,28 +1,39 @@
-import { derived, Statemachine, statemachine } from 'overmind';
-
 import type {
   FailedAssert,
   ValidationReport,
 } from '@asap/shared/use-cases/schematron';
-import { getAssertionsById } from '../lib/validator';
 
-type States =
-  | {
+type BaseState = {
+  summary: {
+    firedCount: null | number;
+    title: string;
+  };
+};
+
+type ResultState = BaseState & {
+  annotatedXML: string;
+  assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
+  failedAssertionCounts: Record<FailedAssert['id'], number> | null;
+  validationReport: ValidationReport;
+};
+
+export type State =
+  | (BaseState & {
       current: 'NO_RESULTS';
-    }
-  | {
+      summary: {
+        firedCount: null;
+        title: string;
+      };
+    })
+  | (ResultState & {
       current: 'HAS_RESULT';
-      annotatedXML: string;
-      validationReport: ValidationReport;
-    }
-  | {
+    })
+  | (ResultState & {
       current: 'ASSERTION_CONTEXT';
-      annotatedXML: string;
       assertionId: string;
-      validationReport: ValidationReport;
-    };
+    });
 
-type Events =
+export type StateTransition =
   | {
       type: 'SET_RESULTS';
       data: {
@@ -43,67 +54,83 @@ type Events =
       type: 'RESET';
     };
 
-type BaseState = {
-  assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
+export type FailedAssertionMap = Record<FailedAssert['id'], FailedAssert[]>;
+
+export const getAssertionsById = ({
+  failedAssertions,
+}: {
+  failedAssertions: FailedAssert[];
+}) => {
+  return failedAssertions.reduce((acc, assert) => {
+    if (acc[assert.id] === undefined) {
+      acc[assert.id] = [];
+    }
+    acc[assert.id].push(assert);
+    return acc;
+  }, {} as FailedAssertionMap);
 };
 
-export type ValidationResultsMachine = Statemachine<States, Events, BaseState>;
+export const nextState = (state: State, event: StateTransition): State => {
+  if (state.current === 'NO_RESULTS') {
+    if (event.type === 'SET_RESULTS') {
+      return {
+        current: 'HAS_RESULT',
+        annotatedXML: event.data.annotatedXML,
+        assertionsById: getAssertionsById({
+          failedAssertions: event.data.validationReport.failedAsserts,
+        }),
+        failedAssertionCounts: (() => {
+          return event.data.validationReport.failedAsserts.reduce<
+            Record<string, number>
+          >((acc, assert) => {
+            acc[assert.id] = (acc[assert.id] || 0) + 1;
+            return acc;
+          }, {});
+        })(),
+        summary: {
+          firedCount: event.data.validationReport.failedAsserts.length,
+          title: event.data.validationReport.title,
+        },
+        validationReport: event.data.validationReport,
+      };
+    }
+  } else if (state.current === 'HAS_RESULT') {
+    if (event.type === 'RESET') {
+      return initialState;
+    } else if (event.type === 'SET_ASSERTION_CONTEXT') {
+      return {
+        current: 'ASSERTION_CONTEXT',
+        assertionsById: state.assertionsById,
+        assertionId: event.data.assertionId,
+        annotatedXML: state.annotatedXML,
+        failedAssertionCounts: state.failedAssertionCounts,
+        summary: state.summary,
+        validationReport: {
+          ...state.validationReport,
+        },
+      };
+    }
+  } else if (state.current === 'ASSERTION_CONTEXT') {
+    if (event.type === 'CLEAR_ASSERTION_CONTEXT') {
+      return {
+        current: 'HAS_RESULT',
+        assertionsById: state.assertionsById,
+        annotatedXML: state.annotatedXML,
+        failedAssertionCounts: state.failedAssertionCounts,
+        summary: state.summary,
+        validationReport: {
+          ...state.validationReport,
+        },
+      };
+    }
+  }
+  return state;
+};
 
-export const validationResultsMachine = statemachine<States, Events, BaseState>(
-  {
-    NO_RESULTS: {
-      SET_RESULTS: ({ annotatedXML, validationReport }) => {
-        return {
-          current: 'HAS_RESULT',
-          annotatedXML,
-          validationReport,
-        };
-      },
-    },
-    HAS_RESULT: {
-      RESET: () => {
-        return {
-          current: 'NO_RESULTS',
-        };
-      },
-      SET_ASSERTION_CONTEXT: ({ assertionId }, state) => {
-        return {
-          current: 'ASSERTION_CONTEXT',
-          assertionId,
-          annotatedXML: state.annotatedXML,
-          validationReport: {
-            ...state.validationReport,
-          },
-        };
-      },
-    },
-    ASSERTION_CONTEXT: {
-      CLEAR_ASSERTION_CONTEXT: (_, state) => {
-        return {
-          current: 'HAS_RESULT',
-          annotatedXML: state.annotatedXML,
-          validationReport: {
-            ...state.validationReport,
-          },
-        };
-      },
-    },
+export const initialState: State = {
+  current: 'NO_RESULTS',
+  summary: {
+    firedCount: null,
+    title: 'FedRAMP Package Concerns',
   },
-);
-
-export const createValidationResultsMachine = () => {
-  return validationResultsMachine.create(
-    {
-      current: 'NO_RESULTS',
-    },
-    {
-      assertionsById: derived((state: ValidationResultsMachine) => {
-        return state.current === 'HAS_RESULT'
-          ? getAssertionsById({
-              failedAssertions: state.validationReport.failedAsserts,
-            })
-          : null;
-      }),
-    },
-  );
 };

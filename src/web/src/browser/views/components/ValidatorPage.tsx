@@ -1,22 +1,15 @@
+import classnames from 'classnames';
+
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
+
 import { HeadingOne } from './HeadingOne';
 import { ValidatorFileSelectForm } from './ValidatorFileSelectForm';
 import { ValidatorReport } from './ValidatorReport';
 import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
-import { useAppState } from '../hooks';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import classnames from 'classnames';
+import { useAppContext } from '../context';
 
-const NavLink = styled.a`
-  color: var(--theme-grey-text);
-  text-decoration: none;
-  line-height: 0.9;
-  :visited {
-    color: var(--theme-grey-text);
-  }
-`;
+import '../styles/ValidatorPage.scss';
 
 const DocumentValidator = ({
   documentType,
@@ -42,7 +35,7 @@ export const ValidatorPage = ({
 }: {
   documentType: OscalDocumentKey | null;
 }) => {
-  const { oscalDocuments, router } = useAppState();
+  const { oscalDocuments, router, validationResults } = useAppContext().state;
   return (
     <>
       <HeadingOne
@@ -55,86 +48,58 @@ export const ValidatorPage = ({
         className="display-none desktop:display-block padding-y-2 border-base-light border-bottom-1px"
       >
         <div className="grid-container grid-row flex-row flex-justify">
-          <NavLink
+          <a
             className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSummary',
             })}
             href={getUrl(Routes.documentSummary)}
           >
             Summary
-          </NavLink>
-          <NavLink
+          </a>
+          <a
             className={classnames({
               'active-link': router.currentRoute.type === 'DocumentPOAM',
             })}
             href={getUrl(Routes.documentPOAM)}
           >
             Plan of Action and Milestones
-            {oscalDocuments.poam.counts.fired > 0 && (
-              <span
-                className="usa-tag margin-left-1"
-                css={css`
-                  background-color: var(--theme-red);
-                `}
-              >
-                {oscalDocuments.poam.counts.fired}
-              </span>
-            )}
-          </NavLink>
-          <NavLink
+            <span className="usa-tag margin-left-1 bg-theme-red">
+              {validationResults.poam.summary.firedCount}
+            </span>
+          </a>
+          <a
             className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSAP',
             })}
             href={getUrl(Routes.documentSAP)}
           >
             Security Assessment Plan
-            {oscalDocuments.sap.counts.fired > 0 && (
-              <span
-                className="usa-tag margin-left-1"
-                css={css`
-                  background-color: var(--theme-red);
-                `}
-              >
-                {oscalDocuments.sap.counts.fired}
-              </span>
-            )}
-          </NavLink>
-          <NavLink
+            <span className="usa-tag margin-left-1 bg-theme-red">
+              {validationResults.sap.summary.firedCount}
+            </span>
+          </a>
+          <a
             className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSAR',
             })}
             href={getUrl(Routes.documentSAR)}
           >
             Security Assessment Report
-            {oscalDocuments.sar.counts.fired > 0 && (
-              <span
-                className="usa-tag margin-left-1"
-                css={css`
-                  background-color: var(--theme-red);
-                `}
-              >
-                {oscalDocuments.sar.counts.fired}
-              </span>
-            )}
-          </NavLink>
-          <NavLink
+            <span className="usa-tag margin-left-1 bg-theme-red">
+              {validationResults.sar.summary.firedCount}
+            </span>
+          </a>
+          <a
             className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSSP',
             })}
             href={getUrl(Routes.documentSSP)}
           >
             System Security Plan
-            {oscalDocuments.ssp.counts.fired > 0 && (
-              <span
-                className="usa-tag margin-left-1"
-                css={css`
-                  background-color: var(--theme-red);
-                `}
-              >
-                {oscalDocuments.ssp.counts.fired}
-              </span>
-            )}
-          </NavLink>
+            <span className="usa-tag margin-left-1 bg-theme-red">
+              {validationResults.ssp.summary.firedCount}
+            </span>
+          </a>
         </div>
       </nav>
 
@@ -162,8 +127,8 @@ export const ValidatorPage = ({
                 <td>
                   <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
                 </td>
-                <td>{oscalDocuments.ssp.counts.total}</td>
-                <td>{oscalDocuments.ssp.counts.fired}</td>
+                <td>{oscalDocuments.ssp.config.schematronAsserts.length}</td>
+                <td>{validationResults.ssp.summary.firedCount}</td>
               </tr>
               <tr>
                 <td>
@@ -171,8 +136,8 @@ export const ValidatorPage = ({
                     Security Assessment Report
                   </a>
                 </td>
-                <td>{oscalDocuments.sar.counts.total}</td>
-                <td>{oscalDocuments.sar.counts.fired}</td>
+                <td>{oscalDocuments.sar.config.schematronAsserts.length}</td>
+                <td>{validationResults.sar.summary.firedCount}</td>
               </tr>
               <tr>
                 <td>
@@ -180,8 +145,8 @@ export const ValidatorPage = ({
                     Security Assessment Plan
                   </a>
                 </td>
-                <td>{oscalDocuments.sap.counts.total}</td>
-                <td>{oscalDocuments.sap.counts.fired}</td>
+                <td>{oscalDocuments.sap.config.schematronAsserts.length}</td>
+                <td>{validationResults.sap.summary.firedCount}</td>
               </tr>
               <tr>
                 <td>
@@ -189,8 +154,8 @@ export const ValidatorPage = ({
                     Plan of Action and Milestones
                   </a>
                 </td>
-                <td>{oscalDocuments.poam.counts.total}</td>
-                <td>{oscalDocuments.poam.counts.fired}</td>
+                <td>{oscalDocuments.poam.config.schematronAsserts.length}</td>
+                <td>{validationResults.poam.summary.firedCount}</td>
               </tr>
             </tbody>
           </table>
