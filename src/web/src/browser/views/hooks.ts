@@ -17,11 +17,11 @@ export interface ThunkDispatch<S, A, E> {
   (value: A): void;
 }
 
-export function useThunkReducer<State, Event, Effects>(
+export const useThunkReducer = <State, Event, Effects>(
   reducer: Reducer<State, Event>,
   effects: Effects,
   initialState: State,
-): [State, ThunkDispatch<State, Event, Effects>] {
+): [State, ThunkDispatch<State, Event, Effects>] => {
   const [hookState, setHookState] = useState(initialState);
 
   const state = useRef(hookState);
@@ -41,7 +41,7 @@ export function useThunkReducer<State, Event, Effects>(
     [reducer, getState],
   );
 
-  // Augmented dispatcher.
+  // Dispatcher that optionally calls a thunk
   const dispatch: ThunkDispatch<State, Event, Effects> = useCallback(
     (event: Event) => {
       return typeof event === 'function'
@@ -52,4 +52,4 @@ export function useThunkReducer<State, Event, Effects>(
   );
 
   return [hookState, dispatch];
-}
+};
