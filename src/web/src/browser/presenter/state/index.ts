@@ -145,7 +145,7 @@ export const rootReducer = (state: State, event: StateTransition): State => ({
       state.validationResults.poam,
       event,
     ),
-    sap: reducers['validationResults.sap'](state.validationResults.poam, event),
+    sap: reducers['validationResults.sap'](state.validationResults.sap, event),
     sar: reducers['validationResults.sar'](state.validationResults.sar, event),
     ssp: reducers['validationResults.ssp'](state.validationResults.ssp, event),
   },

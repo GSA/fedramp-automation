@@ -6,7 +6,7 @@ import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useAppContext } from '../context';
-import { getFilterOptions } from '@asap/browser/presenter/lib/schematron';
+import { selectFilterOptions } from '@asap/browser/presenter/state/selectors';
 
 type Props = {
   documentType: OscalDocumentKey;
@@ -15,18 +15,9 @@ type Props = {
 export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
   const { state } = useAppContext();
   const oscalDocument = state.oscalDocuments[documentType];
-  const validationResult = state.validationResults[documentType];
   const { dispatch } = useAppContext();
 
-  // TODO: Move this into state
-  const filterOptions = getFilterOptions({
-    config: oscalDocument.config,
-    filter: oscalDocument.filter,
-    failedAssertionMap:
-      validationResult.current !== 'NO_RESULTS'
-        ? validationResult.assertionsById
-        : null,
-  });
+  const filterOptions = selectFilterOptions(documentType)(state);
 
   const topRef = useRef<HTMLHeadingElement>(null);
   const scrollIntoView = () => {

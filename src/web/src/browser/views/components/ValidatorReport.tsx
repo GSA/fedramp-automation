@@ -1,16 +1,16 @@
 import spriteSvg from 'uswds/img/sprite.svg';
 
+import * as assertionDocumentation from '@asap/browser/presenter/actions/assertion-documentation';
 import { showAssertionContext } from '@asap/browser/presenter/actions/validator';
 import {
-  getFilterOptions,
-  getSchematronReport,
-} from '@asap/browser/presenter/lib/schematron';
+  selectFilterOptions,
+  selectSchematronReport,
+} from '@asap/browser/presenter/state/selectors';
+import { getAssertionViewTitleByIndex } from '@asap/browser/presenter/state/schematron-machine';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useAppContext } from '../context';
-import * as assertionDocumentation from '../../presenter/actions/assertion-documentation';
-import { getAssertionViewTitleByIndex } from '@asap/browser/presenter/state/schematron-machine';
 
 type Props = {
   documentType: OscalDocumentKey;
@@ -21,26 +21,8 @@ export const ValidatorReport = ({ documentType }: Props) => {
   const oscalDocument = state.oscalDocuments[documentType];
   const validationResult = state.validationResults[documentType];
 
-  // TODO: Move these into state
-  const filterOptions = getFilterOptions({
-    config: oscalDocument.config,
-    filter: oscalDocument.filter,
-    failedAssertionMap:
-      validationResult.current !== 'NO_RESULTS'
-        ? validationResult.assertionsById
-        : null,
-  });
-  const schematronReport = getSchematronReport({
-    state: oscalDocument,
-    filterOptions,
-    validator: {
-      failedAssertionMap:
-        validationResult.current !== 'NO_RESULTS'
-          ? validationResult.assertionsById
-          : null,
-      title: validationResult.summary.title,
-    },
-  });
+  const filterOptions = selectFilterOptions(documentType)(state);
+  const schematronReport = selectSchematronReport(documentType)(state);
   const viewTitle = getAssertionViewTitleByIndex(
     filterOptions.assertionViews,
     oscalDocument.filter.assertionViewId,
@@ -160,6 +142,3 @@ export const ValidatorReport = ({ documentType }: Props) => {
     </>
   );
 };
-function getAssertionViewByIndex(assertionViews: any, assertionViewId: any) {
-  throw new Error('Function not implemented.');
-}

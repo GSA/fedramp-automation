@@ -1,11 +1,12 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import Modal from 'react-modal';
 
 import { clearAssertionContext } from '@asap/browser/presenter/actions/validator';
 import { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { CodeViewer } from './CodeViewer';
-import { useAppContext } from '../context';
+import { useAppContext, useSelector } from '../context';
+import { selectValidationResult } from '@asap/browser/presenter/state/selectors';
 
 type DocumentViewerOverlayProps = {
   documentType: OscalDocumentKey;
@@ -14,27 +15,33 @@ type DocumentViewerOverlayProps = {
 export const DocumentViewerOverlay = ({
   documentType,
 }: DocumentViewerOverlayProps) => {
-  const { state, dispatch } = useAppContext();
-  const validationResult = state.validationResults[documentType];
+  const { dispatch } = useAppContext();
+  const validationResult = useSelector(selectValidationResult(documentType));
 
   // Hightlight and scroll to node when mounted to DOM.
-  const refCallback = useCallback(node => {
-    const assertionId =
-      validationResult.current === 'ASSERTION_CONTEXT'
-        ? validationResult.assertionId
-        : null;
-    if (assertionId) {
-      const target = node.querySelector(`#${assertionId}`) as HTMLElement;
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'auto',
-          block: 'start',
-          inline: 'start',
-        });
-        target.style.backgroundColor = 'lightgray';
+  const refCallback = useCallback(
+    node => {
+      if (!node) {
+        return;
       }
-    }
-  }, []);
+      const assertionId =
+        validationResult.current === 'ASSERTION_CONTEXT'
+          ? validationResult.assertionId
+          : null;
+      if (assertionId) {
+        const target = node.querySelector(`#${assertionId}`) as HTMLElement;
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'auto',
+            block: 'start',
+            inline: 'start',
+          });
+          target.style.backgroundColor = 'lightgray';
+        }
+      }
+    },
+    [validationResult],
+  );
 
   return (
     <Modal

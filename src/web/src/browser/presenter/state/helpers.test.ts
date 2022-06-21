@@ -1,7 +1,7 @@
 import { it, describe, expect } from 'vitest';
 
 import type { BaseState, PassStatus } from '../state/schematron-machine';
-import * as lib from './schematron';
+import * as helpers from './helpers';
 
 describe('presenter schematron library', () => {
   describe('getSchematronReport', () => {
@@ -116,167 +116,49 @@ describe('presenter schematron library', () => {
     };
 
     it('works', () => {
-      const result = lib.getSchematronReport(testData);
-      expect(result).toEqual({
-        groups: [
-          {
-            checks: {
-              checks: [
-                {
-                  fired: [],
-                  icon: {
-                    color: 'green',
-                    sprite: 'check_circle',
-                  },
-                  id: 'unique-1',
-                  message: 'Assertion message',
-                  role: 'error',
+      const result = helpers.getReportGroups(
+        testData.state.config.assertionViews[0],
+        testData.state.config.schematronAsserts,
+        testData.validator.failedAssertionMap,
+      );
+      expect(result).toEqual([
+        {
+          checks: {
+            checks: [
+              {
+                fired: [],
+                icon: {
+                  color: 'green',
+                  sprite: 'check_circle',
                 },
-                {
-                  fired: [],
-                  icon: {
-                    color: 'green',
-                    sprite: 'check_circle',
-                  },
-                  id: 'unique-2',
-                  message: 'Assertion message',
-                  role: 'error',
+                id: 'unique-1',
+                message: 'Assertion message',
+                role: 'error',
+              },
+              {
+                fired: [],
+                icon: {
+                  color: 'green',
+                  sprite: 'check_circle',
                 },
-              ],
-              summary: '0 / 2 flagged',
-              summaryColor: 'green',
-            },
-            title: 'Assertion group title',
+                id: 'unique-2',
+                message: 'Assertion message',
+                role: 'error',
+              },
+            ],
+            summary: '0 / 2 flagged',
+            summaryColor: 'green',
           },
-        ],
-        summary: {
-          counts: { assertions: 2 },
-          subtitle: 'Assertion view title',
-          title: 'Validator title',
+          title: 'Assertion group title',
         },
-      });
-    });
-  });
-
-  describe('getFilterOptions', () => {
-    it('handles empty state', () => {
-      const options = lib.getFilterOptions({
-        config: {
-          assertionViews: [],
-          schematronAsserts: [],
-        },
-        filter: {
-          passStatus: 'all',
-          role: 'error',
-          text: '',
-          assertionViewId: 1,
-        },
-        failedAssertionMap: null,
-      });
-      expect(options).toEqual({
-        assertionViews: [],
-        roles: [
-          {
-            count: 0,
-            name: 'all',
-            subtitle: 'View all rules',
-          },
-        ],
-        passStatuses: [
-          {
-            count: 0,
-            enabled: false,
-            id: 'all',
-            title: 'All assertions',
-          },
-          {
-            count: 0,
-            enabled: false,
-            id: 'pass',
-            title: 'Passing assertions',
-          },
-          {
-            count: 0,
-            enabled: false,
-            id: 'fail',
-            title: 'Failing assertions',
-          },
-        ],
-      });
-    });
-    it('handles group with two assertions', () => {
-      const options = lib.getFilterOptions({
-        config: {
-          assertionViews: [
-            {
-              title: 'assertion view 1',
-              groups: [
-                {
-                  title: 'assertion group 1',
-                  assertionIds: ['0', '1'],
-                  groups: [],
-                },
-              ],
-            },
-          ],
-          schematronAsserts: [
-            { id: '0', message: 'msg0', role: 'error' },
-            { id: '1', message: 'msg1', role: 'error' },
-            { id: '2', message: 'msg2', role: 'error' },
-          ],
-        },
-        filter: {
-          passStatus: 'all',
-          role: 'error',
-          text: '',
-          assertionViewId: 0,
-        },
-        failedAssertionMap: null,
-      });
-      expect(options).toEqual({
-        assertionViews: [
-          {
-            index: 0,
-            title: 'assertion view 1',
-            count: 2,
-          },
-        ],
-        roles: [
-          { name: 'all', subtitle: 'View all rules', count: 2 },
-          {
-            name: 'error',
-            subtitle: 'View required, critical rules',
-            count: 2,
-          },
-        ],
-        passStatuses: [
-          {
-            count: 2,
-            enabled: false,
-            id: 'all',
-            title: 'All assertions',
-          },
-          {
-            count: 2,
-            enabled: false,
-            id: 'pass',
-            title: 'Passing assertions',
-          },
-          {
-            count: 2,
-            enabled: false,
-            id: 'fail',
-            title: 'Failing assertions',
-          },
-        ],
-      });
+      ]);
     });
   });
 
   describe('filterAssertions', () => {
     it('by role', () => {
       expect(
-        lib.filterAssertions(
+        helpers.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
             passStatus: 'all',
@@ -297,7 +179,7 @@ describe('presenter schematron library', () => {
     });
     it('by text', () => {
       expect(
-        lib.filterAssertions(
+        helpers.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
             passStatus: 'all',
@@ -318,7 +200,7 @@ describe('presenter schematron library', () => {
     });
     it('by text exclusive of role', () => {
       expect(
-        lib.filterAssertions(
+        helpers.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
             passStatus: 'all',
@@ -333,7 +215,7 @@ describe('presenter schematron library', () => {
     });
     it('by role exclusive of text', () => {
       expect(
-        lib.filterAssertions(
+        helpers.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
             passStatus: 'all',

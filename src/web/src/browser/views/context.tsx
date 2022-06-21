@@ -18,6 +18,11 @@ export const useAppContext = () => {
   return useContext(AppContext);
 };
 
+export const useSelector = <T extends (state: State) => any>(selector: T) => {
+  const { state } = useAppContext();
+  return selector(state) as ReturnType<T>;
+};
+
 export const AppContextProvider = ({
   children,
   effects,
