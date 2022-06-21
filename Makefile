@@ -1,14 +1,14 @@
 export BASE_DIR=$(shell pwd)
 
+help:
+	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
 # Most of the real work of the build is in sub-project Makefiles.
 include src/examples/module.mk
 include src/validations/module.mk
 include src/web/module.mk
 
 .PHONY: help
-
-help:
-	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 all: clean test build  ## Complete clean build with tests
 
@@ -31,5 +31,5 @@ build: build-validations build-web dist  ## Build all artifacts and copy into di
 
 	# Copy validations
 	mkdir -p dist/validations
-	cp src/validations/target/ssp.xsl dist/validations
-	cp -r src/validations/rules/ssp.sch dist/validations
+	cp src/validations/target/rules/*.xsl dist/validations
+	cp src/validations/rules/*.sch dist/validations

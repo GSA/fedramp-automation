@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description
+    schematron="../../rules/sap.sch"
+    xmlns:x="http://www.jenitennison.com/xslt/xspec">
+
+    <x:scenario
+        label="import-ssp">
+
+        <x:context>
+            <assessment-plan
+                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                <import-ssp
+                    href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                <back-matter>
+                    <resource
+                        uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                        <title>System Security Plan</title>
+                        <prop
+                            name="type"
+                            value="system-security-plan" />
+                        <rlink
+                            href="../../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                            media-type="text/xml" />
+                    </resource>
+                </back-matter>
+            </assessment-plan>
+        </x:context>
+
+
+        <x:scenario
+            label="when the import-ssp element">
+            
+            <x:scenario
+                label="is present">
+                <x:expect-not-assert
+                    id="has-import-ssp"
+                    label="that is correct" />
+            </x:scenario>
+        
+            <x:scenario
+                label="is absent">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <!-- missing import-ssp -->
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-import-ssp"
+                    label="that is an error" />
+            </x:scenario>
+       
+            <x:scenario
+                label="has an href attribute">
+                <x:expect-not-assert
+                    id="has-import-ssp-href"
+                    label="that is correct" />
+            </x:scenario>
+      
+            <x:scenario
+                label="lacks an href attribute">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-ssp /><!-- missing href -->
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-import-ssp-href"
+                    label="that is an error" />
+            </x:scenario>
+            
+        </x:scenario>
+
+        <x:scenario
+            label="when the import-ssp has a relative href">
+            <x:scenario
+                label="which refers to a resource">
+                <x:expect-not-assert
+                    id="has-import-ssp-internal-href"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="which does not refer to a resource">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-ssp
+                            href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                        <back-matter>
+                            <!-- missing resource -->
+                        </back-matter>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-import-ssp-internal-href"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when the import-ssp has an external href"
+            pending="XSpec problem resolution">
+            <x:scenario
+                label="which is available">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-ssp
+                            href="file:/dev/null" />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-import-ssp-external-href"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="which is not available"
+                pending="XSpec problem resolution">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-ssp
+                            href="file:x" />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-import-ssp-external-href"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when the import-ssp has a relative href">
+            <x:scenario
+                label="and the SSP is declared as a back-matter resource">
+                <x:expect-not-assert
+                    id="has-system-security-plan-resource"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="and the SSP is not declared as a back-matter resource">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-ssp
+                            href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                        <back-matter>
+                            <!-- missing resource -->
+                        </back-matter>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-system-security-plan-resource"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when there is a system-security-plan resource">
+
+            <x:scenario
+                label="and it has one and only one rlink">
+                <x:expect-not-assert
+                    id="has-ssp-rlink"
+                    label="that is correct" />
+            </x:scenario>
+
+            <x:scenario
+                label="and it lacks an rlink">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-ssp
+                            href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                        <back-matter>
+                            <resource
+                                uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                                <title>System Security Plan</title>
+                                <prop
+                                    name="type"
+                                    value="system-security-plan" />
+                                <!-- missing rlink -->
+                            </resource>
+                        </back-matter>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-ssp-rlink"
+                    label="that is an error" />
+            </x:scenario>
+
+            <x:scenario
+                label="and it has more than one one rlink">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-ssp
+                            href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                        <back-matter>
+                            <resource
+                                uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                                <title>System Security Plan</title>
+                                <prop
+                                    name="type"
+                                    value="system-security-plan" />
+                                <rlink
+                                    href="../../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                                    media-type="text/xml" />
+                                <rlink
+                                    href="../../../../dist/content/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json"
+                                    media-type="application/json" />
+                            </resource>
+                        </back-matter>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-ssp-rlink"
+                    label="that is an error" />
+            </x:scenario>
+
+            <x:scenario
+                label="and the rlink has an allowed media-type">
+                <x:expect-not-assert
+                    id="has-acceptable-system-security-plan-rlink-media-type"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="and the rlink lacks an allowed media-type">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-ssp
+                            href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                        <back-matter>
+                            <resource
+                                uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                                <title>System Security Plan</title>
+                                <prop
+                                    name="type"
+                                    value="system-security-plan" />
+                                <rlink
+                                    href="../../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                                    media-type="text/markdown" />
+                            </resource>
+                        </back-matter>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-acceptable-system-security-plan-rlink-media-type"
+                    label="that is an error" />
+            </x:scenario>
+
+            <x:scenario
+                label="and it lacks a base64">
+                <x:expect-not-assert
+                    id="has-no-base64"
+                    label="that is correct" />
+            </x:scenario>
+
+            <x:scenario
+                label="and it has a base64">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <import-ssp
+                            href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                        <back-matter>
+                            <resource
+                                uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                                <title>System Security Plan</title>
+                                <prop
+                                    name="type"
+                                    value="system-security-plan" />
+                                <base64 />
+                            </resource>
+                        </back-matter>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-no-base64"
+                    label="that is an error" />
+            </x:scenario>
+
+        </x:scenario>
+
+        <x:scenario
+            label="when there is a no-oscal-ssp resource">
+            <x:context>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <import-ssp
+                        href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                    <back-matter>
+                        <resource
+                            uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                            <title>System Security Plan</title>
+                            <prop
+                                name="type"
+                                value="no-oscal-ssp" />
+                        </resource>
+                    </back-matter>
+                </assessment-plan>
+            </x:context>
+            <x:expect-assert
+                id="has-non-OSCAL-system-security-plan-resource"
+                label="that should produce a warning" />
+        </x:scenario>
+        <x:scenario
+            label="when there is not a no-oscal-ssp resource">
+            <x:context>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <import-ssp
+                        href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                    <back-matter>
+                        <resource
+                            uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                            <title>System Security Plan</title>
+                            <!-- no no-oscal-ssp prop -->
+                        </resource>
+                    </back-matter>
+                </assessment-plan>
+            </x:context>
+            <x:expect-not-assert
+                id="has-non-OSCAL-system-security-plan-resource"
+                label="that should produce no warning" />
+        </x:scenario>
+    </x:scenario>
+
+    <x:scenario
+        label="In an OSCAL SAP">
+
+        <x:context>
+            <assessment-plan
+                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                <import-ssp
+                    href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                <terms-and-conditions>
+                    <part
+                        name="methodology">
+                        <prop
+                            name="sampling"
+                            ns="https://fedramp.gov/ns/oscal"
+                            value="no" />
+                    </part>
+                    <part
+                        name="disclosures">
+                        <part
+                            name="disclosure">
+                            <p>A disclosure statement.</p>
+                        </part>
+                        <part
+                            name="disclosure">
+                            <p>Another disclosure statement.</p>
+                        </part>
+                    </part>
+                </terms-and-conditions>
+                <back-matter>
+                    <resource
+                        uuid="64fde0b3-3b15-44e8-a0bd-ce1301f95fbc">
+                        <title>Penetration Testing Plan and Methodology</title>
+                        <prop
+                            name="type"
+                            value="penetration-test-plan" />
+                        <rlink
+                            href="penetration-test-plan"
+                            media-type="text/markdown" />
+                    </resource>
+                    <resource
+                        uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                        <title>System Security Plan</title>
+                        <prop
+                            name="type"
+                            value="system-security-plan" />
+                        <rlink
+                            href="../../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                            media-type="text/xml" />
+                        <rlink
+                            href="../../../../dist/content/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json"
+                            media-type="application/json" />
+                    </resource>
+                </back-matter>
+            </assessment-plan>
+        </x:context>
+
+        <x:scenario
+            label="when the terms-and-conditions element">
+            <x:scenario
+                label="is present">
+                <x:expect-not-assert
+                    id="has-terms-and-conditions"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is absent">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <!--  -->
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-terms-and-conditions"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when the methodology part">
+            <x:scenario
+                label="is present">
+                <x:expect-not-assert
+                    id="has-methodology"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is absent">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <!--  -->
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-methodology"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when the disclosures part">
+            <x:scenario
+                label="is present">
+                <x:expect-not-assert
+                    id="has-disclosures"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is absent">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <!-- missing disclosures -->
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-disclosures"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when the sampling prop">
+            <x:scenario
+                label="is present">
+                <x:expect-not-assert
+                    id="has-sampling-method"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is absent">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <part
+                                name="methodology">
+                                <!-- missing prop -->
+                            </part>
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-sampling-method"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when the sampling prop value">
+            <x:scenario
+                label="is yes or no">
+                <x:expect-not-assert
+                    id="has-allowed-sampling-method"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is neither yes nor no">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <part
+                                name="methodology">
+                                <prop
+                                    name="sampling"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="maybe" /><!-- incorrect value -->
+                            </part>
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-allowed-sampling-method"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="when diclosure statements are present">
+            <x:expect-not-assert
+                id="has-roe-disclosure-detail"
+                label="that is correct" />
+        </x:scenario>
+        <x:scenario
+            label="when diclosure statements are absent">
+            <x:context>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <!-- … -->
+                    <terms-and-conditions>
+                        <part
+                            name="disclosures">
+                            <!-- missing disclosure statements -->
+                        </part>
+                    </terms-and-conditions>
+                    <!-- … -->
+                </assessment-plan>
+            </x:context>
+            <x:expect-assert
+                id="has-roe-disclosure-detail"
+                label="that is an error" />
+        </x:scenario>
+
+        <x:scenario
+            label="when the penetration-test-plan resource">
+            <x:scenario
+                label="is present">
+                <x:expect-not-assert
+                    id="has-penetration-test-plan"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is absent">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <back-matter>
+                            <!-- missing penetration-test-plan resource -->
+                        </back-matter>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-penetration-test-plan"
+                    label="that is incorrect" />
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="signed-sap">
+
+            <x:context>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <!-- … -->
+                    <back-matter>
+                        <resource
+                            uuid="1e083471-9a3c-4469-8926-5b93215c6a11">
+                            <description>
+                                <p>Signed SAP</p>
+                            </description>
+                            <prop
+                                name="type"
+                                value="signed-sap" />
+                            <rlink
+                                href="signed-sap.pdf"
+                                media-type="application/pdf" />
+                        </resource>
+                    </back-matter>
+                </assessment-plan>
+            </x:context>
+
+            <x:scenario
+                label="when the signed-sap resource">
+
+                <x:scenario
+                    label="is present">
+                    <x:expect-not-assert
+                        id="has-signed-sap-resource"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="is absent">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <!-- … -->
+                            <back-matter>
+                                <!-- missing signed-sap resource -->
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-signed-sap-resource"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has a description">
+                    <x:expect-not-assert
+                        id="signed-sap-resource-has-description"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="lacks a description">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <!-- … -->
+                            <back-matter>
+                                <resource
+                                    uuid="1e083471-9a3c-4469-8926-5b93215c6a11">
+                                    <!-- missing description -->
+                                    <prop
+                                        name="type"
+                                        value="signed-sap" />
+                                </resource>
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="signed-sap-resource-has-description"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has an rlink">
+                    <x:expect-not-assert
+                        id="signed-sap-resource-has-rlink"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="lacks an rlink">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <!-- … -->
+                            <back-matter>
+                                <resource
+                                    uuid="1e083471-9a3c-4469-8926-5b93215c6a11">
+                                    <prop
+                                        name="type"
+                                        value="signed-sap" />
+                                    <!-- missing rlink -->
+                                </resource>
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="signed-sap-resource-has-rlink"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="rlink has a PDF media-type">
+                    <x:expect-not-assert
+                        id="signed-sap-rlink-has-media-type-pdf"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="rlink does not have a PDF media-type">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <!-- … -->
+                            <back-matter>
+                                <resource
+                                    uuid="1e083471-9a3c-4469-8926-5b93215c6a11">
+                                    <prop
+                                        name="type"
+                                        value="signed-sap" />
+                                    <rlink
+                                        href="signed-sap.pdf"
+                                        media-type="test/xml" />
+                                </resource>
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="signed-sap-rlink-has-media-type-pdf"
+                        label="that is an error" />
+                </x:scenario>
+
+
+            </x:scenario>
+        </x:scenario>
+
+    </x:scenario>
+
+</x:description>

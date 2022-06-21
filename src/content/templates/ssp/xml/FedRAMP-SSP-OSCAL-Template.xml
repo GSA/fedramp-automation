@@ -646,12 +646,13 @@
       <prop ns="https://fedramp.gov/ns/oscal" name="users-internal-future" value="0"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="users-external-future" value="0"/>
       <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
-         <title>Name of Underlying System</title>
-         <link href="//path/to/leveraged_system_ssp.xml"/>
+         <title>AWS GovCloud</title>         
+         <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
+         <link href="//path/to/leveraged_system_ssp.xml"/>         
          <link href="//path/to/leveraged_system_legacy_crm.xslt"/>
          <link href="//path/to/leveraged_system_responsibility_and_inheritance.xml"/>
          <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
-         <date-authorized>2015-01-01</date-authorized>
+         <date-authorized>2015-01-01</date-authorized>         
          <remarks>
             <p>The leveraged-authorizaton assembly is supposed to have a required uuid flag instead
                of an optional id flag. This will be fixed in the syntax shortly.</p>
@@ -707,6 +708,7 @@
          <title>This System</title>
          <description>
             <p>The entire system as depicted in the system authorization boundary</p>
+             <p>Email is employed</p>
          </description>
          <status state="operational"/>
       </component>
@@ -935,7 +937,7 @@
          </description>
          <prop name="asset-id" value="unique-asset-id"/>
          <prop name="ipv4-address" value="10.1.1.1"/>
-         <prop name="ipv6-address" value="0000:0000:0000:0000"/>
+         <prop name="ipv6-address" value="::"/>
          <prop name="virtual" value="no"/>
          <prop name="public" value="no"/>
          <prop name="fqdn" value="dns.name"/>
@@ -1263,7 +1265,7 @@
                   </responsibility>
                </export>
             </by-component>
-            <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
+            <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                uuid="8a72663c-28c7-41c2-8739-f1ee2d5761ac">
                <description>
                   <p>For the portion of the control satisfied by the application component of this
@@ -2216,6 +2218,43 @@
             </by-component>
          </statement>
       </implemented-requirement>
+      <implemented-requirement
+           control-id="si-8"
+           uuid="f33674dc-d16f-4a8c-8902-b8e60f947ce7">
+           <!--Spam Protection-->
+           <prop
+               name="control-origination"
+               ns="https://fedramp.gov/ns/oscal"
+               value="sp-system" />
+           <prop
+               name="implementation-status"
+               ns="https://fedramp.gov/ns/oscal"
+               value="implemented" />
+           <!--There are no control parameters-->
+           <responsible-role
+               role-id="implemented-requirement-responsible-role" />
+          <statement statement-id="si-8_smt" uuid="9e061e1e-10fa-4896-8597-294d8fd8e52b">
+              <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
+                  uuid="663f84e5-9c13-49a5-b7de-25ced4e8aef8">
+                  <description>
+                      <p>Describe how the control is satisfied within the system.</p>
+                      <p>DMARC is employed.</p>
+                      <p>SPF is employed.</p>
+                      <p>DKIM is employed.</p>
+                  </description>
+                  <set-parameter param-id="si-8_prm_1">
+                      <value>[replace with list of personnel or roles]</value>
+                  </set-parameter>
+                  <set-parameter param-id="si-8_prm_2">
+                      <value>[specify frequency]</value>
+                  </set-parameter>
+                  <set-parameter param-id="si-8_prm_3">
+                      <value>[specify frequency]</value>
+                  </set-parameter>
+              </by-component>
+          </statement>
+           <!--Required response points are: -->
+       </implemented-requirement>
    </control-implementation>
    <!-- Table 15-1 Names of Provided Attachments -->
    <back-matter>

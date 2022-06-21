@@ -9,7 +9,7 @@ For the purposes of third-party integration, Schematron validation rules are pro
 
 ## General overview
 
-- The source rules defined in [../validations/rules/ssp.sch](../validations/rules/ssp.sch) are compiled into a single XSLT file, [../validations/target/ssp.xsl](../validations/target/ssp.xsl)
+- The source rules defined in [../validations/rules/ssp.sch](../validations/rules/ssp.sch) are compiled into a single XSLT file, [../validations/target/rules/ssp.sch.xsl](../validations/target/rules/ssp.sch.xsl)
 - The compiled XSLT file must be evaluated by an XSLT 3.0 compatible processor. The [Saxon](https://www.saxonica.com/) suite of libraries are the only compatible XSLT 3.0 processors at the time of writing.
   - Java Saxon-HE is open-source and recommended.
   - Javascript Saxon-JS is free, but not open-source. The UI for this project may be referenced as an example.

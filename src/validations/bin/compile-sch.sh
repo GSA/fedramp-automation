@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -euxo pipefail
 
@@ -7,6 +7,7 @@ DESTINATION=$2
 
 echo "Preprocessing stage 1/3 of ${SOURCE}..."
 STAGE_1=$(mktemp)
+# shellcheck disable=SC2086
 java -cp "${SAXON_CP}" net.sf.saxon.Transform \
     -o:"${STAGE_1}" \
     -s:"${SOURCE}" \
@@ -15,6 +16,7 @@ java -cp "${SAXON_CP}" net.sf.saxon.Transform \
 
 echo "Preprocessing stage 2/3 of ${SOURCE}..."
 STAGE_2=$(mktemp)
+# shellcheck disable=SC2086
 java -cp "${SAXON_CP}" net.sf.saxon.Transform \
     -o:"${STAGE_2}" \
     -s:"${STAGE_1}" \
@@ -22,6 +24,7 @@ java -cp "${SAXON_CP}" net.sf.saxon.Transform \
     ${SAXON_OPTS}
 
 echo "Preprocessing stage 3/3 of ${SOURCE}..."
+# shellcheck disable=SC2086
 java -cp "${SAXON_CP}" net.sf.saxon.Transform \
     -o:"${DESTINATION}" \
     -s:"${STAGE_2}" \

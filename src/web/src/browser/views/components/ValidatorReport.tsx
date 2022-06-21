@@ -1,16 +1,24 @@
 import React from 'react';
+import spriteSvg from 'uswds/img/sprite.svg';
 
+import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { Routes, getUrl } from '@asap/browser/presenter/state/router';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useActions, useAppState } from '../hooks';
 
-export const ValidatorReport = () => {
-  const { schematronReport } = useAppState().schematron;
-  const { getAssetUrl } = useActions();
+type Props = {
+  documentType: OscalDocumentKey;
+};
+
+export const ValidatorReport = ({ documentType }: Props) => {
+  const schematronReport =
+    useAppState().oscalDocuments[documentType].schematronReport;
+
+  const actions = useActions();
   return (
     <>
-      <div className="position-sticky top-0 z-top bg-white padding-top-1 padding-bottom-1">
+      <div className="top-0 bg-white padding-top-1 padding-bottom-1">
         <h1 className="margin-0">
           {schematronReport.summary.title}
           <span
@@ -52,15 +60,30 @@ export const ValidatorReport = () => {
               >
                 <div className={`usa-icon-list__icon text-${check.icon.color}`}>
                   <svg className="usa-icon" aria-hidden="true" role="img">
-                    <use
-                      xlinkHref={getAssetUrl(
-                        `uswds/img/sprite.svg#${check.icon.sprite}`,
-                      )}
-                    ></use>
+                    <use xlinkHref={`${spriteSvg}#${check.icon.sprite}`}></use>
                   </svg>
                 </div>
                 <div className="usa-icon-list__content">
                   {check.message}
+                  <button
+                    className="usa-button usa-button--unstyled"
+                    onClick={() =>
+                      actions.assertionDocumentation.show({
+                        assertionId: check.id,
+                        documentType,
+                      })
+                    }
+                    title="View examples"
+                  >
+                    <svg
+                      className="usa-icon"
+                      aria-hidden="true"
+                      focusable="false"
+                      role="img"
+                    >
+                      <use xlinkHref={`${spriteSvg}#support`}></use>
+                    </svg>
+                  </button>
                   {check.fired.length ? (
                     <ul className="usa-icon-list__title">
                       {check.fired.map((firedCheck, index) => (
@@ -69,13 +92,15 @@ export const ValidatorReport = () => {
                             ? firedCheck.diagnosticReferences.join(', ')
                             : firedCheck.text}
                           <a
+                            href="#"
                             className="usa-tooltip"
                             data-position="bottom"
-                            href={getUrl(
-                              Routes.assertion({
+                            onClick={() =>
+                              actions.documentViewer.showAssertionContext({
                                 assertionId: firedCheck.uniqueId,
-                              }),
-                            )}
+                                documentType,
+                              })
+                            }
                             title="Show source document context"
                           >
                             <svg
@@ -84,11 +109,7 @@ export const ValidatorReport = () => {
                               focusable="false"
                               role="img"
                             >
-                              <use
-                                xlinkHref={getAssetUrl(
-                                  'uswds/img/sprite.svg#link',
-                                )}
-                              ></use>
+                              <use xlinkHref={`${spriteSvg}#link`}></use>
                             </svg>
                           </a>
                         </li>

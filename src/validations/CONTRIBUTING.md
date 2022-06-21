@@ -9,7 +9,7 @@ All directory references are local to the `fedramp-automation/src/validations`
 * `report/test` for XSpec and SCH test outputs
 * `report/schematron` for the final validations in Schematron SVRL reporting format.
 * `rules` has the Schematron files for the SSP.
-* `sch` for the XSpec and Schematron files.
+* `styleguides` for XSpec and Schematron styling Schematron.
 * `target` for intermediary and complied artifacs, e.g. XSLT stylesheets, etc.
 * `test` for any XSpec or other testing artifacts.
 * `test/demo` has the demo XML file.
@@ -37,9 +37,9 @@ It has many *optional* parameters. If the command is run without any parameters,
 The validation command has many parameters; all parameters are *optional*.
 
 `-f fileName` is the input file to be tested, ex: `-f test/demo/FedRAMP-SSP-OSCAL-Template.xml`. If omitted, the XSLT transform will be compiled, but it will not be applied to a document.
-`-s directoryName` Schematron directory used to validate the file, ex: `-o ~/mySchematronDirecotry`. Each `sch` found within the specified directory will be compliled and generate a separate report. If omitted, defaults to the src relative to the parent of the bin directory where this script is located.
+`-s directoryName` Schematron directory used to validate the file, ex: `-o ~/mySchematronDirectory`. Each `.sch` document found within the specified directory will be compliled and generate a separate report. If omitted, defaults to the src relative to the parent of the bin directory where this script is located.
 `-o outputRootDirectory` is the root directory of the report output, ex: `-o ~/dev/report`.
-`-v saxonVersionNumber` is used to override the default version (currently 10.5) of `SAXON HE`, that is downloaded and used if `SAXON_CP` is not specified, ex:  `-v 10.2`. *Note that if `SAXON_CP` is set as an environment variable and this parameter is specified, then the script will terminate due to inability to determine priority.*
+`-v saxonVersionNumber` is used to override the default version (currently 10.8) of `SAXON HE`, that is downloaded and used if `SAXON_CP` is not specified, ex:  `-v 10.2`. *Note that if `SAXON_CP` is set as an environment variable and this parameter is specified, then the script will terminate due to inability to determine priority.*
 `-b baseDirectory` specifies the base directory of the location of this project (for relative references to target, `bin` and dependencies like OSCAL definiitions), ex: `-b /dev/fedramp-automation/resources/validations`. If omitted, defaults to the current directory.
 `-t` is used to skip the Schematron compilation and used for tranform-only.
 `-h` outputs the help/usage for the script.
@@ -55,8 +55,8 @@ A typical usage of the validation command:
 Using the command with a different version of Saxon HE. *Note that you must download the different version first.*
 
 ```sh
-./bin/validate_with_schematron.sh -v 10.2
-./bin/validate_with_schematron.sh -f test/demo/FedRAMP-SSP-OSCAL-Template.xml -o ~/dev/report -v 10.2
+./bin/validate_with_schematron.sh -v 10.8
+./bin/validate_with_schematron.sh -f test/demo/FedRAMP-SSP-OSCAL-Template.xml -o ~/dev/report -v 10.8
 ```
 
 Alternatively, you can also use `docker-compose` to execute the validation script, like so:
@@ -139,7 +139,17 @@ Per [18F/fedramp-automation#61](https://github.com/18F/fedramp-automation/issues
 
 ### Formatting XML
 
-When contributing, please use the provided XML formatter (htmltidy >= 5.6.0). Formatting options are chosen for readability, and for clean git diffs.
+When contributing, please use the following indentation and formatting settings. Formatting options are chosen for readability, and for clean git diffs.
+
+For Oxygen XML Editor: 
+- Indent size 4
+- 150 character line width (folding threshold)
+- Preserve empty lines
+- Preserve line breaks in attributes
+- Indent inline elements
+- Sort attributes
+- Add space before slash in empty elements
+- Break line before an attribute name
 
 ### Generating a sample OSCAL System Security Plan XML document
 

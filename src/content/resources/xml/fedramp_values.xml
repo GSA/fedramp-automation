@@ -36,16 +36,7 @@
       <remarks>FedRAMP requires work addresses.</remarks>
    </value-set>
 
-   <value-set name="eauth-level">
-      <formal-name>eAuth Level</formal-name>
-      <description>The eAuthentication level as defined by NIST SP 800-63, Revision 3.</description>
-      <binding pattern="system-characteristics/prop[@name='security-eauth-level'][@ns='https://fedramp.gov/ns/oscal']" />
-      <allowed-values allow-other="no">
-         <enum value="1" short-label="L">Low</enum>
-         <enum value="2" short-label="M">Moderate</enum>
-         <enum value="3" short-label="H">High</enum>
-      </allowed-values>
-   </value-set>
+    <!-- Removed value-set[@name='eauth-level'] in accordance with NIST SP 800-63-3. -->
 
    <value-set name="identity-assurance-level">
       <formal-name>Identity Assurance Level</formal-name>
@@ -422,6 +413,99 @@
          <enum value="inherited" short-label="Inherited">Inherited</enum>
       </allowed-values>
    </value-set>
+    
+    <value-set name="automation-control-id">
+        <formal-name>Automation Control IDs</formal-name>
+        <description>The control IDs for implemented requirements that are focused on automation aspects.</description>
+        <binding pattern="implemented-requirement/@control-id"/>
+        <allowed-values allow-other="no">
+            <enum value="ac-2.1" short-label="ac-2.1">ac-2.1</enum>
+            <enum value="ac-12" short-label="ac-12">ac-12</enum>
+            <enum value="ac-18.3" short-label="ac-18.3">ac-18.3</enum>
+            <enum value="au-6.1" short-label="au-6.1">au-6.1</enum>
+            <enum value="au-3.2" short-label="au-3.2">au-3.2</enum>
+            <enum value="au-6.4" short-label="au-6.4">au-6.4</enum>
+            <enum value="au-7.1" short-label="au-7.1">au-7.1</enum>
+            <enum value="at-3.4" short-label="at-3.4">at-3.4</enum>
+            <enum value="ca-7" short-label="ca-7">ca-7</enum>
+            <enum value="cm-2.2" short-label="cm-2.2">cm-2.2</enum>
+            <enum value="cm-3.1" short-label="cm-3.1">cm-3.1</enum>
+            <enum value="cm-3.6" short-label="cm-3.6">cm-3.6</enum>
+            <enum value="cm-6.1" short-label="cm-6.1">cm-6.1</enum>
+            <enum value="cm-8.2" short-label="cm-8.2">cm-8.2</enum>
+            <enum value="cm-8.3" short-label="cm-8.3">cm-8.3</enum>
+            <enum value="cm-11" short-label="cm-11">cm-11</enum>
+            <enum value="cp-10" short-label="cp-10">cp-10</enum>
+            <enum value="ir-4.1" short-label="ir-4.1">ir-4.1</enum>
+            <enum value="ir-5.1" short-label="ir-5.1">ir-5.1</enum>
+            <enum value="ir-6.1" short-label="ir-6.1">ir-6.1</enum>
+            <enum value="pe-3" short-label="pe-3">pe-3</enum>
+            <enum value="pe-8.1" short-label="pe-8.1">pe-8.1</enum>
+            <enum value="pe-11.1" short-label="pe-11.1">pe-11.1</enum>
+            <enum value="pe-13.1" short-label="pe-13.1">pe-13.1</enum>
+            <enum value="pe-13.2" short-label="pe-13.2">pe-13.2</enum>
+            <enum value="pe-13.3" short-label="pe-13.3">pe-13.3</enum>
+            <enum value="pe-15.1" short-label="pe-15.1">pe-15.1</enum>
+            <enum value="ps-4.2" short-label="ps-4.2">ps-4.2</enum>
+            <enum value="sc-23.1" short-label="sc-23.1">sc-23.1</enum>
+            <enum value="si-2.2" short-label="si-2.2">si-2.2</enum>
+            <enum value="si-3.2" short-label="si-3.2">si-3.2</enum>
+            <enum value="si-4.2" short-label="si-4.2">si-4.2</enum>
+            <enum value="si-4.20" short-label="si-4.20">si-4.20</enum>
+            <enum value="si-5.1" short-label="si-5.1">si-5.1</enum>
+            <enum value="si-7.2" short-label="si-7.2">si-7.2</enum>
+            <enum value="si-7.5" short-label="si-7.5">si-7.5</enum>
+            <enum value="si-8.2" short-label="si-8.2">si-8.2</enum>
+        </allowed-values>
+    </value-set>
+    
+    <value-set name="technical-control-id">
+        <formal-name>Technical Control IDs</formal-name>
+        <description>The control IDs for implemented requirements that are focused on technical aspects.</description>
+        <binding pattern="implemented-requirement/@control-id"/>
+        <allowed-values allow-other="no">
+            <enum value="ac-2.10" short-label="ac-2.10">ac-2.10</enum>
+            <enum value="ac-3" short-label="ac-3">ac-3</enum>
+            <enum value="ac-5" short-label="ac-5">ac-5</enum>
+            <enum value="ac-6" short-label="ac-6">ac-6</enum>
+            <enum value="ac-6.1" short-label="ac-6.1">ac-6.1</enum>
+            <enum value="ac-6.5" short-label="ac-6.5">ac-6.5</enum>
+            <enum value="ac-6.7" short-label="ac-6.7">ac-6.7</enum>
+            <enum value="ac-6.9" short-label="ac-6.9">ac-6.9</enum>
+            <enum value="ac-6.10" short-label="ac-6.10">ac-6.10</enum>
+            <enum value="ac-7" short-label="ac-7">ac-7</enum>
+            <enum value="ac-7.2" short-label="ac-7.2">ac-7.2</enum>
+            <enum value="ac-8" short-label="ac-8">ac-8</enum>
+            <enum value="ac-10" short-label="ac-10">ac-10</enum>
+            <enum value="ac-11" short-label="ac-11">ac-11</enum>
+            <enum value="ac-11.1" short-label="ac-11.1">ac-11.1</enum>
+            <enum value="ac-17.1" short-label="ac-17.1">ac-17.1</enum>
+            <enum value="ac-17.2" short-label="ac-17.2">ac-17.2</enum>
+            <enum value="ac-18.1" short-label="ac-18.1">ac-18.1</enum>
+            <enum value="ac-19" short-label="ac-19">ac-19</enum>
+            <enum value="ac-19.5" short-label="ac-19.5">ac-19.5</enum>
+            <enum value="ac-20" short-label="ac-20">ac-20</enum>
+            <enum value="ac-20.1" short-label="ac-20.1">ac-20.1</enum>
+            <enum value="ac-20.2" short-label="ac-20.2">ac-20.2</enum>
+            <enum value="ac-21" short-label="ac-21">ac-21</enum>
+            <enum value="au-2.3" short-label="au-2.3">au-2.3</enum>
+            <enum value="au-5.2" short-label="au-5.2">au-5.2</enum>
+            <enum value="au-6" short-label="au-6">au-6</enum>
+            <enum value="au-6.7" short-label="au-6.7">au-6.7</enum>
+            <enum value="au-9.2" short-label="au-9.2">au-9.2</enum>
+            <enum value="au-9.4" short-label="au-9.4">au-9.4</enum>
+            <enum value="au-11" short-label="au-11">au-11</enum>
+            <enum value="cm-5" short-label="cm-5">cm-5</enum>
+            <enum value="cm-5.1" short-label="cm-5.1">cm-5.1</enum>
+            <enum value="cm-10" short-label="cm-10">cm-10</enum>
+            <enum value="ia-4.4" short-label="ia-4.4">ia-4.4</enum>
+            <enum value="ia-5.4" short-label="ia-5.4">ia-5.4</enum>
+            <enum value="ia-6" short-label="ia-6">ia-6</enum>
+            <enum value="ir-2.2" short-label="ir-2.2">ir-2.2</enum>
+            <enum value="sc-7.5" short-label="sc-7.5">sc-7.5</enum>
+            <enum value="sc-10" short-label="sc-10">sc-10</enum>
+        </allowed-values>
+    </value-set>
 
    <value-set name="attachment-type">
       <formal-name>Attachment Type</formal-name>

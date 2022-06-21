@@ -12,11 +12,13 @@ export type SchematronUIConfig = {
 };
 
 export type Role = string;
+export type PassStatus = 'pass' | 'fail' | 'all';
 
 export type SchematronFilter = {
   role: Role;
   text: string;
   assertionViewId: number;
+  passStatus: PassStatus;
 };
 
 export type SchematronFilterOptions = {
@@ -28,6 +30,12 @@ export type SchematronFilterOptions = {
   roles: {
     name: Role;
     subtitle: string;
+    count: number;
+  }[];
+  passStatuses: {
+    id: PassStatus;
+    title: string;
+    enabled: boolean;
     count: number;
   }[];
 };
@@ -94,6 +102,7 @@ export const getSchematronReport = ({
   const schematronChecksFiltered = filterAssertions(
     config.schematronAsserts,
     {
+      passStatus: filter.passStatus,
       role: filter.role,
       text: filter.text,
       assertionViewIds: assertionView.groups
@@ -101,6 +110,7 @@ export const getSchematronReport = ({
         .flat(),
     },
     filterOptions.roles.map(role => role.name),
+    validator.failedAssertionMap,
   );
 
   return {
@@ -161,7 +171,7 @@ export const getReportGroups = (
         checks: {
           summary: (() => {
             if (failedAssertionMap) {
-              return `${firedCount} / ${checks.length} triggered`;
+              return `${firedCount} / ${checks.length} flagged`;
             } else {
               return `${checks.length} checks`;
             }
@@ -177,11 +187,13 @@ export const getReportGroups = (
 export const filterAssertions = (
   schematronAsserts: SchematronAssert[],
   filter: {
+    passStatus: PassStatus;
     role: Role;
     text: string;
     assertionViewIds: string[];
   },
   roleOptions: Role[],
+  failedAssertionMap: FailedAssertionMap | null,
 ) => {
   const filterRoles =
     filter.role === 'all' ? roleOptions.map(role => role) : filter.role;
@@ -197,6 +209,15 @@ export const filterAssertions = (
   assertions = assertions.filter(assert =>
     filter.assertionViewIds.includes(assert.id),
   );
+  if (failedAssertionMap && filter.passStatus !== 'all') {
+    assertions = assertions.filter(assert => {
+      const failed = !!failedAssertionMap[assert.id];
+      return (
+        (filter.passStatus === 'fail' && failed) ||
+        (filter.passStatus === 'pass' && !failed)
+      );
+    });
+  }
   return assertions;
 };
 
@@ -211,10 +232,12 @@ const getAssertionsById = (asserts: SchematronAssert[]) => {
 export const getFilterOptions = ({
   config,
   filter,
+  failedAssertionMap,
 }: {
   config: SchematronUIConfig;
   filter: SchematronFilter;
-}) => {
+  failedAssertionMap: FailedAssertionMap | null;
+}): SchematronFilterOptions => {
   const availableRoles = Array.from(
     new Set(config.schematronAsserts.map(assert => assert.role)),
   );
@@ -241,6 +264,7 @@ export const getFilterOptions = ({
       count: filterAssertions(
         config.schematronAsserts,
         {
+          passStatus: filter.passStatus,
           role: filter.role,
           text: filter.text,
           assertionViewIds: config.assertionViews[view.index].groups.flatMap(
@@ -248,6 +272,7 @@ export const getFilterOptions = ({
           ),
         },
         availableRoles,
+        failedAssertionMap,
       ).length,
     })),
     roles: [
@@ -265,14 +290,66 @@ export const getFilterOptions = ({
           count: filterAssertions(
             config.schematronAsserts,
             {
+              passStatus: filter.passStatus,
               role,
               text: filter.text,
               assertionViewIds,
             },
             availableRoles,
+            failedAssertionMap,
           ).length,
         };
       }),
+    ],
+    passStatuses: [
+      {
+        id: 'all' as PassStatus,
+        title: 'All assertions',
+        enabled: failedAssertionMap !== null,
+        count: filterAssertions(
+          config.schematronAsserts,
+          {
+            passStatus: 'all',
+            role: filter.role,
+            text: filter.text,
+            assertionViewIds,
+          },
+          availableRoles,
+          failedAssertionMap,
+        ).length,
+      },
+      {
+        id: 'pass' as PassStatus,
+        title: 'Passing assertions',
+        enabled: failedAssertionMap !== null,
+        count: filterAssertions(
+          config.schematronAsserts,
+          {
+            passStatus: 'pass',
+            role: filter.role,
+            text: filter.text,
+            assertionViewIds,
+          },
+          availableRoles,
+          failedAssertionMap,
+        ).length,
+      },
+      {
+        id: 'fail' as PassStatus,
+        title: 'Failing assertions',
+        enabled: failedAssertionMap !== null,
+        count: filterAssertions(
+          config.schematronAsserts,
+          {
+            passStatus: 'fail',
+            role: filter.role,
+            text: filter.text,
+            assertionViewIds,
+          },
+          availableRoles,
+          failedAssertionMap,
+        ).length,
+      },
     ],
   };
 };

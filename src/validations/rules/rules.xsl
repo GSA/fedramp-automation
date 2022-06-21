@@ -125,12 +125,12 @@
                 <!-- that's correct --></xsl:when>
             <xsl:otherwise>
                 <xsl:message
-                    expand-text="true"
-                    terminate="true">{base-uri()} is not static-base-uri()</xsl:message>
+                    expand-text="true">{base-uri()} is not static-base-uri(). expected: `{static-base-uri()}`</xsl:message>
             </xsl:otherwise>
         </xsl:choose>
 
-        <html>
+        <html
+            lang="en">
             <head>
                 <meta
                     content="text/html; charset=UTF-8"
@@ -174,15 +174,15 @@
 
                 <p>References to a "checklist" are to the <cite>Agency Authorization Review Report</cite> document.</p>
                 <p>References to a "guide" are to one of the guides found <a
-                        href="https://github.com/18F/fedramp-automation/tree/develop/documents"
-                        target="_blank">here</a>.</p>
+                        href="https://github.com/18F/fedramp-automation/tree/master/documents"
+                        target="_blank" rel="noopener">here</a>.</p>
 
                 <xsl:variable
                     name="br"
                     select="doc('rules.xml')" />
 
                 <table>
-
+                    <caption>List of business rules and guide references</caption>
                     <thead>
                         <tr>
                             <th>Rule</th>
@@ -277,6 +277,7 @@
                     <h2>Assertions without a corresponding business rule</h2>
 
                     <table>
+                      <caption>List of Assertion IDs and Schematron Messages</caption>
                         <thead />
                         <tbody>
                             <xsl:for-each
@@ -442,7 +443,7 @@
                 </table>
 
                 <h2>Assertions</h2>
-                <!--<p>NB: When FedRAMP rules and validation logic is discussed, there is a minor mismatch between a general concept of a <i>rule</i>
+                <!--<p>NB: When FedRAMP rules and validation logic is discussed, there is a minor mismatch between a general concept of a <em>rule</em>
                     versus rule representation in Schematron. The former is what SSP reviewers (and perhaps submitters) hold; the latter might be
                     expressed as multiple Schematron <code>&lt;rule&gt;</code>, <code>&lt;assert&gt;</code>, and <code>&lt;report&gt;</code> elements.
                     The same word with different meanings in both venues is unfortunate.</p>-->
@@ -761,10 +762,10 @@
                     <div>
                         <xsl:text>rule: </xsl:text>
                         <xsl:text>the context item </xsl:text>
-                        <i>
+                        <em>
                             <xsl:value-of
                                 select="preceding-sibling::p[1]" />
-                        </i>
+                        </em>
                     </div>
                 </xsl:if>
                 <xsl:if
@@ -784,10 +785,10 @@
                                     select="." />
                             </code>
                             <xsl:text>: </xsl:text>
-                            <i>
+                            <em>
                                 <xsl:value-of
                                     select="$context//diagnostic[@id = current()]" />
-                            </i>
+                            </em>
                         </div>
                     </xsl:for-each>
 
@@ -830,7 +831,7 @@
                 <xsl:if
                     test="allowed-values/@allow-other = 'yes'">
                     <div>
-                        <i>or any other value</i>
+                        <em>or any other value</em>
                     </div>
                 </xsl:if>
             </td>
@@ -854,10 +855,10 @@
                         select="formal-name" />
                 </u>
                 <xsl:text>: </xsl:text>
-                <i>
+                <em>
                     <xsl:value-of
                         select="description" />
-                </i>
+                </em>
             </td>
         </tr>
         <xsl:if
@@ -923,10 +924,10 @@
                         select="formal-name" />
                 </u>
                 <xsl:text>: </xsl:text>
-                <i>
+                <em>
                     <xsl:value-of
                         select="description" />
-                </i>
+                </em>
             </td>
         </tr>
         <xsl:if

@@ -1,3 +1,6 @@
+import { it, describe, expect } from 'vitest';
+
+import type { PassStatus } from './schematron';
 import * as lib from './schematron';
 
 describe('presenter schematron library', () => {
@@ -35,6 +38,7 @@ describe('presenter schematron library', () => {
         ],
       },
       filter: {
+        passStatus: 'all' as PassStatus,
         role: 'error',
         text: '',
         assertionViewId: 0,
@@ -50,6 +54,14 @@ describe('presenter schematron library', () => {
         roles: [
           { name: 'error', subtitle: 'sub1', count: 5 },
           { name: 'warning', subtitle: 'sub2', count: 6 },
+        ],
+        passStatuses: [
+          {
+            id: 'all' as PassStatus,
+            count: 5,
+            title: 'All',
+            enabled: false,
+          },
         ],
       },
       validator: {
@@ -76,6 +88,28 @@ describe('presenter schematron library', () => {
             },
           ],
         },
+      },
+      summariesByAssertionId: {
+        'no-security-sensitivity-level': [
+          {
+            assertionId: 'no-security-sensitivity-level',
+            assertionLabel: 'it is invalid.',
+            context:
+              '<span class="hljs-tag">&lt;<span class="hljs-name">system-security-plan</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://csrc.nist.gov/ns/oscal/1.0&quot;</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n        <span class="hljs-tag">&lt;<span class="hljs-name">security-sensitivity-level</span>/&gt;</span>\r\n    <span class="hljs-tag">&lt;/<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n<span class="hljs-tag">&lt;/<span class="hljs-name">system-security-plan</span>&gt;</span>',
+            label:
+              'For an OSCAL FedRAMP SSP Section 2.1 when the security sensitivity level is not defined at all',
+          },
+        ],
+        'invalid-security-sensitivity-level': [
+          {
+            assertionId: 'invalid-security-sensitivity-level',
+            assertionLabel: 'it is valid.',
+            context:
+              '<span class="hljs-tag">&lt;<span class="hljs-name">system-security-plan</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://csrc.nist.gov/ns/oscal/1.0&quot;</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n        <span class="hljs-tag">&lt;<span class="hljs-name">security-sensitivity-level</span>&gt;</span>\r\n            fips-199-low\r\n        <span class="hljs-tag">&lt;/<span class="hljs-name">security-sensitivity-level</span>&gt;</span>\r\n    <span class="hljs-tag">&lt;/<span class="hljs-name">system-characteristics</span>&gt;</span>\r\n<span class="hljs-tag">&lt;/<span class="hljs-name">system-security-plan</span>&gt;</span>',
+            label:
+              'For an OSCAL FedRAMP SSP Section 2.1 when the security sensitivity level is set to a value from the official FedRAMP list',
+          },
+        ],
       },
     };
 
@@ -107,7 +141,7 @@ describe('presenter schematron library', () => {
                   role: 'error',
                 },
               ],
-              summary: '0 / 2 triggered',
+              summary: '0 / 2 flagged',
               summaryColor: 'green',
             },
             title: 'Assertion group title',
@@ -130,10 +164,12 @@ describe('presenter schematron library', () => {
           schematronAsserts: [],
         },
         filter: {
+          passStatus: 'all',
           role: 'error',
           text: '',
           assertionViewId: 1,
         },
+        failedAssertionMap: null,
       });
       expect(options).toEqual({
         assertionViews: [],
@@ -142,6 +178,26 @@ describe('presenter schematron library', () => {
             count: 0,
             name: 'all',
             subtitle: 'View all rules',
+          },
+        ],
+        passStatuses: [
+          {
+            count: 0,
+            enabled: false,
+            id: 'all',
+            title: 'All assertions',
+          },
+          {
+            count: 0,
+            enabled: false,
+            id: 'pass',
+            title: 'Passing assertions',
+          },
+          {
+            count: 0,
+            enabled: false,
+            id: 'fail',
+            title: 'Failing assertions',
           },
         ],
       });
@@ -168,10 +224,12 @@ describe('presenter schematron library', () => {
           ],
         },
         filter: {
+          passStatus: 'all',
           role: 'error',
           text: '',
           assertionViewId: 0,
         },
+        failedAssertionMap: null,
       });
       expect(options).toEqual({
         assertionViews: [
@@ -189,6 +247,26 @@ describe('presenter schematron library', () => {
             count: 2,
           },
         ],
+        passStatuses: [
+          {
+            count: 2,
+            enabled: false,
+            id: 'all',
+            title: 'All assertions',
+          },
+          {
+            count: 2,
+            enabled: false,
+            id: 'pass',
+            title: 'Passing assertions',
+          },
+          {
+            count: 2,
+            enabled: false,
+            id: 'fail',
+            title: 'Failing assertions',
+          },
+        ],
       });
     });
   });
@@ -199,11 +277,13 @@ describe('presenter schematron library', () => {
         lib.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            passStatus: 'all',
             role: 'error',
             text: '',
             assertionViewIds: ['incorrect-role-association'],
           },
           ['error', 'info'],
+          null,
         ),
       ).toEqual([
         {
@@ -218,11 +298,13 @@ describe('presenter schematron library', () => {
         lib.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            passStatus: 'all',
             role: 'all',
             text: 'role assertion',
             assertionViewIds: ['incorrect-role-association'],
           },
           ['error', 'info'],
+          null,
         ),
       ).toEqual([
         {
@@ -237,11 +319,13 @@ describe('presenter schematron library', () => {
         lib.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            passStatus: 'all',
             role: 'non-matching',
             text: 'role assertion',
             assertionViewIds: ['incorrect-role-association'],
           },
           ['error', 'info'],
+          null,
         ),
       ).toEqual([]);
     });
@@ -250,11 +334,13 @@ describe('presenter schematron library', () => {
         lib.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            passStatus: 'all',
             role: 'error',
             text: 'non-matching',
             assertionViewIds: ['incorrect-role-association'],
           },
           ['error', 'info'],
+          null,
         ),
       ).toEqual([]);
     });

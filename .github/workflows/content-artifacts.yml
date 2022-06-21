@@ -1,3 +1,6 @@
+---
+
+# yamllint disable-line rule:truthy
 on:
   push:
     branches:
@@ -59,7 +62,8 @@ jobs:
           bash "${GITHUB_WORKSPACE}/git-content/${CICD_DIR_PATH}/validate-content.sh" -v -o "${GITHUB_WORKSPACE}/git-content/${OSCAL_DIR_PATH}" -a "${GITHUB_WORKSPACE}/git-content" -c "${GITHUB_WORKSPACE}/git-content/${CONTENT_CONFIG_PATH}"
       # job-copy-and-convert-content
       - name: Auto-convert Content
-        run:
+        run: |
+          pip3 install -r "${GITHUB_WORKSPACE}/git-content/${CICD_DIR_PATH}/python/requirements.txt"
           bash "${GITHUB_WORKSPACE}/git-content/${CICD_DIR_PATH}/copy-and-convert-content.sh" -v -o "${GITHUB_WORKSPACE}/git-content/${OSCAL_DIR_PATH}" -a "${GITHUB_WORKSPACE}/git-content" -c "${GITHUB_WORKSPACE}/git-content/${CONTENT_CONFIG_PATH}" -w "${GITHUB_WORKSPACE}/git-content/dist" --resolve-profiles
       # job-deploy-artifacts
       - name: Setup SSH key

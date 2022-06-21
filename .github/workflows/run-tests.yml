@@ -9,8 +9,11 @@ on: push
 jobs:
   # one job that runs tests
   run-tests:
-    # Run on ubuntu
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
 
     # Checkout repository and its submodules
     steps:
@@ -20,24 +23,40 @@ jobs:
 
       - name: Read node version from `.nvmrc` file
         id: nvmrc
-        uses: browniebroke/read-nvmrc-action@v1
+        shell: bash
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
 
       - name: Install required node.js version
         uses: actions/setup-node@v1
         with:
-          node-version: "${{ steps.nvmrc.outputs.node_version }}"
+          node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
 
       # Initialize the workspace with submodules and dependencies.
       - name: Initialize workspace
+        shell: bash
         run: make init
 
-      - name: Run test suite
+      # Compile Schematron to XSL.
+      - name: Compile Schematron
+        shell: bash
+        run: make build-validations
+
+      - name: Run complete test suite
+        shell: bash
+        if: runner.os == 'Linux'
         run: |
-          make test-web test-validations
+          make test
+
+      - name: Run limited test suite
+        shell: bash
+        if: runner.os == 'Windows'
+        run: |
+          make test-validations test-web
 
       # Sets the test report path for visibility
       - name: Publish XSpec Test Results
         uses: mikepenz/action-junit-report@v1
+        if: runner.os == 'Linux'
         with:
           report_paths: "**/report/test/*junit.xml"
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -45,7 +64,7 @@ jobs:
       # Publish the test summary as comment on the PR
       - name: Publish XSpec Test Results Summary
         uses: EnricoMi/publish-unit-test-result-action@v1.15
-        if: always()
+        if: runner.os == 'Linux'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           check_name: XSpec Test Results
@@ -55,6 +74,7 @@ jobs:
 
       - name: Upload Resulting Schematron SVRL Report
         uses: actions/upload-artifact@27bce4eee761b5bc643f46a8dfb41b430c8d05f6 # v2
+        if: runner.os == 'Linux'
         with:
           name: fedramp-automation-validation-unit-tests-${{ github.sha }}
           path: |

@@ -13,3 +13,12 @@ src/validations/report
 src/validations/src/ssp.xsl
 src/validations/target
 utils
+
+# XSpec reports (from OxygenXML XSpec use)
+src/validations/test/rules/poam-result.html
+src/validations/test/rules/sar-result.html
+src/validations/test/rules/ssp-result.html
+src/validations/test/rules/sap-result.html
+
+# OxygenXML project files
+*.xpr

@@ -1,23 +1,23 @@
-import { createOvermind, createOvermindMock, IContext } from 'overmind';
+import { createOvermind, IContext } from 'overmind';
 
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
+import type { AppMetrics } from '@asap/shared/use-cases/app-metrics';
+import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
-import type { GetSSPSchematronAssertions } from '@asap/shared/use-cases/schematron';
-import type {
-  ValidateSSPUseCase,
-  ValidateSSPUrlUseCase,
-} from '@asap/shared/use-cases/validate-ssp-xml';
+import type { OscalService } from '@asap/shared/use-cases/oscal';
+import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron';
 
 import * as actions from './actions';
 import type { Location } from './state/router';
-import { state, State, SampleSSP } from './state';
+import { state, State, SampleDocument } from './state';
 
-type UseCases = {
+export type UseCases = {
   annotateXML: AnnotateXMLUseCase;
   getAssertionViews: GetAssertionViews;
-  getSSPSchematronAssertions: GetSSPSchematronAssertions;
-  validateSSP: ValidateSSPUseCase;
-  validateSSPUrl: ValidateSSPUrlUseCase;
+  getSchematronAssertions: GetSchematronAssertions;
+  getXSpecScenarioSummaries: GetXSpecScenarioSummaries;
+  appMetrics: AppMetrics;
+  oscalService: OscalService;
 };
 
 export const getPresenterConfig = (
@@ -40,11 +40,11 @@ export const getPresenterConfig = (
 export type PresenterConfig = IContext<ReturnType<typeof getPresenterConfig>>;
 
 export type PresenterContext = {
-  baseUrl: string;
+  baseUrl: `${string}/`;
   debug: boolean;
   sourceRepository: {
     treeUrl: string;
-    sampleSSPs: SampleSSP[];
+    sampleDocuments: SampleDocument[];
     developerExampleUrl: string;
   };
   location: Location;
@@ -65,41 +65,3 @@ export const createPresenter = (ctx: PresenterContext) => {
   return presenter;
 };
 export type Presenter = ReturnType<typeof createPresenter>;
-
-/**
- * `createOvermindMock` expects actual effect functions. They may be shimmed in
- * with the return value from this function.
- * These use cases will never be called, because Overmind requires mock effects
- * specified as the second parameter of `createOvermindMock`.
- * @returns Stubbed use cases
- */
-const getUseCasesShim = (): UseCases => {
-  const stub = jest.fn();
-  return {
-    annotateXML: stub,
-    getAssertionViews: stub,
-    getSSPSchematronAssertions: stub,
-    validateSSP: stub,
-    validateSSPUrl: stub,
-  };
-};
-
-type MockPresenterContext = {
-  useCases?: Partial<UseCases>;
-  initialState?: Partial<State>;
-};
-
-export const createPresenterMock = (ctx: MockPresenterContext = {}) => {
-  const presenter = createOvermindMock(
-    getPresenterConfig(
-      { listen: jest.fn(), replace: jest.fn() },
-      getUseCasesShim(),
-      ctx.initialState,
-    ),
-    {
-      useCases: ctx.useCases,
-    },
-  );
-  return presenter;
-};
-export type PresenterMock = ReturnType<typeof createPresenterMock>;

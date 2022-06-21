@@ -6,6 +6,7 @@ SOURCE_XSL=$1
 SOURCE_XML=$2
 SVRL_DESTINATION=$3
 
+# shellcheck disable=SC2086
 java -cp "${SAXON_CP}" net.sf.saxon.Transform \
     -o:"${SVRL_DESTINATION}" \
     -s:"${SOURCE_XML}" \

@@ -1,7 +1,9 @@
 import { derived, Statemachine, statemachine } from 'overmind';
 
+import type { FailedAssert } from '@asap/shared/use-cases/schematron';
 import {
   getFilterOptions,
+  PassStatus,
   Role,
   SchematronFilter,
   SchematronFilterOptions,
@@ -9,7 +11,10 @@ import {
   SchematronUIConfig,
 } from '../lib/schematron';
 import { getSchematronReport } from '../lib/schematron';
-import { createValidatorMachine, ValidatorMachine } from './validator-machine';
+import {
+  createValidationResultsMachine,
+  ValidationResultsMachine,
+} from './validation-results-machine';
 
 type States =
   | {
@@ -21,10 +26,15 @@ type States =
 
 type BaseState = {
   config: SchematronUIConfig;
+  failedAssertionCounts: Record<FailedAssert['id'], number> | null;
   filter: SchematronFilter;
   filterOptions: SchematronFilterOptions;
+  counts: {
+    fired: number | null;
+    total: number | null;
+  };
   schematronReport: SchematronReport;
-  validator: ValidatorMachine;
+  validationResults: ValidationResultsMachine;
 };
 
 type Events =
@@ -51,6 +61,12 @@ type Events =
       data: {
         assertionViewId: number;
       };
+    }
+  | {
+      type: 'FILTER_PASS_STATUS_CHANGED';
+      data: {
+        passStatus: PassStatus;
+      };
     };
 
 export type SchematronMachine = Statemachine<States, Events, BaseState>;
@@ -70,9 +86,8 @@ const schematronMachine = statemachine<States, Events, BaseState>({
         current: 'INITIALIZED',
         config: state.config,
         filter: {
-          role: state.filter.role,
+          ...state.filter,
           text,
-          assertionViewId: state.filter.assertionViewId,
         },
       };
     },
@@ -81,9 +96,8 @@ const schematronMachine = statemachine<States, Events, BaseState>({
         current: 'INITIALIZED',
         config: state.config,
         filter: {
-          role: role,
-          text: state.filter.text,
-          assertionViewId: state.filter.assertionViewId,
+          ...state.filter,
+          role,
         },
       };
     },
@@ -93,7 +107,17 @@ const schematronMachine = statemachine<States, Events, BaseState>({
         config: state.config,
         filter: {
           ...state.filter,
-          assertionViewId: assertionViewId,
+          assertionViewId,
+        },
+      };
+    },
+    FILTER_PASS_STATUS_CHANGED: ({ passStatus }, state) => {
+      return {
+        current: 'INITIALIZED',
+        config: state.config,
+        filter: {
+          ...state.filter,
+          passStatus,
         },
       };
     },
@@ -108,29 +132,53 @@ export const createSchematronMachine = () => {
         assertionViews: [],
         schematronAsserts: [],
       },
+      failedAssertionCounts: derived((state: SchematronMachine) => {
+        return state.validationResults.current === 'HAS_RESULT'
+          ? state.validationResults.validationReport.failedAsserts.reduce<
+              Record<string, number>
+            >((acc, assert) => {
+              acc[assert.id] = (acc[assert.id] || 0) + 1;
+              return acc;
+            }, {})
+          : null;
+      }),
       filter: {
+        passStatus: 'all',
         role: 'all',
         text: '',
         assertionViewId: 0,
       },
-      filterOptions: derived((state: SchematronMachine) =>
-        getFilterOptions({ config: state.config, filter: state.filter }),
-      ),
+      filterOptions: derived((state: SchematronMachine) => {
+        return getFilterOptions({
+          config: state.config,
+          filter: state.filter,
+          failedAssertionMap: state.validationResults.assertionsById,
+        });
+      }),
+      counts: derived((state: SchematronMachine) => {
+        return {
+          fired:
+            state.validationResults.current === 'HAS_RESULT'
+              ? state.validationResults.validationReport.failedAsserts.length
+              : null,
+          total: state.config.schematronAsserts.length,
+        };
+      }),
       schematronReport: derived((state: SchematronMachine) =>
         getSchematronReport({
           config: state.config,
           filter: state.filter,
           filterOptions: state.filterOptions,
           validator: {
-            failedAssertionMap: state.validator.assertionsById,
+            failedAssertionMap: state.validationResults.assertionsById,
             title:
-              state.validator.current === 'VALIDATED'
-                ? state.validator.validationReport.title
+              state.validationResults.current === 'HAS_RESULT'
+                ? state.validationResults.validationReport.title
                 : 'FedRAMP Package Concerns',
           },
         }),
       ),
-      validator: createValidatorMachine(),
+      validationResults: createValidationResultsMachine(),
     },
   );
 };

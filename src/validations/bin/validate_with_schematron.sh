@@ -86,7 +86,7 @@ else
 fi
 
 #if version not specified default
-SAXON_VERSION=${SAXON_VERSION:-10.5}
+SAXON_VERSION=${SAXON_VERSION:-10.8}
 SAXON_OPTS="${SAXON_OPTS:-allow-foreign=true diagnose=true}"
 BASE_DIR="${BASE_DIR:-.}"
 
@@ -116,12 +116,13 @@ else
 fi
 
 if test -f "${SAXON_CP}" ; then
-    java -cp "${SAXON_CP}" net.sf.saxon.Transform -? &> /dev/null
+    java_output=$(java -cp "${SAXON_CP}" net.sf.saxon.Transform -? 2>&1)
     retval=$?
-    if  test $retval -eq 0 ; then
+    if test $retval -eq 0 ; then
         echo Saxon JAR at classpath "${SAXON_CP}" is valid
     else
-        echo Saxon JAR at classpath "${SAXON_CP}" does not contain net.sf.saxon.Transform
+        echo Error running Saxon JAR at classpath "${SAXON_CP}":
+        echo "$java_output"
         exit 1
     fi
 else
@@ -147,26 +148,28 @@ for qualifiedSchematronName in "${SCHEMA_LOCATION_DIR}"/*.sch; do
         #
         # Step 1
         echo "preprocessing stage 1: ${qualifiedSchematronName} to: ${BASE_DIR}/target/${schematronRoot}-stage1.sch"
+        # shellcheck disable=2086
         java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-            -o:"${BASE_DIR}"/target/"${schematronRoot}-stage1.sch" \
+            -o:"${BASE_DIR}/target/${schematronRoot}-stage1.sch" \
             -s:"${qualifiedSchematronName}" \
             "${BASE_DIR}"/../../vendor/schematron/trunk/schematron/code/iso_dsdl_include.xsl \
             $SAXON_OPTS
 
         # Step 2
         echo "preprocessing stage 2: ${BASE_DIR}/target/${schematronRoot}-stage1.sch to: ${BASE_DIR}/target/${schematronRoot}-stage2.sch"
+        # shellcheck disable=SC2086
         java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-            -o:"${BASE_DIR}"/target/"${schematronRoot}-stage2.sch" \
-            -s:"${BASE_DIR}"/target/"${schematronRoot}-stage1.sch" \
+            -o:"${BASE_DIR}/target/${schematronRoot}-stage2.sch" \
+            -s:"${BASE_DIR}/target/${schematronRoot}-stage1.sch" \
             "${BASE_DIR}"/../../vendor/schematron/trunk/schematron/code/iso_abstract_expand.xsl \
             $SAXON_OPTS
 
         # Use Saxon XSL transform to convert our Schematron to pure XSL 2.0 stylesheet
-        # shellcheck disable=2086
         echo "compiling: ${qualifiedSchematronName} to: ${BASE_DIR}/target/${schematronRoot}.xsl"
+        # shellcheck disable=2086
         java -cp "${SAXON_CP}" net.sf.saxon.Transform \
-            -o:"${BASE_DIR}"/target/"${schematronRoot}".xsl \
-            -s:"${BASE_DIR}"/target/"${schematronRoot}-stage2.sch" \
+            -o:"${BASE_DIR}/target/${schematronRoot}.xsl" \
+            -s:"${BASE_DIR}/target/${schematronRoot}-stage2.sch" \
             "${BASE_DIR}"/../../vendor/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl \
             $SAXON_OPTS
     fi

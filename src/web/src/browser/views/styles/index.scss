@@ -1,12 +1,12 @@
-@import '../../../../node_modules/uswds/dist/scss/theme/uswds-theme-general';
-@import '../../../../node_modules/uswds/dist/scss/theme/uswds-theme-typography';
-@import '../../../../node_modules/uswds/dist/scss/theme/uswds-theme-spacing';
-@import '../../../../node_modules/uswds/dist/scss/theme/uswds-theme-color';
-@import '../../../../node_modules/uswds/dist/scss/theme/uswds-theme-utilities';
+@import 'uswds/scss/theme/uswds-theme-general';
+@import 'uswds/scss/theme/uswds-theme-typography';
+@import 'uswds/scss/theme/uswds-theme-spacing';
+@import 'uswds/scss/theme/uswds-theme-color';
+@import 'uswds/scss/theme/uswds-theme-utilities';
 @import './uswds-theme-overrides';
-@import '../../../../node_modules/uswds/dist/scss/uswds.scss';
+@import 'uswds/scss/uswds.scss';
 
-@import '../../../../node_modules/highlight.js/scss/github.scss';
+@import 'highlight.js/scss/github.scss';
 
 .loader {
   border: 8px solid color('base-lightest');
@@ -28,15 +28,10 @@
 
 // Header & Navigation
 .beta-banner {
-  background-color: color('gold-10v');
+  background-color: color('accent-cool-lighter');
   color: color('ink');
   margin: auto 0;
-  padding: 0.1rem 0;
-
-  p {
-    margin-left: auto;
-    margin-right: auto;
-  }
+  padding: 1rem 0;
 }
 
 .bg-error-lighter {

@@ -6,6 +6,6 @@
   "scripts": {
     "build:validation-ui": "cd src/web && npm install && npm run build && cd ../..",
     "federalist": "make init-repo && npm run build:validation-ui && npm run link:validation-ui",
-    "link:validation-ui": "ln -sf ./src/web/build _site"
+    "link:validation-ui": "ln -sf ./src/web/dist _site"
   }
 }

@@ -63,6 +63,8 @@ Build requirements are:
 - gnu make
 - node.js (as versioned in [./nvmrc](./.nvmrc))
 - Java 8+
+- Python 3.9+
+- Docker
 
 For usage information, use the default target:
 
@@ -70,12 +72,14 @@ For usage information, use the default target:
 make
 ```
 
+If you are developing on Windows, [msys2](https://www.msys2.org/) may be used for the required build tools (`make` and `bash`, in particular). Follow all the suggested installation steps on the msys2 home page for a complete environment. Additionally, make sure all the build requirements (above) are available on your path.
+
 ### Implementation details
 
 FedRAMP automation is composed of the following implementation details:
 
 - [Validation rules](./src/validations/README.md) are implemented in Schematron with xspec test coverage.
-- [Web-based frontend](./src/web/README.md) provides a browser of implemented validation rules and may be used to validate a System Security Plan in-browser.
+- [Validation rules web documentation](./src/web/README.md) provides a browser of implemented validation rules and may be used to validate a System Security Plan in-browser. A deployed version is available here: [FedRAMP ASAP Validation Documentation](https://federalist-2372d2fd-fc94-42fe-bcc7-a8af4f664a51.app.cloud.gov/site/18f/fedramp-automation/)
 - [Example code](./src/examples/README.md) is provided to demonstrate how to apply the validation rules using the compiled-XSLT artifact in selected languages.
 
 ### Creating a release

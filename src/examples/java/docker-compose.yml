@@ -1,8 +1,10 @@
+---
+
 version: "3.9"
 
 services:
   example:
-    image: maven:3.8.1-openjdk-17-slim
+    build: .
     volumes:
       - ../../..:/code
     working_dir: /code/src/examples/java

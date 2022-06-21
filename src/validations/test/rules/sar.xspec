@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<x:description
+    schematron="../../rules/sar.sch"
+    xmlns:x="http://www.jenitennison.com/xslt/xspec">
+
+    <x:scenario
+        label="In FedRAMP OSCAL SAR">
+
+        <x:scenario
+            label="import-ap">
+
+            <x:context>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <import-ap
+                        href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                    <back-matter>
+                        <resource
+                            uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                            <title>Security Assessment Plan</title>
+                            <prop
+                                name="type"
+                                value="security-assessment-plan" />
+                            <rlink
+                                href="../../../../dist/content/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
+                                media-type="text/xml" />
+                        </resource>
+                    </back-matter>
+                </assessment-plan>
+            </x:context>
+
+            <x:scenario
+                label="when the import-ap element">
+
+                <x:scenario
+                    label="is present">
+                    <x:expect-not-assert
+                        id="has-import-ap"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="is absent">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <!-- missing import-ap -->
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-import-ap"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has an href attribute">
+                    <x:expect-not-assert
+                        id="has-import-ap-href"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="lacks an href attribute">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <import-ap /><!-- missing href -->
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-import-ap-href"
+                        label="that is an error" />
+                </x:scenario>
+
+            </x:scenario>
+
+            <x:scenario
+                label="when the import-ap has a relative href">
+                <x:scenario
+                    label="which refers to a resource">
+                    <x:expect-not-assert
+                        id="has-import-ap-internal-href"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="which does not refer to a resource">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <import-ap
+                                href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                            <back-matter>
+                                <!-- missing resource -->
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-import-ap-internal-href"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="when the import-ap has an external href"
+                pending="XSpec problem resolution">
+                <x:scenario
+                    label="which is available">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <import-ap
+                                href="file:/dev/null" />
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-import-ap-external-href"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="which is not available"
+                    pending="XSpec problem resolution">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <import-ap
+                                href="file:x" />
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-import-ap-external-href"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="when the import-ap has a relative href">
+                <x:scenario
+                    label="and the SSP is declared as a back-matter resource">
+                    <x:expect-not-assert
+                        id="has-security-assessment-plan-resource"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and the SSP is not declared as a back-matter resource">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <import-ap
+                                href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                            <back-matter>
+                                <!-- missing resource -->
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-security-assessment-plan-resource"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="when there is a security-assessment-plan resource">
+
+                <x:scenario
+                    label="and it has one and only one rlink">
+                    <x:expect-not-assert
+                        id="has-sap-rlink"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="and it lacks an rlink">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <import-ap
+                                href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                            <back-matter>
+                                <resource
+                                    uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                                    <title>Security Assessment Plan</title>
+                                    <prop
+                                        name="type"
+                                        value="security-assessment-plan" />
+                                    <!-- missing rlink -->
+                                </resource>
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-sap-rlink"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="and it has more than one one rlink">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <import-ap
+                                href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                            <back-matter>
+                                <resource
+                                    uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                                    <title>Security Assessment Plan</title>
+                                    <prop
+                                        name="type"
+                                        value="security-assessment-plan" />
+                                    <rlink
+                                        href="../../../../dist/content/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
+                                        media-type="text/xml" />
+                                    <rlink
+                                        href="../../../../dist/content/templates/ssp/json/FedRAMP-SAR-OSCAL-Template.json"
+                                        media-type="application/json" />
+                                </resource>
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-sap-rlink"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="and the rlink has an allowed media-type">
+                    <x:expect-not-assert
+                        id="has-acceptable-security-assessment-plan-rlink-media-type"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and the rlink lacks an allowed media-type">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <import-ap
+                                href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                            <back-matter>
+                                <resource
+                                    uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                                    <title>Security Assessment Plan</title>
+                                    <prop
+                                        name="type"
+                                        value="security-assessment-plan" />
+                                    <rlink
+                                        href="../../../../dist/content/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
+                                        media-type="text/markdown" />
+                                </resource>
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-acceptable-security-assessment-plan-rlink-media-type"
+                        label="that is an error" />
+                </x:scenario>
+
+                <!-- TODO: 
+                    Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5 allows base64
+                    but it also uses href on base64 so may be bogus.
+                    Pending base64 restriction until verified.
+            -->
+                <x:scenario
+                    label="and it lacks a base64"
+                    pending="base64 usage verification">
+                    <x:expect-not-assert
+                        id="has-no-base64"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="and it has a base64"
+                    pending="base64 usage verification">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <import-ap
+                                href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
+                            <back-matter>
+                                <resource
+                                    uuid="bf974aa0-d662-4aef-a7a5-8f4cce398746">
+                                    <title>Security Assessment Plan</title>
+                                    <prop
+                                        name="type"
+                                        value="security-assessment-plan" />
+                                    <base64 />
+                                </resource>
+                            </back-matter>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-no-base64"
+                        label="that is an error" />
+                </x:scenario>
+
+            </x:scenario>
+
+        </x:scenario>
+
+        <x:scenario
+            label="age-checks">
+
+            <!-- WARNING: The related checks depend on current-dateTime() -->
+            <!-- These contexts will drift out of relevance unless updated -->
+
+            <x:scenario
+                label="when a result">
+
+                <x:scenario
+                    label="has an end">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <end>2022-05-06T00:00:00Z</end>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="assessment-has-ended"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="lacks an end">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <!--<end>2022-05-06T00:00:00Z</end>-->
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="assessment-has-ended"
+                        label="that is a warning" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has start prior to end">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <end>2022-05-06T00:00:00Z</end>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="start-precedes-end"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has end prior to start">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-06T00:00:00Z</start>
+                                <end>2022-05-02T00:00:00Z</end>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="start-precedes-end"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has contemporary assessment">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <end>2022-05-06T00:00:00Z</end>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-contemporary-assessment"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="lacks contemporary assessment">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2021-05-02T00:00:00Z</start>
+                                <end>2021-05-06T00:00:00Z</end>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-contemporary-assessment"
+                        label="that is an error" />
+                </x:scenario>
+
+                <x:scenario
+                    label="has recent observation">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <end>2022-05-06T00:00:00Z</end>
+                                <observation
+                                    uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96">
+                                    <collected>2022-05-04T12:00:00Z</collected>
+                                </observation>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="result-observations-are-recent"
+                        label="that is correct" />
+                </x:scenario>
+
+                <x:scenario
+                    label="lacks recent observation">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <result
+                                uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                <start>2022-05-02T00:00:00Z</start>
+                                <end>2022-05-06T00:00:00Z</end>
+                                <observation
+                                    uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96">
+                                    <collected>2021-05-04T00:00:00Z</collected>
+                                </observation>
+                            </result>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="result-observations-are-recent"
+                        label="that is an error" />
+                </x:scenario>
+
+            </x:scenario>
+
+        </x:scenario>
+
+    </x:scenario>
+
+</x:description>
