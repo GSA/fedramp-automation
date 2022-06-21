@@ -26,11 +26,17 @@ export const logValidationSummary =
   (documentType: OscalDocumentKey) =>
   ({ effects, getState }: ActionContext) => {
     if (getState().validator.current === 'VALIDATED') {
+      const validationResult = getState().validationResults[documentType];
       effects.useCases.appMetrics.log({
         eventType: 'validation-summary',
         userAlias: undefined,
         data: {
-          failedAsserts: 0, // TODO: getState().oscalDocuments[documentType].failedAssertionCounts,
+          failedAsserts:
+            validationResult.current === 'HAS_RESULT'
+              ? validationResult.validationReport.failedAsserts.map(
+                  assert => assert.id,
+                )
+              : null,
         },
       });
     }
