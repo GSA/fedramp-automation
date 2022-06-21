@@ -5,18 +5,8 @@ import { ValidatorFileSelectForm } from './ValidatorFileSelectForm';
 import { ValidatorReport } from './ValidatorReport';
 import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
 import { useAppState } from '../hooks';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 import classnames from 'classnames';
-
-const NavLink = styled.a`
-  color: var(--theme-grey-text);
-  text-decoration: none;
-  line-height: 0.9;
-  :visited {
-    color: var(--theme-grey-text);
-  }
-`;
+import '../styles/ValidatorPage.scss';
 
 const DocumentValidator = ({
   documentType,
@@ -55,15 +45,15 @@ export const ValidatorPage = ({
         className="display-none desktop:display-block padding-y-2 border-base-light border-bottom-1px"
       >
         <div className="grid-container grid-row flex-row flex-justify">
-          <NavLink
+          <a
             className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSummary',
             })}
             href={getUrl(Routes.documentSummary)}
           >
             Summary
-          </NavLink>
-          <NavLink
+          </a>
+          <a
             className={classnames({
               'active-link': router.currentRoute.type === 'DocumentPOAM',
             })}
@@ -71,17 +61,12 @@ export const ValidatorPage = ({
           >
             Plan of Action and Milestones
             {oscalDocuments.poam.counts.fired > 0 && (
-              <span
-                className="usa-tag margin-left-1"
-                css={css`
-                  background-color: var(--theme-red);
-                `}
-              >
+              <span className="usa-tag margin-left-1 bg-theme-red">
                 {oscalDocuments.poam.counts.fired}
               </span>
             )}
-          </NavLink>
-          <NavLink
+          </a>
+          <a
             className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSAP',
             })}
@@ -89,17 +74,12 @@ export const ValidatorPage = ({
           >
             Security Assessment Plan
             {oscalDocuments.sap.counts.fired > 0 && (
-              <span
-                className="usa-tag margin-left-1"
-                css={css`
-                  background-color: var(--theme-red);
-                `}
-              >
+              <span className="usa-tag margin-left-1 bg-theme-red">
                 {oscalDocuments.sap.counts.fired}
               </span>
             )}
-          </NavLink>
-          <NavLink
+          </a>
+          <a
             className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSAR',
             })}
@@ -107,17 +87,12 @@ export const ValidatorPage = ({
           >
             Security Assessment Report
             {oscalDocuments.sar.counts.fired > 0 && (
-              <span
-                className="usa-tag margin-left-1"
-                css={css`
-                  background-color: var(--theme-red);
-                `}
-              >
+              <span className="usa-tag margin-left-1 bg-theme-red">
                 {oscalDocuments.sar.counts.fired}
               </span>
             )}
-          </NavLink>
-          <NavLink
+          </a>
+          <a
             className={classnames({
               'active-link': router.currentRoute.type === 'DocumentSSP',
             })}
@@ -125,16 +100,11 @@ export const ValidatorPage = ({
           >
             System Security Plan
             {oscalDocuments.ssp.counts.fired > 0 && (
-              <span
-                className="usa-tag margin-left-1"
-                css={css`
-                  background-color: var(--theme-red);
-                `}
-              >
+              <span className="usa-tag margin-left-1 bg-theme-red">
                 {oscalDocuments.ssp.counts.fired}
               </span>
             )}
-          </NavLink>
+          </a>
         </div>
       </nav>
 
