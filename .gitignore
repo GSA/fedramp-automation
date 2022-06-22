@@ -20,5 +20,9 @@ src/validations/test/rules/sar-result.html
 src/validations/test/rules/ssp-result.html
 src/validations/test/rules/sap-result.html
 
+# XSpec artifacts (from OxygenXML XSpec use)
+src/validations/test/rules/xspec
+
 # OxygenXML project files
 *.xpr
+
