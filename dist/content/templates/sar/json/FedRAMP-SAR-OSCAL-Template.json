@@ -470,7 +470,7 @@
       "remarks": "This OSCAL-based FedRAMP SAR Template can be used for the FedRAMP initial or annual assessment reporting."
     },
     "import-ap": {
-      "href": "../sap/FedRAMP-SAP-OSCAL-Template.xml",
+      "href": "../sap/FedRAMP-SAP-OSCAL-Template.json",
       "remarks": "FedRAMP prefers the path for the SAP be relative to the location of this SAR file. Absolute links will not work when FedRAMP tools import the content.\n\nThis may point to a back-matter resource using a URI fragment."
     },
     "local-definitions": {
