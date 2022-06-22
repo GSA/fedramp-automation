@@ -1,23 +1,37 @@
-import type { PresenterConfig } from '..';
+import { OscalDocumentKey } from '@asap/shared/domain/oscal';
+import type { ActionContext } from '..';
 
-export const initialize = ({ effects, state }: PresenterConfig) => {
+export const initialize = ({ dispatch, effects }: ActionContext) => {
   effects.useCases.getXSpecScenarioSummaries().then(xspecScenarioSummaries => {
-    state.assertionDocumentation.send('SUMMARIES_LOADED', {
-      xspecScenarioSummaries,
+    dispatch({
+      machine: 'assertionDocumentation',
+      type: 'ASSERTION_DOCUMENTATION_SUMMARIES_LOADED',
+      data: {
+        xspecScenarioSummaries,
+      },
     });
   });
 };
 
-export const close = ({ state }: PresenterConfig) => {
-  state.assertionDocumentation.send('CLOSE', {});
-};
-
-export const show = (
-  { state }: PresenterConfig,
-  { assertionId, documentType }: { assertionId: string; documentType: string },
-) => {
-  state.assertionDocumentation.send('SHOW', {
-    assertionId,
-    documentType,
+export const close = ({ dispatch }: ActionContext) => {
+  dispatch({
+    machine: 'assertionDocumentation',
+    type: 'ASSERTION_DOCUMENTATION_CLOSE',
   });
 };
+
+export const show =
+  ({
+    assertionId,
+    documentType,
+  }: {
+    assertionId: string;
+    documentType: OscalDocumentKey;
+  }) =>
+  ({ dispatch }: ActionContext) => {
+    dispatch({
+      machine: 'assertionDocumentation',
+      type: 'ASSERTION_DOCUMENTATION_SHOW',
+      data: { assertionId, documentType },
+    });
+  };

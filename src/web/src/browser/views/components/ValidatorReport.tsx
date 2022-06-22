@@ -1,37 +1,50 @@
-import React from 'react';
 import spriteSvg from 'uswds/img/sprite.svg';
 
+import * as assertionDocumentation from '@asap/browser/presenter/actions/assertion-documentation';
+import { showAssertionContext } from '@asap/browser/presenter/actions/validator';
+import {
+  selectFilterOptions,
+  selectSchematronReport,
+} from '@asap/browser/presenter/state/selectors';
+import { getAssertionViewTitleByIndex } from '@asap/browser/presenter/state/schematron-machine';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import { Routes, getUrl } from '@asap/browser/presenter/state/router';
 
 import { colorTokenForRole } from '../../util/styles';
-import { useActions, useAppState } from '../hooks';
+import { useAppContext } from '../context';
 
 type Props = {
   documentType: OscalDocumentKey;
 };
 
 export const ValidatorReport = ({ documentType }: Props) => {
-  const schematronReport =
-    useAppState().oscalDocuments[documentType].schematronReport;
+  const { dispatch, state } = useAppContext();
+  const oscalDocument = state.oscalDocuments[documentType];
+  const validationResult = state.validationResults[documentType];
 
-  const actions = useActions();
+  const filterOptions = selectFilterOptions(documentType)(state);
+  const schematronReport = selectSchematronReport(documentType)(state);
+  const viewTitle = getAssertionViewTitleByIndex(
+    filterOptions.assertionViews,
+    oscalDocument.filter.assertionViewId,
+  );
+
   return (
     <>
       <div className="top-0 bg-white padding-top-1 padding-bottom-1">
         <h1 className="margin-0">
-          {schematronReport.summary.title}
+          {validationResult.summary.title}
           <span
             className="font-heading-sm text-secondary-light"
             style={{ float: 'right' }}
           >
             <span className={`text-blue`}>
-              {schematronReport.summary.counts.assertions} concerns
+              {validationResult.summary.firedCount} concerns TODO: This should
+              be count of filtered assertions
             </span>
           </span>
         </h1>
         <h2 className="margin-top-05 margin-bottom-0 text-normal">
-          {schematronReport.summary.subtitle}
+          {viewTitle}
         </h2>
       </div>
       {schematronReport.groups.map(group => (
@@ -68,10 +81,12 @@ export const ValidatorReport = ({ documentType }: Props) => {
                   <button
                     className="usa-button usa-button--unstyled"
                     onClick={() =>
-                      actions.assertionDocumentation.show({
-                        assertionId: check.id,
-                        documentType,
-                      })
+                      dispatch(
+                        assertionDocumentation.show({
+                          assertionId: check.id,
+                          documentType,
+                        }),
+                      )
                     }
                     title="View examples"
                   >
@@ -96,10 +111,12 @@ export const ValidatorReport = ({ documentType }: Props) => {
                             className="usa-tooltip"
                             data-position="bottom"
                             onClick={() =>
-                              actions.documentViewer.showAssertionContext({
-                                assertionId: firedCheck.uniqueId,
-                                documentType,
-                              })
+                              dispatch(
+                                showAssertionContext({
+                                  assertionId: firedCheck.uniqueId,
+                                  documentType,
+                                }),
+                              )
                             }
                             title="Show source document context"
                           >

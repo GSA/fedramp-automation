@@ -1,4 +1,3 @@
-import React from 'react';
 import iconDotGov from 'uswds/img/icon-dot-gov.svg';
 import iconHttps from 'uswds/src/img/icon-https.svg';
 import usFlagSmall from 'uswds/src/img/us_flag_small.png';
