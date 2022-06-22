@@ -1,10 +1,13 @@
+import classnames from 'classnames';
+
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-
+import { HeadingOne } from './HeadingOne';
 import { ValidatorFileSelectForm } from './ValidatorFileSelectForm';
 import { ValidatorReport } from './ValidatorReport';
 import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
 import { useAppContext } from '../context';
+import '../styles/ValidatorPage.scss';
 
 const DocumentValidator = ({
   documentType,
@@ -30,115 +33,140 @@ export const ValidatorPage = ({
 }: {
   documentType: OscalDocumentKey | null;
 }) => {
-  const { router } = useAppContext().state;
-  const { oscalDocuments, validationResults } = useAppContext().state;
+  const { oscalDocuments, router, validationResults } = useAppContext().state;
   return (
     <>
-      <div className="grid-row">
-        <h1>FedRAMP OSCAL Document Rules</h1>
-        <div className="mobile:grid-col-12">
-          You may use this tool to browse FedRAMP OSCAL validation rules and
-          apply them to your own documents.
+      <HeadingOne
+        heading="FedRAMP OSCAL Document Rules"
+        secondaryText="Browse FedRAMP OSCAL validation rules and
+          apply them to your own documents"
+      />
+      <nav
+        aria-label="Secondary navigation"
+        className="display-none desktop:display-block padding-y-2 border-base-light border-bottom-1px"
+      >
+        <div className="grid-container grid-row flex-row flex-justify">
+          <a
+            className={classnames({
+              'active-link': router.currentRoute.type === 'DocumentSummary',
+            })}
+            href={getUrl(Routes.documentSummary)}
+          >
+            Summary
+          </a>
+          <a
+            className={classnames({
+              'active-link': router.currentRoute.type === 'DocumentPOAM',
+            })}
+            href={getUrl(Routes.documentPOAM)}
+          >
+            Plan of Action and Milestones
+            {validationResults.poam.current === 'HAS_RESULT' && (
+              <span className="usa-tag margin-left-1 bg-theme-red">
+                {validationResults.poam.summary.firedCount}
+              </span>
+            )}
+          </a>
+          <a
+            className={classnames({
+              'active-link': router.currentRoute.type === 'DocumentSAP',
+            })}
+            href={getUrl(Routes.documentSAP)}
+          >
+            Security Assessment Plan
+            {validationResults.sap.current === 'HAS_RESULT' && (
+              <span className="usa-tag margin-left-1 bg-theme-red">
+                {validationResults.sap.summary.firedCount}
+              </span>
+            )}
+          </a>
+          <a
+            className={classnames({
+              'active-link': router.currentRoute.type === 'DocumentSAR',
+            })}
+            href={getUrl(Routes.documentSAR)}
+          >
+            Security Assessment Report
+            {validationResults.sar.current === 'HAS_RESULT' && (
+              <span className="usa-tag margin-left-1 bg-theme-red">
+                {validationResults.sar.summary.firedCount}
+              </span>
+            )}
+          </a>
+          <a
+            className={classnames({
+              'active-link': router.currentRoute.type === 'DocumentSSP',
+            })}
+            href={getUrl(Routes.documentSSP)}
+          >
+            System Security Plan
+            {validationResults.ssp.current === 'HAS_RESULT' && (
+              <span className="usa-tag margin-left-1 bg-theme-red">
+                {validationResults.ssp.summary.firedCount}
+              </span>
+            )}
+          </a>
         </div>
-      </div>
-      <div className="grid-row grid-gap">
-        <div className="tablet:grid-col-12">
-          <h1>Choose an XML file to process</h1>
+      </nav>
+
+      <div className="grid-container">
+        <div className="grid-row grid-gap">
+          <div className="tablet:grid-col-12">
+            <h1>Choose an XML file to process</h1>
+          </div>
+          <ValidatorFileSelectForm />
         </div>
-        <ValidatorFileSelectForm />
+
+        {documentType ? (
+          <DocumentValidator documentType={documentType} />
+        ) : (
+          <table className="usa-table">
+            <thead>
+              <tr>
+                <th>Document</th>
+                <th>Rules</th>
+                <th>Flagged</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
+                </td>
+                <td>{oscalDocuments.ssp.config.schematronAsserts.length}</td>
+                <td>{validationResults.ssp.summary.firedCount}</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href={getUrl(Routes.documentSAR)}>
+                    Security Assessment Report
+                  </a>
+                </td>
+                <td>{oscalDocuments.sar.config.schematronAsserts.length}</td>
+                <td>{validationResults.sar.summary.firedCount}</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href={getUrl(Routes.documentSAP)}>
+                    Security Assessment Plan
+                  </a>
+                </td>
+                <td>{oscalDocuments.sap.config.schematronAsserts.length}</td>
+                <td>{validationResults.sap.summary.firedCount}</td>
+              </tr>
+              <tr>
+                <td>
+                  <a href={getUrl(Routes.documentPOAM)}>
+                    Plan of Action and Milestones
+                  </a>
+                </td>
+                <td>{oscalDocuments.poam.config.schematronAsserts.length}</td>
+                <td>{validationResults.poam.summary.firedCount}</td>
+              </tr>
+            </tbody>
+          </table>
+        )}
       </div>
-      <div>
-        <ul>
-          <li>
-            {router.currentRoute.type === 'DocumentSummary' ? (
-              'Summary'
-            ) : (
-              <a href={getUrl(Routes.documentSummary)}>Summary</a>
-            )}
-          </li>
-          <li>
-            {router.currentRoute.type === 'DocumentPOAM' ? (
-              'Plan of Action and Milestones'
-            ) : (
-              <a href={getUrl(Routes.documentPOAM)}>
-                Plan of Action and Milestones
-              </a>
-            )}
-          </li>
-          <li>
-            {router.currentRoute.type === 'DocumentSAP' ? (
-              'Security Assessment Plan'
-            ) : (
-              <a href={getUrl(Routes.documentSAP)}>Security Assessment Plan</a>
-            )}
-          </li>
-          <li>
-            {router.currentRoute.type === 'DocumentSAR' ? (
-              'Security Assessment Report'
-            ) : (
-              <a href={getUrl(Routes.documentSAR)}>
-                Security Assessment Report
-              </a>
-            )}
-          </li>
-          <li>
-            {router.currentRoute.type === 'DocumentSSP' ? (
-              'System Security Plan'
-            ) : (
-              <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
-            )}
-          </li>
-        </ul>
-      </div>
-      {documentType ? (
-        <DocumentValidator documentType={documentType} />
-      ) : (
-        <table className="usa-table">
-          <thead>
-            <tr>
-              <th>Document</th>
-              <th>Rules</th>
-              <th>Flagged</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
-              </td>
-              <td>{oscalDocuments.ssp.config.schematronAsserts.length}</td>
-              <td>{validationResults.ssp.summary.firedCount}</td>
-            </tr>
-            <tr>
-              <td>
-                <a href={getUrl(Routes.documentSAR)}>
-                  Security Assessment Report
-                </a>
-              </td>
-              <td>{oscalDocuments.sar.config.schematronAsserts.length}</td>
-              <td>{validationResults.sar.summary.firedCount}</td>
-            </tr>
-            <tr>
-              <td>
-                <a href={getUrl(Routes.documentSAP)}>
-                  Security Assessment Plan
-                </a>
-              </td>
-              <td>{oscalDocuments.sap.config.schematronAsserts.length}</td>
-              <td>{validationResults.sap.summary.firedCount}</td>
-            </tr>
-            <tr>
-              <td>
-                <a href={getUrl(Routes.documentPOAM)}>
-                  Plan of Action and Milestones
-                </a>
-              </td>
-              <td>{oscalDocuments.poam.config.schematronAsserts.length}</td>
-              <td>{validationResults.poam.summary.firedCount}</td>
-            </tr>
-          </tbody>
-        </table>
-      )}
     </>
   );
 };
