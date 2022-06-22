@@ -38,8 +38,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
             style={{ float: 'right' }}
           >
             <span className={`text-blue`}>
-              {validationResult.summary.firedCount} concerns TODO: This should
-              be count of filtered assertions
+              {schematronReport.assertionCount} concerns
             </span>
           </span>
         </h1>
