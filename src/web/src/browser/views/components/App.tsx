@@ -38,9 +38,7 @@ const CurrentPage = () => {
     }[currentRoute.type] as OscalDocumentKey | null;
     return (
       <>
-        <InnerPageLayout>
-          <ValidatorPage documentType={documentType} />
-        </InnerPageLayout>
+        <ValidatorPage documentType={documentType} />
         <AssertionDocumentationOverlay />
         {documentType ? (
           <DocumentViewerOverlay documentType={documentType} />
