@@ -1,12 +1,12 @@
 import classnames from 'classnames';
-import React from 'react';
 import closeSvg from 'uswds/img/usa-icons/close.svg';
 
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
-import { useAppState } from '../hooks';
+import { useAppContext } from '../context';
 
 export const Header = () => {
-  const { currentRoute } = useAppState().router;
+  const { currentRoute } = useAppContext().state.router;
+
   return (
     <header className="usa-header usa-header--basic usa-header--megamenu">
       <div className="usa-nav-container">

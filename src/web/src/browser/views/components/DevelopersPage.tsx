@@ -1,9 +1,7 @@
-import React from 'react';
-
-import { useAppState } from '../hooks';
+import { useAppContext } from '../context';
 
 export const DevelopersPage = () => {
-  const { developerExampleUrl } = useAppState().sourceRepository;
+  const { developerExampleUrl } = useAppContext().state.config.sourceRepository;
   return (
     <>
       <h1>Developers</h1>

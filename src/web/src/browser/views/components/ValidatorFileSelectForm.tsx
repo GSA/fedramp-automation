@@ -1,14 +1,11 @@
-import React from 'react';
 import spriteSvg from 'uswds/img/sprite.svg';
 
 import { onFileInputChangeGetFile } from '../../util/file-input';
-import { useActions, useAppState } from '../hooks';
+import * as validator from '../../presenter/actions/validator';
+import { useAppContext } from '../context';
 
 export const ValidatorFileSelectForm = () => {
-  const actions = useActions();
-  const state = useAppState();
-
-  const sourceRepository = state.sourceRepository;
+  const { dispatch, state } = useAppContext();
 
   return (
     <>
@@ -24,10 +21,12 @@ export const ValidatorFileSelectForm = () => {
           aria-describedby="file-input-specific-hint"
           accept=".xml,.json"
           onChange={onFileInputChangeGetFile(fileDetails => {
-            actions.validator.validateOscalDocument({
-              fileName: fileDetails.name,
-              fileContents: fileDetails.text,
-            });
+            dispatch(
+              validator.validateOscalDocument({
+                fileName: fileDetails.name,
+                fileContents: fileDetails.text,
+              }),
+            );
           })}
           disabled={state.validator.current === 'PROCESSING'}
         />
@@ -75,21 +74,29 @@ export const ValidatorFileSelectForm = () => {
           id="sample-document"
           disabled={state.validator.current === 'PROCESSING'}
           onChange={event => {
-            actions.validator.setXmlUrl(
-              event.target.options[event.target.selectedIndex].value,
+            window.requestAnimationFrame(() =>
+              dispatch(
+                validator.setXmlUrl(
+                  event.target.options[event.target.selectedIndex].value,
+                ),
+              ),
             );
           }}
         >
           <option value=""></option>
-          {sourceRepository.sampleDocuments.map((sampleDocument, index) => (
-            <option
-              key={index}
-              onSelect={() => actions.validator.setXmlUrl(sampleDocument.url)}
-              value={sampleDocument.url}
-            >
-              {sampleDocument.displayName}
-            </option>
-          ))}
+          {state.config.sourceRepository.sampleDocuments.map(
+            (sampleDocument, index) => (
+              <option
+                key={index}
+                onSelect={() =>
+                  dispatch(validator.setXmlUrl(sampleDocument.url))
+                }
+                value={sampleDocument.url}
+              >
+                {sampleDocument.displayName}
+              </option>
+            ),
+          )}
         </select>
         {state.validator.current === 'PROCESSING_ERROR' && (
           <div className="usa-alert usa-alert--error" role="alert">

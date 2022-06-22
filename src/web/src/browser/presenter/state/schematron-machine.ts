@@ -1,47 +1,54 @@
-import { derived, Statemachine, statemachine } from 'overmind';
+import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
+import type { SchematronAssert } from '@asap/shared/use-cases/schematron';
 
-import type { FailedAssert } from '@asap/shared/use-cases/schematron';
-import {
-  getFilterOptions,
-  PassStatus,
-  Role,
-  SchematronFilter,
-  SchematronFilterOptions,
-  SchematronReport,
-  SchematronUIConfig,
-} from '../lib/schematron';
-import { getSchematronReport } from '../lib/schematron';
-import {
-  createValidationResultsMachine,
-  ValidationResultsMachine,
-} from './validation-results-machine';
+export type Role = string;
+export type PassStatus = 'pass' | 'fail' | 'all';
 
-type States =
-  | {
-      current: 'INITIALIZED';
-    }
-  | {
-      current: 'UNINITIALIZED';
-    };
-
-type BaseState = {
-  config: SchematronUIConfig;
-  failedAssertionCounts: Record<FailedAssert['id'], number> | null;
-  filter: SchematronFilter;
-  filterOptions: SchematronFilterOptions;
-  counts: {
-    fired: number | null;
-    total: number | null;
-  };
-  schematronReport: SchematronReport;
-  validationResults: ValidationResultsMachine;
+export type FilterOptions = {
+  assertionViews: {
+    index: number;
+    title: string;
+    count: number;
+  }[];
+  roles: {
+    name: Role;
+    subtitle: string;
+    count: number;
+  }[];
+  passStatuses: {
+    id: PassStatus;
+    title: string;
+    enabled: boolean;
+    count: number;
+  }[];
 };
 
-type Events =
+export type BaseState = {
+  config: {
+    assertionViews: AssertionView[];
+    schematronAsserts: SchematronAssert[];
+  };
+  filter: {
+    role: Role;
+    text: string;
+    assertionViewId: number;
+    passStatus: PassStatus;
+  };
+};
+
+export type State =
+  | (BaseState & {
+      current: 'INITIALIZED';
+    })
+  | (BaseState & {
+      current: 'UNINITIALIZED';
+    });
+
+export type StateTransition =
   | {
       type: 'CONFIG_LOADED';
       data: {
-        config: SchematronUIConfig;
+        config: State['config'];
       };
     }
   | {
@@ -69,116 +76,82 @@ type Events =
       };
     };
 
-export type SchematronMachine = Statemachine<States, Events, BaseState>;
+export const getAssertionViewTitleByIndex = (
+  assertionViews: FilterOptions['assertionViews'],
+  index: number,
+) => {
+  if (assertionViews.length === 0) {
+    return '';
+  }
+  return assertionViews
+    .filter(view => view.index === index)
+    .map(() => {
+      return assertionViews[index];
+    })[0].title;
+};
 
-const schematronMachine = statemachine<States, Events, BaseState>({
-  UNINITIALIZED: {
-    CONFIG_LOADED: ({ config }) => {
+export const nextState = (state: State, event: StateTransition): State => {
+  if (state.current === 'UNINITIALIZED') {
+    if (event.type === 'CONFIG_LOADED') {
       return {
         current: 'INITIALIZED',
-        config,
+        filter: {
+          passStatus: 'all',
+          role: 'all',
+          text: '',
+          assertionViewId: 0,
+        },
+        config: event.data.config,
       };
-    },
-  },
-  INITIALIZED: {
-    FILTER_TEXT_CHANGED: ({ text }, state) => {
+    }
+  } else if (state.current === 'INITIALIZED') {
+    if (event.type === 'FILTER_TEXT_CHANGED') {
       return {
-        current: 'INITIALIZED',
-        config: state.config,
+        ...state,
         filter: {
           ...state.filter,
-          text,
+          text: event.data.text,
         },
       };
-    },
-    FILTER_ROLE_CHANGED: ({ role }, state) => {
+    } else if (event.type === 'FILTER_ROLE_CHANGED') {
       return {
-        current: 'INITIALIZED',
-        config: state.config,
+        ...state,
         filter: {
           ...state.filter,
-          role,
+          role: event.data.role,
         },
       };
-    },
-    FILTER_ASSERTION_VIEW_CHANGED: ({ assertionViewId }, state) => {
+    } else if (event.type === 'FILTER_ASSERTION_VIEW_CHANGED') {
       return {
-        current: 'INITIALIZED',
-        config: state.config,
+        ...state,
         filter: {
           ...state.filter,
-          assertionViewId,
+          assertionViewId: event.data.assertionViewId,
         },
       };
-    },
-    FILTER_PASS_STATUS_CHANGED: ({ passStatus }, state) => {
+    } else if (event.type === 'FILTER_PASS_STATUS_CHANGED') {
       return {
-        current: 'INITIALIZED',
-        config: state.config,
+        ...state,
         filter: {
           ...state.filter,
-          passStatus,
+          passStatus: event.data.passStatus,
         },
       };
-    },
-  },
-});
+    }
+  }
+  return state;
+};
 
-export const createSchematronMachine = () => {
-  return schematronMachine.create(
-    { current: 'UNINITIALIZED' },
-    {
-      config: {
-        assertionViews: [],
-        schematronAsserts: [],
-      },
-      failedAssertionCounts: derived((state: SchematronMachine) => {
-        return state.validationResults.current === 'HAS_RESULT'
-          ? state.validationResults.validationReport.failedAsserts.reduce<
-              Record<string, number>
-            >((acc, assert) => {
-              acc[assert.id] = (acc[assert.id] || 0) + 1;
-              return acc;
-            }, {})
-          : null;
-      }),
-      filter: {
-        passStatus: 'all',
-        role: 'all',
-        text: '',
-        assertionViewId: 0,
-      },
-      filterOptions: derived((state: SchematronMachine) => {
-        return getFilterOptions({
-          config: state.config,
-          filter: state.filter,
-          failedAssertionMap: state.validationResults.assertionsById,
-        });
-      }),
-      counts: derived((state: SchematronMachine) => {
-        return {
-          fired:
-            state.validationResults.current === 'HAS_RESULT'
-              ? state.validationResults.validationReport.failedAsserts.length
-              : null,
-          total: state.config.schematronAsserts.length,
-        };
-      }),
-      schematronReport: derived((state: SchematronMachine) =>
-        getSchematronReport({
-          config: state.config,
-          filter: state.filter,
-          filterOptions: state.filterOptions,
-          validator: {
-            failedAssertionMap: state.validationResults.assertionsById,
-            title:
-              state.validationResults.current === 'HAS_RESULT'
-                ? state.validationResults.validationReport.title
-                : 'FedRAMP Package Concerns',
-          },
-        }),
-      ),
-      validationResults: createValidationResultsMachine(),
-    },
-  );
+export const initialState: State = {
+  current: 'UNINITIALIZED',
+  config: {
+    assertionViews: [],
+    schematronAsserts: [],
+  },
+  filter: {
+    passStatus: 'all',
+    role: 'all',
+    text: '',
+    assertionViewId: 0,
+  },
 };

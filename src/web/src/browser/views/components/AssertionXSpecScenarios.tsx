@@ -1,5 +1,3 @@
-import React from 'react';
-
 import type { ScenarioSummary } from '@asap/shared/domain/xspec';
 import { CodeViewer } from './CodeViewer';
 
