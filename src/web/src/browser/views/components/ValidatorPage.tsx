@@ -15,13 +15,13 @@ const DocumentValidator = ({
   documentType: OscalDocumentKey;
 }) => (
   <>
-    <div className="grid-row grid-gap">
-      <div className="mobile:grid-col-12 tablet:grid-col-4">
-        <div className="position-sticky top-0bg-white padding-top-4">
+    <div className="grid-row grid-gap tablet:padding-top-5">
+      <div className="tablet:grid-col-4">
+        <div className="position-sticky top-1 height-viewport overflow-y-auto">
           <ValidatorResultsFilterForm documentType={documentType} />
         </div>
       </div>
-      <div className="mobile:grid-col-12 tablet:grid-col-8">
+      <div className="tablet:grid-col-8">
         <ValidatorReport documentType={documentType} />
       </div>
     </div>

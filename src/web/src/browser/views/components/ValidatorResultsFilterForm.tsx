@@ -7,6 +7,7 @@ import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { colorTokenForRole } from '../../util/styles';
 import { useAppContext } from '../context';
 import { selectFilterOptions } from '@asap/browser/presenter/state/selectors';
+import '../styles/ValidatorResultsFilterForm.scss';
 
 type Props = {
   documentType: OscalDocumentKey;
@@ -27,10 +28,49 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
   };
   return (
     <>
-      <h2 ref={topRef}>Filtering Options</h2>
-      <form className="usa-form padding-top-1">
+      <aside className="padding-y-2 radius-lg padding-x-3">
+        <h2 className=" font-sans-xl" ref={topRef}>
+          Filtering Options
+        </h2>
+
+        <div
+          className="usa-search usa-search--small margin-bottom-2"
+          role="search"
+        >
+          <label className="usa-sr-only" htmlFor="search-field-en-small">
+            Search
+          </label>
+          <input
+            className="usa-input"
+            type="search"
+            name="search"
+            id={`${documentType}-search-field`}
+            autoComplete="off"
+            onChange={event => {
+              let text = '';
+              if (event && event.target) {
+                text = event.target.value;
+              }
+              dispatch(schematron.setFilterText({ documentType, text }));
+            }}
+            placeholder="Search text..."
+          />
+          <button className="usa-button" type="submit">
+            <svg
+              aria-hidden="true"
+              role="img"
+              focusable="false"
+              className="usa-icon"
+            >
+              <use
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                xlinkHref={`${spriteSvg}#search`}
+              />
+            </svg>
+          </button>
+        </div>
         <fieldset className="usa-fieldset">
-          <legend className="usa-legend text-base font-sans-md">
+          <legend className="usa-legend font-sans-md">
             Filter by pass status
           </legend>
           <div className="usa-radio">
@@ -107,52 +147,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
               </div>
             ))}
           </div>
-          <legend className="usa-legend font-sans-md">
-            Filter by assertion text
-          </legend>
-          <span className="usa-hint">
-            Filtered results appear as you type, showing exact matches.
-          </span>
-          <div
-            className="usa-search usa-search--small margin-top-1"
-            role="search"
-          >
-            <label
-              className="usa-sr-only"
-              htmlFor={`${documentType}-search-field`}
-            >
-              Search assertion text
-            </label>
-            <div className="usa-input-group">
-              <div className="usa-input-prefix" aria-hidden="true">
-                <svg
-                  aria-hidden="true"
-                  role="img"
-                  focusable="false"
-                  className="usa-icon"
-                >
-                  <use
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    xlinkHref={`${spriteSvg}#search`}
-                  />
-                </svg>
-              </div>
-              <input
-                id={`${documentType}-search-field`}
-                type="search"
-                className="usa-input"
-                autoComplete="off"
-                onChange={event => {
-                  let text = '';
-                  if (event && event.target) {
-                    text = event.target.value;
-                  }
-                  dispatch(schematron.setFilterText({ documentType, text }));
-                }}
-                placeholder="Search text..."
-              />
-            </div>
-          </div>
+
           <div className="usa-radio">
             <legend className="usa-legend font-sans-md">
               Filter by severity
@@ -211,7 +206,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
             ))}
           </div>
         </fieldset>
-      </form>
+      </aside>
     </>
   );
 };
