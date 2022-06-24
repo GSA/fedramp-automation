@@ -693,7 +693,7 @@
       "remarks": "This OSCAL-based FedRAMP SSP Template can be used for the FedRAMP Low, Moderate, and High baselines.\n\nGuidance for OSCAL-based FedRAMP Tailored Low Impact - Software as a Service (LI-SaaS) content has not yet been developed."
     },
     "import-profile": {
-      "href": "https://raw.githubusercontent.com/GSA/fedramp-automation/release/fedramp1.0.0-oscal1.0.0/baselines/rev4/xml/FedRAMP_rev4_MODERATE-baseline_profile.xml",
+      "href": "https://raw.githubusercontent.com/GSA/fedramp-automation/release/fedramp1.0.0-oscal1.0.0/baselines/rev4/json/FedRAMP_rev4_MODERATE-baseline_profile.json",
       "remarks": "This example points to the FedRAMP Rev 4 Moderate baseline that is part of the official FedRAMP 1.0.0 release.\n\nMust adjust accordingly for applicable baseline and revision."
     },
     "system-characteristics": {
@@ -895,16 +895,23 @@
       "leveraged-authorizations": [
         {
           "uuid": "5a9c98ab-8e5e-433d-a7bd-515c07cd1497",
-          "title": "Name of Underlying System",
+          "title": "AWS GovCloud",
+          "props": [
+            {
+              "name": "leveraged-system-identifier",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "F1603047866"
+            }
+          ],
           "links": [
             {
-              "href": "//path/to/leveraged_system_ssp.xml"
+              "href": "//path/to/leveraged_system_ssp.json"
             },
             {
               "href": "//path/to/leveraged_system_legacy_crm.xslt"
             },
             {
-              "href": "//path/to/leveraged_system_responsibility_and_inheritance.xml"
+              "href": "//path/to/leveraged_system_responsibility_and_inheritance.json"
             }
           ],
           "party-uuid": "f0bc13a4-3303-47dd-80d3-380e159c8362",
@@ -1019,7 +1026,7 @@
           "uuid": "60f92bcf-f353-4236-9803-2a5d417555f4",
           "type": "this-system",
           "title": "This System",
-          "description": "The entire system as depicted in the system authorization boundary",
+          "description": "The entire system as depicted in the system authorization boundary\n\nEmail is employed",
           "status": {
             "state": "operational"
           }
@@ -1500,7 +1507,7 @@
             },
             {
               "name": "ipv6-address",
-              "value": "0000:0000:0000:0000"
+              "value": "::"
             },
             {
               "name": "virtual",
@@ -2089,7 +2096,7 @@
                   }
                 },
                 {
-                  "component-uuid": "60f92bcf-f353-4236-9803-2a5d417555f5",
+                  "component-uuid": "60f92bcf-f353-4236-9803-2a5d417555f4",
                   "uuid": "8a72663c-28c7-41c2-8739-f1ee2d5761ac",
                   "description": "For the portion of the control satisfied by the application component of this system, describe **how** the control is met.",
                   "export": {
@@ -3739,6 +3746,60 @@
                   "component-uuid": "60f92bcf-f353-4236-9803-2a5d417555f4",
                   "uuid": "78e8f2bb-67d7-49d3-a993-ce4bedcfbc47",
                   "description": "For the portion of the control satisfied by the service provider, describe **how** the control is met."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "uuid": "f33674dc-d16f-4a8c-8902-b8e60f947ce7",
+          "control-id": "si-8",
+          "props": [
+            {
+              "name": "control-origination",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "sp-system"
+            },
+            {
+              "name": "implementation-status",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "implemented"
+            }
+          ],
+          "responsible-roles": [
+            {
+              "role-id": "implemented-requirement-responsible-role"
+            }
+          ],
+          "statements": [
+            {
+              "statement-id": "si-8_smt",
+              "uuid": "9e061e1e-10fa-4896-8597-294d8fd8e52b",
+              "by-components": [
+                {
+                  "component-uuid": "60f92bcf-f353-4236-9803-2a5d417555f5",
+                  "uuid": "663f84e5-9c13-49a5-b7de-25ced4e8aef8",
+                  "description": "Describe how the control is satisfied within the system.\n\nDMARC is employed.\n\nSPF is employed.\n\nDKIM is employed.",
+                  "set-parameters": [
+                    {
+                      "param-id": "si-8_prm_1",
+                      "values": [
+                        "[replace with list of personnel or roles]"
+                      ]
+                    },
+                    {
+                      "param-id": "si-8_prm_2",
+                      "values": [
+                        "[specify frequency]"
+                      ]
+                    },
+                    {
+                      "param-id": "si-8_prm_3",
+                      "values": [
+                        "[specify frequency]"
+                      ]
+                    }
+                  ]
                 }
               ]
             }

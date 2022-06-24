@@ -20,10 +20,12 @@ assessment-results:
         description: The organization that prepared this SAR.
       - id: prepared-for
         title: Prepared For
-        description: The organization for which this SAR was prepared. Typically the CSP.
+        description: The organization for which this SAR was prepared. Typically the
+          CSP.
       - id: content-approver
         title: Security Assessment Plan Approval
-        description: The individual or individuals accountable for the accuracy of this SAR.
+        description: The individual or individuals accountable for the accuracy of
+          this SAR.
       - id: assessor
         title: Assessment Organization
         description: The organization performing the assessment.
@@ -41,12 +43,12 @@ assessment-results:
         description: The individual leading the penetration test activities.
       - id: assessment-executive
         title: Assessment Organization's Managerial POC
-        description: The management-level POC within the assessor's organization
-          accountable for the organization's assessment performance.
+        description: The management-level POC within the assessor's organization accountable
+          for the organization's assessment performance.
       - id: csp-assessment-poc
         title: CSP POCs During Testing
-        description: At least three CSP testing points of contact must be identified in
-          a FedRAMP SAP.
+        description: At least three CSP testing points of contact must be identified
+          in a FedRAMP SAP.
       - id: csp-operations-center
         title: CSP Operations POC
         description: An operations center role, such as a SOC or NOC.
@@ -56,8 +58,8 @@ assessment-results:
           assessor when testing is complete.
       - id: csp-results-poc
         title: "CSP Results POCs "
-        description: A role for the individuals within the CSP who are to receive the
-          assessment results.
+        description: A role for the individuals within the CSP who are to receive
+          the assessment results.
     locations:
       - uuid: 2ba201ac-8ee9-4a1d-812a-a755591a3963
         title: Assessor's HQ
@@ -92,8 +94,8 @@ assessment-results:
           If the assessor is A2LA Certified, include the ISO/IEC-17020 
       - uuid: 77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d
         type: organization
-        name: "Federal Risk and Authorization Management Program: Program Management
-          Office"
+        name: "Federal Risk and Authorization Management Program: Program Management\
+          \ Office"
         short-name: FedRAMP PMO
         links:
           - href: https://fedramp.gov
@@ -118,7 +120,8 @@ assessment-results:
           This party entry must be present in a FedRAMP SAR.
 
 
-          The uuid may be different; however, the uuid must be associated with the \"fedramp-pmo\" role in the responsible-party assemblies.
+          The uuid may be different; however, the uuid must be associated with the
+          \"fedramp-pmo\" role in the responsible-party assemblies.
       - uuid: f4568fda-c6d2-4640-adec-0012015af7d0
         type: person
         name: "[SAMPLE]Person Name 1"
@@ -248,7 +251,8 @@ assessment-results:
           This is the UUID for the CSP in the SSP.
 
 
-          If no OSCAL-based SSP exists, create a CSP party in the SAP, and provide that UUID here.
+          If no OSCAL-based SSP exists, create a CSP party in the SAP, and provide
+          that UUID here.
       - role-id: content-approver
         party-uuids:
           - f4568fda-c6d2-4640-adec-0012015af7d0
@@ -295,7 +299,8 @@ assessment-results:
           The party-uuid should reference a party in the SSP.
 
 
-          If an appropriate party does not exist in the SSP, the SAP tool should add a party to the SAP, or have the CSP add the party to the SSP..
+          If an appropriate party does not exist in the SSP, the SAP tool should add
+          a party to the SAP, or have the CSP add the party to the SSP..
 
 
           The SAP tool should not modify the SSP.
@@ -317,7 +322,8 @@ assessment-results:
           The party-uuid should reference a party in the SSP or SAP.
 
 
-          If an appropriate party does not exist in the SSP or SAP, the SAR tool should add a party to the SAR.
+          If an appropriate party does not exist in the SSP or SAP, the SAR tool should
+          add a party to the SAR.
 
 
           The SAP tool should not modify the SSP.
@@ -330,10 +336,10 @@ assessment-results:
           - f4568fda-c6d2-4640-adec-0012015af7d0
           - e934d8b5-13e5-4f77-b55e-871e6f2df2fe
         remarks: One or more parties
-    remarks: This OSCAL-based FedRAMP SAR Template can be used for the FedRAMP
-      initial or annual assessment reporting.
+    remarks: This OSCAL-based FedRAMP SAR Template can be used for the FedRAMP initial
+      or annual assessment reporting.
   import-ap:
-    href: ../sap/FedRAMP-SAP-OSCAL-Template.xml
+    href: ../sap/FedRAMP-SAP-OSCAL-Template.yaml
     remarks: >-
       FedRAMP prefers the path for the SAP be relative to the location of this
       SAR file. Absolute links will not work when FedRAMP tools import the
@@ -354,8 +360,8 @@ assessment-results:
     activities:
       - uuid: 1BC8F0BB-E601-4946-A0E6-FCB934EBAA06
         title: Locally Defined Activity
-        description: This describes an activity that was not defined in the SAP, but was
-          performed during the assessment.
+        description: This describes an activity that was not defined in the SAP, but
+          was performed during the assessment.
         props:
           - name: type
             value: manual
@@ -404,7 +410,8 @@ assessment-results:
                 SAP, and not repeated here.
 
 
-                If the laptop was not known at the time the SAP was drafted, or something different was used, it must be defined here.
+                If the laptop was not known at the time the SAP was drafted, or something
+                different was used, it must be defined here.
           assessment-platforms:
             - uuid: 67D98337-884A-46FF-98B1-42C53A4A7611
               title: Revised Assessment Platform
@@ -412,17 +419,23 @@ assessment-results:
                 - component-uuid: C1461F8A-684F-4727-8C08-4BB56C33A8DD
                   remarks: Cites the Assessment laptop above.
                 - component-uuid: 040937c3-2e0e-407a-bb3c-d4e61ac1c460
-                  remarks: Cites the Vulnerability Scanning Tool identified in the SAP.
+                  remarks: Cites the Vulnerability Scanning Tool identified in the
+                    SAP.
                 - component-uuid: 8F01C4AB-123F-4D1E-8BBF-22AD454B0BC1
-                  remarks: Cites the XYZ Database Scanning Tool identified in the SAP.
+                  remarks: Cites the XYZ Database Scanning Tool identified in the
+                    SAP.
               remarks: >-
                 This is an example of a revised assessment platform.
 
 
-                Ideally, all assessment platforms and components are defined in the SAP. If there is a departure from what is defined in the SAP, it must be defined in the SAR.
+                Ideally, all assessment platforms and components are defined in the
+                SAP. If there is a departure from what is defined in the SAP, it must
+                be defined in the SAR.
 
 
-                This is a mixed example showing a revised component (a different assessment laptop defined as a component in the SAR) being paired with tools previously defined in the SAP.
+                This is a mixed example showing a revised component (a different assessment
+                laptop defined as a component in the SAR) being paired with tools
+                previously defined in the SAP.
       reviewed-controls:
         control-selections:
           - description: Include all controls in the specified in the assessment plan,
@@ -449,21 +462,20 @@ assessment-results:
                   props:
                     - name: sort-id
                       value: "002"
-                  prose: Notes and other information the assessor may wish to provide related to a
-                    continued authorization recommendation.
+                  prose: Notes and other information the assessor may wish to provide
+                    related to a continued authorization recommendation.
                 - name: authorization-statement
                   props:
                     - name: sort-id
                       value: "999"
-                  prose: "[3PAO Name] attests that the SAR from the [system name] [initial |
-                    annual] assessment testing provides a complete assessment of
-                    the applicable FedRAMP controls as stipulated in the SAP.
-                    Evidence to validate the successful implementation of the
-                    various security controls has been collected and validated.
-                    Based on the remaining risks, and continuous improvements of
-                    security related processes and controls, [3PAO Name]
-                    recommends a continued authorization be granted for the
-                    [system name]."
+                  prose: "[3PAO Name] attests that the SAR from the [system name]\
+                    \ [initial | annual] assessment testing provides a complete assessment\
+                    \ of the applicable FedRAMP controls as stipulated in the SAP.\
+                    \ Evidence to validate the successful implementation of the various\
+                    \ security controls has been collected and validated. Based on\
+                    \ the remaining risks, and continuous improvements of security\
+                    \ related processes and controls, [3PAO Name] recommends a continued\
+                    \ authorization be granted for the [system name]."
       assessment-log:
         entries:
           - uuid: 17030aaf-7712-4228-8607-a5a97a785efa
@@ -554,30 +566,33 @@ assessment-results:
             - subject-uuid: f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7
               type: component
               title: Reviewed Policy
-              remarks: If the policy is defined in the SSP as a component, you can cite it
-                using `subject`, and use the UUID of the policy component in the
-                SSP.
+              remarks: If the policy is defined in the SSP as a component, you can
+                cite it using `subject`, and use the UUID of the policy component
+                in the SSP.
           relevant-evidence:
             - description: Reviewed Policy
               links:
                 - href: "#f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7"
                   rel: policy
-              remarks: If the policy is *not* an SSP component, it should be attached to the
-                SAR as a `resource`, and cited here as a URI fragment.
+              remarks: If the policy is *not* an SSP component, it should be attached
+                to the SAR as a `resource`, and cited here as a URI fragment.
           collected: 2020-10-10T00:00:00Z
           remarks: >-
             The subject-reference identifies a policy that was reviewed and is
             attached in the back-matter.
 
 
-            The observation source is linked to the task in the schedule associated with performing document reviews.
+            The observation source is linked to the task in the schedule associated
+            with performing document reviews.
 
 
-            Even though the policy may be defined in the SSP and OSCAL would allow the SAR to reference it, FedRAMP requires the assessor attach all evidence to the SAR..
+            Even though the policy may be defined in the SSP and OSCAL would allow
+            the SAR to reference it, FedRAMP requires the assessor attach all evidence
+            to the SAR..
         - uuid: 29e4ce70-6a17-411d-aa65-ec7cef21e774
           title: "[EXAMPLE]AC Policy Interview"
-          description: "[EXAMPLE]The person interviewed knew about the policy and where to
-            find it."
+          description: "[EXAMPLE]The person interviewed knew about the policy and\
+            \ where to find it."
           methods:
             - INTERVIEW
           types:
@@ -598,18 +613,21 @@ assessment-results:
                 This describes the evidence, and adds relevant detail.
 
 
-                For example, this could cite where to find this information in interview notes.
+                For example, this could cite where to find this information in interview
+                notes.
               remarks: >-
                 The subject-reference is linked to the person interviewed.
 
 
-                The observation source is linked to the task in the schedule associated with performing staff interviews.
+                The observation source is linked to the task in the schedule associated
+                with performing staff interviews.
 
 
                 The relevant-evidence is linked to the interview notes.
 
 
-                These may be defined in the SSP, SAP, or SAR. Tools should check all three locations.
+                These may be defined in the SSP, SAP, or SAR. Tools should check all
+                three locations.
           collected: 2020-10-10T00:00:00Z
         - uuid: 6841d8eb-a72c-4672-acc2-2fd265d9617d
           description: Undocumented devices found on network.
@@ -708,7 +726,8 @@ assessment-results:
                 Attach relevant evidence as a `resource`.
 
 
-                Use a `link` field with a URI fragment to link to the resource using its UUID.
+                Use a `link` field with a URI fragment to link to the resource using
+                its UUID.
           collected: 2020-10-10T00:00:00Z
         - uuid: 21b26801-2e00-4e59-979c-bf2a4ed93920
           description: |-
@@ -765,7 +784,9 @@ assessment-results:
             The `origin` identifies the assessor who found the SSP statement issue.
 
 
-            If relevant, evidence can be cited as well using the `relevant-evidence` assembly, such as a screenshot showing a setting is different than stated in the SSP.
+            If relevant, evidence can be cited as well using the `relevant-evidence`
+            assembly, such as a screenshot showing a setting is different than stated
+            in the SSP.
       risks:
         - uuid: 1689ec06-100a-4fed-9df9-e69f07d3f3c9
           title: Risk Title
@@ -897,13 +918,15 @@ assessment-results:
                       actor-uuid: 49f73135-efab-4275-9a79-003656ad890a
         - uuid: ae628cc5-b64c-4030-af30-57e6b24a6ae7
           title: Vulnerability Title
-          description: This is a description of the vulnerability provided by the tool.
+          description: This is a description of the vulnerability provided by the
+            tool.
           statement: >-
             This is a statement about the identified risk as provided by the
             tool.
 
 
-            This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.
+            This field must be present, but may be blank (or state 'No Risk Statement'
+            if no statement is provided by the tool.
           props:
             - name: priority
               ns: https://fedramp.gov/ns/oscal
@@ -971,14 +994,14 @@ assessment-results:
               description: Describe mitigating factor
             - uuid: fd061039-e9b0-4b4c-a78b-ca024d411174
               implementation-uuid: 46f4c261-e488-4fb5-84d6-6a61dd30c3d7
-              description: Describe why the cited implementation statement justifies lowering
-                the risk.
+              description: Describe why the cited implementation statement justifies
+                lowering the risk.
           remediations:
             - uuid: a3106e23-8b79-4b1b-abf4-74f16c51ad0c
               lifecycle: recommendation
               title: Tool's Recommendation
-              description: A description of the recommended remediation as provided by the
-                tool.
+              description: A description of the recommended remediation as provided
+                by the tool.
               origins:
                 - actors:
                     - type: tool
@@ -988,12 +1011,13 @@ assessment-results:
                 the risk is closed.
 
 
-                Simply add the closure-actions field and change the risk-status to \"closed\".
+                Simply add the closure-actions field and change the risk-status to
+                \"closed\".
             - uuid: 69344d05-937e-40f4-9c3f-9aa8702ad99d
               lifecycle: recommendation
               title: Assessor's Recommendation
-              description: A description of the recommended remediation as provided by the
-                assessor.
+              description: A description of the recommended remediation as provided
+                by the assessor.
               origins:
                 - actors:
                     - type: party
@@ -1003,13 +1027,16 @@ assessment-results:
                 tool's recommendation, or if no tool recommendation is provided.
 
 
-                The assessor should leave the tool recommendation, even if adding their own.
+                The assessor should leave the tool recommendation, even if adding
+                their own.
 
 
-                Recommended and planned remediation entries should remain when the risk is closed.
+                Recommended and planned remediation entries should remain when the
+                risk is closed.
 
 
-                Simply add the closure-actions field and change the risk-status to \"closed\".
+                Simply add the closure-actions field and change the risk-status to
+                \"closed\".
           risk-log:
             entries:
               - uuid: 0b09e341-cf3c-4de7-b728-751c6e88b653
@@ -1018,14 +1045,16 @@ assessment-results:
                   Describe what action(s) the CSP took to close the risk.
 
 
-                  [EXAMPLE]Applied patch. Vulnerability no longer found in subsequent scan.
+                  [EXAMPLE]Applied patch. Vulnerability no longer found in subsequent
+                  scan.
                 start: 2020-07-07T00:00:00Z
                 status-change: closed
         - uuid: e552fb72-d662-4c01-b2d7-4dcb2086bb07
           title: Risk Title
-          description: This is a description of the issue found by the penetration testing
-            team.
-          statement: This is a statement about the risk identified by penetration testing.
+          description: This is a description of the issue found by the penetration
+            testing team.
+          statement: This is a statement about the risk identified by penetration
+            testing.
           props:
             - name: priority
               ns: https://fedramp.gov/ns/oscal
@@ -1053,8 +1082,8 @@ assessment-results:
             - uuid: 69344d05-937e-40f4-9c3f-9aa8702ad99d
               lifecycle: recommendation
               title: Assessor's Recommendation
-              description: A description of the recommended remediation as provided by the
-                assessor.
+              description: A description of the recommended remediation as provided
+                by the assessor.
               origins:
                 - actors:
                     - type: party
@@ -1089,7 +1118,8 @@ assessment-results:
             method. There may be more than one.
 
 
-            This objective only has one method (Examine), so there should be at least one `related-objservation`.
+            This objective only has one method (Examine), so there should be at least
+            one `related-objservation`.
         - uuid: EF489684-C2E5-46BD-887A-A86A4AA210D9
           title: "[EXAMPLE]TCW Objective AC-1(a)(1)[2] (Examine)"
           description: An overall statement about the system's satisfaction of this
@@ -1118,7 +1148,8 @@ assessment-results:
             method. There may be more than one.
 
 
-            This objective only has one method (Examine), so there should be at least one `related-objservation`.
+            This objective only has one method (Examine), so there should be at least
+            one `related-objservation`.
         - uuid: 0D3EE91E-8A4E-455B-BC84-EB31C7C3C34B
           title: "[EXAMPLE]TCW Objective AC-1(a)(1)[3] (Examine and Interview)"
           description: An overall statement about the system's satisfaction of this
@@ -1148,7 +1179,9 @@ assessment-results:
             method. There may be more than one.
 
 
-            This objective has two methods (Examine and Interview), so there should be at least two `related-objservation`, including at least one observaton of each type.
+            This objective has two methods (Examine and Interview), so there should
+            be at least two `related-objservation`, including at least one observaton
+            of each type.
         - uuid: 33e43825-6fd7-49c6-a610-4c795954a167
           title: "[EXAMPLE]Issue With AU-1 Statement"
           description: "[EXAMPLE]There is an issue with an SSP Statement."
@@ -1171,7 +1204,8 @@ assessment-results:
             erroneous statement in the SSP.
 
 
-            The `related-observation` contains the UUID of an observation with details about the issue, including a statement and any relevant evidence.
+            The `related-observation` contains the UUID of an observation with details
+            about the issue, including a statement and any relevant evidence.
         - uuid: d6316907-a5e5-4ad5-871d-f2f29938360e
           title: Discovery Scan Results
           description: The results of the discovery scan.
@@ -1188,8 +1222,8 @@ assessment-results:
               state: not-satisfied
           related-observations:
             - observation-uuid: 6841d8eb-a72c-4672-acc2-2fd265d9617d
-          remarks: The UUID for the tool operator must be listed as the party-uuid for the
-            finding. There may be more than one.
+          remarks: The UUID for the tool operator must be listed as the party-uuid
+            for the finding. There may be more than one.
         - uuid: 170dd310-1a92-4fcf-a12b-ebfa03d9e6d8
           title: "[EXAMPLE]Infrastructure Scan Unique Vulnerability"
           description: An example set of infrastructure scan findings.
@@ -1228,8 +1262,8 @@ assessment-results:
           related-observations:
             - observation-uuid: 21b26801-2e00-4e59-979c-bf2a4ed93920
           remarks: When reporting a result for a test such as the spear phishing activity,
-            a risk assembly is required if the result is to be reported in the
-            Risk Exposure Table.
+            a risk assembly is required if the result is to be reported in the Risk
+            Exposure Table.
         - uuid: b56edab1-8cdc-45f9-8589-35f1bd7b3348
           title: "[EXAMPLE]Penetration Test Result"
           description: A finding from penetration testing activities.
@@ -1253,7 +1287,8 @@ assessment-results:
             detected the activities appropriately, no risk is required.
 
 
-            If a penetration test result identifies a vulnerability or deficiency, the risk assembly is required.
+            If a penetration test result identifies a vulnerability or deficiency,
+            the risk assembly is required.
     - uuid: cfa9b157-540e-456b-980d-efa789e50ace
       title: 2019 Annual Assessment
       description: ""
@@ -1285,8 +1320,8 @@ assessment-results:
       observations:
         - uuid: 1c23ddee-7001-4512-9de1-e062faa69c0a
           title: "[EXAMPLE]"
-          description: "[EXAMPLE]This is the contents of the Observations and Evidence
-            cell in the TCW."
+          description: "[EXAMPLE]This is the contents of the Observations and Evidence\
+            \ cell in the TCW."
           methods:
             - MIXED
           types:
@@ -1329,7 +1364,8 @@ assessment-results:
           There may be more than one rlink.
 
 
-          If there is no base64 field, at lest one of the rlink fields must include a relative path.
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
       - uuid: f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7
         title: "[EXAMPLE]AC Policy"
         props:
@@ -1358,7 +1394,8 @@ assessment-results:
           There may be more than one rlink.
 
 
-          If there is no base64 field, at lest one of the rlink fields must include a relative path.
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
       - uuid: 53af7193-b25d-4ed2-a82f-5954d2d0df61
         title: "[EXAMPLE]Screen Shot"
         props:
@@ -1381,7 +1418,8 @@ assessment-results:
           There may be more than one rlink.
 
 
-          If there is no base64 field, at lest one of the rlink fields must include a relative path.
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
       - uuid: 19a07333-4e87-46dc-abab-adad60e706b9
         title: "[EXAMPLE]Raw Scan Results - Discovery Scan"
         description: Raw scan results exported from the scanning tool.
@@ -1403,7 +1441,8 @@ assessment-results:
           There may be more than one rlink.
 
 
-          If there is no base64 field, at lest one of the rlink fields must include a relative path.
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
       - uuid: 171b44a2-9b52-4c46-b912-54bd274b2761
         title: "[EXAMPLE]Raw Scan Results - OS and Inf Scans"
         description: Raw scan results exported from the scanning tool.
@@ -1425,7 +1464,8 @@ assessment-results:
           There may be more than one rlink.
 
 
-          If there is no base64 field, at lest one of the rlink fields must include a relative path.
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
       - uuid: e552fb72-d662-4c01-b2d7-4dcb2086bb07
         title: Penetration Test Report
         props:
@@ -1446,7 +1486,8 @@ assessment-results:
           There may be more than one rlink.
 
 
-          If there is no base64 field, at lest one of the rlink fields must include a relative path.
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
       - uuid: 5cce2310-8fcc-49f8-8cae-8e31dc8048f1
         title: "[System Name] [FIPS-199 Level] SAP"
         props:
@@ -1459,8 +1500,8 @@ assessment-results:
         rlinks:
           - href: ../sap/CSP_System_SAP.xml
             media-type: application/xml
-          - href: ../sap/CSP_System_SAP.json
-            media-type: application/json
+          - href: ../sap/CSP_System_SAP.yaml
+            media-type: application/yaml
         base64:
           filename: CSP_System_SAP.xml
           media-type: application/xml
@@ -1487,11 +1528,13 @@ assessment-results:
 
           * Render the OSCAL SAR content as a PDF that is digitally signed and attached.
 
-          * Render the OSCAL SAR content as printed pages that are physically signed, scanned, and attached.
+          * Render the OSCAL SAR content as printed pages that are physically signed,
+          scanned, and attached.
 
 
 
-          If your organization prefers another approach, please seek prior approval from the FedRAMP PMO.
+          If your organization prefers another approach, please seek prior approval
+          from the FedRAMP PMO.
       - uuid: 985475ee-d4d6-4581-8fdf-d84d3d8caa48
         title: FedRAMP Applicable Laws and Regulations
         props:

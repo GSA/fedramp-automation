@@ -4,6 +4,7 @@ import { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { State } from '.';
 import { filterAssertions, getReportGroups } from './helpers';
 import { FilterOptions, PassStatus, Role } from './schematron-machine';
+import { AssertionView } from '@asap/shared/use-cases/assertion-views';
 
 const selectOscalDocument = memoize(
   (documentType: OscalDocumentKey) => (state: State) =>
@@ -54,9 +55,9 @@ export const selectFilterOptions = memoize((documentType: OscalDocumentKey) =>
               passStatus: filter.passStatus,
               role: filter.role,
               text: filter.text,
-              assertionViewIds: config.assertionViews[index].groups.flatMap(
-                group => group.assertionIds,
-              ),
+              assertionViewIds: (
+                config.assertionViews[index] as AssertionView
+              ).groups.flatMap(group => group.assertionIds),
             },
             availableRoles,
             failedAssertionMap,
@@ -209,6 +210,7 @@ export const selectSchematronReport = memoize(
             schematronChecksFiltered,
             failedAssertionMap,
           ),
+          assertionCount: schematronChecksFiltered.length,
         };
       },
     ),
