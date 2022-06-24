@@ -2982,5 +2982,12 @@
 			<prop name="version" value="Revision 5"/>
 			<rlink media-type="application/oscal.catalog+xml" href="https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_catalog.xml"/>
 		</resource>
+		<!-- 
+		<resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
+			<title>NIST Special Publication (SP) 800-53</title>
+			<prop name="version" value="Revision 5"/>
+			<rlink media-type="application/oscal.catalog+xml" href="NIST_SP-800-53_rev5_catalog_main.xml"/>
+		</resource>
+		-->
 	</back-matter>
 </profile>
