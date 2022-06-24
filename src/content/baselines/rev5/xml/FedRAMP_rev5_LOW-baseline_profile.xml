@@ -2,7 +2,7 @@
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="2387b2f8-e004-41a6-b65c-f935acff9c3f">
 	<metadata>
-		<title>FedRAMP Rev 5 Moderate Baseline</title>
+		<title>FedRAMP Rev 5 Low Baseline</title>
 		<published>2022-06-01T00:00:00.000-04:00</published>
 		<last-modified>2022-06-13T00:00:00.000-04:00</last-modified>
 		<version>fedramp1.1.0-oscal1.0.0</version>
@@ -1745,5 +1745,12 @@
 			<prop name="version" value="Revision 5"/>
 			<rlink media-type="application/oscal.catalog+xml" href="https://raw.githubusercontent.com/usnistgov/oscal-content/main/nist.gov/SP800-53/rev5/xml/NIST_SP-800-53_rev5_catalog.xml"/>
 		</resource>
+		<!-- 
+		<resource uuid="051a77c1-b61d-4995-8275-dacfe688d510">
+			<title>NIST Special Publication (SP) 800-53</title>
+			<prop name="version" value="Revision 5"/>
+			<rlink media-type="application/oscal.catalog+xml" href="NIST_SP-800-53_rev5_catalog_main.xml"/>
+		</resource>
+		-->
 	</back-matter>
 </profile>
