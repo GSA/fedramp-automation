@@ -112,7 +112,9 @@ export const ValidatorPage = ({
       <div className="grid-container">
         <div className="grid-row grid-gap">
           <div className="tablet:grid-col-12">
-            <h1>Choose an XML file to process</h1>
+            <h1 className="font-sans-2xl text-light text-theme-dark-blue">
+              Choose an XML file to process
+            </h1>
           </div>
           <ValidatorFileSelectForm />
         </div>
