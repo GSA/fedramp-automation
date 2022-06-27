@@ -1,9 +1,12 @@
-import { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import React, { createRef, useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect } from 'react';
 import Modal from 'react-modal';
 
-import { useActions, useAppState } from '../hooks';
+import { clearAssertionContext } from '@asap/browser/presenter/actions/validator';
+import { OscalDocumentKey } from '@asap/shared/domain/oscal';
+
 import { CodeViewer } from './CodeViewer';
+import { useAppContext, useSelector } from '../context';
+import { selectValidationResult } from '@asap/browser/presenter/state/selectors';
 
 type DocumentViewerOverlayProps = {
   documentType: OscalDocumentKey;
@@ -12,35 +15,39 @@ type DocumentViewerOverlayProps = {
 export const DocumentViewerOverlay = ({
   documentType,
 }: DocumentViewerOverlayProps) => {
-  const oscalDocument = useAppState().oscalDocuments[documentType];
-  const actions = useActions();
+  const { dispatch } = useAppContext();
+  const validationResult = useSelector(selectValidationResult(documentType));
 
   // Hightlight and scroll to node when mounted to DOM.
-  const refCallback = useCallback(node => {
-    const assertionId =
-      oscalDocument.validationResults.current === 'ASSERTION_CONTEXT'
-        ? oscalDocument.validationResults.assertionId
-        : null;
-    if (assertionId) {
-      const target = node.querySelector(`#${assertionId}`) as HTMLElement;
-      if (target) {
-        target.scrollIntoView({
-          behavior: 'auto',
-          block: 'start',
-          inline: 'start',
-        });
-        target.style.backgroundColor = 'lightgray';
+  const refCallback = useCallback(
+    node => {
+      if (!node) {
+        return;
       }
-    }
-  }, []);
+      const assertionId =
+        validationResult.current === 'ASSERTION_CONTEXT'
+          ? validationResult.assertionId
+          : null;
+      if (assertionId) {
+        const target = node.querySelector(`#${assertionId}`) as HTMLElement;
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'auto',
+            block: 'start',
+            inline: 'start',
+          });
+          target.style.backgroundColor = 'lightgray';
+        }
+      }
+    },
+    [validationResult],
+  );
 
   return (
     <Modal
       className="position-absolute top-2 bottom-2 right-2 left-2 margin-2 bg-white overflow-scroll"
-      isOpen={oscalDocument.validationResults.current === 'ASSERTION_CONTEXT'}
-      onRequestClose={() =>
-        actions.documentViewer.clearAssertionContext(documentType)
-      }
+      isOpen={validationResult.current === 'ASSERTION_CONTEXT'}
+      onRequestClose={() => dispatch(clearAssertionContext(documentType))}
       contentLabel="Assertion rule examples"
       style={{
         overlay: { zIndex: 1000 },
@@ -48,10 +55,8 @@ export const DocumentViewerOverlay = ({
     >
       <div className="grid-row grid-gap">
         <div ref={refCallback} className="mobile:grid-col-12">
-          {oscalDocument.validationResults.current === 'ASSERTION_CONTEXT' ? (
-            <CodeViewer
-              codeHTML={oscalDocument.validationResults.annotatedXML}
-            />
+          {validationResult.current === 'ASSERTION_CONTEXT' ? (
+            <CodeViewer codeHTML={validationResult.annotatedXML} />
           ) : (
             <p>No report validated.</p>
           )}

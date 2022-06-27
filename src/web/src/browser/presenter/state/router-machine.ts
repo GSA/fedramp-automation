@@ -1,45 +1,38 @@
-import { derived, Statemachine, statemachine } from 'overmind';
-
 import * as router from './router';
-
-type States = {
-  current: 'VALID_PAGE';
-};
 
 type BaseState = {
   currentRoute: router.Route;
   breadcrumbs: { text: string; linkUrl: string | false }[];
 };
 
-type Events = {
+export type State = BaseState & {
+  current: 'VALID_PAGE';
+};
+
+export type StateTransition = {
   type: 'ROUTE_CHANGED';
   data: {
     route: router.Route;
   };
 };
 
-export type RouterMachine = Statemachine<States, Events, BaseState>;
-
-export const routerMachine = statemachine<States, Events, BaseState>({
-  VALID_PAGE: {
-    ROUTE_CHANGED: ({ route }) => {
+export const nextState = (state: State, event: StateTransition): State => {
+  if (state.current === 'VALID_PAGE') {
+    if (event.type === 'ROUTE_CHANGED') {
       return {
+        breadcrumbs: router.breadcrumbs[state.currentRoute.type](
+          state.currentRoute,
+        ),
         current: 'VALID_PAGE',
-        currentRoute: route,
+        currentRoute: event.data.route,
       };
-    },
-  },
-});
+    }
+  }
+  return state;
+};
 
-export const createRouterMachine = () => {
-  return routerMachine.create(
-    { current: 'VALID_PAGE' },
-    {
-      currentRoute: router.Routes.home,
-      breadcrumbs: derived((state: BaseState) => {
-        const getBreadcrumbs = router.breadcrumbs[state.currentRoute.type];
-        return getBreadcrumbs(state.currentRoute);
-      }),
-    },
-  );
+export const initialState: State = {
+  current: 'VALID_PAGE',
+  currentRoute: router.Routes.home,
+  breadcrumbs: router.breadcrumbs[router.Routes.home.type](router.Routes.home),
 };

@@ -19,8 +19,8 @@ profile:
     parties:
       - uuid: 8cc0b8e5-9650-4d5f-9796-316f05fa9a2d
         type: organization
-        name: "Federal Risk and Authorization Management Program: Program Management
-          Office"
+        name: "Federal Risk and Authorization Management Program: Program Management\
+          \ Office"
         short-name: FedRAMP PMO
         links:
           - href: https://fedramp.gov
@@ -43,8 +43,8 @@ profile:
             country: US
       - uuid: ca9ba80e-1342-4bfd-b32a-abac468c24b4
         type: organization
-        name: "Federal Risk and Authorization Management Program: Joint Authorization
-          Board"
+        name: "Federal Risk and Authorization Management Program: Joint Authorization\
+          \ Board"
         short-name: FedRAMP JAB
         links:
           - href: "#a2381e87-3d04-4108-a30b-b4d2f36d001f"
@@ -405,7 +405,8 @@ profile:
           - description: at least annually
       - param-id: ac-2.2_prm_2
         constraints:
-          - description: no more than 30 days for temporary and emergency account types
+          - description: no more than 30 days for temporary and emergency account
+              types
       - param-id: ac-2.3_prm_1
         constraints:
           - description: 90 days for user accounts
@@ -429,8 +430,8 @@ profile:
           - description: see additional Requirements and Guidance]
       - param-id: ac-10_prm_2
         constraints:
-          - description: three (3) sessions for privileged access and two (2) sessions for
-              non-privileged access
+          - description: three (3) sessions for privileged access and two (2) sessions
+              for non-privileged access
       - param-id: ac-11_prm_1
         constraints:
           - description: fifteen (15) minutes
@@ -463,29 +464,29 @@ profile:
           - description: at least annually
       - param-id: au-2_prm_1
         constraints:
-          - description: "successful and unsuccessful account logon events, account
-              management events, object access, policy change, privilege
-              functions, process tracking, and system events. For Web
-              applications: all administrator activity, authentication checks,
-              authorization checks, data deletions, data access, data changes,
-              and permission changes"
+          - description: "successful and unsuccessful account logon events, account\
+              \ management events, object access, policy change, privilege functions,\
+              \ process tracking, and system events. For Web applications: all administrator\
+              \ activity, authentication checks, authorization checks, data deletions,\
+              \ data access, data changes, and permission changes"
       - param-id: au-2_prm_2
         constraints:
-          - description: organization-defined subset of the auditable events defined in AU-2
-              a to be audited continually for each identified event
+          - description: organization-defined subset of the auditable events defined
+              in AU-2 a to be audited continually for each identified event
       - param-id: au-2.3_prm_1
         constraints:
           - description: annually or whenever there is a change in the threat environment
       - param-id: au-3.1_prm_1
         constraints:
           - description: session, connection, transaction, or activity duration; for
-              client-server transactions, the number of bytes received and bytes
-              sent; additional informational messages to diagnose or identify
-              the event; characteristics that describe or identify the object or
-              resource being acted upon
+              client-server transactions, the number of bytes received and bytes sent;
+              additional informational messages to diagnose or identify the event;
+              characteristics that describe or identify the object or resource being
+              acted upon
       - param-id: au-5_prm_2
         constraints:
-          - description: organization-defined actions to be taken (overwrite oldest record)
+          - description: organization-defined actions to be taken (overwrite oldest
+              record)
       - param-id: au-6_prm_1
         constraints:
           - description: at least weekly
@@ -541,13 +542,16 @@ profile:
           - description: at least monthly
       - param-id: ca-6_prm_1
         constraints:
-          - description: at least every three (3) years or when a significant change occurs
+          - description: at least every three (3) years or when a significant change
+              occurs
       - param-id: ca-7_prm_4
         constraints:
-          - description: to meet Federal and FedRAMP requirements (See additional guidance)
+          - description: to meet Federal and FedRAMP requirements (See additional
+              guidance)
       - param-id: ca-7_prm_5
         constraints:
-          - description: to meet Federal and FedRAMP requirements (See additional guidance)
+          - description: to meet Federal and FedRAMP requirements (See additional
+              guidance)
       - param-id: ca-8_prm_1
         constraints:
           - description: at least annually
@@ -635,8 +639,8 @@ profile:
           - description: IA-4 (d) [at least two years]
       - param-id: ia-4_prm_3
         constraints:
-          - description: ninety days for user identifiers (See additional requirements and
-              guidance)
+          - description: ninety days for user identifiers (See additional requirements
+              and guidance)
       - param-id: ia-4.4_prm_1
         constraints:
           - description: contractors; foreign nationals
@@ -669,8 +673,8 @@ profile:
           - description: see additional FedRAMP Requirements and Guidance
       - param-id: ir-6_prm_1
         constraints:
-          - description: US-CERT incident reporting timelines as specified in NIST Special
-              Publication 800-61 (as amended)
+          - description: US-CERT incident reporting timelines as specified in NIST
+              Special Publication 800-61 (as amended)
       - param-id: ir-8_prm_2
         constraints:
           - description: see additional FedRAMP Requirements and Guidance
@@ -711,9 +715,9 @@ profile:
           - description: all media with sensitive information
       - param-id: mp-5_prm_2
         constraints:
-          - description: "prior to leaving secure/controlled environment: for digital media,
-              encryption using a FIPS 140-2 validated encryption module; for
-              non-digitital media, secured in locked container"
+          - description: "prior to leaving secure/controlled environment: for digital\
+              \ media, encryption using a FIPS 140-2 validated encryption module;\
+              \ for non-digitital media, secured in locked container"
       - param-id: mp-6.2_prm_1
         constraints:
           - description: at least annually
@@ -734,8 +738,8 @@ profile:
           - description: CSP defined physical access control systems/devices
       - param-id: pe-3_prm_6
         constraints:
-          - description: in all circumstances within restricted access area where the
-              information system resides
+          - description: in all circumstances within restricted access area where
+              the information system resides
       - param-id: pe-3_prm_8
         constraints:
           - description: at least annually
@@ -753,9 +757,9 @@ profile:
           - description: at least monthly
       - param-id: pe-14_prm_1
         constraints:
-          - description: consistent with American Society of Heating, Refrigerating and
-              Air-conditioning Engineers (ASHRAE) document entitled Thermal
-              Guidelines for Data Processing Environments
+          - description: consistent with American Society of Heating, Refrigerating
+              and Air-conditioning Engineers (ASHRAE) document entitled Thermal Guidelines
+              for Data Processing Environments
       - param-id: pe-14_prm_2
         constraints:
           - description: continuously
@@ -789,13 +793,12 @@ profile:
       - param-id: ps-3_prm_1
         constraints:
           - description: for national security clearances; a reinvestigation is required
-              during the fifth (5th) year for top secret security clearance, the
-              tenth (10th) year for secret security clearance, and fifteenth
-              (15th) year for confidential security clearance. For moderate risk
-              law enforcement and high impact public trust level, a
-              reinvestigation is required during the fifth (5th) year. There is
-              no reinvestigation for other moderate risk positions or any low
-              risk positions
+              during the fifth (5th) year for top secret security clearance, the tenth
+              (10th) year for secret security clearance, and fifteenth (15th) year
+              for confidential security clearance. For moderate risk law enforcement
+              and high impact public trust level, a reinvestigation is required during
+              the fifth (5th) year. There is no reinvestigation for other moderate
+              risk positions or any low risk positions
       - param-id: ps-3.3_prm_1
         constraints:
           - description: personnel screening criteria - as required by specific information
@@ -804,8 +807,8 @@ profile:
           - description: same day
       - param-id: ps-5_prm_4
         constraints:
-          - description: five days of the time period following the formal transfer action
-              (DoD 24 hours)
+          - description: five days of the time period following the formal transfer
+              action (DoD 24 hours)
       - param-id: ps-6_prm_1
         constraints:
           - description: at least annually
@@ -826,21 +829,22 @@ profile:
           - description: security assessment report
       - param-id: ra-3_prm_3
         constraints:
-          - description: at least every three (3) years or when a significant change occurs
+          - description: at least every three (3) years or when a significant change
+              occurs
       - param-id: ra-3_prm_5
         constraints:
-          - description: at least every three (3) years or when a significant change occurs
+          - description: at least every three (3) years or when a significant change
+              occurs
       - param-id: ra-5_prm_1
         constraints:
           - description: monthly operating system/infrastructure; monthly web applications
               and databases
       - param-id: ra-5_prm_2
         constraints:
-          - description: high-risk vulnerabilities mitigated within thirty (30) days from
-              date of discovery; moderate-risk vulnerabilities mitigated within
-              ninety (90) days from date of discovery; low risk vulnerabilities
-              mitigated within one hundred and eighty (180) days from date of
-              discovery
+          - description: high-risk vulnerabilities mitigated within thirty (30) days
+              from date of discovery; moderate-risk vulnerabilities mitigated within
+              ninety (90) days from date of discovery; low risk vulnerabilities mitigated
+              within one hundred and eighty (180) days from date of discovery
       - param-id: ra-5.2_prm_1
         constraints:
           - description: prior to a new scan
@@ -865,23 +869,24 @@ profile:
           - description: at least the minimum requirement as defined in control CA-7
       - param-id: sa-9_prm_1
         constraints:
-          - description: FedRAMP Security Controls Baseline(s) if Federal information is
-              processed or stored within the external system
+          - description: FedRAMP Security Controls Baseline(s) if Federal information
+              is processed or stored within the external system
       - param-id: sa-9_prm_2
         constraints:
-          - description: Federal/FedRAMP Continuous Monitoring requirements must be met for
-              external systems where Federal information is processed or stored
+          - description: Federal/FedRAMP Continuous Monitoring requirements must be
+              met for external systems where Federal information is processed or stored
       - param-id: sa-9.2_prm_1
         constraints:
-          - description: all external systems where Federal information is processed or
-              stored
+          - description: all external systems where Federal information is processed
+              or stored
       - param-id: sa-9.4_prm_2
         constraints:
-          - description: all external systems where Federal information is processed or
-              stored
+          - description: all external systems where Federal information is processed
+              or stored
       - param-id: sa-9.5_prm_1
         constraints:
-          - description: information processing, information data, AND information services
+          - description: information processing, information data, AND information
+              services
       - param-id: sa-10_prm_1
         constraints:
           - description: development, implementation, AND operation
@@ -899,15 +904,16 @@ profile:
           - description: confidentiality AND integrity
       - param-id: sc-8.1_prm_1
         constraints:
-          - description: prevent unauthorized disclosure of information AND detect changes
-              to information
+          - description: prevent unauthorized disclosure of information AND detect
+              changes to information
       - param-id: sc-8.1_prm_2
         constraints:
-          - description: a hardened or alarmed carrier Protective Distribution System (PDS)
+          - description: a hardened or alarmed carrier Protective Distribution System
+              (PDS)
       - param-id: sc-10_prm_1
         constraints:
-          - description: no longer than 30 minutes for RAS-based sessions or no longer than
-              60 minutes for non-interactive user sessions
+          - description: no longer than 30 minutes for RAS-based sessions or no longer
+              than 60 minutes for non-interactive user sessions
       - param-id: sc-12.2_prm_1
         constraints:
           - description: NIST FIPS-compliant
@@ -2641,8 +2647,8 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: "Guidance: CSPs have the option to provide a separation of duties matrix
-                      as an attachment to the SSP."
+                    prose: "Guidance: CSPs have the option to provide a separation\
+                      \ of duties matrix as an attachment to the SSP."
           - position: starting
             by-id: ac-5.a_obj.1
             props:
@@ -2798,12 +2804,11 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: "Examples of security functions include but are not limited to:
-                      establishing system accounts, configuring access
-                      authorizations (i.e., permissions, privileges), setting
-                      events to be audited, and setting intrusion detection
-                      parameters, system programming, system and security
-                      administration, other privileged functions."
+                    prose: "Examples of security functions include but are not limited\
+                      \ to: establishing system accounts, configuring access authorizations\
+                      \ (i.e., permissions, privileges), setting events to be audited,\
+                      \ and setting intrusion detection parameters, system programming,\
+                      \ system and security administration, other privileged functions."
           - position: starting
             by-id: ac-6.2_obj.1
             props:
@@ -2974,38 +2979,38 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider shall determine elements of the cloud environment
-                      that require the System Use Notification control. The
-                      elements of the cloud environment that require System Use
+                    prose: The service provider shall determine elements of the cloud
+                      environment that require the System Use Notification control.
+                      The elements of the cloud environment that require System Use
                       Notification are approved and accepted by the JAB/AO.
                   - id: ac-8_fr_smt.2
                     name: item
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider shall determine how System Use Notification is going
-                      to be verified and provide appropriate periodicity of the
-                      check. The System Use Notification verification and
-                      periodicity are approved and accepted by the JAB/AO.
+                    prose: The service provider shall determine how System Use Notification
+                      is going to be verified and provide appropriate periodicity
+                      of the check. The System Use Notification verification and periodicity
+                      are approved and accepted by the JAB/AO.
                   - id: ac-8_fr_gdn.1
                     name: guidance
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: If performed as part of a Configuration Baseline check, then the % of
-                      items requiring setting that are checked and that pass (or
-                      fail) check can be provided.
+                    prose: If performed as part of a Configuration Baseline check,
+                      then the % of items requiring setting that are checked and that
+                      pass (or fail) check can be provided.
                   - id: ac-8_fr_smt.3
                     name: item
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: If not performed as part of a Configuration Baseline check, then there
-                      must be documented agreement on how to provide results of
-                      verification and the necessary periodicity of the
-                      verification by the service provider. The documented
-                      agreement on how to provide verification of the results
-                      are approved and accepted by the JAB/AO.
+                    prose: If not performed as part of a Configuration Baseline check,
+                      then there must be documented agreement on how to provide results
+                      of verification and the necessary periodicity of the verification
+                      by the service provider. The documented agreement on how to
+                      provide verification of the results are approved and accepted
+                      by the JAB/AO.
           - position: starting
             by-id: ac-8.a_obj.1
             props:
@@ -3581,9 +3586,9 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider retains audit records on-line for at least ninety
-                      days and further preserves audit records off-line for a
-                      period that is in accordance with NARA requirements.
+                    prose: The service provider retains audit records on-line for
+                      at least ninety days and further preserves audit records off-line
+                      for a period that is in accordance with NARA requirements.
           - position: starting
             by-id: au-11
             props:
@@ -3702,8 +3707,8 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: Coordination between service provider and consumer shall be documented
-                      and accepted by the JAB/AO.
+                    prose: Coordination between service provider and consumer shall
+                      be documented and accepted by the JAB/AO.
           - position: starting
             by-id: au-2
             props:
@@ -3823,8 +3828,8 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: Annually or whenever changes in the threat environment are communicated
-                      to the service provider by the JAB/AO.
+                    prose: Annually or whenever changes in the threat environment
+                      are communicated to the service provider by the JAB/AO.
           - position: starting
             by-id: au-2.3
             props:
@@ -3895,23 +3900,23 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: "The service provider defines audit record types *[FedRAMP Assignment:
-                      session, connection, transaction, or activity duration;
-                      for client-server transactions, the number of bytes
-                      received and bytes sent; additional informational messages
-                      to diagnose or identify the event; characteristics that
-                      describe or identify the object or resource being acted
-                      upon; individual identities of group account users;
-                      full-text of privileged commands]*. The audit record types
-                      are approved and accepted by the JAB/AO."
+                    prose: "The service provider defines audit record types *[FedRAMP\
+                      \ Assignment: session, connection, transaction, or activity\
+                      \ duration; for client-server transactions, the number of bytes\
+                      \ received and bytes sent; additional informational messages\
+                      \ to diagnose or identify the event; characteristics that describe\
+                      \ or identify the object or resource being acted upon; individual\
+                      \ identities of group account users; full-text of privileged\
+                      \ commands]*. The audit record types are approved and accepted\
+                      \ by the JAB/AO."
                   - id: au-3.1_fr_gdn.1
                     name: guidance
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: For client-server transactions, the number of bytes sent and received
-                      gives bidirectional transfer information that can be
-                      helpful during an investigation or inquiry.
+                    prose: For client-server transactions, the number of bytes sent
+                      and received gives bidirectional transfer information that can
+                      be helpful during an investigation or inquiry.
           - position: starting
             by-id: au-3.1_obj.1
             props:
@@ -4038,11 +4043,10 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: Coordination between service provider and consumer shall be documented
-                      and accepted by the JAB/AO. In multi-tennant environments,
-                      capability and means for providing review, analysis, and
-                      reporting to consumer for data pertaining to consumer
-                      shall be documented.
+                    prose: Coordination between service provider and consumer shall
+                      be documented and accepted by the JAB/AO. In multi-tennant environments,
+                      capability and means for providing review, analysis, and reporting
+                      to consumer for data pertaining to consumer shall be documented.
           - position: starting
             by-id: au-6
             props:
@@ -4307,25 +4311,26 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider selects primary and secondary time servers used by
-                      the NIST Internet time service. The secondary server is
-                      selected from a different geographic region than the
+                    prose: The service provider selects primary and secondary time
+                      servers used by the NIST Internet time service. The secondary
+                      server is selected from a different geographic region than the
                       primary server.
                   - id: au-8.1_fr_smt.2
                     name: item
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider synchronizes the system clocks of network computers
-                      that run operating systems other than Windows to the
-                      Windows Server Domain Controller emulator or to the same
+                    prose: The service provider synchronizes the system clocks of
+                      network computers that run operating systems other than Windows
+                      to the Windows Server Domain Controller emulator or to the same
                       time source for that server.
                   - id: au-8.1_fr_gdn.1
                     name: guidance
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: Synchronization of system clocks improves the accuracy of log analysis.
+                    prose: Synchronization of system clocks improves the accuracy
+                      of log analysis.
           - position: starting
             by-id: au-8.1
             props:
@@ -4633,10 +4638,8 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: "See the FedRAMP Documents page under Key Cloud Service Provider (CSP)
-                      Documents, Annual Assessment Guidance
-                      [https://www.fedramp.gov/documents/](https://www.fedramp.\
-                      gov/documents/) "
+                    prose: "See the FedRAMP Documents page under Key Cloud Service\
+                      \ Provider (CSP) Documents, Annual Assessment Guidance [https://www.fedramp.gov/documents/](https://www.fedramp.gov/documents/) "
           - position: starting
             by-id: ca-2
             props:
@@ -4741,8 +4744,8 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: For JAB Authorization, must use an accredited Third Party Assessment
-                      Organization (3PAO).
+                    prose: For JAB Authorization, must use an accredited Third Party
+                      Assessment Organization (3PAO).
           - position: starting
             by-id: ca-2.1_obj.1
             props:
@@ -4965,8 +4968,8 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: Refer to Appendix H - Cloud Considerations of the TIC 2.0 Reference
-                      Architecture document.
+                    prose: Refer to Appendix H - Cloud Considerations of the TIC 2.0
+                      Reference Architecture document.
           - position: starting
             by-id: ca-3.3_obj.1
             props:
@@ -5020,8 +5023,8 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: For JAB Authorization, CSPs shall include details of this control in
-                      their Architecture Briefing
+                    prose: For JAB Authorization, CSPs shall include details of this
+                      control in their Architecture Briefing
           - position: starting
             by-id: ca-3.5
             props:
@@ -5069,17 +5072,16 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: Plan of Action & Milestones (POA&M) must be provided at least monthly.
+                    prose: Plan of Action & Milestones (POA&M) must be provided at
+                      least monthly.
                   - id: ca-5_fr_gdn.1
                     name: guidance
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: "See the FedRAMP Documents page under Key Cloud Service Provider (CSP)
-                      Documents, Plan of Action & Milestones (POA&M) Template
-                      Completion Guide
-                      [https://www.fedramp.gov/documents/](https://www.fedramp.\
-                      gov/documents/) "
+                    prose: "See the FedRAMP Documents page under Key Cloud Service\
+                      \ Provider (CSP) Documents, Plan of Action & Milestones (POA&M)\
+                      \ Template Completion Guide [https://www.fedramp.gov/documents/](https://www.fedramp.gov/documents/) "
           - position: starting
             by-id: ca-5
             props:
@@ -5145,10 +5147,10 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: Significant change is defined in NIST Special Publication 800-37 Revision
-                      1, Appendix F. The service provider describes the types of
-                      changes to the information system or the environment of
-                      operations that would impact the risk posture. The types
+                    prose: Significant change is defined in NIST Special Publication
+                      800-37 Revision 1, Appendix F. The service provider describes
+                      the types of changes to the information system or the environment
+                      of operations that would impact the risk posture. The types
                       of changes are approved and accepted by the JAB/AO.
           - position: starting
             by-id: ca-6.a_obj
@@ -5224,26 +5226,25 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: "Operating System Scans: at least monthly. Database and Web Application
-                      Scans: at least monthly. All scans performed by
-                      Independent Assessor: at least annually."
+                    prose: "Operating System Scans: at least monthly. Database and\
+                      \ Web Application Scans: at least monthly. All scans performed\
+                      \ by Independent Assessor: at least annually."
                   - id: ca-7_fr_gdn.1
                     name: guidance
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: CSPs must provide evidence of closure and remediation of high
-                      vulnerabilities within the timeframe for standard POA&M
+                    prose: CSPs must provide evidence of closure and remediation of
+                      high vulnerabilities within the timeframe for standard POA&M
                       updates.
                   - id: ca-7_fr_gdn.2
                     name: guidance
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: "See the FedRAMP Documents page under Key Cloud Service Provider (CSP)
-                      Documents, Continuous Monitoring Strategy Guide
-                      [https://www.fedramp.gov/documents/](https://www.fedramp.\
-                      gov/documents/) "
+                    prose: "See the FedRAMP Documents page under Key Cloud Service\
+                      \ Provider (CSP) Documents, Continuous Monitoring Strategy Guide\
+                      \ [https://www.fedramp.gov/documents/](https://www.fedramp.gov/documents/) "
           - position: starting
             by-id: ca-7
             props:
@@ -5527,10 +5528,8 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: "See the FedRAMP Documents page under Key Cloud Service Provider (CSP)
-                      Documents, Penetration Test Guidance
-                      [https://www.FedRAMP.gov/documents/](https://www.FedRAMP.\
-                      gov/documents/) "
+                    prose: "See the FedRAMP Documents page under Key Cloud Service\
+                      \ Provider (CSP) Documents, Penetration Test Guidance [https://www.FedRAMP.gov/documents/](https://www.FedRAMP.gov/documents/) "
           - position: starting
             by-id: ca-8
             props:
@@ -6203,13 +6202,12 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider establishes a central means of communicating major
-                      changes to or developments in the information system or
-                      environment of operations that may affect its services to
-                      the federal government and associated service consumers
-                      (e.g., electronic bulletin board, web status page). The
-                      means of communication are approved and accepted by the
-                      JAB/AO.
+                    prose: The service provider establishes a central means of communicating
+                      major changes to or developments in the information system or
+                      environment of operations that may affect its services to the
+                      federal government and associated service consumers (e.g., electronic
+                      bulletin board, web status page). The means of communication
+                      are approved and accepted by the JAB/AO.
                   - id: cm-3_fr_gdn.1
                     name: guidance
                     props:
@@ -6540,8 +6538,8 @@ profile:
                       - name: label
                         value: "Guidance:"
                     prose: If digital signatures/certificates are unavailable, alternative
-                      cryptographic integrity checks (hashes, self-signed certs,
-                      etc.) can be utilized.
+                      cryptographic integrity checks (hashes, self-signed certs, etc.)
+                      can be utilized.
           - position: starting
             by-id: cm-5.3_obj.1
             props:
@@ -6633,29 +6631,25 @@ profile:
                     props:
                       - name: label
                         value: "Requirement 1:"
-                    prose: "The service provider shall use the Center for Internet Security
-                      guidelines (Level 1) to establish configuration settings
-                      or establishes its own configuration settings if USGCB is
-                      not available. "
+                    prose: "The service provider shall use the Center for Internet\
+                      \ Security guidelines (Level 1) to establish configuration settings\
+                      \ or establishes its own configuration settings if USGCB is\
+                      \ not available. "
                   - id: cm-6_fr_smt.2
                     name: item
                     props:
                       - name: label
                         value: "Requirement 2:"
                     prose: The service provider shall ensure that checklists for configuration
-                      settings are Security Content Automation Protocol (SCAP)
-                      ([http://scap.nist.gov/](http://scap.nist.gov/)) validated
-                      or SCAP compatible (if validated checklists are not
+                      settings are Security Content Automation Protocol (SCAP) ([http://scap.nist.gov/](http://scap.nist.gov/))
+                      validated or SCAP compatible (if validated checklists are not
                       available).
                   - id: cm-6_fr_gdn.1
                     name: guidance
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: "Information on the USGCB checklists can be found at:
-                      [https://csrc.nist.gov/Projects/United-States-Government-\
-                      Configuration-Baseline](https://csrc.nist.gov/Projects/Un\
-                      ited-States-Government-Configuration-Baseline)."
+                    prose: "Information on the USGCB checklists can be found at: [https://csrc.nist.gov/Projects/United-States-Government-Configuration-Baseline](https://csrc.nist.gov/Projects/United-States-Government-Configuration-Baseline)."
           - position: starting
             by-id: cm-6
             props:
@@ -6843,21 +6837,18 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider shall use the Center for Internet Security
-                      guidelines (Level 1) to establish list of prohibited or
-                      restricted functions, ports, protocols, and/or services or
-                      establishes its own list of prohibited or restricted
-                      functions, ports, protocols, and/or services if USGCB is
-                      not available.
+                    prose: The service provider shall use the Center for Internet
+                      Security guidelines (Level 1) to establish list of prohibited
+                      or restricted functions, ports, protocols, and/or services or
+                      establishes its own list of prohibited or restricted functions,
+                      ports, protocols, and/or services if USGCB is not available.
                   - id: cm-7_fr_gdn.1
                     name: guidance
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: "Information on the USGCB checklists can be found at:
-                      [http://usgcb.nist.gov/usgcb_faq.html#usgcbfaq_usgcbfdcc]\
-                      (http://usgcb.nist.gov/usgcb_faq.html#usgcbfaq_usgcbfdcc).
-                      Partially derived from AC-17(8)."
+                    prose: "Information on the USGCB checklists can be found at: [http://usgcb.nist.gov/usgcb_faq.html#usgcbfaq_usgcbfdcc](http://usgcb.nist.gov/usgcb_faq.html#usgcbfaq_usgcbfdcc).\
+                      \ Partially derived from AC-17(8)."
           - position: starting
             by-id: cm-7.a_obj
             props:
@@ -6976,11 +6967,11 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: This control shall be implemented in a technical manner on the
-                      information system to only allow programs to run that
-                      adhere to the policy (i.e. white listing). This control is
-                      not to be based off of strictly written policy on what is
-                      allowed or not allowed to run.
+                    prose: This control shall be implemented in a technical manner
+                      on the information system to only allow programs to run that
+                      adhere to the policy (i.e. white listing). This control is not
+                      to be based off of strictly written policy on what is allowed
+                      or not allowed to run.
           - position: starting
             by-id: cm-7.2_obj.1
             props:
@@ -7554,8 +7545,8 @@ profile:
                     props:
                       - name: label
                         value: "CP-2 Requirement:"
-                    prose: For JAB authorizations the contingency lists include designated FedRAMP
-                      personnel.
+                    prose: For JAB authorizations the contingency lists include designated
+                      FedRAMP personnel.
           - position: starting
             by-id: cp-2
             props:
@@ -7949,9 +7940,9 @@ profile:
                     props:
                       - name: label
                         value: "CP-4(a) Requirement:"
-                    prose: The service provider develops test plans in accordance with NIST Special
-                      Publication 800-34 (as amended); plans are approved by the
-                      JAB/AO prior to initiating testing.
+                    prose: The service provider develops test plans in accordance
+                      with NIST Special Publication 800-34 (as amended); plans are
+                      approved by the JAB/AO prior to initiating testing.
           - position: starting
             by-id: cp-4
             props:
@@ -8145,8 +8136,8 @@ profile:
                     props:
                       - name: label
                         value: "(a) Requirement:"
-                    prose: The service provider defines a time period consistent with the recovery
-                      time objectives and business impact analysis.
+                    prose: The service provider defines a time period consistent with
+                      the recovery time objectives and business impact analysis.
           - position: starting
             by-id: cp-7
             props:
@@ -8251,12 +8242,12 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: The service provider may determine what is considered a sufficient degree
-                      of separation between the primary and alternate processing
-                      sites, based on the types of threats that are of concern.
-                      For one particular type of threat (i.e., hostile cyber
-                      attack), the degree of separation between sites will be
-                      less relevant.
+                    prose: The service provider may determine what is considered a
+                      sufficient degree of separation between the primary and alternate
+                      processing sites, based on the types of threats that are of
+                      concern. For one particular type of threat (i.e., hostile cyber
+                      attack), the degree of separation between sites will be less
+                      relevant.
           - position: starting
             by-id: cp-7.1_obj
             props:
@@ -8338,8 +8329,8 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider defines a time period consistent with the recovery
-                      time objectives and business impact analysis.
+                    prose: The service provider defines a time period consistent with
+                      the recovery time objectives and business impact analysis.
           - position: starting
             by-id: cp-8.1_obj
             props:
@@ -8445,34 +8436,35 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider shall determine what elements of the cloud
-                      environment require the Information System Backup control.
-                      The service provider shall determine how Information
-                      System Backup is going to be verified and appropriate
-                      periodicity of the check.
+                    prose: The service provider shall determine what elements of the
+                      cloud environment require the Information System Backup control.
+                      The service provider shall determine how Information System
+                      Backup is going to be verified and appropriate periodicity of
+                      the check.
                   - id: cp-9_fr_smt.a
                     name: item
                     props:
                       - name: label
                         value: "CP-9(a) Requirement:"
-                    prose: The service provider maintains at least three backup copies of user-level
-                      information (at least one of which is available online).
+                    prose: The service provider maintains at least three backup copies
+                      of user-level information (at least one of which is available
+                      online).
                   - id: cp-9_fr_smt.b
                     name: item
                     props:
                       - name: label
                         value: "CP-9(b)Requirement:"
-                    prose: The service provider maintains at least three backup copies of
-                      system-level information (at least one of which is
-                      available online).
+                    prose: The service provider maintains at least three backup copies
+                      of system-level information (at least one of which is available
+                      online).
                   - id: cp-9_fr_smt.c
                     name: item
                     props:
                       - name: label
                         value: "CP-9(c)Requirement:"
-                    prose: The service provider maintains at least three backup copies of
-                      information system documentation including security
-                      information (at least one of which is available online).
+                    prose: The service provider maintains at least three backup copies
+                      of information system documentation including security information
+                      (at least one of which is available online).
           - position: starting
             by-id: cp-9
             props:
@@ -8821,8 +8813,8 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: PIV=separate device. Please refer to NIST SP 800-157 Guidelines for
-                      Derived Personal Identity Verification (PIV) Credentials.
+                    prose: PIV=separate device. Please refer to NIST SP 800-157 Guidelines
+                      for Derived Personal Identity Verification (PIV) Credentials.
           - position: starting
             by-id: ia-2.11_obj.1
             props:
@@ -8909,8 +8901,8 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: Include Common Access Card (CAC), i.e., the DoD technical implementation
-                      of PIV/FIPS 201/HSPD-12.
+                    prose: Include Common Access Card (CAC), i.e., the DoD technical
+                      implementation of PIV/FIPS 201/HSPD-12.
           - position: starting
             by-id: ia-2.12_obj.1
             props:
@@ -9082,16 +9074,15 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider defines the time period of inactivity for device
-                      identifiers.
+                    prose: The service provider defines the time period of inactivity
+                      for device identifiers.
                   - id: ia-4_fr_gdn.1
                     name: guidance
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: For DoD clouds, see DoD cloud website for specific DoD requirements that
-                      go above and beyond FedRAMP
-                      [http://iase.disa.mil/cloud_security/Pages/index.aspx](http://iase.disa.mil/cloud_security/Pages/index.aspx).
+                    prose: For DoD clouds, see DoD cloud website for specific DoD
+                      requirements that go above and beyond FedRAMP [http://iase.disa.mil/cloud_security/Pages/index.aspx](http://iase.disa.mil/cloud_security/Pages/index.aspx).
           - position: starting
             by-id: ia-4
             props:
@@ -9258,9 +9249,8 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: Authenticators must be compliant with NIST SP 800-63-3 Digital Identity
-                      Guidelines IAL, AAL, FAL level 2. Link
-                      [https://pages.nist.gov/800-63-3](https://pages.nist.gov/800-63-3).
+                    prose: Authenticators must be compliant with NIST SP 800-63-3
+                      Digital Identity Guidelines IAL, AAL, FAL level 2. Link [https://pages.nist.gov/800-63-3](https://pages.nist.gov/800-63-3).
           - position: starting
             by-id: ia-5
             props:
@@ -9509,9 +9499,9 @@ profile:
                     props:
                       - name: label
                         value: "(a) (d) Guidance:"
-                    prose: If password policies are compliant with NIST SP 800-63B Memorized Secret
-                      (Section 5.1.1) Guidance, the control may be considered
-                      compliant.
+                    prose: If password policies are compliant with NIST SP 800-63B
+                      Memorized Secret (Section 5.1.1) Guidance, the control may be
+                      considered compliant.
           - position: starting
             by-id: ia-5.1
             props:
@@ -9904,9 +9894,9 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: If automated mechanisms which enforce password authenticator strength at
-                      creation are not used, automated mechanisms must be used
-                      to audit strength of created password authenticators.
+                    prose: If automated mechanisms which enforce password authenticator
+                      strength at creation are not used, automated mechanisms must
+                      be used to audit strength of created password authenticators.
           - position: starting
             by-id: ia-5.4_obj.1
             props:
@@ -10378,14 +10368,13 @@ profile:
                     props:
                       - name: label
                         value: "IR-3 Requirement 2:"
-                    prose: The service provider defines tests and/or exercises in accordance with
-                      NIST Special Publication 800-61 (as amended). Functional
-                      Testing must occur prior to testing for initial
-                      authorization. Annual functional testing may be concurrent
-                      with required penetration tests (see CA-8). The service
-                      provider provides test plans to the JAB/AO annually. Test
-                      plans are approved and accepted by the JAB/AO prior to
-                      test commencing.
+                    prose: The service provider defines tests and/or exercises in
+                      accordance with NIST Special Publication 800-61 (as amended).
+                      Functional Testing must occur prior to testing for initial authorization.
+                      Annual functional testing may be concurrent with required penetration
+                      tests (see CA-8). The service provider provides test plans to
+                      the JAB/AO annually. Test plans are approved and accepted by
+                      the JAB/AO prior to test commencing.
           - position: starting
             by-id: ir-3
             props:
@@ -10462,11 +10451,10 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider ensures that individuals conducting incident
-                      handling meet personnel security requirements commensurate
-                      with the criticality/sensitivity of the information being
-                      processed, stored, and transmitted by the information
-                      system.
+                    prose: The service provider ensures that individuals conducting
+                      incident handling meet personnel security requirements commensurate
+                      with the criticality/sensitivity of the information being processed,
+                      stored, and transmitted by the information system.
           - position: starting
             by-id: ir-4.a_obj
             props:
@@ -10593,8 +10581,8 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: Report security incident information according to FedRAMP Incident
-                      Communications Procedure.
+                    prose: Report security incident information according to FedRAMP
+                      Incident Communications Procedure.
           - position: starting
             by-id: ir-6
             props:
@@ -10791,19 +10779,19 @@ profile:
                     props:
                       - name: label
                         value: "(b) Requirement:"
-                    prose: The service provider defines a list of incident response personnel
-                      (identified by name and/or by role) and organizational
-                      elements. The incident response list includes designated
-                      FedRAMP personnel.
+                    prose: The service provider defines a list of incident response
+                      personnel (identified by name and/or by role) and organizational
+                      elements. The incident response list includes designated FedRAMP
+                      personnel.
                   - id: ir-8_fr_smt.e
                     name: item
                     props:
                       - name: label
                         value: "(e) Requirement:"
-                    prose: The service provider defines a list of incident response personnel
-                      (identified by name and/or by role) and organizational
-                      elements. The incident response list includes designated
-                      FedRAMP personnel.
+                    prose: The service provider defines a list of incident response
+                      personnel (identified by name and/or by role) and organizational
+                      elements. The incident response list includes designated FedRAMP
+                      personnel.
           - position: starting
             by-id: ir-8
             props:
@@ -12235,8 +12223,8 @@ profile:
                     props:
                       - name: label
                         value: "(a) Requirement:"
-                    prose: The service provider defines controlled areas within facilities where the
-                      information and information system reside.
+                    prose: The service provider defines controlled areas within facilities
+                      where the information and information system reside.
           - position: starting
             by-id: mp-4.a_obj.1
             props:
@@ -12317,9 +12305,9 @@ profile:
                     props:
                       - name: label
                         value: "(a) Requirement:"
-                    prose: The service provider defines security measures to protect digital and
-                      non-digital media in transport. The security measures are
-                      approved and accepted by the JAB.
+                    prose: The service provider defines security measures to protect
+                      digital and non-digital media in transport. The security measures
+                      are approved and accepted by the JAB.
           - position: starting
             by-id: mp-5.a_obj.1
             props:
@@ -12500,7 +12488,8 @@ profile:
                     props:
                       - name: label
                         value: "(a) Requirement:"
-                    prose: Equipment and procedures may be tested or validated for effectiveness
+                    prose: Equipment and procedures may be tested or validated for
+                      effectiveness
           - position: starting
             by-id: mp-6.2
             props:
@@ -12962,8 +12951,8 @@ profile:
                     props:
                       - name: label
                         value: "(a) Requirement:"
-                    prose: The service provider measures temperature at server inlets and humidity
-                      levels by dew point.
+                    prose: The service provider measures temperature at server inlets
+                      and humidity levels by dew point.
           - position: starting
             by-id: pe-14.a_obj.1
             props:
@@ -14362,8 +14351,8 @@ profile:
                     props:
                       - name: label
                         value: "(b) Guidance:"
-                    prose: Significant change is defined in NIST Special Publication 800-37 Revision
-                      1, Appendix F, page F-7.
+                    prose: Significant change is defined in NIST Special Publication
+                      800-37 Revision 1, Appendix F, page F-7.
           - position: starting
             by-id: pl-8
             props:
@@ -15435,15 +15424,15 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: Significant change is defined in NIST Special Publication 800-37 Revision
-                      1, Appendix F
+                    prose: Significant change is defined in NIST Special Publication
+                      800-37 Revision 1, Appendix F
                   - id: ra-3_fr_smt.d
                     name: item
                     props:
                       - name: label
                         value: "RA-3 (d) Requirement:"
-                    prose: Include all Authorizing Officials; for JAB authorizations to include
-                      FedRAMP.
+                    prose: Include all Authorizing Officials; for JAB authorizations
+                      to include FedRAMP.
           - position: starting
             by-id: ra-3.a_obj.1
             props:
@@ -15587,9 +15576,8 @@ profile:
                 props:
                   - name: label
                     value: "RA-5 (a)Requirement:"
-                prose: An accredited independent assessor scans operating
-                  systems/infrastructure, web applications, and databases once
-                  annually.
+                prose: An accredited independent assessor scans operating systems/infrastructure,
+                  web applications, and databases once annually.
           - position: ending
             by-id: ra-5_smt.e
             parts:
@@ -15599,8 +15587,8 @@ profile:
                 props:
                   - name: label
                     value: "RA-5 (e)Requirement:"
-                prose: To include all Authorizing Officials; for JAB authorizations to include
-                  FedRAMP.
+                prose: To include all Authorizing Officials; for JAB authorizations
+                  to include FedRAMP.
           - position: ending
             by-id: ra-5_smt
             parts:
@@ -15613,10 +15601,9 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: " **See the FedRAMP Documents page under Key Cloud Service Provider (CSP)
-                      Documents> Vulnerability Scanning Requirements**
-                      ([https://www.FedRAMP.gov/documents/](https://www.FedRAMP\
-                      .gov/documents/))"
+                    prose: " **See the FedRAMP Documents page under Key Cloud Service\
+                      \ Provider (CSP) Documents> Vulnerability Scanning Requirements**\
+                      \ ([https://www.FedRAMP.gov/documents/](https://www.FedRAMP.gov/documents/))"
           - position: starting
             by-id: ra-5
             props:
@@ -15954,7 +15941,8 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: Include in Continuous Monitoring ISSO digest/report to JAB/AO
+                    prose: Include in Continuous Monitoring ISSO digest/report to
+                      JAB/AO
           - position: starting
             by-id: ra-5.6_obj
             props:
@@ -15990,15 +15978,16 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: This enhancement is required for all high vulnerability scan findings.
+                    prose: This enhancement is required for all high vulnerability
+                      scan findings.
                   - id: ra-5.8_fr_gdn.1
                     name: guidance
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: While scanning tools may label findings as high or critical, the intent
-                      of the control is based around NIST's definition of high
-                      vulnerability.
+                    prose: While scanning tools may label findings as high or critical,
+                      the intent of the control is based around NIST's definition
+                      of high vulnerability.
           - position: starting
             by-id: ra-5.8_obj
             props:
@@ -16156,9 +16145,9 @@ profile:
                     props:
                       - name: label
                         value: "(e)  Requirement:"
-                    prose: For JAB authorizations, track security flaws and flaw resolution within
-                      the system, component, or service and report findings to
-                      organization-defined personnel, to include FedRAMP.
+                    prose: For JAB authorizations, track security flaws and flaw resolution
+                      within the system, component, or service and report findings
+                      to organization-defined personnel, to include FedRAMP.
           - position: starting
             by-id: sa-10.a_obj
             props:
@@ -16414,8 +16403,8 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider documents in the Continuous Monitoring Plan, how
-                      newly developed code for the information system is
+                    prose: The service provider documents in the Continuous Monitoring
+                      Plan, how newly developed code for the information system is
                       reviewed.
           - position: starting
             by-id: sa-11.1_obj
@@ -16475,8 +16464,8 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider documents in the Continuous Monitoring Plan, how
-                      newly developed code for the information system is
+                    prose: The service provider documents in the Continuous Monitoring
+                      Plan, how newly developed code for the information system is
                       reviewed.
           - position: starting
             by-id: sa-11.8_obj
@@ -16643,21 +16632,19 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider must comply with Federal Acquisition Regulation
-                      (FAR) Subpart 7.103, and Section 889 of the John S. McCain
-                      National Defense Authorization Act (NDAA) for Fiscal Year
-                      2019 (Pub. L. 115-232), and FAR Subpart 4.21, which
-                      implements Section 889 (as well as any added updates
-                      related to FISMA to address security concerns in the
-                      system acquisitions process).
+                    prose: The service provider must comply with Federal Acquisition
+                      Regulation (FAR) Subpart 7.103, and Section 889 of the John
+                      S. McCain National Defense Authorization Act (NDAA) for Fiscal
+                      Year 2019 (Pub. L. 115-232), and FAR Subpart 4.21, which implements
+                      Section 889 (as well as any added updates related to FISMA to
+                      address security concerns in the system acquisitions process).
                   - id: sa-4_fr_gdn.1
                     name: guidance
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: The use of Common Criteria (ISO/IEC 15408) evaluated products is strongly
-                      preferred. See
-                      [https://www.niap-ccevs.org/Product/](https://www.niap-ccevs.org/Product/).
+                    prose: The use of Common Criteria (ISO/IEC 15408) evaluated products
+                      is strongly preferred. See [https://www.niap-ccevs.org/Product/](https://www.niap-ccevs.org/Product/).
           - position: starting
             by-id: sa-4.1_obj
             props:
@@ -16819,8 +16806,9 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: CSP must use the same security standards regardless of where the system
-                      component or information system service is acquired.
+                    prose: CSP must use the same security standards regardless of
+                      where the system component or information system service is
+                      acquired.
           - position: starting
             by-id: sa-4.8_obj.1
             props:
@@ -17539,9 +17527,9 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The information system provides disablement (instead of physical
-                      disconnect) of collaborative computing devices in a manner
-                      that supports ease of use.
+                    prose: The information system provides disablement (instead of
+                      physical disconnect) of collaborative computing devices in a
+                      manner that supports ease of use.
           - position: starting
             by-id: sc-15.a_obj.1
             props:
@@ -17959,8 +17947,8 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: The organization supports the capability to use cryptographic mechanisms
-                      to protect information at rest.
+                    prose: The organization supports the capability to use cryptographic
+                      mechanisms to protect information at rest.
           - position: starting
             by-id: sc-28.1_obj
             props:
@@ -18298,10 +18286,10 @@ profile:
                     props:
                       - name: label
                         value: "Requirement:"
-                    prose: The service provider defines key information security tools, mechanisms,
-                      and support components associated with system and security
-                      administration and isolates those tools, mechanisms, and
-                      support components from other internal information system
+                    prose: The service provider defines key information security tools,
+                      mechanisms, and support components associated with system and
+                      security administration and isolates those tools, mechanisms,
+                      and support components from other internal information system
                       components via physically or logically separate subnets.
           - position: starting
             by-id: sc-7.13_obj.1

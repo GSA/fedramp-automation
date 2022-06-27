@@ -1,8 +1,4 @@
-import React from 'react';
-
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-
-import { useAppState } from '../hooks';
 
 import { AssertionDocumentationOverlay } from './AssertionDocumentationOverlay';
 import { DocumentViewerOverlay } from './DocumentViewerOverlay';
@@ -15,9 +11,11 @@ import { InnerPageLayout } from './InnerPageLayout';
 import { UsaBanner } from './UsaBanner';
 import { UsageTrackingPage } from './UsageTrackingPage';
 import { ValidatorPage } from './ValidatorPage';
+import { useAppContext } from '../context';
 
 const CurrentPage = () => {
-  const { currentRoute } = useAppState().router;
+  const currentRoute = useAppContext().state.router.currentRoute;
+
   if (currentRoute.type === 'Home') {
     return (
       <div className="grid-container">
@@ -40,9 +38,7 @@ const CurrentPage = () => {
     }[currentRoute.type] as OscalDocumentKey | null;
     return (
       <>
-        <InnerPageLayout>
-          <ValidatorPage documentType={documentType} />
-        </InnerPageLayout>
+        <ValidatorPage documentType={documentType} />
         <AssertionDocumentationOverlay />
         {documentType ? (
           <DocumentViewerOverlay documentType={documentType} />

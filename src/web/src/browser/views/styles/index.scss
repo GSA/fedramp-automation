@@ -8,6 +8,18 @@
 
 @import 'highlight.js/scss/github.scss';
 
+:root {
+  --theme-light-cyan: #0a90b7;
+  --theme-dark-cyan: #1889bc;
+  --theme-light-blue: #1a4480; // 'primary-dark'
+  --theme-dark-blue: #162e51; // 'primary-darker'
+  --theme-cornflower: #d9f1fd;
+  --theme-red: #c71f25;
+  --theme-light-grey: #f2f2f2;
+  --theme-grey-text: #757575; // 'gray-50'
+  --theme-dark-text: #5a5353;
+}
+
 .loader {
   border: 8px solid color('base-lightest');
   border-top: 8px solid color('primary-vivid');
