@@ -43,9 +43,9 @@
       <description>The identity assurance level as defined by NIST SP 800-63, Revision 3.</description>
       <binding pattern="system-characteristics/prop[@name='identity-assurance-level']" />
       <allowed-values allow-other="no">
-         <enum value="1" short-label="L">Low</enum>
-         <enum value="2" short-label="M">Moderate</enum>
-         <enum value="3" short-label="H">High</enum>
+         <enum value="IAL1" short-label="IAL1">IAL1</enum>
+         <enum value="IAL2" short-label="IAL2">IAL2</enum>
+         <enum value="IAL3" short-label="IAL3">IAL3</enum>
       </allowed-values>
    </value-set>
 
@@ -54,9 +54,9 @@
       <description>The authenticator assurance level as defined by NIST SP 800-63, Revision 3.</description>
       <binding pattern="system-characteristics/prop[@name='authenticator-assurance-level']" />
       <allowed-values allow-other="no">
-         <enum value="1" short-label="L">Low</enum>
-         <enum value="2" short-label="M">Moderate</enum>
-         <enum value="3" short-label="H">High</enum>
+         <enum value="AAL1" short-label="AAL1">AAL1</enum>
+         <enum value="AAL2" short-label="AAL2">AAL2</enum>
+         <enum value="AAL3" short-label="AAL3">AAL3</enum>
       </allowed-values>
    </value-set>
 
@@ -65,9 +65,9 @@
       <description>The federation assurance level as defined by NIST SP 800-63, Revision 3.</description>
       <binding pattern="system-characteristics/prop[@name='federation-assurance-level']" />
       <allowed-values allow-other="no">
-         <enum value="1" short-label="L">Low</enum>
-         <enum value="2" short-label="M">Moderate</enum>
-         <enum value="3" short-label="H">High</enum>
+         <enum value="FAL1" short-label="FAL1">FAL1</enum>
+         <enum value="FAL2" short-label="FAL2">FAL2</enum>
+         <enum value="FAL3" short-label="FAL3">FAL3</enum>
       </allowed-values>
    </value-set>
 
