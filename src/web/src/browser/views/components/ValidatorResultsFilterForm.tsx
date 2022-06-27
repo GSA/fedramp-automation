@@ -69,15 +69,15 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
             </svg>
           </button>
         </div>
-        <fieldset className="usa-fieldset">
-          <legend className="usa-legend font-sans-md">
+        <fieldset className="usa-fieldset margin-y-3">
+          <legend className="usa-legend usa-legend--large font-sans-md margin-bottom-1">
             Filter by pass status
           </legend>
-          <div className="usa-radio">
+          <div className="usa-radio tablet:padding-left-2 width-mobile">
             {filterOptions.passStatuses.map(passStatus => (
               <div key={passStatus.id}>
                 <input
-                  className="usa-radio__input usa-radio__input--tile"
+                  className="usa-radio__input "
                   id={`${documentType}-status-${passStatus.id}`}
                   type="radio"
                   name="pass-status"
@@ -95,10 +95,10 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   }}
                 />
                 <label
-                  className="usa-radio__label"
+                  className="usa-radio__label display-flex flex-justify "
                   htmlFor={`${documentType}-status-${passStatus.id}`}
                 >
-                  {passStatus.title}
+                  <span>{passStatus.title}</span>
                   <span
                     className="margin-left-1 usa-tag"
                     title={`${passStatus.count} results`}
@@ -109,12 +109,16 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
               </div>
             ))}
           </div>
-          <legend className="usa-legend font-sans-md">Select a view</legend>
-          <div className="usa-radio">
+        </fieldset>
+        <fieldset className="usa-fieldset margin-y-3">
+          <legend className="usa-legend usa-legend--large font-sans-md margin-bottom-1">
+            Select a view
+          </legend>
+          <div className="usa-radio tablet:padding-left-2 width-mobile">
             {filterOptions.assertionViews.map(assertionView => (
               <div key={assertionView.index}>
                 <input
-                  className="usa-radio__input usa-radio__input--tile"
+                  className="usa-radio__input"
                   id={`${documentType}-assertion-view-${assertionView.index}`}
                   type="radio"
                   name="assertion-view"
@@ -133,10 +137,10 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   }}
                 />
                 <label
-                  className="usa-radio__label"
+                  className="usa-radio__label display-flex flex-justify"
                   htmlFor={`${documentType}-assertion-view-${assertionView.index}`}
                 >
-                  {assertionView.title}
+                  <span>{assertionView.title}</span>
                   <span
                     className="margin-left-1 usa-tag"
                     title={`${assertionView.count} results`}
@@ -147,11 +151,12 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
               </div>
             ))}
           </div>
-
+        </fieldset>
+        <fieldset className="usa-fieldset margin-y-3">
+          <legend className="usa-legend font-sans-md usa-legend--large margin-bottom-1">
+            Filter by severity
+          </legend>
           <div className="usa-radio">
-            <legend className="usa-legend font-sans-md">
-              Filter by severity
-            </legend>
             {filterOptions.roles.map((filterRole, index) => (
               <div
                 key={index}
@@ -178,26 +183,17 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   className="usa-radio__label"
                   htmlFor={`${documentType}-role-${filterRole.name}`}
                 >
-                  <svg
-                    aria-hidden="true"
-                    role="img"
-                    focusable="false"
-                    className="usa-icon usa-icon--size-3 margin-right-1 margin-bottom-neg-2px"
-                  >
-                    <use
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      xlinkHref={`${spriteSvg}#${colorTokenForRole(
-                        filterRole.name,
-                      )}`}
-                    />
-                  </svg>
-                  {filterRole.name.toLocaleUpperCase() || '<not specified>'}
-                  <span
-                    className="margin-left-1 usa-tag"
-                    title={`${filterRole.count} results`}
-                  >
-                    {filterRole.count}
-                  </span>
+                  <div className="width-card display-flex flex-justify">
+                    <span>
+                      {filterRole.name.toLocaleUpperCase() || '<not specified>'}
+                    </span>
+                    <span
+                      className="margin-left-1 usa-tag"
+                      title={`${filterRole.count} results`}
+                    >
+                      {filterRole.count}
+                    </span>
+                  </div>
                   <span className="usa-checkbox__label-description">
                     {filterRole.subtitle}
                   </span>
