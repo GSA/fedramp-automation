@@ -37,7 +37,15 @@ export const ValidatorReport = ({ documentType }: Props) => {
             className="font-heading-sm text-secondary-light"
             style={{ float: 'right' }}
           >
-            <span className={`text-blue`}>
+            <span className={`text-error`}>
+              <svg
+                className="usa-icon margin-right-05"
+                aria-hidden="true"
+                focusable="false"
+                role="img"
+              >
+                <use xlinkHref={`${spriteSvg}#flag`}></use>
+              </svg>
               {schematronReport.assertionCount} concerns
             </span>
           </span>
@@ -66,9 +74,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
             {group.checks.checks.map((check, index) => (
               <li
                 key={index}
-                className={`usa-icon-list__item padding-1 bg-${colorTokenForRole(
-                  check.role,
-                )}-lighter`}
+                className={`usa-icon-list__item padding-1 bg-base-lightest`}
               >
                 <div className={`usa-icon-list__icon text-${check.icon.color}`}>
                   <svg className="usa-icon" aria-hidden="true" role="img">
