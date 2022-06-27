@@ -1,0 +1,16 @@
+a {
+  color: var(--theme-grey-text);
+  text-decoration: none;
+  line-height: 0.9;
+  :visited {
+    color: var(--theme-grey-text);
+  }
+}
+.bg-theme-red {
+  background-color: var(--theme-red) !important;
+}
+
+.active-link {
+  color: var(--theme-dark-text) !important;
+  font-weight: bold;
+}

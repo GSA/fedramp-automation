@@ -1,10 +1,8 @@
-import React from 'react';
 import logoImg from 'uswds/img/logo-img.png';
-
-import { useAppState } from '../hooks';
+import { useAppContext } from '../context';
 
 export const Footer = () => {
-  const { sourceRepository } = useAppState();
+  const { sourceRepository } = useAppContext().state.config;
   return (
     <footer className="usa-footer usa-footer--slim">
       <div className="grid-container usa-footer__return-to-top">

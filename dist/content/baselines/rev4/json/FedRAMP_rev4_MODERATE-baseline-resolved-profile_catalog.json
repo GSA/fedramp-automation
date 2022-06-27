@@ -1,15 +1,15 @@
 {
   "catalog": {
-    "uuid": "8bf9a86c-66e9-4757-830c-87c0df2fb821",
+    "uuid": "bdfa5c05-3ace-42c1-88cc-481cd908edbd",
     "metadata": {
       "title": "FedRAMP Rev 4 Moderate Baseline",
       "published": "2021-02-05T00:00:00.000-04:00",
-      "last-modified": "2021-10-22T08:14:14.228612Z",
+      "last-modified": "2022-06-21T17:28:19.997377Z",
       "version": "fedramp1.1.0-oscal1.0.0",
       "oscal-version": "1.0.0",
       "links": [
         {
-          "href": "FedRAMP_rev4_MODERATE-baseline_profile.xml",
+          "href": "FedRAMP_rev4_MODERATE-baseline_profile.json",
           "rel": "resolution-source"
         }
       ],

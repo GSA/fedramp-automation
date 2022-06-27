@@ -321,7 +321,7 @@
       </remarks>
    </metadata>
    <!-- Link this SAR to the SAP -->
-    <import-ap href="../../sap/xml/FedRAMP-SAP-OSCAL-Template.xml">
+   <import-ap href="../sap/FedRAMP-SAP-OSCAL-Template.xml">
       <remarks>
          <p>FedRAMP prefers the path for the SAP be relative to the location of this SAR file.
             Absolute links will not work when FedRAMP tools import the content.</p>
