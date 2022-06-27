@@ -12,7 +12,7 @@ CONTENT_CONFIG_PATH := src/config
 OSCAL_DOCKER := docker-compose -f $(OSCAL_DIR)/build/docker-compose.yml -f $(CONTENT_DIR)/docker-compose.yml
 
 init-content:
-  @echo "Building OSCAL content generator OSCAL Docker image..."
+  @echo "Building Docker image for OSCAL content generation..."
 	$(OSCAL_DOCKER) build
 
 test-content:  ## Test src/content

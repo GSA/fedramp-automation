@@ -1,13 +1,12 @@
 ---
-
 # yamllint disable-line rule:truthy
 on:
   push:
     branches:
       - master
     paths:
-      - 'src/**'
-      - 'oscal'
+      - "src/**"
+      - "oscal"
   pull_request:
     types: [opened, synchronize, reopened]
   workflow_dispatch:
@@ -15,10 +14,6 @@ on:
       - master
 name: Process Content
 env:
-  OSCAL_DIR_PATH: vendor/oscal
-  CICD_DIR_PATH: vendor/oscal/build/ci-cd
-  CONTENT_CONFIG_PATH: src/config
-  SAXON_VERSION: 9.9.0-1
   HOME_REPO: GSA/fedramp-automation
 jobs:
   validate-and-publish-content:
@@ -29,52 +24,20 @@ jobs:
         with:
           path: git-content
           submodules: recursive
-          # Only update `fetch-depth` for debugging on branches.
-          # If not, this action cannot see other branches for names for the PR to push back changes.
-          # So, on PR branches without this, you will have errors.
-          # fetch-depth: 0
-      # job-validate-content
-      - name: Update APT package metadata
-        run: |
-          sudo rm -rf /var/lib/apt/lists/* && sudo apt-get update
-      - name: Install APT dependencies
-        run: |
-          sudo apt-get install libxml2-utils
-      - name: Install NPM dependencies
-        run: |
-          sudo npm install --loglevel verbose -g yargs ajv-formats@"^1.5.x" ajv-cli@"^4.0.x" yaml-convert@"^1.0.x"
-      - name: Set up JDK 11
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      - name: Cache Maven packages
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
-      - name: Get Saxon-HE
-        run: |
-          mvn org.apache.maven.plugins:maven-dependency-plugin:2.10:get -DartifactId=Saxon-HE -DgroupId=net.sf.saxon -Dversion=$SAXON_VERSION
+      - name: Build content generator
+        run: make init-content
       - name: Validate Content
-        run:
-          # mkdir -p "${OSCAL_BUILD_DIR_PATH}"
-          bash "${GITHUB_WORKSPACE}/git-content/${CICD_DIR_PATH}/validate-content.sh" -v -o "${GITHUB_WORKSPACE}/git-content/${OSCAL_DIR_PATH}" -a "${GITHUB_WORKSPACE}/git-content" -c "${GITHUB_WORKSPACE}/git-content/${CONTENT_CONFIG_PATH}"
-      # job-copy-and-convert-content
+        run: make test-content
       - name: Auto-convert Content
-        run: |
-          pip3 install -r "${GITHUB_WORKSPACE}/git-content/${CICD_DIR_PATH}/python/requirements.txt"
-          bash "${GITHUB_WORKSPACE}/git-content/${CICD_DIR_PATH}/copy-and-convert-content.sh" -v -o "${GITHUB_WORKSPACE}/git-content/${OSCAL_DIR_PATH}" -a "${GITHUB_WORKSPACE}/git-content" -c "${GITHUB_WORKSPACE}/git-content/${CONTENT_CONFIG_PATH}" -w "${GITHUB_WORKSPACE}/git-content/dist" --resolve-profiles
-      # job-deploy-artifacts
+        run: make init-content
       - name: Setup SSH key
-        # only do this on master
-        # Comment the below `if` conditional if you need to debug this on PR branches.
+        # Only do this on GSA/master
         if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
         run: |
           eval "$(ssh-agent -s)"
           ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
       - name: Publish Artifacts
-        # only do this on master
+        # Only do this on GSA/master
         if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
         uses: stefanzweifel/git-auto-commit-action@v4.4.1
         with:
