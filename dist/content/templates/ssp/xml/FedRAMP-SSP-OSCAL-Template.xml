@@ -553,7 +553,7 @@
          <prop ns="https://fedramp.gov/ns/oscal" name="pta-3" class="pta" value="yes"/>
          <!--Is there a Privacy Act System of Records Notice (SORN) for this ISA system? (If so, please specify the SORN ID.) -->
          <prop ns="https://fedramp.gov/ns/oscal" name="pta-4" class="pta" value="yes"/>
-         <!--Example Systems of Records Notice ID from the Federal Register, login.gov -->
+         <!--Example Systems of Records Notice ID from the Federal Register, login.gov -->   
          <prop ns="https://fedramp.gov/ns/oscal" name="sorn-id" class="pta" value="82 FR 37451"/>
          <information-type uuid="06ecba4f-db96-4491-a3a2-7febfa227435">
             <title>Information Type Name</title>
@@ -646,12 +646,13 @@
       <prop ns="https://fedramp.gov/ns/oscal" name="users-internal-future" value="0"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="users-external-future" value="0"/>
       <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
-         <title>Name of Underlying System</title>
-         <link href="//path/to/leveraged_system_ssp.xml"/>
+         <title>AWS GovCloud</title>         
+         <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
+         <link href="//path/to/leveraged_system_ssp.xml"/>         
          <link href="//path/to/leveraged_system_legacy_crm.xslt"/>
          <link href="//path/to/leveraged_system_responsibility_and_inheritance.xml"/>
          <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
-         <date-authorized>2015-01-01</date-authorized>
+         <date-authorized>2015-01-01</date-authorized>         
          <remarks>
             <p>The leveraged-authorizaton assembly is supposed to have a required uuid flag instead
                of an optional id flag. This will be fixed in the syntax shortly.</p>
@@ -707,6 +708,7 @@
          <title>This System</title>
          <description>
             <p>The entire system as depicted in the system authorization boundary</p>
+             <p>Email is employed</p>
          </description>
          <status state="operational"/>
       </component>
@@ -935,7 +937,7 @@
          </description>
          <prop name="asset-id" value="unique-asset-id"/>
          <prop name="ipv4-address" value="10.1.1.1"/>
-         <prop name="ipv6-address" value="0000:0000:0000:0000"/>
+         <prop name="ipv6-address" value="::"/>
          <prop name="virtual" value="no"/>
          <prop name="public" value="no"/>
          <prop name="fqdn" value="dns.name"/>
@@ -1104,21 +1106,21 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="ac-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="ac-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="ac-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <statement statement-id="ac-1_smt" uuid="240fa015-01df-4741-bff5-6958c7fb85e5">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
-                          uuid="d9d1ce66-ff47-474d-8596-5fdf2af60179">
+               uuid="d9d1ce66-ff47-474d-8596-5fdf2af60179">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="ac-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="ac-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="ac-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="ac-1_smt.a.1" uuid="fb4d039a-dc4f-46f5-9c1f-f6343eaf69bc">
@@ -1221,18 +1223,6 @@
                <p>Describe any customer-configured requirements for satisfying this control.</p>
             </remarks>
          </prop>
-         <set-parameter param-id="ac-2_prm_1">
-            <value>[SAMPLE]privileged, non-privileged</value>
-         </set-parameter>
-         <set-parameter param-id="ac-2_prm_2">
-            <value>[SAMPLE]all</value>
-         </set-parameter>
-         <set-parameter param-id="ac-2_prm_3">
-            <value>[SAMPLE]The Access Control Procedure</value>
-         </set-parameter>
-         <set-parameter param-id="ac-2_prm_4">
-            <value>[SAMPLE]annually</value>
-         </set-parameter>
          <responsible-role role-id="admin-unix"/>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ac-2_smt" uuid="4a2428eb-41eb-447a-81db-4f6d98a003ce">
@@ -1241,6 +1231,18 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="ac-2_prm_1">
+                  <value>[SAMPLE]privileged, non-privileged</value>
+               </set-parameter>
+               <set-parameter param-id="ac-2_prm_2">
+                  <value>[SAMPLE]all</value>
+               </set-parameter>
+               <set-parameter param-id="ac-2_prm_3">
+                  <value>[SAMPLE]The Access Control Procedure</value>
+               </set-parameter>
+               <set-parameter param-id="ac-2_prm_4">
+                  <value>[SAMPLE]annually</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="ac-2_smt.a" uuid="24a85abb-25ad-4686-850c-5c0e8ab69a0c">
@@ -1263,7 +1265,7 @@
                   </responsibility>
                </export>
             </by-component>
-            <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
+            <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
                uuid="8a72663c-28c7-41c2-8739-f1ee2d5761ac">
                <description>
                   <p>For the portion of the control satisfied by the application component of this
@@ -1344,15 +1346,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="at-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="at-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="at-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="at-1_smt" uuid="ba380f9b-4364-4c0e-8629-cbada5d7d6b9">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1360,6 +1353,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="at-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="at-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="at-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="at-1_smt.a" uuid="ee5a11fb-9bae-4680-8f8c-575c85d47355">
@@ -1396,15 +1398,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="au-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="au-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="au-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="au-1_smt" uuid="a9a883f4-f550-4f11-941a-2eb9ce9c3faf">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1412,6 +1405,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="au-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="au-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="au-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="au-1_smt.a" uuid="9a2bd937-226e-4aaf-8261-2cf0c2e3aa10">
@@ -1453,15 +1455,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="ca-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="ca-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="ca-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ca-1_smt" uuid="cf2fa346-171d-48a1-a96a-0c6ca209f19c">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1469,6 +1462,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="ca-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="ca-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="ca-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="ca-1_smt.a" uuid="e7bd0a7e-5f92-4769-8cd3-76ad2f663a5c">
@@ -1508,15 +1510,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="cm-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="cm-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="cm-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="cm-1_smt" uuid="ad732048-a744-456f-9555-c80fdf4cd304">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1524,6 +1517,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="cm-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="cm-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="cm-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="cm-1_smt.a" uuid="52339583-19b6-4774-9213-50b9f42fe51f">
@@ -1563,15 +1565,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="cp-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="cp-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="cp-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="cp-1_smt" uuid="a719de81-694c-4455-b8db-5f2b6b1d9076">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1579,6 +1572,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="cp-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="cp-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="cp-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="cp-1_smt.a" uuid="8bde1fa5-eb81-4a1b-9e6e-5827e176025a">
@@ -1618,15 +1620,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="ia-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="ia-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="ia-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ia-1_smt" uuid="3146724d-b623-45de-a9af-fd7a0556a273">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1634,6 +1627,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="ia-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="ia-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="ia-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="ia-1_smt.a" uuid="ba92e479-705f-47a4-a763-dfc098ba239d">
@@ -1673,15 +1675,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="ir-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="ir-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="ir-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ir-1_smt" uuid="c0d7699a-45d8-49af-abba-81c5d2fc5d1b">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1689,6 +1682,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="ir-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="ir-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="ir-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="ir-1_smt.a" uuid="7284efc2-d953-486c-ab8a-3caef6ce06c3">
@@ -1728,15 +1730,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="ma-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="ma-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="ma-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ma-1_smt" uuid="36fd8d6c-4d47-46af-a5be-fca3c0fa143c">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1744,6 +1737,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="ma-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="ma-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="ma-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="ma-1_smt.a" uuid="d609e538-3976-418e-a368-58fc75cd03c0">
@@ -1783,15 +1785,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="mp-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="mp-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="mp-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="_smt" uuid="a2653c46-fbfc-4a70-b318-403f5f13cc46">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1799,6 +1792,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="mp-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="mp-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="mp-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="mp-1_smt.a" uuid="bab45ad3-65ee-43bc-9c3e-c3e4e2db8001">
@@ -1838,15 +1840,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="pe-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="pe-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="pe-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="_smt" uuid="35d98964-5e8c-4068-abed-2729cbb1a5e3">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1854,6 +1847,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="pe-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="pe-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="pe-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="pe-1_smt.a" uuid="11fd3e46-4735-4986-91bc-747345fe608a">
@@ -1894,15 +1896,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="pl-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="pl-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="pl-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="pl-1_smt" uuid="0acd7328-133f-4df8-8518-b9b3cb3bd4ed">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1910,6 +1903,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="pl-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="pl-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="pl-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="pl-1_smt.a" uuid="ec7af577-ff22-46bf-ac0a-cf9d75c72ebb">
@@ -1949,15 +1951,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="ps-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="ps-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="ps-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ps-1_smt" uuid="98f8537b-cce1-4904-b220-02552eae76e5">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -1965,6 +1958,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="ps-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="ps-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="ps-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="ps-1_smt.a" uuid="afe1703d-5e59-460b-b048-41b49699c5a1">
@@ -2004,15 +2006,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="ra-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="ra-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="ra-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="ra-1_smt" uuid="ffb439c2-3445-495c-ba10-ba0ca4e30465">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -2020,6 +2013,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="ra-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="ra-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="ra-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="ra-1_smt.a" uuid="8fe541ea-0920-42d0-8561-4e08f04d796c">
@@ -2059,15 +2061,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="sa-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="sa-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="sa-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="sa-1_smt" uuid="d0dc3f13-50cc-40d1-a980-fe78797c7417">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -2075,6 +2068,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="sa-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="sa-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="sa-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="sa-1_smt.a" uuid="ae3f64be-2e62-4347-b06a-727bc28e4f9b">
@@ -2114,15 +2116,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="sc-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="sc-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="sc-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="sc-1_smt" uuid="3f1307fa-7405-42ea-a9ad-61b7a94bc704">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -2130,6 +2123,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="sc-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="sc-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="sc-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="sc-1_smt.a" uuid="5e2e8372-c13b-4cf5-90c5-e8833a9fe241">
@@ -2169,15 +2171,6 @@
             </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
-         <set-parameter param-id="si-1_prm_1">
-            <value>[replace with list of personnel or roles]</value>
-         </set-parameter>
-         <set-parameter param-id="si-1_prm_2">
-            <value>[specify frequency]</value>
-         </set-parameter>
-         <set-parameter param-id="si-1_prm_3">
-            <value>[specify frequency]</value>
-         </set-parameter>
          <responsible-role role-id="program-director"/>
          <statement statement-id="si-1_smt" uuid="9e061e1e-10fa-4896-8597-294d8fd8e52a">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4"
@@ -2185,6 +2178,15 @@
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
+               <set-parameter param-id="si-1_prm_1">
+                  <value>[replace with list of personnel or roles]</value>
+               </set-parameter>
+               <set-parameter param-id="si-1_prm_2">
+                  <value>[specify frequency]</value>
+               </set-parameter>
+               <set-parameter param-id="si-1_prm_3">
+                  <value>[specify frequency]</value>
+               </set-parameter>
             </by-component>
          </statement>
          <statement statement-id="si-1_smt.a" uuid="915b10d2-2275-4d86-951a-eec23f9ee77a">
@@ -2216,6 +2218,43 @@
             </by-component>
          </statement>
       </implemented-requirement>
+      <implemented-requirement
+           control-id="si-8"
+           uuid="f33674dc-d16f-4a8c-8902-b8e60f947ce7">
+           <!--Spam Protection-->
+           <prop
+               name="control-origination"
+               ns="https://fedramp.gov/ns/oscal"
+               value="sp-system" />
+           <prop
+               name="implementation-status"
+               ns="https://fedramp.gov/ns/oscal"
+               value="implemented" />
+           <!--There are no control parameters-->
+           <responsible-role
+               role-id="implemented-requirement-responsible-role" />
+          <statement statement-id="si-8_smt" uuid="9e061e1e-10fa-4896-8597-294d8fd8e52b">
+              <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
+                  uuid="663f84e5-9c13-49a5-b7de-25ced4e8aef8">
+                  <description>
+                      <p>Describe how the control is satisfied within the system.</p>
+                      <p>DMARC is employed.</p>
+                      <p>SPF is employed.</p>
+                      <p>DKIM is employed.</p>
+                  </description>
+                  <set-parameter param-id="si-8_prm_1">
+                      <value>[replace with list of personnel or roles]</value>
+                  </set-parameter>
+                  <set-parameter param-id="si-8_prm_2">
+                      <value>[specify frequency]</value>
+                  </set-parameter>
+                  <set-parameter param-id="si-8_prm_3">
+                      <value>[specify frequency]</value>
+                  </set-parameter>
+              </by-component>
+          </statement>
+           <!--Required response points are: -->
+       </implemented-requirement>
    </control-implementation>
    <!-- Table 15-1 Names of Provided Attachments -->
    <back-matter>
