@@ -706,7 +706,7 @@
             </x:scenario>
         </x:scenario>
         <x:scenario
-            label="when in an assessment-subject[@type='location' element">
+            label="when in an assessment-subject[@type='location'] element">
             <x:scenario
                 label="and there is an include-all child element">
                 <x:context>
