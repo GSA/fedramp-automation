@@ -26,10 +26,13 @@ jobs:
           submodules: recursive
       - name: Build content generator
         run: make init-content
+        working-directory: git-content
       - name: Validate Content
         run: make test-content
+        working-directory: git-content
       - name: Auto-convert Content
-        run: make init-content
+        run: make build-content
+        working-directory: git-content
       - name: Setup SSH key
         # Only do this on GSA/master
         if: github.repository == env.HOME_REPO && github.ref == 'refs/heads/master'
