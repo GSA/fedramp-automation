@@ -83,28 +83,31 @@ export const ValidatorReport = ({ documentType }: Props) => {
                     </svg>
                   </div>
                   <details className="usa-icon-list__content">
-                    <summary>{check.message}</summary>
-                    <button
-                      className="usa-button usa-button--unstyled"
-                      onClick={() =>
-                        dispatch(
-                          assertionDocumentation.show({
-                            assertionId: check.id,
-                            documentType,
-                          }),
-                        )
-                      }
-                      title="View examples"
-                    >
-                      <svg
-                        className="usa-icon"
-                        aria-hidden="true"
-                        focusable="false"
-                        role="img"
+                    <summary>
+                      {check.fired.length && <b>{check.fired.length} </b>}
+                      {check.message}
+                      <button
+                        className="usa-button usa-button--unstyled"
+                        onClick={() =>
+                          dispatch(
+                            assertionDocumentation.show({
+                              assertionId: check.id,
+                              documentType,
+                            }),
+                          )
+                        }
+                        title="View examples"
                       >
-                        <use xlinkHref={`${spriteSvg}#support`}></use>
-                      </svg>
-                    </button>
+                        <svg
+                          className="usa-icon"
+                          aria-hidden="true"
+                          focusable="false"
+                          role="img"
+                        >
+                          <use xlinkHref={`${spriteSvg}#support`}></use>
+                        </svg>
+                      </button>
+                    </summary>
                     {check.fired.length ? (
                       <ul className="usa-icon-list__title">
                         {check.fired.map((firedCheck, index) => (
