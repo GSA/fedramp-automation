@@ -39,7 +39,7 @@ const getAssertionView = (input: any): AssertionView => {
   }
 };
 
-type AssertionView = {
+export type AssertionView = {
   title: string;
   groups: AssertionGroup[];
 };
