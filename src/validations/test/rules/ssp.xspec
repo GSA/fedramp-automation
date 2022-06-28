@@ -5646,7 +5646,7 @@
                             class="identity-assurance"
                             name="identity-assurance-level"
                             ns="https://fedramp.gov/ns/oscal"
-                            value="2" />
+                            value="IAL2" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert
@@ -5681,7 +5681,7 @@
                             class="authenticator-assurance"
                             name="authenticator-assurance-level"
                             ns="https://fedramp.gov/ns/oscal"
-                            value="2" />
+                            value="AAL2" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert
@@ -5716,7 +5716,7 @@
                             class="federation-assurance"
                             name="federation-assurance-level"
                             ns="https://fedramp.gov/ns/oscal"
-                            value="2" />
+                            value="FAL2" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert

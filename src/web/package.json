@@ -53,15 +53,14 @@
     "start:typecheck": "tsc --noEmit --watch",
     "start:vite": "vite",
     "test": "vitest run",
+    "test:watch": "vitest watch",
     "test:coverage": "vitest --coverage && open ./coverage/lcov-report/index.html"
   },
   "dependencies": {
     "@fingerprintjs/fingerprintjs": "^3.3.3",
     "classnames": "^2.3.1",
     "commander": "^9.3.0",
-    "fp-ts": "^2.11.1",
     "highlight.js": "^11.5.1",
-    "io-ts": "^2.2.16",
     "path-to-regexp": "^6.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
