@@ -38,7 +38,7 @@ export const ValidatorFileSelectForm = () => {
         >
           Or use an example file, brought to you by FedRAMP:
         </label>
-        <div className="display-flex flex-align-center">
+        <div className="margin-top-3 display-flex flex-align-center">
           <select
             className="usa-select margin-right-105"
             name="sample-document"
