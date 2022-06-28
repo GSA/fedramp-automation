@@ -24,7 +24,7 @@ jobs:
         run: make init build
 
       - name: Create release archive
-        run: tar -zcf fedramp-automation.tar.gz dist
+        run: mv dist fedramp-automation && zip fedramp-automation.zip fedramp-automation
 
       # Create a release corresponding to the triggered tag
       - uses: ncipollo/release-action@v1
