@@ -24,6 +24,10 @@ jobs:
         with:
           path: git-content
           submodules: recursive
+          # Only update `fetch-depth` for debugging on branches. If not, this
+          # action cannot see other branches for names for the PR to push back
+          # changes. So, on PR branches without this, you will have errors.
+          # fetch-depth: 0
       - name: Build content generator
         run: make init-content
         working-directory: git-content
