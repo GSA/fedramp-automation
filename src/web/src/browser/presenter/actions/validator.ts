@@ -3,7 +3,6 @@ import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import { setCurrentRoute } from '.';
 
 import type { ActionContext } from '..';
-import * as metrics from './metrics';
 import { getUrl, Routes } from '../state/router';
 
 export const reset = ({ dispatch }: ActionContext) => {
@@ -86,7 +85,6 @@ export const setValidationReport =
         machine: 'validator',
         type: 'VALIDATOR_VALIDATED',
       });
-      metrics.logValidationSummary(documentType)(config);
     }
     config.effects.useCases
       .annotateXML({

@@ -51,12 +51,6 @@ const CurrentPage = () => {
         <DevelopersPage />
       </InnerPageLayout>
     );
-  } else if (currentRoute.type === 'UsageTracking') {
-    return (
-      <InnerPageLayout>
-        <UsageTrackingPage />
-      </InnerPageLayout>
-    );
   } else {
     const _exhaustiveCheck: never = currentRoute;
     return <></>;

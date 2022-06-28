@@ -15,7 +15,6 @@ export type State = {
     };
   };
   assertionDocumentation: assertionDocumentation.State;
-  metrics: metrics.State;
   oscalDocuments: {
     poam: schematron.State;
     sap: schematron.State;
@@ -55,7 +54,6 @@ export const initialState: State = {
     },
   },
   assertionDocumentation: assertionDocumentation.initialState,
-  metrics: metrics.initialState,
   oscalDocuments: {
     poam: schematron.initialState,
     sap: schematron.initialState,
@@ -129,7 +127,6 @@ export const rootReducer = (state: State, event: StateTransition): State => ({
     state.assertionDocumentation,
     event,
   ),
-  metrics: reducers.metrics(state.metrics, event),
   oscalDocuments: {
     poam: reducers['oscalDocuments.poam'](state.oscalDocuments.poam, event),
     sap: reducers['oscalDocuments.sap'](state.oscalDocuments.sap, event),

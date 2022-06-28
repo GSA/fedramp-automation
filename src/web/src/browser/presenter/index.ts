@@ -1,5 +1,4 @@
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
-import type { AppMetrics } from '@asap/shared/use-cases/app-metrics';
 import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
@@ -14,7 +13,6 @@ export type UseCases = {
   getAssertionViews: GetAssertionViews;
   getSchematronAssertions: GetSchematronAssertions;
   getXSpecScenarioSummaries: GetXSpecScenarioSummaries;
-  appMetrics: AppMetrics;
   oscalService: OscalService;
 };
 

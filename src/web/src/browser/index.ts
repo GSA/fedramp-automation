@@ -8,7 +8,6 @@ import {
 } from '@asap/shared/adapters/saxon-js-gateway';
 import * as github from '@asap/shared/domain/github';
 import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
-import { AppMetrics } from '@asap/shared/use-cases/app-metrics';
 import { OscalService } from '@asap/shared/use-cases/oscal';
 
 import { getInitialState } from './presenter';
@@ -96,12 +95,6 @@ export const runBrowserContext = ({
             indentXml: s => Promise.resolve(s),
           },
           SaxonJS,
-        }),
-        appMetrics: new AppMetrics({
-          deploymentId,
-          eventLogger,
-          getBrowserFingerprint: createBrowserFingerprintMaker(),
-          optInGateway: localStorageGateway,
         }),
         getAssertionViews: async () => {
           const responses = await Promise.all([
