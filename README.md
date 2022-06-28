@@ -56,7 +56,7 @@ FedRAMP looks forward to receiving your comments and sharing additional progress
 
 Complete documentation for each validation rule is available. See [./src/web](./src/web) for implementation details. The documentation provides a browsable list of each validation rule, as well as the ability to validate FedRAMP OSCAL documents in-browser.
 
-![Web documentation screenshot](./web/screenshot.png)
+![Web documentation screenshot](./src/web/screenshot.png)
 
 ## Developer notes
 
