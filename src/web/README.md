@@ -1,6 +1,7 @@
-# FedRAMP Validations User Interface
+# FedRAMP ASAP Web Documentation
 
-This is the user interface for FedRAMP Validations.
+This is the web documentation for FedRAMP ASAP.
+
 ## Developer Instructions
 
 This project is built using the node.js version specified in `.nvmrc`. To use, run:
@@ -25,7 +26,7 @@ npm start
 
 ### Production build
 
-Production builds are produced with [Snowpack](https://www.snowpack.dev/) and its [Webpack](https://webpack.js.org/) plugin. You may parametrize the build via environment variables, as referenced in the [Snowpack configuration](./snowpack.config.js#L3-L8).
+Builds are produced with [Vite](https://vitejs.dev/). You may parametrize the build via environment variables, as referenced in the [Vite configuration](./vite.config.ts#L5-L15).
 
 To build a static copy of your site to the `build/` folder:
 
@@ -39,10 +40,10 @@ npm run build
 BASEURL=/fedramp-automation npm run build
 ```
 
-To test the production build locally, you could use the Python http server:
+To test the production build locally, you could use the preview script:
 
 ```bash
-python -m http.server 8000 -d ./build
+npm run preview
 ```
 
 ### Run tests
@@ -51,7 +52,7 @@ To launch the application test runner:
 
 ```bash
 npm test
-npm test -- --watch
+npm run test:watch
 ```
 
 ### Command-line tool
@@ -60,7 +61,7 @@ To run the CLI:
 
 ```bash
 # To validate the demo SSP.
-npm run cli -- validate ../test/demo/FedRAMP-SSP-OSCAL-Template.xml
+npm run cli -- validate ../content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml
 ```
 
 ### Saxon performance comparisons
@@ -70,20 +71,21 @@ To time Saxon-JS vs Saxon-HE performance:
 #### Saxon-JS
 
 ```bash
-time npm run cli -- validate ../test/demo/FedRAMP-SSP-OSCAL-Template.xml
+time npm run cli -- validate ../content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml
 ```
 
 Example output:
 
 ```
-Found 46 assertions
-npm run cli -- validate ../test/demo/FedRAMP-SSP-OSCAL-Template.xml  6.90s user 0.37s system 122% cpu 5.940 total
+Found 328 assertions in ssp
+Done
+npm run cli -- validate   13.80s user 0.31s system 107% cpu 13.160 total
 ```
 
 #### Saxon-HE
 
 ```bash
-cd ..
+cd ../validations
 # First, compile Schematron to XSLT:
 ./bin/validate_with_schematron.sh
 # Then, time the stylesheet transform:
@@ -95,9 +97,11 @@ Example output:
 ```
 output dir report/schematron
 doc requested to be validated: ./test/demo/FedRAMP-SSP-OSCAL-Template.xml
-using saxon version 10.5
-SAXON_CP env variable used is /Users/dan/.m2/repository/net/sf/saxon/Saxon-HE/10.2/Saxon-HE-10.2.jar
-Saxon JAR at classpath /Users/dan/.m2/repository/net/sf/saxon/Saxon-HE/10.2/Saxon-HE-10.2.jar is valid
-validating doc: ./test/demo/FedRAMP-SSP-OSCAL-Template.xml with src/ssp.sch output found in report/schematron/./test/demo/FedRAMP-SSP-OSCAL-Template.xml__ssp.results.xml
-./bin/validate_with_schematron.sh -f  -t  7.41s user 0.52s system 211% cpu 3.743 total
+using saxon version 10.8
+Saxon JAR at classpath /Users/dan/.m2/repository/net/sf/saxon/Saxon-HE/10.8/Saxon-HE-10.8.jar is valid
+validating doc: ./test/demo/FedRAMP-SSP-OSCAL-Template.xml with rules/poam.sch output found in report/schematron/./test/demo/FedRAMP-SSP-OSCAL-Template.xml__poam.results.xml
+validating doc: ./test/demo/FedRAMP-SSP-OSCAL-Template.xml with rules/sap.sch output found in report/schematron/./test/demo/FedRAMP-SSP-OSCAL-Template.xml__sap.results.xml
+validating doc: ./test/demo/FedRAMP-SSP-OSCAL-Template.xml with rules/sar.sch output found in report/schematron/./test/demo/FedRAMP-SSP-OSCAL-Template.xml__sar.results.xml
+validating doc: ./test/demo/FedRAMP-SSP-OSCAL-Template.xml with rules/ssp.sch output found in report/schematron/./test/demo/FedRAMP-SSP-OSCAL-Template.xml__ssp.results.xml
+./bin/validate_with_schematron.sh -f  -t  21.09s user 1.55s system 262% cpu 8.628 total
 ```
