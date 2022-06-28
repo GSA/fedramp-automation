@@ -26,9 +26,6 @@ clean-dist:  ## Clean non-RCS-tracked dist files
 test: test-validations test-web test-examples ## Test all
 
 build: build-validations build-web dist  ## Build all artifacts and copy into dist directory
-	# Symlink for Federalist
-	ln -sf ./src/web/dist _site
-
 	# Copy validations
 	mkdir -p dist/validations
 	cp src/validations/target/rules/*.xsl dist/validations
