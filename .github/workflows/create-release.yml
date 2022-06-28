@@ -23,9 +23,12 @@ jobs:
       - name: Build release
         run: make init build
 
+      - name: Create release archive
+        run: tar -zcf fedramp-automation.tar.gz dist
+
       # Create a release corresponding to the triggered tag
       - uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
-          artifacts: dist/**
+          artifacts: fedramp-automation.tar.gz
           token: ${{ secrets.GITHUB_TOKEN }}
