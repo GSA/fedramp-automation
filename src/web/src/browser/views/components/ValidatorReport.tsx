@@ -11,6 +11,7 @@ import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { colorTokenForRole } from '../../util/styles';
 import { useAppContext } from '../context';
+import '../styles/ValidatorReport.scss';
 
 type Props = {
   documentType: OscalDocumentKey;
@@ -30,26 +31,24 @@ export const ValidatorReport = ({ documentType }: Props) => {
 
   return (
     <>
-      <div className="top-0 bg-white padding-top-1 padding-bottom-1">
-        <h1 className="margin-0">
-          {validationResult.summary.title}
+      <div className="top-0 padding-y-1">
+        <div className="display-flex flex-align-center flex-justify">
+          <h1 className="margin-0">{validationResult.summary.title}</h1>
           <span
-            className="font-heading-sm text-secondary-light"
+            className="font-heading-sm text-secondary-light text-error"
             style={{ float: 'right' }}
           >
-            <span className={`text-error`}>
-              <svg
-                className="usa-icon margin-right-05"
-                aria-hidden="true"
-                focusable="false"
-                role="img"
-              >
-                <use xlinkHref={`${spriteSvg}#flag`}></use>
-              </svg>
-              {schematronReport.assertionCount} concerns
-            </span>
+            <svg
+              className="usa-icon margin-right-05 text-error"
+              aria-hidden="true"
+              focusable="false"
+              role="img"
+            >
+              <use xlinkHref={`${spriteSvg}#flag`}></use>
+            </svg>
+            {schematronReport.assertionCount} concerns
           </span>
-        </h1>
+        </div>
         <h2 className="margin-top-05 margin-bottom-0 text-normal">
           {viewTitle}
         </h2>
@@ -70,78 +69,81 @@ export const ValidatorReport = ({ documentType }: Props) => {
               {group.title}
             </span>
           </summary>
-          <ul className="usa-icon-list margin-top-1">
-            {group.checks.checks.map((check, index) => (
-              <li
-                key={index}
-                className={`usa-icon-list__item padding-1 bg-base-lightest`}
-              >
-                <div className={`usa-icon-list__icon text-${check.icon.color}`}>
-                  <svg className="usa-icon" aria-hidden="true" role="img">
-                    <use xlinkHref={`${spriteSvg}#${check.icon.sprite}`}></use>
-                  </svg>
-                </div>
-                <div className="usa-icon-list__content">
-                  {check.message}
-                  <button
-                    className="usa-button usa-button--unstyled"
-                    onClick={() =>
-                      dispatch(
-                        assertionDocumentation.show({
-                          assertionId: check.id,
-                          documentType,
-                        }),
-                      )
-                    }
-                    title="View examples"
+          <div className="bg-base-lightest padding-1 radius-lg">
+            <ul className="usa-icon-list margin-top-1 bg-base-lightest">
+              {group.checks.checks.map((check, index) => (
+                <li key={index} className={`usa-icon-list__item padding-1`}>
+                  <div
+                    className={`usa-icon-list__icon text-${check.icon.color}`}
                   >
-                    <svg
-                      className="usa-icon"
-                      aria-hidden="true"
-                      focusable="false"
-                      role="img"
-                    >
-                      <use xlinkHref={`${spriteSvg}#support`}></use>
+                    <svg className="usa-icon" aria-hidden="true" role="img">
+                      <use
+                        xlinkHref={`${spriteSvg}#${check.icon.sprite}`}
+                      ></use>
                     </svg>
-                  </button>
-                  {check.fired.length ? (
-                    <ul className="usa-icon-list__title">
-                      {check.fired.map((firedCheck, index) => (
-                        <li key={index}>
-                          {firedCheck.diagnosticReferences.length > 0
-                            ? firedCheck.diagnosticReferences.join(', ')
-                            : firedCheck.text}
-                          <a
-                            href="#"
-                            className="usa-tooltip"
-                            data-position="bottom"
-                            onClick={() =>
-                              dispatch(
-                                showAssertionContext({
-                                  assertionId: firedCheck.uniqueId,
-                                  documentType,
-                                }),
-                              )
-                            }
-                            title="Show source document context"
-                          >
-                            <svg
-                              className="usa-icon"
-                              aria-hidden="true"
-                              focusable="false"
-                              role="img"
+                  </div>
+                  <details className="usa-icon-list__content">
+                    <summary>{check.message}</summary>
+                    <button
+                      className="usa-button usa-button--unstyled"
+                      onClick={() =>
+                        dispatch(
+                          assertionDocumentation.show({
+                            assertionId: check.id,
+                            documentType,
+                          }),
+                        )
+                      }
+                      title="View examples"
+                    >
+                      <svg
+                        className="usa-icon"
+                        aria-hidden="true"
+                        focusable="false"
+                        role="img"
+                      >
+                        <use xlinkHref={`${spriteSvg}#support`}></use>
+                      </svg>
+                    </button>
+                    {check.fired.length ? (
+                      <ul className="usa-icon-list__title">
+                        {check.fired.map((firedCheck, index) => (
+                          <li key={index}>
+                            {firedCheck.diagnosticReferences.length > 0
+                              ? firedCheck.diagnosticReferences.join(', ')
+                              : firedCheck.text}
+                            <a
+                              href="#"
+                              className="usa-tooltip"
+                              data-position="bottom"
+                              onClick={() =>
+                                dispatch(
+                                  showAssertionContext({
+                                    assertionId: firedCheck.uniqueId,
+                                    documentType,
+                                  }),
+                                )
+                              }
+                              title="Show source document context"
                             >
-                              <use xlinkHref={`${spriteSvg}#link`}></use>
-                            </svg>
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </div>
-              </li>
-            ))}
-          </ul>
+                              <svg
+                                className="usa-icon"
+                                aria-hidden="true"
+                                focusable="false"
+                                role="img"
+                              >
+                                <use xlinkHref={`${spriteSvg}#link`}></use>
+                              </svg>
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </details>
+                </li>
+              ))}
+            </ul>
+          </div>
         </details>
       ))}
     </>
