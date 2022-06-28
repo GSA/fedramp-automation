@@ -4,6 +4,7 @@ help:
 	@grep -h -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 # Most of the real work of the build is in sub-project Makefiles.
+include src/content/module.mk
 include src/examples/module.mk
 include src/validations/module.mk
 include src/web/module.mk
@@ -33,3 +34,6 @@ build: build-validations build-web dist  ## Build all artifacts and copy into di
 	mkdir -p dist/validations
 	cp src/validations/target/rules/*.xsl dist/validations
 	cp src/validations/rules/*.sch dist/validations
+
+	# Symlink web build
+	ln -sf ./src/web/build dist/web
