@@ -27,13 +27,13 @@ clean-dist:  ## Clean non-RCS-tracked dist files
 test: test-validations test-web test-examples ## Test all
 
 build: build-validations build-web dist  ## Build all artifacts and copy into dist directory
-	# Symlink for Federalist
-	ln -sf ./src/web/build _site
-
 	# Copy validations
 	mkdir -p dist/validations
 	cp src/validations/target/rules/*.xsl dist/validations
 	cp src/validations/rules/*.sch dist/validations
 
-	# Symlink web build
-	ln -sf ./src/web/build dist/web
+	# Copy web build to dist
+	cp -R ./src/web/dist dist/web
+
+	@echo '#/bin/bash\necho "Serving FedRAMP ASAP documentation at http://localhost:8000/..."\npython3 -m http.server 8000 --directory web/' > ./dist/serve-documentation
+	chmod +x ./dist/serve-documentation
