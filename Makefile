@@ -33,3 +33,6 @@ build: build-validations build-web dist  ## Build all artifacts and copy into di
 	mkdir -p dist/validations
 	cp src/validations/target/rules/*.xsl dist/validations
 	cp src/validations/rules/*.sch dist/validations
+
+	# Symlink web build
+	ln -sf ./src/web/build dist/web

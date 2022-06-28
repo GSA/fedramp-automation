@@ -6,6 +6,7 @@ _site
 *.DS_Store
 *.code-workspace
 dist/validations
+dist/web
 documents/source
 NOTES.md
 src/validations/lib/**.jar
