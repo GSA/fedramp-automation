@@ -32,72 +32,77 @@ export const ValidatorFileSelectForm = () => {
         />
       </div>
       <div className="tablet:grid-col-8">
-        {state.validator.current === 'UNLOADED' && (
-          <svg
-            className="usa-icon text-info-lighter font-sans-xl float-right"
-            aria-hidden="true"
-            focusable="false"
-            role="img"
-          >
-            <use xlinkHref={`${spriteSvg}#radio_button_unchecked`}></use>
-          </svg>
-        )}
-        {state.validator.current === 'PROCESSING' && (
-          <div className="loader float-right" />
-        )}
-        {state.validator.current === 'PROCESSING_ERROR' && (
-          <svg
-            className="usa-icon text-error font-sans-xl float-right"
-            aria-hidden="true"
-            focusable="false"
-            role="img"
-          >
-            <use xlinkHref={`${spriteSvg}#error`}></use>
-          </svg>
-        )}
-        {state.validator.current === 'VALIDATED' && (
-          <svg
-            className="usa-icon text-primary-vivid font-sans-xl float-right"
-            aria-hidden="true"
-            focusable="false"
-            role="img"
-          >
-            <use xlinkHref={`${spriteSvg}#check_circle`}></use>
-          </svg>
-        )}
-        <label className="usa-label usa-hint" htmlFor="sample-document">
+        <label
+          className="usa-label usa-hint margin-top-0"
+          htmlFor="sample-document"
+        >
           Or use an example file, brought to you by FedRAMP:
         </label>
-        <select
-          className="usa-select"
-          name="sample-document"
-          id="sample-document"
-          disabled={state.validator.current === 'PROCESSING'}
-          onChange={event => {
-            window.requestAnimationFrame(() =>
-              dispatch(
-                validator.setXmlUrl(
-                  event.target.options[event.target.selectedIndex].value,
+        <div className="display-flex flex-align-center">
+          <select
+            className="usa-select margin-right-105"
+            name="sample-document"
+            id="sample-document"
+            disabled={state.validator.current === 'PROCESSING'}
+            onChange={event => {
+              window.requestAnimationFrame(() =>
+                dispatch(
+                  validator.setXmlUrl(
+                    event.target.options[event.target.selectedIndex].value,
+                  ),
                 ),
+              );
+            }}
+          >
+            <option value="">--Select--</option>
+            {state.config.sourceRepository.sampleDocuments.map(
+              (sampleDocument, index) => (
+                <option
+                  key={index}
+                  onSelect={() =>
+                    dispatch(validator.setXmlUrl(sampleDocument.url))
+                  }
+                  value={sampleDocument.url}
+                >
+                  {sampleDocument.displayName}
+                </option>
               ),
-            );
-          }}
-        >
-          <option value=""></option>
-          {state.config.sourceRepository.sampleDocuments.map(
-            (sampleDocument, index) => (
-              <option
-                key={index}
-                onSelect={() =>
-                  dispatch(validator.setXmlUrl(sampleDocument.url))
-                }
-                value={sampleDocument.url}
-              >
-                {sampleDocument.displayName}
-              </option>
-            ),
+            )}
+          </select>
+          {state.validator.current === 'UNLOADED' && (
+            <svg
+              className="usa-icon text-info-lighter font-sans-xl"
+              aria-hidden="true"
+              focusable="false"
+              role="img"
+            >
+              <use xlinkHref={`${spriteSvg}#radio_button_unchecked`}></use>
+            </svg>
           )}
-        </select>
+          {state.validator.current === 'PROCESSING' && (
+            <div className="loader" />
+          )}
+          {state.validator.current === 'PROCESSING_ERROR' && (
+            <svg
+              className="usa-icon text-error font-sans-xl "
+              aria-hidden="true"
+              focusable="false"
+              role="img"
+            >
+              <use xlinkHref={`${spriteSvg}#error`}></use>
+            </svg>
+          )}
+          {state.validator.current === 'VALIDATED' && (
+            <svg
+              className="usa-icon text-success font-sans-xl"
+              aria-hidden="true"
+              focusable="false"
+              role="img"
+            >
+              <use xlinkHref={`${spriteSvg}#check_circle`}></use>
+            </svg>
+          )}
+        </div>
         {state.validator.current === 'PROCESSING_ERROR' && (
           <div className="usa-alert usa-alert--error" role="alert">
             <div className="usa-alert__body">
