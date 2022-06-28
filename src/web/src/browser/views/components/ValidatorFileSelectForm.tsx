@@ -38,6 +38,14 @@ export const ValidatorFileSelectForm = () => {
         >
           Or use an example file, brought to you by FedRAMP:
         </label>
+        {state.validator.current === 'PROCESSING_ERROR' && (
+          <div className="usa-alert usa-alert--error" role="alert">
+            <div className="usa-alert__body">
+              <h4 className="usa-alert__heading">Processing Error</h4>
+              <p className="usa-alert__text">{state.validator.errorMessage}</p>
+            </div>
+          </div>
+        )}
         <div className="margin-top-3 display-flex flex-align-center">
           <select
             className="usa-select margin-right-105"
@@ -103,14 +111,6 @@ export const ValidatorFileSelectForm = () => {
             </svg>
           )}
         </div>
-        {state.validator.current === 'PROCESSING_ERROR' && (
-          <div className="usa-alert usa-alert--error" role="alert">
-            <div className="usa-alert__body">
-              <h4 className="usa-alert__heading">Processing Error</h4>
-              <p className="usa-alert__text">{state.validator.errorMessage}</p>
-            </div>
-          </div>
-        )}
       </div>
     </>
   );
