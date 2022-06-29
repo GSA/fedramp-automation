@@ -32,6 +32,28 @@
 
     <sch:title>FedRAMP Security Assessment Plan Validations</sch:title>
 
+    <!-- Global Variables -->
+    <sch:let
+        name="ssp-href"
+        value="resolve-uri(/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
+    <sch:let
+        name="ssp-available"
+        value="
+            if (: this is not a relative reference :) (not(starts-with(@href, '#')))
+            then
+                (: the referenced document must be available :)
+                doc-available($ssp-href)
+            else
+                true()" />
+    <sch:let
+        name="ssp-doc"
+        value="
+            if ($ssp-available)
+            then
+                (document($ssp-href))
+            else
+                (())" />
+
     <sch:pattern
         id="import-ssp">
 
@@ -173,12 +195,6 @@
 
     <sch:pattern
         id="control-selection">
-        <sch:let
-            name="ssp-href"
-            value="/oscal:assessment-plan/oscal:import-ssp/@href" />
-        <sch:let
-            name="ssp-doc"
-            value="document($ssp-href)" />
         <sch:let
             name="ssp-controls"
             value="$ssp-doc//oscal:implemented-requirement/@control-id" />
