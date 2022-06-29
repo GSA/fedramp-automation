@@ -10,9 +10,6 @@ export type RouteTypes = {
   Developers: {
     type: 'Developers';
   };
-  UsageTracking: {
-    type: 'UsageTracking';
-  };
 };
 
 export type Route = RouteTypes[keyof RouteTypes];
@@ -39,9 +36,6 @@ export namespace Routes {
   export const developers: RouteTypes['Developers'] = {
     type: 'Developers',
   };
-  export const usageTracking: RouteTypes['UsageTracking'] = {
-    type: 'UsageTracking',
-  };
   export type NotFound = { type: 'NotFound' };
   export const notFound: NotFound = { type: 'NotFound' };
 }
@@ -54,7 +48,6 @@ const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   DocumentSAR: () => '#/documents/security-assessment-report',
   DocumentSSP: () => '#/documents/system-security-plan',
   Developers: () => '#/developers',
-  UsageTracking: () => '#/usage-tracking',
 };
 
 export const getUrl = (route: Route): string => {
@@ -94,7 +87,6 @@ const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
     () => Routes.documentSSP,
   ),
   Developers: matchRoute('#/developers', () => Routes.developers),
-  UsageTracking: matchRoute('#/usage-tracking', () => Routes.usageTracking),
 };
 
 export const getRoute = (url: string): Route | Routes.NotFound => {
@@ -175,15 +167,6 @@ export const breadcrumbs: Record<
       {
         text: 'Developer documentation',
         linkUrl: route.type !== 'Developers' && getUrl(Routes.developers),
-      },
-    ];
-  },
-  UsageTracking: (route: RouteTypes['UsageTracking']) => {
-    return [
-      ...breadcrumbs.Home(route),
-      {
-        text: 'Usage tracking',
-        linkUrl: route.type !== 'UsageTracking' && getUrl(Routes.usageTracking),
       },
     ];
   },
