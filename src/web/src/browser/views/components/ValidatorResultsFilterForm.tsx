@@ -183,7 +183,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   className="usa-radio__label"
                   htmlFor={`${documentType}-role-${filterRole.name}`}
                 >
-                  <div className="width-card display-flex flex-justify">
+                  <div className="width-card display-flex flex-justify width-full padding-right-3">
                     <span>
                       {filterRole.name.toLocaleUpperCase() || '<not specified>'}
                     </span>
