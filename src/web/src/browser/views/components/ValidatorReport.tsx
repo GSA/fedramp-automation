@@ -12,7 +12,6 @@ import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { colorTokenForRole } from '../../util/styles';
 import { useAppContext } from '../context';
 import '../styles/ValidatorReport.scss';
-import { spawn } from 'child_process';
 
 type Props = {
   documentType: OscalDocumentKey;
@@ -93,6 +92,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
             <ul className="usa-icon-list margin-top-1 bg-base-lightest">
               {group.checks.checks.map((check, index) => (
                 <li key={index} className={`usa-icon-list__item padding-1`}>
+                  {/* <pre>{JSON.stringify(check, null, 2)}</pre> */}
                   <div
                     className={`usa-icon-list__icon text-${check.icon.color}`}
                   >
@@ -104,40 +104,46 @@ export const ValidatorReport = ({ documentType }: Props) => {
                   </div>
                   <details className="usa-icon-list__content">
                     <summary>
-                      {check.fired.length && <b>{check.fired.length} </b>}
+                      {check.fired.length ? (
+                        <b>{`${
+                          check.fired.length
+                        } ${check.role.toUpperCase()}: `}</b>
+                      ) : (
+                        <b>PASS: </b>
+                      )}
                       {check.message}
-                      <button
-                        className="usa-button usa-button--unstyled"
-                        onClick={() =>
-                          dispatch(
-                            assertionDocumentation.show({
-                              assertionId: check.id,
-                              documentType,
-                            }),
-                          )
-                        }
-                        title="View examples"
-                      >
-                        <svg
-                          className="usa-icon"
-                          aria-hidden="true"
-                          focusable="false"
-                          role="img"
+                      <div>
+                        <span className="text-primary text-underline margin-right-1">
+                          Learn more
+                        </span>
+                        <span className="margin-right-1">|</span>
+                        <a
+                          href="#"
+                          className="text-primary text-underline"
+                          onClick={() =>
+                            dispatch(
+                              assertionDocumentation.show({
+                                assertionId: check.id,
+                                documentType,
+                              }),
+                            )
+                          }
                         >
-                          <use xlinkHref={`${spriteSvg}#support`}></use>
-                        </svg>
-                      </button>
+                          View Examples
+                        </a>
+                      </div>
                     </summary>
                     {check.fired.length ? (
-                      <ul className="usa-icon-list__title">
+                      <ul className="padding-left-2">
+                        <p className="text-ink margin-y-05">
+                          Select an item below to show source documentation
+                          context
+                        </p>
                         {check.fired.map((firedCheck, index) => (
-                          <li key={index}>
-                            {firedCheck.diagnosticReferences.length > 0
-                              ? firedCheck.diagnosticReferences.join(', ')
-                              : firedCheck.text}
+                          <>
                             <a
                               href="#"
-                              className="usa-tooltip"
+                              className="usa-tooltip line-height-code-3"
                               data-position="bottom"
                               onClick={() =>
                                 dispatch(
@@ -149,16 +155,20 @@ export const ValidatorReport = ({ documentType }: Props) => {
                               }
                               title="Show source document context"
                             >
-                              <svg
-                                className="usa-icon"
-                                aria-hidden="true"
-                                focusable="false"
-                                role="img"
-                              >
-                                <use xlinkHref={`${spriteSvg}#link`}></use>
-                              </svg>
+                              <li key={index} className="text-base-darker">
+                                <svg
+                                  className="usa-icon"
+                                  aria-hidden="true"
+                                  role="img"
+                                >
+                                  <use xlinkHref={`${spriteSvg}#remove`}></use>
+                                </svg>
+                                {firedCheck.diagnosticReferences.length > 0
+                                  ? firedCheck.diagnosticReferences.join(', ')
+                                  : firedCheck.text}
+                              </li>
                             </a>
-                          </li>
+                          </>
                         ))}
                       </ul>
                     ) : null}
