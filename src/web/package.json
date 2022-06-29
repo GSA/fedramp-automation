@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "build": "mkdirp build && run-s build:cli build:schematron build:json build:vite",
+    "build": "mkdirp build && run-s build:cli build:schematron build:json build:typecheck build:vite",
     "build:cli": "tsup --format cjs --out-dir ./bin ./src/cli/index.ts",
     "build:json": "run-p build:json:sef:* && run-p build:json:cli:*",
     "build:json:cli:assertion-views": "run-s build:json:cli:assertion-views:*",
@@ -43,6 +43,7 @@
     "build:schematron:ssp:stage-2": "xslt3 -s:build/ssp-stage1.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_abstract_expand.xsl -o:build/ssp-stage2.sch allow-foreign=true diagnose=true",
     "build:schematron:ssp:stage-3": "xslt3 -s:build/ssp-stage2.sch -xsl:../../vendor/schematron/trunk/schematron/code/iso_svrl_for_xslt2.xsl -o:build/ssp.xsl allow-foreign=true diagnose=true",
     "build:schematron:summary": "xslt3 -s:../validations/rules/rules.xsl -xsl:../validations/rules/rules.xsl -o:build/rules.html",
+    "build:typecheck": "tsc --noEmit",
     "build:vite": "vite build",
     "cli": "node bin/index.cjs",
     "clean": "rm -rf build coverage",
@@ -57,7 +58,6 @@
     "test:coverage": "vitest --coverage && open ./coverage/lcov-report/index.html"
   },
   "dependencies": {
-    "@fingerprintjs/fingerprintjs": "^3.3.3",
     "classnames": "^2.3.1",
     "commander": "^9.3.0",
     "highlight.js": "^11.5.1",
