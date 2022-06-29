@@ -12,6 +12,7 @@ import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { colorTokenForRole } from '../../util/styles';
 import { useAppContext } from '../context';
 import '../styles/ValidatorReport.scss';
+import { spawn } from 'child_process';
 
 type Props = {
   documentType: OscalDocumentKey;
@@ -59,14 +60,33 @@ export const ValidatorReport = ({ documentType }: Props) => {
           className="border-top-1px border-accent-cool-light padding-1"
           open={false}
         >
-          <summary>
-            <span className="text-secondary-light" style={{ float: 'right' }}>
+          <summary className="display-flex flex-align-baseline flex-justify">
+            <span className="font-heading-lg text-primary border-base-light padding-top-1">
+              {group.title}
+            </span>
+            <span className="display-flex flex-align-center">
+              {group.checks.summaryColor === 'red' ? (
+                <svg
+                  className="usa-icon margin-right-05 text-error"
+                  aria-hidden="true"
+                  focusable="false"
+                  role="img"
+                >
+                  <use xlinkHref={`${spriteSvg}#flag`}></use>
+                </svg>
+              ) : (
+                <svg
+                  className="usa-icon margin-right-05 text-green"
+                  aria-hidden="true"
+                  focusable="false"
+                  role="img"
+                >
+                  <use xlinkHref={`${spriteSvg}#check`}></use>
+                </svg>
+              )}
               <span className={`text-${group.checks.summaryColor}`}>
                 {group.checks.summary}
               </span>
-            </span>
-            <span className="font-heading-lg text-primary border-base-light padding-top-1">
-              {group.title}
             </span>
           </summary>
           <div className="bg-base-lightest padding-1 radius-lg">
