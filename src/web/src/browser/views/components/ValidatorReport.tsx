@@ -8,7 +8,6 @@ import {
 } from '@asap/browser/presenter/state/selectors';
 import { getAssertionViewTitleByIndex } from '@asap/browser/presenter/state/schematron-machine';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-
 import { colorTokenForRole } from '../../util/styles';
 import { useAppContext } from '../context';
 import '../styles/ValidatorReport.scss';
@@ -21,7 +20,6 @@ export const ValidatorReport = ({ documentType }: Props) => {
   const { dispatch, state } = useAppContext();
   const oscalDocument = state.oscalDocuments[documentType];
   const validationResult = state.validationResults[documentType];
-
   const filterOptions = selectFilterOptions(documentType)(state);
   const schematronReport = selectSchematronReport(documentType)(state);
   const viewTitle = getAssertionViewTitleByIndex(
@@ -103,38 +101,34 @@ export const ValidatorReport = ({ documentType }: Props) => {
                       ></use>
                     </svg>
                   </div>
-                  <details className="usa-icon-list__content">
-                    <summary>
-                      {check.fired.length ? (
+                  {check.fired.length ? (
+                    <details className="usa-icon-list__content">
+                      <summary>
                         <b>{`${
                           check.fired.length
                         } ${check.role.toUpperCase()}: `}</b>
-                      ) : (
-                        <b>PASS: </b>
-                      )}
-                      {check.message}
-                      <div>
-                        <span className="text-primary text-underline margin-right-1">
-                          Learn more
-                        </span>
-                        <span className="margin-right-1">|</span>
-                        <a
-                          href="#"
-                          className="text-primary text-underline"
-                          onClick={() =>
-                            dispatch(
-                              assertionDocumentation.show({
-                                assertionId: check.id,
-                                documentType,
-                              }),
-                            )
-                          }
-                        >
-                          View Examples
-                        </a>
-                      </div>
-                    </summary>
-                    {check.fired.length ? (
+                        {check.message}
+                        <div>
+                          <span className="text-primary text-underline margin-right-1">
+                            Learn more
+                          </span>
+                          <span className="margin-right-1">|</span>
+                          <a
+                            href="#"
+                            className="text-primary text-underline"
+                            onClick={() =>
+                              dispatch(
+                                assertionDocumentation.show({
+                                  assertionId: check.id,
+                                  documentType,
+                                }),
+                              )
+                            }
+                          >
+                            View Examples
+                          </a>
+                        </div>
+                      </summary>
                       <ul className="padding-left-2">
                         <p className="text-ink margin-y-05">
                           Select an item below to show source documentation
@@ -172,8 +166,31 @@ export const ValidatorReport = ({ documentType }: Props) => {
                           </>
                         ))}
                       </ul>
-                    ) : null}
-                  </details>
+                    </details>
+                  ) : (
+                    <div className="usa-icon-list__content">
+                      <div>
+                        <b>PASS: </b>
+                        {check.message}
+                        <div>
+                          <a
+                            href="#"
+                            className="text-primary text-underline"
+                            onClick={() =>
+                              dispatch(
+                                assertionDocumentation.show({
+                                  assertionId: check.id,
+                                  documentType,
+                                }),
+                              )
+                            }
+                          >
+                            View Examples
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
