@@ -31,7 +31,30 @@
         href="../test/rules/sap.xspec" />
 
     <sch:title>FedRAMP Security Assessment Plan Validations</sch:title>
-
+    
+    <!-- Global Variables -->
+    <sch:let
+        name="ssp-href"
+        value="resolve-uri(/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
+    <sch:let
+        name="ssp-available"
+        value="
+        if (: this is not a relative reference :) (not(starts-with(@href, '#')))
+        then
+        (: the referenced document must be available :)
+        doc-available($ssp-href)
+        else
+        true()" />
+    <sch:let
+        name="ssp-doc"
+        value="
+            if ($ssp-available)
+            then
+                doc($ssp-href)
+            else
+                ()" />
+    
+    <!-- Patterns -->
     <sch:pattern
         id="import-ssp">
 
@@ -44,7 +67,24 @@
                 id="has-import-ssp"
                 role="error"
                 test="oscal:import-ssp">An OSCAL SAP must have an import-ssp element.</sch:assert>
-
+            <sch:let
+                name="web-apps"
+                value="
+                $ssp-doc//oscal:component[oscal:prop[@name = 'type' and @value eq 'web-application']]/@uuid  |
+                $ssp-doc//oscal:inventory-item[oscal:prop[@name = 'type' and @value eq 'web-application']]/@uuid |
+                //oscal:local-definitions/oscal:activity[oscal:prop[@value eq 'web-application']]/@uuid" />
+            <sch:let name="sap-web-tasks"
+                value="//oscal:task[oscal:prop[@value='web-application']]/oscal:associated-activity/@activity-uuid ! xs:string(.)"/>
+            <sch:let name="missing-web-tasks"
+                value="$web-apps[not(. = $sap-web-tasks)]"/>
+            <sch:assert
+                diagnostics="has-web-applications-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §3.5"
+                fedramp:specific="true()"
+                id="has-web-applications"
+                role="error"
+                test="count($web-apps[not(. = $sap-web-tasks)]) = 0"
+                unit:override-xspec="both">For every web interface to be tested there must be a matching task entry.</sch:assert>
         </sch:rule>
 
         <sch:rule
@@ -167,6 +207,40 @@
                 role="error"
                 test="false()">An OSCAL SAP must not use a base64 element in a system-security-plan resource.</sch:assert>
 
+        </sch:rule>
+        
+        <sch:rule
+            context="oscal:task[oscal:prop[@value = 'web-application']]">
+            <sch:let
+                name="ssp-web-apps"
+                value="
+                    $ssp-doc/oscal:component[oscal:prop[@name = 'type' and @value eq 'web-application']]/@uuid ! xs:string(.) |
+                    $ssp-doc/oscal:inventory-item[oscal:prop[@name = 'type' and @value eq 'web-application']]/@uuid ! xs:string(.)" />
+            <sch:let
+                name="sap-web-apps"
+                value="/oscal:assessment-plan//oscal:local-definitions/oscal:activity[oscal:prop[@value eq 'web-application']]/@uuid ! xs:string(.)" />
+            <sch:assert
+                diagnostics="matches-web-app-task-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.5"
+                fedramp:specific="true"
+                id="matches-web-app-task"
+                role="error"
+                test="oscal:associated-activity/@activity-uuid = $ssp-web-apps or oscal:associated-activity/@activity-uuid = $sap-web-apps"
+                unit:override-xspec="both">Web applications targeted by associated activity must exist in either the SAP or SSP.</sch:assert>
+            <sch:assert
+                diagnostics="has-login-url-task-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.5"
+                fedramp:specific="true"
+                id="has-login-url-task"
+                role="error"
+                test="exists(oscal:prop[@name = 'login-url'])">FedRAMP SAP Web Application Tasks must have login-url information.</sch:assert>
+            <sch:assert
+                diagnostics="has-login-id-task-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.5"
+                fedramp:specific="true"
+                id="has-login-id-task"
+                role="error"
+                test="exists(oscal:prop[@name = 'login-id'])">FedRAMP SAP Web Application Tasks must have login-id information.</sch:assert>
         </sch:rule>
 
     </sch:pattern>
@@ -365,6 +439,30 @@
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'system-security-plan']]/oscal:base64"
             id="has-no-base64-diagnostic">This OSCAL SAP has a base64 element in a system-security-plan resource.</sch:diagnostic>
 
+        <sch:diagnostic
+            doc:assert="matches-web-app-task"
+            doc:context="oscal:task[oscal:prop[@name = 'type' and @value eq 'web-application']]"
+            id="matches-web-app-task-diagnostic">This associated-activity, <sch:value-of
+                select="oscal:associated-activity/@activity-uuid" />, references a non-existent (neither in the SSP nor SAP) web application.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-login-url-task"
+            doc:context="oscal:task[oscal:prop[@name = 'type' and @value eq 'web-application']]"
+            id="has-login-url-task-diagnostic">This task, <sch:value-of
+                select="../@uuid" />, does not contain login-url information.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-login-id-task"
+            doc:context="oscal:task[oscal:prop[@name = 'type' and @value eq 'web-application']]"
+            id="has-login-id-task-diagnostic">This task, <sch:value-of
+                select="../@uuid" />, does not contain login-id information.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-web-applications"
+            doc:context="oscal:assessment-plan"
+            id="has-web-applications-diagnostic">These web testing activities, <sch:value-of
+                select="$missing-web-tasks" />, do not have matching tasks in the SSP or SAP.</sch:diagnostic>
+        
         <sch:diagnostic
             doc:assert="has-terms-and-conditions-diagnostic"
             doc:context="oscal:assessment-plan"

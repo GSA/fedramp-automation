@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <x:description
+    run-as="external"
     schematron="../../rules/sap.sch"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">
 
@@ -30,14 +31,14 @@
 
         <x:scenario
             label="when the import-ssp element">
-            
+
             <x:scenario
                 label="is present">
                 <x:expect-not-assert
                     id="has-import-ssp"
                     label="that is correct" />
             </x:scenario>
-        
+
             <x:scenario
                 label="is absent">
                 <x:context>
@@ -50,14 +51,14 @@
                     id="has-import-ssp"
                     label="that is an error" />
             </x:scenario>
-       
+
             <x:scenario
                 label="has an href attribute">
                 <x:expect-not-assert
                     id="has-import-ssp-href"
                     label="that is correct" />
             </x:scenario>
-      
+
             <x:scenario
                 label="lacks an href attribute">
                 <x:context>
@@ -70,7 +71,7 @@
                     id="has-import-ssp-href"
                     label="that is an error" />
             </x:scenario>
-            
+
         </x:scenario>
 
         <x:scenario
@@ -706,5 +707,72 @@
         </x:scenario>
 
     </x:scenario>
-
+    <x:scenario
+        label="In a FedRAMP SAP">
+        <x:scenario
+            label="when a task has a property of the value 'web-application'">
+            <x:scenario
+                label="with a property with the name 'login-url'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <task>
+                        <prop value="web-application"/>
+                        <prop name="login-url" ns="https://fedramp.gov/ns/oscal"
+                            value='https://service.offering.com/login'/>
+                    </task>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-login-url-task"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="without a property with the name 'login-url'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <task>
+                        <prop value="web-application"/>
+                        <prop value="test" name="test"/>
+                    </task>                
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-login-url-task"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="with a property with the name 'login-id'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <task>
+                            <prop value="web-application"/>
+                            <prop name="login-id" ns="https://fedramp.gov/ns/oscal"
+                                value='https://service.offering.com/login'/>
+                        </task>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-login-id-task"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="without a property with the name 'login-id'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <task>
+                            <prop value="web-application"/>
+                            <prop value="test" name="test"/>
+                        </task>                
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-login-id-task"
+                    label="that is incorrect" />
+            </x:scenario>            
+        </x:scenario>
+    </x:scenario>
 </x:description>
