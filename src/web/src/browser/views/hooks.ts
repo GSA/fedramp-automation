@@ -1,27 +1,11 @@
 import { Reducer, useCallback, useRef, useState } from 'react';
-
-export interface ThunkDispatch<S, A, E> {
-  <
-    Action extends ({
-      dispatch,
-      getState,
-      effects,
-    }: {
-      dispatch: ThunkDispatch<S, A, E>;
-      getState: () => S;
-      effects: E;
-    }) => unknown,
-  >(
-    action: Action,
-  ): ReturnType<Action>;
-  (value: A): void;
-}
+import type { ActionDispatch } from '../presenter';
 
 export const useThunkReducer = <State, Event, Effects>(
   reducer: Reducer<State, Event>,
   effects: Effects,
   initialState: State,
-): [State, ThunkDispatch<State, Event, Effects>] => {
+): [State, ActionDispatch<State, Event, Effects>] => {
   const [hookState, setHookState] = useState(initialState);
 
   const state = useRef(hookState);
@@ -42,7 +26,7 @@ export const useThunkReducer = <State, Event, Effects>(
   );
 
   // Dispatcher that optionally calls a thunk
-  const dispatch: ThunkDispatch<State, Event, Effects> = useCallback(
+  const dispatch: ActionDispatch<State, Event, Effects> = useCallback(
     (event: Event) => {
       return typeof event === 'function'
         ? event({ dispatch, getState, effects })
