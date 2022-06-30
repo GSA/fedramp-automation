@@ -64,16 +64,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
               {group.title}
             </span>
             <span className="display-flex flex-align-center">
-              {group.checks.summaryColor === 'red' ? (
-                <svg
-                  className="usa-icon margin-right-05 text-error"
-                  aria-hidden="true"
-                  focusable="false"
-                  role="img"
-                >
-                  <use xlinkHref={`${spriteSvg}#flag`}></use>
-                </svg>
-              ) : (
+              {group.checks.summaryColor === 'green' ? (
                 <svg
                   className="usa-icon margin-right-05 text-green"
                   aria-hidden="true"
@@ -81,6 +72,15 @@ export const ValidatorReport = ({ documentType }: Props) => {
                   role="img"
                 >
                   <use xlinkHref={`${spriteSvg}#check`}></use>
+                </svg>
+              ) : (
+                <svg
+                  className="usa-icon margin-right-05 text-error"
+                  aria-hidden="true"
+                  focusable="false"
+                  role="img"
+                >
+                  <use xlinkHref={`${spriteSvg}#flag`}></use>
                 </svg>
               )}
               <span className={`text-${group.checks.summaryColor}`}>
@@ -96,6 +96,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                   <div
                     className={`usa-icon-list__icon text-${check.icon.color}`}
                   >
+                    {/* TODO: Add remove sprite for neutral state */}
                     <svg className="usa-icon" aria-hidden="true" role="img">
                       <use
                         xlinkHref={`${spriteSvg}#${check.icon.sprite}`}
