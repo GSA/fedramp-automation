@@ -3,6 +3,7 @@ import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import { setCurrentRoute } from '.';
 
 import type { ActionContext } from '..';
+import { StateTransition } from '../state';
 import { getUrl, Routes } from '../state/router';
 
 export const reset = ({ dispatch }: ActionContext) => {
@@ -120,29 +121,23 @@ export const setValidationReport =
     );
   };
 
-export const showAssertionContext =
-  ({
+export const showAssertionContext = ({
+  assertionId,
+  documentType,
+}: {
+  assertionId: string;
+  documentType: OscalDocumentKey;
+}): StateTransition => ({
+  machine: `validationResults.${documentType}`,
+  type: 'SET_ASSERTION_CONTEXT',
+  data: {
     assertionId,
-    documentType,
-  }: {
-    assertionId: string;
-    documentType: OscalDocumentKey;
-  }) =>
-  ({ dispatch }: ActionContext) => {
-    dispatch({
-      machine: `validationResults.${documentType}`,
-      type: 'SET_ASSERTION_CONTEXT',
-      data: {
-        assertionId,
-      },
-    });
-  };
+  },
+});
 
-export const clearAssertionContext =
-  (documentType: OscalDocumentKey) =>
-  ({ dispatch }: ActionContext) => {
-    dispatch({
-      machine: `validationResults.${documentType}`,
-      type: 'CLEAR_ASSERTION_CONTEXT',
-    });
-  };
+export const clearAssertionContext = (
+  documentType: OscalDocumentKey,
+): StateTransition => ({
+  machine: `validationResults.${documentType}`,
+  type: 'CLEAR_ASSERTION_CONTEXT',
+});
