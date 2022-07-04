@@ -57,6 +57,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
           className="border-top-1px border-accent-cool-light padding-1"
           open={false}
         >
+          {/* <pre>{JSON.stringify(group, null, 2)}</pre> */}
           <summary className="display-flex flex-align-baseline flex-justify">
             <span className="font-heading-lg text-primary border-base-light padding-top-1">
               {group.title}
@@ -170,7 +171,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                   ) : (
                     <div className="usa-icon-list__content">
                       <div>
-                        <b>PASS: </b>
+                        <b>{check.fired.length === 0 ? 'PASS: ' : null}</b>
                         {check.message}
                         <div>
                           <a
