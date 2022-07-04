@@ -12,7 +12,7 @@ type Icon = {
   color: string;
 };
 const checkCircleIcon: Icon = { sprite: 'check_circle', color: 'green' };
-const navigateNextIcon: Icon = { sprite: 'navigate_next', color: 'blue' };
+const removeIcon: Icon = { sprite: 'remove', color: 'black' };
 const cancelIcon: Icon = {
   sprite: 'cancel',
   color: 'red',
@@ -54,7 +54,7 @@ export const getReportGroups = (
             ...assert,
             icon:
               failedAssertionMap === null
-                ? navigateNextIcon
+                ? removeIcon
                 : fired.length
                 ? cancelIcon
                 : checkCircleIcon,
