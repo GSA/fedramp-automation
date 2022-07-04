@@ -36,7 +36,7 @@ export const DocumentViewerOverlay = ({
             block: 'start',
             inline: 'start',
           });
-          target.style.backgroundColor = 'lightgray';
+          target.style.backgroundColor = 'lightcyan';
         }
       }
     },
@@ -73,14 +73,12 @@ export const DocumentViewerOverlay = ({
         },
       }}
     >
-      <div className="grid-row grid-gap">
-        <div ref={refCallback}>
-          {validationResult.current === 'ASSERTION_CONTEXT' ? (
-            <CodeViewer codeHTML={validationResult.annotatedXML} />
-          ) : (
-            <p>No report validated.</p>
-          )}
-        </div>
+      <div ref={refCallback}>
+        {validationResult.current === 'ASSERTION_CONTEXT' ? (
+          <CodeViewer codeHTML={validationResult.annotatedXML} />
+        ) : (
+          <p>No report validated.</p>
+        )}
       </div>
     </Modal>
   );
