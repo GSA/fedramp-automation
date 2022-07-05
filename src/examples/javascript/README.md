@@ -7,7 +7,7 @@ This is a simple example of how to use the fedramp-automation validation rules w
 - A node.js version, installable via npm: https://www.npmjs.com/package/saxon-js
 - A browser version, which must be loaded via a `<script>` tag. See the SaxonJS documentation for more details: https://www.saxonica.com/saxon-js/index.xml
 
-This example utilizes the node.js version. Usage in the browser is similar, with some subtle differences. The `fedramp-automation` web documentation may be referenced for examples, in Typescript, that run in both node.js and the browser. See: [../../web]([../../web])
+This example utilizes the node.js version. Usage in the browser is similar, with some subtle differences. The `fedramp-automation` web code base may be referenced as an example, in Typescript, that will run in both node.js and the browser. See: [../../web]([../../web])
 
 ## Prerequisites
 
