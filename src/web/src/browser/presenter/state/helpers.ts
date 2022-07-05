@@ -20,6 +20,7 @@ const cancelIcon: Icon = {
 
 export type SchematronReportGroups = {
   title: string;
+  isValidated: false;
   checks: {
     summary: string;
     summaryColor: 'red' | 'green';
@@ -52,6 +53,7 @@ export const getReportGroups = (
           const fired = (failedAssertionMap || {})[assert.id] || [];
           return {
             ...assert,
+            isValidated: failedAssertionMap === null ? false : true,
             icon:
               failedAssertionMap === null
                 ? removeIcon
@@ -67,8 +69,12 @@ export const getReportGroups = (
       const firedCount = checks.filter(
         assert => assert.fired.length > 0,
       ).length;
+
+      const isValidated = checks.filter(check => check.isValidated).length > 0;
+
       return {
         title: assertionGroup.title,
+        isValidated,
         checks: {
           summary: (() => {
             if (failedAssertionMap) {

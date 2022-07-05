@@ -62,30 +62,34 @@ export const ValidatorReport = ({ documentType }: Props) => {
             <span className="font-heading-lg text-primary border-base-light padding-top-1">
               {group.title}
             </span>
-            <span className="display-flex flex-align-center">
-              {group.checks.summaryColor === 'green' ? (
-                <svg
-                  className="usa-icon margin-right-05 text-green"
-                  aria-hidden="true"
-                  focusable="false"
-                  role="img"
-                >
-                  <use xlinkHref={`${spriteSvg}#check`}></use>
-                </svg>
-              ) : (
-                <svg
-                  className="usa-icon margin-right-05 text-error"
-                  aria-hidden="true"
-                  focusable="false"
-                  role="img"
-                >
-                  <use xlinkHref={`${spriteSvg}#flag`}></use>
-                </svg>
-              )}
-              <span className={`text-${group.checks.summaryColor}`}>
-                {group.checks.summary}
+            {group.isValidated ? (
+              <span className="display-flex flex-align-center">
+                {group.checks.summaryColor === 'green' ? (
+                  <svg
+                    className="usa-icon margin-right-05 text-green"
+                    aria-hidden="true"
+                    focusable="false"
+                    role="img"
+                  >
+                    <use xlinkHref={`${spriteSvg}#check`}></use>
+                  </svg>
+                ) : (
+                  <svg
+                    className="usa-icon margin-right-05 text-error"
+                    aria-hidden="true"
+                    focusable="false"
+                    role="img"
+                  >
+                    <use xlinkHref={`${spriteSvg}#flag`}></use>
+                  </svg>
+                )}
+                <span className={`text-${group.checks.summaryColor}`}>
+                  {group.checks.summary}
+                </span>
               </span>
-            </span>
+            ) : (
+              <span className="usa-tag">{group.checks.checks.length}</span>
+            )}
           </summary>
           <div className="bg-base-lightest padding-1 radius-lg">
             <ul className="usa-icon-list margin-top-1 bg-base-lightest">
@@ -95,7 +99,6 @@ export const ValidatorReport = ({ documentType }: Props) => {
                   <div
                     className={`usa-icon-list__icon text-${check.icon.color}`}
                   >
-                    {/* TODO: Add remove sprite for neutral state */}
                     <svg className="usa-icon" aria-hidden="true" role="img">
                       <use
                         xlinkHref={`${spriteSvg}#${check.icon.sprite}`}
@@ -171,7 +174,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                   ) : (
                     <div className="usa-icon-list__content">
                       <div>
-                        <b>{check.fired.length === 0 ? 'PASS: ' : null}</b>
+                        <b>{check.isValidated ? 'PASS: ' : null}</b>
                         {check.message}
                         <div>
                           <a
