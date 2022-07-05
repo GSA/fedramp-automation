@@ -325,9 +325,20 @@
                     select="@uuid" /> has <sch:value-of
                     select="$impact" /> impact.</sch:report>
 
+            <sch:assert
+                diagnostics="has-risk-impact-characterization-facet-diagnostic"
+                id="has-risk-impact-characterization-facet"
+                role="error"
+                test="exists(oscal:characterization/oscal:facet[@name eq 'impact'])"
+                unit:override-xspec="both">Risk has characterization impact facet.</sch:assert>
+
             <sch:let
                 name="no-later-than"
-                value="xs:dateTime($detected) + map:get($threshold, $impact)" />
+                value="
+                    if (exists($impact)) then
+                        xs:dateTime($detected) + map:get($threshold, $impact)
+                    else (: this date will not be used :)
+                        current-dateTime()" />
 
             <sch:let
                 name="scheduled-completion"
@@ -338,7 +349,8 @@
                 id="has-timely-completion-date"
                 role="error"
                 see="https://github.com/18F/fedramp-automation/issues/353"
-                test="$scheduled-completion lt $no-later-than">Scheduled completion date is within detection response threshold.</sch:assert>
+                test="exists($impact) and $scheduled-completion lt $no-later-than">Scheduled completion date is within detection response
+                threshold.</sch:assert>
 
         </sch:rule>
 
@@ -561,6 +573,11 @@
             doc:assert="risk-has-milestones"
             doc:context="oscal:risk[@uuid = //oscal:poam-item/oscal:associated-risk/@risk-uuid]"
             id="risk-has-milestones-diagnostic">This risk associated with a poam-item lacks one or more milestones (response tasks).</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-risk-impact-characterization-facet"
+            doc:context="oscal:risk[@uuid = //oscal:poam-item/oscal:associated-risk/@risk-uuid]"
+            id="has-risk-impact-characterization-facet-diagnostic">This risk has no impact characterization.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-timely-completion-date"
