@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Javascript example code for validating fedramp-automation Schematron rules",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./src/validator.test.js"
   },
   "repository": {
     "type": "git",

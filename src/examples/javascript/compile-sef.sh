@@ -10,7 +10,8 @@
 # Here, we compile the XSLT to SEF format - a JSON format that is required by SaxonJS.
 #
 
-npx xslt3 -xsl:../../validations/target/rules/ssp.sch.xsl -export:poam.sef.json -nogo
-npx xslt3 -xsl:../../validations/target/rules/ssp.sch.xsl -export:sap.sef.json -nogo
-npx xslt3 -xsl:../../validations/target/rules/ssp.sch.xsl -export:sar.sef.json -nogo
-npx xslt3 -xsl:../../validations/target/rules/ssp.sch.xsl -export:ssp.sef.json -nogo
+echo "Compiling Schematron XSLT to SEF format..."
+npx xslt3 -xsl:../../validations/target/rules/ssp.sch.xsl -export:dist/poam.sef.json -nogo
+npx xslt3 -xsl:../../validations/target/rules/ssp.sch.xsl -export:dist/sap.sef.json -nogo
+npx xslt3 -xsl:../../validations/target/rules/ssp.sch.xsl -export:dist/sar.sef.json -nogo
+npx xslt3 -xsl:../../validations/target/rules/ssp.sch.xsl -export:dist/ssp.sef.json -nogo

@@ -30,10 +30,10 @@ You may now run and interact with the example code.
 
 ## Developer notes
 
-To run tests:
+To run tests, build the required Schematron XSLT to sef.json files and run the test script:
 
 ```bash
-docker-compose run example npm test
+docker-compose run example ./compile-sef.sh && npm test
 ```
 
 To auto-format code:
