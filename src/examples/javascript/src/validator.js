@@ -25,14 +25,12 @@ const COMPILED_XSLT = {
  * @returns Object containing failed assertions and successful reported values
  */
 const validateOscalDocument = async documentPath => {
-  // Read the source document to a string
-  const xmlText = await fs.readFile(documentPath, {
-    encoding: 'utf8',
-  });
-
   // Create a SaxonJS resource object for the given XML
+  // This method utilizes node.js file system support in SaxonJS.
+  // For alternate methods of loading the file, see the documentation:
+  // https://www.saxonica.com/saxon-js/documentation2/index.html#!api/getResource
   const resource = await SaxonJS.getResource({
-    text: xmlText,
+    file: documentPath,
     type: 'xml',
   });
 
