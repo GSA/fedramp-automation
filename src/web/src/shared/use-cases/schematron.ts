@@ -44,6 +44,7 @@ export type SchematronAssert = {
   id: string;
   message: string;
   role: string;
+  isValidated: boolean;
 };
 
 export type ParseSchematronAssertions = (

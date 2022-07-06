@@ -26,11 +26,13 @@ describe('presenter schematron library', () => {
               id: 'unique-1',
               message: 'Assertion message',
               role: 'error',
+              isValidated: true,
             },
             {
               id: 'unique-2',
               message: 'Assertion message',
               role: 'error',
+              isValidated: true,
             },
             {
               id: 'unique-3',
@@ -178,6 +180,7 @@ describe('presenter schematron library', () => {
           id: 'incorrect-role-association',
           message: 'incorrect role assertion message',
           role: 'error',
+          isValidated: true,
         },
       ]);
     });
@@ -199,6 +202,7 @@ describe('presenter schematron library', () => {
           id: 'incorrect-role-association',
           message: 'incorrect role assertion message',
           role: 'error',
+          isValidated: true,
         },
       ]);
     });
@@ -240,16 +244,19 @@ const MOCK_SCHEMATRON_ASSERTIONS = [
     id: 'incorrect-role-association',
     message: 'incorrect role assertion message',
     role: 'error',
+    isValidated: true,
   },
   {
     id: 'incomplete-core-implemented-requirements',
     message: 'incomplete core implemented requirements assertion message',
     role: 'info',
+    isValidated: true,
   },
   {
     id: 'untriggered-requirement',
     message: 'untriggered requirement assertion message',
     role: 'warn',
+    isValidated: true,
   },
 ];
 

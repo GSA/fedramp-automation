@@ -153,11 +153,13 @@ export const ValidatorPage = ({
                           validationResults.ssp.summary.firedCount ===
                           (0 || null),
                         'text-error':
+                          validationResults.ssp.summary.firedCount !== null &&
                           validationResults.ssp.summary.firedCount > 0,
                       })}
                     >
                       <b>
-                        {validationResults.ssp.summary.firedCount > 0
+                        {validationResults.ssp.summary.firedCount !== null &&
+                        validationResults.ssp.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
@@ -180,10 +182,12 @@ export const ValidatorPage = ({
                             validationResults.sar.summary.firedCount ===
                             (0 || null),
                           'text-error':
+                            validationResults.sar.summary.firedCount !== null &&
                             validationResults.sar.summary.firedCount > 0,
                         })}
                       >
-                        {validationResults.sar.summary.firedCount > 0
+                        {validationResults.sar.summary.firedCount !== null &&
+                        validationResults.sar.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
@@ -205,11 +209,13 @@ export const ValidatorPage = ({
                           validationResults.sap.summary.firedCount ===
                           (0 || null),
                         'text-error':
+                          validationResults.sap.summary.firedCount !== null &&
                           validationResults.sap.summary.firedCount > 0,
                       })}
                     >
                       <b>
-                        {validationResults.sap.summary.firedCount > 0
+                        {validationResults.sap.summary.firedCount !== null &&
+                        validationResults.sap.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
@@ -231,11 +237,13 @@ export const ValidatorPage = ({
                           validationResults.poam.summary.firedCount ===
                           (0 || null),
                         'text-error':
+                          validationResults.poam.summary.firedCount !== null &&
                           validationResults.poam.summary.firedCount > 0,
                       })}
                     >
                       <b>
-                        {validationResults.poam.summary.firedCount > 0
+                        {validationResults.poam.summary.firedCount !== null &&
+                        validationResults.poam.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
