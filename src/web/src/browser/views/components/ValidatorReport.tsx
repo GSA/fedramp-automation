@@ -113,7 +113,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                         } ${check.role.toUpperCase()}: `}</b>
                         {check.message}
                         <div>
-                          <span className="text-primary text-underline margin-right-1">
+                          <span className="text-primary text-underline margin-right-1 learn-more">
                             Learn more
                           </span>
                           <span className="margin-right-1">|</span>

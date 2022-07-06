@@ -14,3 +14,11 @@ details > summary {
     display: none;
   }
 }
+
+details > summary .learn-more::after {
+  content: '\22C1';
+}
+
+details[open] > summary .learn-more::after {
+  content: '\22C0';
+}
