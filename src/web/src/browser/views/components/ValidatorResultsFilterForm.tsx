@@ -28,8 +28,8 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
   };
   return (
     <>
-      <aside className="padding-y-2 radius-lg padding-x-3">
-        <h2 className=" font-sans-xl" ref={topRef}>
+      <aside className="padding-y-2 radius-lg padding-x-1 desktop:padding-x-3">
+        <h2 className=" desktop:font-sans-xl" ref={topRef}>
           Filtering Options
         </h2>
 
@@ -73,7 +73,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
           <legend className="usa-legend usa-legend--large font-sans-md margin-bottom-1">
             Filter by pass status
           </legend>
-          <div className="usa-radio tablet:padding-left-2 width-mobile">
+          <div className="usa-radio desktop:padding-left-2 desktop:width-mobile">
             {filterOptions.passStatuses.map(passStatus => (
               <div key={passStatus.id}>
                 <input
@@ -95,7 +95,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   }}
                 />
                 <label
-                  className="usa-radio__label display-flex flex-justify "
+                  className="usa-radio__label desktop:display-flex desktop:flex-justify "
                   htmlFor={`${documentType}-status-${passStatus.id}`}
                 >
                   <span>{passStatus.title}</span>
@@ -114,7 +114,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
           <legend className="usa-legend usa-legend--large font-sans-md margin-bottom-1">
             Select a view
           </legend>
-          <div className="usa-radio tablet:padding-left-2 width-mobile">
+          <div className="usa-radio desktop:padding-left-2 desktop:width-mobile">
             {filterOptions.assertionViews.map(assertionView => (
               <div key={assertionView.index}>
                 <input
@@ -137,7 +137,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   }}
                 />
                 <label
-                  className="usa-radio__label display-flex flex-justify"
+                  className="usa-radio__label desktop:display-flex desktop:flex-justify"
                   htmlFor={`${documentType}-assertion-view-${assertionView.index}`}
                 >
                   <span>{assertionView.title}</span>
@@ -183,7 +183,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   className="usa-radio__label"
                   htmlFor={`${documentType}-role-${filterRole.name}`}
                 >
-                  <div className="width-card display-flex flex-justify width-full padding-right-3">
+                  <div className="desktop:width-card desktop:display-flex desktop:flex-justify desktop:width-full desktop:padding-right-3">
                     <span>
                       {filterRole.name.toLocaleUpperCase() || '<not specified>'}
                     </span>

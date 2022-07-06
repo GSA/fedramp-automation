@@ -16,13 +16,13 @@ const DocumentValidator = ({
   documentType: OscalDocumentKey;
 }) => (
   <>
-    <div className="grid-row grid-gap tablet:padding-top-5">
+    <div className="grid-row tablet:padding-top-5">
       <div className="tablet:grid-col-4">
         <div className="position-sticky top-1 height-viewport overflow-y-auto">
           <ValidatorResultsFilterForm documentType={documentType} />
         </div>
       </div>
-      <div className="tablet:grid-col-8">
+      <div className="tablet:grid-col-8 tablet:padding-left-2">
         <ValidatorReport documentType={documentType} />
       </div>
     </div>
@@ -124,13 +124,13 @@ export const ValidatorPage = ({
           <DocumentValidator documentType={documentType} />
         ) : (
           <div className="grid-row grid-gap">
-            <div className="tablet:grid-col">
+            <div className="desktop:grid-col">
               <h2 className="font-sans-2xl text-light text-theme-dark-blue margin-0 margin-bottom-5">
                 Summary Table
               </h2>
               <img src={tableImage} alt="laptop with report on screen" />
             </div>
-            <div className="tablet:grid-col tablet:padding-top-8">
+            <div className="desktop:grid-col tablet:padding-top-8">
               <table className="usa-table">
                 <thead>
                   <tr>

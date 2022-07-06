@@ -31,7 +31,9 @@ export const ValidatorReport = ({ documentType }: Props) => {
     <>
       <div className="top-0 padding-y-1">
         <div className="display-flex flex-align-center flex-justify">
-          <h1 className="margin-0">{validationResult.summary.title}</h1>
+          <h1 className="margin-0 font-sans-lg desktop:font-sans-xl">
+            {validationResult.summary.title}
+          </h1>
           <span
             className="font-heading-sm text-secondary-light text-error"
             style={{ float: 'right' }}
