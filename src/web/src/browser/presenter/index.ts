@@ -38,7 +38,7 @@ export type ActionContext = {
 
 export interface ActionDispatch<S, A, E> {
   <
-    Action extends ({
+    ThunkAction extends ({
       dispatch,
       getState,
       effects,
@@ -48,7 +48,7 @@ export interface ActionDispatch<S, A, E> {
       effects: E;
     }) => unknown,
   >(
-    action: Action,
-  ): ReturnType<Action>;
+    action: ThunkAction | StateTransition,
+  ): ReturnType<ThunkAction>;
   (value: A): void;
 }
