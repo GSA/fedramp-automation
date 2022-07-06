@@ -59,7 +59,6 @@ export const ValidatorReport = ({ documentType }: Props) => {
           className="border-top-1px border-accent-cool-light padding-1"
           open={false}
         >
-          {/* <pre>{JSON.stringify(group, null, 2)}</pre> */}
           <summary className="display-flex flex-align-baseline flex-justify">
             <span className="font-heading-lg text-primary border-base-light padding-top-1">
               {group.title}
@@ -97,7 +96,6 @@ export const ValidatorReport = ({ documentType }: Props) => {
             <ul className="usa-icon-list margin-top-1 bg-base-lightest">
               {group.checks.checks.map((check, index) => (
                 <li key={index} className={`usa-icon-list__item padding-1`}>
-                  {/* <pre>{JSON.stringify(check, null, 2)}</pre> */}
                   <div
                     className={`usa-icon-list__icon text-${check.icon.color}`}
                   >
