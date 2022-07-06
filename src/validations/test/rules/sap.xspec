@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <x:description
+    run-as="external"
     schematron="../../rules/sap.sch"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">
 
@@ -705,6 +706,111 @@
             </x:scenario>
         </x:scenario>
 
+    </x:scenario>
+    <x:scenario
+        label="In a FedRAMP SAP">
+        <x:scenario
+            label="when a terms-and-conditions">
+            <x:scenario
+                label="has a part named 'assumptions'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <part
+                                name="assumptions" />
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-part-named-assumptions"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="does not have a part named 'assumptions'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-part-named-assumptions"
+                    label="that is correct" />
+            </x:scenario>
+
+            <x:scenario
+                label="within a part named 'assumptions'">
+                <x:scenario
+                    label="the parts named 'assumption' are correctly ordered">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="assumptions">
+                                    <part
+                                        name="assumption">
+                                        <prop
+                                            name="sort-id"
+                                            value="001" />
+                                    </part>
+                                    <part
+                                        name="assumption">
+                                        <prop
+                                            name="sort-id"
+                                            value="002" />
+                                    </part>
+                                    <part
+                                        name="assumption">
+                                        <prop
+                                            name="sort-id"
+                                            value="003" />
+                                    </part>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="assumption-ordered"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="the parts named 'assumption' are not correctly ordered">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="assumptions">
+                                    <part
+                                        name="assumption">
+                                        <prop
+                                            name="sort-id"
+                                            value="002" />
+                                    </part>
+                                    <part
+                                        name="assumption">
+                                        <prop
+                                            name="sort-id"
+                                            value="001" />
+                                    </part>
+                                    <part
+                                        name="assumption">
+                                        <prop
+                                            name="sort-id"
+                                            value="003" />
+                                    </part>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="assumption-ordered"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
 
 </x:description>
