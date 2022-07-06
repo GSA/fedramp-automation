@@ -7,5 +7,9 @@ services:
     build: .
     volumes:
       - ../../..:/code
+      - node_modules:/code/src/examples/javascript/node_modules/
     working_dir: /code/src/examples/javascript
-    command: ./compile-sef.sh && npm test
+    command: bash -l
+
+volumes:
+  node_modules:
