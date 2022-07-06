@@ -170,33 +170,6 @@
         </sch:rule>
 
     </sch:pattern>
-    
-    <sch:pattern
-        id="terms-and-conditions">
-        <sch:rule
-            context="oscal:terms-and-conditions">
-            <sch:assert
-                diagnostics="has-part-named-assumptions-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.8"
-                fedramp:specific="true"
-                id="has-part-named-assumptions"
-                role="error"
-                test="exists(oscal:part[@name = 'assumptions'])">The SAP contains a part of the name 'assumptions'.</sch:assert>
-            <sch:let
-                name="unsorted_assumptions"
-                value="oscal:part[@name = 'assumptions']/oscal:part[@name = 'assumption']/oscal:prop[@name = 'sort-id']/@value" />
-            <sch:let
-                name="sorted_assumptions"
-                value="sort($unsorted_assumptions)" />
-            <sch:assert
-                diagnostics="assumption-ordered-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.8"
-                fedramp:specific="true"
-                id="assumption-ordered"
-                role="error"
-                test="deep-equal($unsorted_assumptions, $sorted_assumptions)">The SAP has assumption parts that are ordered.</sch:assert>
-        </sch:rule>
-    </sch:pattern>
 
     <sch:pattern
         id="pentest">
@@ -218,6 +191,14 @@
             context="oscal:terms-and-conditions">
 
             <sch:assert
+                diagnostics="has-part-named-assumptions-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.8"
+                fedramp:specific="true"
+                id="has-part-named-assumptions"
+                role="error"
+                test="oscal:part[@name = 'assumptions']">The SAP terms and conditions must contain a part called assumptions.</sch:assert>
+            
+            <sch:assert
                 diagnostics="has-methodology-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.9"
                 fedramp:specific="true"
@@ -235,6 +216,23 @@
                 test="oscal:part[@name eq 'disclosures']">The SAP terms and conditions must contain Rules of Engagement (ROE)
                 Disclosures.</sch:assert>
 
+        </sch:rule>
+        
+        <sch:rule
+            context="oscal:terms-and-conditions/oscal:part[@name eq 'assumptions']">            
+            <sch:let
+                name="unsorted_assumptions"
+                value="oscal:part[@name eq 'assumption']/oscal:prop[@name eq 'sort-id']/@value" />
+            <sch:let
+                name="sorted_assumptions"
+                value="sort($unsorted_assumptions)" />
+            <sch:assert
+                diagnostics="assumption-ordered-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.8"
+                fedramp:specific="true"
+                id="assumption-ordered"
+                role="error"
+                test="deep-equal($unsorted_assumptions, $sorted_assumptions)">The SAP terms and conditions assumptions part has assumption parts that are ordered.</sch:assert>
         </sch:rule>
 
         <sch:rule
@@ -405,7 +403,7 @@
         <sch:diagnostic
             doc:assert="assumption-ordered"
             doc:context="oscal:terms-and-conditions"
-            id="assumption-ordered-diagnostic">The SAP has assumption parts in incorrect order.</sch:diagnostic>
+            id="assumption-ordered-diagnostic">The SAP assumption parts are incorrectly ordered.</sch:diagnostic>
         
         <sch:diagnostic
             doc:assert="has-methodology-diagnostic"
