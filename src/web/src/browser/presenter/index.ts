@@ -1,5 +1,4 @@
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
-import type { AppMetrics } from '@asap/shared/use-cases/app-metrics';
 import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
@@ -7,14 +6,12 @@ import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron'
 
 import type { Location } from './state/router';
 import { State, StateTransition, initialState } from './state';
-import { ThunkDispatch } from '../views/hooks';
 
 export type UseCases = {
   annotateXML: AnnotateXMLUseCase;
   getAssertionViews: GetAssertionViews;
   getSchematronAssertions: GetSchematronAssertions;
   getXSpecScenarioSummaries: GetXSpecScenarioSummaries;
-  appMetrics: AppMetrics;
   oscalService: OscalService;
 };
 
@@ -36,5 +33,22 @@ export type ActionContext = {
     useCases: UseCases;
   };
   getState: () => State;
-  dispatch: ThunkDispatch<State, StateTransition, Effects>;
+  dispatch: ActionDispatch<State, StateTransition, Effects>;
 };
+
+export interface ActionDispatch<S, A, E> {
+  <
+    ThunkAction extends ({
+      dispatch,
+      getState,
+      effects,
+    }: {
+      dispatch: ActionDispatch<S, A, E>;
+      getState: () => S;
+      effects: E;
+    }) => unknown,
+  >(
+    action: ThunkAction | StateTransition,
+  ): ReturnType<ThunkAction>;
+  (value: A): void;
+}

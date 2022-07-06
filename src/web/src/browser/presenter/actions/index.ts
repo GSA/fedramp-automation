@@ -1,7 +1,5 @@
 export * as assertionDocumentation from './assertion-documentation';
 import * as assertionDocumentation from './assertion-documentation';
-export * as metrics from './metrics';
-import * as metrics from './metrics';
 export * as schematron from './schematron';
 import * as schematron from './schematron';
 export * as validator from './validator';
@@ -16,7 +14,6 @@ export const initializeApplication = (config: ActionContext) => {
   });
   schematron.initialize(config);
   assertionDocumentation.initialize(config);
-  metrics.initialize(config);
 };
 
 export const setCurrentRoute =

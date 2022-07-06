@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import Modal from 'react-modal';
 
 import { clearAssertionContext } from '@asap/browser/presenter/actions/validator';

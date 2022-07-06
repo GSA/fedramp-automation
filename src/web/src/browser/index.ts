@@ -1,14 +1,10 @@
-import { createBrowserFingerprintMaker } from '@asap/shared/adapters/browser-fingerprint';
-import { createGoogleFormMetricsLogger } from '@asap/shared/adapters/google-form';
 import { highlightXML } from '@asap/shared/adapters/highlight-js';
-import { AppLocalStorage } from '@asap/shared/adapters/local-storage';
 import {
   SaxonJsJsonOscalToXmlProcessor,
   SaxonJsSchematronProcessorGateway,
 } from '@asap/shared/adapters/saxon-js-gateway';
 import * as github from '@asap/shared/domain/github';
 import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
-import { AppMetrics } from '@asap/shared/use-cases/app-metrics';
 import { OscalService } from '@asap/shared/use-cases/oscal';
 
 import { getInitialState } from './presenter';
@@ -21,16 +17,12 @@ const SaxonJS = (window as any).SaxonJS;
 type BrowserContext = {
   element: HTMLElement;
   baseUrl: `${string}/`;
-  debug: boolean;
-  deploymentId: string;
   githubRepository: github.GithubRepository;
 };
 
 export const runBrowserContext = ({
   element,
   baseUrl,
-  debug,
-  deploymentId,
   githubRepository,
 }: BrowserContext) => {
   // Set SaxonJS log level.
@@ -53,20 +45,6 @@ export const runBrowserContext = ({
     baselinesBaseUrl: `${baseUrl}baselines`,
     registryBaseUrl: `${baseUrl}xml`,
   });
-  const eventLogger = createGoogleFormMetricsLogger({
-    fetch: window.fetch.bind(window),
-    formUrl:
-      'https://docs.google.com/forms/d/e/1FAIpQLScKRI40pQlpaY9cUUnyTdz-e_NvOb0-DYnPw_6fTqbw-kO6KA/',
-    fieldIds: {
-      deploymentId: 'entry.2078742906',
-      deviceId: 'entry.487426639',
-      userAlias: 'entry.292167116',
-      eventType: 'entry.172225468',
-      data: 'entry.1638260679',
-    },
-  });
-  const localStorageGateway = new AppLocalStorage(window.localStorage);
-
   const renderApp = createAppRenderer(
     element,
     getInitialState({
@@ -96,12 +74,6 @@ export const runBrowserContext = ({
             indentXml: s => Promise.resolve(s),
           },
           SaxonJS,
-        }),
-        appMetrics: new AppMetrics({
-          deploymentId,
-          eventLogger,
-          getBrowserFingerprint: createBrowserFingerprintMaker(),
-          optInGateway: localStorageGateway,
         }),
         getAssertionViews: async () => {
           const responses = await Promise.all([

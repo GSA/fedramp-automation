@@ -9,7 +9,6 @@ import { Header } from './Header';
 import { HomePage } from './HomePage';
 import { InnerPageLayout } from './InnerPageLayout';
 import { UsaBanner } from './UsaBanner';
-import { UsageTrackingPage } from './UsageTrackingPage';
 import { ValidatorPage } from './ValidatorPage';
 import { useAppContext } from '../context';
 
@@ -49,12 +48,6 @@ const CurrentPage = () => {
     return (
       <InnerPageLayout>
         <DevelopersPage />
-      </InnerPageLayout>
-    );
-  } else if (currentRoute.type === 'UsageTracking') {
-    return (
-      <InnerPageLayout>
-        <UsageTrackingPage />
       </InnerPageLayout>
     );
   } else {
