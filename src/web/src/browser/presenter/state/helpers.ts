@@ -20,7 +20,7 @@ const cancelIcon: Icon = {
 
 export type SchematronReportGroups = {
   title: string;
-  isValidated: false;
+  isValidated: boolean;
   checks: {
     summary: string;
     summaryColor: 'red' | 'green';
