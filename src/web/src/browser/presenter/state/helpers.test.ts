@@ -38,6 +38,7 @@ describe('presenter schematron library', () => {
               id: 'unique-3',
               message: 'Assertion message',
               role: 'error',
+              isValidated: true,
             },
           ],
         },
