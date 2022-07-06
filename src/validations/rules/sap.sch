@@ -230,6 +230,23 @@
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and @value = ('yes', 'no')]">The SAP declares whether a
                 sampling method is used.</sch:assert>
 
+            <sch:assert
+                diagnostics="has-sampling-method-statement-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.9"
+                fedramp:specific="true"
+                id="has-sampling-method-statement"
+                role="error"
+                test="
+                    if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and @value eq 'no'])
+                    then
+                        (matches(oscal:p[position() = last()], '^.*\swill not use sampling when performing this assessment\.$'))
+                    else
+                        (if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and @value eq 'yes'])
+                        then
+                            (matches(oscal:p[position() = last()], '^.*\swill use sampling when performing this assessment\.$'))
+                        else
+                            (false()))">The sampling methodology's final paragraph is the correct sampling statement.</sch:assert>
+
         </sch:rule>
 
         <sch:rule
@@ -389,6 +406,13 @@
             doc:assert="has-allowed-sampling-method-diagnostic"
             doc:context="oscal:terms-and-conditions/part[@name eq 'methodology']"
             id="has-allowed-sampling-method-diagnostic">The SAP fails to declare whether a sampling method is used.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-sampling-method-statement"
+            doc:context="oscal:terms-and-conditions/part[@name eq 'methodology']"
+            id="has-sampling-method-statement-diagnostic">The SAP methodology's final paragraph does not match the required string for a sampling
+            property with a value of <sch:value-of
+                select="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling']/@value" />.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-roe-disclosure-detail-diagnostic"

@@ -429,8 +429,100 @@
                     id="has-methodology"
                     label="that is incorrect" />
             </x:scenario>
-        </x:scenario>
 
+            <x:scenario
+                label="has a sampling prop with the value of no">
+                <x:scenario
+                    label="and the final paragraph has the correct statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="no" />
+                                    <p>[3PAO Name] will not use sampling when performing this assessment.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-sampling-method-statement"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and the final paragraph has an incorrect statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="no" />
+                                    <p>[3PAO Name] will not use sampling.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-sampling-method-statement"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="has a sampling prop with the value of yes">
+                <x:scenario
+                    label="and the final paragraph has the correct statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="yes" />
+                                    <p>[3PAO Name] will use sampling when performing this assessment.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-sampling-method-statement"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and the final paragraph has an incorrect statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="yes" />
+                                    <p>[3PAO Name] will use sampling.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-sampling-method-statement"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        
         <x:scenario
             label="when the disclosures part">
             <x:scenario
@@ -454,7 +546,6 @@
                     label="that is incorrect" />
             </x:scenario>
         </x:scenario>
-
         <x:scenario
             label="when the sampling prop">
             <x:scenario
