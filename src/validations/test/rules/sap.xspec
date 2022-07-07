@@ -30,14 +30,14 @@
 
         <x:scenario
             label="when the import-ssp element">
-            
+
             <x:scenario
                 label="is present">
                 <x:expect-not-assert
                     id="has-import-ssp"
                     label="that is correct" />
             </x:scenario>
-        
+
             <x:scenario
                 label="is absent">
                 <x:context>
@@ -50,14 +50,14 @@
                     id="has-import-ssp"
                     label="that is an error" />
             </x:scenario>
-       
+
             <x:scenario
                 label="has an href attribute">
                 <x:expect-not-assert
                     id="has-import-ssp-href"
                     label="that is correct" />
             </x:scenario>
-      
+
             <x:scenario
                 label="lacks an href attribute">
                 <x:context>
@@ -70,7 +70,7 @@
                     id="has-import-ssp-href"
                     label="that is an error" />
             </x:scenario>
-            
+
         </x:scenario>
 
         <x:scenario
@@ -705,6 +705,149 @@
             </x:scenario>
         </x:scenario>
 
+    </x:scenario>
+
+    <x:scenario
+        label="In a FedRAMP SAP">
+        <x:scenario
+            label="in the metadata">
+            <x:scenario
+                label="there is a role element with an @id of 'assessor'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <role
+                                id="assessor" />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-role-assessor"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="there is not a role element with an @id of 'assessor'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-role-assessor"
+                    label="that is an error" />
+            </x:scenario>
+            <x:scenario
+                label="there is a location element">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <location />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-location"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="there is not a location element">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-location"
+                    label="that is an error" />
+            </x:scenario>
+            <x:scenario
+                label="there is a party element with the @name of 'iso-iec-17020-identifier'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party>
+                                <prop
+                                    name="iso-iec-17020-identifier"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="0000.00" />
+                            </party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-party"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="there is not a party element with the @name of 'iso-iec-17020-identifier'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party>
+                                <prop
+                                    name="not17020"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="0000.00" />
+                            </party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-party"
+                    label="that is an error" />
+            </x:scenario>
+
+            <x:scenario
+                label="there is a party element with the @name of 'iso-iec-17020-identifier'">
+                <x:scenario
+                    label="whose @value is correctly formatted">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <party>
+                                    <prop
+                                        name="iso-iec-17020-identifier"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="0000.00" />
+                                </party>
+                            </metadata>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-metadata-correctly-formatted-party"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="there is not a party element with the @name of 'iso-iec-17020-identifier'">
+                <x:scenario
+                    label="whose @value is incorrectly formatted">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <party>
+                                    <prop
+                                        name="iso-iec-17020-identifier"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="A00A.00" />
+                                </party>
+                            </metadata>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-metadata-correctly-formatted-party"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
 
 </x:description>
