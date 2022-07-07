@@ -61,7 +61,7 @@ const PartiesGrid = () => {
             <img
               className="float-left margin-2"
               src={partnersCloudSvg}
-              alt=""
+              alt="partners in the cloud"
             />
             <h3>Cloud Service Providers</h3>
             <p className="margin-bottom-4">
@@ -74,7 +74,7 @@ const PartiesGrid = () => {
           <img
             className="float-left margin-2"
             src={partnersAssessorsSvg}
-            alt=""
+            alt="partner assessors"
           />
           <h3>FedRAMP Reviewers</h3>
           <p className="margin-bottom-4">
@@ -86,7 +86,7 @@ const PartiesGrid = () => {
           <img
             className="float-left margin-2"
             src={partnersAgenciesSvg}
-            alt=""
+            alt="partner agencies"
           />
           <h3>Federal Agencies</h3>
           <p className="margin-bottom-4">

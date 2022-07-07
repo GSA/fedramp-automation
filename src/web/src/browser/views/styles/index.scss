@@ -20,6 +20,10 @@
   --theme-dark-text: #5a5353;
 }
 
+.text-theme-dark-blue {
+  color: var(--theme-dark-cyan);
+}
+
 .loader {
   border: 8px solid color('base-lightest');
   border-top: 8px solid color('primary-vivid');
