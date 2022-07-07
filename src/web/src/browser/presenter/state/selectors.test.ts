@@ -19,9 +19,9 @@ describe('selectors', () => {
             },
           ],
           schematronAsserts: [
-            { id: '0', message: 'msg0', role: 'error', isValidated: true },
-            { id: '1', message: 'msg1', role: 'error', isValidated: true },
-            { id: '2', message: 'msg2', role: 'error', isValidated: true },
+            { id: '0', message: 'msg0', role: 'error' },
+            { id: '1', message: 'msg1', role: 'error' },
+            { id: '2', message: 'msg2', role: 'error' },
           ],
         },
         {

@@ -174,7 +174,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                   ) : (
                     <div className="usa-icon-list__content">
                       <div>
-                        <b>{check.isValidated ? 'PASS: ' : null}</b>
+                        <b>{group.isValidated ? 'PASS: ' : null}</b>
                         {check.message}
                         <div>
                           <a
