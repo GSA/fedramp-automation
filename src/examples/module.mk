@@ -13,4 +13,4 @@ test-example-python:  ## Test example Python project
 test-example-javascript:  ## Test example Javascript project
 	@echo "Verifying Javascript example..."
 	cd src/examples/javascript && \
-		docker-compose run example npm run build
+		docker-compose run example ./test.sh
