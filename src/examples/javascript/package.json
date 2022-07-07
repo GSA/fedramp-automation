@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Javascript example code for validating fedramp-automation Schematron rules",
   "scripts": {
-    "build:poam": "xslt3 -xsl:../../validations/target/rules/poam.sch.xsl -export:dist/poam.sef.json -nogo",
-    "build:sap": "xslt3 -xsl:../../validations/target/rules/sap.sch.xsl -export:dist/sap.sef.json -nogo",
-    "build:sar": "xslt3 -xsl:../../validations/target/rules/sar.sch.xsl -export:dist/sar.sef.json -nogo",
-    "build:ssp": "xslt3 -xsl:../../validations/target/rules/ssp.sch.xsl -export:dist/ssp.sef.json -nogo",
+    "build:poam": "xslt3 -xsl:../../validations/target/rules/poam.sch.xsl -export:/tmp/poam.sef.json -nogo",
+    "build:sap": "xslt3 -xsl:../../validations/target/rules/sap.sch.xsl -export:/tmp/sap.sef.json -nogo",
+    "build:sar": "xslt3 -xsl:../../validations/target/rules/sar.sch.xsl -export:/tmp/sar.sef.json -nogo",
+    "build:ssp": "xslt3 -xsl:../../validations/target/rules/ssp.sch.xsl -export:/tmp/ssp.sef.json -nogo",
     "build": "npm run build:poam && npm run build:sap && npm run build:sar && npm run build:ssp",
     "build-and-test": "npm run build && npm run test",
     "test": "node ./src/validator.test.js"

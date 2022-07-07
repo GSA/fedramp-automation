@@ -13,10 +13,10 @@ const RESOURCES_PATH = path.resolve('../../../dist/content/resources/xml');
 
 /** Path to compiled Schematron XSLT validation rules */
 const COMPILED_XSLT = {
-  ssp: path.resolve('dist/ssp.sef.json'),
-  sap: path.resolve('dist/sap.sef.json'),
-  sar: path.resolve('dist/sar.sef.json'),
-  poam: path.resolve('dist/poam.sef.json'),
+  ssp: path.resolve('/tmp/ssp.sef.json'),
+  sap: path.resolve('/tmp/sap.sef.json'),
+  sar: path.resolve('/tmp/sar.sef.json'),
+  poam: path.resolve('/tmp/poam.sef.json'),
 };
 
 /**
