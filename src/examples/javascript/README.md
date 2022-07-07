@@ -33,7 +33,7 @@ You may now run and interact with the example code.
 To run tests, build the required Schematron XSLT to sef.json files and run the test script:
 
 ```bash
-docker-compose run example npm run build-and-test
+docker-compose run example npm run ./test.sh
 ```
 
 To auto-format code:
