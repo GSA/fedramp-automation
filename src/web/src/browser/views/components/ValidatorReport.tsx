@@ -8,7 +8,6 @@ import {
 } from '@asap/browser/presenter/state/selectors';
 import { getAssertionViewTitleByIndex } from '@asap/browser/presenter/state/schematron-machine';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import { colorTokenForRole } from '../../util/styles';
 import { useAppContext } from '../context';
 import '../styles/ValidatorReport.scss';
 

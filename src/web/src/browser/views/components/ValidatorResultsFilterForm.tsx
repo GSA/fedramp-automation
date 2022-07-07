@@ -1,10 +1,7 @@
 import { useRef } from 'react';
 import spriteSvg from 'uswds/img/sprite.svg';
-
 import * as schematron from '@asap/browser/presenter/actions/schematron';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-
-import { colorTokenForRole } from '../../util/styles';
 import { useAppContext } from '../context';
 import { selectFilterOptions } from '@asap/browser/presenter/state/selectors';
 import '../styles/ValidatorResultsFilterForm.scss';
@@ -158,10 +155,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
           </legend>
           <div className="usa-radio">
             {filterOptions.roles.map((filterRole, index) => (
-              <div
-                key={index}
-                className={`bg-${colorTokenForRole(filterRole.name)}-lighter`}
-              >
+              <div key={index} className="bg-info-lighter">
                 <input
                   className="usa-radio__input usa-radio__input--tile"
                   id={`${documentType}-role-${filterRole.name}`}
