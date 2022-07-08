@@ -20,10 +20,10 @@ type CommandLineContext = {
 export const CommandLineController = (ctx: CommandLineContext) => {
   const cli = new Command();
   cli
-    .command('validate <ssp-xml-file>')
-    .description('validate OSCAL systems security plan document')
-    .action(async sspXmlFile => {
-      const xmlString = await ctx.readStringFile(sspXmlFile);
+    .command('validate <oscal-xml-file>')
+    .description('validate OSCAL document (SSP, SAP, SAR, or POA&M)')
+    .action(async oscalXmlFile => {
+      const xmlString = await ctx.readStringFile(oscalXmlFile);
       const result = await ctx.useCases.oscalService.validateXmlOrJson(
         xmlString,
       );
