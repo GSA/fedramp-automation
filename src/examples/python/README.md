@@ -7,7 +7,7 @@ This is a simple example of how to use the fedramp-automation validation rules w
 This example is implemented as a [pytest](https://pytest.org/) module [./test_validate_ssp.py](./test_validate_ssp.py).
 ## Prerequisites
 
-A compiled Schematron XSLT artifact is required to run this example. The following command will build the artifact:
+Compiled Schematron XSLT artifacts are required to run this example. The following command will build the artifact:
 
 ```bash
 cd ../../..
