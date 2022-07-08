@@ -6,10 +6,13 @@ For the purposes of third-party integration, Schematron validation rules are pro
 
 - [Python example](./python/README.md)
 - [Java example](./java/README.md)
+- [Javascript example](./javascript/README.md)
+
+Additionally, these examples serve as basic automated tests of the validation suite over each of the implemented languages.
 
 ## General overview
 
-- The source rules defined in [../validations/rules/ssp.sch](../validations/rules/ssp.sch) are compiled into a single XSLT file, [../validations/target/rules/ssp.sch.xsl](../validations/target/rules/ssp.sch.xsl)
+- The source SSP rules defined in [../validations/rules/ssp.sch](../validations/rules/ssp.sch) are compiled into a single XSLT file, [../validations/target/rules/ssp.sch.xsl](../validations/target/rules/ssp.sch.xsl). Similar artifacts are produced for SAP, SAR, and POA&M rules.
 - The compiled XSLT file must be evaluated by an XSLT 3.0 compatible processor. The [Saxon](https://www.saxonica.com/) suite of libraries are the only compatible XSLT 3.0 processors at the time of writing.
   - Java Saxon-HE is open-source and recommended.
   - Javascript Saxon-JS is free, but not open-source. The UI for this project may be referenced as an example.
@@ -29,7 +32,7 @@ The Schematron rules support a number of parameters that can be applied via XSLT
 
 OSCAL may be represented via both XML and JSON formats. The FedRAMP OSCAL validation rules, however, require XML. To validate a JSON OSCAL SSP, you must convert the JSON to XML. The OSCAL project provides an collection of JSON to XML converters, in the form of XSLT stylesheets, [available here](https://github.com/usnistgov/OSCAL/tree/main/xml#oscal-json-to-xml-converters).
 
-Both the Java and Python examples in this repository provide examples of usage of these stylesheets.
+Each of the examples (Java, Python, and Javascript) provide examples of usage of these stylesheets.
 
 # Schematron Validation Report Language (SVRL)
 

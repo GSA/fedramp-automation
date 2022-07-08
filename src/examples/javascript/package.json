@@ -1,0 +1,22 @@
+{
+  "name": "fedramp-automation-example",
+  "version": "1.0.0",
+  "description": "Javascript example code for validating fedramp-automation Schematron rules",
+  "scripts": {
+    "test": "node ./src/validator.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSA/fedramp-automation.git"
+  },
+  "author": "",
+  "license": "CC0-1.0",
+  "bugs": {
+    "url": "https://github.com/GSA/fedramp-automation/issues"
+  },
+  "homepage": "https://github.com/GSA/fedramp-automation#readme",
+  "dependencies": {
+    "saxon-js": "^2.4.0",
+    "xslt3": "^2.4.0"
+  }
+}
