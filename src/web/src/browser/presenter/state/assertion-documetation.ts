@@ -1,107 +1,76 @@
-import { derived, Statemachine, statemachine } from 'overmind';
-
 import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import { ScenarioSummary } from '@asap/shared/domain/xspec';
 import { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
-type States =
-  | {
-      current: 'INITIALIZED';
-    }
-  | {
-      current: 'UNINITIALIZED';
-    };
-
-type BaseState = {
+type LoadedState = {
   xspecScenarioSummaries: XSpecScenarioSummaries;
-  visibleScenarioSummaries: ScenarioSummary[];
-  visibleAssertion: {
-    assertionId: string;
-    documentType: OscalDocumentKey;
-  } | null;
 };
 
-type Events =
+export type State =
   | {
-      type: 'SUMMARIES_LOADED';
+      current: 'UNINITIALIZED';
+    }
+  | (LoadedState & {
+      current: 'INITIALIZED';
+    })
+  | (LoadedState & {
+      current: 'SHOWING';
+      visibleScenarioSummaries: ScenarioSummary[];
+      visibleAssertion: {
+        assertionId: string;
+        documentType: OscalDocumentKey;
+      } | null;
+    });
+
+export type StateTransition =
+  | {
+      type: 'ASSERTION_DOCUMENTATION_SUMMARIES_LOADED';
       data: {
         xspecScenarioSummaries: XSpecScenarioSummaries;
       };
     }
   | {
-      type: 'CLOSE';
-      data: {};
+      type: 'ASSERTION_DOCUMENTATION_CLOSE';
     }
   | {
-      type: 'SHOW';
+      type: 'ASSERTION_DOCUMENTATION_SHOW';
       data: {
         assertionId: string;
         documentType: OscalDocumentKey;
       };
     };
 
-export type AssertionDocumentationMachine = Statemachine<
-  States,
-  Events,
-  BaseState
->;
+export const nextState = (state: State, event: StateTransition): State => {
+  if (state.current === 'UNINITIALIZED') {
+    if (event.type === 'ASSERTION_DOCUMENTATION_SUMMARIES_LOADED') {
+      return {
+        current: 'INITIALIZED',
+        xspecScenarioSummaries: event.data.xspecScenarioSummaries,
+      };
+    }
+  } else if (state.current === 'INITIALIZED') {
+    if (event.type === 'ASSERTION_DOCUMENTATION_SHOW') {
+      return {
+        current: 'SHOWING',
+        xspecScenarioSummaries: state.xspecScenarioSummaries,
+        visibleAssertion: event.data,
+        visibleScenarioSummaries:
+          state.xspecScenarioSummaries[event.data.documentType][
+            event.data.assertionId
+          ],
+      };
+    }
+  } else if (state.current === 'SHOWING') {
+    if (event.type === 'ASSERTION_DOCUMENTATION_CLOSE') {
+      return {
+        current: 'INITIALIZED',
+        xspecScenarioSummaries: state.xspecScenarioSummaries,
+      };
+    }
+  }
+  return state;
+};
 
-const assertionDocumentationMachine = statemachine<States, Events, BaseState>({
-  UNINITIALIZED: {
-    SUMMARIES_LOADED: ({ xspecScenarioSummaries }) => {
-      return {
-        current: 'INITIALIZED',
-        xspecScenarioSummaries,
-        visibleAssertion: null,
-      };
-    },
-  },
-  INITIALIZED: {
-    CLOSE: (event, state) => {
-      return {
-        current: 'INITIALIZED',
-        visibleAssertion: null,
-        xspecScenarioSummaries: {
-          ...state.xspecScenarioSummaries,
-        },
-      };
-    },
-    SHOW: ({ assertionId, documentType }, state) => {
-      return {
-        current: 'INITIALIZED',
-        xspecScenarioSummaries: {
-          ...state.xspecScenarioSummaries,
-        },
-        visibleAssertion: {
-          assertionId,
-          documentType,
-        },
-      };
-    },
-  },
-});
-
-export const createAssertionDocumentationMachine = () => {
-  return assertionDocumentationMachine.create(
-    { current: 'UNINITIALIZED' },
-    {
-      visibleAssertion: null,
-      xspecScenarioSummaries: {
-        poam: {},
-        sap: {},
-        sar: {},
-        ssp: {},
-      },
-      visibleScenarioSummaries: derived(
-        (state: AssertionDocumentationMachine) => {
-          if (!state.visibleAssertion || !state.xspecScenarioSummaries) {
-            return [];
-          }
-          return state.xspecScenarioSummaries[
-            state.visibleAssertion.documentType
-          ][state.visibleAssertion.assertionId];
-        },
-      ),
-    },
-  );
+export const initialState: State = {
+  current: 'UNINITIALIZED',
 };

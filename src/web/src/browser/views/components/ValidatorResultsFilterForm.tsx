@@ -1,17 +1,21 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import spriteSvg from 'uswds/img/sprite.svg';
+import * as schematron from '@asap/browser/presenter/actions/schematron';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-
-import { colorTokenForRole } from '../../util/styles';
-import { useActions, useAppState } from '../hooks';
+import { useAppContext } from '../context';
+import { selectFilterOptions } from '@asap/browser/presenter/state/selectors';
+import '../styles/ValidatorResultsFilterForm.scss';
 
 type Props = {
   documentType: OscalDocumentKey;
 };
 
 export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
-  const oscalDocument = useAppState().oscalDocuments[documentType];
-  const actions = useActions();
+  const { state } = useAppContext();
+  const oscalDocument = state.oscalDocuments[documentType];
+  const { dispatch } = useAppContext();
+
+  const filterOptions = selectFilterOptions(documentType)(state);
 
   const topRef = useRef<HTMLHeadingElement>(null);
   const scrollIntoView = () => {
@@ -21,17 +25,56 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
   };
   return (
     <>
-      <h2 ref={topRef}>Filtering Options</h2>
-      <form className="usa-form padding-top-1">
-        <fieldset className="usa-fieldset">
-          <legend className="usa-legend text-base font-sans-md">
+      <aside className="padding-y-2 radius-lg padding-x-1 desktop:padding-x-3">
+        <h2 className=" desktop:font-sans-xl" ref={topRef}>
+          Filtering Options
+        </h2>
+
+        <div
+          className="usa-search usa-search--small margin-bottom-2"
+          role="search"
+        >
+          <label className="usa-sr-only" htmlFor="search-field-en-small">
+            Search
+          </label>
+          <input
+            className="usa-input"
+            type="search"
+            name="search"
+            id={`${documentType}-search-field`}
+            autoComplete="off"
+            onChange={event => {
+              let text = '';
+              if (event && event.target) {
+                text = event.target.value;
+              }
+              dispatch(schematron.setFilterText({ documentType, text }));
+            }}
+            placeholder="Search text..."
+          />
+          <button className="usa-button" type="submit">
+            <svg
+              aria-hidden="true"
+              role="img"
+              focusable="false"
+              className="usa-icon"
+            >
+              <use
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                xlinkHref={`${spriteSvg}#search`}
+              />
+            </svg>
+          </button>
+        </div>
+        <fieldset className="usa-fieldset margin-y-3">
+          <legend className="usa-legend usa-legend--large font-sans-md margin-bottom-1">
             Filter by pass status
           </legend>
-          <div className="usa-radio">
-            {oscalDocument.filterOptions.passStatuses.map(passStatus => (
+          <div className="usa-radio desktop:padding-left-2 desktop:width-mobile">
+            {filterOptions.passStatuses.map(passStatus => (
               <div key={passStatus.id}>
                 <input
-                  className="usa-radio__input usa-radio__input--tile"
+                  className="usa-radio__input "
                   id={`${documentType}-status-${passStatus.id}`}
                   type="radio"
                   name="pass-status"
@@ -39,18 +82,20 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   checked={oscalDocument.filter.passStatus === passStatus.id}
                   disabled={!passStatus.enabled}
                   onChange={() => {
-                    actions.schematron.setPassStatus({
-                      documentType,
-                      passStatus: passStatus.id,
-                    });
+                    dispatch(
+                      schematron.setPassStatus({
+                        documentType,
+                        passStatus: passStatus.id,
+                      }),
+                    );
                     scrollIntoView();
                   }}
                 />
                 <label
-                  className="usa-radio__label"
+                  className="usa-radio__label desktop:display-flex desktop:flex-justify "
                   htmlFor={`${documentType}-status-${passStatus.id}`}
                 >
-                  {passStatus.title}
+                  <span>{passStatus.title}</span>
                   <span
                     className="margin-left-1 usa-tag"
                     title={`${passStatus.count} results`}
@@ -61,12 +106,16 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
               </div>
             ))}
           </div>
-          <legend className="usa-legend font-sans-md">Select a view</legend>
-          <div className="usa-radio">
-            {oscalDocument.filterOptions.assertionViews.map(assertionView => (
+        </fieldset>
+        <fieldset className="usa-fieldset margin-y-3">
+          <legend className="usa-legend usa-legend--large font-sans-md margin-bottom-1">
+            Select a view
+          </legend>
+          <div className="usa-radio desktop:padding-left-2 desktop:width-mobile">
+            {filterOptions.assertionViews.map(assertionView => (
               <div key={assertionView.index}>
                 <input
-                  className="usa-radio__input usa-radio__input--tile"
+                  className="usa-radio__input"
                   id={`${documentType}-assertion-view-${assertionView.index}`}
                   type="radio"
                   name="assertion-view"
@@ -75,18 +124,20 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                     oscalDocument.filter.assertionViewId === assertionView.index
                   }
                   onChange={() => {
-                    actions.schematron.setFilterAssertionView({
-                      documentType,
-                      assertionViewId: assertionView.index,
-                    });
+                    dispatch(
+                      schematron.setFilterAssertionView({
+                        documentType,
+                        assertionViewId: assertionView.index,
+                      }),
+                    );
                     scrollIntoView();
                   }}
                 />
                 <label
-                  className="usa-radio__label"
+                  className="usa-radio__label desktop:display-flex desktop:flex-justify"
                   htmlFor={`${documentType}-assertion-view-${assertionView.index}`}
                 >
-                  {assertionView.title}
+                  <span>{assertionView.title}</span>
                   <span
                     className="margin-left-1 usa-tag"
                     title={`${assertionView.count} results`}
@@ -97,61 +148,14 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
               </div>
             ))}
           </div>
-          <legend className="usa-legend font-sans-md">
-            Filter by assertion text
+        </fieldset>
+        <fieldset className="usa-fieldset margin-y-3">
+          <legend className="usa-legend font-sans-md usa-legend--large margin-bottom-1">
+            Filter by severity
           </legend>
-          <span className="usa-hint">
-            Filtered results appear as you type, showing exact matches.
-          </span>
-          <div
-            className="usa-search usa-search--small margin-top-1"
-            role="search"
-          >
-            <label
-              className="usa-sr-only"
-              htmlFor={`${documentType}-search-field`}
-            >
-              Search assertion text
-            </label>
-            <div className="usa-input-group">
-              <div className="usa-input-prefix" aria-hidden="true">
-                <svg
-                  aria-hidden="true"
-                  role="img"
-                  focusable="false"
-                  className="usa-icon"
-                >
-                  <use
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    xlinkHref={`${spriteSvg}#search`}
-                  />
-                </svg>
-              </div>
-              <input
-                id={`${documentType}-search-field`}
-                type="search"
-                className="usa-input"
-                autoComplete="off"
-                onChange={event => {
-                  let text = '';
-                  if (event && event.target) {
-                    text = event.target.value;
-                  }
-                  actions.schematron.setFilterText({ documentType, text });
-                }}
-                placeholder="Search text..."
-              />
-            </div>
-          </div>
           <div className="usa-radio">
-            <legend className="usa-legend font-sans-md">
-              Filter by severity
-            </legend>
-            {oscalDocument.filterOptions.roles.map((filterRole, index) => (
-              <div
-                key={index}
-                className={`bg-${colorTokenForRole(filterRole.name)}-lighter`}
-              >
+            {filterOptions.roles.map((filterRole, index) => (
+              <div key={index} className="bg-info-lighter">
                 <input
                   className="usa-radio__input usa-radio__input--tile"
                   id={`${documentType}-role-${filterRole.name}`}
@@ -160,10 +164,12 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   value={filterRole.name}
                   checked={oscalDocument.filter.role === filterRole.name}
                   onChange={() => {
-                    actions.schematron.setFilterRole({
-                      documentType,
-                      role: filterRole.name,
-                    });
+                    dispatch(
+                      schematron.setFilterRole({
+                        documentType,
+                        role: filterRole.name,
+                      }),
+                    );
                     scrollIntoView();
                   }}
                 />
@@ -171,26 +177,17 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                   className="usa-radio__label"
                   htmlFor={`${documentType}-role-${filterRole.name}`}
                 >
-                  <svg
-                    aria-hidden="true"
-                    role="img"
-                    focusable="false"
-                    className="usa-icon usa-icon--size-3 margin-right-1 margin-bottom-neg-2px"
-                  >
-                    <use
-                      xmlnsXlink="http://www.w3.org/1999/xlink"
-                      xlinkHref={`${spriteSvg}#${colorTokenForRole(
-                        filterRole.name,
-                      )}`}
-                    />
-                  </svg>
-                  {filterRole.name.toLocaleUpperCase() || '<not specified>'}
-                  <span
-                    className="margin-left-1 usa-tag"
-                    title={`${filterRole.count} results`}
-                  >
-                    {filterRole.count}
-                  </span>
+                  <div className="desktop:width-card desktop:display-flex desktop:flex-justify desktop:width-full desktop:padding-right-3">
+                    <span>
+                      {filterRole.name.toLocaleUpperCase() || '<not specified>'}
+                    </span>
+                    <span
+                      className="margin-left-1 usa-tag"
+                      title={`${filterRole.count} results`}
+                    >
+                      {filterRole.count}
+                    </span>
+                  </div>
                   <span className="usa-checkbox__label-description">
                     {filterRole.subtitle}
                   </span>
@@ -199,7 +196,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
             ))}
           </div>
         </fieldset>
-      </form>
+      </aside>
     </>
   );
 };

@@ -1,67 +1,54 @@
-import { createOvermind, IContext } from 'overmind';
-
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
-import type { AppMetrics } from '@asap/shared/use-cases/app-metrics';
 import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
 import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron';
 
-import * as actions from './actions';
 import type { Location } from './state/router';
-import { state, State, SampleDocument } from './state';
+import { State, StateTransition, initialState } from './state';
 
 export type UseCases = {
   annotateXML: AnnotateXMLUseCase;
   getAssertionViews: GetAssertionViews;
   getSchematronAssertions: GetSchematronAssertions;
   getXSpecScenarioSummaries: GetXSpecScenarioSummaries;
-  appMetrics: AppMetrics;
   oscalService: OscalService;
 };
 
-export const getPresenterConfig = (
-  location: Location,
-  useCases: UseCases,
-  initialState: Partial<State> = {},
-) => {
-  return {
-    actions,
-    state: {
-      ...state,
-      ...initialState,
-    },
-    effects: {
-      location,
-      useCases,
-    },
-  };
-};
-export type PresenterConfig = IContext<ReturnType<typeof getPresenterConfig>>;
-
-export type PresenterContext = {
-  baseUrl: `${string}/`;
-  debug: boolean;
-  sourceRepository: {
-    treeUrl: string;
-    sampleDocuments: SampleDocument[];
-    developerExampleUrl: string;
-  };
+export type Effects = {
   location: Location;
   useCases: UseCases;
 };
 
-export const createPresenter = (ctx: PresenterContext) => {
-  const presenter = createOvermind(
-    getPresenterConfig(ctx.location, ctx.useCases, {
-      baseUrl: ctx.baseUrl,
-      sourceRepository: ctx.sourceRepository,
-    }),
-    {
-      devtools: ctx.debug,
-      strict: true,
-    },
-  );
-  return presenter;
+export const getInitialState = (config: State['config']) => {
+  return {
+    ...initialState,
+    config,
+  };
 };
-export type Presenter = ReturnType<typeof createPresenter>;
+
+export type ActionContext = {
+  effects: {
+    location: Location;
+    useCases: UseCases;
+  };
+  getState: () => State;
+  dispatch: ActionDispatch<State, StateTransition, Effects>;
+};
+
+export interface ActionDispatch<S, A, E> {
+  <
+    ThunkAction extends ({
+      dispatch,
+      getState,
+      effects,
+    }: {
+      dispatch: ActionDispatch<S, A, E>;
+      getState: () => S;
+      effects: E;
+    }) => unknown,
+  >(
+    action: ThunkAction | StateTransition,
+  ): ReturnType<ThunkAction>;
+  (value: A): void;
+}

@@ -1,7 +1,9 @@
-import React from 'react';
-
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
-import { useActions } from '../hooks';
+import partnersCloudSvg from '../images/partners-cloud.svg';
+import partnersAssessorsSvg from '../images/partners-assessors.svg';
+import partnersAgenciesSvg from '../images/partners-agencies.svg';
+
+import { useAppContext } from '../context';
 
 const ProcessList = () => (
   <>
@@ -42,7 +44,6 @@ const ProcessList = () => (
 );
 
 const PartiesGrid = () => {
-  const { getAssetUrl } = useActions();
   return (
     <div className="grid-container">
       <div className="grid-row">
@@ -59,8 +60,8 @@ const PartiesGrid = () => {
           <div>
             <img
               className="float-left margin-2"
-              src={getAssetUrl('partners-cloud.svg')}
-              alt=""
+              src={partnersCloudSvg}
+              alt="partners in the cloud"
             />
             <h3>Cloud Service Providers</h3>
             <p className="margin-bottom-4">
@@ -72,8 +73,8 @@ const PartiesGrid = () => {
         <div className="desktop:grid-col-4">
           <img
             className="float-left margin-2"
-            src={getAssetUrl('partners-assessors.svg')}
-            alt=""
+            src={partnersAssessorsSvg}
+            alt="partner assessors"
           />
           <h3>FedRAMP Reviewers</h3>
           <p className="margin-bottom-4">
@@ -84,8 +85,8 @@ const PartiesGrid = () => {
         <div className="desktop:grid-col-4">
           <img
             className="float-left margin-2"
-            src={getAssetUrl('partners-agencies.svg')}
-            alt=""
+            src={partnersAgenciesSvg}
+            alt="partner agencies"
           />
           <h3>Federal Agencies</h3>
           <p className="margin-bottom-4">
@@ -99,7 +100,7 @@ const PartiesGrid = () => {
 };
 
 export const HomePage = () => {
-  const { getAssetUrl } = useActions();
+  const { state } = useAppContext();
   return (
     <div className="usa-prose padding-top-3">
       <h1>Accelerate approvals</h1>
@@ -116,7 +117,8 @@ export const HomePage = () => {
           </a>{' '}
           validation rules written in{' '}
           <a href="https://schematron.com/">Schematron</a> format. A{' '}
-          <a href={getAssetUrl('rules.html')}>rules summary</a> is available.
+          <a href={`${state.config.baseUrl}rules/rules.html`}>rules summary</a>{' '}
+          is available.
         </li>
         <li>
           This user interface, which will apply validations to a FedRAMP OSCAL

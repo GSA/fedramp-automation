@@ -6,6 +6,7 @@ _site
 *.DS_Store
 *.code-workspace
 dist/validations
+dist/web
 documents/source
 NOTES.md
 src/validations/lib/**.jar
@@ -20,5 +21,9 @@ src/validations/test/rules/sar-result.html
 src/validations/test/rules/ssp-result.html
 src/validations/test/rules/sap-result.html
 
+# XSpec artifacts (from OxygenXML XSpec use)
+src/validations/test/rules/xspec
+
 # OxygenXML project files
 *.xpr
+

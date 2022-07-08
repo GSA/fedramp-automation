@@ -1,12 +1,12 @@
 import classnames from 'classnames';
-import React from 'react';
 import closeSvg from 'uswds/img/usa-icons/close.svg';
 
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
-import { useAppState } from '../hooks';
+import { useAppContext } from '../context';
 
 export const Header = () => {
-  const { currentRoute } = useAppState().router;
+  const { currentRoute } = useAppContext().state.router;
+
   return (
     <header className="usa-header usa-header--basic usa-header--megamenu">
       <div className="usa-nav-container">
@@ -30,7 +30,7 @@ export const Header = () => {
                 className={classnames('usa-nav__link', {
                   'usa-current': currentRoute.type === Routes.home.type,
                 })}
-                href="#/"
+                href={getUrl(Routes.home)}
               >
                 <span>Home</span>
               </a>
@@ -80,27 +80,14 @@ export const Header = () => {
               </ul>
             </li>
             <li className="usa-nav__primary-item">
-              <button
-                className={classnames(
-                  'usa-accordion__button',
-                  'usa-nav__link',
-                  {
-                    'usa-current': currentRoute.type === Routes.developers.type,
-                  },
-                )}
-                aria-expanded="false"
-                aria-controls="extended-documentation"
+              <a
+                className={classnames('usa-nav__link', {
+                  'usa-current': currentRoute.type === Routes.developers.type,
+                })}
+                href={getUrl(Routes.developers)}
               >
-                <span>Documentation</span>
-              </button>
-              <ul id="extended-documentation" className="usa-nav__submenu">
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.developers)}>Developers</a>
-                </li>
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.usageTracking)}>Usage Tracking</a>
-                </li>
-              </ul>
+                <span>Developers</span>
+              </a>
             </li>
           </ul>
         </nav>

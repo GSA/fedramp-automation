@@ -1,40 +1,62 @@
-import { fold } from 'fp-ts/Either';
-import { pipe } from 'fp-ts/lib/function';
-import * as t from 'io-ts';
-
 export type AssertionGroup = {
   title: string;
   assertionIds: string[];
   groups: Array<AssertionGroup> | undefined;
 };
 
-const AssertionGroup: t.Type<AssertionGroup> = t.recursion(
-  'AssertionGroup',
-  () =>
-    t.type({
-      title: t.string,
-      assertionIds: t.array(t.string),
-      groups: t.union([t.array(AssertionGroup), t.undefined]),
-    }),
-);
+const getAssertionGroup = (input: any): AssertionGroup => {
+  if (typeof input.title !== 'string') {
+    throw new Error('title not a string');
+  }
+  if (!Array.isArray(input.assertionIds)) {
+    throw new Error('assertionIds not an array');
+  }
+  if (
+    input.groups !== undefined &&
+    (!Array.isArray(input.groups) ||
+      !Array.from(input.groups).every(group => getAssertionGroup(group)))
+  ) {
+    throw new Error('groups not an array of assertion groups');
+  }
+  return {
+    title: input.title as string,
+    assertionIds: input.assertionIds as string[],
+    groups: (input.groups as AssertionGroup[]) || undefined,
+  } as AssertionGroup;
+};
 
-const AssertionView = t.type({
-  title: t.string,
-  groups: t.array(AssertionGroup),
-});
-export type AssertionView = t.TypeOf<typeof AssertionView>;
+const getAssertionView = (input: any): AssertionView => {
+  if (typeof input.title !== 'string') {
+    throw new Error('input title is not a string');
+  }
+  try {
+    return {
+      title: input.title as string,
+      groups: Array.from(input.groups).map(group => getAssertionGroup(group)),
+    };
+  } catch (e) {
+    throw new Error('assertion view groups is not array of assertion groups');
+  }
+};
 
-const AssertionViews = t.array(AssertionView);
-type AssertionViews = t.TypeOf<typeof AssertionViews>;
+export type AssertionView = {
+  title: string;
+  groups: AssertionGroup[];
+};
+type AssertionViews = AssertionView[];
 
+// Confirm that an input object (sourced from XSLT output) conforms to the
+// Typescript expectation.
 export const validateAssertionViews = (input: any): AssertionViews | null => {
-  return pipe(
-    AssertionViews.decode(input),
-    fold(
-      () => null,
-      value => value,
-    ),
-  );
+  if (!Array.isArray(input)) {
+    return null;
+  }
+  try {
+    return Array.from(input).map(view => getAssertionView(view));
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
 };
 
 export type GetAssertionViews = () => Promise<{
