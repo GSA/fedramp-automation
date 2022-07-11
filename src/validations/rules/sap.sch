@@ -79,10 +79,11 @@
                 value="$web-apps[not(. = $sap-web-tasks)]"/>
             <sch:assert
                 diagnostics="has-web-applications-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §3.5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.5"
                 fedramp:specific="true()"
                 id="has-web-applications"
                 role="error"
+                see="https://github.com/GSA/fedramp-automation-guides/issues/31"
                 test="count($web-apps[not(. = $sap-web-tasks)]) = 0"
                 unit:override-xspec="both">For every web interface to be tested there must be a matching task entry.</sch:assert>
         </sch:rule>
