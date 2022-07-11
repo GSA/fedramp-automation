@@ -830,6 +830,29 @@
     <x:scenario
         label="In a FedRAMP SAP">
         <x:scenario
+            label="when there is an assessment-subject with a @type='location'">
+            <x:context>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>                
+            </x:context>
+            <x:expect-assert
+                id="has-location-assessment-subject"
+                label="that is incorrect" />
+        </x:scenario>
+        <x:scenario
+            label="and there is not an include-all child element">
+            <x:context>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <assessment-subject
+                    type="location"/>
+                </assessment-plan>                
+            </x:context>
+            <x:expect-not-assert
+                id="has-location-assessment-subject"
+                label="this is correct" />
+        </x:scenario>
+        <x:scenario
             label="in the metadata">
             <x:scenario
                 label="when there is a role element with an @id of 'assessor'">
