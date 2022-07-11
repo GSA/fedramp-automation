@@ -804,7 +804,7 @@
             </x:scenario>
 
             <x:scenario
-                label="there is a party element with the @name of 'iso-iec-17020-identifier'">
+                label="when there is a party element with the @name of 'iso-iec-17020-identifier'">
                 <x:scenario
                     label="whose @value is correctly formatted">
                     <x:context>
