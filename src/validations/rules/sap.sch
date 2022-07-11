@@ -53,7 +53,11 @@
                 doc($ssp-href)
             else
                 ()" />
+    <sch:let
+        name="no-oscal-ssp"
+        value="boolean(/oscal:assessment-plan/oscal:back-matter/oscal:resource/oscal:prop[@name = 'type' and @value eq 'no-oscal-ssp'])" />
 
+    <!-- Patterns -->
     <sch:pattern
         id="import-ssp">
 
@@ -66,6 +70,13 @@
                 id="has-import-ssp"
                 role="error"
                 test="oscal:import-ssp">An OSCAL SAP must have an import-ssp element.</sch:assert>
+            
+            <sch:assert
+                diagnostics="has-location-assessment-subject-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.3"
+                id="has-location-assessment-subject"
+                role="error"
+                test="exists(oscal:assessment-subject[@type='location'])">A FedRAMP SAP must have a assesment-subject with a type of 'location'.</sch:assert>
 
         </sch:rule>
 
@@ -299,7 +310,6 @@
                 unit:override-xspec="both">Locations targeted by include subject must exist in the SAP or SSP.</sch:assert>
         </sch:rule>
     </sch:pattern>
-
     <sch:pattern
         id="pentest">
 
@@ -358,6 +368,24 @@
                 role="error"
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and @value = ('yes', 'no')]">The SAP declares whether a
                 sampling method is used.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-sampling-method-statement-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.9"
+                fedramp:specific="true"
+                id="has-sampling-method-statement"
+                role="error"
+                see="https://github.com/GSA/fedramp-automation-guides/issues/30"
+                test="
+                    if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and @value eq 'no'])
+                    then
+                        (matches(oscal:p[position() = last()], '^.*\swill not use sampling when performing this assessment\.$'))
+                    else
+                        (if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and @value eq 'yes'])
+                        then
+                            (matches(oscal:p[position() = last()], '^.*\swill use sampling when performing this assessment\.$'))
+                        else
+                            (false()))">The sampling methodology's final paragraph is the correct sampling statement.</sch:assert>
 
         </sch:rule>
 
@@ -442,12 +470,58 @@
 
     </sch:pattern>
 
+    <sch:pattern
+        id="metadata">
+        <sch:rule
+            context="oscal:metadata">
+            <sch:assert
+                diagnostics="has-metadata-role-assessor-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-role-assessor"
+                role="error"
+                test="oscal:role[@id = 'assessor']">This FedRAMP SAP has a role with an @id of 'assessor'.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-location-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-location"
+                role="error"
+                test="oscal:location">This FedRAMP SAP has a location element in the metadata.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-party-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-party"
+                role="error"
+                test="oscal:party[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'iso-iec-17020-identifier']]">This FedRAMP SAP has a
+                metadata element with a party element with a @name of the value 'iso-iec-17020-identifier'.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-correctly-formatted-party-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-correctly-formatted-party"
+                role="error"
+                test="oscal:party[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'iso-iec-17020-identifier' and matches(@value, '^\d{4}\.\d{2}$')]]">This
+                FedRAMP SAP has a metadata/party with an @name of 'iso-iec-17020-identifier' has a correctly formatted @value.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
     <sch:diagnostics>
 
         <sch:diagnostic
             doc:assert="has-import-ssp"
             doc:context="oscal:assessment-plan"
             id="has-import-ssp-diagnostic">This OSCAL SAP lacks have an import-ssp element.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-location-assessment-subject"
+            doc:context="oscal:assessment-plan"
+            id="has-location-assessment-subject-diagnostic">This FedRAMP SAP does not have an assessment-subject with the type of
+            'location'.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-import-ssp-href"
@@ -539,6 +613,7 @@
             doc:context="oscal:assessment-subject[@type='location']"
             id="component-uuid-matches-diagnostic">This include or exclude subject, <sch:value-of
                 select="@subject-uuid" />, does not have a matching SSP component or SAP inventory-item.</sch:diagnostic>
+                
         <sch:diagnostic
             doc:assert="has-terms-and-conditions-diagnostic"
             doc:context="oscal:assessment-plan"
@@ -563,6 +638,13 @@
             doc:assert="has-allowed-sampling-method-diagnostic"
             doc:context="oscal:terms-and-conditions/part[@name eq 'methodology']"
             id="has-allowed-sampling-method-diagnostic">The SAP fails to declare whether a sampling method is used.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-sampling-method-statement"
+            doc:context="oscal:terms-and-conditions/part[@name eq 'methodology']"
+            id="has-sampling-method-statement-diagnostic">The SAP methodology's final paragraph does not match the required string for a sampling
+            property with a value of <sch:value-of
+                select="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling']/@value" />.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-roe-disclosure-detail-diagnostic"
@@ -596,6 +678,28 @@
             id="signed-sap-rlink-has-media-type-pdf-diagnostic">This OSCAL SAP `signed-sap` resource rlink does not use 'application/pdf'
             media-type.</sch:diagnostic>
 
+        <sch:diagnostic
+            doc:assert="has-metadata-role-assessor"
+            doc:context="oscal:metadata"
+            id="has-metadata-role-assessor-diagnostic">This FedRAMP metadata does not have a role with an @id of 'assessor'.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-metadata-location"
+            doc:context="oscal:metadata"
+            id="has-metadata-location-diagnostic">This FedRAMP metadata does not have a location.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-metadata-party"
+            doc:context="oscal:metadata"
+            id="has-metadata-party-diagnostic">This FedRAMP metadata does not have a party with a prop whose @name is
+            'iso-iec-17020-identifier'.</sch:diagnostic>
+
+
+        <sch:diagnostic
+            doc:assert="has-metadata-correctly-formatted-party"
+            doc:context="oscal:metadata"
+            id="has-metadata-correctly-formatted-party-diagnostic">This FedRAMP metadata/party with an @name of 'iso-iec-17020-identifier' does not
+            have a correctly formatted @value.</sch:diagnostic>
     </sch:diagnostics>
 
 </sch:schema>
