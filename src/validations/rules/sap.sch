@@ -407,6 +407,46 @@
 
     </sch:pattern>
 
+    <sch:pattern
+        id="metadata">
+        <sch:rule
+            context="oscal:metadata">
+            <sch:assert
+                diagnostics="has-metadata-role-assessor-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-role-assessor"
+                role="error"
+                test="oscal:role[@id = 'assessor']">This FedRAMP SAP has a role with an @id of 'assessor'.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-location-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-location"
+                role="error"
+                test="oscal:location">This FedRAMP SAP has a location element in the metadata.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-party-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-party"
+                role="error"
+                test="oscal:party[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'iso-iec-17020-identifier']]">This FedRAMP SAP has a
+                metadata element with a party element with a @name of the value 'iso-iec-17020-identifier'.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-correctly-formatted-party-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-correctly-formatted-party"
+                role="error"
+                test="oscal:party[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'iso-iec-17020-identifier' and matches(@value, '^\d{4}\.\d{2}$')]]">This
+                FedRAMP SAP has a metadata/party with an @name of 'iso-iec-17020-identifier' has a correctly formatted @value.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
     <sch:diagnostics>
 
         <sch:diagnostic
@@ -544,6 +584,28 @@
             id="signed-sap-rlink-has-media-type-pdf-diagnostic">This OSCAL SAP `signed-sap` resource rlink does not use 'application/pdf'
             media-type.</sch:diagnostic>
 
+        <sch:diagnostic
+            doc:assert="has-metadata-role-assessor"
+            doc:context="oscal:metadata"
+            id="has-metadata-role-assessor-diagnostic">This FedRAMP metadata does not have a role with an @id of 'assessor'.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-metadata-location"
+            doc:context="oscal:metadata"
+            id="has-metadata-location-diagnostic">This FedRAMP metadata does not have a location.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-metadata-party"
+            doc:context="oscal:metadata"
+            id="has-metadata-party-diagnostic">This FedRAMP metadata does not have a party with a prop whose @name is
+            'iso-iec-17020-identifier'.</sch:diagnostic>
+
+
+        <sch:diagnostic
+            doc:assert="has-metadata-correctly-formatted-party"
+            doc:context="oscal:metadata"
+            id="has-metadata-correctly-formatted-party-diagnostic">This FedRAMP metadata/party with an @name of 'iso-iec-17020-identifier' does not
+            have a correctly formatted @value.</sch:diagnostic>
     </sch:diagnostics>
 
 </sch:schema>
