@@ -322,7 +322,7 @@
             assessment planning.</p>
       </remarks>
    </metadata>
-   <import-ssp href="../ssp/FedRAMP-SSP-OSCAL-Template.xml">
+   <import-ssp href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.xml">
       <remarks>
          <p>Link the SAP to the SSP.</p>
          <p>FedRAMP prefers the path for the SSP be relative to the location of this SAP file.
