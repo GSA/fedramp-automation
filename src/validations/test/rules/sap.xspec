@@ -826,7 +826,7 @@
                 </x:scenario>
             </x:scenario>
             <x:scenario
-                label="there is not a party element with the @name of 'iso-iec-17020-identifier'">
+                label="when there is not a party element with the @name of 'iso-iec-17020-identifier'">
                 <x:scenario
                     label="whose @value is incorrectly formatted">
                     <x:context>
