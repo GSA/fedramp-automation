@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <x:description
+    run-as="external"
     schematron="../../rules/sap.sch"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">
 
@@ -284,7 +285,6 @@
             </x:scenario>
 
         </x:scenario>
-
         <x:scenario
             label="when there is a no-oscal-ssp resource">
             <x:context>
@@ -328,6 +328,7 @@
                 label="that should produce no warning" />
         </x:scenario>
     </x:scenario>
+    
 
     <x:scenario
         label="In an OSCAL SAP">
@@ -429,8 +430,100 @@
                     id="has-methodology"
                     label="that is incorrect" />
             </x:scenario>
-        </x:scenario>
 
+            <x:scenario
+                label="has a sampling prop with the value of no">
+                <x:scenario
+                    label="and the final paragraph has the correct statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="no" />
+                                    <p>[3PAO Name] will not use sampling when performing this assessment.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-sampling-method-statement"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and the final paragraph has an incorrect statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="no" />
+                                    <p>[3PAO Name] will not use sampling.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-sampling-method-statement"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="has a sampling prop with the value of yes">
+                <x:scenario
+                    label="and the final paragraph has the correct statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="yes" />
+                                    <p>[3PAO Name] will use sampling when performing this assessment.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-sampling-method-statement"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and the final paragraph has an incorrect statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="yes" />
+                                    <p>[3PAO Name] will use sampling.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-sampling-method-statement"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        
         <x:scenario
             label="when the disclosures part">
             <x:scenario
@@ -454,7 +547,6 @@
                     label="that is incorrect" />
             </x:scenario>
         </x:scenario>
-
         <x:scenario
             label="when the sampling prop">
             <x:scenario
@@ -704,7 +796,35 @@
 
             </x:scenario>
         </x:scenario>
-
+        <x:scenario
+            label="when in an assessment-subject[@type='location'] element">
+            <x:scenario
+                label="and there is an include-all child element">
+                <x:context>
+                    <assessment-subject
+                        type="location"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <include-all />
+                    </assessment-subject>
+                </x:context>
+                <x:expect-assert
+                    id="location-not-include-all-element"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="and there is not an include-all child element">
+                <x:context>
+                    <assessment-subject
+                        type="location"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <include-subject />
+                    </assessment-subject>
+                </x:context>
+                <x:expect-not-assert
+                    id="location-not-include-all-element"
+                    label="this is correct" />
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
 
     <x:scenario
@@ -849,5 +969,4 @@
             </x:scenario>
         </x:scenario>
     </x:scenario>
-
 </x:description>
