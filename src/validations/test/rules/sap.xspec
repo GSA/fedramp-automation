@@ -753,7 +753,7 @@
                     label="that is correct" />
             </x:scenario>
             <x:scenario
-                label="there is not a location element">
+                label="when there is not a location element">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
