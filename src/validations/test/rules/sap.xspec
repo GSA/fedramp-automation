@@ -819,6 +819,34 @@
                 </x:scenario>
             </x:scenario>
         </x:scenario>
+        <x:scenario
+            label="when in an assessment-subject[@type='location'] element">
+            <x:scenario
+                label="and there is an include-all child element">
+                <x:context>
+                    <assessment-subject
+                        type="location"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <include-all />
+                    </assessment-subject>
+                </x:context>
+                <x:expect-assert
+                    id="location-not-include-all-element"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="and there is not an include-all child element">
+                <x:context>
+                    <assessment-subject
+                        type="location"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <include-subject />
+                    </assessment-subject>
+                </x:context>
+                <x:expect-not-assert
+                    id="location-not-include-all-element"
+                    label="this is correct" />
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
-
 </x:description>
