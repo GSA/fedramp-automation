@@ -236,6 +236,7 @@
                 fedramp:specific="true"
                 id="has-sampling-method-statement"
                 role="error"
+                see="https://github.com/GSA/fedramp-automation-guides/issues/30"
                 test="
                     if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and @value eq 'no'])
                     then
