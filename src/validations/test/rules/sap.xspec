@@ -31,14 +31,14 @@
 
         <x:scenario
             label="when the import-ssp element">
-            
+
             <x:scenario
                 label="is present">
                 <x:expect-not-assert
                     id="has-import-ssp"
                     label="that is correct" />
             </x:scenario>
-        
+
             <x:scenario
                 label="is absent">
                 <x:context>
@@ -51,14 +51,14 @@
                     id="has-import-ssp"
                     label="that is an error" />
             </x:scenario>
-       
+
             <x:scenario
                 label="has an href attribute">
                 <x:expect-not-assert
                     id="has-import-ssp-href"
                     label="that is correct" />
             </x:scenario>
-      
+
             <x:scenario
                 label="lacks an href attribute">
                 <x:context>
@@ -71,7 +71,7 @@
                     id="has-import-ssp-href"
                     label="that is an error" />
             </x:scenario>
-            
+
         </x:scenario>
 
         <x:scenario
@@ -430,8 +430,100 @@
                     id="has-methodology"
                     label="that is incorrect" />
             </x:scenario>
-        </x:scenario>
 
+            <x:scenario
+                label="has a sampling prop with the value of no">
+                <x:scenario
+                    label="and the final paragraph has the correct statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="no" />
+                                    <p>[3PAO Name] will not use sampling when performing this assessment.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-sampling-method-statement"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and the final paragraph has an incorrect statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="no" />
+                                    <p>[3PAO Name] will not use sampling.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-sampling-method-statement"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+
+            <x:scenario
+                label="has a sampling prop with the value of yes">
+                <x:scenario
+                    label="and the final paragraph has the correct statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="yes" />
+                                    <p>[3PAO Name] will use sampling when performing this assessment.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-sampling-method-statement"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and the final paragraph has an incorrect statement.">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="methodology">
+                                    <prop
+                                        name="sampling"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="yes" />
+                                    <p>[3PAO Name] will use sampling.</p>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-sampling-method-statement"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        
         <x:scenario
             label="when the disclosures part">
             <x:scenario
@@ -455,7 +547,6 @@
                     label="that is incorrect" />
             </x:scenario>
         </x:scenario>
-
         <x:scenario
             label="when the sampling prop">
             <x:scenario
@@ -705,6 +796,120 @@
 
             </x:scenario>
         </x:scenario>
+        <x:scenario label="when in a control-selection element">
+            <x:scenario
+                label="and an include-all or include-control, but not both, is present">
+                <x:scenario label="when that is true">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <include-all/>
+                            <exclude-control control-id="ac-1"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="include-all-or-include-control"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when that is false">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <include-all/>
+                            <include-control control-id="ac-1"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-assert
+                        id="include-all-or-include-control"
+                        label="this is an error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="and the include-control/@control-id and exclude-control/@control-id values are all different">
+                <x:scenario label="when that is true">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <exclude-control control-id="ac-1"/>
+                            <include-control control-id="ac-2"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="duplicate-exclude-control-and-include-control-values"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when that is false">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
+                            <exclude-control control-id="ac-1"/>
+                            <include-control control-id="ac-1"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-assert
+                        id="duplicate-exclude-control-and-include-control-values"
+                        label="this is incorrect" />
+                </x:scenario>
+            </x:scenario>            
+            <x:scenario
+                label="and the include-control/@control-id values are all different">
+                <x:scenario label="when that is true">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <include-control control-id="ac-1"/>
+                            <include-control control-id="ac-2"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="duplicate-include-control-values"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when that is false">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
+                            <include-control control-id="ac-1"/>
+                            <include-control control-id="ac-1"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-assert
+                        id="duplicate-include-control-values"
+                        label="this is incorrect" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="and the exclude-control/@control-id values are all different">
+                <x:scenario label="when that is true">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <exclude-control control-id="ac-1"/>
+                            <exclude-control control-id="ac-2"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="duplicate-exclude-control-values"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when that is false">
+                    <x:context>
+                        <control-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
+                            <exclude-control control-id="ac-1"/>
+                            <exclude-control control-id="ac-1"/>
+                        </control-selection>
+                    </x:context>
+                    <x:expect-assert
+                        id="duplicate-exclude-control-values"
+                        label="this is incorrect" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
         <x:scenario
             label="when in an assessment-subject[@type='location'] element">
             <x:scenario
@@ -839,29 +1044,231 @@
                 </x:scenario>
             </x:scenario>
         </x:scenario>
-    </x:scenario>
-
-    <x:scenario
-        label="In a FedRAMP SAP">
         <x:scenario
-            label="there exists an assessment-subject with a type of 'location'">
-            <x:context>
-                <assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                    <assessment-subject type="location"/>
-                </assessment-plan>
-            </x:context>
-            <x:expect-not-assert
-                id="has-location-assessment-subject"
-                label="that is correct" />
-        </x:scenario>
+            label="when a task has a property of the value 'web-application'">
+            <x:scenario
+                label="with a property with the name 'login-url'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <task>
+                        <prop value="web-application"/>
+                        <prop name="login-url" ns="https://fedramp.gov/ns/oscal"
+                            value='https://service.offering.com/login'/>
+                    </task>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-login-url-task"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="without a property with the name 'login-url'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <task>
+                        <prop value="web-application"/>
+                        <prop value="test" name="test"/>
+                    </task>                
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-login-url-task"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="with a property with the name 'login-id'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <task>
+                            <prop value="web-application"/>
+                            <prop name="login-id" ns="https://fedramp.gov/ns/oscal"
+                                value='https://service.offering.com/login'/>
+                        </task>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-login-id-task"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="without a property with the name 'login-id'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <task>
+                            <prop value="web-application"/>
+                            <prop value="test" name="test"/>
+                        </task>                
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-login-id-task"
+                    label="that is incorrect" />
+            </x:scenario>            
         <x:scenario
-            label="there does not exist an assessment-subject with a type of 'location'">
+            label="when there is an assessment-subject with a @type='location'">
             <x:context>
-                <assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>                
             </x:context>
             <x:expect-assert
                 id="has-location-assessment-subject"
                 label="that is incorrect" />
+        </x:scenario>
+        <x:scenario
+            label="and there is not an include-all child element">
+            <x:context>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <assessment-subject
+                    type="location"/>
+                </assessment-plan>                
+            </x:context>
+            <x:expect-not-assert
+                id="has-location-assessment-subject"
+                label="this is correct" />
+        </x:scenario>
+        <x:scenario
+            label="in the metadata">
+            <x:scenario
+                label="when there is a role element with an @id of 'assessor'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <role
+                                id="assessor" />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-role-assessor"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="there is not a role element with an @id of 'assessor'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-role-assessor"
+                    label="that is an error" />
+            </x:scenario>
+            <x:scenario
+                label="when there is a location element">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <location />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-location"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when there is not a location element">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-location"
+                    label="that is an error" />
+            </x:scenario>
+            <x:scenario
+                label="when there is a party element with the @name of 'iso-iec-17020-identifier'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party>
+                                <prop
+                                    name="iso-iec-17020-identifier"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="0000.00" />
+                            </party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-party"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when there is not a party element with the @name of 'iso-iec-17020-identifier'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party>
+                                <prop
+                                    name="not17020"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="0000.00" />
+                            </party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-party"
+                    label="that is an error" />
+            </x:scenario>
+
+            <x:scenario
+                label="when there is a party element with the @name of 'iso-iec-17020-identifier'">
+                <x:scenario
+                    label="whose @value is correctly formatted">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <party>
+                                    <prop
+                                        name="iso-iec-17020-identifier"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="0000.00" />
+                                </party>
+                            </metadata>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-metadata-correctly-formatted-party"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="when there is not a party element with the @name of 'iso-iec-17020-identifier'">
+                <x:scenario
+                    label="whose @value is incorrectly formatted">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <party>
+                                    <prop
+                                        name="iso-iec-17020-identifier"
+                                        ns="https://fedramp.gov/ns/oscal"
+                                        value="A00A.00" />
+                                </party>
+                            </metadata>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-metadata-correctly-formatted-party"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
         </x:scenario>
     </x:scenario>
 </x:description>
