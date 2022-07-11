@@ -712,7 +712,7 @@
         <x:scenario
             label="in the metadata">
             <x:scenario
-                label="there is a role element with an @id of 'assessor'">
+                label="when there is a role element with an @id of 'assessor'">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
