@@ -6,7 +6,6 @@ import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron'
 
 import type { Location } from './state/router';
 import { State, StateTransition, initialState } from './state';
-import { ThunkDispatch } from '../views/hooks';
 
 export type UseCases = {
   annotateXML: AnnotateXMLUseCase;
@@ -34,5 +33,22 @@ export type ActionContext = {
     useCases: UseCases;
   };
   getState: () => State;
-  dispatch: ThunkDispatch<State, StateTransition, Effects>;
+  dispatch: ActionDispatch<State, StateTransition, Effects>;
 };
+
+export interface ActionDispatch<S, A, E> {
+  <
+    ThunkAction extends ({
+      dispatch,
+      getState,
+      effects,
+    }: {
+      dispatch: ActionDispatch<S, A, E>;
+      getState: () => S;
+      effects: E;
+    }) => unknown,
+  >(
+    action: ThunkAction | StateTransition,
+  ): ReturnType<ThunkAction>;
+  (value: A): void;
+}
