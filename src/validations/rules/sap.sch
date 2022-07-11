@@ -47,9 +47,12 @@
                 true()" />
     <sch:let
         name="ssp-doc"
-        value="if($ssp-available)
-        then doc($ssp-href)
-        else()" />
+        value="
+            if ($ssp-available)
+            then
+                doc($ssp-href)
+            else
+                ()" />
     <sch:let
         name="no-oscal-ssp"
         value="boolean(/oscal:assessment-plan/oscal:back-matter/oscal:resource/oscal:prop[@name = 'type' and @value eq 'no-oscal-ssp'])" />
@@ -204,6 +207,19 @@
     <sch:pattern
         id="assessment-subject">
         <sch:rule
+            context="oscal:include-subject[@type = 'component'] | oscal:exclude-subject[@type = 'component']">
+            <sch:assert
+                diagnostics="component-uuid-matches-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.4, §4.4.1"
+                fedramp:specific="true"
+                id="component-uuid-matches"
+                role="error"
+                test="
+                    @subject-uuid[. = $ssp-doc//oscal:component[@type = 'subnet']/@uuid ! xs:string(.)] or
+                    @subject-uuid[. = //oscal:local-definitions//oscal:inventory-item/@uuid ! xs:string(.)]"
+                unit:override-xspec="both">Component targeted by include or exclude subject must exist in the SAP or SSP.</sch:assert>
+        </sch:rule>
+        <sch:rule
             context="oscal:assessment-subject[@type = 'location']">
             <sch:assert
                 diagnostics="location-not-include-all-element-diagnostic"
@@ -231,7 +247,6 @@
                 unit:override-xspec="both">Locations targeted by include subject must exist in the SAP or SSP.</sch:assert>
         </sch:rule>
     </sch:pattern>
-
     <sch:pattern
         id="pentest">
 
@@ -441,6 +456,12 @@
             doc:context="oscal:assessment-subject[@type='location']"
             id="location-uuid-matches-diagnostic">This include-subject, <sch:value-of
                 select="@subject-uuid" />, references a non-existent (neither in the SSP nor SAP) location.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="component-uuid-matches-diagnostic"
+            doc:context="oscal:assessment-subject[@type='location']"
+            id="component-uuid-matches-diagnostic">This include or exclude subject, <sch:value-of
+                select="@subject-uuid" />, does not have a matching SSP component or SAP inventory-item.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="has-terms-and-conditions-diagnostic"
             doc:context="oscal:assessment-plan"
