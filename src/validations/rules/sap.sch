@@ -257,6 +257,69 @@
     </sch:pattern>
 
     <sch:pattern
+        id="control-selection">
+        <sch:let
+            name="ssp-control-ids"
+            value="$ssp-doc//oscal:implemented-requirement/@control-id ! xs:string(.)"/>
+        <sch:rule
+            context="oscal:control-selection">
+            <sch:let
+                name="exclude-control-ids"
+                value="oscal:exclude-control/@control-id ! xs:string(.)" />
+            <sch:let
+                name="include-control-ids"
+                value="oscal:include-control/@control-id ! xs:string(.)" />
+            <sch:let
+                name="matching-control-ids"
+                value="$exclude-control-ids[. = $include-control-ids]" />
+            <sch:assert
+                diagnostics="include-all-or-include-control-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.1"
+                id="include-all-or-include-control"
+                role="fatal"
+                test="(oscal:include-all and not(oscal:include-control)) or (oscal:include-control and not(oscal:include-all))">An OSCAL SAP control
+                selection elements must have either an include-all element or include-control element(s) children.</sch:assert>
+            <sch:assert
+                diagnostics="duplicate-exclude-control-and-include-control-values-diagnostic"
+                id="duplicate-exclude-control-and-include-control-values"
+                role="error"
+                test="count($matching-control-ids) = 0">The exclude-control and include-control sibling element @control-id values must be
+                different.</sch:assert>
+            <sch:assert
+                diagnostics="duplicate-include-control-values-diagnostic"
+                id="duplicate-include-control-values"
+                role="error"
+                test="count($include-control-ids) eq count(distinct-values($include-control-ids))">The include-control/@control-id values must not be
+                duplicated.</sch:assert>
+            <sch:assert
+                diagnostics="duplicate-exclude-control-values-diagnostic"
+                id="duplicate-exclude-control-values"
+                role="error"
+                test="count($exclude-control-ids) eq count(distinct-values($exclude-control-ids))">The exclude-control/@control-id values must not be
+                duplicated.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:include-control">
+            <sch:assert
+                diagnostics="control-inclusion-values-exist-in-ssp-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.1"
+                id="control-inclusion-values-exist-in-ssp"
+                role="error"
+                test="@control-id[. = $ssp-control-ids]"
+                unit:override-xspec="both">SAP included controls are identified in the associated SSP. </sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:exclude-control">
+            <sch:assert
+                diagnostics="control-exclusion-values-exist-in-ssp-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.1"
+                id="control-exclusion-values-exist-in-ssp"
+                role="error"
+                test="@control-id[. = $ssp-control-ids]"
+                unit:override-xspec="both">SAP excluded controls are identified in the associated SSP. </sch:assert>
+        </sch:rule>
+    </sch:pattern>
+    <sch:pattern
         id="assessment-subject">
         <sch:rule
             context="oscal:include-subject[@type = 'component'] | oscal:exclude-subject[@type = 'component']">
@@ -282,7 +345,7 @@
                 test="not(exists(oscal:include-all))">The FedRAMP SAP references locations individually.</sch:assert>
         </sch:rule>
         <sch:rule
-            context="oscal:include-subject[@type='location']">
+            context="oscal:include-subject[@type = 'location']">
             <sch:let
                 name="ssp-locations"
                 value="$ssp-doc/oscal:system-security-plan/oscal:metadata//oscal:location/@uuid ! xs:string(.)" />
@@ -357,6 +420,24 @@
                 role="error"
                 test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and @value = ('yes', 'no')]">The SAP declares whether a
                 sampling method is used.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-sampling-method-statement-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.9"
+                fedramp:specific="true"
+                id="has-sampling-method-statement"
+                role="error"
+                see="https://github.com/GSA/fedramp-automation-guides/issues/30"
+                test="
+                    if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and @value eq 'no'])
+                    then
+                        (matches(oscal:p[position() = last()], '^.*\swill not use sampling when performing this assessment\.$'))
+                    else
+                        (if (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling' and @value eq 'yes'])
+                        then
+                            (matches(oscal:p[position() = last()], '^.*\swill use sampling when performing this assessment\.$'))
+                        else
+                            (false()))">The sampling methodology's final paragraph is the correct sampling statement.</sch:assert>
 
         </sch:rule>
 
@@ -441,6 +522,46 @@
 
     </sch:pattern>
 
+    <sch:pattern
+        id="metadata">
+        <sch:rule
+            context="oscal:metadata">
+            <sch:assert
+                diagnostics="has-metadata-role-assessor-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-role-assessor"
+                role="error"
+                test="oscal:role[@id = 'assessor']">This FedRAMP SAP has a role with an @id of 'assessor'.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-location-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-location"
+                role="error"
+                test="oscal:location">This FedRAMP SAP has a location element in the metadata.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-party-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-party"
+                role="error"
+                test="oscal:party[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'iso-iec-17020-identifier']]">This FedRAMP SAP has a
+                metadata element with a party element with a @name of the value 'iso-iec-17020-identifier'.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-correctly-formatted-party-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.10"
+                fedramp:specific="true"
+                id="has-metadata-correctly-formatted-party"
+                role="error"
+                test="oscal:party[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'iso-iec-17020-identifier' and matches(@value, '^\d{4}\.\d{2}$')]]">This
+                FedRAMP SAP has a metadata/party with an @name of 'iso-iec-17020-identifier' has a correctly formatted @value.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
     <sch:diagnostics>
 
         <sch:diagnostic
@@ -499,6 +620,37 @@
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'system-security-plan']]/oscal:base64"
             id="has-no-base64-diagnostic">This OSCAL SAP has a base64 element in a system-security-plan resource.</sch:diagnostic>
         <sch:diagnostic
+            doc:assert="include-all-or-include-control"
+            doc:context="oscal:control-selection"
+            id="include-all-or-include-control-diagnostic">A control-selection element may not have both include-all and include-control element
+            children.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="duplicate-exclude-control-and-include-control-values"
+            doc:context="oscal:control-selection"
+            id="duplicate-exclude-control-and-include-control-values-diagnostic">The @control-id values <sch:value-of
+                select="$matching-control-ids" /> are not allowed to occur more than once in this control-selection element.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="duplicate-include-control-values"
+            doc:context="oscal:included-control"
+            id="duplicate-include-control-values-diagnostic">Duplicate values are not allowed to occur in include-control/@control-id
+            elements.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="duplicate-exclude-control-values"
+            doc:context="oscal:included-control"
+            id="duplicate-exclude-control-values-diagnostic">Duplicate values are not allowed to occur in exclude-control/@control-id
+            elements.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="control-inclusion-values-exist-in-ssp"
+            doc:context="oscal:included-control"
+            id="control-inclusion-values-exist-in-ssp-diagnostic">The included control <sch:value-of
+                select="@control-id" /> does not exist in the associated SSP.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="control-exclusion-values-exist-in-ssp"
+            doc:context="oscal:excluded-control"
+            id="control-exclusion-values-exist-in-ssp-diagnostic">The excluded control <sch:value-of
+                select="@control-id" /> does not exist in the associated SSP.</sch:diagnostic>
+        
+        <sch:diagnostic
             doc:assert="location-not-include-all-element"
             doc:context="oscal:assessment-subject[@type='location']"
             id="location-not-include-all-element-diagnostic">This FedRAMP SAP assessment-subject[@type='location'] cannot have an include-all
@@ -513,7 +665,7 @@
             doc:context="oscal:assessment-subject[@type='location']"
             id="component-uuid-matches-diagnostic">This include or exclude subject, <sch:value-of
                 select="@subject-uuid" />, does not have a matching SSP component or SAP inventory-item.</sch:diagnostic>
-
+                
         <sch:diagnostic
             doc:assert="matches-web-app-task"
             doc:context="oscal:task[oscal:prop[@name = 'type' and @value eq 'web-application']]"
@@ -564,6 +716,13 @@
             id="has-allowed-sampling-method-diagnostic">The SAP fails to declare whether a sampling method is used.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-sampling-method-statement"
+            doc:context="oscal:terms-and-conditions/part[@name eq 'methodology']"
+            id="has-sampling-method-statement-diagnostic">The SAP methodology's final paragraph does not match the required string for a sampling
+            property with a value of <sch:value-of
+                select="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'sampling']/@value" />.</sch:diagnostic>
+
+        <sch:diagnostic
             doc:assert="has-roe-disclosure-detail-diagnostic"
             doc:context="oscal:terms-and-conditions/part[@name eq 'disclosures']"
             id="has-roe-disclosure-detail-diagnostic">The SAP Rules of Engagement (ROE) Disclosures lacks detail disclosure
@@ -595,6 +754,28 @@
             id="signed-sap-rlink-has-media-type-pdf-diagnostic">This OSCAL SAP `signed-sap` resource rlink does not use 'application/pdf'
             media-type.</sch:diagnostic>
 
+        <sch:diagnostic
+            doc:assert="has-metadata-role-assessor"
+            doc:context="oscal:metadata"
+            id="has-metadata-role-assessor-diagnostic">This FedRAMP metadata does not have a role with an @id of 'assessor'.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-metadata-location"
+            doc:context="oscal:metadata"
+            id="has-metadata-location-diagnostic">This FedRAMP metadata does not have a location.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-metadata-party"
+            doc:context="oscal:metadata"
+            id="has-metadata-party-diagnostic">This FedRAMP metadata does not have a party with a prop whose @name is
+            'iso-iec-17020-identifier'.</sch:diagnostic>
+
+
+        <sch:diagnostic
+            doc:assert="has-metadata-correctly-formatted-party"
+            doc:context="oscal:metadata"
+            id="has-metadata-correctly-formatted-party-diagnostic">This FedRAMP metadata/party with an @name of 'iso-iec-17020-identifier' does not
+            have a correctly formatted @value.</sch:diagnostic>
     </sch:diagnostics>
 
 </sch:schema>
