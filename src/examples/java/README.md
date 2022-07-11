@@ -2,11 +2,11 @@
 
 This is a simple example of how to use the fedramp-automation validation rules with the Java Saxon-HE library.
 
-The implementation applies the project's compiled XSLT, `ssp.xsl`, to the demo [FedRAMP-SSP-OSCAL-Template.xml](../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml) document, and then extracts failed assertions from the resulting SVRL.
+The implementation applies the project's compiled XSLT (`ssp.sch.xsl`, `sap.sch.xsl`, `sar.sch.xsl`, and `poam.sch.xsl`), to the demo documents (eg, [FedRAMP-SSP-OSCAL-Template.xml](../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml)), and then extracts failed assertions from the resulting SVRL.
 
 ## Prerequisites
 
-A compiled Schematron XSLT artifact is required to run this example. The following command will build the artifact:
+Compiled Schematron XSLT artifacts are required to run this example. The following command will build the artifact:
 
 ```bash
 cd ../../..

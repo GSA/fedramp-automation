@@ -1,13 +1,13 @@
 import { createContext, useContext, useState } from 'react';
 
-import { Effects } from '../presenter';
+import { Effects, ActionDispatch } from '../presenter';
 import { initializeApplication } from '../presenter/actions';
 import { State, rootReducer, StateTransition } from '../presenter/state';
-import { ThunkDispatch, useThunkReducer } from './hooks';
+import { useThunkReducer } from './hooks';
 
 export type AppContextType = {
   state: State;
-  dispatch: ThunkDispatch<State, StateTransition, Effects>;
+  dispatch: ActionDispatch<State, StateTransition, Effects>;
 };
 export const AppContext = createContext<AppContextType>({
   state: {} as State,

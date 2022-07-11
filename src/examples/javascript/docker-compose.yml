@@ -1,0 +1,15 @@
+---
+
+version: "3.9"
+
+services:
+  example:
+    build: .
+    volumes:
+      - ../../..:/code
+      - node_modules:/code/src/examples/javascript/node_modules/
+    working_dir: /code/src/examples/javascript
+    command: bash -l
+
+volumes:
+  node_modules:

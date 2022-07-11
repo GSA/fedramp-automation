@@ -133,10 +133,7 @@ export const rootReducer = (state: State, event: StateTransition): State => ({
     sar: reducers['oscalDocuments.sar'](state.oscalDocuments.sar, event),
     ssp: reducers['oscalDocuments.ssp'](state.oscalDocuments.ssp, event),
   },
-  router: routerMachine.nextState(
-    state.router,
-    event as routerMachine.StateTransition,
-  ),
+  router: reducers.router(state.router, event),
   validationResults: {
     poam: reducers['validationResults.poam'](
       state.validationResults.poam,
