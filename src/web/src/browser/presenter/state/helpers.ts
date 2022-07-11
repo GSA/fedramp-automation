@@ -12,7 +12,7 @@ type Icon = {
   color: string;
 };
 const checkCircleIcon: Icon = { sprite: 'check_circle', color: 'green' };
-const navigateNextIcon: Icon = { sprite: 'navigate_next', color: 'blue' };
+const removeIcon: Icon = { sprite: 'remove', color: 'black' };
 const cancelIcon: Icon = {
   sprite: 'cancel',
   color: 'red',
@@ -20,6 +20,7 @@ const cancelIcon: Icon = {
 
 export type SchematronReportGroups = {
   title: string;
+  isValidated: boolean;
   checks: {
     summary: string;
     summaryColor: 'red' | 'green';
@@ -43,6 +44,8 @@ export const getReportGroups = (
         icon: Icon;
         fired: FailedAssert[];
       };
+      const isValidated = failedAssertionMap !== null;
+
       const checks = assertionGroup.assertionIds
         .map(assertionGroupAssert => {
           const assert = assertionsById[assertionGroupAssert];
@@ -54,7 +57,7 @@ export const getReportGroups = (
             ...assert,
             icon:
               failedAssertionMap === null
-                ? navigateNextIcon
+                ? removeIcon
                 : fired.length
                 ? cancelIcon
                 : checkCircleIcon,
@@ -67,8 +70,10 @@ export const getReportGroups = (
       const firedCount = checks.filter(
         assert => assert.fired.length > 0,
       ).length;
+
       return {
         title: assertionGroup.title,
+        isValidated,
         checks: {
           summary: (() => {
             if (failedAssertionMap) {

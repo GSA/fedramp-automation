@@ -6,11 +6,6 @@ import type {
   ValidationReport,
 } from './schematron';
 
-type OscalDocument = {
-  documentType: OscalDocumentKey;
-  xmlString: string;
-};
-
 type Fetch = typeof fetch;
 
 export class OscalService {
