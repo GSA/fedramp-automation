@@ -50,9 +50,9 @@
         value="
             if ($ssp-available)
             then
-                (document($ssp-href))
+                doc($ssp-href)
             else
-                (())" />
+                ()" />
 
     <sch:pattern
         id="import-ssp">
@@ -196,8 +196,8 @@
     <sch:pattern
         id="control-selection">
         <sch:let
-            name="ssp-controls"
-            value="$ssp-doc//oscal:implemented-requirement/@control-id" />
+            name="ssp-control-ids"
+            value="$ssp-doc//oscal:implemented-requirement/@control-id ! xs:string(.)"/>
         <sch:rule
             context="oscal:control-selection">
             <sch:let
@@ -226,14 +226,14 @@
                 diagnostics="duplicate-include-control-values-diagnostic"
                 id="duplicate-include-control-values"
                 role="error"
-                test="count($include-control-ids) eq count(distinct-values($include-control-ids))">The include-control/@control-id values must be
-                different.</sch:assert>
+                test="count($include-control-ids) eq count(distinct-values($include-control-ids))">The include-control/@control-id values must not be
+                duplicated.</sch:assert>
             <sch:assert
                 diagnostics="duplicate-exclude-control-values-diagnostic"
                 id="duplicate-exclude-control-values"
                 role="error"
-                test="count($exclude-control-ids) eq count(distinct-values($exclude-control-ids))">The exclude-control/@control-id values must be
-                different.</sch:assert>
+                test="count($exclude-control-ids) eq count(distinct-values($exclude-control-ids))">The exclude-control/@control-id values must not be
+                duplicated.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:include-control">
@@ -242,7 +242,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.1"
                 id="control-inclusion-values-exist-in-ssp"
                 role="error"
-                test="@control-id[. = $ssp-controls]"
+                test="@control-id[. = $ssp-control-ids]"
                 unit:override-xspec="both">SAP included controls are identified in the associated SSP. </sch:assert>
         </sch:rule>
         <sch:rule
@@ -252,7 +252,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.1"
                 id="control-exclusion-values-exist-in-ssp"
                 role="error"
-                test="@control-id[. = $ssp-controls]"
+                test="@control-id[. = $ssp-control-ids]"
                 unit:override-xspec="both">SAP excluded controls are identified in the associated SSP. </sch:assert>
         </sch:rule>
     </sch:pattern>
