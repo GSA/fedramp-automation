@@ -219,6 +219,33 @@
                     @subject-uuid[. = //oscal:local-definitions//oscal:inventory-item/@uuid ! xs:string(.)]"
                 unit:override-xspec="both">Component targeted by include or exclude subject must exist in the SAP or SSP.</sch:assert>
         </sch:rule>
+        <sch:rule
+            context="oscal:assessment-subject[@type = 'location']">
+            <sch:assert
+                diagnostics="location-not-include-all-element-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.3"
+                fedramp:specific="true"
+                id="location-not-include-all-element"
+                role="error"
+                test="not(exists(oscal:include-all))">The FedRAMP SAP references locations individually.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:include-subject[@type='location']">
+            <sch:let
+                name="ssp-locations"
+                value="$ssp-doc/oscal:system-security-plan/oscal:metadata//oscal:location/@uuid ! xs:string(.)" />
+            <sch:let
+                name="sap-locations"
+                value="/oscal:assessment-plan/oscal:metadata//oscal:location/@uuid ! xs:string(.)" />
+            <sch:assert
+                diagnostics="location-uuid-matches-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.3, §4.3.1"
+                fedramp:specific="true"
+                id="location-uuid-matches"
+                role="error"
+                test="@subject-uuid = $ssp-locations or @subject-uuid = $sap-locations"
+                unit:override-xspec="both">Locations targeted by include subject must exist in the SAP or SSP.</sch:assert>
+        </sch:rule>
     </sch:pattern>
     <sch:pattern
         id="pentest">
