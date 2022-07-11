@@ -32,6 +32,29 @@
 
     <sch:title>FedRAMP Security Assessment Plan Validations</sch:title>
 
+    <!-- Global Variables -->
+    <sch:let
+        name="ssp-href"
+        value="resolve-uri(/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
+    <sch:let
+        name="ssp-available"
+        value="
+            if (: this is not a relative reference :) (not(starts-with(@href, '#')))
+            then
+                (: the referenced document must be available :)
+                doc-available($ssp-href)
+            else
+                true()" />
+    <sch:let
+        name="ssp-doc"
+        value="if($ssp-available)
+        then doc($ssp-href)
+        else()" />
+    <sch:let
+        name="no-oscal-ssp"
+        value="boolean(/oscal:assessment-plan/oscal:back-matter/oscal:resource/oscal:prop[@name = 'type' and @value eq 'no-oscal-ssp'])" />
+
+    <!-- Patterns -->
     <sch:pattern
         id="import-ssp">
 
@@ -44,6 +67,13 @@
                 id="has-import-ssp"
                 role="error"
                 test="oscal:import-ssp">An OSCAL SAP must have an import-ssp element.</sch:assert>
+            
+            <sch:assert
+                diagnostics="has-location-assessment-subject-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.3"
+                id="has-location-assessment-subject"
+                role="error"
+                test="exists(oscal:assessment-subject[@type='location'])">A FedRAMP SAP must have a assesment-subject with a type of 'location'.</sch:assert>
 
         </sch:rule>
 
@@ -169,6 +199,37 @@
 
         </sch:rule>
 
+    </sch:pattern>
+
+    <sch:pattern
+        id="assessment-subject">
+        <sch:rule
+            context="oscal:assessment-subject[@type = 'location']">
+            <sch:assert
+                diagnostics="location-not-include-all-element-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.3"
+                fedramp:specific="true"
+                id="location-not-include-all-element"
+                role="error"
+                test="not(exists(oscal:include-all))">The FedRAMP SAP references locations individually.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:include-subject[@type='location']">
+            <sch:let
+                name="ssp-locations"
+                value="$ssp-doc/oscal:system-security-plan/oscal:metadata//oscal:location/@uuid ! xs:string(.)" />
+            <sch:let
+                name="sap-locations"
+                value="/oscal:assessment-plan/oscal:metadata//oscal:location/@uuid ! xs:string(.)" />
+            <sch:assert
+                diagnostics="location-uuid-matches-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.3, §4.3.1"
+                fedramp:specific="true"
+                id="location-uuid-matches"
+                role="error"
+                test="@subject-uuid = $ssp-locations or @subject-uuid = $sap-locations"
+                unit:override-xspec="both">Locations targeted by include subject must exist in the SAP or SSP.</sch:assert>
+        </sch:rule>
     </sch:pattern>
 
     <sch:pattern
@@ -321,6 +382,12 @@
             id="has-import-ssp-diagnostic">This OSCAL SAP lacks have an import-ssp element.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-location-assessment-subject"
+            doc:context="oscal:assessment-plan"
+            id="has-location-assessment-subject-diagnostic">This FedRAMP SAP does not have an assessment-subject with the type of
+            'location'.</sch:diagnostic>
+
+        <sch:diagnostic
             doc:assert="has-import-ssp-href"
             doc:context="oscal:import-ssp"
             id="has-import-ssp-href-diagnostic">This OSCAL SAP import-ssp element lacks an href attribute.</sch:diagnostic>
@@ -364,7 +431,16 @@
             doc:assert="has-no-base64"
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'system-security-plan']]/oscal:base64"
             id="has-no-base64-diagnostic">This OSCAL SAP has a base64 element in a system-security-plan resource.</sch:diagnostic>
-
+        <sch:diagnostic
+            doc:assert="location-not-include-all-element"
+            doc:context="oscal:assessment-subject[@type='location']"
+            id="location-not-include-all-element-diagnostic">This FedRAMP SAP assessment-subject[@type='location'] cannot have an include-all
+            child.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="location-uuid-matches"
+            doc:context="oscal:assessment-subject[@type='location']"
+            id="location-uuid-matches-diagnostic">This include-subject, <sch:value-of
+                select="@subject-uuid" />, references a non-existent (neither in the SSP nor SAP) location.</sch:diagnostic>
         <sch:diagnostic
             doc:assert="has-terms-and-conditions-diagnostic"
             doc:context="oscal:assessment-plan"
