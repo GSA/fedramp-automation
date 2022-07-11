@@ -736,7 +736,7 @@
                 </x:context>
                 <x:expect-assert
                     id="has-part-named-assumptions"
-                    label="that is correct" />
+                    label="that is incorrect" />
             </x:scenario>
 
             <x:scenario
