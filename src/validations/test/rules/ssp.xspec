@@ -4438,6 +4438,29 @@
             </x:scenario>
         </x:scenario>
         <x:scenario
+            label="when the PTA/PIA qualifying question #4 is answered negatively">
+            <x:scenario
+                label="and the SORN ID is not provided">
+                <x:context>
+                    <system-security-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <system-characteristics>
+                            <system-information>
+                                <prop
+                                    class="pta"
+                                    name="pta-4"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="no" />
+                            </system-information>
+                        </system-characteristics>
+                    </system-security-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-sorn"
+                    label="that is correct" />
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
             label="when the Privacy Impact Assessment">
             <!--<x:scenario
                 label="is not necessary">
