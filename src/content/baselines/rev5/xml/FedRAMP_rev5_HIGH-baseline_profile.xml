@@ -506,6 +506,13 @@
 				</description>
 			</constraint>
 		</set-parameter>
+		<set-parameter param-id="ac-02.02_odp.02">
+			<constraint>
+				<description>
+					<p>no more than 24 hours from last use</p>
+				</description>
+			</constraint>
+		</set-parameter>
 		<set-parameter param-id="ac-02.03_odp.01">
 			<constraint>
 				<description>
@@ -586,6 +593,13 @@
 		<set-parameter param-id="ac-06.07_odp.01">
 			<constraint>
 				<description>
+					<p>at minimum, annually</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-06.07_odp.02">
+			<constraint>
+				<description>
 					<p>all users with privileges</p>
 				</description>
 			</constraint>
@@ -600,7 +614,14 @@
 		<set-parameter param-id="ac-07_odp.01">
 			<constraint>
 				<description>
-					<p>fifteen (15) minutes </p>
+					<p>not more than three (3)</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-07_odp.02">
+			<constraint>
+				<description>
+					<p>fifteen (15) minutes</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -618,7 +639,14 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ac-10_odp.01">
+		<set-parameter param-id="ac-08_odp.02">
+			<constraint>
+				<description>
+					<p>see additional Requirements and Guidance</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="ac-10_odp.02">
 			<constraint>
 				<description>
 					<p>three (3) sessions for privileged access and two (2) sessions for non-privileged access</p>
@@ -754,7 +782,21 @@
 		<set-parameter param-id="au-05.02_odp.01">
 			<constraint>
 				<description>
-					<p>audit failure events requiring real-time alerts, as defined by organization audit policy.</p>
+					<p>real-time</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="au-05.02_odp.02">
+			<constraint>
+				<description>
+					<p>service provider personnel with authority to address failed audit events</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="au-05.02_odp.03">
+			<constraint>
+				<description>
+					<p>audit failure events requiring real-time alerts, as defined by organization audit policy</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -822,6 +864,13 @@
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="au-12.03_odp.01">
+			<constraint>
+				<description>
+					<p>service provider-defined individuals or roles with audit configuration responsibilities</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="au-12.03_odp.02">
 			<constraint>
 				<description>
 					<p>all network, data storage, and computing devices</p>
@@ -975,6 +1024,13 @@
 				</description>
 			</constraint>
 		</set-parameter>
+		<set-parameter param-id="cm-03.06_odp">
+			<constraint>
+				<description>
+					<p>All security safeguards that rely on cryptography</p>
+				</description>
+			</constraint>
+		</set-parameter>
 		<set-parameter param-id="cm-5.5_prm_1">
 			<constraint>
 				<description>
@@ -1069,6 +1125,13 @@
 		<set-parameter param-id="cp-02.03_odp.01">
 			<constraint>
 				<description>
+					<p>all</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="cp-02.03_odp.02">
+			<constraint>
+				<description>
 					<p>time period defined in service provider and organization SLA</p>
 				</description>
 			</constraint>
@@ -1104,6 +1167,13 @@
 		<set-parameter param-id="cp-04_odp.01">
 			<constraint>
 				<description>
+					<p>at least annually</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="cp-04_odp.02">
+			<constraint>
+				<description>
 					<p>functional exercises</p>
 				</description>
 			</constraint>
@@ -1115,7 +1185,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="cp-09_odp.01">
+		<set-parameter param-id="cp-09_odp.02">
 			<constraint>
 				<description>
 					<p>daily incremental; weekly full</p>
@@ -1186,6 +1256,13 @@
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="ia-02.06_odp.01">
+			<constraint>
+				<description>
+					<p>local, network and remote</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="ia-02.06_odp.02">
 			<constraint>
 				<description>
 					<p>privileged accounts; non-privileged accounts</p>
@@ -1304,7 +1381,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ir-08_odp.01">
+		<set-parameter param-id="ir-08_odp.02">
 			<constraint>
 				<description>
 					<p>at least annually</p>
@@ -1356,7 +1433,7 @@
 		<set-parameter param-id="ma-03.03_odp">
 			<constraint>
 				<description>
-					<p>the information owner explicitly authorizing removal of the equipment from the facility</p>
+					<p>the information owner</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1391,11 +1468,25 @@
 		<set-parameter param-id="mp-03_odp.01">
 			<constraint>
 				<description>
+					<p>no removable media types</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="mp-03_odp.02">
+			<constraint>
+				<description>
 					<p>organization-defined security safeguards not applicable</p>
 				</description>
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="mp-4_prm_1">
+			<constraint>
+				<description>
+					<p>all types of digital and non-digital media with sensitive information</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="mp-4_prm_2">
 			<constraint>
 				<description>
 					<p>see additional FedRAMP requirements and guidance</p>
@@ -1472,7 +1563,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="pe-03_odp.07">
+		<set-parameter param-id="pe-03_odp.08">
 			<constraint>
 				<description>
 					<p>at least annually</p>
@@ -1515,6 +1606,13 @@
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="pe-13.01_odp.01">
+			<constraint>
+				<description>
+					<p>service provider building maintenance/physical security personnel</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="pe-13.01_odp.02">
 			<constraint>
 				<description>
 					<p>service provider emergency responders with incident response responsibilities</p>
@@ -1637,6 +1735,7 @@
 			<constraint>
 				<description>
 					<p>for national security clearances; a reinvestigation is required during the fifth (5th) year for top secret security clearance, the tenth (10th) year for secret security clearance, and fifteenth (15th) year for confidential security clearance.</p>
+					<p>For moderate risk law enforcement and high impact public trust level, a reinvestigation is required during the fifth (5th) year. There is no reinvestigation for other moderate risk positions or any low risk positions</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1647,7 +1746,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ps-04.02_odp.01">
+		<set-parameter param-id="ps-04.02_odp.02">
 			<constraint>
 				<description>
 					<p>access control personnel responsible for disabling access to the system</p>
@@ -1661,7 +1760,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ps-05_odp.03">
+		<set-parameter param-id="ps-05_odp.04">
 			<constraint>
 				<description>
 					<p>twenty-four (24) hours</p>
@@ -1682,7 +1781,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="ps-07_odp.01">
+		<set-parameter param-id="ps-07_odp.02">
 			<constraint>
 				<description>
 					<p>terminations: immediately; transfers: within twenty-four (24) hours</p>
@@ -1769,6 +1868,13 @@
 		<set-parameter param-id="ra-05.05_odp.01">
 			<constraint>
 				<description>
+					<p>all components that support authentication</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="ra-05.05_odp.02">
+			<constraint>
+				<description>
 					<p>all scans</p>
 				</description>
 			</constraint>
@@ -1839,6 +1945,20 @@
 		<set-parameter param-id="sa-09.05_odp.01">
 			<constraint>
 				<description>
+					<p>information processing, information or data, AND system services</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="sa-09.05_odp.02">
+			<constraint>
+				<description>
+					<p>U.S./U.S. Territories or geographic locations where there is U.S. jurisdiction</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="sa-09.05_odp.03">
+			<constraint>
+				<description>
 					<p>all High impact data, systems, or services</p>
 				</description>
 			</constraint>
@@ -1851,6 +1971,13 @@
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="sa-15_odp.01">
+			<constraint>
+				<description>
+					<p>as needed and as dictated by the current threat posture</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="sa-15_odp.02">
 			<constraint>
 				<description>
 					<p>organization and service provider- defined security requirements</p>
@@ -1875,6 +2002,20 @@
 			<constraint>
 				<description>
 					<p>significant changes</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="sc-05_odp.02">
+			<constraint>
+				<description>
+					<p>Protect against</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="sc-05_odp.01">
+			<constraint>
+				<description>
+					<p>at a minimum: ICMP (ping) flood, SYN flood, slowloris, buffer overflow attack, and volume attack</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1976,7 +2117,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="si-02.02_odp.01">
+		<set-parameter param-id="si-02.02_odp.02">
 			<constraint>
 				<description>
 					<p>at least monthly </p>
@@ -1991,6 +2132,13 @@
 			</constraint>
 		</set-parameter>
 		<set-parameter param-id="si-03_odp.02">
+			<constraint>
+				<description>
+					<p>at least weekly</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="si-03_odp.03">
 			<constraint>
 				<description>
 					<p>to include endpoints and network entry and exit points</p>
@@ -2025,10 +2173,17 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="si-06_odp.03">
+		<set-parameter param-id="si-06_odp.04">
 			<constraint>
 				<description>
-					<p>to include upon system startup and/or restart -2 </p>
+					<p>to include upon system startup and/or restart</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="si-06_odp.05">
+			<constraint>
+				<description>
+					<p>at least monthly</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -2039,7 +2194,14 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="si-7.1_prm_1">
+		<set-parameter param-id="si-7.1_prm_3">
+			<constraint>
+				<description>
+					<p>selection to include security relevant event</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="si-7.1_prm_4">
 			<constraint>
 				<description>
 					<p>at least monthly</p>
