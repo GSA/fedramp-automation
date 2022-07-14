@@ -4,3 +4,4 @@ src/content/templates/sap/xml/FedRAMP-SAP-OSCAL-Template.xml|xml|assessment-plan
 src/content/templates/sar/xml/FedRAMP-SAR-OSCAL-Template.xml|xml|assessment-results|json
 src/content/templates/poam/xml/FedRAMP-POAM-OSCAL-Template.xml|xml|poam|json
 src/content/baselines/rev4/xml/*profile.xml|xml|profile|json
+src/content/baselines/rev5/xml/*profile.xml|xml|profile|json
