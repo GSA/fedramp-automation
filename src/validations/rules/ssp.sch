@@ -1478,7 +1478,7 @@
                 fedramp:specific="true"
                 id="has-sorn"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4' and @value eq 'yes'] and oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'sorn-id' (: and @value ne '':)]">
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4' and @value eq 'no'] or (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4' and @value eq 'yes'] and oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'sorn-id' (: and @value ne '':)])">
                 A FedRAMP SSP may have a SORN ID.</sch:assert>
         </sch:rule>
         <sch:rule
