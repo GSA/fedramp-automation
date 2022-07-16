@@ -16,9 +16,6 @@
 	branch = master
 	ignore = dirty
 
-[submodule "docs/themes/hugo-uswds"]
-	path = docs/themes/hugo-uswds
-	url = https://github.com/usnistgov/hugo-uswds.git
 [submodule "docs/themes/uswds"]
 	path = docs/themes/uswds
 	url = https://github.com/usnistgov/hugo-uswds.git
