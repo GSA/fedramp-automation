@@ -2940,8 +2940,9 @@
         see="Guide to OSCAL-based FedRAMP System Security Plans §5.2">
         <sch:title>Roles related to implemented requirements</sch:title>
         <sch:rule
-            context="oscal:implemented-requirement"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2">
+            context="oscal:implemented-requirement[prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value ne 'not-applicable']]"
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
+            see="https://github.com/GSA/fedramp-automation/issues/233">
             <sch:assert
                 diagnostics="implemented-requirement-has-responsible-role-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"

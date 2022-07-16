@@ -1138,8 +1138,12 @@
                         </set-parameter>
                     </xsl:for-each>
                     <!--See DRAFT Guide to OSCAL-based FedRAMP System Security Plans §5.2-->
-                    <responsible-role
-                        role-id="{$control-role}" />
+                    <xsl:if
+                        test="$status ne 'not-applicable'">
+                        <responsible-role
+                            role-id="{$control-role}" />
+                    </xsl:if>
+
                     <xsl:comment>
                             <xsl:text> Required response points are: </xsl:text>
                             <xsl:value-of select="descendant::prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'response-point']/parent::part/@id[matches(., 'smt')]" separator=", " /> 
@@ -1605,7 +1609,7 @@
         name="pol-pro">
 
         <xsl:comment>policy and procedure</xsl:comment>
-        
+
         <xsl:element
             name="by-component"
             namespace="http://csrc.nist.gov/ns/oscal/1.0">
