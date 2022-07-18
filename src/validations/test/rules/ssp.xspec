@@ -8138,13 +8138,38 @@
             </x:scenario>
             
             <x:scenario
-                label="Each implemented-requirement must have one or more responsible-role definitions.">
+                label="An implemented-requirement must have one or more responsible-role definitions (except when the implementation-status is 'not-applicable').">
                 <x:context>
                     <ssp
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <implemented-requirement>
+                            <prop
+                                name="implementation-status"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="implemented" />
                             <responsible-role
                                 role-id="implemented-requirement-responsible-role" />
+                        </implemented-requirement>
+                    </ssp>
+                </x:context>
+                <x:scenario
+                    label="When that is true">
+                    <x:expect-not-assert
+                        id="implemented-requirement-has-responsible-role"
+                        label="that is correct." />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="An implemented-requirement need not have one or more responsible-role definitions when the implementation-status is 'not-applicable'.">
+                <x:context>
+                    <ssp
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <implemented-requirement>
+                            <prop
+                                name="implementation-status"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="not-applicable" />
+                            <!-- responsible-role is unnecessary -->
                         </implemented-requirement>
                     </ssp>
                 </x:context>
@@ -8598,11 +8623,17 @@
             </x:scenario>
             
             <x:scenario
-                label="Each implemented-requirement must have one or more responsible-role definitions.">
+                label="An implemented-requirement must have one or more responsible-role definitions (except when the implementation-status is 'not-applicable').">
                 <x:context>
                     <ssp
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <implemented-requirement />
+                        <implemented-requirement >
+                            <prop
+                                name="implementation-status"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="implemented" />
+                            <!-- missing responsible-role -->
+                        </implemented-requirement>
                     </ssp>
                 </x:context>
                 <x:scenario
