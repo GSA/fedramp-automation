@@ -1478,7 +1478,7 @@
                 fedramp:specific="true"
                 id="has-sorn"
                 role="error"
-                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4' and @value eq 'yes'] and oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'sorn-id' (: and @value ne '':)]">
+                test="oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4' and @value eq 'no'] or (oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'pta-4' and @value eq 'yes'] and oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @class eq 'pta' and @name eq 'sorn-id' (: and @value ne '':)])">
                 A FedRAMP SSP may have a SORN ID.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -2941,14 +2941,21 @@
         <sch:title>Roles related to implemented requirements</sch:title>
         <sch:rule
             context="oscal:implemented-requirement"
-            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2">
+            doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
+            see="https://github.com/GSA/fedramp-automation/issues/233">
             <sch:assert
                 diagnostics="implemented-requirement-has-responsible-role-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
                 fedramp:specific="true"
                 id="implemented-requirement-has-responsible-role"
                 role="error"
-                test="oscal:responsible-role">Each implemented control must have one or more responsible-role definitions.</sch:assert>
+                test="
+                    (: implementation-status is not-applicable :)
+                    exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status' and @value eq 'not-applicable'])
+                    or
+                    (: responsible-role exists :)
+                    exists(oscal:responsible-role)">Each implemented control must have one or more responsible-role
+                definitions.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:responsible-role"
