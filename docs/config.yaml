@@ -1,5 +1,5 @@
 title: "FedRAMP Automation"
-baseURL: https://fedramp-automation.github.io
+baseURL: https://rene2mt.github.io
 relativeURLs: true
 canonifyURLs: true
 defaultContentLanguage: en
@@ -37,11 +37,11 @@ params:
   searchAffiliate: oscal
   sidenav:
 #    debug: true
-menu:
-  secondary:
-  - name: Github
-    url: https://github.com/GSA/fedramp-automation
-    weight: 90
+# menu:
+#   secondary:
+#   - name: Github
+#     url: https://github.com/GSA/fedramp-automation
+#     weight: 90
 module:
   mounts:
 #  - source: content
