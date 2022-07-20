@@ -22,7 +22,7 @@
         <xsl:variable
             as="xs:string*"
             name="groups"
-            select="distinct-values(//assert/@doc:* ! local-name())" />
+            select="distinct-values(//assert/@doc:* ! local-name()), ('all')" />
         <!-- create the proto-JSON XML -->
         <xsl:variable
             as="node()"
@@ -51,13 +51,22 @@
                                     test="current() eq 'guide-reference'">FedRAMP OSCAL Guide</xsl:when>
                                 <xsl:when
                                     test="current() eq 'template-reference'">FedRAMP SSP Template</xsl:when>
+                                <xsl:when
+                                    test="current() eq 'all'">
+                                    <xsl:text>All Rules</xsl:text>
+                                </xsl:when>
                             </xsl:choose>
                         </string>
                         <!-- get the distinct values found in this attribute -->
                         <xsl:variable
                             as="xs:string*"
                             name="groupitems"
-                            select="distinct-values($sch//@doc:*[local-name() eq $attribute-local-name] ! tokenize(., ',\s*'))" />
+                            select="
+                                if ($attribute-local-name = 'all') then
+                                    ('Unorganized')
+                                else
+                                    distinct-values($sch//@doc:*[local-name() eq $attribute-local-name] ! tokenize(., ',\s*'))"
+                        />
                         <!-- create a list of related assertions for each distinct attribute value-->
                         <array
                             key="groups">
@@ -116,9 +125,9 @@
                                     select="current()" />
                                 <xsl:if
                                     test="
-                                        some $d in $sch//assert/@doc:*
+                                        $item = 'Unorganized' or (some $d in $sch//assert/@doc:*
                                             satisfies some $t in tokenize($d, ',\s*')
-                                                satisfies $t = tokenize($item, ',\s*')">
+                                                satisfies $t = tokenize($item, ',\s*'))">
                                     <map>
                                         <string
                                             key="title">
@@ -131,9 +140,9 @@
                                                 select="$sch//assert">
                                                 <xsl:if
                                                     test="
-                                                        some $d in @doc:*
+                                                        $item = 'Unorganized' or (some $d in @doc:*
                                                             satisfies some $t in tokenize($d, ',\s*')
-                                                                satisfies $t = tokenize($item, ',\s*')">
+                                                                satisfies $t = tokenize($item, ',\s*'))">
                                                     <string>
                                                         <xsl:value-of
                                                             select="@id" />
