@@ -1990,7 +1990,7 @@
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
                 doc:template-reference="System Security Plan Template §2.3"
-                feddoc:referenced-documentation="NIST Special Publication 800-63-3"
+                feddoc:documentation-reference="NIST Special Publication 800-63-3"
                 fedramp:specific="true"
                 id="has-allowed-identity-assurance-level"
                 role="error"
@@ -2010,7 +2010,7 @@
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
                 doc:template-reference="System Security Plan Template §2.3"
-                feddoc:referenced-documentation="NIST Special Publication 800-63-3"
+                feddoc:documentation-reference="NIST Special Publication 800-63-3"
                 fedramp:specific="true"
                 id="has-allowed-authenticator-assurance-level"
                 role="error"
@@ -2030,7 +2030,7 @@
                 doc:checklist-reference="Section B Check 3.3, Section C Check 7"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
                 doc:template-reference="System Security Plan Template §2.3"
-                feddoc:referenced-documentation="NIST Special Publication 800-63-3"
+                feddoc:documentation-reference="NIST Special Publication 800-63-3"
                 fedramp:specific="true"
                 id="has-allowed-federation-assurance-level"
                 role="error"
@@ -2380,7 +2380,7 @@
                     'China Telecom', 'China Telecom (Americas) Corp')" />
             <sch:assert
                 diagnostics="has-prohibited-vendor-name-diagnostic"
-                feddoc:reference-documentation="FAR 889(a)(1)(B)"
+                feddoc:documentation-reference="FAR 889(a)(1)(B)"
                 id="has-prohibited-vendor-name"
                 role="warning"
                 test="not(oscal:prop[@name eq 'vendor-name']/@value = $prohibit-vendor)">The inventory item does not cite a banned
