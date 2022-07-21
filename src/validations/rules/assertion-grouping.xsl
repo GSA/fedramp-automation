@@ -3,6 +3,7 @@
     exclude-result-prefixes="xs math sch doc"
     version="3.0"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+    xmlns:feddoc="http://us.gov/documentation/federal-documentation"
     xmlns:math="http://www.w3.org/2005/xpath-functions/math"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -22,7 +23,7 @@
         <xsl:variable
             as="xs:string*"
             name="groups"
-            select="distinct-values(//assert/@doc:* ! local-name())" />
+            select="distinct-values(//assert/(@doc:*|@feddoc:*) ! local-name()), ('all')" />
         <!-- create the proto-JSON XML -->
         <xsl:variable
             as="node()"
@@ -51,13 +52,24 @@
                                     test="current() eq 'guide-reference'">FedRAMP OSCAL Guide</xsl:when>
                                 <xsl:when
                                     test="current() eq 'template-reference'">FedRAMP SSP Template</xsl:when>
+                                <xsl:when
+                                    test="current() eq 'documentation-reference'">Other Federal Documentation</xsl:when>
+                                <xsl:when
+                                    test="current() eq 'all'">
+                                    <xsl:text>All Rules</xsl:text>
+                                </xsl:when>
                             </xsl:choose>
                         </string>
                         <!-- get the distinct values found in this attribute -->
                         <xsl:variable
                             as="xs:string*"
                             name="groupitems"
-                            select="distinct-values($sch//@doc:*[local-name() eq $attribute-local-name] ! tokenize(., ',\s*'))" />
+                            select="
+                                if ($attribute-local-name = 'all') then
+                                    ('Unorganized')
+                                else
+                                    distinct-values($sch//(@doc:*|@feddoc:*)[local-name() eq $attribute-local-name] ! tokenize(., ',\s*'))"
+                        />
                         <!-- create a list of related assertions for each distinct attribute value-->
                         <array
                             key="groups">
@@ -116,9 +128,9 @@
                                     select="current()" />
                                 <xsl:if
                                     test="
-                                        some $d in $sch//assert/@doc:*
+                                        $item = 'Unorganized' or (some $d in $sch//assert/(@doc:*|@feddoc:*)
                                             satisfies some $t in tokenize($d, ',\s*')
-                                                satisfies $t = tokenize($item, ',\s*')">
+                                                satisfies $t = tokenize($item, ',\s*'))">
                                     <map>
                                         <string
                                             key="title">
@@ -131,9 +143,9 @@
                                                 select="$sch//assert">
                                                 <xsl:if
                                                     test="
-                                                        some $d in @doc:*
+                                                        $item = 'Unorganized' or (some $d in (@doc:*|@feddoc:*)
                                                             satisfies some $t in tokenize($d, ',\s*')
-                                                                satisfies $t = tokenize($item, ',\s*')">
+                                                                satisfies $t = tokenize($item, ',\s*'))">
                                                     <string>
                                                         <xsl:value-of
                                                             select="@id" />
