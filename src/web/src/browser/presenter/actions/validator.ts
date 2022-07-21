@@ -25,9 +25,10 @@ export const validateOscalDocument =
     if (config.getState().validator.current === 'PROCESSING') {
       config.effects.useCases.oscalService
         .validateXmlOrJson(options.fileContents)
-        .then(({ documentType, validationReport, xmlString }) => {
+        .then(({ documentType, svrlString, validationReport, xmlString }) => {
           setValidationReport({
             documentType,
+            svrlString,
             validationReport,
             xmlString,
           })(config);
@@ -47,9 +48,16 @@ export const setXmlUrl =
     if (config.getState().validator.current === 'PROCESSING') {
       config.effects.useCases.oscalService
         .validateXmlOrJsonByUrl(xmlFileUrl)
-        .then(({ documentType, validationReport, xmlString }) => {
+        .then(({ documentType, svrlString, validationReport, xmlString }) => {
+          console.log({
+            documentType,
+            svrlString,
+            validationReport,
+            xmlString,
+          });
           setValidationReport({
             documentType,
+            svrlString,
             validationReport,
             xmlString,
           })(config);
@@ -73,10 +81,12 @@ export const setProcessingError =
 export const setValidationReport =
   ({
     documentType,
+    svrlString,
     validationReport,
     xmlString,
   }: {
     documentType: OscalDocumentKey;
+    svrlString: string;
     validationReport: ValidationReport;
     xmlString: string;
   }) =>
@@ -103,6 +113,7 @@ export const setValidationReport =
           type: 'SET_RESULTS',
           data: {
             annotatedXML,
+            svrlString,
             validationReport,
           },
         });

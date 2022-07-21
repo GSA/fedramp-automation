@@ -13,7 +13,7 @@ import type { ParseXSpec, XSpecScenario } from '../domain/xspec';
 import type { XSLTProcessor } from '../use-cases/assertion-views';
 import { base64DataUriForJson } from '../util';
 
-const getValidationReport = (
+const getSchematronResult = (
   SaxonJS: any,
   document: DocumentFragment,
 ): SchematronResult => {
@@ -62,6 +62,7 @@ const getValidationReport = (
         },
       );
     }) as FailedAssert[],
+    svrlString: document.textContent as string,
     successfulReports: Array.prototype.map.call(
       successfulReports,
       (report, index) => {
@@ -120,7 +121,7 @@ export const SaxonJsSchematronProcessorGateway =
       ).then((output: any) => {
         return {
           documentType,
-          validationReport: getValidationReport(
+          schematronResult: getSchematronResult(
             ctx.SaxonJS,
             output.principalResult as DocumentFragment,
           ),

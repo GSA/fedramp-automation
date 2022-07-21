@@ -25,7 +25,6 @@ export const ValidatorReport = ({ documentType }: Props) => {
     filterOptions.assertionViews,
     oscalDocument.filter.assertionViewId,
   );
-
   return (
     <>
       <div className="top-0 padding-y-1">
@@ -132,14 +131,15 @@ export const ValidatorReport = ({ documentType }: Props) => {
                           </a>
                         </div>
                       </summary>
+                      <p className="text-ink margin-y-05">
+                        Select an item below to show source documentation
+                        context
+                      </p>
                       <ul className="padding-left-2">
-                        <p className="text-ink margin-y-05">
-                          Select an item below to show source documentation
-                          context
-                        </p>
                         {check.fired.map((firedCheck, index) => (
-                          <>
+                          <li key={index} className="text-base-darker">
                             <a
+                              key={index}
                               href="#"
                               className="usa-tooltip line-height-code-3"
                               data-position="bottom"
@@ -153,20 +153,18 @@ export const ValidatorReport = ({ documentType }: Props) => {
                               }
                               title="Show source document context"
                             >
-                              <li key={index} className="text-base-darker">
-                                <svg
-                                  className="usa-icon"
-                                  aria-hidden="true"
-                                  role="img"
-                                >
-                                  <use xlinkHref={`${spriteSvg}#remove`}></use>
-                                </svg>
-                                {firedCheck.diagnosticReferences.length > 0
-                                  ? firedCheck.diagnosticReferences.join(', ')
-                                  : firedCheck.text}
-                              </li>
+                              <svg
+                                className="usa-icon"
+                                aria-hidden="true"
+                                role="img"
+                              >
+                                <use xlinkHref={`${spriteSvg}#remove`}></use>
+                              </svg>
+                              {firedCheck.diagnosticReferences.length > 0
+                                ? firedCheck.diagnosticReferences.join(', ')
+                                : firedCheck.text}
                             </a>
-                          </>
+                          </li>
                         ))}
                       </ul>
                     </details>
