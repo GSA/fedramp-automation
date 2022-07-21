@@ -52,10 +52,12 @@ export const ValidatorReport = ({ documentType }: Props) => {
             </div>
             {validationResult.current === 'HAS_RESULT' ? (
               <button
-                className="usa-button usa-button--unstyled padding-top-1"
+                className="usa-button usa-button--unstyled usa-tooltip padding-top-1"
+                data-position="left"
+                title="Download the raw Schematron Validation Report Language XML document"
                 onClick={() => dispatch(downloadSVRL(documentType))}
               >
-                Download raw SVRL report
+                Download SVRL
               </button>
             ) : null}
           </div>
