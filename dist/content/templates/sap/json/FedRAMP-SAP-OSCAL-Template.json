@@ -475,7 +475,7 @@
       "remarks": "This OSCAL-based FedRAMP SAP Template can be used for the FedRAMP initial or annual assessment planning."
     },
     "import-ssp": {
-      "href": "../ssp/FedRAMP-SSP-OSCAL-Template.json",
+      "href": "../../ssp/json/FedRAMP-SSP-OSCAL-Template.json",
       "remarks": "Link the SAP to the SSP.\n\nFedRAMP prefers the path for the SSP be relative to the location of this SAP file. Absolute links will likely not work when FedRAMP tools import the content.\n\nThis may point to a back-matter resource using a URI fragment.\n\nIf no OSCAL-based SSP exists, this must be a URI fragment pointing to a special back-matter resource. The resource must include the `no-oscal-ssp` conformity tag."
     },
     "local-definitions": {
