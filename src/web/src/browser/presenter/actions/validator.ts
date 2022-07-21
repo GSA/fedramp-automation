@@ -49,12 +49,6 @@ export const setXmlUrl =
       config.effects.useCases.oscalService
         .validateXmlOrJsonByUrl(xmlFileUrl)
         .then(({ documentType, svrlString, validationReport, xmlString }) => {
-          console.log({
-            documentType,
-            svrlString,
-            validationReport,
-            xmlString,
-          });
           setValidationReport({
             documentType,
             svrlString,
