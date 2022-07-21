@@ -1,7 +1,10 @@
 import spriteSvg from 'uswds/img/sprite.svg';
 
 import * as assertionDocumentation from '@asap/browser/presenter/actions/assertion-documentation';
-import { showAssertionContext } from '@asap/browser/presenter/actions/validator';
+import {
+  downloadSVRL,
+  showAssertionContext,
+} from '@asap/browser/presenter/actions/validator';
 import {
   selectFilterOptions,
   selectSchematronReport,
@@ -32,20 +35,30 @@ export const ValidatorReport = ({ documentType }: Props) => {
           <h1 className="margin-0 font-sans-lg desktop:font-sans-xl">
             {validationResult.summary.title}
           </h1>
-          <span
-            className="font-heading-sm text-secondary-light text-error"
-            style={{ float: 'right' }}
-          >
-            <svg
-              className="usa-icon margin-right-05 text-error"
-              aria-hidden="true"
-              focusable="false"
-              role="img"
+          <div className="float-right">
+            <div
+              className="font-heading-sm text-secondary-light text-error"
+              style={{ textAlign: 'right' }}
             >
-              <use xlinkHref={`${spriteSvg}#flag`}></use>
-            </svg>
-            {schematronReport.assertionCount} concerns
-          </span>
+              <svg
+                className="usa-icon margin-right-05 text-error"
+                aria-hidden="true"
+                focusable="false"
+                role="img"
+              >
+                <use xlinkHref={`${spriteSvg}#flag`}></use>
+              </svg>
+              {schematronReport.assertionCount} concerns
+            </div>
+            {validationResult.current === 'HAS_RESULT' ? (
+              <button
+                className="usa-button usa-button--unstyled padding-top-1"
+                onClick={() => dispatch(downloadSVRL(documentType))}
+              >
+                Download raw SVRL report
+              </button>
+            ) : null}
+          </div>
         </div>
         <h2 className="margin-top-05 margin-bottom-0 text-normal">
           {viewTitle}

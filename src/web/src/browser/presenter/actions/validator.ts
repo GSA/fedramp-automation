@@ -1,6 +1,7 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import { setCurrentRoute } from '.';
+import type { State as ValidationResultsState } from '../state/validation-results-machine';
 
 import type { ActionContext } from '..';
 import { StateTransition } from '../state';
@@ -146,3 +147,27 @@ export const clearAssertionContext = (
   machine: `validationResults.${documentType}`,
   type: 'CLEAR_ASSERTION_CONTEXT',
 });
+
+export const downloadSVRL =
+  (documentType: OscalDocumentKey) => (config: ActionContext) => {
+    const state = config.getState();
+    const validationResults = state.validationResults[
+      documentType
+    ] as ValidationResultsState;
+    if (validationResults.current === 'HAS_RESULT') {
+      var element = document.createElement('a');
+      element.setAttribute(
+        'href',
+        'data:text/xml;charset=utf-8,' +
+          encodeURIComponent(validationResults.svrlString),
+      );
+      element.setAttribute(
+        'download',
+        `${validationResults.summary.title}.svrl.xml`,
+      );
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+  };
