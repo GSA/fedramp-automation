@@ -1,7 +1,6 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import { setCurrentRoute } from '.';
-import type { State as ValidationResultsState } from '../state/validation-results-machine';
 
 import type { ActionContext } from '..';
 import { StateTransition } from '../state';
@@ -151,9 +150,7 @@ export const clearAssertionContext = (
 export const downloadSVRL =
   (documentType: OscalDocumentKey) => (config: ActionContext) => {
     const state = config.getState();
-    const validationResults = state.validationResults[
-      documentType
-    ] as ValidationResultsState;
+    const validationResults = state.validationResults[documentType];
     if (validationResults.current === 'HAS_RESULT') {
       var element = document.createElement('a');
       element.setAttribute(
