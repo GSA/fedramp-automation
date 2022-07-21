@@ -37,8 +37,37 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.loader-message {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 2em;
+  font-size: 2em;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s;
+  animation-delay: 10s;
+  animation-fill-mode: forwards;
+  .loader-message-text {
+    background-color: white;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
 
