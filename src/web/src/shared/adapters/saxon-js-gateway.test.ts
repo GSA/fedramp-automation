@@ -89,7 +89,7 @@ describe('saxon-js gateway', () => {
       SaxonJS,
     });
     const convertedXml = await jsonToXml('{}');
-    expect(convertedXml.toString()).toMatch(/^<svrl:schematron-output/);
+    expect(convertedXml.toString()).toMatch(/<svrl:schematron-output/);
   });
 
   it('parses XSpec', () => {
