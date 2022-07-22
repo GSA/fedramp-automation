@@ -3,12 +3,7 @@ import { join } from 'path';
 import { GithubRepository } from '../domain/github';
 import { OscalDocumentKeys } from '../domain/oscal';
 import { getDocumentReferenceUrls } from '../domain/source-code-links';
-import {
-  SCHEMATRON_LOCAL_PATHS,
-  SCHEMATRON_REPOSITORY_PATHS,
-  XSPEC_LOCAL_PATHS,
-  XSPEC_REPOSITORY_PATHS,
-} from '../project-config';
+import { SCHEMATRON_LOCAL_PATHS, XSPEC_LOCAL_PATHS } from '../project-config';
 
 type Context = {
   github: GithubRepository;
@@ -37,7 +32,4 @@ export class SourceCodeLinkDocumentGenerator {
       );
     });
   }
-}
-function PROJECT_ROOT(PROJECT_ROOT: any, arg1: string): string {
-  throw new Error('Function not implemented.');
 }
