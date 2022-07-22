@@ -4,7 +4,12 @@ heading: FedRAMP OSCAL Guides
 menu:
   primary:
     name: Guides
-    weight: 20
+    weight: 100
+suppresstopiclist: true
+sidenav:
+  focusrenderdepth: 1
+  inactiverenderdepth: 0
+  activerenderdepth: 2
 toc:
   enabled: true
 ---
