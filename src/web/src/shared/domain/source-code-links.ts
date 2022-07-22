@@ -1,4 +1,7 @@
-import { SCHEMATRON_REPOSITORY_PATHS } from '../project-config';
+import {
+  SCHEMATRON_REPOSITORY_PATHS,
+  XSPEC_REPOSITORY_PATHS,
+} from '../project-config';
 import { getBranchFileUrl, GithubRepository } from './github';
 import { OscalDocumentKey } from './oscal';
 import { getLineRangesForElement } from './xml';
@@ -23,8 +26,8 @@ export const getDocumentReferenceUrls = ({
     }),
     xspecScenarios: getElementReferenceUrls({
       github,
-      element: 'sch:assert',
-      xmlRepositoryPath: SCHEMATRON_REPOSITORY_PATHS[documentType],
+      element: 'x:scenario',
+      xmlRepositoryPath: XSPEC_REPOSITORY_PATHS[documentType],
       xmlString: xspecXmlString,
     }),
   };

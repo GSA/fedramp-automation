@@ -66,13 +66,7 @@ export const AssertionDocumentationOverlay = () => {
             </div>
           </div>
         </div>
-        <AssertionXSpecScenarios
-          scenarioSummaries={
-            state.assertionDocumentation.current === 'SHOWING'
-              ? state.assertionDocumentation.visibleScenarioSummaries
-              : []
-          }
-        />
+        <AssertionXSpecScenarios />
       </Modal>
     </div>
   );

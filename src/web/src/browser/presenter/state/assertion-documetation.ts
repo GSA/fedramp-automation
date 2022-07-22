@@ -15,7 +15,6 @@ export type State =
     })
   | (LoadedState & {
       current: 'SHOWING';
-      visibleScenarioSummaries: ScenarioSummary[];
       visibleAssertion: {
         assertionId: string;
         documentType: OscalDocumentKey;
@@ -54,10 +53,6 @@ export const nextState = (state: State, event: StateTransition): State => {
         current: 'SHOWING',
         xspecScenarioSummaries: state.xspecScenarioSummaries,
         visibleAssertion: event.data,
-        visibleScenarioSummaries:
-          state.xspecScenarioSummaries[event.data.documentType][
-            event.data.assertionId
-          ],
       };
     }
   } else if (state.current === 'SHOWING') {
