@@ -1,8 +1,11 @@
 ---
 title: 6. ATTATCHMENTS
-weight: 50
 toc:
   enabled: true
+weight: 600
+aliases:
+  /ssp/6/
+suppresstopiclist: true
 ---
 
 Classic FedRAMP attachments include a mix of items. Some lend well to machine-readable format, while others do not. Machine-readable content is typically addressed within the OSCAL-based FedRAMP SSP syntax, while policies, procedures, plans, guidance, and the rules of behavior documents are all treated as classic attachments, as described in the *Citations, Attachments, and Embedded Content in OSCAL Files* Section. The following table describes how each attachment is handled:

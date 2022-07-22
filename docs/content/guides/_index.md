@@ -5,11 +5,11 @@ menu:
   primary:
     name: Guides
     weight: 100
-suppresstopiclist: false
+suppresstopiclist: true
 sidenav:
   focusrenderdepth: 1
-  inactiverenderdepth: 1
-  activerenderdepth: 1
+  inactiverenderdepth: 0
+  activerenderdepth: 2
 toc:
   enabled: true
 ---

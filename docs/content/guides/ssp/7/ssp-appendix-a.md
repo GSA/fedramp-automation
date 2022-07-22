@@ -1,10 +1,6 @@
 ---
 title: Appendix A- WORKING WITH COMPONENTS
 weight: 703
-sidenav:
-  focusrenderdepth: 1
-  inactiverenderdepth: 1
-  activerenderdepth: 1
 toc:
   enabled: true
 ---

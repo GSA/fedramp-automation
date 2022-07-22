@@ -5,7 +5,7 @@ menu:
   primary:
     name: POA&M
     parent: Guides
-    weight: 50
+    weight: 500
 toc:
   enabled: true
 ---

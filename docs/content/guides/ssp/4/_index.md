@@ -1,9 +1,11 @@
 ---
-title: 4. SSP TEMPLATE TO OSCAL MAPPING
-suppresstopiclist: true
-weight: 50
+title: 4. SSP Template to OSCAL Mapping
 toc:
   enabled: true
+weight: 400
+aliases:
+  /ssp/4/
+suppresstopiclist: true
 ---
 
 For SSP-specific content, each page of the SSP is represented in this section, along with OSCAL code snippets for representing the information in OSCAL syntax. There is also XPath syntax for querying the code in an OSCAL-based FedRAMP SSP represented in XML format.

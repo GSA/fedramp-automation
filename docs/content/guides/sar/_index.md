@@ -5,7 +5,7 @@ menu:
   primary:
     name: SAR
     parent: Guides
-    weight: 40
+    weight: 300
 toc:
   enabled: true
 ---

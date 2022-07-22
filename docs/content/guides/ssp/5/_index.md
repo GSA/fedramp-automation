@@ -1,8 +1,11 @@
 ---
-title: 5. SECURITY CONTROLS
-weight: 50
+title: 5. Security Controls
 toc:
   enabled: true
+weight: 500
+aliases:
+  /ssp/5/
+suppresstopiclist: true
 ---
 This section describes the modeling of security control information in an OSCAL-based FedRAMP SSP. To ensure consistent processing, FedRAMP imposes specific requirements on the use of OSCAL for control implementation information. 
 
