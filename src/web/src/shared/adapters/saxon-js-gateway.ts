@@ -13,10 +13,14 @@ import type { ParseXSpec, XSpecScenario } from '../domain/xspec';
 import type { XSLTProcessor } from '../use-cases/assertion-views';
 import { base64DataUriForJson } from '../util';
 
-const getValidationReport = (
+const getSchematronResult = async (
   SaxonJS: any,
-  document: DocumentFragment,
-): SchematronResult => {
+  svrlString: string,
+): Promise<SchematronResult> => {
+  const document: DocumentFragment = await SaxonJS.getResource({
+    text: svrlString,
+    type: 'xml',
+  });
   const failedAsserts = SaxonJS.XPath.evaluate(
     '//svrl:failed-assert',
     document,
@@ -62,6 +66,7 @@ const getValidationReport = (
         },
       );
     }) as FailedAssert[],
+    svrlString,
     successfulReports: Array.prototype.map.call(
       successfulReports,
       (report, index) => {
@@ -107,7 +112,7 @@ export const SaxonJsSchematronProcessorGateway =
         ctx.SaxonJS.transform(
           {
             stylesheetLocation: ctx.sefUrls[documentType],
-            destination: 'document',
+            destination: 'serialized',
             sourceNode: resource,
             stylesheetParams: {
               'baselines-base-path': ctx.baselinesBaseUrl,
@@ -117,15 +122,19 @@ export const SaxonJsSchematronProcessorGateway =
           },
           'async',
         ) as Promise<DocumentFragment>
-      ).then((output: any) => {
-        return {
-          documentType,
-          validationReport: getValidationReport(
+      )
+        .then((output: any) => {
+          return getSchematronResult(
             ctx.SaxonJS,
-            output.principalResult as DocumentFragment,
-          ),
-        };
-      });
+            output.principalResult as string,
+          );
+        })
+        .then(schematronResult => {
+          return {
+            documentType,
+            schematronResult,
+          };
+        });
     });
   };
 

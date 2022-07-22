@@ -33,11 +33,8 @@ describe('xml indent', () => {
 describe('saxon-js gateway', () => {
   it('produces validation results for transformation', async () => {
     vi.spyOn(SaxonJS, 'transform').mockImplementation((() => {
-      const doc = (SaxonJS as any)
-        .getPlatform()
-        .parseXmlFromString(SAMPLE_SVRL);
       return Promise.resolve({
-        principalResult: doc,
+        principalResult: SAMPLE_SVRL,
       });
     }) as any);
     const reportGateway = SaxonJsSchematronProcessorGateway({
@@ -57,7 +54,7 @@ describe('saxon-js gateway', () => {
     expect(SaxonJS.transform).toHaveBeenCalled();
     expect(result).toEqual({
       documentType: 'ssp',
-      validationReport: {
+      schematronResult: {
         failedAsserts: [
           {
             diagnosticReferences: ['Diagnostic reference node content.'],
@@ -70,6 +67,7 @@ describe('saxon-js gateway', () => {
             uniqueId: 'incorrect-role-association-0',
           },
         ],
+        svrlString: SAMPLE_SVRL,
         successfulReports: [
           {
             id: 'control-implemented-requirements-stats',
@@ -91,7 +89,7 @@ describe('saxon-js gateway', () => {
       SaxonJS,
     });
     const convertedXml = await jsonToXml('{}');
-    expect(convertedXml.toString()).toMatch(/^<svrl:schematron-output/);
+    expect(convertedXml.toString()).toMatch(/<svrl:schematron-output/);
   });
 
   it('parses XSpec', () => {

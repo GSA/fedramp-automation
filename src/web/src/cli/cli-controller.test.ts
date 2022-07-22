@@ -20,6 +20,7 @@ describe('command-line controller', () => {
           validateXmlOrJson: (xmlString: string) =>
             Promise.resolve({
               documentType: 'ssp',
+              svrlString: '<svrl />',
               validationReport: {
                 title: 'test report',
                 failedAsserts: [],

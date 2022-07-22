@@ -124,6 +124,7 @@ describe('presenter schematron library', () => {
         testData.state.config.assertionViews[0],
         testData.state.config.schematronAsserts,
         testData.validator.failedAssertionMap,
+        {},
       );
       expect(result).toEqual([
         {

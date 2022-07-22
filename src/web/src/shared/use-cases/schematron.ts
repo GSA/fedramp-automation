@@ -24,6 +24,7 @@ export type SuccessfulReport = {
 };
 export type SchematronResult = {
   failedAsserts: FailedAssert[];
+  svrlString: string;
   successfulReports: SuccessfulReport[];
 };
 export type ValidationReport = {
@@ -37,7 +38,7 @@ export type SchematronJSONToXMLProcessor = (
 
 export type SchematronProcessor = (oscalXmlString: string) => Promise<{
   documentType: OscalDocumentKey;
-  validationReport: SchematronResult;
+  schematronResult: SchematronResult;
 }>;
 
 export type SchematronAssert = {

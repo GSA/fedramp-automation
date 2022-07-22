@@ -17,6 +17,7 @@ export const base64DataUriForJson = (jsonString: string) => {
       }
     };
     reader.onerror = reject;
+    console.log(blob);
     reader.readAsDataURL(blob);
   });
 };

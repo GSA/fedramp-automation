@@ -17,6 +17,7 @@ export class OscalService {
 
   validateXmlOrJson(oscalString: string): Promise<{
     documentType: OscalDocumentKey;
+    svrlString: string;
     validationReport: ValidationReport;
     xmlString: string;
   }> {
@@ -42,16 +43,16 @@ export class OscalService {
 
   validateXml(xmlString: string): Promise<{
     documentType: OscalDocumentKey;
+    svrlString: string;
     validationReport: ValidationReport;
   }> {
-    return this.schematronProcessor(xmlString).then(
-      ({ documentType, validationReport }) => {
-        return {
-          documentType,
-          validationReport: generateSchematronReport(validationReport),
-        };
-      },
-    );
+    return this.schematronProcessor(xmlString).then(result => {
+      return {
+        documentType: result.documentType,
+        svrlString: result.schematronResult.svrlString,
+        validationReport: generateValidationReport(result.schematronResult),
+      };
+    });
   }
 
   async ensureXml(oscalString: string): Promise<string> {
@@ -74,7 +75,7 @@ const detectFormat = (document: string) => {
   }
 };
 
-const generateSchematronReport = (
+const generateValidationReport = (
   schematronResult: SchematronResult,
 ): ValidationReport => {
   return {
