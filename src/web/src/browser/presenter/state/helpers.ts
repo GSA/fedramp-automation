@@ -27,6 +27,7 @@ export type SchematronReportGroups = {
     checks: (SchematronAssert & {
       icon: Icon;
       fired: FailedAssert[];
+      referenceUrl: string;
     })[];
   };
 }[];
@@ -43,6 +44,7 @@ export const getReportGroups = (
         message: string;
         icon: Icon;
         fired: FailedAssert[];
+        referenceUrl: string;
       };
       const isValidated = failedAssertionMap !== null;
 
@@ -62,6 +64,7 @@ export const getReportGroups = (
                 ? cancelIcon
                 : checkCircleIcon,
             fired,
+            referenceUrl: '#',
           };
         })
         .filter(
