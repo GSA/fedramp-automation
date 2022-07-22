@@ -30,6 +30,8 @@ export const getDocumentReferenceUrls = ({
   };
 };
 
+export type DocumentReferenceUrls = ReturnType<typeof getDocumentReferenceUrls>;
+
 const getElementReferenceUrls = ({
   github,
   element,

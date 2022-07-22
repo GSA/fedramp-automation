@@ -23,6 +23,10 @@ describe('selectors', () => {
             { id: '1', message: 'msg1', role: 'error' },
             { id: '2', message: 'msg2', role: 'error' },
           ],
+          documentReferenceUrls: {
+            assertions: {},
+            xspecScenarios: {},
+          },
         },
         {
           passStatus: 'all',
@@ -86,6 +90,10 @@ describe('selectors', () => {
         {
           assertionViews: [],
           schematronAsserts: [],
+          documentReferenceUrls: {
+            assertions: {},
+            xspecScenarios: {},
+          },
         },
         {
           passStatus: 'all',

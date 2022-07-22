@@ -1,3 +1,4 @@
+import { DocumentReferenceUrls } from '@asap/shared/domain/source-code-links';
 import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 import type { SchematronAssert } from '@asap/shared/use-cases/schematron';
 
@@ -27,6 +28,7 @@ export type BaseState = {
   config: {
     assertionViews: AssertionView[];
     schematronAsserts: SchematronAssert[];
+    documentReferenceUrls: DocumentReferenceUrls;
   };
   filter: {
     role: Role;
@@ -147,6 +149,10 @@ export const initialState: State = {
   config: {
     assertionViews: [],
     schematronAsserts: [],
+    documentReferenceUrls: {
+      assertions: {},
+      xspecScenarios: {},
+    },
   },
   filter: {
     passStatus: 'all',
