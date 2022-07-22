@@ -116,9 +116,8 @@ export const ValidatorReport = ({ documentType }: Props) => {
                             Learn more
                           </span>
                           <span className="margin-right-1">|</span>
-                          <a
-                            href="#"
-                            className="text-primary text-underline"
+                          <button
+                            className="usa-button usa-button--unstyled"
                             onClick={() =>
                               dispatch(
                                 assertionDocumentation.show({
@@ -129,7 +128,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                             }
                           >
                             View Examples
-                          </a>
+                          </button>
                         </div>
                       </summary>
                       <ul className="padding-left-2">
@@ -140,7 +139,6 @@ export const ValidatorReport = ({ documentType }: Props) => {
                         {check.fired.map((firedCheck, index) => (
                           <>
                             <a
-                              href="#"
                               className="usa-tooltip line-height-code-3"
                               data-position="bottom"
                               onClick={() =>
@@ -176,9 +174,8 @@ export const ValidatorReport = ({ documentType }: Props) => {
                         <b>{group.isValidated ? 'PASS: ' : null}</b>
                         {check.message}
                         <div>
-                          <a
-                            href="#"
-                            className="text-primary text-underline"
+                          <button
+                            className="usa-button usa-button--unstyled"
                             onClick={() =>
                               dispatch(
                                 assertionDocumentation.show({
@@ -189,7 +186,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                             }
                           >
                             View Examples
-                          </a>
+                          </button>
                         </div>
                       </div>
                     </div>
