@@ -3,6 +3,7 @@ import { it, describe, expect, vi } from 'vitest';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
 import { mock } from 'vitest-mock-extended';
 import { CommandLineController } from './cli-controller';
+import { SourceCodeLinkDocumentGenerator } from '@asap/shared/use-cases/generate-source-code-link-documents';
 
 describe('command-line controller', () => {
   it('calls validate schematron', async () => {
@@ -26,6 +27,8 @@ describe('command-line controller', () => {
               xmlString,
             }),
         }),
+        sourceCodeLinkDocumentGenerator:
+          mock<SourceCodeLinkDocumentGenerator>(),
         writeAssertionViews: vi.fn(),
         writeXSpecScenarioSummaries: vi.fn(),
       },

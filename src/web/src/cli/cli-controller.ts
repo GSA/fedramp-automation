@@ -2,14 +2,16 @@ import { Command } from 'commander';
 
 import type { XSpecScenarioSummaryWriter } from '@asap/shared/use-cases/assertion-documentation';
 import type { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
-import type { ParseSchematronAssertions } from '@asap/shared/use-cases/schematron';
+import { SourceCodeLinkDocumentGenerator } from '@asap/shared/use-cases/generate-source-code-link-documents';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
+import type { ParseSchematronAssertions } from '@asap/shared/use-cases/schematron';
 
 type CommandLineContext = {
   console: Console;
   readStringFile: (fileName: string) => Promise<string>;
   writeStringFile: (fileName: string, contents: string) => Promise<void>;
   useCases: {
+    sourceCodeLinkDocumentGenerator: SourceCodeLinkDocumentGenerator;
     parseSchematron: ParseSchematronAssertions;
     oscalService: OscalService;
     writeAssertionViews: WriteAssertionViews;
@@ -63,6 +65,15 @@ export const CommandLineController = (ctx: CommandLineContext) => {
     .action(async (xspecPath, summaryPath) => {
       await ctx.useCases.writeXSpecScenarioSummaries(xspecPath, summaryPath);
       ctx.console.log(`Wrote assertion documentation to filesystem`);
+    });
+  cli
+    .command('create-reference-url-documents <target-path>')
+    .description('create reference URL documents in the provided target path')
+    .action(async targetPath => {
+      await ctx.useCases.sourceCodeLinkDocumentGenerator.createDocument(
+        targetPath,
+      );
+      ctx.console.log(`Wrote reference URL documents to filesystem`);
     });
   return cli;
 };

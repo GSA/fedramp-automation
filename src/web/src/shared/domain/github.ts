@@ -31,6 +31,19 @@ export const getBranchTreeUrl = (
   return `https://github.com/${github.owner}/${github.repository}/tree/${github.branch}`;
 };
 
+type LineRange = { start: number; end: number };
+export const getBranchFileUrl = (
+  github: GithubRepository,
+  repositoryPath: `/${string}`,
+  lineRange?: LineRange,
+) => {
+  const blobUrl = `https://github.com/${github.owner}/${github.repository}/blob/${github.branch}${repositoryPath}`;
+  if (!lineRange) {
+    return blobUrl;
+  }
+  return `${blobUrl}#L${lineRange.start}-L${lineRange.end}`;
+};
+
 export const getRepositoryRawUrl = (
   github: GithubRepository,
   repositoryPath: string,

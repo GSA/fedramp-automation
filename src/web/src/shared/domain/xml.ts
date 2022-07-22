@@ -2,7 +2,7 @@ export type FormatXml = (xml: string) => string;
 export type IndentXml = (xml: string) => Promise<string>;
 
 type LineRange = { start: number; end: number } | null;
-export const getLineNumbersForElementById = (xml: string, element: string) => {
+export const getLineRangesForElement = (xml: string, element: string) => {
   const regEx = new RegExp(
     `<${element}[^]*?\\sid=\\"([^\\"]+)\\"[^]*?</${element}>`,
     'g',

@@ -1,4 +1,4 @@
-import { promises as fs } from 'fs';
+import { promises as fs, write } from 'fs';
 import { join } from 'path';
 import xmlFormatter from 'xml-formatter';
 
@@ -19,11 +19,18 @@ import { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
 
 import { CommandLineController } from './cli-controller';
 import { OscalService } from '@asap/shared/use-cases/oscal';
+import { SourceCodeLinkDocumentGenerator } from '@asap/shared/use-cases/generate-source-code-link-documents';
 
 const readStringFile = async (fileName: string) =>
   fs.readFile(fileName, 'utf-8');
 const writeStringFile = (fileName: string, data: string) =>
   fs.writeFile(fileName, data, 'utf-8');
+
+const GITHUB = {
+  owner: process.env.OWNER || '18F',
+  repository: process.env.REPOSITORY || 'fedramp-automation',
+  branch: process.env.BRANCH || 'master',
+};
 
 const controller = CommandLineController({
   console,
@@ -69,6 +76,11 @@ const controller = CommandLineController({
       readStringFile,
       writeStringFile,
     }),
+    sourceCodeLinkDocumentGenerator: new SourceCodeLinkDocumentGenerator(
+      GITHUB,
+      readStringFile,
+      writeStringFile,
+    ),
   },
 });
 

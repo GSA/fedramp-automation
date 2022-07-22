@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
-import { getLineNumbersForElementById } from './xml';
+import { getLineRangesForElement } from './xml';
 
 describe('xml domain', () => {
-  describe('getLineNumbersForElement', () => {
+  describe('getLineRangesForElement', () => {
     it('returns line numbers for sch:assert', () => {
-      const lineNumbers = getLineNumbersForElementById(TEST_SCH, 'sch:assert');
+      const lineNumbers = getLineRangesForElement(TEST_SCH, 'sch:assert');
       expect(lineNumbers).toEqual({
         'has-import-ssp': {
           end: 12,

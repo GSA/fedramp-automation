@@ -52,4 +52,35 @@ describe('github', () => {
       );
     });
   });
+  describe('getBranchFileUrl', () => {
+    it('returns correct URL with line numbers', () => {
+      expect(
+        github.getBranchFileUrl(
+          {
+            owner: '18F',
+            branch: 'master',
+            repository: 'fedramp-automation',
+          },
+          '/src/validations/rules/ssp.sch',
+          { start: 545, end: 551 },
+        ),
+      ).toEqual(
+        'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/ssp.sch#L545-L551',
+      );
+    });
+    it('returns correct URL without line numbers', () => {
+      expect(
+        github.getBranchFileUrl(
+          {
+            owner: '18F',
+            branch: 'master',
+            repository: 'fedramp-automation',
+          },
+          '/src/validations/rules/ssp.sch',
+        ),
+      ).toEqual(
+        'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/ssp.sch',
+      );
+    });
+  });
 });
