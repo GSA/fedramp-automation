@@ -129,6 +129,15 @@ export const ValidatorReport = ({ documentType }: Props) => {
                           >
                             View Examples
                           </button>
+                          {' / '}
+                          <a
+                            href={check.referenceUrl}
+                            className="text-primary text-underline"
+                            target="_blank"
+                            rel="noopener"
+                          >
+                            View Schematron
+                          </a>
                         </div>
                       </summary>
                       <ul className="padding-left-2">

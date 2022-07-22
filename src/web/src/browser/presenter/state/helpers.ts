@@ -36,6 +36,7 @@ export const getReportGroups = (
   assertionView: AssertionView,
   schematronAssertions: SchematronAssert[],
   failedAssertionMap: FailedAssertionMap | null,
+  assertionReferenceUrls: Record<string, string>,
 ): SchematronReportGroups => {
   const assertionsById = getAssertionsById(schematronAssertions);
   return assertionView.groups
@@ -64,7 +65,7 @@ export const getReportGroups = (
                 ? cancelIcon
                 : checkCircleIcon,
             fired,
-            referenceUrl: '#',
+            referenceUrl: assertionReferenceUrls[assert.id],
           };
         })
         .filter(
