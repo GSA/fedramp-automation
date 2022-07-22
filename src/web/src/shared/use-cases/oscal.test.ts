@@ -4,6 +4,7 @@ import { OscalService } from './oscal';
 
 const MOCK_SCHEMATRON_RESULT = {
   failedAsserts: ['assertion 1', 'assertion 2'],
+  svrlString: '<svrl />',
   successfulReports: [{ id: 'info-system-name', text: 'title text' }],
 };
 const EXPECTED_VALIDATION_REPORT = {
@@ -19,7 +20,7 @@ describe('validate ssp use case', () => {
       processSchematron: vi.fn().mockReturnValue(
         Promise.resolve({
           documentType: 'ssp',
-          validationReport: MOCK_SCHEMATRON_RESULT,
+          schematronResult: MOCK_SCHEMATRON_RESULT,
         }),
       ),
       fetch: vi.fn(),
@@ -32,6 +33,7 @@ describe('validate ssp use case', () => {
     const retVal = await oscalService.validateXml(mockXml);
     expect(retVal).toEqual({
       documentType: 'ssp',
+      svrlString: '<svrl />',
       validationReport: EXPECTED_VALIDATION_REPORT,
     });
   });
@@ -43,7 +45,7 @@ describe('validate ssp use case', () => {
         processSchematron: vi.fn().mockReturnValue(
           Promise.resolve({
             documentType: 'ssp',
-            validationReport: MOCK_SCHEMATRON_RESULT,
+            schematronResult: MOCK_SCHEMATRON_RESULT,
           }),
         ),
         fetch: vi.fn(),
@@ -58,6 +60,7 @@ describe('validate ssp use case', () => {
       expect(ctx.processSchematron).toHaveBeenCalledWith(mockXml);
       expect(retVal).toEqual({
         documentType: 'ssp',
+        svrlString: '<svrl />',
         validationReport: EXPECTED_VALIDATION_REPORT,
         xmlString: mockXml,
       });
@@ -85,7 +88,7 @@ describe('validate ssp url use case', () => {
         expect(xmlStr).toEqual(xmlString);
         return Promise.resolve({
           documentType: 'ssp',
-          validationReport: MOCK_SCHEMATRON_RESULT,
+          schematronResult: MOCK_SCHEMATRON_RESULT,
         });
       }),
     };
@@ -99,6 +102,7 @@ describe('validate ssp url use case', () => {
     );
     expect(retVal).toEqual({
       documentType: 'ssp',
+      svrlString: '<svrl />',
       validationReport: EXPECTED_VALIDATION_REPORT,
       xmlString,
     });
