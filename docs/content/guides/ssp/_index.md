@@ -3,9 +3,14 @@ title: System Security Plan (SSP)
 heading: FedRAMP OSCAL SSP Guide
 menu:
   primary:
-    name: SSP 
+    name: SSP
     parent: Guides
-    weight: 21
+    weight: 50
+suppresstopiclist: false
+sidenav:
+  focusrenderdepth: 1
+  inactiverenderdepth: 1
+  activerenderdepth: 1
 toc:
   enabled: true
 ---
