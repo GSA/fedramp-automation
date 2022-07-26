@@ -1,4 +1,5 @@
-import { promises as fs, write } from 'fs';
+import { execSync } from 'child_process';
+import { promises as fs } from 'fs';
 import { join } from 'path';
 import xmlFormatter from 'xml-formatter';
 
@@ -30,6 +31,7 @@ const GITHUB = {
   owner: process.env.OWNER || '18F',
   repository: process.env.REPOSITORY || 'fedramp-automation',
   branch: process.env.BRANCH || 'master',
+  commit: execSync('git rev-parse HEAD').toString(),
 };
 
 const controller = CommandLineController({

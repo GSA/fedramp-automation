@@ -131,7 +131,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                           </span>
                           <span className="margin-right-1">|</span>
                           <button
-                            className="usa-button usa-button--unstyled"
+                            className="usa-button usa-button--unstyled margin-right-1"
                             onClick={() =>
                               dispatch(
                                 assertionDocumentation.show({
@@ -143,7 +143,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                           >
                             View Examples
                           </button>
-                          {' / '}
+                          <span className="margin-right-1">|</span>
                           <a
                             href={check.referenceUrl}
                             className="text-primary text-underline"
@@ -196,7 +196,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                         {check.message}
                         <div>
                           <button
-                            className="usa-button usa-button--unstyled"
+                            className="usa-button usa-button--unstyled margin-right-1"
                             onClick={() =>
                               dispatch(
                                 assertionDocumentation.show({
@@ -208,7 +208,7 @@ export const ValidatorReport = ({ documentType }: Props) => {
                           >
                             View Examples
                           </button>
-                          {' / '}
+                          <span className="margin-right-1">|</span>
                           <a
                             href={check.referenceUrl}
                             className="text-primary text-underline"

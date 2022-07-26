@@ -26,6 +26,7 @@ export type ScenarioSummary = {
   assertionLabel: string;
   context: string;
   label: string;
+  referenceUrl: string;
 };
 
 export type SummariesByAssertionId = {
@@ -65,6 +66,7 @@ export const getXSpecScenarioSummaries = async (
       assertionLabel: assertion.label,
       context: context ? formatXml(context) : '',
       label,
+      referenceUrl: '',
     }));
 
     return finalScenarios;

@@ -4,7 +4,7 @@ import { getLineRangesForElement } from './xml';
 describe('xml domain', () => {
   describe('getLineRangesForElement', () => {
     it('returns line numbers for sch:assert', () => {
-      const lineNumbers = getLineRangesForElement(TEST_SCH, 'sch:assert');
+      const lineNumbers = getLineRangesForElement(TEST_SCH, 'sch:assert', 'id');
       expect(lineNumbers).toEqual({
         'has-import-ssp': {
           end: 12,

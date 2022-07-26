@@ -16,9 +16,9 @@ details > summary {
 }
 
 details > summary .learn-more::after {
-  content: '\22C1';
+  content: ' \22C1';
 }
 
 details[open] > summary .learn-more::after {
-  content: '\22C0';
+  content: ' \22C0';
 }

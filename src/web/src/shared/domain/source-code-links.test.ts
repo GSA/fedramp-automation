@@ -7,6 +7,7 @@ describe('source code link generator', () => {
     owner: '18F',
     branch: 'master',
     repository: 'fedramp-automation',
+    commit: 'master',
   };
   describe('getDocumentReferenceUrls', () => {
     it('works', () => {

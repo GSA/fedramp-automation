@@ -2,9 +2,13 @@ export type FormatXml = (xml: string) => string;
 export type IndentXml = (xml: string) => Promise<string>;
 
 type LineRange = { start: number; end: number } | null;
-export const getLineRangesForElement = (xml: string, element: string) => {
+export const getLineRangesForElement = (
+  xml: string,
+  element: string,
+  idAttributeName: string,
+) => {
   const regEx = new RegExp(
-    `<${element}[^]*?\\sid=\\"([^\\"]+)\\"[^]*?</${element}>`,
+    `<${element}[^]*?\\s${idAttributeName}=\\"([^\\"]+)\\"[^]*?</${element}>`,
     'g',
   );
   const matches = xml.matchAll(regEx);
@@ -12,8 +16,8 @@ export const getLineRangesForElement = (xml: string, element: string) => {
   const lineNumbers: Record<string, LineRange> = {};
   for (const match of matches) {
     const elementString = match[0];
-    const id = match[1];
-    lineNumbers[id] = linesOf(xml, elementString);
+    const idAttribute = match[1];
+    lineNumbers[idAttribute] = linesOf(xml, elementString);
   }
   return lineNumbers;
 };
