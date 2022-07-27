@@ -5,8 +5,9 @@ import { getXSpecScenarioSummaries } from './xspec';
 describe('xspec', () => {
   it('summary generation works', async () => {
     const result = await getXSpecScenarioSummaries(
+      { formatXml: (xml: string) => xml },
       MOCK_XSPEC,
-      (xml: string) => xml,
+      '',
     );
     expect(result).toEqual({
       'assertion-1': [

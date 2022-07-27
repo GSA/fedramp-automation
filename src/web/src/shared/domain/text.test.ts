@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { getLineRangesForElement } from './xml';
+import { getLineRangesForElement } from './text';
 
-describe('xml domain', () => {
+describe('text domain', () => {
   describe('getLineRangesForElement', () => {
     it('returns line numbers for sch:assert', () => {
       const lineNumbers = getLineRangesForElement(TEST_SCH, 'sch:assert', 'id');

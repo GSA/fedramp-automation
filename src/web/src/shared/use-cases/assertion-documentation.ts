@@ -16,7 +16,11 @@ export const createXSpecScenarioSummaryWriter =
   (ctx: Context) => async (xspecPath: string, summaryPath: string) => {
     const xspecString = await ctx.readStringFile(xspecPath);
     const xspec = ctx.parseXspec(xspecString);
-    return getXSpecScenarioSummaries(xspec, ctx.formatXml).then(scenarios => {
+    return getXSpecScenarioSummaries(
+      { formatXml: ctx.formatXml },
+      xspec,
+      xspecString,
+    ).then(scenarios => {
       ctx.writeStringFile(summaryPath, JSON.stringify(scenarios));
     });
   };

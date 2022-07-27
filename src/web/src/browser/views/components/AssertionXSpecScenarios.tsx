@@ -1,16 +1,19 @@
 import { selectVisibleScenarioSummaries } from '@asap/browser/presenter/state/selectors';
-import type { ScenarioSummary } from '@asap/shared/domain/xspec';
-import { useAppContext, useSelector } from '../context';
+import { useSelector } from '../context';
 import { CodeViewer } from './CodeViewer';
 
 export const AssertionXSpecScenarios = () => {
   const scenarioSummaries = useSelector(selectVisibleScenarioSummaries);
-
+  console.log(scenarioSummaries);
   return (
     <ul>
       {scenarioSummaries.map((scenario, index) => (
         <li key={index}>
-          {scenario.summary.label}{' '}
+          {scenario.summary.scenarios.map((s, index) => (
+            <a key={index} href={s.url}>
+              {s.label}
+            </a>
+          ))}
           <span className="text-bold">{scenario.summary.assertionLabel}</span>{' '}
           <span>
             <a href={scenario.referenceUrl} target="_blank" rel="noopener">

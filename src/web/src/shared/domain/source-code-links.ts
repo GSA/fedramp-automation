@@ -4,7 +4,7 @@ import {
 } from '../project-config';
 import { getBlobFileUrl, GithubRepository } from './github';
 import { OscalDocumentKey } from './oscal';
-import { getLineRangesForElement } from './xml';
+import { getLineRangesForElement } from './text';
 
 export const getDocumentReferenceUrls = ({
   github,
