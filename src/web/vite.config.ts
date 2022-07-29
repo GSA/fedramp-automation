@@ -9,7 +9,7 @@ const GITHUB = {
   owner: process.env.OWNER || '18F',
   repository: process.env.REPOSITORY || 'fedramp-automation',
   branch: process.env.BRANCH || 'master',
-  commit: execSync('git rev-parse HEAD').toString(),
+  commit: execSync('git rev-parse HEAD').toString().trim(),
 };
 
 const DEPLOYMENT_ID =

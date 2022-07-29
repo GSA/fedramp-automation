@@ -32,15 +32,9 @@ export const CommandLineController = (ctx: CommandLineContext) => {
       );
     });
   cli
-    .command('parse-schematron <input-sch-xml-file> <output-sch-json-file>')
-    .description('parse Schematron XML and output JSON summary')
-    .action(async (inputSchXmlFile, outputSchJsonFile) => {
-      ctx.useCases.schematronSummary.generate(
-        inputSchXmlFile,
-        outputSchJsonFile,
-      );
-      ctx.console.log(`Wrote ${outputSchJsonFile}`);
-    });
+    .command('generate-schematron-summaries')
+    .description('parse all Schematron XML and outputs JSON summaries')
+    .action(() => ctx.useCases.schematronSummary.generateAllSummaries());
   cli
     .command('create-assertion-view <output-file-path> <schematron-xml-path>')
     .description(

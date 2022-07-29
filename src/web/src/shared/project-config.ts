@@ -43,6 +43,14 @@ export const SCHEMATRON_LOCAL_PATHS: Record<OscalDocumentKey, string> = {
   poam: join(REPOSITORY_ROOT, SCHEMATRON_REPOSITORY_PATHS.poam),
 };
 
+export const SCHEMATRON_SUMMARY_LOCAL_PATHS: Record<OscalDocumentKey, string> =
+  {
+    ssp: join(REPOSITORY_ROOT, './src/web/build/ssp.json'),
+    sar: join(REPOSITORY_ROOT, './src/web/build/sar.json'),
+    sap: join(REPOSITORY_ROOT, './src/web/build/sap.json'),
+    poam: join(REPOSITORY_ROOT, './src/web/build/poam.json'),
+  };
+
 export const XSPEC_REPOSITORY_PATHS: Record<OscalDocumentKey, `/${string}`> = {
   ssp: '/src/validations/test/rules/ssp.xspec',
   sap: '/src/validations/test/rules/sap.xspec',

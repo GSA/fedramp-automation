@@ -2,6 +2,7 @@
  * Core Schematron logic used in the application.
  */
 
+import { getBlobFileUrl, GithubRepository } from './github';
 import type { OscalDocumentKey } from './oscal';
 import { LineRange, linesOf } from './text';
 
@@ -75,4 +76,23 @@ export const getSchematronAssertLineRanges = (xml: string) => {
     lineNumbers[idAttribute] = linesOf(xml, elementString);
   }
   return lineNumbers;
+};
+
+export const generateSchematronSummary = (
+  schXml: string,
+  asserts: SchematronAssert[],
+  github: GithubRepository,
+  repositoryPath: `/${string}`,
+) => {
+  const lineRanges = getSchematronAssertLineRanges(schXml);
+  return asserts.map(assert => {
+    return {
+      ...assert,
+      referenceUrl: getBlobFileUrl(
+        github,
+        repositoryPath,
+        lineRanges[assert.id] || undefined,
+      ),
+    };
+  });
 };

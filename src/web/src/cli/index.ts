@@ -31,7 +31,7 @@ const GITHUB = {
   owner: process.env.OWNER || '18F',
   repository: process.env.REPOSITORY || 'fedramp-automation',
   branch: process.env.BRANCH || 'master',
-  commit: execSync('git rev-parse HEAD').toString(),
+  commit: execSync('git rev-parse HEAD').toString().trim(),
 };
 
 const controller = CommandLineController({
@@ -64,6 +64,8 @@ const controller = CommandLineController({
       SchematronParser({ SaxonJS }),
       readStringFile,
       writeStringFile,
+      GITHUB,
+      console,
     ),
     writeAssertionViews: WriteAssertionViews({
       paths: {
