@@ -1,8 +1,8 @@
-import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 import type {
   SchematronAssert,
   FailedAssert,
-} from '@asap/shared/use-cases/schematron';
+} from '@asap/shared/domain/schematron';
+import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 
 import * as state from '../state/schematron-machine';
 import { FailedAssertionMap } from '../state/validation-results-machine';
@@ -36,7 +36,6 @@ export const getReportGroups = (
   assertionView: AssertionView,
   schematronAssertions: SchematronAssert[],
   failedAssertionMap: FailedAssertionMap | null,
-  assertionReferenceUrls: Record<string, string>,
 ): SchematronReportGroups => {
   const assertionsById = getAssertionsById(schematronAssertions);
   return assertionView.groups
@@ -65,7 +64,6 @@ export const getReportGroups = (
                 ? cancelIcon
                 : checkCircleIcon,
             fired,
-            referenceUrl: assertionReferenceUrls[assert.id],
           };
         })
         .filter(

@@ -1,20 +1,65 @@
+/**
+ * Core Schematron logic used in the application.
+ */
+
+import type { OscalDocumentKey } from './oscal';
 import { LineRange, linesOf } from './text';
 
-const ElementRegExp = (element: string, idAttributeName: string) =>
-  new RegExp(
-    `<${element}[^]*?\\s${idAttributeName}=\\"([^\\"]+)\\"[^]*?</${element}>`,
-    'g',
-  );
-
-const ScenarioRegExp = (scenarioLabels: string[]) => {
-  const element = 'x:scenario';
-  const idAttributeName = 'label';
-  const prefix = scenarioLabels
-    .map(label => `<${element}[^]*?\\s${idAttributeName}=\\"${label}\\"`)
-    .join('');
-  const suffix = scenarioLabels.map(label => `[^]*?</${element}>`).join('');
-  return new RegExp(`${prefix}${suffix}`, 'g');
+export type FailedAssert = {
+  uniqueId: string;
+  id: string;
+  location: string;
+  role?: string;
+  see?: string;
+  test: string;
+  text: string;
+  diagnosticReferences: string[];
 };
+export type SuccessfulReport = {
+  uniqueId: string;
+  id: string;
+  location: string;
+  role?: string;
+  test: string;
+  text: string;
+};
+export type SchematronResult = {
+  failedAsserts: FailedAssert[];
+  svrlString: string;
+  successfulReports: SuccessfulReport[];
+};
+export type ValidationReport = {
+  title: string;
+  failedAsserts: FailedAssert[];
+};
+
+export type SchematronJSONToXMLProcessor = (
+  jsonString: string,
+) => Promise<string>;
+
+export type SchematronProcessor = (oscalXmlString: string) => Promise<{
+  documentType: OscalDocumentKey;
+  schematronResult: SchematronResult;
+}>;
+
+export type SchematronAssert = {
+  id: string;
+  message: string;
+  role: string;
+  referenceUrl: string;
+};
+
+export type ParseSchematronAssertions = (
+  schematron: string,
+) => SchematronAssert[];
+export type GetSchematronAssertions = () => Promise<{
+  poam: SchematronAssert[];
+  sap: SchematronAssert[];
+  sar: SchematronAssert[];
+  ssp: SchematronAssert[];
+}>;
+
+export class SchematronSummaryGenerator {}
 
 export const getSchematronAssertLineRanges = (xml: string) => {
   const regExp = new RegExp(

@@ -2,18 +2,16 @@ import { Command } from 'commander';
 
 import type { XSpecScenarioSummaryWriter } from '@asap/shared/use-cases/assertion-documentation';
 import type { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
-import { SourceCodeLinkDocumentGenerator } from '@asap/shared/use-cases/generate-source-code-link-documents';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
-import type { ParseSchematronAssertions } from '@asap/shared/use-cases/schematron';
+import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
 
 type CommandLineContext = {
   console: Console;
   readStringFile: (fileName: string) => Promise<string>;
   writeStringFile: (fileName: string, contents: string) => Promise<void>;
   useCases: {
-    sourceCodeLinkDocumentGenerator: SourceCodeLinkDocumentGenerator;
-    parseSchematron: ParseSchematronAssertions;
     oscalService: OscalService;
+    schematronSummary: SchematronSummary;
     writeAssertionViews: WriteAssertionViews;
     writeXSpecScenarioSummaries: XSpecScenarioSummaryWriter;
   };
@@ -35,13 +33,11 @@ export const CommandLineController = (ctx: CommandLineContext) => {
     });
   cli
     .command('parse-schematron <input-sch-xml-file> <output-sch-json-file>')
-    .description('parse Schematron XML and output JSON version')
+    .description('parse Schematron XML and output JSON summary')
     .action(async (inputSchXmlFile, outputSchJsonFile) => {
-      const xmlString = await ctx.readStringFile(inputSchXmlFile);
-      const schematronObject = await ctx.useCases.parseSchematron(xmlString);
-      await ctx.writeStringFile(
+      ctx.useCases.schematronSummary.generate(
+        inputSchXmlFile,
         outputSchJsonFile,
-        JSON.stringify(schematronObject),
       );
       ctx.console.log(`Wrote ${outputSchJsonFile}`);
     });
@@ -65,15 +61,6 @@ export const CommandLineController = (ctx: CommandLineContext) => {
     .action(async (xspecPath, summaryPath) => {
       await ctx.useCases.writeXSpecScenarioSummaries(xspecPath, summaryPath);
       ctx.console.log(`Wrote assertion documentation to filesystem`);
-    });
-  cli
-    .command('create-reference-url-documents <target-path>')
-    .description('create reference URL documents in the provided target path')
-    .action(async targetPath => {
-      await ctx.useCases.sourceCodeLinkDocumentGenerator.createDocument(
-        targetPath,
-      );
-      ctx.console.log(`Wrote reference URL documents to filesystem`);
     });
   return cli;
 };

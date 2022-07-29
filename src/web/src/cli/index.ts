@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import { promises as fs } from 'fs';
+import { promises as fs, write } from 'fs';
 import { join } from 'path';
 import xmlFormatter from 'xml-formatter';
 
@@ -20,7 +20,7 @@ import { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
 
 import { CommandLineController } from './cli-controller';
 import { OscalService } from '@asap/shared/use-cases/oscal';
-import { SourceCodeLinkDocumentGenerator } from '@asap/shared/use-cases/generate-source-code-link-documents';
+import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
 
 const readStringFile = async (fileName: string) =>
   fs.readFile(fileName, 'utf-8');
@@ -39,14 +39,6 @@ const controller = CommandLineController({
   readStringFile,
   writeStringFile,
   useCases: {
-    parseSchematron: SchematronParser({ SaxonJS }),
-    writeXSpecScenarioSummaries: createXSpecScenarioSummaryWriter({
-      formatXml: (xml: string) => highlightXML(xmlFormatter(xml)),
-      github: GITHUB,
-      parseXspec: SaxonJsXSpecParser({ SaxonJS }),
-      readStringFile,
-      writeStringFile,
-    }),
     oscalService: new OscalService(
       SaxonJsJsonOscalToXmlProcessor({
         sefUrl: `file://${join(
@@ -68,6 +60,11 @@ const controller = CommandLineController({
       }),
       null as unknown as typeof fetch,
     ),
+    schematronSummary: new SchematronSummary(
+      SchematronParser({ SaxonJS }),
+      readStringFile,
+      writeStringFile,
+    ),
     writeAssertionViews: WriteAssertionViews({
       paths: {
         assertionViewSEFPath: join(
@@ -79,11 +76,13 @@ const controller = CommandLineController({
       readStringFile,
       writeStringFile,
     }),
-    sourceCodeLinkDocumentGenerator: new SourceCodeLinkDocumentGenerator(
-      GITHUB,
+    writeXSpecScenarioSummaries: createXSpecScenarioSummaryWriter({
+      formatXml: (xml: string) => highlightXML(xmlFormatter(xml)),
+      github: GITHUB,
+      parseXspec: SaxonJsXSpecParser({ SaxonJS }),
       readStringFile,
       writeStringFile,
-    ),
+    }),
   },
 });
 

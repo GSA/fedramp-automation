@@ -9,7 +9,6 @@
     "build:json:cli:assertion-views:sap": "node bin/index.cjs create-assertion-view ./build/assertion-views-sap.json ../validations/rules/sap.sch",
     "build:json:cli:assertion-views:sar": "node bin/index.cjs create-assertion-view ./build/assertion-views-sar.json ../validations/rules/sar.sch",
     "build:json:cli:assertion-views:ssp": "node bin/index.cjs create-assertion-view ./build/assertion-views-ssp.json ../validations/rules/ssp.sch",
-    "build:json:cli:reference-urls": "node bin/index.cjs create-reference-url-documents ./build",
     "build:json:cli:schematron": "run-s build:json:cli:schematron:*",
     "build:json:cli:schematron:poam": "node bin/index.cjs parse-schematron ../validations/rules/poam.sch ./build/poam.json",
     "build:json:cli:schematron:sap": "node bin/index.cjs parse-schematron ../validations/rules/sap.sch ./build/sap.json",

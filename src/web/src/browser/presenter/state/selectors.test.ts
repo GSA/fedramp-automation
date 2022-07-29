@@ -19,13 +19,10 @@ describe('selectors', () => {
             },
           ],
           schematronAsserts: [
-            { id: '0', message: 'msg0', role: 'error' },
-            { id: '1', message: 'msg1', role: 'error' },
-            { id: '2', message: 'msg2', role: 'error' },
+            { id: '0', message: 'msg0', role: 'error', referenceUrl: '#TODO' },
+            { id: '1', message: 'msg1', role: 'error', referenceUrl: '#TODO' },
+            { id: '2', message: 'msg2', role: 'error', referenceUrl: '#TODO' },
           ],
-          documentReferenceUrls: {
-            assertions: {},
-          },
         },
         {
           passStatus: 'all',
@@ -89,9 +86,6 @@ describe('selectors', () => {
         {
           assertionViews: [],
           schematronAsserts: [],
-          documentReferenceUrls: {
-            assertions: {},
-          },
         },
         {
           passStatus: 'all',

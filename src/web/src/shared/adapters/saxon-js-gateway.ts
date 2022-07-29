@@ -6,7 +6,7 @@ import type {
   SchematronProcessor,
   SchematronResult,
   SuccessfulReport,
-} from '@asap/shared/use-cases/schematron';
+} from '@asap/shared/domain/schematron';
 
 import { getDocumentTypeForRootNode, OscalDocumentKey } from '../domain/oscal';
 import type { ParseXSpec, XSpecScenario } from '../domain/xspec';

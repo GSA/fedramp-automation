@@ -204,14 +204,11 @@ export const selectSchematronReport = memoize(
           failedAssertionMap,
         );
 
-        const assertionReferenceUrls = config.documentReferenceUrls.assertions;
-
         return {
           groups: getReportGroups(
             assertionView,
             schematronChecksFiltered,
             failedAssertionMap,
-            assertionReferenceUrls,
           ),
           assertionCount: schematronChecksFiltered.length,
         };

@@ -4,7 +4,7 @@ import type {
   SchematronProcessor,
   SchematronResult,
   ValidationReport,
-} from './schematron';
+} from '../domain/schematron';
 
 type Fetch = typeof fetch;
 

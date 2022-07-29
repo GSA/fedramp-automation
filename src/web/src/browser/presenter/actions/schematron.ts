@@ -1,4 +1,3 @@
-import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import type { ActionContext } from '..';
@@ -8,8 +7,7 @@ export const initialize = (config: ActionContext) => {
   Promise.all([
     config.effects.useCases.getAssertionViews(),
     config.effects.useCases.getSchematronAssertions(),
-    config.effects.useCases.getDocumentReferenceUrls(),
-  ]).then(([assertionViews, schematronAsserts, documentReferenceUrls]) => {
+  ]).then(([assertionViews, schematronAsserts]) => {
     config.dispatch({
       machine: 'oscalDocuments.poam',
       type: 'CONFIG_LOADED',
@@ -17,7 +15,6 @@ export const initialize = (config: ActionContext) => {
         config: {
           assertionViews: assertionViews.poam,
           schematronAsserts: schematronAsserts.poam,
-          documentReferenceUrls: documentReferenceUrls.poam,
         },
       },
     });
@@ -28,7 +25,6 @@ export const initialize = (config: ActionContext) => {
         config: {
           assertionViews: assertionViews.sap,
           schematronAsserts: schematronAsserts.sap,
-          documentReferenceUrls: documentReferenceUrls.sap,
         },
       },
     });
@@ -39,7 +35,6 @@ export const initialize = (config: ActionContext) => {
         config: {
           assertionViews: assertionViews.sar,
           schematronAsserts: schematronAsserts.sar,
-          documentReferenceUrls: documentReferenceUrls.sar,
         },
       },
     });
@@ -50,7 +45,6 @@ export const initialize = (config: ActionContext) => {
         config: {
           assertionViews: assertionViews.ssp,
           schematronAsserts: schematronAsserts.ssp,
-          documentReferenceUrls: documentReferenceUrls.ssp,
         },
       },
     });

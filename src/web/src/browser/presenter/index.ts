@@ -1,20 +1,15 @@
+import type { GetSchematronAssertions } from '@asap/shared/domain/schematron';
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
-import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron';
 
 import type { Location } from './state/router';
 import { State, StateTransition, initialState } from './state';
-import { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import { DocumentReferenceUrls } from '@asap/shared/domain/source-code-links';
 
 export type UseCases = {
   annotateXML: AnnotateXMLUseCase;
   getAssertionViews: GetAssertionViews;
-  getDocumentReferenceUrls: () => Promise<
-    Record<OscalDocumentKey, DocumentReferenceUrls>
-  >;
   getSchematronAssertions: GetSchematronAssertions;
   getXSpecScenarioSummaries: GetXSpecScenarioSummaries;
   oscalService: OscalService;

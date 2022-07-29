@@ -97,28 +97,6 @@ export const runBrowserContext = ({
             ssp: responses[3],
           };
         },
-        getDocumentReferenceUrls: async () => {
-          const responses = await Promise.all([
-            fetch(`${rulesUrl}reference-urls-poam.json`).then(response =>
-              response.json(),
-            ),
-            fetch(`${rulesUrl}reference-urls-sap.json`).then(response =>
-              response.json(),
-            ),
-            fetch(`${rulesUrl}reference-urls-sar.json`).then(response =>
-              response.json(),
-            ),
-            fetch(`${rulesUrl}reference-urls-ssp.json`).then(response =>
-              response.json(),
-            ),
-          ]);
-          return {
-            poam: responses[0],
-            sap: responses[1],
-            sar: responses[2],
-            ssp: responses[3],
-          };
-        },
         getSchematronAssertions: async () => {
           const responses = await Promise.all([
             fetch(`${rulesUrl}poam.json`).then(response => response.json()),

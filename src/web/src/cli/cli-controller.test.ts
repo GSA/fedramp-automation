@@ -1,9 +1,10 @@
 import { it, describe, expect, vi } from 'vitest';
-
-import type { OscalService } from '@asap/shared/use-cases/oscal';
 import { mock } from 'vitest-mock-extended';
-import { CommandLineController } from './cli-controller';
+
 import { SourceCodeLinkDocumentGenerator } from '@asap/shared/use-cases/generate-source-code-link-documents';
+import type { OscalService } from '@asap/shared/use-cases/oscal';
+import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
+import { CommandLineController } from './cli-controller';
 
 describe('command-line controller', () => {
   it('calls validate schematron', async () => {
@@ -15,7 +16,6 @@ describe('command-line controller', () => {
       readStringFile: vi.fn().mockReturnValue(Promise.resolve(mockXml)),
       writeStringFile: vi.fn().mockReturnValue(Promise.resolve()),
       useCases: {
-        parseSchematron: vi.fn(),
         oscalService: mock<OscalService>({
           validateXmlOrJson: (xmlString: string) =>
             Promise.resolve({
@@ -28,6 +28,7 @@ describe('command-line controller', () => {
               xmlString,
             }),
         }),
+        schematronSummary: mock<SchematronSummary>(),
         sourceCodeLinkDocumentGenerator:
           mock<SourceCodeLinkDocumentGenerator>(),
         writeAssertionViews: vi.fn(),
