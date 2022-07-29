@@ -42,6 +42,7 @@ const controller = CommandLineController({
     parseSchematron: SchematronParser({ SaxonJS }),
     writeXSpecScenarioSummaries: createXSpecScenarioSummaryWriter({
       formatXml: (xml: string) => highlightXML(xmlFormatter(xml)),
+      github: GITHUB,
       parseXspec: SaxonJsXSpecParser({ SaxonJS }),
       readStringFile,
       writeStringFile,

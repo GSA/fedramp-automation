@@ -1,102 +1,176 @@
+import SaxonJS from 'saxon-js';
+
 import { it, describe, expect } from 'vitest';
+import { SaxonJsXSpecParser } from '../adapters/saxon-js-gateway';
+import { GithubRepository } from './github';
 
 import { getXSpecScenarioSummaries } from './xspec';
 
 describe('xspec', () => {
   it('summary generation works', async () => {
-    const result = await getXSpecScenarioSummaries(
-      { formatXml: (xml: string) => xml },
-      MOCK_XSPEC,
-      '',
+    const mockXSpec = SaxonJsXSpecParser({ SaxonJS })(MOCK_XSPEC_XML);
+    const github: GithubRepository = {
+      owner: '18F',
+      repository: 'fedramp-automation',
+      branch: 'master',
+      commit: 'commit-hash',
+    };
+    const summaries = await getXSpecScenarioSummaries(
+      { formatXml: xml => xml },
+      github,
+      mockXSpec,
+      MOCK_XSPEC_XML,
     );
-    expect(result).toEqual({
-      'assertion-1': [
+    expect(summaries).toEqual({
+      'document-is-OSCAL-document': [
         {
-          assertionId: 'assertion-1',
-          assertionLabel: 'assertion-1 label',
-          context: '<child1></child1>',
-          label: 'parent 1 middle parent child 1',
+          assertionId: 'document-is-OSCAL-document',
+          assertionLabel: 'that is correct',
+          context: `<plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>`,
+          expectAssert: false,
+          referenceUrl: '#TODO',
+          scenarios: [
+            {
+              label: 'sanity-checks',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L7-L55',
+            },
+            {
+              label: 'when the root element',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L9-L54',
+            },
+            {
+              label: 'is in OSCAL 1.0 namespace',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L11-L20',
+            },
+          ],
+        },
+        {
+          assertionId: 'document-is-OSCAL-document',
+          assertionLabel: 'that is an error',
+          context: `<plan-of-action-and-milestones>
+                        <!-- note lack of namespace -->
+                    </plan-of-action-and-milestones>`,
+          expectAssert: true,
+          referenceUrl: '#TODO',
+          scenarios: [
+            {
+              label: 'sanity-checks',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L7-L55',
+            },
+            {
+              label: 'when the root element',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L9-L54',
+            },
+            {
+              label: 'is not in OSCAL 1.0 namespace',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L21-L31',
+            },
+          ],
         },
       ],
-      'assertion-2': [
+      'document-is-plan-of-action-and-milestones': [
         {
-          assertionId: 'assertion-2',
-          assertionLabel: 'assertion-2 label',
-          context: '<child2></child2>',
-          label: 'parent 1 middle parent child 2',
+          assertionId: 'document-is-plan-of-action-and-milestones',
+          assertionLabel: 'that is correct',
+          context: `<plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>`,
+          expectAssert: false,
+          referenceUrl: '#TODO',
+          scenarios: [
+            {
+              label: 'sanity-checks',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L7-L55',
+            },
+            {
+              label: 'when the root element',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L9-L54',
+            },
+            {
+              label: 'is plan-of-action-and-milestones',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L32-L41',
+            },
+          ],
         },
-      ],
-      'assertion-3': [
         {
-          assertionId: 'assertion-3',
-          assertionLabel: 'assertion-3 label',
-          context: '<child3></child3>',
-          label: 'child 3',
-        },
-      ],
-      'assertion-4': [
-        {
-          assertionId: 'assertion-4',
-          assertionLabel: 'assertion-4 label',
-          context: '<middle-parent-context></middle-parent-context>',
-          label: 'parent 1 middle parent child 4 no context',
+          assertionId: 'document-is-plan-of-action-and-milestones',
+          assertionLabel: 'that is an error',
+          context: `<not-a-plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <!-- not the expected element -->
+                    </not-a-plan-of-action-and-milestones>`,
+          expectAssert: true,
+          referenceUrl: '#TODO',
+          scenarios: [
+            {
+              label: 'sanity-checks',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L7-L55',
+            },
+            {
+              label: 'when the root element',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L9-L54',
+            },
+            {
+              label: 'is not a plan-of-action-and-milestones',
+              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L42-L53',
+            },
+          ],
         },
       ],
     });
   });
 });
 
-const MOCK_XSPEC = {
-  scenarios: [
-    {
-      label: 'parent 1',
-      scenarios: [
-        {
-          label: 'middle parent',
-          context: '<middle-parent-context></middle-parent-context>',
-          scenarios: [
-            {
-              label: 'child 1',
-              context: '<child1></child1>',
-              expectAssert: [
-                {
-                  id: 'assertion-1',
-                  label: 'assertion-1 label',
-                },
-              ],
-            },
-            {
-              label: 'child 2',
-              context: '<child2></child2>',
-              expectNotAssert: [
-                {
-                  id: 'assertion-2',
-                  label: 'assertion-2 label',
-                },
-              ],
-            },
-            {
-              label: 'child 4 no context',
-              expectNotAssert: [
-                {
-                  id: 'assertion-4',
-                  label: 'assertion-4 label',
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: 'child 3',
-      context: '<child3></child3>',
-      expectNotAssert: [
-        {
-          id: 'assertion-3',
-          label: 'assertion-3 label',
-        },
-      ],
-    },
-  ],
-};
+const MOCK_XSPEC_XML = `<?xml version="1.0" encoding="UTF-8"?>
+<x:description
+    schematron="../../rules/poam.sch"
+    xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+    xmlns:x="http://www.jenitennison.com/xslt/xspec">
+    <x:scenario
+        label="sanity-checks">
+        <x:scenario
+            label="when the root element">
+            <x:scenario
+                label="is in OSCAL 1.0 namespace">
+                <x:context>
+                    <plan-of-action-and-milestones
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                </x:context>
+                <x:expect-not-assert
+                    id="document-is-OSCAL-document"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is not in OSCAL 1.0 namespace">
+                <x:context>
+                    <plan-of-action-and-milestones>
+                        <!-- note lack of namespace -->
+                    </plan-of-action-and-milestones>
+                </x:context>
+                <x:expect-assert
+                    id="document-is-OSCAL-document"
+                    label="that is an error" />
+            </x:scenario>
+            <x:scenario
+                label="is plan-of-action-and-milestones">
+                <x:context>
+                    <plan-of-action-and-milestones
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
+                </x:context>
+                <x:expect-not-assert
+                    id="document-is-plan-of-action-and-milestones"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="is not a plan-of-action-and-milestones">
+                <x:context>
+                    <not-a-plan-of-action-and-milestones
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <!-- not the expected element -->
+                    </not-a-plan-of-action-and-milestones>
+                </x:context>
+                <x:expect-assert
+                    id="document-is-plan-of-action-and-milestones"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+    </x:scenario>
+</x:description>`;

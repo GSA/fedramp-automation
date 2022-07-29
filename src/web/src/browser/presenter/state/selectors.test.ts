@@ -25,7 +25,6 @@ describe('selectors', () => {
           ],
           documentReferenceUrls: {
             assertions: {},
-            xspecScenarios: {},
           },
         },
         {
@@ -92,7 +91,6 @@ describe('selectors', () => {
           schematronAsserts: [],
           documentReferenceUrls: {
             assertions: {},
-            xspecScenarios: {},
           },
         },
         {

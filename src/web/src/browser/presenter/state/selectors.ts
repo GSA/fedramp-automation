@@ -230,15 +230,7 @@ export const selectVisibleScenarioSummaries = createSelector(
       }
       return assertionDocumentation.xspecScenarioSummaries[
         visibleAssertion.documentType
-      ][visibleAssertion.assertionId].map(summary => {
-        const config = oscalDocuments[visibleAssertion.documentType].config;
-        const xspecScenarios = config.documentReferenceUrls.xspecScenarios;
-        const referenceUrl = xspecScenarios[summary.assertionId];
-        return {
-          referenceUrl,
-          summary,
-        };
-      });
+      ][visibleAssertion.assertionId];
     } else {
       return [];
     }

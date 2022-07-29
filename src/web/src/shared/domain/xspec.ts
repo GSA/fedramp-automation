@@ -1,5 +1,7 @@
+import { linesOf } from './text';
 import { groupBy } from '../util';
 import type { FormatXml } from './xml';
+import { getBlobFileUrl, GithubRepository } from './github';
 
 type XspecAssert = {
   id: string;
@@ -24,8 +26,9 @@ export type ParseXSpec = (xmlString: string) => XSpec;
 export type ScenarioSummary = {
   assertionId: string;
   assertionLabel: string;
-  expectAssert: boolean;
   context: string;
+  expectAssert: boolean;
+  referenceUrl: string;
   scenarios: { url: string; label: string }[];
 };
 
@@ -35,6 +38,7 @@ export type SummariesByAssertionId = {
 
 export const getXSpecScenarioSummaries = async (
   ctx: { formatXml: FormatXml },
+  github: GithubRepository,
   xspec: XSpec,
   xspecString: string,
 ): Promise<SummariesByAssertionId> => {
@@ -48,10 +52,12 @@ export const getXSpecScenarioSummaries = async (
       ...parentScenarios,
       {
         label: scenario.label,
-        url: getReferenceUrlForScenario(xspecString, [
-          ...parentScenarios.map(s => s.label),
-          scenario.label,
-        ]),
+        url: getReferenceUrlForScenario(
+          github,
+          xspecString,
+          scenario,
+          parentScenarios.map(s => s.label),
+        ),
       },
     ];
 
@@ -80,8 +86,9 @@ export const getXSpecScenarioSummaries = async (
     const finalScenarios = assertions.map(assertion => ({
       assertionId: assertion.id,
       assertionLabel: assertion.label,
-      expectAssert: assertion.expectAssert,
       context: context ? ctx.formatXml(context) : '',
+      expectAssert: assertion.expectAssert,
+      referenceUrl: '#TODO',
       scenarios,
     }));
 
@@ -94,6 +101,56 @@ export const getXSpecScenarioSummaries = async (
   return groupBy(summaries, summary => summary.assertionId);
 };
 
-const getReferenceUrlForScenario = (xspec: string, labels: string[]) => {
-  return '';
+export const getReferenceUrlForScenario = (
+  github: GithubRepository,
+  xspec: string,
+  scenario: XSpecScenario,
+  parentLabels: string[],
+) => {
+  const lineRange = getXspecScenarioLineRange(xspec, scenario, parentLabels);
+  if (lineRange === null) {
+    return getBlobFileUrl(github, '/test');
+  }
+  return getBlobFileUrl(github, '/test', {
+    start: lineRange.start + 1,
+    end: lineRange.end + 1,
+  });
+};
+
+const countClosingScenarios = (scenario: XSpecScenario): number => {
+  const counts =
+    scenario.scenarios?.flatMap(scenario => countClosingScenarios(scenario)) ||
+    [];
+  return counts.reduce((a, b) => a + b, 1);
+};
+
+const createScenarioRegExp = (
+  parentLabels: string[],
+  scenario: XSpecScenario,
+) => {
+  const prefix = (label: string) =>
+    `<x:scenario[\\s]+label=\\"${label}\\"[^>]*>[^]+?`;
+  const suffix = '[^]+?</x:scenario>'.repeat(countClosingScenarios(scenario));
+  const regExp = `(?<=${parentLabels.map(prefix).join('')})(${prefix(
+    scenario.label,
+  )}.*?${suffix})`;
+  return new RegExp(regExp, 'g');
+};
+
+export const getXspecScenarioLineRange = (
+  xml: string,
+  scenario: XSpecScenario,
+  parentLabels: string[],
+) => {
+  const regExp = createScenarioRegExp(parentLabels, scenario);
+  const match = xml.match(regExp);
+  if (match === null) {
+    console.error(
+      `Scenario XML not found: ${[...parentLabels, scenario.label].join(' ')}`,
+    );
+    return null;
+  }
+  const elementString = match[0];
+  const lines = linesOf(xml, elementString);
+  return lines;
 };

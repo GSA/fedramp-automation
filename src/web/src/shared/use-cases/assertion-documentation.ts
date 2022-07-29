@@ -1,12 +1,14 @@
+import type { FormatXml } from '@asap/shared/domain/xml';
+import { GithubRepository } from '@asap/shared/domain/github';
 import {
   getXSpecScenarioSummaries,
   SummariesByAssertionId,
   XSpec,
-} from '../domain/xspec';
-import type { FormatXml } from '@asap/shared/domain/xml';
+} from '@asap/shared/domain/xspec';
 
 type Context = {
   formatXml: FormatXml;
+  github: GithubRepository;
   parseXspec: (xspec: string) => XSpec;
   readStringFile: (path: string) => Promise<string>;
   writeStringFile: (path: string, data: string) => void;
@@ -18,6 +20,7 @@ export const createXSpecScenarioSummaryWriter =
     const xspec = ctx.parseXspec(xspecString);
     return getXSpecScenarioSummaries(
       { formatXml: ctx.formatXml },
+      ctx.github,
       xspec,
       xspecString,
     ).then(scenarios => {

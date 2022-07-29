@@ -1,24 +1,27 @@
 import { describe, expect, it } from 'vitest';
-import { linesOf } from './text';
+import { getSchematronAssertLineRanges } from './schematron';
 
-describe('text domain', () => {
-  describe('linesOf', () => {
+describe('schematron', () => {
+  describe('getSchematronAssertLineRanges', () => {
     it('returns line numbers for sch:assert', () => {
-      const lineNumbers = linesOf(
-        TEST_SCH,
-        `<sch:assert
-                diagnostics="has-web-applications-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.5"
-                fedramp:specific="true()"
-                id="has-web-applications"
-                role="error"
-                see="https://github.com/GSA/fedramp-automation-guides/issues/31"
-                test="count($web-apps[not(. = $sap-web-tasks)]) = 0"
-                unit:override-xspec="both">For every web interface to be tested there must be a matching task entry.</sch:assert>`,
-      );
+      const lineNumbers = getSchematronAssertLineRanges(TEST_SCH);
       expect(lineNumbers).toEqual({
-        end: 31,
-        start: 23,
+        'has-import-ssp': {
+          end: 12,
+          start: 7,
+        },
+        'has-import-ssp-href': {
+          end: 47,
+          start: 42,
+        },
+        'has-location-assessment-subject': {
+          end: 38,
+          start: 33,
+        },
+        'has-web-applications': {
+          end: 31,
+          start: 23,
+        },
       });
     });
   });

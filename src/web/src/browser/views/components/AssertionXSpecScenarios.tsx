@@ -7,20 +7,20 @@ export const AssertionXSpecScenarios = () => {
   console.log(scenarioSummaries);
   return (
     <ul>
-      {scenarioSummaries.map((scenario, index) => (
+      {scenarioSummaries.map((summary, index) => (
         <li key={index}>
-          {scenario.summary.scenarios.map((s, index) => (
+          {summary.scenarios.map((s, index) => (
             <a key={index} href={s.url}>
               {s.label}
             </a>
           ))}
-          <span className="text-bold">{scenario.summary.assertionLabel}</span>{' '}
+          <span className="text-bold">{summary.assertionLabel}</span>{' '}
           <span>
-            <a href={scenario.referenceUrl} target="_blank" rel="noopener">
+            <a href={summary.referenceUrl} target="_blank" rel="noopener">
               View XSpec Scenario
             </a>
           </span>
-          <CodeViewer codeHTML={scenario.summary.context}></CodeViewer>
+          <CodeViewer codeHTML={summary.context}></CodeViewer>
         </li>
       ))}
     </ul>

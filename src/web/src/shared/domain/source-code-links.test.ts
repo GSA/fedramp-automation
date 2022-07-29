@@ -29,14 +29,6 @@ describe('source code link generator', () => {
           'has-web-applications':
             'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/ssp.sch#L24-L32',
         },
-        xspecScenarios: {
-          'invalid-security-sensitivity-level':
-            'https://github.com/18F/fedramp-automation/blob/master/src/validations/test/rules/ssp.xspec#L64-L77',
-          'no-security-sensitivity-level':
-            'https://github.com/18F/fedramp-automation/blob/master/src/validations/test/rules/ssp.xspec#L36-L49',
-          'security-sensitivity-level-matches-security-impact-level':
-            'https://github.com/18F/fedramp-automation/blob/master/src/validations/test/rules/ssp.xspec#L97-L115',
-        },
       });
     });
   });

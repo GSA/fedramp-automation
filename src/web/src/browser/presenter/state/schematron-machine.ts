@@ -151,7 +151,6 @@ export const initialState: State = {
     schematronAsserts: [],
     documentReferenceUrls: {
       assertions: {},
-      xspecScenarios: {},
     },
   },
   filter: {

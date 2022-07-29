@@ -4,13 +4,13 @@ import {
 } from '../project-config';
 import { getBlobFileUrl, GithubRepository } from './github';
 import { OscalDocumentKey } from './oscal';
-import { getLineRangesForElement } from './text';
+import { getSchematronAssertLineRanges } from './schematron';
+import { LineRange } from './text';
 
 export const getDocumentReferenceUrls = ({
   github,
   documentType,
   schXmlString,
-  xspecXmlString,
 }: {
   github: GithubRepository;
   documentType: OscalDocumentKey;
@@ -19,18 +19,9 @@ export const getDocumentReferenceUrls = ({
 }) => {
   return {
     assertions: getElementReferenceUrls({
+      lineRanges: getSchematronAssertLineRanges(schXmlString),
       github,
-      element: 'sch:assert',
-      idAttributeName: 'id',
       xmlRepositoryPath: SCHEMATRON_REPOSITORY_PATHS[documentType],
-      xmlString: schXmlString,
-    }),
-    xspecScenarios: getElementReferenceUrls({
-      github,
-      element: 'x:scenario',
-      idAttributeName: 'label',
-      xmlRepositoryPath: XSPEC_REPOSITORY_PATHS[documentType],
-      xmlString: xspecXmlString,
     }),
   };
 };
@@ -38,23 +29,14 @@ export const getDocumentReferenceUrls = ({
 export type DocumentReferenceUrls = ReturnType<typeof getDocumentReferenceUrls>;
 
 const getElementReferenceUrls = ({
+  lineRanges,
   github,
-  element,
-  idAttributeName,
-  xmlString,
   xmlRepositoryPath,
 }: {
+  lineRanges: Record<string, LineRange>;
   github: GithubRepository;
-  element: string;
-  idAttributeName: string;
-  xmlString: string;
   xmlRepositoryPath: `/${string}`;
 }) => {
-  const lineRanges = getLineRangesForElement(
-    xmlString,
-    element,
-    idAttributeName,
-  );
   return Object.entries(lineRanges).reduce(
     (acc: Record<string, string>, [id, lineRange]) => {
       if (lineRange) {
