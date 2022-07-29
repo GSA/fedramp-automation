@@ -16,7 +16,7 @@ import {
 } from '@asap/shared/adapters/saxon-js-gateway';
 import * as config from '@asap/shared/project-config';
 import { createXSpecScenarioSummaryWriter } from '@asap/shared/use-cases/assertion-documentation';
-import { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
+import { AssertionViewGenerator } from '@asap/shared/use-cases/assertion-views';
 
 import { CommandLineController } from './cli-controller';
 import { OscalService } from '@asap/shared/use-cases/oscal';
@@ -39,6 +39,18 @@ const controller = CommandLineController({
   readStringFile,
   writeStringFile,
   useCases: {
+    assertionViewGenerator: new AssertionViewGenerator(
+      {
+        assertionViewSEFPath: join(
+          config.BUILD_PATH,
+          'assertion-grouping.sef.json',
+        ),
+      },
+      SaxonJsProcessor({ SaxonJS }),
+      readStringFile,
+      writeStringFile,
+      console,
+    ),
     oscalService: new OscalService(
       SaxonJsJsonOscalToXmlProcessor({
         sefUrl: `file://${join(
@@ -67,17 +79,6 @@ const controller = CommandLineController({
       GITHUB,
       console,
     ),
-    writeAssertionViews: WriteAssertionViews({
-      paths: {
-        assertionViewSEFPath: join(
-          config.BUILD_PATH,
-          'assertion-grouping.sef.json',
-        ),
-      },
-      processXSLT: SaxonJsProcessor({ SaxonJS }),
-      readStringFile,
-      writeStringFile,
-    }),
     writeXSpecScenarioSummaries: createXSpecScenarioSummaryWriter({
       formatXml: (xml: string) => highlightXML(xmlFormatter(xml)),
       github: GITHUB,

@@ -24,7 +24,7 @@ export class SchematronSummary {
 
   async generateAllSummaries() {
     for (const documentType of OscalDocumentKeys) {
-      this.generateSummary(documentType);
+      await this.generateSummary(documentType);
     }
   }
 

@@ -58,6 +58,13 @@ export const XSPEC_REPOSITORY_PATHS: Record<OscalDocumentKey, `/${string}`> = {
   poam: '/src/validations/test/rules/poam.xspec',
 };
 
+export const ASSERTION_VIEW_LOCAL_PATHS: Record<OscalDocumentKey, string> = {
+  ssp: join(BUILD_PATH, 'assertion-views-ssp.json'),
+  sap: join(BUILD_PATH, 'assertion-views-sap.json'),
+  sar: join(BUILD_PATH, 'assertion-views-sar.json'),
+  poam: join(BUILD_PATH, 'assertion-views-poam.json'),
+};
+
 export const XSPEC_LOCAL_PATHS: Record<OscalDocumentKey, string> = {
   ssp: join(REPOSITORY_ROOT, XSPEC_REPOSITORY_PATHS.ssp),
   sar: join(REPOSITORY_ROOT, XSPEC_REPOSITORY_PATHS.sar),
