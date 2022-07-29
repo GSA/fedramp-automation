@@ -17,8 +17,8 @@ describe('text domain', () => {
                 unit:override-xspec="both">For every web interface to be tested there must be a matching task entry.</sch:assert>`,
       );
       expect(lineNumbers).toEqual({
-        end: 31,
-        start: 23,
+        end: 32,
+        start: 24,
       });
     });
   });

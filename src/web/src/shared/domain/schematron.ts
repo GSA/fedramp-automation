@@ -86,13 +86,16 @@ export const generateSchematronSummary = (
 ) => {
   const lineRanges = getSchematronAssertLineRanges(schXml);
   return asserts.map(assert => {
+    const lineRange = lineRanges[assert.id];
+    if (!lineRange) {
+      return {
+        ...assert,
+        referenceUrl: getBlobFileUrl(github, repositoryPath),
+      };
+    }
     return {
       ...assert,
-      referenceUrl: getBlobFileUrl(
-        github,
-        repositoryPath,
-        lineRanges[assert.id] || undefined,
-      ),
+      referenceUrl: getBlobFileUrl(github, repositoryPath, lineRange),
     };
   });
 };

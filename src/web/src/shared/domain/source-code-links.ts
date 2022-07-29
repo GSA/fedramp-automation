@@ -40,10 +40,7 @@ const getElementReferenceUrls = ({
   return Object.entries(lineRanges).reduce(
     (acc: Record<string, string>, [id, lineRange]) => {
       if (lineRange) {
-        acc[id] = getBlobFileUrl(github, xmlRepositoryPath, {
-          start: lineRange.start + 1,
-          end: lineRange.end + 1,
-        });
+        acc[id] = getBlobFileUrl(github, xmlRepositoryPath, lineRange);
       } else {
         acc[id] = getBlobFileUrl(github, xmlRepositoryPath);
       }

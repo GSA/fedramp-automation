@@ -7,20 +7,20 @@ describe('schematron', () => {
       const lineNumbers = getSchematronAssertLineRanges(TEST_SCH);
       expect(lineNumbers).toEqual({
         'has-import-ssp': {
-          end: 12,
-          start: 7,
+          end: 13,
+          start: 8,
         },
         'has-import-ssp-href': {
-          end: 47,
-          start: 42,
+          end: 48,
+          start: 43,
         },
         'has-location-assessment-subject': {
-          end: 38,
-          start: 33,
+          end: 39,
+          start: 34,
         },
         'has-web-applications': {
-          end: 31,
-          start: 23,
+          end: 32,
+          start: 24,
         },
       });
     });

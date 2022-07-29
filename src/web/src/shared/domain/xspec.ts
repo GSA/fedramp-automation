@@ -108,13 +108,10 @@ export const getReferenceUrlForScenario = (
   parentLabels: string[],
 ) => {
   const lineRange = getXspecScenarioLineRange(xspec, scenario, parentLabels);
-  if (lineRange === null) {
+  if (!lineRange) {
     return getBlobFileUrl(github, '/test');
   }
-  return getBlobFileUrl(github, '/test', {
-    start: lineRange.start + 1,
-    end: lineRange.end + 1,
-  });
+  return getBlobFileUrl(github, '/test', lineRange);
 };
 
 const countClosingScenarios = (scenario: XSpecScenario): number => {
