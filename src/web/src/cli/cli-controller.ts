@@ -7,8 +7,6 @@ import type { XSpecScenarioSummaryGenerator } from '@asap/shared/use-cases/xspec
 
 export type CommandLineContext = {
   console: Console;
-  readStringFile: (fileName: string) => Promise<string>;
-  writeStringFile: (fileName: string, contents: string) => Promise<void>;
   useCases: {
     assertionViewGenerator: AssertionViewGenerator;
     oscalService: OscalService;
@@ -20,16 +18,10 @@ export type CommandLineContext = {
 export const CommandLineController = (ctx: CommandLineContext) => {
   const cli = new Command();
   cli
-    .command('validate <oscal-xml-file>')
+    .command('validate <oscal-file-path>')
     .description('validate OSCAL document (SSP, SAP, SAR, or POA&M)')
-    .action(async oscalXmlFile => {
-      const xmlString = await ctx.readStringFile(oscalXmlFile);
-      const result = await ctx.useCases.oscalService.validateXmlOrJson(
-        xmlString,
-      );
-      ctx.console.log(
-        `Found ${result.validationReport.failedAsserts.length} assertions in ${result.documentType}`,
-      );
+    .action(async oscalFilePath => {
+      await ctx.useCases.oscalService.validateXmlOrJsonFile(oscalFilePath);
     });
   cli
     .command('generate-schematron-summaries')

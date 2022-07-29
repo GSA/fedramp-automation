@@ -14,8 +14,6 @@ describe('command-line controller', () => {
       console: mock<Console>({
         log: vi.fn(),
       }),
-      readStringFile: vi.fn().mockReturnValue(Promise.resolve(mockXml)),
-      writeStringFile: vi.fn().mockReturnValue(Promise.resolve()),
       useCases: {
         assertionViewGenerator: mock<AssertionViewGenerator>(),
         oscalService: mock<OscalService>({
@@ -36,7 +34,6 @@ describe('command-line controller', () => {
     };
     const cli = CommandLineController(ctx);
     await cli.parseAsync(['node', 'index.ts', 'validate', 'ssp.xml']);
-    expect(ctx.readStringFile).toHaveBeenCalledWith('ssp.xml');
     expect(ctx.console.log).toHaveBeenCalledWith('Found 0 assertions in ssp');
   });
 });

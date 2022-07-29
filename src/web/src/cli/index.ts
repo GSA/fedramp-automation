@@ -37,7 +37,6 @@ const GITHUB = {
 const controller = CommandLineController({
   console,
   readStringFile,
-  writeStringFile,
   useCases: {
     assertionViewGenerator: new AssertionViewGenerator(
       {
@@ -71,6 +70,8 @@ const controller = CommandLineController({
         registryBaseUrl: config.REGISTRY_PATH,
       }),
       null as unknown as typeof fetch,
+      console,
+      readStringFile,
     ),
     schematronSummary: new SchematronSummary(
       SchematronParser({ SaxonJS }),
