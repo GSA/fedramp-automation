@@ -5,7 +5,7 @@ import type { OscalService } from '@asap/shared/use-cases/oscal';
 import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
 import type { XSpecScenarioSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
 
-type CommandLineContext = {
+export type CommandLineContext = {
   console: Console;
   readStringFile: (fileName: string) => Promise<string>;
   writeStringFile: (fileName: string, contents: string) => Promise<void>;

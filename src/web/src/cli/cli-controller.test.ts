@@ -1,21 +1,23 @@
 import { it, describe, expect, vi } from 'vitest';
 import { mock } from 'vitest-mock-extended';
 
-import { SourceCodeLinkDocumentGenerator } from '@asap/shared/use-cases/generate-source-code-link-documents';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
 import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
-import { CommandLineController } from './cli-controller';
+import { CommandLineContext, CommandLineController } from './cli-controller';
+import { XSpecScenarioSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
+import { AssertionViewGenerator } from '@asap/shared/use-cases/assertion-views';
 
 describe('command-line controller', () => {
   it('calls validate schematron', async () => {
     const mockXml = '<xml></xml>';
-    const ctx = {
+    const ctx: CommandLineContext = {
       console: mock<Console>({
         log: vi.fn(),
       }),
       readStringFile: vi.fn().mockReturnValue(Promise.resolve(mockXml)),
       writeStringFile: vi.fn().mockReturnValue(Promise.resolve()),
       useCases: {
+        assertionViewGenerator: mock<AssertionViewGenerator>(),
         oscalService: mock<OscalService>({
           validateXmlOrJson: (xmlString: string) =>
             Promise.resolve({
@@ -29,10 +31,7 @@ describe('command-line controller', () => {
             }),
         }),
         schematronSummary: mock<SchematronSummary>(),
-        sourceCodeLinkDocumentGenerator:
-          mock<SourceCodeLinkDocumentGenerator>(),
-        writeAssertionViews: vi.fn(),
-        writeXSpecScenarioSummaries: vi.fn(),
+        xSpecScenarioSummaryGenerator: mock<XSpecScenarioSummaryGenerator>(),
       },
     };
     const cli = CommandLineController(ctx);
