@@ -1,9 +1,9 @@
 import { Command } from 'commander';
 
-import type { XSpecScenarioSummaryWriter } from '@asap/shared/use-cases/assertion-documentation';
 import type { AssertionViewGenerator } from '@asap/shared/use-cases/assertion-views';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
 import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
+import type { XSpecScenarioSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
 
 type CommandLineContext = {
   console: Console;
@@ -13,7 +13,7 @@ type CommandLineContext = {
     assertionViewGenerator: AssertionViewGenerator;
     oscalService: OscalService;
     schematronSummary: SchematronSummary;
-    writeXSpecScenarioSummaries: XSpecScenarioSummaryWriter;
+    xSpecScenarioSummaryGenerator: XSpecScenarioSummaryGenerator;
   };
 };
 
@@ -44,13 +44,12 @@ export const CommandLineController = (ctx: CommandLineContext) => {
       await ctx.useCases.assertionViewGenerator.generateAll();
     });
   cli
-    .command('create-xspec-summaries <xspec-path> <summary-path>')
+    .command('create-xspec-summaries <document-type>')
     .description(
-      'write UI-optimized JSON of assertion details, including xspec scenarios as usage examples',
+      'write UI-optimized JSON xspec scenario summaries, useful for usage examples',
     )
-    .action(async (xspecPath, summaryPath) => {
-      await ctx.useCases.writeXSpecScenarioSummaries(xspecPath, summaryPath);
-      ctx.console.log(`Wrote assertion documentation to filesystem`);
+    .action(async documentType => {
+      await ctx.useCases.xSpecScenarioSummaryGenerator.generate(documentType);
     });
   return cli;
 };

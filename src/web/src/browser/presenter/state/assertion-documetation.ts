@@ -1,6 +1,5 @@
-import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
-import { ScenarioSummary } from '@asap/shared/domain/xspec';
 import { OscalDocumentKey } from '@asap/shared/domain/oscal';
+import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/xspec-summary';
 
 type LoadedState = {
   xspecScenarioSummaries: XSpecScenarioSummaries;

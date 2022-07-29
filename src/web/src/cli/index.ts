@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import { promises as fs, write } from 'fs';
+import { promises as fs } from 'fs';
 import { join } from 'path';
 import xmlFormatter from 'xml-formatter';
 
@@ -15,12 +15,12 @@ import {
   SchematronParser,
 } from '@asap/shared/adapters/saxon-js-gateway';
 import * as config from '@asap/shared/project-config';
-import { createXSpecScenarioSummaryWriter } from '@asap/shared/use-cases/assertion-documentation';
 import { AssertionViewGenerator } from '@asap/shared/use-cases/assertion-views';
-
-import { CommandLineController } from './cli-controller';
 import { OscalService } from '@asap/shared/use-cases/oscal';
 import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
+import { XSpecScenarioSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
+
+import { CommandLineController } from './cli-controller';
 
 const readStringFile = async (fileName: string) =>
   fs.readFile(fileName, 'utf-8');
@@ -79,13 +79,14 @@ const controller = CommandLineController({
       GITHUB,
       console,
     ),
-    writeXSpecScenarioSummaries: createXSpecScenarioSummaryWriter({
-      formatXml: (xml: string) => highlightXML(xmlFormatter(xml)),
-      github: GITHUB,
-      parseXspec: SaxonJsXSpecParser({ SaxonJS }),
+    xSpecScenarioSummaryGenerator: new XSpecScenarioSummaryGenerator(
+      (xml: string) => highlightXML(xmlFormatter(xml)),
+      GITHUB,
+      SaxonJsXSpecParser({ SaxonJS }),
       readStringFile,
       writeStringFile,
-    }),
+      console,
+    ),
   },
 });
 
