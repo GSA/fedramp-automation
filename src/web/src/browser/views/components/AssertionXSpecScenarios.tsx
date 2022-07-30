@@ -10,7 +10,7 @@ export const AssertionXSpecScenarios = () => {
       {scenarioSummaries.map((summary, index) => (
         <li key={index}>
           {summary.scenarios.map((s, index) => (
-            <a key={index} href={s.url}>
+            <a key={index} href={s.url} target="_blank" rel="noopener">
               {s.label}
             </a>
           ))}

@@ -39,6 +39,7 @@ export type SummariesByAssertionId = {
 export const getXSpecScenarioSummaries = async (
   ctx: { formatXml: FormatXml },
   github: GithubRepository,
+  repositoryPath: `/${string}`,
   xspec: XSpec,
   xspecString: string,
 ): Promise<SummariesByAssertionId> => {
@@ -54,6 +55,7 @@ export const getXSpecScenarioSummaries = async (
         label: scenario.label,
         url: getReferenceUrlForScenario(
           github,
+          repositoryPath,
           xspecString,
           scenario,
           parentScenarios.map(s => s.label),
@@ -103,15 +105,16 @@ export const getXSpecScenarioSummaries = async (
 
 export const getReferenceUrlForScenario = (
   github: GithubRepository,
+  repositoryPath: `/${string}`,
   xspec: string,
   scenario: XSpecScenario,
   parentLabels: string[],
 ) => {
   const lineRange = getXspecScenarioLineRange(xspec, scenario, parentLabels);
   if (!lineRange) {
-    return getBlobFileUrl(github, '/test');
+    return getBlobFileUrl(github, repositoryPath);
   }
-  return getBlobFileUrl(github, '/test', lineRange);
+  return getBlobFileUrl(github, repositoryPath, lineRange);
 };
 
 const countClosingScenarios = (scenario: XSpecScenario): number => {
@@ -128,7 +131,7 @@ const createScenarioRegExp = (
   const prefix = (label: string) =>
     `<x:scenario[^>]*?label=\\"${label}\\"[^>]*?>[^]+?`;
   const suffix = '[^]+?</x:scenario>'.repeat(countClosingScenarios(scenario));
-  const regExp = `(?<=${parentLabels.map(prefix).join('')})(${prefix(
+  const regExp = `(?:${parentLabels.map(prefix).join('')})(${prefix(
     scenario.label,
   )}${suffix})`;
   return new RegExp(regExp);
@@ -147,7 +150,7 @@ export const getXspecScenarioLineRange = (
     );
     return null;
   }
-  const elementString = match[0];
+  const elementString = match[1];
   const lines = linesOf(xml, elementString);
   return lines;
 };

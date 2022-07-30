@@ -8,6 +8,7 @@ import {
 import { OscalDocumentKey, OscalDocumentKeys } from '../domain/oscal';
 import {
   XSPEC_LOCAL_PATHS,
+  XSPEC_REPOSITORY_PATHS,
   XSPEC_SUMMARY_LOCAL_PATHS,
 } from '../project-config';
 
@@ -37,6 +38,7 @@ export class XSpecScenarioSummaryGenerator {
   }
 
   async generate(documentType: OscalDocumentKey) {
+    this.console.log(`Generating ${documentType} xspec summary...`);
     const xspecString = await this.readStringFile(
       XSPEC_LOCAL_PATHS[documentType],
     );
@@ -44,6 +46,7 @@ export class XSpecScenarioSummaryGenerator {
     const scenarios = await getXSpecScenarioSummaries(
       { formatXml: this.formatXml },
       this.github,
+      XSPEC_REPOSITORY_PATHS[documentType],
       xspec,
       xspecString,
     );
@@ -51,6 +54,6 @@ export class XSpecScenarioSummaryGenerator {
       XSPEC_SUMMARY_LOCAL_PATHS[documentType],
       JSON.stringify(scenarios),
     );
-    this.console.log(`Wrote assertion documentation to filesystem`);
+    this.console.log(`Wrote ${documentType} xspec summary to filesystem.`);
   }
 }

@@ -2,6 +2,7 @@ import SaxonJS from 'saxon-js';
 
 import { it, describe, expect } from 'vitest';
 import { SaxonJsXSpecParser } from '../adapters/saxon-js-gateway';
+import { XSPEC_REPOSITORY_PATHS } from '../project-config';
 import { GithubRepository } from './github';
 
 import { getXSpecScenarioSummaries } from './xspec';
@@ -18,6 +19,7 @@ describe('xspec', () => {
     const summaries = await getXSpecScenarioSummaries(
       { formatXml: xml => xml },
       github,
+      XSPEC_REPOSITORY_PATHS['poam'],
       mockXSpec,
       MOCK_XSPEC_XML,
     );
