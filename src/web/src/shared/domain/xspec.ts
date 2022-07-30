@@ -29,7 +29,7 @@ export type ScenarioSummary = {
   context: string;
   expectAssert: boolean;
   referenceUrl: string;
-  scenarios: { url: string; label: string }[];
+  scenarios: { url: string | null; label: string }[];
 };
 
 export type SummariesByAssertionId = {
@@ -45,7 +45,7 @@ export const getXSpecScenarioSummaries = async (
 ): Promise<SummariesByAssertionId> => {
   const getScenarios = (
     scenario: XSpecScenario,
-    parentScenarios: { url: string; label: string }[],
+    parentScenarios: { url: string | null; label: string }[],
     parentContext?: string,
   ): ScenarioSummary[] => {
     // Accumulate all the scenario's parent labels into a single list.
@@ -112,7 +112,7 @@ export const getReferenceUrlForScenario = (
 ) => {
   const lineRange = getXspecScenarioLineRange(xspec, scenario, parentLabels);
   if (!lineRange) {
-    return getBlobFileUrl(github, repositoryPath);
+    return null;
   }
   return getBlobFileUrl(github, repositoryPath, lineRange);
 };
