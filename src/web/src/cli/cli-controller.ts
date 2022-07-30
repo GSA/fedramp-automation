@@ -36,12 +36,12 @@ export const CommandLineController = (ctx: CommandLineContext) => {
       await ctx.useCases.assertionViewGenerator.generateAll();
     });
   cli
-    .command('create-xspec-summaries <document-type>')
+    .command('create-xspec-summaries')
     .description(
       'write UI-optimized JSON xspec scenario summaries, useful for usage examples',
     )
-    .action(async documentType => {
-      await ctx.useCases.xSpecScenarioSummaryGenerator.generate(documentType);
+    .action(async () => {
+      await ctx.useCases.xSpecScenarioSummaryGenerator.generateAll();
     });
   return cli;
 };

@@ -5,7 +5,7 @@ import {
   SummariesByAssertionId,
   XSpec,
 } from '@asap/shared/domain/xspec';
-import { OscalDocumentKey } from '../domain/oscal';
+import { OscalDocumentKey, OscalDocumentKeys } from '../domain/oscal';
 import {
   XSPEC_LOCAL_PATHS,
   XSPEC_SUMMARY_LOCAL_PATHS,
@@ -29,6 +29,12 @@ export class XSpecScenarioSummaryGenerator {
     private writeStringFile: (path: string, data: string) => void,
     private console: Console,
   ) {}
+
+  async generateAll() {
+    for (const documentType of OscalDocumentKeys) {
+      await this.generate(documentType);
+    }
+  }
 
   async generate(documentType: OscalDocumentKey) {
     const xspecString = await this.readStringFile(

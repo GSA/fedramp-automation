@@ -9,24 +9,12 @@ import { AssertionViewGenerator } from '@asap/shared/use-cases/assertion-views';
 
 describe('command-line controller', () => {
   it('calls validate schematron', async () => {
-    const mockXml = '<xml></xml>';
     const ctx: CommandLineContext = {
-      console: mock<Console>({
-        log: vi.fn(),
-      }),
+      console: mock<Console>(),
       useCases: {
         assertionViewGenerator: mock<AssertionViewGenerator>(),
         oscalService: mock<OscalService>({
-          validateXmlOrJson: (xmlString: string) =>
-            Promise.resolve({
-              documentType: 'ssp',
-              svrlString: '<svrl />',
-              validationReport: {
-                title: 'test report',
-                failedAsserts: [],
-              },
-              xmlString,
-            }),
+          validateXmlOrJsonFile: vi.fn(),
         }),
         schematronSummary: mock<SchematronSummary>(),
         xSpecScenarioSummaryGenerator: mock<XSpecScenarioSummaryGenerator>(),
@@ -34,6 +22,6 @@ describe('command-line controller', () => {
     };
     const cli = CommandLineController(ctx);
     await cli.parseAsync(['node', 'index.ts', 'validate', 'ssp.xml']);
-    expect(ctx.console.log).toHaveBeenCalledWith('Found 0 assertions in ssp');
+    expect(ctx.useCases.oscalService.validateXmlOrJsonFile).toHaveBeenCalled();
   });
 });

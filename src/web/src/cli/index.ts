@@ -36,7 +36,6 @@ const GITHUB = {
 
 const controller = CommandLineController({
   console,
-  readStringFile,
   useCases: {
     assertionViewGenerator: new AssertionViewGenerator(
       {

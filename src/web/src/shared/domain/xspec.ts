@@ -126,12 +126,12 @@ const createScenarioRegExp = (
   scenario: XSpecScenario,
 ) => {
   const prefix = (label: string) =>
-    `<x:scenario[\\s]+label=\\"${label}\\"[^>]*>[^]+?`;
+    `<x:scenario[^>]*?label=\\"${label}\\"[^>]*?>[^]+?`;
   const suffix = '[^]+?</x:scenario>'.repeat(countClosingScenarios(scenario));
   const regExp = `(?<=${parentLabels.map(prefix).join('')})(${prefix(
     scenario.label,
-  )}.*?${suffix})`;
-  return new RegExp(regExp, 'g');
+  )}${suffix})`;
+  return new RegExp(regExp);
 };
 
 export const getXspecScenarioLineRange = (

@@ -137,6 +137,7 @@ export const runBrowserContext = ({
           jsonOscalToXml,
           processSchematron,
           window.fetch.bind(window),
+          console,
         ),
       },
     },
