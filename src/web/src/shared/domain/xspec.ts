@@ -46,8 +46,10 @@ export const getXSpecScenarioSummaries = async (
   const getScenarios = (
     scenario: XSpecScenario,
     parentScenarios: { url: string | null; label: string }[],
+    scenarioCount: number = 0,
     parentContext?: string,
   ): ScenarioSummary[] => {
+    const childScenarioCount = countScenarios(scenario);
     // Accumulate all the scenario's parent labels into a single list.
     const scenarios = [
       ...parentScenarios,
@@ -57,11 +59,12 @@ export const getXSpecScenarioSummaries = async (
           github,
           repositoryPath,
           xspecString,
-          scenario,
-          parentScenarios.map(s => s.label),
+          scenarioCount,
+          childScenarioCount,
         ),
       },
     ];
+    scenarioCount += childScenarioCount;
 
     // The context for this scenario is either specified on the node, or inherited.
     const context = scenario.context || parentContext;
@@ -69,7 +72,7 @@ export const getXSpecScenarioSummaries = async (
     // If there are child scenarios, recurse over ourself.
     if (scenario.scenarios) {
       return scenario.scenarios.flatMap(s =>
-        getScenarios(s, scenarios, context),
+        getScenarios(s, scenarios, scenarioCount, context),
       );
     }
 
@@ -107,46 +110,46 @@ export const getReferenceUrlForScenario = (
   github: GithubRepository,
   repositoryPath: `/${string}`,
   xspec: string,
-  scenario: XSpecScenario,
-  parentLabels: string[],
+  scenarioCount: number,
+  childScenarioCount: number,
 ) => {
-  const lineRange = getXspecScenarioLineRange(xspec, scenario, parentLabels);
+  const lineRange = getXspecScenarioLineRange(
+    xspec,
+    scenarioCount,
+    childScenarioCount,
+  );
   if (!lineRange) {
     return null;
   }
   return getBlobFileUrl(github, repositoryPath, lineRange);
 };
 
-const countClosingScenarios = (scenario: XSpecScenario): number => {
+const countScenarios = (scenario: XSpecScenario): number => {
   const counts =
-    scenario.scenarios?.flatMap(scenario => countClosingScenarios(scenario)) ||
-    [];
+    scenario.scenarios?.flatMap(scenario => countScenarios(scenario)) || [];
   return counts.reduce((a, b) => a + b, 1);
 };
 
-const createScenarioRegExp = (
-  parentLabels: string[],
-  scenario: XSpecScenario,
-) => {
-  const prefix = (label: string) =>
-    `<x:scenario[^>]*?label=\\"${label}\\"[^>]*?>[^]+?`;
-  const suffix = '[^]+?</x:scenario>'.repeat(countClosingScenarios(scenario));
-  const regExp = `(?:${parentLabels.map(prefix).join('')})(${prefix(
-    scenario.label,
-  )}${suffix})`;
-  return new RegExp(regExp);
+const createScenarioRegExp = (openedTags: number, closedTags: number) => {
+  const prefix = '<x:scenario[^>]*?>[^]+?'.repeat(openedTags);
+  const suffix = '[^]+?<\\/x:scenario>'.repeat(closedTags);
+  const regExp = `(?:${prefix})(<x:scenario[^>]*?>[^]+?${suffix})`;
+  return new RegExp(regExp, 'u');
 };
 
 export const getXspecScenarioLineRange = (
   xml: string,
-  scenario: XSpecScenario,
-  parentLabels: string[],
+  scenarioCount: number,
+  childScenarioCount: number,
 ) => {
-  const regExp = createScenarioRegExp(parentLabels, scenario);
+  const regExp = createScenarioRegExp(scenarioCount, childScenarioCount);
   const match = xml.match(regExp);
   if (match === null) {
+    console.log(regExp);
     console.error(
-      `Scenario XML not found: ${[...parentLabels, scenario.label].join(' ')}`,
+      `Scenario XML not found: ${[scenarioCount, childScenarioCount].join(
+        ' ',
+      )}`,
     );
     return null;
   }
