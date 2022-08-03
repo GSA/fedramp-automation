@@ -4,7 +4,6 @@ import { CodeViewer } from './CodeViewer';
 
 export const AssertionXSpecScenarios = () => {
   const scenarioSummaries = useSelector(selectVisibleScenarioSummaries);
-  console.log(scenarioSummaries);
   return (
     <ul>
       {scenarioSummaries.map((summary, index) => (
@@ -17,12 +16,15 @@ export const AssertionXSpecScenarios = () => {
             ) : (
               s.label
             ),
-          )}
-          <span className="text-bold">{summary.assertionLabel}</span>{' '}
-          <span>
-            <a href={summary.referenceUrl} target="_blank" rel="noopener">
-              View XSpec Scenario
-            </a>
+          )}{' '}
+          <span className="text-bold">
+            {summary.referenceUrl ? (
+              <a href={summary.referenceUrl} target="_blank" rel="noopener">
+                {summary.assertionLabel}
+              </a>
+            ) : (
+              summary.assertionLabel
+            )}
           </span>
           <CodeViewer codeHTML={summary.context}></CodeViewer>
         </li>

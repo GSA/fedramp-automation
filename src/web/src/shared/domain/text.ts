@@ -34,3 +34,43 @@ export const linesOf = (text: string, substring: string) => {
 
   return null;
 };
+
+/**
+ * Using the parent nodes of an element, returns the lines of an XML node
+ * within a document.
+ * @param xml document to search
+ * @param openedElements list of preceding, opened parent nodes
+ * @param closedElements list of closing nodes to include in the matched pattern
+ * @returns start and end lines
+ */
+export const linesOfXml = (
+  xml: string,
+  openedElements: string[],
+  closedElements: string[],
+) => {
+  const regExp = createXmlMatchRegExp(openedElements, closedElements);
+  const match = xml.match(regExp);
+  if (match === null) {
+    console.error(`XML match not found: ${regExp}`);
+    return null;
+  }
+  const elementString = match[1];
+  const lines = linesOf(xml, elementString);
+  return lines;
+};
+
+const createXmlMatchRegExp = (
+  openedElements: string[],
+  closedElements: string[],
+) => {
+  const prefixElements = openedElements.slice(0, openedElements.length - 1);
+  const matchOpenedElement = openedElements[openedElements.length - 1];
+
+  const prefix = prefixElements.map(elem => `<${elem}[^>]*?>[^]*?`).join('');
+  const suffix = closedElements
+    .map(elem => `[^]+?(<\\/${elem}>|\\/>)`)
+    .join('');
+
+  const regExp = `(?:${prefix})(<${matchOpenedElement}${suffix})`;
+  return new RegExp(regExp, 'u');
+};

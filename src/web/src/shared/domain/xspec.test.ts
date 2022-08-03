@@ -2,14 +2,10 @@ import SaxonJS from 'saxon-js';
 
 import { it, describe, expect } from 'vitest';
 import { SaxonJsXSpecParser } from '../adapters/saxon-js-gateway';
-import { XSPEC_REPOSITORY_PATHS } from '../project-config';
 import { GithubRepository } from './github';
 
-import {
-  annotateXspecScenariosWithPositions,
-  getXSpecScenarioSummaries,
-} from './xspec';
-/*
+import { getXSpecAssertionSummaries } from './xspec';
+
 describe('xspec', () => {
   it('summary generation works', async () => {
     const mockXSpec = SaxonJsXSpecParser({ SaxonJS })(MOCK_XSPEC_XML);
@@ -19,7 +15,7 @@ describe('xspec', () => {
       branch: 'master',
       commit: 'commit-hash',
     };
-    const summaries = await getXSpecScenarioSummaries(
+    const summaries = await getXSpecAssertionSummaries(
       { formatXml: xml => xml },
       github,
       '/test',
@@ -31,45 +27,29 @@ describe('xspec', () => {
         {
           assertionId: 'document-is-OSCAL-document',
           assertionLabel: 'that is correct',
-          context: `<plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>`,
+          context:
+            '<plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>',
           expectAssert: false,
-          referenceUrl: '#TODO',
+          referenceUrl:
+            'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L17-L19',
           scenarios: [
-            {
-              label: 'sanity-checks',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L7-L69',
-            },
-            {
-              label: 'when the root element',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L9-L54',
-            },
-            {
-              label: 'is in OSCAL 1.0 namespace',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L11-L20',
-            },
+            { url: null, label: 'sanity-checks' },
+            { url: null, label: 'when the root element' },
+            { url: null, label: 'is in OSCAL 1.0 namespace' },
           ],
         },
         {
           assertionId: 'document-is-OSCAL-document',
           assertionLabel: 'that is an error',
-          context: `<plan-of-action-and-milestones>
-                        <!-- note lack of namespace -->
-                    </plan-of-action-and-milestones>`,
+          context:
+            '<plan-of-action-and-milestones>\n                        <!-- note lack of namespace -->\n                    </plan-of-action-and-milestones>',
           expectAssert: true,
-          referenceUrl: '#TODO',
+          referenceUrl:
+            'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L28-L30',
           scenarios: [
-            {
-              label: 'sanity-checks',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L7-L69',
-            },
-            {
-              label: 'when the root element',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L9-L54',
-            },
-            {
-              label: 'is not in OSCAL 1.0 namespace',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L21-L31',
-            },
+            { url: null, label: 'sanity-checks' },
+            { url: null, label: 'when the root element' },
+            { url: null, label: 'is not in OSCAL 1.0 namespace' },
           ],
         },
       ],
@@ -77,45 +57,29 @@ describe('xspec', () => {
         {
           assertionId: 'document-is-plan-of-action-and-milestones',
           assertionLabel: 'that is correct',
-          context: `<plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>`,
+          context:
+            '<plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>',
           expectAssert: false,
-          referenceUrl: '#TODO',
+          referenceUrl:
+            'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L38-L40',
           scenarios: [
-            {
-              label: 'sanity-checks',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L7-L69',
-            },
-            {
-              label: 'when the root element',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L9-L54',
-            },
-            {
-              label: 'is plan-of-action-and-milestones',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L32-L41',
-            },
+            { url: null, label: 'sanity-checks' },
+            { url: null, label: 'when the root element' },
+            { url: null, label: 'is plan-of-action-and-milestones' },
           ],
         },
         {
           assertionId: 'document-is-plan-of-action-and-milestones',
           assertionLabel: 'that is an error',
-          context: `<not-a-plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <!-- not the expected element -->
-                    </not-a-plan-of-action-and-milestones>`,
+          context:
+            '<not-a-plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0">\n                        <!-- not the expected element -->\n                    </not-a-plan-of-action-and-milestones>',
           expectAssert: true,
-          referenceUrl: '#TODO',
+          referenceUrl:
+            'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L50-L52',
           scenarios: [
-            {
-              label: 'sanity-checks',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L7-L69',
-            },
-            {
-              label: 'when the root element',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L9-L54',
-            },
-            {
-              label: 'is not a plan-of-action-and-milestones',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L42-L53',
-            },
+            { url: null, label: 'sanity-checks' },
+            { url: null, label: 'when the root element' },
+            { url: null, label: 'is not a plan-of-action-and-milestones' },
           ],
         },
       ],
@@ -123,31 +87,26 @@ describe('xspec', () => {
         {
           assertionId: 'has-public-cloud-deployment-model',
           assertionLabel: 'that is correct',
-          context: `<system-security-plan>
-                    </system-security-plan>`,
+          context:
+            '<system-security-plan>\n                    </system-security-plan>',
           expectAssert: false,
-          referenceUrl: '#TODO',
+          referenceUrl:
+            'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L64-L66',
           scenarios: [
+            { url: null, label: 'sanity-checks' },
             {
-              label: 'sanity-checks',
-              url: 'https://github.com/18F/fedramp-automation/blob/commit-hash/test#L7-L69',
-            },
-            {
+              url: null,
               label:
                 'When a FedRAMP SSP has public components or inventory items, a cloud deployment model of "public-cloud" must be             employed.',
-              url: null,
             },
-            {
-              label: 'When that is not pertinent',
-              url: null,
-            },
+            { url: null, label: 'When that is not pertinent' },
           ],
         },
       ],
     });
   });
 });
-*/
+
 const MOCK_XSPEC_XML = `<?xml version="1.0" encoding="UTF-8"?>
 <x:description
     schematron="../../rules/poam.sch"
@@ -218,13 +177,3 @@ const MOCK_XSPEC_XML = `<?xml version="1.0" encoding="UTF-8"?>
         </x:scenario>
     </x:scenario>
 </x:description>`;
-
-describe('xspec annotateXspecScenariosWithPositions testing', () => {
-  it('annotateXspecScenariosWithPositions', () => {
-    const mockXSpec = SaxonJsXSpecParser({ SaxonJS })(MOCK_XSPEC_XML);
-    const scenarios = mockXSpec.scenarios.map(s =>
-      annotateXspecScenariosWithPositions(s, 0, 0),
-    );
-    expect(scenarios).toEqual({});
-  });
-});

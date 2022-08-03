@@ -1,9 +1,9 @@
 import type { FormatXml } from '@asap/shared/domain/xml';
 import { GithubRepository } from '@asap/shared/domain/github';
 import {
-  getXSpecScenarioSummaries,
+  getXSpecAssertionSummaries,
+  ParseXSpec,
   SummariesByAssertionId,
-  XSpec,
 } from '@asap/shared/domain/xspec';
 import { OscalDocumentKey, OscalDocumentKeys } from '../domain/oscal';
 import {
@@ -21,11 +21,11 @@ export type XSpecScenarioSummaries = {
 
 export type GetXSpecScenarioSummaries = () => Promise<XSpecScenarioSummaries>;
 
-export class XSpecScenarioSummaryGenerator {
+export class XSpecAssertionSummaryGenerator {
   constructor(
     private formatXml: FormatXml,
     private github: GithubRepository,
-    private parseXspec: (xspec: string) => XSpec,
+    private parseXspec: ParseXSpec,
     private readStringFile: (path: string) => Promise<string>,
     private writeStringFile: (path: string, data: string) => void,
     private console: Console,
@@ -43,7 +43,7 @@ export class XSpecScenarioSummaryGenerator {
       XSPEC_LOCAL_PATHS[documentType],
     );
     const xspec = this.parseXspec(xspecString);
-    const scenarios = await getXSpecScenarioSummaries(
+    const scenarios = await getXSpecAssertionSummaries(
       { formatXml: this.formatXml },
       this.github,
       XSPEC_REPOSITORY_PATHS[documentType],

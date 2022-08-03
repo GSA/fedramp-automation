@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { linesOf } from './text';
+import { linesOf, linesOfXml } from './text';
 
 describe('text domain', () => {
   describe('linesOf', () => {
@@ -19,6 +19,51 @@ describe('text domain', () => {
       expect(lineNumbers).toEqual({
         end: 32,
         start: 24,
+      });
+    });
+  });
+  describe('linesOfXml', () => {
+    it('returns line numbers for nested xml node', () => {
+      expect(
+        linesOfXml(
+          TEST_SCH,
+          ['sch:schema', 'sch:pattern', 'sch:rule', 'sch:rule', 'sch:assert'],
+          ['sch:assert'],
+        ),
+      ).toEqual({
+        start: 43,
+        end: 48,
+      });
+    });
+    it('returns line numbers for nested xml node with parents', () => {
+      expect(
+        linesOfXml(
+          TEST_SCH,
+          ['sch:schema', 'sch:pattern', 'sch:rule', 'sch:rule'],
+          ['sch:rule'],
+        ),
+      ).toEqual({
+        start: 41,
+        end: 49,
+      });
+    });
+    it('returns line numbers for xml with self-closing tags', () => {
+      expect(
+        linesOfXml(
+          TEST_XSPEC,
+          [
+            'x:description',
+            'x:scenario',
+            'x:scenario',
+            'x:scenario',
+            'x:context',
+            'x:expect-assert',
+          ],
+          ['x:expect-assert'],
+        ),
+      ).toEqual({
+        start: 18,
+        end: 20,
       });
     });
   });
@@ -76,3 +121,28 @@ const TEST_SCH = `<?xml version="1.0" encoding="utf-8"?>
     </sch:pattern>
 </sch:schema>
 `;
+
+const TEST_XSPEC = `<?xml version="1.0" encoding="UTF-8"?>
+<x:description
+    schematron="../../rules/poam.sch"
+    xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
+    xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+    xmlns:x="http://www.jenitennison.com/xslt/xspec">
+    <x:scenario
+        label="sanity-checks">
+        <x:scenario
+            label="when the root element">
+            <x:scenario
+                label="is not in OSCAL 1.0 namespace">
+                <x:context>
+                    <plan-of-action-and-milestones>
+                        <!-- note lack of namespace -->
+                    </plan-of-action-and-milestones>
+                </x:context>
+                <x:expect-assert
+                    id="document-is-OSCAL-document"
+                    label="that is an error" />
+            </x:scenario>
+        </x:scenario>
+    </x:scenario>
+</x:description>`;

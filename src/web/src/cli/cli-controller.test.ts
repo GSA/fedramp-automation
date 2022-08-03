@@ -4,7 +4,7 @@ import { mock } from 'vitest-mock-extended';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
 import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
 import { CommandLineContext, CommandLineController } from './cli-controller';
-import { XSpecScenarioSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
+import { XSpecAssertionSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
 import { AssertionViewGenerator } from '@asap/shared/use-cases/assertion-views';
 
 describe('command-line controller', () => {
@@ -17,7 +17,7 @@ describe('command-line controller', () => {
           validateXmlOrJsonFile: vi.fn(),
         }),
         schematronSummary: mock<SchematronSummary>(),
-        xSpecScenarioSummaryGenerator: mock<XSpecScenarioSummaryGenerator>(),
+        xSpecAssertionSummaryGenerator: mock<XSpecAssertionSummaryGenerator>(),
       },
     };
     const cli = CommandLineController(ctx);

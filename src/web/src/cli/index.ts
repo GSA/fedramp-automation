@@ -18,7 +18,7 @@ import * as config from '@asap/shared/project-config';
 import { AssertionViewGenerator } from '@asap/shared/use-cases/assertion-views';
 import { OscalService } from '@asap/shared/use-cases/oscal';
 import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
-import { XSpecScenarioSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
+import { XSpecAssertionSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
 
 import { CommandLineController } from './cli-controller';
 
@@ -79,7 +79,7 @@ const controller = CommandLineController({
       GITHUB,
       console,
     ),
-    xSpecScenarioSummaryGenerator: new XSpecScenarioSummaryGenerator(
+    xSpecAssertionSummaryGenerator: new XSpecAssertionSummaryGenerator(
       (xml: string) => highlightXML(xmlFormatter(xml)),
       GITHUB,
       SaxonJsXSpecParser({ SaxonJS }),

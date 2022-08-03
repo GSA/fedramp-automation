@@ -3,7 +3,7 @@ import { Command } from 'commander';
 import type { AssertionViewGenerator } from '@asap/shared/use-cases/assertion-views';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
 import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
-import type { XSpecScenarioSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
+import type { XSpecAssertionSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
 
 export type CommandLineContext = {
   console: Console;
@@ -11,7 +11,7 @@ export type CommandLineContext = {
     assertionViewGenerator: AssertionViewGenerator;
     oscalService: OscalService;
     schematronSummary: SchematronSummary;
-    xSpecScenarioSummaryGenerator: XSpecScenarioSummaryGenerator;
+    xSpecAssertionSummaryGenerator: XSpecAssertionSummaryGenerator;
   };
 };
 
@@ -41,7 +41,7 @@ export const CommandLineController = (ctx: CommandLineContext) => {
       'write UI-optimized JSON xspec scenario summaries, useful for usage examples',
     )
     .action(async () => {
-      await ctx.useCases.xSpecScenarioSummaryGenerator.generateAll();
+      await ctx.useCases.xSpecAssertionSummaryGenerator.generateAll();
     });
   return cli;
 };
