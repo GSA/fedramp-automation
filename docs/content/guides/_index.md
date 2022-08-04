@@ -7,8 +7,8 @@ menu:
     weight: 100
 suppresstopiclist: true
 sidenav:
-  focusrenderdepth: 1
-  inactiverenderdepth: 0
+  #focusrenderdepth: 1
+  inactiverenderdepth: 1
   activerenderdepth: 2
 toc:
   enabled: true

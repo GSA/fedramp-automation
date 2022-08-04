@@ -81,7 +81,7 @@ Use the import-profile field to specify an existing OSCAL-based SSP. The href fl
 {{< /highlight >}}
 
 **XPath Queries**
-{{< highlight xpath "linenos=table" >}}
+{{< highlight xml "linenos=table" >}}
    <!-- (SSP) URI to Baseline: -->
    /*/import-profile/@href
 {{< /highlight >}}
@@ -103,10 +103,13 @@ If the value is a URI fragment, such as #96445439-6ce1-4e22-beae-aa72cfe173d0, t
 {{< /highlight >}}
 
 **XPath Queries**
-{{< highlight xpath "linenos=table" >}}
+{{< highlight xml "linenos=table" >}}
   <!-- (SSP) Referenced OSCAL-based FedRAMP Baseline -->
   <!-- XML:  -->
       /*/back-matter/resource[@uuid='96445439-6ce1-4e22-beae-aa72cfe173d0'] /rlink[@media-type='application/xml']/@href
   <!-- OR JSON: -->
       /*/back-matter/resource[@uuid='96445439-6ce1-4e22-beae-aa72cfe173d0'] /rlink[@media-type='application/json']/@href
 {{< /highlight >}}
+
+
+
