@@ -97,65 +97,65 @@ describe('saxon-js gateway', () => {
     const xspec = parseXspec(SAMPLE_XSPEC);
     expect(xspec).toEqual([
       {
-        node: 'scenario',
+        node: 'x:scenario',
         label: 'In FedRAMP OSCAL Schematron',
         children: [
           {
-            node: 'context',
+            node: 'x:context',
             context:
               '<sch:schema xmlns="http://purl.oclc.org/dsdl/schematron"/>',
           },
           {
-            node: 'expect-assert',
+            node: 'x:expect-assert',
             id: 'has-xspec-reference',
             label: 'that is incorrect',
           },
         ],
       },
       {
-        node: 'scenario',
+        node: 'x:scenario',
         label: 'FedRAMP OSCAL SSP Attachments',
         children: [
           {
-            node: 'scenario',
+            node: 'x:scenario',
             label: 'General:',
             children: [
               {
-                node: 'scenario',
+                node: 'x:scenario',
                 label: 'when a resource attachment type',
                 children: [
                   {
-                    node: 'scenario',
+                    node: 'x:scenario',
                     label: 'is allowed',
                     children: [
                       {
-                        node: 'context',
+                        node: 'x:context',
                         context:
                           '<resource xmlns="http://csrc.nist.gov/ns/oscal/1.0">\n              <prop name="type" value="image"/>\n            </resource>',
                       },
                       {
-                        node: 'expect-not-assert',
+                        node: 'x:expect-not-assert',
                         id: 'attachment-type-is-valid',
                         label: 'that is correct',
                       },
                       {
-                        node: 'expect-not-assert',
+                        node: 'x:expect-not-assert',
                         id: 'attachment-type-is-valid-2',
                         label: 'that is correct 2',
                       },
                     ],
                   },
                   {
-                    node: 'scenario',
+                    node: 'x:scenario',
                     label: 'is not allowed',
                     children: [
                       {
-                        node: 'context',
+                        node: 'x:context',
                         context:
                           '<resource xmlns="http://csrc.nist.gov/ns/oscal/1.0">\n              <prop name="type" value="notallowed"/>\n            </resource>',
                       },
                       {
-                        node: 'expect-assert',
+                        node: 'x:expect-assert',
                         id: 'attachment-type-is-valid',
                         label: 'that is an error',
                       },
