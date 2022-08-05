@@ -14,7 +14,7 @@ export const AssertionXSpecScenarios = () => {
                 {s.label}
               </a>
             ) : (
-              s.label
+              <span>{s.label} </span>
             ),
           )}{' '}
           <span className="text-bold">

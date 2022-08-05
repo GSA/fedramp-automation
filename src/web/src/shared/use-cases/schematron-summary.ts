@@ -24,9 +24,6 @@ export class SchematronSummary {
 
   async generateAllSummaries() {
     for (const documentType of OscalDocumentKeys) {
-      if (documentType !== 'ssp') {
-        continue;
-      }
       await this.generateSummary(documentType);
     }
   }
