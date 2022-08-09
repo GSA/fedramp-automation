@@ -128,12 +128,9 @@ export const getXSpecAssertionSummaries = (
           assertionLabel: assertionNode.label,
           context: ctx.formatXml(nodeContext.context),
           expectAssert: assertionNode.node === 'x:expect-assert',
-          referenceUrl: getScenarioUrl(
+          referenceUrl: getElementUrlByPosition(
             { github, repositoryPath, xspecString },
             encounteredElements,
-            /*nodeContext.childNodes
-                    .map(childNode => childNode.node)
-                    .reverse(),*/
             [encounteredElements[encounteredElements.length - 1]],
           ),
           scenarios: nodeContext.parentNodes
@@ -141,15 +138,13 @@ export const getXSpecAssertionSummaries = (
             .map(parentNode => {
               const scenarioNode = parentNode as XSpecScenarioNode;
               return {
-                /*url: getScenarioUrl(
+                url: getElementUrlByPosition(
                   { github, repositoryPath, xspecString },
                   encounteredElements,
-                  //nodeContext.childNodes
-                  //  .map(childNode => childNode.node)
-                  //  .reverse(),
-                  [encounteredElements[encounteredElements.length - 1]],
-                )*/
-                url: null,
+                  nodeContext.childNodes
+                    .map(childNode => childNode.node)
+                    .reverse(),
+                ),
                 label: scenarioNode.label,
               };
             }),
@@ -161,7 +156,7 @@ export const getXSpecAssertionSummaries = (
   return groupBy(assertions, summary => summary.assertionId);
 };
 
-const getScenarioUrl = (
+const getElementUrlByPosition = (
   opts: {
     github: GithubRepository;
     repositoryPath: `/${string}`;
