@@ -3,8 +3,8 @@
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="71ba09a5-97a8-483f-92bd-3db6358f005d">
     <metadata>
         <title>FedRAMP Rev 5 Moderate Baseline</title>
-        <published>2022-06-01T00:00:00.000-04:00</published>
-        <last-modified>2022-06-13T00:00:00.000-04:00</last-modified>
+        <published>2022-08-10T00:00:00.000-04:00</published>
+        <last-modified>2022-08-10T00:00:00.000-04:00</last-modified>
         <version>fedramp1.1.0-oscal1.0.0</version>
         <oscal-version>1.0.4</oscal-version>
         <role id="prepared-by">
@@ -51,6 +51,7 @@
     </metadata>
     <import href="#051a77c1-b61d-4995-8275-dacfe688d510">
         <include-controls>
+            <with-id>id</with-id>
             <with-id>ac-1</with-id>
             <with-id>ac-2</with-id>
             <with-id>ac-2.1</with-id>
@@ -64,6 +65,7 @@
             <with-id>ac-2.13</with-id>
             <with-id>ac-3</with-id>
             <with-id>ac-4</with-id>
+            <with-id>ac-4.21</with-id>
             <with-id>ac-5</with-id>
             <with-id>ac-6</with-id>
             <with-id>ac-6.1</with-id>
@@ -118,12 +120,16 @@
             <with-id>ca-1</with-id>
             <with-id>ca-2</with-id>
             <with-id>ca-2.1</with-id>
+            <with-id>ca-2.3</with-id>
             <with-id>ca-3</with-id>
             <with-id>ca-5</with-id>
             <with-id>ca-6</with-id>
             <with-id>ca-7</with-id>
             <with-id>ca-7.1</with-id>
             <with-id>ca-7.4</with-id>
+            <with-id>ca-8</with-id>
+            <with-id>ca-8.1</with-id>
+            <with-id>ca-8.2</with-id>
             <with-id>ca-9</with-id>
             <with-id>cm-1</with-id>
             <with-id>cm-2</with-id>
@@ -215,6 +221,10 @@
             <with-id>ir-7</with-id>
             <with-id>ir-7.1</with-id>
             <with-id>ir-8</with-id>
+            <with-id>ir-9</with-id>
+            <with-id>ir-9.2</with-id>
+            <with-id>ir-9.3</with-id>
+            <with-id>ir-9.4</with-id>
             <with-id>ma-1</with-id>
             <with-id>ma-2</with-id>
             <with-id>ma-3</with-id>
@@ -223,6 +233,7 @@
             <with-id>ma-3.3</with-id>
             <with-id>ma-4</with-id>
             <with-id>ma-5</with-id>
+            <with-id>ma-5.1</with-id>
             <with-id>ma-6</with-id>
             <with-id>mp-1</with-id>
             <with-id>mp-2</with-id>
@@ -245,6 +256,7 @@
             <with-id>pe-12</with-id>
             <with-id>pe-13</with-id>
             <with-id>pe-13.1</with-id>
+            <with-id>pe-13.2</with-id>
             <with-id>pe-14</with-id>
             <with-id>pe-15</with-id>
             <with-id>pe-16</with-id>
@@ -259,6 +271,7 @@
             <with-id>ps-1</with-id>
             <with-id>ps-2</with-id>
             <with-id>ps-3</with-id>
+            <with-id>ps-3.3</with-id>
             <with-id>ps-4</with-id>
             <with-id>ps-5</with-id>
             <with-id>ps-6</with-id>
@@ -287,9 +300,13 @@
             <with-id>sa-5</with-id>
             <with-id>sa-8</with-id>
             <with-id>sa-9</with-id>
+            <with-id>sa-9.1</with-id>
             <with-id>sa-9.2</with-id>
+            <with-id>sa-9.5</with-id>
             <with-id>sa-10</with-id>
             <with-id>sa-11</with-id>
+            <with-id>sa-11.1</with-id>
+            <with-id>sa-11.2</with-id>
             <with-id>sa-15</with-id>
             <with-id>sa-15.3</with-id>
             <with-id>sa-22</with-id>
@@ -320,6 +337,8 @@
             <with-id>sc-28</with-id>
             <with-id>sc-28.1</with-id>
             <with-id>sc-39</with-id>
+            <with-id>sc-45</with-id>
+            <with-id>sc-45.1</with-id>
             <with-id>si-1</with-id>
             <with-id>si-2</with-id>
             <with-id>si-2.2</with-id>
@@ -331,6 +350,7 @@
             <with-id>si-4.4</with-id>
             <with-id>si-4.5</with-id>
             <with-id>si-4.16</with-id>
+            <with-id>si-4.18</with-id>
             <with-id>si-4.23</with-id>
             <with-id>si-5</with-id>
             <with-id>si-6</with-id>
@@ -354,7 +374,7 @@
             <with-id>sr-11</with-id>
             <with-id>sr-11.1</with-id>
             <with-id>sr-11.2</with-id>
-            <with-id>sr-12</with-id>
+            <with-id>sr-12</with-id>            
         </include-controls>
     </import>
     <merge>
@@ -708,6 +728,20 @@
                 </description>
             </constraint>
         </set-parameter>
+        <set-parameter param-id="ca-02.03_odp.01">
+            <constraint>
+                <description>
+                    <p>any FedRAMP Accredited 3PAO</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <set-parameter param-id="ca-02.03_odp.03">
+            <constraint>
+                <description>
+                    <p>the conditions of the JAB/AO in the FedRAMP Repository</p>
+                </description>
+            </constraint>
+        </set-parameter>
         <set-parameter param-id="ca-03_odp.03">
             <constraint>
                 <description>
@@ -733,6 +767,13 @@
             <constraint>
                 <description>
                     <p>to include JAB/AO</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <set-parameter param-id="ca-08_odp.01">
+            <constraint>
+                <description>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1116,6 +1157,13 @@
                 </description>
             </constraint>
         </set-parameter>
+        <set-parameter param-id="ir-09.02_odp">
+            <constraint>
+                <description>
+                    <p>at least annually</p>
+                </description>
+            </constraint>
+        </set-parameter>
         <set-parameter param-id="ma-01_odp.05">
             <constraint>
                 <description>
@@ -1429,6 +1477,13 @@
                 </description>
             </constraint>
         </set-parameter>
+        <set-parameter param-id="ps-03.03_odp">
+            <constraint>
+                <description>
+                    <p>personnel screening criteria – as required by specific information</p>
+                </description>
+            </constraint>
+        </set-parameter>
         <set-parameter param-id="ps-04_odp.01">
             <constraint>
                 <description>
@@ -1624,6 +1679,13 @@
                 </description>
             </constraint>
         </set-parameter>
+        <set-parameter param-id="sa-09.05_odp.01">
+            <constraint>
+                <description>
+                    <p>information processing, information or data, AND system services</p>
+                </description>
+            </constraint>
+        </set-parameter>
         <set-parameter param-id="sa-10_odp.01">
             <constraint>
                 <description>
@@ -1749,6 +1811,27 @@
             <constraint>
                 <description>
                     <p>all information system components storing customer data deemed sensitive</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <set-parameter param-id="sc-45.01_odp.01">
+            <constraint>
+                <description>
+                    <p>at least hourly</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <set-parameter param-id="sc-45.01_odp.02">
+            <constraint>
+                <description>
+                    <p>http://tf.nist.gov/tf-cgi/servers.cgi</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <set-parameter param-id="sc-45.01_odp.03">
+            <constraint>
+                <description>
+                    <p>any difference</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1960,6 +2043,10 @@
             <add position="ending" by-id="ac-2.9_smt">
                 <part id="ac-2.9_fr" name="item">
                     <title>AC-2 (9) Additional FedRAMP Requirements and Guidance</title>
+                    <part id="ac-2.9_fr_gdn.1" name="guidance">
+                        <prop name="label" value="Guidance:"/>
+                        <p>Required if shared/group accounts are deployed.</p>
+                    </part>
                 </part>
             </add>
         </alter>
@@ -2215,6 +2302,18 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="ca-8.2">
+            <add position="ending" by-id="ca-8.2_smt">
+                <part id="ca-8.2_fr" name="item">
+                    <title>CM-2 Additional FedRAMP Requirements and Guidance</title>
+                    <part id="ca-8.2_fr_gdn.1" name="guidance">
+                        <prop name="label" value="Guidance:"/>
+                        <p>See the FedRAMP Documents page&gt; Penetration Test Guidance </p>
+                        <p>https://www.FedRAMP.gov/documents/</p>
+                    </part>
+                </part>
+            </add>
+        </alter>
         <alter control-id="cp-2">
             <add position="ending" by-id="cp-2_smt">
                 <part id="cp-2_fr" name="item">
@@ -2308,9 +2407,10 @@
             <add position="ending" by-id="ia-2.6_smt">
                 <part id="ia-2.6_fr" name="item">
                     <title>IA-2 (6) Additional FedRAMP Requirements and Guidance</title>
-                    <part id="ia-2.6_fr_gdn.1" name="guidance">
-                        <prop name="label" value="Guidance:"/>
+                    <part id="ia-2.6_fr_smt.1" name="item">
+                        <prop name="label" value="Requirement:"/>
                         <p>PIV=separate device. Please refer to NIST SP 800-157 Guidelines for Derived Personal Identity Verification (PIV) Credentials.</p>
+                        <p>Please see SC-13 FedRAMP Guidance for more more information on FIPS-validated or NSA-approved cryptography.</p>
                     </part>
                 </part>
             </add>
@@ -2508,6 +2608,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="ra-5.8">
+            <add position="ending" by-id="ra-5.8_smt">
+                <title>RA-5(8) Additional FedRAMP Requirement</title>
+                <part id="ra-5.8_fr_smt.1" name="item">
+                    <prop name="label" value="Requirement:"/>
+                    <p>This enhancement is required for all high (or critical) vulnerability scan findings.</p>
+                </part>
+            </add>
+        </alter>
         <alter control-id="sa-4">
             <add position="ending" by-id="sa-4_smt">
                 <part id="sa-4_fr" name="item">
@@ -2530,6 +2639,18 @@
                     <part id="sa-10_fr_smt.1" name="item">
                         <prop name="label" value="Requirement:"/>
                         <p>track security flaws and flaw resolution within the system, component, or service and report findings to organization-defined personnel, to include FedRAMP.</p>
+                    </part>
+                </part>
+            </add>
+        </alter>
+        <alter control-id="sa-11.1">
+            <add position="ending" by-id="sa-11.1_smt">
+                <part id="sa-11.1_fr" name="item">
+                    <title>SA-11(1) Additional FedRAMP Requirements</title>
+                    <part id="sa-11.1_fr_smt.1" name="item">
+                        <prop name="label" value="Requirement:"/>
+                        <p>The service provider documents in the Continuous Monitoring Plan, how newly developed code for the information system is reviewed.</p>
+                        <p>If Static code analysis cannot be performed (for example, when the source code is not avialable), then dynamic code analysis must be performed (see SA-11 (8))</p>
                     </part>
                 </part>
             </add>
@@ -2655,6 +2776,22 @@
                     </part>
                 </part>
             </add>
+        </alter>
+        <alter control-id="sc-45.1">
+            <add position="ending" by-id="sc-45.1_smt">
+                <part id="sc-45.1_fr" name="item">
+                    <title>SC-45(1) Additional FedRAMP Requirements and Guidance</title>
+                    <part id="sc-45.1_fr_smt.1" name="item">
+                        <prop name="label" value="Requirement:"/>
+                        <p>The service provider selects primary and secondary time servers used by the NIST Internet time service. The secondary server is selected from a different geographic region than the primary server.</p>
+                        <p>The service provider synchronizes the system clocks of network computers that run operating systems other than Windows to the Windows Server Domain Controller emulator or to the same time source for that server.</p>
+                    </part>
+                    <part id="sc-45.1_fr_gdn.1" name="guidance">
+                        <prop name="label" value="Guidance:"/>
+                        <p>Synchronization of system clocks improves the accuracy of log analysis.</p>
+                    </part>
+                </part>
+            </add>            
         </alter>
         <alter control-id="si-4">
             <add position="ending" by-id="si-4_smt">
