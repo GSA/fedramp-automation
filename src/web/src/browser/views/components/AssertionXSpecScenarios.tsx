@@ -17,15 +17,20 @@ export const AssertionXSpecScenarios = () => {
               <span>{s.label} </span>
             ),
           )}{' '}
-          <span className="text-bold">
-            {summary.referenceUrl ? (
-              <a href={summary.referenceUrl} target="_blank" rel="noopener">
-                {summary.assertionLabel}
+          <span className="text-bold">{summary.assertionLabel}</span>
+          {summary.referenceUrl ? (
+            <>
+              {' '}
+              <a
+                href={summary.referenceUrl}
+                className="text-primary text-underline"
+                target="_blank"
+                rel="noopener"
+              >
+                View XSpec
               </a>
-            ) : (
-              summary.assertionLabel
-            )}
-          </span>
+            </>
+          ) : null}
           <CodeViewer codeHTML={summary.context}></CodeViewer>
         </li>
       ))}
