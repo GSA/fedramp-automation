@@ -138,13 +138,13 @@ export const getXSpecAssertionSummaries = (
             .map(parentNode => {
               const scenarioNode = parentNode as XSpecScenarioNode;
               return {
-                url: getElementUrlByPosition(
+                url: null /*getElementUrlByPosition(
                   { github, repositoryPath, xspecString },
                   encounteredElements,
                   nodeContext.childNodes
                     .map(childNode => childNode.node)
                     .reverse(),
-                ),
+                )*/,
                 label: scenarioNode.label,
               };
             }),
