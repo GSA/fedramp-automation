@@ -1,5 +1,6 @@
 import SaxonJS from 'saxon-js';
 import { it, describe, expect, vi } from 'vitest';
+import { mock } from 'vitest-mock-extended';
 
 import {
   SaxonJSXmlIndenter,
@@ -38,6 +39,7 @@ describe('saxon-js gateway', () => {
       });
     }) as any);
     const reportGateway = SaxonJsSchematronProcessorGateway({
+      console,
       SaxonJS,
       sefUrls: {
         poam: '/test.sef.json',
@@ -85,6 +87,9 @@ describe('saxon-js gateway', () => {
 
   it('converts JSON to XML', async () => {
     const jsonToXml = SaxonJsJsonOscalToXmlProcessor({
+      console: mock<Console>({
+        log: vi.fn(),
+      }),
       sefUrl: `${BUILD_PATH}/oscal_ssp_json-to-xml-converter.sef.json`,
       SaxonJS,
     });

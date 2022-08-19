@@ -31,6 +31,7 @@ export const runBrowserContext = ({
   const rulesUrl = `${baseUrl}rules/`;
 
   const processSchematron = SaxonJsSchematronProcessorGateway({
+    console,
     sefUrls: {
       poam: `${rulesUrl}poam.sef.json`,
       sap: `${rulesUrl}sap.sef.json`,
@@ -132,18 +133,22 @@ export const runBrowserContext = ({
         oscalService: new OscalService(
           {
             ssp: SaxonJsJsonOscalToXmlProcessor({
+              console,
               sefUrl: `${rulesUrl}oscal_ssp_json-to-xml-converter.sef.json`,
               SaxonJS,
             }),
             sap: SaxonJsJsonOscalToXmlProcessor({
+              console,
               sefUrl: `${rulesUrl}oscal_assessment-plan_json-to-xml-converter.json`,
               SaxonJS,
             }),
             sar: SaxonJsJsonOscalToXmlProcessor({
+              console,
               sefUrl: `${rulesUrl}oscal_assessment-results_json-to-xml-converter.sef.json`,
               SaxonJS,
             }),
             poam: SaxonJsJsonOscalToXmlProcessor({
+              console,
               sefUrl: `${rulesUrl}oscal_poam_json-to-xml-converter.sef.json`,
               SaxonJS,
             }),

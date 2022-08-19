@@ -40,6 +40,7 @@ const controller = CommandLineController({
     oscalService: new OscalService(
       {
         ssp: SaxonJsJsonOscalToXmlProcessor({
+          console,
           sefUrl: `file://${join(
             config.BUILD_PATH,
             'oscal_ssp_json-to-xml-converter.sef.json',
@@ -47,6 +48,7 @@ const controller = CommandLineController({
           SaxonJS,
         }),
         sap: SaxonJsJsonOscalToXmlProcessor({
+          console,
           sefUrl: `file://${join(
             config.BUILD_PATH,
             'oscal_assessment-plan_json-to-xml-converter.json',
@@ -54,6 +56,7 @@ const controller = CommandLineController({
           SaxonJS,
         }),
         sar: SaxonJsJsonOscalToXmlProcessor({
+          console,
           sefUrl: `file://${join(
             config.BUILD_PATH,
             'oscal_assessment-results_json-to-xml-converter.sef.json',
@@ -61,6 +64,7 @@ const controller = CommandLineController({
           SaxonJS,
         }),
         poam: SaxonJsJsonOscalToXmlProcessor({
+          console,
           sefUrl: `file://${join(
             config.BUILD_PATH,
             'oscal_poam_json-to-xml-converter.sef.json',
@@ -69,6 +73,7 @@ const controller = CommandLineController({
         }),
       },
       SaxonJsSchematronProcessorGateway({
+        console,
         sefUrls: {
           poam: `file://${join(config.BUILD_PATH, 'poam.sef.json')}`,
           sap: `file://${join(config.BUILD_PATH, 'sap.sef.json')}`,

@@ -60,7 +60,6 @@ export class OscalService {
     const detected = detectFormat(oscalString);
     if (detected.format === 'json') {
       const documentType = getDocumentTypeForRootNode(detected.type || '');
-      console.log('documentType', detected.type, documentType);
       if (documentType === null) {
         return oscalString;
       }
