@@ -1,6 +1,6 @@
-import type { OscalDocumentKey } from '../domain/oscal';
+import { getDocumentTypeForRootNode, OscalDocumentKey } from '../domain/oscal';
 import type {
-  SchematronJSONToXMLProcessor,
+  SchematronJSONToXMLProcessors,
   SchematronProcessor,
   SchematronResult,
   ValidationReport,
@@ -10,7 +10,7 @@ type Fetch = typeof fetch;
 
 export class OscalService {
   constructor(
-    private jsonOscalToXml: SchematronJSONToXMLProcessor,
+    private jsonOscalToXmlProcessors: SchematronJSONToXMLProcessors,
     private schematronProcessor: SchematronProcessor,
     private fetch: Fetch,
   ) {}
@@ -57,21 +57,32 @@ export class OscalService {
 
   async ensureXml(oscalString: string): Promise<string> {
     // Convert JSON to XML, if necessary.
-    if (detectFormat(oscalString) === 'json') {
-      return this.jsonOscalToXml(oscalString);
+    const detected = detectFormat(oscalString);
+    if (detected.format === 'json') {
+      const documentType = getDocumentTypeForRootNode(detected.type || '');
+      if (documentType === null) {
+        return oscalString;
+      }
+      return this.jsonOscalToXmlProcessors[documentType](oscalString);
     } else {
-      return Promise.resolve(oscalString);
+      return oscalString;
     }
   }
 }
 
 const detectFormat = (document: string) => {
   // Naive detection of JSON format - first non-whitespace character should be
-  // `{` or `[`.
-  if (/^\s*[\{\[]/.test(document)) {
-    return 'json';
+  // `{`, and we will extract the opening tag name to detect the document type.
+  const match = document.match(/^\s*\{\s*"(.+)"/);
+  if (match === null) {
+    return {
+      format: 'xml',
+    };
   } else {
-    return 'xml';
+    return {
+      format: 'json',
+      type: match[1],
+    };
   }
 };
 

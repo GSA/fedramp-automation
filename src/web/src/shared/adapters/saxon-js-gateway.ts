@@ -11,7 +11,7 @@ import type {
 import { getDocumentTypeForRootNode, OscalDocumentKey } from '../domain/oscal';
 import type { ParseXSpec, XSpecScenario } from '../domain/xspec';
 import type { XSLTProcessor } from '../use-cases/assertion-views';
-import { base64DataUriForJson } from '../util';
+import { base64DataUriForJson, formatElapsedTime } from '../util';
 
 const getSchematronResult = async (
   SaxonJS: any,
@@ -93,12 +93,14 @@ const getSchematronResult = async (
 
 export const SaxonJsSchematronProcessorGateway =
   (ctx: {
+    console: Console;
     sefUrls: Record<OscalDocumentKey, string>;
     SaxonJS: any;
     baselinesBaseUrl: string;
     registryBaseUrl: string;
   }): SchematronProcessor =>
   (sourceText: string) => {
+    const startTime = performance.now();
     return ctx.SaxonJS.getResource({
       text: sourceText,
       type: 'xml',
@@ -123,6 +125,13 @@ export const SaxonJsSchematronProcessorGateway =
           'async',
         ) as Promise<DocumentFragment>
       )
+        .then(result => {
+          const elapsed = formatElapsedTime(performance.now() - startTime);
+          ctx.console.log(
+            `OSCAL XML validation completed in ${elapsed} (HH:MM:SS)`,
+          );
+          return result;
+        })
         .then((output: any) => {
           return getSchematronResult(
             ctx.SaxonJS,
@@ -416,8 +425,13 @@ export const SaxonJsProcessor =
   };
 
 export const SaxonJsJsonOscalToXmlProcessor =
-  (ctx: { sefUrl: string; SaxonJS: any }): SchematronJSONToXMLProcessor =>
+  (ctx: {
+    console: Console;
+    sefUrl: string;
+    SaxonJS: any;
+  }): SchematronJSONToXMLProcessor =>
   (jsonString: string) => {
+    const startTime = performance.now();
     return base64DataUriForJson(jsonString)
       .then(base64Json =>
         ctx.SaxonJS.transform(
@@ -433,6 +447,10 @@ export const SaxonJsJsonOscalToXmlProcessor =
         ),
       )
       .then((output: any) => {
+        const elapsed = formatElapsedTime(performance.now() - startTime);
+        ctx.console.log(
+          `JSON to XML conversion completed in ${elapsed} (HH:MM:SS)`,
+        );
         return output.principalResult as string;
       });
   };
