@@ -26,7 +26,12 @@ describe('validate ssp use case', () => {
       fetch: vi.fn(),
     };
     const oscalService = new OscalService(
-      ctx.jsonOscalToXml,
+      {
+        ssp: ctx.jsonOscalToXml,
+        sap: ctx.jsonOscalToXml,
+        sar: ctx.jsonOscalToXml,
+        poam: ctx.jsonOscalToXml,
+      },
       ctx.processSchematron,
       ctx.fetch,
     );
@@ -51,7 +56,12 @@ describe('validate ssp use case', () => {
         fetch: vi.fn(),
       };
       const oscalService = new OscalService(
-        ctx.jsonOscalToXml,
+        {
+          ssp: ctx.jsonOscalToXml,
+          sap: ctx.jsonOscalToXml,
+          sar: ctx.jsonOscalToXml,
+          poam: ctx.jsonOscalToXml,
+        },
         ctx.processSchematron,
         ctx.fetch,
       );
@@ -66,8 +76,7 @@ describe('validate ssp use case', () => {
       });
     };
 
-    testJson('{}');
-    testJson('[]');
+    testJson('{"system-security-plan": {}}');
   });
 });
 
@@ -93,7 +102,12 @@ describe('validate ssp url use case', () => {
       }),
     };
     const oscalService = new OscalService(
-      ctx.jsonOscalToXml,
+      {
+        ssp: ctx.jsonOscalToXml,
+        sap: ctx.jsonOscalToXml,
+        sar: ctx.jsonOscalToXml,
+        poam: ctx.jsonOscalToXml,
+      },
       ctx.processSchematron,
       ctx.fetch,
     );

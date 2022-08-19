@@ -38,13 +38,36 @@ const controller = CommandLineController({
       writeStringFile,
     }),
     oscalService: new OscalService(
-      SaxonJsJsonOscalToXmlProcessor({
-        sefUrl: `file://${join(
-          config.BUILD_PATH,
-          'oscal_complete_json-to-xml-converter.sef.json',
-        )}`,
-        SaxonJS,
-      }),
+      {
+        ssp: SaxonJsJsonOscalToXmlProcessor({
+          sefUrl: `file://${join(
+            config.BUILD_PATH,
+            'oscal_ssp_json-to-xml-converter.sef.json',
+          )}`,
+          SaxonJS,
+        }),
+        sap: SaxonJsJsonOscalToXmlProcessor({
+          sefUrl: `file://${join(
+            config.BUILD_PATH,
+            'oscal_assessment-plan_json-to-xml-converter.json',
+          )}`,
+          SaxonJS,
+        }),
+        sar: SaxonJsJsonOscalToXmlProcessor({
+          sefUrl: `file://${join(
+            config.BUILD_PATH,
+            'oscal_assessment-results_json-to-xml-converter.sef.json',
+          )}`,
+          SaxonJS,
+        }),
+        poam: SaxonJsJsonOscalToXmlProcessor({
+          sefUrl: `file://${join(
+            config.BUILD_PATH,
+            'oscal_poam_json-to-xml-converter.sef.json',
+          )}`,
+          SaxonJS,
+        }),
+      },
       SaxonJsSchematronProcessorGateway({
         sefUrls: {
           poam: `file://${join(config.BUILD_PATH, 'poam.sef.json')}`,

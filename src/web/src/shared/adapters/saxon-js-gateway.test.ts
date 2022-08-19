@@ -85,10 +85,10 @@ describe('saxon-js gateway', () => {
 
   it('converts JSON to XML', async () => {
     const jsonToXml = SaxonJsJsonOscalToXmlProcessor({
-      sefUrl: `${BUILD_PATH}/oscal_complete_json-to-xml-converter.sef.json`,
+      sefUrl: `${BUILD_PATH}/oscal_ssp_json-to-xml-converter.sef.json`,
       SaxonJS,
     });
-    const convertedXml = await jsonToXml('{}');
+    const convertedXml = await jsonToXml('{"system-security-plan": {}}');
     expect(convertedXml.toString()).toMatch(/<svrl:schematron-output/);
   });
 

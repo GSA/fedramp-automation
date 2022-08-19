@@ -36,12 +36,9 @@ const validateOscalDocument = async documentPath => {
 
   // Based on the root node of the document, determine the OSCAL document type
   // and the corresponding XSLT rules document.
-  const documentType = {
-    'plan-of-action-and-milestones': 'poam',
-    'assessment-plan': 'sap',
-    'assessment-results': 'sar',
-    'system-security-plan': 'ssp',
-  }[resource.documentElement.nodeName];
+  const documentType = getDocumentTypeForRootNode(
+    resource.documentElement.nodeName,
+  );
   const stylesheetLocation = COMPILED_XSLT[documentType];
 
   // Apply the appropriate Schematron XSLT to the document. Because we chose
