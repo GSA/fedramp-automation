@@ -30,11 +30,8 @@ export const runBrowserContext = ({
 
   const rulesUrl = `${baseUrl}rules/`;
 
-  const jsonOscalToXml = SaxonJsJsonOscalToXmlProcessor({
-    sefUrl: `${rulesUrl}oscal_complete_json-to-xml-converter.sef.json`,
-    SaxonJS,
-  });
   const processSchematron = SaxonJsSchematronProcessorGateway({
+    console,
     sefUrls: {
       poam: `${rulesUrl}poam.sef.json`,
       sap: `${rulesUrl}sap.sef.json`,
@@ -134,7 +131,28 @@ export const runBrowserContext = ({
           };
         },
         oscalService: new OscalService(
-          jsonOscalToXml,
+          {
+            ssp: SaxonJsJsonOscalToXmlProcessor({
+              console,
+              sefUrl: `${rulesUrl}oscal_ssp_json-to-xml-converter.sef.json`,
+              SaxonJS,
+            }),
+            sap: SaxonJsJsonOscalToXmlProcessor({
+              console,
+              sefUrl: `${rulesUrl}oscal_assessment-plan_json-to-xml-converter.json`,
+              SaxonJS,
+            }),
+            sar: SaxonJsJsonOscalToXmlProcessor({
+              console,
+              sefUrl: `${rulesUrl}oscal_assessment-results_json-to-xml-converter.sef.json`,
+              SaxonJS,
+            }),
+            poam: SaxonJsJsonOscalToXmlProcessor({
+              console,
+              sefUrl: `${rulesUrl}oscal_poam_json-to-xml-converter.sef.json`,
+              SaxonJS,
+            }),
+          },
           processSchematron,
           window.fetch.bind(window),
           console,
