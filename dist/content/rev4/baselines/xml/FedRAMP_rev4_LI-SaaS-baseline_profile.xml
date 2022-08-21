@@ -5,10 +5,10 @@
          uuid="145f590d-2443-4c34-9ce9-37ccbe88abf9">
    <metadata>
       <title>FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
-      <published>2021-02-17T00:00:00.000-04:00</published>
-      <last-modified>2021-06-09T14:28:03.343-04:00</last-modified>
-      <version>fedramp1.1.0-oscal1.0.0</version>
-      <oscal-version>1.0.0</oscal-version>
+      <published>2021-02-05T00:00:00.000-04:00</published>
+      <last-modified>2022-08-19T00:00:00.000-04:00</last-modified>
+      <version>fedramp1.1.0-oscal1.0.4</version>
+      <oscal-version>1.0.4</oscal-version>
       <role id="prepared-by">
          <title>Document creator</title>
       </role>
@@ -3212,7 +3212,7 @@
                </part>
             </part>
          </add>
-         <add by-id="ra-_smt" position="ending">
+         <add by-id="ra-3_smt" position="ending">
             <part id="ra-3_fr" name="item">
                <title>RA-3 Additional FedRAMP Requirements and Guidance</title>
                <part id="ra-3_fr_gdn.1" name="guidance">
