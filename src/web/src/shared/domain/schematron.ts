@@ -38,6 +38,11 @@ export type SchematronJSONToXMLProcessor = (
   jsonString: string,
 ) => Promise<string>;
 
+export type SchematronJSONToXMLProcessors = Record<
+  OscalDocumentKey,
+  SchematronJSONToXMLProcessor
+>;
+
 export type SchematronProcessor = (oscalXmlString: string) => Promise<{
   documentType: OscalDocumentKey;
   schematronResult: SchematronResult;
