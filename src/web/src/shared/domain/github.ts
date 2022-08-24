@@ -2,12 +2,14 @@ export type GithubRepository = {
   owner: string;
   repository: string;
   branch: string;
+  commit: string;
 };
 
 export const DEFAULT_REPOSITORY: GithubRepository = {
   owner: '18F',
   repository: 'fedramp-automation',
   branch: 'master',
+  commit: 'master',
 };
 
 const SAMPLE_OSCAL_PATHS = [
@@ -29,6 +31,19 @@ export const getBranchTreeUrl = (
     return `https://github.com/${github.owner}/${github.repository}`;
   }
   return `https://github.com/${github.owner}/${github.repository}/tree/${github.branch}`;
+};
+
+type LineRange = { start: number; end: number };
+export const getBlobFileUrl = (
+  github: GithubRepository,
+  repositoryPath: `/${string}`,
+  lineRange?: LineRange,
+) => {
+  const blobUrl = `https://github.com/${github.owner}/${github.repository}/blob/${github.commit}${repositoryPath}`;
+  if (!lineRange) {
+    return blobUrl;
+  }
+  return `${blobUrl}#L${lineRange.start}-L${lineRange.end}`;
 };
 
 export const getRepositoryRawUrl = (

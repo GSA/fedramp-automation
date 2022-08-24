@@ -1,4 +1,5 @@
 import { it, describe, expect, vi } from 'vitest';
+import { mock } from 'vitest-mock-extended';
 
 import { OscalService } from './oscal';
 
@@ -16,6 +17,7 @@ describe('validate ssp use case', () => {
   const mockXml = '<xml>xml {[]} input</xml>';
   it('returns schematron for xml input', async () => {
     const ctx = {
+      console: mock<Console>(),
       jsonOscalToXml: vi.fn().mockReturnValue(Promise.resolve('')),
       processSchematron: vi.fn().mockReturnValue(
         Promise.resolve({
@@ -34,6 +36,7 @@ describe('validate ssp use case', () => {
       },
       ctx.processSchematron,
       ctx.fetch,
+      ctx.console,
     );
     const retVal = await oscalService.validateXml(mockXml);
     expect(retVal).toEqual({
@@ -46,6 +49,7 @@ describe('validate ssp use case', () => {
   it('returns schematron for json input', async () => {
     const testJson = async (mockJson: string) => {
       const ctx = {
+        console: mock<Console>(),
         jsonOscalToXml: vi.fn().mockReturnValue(Promise.resolve(mockXml)),
         processSchematron: vi.fn().mockReturnValue(
           Promise.resolve({
@@ -64,6 +68,7 @@ describe('validate ssp use case', () => {
         },
         ctx.processSchematron,
         ctx.fetch,
+        ctx.console,
       );
       const retVal = await oscalService.validateXmlOrJson(mockJson);
       expect(ctx.jsonOscalToXml).toHaveBeenCalledWith(mockJson);
@@ -84,6 +89,7 @@ describe('validate ssp url use case', () => {
   it('passes through return value from adapter', async () => {
     const xmlString = '<xml>ignored</xml>';
     const ctx = {
+      console: mock<Console>(),
       fetch: vi.fn().mockImplementation((url: string) => {
         return Promise.resolve({
           text: vi.fn().mockImplementation(async () => {
@@ -110,6 +116,7 @@ describe('validate ssp url use case', () => {
       },
       ctx.processSchematron,
       ctx.fetch,
+      ctx.console,
     );
     const retVal = await oscalService.validateXmlOrJsonByUrl(
       'https://sample.gov/ssp-url.xml',

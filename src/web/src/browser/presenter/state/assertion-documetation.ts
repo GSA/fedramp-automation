@@ -1,6 +1,5 @@
-import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
-import { ScenarioSummary } from '@asap/shared/domain/xspec';
 import { OscalDocumentKey } from '@asap/shared/domain/oscal';
+import type { XSpecScenarioSummaries } from '@asap/shared/use-cases/xspec-summary';
 
 type LoadedState = {
   xspecScenarioSummaries: XSpecScenarioSummaries;
@@ -15,7 +14,6 @@ export type State =
     })
   | (LoadedState & {
       current: 'SHOWING';
-      visibleScenarioSummaries: ScenarioSummary[];
       visibleAssertion: {
         assertionId: string;
         documentType: OscalDocumentKey;
@@ -54,10 +52,6 @@ export const nextState = (state: State, event: StateTransition): State => {
         current: 'SHOWING',
         xspecScenarioSummaries: state.xspecScenarioSummaries,
         visibleAssertion: event.data,
-        visibleScenarioSummaries:
-          state.xspecScenarioSummaries[event.data.documentType][
-            event.data.assertionId
-          ],
       };
     }
   } else if (state.current === 'SHOWING') {

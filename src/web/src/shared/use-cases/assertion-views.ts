@@ -1,3 +1,9 @@
+import { OscalDocumentKey, OscalDocumentKeys } from '../domain/oscal';
+import {
+  ASSERTION_VIEW_LOCAL_PATHS,
+  SCHEMATRON_LOCAL_PATHS,
+} from '../project-config';
+
 export type AssertionGroup = {
   title: string;
   assertionIds: string[];
@@ -71,34 +77,42 @@ export type XSLTProcessor = (
   sourceText: string,
 ) => Promise<string>;
 
-export const WriteAssertionViews =
-  (ctx: {
-    paths: {
+export class AssertionViewGenerator {
+  constructor(
+    private paths: {
       assertionViewSEFPath: string;
-    };
-    processXSLT: XSLTProcessor;
-    readStringFile: (fileName: string) => Promise<string>;
-    writeStringFile: (fileName: string, contents: string) => Promise<void>;
-  }) =>
-  async ({
-    outputFilePath,
-    schematronXMLPath,
-  }: {
-    outputFilePath: string;
-    schematronXMLPath: string;
-  }) => {
-    const stylesheetSEFText = await ctx.readStringFile(
-      ctx.paths.assertionViewSEFPath,
+    },
+    private processXSLT: XSLTProcessor,
+    private readStringFile: (fileName: string) => Promise<string>,
+    private writeStringFile: (
+      fileName: string,
+      contents: string,
+    ) => Promise<void>,
+    private console: Console,
+  ) {}
+
+  async generateAll() {
+    for (const documentType of OscalDocumentKeys) {
+      await this.generate({ documentType });
+    }
+  }
+
+  private async generate({ documentType }: { documentType: OscalDocumentKey }) {
+    const stylesheetSEFText = await this.readStringFile(
+      this.paths.assertionViewSEFPath,
     );
-    const schematronXML = await ctx.readStringFile(schematronXMLPath);
-    const assertionViewJSON = await ctx.processXSLT(
+    const schematronXML = await this.readStringFile(
+      SCHEMATRON_LOCAL_PATHS[documentType],
+    );
+    const assertionViewJSON = await this.processXSLT(
       stylesheetSEFText,
       schematronXML,
     );
     const assertionViews = validateAssertionViews(
       JSON.parse(assertionViewJSON),
     );
-    await ctx.writeStringFile(outputFilePath, JSON.stringify(assertionViews));
-    console.log(`Wrote ${outputFilePath}`);
-  };
-export type WriteAssertionViews = ReturnType<typeof WriteAssertionViews>;
+    const outputFilePath = ASSERTION_VIEW_LOCAL_PATHS[documentType];
+    await this.writeStringFile(outputFilePath, JSON.stringify(assertionViews));
+    this.console.log(`Wrote ${outputFilePath} assertion view to filesystem`);
+  }
+}

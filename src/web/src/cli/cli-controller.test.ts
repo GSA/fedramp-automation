@@ -1,39 +1,27 @@
 import { it, describe, expect, vi } from 'vitest';
+import { mock } from 'vitest-mock-extended';
 
 import type { OscalService } from '@asap/shared/use-cases/oscal';
-import { mock } from 'vitest-mock-extended';
-import { CommandLineController } from './cli-controller';
+import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
+import { CommandLineContext, CommandLineController } from './cli-controller';
+import { XSpecAssertionSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
+import { AssertionViewGenerator } from '@asap/shared/use-cases/assertion-views';
 
 describe('command-line controller', () => {
   it('calls validate schematron', async () => {
-    const mockXml = '<xml></xml>';
-    const ctx = {
-      console: mock<Console>({
-        log: vi.fn(),
-      }),
-      readStringFile: vi.fn().mockReturnValue(Promise.resolve(mockXml)),
-      writeStringFile: vi.fn().mockReturnValue(Promise.resolve()),
+    const ctx: CommandLineContext = {
+      console: mock<Console>(),
       useCases: {
-        parseSchematron: vi.fn(),
+        assertionViewGenerator: mock<AssertionViewGenerator>(),
         oscalService: mock<OscalService>({
-          validateXmlOrJson: (xmlString: string) =>
-            Promise.resolve({
-              documentType: 'ssp',
-              svrlString: '<svrl />',
-              validationReport: {
-                title: 'test report',
-                failedAsserts: [],
-              },
-              xmlString,
-            }),
+          validateXmlOrJsonFile: vi.fn(),
         }),
-        writeAssertionViews: vi.fn(),
-        writeXSpecScenarioSummaries: vi.fn(),
+        schematronSummary: mock<SchematronSummary>(),
+        xSpecAssertionSummaryGenerator: mock<XSpecAssertionSummaryGenerator>(),
       },
     };
     const cli = CommandLineController(ctx);
     await cli.parseAsync(['node', 'index.ts', 'validate', 'ssp.xml']);
-    expect(ctx.readStringFile).toHaveBeenCalledWith('ssp.xml');
-    expect(ctx.console.log).toHaveBeenCalledWith('Found 0 assertions in ssp');
+    expect(ctx.useCases.oscalService.validateXmlOrJsonFile).toHaveBeenCalled();
   });
 });

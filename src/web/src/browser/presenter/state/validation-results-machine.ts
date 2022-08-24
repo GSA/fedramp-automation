@@ -1,7 +1,7 @@
 import type {
   FailedAssert,
   ValidationReport,
-} from '@asap/shared/use-cases/schematron';
+} from '@asap/shared/domain/schematron';
 
 type BaseState = {
   summary: {

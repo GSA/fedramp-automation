@@ -4,7 +4,7 @@ import type {
   SchematronProcessor,
   SchematronResult,
   ValidationReport,
-} from './schematron';
+} from '../domain/schematron';
 
 type Fetch = typeof fetch;
 
@@ -13,7 +13,20 @@ export class OscalService {
     private jsonOscalToXmlProcessors: SchematronJSONToXMLProcessors,
     private schematronProcessor: SchematronProcessor,
     private fetch: Fetch,
+    private console: Console,
+    private readStringFile?: (fileName: string) => Promise<string>,
   ) {}
+
+  async validateXmlOrJsonFile(oscalFilePath: string) {
+    if (!this.readStringFile) {
+      throw new Error('readStringFile not provided');
+    }
+    const xmlString = await this.readStringFile(oscalFilePath);
+    const result = await this.validateXmlOrJson(xmlString);
+    this.console.log(
+      `Found ${result.validationReport.failedAsserts.length} assertions in ${result.documentType}`,
+    );
+  }
 
   validateXmlOrJson(oscalString: string): Promise<{
     documentType: OscalDocumentKey;

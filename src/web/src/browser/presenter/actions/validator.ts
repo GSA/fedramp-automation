@@ -1,5 +1,5 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import type { ValidationReport } from '@asap/shared/use-cases/schematron';
+import type { ValidationReport } from '@asap/shared/domain/schematron';
 import { setCurrentRoute } from '.';
 
 import type { ActionContext } from '..';

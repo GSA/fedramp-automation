@@ -1,8 +1,8 @@
-import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 import type {
   SchematronAssert,
   FailedAssert,
-} from '@asap/shared/use-cases/schematron';
+} from '@asap/shared/domain/schematron';
+import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 
 import * as state from '../state/schematron-machine';
 import { FailedAssertionMap } from '../state/validation-results-machine';
@@ -27,6 +27,7 @@ export type SchematronReportGroups = {
     checks: (SchematronAssert & {
       icon: Icon;
       fired: FailedAssert[];
+      referenceUrl: string;
     })[];
   };
 }[];
@@ -43,6 +44,7 @@ export const getReportGroups = (
         message: string;
         icon: Icon;
         fired: FailedAssert[];
+        referenceUrl: string;
       };
       const isValidated = failedAssertionMap !== null;
 

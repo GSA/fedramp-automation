@@ -1,5 +1,5 @@
+import type { SchematronAssert } from '@asap/shared/domain/schematron';
 import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
-import type { SchematronAssert } from '@asap/shared/use-cases/schematron';
 
 export type Role = string;
 export type PassStatus = 'pass' | 'fail' | 'all';

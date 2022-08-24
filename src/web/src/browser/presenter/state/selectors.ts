@@ -215,3 +215,21 @@ export const selectSchematronReport = memoize(
       },
     ),
 );
+
+export const selectVisibleScenarioSummaries = createSelector(
+  (state: State) => state.assertionDocumentation,
+  (state: State) => state.oscalDocuments,
+  (assertionDocumentation, oscalDocuments) => {
+    if (assertionDocumentation.current === 'SHOWING') {
+      const visibleAssertion = assertionDocumentation.visibleAssertion;
+      if (visibleAssertion === null) {
+        return [];
+      }
+      return assertionDocumentation.xspecScenarioSummaries[
+        visibleAssertion.documentType
+      ][visibleAssertion.assertionId];
+    } else {
+      return [];
+    }
+  },
+);

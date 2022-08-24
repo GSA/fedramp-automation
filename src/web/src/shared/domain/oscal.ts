@@ -1,4 +1,5 @@
-export type OscalDocumentKey = 'poam' | 'sap' | 'sar' | 'ssp';
+export const OscalDocumentKeys = ['poam', 'sap', 'sar', 'ssp'] as const;
+export type OscalDocumentKey = typeof OscalDocumentKeys[number];
 
 const ROOT_NODE_MAPPING: Record<string, OscalDocumentKey> = {
   'plan-of-action-and-milestones': 'poam',

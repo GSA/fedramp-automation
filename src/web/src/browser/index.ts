@@ -110,16 +110,16 @@ export const runBrowserContext = ({
         },
         getXSpecScenarioSummaries: async () => {
           const responses = await Promise.all([
-            fetch(`${rulesUrl}xspec-scenarios-poam.json`).then(response =>
+            fetch(`${rulesUrl}xspec-summary-poam.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}xspec-scenarios-sap.json`).then(response =>
+            fetch(`${rulesUrl}xspec-summary-sap.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}xspec-scenarios-sar.json`).then(response =>
+            fetch(`${rulesUrl}xspec-summary-sar.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}xspec-scenarios-ssp.json`).then(response =>
+            fetch(`${rulesUrl}xspec-summary-ssp.json`).then(response =>
               response.json(),
             ),
           ]);
@@ -155,6 +155,7 @@ export const runBrowserContext = ({
           },
           processSchematron,
           window.fetch.bind(window),
+          console,
         ),
       },
     },

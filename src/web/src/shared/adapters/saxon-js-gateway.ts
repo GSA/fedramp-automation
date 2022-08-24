@@ -6,10 +6,10 @@ import type {
   SchematronProcessor,
   SchematronResult,
   SuccessfulReport,
-} from '@asap/shared/use-cases/schematron';
+} from '@asap/shared/domain/schematron';
 
 import { getDocumentTypeForRootNode, OscalDocumentKey } from '../domain/oscal';
-import type { ParseXSpec, XSpecScenario } from '../domain/xspec';
+import type { ParseXSpec, XSpecNode, XSpecScenarioNode } from '../domain/xspec';
 import type { XSLTProcessor } from '../use-cases/assertion-views';
 import { base64DataUriForJson, formatElapsedTime } from '../util';
 
@@ -455,55 +455,41 @@ export const SaxonJsJsonOscalToXmlProcessor =
       });
   };
 
-const parseScenarioNode = (SaxonJS: any, scenario: any) => {
-  const result: XSpecScenario = {
+const parseScenarioNode = (scenario: any): XSpecScenarioNode => {
+  const nodes = Array.from(scenario.childNodes) as any[];
+  const children = nodes
+    .map((childNode: any): XSpecNode | null => {
+      if (childNode.nodeName === 'x:context') {
+        return {
+          node: 'x:context',
+          context: childNode.childNodes[1].toString(),
+        };
+      }
+      if (childNode.nodeName === 'x:expect-not-assert') {
+        return {
+          node: 'x:expect-not-assert',
+          id: safeGetAttribute(childNode, 'id'),
+          label: safeGetAttribute(childNode, 'label'),
+        };
+      }
+      if (childNode.nodeName === 'x:expect-assert') {
+        return {
+          node: 'x:expect-assert',
+          id: safeGetAttribute(childNode, 'id'),
+          label: safeGetAttribute(childNode, 'label'),
+        };
+      }
+      if (childNode.nodeName === 'x:scenario') {
+        return parseScenarioNode(childNode);
+      }
+      return null;
+    })
+    .filter((node: any) => node) as XSpecNode[];
+  return {
+    node: 'x:scenario',
     label: safeGetAttribute(scenario, 'label'),
+    children,
   };
-
-  const context = SaxonJS.XPath.evaluate('./x:context/*[1]', scenario, {
-    namespaceContext: { x: 'http://www.jenitennison.com/xslt/xspec' },
-  });
-  if (context) {
-    result.context = context.toString();
-  }
-
-  const expectNotAsserts = SaxonJS.XPath.evaluate(
-    './x:expect-not-assert',
-    scenario,
-    {
-      namespaceContext: { x: 'http://www.jenitennison.com/xslt/xspec' },
-      resultForm: 'array',
-    },
-  );
-  if (expectNotAsserts.length > 0) {
-    result.expectNotAssert = expectNotAsserts.map((assert: any) => ({
-      id: safeGetAttribute(assert, 'id'),
-      label: safeGetAttribute(assert, 'label'),
-    }));
-  }
-
-  const expectAsserts = SaxonJS.XPath.evaluate('./x:expect-assert', scenario, {
-    namespaceContext: { x: 'http://www.jenitennison.com/xslt/xspec' },
-    resultForm: 'array',
-  });
-  if (expectAsserts.length > 0) {
-    result.expectAssert = expectAsserts.map((assert: any) => ({
-      id: safeGetAttribute(assert, 'id'),
-      label: safeGetAttribute(assert, 'label'),
-    }));
-  }
-
-  const scenarios = SaxonJS.XPath.evaluate('./x:scenario', scenario, {
-    namespaceContext: { x: 'http://www.jenitennison.com/xslt/xspec' },
-    resultForm: 'array',
-  });
-  if (scenarios?.length > 0) {
-    result.scenarios = scenarios.map((node: any) =>
-      parseScenarioNode(SaxonJS, node),
-    );
-  }
-
-  return result;
 };
 
 export const SaxonJsXSpecParser =
@@ -518,9 +504,5 @@ export const SaxonJsXSpecParser =
         resultForm: 'array',
       },
     );
-    return {
-      scenarios: scenarios.map((node: any) =>
-        parseScenarioNode(ctx.SaxonJS, node),
-      ),
-    };
+    return scenarios.map((node: any) => parseScenarioNode(node));
   };

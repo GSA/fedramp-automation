@@ -1,68 +1,47 @@
 import { Command } from 'commander';
 
-import type { XSpecScenarioSummaryWriter } from '@asap/shared/use-cases/assertion-documentation';
-import type { WriteAssertionViews } from '@asap/shared/use-cases/assertion-views';
-import type { ParseSchematronAssertions } from '@asap/shared/use-cases/schematron';
+import type { AssertionViewGenerator } from '@asap/shared/use-cases/assertion-views';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
+import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
+import type { XSpecAssertionSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
 
-type CommandLineContext = {
+export type CommandLineContext = {
   console: Console;
-  readStringFile: (fileName: string) => Promise<string>;
-  writeStringFile: (fileName: string, contents: string) => Promise<void>;
   useCases: {
-    parseSchematron: ParseSchematronAssertions;
+    assertionViewGenerator: AssertionViewGenerator;
     oscalService: OscalService;
-    writeAssertionViews: WriteAssertionViews;
-    writeXSpecScenarioSummaries: XSpecScenarioSummaryWriter;
+    schematronSummary: SchematronSummary;
+    xSpecAssertionSummaryGenerator: XSpecAssertionSummaryGenerator;
   };
 };
 
 export const CommandLineController = (ctx: CommandLineContext) => {
   const cli = new Command();
   cli
-    .command('validate <oscal-xml-file>')
+    .command('validate <oscal-file-path>')
     .description('validate OSCAL document (SSP, SAP, SAR, or POA&M)')
-    .action(async oscalXmlFile => {
-      const xmlString = await ctx.readStringFile(oscalXmlFile);
-      const result = await ctx.useCases.oscalService.validateXmlOrJson(
-        xmlString,
-      );
-      ctx.console.log(
-        `Found ${result.validationReport.failedAsserts.length} assertions in ${result.documentType}`,
-      );
+    .action(async oscalFilePath => {
+      await ctx.useCases.oscalService.validateXmlOrJsonFile(oscalFilePath);
     });
   cli
-    .command('parse-schematron <input-sch-xml-file> <output-sch-json-file>')
-    .description('parse Schematron XML and output JSON version')
-    .action(async (inputSchXmlFile, outputSchJsonFile) => {
-      const xmlString = await ctx.readStringFile(inputSchXmlFile);
-      const schematronObject = await ctx.useCases.parseSchematron(xmlString);
-      await ctx.writeStringFile(
-        outputSchJsonFile,
-        JSON.stringify(schematronObject),
-      );
-      ctx.console.log(`Wrote ${outputSchJsonFile}`);
-    });
+    .command('generate-schematron-summaries')
+    .description('parse all Schematron XML and outputs JSON summaries')
+    .action(() => ctx.useCases.schematronSummary.generateAllSummaries());
   cli
-    .command('create-assertion-view <output-file-path> <schematron-xml-path>')
+    .command('create-assertion-view')
     .description(
       'write UI-optimized JSON of assertion views to target location',
     )
-    .action(async (outputFilePath, schematronXMLPath) => {
-      await ctx.useCases.writeAssertionViews({
-        outputFilePath,
-        schematronXMLPath,
-      });
-      ctx.console.log(`Wrote assertion views to filesystem`);
+    .action(async () => {
+      await ctx.useCases.assertionViewGenerator.generateAll();
     });
   cli
-    .command('create-xspec-summaries <xspec-path> <summary-path>')
+    .command('create-xspec-summaries')
     .description(
-      'write UI-optimized JSON of assertion details, including xspec scenarios as usage examples',
+      'write UI-optimized JSON xspec scenario summaries, useful for usage examples',
     )
-    .action(async (xspecPath, summaryPath) => {
-      await ctx.useCases.writeXSpecScenarioSummaries(xspecPath, summaryPath);
-      ctx.console.log(`Wrote assertion documentation to filesystem`);
+    .action(async () => {
+      await ctx.useCases.xSpecAssertionSummaryGenerator.generateAll();
     });
   return cli;
 };
