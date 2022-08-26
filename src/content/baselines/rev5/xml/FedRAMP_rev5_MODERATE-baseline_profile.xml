@@ -51,7 +51,6 @@
     </metadata>
     <import href="#051a77c1-b61d-4995-8275-dacfe688d510">
         <include-controls>
-            <with-id>id</with-id>
             <with-id>ac-1</with-id>
             <with-id>ac-2</with-id>
             <with-id>ac-2.1</with-id>
