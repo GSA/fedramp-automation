@@ -2008,7 +2008,25 @@
             </constraint>
         </set-parameter>
         <!-- Add FedRAMP Additional Guidance and Requirements -->
+        <alter control-id="ac-1">
+            <add position="starting" by-id="ac-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ac-2">
+            <add position="starting" by-id="ac-2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ac-2.2">
+            <add position="starting" by-id="ac-2.2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="ac-2.3">
+            <add position="starting" by-id="ac-2.3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ac-2.3_smt">
                 <part id="ac-2.3_fr" name="item">
                     <title>AC-2 (3) Additional FedRAMP Requirements and Guidance</title>
@@ -2028,6 +2046,9 @@
             </add>
         </alter>
         <alter control-id="ac-2.5">
+            <add position="starting" by-id="ac-2.5">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ac-2.5_smt">
                 <part id="ac-2.5_fr" name="item">
                     <title>AC-2 (5) Additional FedRAMP Requirements and Guidance</title>
@@ -2050,6 +2071,9 @@
             </add>
         </alter>
         <alter control-id="ac-2.12">
+            <add position="starting" by-id="ac-2.12">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ac-2.12_smt">
                 <part id="ac-2.12_fr" name="item">
                     <title>AC-2 (12) Additional FedRAMP Requirements and Guidance</title>
@@ -2062,6 +2086,11 @@
                         <p>Required for privileged accounts.</p>
                     </part>
                 </part>
+            </add>
+        </alter>
+        <alter control-id="ac-2.13">
+            <add position="starting" by-id="ac-2.13">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
             </add>
         </alter>
         <alter control-id="ac-5">
@@ -2085,6 +2114,21 @@
                         </p>
                     </part>
                 </part>
+            </add>
+        </alter>
+        <alter control-id="ac-6.7">
+            <add position="starting" by-id="ac-6.7">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ac-6.9">
+            <add position="starting" by-id="ac-6.9">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ac-7">
+            <add position="starting" by-id="ac-7">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
             </add>
         </alter>
         <alter control-id="ac-8">
@@ -2112,7 +2156,75 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="ac-11">
+            <add position="starting" by-id="ac-11">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ac-12">
+            <add position="starting" by-id="ac-12">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ac-18">
+            <add position="starting" by-id="ac-18">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ac-18.3">
+            <add position="starting" by-id="ac-18.3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ac-19">
+            <add position="starting" by-id="ac-19">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ac-19.5">
+            <add position="starting" by-id="ac-19.5">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ac-22">
+            <add position="starting" by-id="ac-22">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="at-1">
+            <add position="starting" by-id="at-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="at-2">
+            <add position="starting" by-id="at-2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="at-2.3">
+            <add position="starting" by-id="at-2.3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="at-3">
+            <add position="starting" by-id="at-3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="at-4">
+            <add position="starting" by-id="at-4">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="au-1">
+            <add position="starting" by-id="au-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="au-2">
+            <add position="starting" by-id="au-2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="au-2_smt">
                 <part id="au-2_fr" name="item">
                     <title>AU-2 Additional FedRAMP Requirements and Guidance</title>
@@ -2139,6 +2251,9 @@
             </add>
         </alter>
         <alter control-id="au-6">
+            <add position="starting" by-id="au-6">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="au-6_smt">
                 <part id="au-6_fr" name="item">
                     <title>AU-6 Additional FedRAMP Requirements and Guidance</title>
@@ -2150,6 +2265,9 @@
             </add>
         </alter>
         <alter control-id="au-11">
+            <add position="starting" by-id="au-11">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="au-11_smt">
                 <part id="au-11_fr" name="item">
                     <title>AU-11 Additional FedRAMP Requirements and Guidance</title>
@@ -2160,7 +2278,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="ca-1">
+            <add position="starting" by-id="ca-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="ca-2">
+            <add position="starting" by-id="ca-2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ca-2_smt">
                 <part id="ca-2_fr" name="item">
                     <title>CA-2 Additional FedRAMP Requirements and Guidance</title>
@@ -2182,7 +2308,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="ca-3">
+            <add position="starting" by-id="ca-3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="ca-5">
+            <add position="starting" by-id="ca-5">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ca-5_smt">
                 <part id="ca-5_fr" name="item">
                     <title>CA-5 Additional FedRAMP Requirements and Guidance</title>
@@ -2209,6 +2343,9 @@
             </add>
         </alter>
         <alter control-id="ca-7">
+            <add position="starting" by-id="ca-7">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ca-7_smt">
                 <part id="ca-7_fr" name="item">
                     <title>CA-7 Additional FedRAMP Requirements and Guidance</title>
@@ -2227,7 +2364,30 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="ca-7.4">
+            <add position="starting" by-id="ca-7.4">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ca-8">
+            <add position="starting" by-id="ca-8">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ca-9">
+            <add position="starting" by-id="ca-9">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="cm-1">
+            <add position="starting" by-id="cm-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="cm-2">
+            <add position="starting" by-id="cm-2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="cm-2_smt">
                 <part id="cm-2_fr" name="item">
                     <title>CM-2 Additional FedRAMP Requirements and Guidance</title>
@@ -2239,6 +2399,9 @@
             </add>
         </alter>
         <alter control-id="cm-3">
+            <add position="starting" by-id="cm-3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="cm-3_smt">
                 <part id="cm-3_fr" name="item">
                     <title>CM-3 Additional FedRAMP Requirements and Guidance</title>
@@ -2253,7 +2416,30 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="cm-3.2">
+            <add position="starting" by-id="cm-3.2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="cm-3.4">
+            <add position="starting" by-id="cm-3.4">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="cm-4.2">
+            <add position="starting" by-id="cm-4.2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="cm-5.5">
+            <add position="starting" by-id="cm-5.5">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="cm-6">
+            <add position="starting" by-id="cm-6">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="cm-6_smt">
                 <part id="cm-6_fr" name="item">
                     <title>CM-6 Additional FedRAMP Requirements and Guidance</title>
@@ -2279,6 +2465,11 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="cm-7.1">
+            <add position="starting" by-id="cm-7.1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="cm-7.2">
             <add position="ending" by-id="cm-7.2_smt">
                 <part id="cm-7.2_fr" name="item">
@@ -2290,7 +2481,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="cm-7.5">
+            <add position="starting" by-id="cm-7.5">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="cm-8">
+            <add position="starting" by-id="cm-8">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="cm-8_smt">
                 <part id="cm-8_fr" name="item">
                     <title>CM-8 Additional FedRAMP Requirements and Guidance</title>
@@ -2299,6 +2498,26 @@
                         <p>must be provided at least monthly or when there is a change.</p>
                     </part>
                 </part>
+            </add>
+        </alter>
+        <alter control-id="cm-8.3">
+            <add position="starting" by-id="cm-8.3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="cm-9">
+            <add position="starting" by-id="cm-9">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="cm-12">
+            <add position="starting" by-id="cm-12">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="cm-12.1">
+            <add position="starting" by-id="cm-12.1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
             </add>
         </alter>
         <alter control-id="ca-8.2">
@@ -2313,7 +2532,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="cp-1">
+            <add position="starting" by-id="cp-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="cp-2">
+            <add position="starting" by-id="cp-2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="cp-2_smt">
                 <part id="cp-2_fr" name="item">
                     <title>CP-2 Additional FedRAMP Requirements and Guidance</title>
@@ -2324,7 +2551,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="cp-3">
+            <add position="starting" by-id="cp-3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="cp-4">
+            <add position="starting" by-id="cp-4">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="cp-4_smt">
                 <part id="cp-4_fr" name="item">
                     <title>CP-4 Additional FedRAMP Requirements and Guidance</title>
@@ -2391,6 +2626,21 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="cp-9.1">
+            <add position="starting" by-id="cp-9.1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="cp-9.8">
+            <add position="starting" by-id="cp-9.8">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ia-1">
+            <add position="starting" by-id="ia-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="ia-2">
             <add position="ending" by-id="ia-2_smt">
                 <part id="ia-2_fr" name="item">
@@ -2425,7 +2675,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="ia-4">
+            <add position="starting" by-id="ia-4">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="ia-5">
+            <add position="starting" by-id="ia-5">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ia-5_smt">
                 <part id="ia-5_fr" name="item">
                     <title>IA-5 Additional FedRAMP Requirements and Guidance</title>
@@ -2437,6 +2695,9 @@
             </add>
         </alter>
         <alter control-id="ia-5.1">
+            <add position="starting" by-id="ia-5.1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ia-5.1_smt">
                 <part id="ia-5.1_fr" name="item">
                     <title>IA-5 (1) Additional FedRAMP Requirements and Guidance</title>
@@ -2447,7 +2708,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="ia-11">
+            <add position="starting" by-id="ia-11">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="ia-12">
+            <add position="starting" by-id="ia-12">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ia-12_smt">
                 <part id="ia-12_fr" name="item">
                     <title>IA-12 Additional FedRAMP Requirements and Guidance</title>
@@ -2467,9 +2736,37 @@
                         <p>Guidance: In accordance with NIST SP 800-63A Enrollment and Identity Proofing</p>
                     </part>
                 </part>
+            </add>
+        </alter>
+        <alter control-id="ia-12.2">
+            <add position="starting" by-id="ia-12.2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ia-12.3">
+            <add position="starting" by-id="ia-12.3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ia-12.5">
+            <add position="starting" by-id="ia-12.5">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ir-1">
+            <add position="starting" by-id="ir-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ir-2">
+            <add position="starting" by-id="ir-2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
             </add>
         </alter>
         <alter control-id="ir-3">
+            <add position="starting" by-id="ir-3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ir-3_smt">
                 <part id="ir-3_fr" name="item">
                     <title>IR-3-2 Additional FedRAMP Requirements and Guidance</title>
@@ -2492,6 +2789,9 @@
             </add>
         </alter>
         <alter control-id="ir-6">
+            <add position="starting" by-id="ir-6">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ir-6_smt">
                 <part id="ir-6_fr" name="item">
                     <title>IR-6 Additional FedRAMP Requirements and Guidance</title>
@@ -2502,7 +2802,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="ir-6.3">
+            <add position="starting" by-id="ir-6.3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="ir-8">
+            <add position="starting" by-id="ir-8">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ir-8_smt">
                 <part id="ir-8_fr" name="item">
                     <title>IR-8 Additional FedRAMP Requirements and Guidance</title>
@@ -2515,6 +2823,26 @@
                         <p>The service provider defines a list of incident response personnel (identified by name and/or by role) and organizational elements. The incident response list includes designated FedRAMP personnel.</p>
                     </part>
                 </part>
+            </add>
+        </alter>
+        <alter control-id="ir-9.2">
+            <add position="starting" by-id="ir-9.2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ma-1">
+            <add position="starting" by-id="ma-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ma-4">
+            <add position="starting" by-id="ma-4">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="mp-1">
+            <add position="starting" by-id="mp-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
             </add>
         </alter>
         <alter control-id="mp-3">
@@ -2550,6 +2878,36 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="pe-1">
+            <add position="starting" by-id="pe-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="pe-2">
+            <add position="starting" by-id="pe-2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="pe-3">
+            <add position="starting" by-id="pe-3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="pe-6">
+            <add position="starting" by-id="pe-6">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="pe-8">
+            <add position="starting" by-id="pe-8">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="pe-13.1">
+            <add position="starting" by-id="pe-13.1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="pe-14">
             <add position="ending" by-id="pe-14_smt">
                 <part id="pe-14_fr" name="item">
@@ -2561,7 +2919,20 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="pl-1">
+            <add position="starting" by-id="pl-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="pl-2">
+            <add position="starting" by-id="pl-2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="pl-8">
+            <add position="starting" by-id="pl-8">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="pl-8_smt">
                 <part id="pl-8_fr" name="item">
                     <title>PL-8 Additional FedRAMP Requirements and Guidance</title>
@@ -2570,6 +2941,56 @@
                         <p>Significant change is defined in NIST Special Publication 800-37 Revision 2, Appendix F.</p>
                     </part>
                 </part>
+            </add>
+        </alter>
+        <alter control-id="pl-10">
+            <add position="starting" by-id="pl-10">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="pl-11">
+            <add position="starting" by-id="pl-11">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ps-1">
+            <add position="starting" by-id="ps-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ps-3">
+            <add position="starting" by-id="ps-3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ps-4">
+            <add position="starting" by-id="ps-4">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ps-5">
+            <add position="starting" by-id="ps-5">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ps-6">
+            <add position="starting" by-id="ps-6">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ps-7">
+            <add position="starting" by-id="ps-7">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ps-9">
+            <add position="starting" by-id="ps-9">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ra-1">
+            <add position="starting" by-id="ra-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
             </add>
         </alter>
         <alter control-id="ra-3">
@@ -2587,7 +3008,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="ra-3.1">
+            <add position="starting" by-id="ra-3.1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="ra-5">
+            <add position="starting" by-id="ra-5">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="ra-5_smt">
                 <part id="ra-5_fr" name="item">
                     <title>RA-5 Additional FedRAMP Requirements and Guidance</title>
@@ -2607,13 +3036,34 @@
                 </part>
             </add>
         </alter>
-        <alter control-id="ra-5.8">
-            <add position="ending" by-id="ra-5.8_smt">
-                <title>RA-5(8) Additional FedRAMP Requirement</title>
-                <part id="ra-5.8_fr_smt.1" name="item">
-                    <prop name="label" value="Requirement:"/>
-                    <p>This enhancement is required for all high (or critical) vulnerability scan findings.</p>
-                </part>
+        <alter control-id="ra-5.2">
+            <add position="starting" by-id="ra-5.2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ra-5.5">
+            <add position="starting" by-id="ra-5.5">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ra-5.11">
+            <add position="starting" by-id="ra-5.11">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ra-7">
+            <add position="starting" by-id="ra-7">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="ra-9">
+            <add position="starting" by-id="ra-9">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="sa-1">
+            <add position="starting" by-id="sa-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
             </add>
         </alter>
         <alter control-id="sa-4">
@@ -2654,6 +3104,26 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="sa-15">
+            <add position="starting" by-id="sa-15">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="sa-15.3">
+            <add position="starting" by-id="sa-15.3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="sa-22">
+            <add position="starting" by-id="sa-22">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="sc-1">
+            <add position="starting" by-id="sc-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="sc-7">
             <add position="ending" by-id="sc-7_smt">
                 <part id="sc-7_fr" name="item">
@@ -2663,6 +3133,11 @@
                         <p>SC-7 (b) should be met by subnet isolation. VLAN separation will be considered when it provides the same protection as subnet separation.</p>
                     </part>
                 </part>
+            </add>
+        </alter>
+        <alter control-id="sc-7.4">
+            <add position="starting" by-id="sc-7.4">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
             </add>
         </alter>
         <alter control-id="sc-7.5">
@@ -2710,6 +3185,9 @@
             </add>
         </alter>
         <alter control-id="sc-13">
+            <add position="starting" by-id="sc-13">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="sc-13_smt">
                 <part id="sc-13_fr" name="item">
                     <title>SC-13 Additional FedRAMP Requirements and Guidance</title>
@@ -2777,6 +3255,9 @@
             </add>
         </alter>
         <alter control-id="sc-45.1">
+            <add position="starting" by-id="sc-45.1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="sc-45.1_smt">
                 <part id="sc-45.1_fr" name="item">
                     <title>SC-45(1) Additional FedRAMP Requirements and Guidance</title>
@@ -2792,7 +3273,30 @@
                 </part>
             </add>            
         </alter>
+        <alter control-id="si-1">
+            <add position="starting" by-id="si-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="si-2">
+            <add position="starting" by-id="si-2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="si-2.2">
+            <add position="starting" by-id="si-2.2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="si-3">
+            <add position="starting" by-id="si-3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="si-4">
+            <add position="starting" by-id="si-4">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="si-4_smt">
                 <part id="si-4_fr" name="item">
                     <title>SI-4 Additional FedRAMP Requirements and Guidance</title>
@@ -2801,6 +3305,11 @@
                         <p>See US-CERT Incident Response Reporting Guidelines.</p>
                     </part>
                 </part>
+            </add>
+        </alter>
+        <alter control-id="si-4.4">
+            <add position="starting" by-id="si-4.4">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
             </add>
         </alter>
         <alter control-id="si-4.5">
@@ -2814,6 +3323,16 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="si-6">
+            <add position="starting" by-id="si-6">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="si-7.1">
+            <add position="starting" by-id="si-7.1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="si-8">
             <add position="ending" by-id="si-8_smt">
                 <part id="si-8_fr" name="item">
@@ -2825,7 +3344,30 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="si-8.2">
+            <add position="starting" by-id="si-8.2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="sr-1">
+            <add position="starting" by-id="sr-1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="sr-2">
+            <add position="starting" by-id="sr-2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="sr-2.1">
+            <add position="starting" by-id="sr-2.1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="sr-3">
+            <add position="starting" by-id="sr-3">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="sr-3_smt">
                 <part id="sr-3_fr" name="item">
                     <title>SR-3 Additional FedRAMP Requirements and Guidance</title>
@@ -2836,7 +3378,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="sr-5">
+            <add position="starting" by-id="sr-5">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="sr-6">
+            <add position="starting" by-id="sr-6">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="sr-6_smt">
                 <part id="sr-6_fr" name="item">
                     <title>SR-6 Additional FedRAMP Requirements and Guidance</title>
@@ -2848,6 +3398,9 @@
             </add>
         </alter>
         <alter control-id="sr-8">
+            <add position="starting" by-id="sr-8">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="sr-8_smt">
                 <part id="sr-8_fr" name="item">
                     <title>SR-8 Additional FedRAMP Requirements and Guidance</title>
@@ -2858,7 +3411,15 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="sr-10">
+            <add position="starting" by-id="sr-10">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
         <alter control-id="sr-11">
+            <add position="starting" by-id="sr-11">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
             <add position="ending" by-id="sr-11_smt">
                 <part id="sr-11_fr" name="item">
                     <title>SR-11 Additional FedRAMP Requirements and Guidance</title>
@@ -2869,13 +3430,28 @@
                 </part>
             </add>
         </alter>
+        <alter control-id="sr-11.1">
+            <add position="starting" by-id="sr-11.1">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="sr-11.2">
+            <add position="starting" by-id="sr-11.2">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>
+        <alter control-id="sr-12">
+            <add position="starting" by-id="sr-12">
+                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
+            </add>
+        </alter>		
         <!-- 
-            			Todo:
-                        For each control:
-                        1. Add prop to indicate if it is a core control
-            			2. For each control part (or control statement), indicate if it should be a response point (e.g., when developing SSP)
-                        3. For each test objectives (by-id), specify the testing method (EXAMINE, INTERVIEW, TEST)
-            		-->
+            Todo:
+            For each control:
+            1. Add prop to indicate if it is a core control
+            2. For each control part (or control statement), indicate if it should be a response point (e.g., when developing SSP)
+            3. For each test objectives (by-id), specify the testing method (EXAMINE, INTERVIEW, TEST)
+        -->
     </modify>
     <back-matter>
         <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
