@@ -177,6 +177,52 @@
     </sch:pattern>
 
     <sch:pattern
+        id="results">
+        <sch:rule
+            context="oscal:observation">
+            <sch:let
+                name="related-observations"
+                value="/oscal:assessment-results/oscal:result/oscal:finding/oscal:related-observation/@observation-uuid" />
+
+            <sch:assert
+                diagnostics="has-operational-requirement-observation-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.2"
+                id="has-operational-requirement-observation"
+                role="error"
+                test="
+                    if (oscal:type = 'operational-requirement')
+                    then
+                        if (@uuid[. = $related-observations])
+                        then
+                            true()
+                        else
+                            false()
+                    else
+                        true()">An observation with a type of 'operational-requirement' must have a @uuid that matches a
+                finding/related-observation/@observation-uuid.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-operational-requirement-relevant-evidence-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.2"
+                id="has-operational-requirement-relevant-evidence"
+                role="error"
+                test="
+                    if (oscal:type = 'operational-requirement')
+                    then
+                        if (oscal:relevant-evidence[substring-after(@href, '#') = /oscal:assessment-results/oscal:back-matter/oscal:resource/@uuid])
+                        then
+                            true()
+                        else
+                            false()
+                    else
+                        true()">An observation with a type of 'operational-requirement' must have a relevant-evidence/@href, whose
+                value after the '#', matches a back-matter/resource/@uuid.</sch:assert>
+
+        </sch:rule>
+
+    </sch:pattern>
+    
+    <sch:pattern
         id="sar-age-checks">
 
         <!-- Note that there are no Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) references -->
@@ -304,6 +350,19 @@
             doc:assert="has-no-base64"
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'security-assessment-plan']]/oscal:base64"
             id="has-no-base64-diagnostic">This OSCAL SAR has a base64 element in a security-assessment-plan resource.</sch:diagnostic>-->
+
+        <!-- results -->
+        <sch:diagnostic
+            doc:assert="has-operational-requirement-observation"
+            doc:context="oscal:observation"
+            id="has-operational-requirement-observation-diagnostic">An observation, <sch:value-of select="@uuid"/>, with a type of 'operational-requirement' does not have a @uuid that
+            matches a finding/related-observation/@observation-uuid.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-operational-requirement-relevant-evidence"
+            doc:context="oscal:observation"
+            id="has-operational-requirement-relevant-evidence-diagnostic">An observation, <sch:value-of select="@uuid"/>, with a type of 'operational-requirement' does not have a
+            relevant-evidence/@href, whose value after the '#', matches a back-matter/resource/@uuid.</sch:diagnostic>
 
         <!-- age checks -->
 
