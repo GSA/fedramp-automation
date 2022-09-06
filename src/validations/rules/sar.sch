@@ -250,7 +250,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.2"
                 id="has-operational-requirement-observation"
                 role="error"
-                test="
+               test="
                     if (oscal:type = 'operational-requirement')
                     then
                         if (@uuid[. = $related-observations])
@@ -325,6 +325,23 @@
                         true()"
                 unit:override-xspec="both">A risk with an @ns of 'https://fedramp.gov/ns/oscal' and an @name of 'risk-adjustment' should have a
                 matching statement in the associated SSP.</sch:assert>
+          
+          <sch:assert
+                diagnostics="has-risk-log-status-closed-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.11"
+                id="has-risk-log-status-closed"
+                role="error"
+                test="
+                    if (oscal:status = 'closed')
+                    then
+                        if (oscal:risk-log/oscal:entry/oscal:status-change = 'closed')
+                        then
+                            true()
+                        else
+                            false()
+                    else
+                        true()">A risk with a status of 'closed' must have a risk-log/entry with a status-change of
+                'closed'.</sch:assert>
         </sch:rule>
 
     </sch:pattern>
@@ -477,7 +494,13 @@
             doc:assert="has-risk-adjustment-matching-control-implementation-statement"
             doc:context="oscal:risk"
             id="has-risk-adjustment-matching-control-implementation-statement-diagnostic">A risk, <sch:value-of
-                select="@uuid" />, with a type of 'risk-adjustment' does not have a matching statement @uuid in the associated SSP.</sch:diagnostic>
+                select="@uuid" />, with a type of 'risk-adjustment' does not have a matching statement @uuid in the associated SSP.</sch:diagnostic>      
+      
+      <sch:diagnostic
+            doc:assert="has-risk-log-status-closed"
+            doc:context="oscal:risk"
+            id="has-risk-log-status-closed-diagnostic">A risk, <sch:value-of
+                select="@uuid" />, with a status of 'closed' does not have a risk-log/entry with a status-change of 'closed'.</sch:diagnostic>
                 
         <sch:diagnostic
             doc:assert="has-operational-requirement-observation"
@@ -490,7 +513,7 @@
             doc:context="oscal:observation"
             id="has-operational-requirement-relevant-evidence-diagnostic">An observation, <sch:value-of select="@uuid"/>, with a type of 'operational-requirement' does not have a
             relevant-evidence/@href, whose value after the '#', matches a back-matter/resource/@uuid.</sch:diagnostic>
-
+      
         <!-- age checks -->
 
         <sch:diagnostic

@@ -473,6 +473,65 @@
         </x:scenario>
         
         <x:scenario
+            label="results">
+            <x:scenario
+                label="when a result">
+                <x:scenario
+                    label="has a risk">
+                    <x:scenario
+                        label="with a status of 'closed'">
+                        <x:scenario
+                            label="and has a risk-log/entry/status-change of 'closed'">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <risk
+                                            uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
+                                            <status>closed</status>
+                                            <risk-log>
+                                                <entry
+                                                    uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
+                                                    <status-change>closed</status-change>
+                                                </entry>
+                                            </risk-log>
+                                        </risk>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-risk-log-status-closed"
+                                label="this is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="and does not have a risk-log/entry/status-change of 'closed'">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <risk
+                                            uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
+                                            <status>closed</status>
+                                            <risk-log>
+                                                <entry
+                                                    uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
+                                                    <status-change>open</status-change>
+                                                </entry>
+                                            </risk-log>
+                                        </risk>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-risk-log-status-closed"
+                                label="this is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
             label="age-checks">
 
             <!-- WARNING: The related checks depend on current-dateTime() -->
