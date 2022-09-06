@@ -1107,7 +1107,8 @@
                 <x:expect-assert
                     id="has-login-id-task"
                     label="that is incorrect" />
-            </x:scenario>            
+            </x:scenario>      
+        </x:scenario>
         <x:scenario
             label="in the metadata">
             <x:scenario
@@ -1160,6 +1161,135 @@
                     id="has-metadata-role-assessor"
                     label="that is an error" />
             </x:scenario>
+            <!--  -->
+            <x:scenario
+                label="when there is a role element with an @id of 'csp-assessment-poc'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <role
+                                id="csp-assessment-poc" />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-csp-poc-role"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="there is not a role element with an @id of 'csp-assessment-poc'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-csp-poc-role"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="when there is a responsible-party element with an @role-id of 'csp-assessment-poc'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <responsible-party
+                                role-id="csp-assessment-poc" />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-csp-poc-responsible-party"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when there is not a responsible-party element with an @role-id of 'csp-assessment-poc'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-csp-poc-responsible-party"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario label="when there are at least 3 party-uuid elements as children of responsible-party[@role-id='csp-assessment-poc']">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <responsible-party role-id="csp-assessment-poc">
+                                <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+                                <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
+                            </responsible-party>
+                        </metadata>
+                    </assessment-plan>                 
+                </x:context>                
+                <x:expect-not-assert
+                    id="has-metadata-responsible-party-csp-poc-matches"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario label="when there are not at least 3 party-uuid elements as children of responsible-party[@role-id='csp-assessment-poc']">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <responsible-party role-id="csp-assessment-poc">
+                                <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+                                <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                            </responsible-party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>                
+                <x:expect-assert
+                    id="has-metadata-responsible-party-csp-poc-matches"
+                    label="that is incorrect" />
+            </x:scenario>
+            <!--  -->
+            <x:scenario label="when at least one of the responsible party POCs is an Operations Center">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <responsible-party role-id="csp-operations-center">
+                                <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
+                            </responsible-party>
+                            <responsible-party role-id="csp-assessment-poc">
+                                <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+                                <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
+                            </responsible-party>
+                        </metadata>
+                    </assessment-plan>                 
+                </x:context>                
+                <x:expect-not-assert
+                    id="has-metadata-csp-poc-responsible-party-ops-center"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario label="when at least one of the responsible party POCs is not an Operations Center">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <responsible-party role-id="csp-operations-center">
+                                <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
+                            </responsible-party>
+                            <responsible-party role-id="csp-assessment-poc">
+                                <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
+                                <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                            </responsible-party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>                
+                <x:expect-assert
+                    id="has-metadata-csp-poc-responsible-party-ops-center"
+                    label="that is incorrect" />
+            </x:scenario>
+            <!--  -->
             <x:scenario
                 label="when there is a location element">
                 <x:context>
@@ -1270,6 +1400,5 @@
                 </x:scenario>
             </x:scenario>
         </x:scenario>
-    </x:scenario>
     </x:scenario>
 </x:description>
