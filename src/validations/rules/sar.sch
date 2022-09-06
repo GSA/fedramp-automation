@@ -178,12 +178,73 @@
 
     <sch:pattern
         id="results">
+        <sch:let
+            name="ssp-import-url"
+            value="resolve-uri($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
+        <sch:let
+            name="sap-import-url"
+            value="resolve-uri(/oscal:assessment-results/oscal:import-ap/@href, base-uri())" />
+        <sch:let
+            name="sap-available"
+            value="
+                if (: this is not a relative reference :) (not(starts-with($sap-import-url, '#')))
+                then
+                    (: the referenced document must be available :)
+                    doc-available($sap-import-url)
+                else
+                    true()" />
+        <sch:let
+            name="sap-doc"
+            value="
+                if ($sap-available)
+                then
+                    doc($sap-import-url)
+                else
+                    ()" />
+        <sch:let
+            name="ssp-available"
+            value="
+                if (: this is not a relative reference :) (not(starts-with($ssp-import-url, '#')))
+                then
+                    (: the referenced document must be available :)
+                    doc-available($ssp-import-url)
+                else
+                    true()" />
+        <sch:let
+            name="ssp-doc"
+            value="
+                if ($ssp-available)
+                then
+                    doc($ssp-import-url)
+                else
+                    ()" />
+
         <sch:rule
             context="oscal:observation">
             <sch:let
                 name="related-observations"
                 value="/oscal:assessment-results/oscal:result/oscal:finding/oscal:related-observation/@observation-uuid" />
+            <sch:let
+                name="resourceUUIDs"
+                value="/oscal:assessment-results/oscal:back-matter/oscal:resource/@uuid" />
 
+            <sch:assert
+                diagnostics="has-risk-adjustment-observation-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.3"
+                id="has-risk-adjustment-observation"
+                role="error"
+                test="
+                    if (oscal:type = 'risk-adjustment')
+                    then
+                        if (@uuid[. = $related-observations])
+                        then
+                            true()
+                        else
+                            false()
+                    else
+                        true()">An observation with a type of 'risk-adjustment' must have a @uuid that matches a
+                finding/related-observation/@observation-uuid.</sch:assert>
+                
             <sch:assert
                 diagnostics="has-operational-requirement-observation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.2"
@@ -200,6 +261,23 @@
                     else
                         true()">An observation with a type of 'operational-requirement' must have a @uuid that matches a
                 finding/related-observation/@observation-uuid.</sch:assert>
+
+             <sch:assert
+                diagnostics="has-risk-adjustment-relevant-evidence-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.3"
+                id="has-risk-adjustment-relevant-evidence"
+                role="error"
+                test="
+                    if (oscal:type = 'risk-adjustment')
+                    then
+                        if (oscal:relevant-evidence/oscal:link[substring-after(@href, '#')[. = $resourceUUIDs]])
+                        then
+                            true()
+                        else
+                            false()
+                    else
+                        true()">An observation with a type of 'risk-adjustment' must have a relevant-evidence/link/@href, whose value
+                after the '#', matches a back-matter/resource/@uuid.</sch:assert>
 
             <sch:assert
                 diagnostics="has-operational-requirement-relevant-evidence-diagnostic"
@@ -218,6 +296,35 @@
                         true()">An observation with a type of 'operational-requirement' must have a relevant-evidence/@href, whose
                 value after the '#', matches a back-matter/resource/@uuid.</sch:assert>
 
+        </sch:rule>
+
+        <sch:let
+            name="ssp-statement-uuids"
+            value="$ssp-doc//oscal:statement/@uuid" />
+
+        <sch:rule
+            context="oscal:risk">
+            <prop
+                name="risk-adjustment"
+                ns="https://fedramp.gov/ns/oscal"
+                value="approved" />
+            <sch:assert
+                diagnostics="has-risk-adjustment-matching-control-implementation-statement-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.3"
+                id="has-risk-adjustment-matching-control-implementation-statement"
+                role="warning"
+                test="
+                    if (oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'risk-adjustment'])
+                    then
+                        if (@uuid[. = $ssp-statement-uuids])
+                        then
+                            true()
+                        else
+                            false()
+                    else
+                        true()"
+                unit:override-xspec="both">A risk with an @ns of 'https://fedramp.gov/ns/oscal' and an @name of 'risk-adjustment' should have a
+                matching statement in the associated SSP.</sch:assert>
         </sch:rule>
 
     </sch:pattern>
@@ -352,6 +459,26 @@
             id="has-no-base64-diagnostic">This OSCAL SAR has a base64 element in a security-assessment-plan resource.</sch:diagnostic>-->
 
         <!-- results -->
+        <sch:diagnostic
+            doc:assert="has-risk-adjustment-observation"
+            doc:context="oscal:observation"
+            id="has-risk-adjustment-observation-diagnostic">An observation, <sch:value-of
+                select="@uuid" />, with a type of 'risk-adjustment' does not have a @uuid that matches a
+            finding/related-observation/@observation-uuid.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-risk-adjustmentt-relevant-evidence"
+            doc:context="oscal:observation"
+            id="has-risk-adjustment-relevant-evidence-diagnostic">An observation, <sch:value-of
+                select="@uuid" />, with a type of 'risk-adjustment' does not have a relevant-evidence/link/@href, whose value after the '#', matches a
+            back-matter/resource/@uuid.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-risk-adjustment-matching-control-implementation-statement"
+            doc:context="oscal:risk"
+            id="has-risk-adjustment-matching-control-implementation-statement-diagnostic">A risk, <sch:value-of
+                select="@uuid" />, with a type of 'risk-adjustment' does not have a matching statement @uuid in the associated SSP.</sch:diagnostic>
+                
         <sch:diagnostic
             doc:assert="has-operational-requirement-observation"
             doc:context="oscal:observation"

@@ -383,6 +383,91 @@
                                 label="this is incorrect" />
                         </x:scenario>
                     </x:scenario>
+                    <x:scenario
+                        label="with a type of 'risk-adjustment'">
+                        <x:scenario
+                            label="and has a @uuid that matches a finding/related-observation/@observation-uuid">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                            <type>risk-adjustment</type>
+                                        </observation>
+                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
+                                        </finding>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-risk-adjustment-observation"
+                                label="this is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="and does not have a @uuid that matches a finding/related-observation/@observation-uuid">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                            <type>risk-adjustment</type>
+                                        </observation>
+                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation observation-uuid="1234-1234"/>
+                                        </finding>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-risk-adjustment-observation"
+                                label="this is incorrect" />
+                        </x:scenario>
+                        <x:scenario
+                            label="and has a relevant-evidence/link/@href, whose value after the '#', matches a back-matter/resource/@uuid">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                            <type>risk-adjustment</type>
+                                            <relevant-evidence>
+                                                <link href="#53af7193-b25d-4ed2-a82f-5954d2d0df61"/>
+                                            </relevant-evidence>
+                                        </observation>
+                                    </result>                                    
+                                    <back-matter>
+                                        <resource uuid="53af7193-b25d-4ed2-a82f-5954d2d0df61"/>
+                                    </back-matter>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-risk-adjustment-relevant-evidence"
+                                label="this is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="and does not have a relevant-evidence/link/@href, whose value after the '#', matches a back-matter/resource/@uuid">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                            <type>risk-adjustment</type>
+                                            <relevant-evidence>
+                                                <link href="#53af7193-b25d-4ed2-a82f-5954d2d0df61"/>
+                                            </relevant-evidence>
+                                        </observation>
+                                    </result>
+                                    <back-matter>
+                                        <resource uuid="1234-1234"/>
+                                    </back-matter>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-risk-adjustment-relevant-evidence"
+                                label="this is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
                 </x:scenario>
             </x:scenario>
         </x:scenario>
