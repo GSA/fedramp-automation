@@ -943,6 +943,98 @@
     <x:scenario
         label="In a FedRAMP SAP">
         <x:scenario
+            label="in the metadata">
+            <x:scenario
+                label="when there is a role element with an @id of 'csp-end-of-testing-poc'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <role
+                                id="csp-end-of-testing-poc" />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-role-end-of-testing"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when there is not a role element with an @id of 'csp-end-of-testing-poc'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-role-end-of-testing"
+                    label="that is an error" />
+            </x:scenario>
+            <x:scenario
+                label="when there is a reponsible-party element with a @role-id of 'csp-end-of-testing-poc'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <responsible-party
+                                role-id="csp-end-of-testing-poc" />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-responsible-party-end-of-testing"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when there is not a reponsible-party element with a @role-id of 'csp-end-of-testing-poc'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-responsible-party-end-of-testing"
+                    label="that is an error" />
+            </x:scenario>
+            <x:scenario
+                label="when there is a reponsible-party element with a @role-id of 'csp-end-of-testing-poc'">
+                <x:scenario
+                    label="and a child party-uuid element">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <responsible-party
+                                    role-id="csp-end-of-testing-poc">
+                                    <party-uuid/>
+                                </responsible-party>
+                            </metadata>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-metadata-responsible-party-uuid"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and not a child party-uuid element">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <responsible-party
+                                    role-id="csp-end-of-testing-poc"/>                                
+                            </metadata>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-metadata-responsible-party-uuid"
+                        label="that is an error" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
             label="when a terms-and-conditions">
             <x:scenario
                 label="has a part named 'assumptions'">
