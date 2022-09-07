@@ -106,7 +106,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.3"
                 id="has-location-assessment-subject"
                 role="error"
-                test="exists(oscal:assessment-subject[@type = 'location'])">A FedRAMP SAP must have a assesment-subject with a type of
+                test="exists(oscal:assessment-subject[@type = 'location'])">A FedRAMP SAP must have a assessment-subject with a type of
                 'location'.</sch:assert>
         </sch:rule>
 
@@ -640,7 +640,7 @@
                 role="error"
                 test="oscal:party[oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'iso-iec-17020-identifier' and matches(@value, '^\d{4}\.\d{2}$')]]">This
                 FedRAMP SAP has a metadata/party with an @name of 'iso-iec-17020-identifier' has a correctly formatted @value.</sch:assert>
-
+                
             <sch:assert
                 diagnostics="has-metadata-csp-poc-role-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.12"
@@ -657,6 +657,99 @@
                 role="error"
                 test="oscal:responsible-party[@role-id = 'csp-assessment-poc']">This FedRAMP SAP has a responsible-party with an @role-id value of
                 'csp-assessment-poc'.</sch:assert>
+
+           <sch:assert
+                diagnostics="has-metadata-assessment-team-role-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.11"
+                fedramp:specific="true"
+                id="has-metadata-assessment-team-role"
+                role="error"
+                test="oscal:role[@id = 'assessment-team']">This FedRAMP SAP has a role with an @id value of 'assessment-team'.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-responsible-party-assessment-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.11"
+                fedramp:specific="true"
+                id="has-metadata-responsible-party-assessment"
+                role="error"
+                test="oscal:responsible-party[@role-id = 'assessment-team']">This FedRAMP SAP has a responsible-party with an @role-id value of
+                'assessment-team'.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-responsible-party-lead-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.11"
+                fedramp:specific="true"
+                id="has-metadata-responsible-party-lead"
+                role="error"
+                test="oscal:responsible-party[@role-id = 'assessment-lead']">This FedRAMP SAP has a responsible-party with an @role-id value of
+                'assessment-lead'.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-metadata-responsible-party-lead-multiple-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.11"
+                fedramp:specific="true"
+                id="has-metadata-responsible-party-lead-multiple"
+                role="error"
+                test="count(oscal:responsible-party[@role-id = 'assessment-lead']) = 1">This FedRAMP SAP has a single responsible-party with an @role-id value of
+                'assessment-lead'.</sch:assert>
+        </sch:rule>
+        
+        <sch:rule context="oscal:metadata/oscal:responsible-party[@role-id='assessment-team']">
+            <sch:let
+                name="partyPersonIDs"
+                value="../oscal:party[@type = 'person']/@uuid" />
+            <sch:let
+                name="responsibleParties"
+                value="oscal:party-uuid" />
+            <sch:assert
+                diagnostics="has-metadata-responsible-party-has-party-uuid-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.11"
+                fedramp:specific="true"
+                id="has-metadata-responsible-party-has-party-uuid"
+                role="error"
+                test="count($responsibleParties) gt 0">There is at least one party-uuid element as a child of responsible-party[@role-id='assessment-team'].</sch:assert>
+            
+            <sch:assert
+                diagnostics="has-metadata-responsible-party-matches-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.11"
+                fedramp:specific="true"
+                id="has-metadata-responsible-party-matches"
+                role="error"
+                test="count($responsibleParties) eq count(distinct-values($partyPersonIDs[. = $responsibleParties]))">Each assessment team member in
+                this FedRAMP SAP is described individually.</sch:assert>
+        </sch:rule>
+        
+        <sch:rule
+            context="oscal:metadata/oscal:responsible-party[@role-id = 'assessment-lead']">
+            <sch:let
+                name="assessmentTeam"
+                value="../oscal:responsible-party[@role-id = 'assessment-team']/oscal:party-uuid" />
+            <sch:assert
+                diagnostics="has-metadata-responsible-party-lead-matches-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.11"
+                fedramp:specific="true"
+                id="has-metadata-responsible-party-lead-matches"
+                role="error"
+                test="oscal:party-uuid[. = $assessmentTeam]">The assessment-lead has a party-uuid that exists in the assessment-team list of
+                party-uuid elements.</sch:assert>
+            
+            <sch:assert
+                diagnostics="has-metadata-responsible-party-phone-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.11"
+                fedramp:specific="true"
+                id="has-metadata-responsible-party-phone"
+                role="error"
+                test="../oscal:party[@type = 'person'][@uuid = current()/oscal:party-uuid]/oscal:telephone-number">The responsible-party with @role-id
+                of 'assessment-lead' must reference a party with a telephone number.</sch:assert>
+            
+            <sch:assert
+                diagnostics="has-metadata-responsible-party-email-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.11"
+                fedramp:specific="true"
+                id="has-metadata-responsible-party-email"
+                role="error"
+                test="../oscal:party[@type = 'person'][@uuid = current()/oscal:party-uuid]/oscal:email-address">The responsible-party with @role-id
+                of 'assessment-lead' must reference a party with an email address.</sch:assert>
         </sch:rule>
         
         <sch:rule
@@ -979,6 +1072,61 @@
             have a correctly formatted @value.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-metadata-assessment-team-role"
+            doc:context="oscal:metadata"
+            id="has-metadata-assessment-team-role-diagnostic">This FedRAMP metadata does not contain a role with an @id of
+            'assessment-team'.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-metadata-responsible-party-assessment"
+            doc:context="oscal:metadata"
+            id="has-metadata-responsible-party-assessment-diagnostic">This FedRAMP metadata does not contain a responsible-party with a @role-id of
+            'assessment-team'.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-metadata-responsible-part-lead"
+            doc:context="oscal:metadata"
+            id="has-metadata-responsible-party-lead-diagnostic">This FedRAMP metadata does not contain a responsible-party with a @role-id of
+            'assessment-lead'.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-metadata-responsible-part-lead-multiple"
+            doc:context="oscal:metadata"
+            id="has-metadata-responsible-party-lead-multiple-diagnostic">This FedRAMP metadata contains more than one responsible-party element with a @role-id of
+            'assessment-lead'.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-metadata-responsible-party-has-party-uuid"
+            doc:context="oscal:metadata/oscal:responsible-party[@role-id='assessment-team']"
+            id="has-metadata-responsible-party-has-party-uuid-diagnostic">This FedRAMP responsible-party element, <sch:value-of
+                select="@role-id" /> does not have at least one party-uuid element.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-metadata-responsible-party-matches"
+            doc:context="oscal:metadata"
+            id="has-metadata-responsible-party-matches-diagnostic">This FedRAMP metadata does not have a matching party for every individual on the
+            assessment team.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-metadata-responsible-party-lead-matches"
+            doc:context="oscal:metadata"
+            id="has-metadata-responsible-party-lead-matches-diagnostic">This FedRAMP metadata does not have a
+            responsible-party[@role-id='assessment-lead']/party-uuid that matches a
+            responsible-party[@role-id='assessment-team']/party-uuid.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-metadata-responsible-party-phone"
+            doc:context="oscal:metadata"
+            id="has-metadata-responsible-party-phone-diagnostic">The responsible-party with an @role-id of 'assessment-lead' does not reference a party with a telephone
+            number.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-metadata-responsible-party-email"
+            doc:context="oscal:metadata"
+            id="has-metadata-responsible-party-email-diagnostic">The first person of the assessment team does not reference a party with an email
+            address.</sch:diagnostic>
+            
+        <sch:diagnostic 
             doc:assert="has-metadata-csc-poc-role"
             doc:context="oscal:metadata"
             id="has-metadata-csp-poc-role-diagnostic">This FedRAMP metadata does not contain a role with an @id of
@@ -1007,7 +1155,5 @@
             doc:context="oscal:metadata"
             id="has-metadata-csp-poc-responsible-party-ops-center-diagnostic">The responsible party with a role-id of 'csp-assessment-poc' does not
             have a POC that is a Operations Center.</sch:diagnostic>
-
     </sch:diagnostics>
-
 </sch:schema>

@@ -1107,7 +1107,7 @@
                 <x:expect-assert
                     id="has-login-id-task"
                     label="that is incorrect" />
-            </x:scenario>      
+            </x:scenario> 
         </x:scenario>
         <x:scenario
             label="in the metadata">
@@ -1159,7 +1159,349 @@
                 </x:context>
                 <x:expect-assert
                     id="has-metadata-role-assessor"
-                    label="that is an error" />
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="when there is a role element with an @id of 'assessment-team'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <role
+                                id="assessment-team" />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-assessment-team-role"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="there is not a role element with an @id of 'assessment-team'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-assessment-team-role"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="when there is a responsible-party element with an @role-id of 'assessment-team'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <responsible-party
+                                role-id="assessment-team" />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-responsible-party-assessment"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when there is not a responsible-party element with an @role-id of 'assessment-team'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-responsible-party-assessment"
+                    label="that is incorrect" />
+            </x:scenario>
+            
+            <x:scenario
+                label="when there is a responsible-party element with an @role-id of 'assessment-lead'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <responsible-party
+                                role-id="assessment-lead" />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-responsible-party-lead"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when there is not a responsible-party element with an @role-id of 'assessment-lead'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-responsible-party-lead"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="when there is a single responsible-party element with an @role-id of 'assessment-lead'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <responsible-party
+                                role-id="assessment-lead" />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-responsible-party-lead-multiple"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when there are multiple responsible-party elements with an @role-id of 'assessment-lead'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <responsible-party
+                                role-id="assessment-lead" />
+                            <responsible-party
+                                role-id="assessment-lead" />
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-responsible-party-lead-multiple"
+                    label="that is incorrect" />            
+            </x:scenario>
+            
+            <x:scenario label="when a responsible-party with an @role-id of 'assessment lead' exists">
+                <x:scenario label="and has a child party-uuid value that matches a party-uuid value in the responsible-party with an @role-id of 'assessment-team'">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <responsible-party role-id="assessment-team">
+                                    <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                    <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
+                                    <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
+                                    <party-uuid>9135b789-a40c-4a20-9be6-fab23c0ab0f3</party-uuid>
+                                </responsible-party>
+                                <responsible-party role-id="assessment-lead">
+                                    <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                </responsible-party>
+                            </metadata>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-metadata-responsible-party-lead-matches"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario label="and has a child party-uuid value that does not matche a party-uuid value in the responsible-party with an @role-id of 'assessment-team'">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <responsible-party role-id="assessment-team">
+                                    <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                    <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
+                                    <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
+                                    <party-uuid>9135b789-a40c-4a20-9be6-fab23c0ab0f3</party-uuid>
+                                </responsible-party>
+                                <responsible-party role-id="assessment-lead">
+                                    <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fc</party-uuid>
+                                </responsible-party>
+                            </metadata>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-metadata-responsible-party-lead-matches"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+            
+            <x:scenario
+                label="when assessment team has at least one party-uuid element">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person"/>
+                            <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person"/>
+                            <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person"/>
+                            <party uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3" type="person"/>
+                            <responsible-party role-id="assessment-team">
+                                <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
+                                <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
+                                <party-uuid>9135b789-a40c-4a20-9be6-fab23c0ab0f3</party-uuid>
+                            </responsible-party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-responsible-party-has-party-uuid"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when assessment team does not have at least one party-uuid element">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person"/>
+                            <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person"/>
+                            <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person"/>
+                            <responsible-party role-id="assessment-team"/>                            
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-responsible-party-has-party-uuid"
+                    label="that is incorrect" />
+            </x:scenario>
+            
+            
+            <x:scenario
+                label="when assessment team has matching party uuids">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person"/>
+                            <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person"/>
+                            <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person"/>
+                            <party uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3" type="person"/>
+                            <responsible-party role-id="assessment-team">
+                                <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
+                                <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
+                                <party-uuid>9135b789-a40c-4a20-9be6-fab23c0ab0f3</party-uuid>
+                            </responsible-party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-responsible-party-matches"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when assessment team does not have matching party uuids">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person"/>
+                            <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person"/>
+                            <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person"/>
+                            <responsible-party role-id="assessment-team">
+                                <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
+                                <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
+                                <party-uuid>9135b789-a40c-4a20-9be6-fab23c0ab0f3</party-uuid>
+                            </responsible-party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-responsible-party-matches"
+                    label="that is incorrect" />
+            </x:scenario>                        
+            <x:scenario
+                label="when the assessment-lead has a party-uuid that matches a party/@uuid that has a telephone number">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
+                                <name>[SAMPLE]Person Name 2</name>
+                                <prop name="mail-stop" value="Office 2-B"/>
+                                <email-address>name@example.com</email-address>
+                                <telephone-number>202-000-0002</telephone-number>
+                                <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+                                <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+                            </party>                            
+                            <responsible-party role-id="assessment-team">
+                                <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
+                            </responsible-party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-responsible-party-phone"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when the assessment-lead does not have a party-uuid that matches a party/@uuid that has a telephone number">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
+                                <name>[SAMPLE]Person Name 2</name>
+                                <prop name="mail-stop" value="Office 2-B"/>
+                                <email-address>name@example.com</email-address>
+                                <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+                                <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+                            </party>
+                            <responsible-party role-id="assessment-lead">
+                                <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                            </responsible-party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-responsible-party-phone"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="when the assessment-lead has a party-uuid that matches a party/@uuid that has an email address">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
+                                <name>[SAMPLE]Person Name 2</name>
+                                <prop name="mail-stop" value="Office 2-B"/>
+                                <email-address>name@example.com</email-address>
+                                <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+                                <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+                            </party>                            
+                            <responsible-party role-id="assessment-team">
+                                <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
+                            </responsible-party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-metadata-responsible-party-email"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="when the assessment-lead does not have a party-uuid that matches a party/@uuid that has an email address">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <metadata>
+                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
+                                <name>[SAMPLE]Person Name 2</name>
+                                <prop name="mail-stop" value="Office 2-B"/>
+                                <telephone-number>202-000-0002</telephone-number>
+                                <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+                                <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
+                            </party>
+                            <responsible-party role-id="assessment-lead">
+                                <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                            </responsible-party>
+                        </metadata>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-metadata-responsible-party-email"
+                    label="that is incorrect" />
             </x:scenario>
             <!--  -->
             <x:scenario
