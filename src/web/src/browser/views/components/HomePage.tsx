@@ -1,7 +1,7 @@
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import partnersCloudSvg from '../images/partners-cloud.svg';
 import partnersAssessorsSvg from '../images/partners-assessors.svg';
-import partnersAgenciesSvg from '../images/partners-agencies.svg';
+import partnersAgenciesSvg from '../images/bldg.svg';
 import gif from '../images/gif.png';
 import whyIllustration from '../images/partners_fed-agencies.png';
 import '../styles/HomePage.scss';
@@ -61,32 +61,32 @@ const ProcessList = () => (
 const PartiesGrid = () => (
   <section className="padding-y-10">
     <div className="grid-container">
-      <h2 className="text-center text-theme-dark-blue text-uppercase font-sans-xl font margin-top-0">
+      <h2 className="text-center text-theme-dark-blue text-uppercase font-sans-xl margin-top-0">
         Who will use ASAP?
       </h2>
       <div className="grid-row">
-        <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
+        <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex flex-align-start">
           <img
-            className="margin-right-4 width-9 tablet:width-card-lg"
+            className="margin-right-4 width-9 tablet:width-10"
             src={partnersCloudSvg}
             alt="partners in the cloud"
           />
           <div>
-            <h3 className="text-theme-red">Cloud Service Providers</h3>
+            <h3 className="text-theme-red margin-0">Cloud Service Providers</h3>
             <p>
               Submit your FedRAMP-compliant OSCAL System Security Plan with
               confidence.
             </p>
           </div>
         </div>
-        <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
+        <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex flex-align-start">
           <img
-            className="margin-right-4 width-9 tablet:width-card-lg"
+            className="margin-right-4 width-9 tablet:width-10"
             src={partnersAssessorsSvg}
             alt="partner assessors"
           />
           <div>
-            <h3 className="text-theme-red">FedRAMP Reviewers</h3>
+            <h3 className="text-theme-red margin-0">FedRAMP Reviewers</h3>
             <p>Evaluate CSP submissions with an efficient workflow.</p>
             <a
               className="text-primary text-underline"
@@ -96,14 +96,14 @@ const PartiesGrid = () => (
             </a>
           </div>
         </div>
-        <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
+        <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex flex-align-start">
           <img
-            className="margin-right-4 width-9 tablet:width-card-lg"
+            className="margin-right-4 width-9 tablet:width-10"
             src={partnersAgenciesSvg}
             alt="partner agencies"
           />
           <div>
-            <h3 className="text-theme-red">Federal Agencies</h3>
+            <h3 className="text-theme-red margin-0">Federal Agencies</h3>
             <p>
               Evaluate FedRAMP-approved cloud service providers with the aid of
               structured OSCAL documentation.
@@ -202,7 +202,7 @@ const WhySection = () => (
           />
         </div>
         <div className="desktop:grid-col-6">
-          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-top-0">
+          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-y-0">
             Why should I care?
           </h2>
           <p>
@@ -211,7 +211,7 @@ const WhySection = () => (
             correct System Security Plans, and helps the FedRAMP Audit Review
             Team evaluate them efficiently.
           </p>
-          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-top-0">
+          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-y-0">
             What's next?
           </h2>
           <ul>
@@ -222,7 +222,7 @@ const WhySection = () => (
               Report (SAR) validations
             </li>
           </ul>
-          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-top-0">
+          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-y-0">
             Contact us
           </h2>
           <p>
