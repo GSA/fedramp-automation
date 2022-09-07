@@ -46,126 +46,126 @@ const ProcessList = () => (
 
 const PartiesGrid = () => {
   return (
-    <div className="grid-container">
-      <div className="grid-row">
-        <div className="desktop:grid-col-12">
-          <h2 className="text-center">
-            Who will use the SSP Validator?
-            <br />
-            Our stakeholders are:
-          </h2>
-        </div>
-      </div>
-      <div className="grid-row">
-        <div className="desktop:grid-col-4">
-          <div>
+    <section className="padding-y-6">
+      <div className="grid-container">
+        <h2 className="text-center text-theme-dark-blue text-uppercase font-sans-xl font">
+          Who will use ASAP?
+        </h2>
+        <div className="grid-row">
+          <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
             <img
-              className="float-left margin-2"
+              className="margin-right-4 width-card-lg"
               src={partnersCloudSvg}
               alt="partners in the cloud"
             />
-            <h3>Cloud Service Providers</h3>
-            <p className="margin-bottom-4">
-              Submit your FedRAMP-compliant OSCAL System Security Plan with
-              confidence.
-            </p>
+            <div>
+              <h3 className="text-theme-red">Cloud Service Providers</h3>
+              <p>
+                Submit your FedRAMP-compliant OSCAL System Security Plan with
+                confidence.
+              </p>
+            </div>
+          </div>
+          <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
+            <img
+              className="margin-right-4 width-card-lg"
+              src={partnersAssessorsSvg}
+              alt="partner assessors"
+            />
+            <div>
+              <h3 className="text-theme-red">FedRAMP Reviewers</h3>
+              <p>Evaluate CSP submissions with an efficient workflow.</p>
+              <a href={getUrl(Routes.developers)}>Learn more</a>
+            </div>
+          </div>
+          <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
+            <img
+              className="margin-right-4 width-card-lg"
+              src={partnersAgenciesSvg}
+              alt="partner agencies"
+            />
+            <div>
+              <h3 className="text-theme-red">Federal Agencies</h3>
+              <p>
+                Evaluate FedRAMP-approved cloud service providers with the aid
+                of structured OSCAL documentation.
+              </p>
+            </div>
           </div>
         </div>
-        <div className="desktop:grid-col-4">
-          <img
-            className="float-left margin-2"
-            src={partnersAssessorsSvg}
-            alt="partner assessors"
-          />
-          <h3>FedRAMP Reviewers</h3>
-          <p className="margin-bottom-4">
-            Evaluate CSP submissions with an efficient workflow.{' '}
-            <a href={getUrl(Routes.developers)}>Read more...</a>
-          </p>
-        </div>
-        <div className="desktop:grid-col-4">
-          <img
-            className="float-left margin-2"
-            src={partnersAgenciesSvg}
-            alt="partner agencies"
-          />
-          <h3>Federal Agencies</h3>
-          <p className="margin-bottom-4">
-            Evaluate FedRAMP-approved cloud service providers with the aid of
-            structured OSCAL documentation.
-          </p>
-        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 const HeroSection = () => {
   const { state } = useAppContext();
   return (
-    <section className="bg-theme-light-cyan text-white padding-y-4 hero-unit">
-      <div className="grid-container grid-row grid-gap">
-        <div className="desktop:grid-col-8">
-          <h1 className="text-light font-sans-3xl text-uppercase margin-0">
-            Accelerate <span className="text-bold">Approvals</span>
-          </h1>
-          <div className="grid-row grid-gap">
-            <div className="tablet:grid-col-6">
-              <p>
-                Welcome to Automated Security Authorization Processing (ASAP),
-                the upcoming FedRAMP audit validation tool. Funded by{' '}
-                <a
-                  className="text-white text-underline"
-                  href="https://10x.gsa.gov/"
-                >
-                  10x
+    <section className="bg-theme-light-cyan text-white padding-y-6 hero-unit">
+      <div className="grid-container">
+        <div className="grid-row grid-gap">
+          <div className="desktop:grid-col-8">
+            <h1 className="text-light font-sans-3xl text-uppercase margin-0">
+              Accelerate <span className="text-bold">Approvals</span>
+            </h1>
+            <div className="grid-row grid-gap">
+              <div className="tablet:grid-col-6">
+                <p>
+                  Welcome to Automated Security Authorization Processing (ASAP),
+                  the upcoming FedRAMP audit validation tool. Funded by{' '}
+                  <a
+                    className="text-white text-underline"
+                    href="https://10x.gsa.gov/"
+                  >
+                    10x
+                  </a>
+                  , ASAP is comprised of the following components:
+                </p>
+                <a className="usa-button" href={getUrl(Routes.documentSummary)}>
+                  Try it now
                 </a>
-                , ASAP is comprised of the following components:
-              </p>
-              <a className="usa-button" href={getUrl(Routes.documentSummary)}>
-                Try it now
-              </a>
-            </div>
-            <div className="tablet:grid-col-6 padding-left-2">
-              <p>
-                <a
-                  className="text-white text-underline"
-                  href="https://pages.nist.gov/OSCAL/"
-                >
-                  Open Security Controls Assessment Language (OSCAL)
-                </a>{' '}
-                validation rules written in{' '}
-                <a
-                  className="text-white text-underline"
-                  href="https://schematron.com/"
-                >
-                  Schematron
-                </a>{' '}
-                format. A{' '}
-                <a
-                  className="text-white text-underline"
-                  href={`${state.config.baseUrl}rules/rules.html`}
-                >
-                  rules summary
-                </a>{' '}
-                is available.
-              </p>
-              <p>
-                This user interface, which will apply validations to a FedRAMP
-                OSCAL System Security Plan and display validation errors
-                in-browser.
-              </p>
-              <p>
-                Compiled Schematron rules (XSLT), which may be integrated with
-                third-party OSCAL creation/validation tools. Read our{' '}
-                <a
-                  className="text-white text-underline"
-                  href={getUrl(Routes.developers)}
-                >
-                  developer documentation
-                </a>{' '}
-                for more information.
-              </p>
+              </div>
+              <div className="tablet:grid-col-6 padding-left-2">
+                <p>
+                  <a
+                    className="text-white text-underline"
+                    href="https://pages.nist.gov/OSCAL/"
+                  >
+                    Open Security Controls Assessment Language (OSCAL)
+                  </a>{' '}
+                  validation rules written in{' '}
+                  <a
+                    className="text-white text-underline"
+                    href="https://schematron.com/"
+                  >
+                    Schematron
+                  </a>{' '}
+                  format. A{' '}
+                  <a
+                    className="text-white text-underline"
+                    href={`${state.config.baseUrl}rules/rules.html`}
+                  >
+                    rules summary
+                  </a>{' '}
+                  is available.
+                </p>
+                <p>
+                  This user interface, which will apply validations to a FedRAMP
+                  OSCAL System Security Plan and display validation errors
+                  in-browser.
+                </p>
+                <p>
+                  Compiled Schematron rules (XSLT), which may be integrated with
+                  third-party OSCAL creation/validation tools. Read our{' '}
+                  <a
+                    className="text-white text-underline"
+                    href={getUrl(Routes.developers)}
+                  >
+                    developer documentation
+                  </a>{' '}
+                  for more information.
+                </p>
+              </div>
             </div>
           </div>
         </div>
