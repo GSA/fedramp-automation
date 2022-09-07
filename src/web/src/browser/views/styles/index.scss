@@ -23,6 +23,9 @@
 .text-theme-dark-blue {
   color: var(--theme-dark-cyan);
 }
+.bg-theme-light-cyan {
+  background-color: var(--theme-light-cyan);
+}
 
 .loader {
   border: 8px solid color('base-lightest');

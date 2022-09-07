@@ -1,0 +1,13 @@
+.hero-unit {
+  background-repeat: no-repeat;
+  background-position: 90% 0px;
+  background-size: cover;
+  min-height: 22em;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+
+  // desktop and up
+  @media (min-width: 64rem) {
+    background-image: url(../images/homepage-banner-desktop.jpeg);
+  }
+}

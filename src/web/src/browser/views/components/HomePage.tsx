@@ -2,6 +2,7 @@ import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import partnersCloudSvg from '../images/partners-cloud.svg';
 import partnersAssessorsSvg from '../images/partners-assessors.svg';
 import partnersAgenciesSvg from '../images/partners-agencies.svg';
+import '../styles/HomePage.scss';
 
 import { useAppContext } from '../context';
 
@@ -99,39 +100,85 @@ const PartiesGrid = () => {
   );
 };
 
-export const HomePage = () => {
+const HeroSection = () => {
   const { state } = useAppContext();
   return (
-    <div className="usa-prose padding-top-3">
-      <h1>Accelerate approvals</h1>
-      <p>
-        Welcome to Automated Security Authorization Processing (ASAP), the
-        upcoming FedRAMP audit validation tool. Funded by{' '}
-        <a href="https://10x.gsa.gov/">10x</a>, ASAP is comprised of the
-        following components:
-      </p>
-      <ul>
-        <li>
-          <a href="https://pages.nist.gov/OSCAL/">
-            Open Security Controls Assessment Language (OSCAL)
-          </a>{' '}
-          validation rules written in{' '}
-          <a href="https://schematron.com/">Schematron</a> format. A{' '}
-          <a href={`${state.config.baseUrl}rules/rules.html`}>rules summary</a>{' '}
-          is available.
-        </li>
-        <li>
-          This user interface, which will apply validations to a FedRAMP OSCAL
-          System Security Plan and display validation errors in-browser.{' '}
-          <a href={getUrl(Routes.documentSummary)}>Try it out</a>.
-        </li>
-        <li>
-          Compiled Schematron rules (XSLT), which may be integrated with
-          third-party OSCAL creation/validation tools. Read our{' '}
-          <a href={getUrl(Routes.developers)}>developer documentation</a> for
-          more information.
-        </li>
-      </ul>
+    <section className="bg-theme-light-cyan text-white padding-y-4 hero-unit">
+      <div className="grid-container grid-row grid-gap">
+        <div className="desktop:grid-col-8">
+          <h1 className="text-light font-sans-3xl text-uppercase margin-0">
+            Accelerate <span className="text-bold">Approvals</span>
+          </h1>
+          <div className="grid-row grid-gap">
+            <div className="tablet:grid-col-6">
+              <p>
+                Welcome to Automated Security Authorization Processing (ASAP),
+                the upcoming FedRAMP audit validation tool. Funded by{' '}
+                <a
+                  className="text-white text-underline"
+                  href="https://10x.gsa.gov/"
+                >
+                  10x
+                </a>
+                , ASAP is comprised of the following components:
+              </p>
+              <a className="usa-button" href={getUrl(Routes.documentSummary)}>
+                Try it now
+              </a>
+            </div>
+            <div className="tablet:grid-col-6 padding-left-2">
+              <p>
+                <a
+                  className="text-white text-underline"
+                  href="https://pages.nist.gov/OSCAL/"
+                >
+                  Open Security Controls Assessment Language (OSCAL)
+                </a>{' '}
+                validation rules written in{' '}
+                <a
+                  className="text-white text-underline"
+                  href="https://schematron.com/"
+                >
+                  Schematron
+                </a>{' '}
+                format. A{' '}
+                <a
+                  className="text-white text-underline"
+                  href={`${state.config.baseUrl}rules/rules.html`}
+                >
+                  rules summary
+                </a>{' '}
+                is available.
+              </p>
+              <p>
+                This user interface, which will apply validations to a FedRAMP
+                OSCAL System Security Plan and display validation errors
+                in-browser.
+              </p>
+              <p>
+                Compiled Schematron rules (XSLT), which may be integrated with
+                third-party OSCAL creation/validation tools. Read our{' '}
+                <a
+                  className="text-white text-underline"
+                  href={getUrl(Routes.developers)}
+                >
+                  developer documentation
+                </a>{' '}
+                for more information.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export const HomePage = () => {
+  // const { state } = useAppContext();
+  return (
+    <div className="usa-prose">
+      <HeroSection />
       <PartiesGrid />
       <ProcessList />
       <h2>Why should I care?</h2>

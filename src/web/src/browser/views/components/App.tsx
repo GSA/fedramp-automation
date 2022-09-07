@@ -16,11 +16,7 @@ const CurrentPage = () => {
   const currentRoute = useAppContext().state.router.currentRoute;
 
   if (currentRoute.type === 'Home') {
-    return (
-      <div className="grid-container">
-        <HomePage />
-      </div>
-    );
+    return <HomePage />;
   } else if (
     currentRoute.type === 'DocumentSummary' ||
     currentRoute.type === 'DocumentPOAM' ||
