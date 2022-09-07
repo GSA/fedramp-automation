@@ -445,7 +445,7 @@
                 id="has-part-named-assumptions"
                 role="error"
                 test="oscal:part[@name = 'assumptions']">The SAP terms and conditions must contain a part called assumptions.</sch:assert>
-            
+
             <sch:assert
                 diagnostics="has-methodology-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.9"
@@ -464,10 +464,19 @@
                 test="oscal:part[@name eq 'disclosures']">The SAP terms and conditions must contain Rules of Engagement (ROE)
                 Disclosures.</sch:assert>
 
+            <sch:assert
+                diagnostics="has-part-named-liability-limitations-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.22"
+                fedramp:specific="true"
+                id="has-part-named-liability-limitations"
+                role="error"
+                test="oscal:part[@name = 'liability-limitations']">The SAP terms and conditions must contain a part called
+                liability-limitations.</sch:assert>
+
         </sch:rule>
-        
+
         <sch:rule
-            context="oscal:terms-and-conditions/oscal:part[@name eq 'assumptions']">            
+            context="oscal:terms-and-conditions/oscal:part[@name eq 'assumptions']">
             <sch:let
                 name="unsorted_assumptions"
                 value="oscal:part[@name eq 'assumption']/oscal:prop[@name eq 'sort-id']/@value" />
@@ -480,7 +489,8 @@
                 fedramp:specific="true"
                 id="assumption-ordered"
                 role="error"
-                test="deep-equal($unsorted_assumptions, $sorted_assumptions)">The SAP terms and conditions assumptions part has assumption parts that are ordered.</sch:assert>
+                test="deep-equal($unsorted_assumptions, $sorted_assumptions)">The SAP terms and conditions assumptions part has assumption parts that
+                are ordered.</sch:assert>
         </sch:rule>
 
         <sch:rule
@@ -533,6 +543,35 @@
                 role="error"
                 test="oscal:part[@name eq 'disclosure']">The SAP Rules of Engagement (ROE) Disclosures have one or more detail disclosure
                 statements.</sch:assert>
+
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:terms-and-conditions/oscal:part[@name eq 'liability-limitations']">
+
+            <sch:assert
+                diagnostics="has-liability-limitation-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.22"
+                fedramp:specific="true"
+                id="has-liability-limitation"
+                role="error"
+                test="oscal:part[@name eq 'liability-limitation']">The SAP terms and conditions has a part 'liability-limitations' that has one or
+                more 'liability-limitation' parts.</sch:assert>
+
+            <sch:let
+                name="unsorted_limitations"
+                value="oscal:part[@name eq 'liability-limitation']/oscal:prop[@name eq 'sort-id']/@value" />
+            <sch:let
+                name="sorted_limitations"
+                value="sort($unsorted_limitations)" />
+            <sch:assert
+                diagnostics="liability-limitations-ordered-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.22"
+                fedramp:specific="true"
+                id="liability-limitations-ordered"
+                role="error"
+                test="deep-equal($unsorted_limitations, $sorted_limitations)">The SAP terms and conditions liability-limitations part has
+                liability-limitation parts that are ordered.</sch:assert>
 
         </sch:rule>
 
@@ -878,7 +917,7 @@
             doc:assert="has-no-base64"
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'system-security-plan']]/oscal:base64"
             id="has-no-base64-diagnostic">This OSCAL SAP has a base64 element in a system-security-plan resource.</sch:diagnostic>
-            
+
         <sch:diagnostic
             doc:assert="include-all-or-include-control"
             doc:context="oscal:control-selection"
@@ -979,7 +1018,7 @@
             doc:assert="has-terms-and-conditions-diagnostic"
             doc:context="oscal:assessment-plan"
             id="has-terms-and-conditions-diagnostic">The SAP lacks terms and conditions.</sch:diagnostic>
-        
+
         <sch:diagnostic
             doc:assert="has-part-named-assumptions"
             doc:context="oscal:terms-and-conditions"
@@ -989,7 +1028,7 @@
             doc:assert="assumption-ordered"
             doc:context="oscal:terms-and-conditions"
             id="assumption-ordered-diagnostic">The SAP assumption parts are incorrectly ordered.</sch:diagnostic>
-        
+
         <sch:diagnostic
             doc:assert="has-methodology-diagnostic"
             doc:context="oscal:terms-and-conditions"
@@ -999,6 +1038,11 @@
             doc:assert="has-disclosures-diagnostic"
             doc:context="oscal:terms-and-conditions"
             id="has-disclosures-diagnostic">The SAP terms and conditions lacks Rules of Engagement (ROE) Disclosures.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-part-named-liability-limitations"
+            doc:context="oscal:terms-and-conditions"
+            id="has-part-named-liability-limitations-diagnostic">The SAP terms and conditions lacks a liability and limitations part.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-sampling-method-diagnostic"
@@ -1022,6 +1066,17 @@
             doc:context="oscal:terms-and-conditions/part[@name eq 'disclosures']"
             id="has-roe-disclosure-detail-diagnostic">The SAP Rules of Engagement (ROE) Disclosures lacks detail disclosure
             statements.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-liability-limitation"
+            doc:context="oscal:terms-and-conditions/part[@name eq 'liability-limitations']"
+            id="has-liability-limitation-diagnostic">The SAP liability and limitations does not have at least one part named
+            'liability-limitation'.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="liability-limitations-ordered"
+            doc:context="oscal:terms-and-conditions/part[@name eq 'liability-limitations'"
+            id="liability-limitations-ordered-diagnostic">The SAP liability-limitation parts are incorrectly ordered.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-penetration-test-plan"

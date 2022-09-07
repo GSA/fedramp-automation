@@ -1043,6 +1043,144 @@
                         label="that is incorrect" />
                 </x:scenario>
             </x:scenario>
+            
+            
+            <x:scenario
+                label="has a part named 'liability-limitations'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <part
+                                name="liability-limitations" />
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-part-named-liability-limitations"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="does not have a part named 'liability-limitations'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-part-named-liability-limitations"
+                    label="that is incorrect" />
+            </x:scenario>
+            
+            <x:scenario
+                label="has a part named 'liability-limitations'">
+                <x:scenario label="and there is at least one child part named 'liability-limitation'">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="liability-limitations">
+                                    <part
+                                        name="liability-limitation"/>
+                                    
+                                    <part
+                                        name="liability-limitation"/>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-liability-limitation"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario label="and there is not at least one child part named 'liability-limitation'">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="liability-limitations"/>                                
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>                    
+                    <x:expect-assert
+                        id="has-liability-limitation"
+                        label="that is incorrect" />
+                </x:scenario>
+                <x:scenario
+                    label="and the child parts named 'liability-limitation' are correctly ordered">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="liability-limitations">
+                                    <part
+                                        name="liability-limitation">
+                                        <prop
+                                            name="sort-id"
+                                            value="001" />
+                                    </part>
+                                    <part
+                                        name="liability-limitation">
+                                        <prop
+                                            name="sort-id"
+                                            value="002" />
+                                    </part>
+                                    <part
+                                        name="liability-limitation">
+                                        <prop
+                                            name="sort-id"
+                                            value="003" />
+                                    </part>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="liability-limitations-ordered"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and the child parts named 'liability-limitation' are not correctly ordered">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="liability-limitations">
+                                    <part
+                                        name="liability-limitation">
+                                        <prop
+                                            name="sort-id"
+                                            value="002" />
+                                    </part>
+                                    <part
+                                        name="liability-limitation">
+                                        <prop
+                                            name="sort-id"
+                                            value="001" />
+                                    </part>
+                                    <part
+                                        name="liability-limitation">
+                                        <prop
+                                            name="sort-id"
+                                            value="003" />
+                                    </part>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="liability-limitations-ordered"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+            
+            
+            
         </x:scenario>
         <x:scenario
             label="when a task has a property of the value 'web-application'">
