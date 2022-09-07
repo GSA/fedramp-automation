@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <x:description
+    run-as="external"
     schematron="../../rules/sar.sch"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">
 
@@ -531,6 +532,177 @@
             </x:scenario>
         </x:scenario>
 
+        <x:scenario
+            label="results">
+            <x:scenario
+                label="when a result">
+                <x:scenario
+                    label="has an attestation">
+                    <x:scenario
+                        label="that has a property with a name of 'recommend-authorization'">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="af0c8632-e994-48a7-924e-2354b6abace7">
+                                    <attestation>
+                                        <part
+                                            name="authorization-statements">
+                                            <prop
+                                                name="recommend-authorization"
+                                                ns="https://fedramp.gov/ns/oscal"
+                                                value="yes" />
+                                        </part>
+                                    </attestation>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="has-attestation"
+                            label="this is correct" />
+                        <x:scenario
+                            label="that has a value that is not 'yes'">
+                            <x:scenario
+                                label="and has a first part child with a first paragraph whose text matches the example in the Guide.">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <attestation>
+                                                <part
+                                                    name="authorization-statements">
+                                                    <prop
+                                                        name="recommend-authorization"
+                                                        ns="https://fedramp.gov/ns/oscal"
+                                                        value="no" />
+                                                    <part
+                                                        name="authorization-statement">
+                                                        <prop
+                                                            name="sort-id"
+                                                            value="001" />
+                                                        <p>A total of five system risks were identified for System ABC, including 2 High risks, one
+                                                            Moderate risks, 2 Low risks, and zero of operationally required risks.</p>
+                                                    </part>
+                                                </part>
+                                            </attestation>
+                                        </result>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-not-assert
+                                    id="has-attestation-value-no"
+                                    label="this is correct" />
+                            </x:scenario>
+                            <x:scenario
+                                label="and has a first part child with a first paragraph whose text does not match the example in the Guide.">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <attestation>
+                                                <part
+                                                    name="authorization-statements">
+                                                    <prop
+                                                        name="recommend-authorization"
+                                                        ns="https://fedramp.gov/ns/oscal"
+                                                        value="no" />
+                                                    <part
+                                                        name="authorization-statement">
+                                                        <prop
+                                                            name="sort-id"
+                                                            value="001" />
+                                                        <p>Priority levels were established based on [describe].</p>
+                                                    </part>
+                                                </part>
+                                            </attestation>
+                                        </result>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-assert
+                                    id="has-attestation-value-no"
+                                    label="this is incorrect" />
+                            </x:scenario>
+                        </x:scenario>
+                    </x:scenario>
+                    <x:scenario label="that does not have a property with a name of 'recommend-authorization'">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result uuid="af0c8632-e994-48a7-924e-2354b6abace7">
+                                    <attestation>
+                                        <part name="authorization-statements">
+                                            <prop ns="https://fedramp.gov/ns/oscal" name="authorized" value="yes"/>
+                                        </part>
+                                    </attestation>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-assert
+                            id="has-attestation"
+                            label="this is incorrect" />
+                    </x:scenario>
+                </x:scenario>
+                <x:scenario
+                    label="has a risk">
+                    <x:scenario
+                        label="with a prop of @name = 'priority'">
+                        <x:scenario
+                            label="and the @value of that prop is unique">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <risk
+                                            uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
+                                            <prop
+                                                name="priority"
+                                                ns="https://fedramp.gov/ns/oscal"
+                                                value="3" />
+                                        </risk>
+                                        <risk
+                                            uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae8">
+                                            <prop
+                                                name="priority"
+                                                ns="https://fedramp.gov/ns/oscal"
+                                                value="5" />
+                                        </risk>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-duplicate-priority-value"
+                                label="this is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="and the @value of that prop is not unique">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <risk
+                                            uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
+                                            <prop
+                                                name="priority"
+                                                ns="https://fedramp.gov/ns/oscal"
+                                                value="3" />
+                                        </risk>
+                                        <risk
+                                            uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae8">
+                                            <prop
+                                                name="priority"
+                                                ns="https://fedramp.gov/ns/oscal"
+                                                value="3" />
+                                        </risk>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-duplicate-priority-value"
+                                label="this is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
         <x:scenario
             label="age-checks">
 

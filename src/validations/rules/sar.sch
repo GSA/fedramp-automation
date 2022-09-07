@@ -304,10 +304,6 @@
 
         <sch:rule
             context="oscal:risk">
-            <prop
-                name="risk-adjustment"
-                ns="https://fedramp.gov/ns/oscal"
-                value="approved" />
             <sch:assert
                 diagnostics="has-risk-adjustment-matching-control-implementation-statement-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.3"
@@ -342,6 +338,62 @@
                     else
                         true()">A risk with a status of 'closed' must have a risk-log/entry with a status-change of
                 'closed'.</sch:assert>
+                
+                <sch:assert
+                diagnostics="has-duplicate-priority-value-diagnostic"
+                fedramp:specific="true"
+                id="has-duplicate-priority-value"
+                role="error"
+                test="
+                    if (oscal:prop[@name = 'priority'])
+                    then
+                        if (normalize-space($risk-priority-values) = '')
+                        then
+                            true()
+                        else
+                            if (oscal:prop[@name = 'priority']/@value[. ne $risk-priority-values])
+                            then
+                                true()
+                            else
+                                false()
+                    else
+                        true()">Risks with priority properties must have unique priority values.</sch:assert>
+        </sch:rule>
+        
+        <sch:let
+            name="risk-priority-values"
+            value="distinct-values(//oscal:risk/oscal:prop[@name = 'priority']/@value[. = following::oscal:risk/oscal:prop[@name = 'priority']/@value])" />
+
+        <sch:rule
+            context="oscal:result">
+            <sch:assert
+                diagnostics="has-attestation-diagnostic"
+                fedramp:specific="true"
+                id="has-attestation"
+                role="error"
+                test="oscal:attestation[oscal:part[@name = 'authorization-statements']/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'recommend-authorization']]">
+                There must exist an attestation with a part containing a property with a name of 'recommend-authorization'.</sch:assert>
+        </sch:rule>
+        
+        <sch:rule
+            context="oscal:attestation/oscal:part[@name = 'authorization-statements'][oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'recommend-authorization']]">
+            <sch:assert
+                diagnostics="has-attestation-value-no-diagnostic"
+                fedramp:specific="true"
+                id="has-attestation-value-no"
+                role="error"
+                see="Guide to OSCAL-based FedRAMP Security Assessment Reports - Section 4.12"
+                test="
+                    if (oscal:prop/@value ne 'yes')
+                    then
+                        if (matches(normalize-space(oscal:part[1]/oscal:p[1]), 'A total of \w+ system risk(s?) were identified for .+, including .* High risk(s?), \w+ Moderate risk(s?), \w+ Low risk(s?), and \w+ of operationally required risk(s?).'))
+                        then
+                            true()
+                        else
+                            false()
+                    else
+                        true()">The recommend-authorization attestation with a non-yes value must have a first part with a first
+                paragraph that matches the text in the Guide.</sch:assert>
         </sch:rule>
 
     </sch:pattern>
@@ -513,7 +565,24 @@
             doc:context="oscal:observation"
             id="has-operational-requirement-relevant-evidence-diagnostic">An observation, <sch:value-of select="@uuid"/>, with a type of 'operational-requirement' does not have a
             relevant-evidence/@href, whose value after the '#', matches a back-matter/resource/@uuid.</sch:diagnostic>
-      
+            
+        <sch:diagnostic
+            doc:assert="has-attestation"
+            doc:context="oscal:result"
+            id="has-attestation-diagnostic">The result, <sch:value-of
+                select="@uuid" />, does not contain an attestation/part with a property of 'recommend-authorization'.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-attestation-value-no"
+            doc:context="oscal:attestation"
+            id="has-attestation-value-no-diagnostic">The recommend-authorization attestation with a non-yes value does not have a first part with a
+            first paragraph that matches the text in the Guide.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="has-duplicate-priority-value"
+            doc:context="oscal:result"
+            id="has-duplicate-priority-value-diagnostic">The risk, <sch:value-of
+                select="@uuid" /> has a priority property that is not a unique priority value.</sch:diagnostic>
+                
         <!-- age checks -->
 
         <sch:diagnostic
