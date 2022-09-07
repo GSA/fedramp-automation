@@ -31,6 +31,7 @@
         href="../test/rules/sap.xspec" />
 
     <sch:title>FedRAMP Security Assessment Plan Validations</sch:title>
+    
     <!-- Global Variables -->
     <sch:let
         name="ssp-href"
@@ -70,6 +71,14 @@
                 role="error"
                 test="oscal:import-ssp">An OSCAL SAP must have an import-ssp element.</sch:assert>
 
+            <sch:assert
+                diagnostics="has-user-assessment-subject-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.7"
+                id="has-user-assessment-subject"
+                role="error"
+                test="exists(oscal:assessment-subject[@type = 'user'])">A FedRAMP SAP must have an assesment-subject with a type of
+                'user'.</sch:assert>
+                
             <sch:let
                 name="web-apps"
                 value="
@@ -322,8 +331,24 @@
                 unit:override-xspec="both">SAP excluded controls are identified in the associated SSP. </sch:assert>
         </sch:rule>
     </sch:pattern>
+    
     <sch:pattern
         id="assessment-subject">
+        <sch:let
+            name="ssp-users"
+            value="$ssp-doc//oscal:system-implementation//oscal:user/@uuid ! xs:string(.)" />
+        <sch:let
+            name="sap-users"
+            value="/oscal:assessment-plan/oscal:local-definitions//oscal:user/@uuid ! xs:string(.)" />
+        <sch:let
+            name="ssp-user-apps"
+            value="
+            $ssp-doc/oscal:component[oscal:prop[@name = 'type' and @value eq 'role-based']]/@uuid ! xs:string(.) |
+            $ssp-doc/oscal:inventory-item[oscal:prop[@name = 'type' and @value eq 'role-based']]/@uuid ! xs:string(.)" />
+        <sch:let
+            name="sap-user-apps"
+            value="/oscal:assessment-plan//oscal:local-definitions/oscal:activity[oscal:prop[@value eq 'role-based']]/@uuid ! xs:string(.)" />
+            
         <sch:rule
             context="oscal:include-subject[@type = 'component'] | oscal:exclude-subject[@type = 'component']">
             <sch:assert
@@ -363,6 +388,35 @@
                 role="error"
                 test="@subject-uuid = $ssp-locations or @subject-uuid = $sap-locations"
                 unit:override-xspec="both">Locations targeted by include subject must exist in the SAP or SSP.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:assessment-subject[@type='user']/oscal:include-subject[@type = 'user'] | oscal:assessment-subject[@type='user']/oscal:exclude-subject[@type = 'user']">
+            <sch:assert
+                diagnostics="user-uuid-matches-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.7"
+                fedramp:specific="true"
+                id="user-uuid-matches"
+                role="error"
+                test="@subject-uuid = $ssp-users or @subject-uuid = $sap-users"
+                unit:override-xspec="both">Users targeted by include-subject or exclude-subject must exist in the SAP or associated SSP.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:task[oscal:prop[@value = 'role-based']]">
+            <sch:assert
+                diagnostics="matches-user-app-task-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.7"
+                fedramp:specific="true"
+                id="matches-user-app-task"
+                role="error"
+                test="oscal:associated-activity/@activity-uuid = $ssp-user-apps or oscal:associated-activity/@activity-uuid = $sap-user-apps"
+                unit:override-xspec="both">User tasks targeted by associated activity must exist in either the SAP or SSP.</sch:assert>
+            <sch:assert
+                diagnostics="has-login-id-user-task-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.7"
+                fedramp:specific="true"
+                id="has-login-id-user-task"
+                role="error"
+                test="exists(oscal:prop[@name = 'login-id'])">FedRAMP SAP Role Tasks must have login-id information.</sch:assert>
         </sch:rule>
     </sch:pattern>
     <sch:pattern
@@ -677,6 +731,11 @@
             id="has-import-ssp-diagnostic">This OSCAL SAP lacks have an import-ssp element.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-user-assessment-subject"
+            doc:context="oscal:assessment-plan"
+            id="has-user-assessment-subject-diagnostic">This FedRAMP SAP does not have an assessment-subject with the type of 'user'.</sch:diagnostic>
+            
+            <sch:diagnostic
             doc:assert="has-location-assessment-subject"
             doc:context="oscal:assessment-plan"
             id="has-location-assessment-subject-diagnostic">This FedRAMP SAP does not have an assessment-subject with the type of
@@ -798,6 +857,30 @@
             doc:context="oscal:assessment-plan"
             id="has-web-applications-diagnostic">These web testing activities, <sch:value-of
                 select="$missing-web-tasks" />, do not have matching tasks in the SSP or SAP.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="user-uuid-matches"
+            doc:context="oscal:assessment-subject[@type='location']"
+            id="user-uuid-matches-diagnostic">This include-subject, <sch:value-of
+                select="@subject-uuid" />, references a non-existent (neither in the SSP nor SAP) user.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="matches-user-app-task"
+            doc:context="oscal:task[oscal:prop[@name = 'type' and @value eq 'role']]"
+            id="matches-user-app-task-diagnostic">This associated-activity, <sch:value-of
+                select="oscal:associated-activity/@activity-uuid" />, references a non-existent (neither in the SSP nor SAP) user.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-login-id-user-task"
+            doc:context="oscal:task[oscal:prop[@name = 'type' and @value eq 'web-application']]"
+            id="has-login-id-user-task-diagnostic">This task, <sch:value-of
+                select="@uuid" />, does not contain login-id information.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-user-applications"
+            doc:context="oscal:assessment-plan"
+            id="has-user-applications-diagnostic">These user testing activities, <sch:value-of
+                select="$missing-user-tasks" />, do not have matching tasks in the SSP or SAP.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-terms-and-conditions-diagnostic"

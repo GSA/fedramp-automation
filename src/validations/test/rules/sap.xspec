@@ -1400,5 +1400,59 @@
                 </x:scenario>
             </x:scenario>
         </x:scenario>
+        <x:scenario
+            label="there exists an assessment-subject with a type of 'user'">
+            <x:context>
+                <assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <assessment-subject type="user"/>
+                </assessment-plan>
+            </x:context>
+            <x:expect-not-assert
+                id="has-user-assessment-subject"
+                label="that is correct" />
+        </x:scenario>
+        <x:scenario
+            label="there does not exist an assessment-subject with a type of 'user'">
+            <x:context>
+                <assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>
+            </x:context>
+            <x:expect-assert
+                id="has-user-assessment-subject"
+                label="that is incorrect" />
+        </x:scenario>
+        <x:scenario
+            label="when a task has a property of the value 'role-based'">
+            <x:scenario
+                label="with a property with the name 'login-id'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <task>
+                            <prop value="role-based"/>
+                            <prop name="login-id" ns="https://fedramp.gov/ns/oscal"
+                                value='https://service.offering.com/login'/>
+                        </task>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-login-id-user-task"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="without a property with the name 'login-id'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <task>
+                            <prop value="role-based"/>
+                            <prop value="test" name="test"/>
+                        </task>                
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-login-id-user-task"
+                    label="that is incorrect" />
+            </x:scenario>            
+        </x:scenario>
     </x:scenario>
 </x:description>
