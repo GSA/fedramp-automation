@@ -2,106 +2,123 @@ import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import partnersCloudSvg from '../images/partners-cloud.svg';
 import partnersAssessorsSvg from '../images/partners-assessors.svg';
 import partnersAgenciesSvg from '../images/partners-agencies.svg';
+import gif from '../images/gif.png';
+import whyIllustration from '../images/partners_fed-agencies.png';
 import '../styles/HomePage.scss';
 
 import { useAppContext } from '../context';
 
 const ProcessList = () => (
-  <>
-    <h2>How does it work?</h2>
-    <ol className="usa-process-list">
-      <li className="usa-process-list__item padding-bottom-4">
-        <h4 className="usa-process-list__heading line-height-sans-1">
-          Submit with confidence
-        </h4>
-        <p className="margin-top-1 text-light">
-          Creation of compliant FedRAMP OSCAL System Security Plans is enhanced
-          with timely and context-sensitive validation errors.
-        </p>
-      </li>
-      <li className="usa-process-list__item padding-bottom-4">
-        <h4 className="usa-process-list__heading line-height-sans-1">
-          Streamlined FedRAMP Review
-        </h4>
-        <p className="margin-top-1 text-light">
-          High-quality submissions lead to efficient FedRAMP audit reviews.
-          Additionally, FedRAMP Audit Review Team efforts are further
-          streamlined by a friendly presentation of complex business rule
-          validations.
-        </p>
-      </li>
-      <li className="usa-process-list__item">
-        <h4 className="usa-process-list__heading line-height-sans-1">
-          Lower-cost agency ATO
-        </h4>
-        <p className="margin-top-1 text-light">
-          FedRAMP-approved Cloud Service Providers (CSPs) with structured OSCAL
-          System Security Plans are more cost-effective for agencies to evaluate
-          as part of their own Approval To Operate (ATO) process.
-        </p>
-      </li>
-    </ol>
-  </>
+  <section className="bg-gray-10 padding-y-10">
+    <div className="grid-container">
+      <h2 className="text-theme-dark-blue font-sans-xl text-light margin-top-0">
+        How does it work?
+      </h2>
+      <div className="grid-row">
+        <div className="desktop:grid-col-6">
+          <ol className="usa-process-list">
+            <li className="usa-process-list__item padding-bottom-4">
+              <h4 className="usa-process-list__heading line-height-sans-1">
+                Submit with confidence
+              </h4>
+              <p className="margin-top-1 text-light">
+                Creation of compliant FedRAMP OSCAL System Security Plans is
+                enhanced with timely and context-sensitive validation errors.
+              </p>
+            </li>
+            <li className="usa-process-list__item padding-bottom-4">
+              <h4 className="usa-process-list__heading line-height-sans-1">
+                Streamlined FedRAMP Review
+              </h4>
+              <p className="margin-top-1 text-light">
+                High-quality submissions lead to efficient FedRAMP audit
+                reviews. Additionally, FedRAMP Audit Review Team efforts are
+                further streamlined by a friendly presentation of complex
+                business rule validations.
+              </p>
+            </li>
+            <li className="usa-process-list__item">
+              <h4 className="usa-process-list__heading line-height-sans-1">
+                Lower-cost agency ATO
+              </h4>
+              <p className="margin-top-1 text-light">
+                FedRAMP-approved Cloud Service Providers (CSPs) with structured
+                OSCAL System Security Plans are more cost-effective for agencies
+                to evaluate as part of their own Approval To Operate (ATO)
+                process.
+              </p>
+            </li>
+          </ol>
+        </div>
+        <div className="desktop:grid-col-6">
+          <img src={gif} alt="video tutorial of ASAP tool" />
+        </div>
+      </div>
+    </div>
+  </section>
 );
 
-const PartiesGrid = () => {
-  return (
-    <section className="padding-y-6">
-      <div className="grid-container">
-        <h2 className="text-center text-theme-dark-blue text-uppercase font-sans-xl font">
-          Who will use ASAP?
-        </h2>
-        <div className="grid-row">
-          <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
-            <img
-              className="margin-right-4 width-card-lg"
-              src={partnersCloudSvg}
-              alt="partners in the cloud"
-            />
-            <div>
-              <h3 className="text-theme-red">Cloud Service Providers</h3>
-              <p>
-                Submit your FedRAMP-compliant OSCAL System Security Plan with
-                confidence.
-              </p>
-            </div>
+const PartiesGrid = () => (
+  <section className="padding-y-10">
+    <div className="grid-container">
+      <h2 className="text-center text-theme-dark-blue text-uppercase font-sans-xl font margin-top-0">
+        Who will use ASAP?
+      </h2>
+      <div className="grid-row">
+        <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
+          <img
+            className="margin-right-4 width-9 tablet:width-card-lg"
+            src={partnersCloudSvg}
+            alt="partners in the cloud"
+          />
+          <div>
+            <h3 className="text-theme-red">Cloud Service Providers</h3>
+            <p>
+              Submit your FedRAMP-compliant OSCAL System Security Plan with
+              confidence.
+            </p>
           </div>
-          <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
-            <img
-              className="margin-right-4 width-card-lg"
-              src={partnersAssessorsSvg}
-              alt="partner assessors"
-            />
-            <div>
-              <h3 className="text-theme-red">FedRAMP Reviewers</h3>
-              <p>Evaluate CSP submissions with an efficient workflow.</p>
-              <a href={getUrl(Routes.developers)}>Learn more</a>
-            </div>
+        </div>
+        <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
+          <img
+            className="margin-right-4 width-9 tablet:width-card-lg"
+            src={partnersAssessorsSvg}
+            alt="partner assessors"
+          />
+          <div>
+            <h3 className="text-theme-red">FedRAMP Reviewers</h3>
+            <p>Evaluate CSP submissions with an efficient workflow.</p>
+            <a
+              className="text-primary text-underline"
+              href={getUrl(Routes.developers)}
+            >
+              Learn more
+            </a>
           </div>
-          <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
-            <img
-              className="margin-right-4 width-card-lg"
-              src={partnersAgenciesSvg}
-              alt="partner agencies"
-            />
-            <div>
-              <h3 className="text-theme-red">Federal Agencies</h3>
-              <p>
-                Evaluate FedRAMP-approved cloud service providers with the aid
-                of structured OSCAL documentation.
-              </p>
-            </div>
+        </div>
+        <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex">
+          <img
+            className="margin-right-4 width-9 tablet:width-card-lg"
+            src={partnersAgenciesSvg}
+            alt="partner agencies"
+          />
+          <div>
+            <h3 className="text-theme-red">Federal Agencies</h3>
+            <p>
+              Evaluate FedRAMP-approved cloud service providers with the aid of
+              structured OSCAL documentation.
+            </p>
           </div>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 const HeroSection = () => {
   const { state } = useAppContext();
   return (
-    <section className="bg-theme-light-cyan text-white padding-y-6 hero-unit">
+    <section className="bg-theme-light-cyan text-white padding-y-10 hero-unit">
       <div className="grid-container">
         <div className="grid-row grid-gap">
           <div className="desktop:grid-col-8">
@@ -174,37 +191,60 @@ const HeroSection = () => {
   );
 };
 
-export const HomePage = () => {
-  // const { state } = useAppContext();
-  return (
-    <div className="usa-prose">
-      <HeroSection />
-      <PartiesGrid />
-      <ProcessList />
-      <h2>Why should I care?</h2>
-      <p>
-        FedRAMP audit approvals are expensive for both FedRAMP and CSPs (Cloud
-        Service Providers). The ASAP validation tool helps CSPs craft correct
-        System Security Plans, and helps the FedRAMP Audit Review Team evaluate
-        them efficiently.
-      </p>
-      <h2>What's next?</h2>
-      <ul>
-        <li>User feedback</li>
-        <li>
-          In addition to SSP, support for Plan of Actions and Milestones
-          (POA&M), Security Assessment Plan (SAP), and Security Assessment
-          Report (SAR) validations
-        </li>
-      </ul>
-      <h2>Contact us</h2>
-      <p>
-        Please give us your feedback via a{' '}
-        <a href="https://github.com/GSA/fedramp-automation/issues">
-          Github issue
-        </a>
-        .
-      </p>
+const WhySection = () => (
+  <section className="padding-y-10">
+    <div className="grid-container">
+      <div className="grid-row grid-gap">
+        <div className="desktop:grid-col-6">
+          <img
+            src={whyIllustration}
+            alt="pillars with folders, cart, zoom window, and envelope"
+          />
+        </div>
+        <div className="desktop:grid-col-6">
+          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-top-0">
+            Why should I care?
+          </h2>
+          <p>
+            FedRAMP audit approvals are expensive for both FedRAMP and CSPs
+            (Cloud Service Providers). The ASAP validation tool helps CSPs craft
+            correct System Security Plans, and helps the FedRAMP Audit Review
+            Team evaluate them efficiently.
+          </p>
+          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-top-0">
+            What's next?
+          </h2>
+          <ul>
+            <li>User feedback</li>
+            <li>
+              In addition to SSP, support for Plan of Actions and Milestones
+              (POA&M), Security Assessment Plan (SAP), and Security Assessment
+              Report (SAR) validations
+            </li>
+          </ul>
+          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-top-0">
+            Contact us
+          </h2>
+          <p>
+            Please give us your feedback via a{' '}
+            <a
+              className="text-underline text-primary"
+              href="https://github.com/GSA/fedramp-automation/issues"
+            >
+              Github issue
+            </a>
+            .
+          </p>
+        </div>
+      </div>
     </div>
-  );
-};
+  </section>
+);
+export const HomePage = () => (
+  <div className="usa-prose">
+    <HeroSection />
+    <PartiesGrid />
+    <ProcessList />
+    <WhySection />
+  </div>
+);
