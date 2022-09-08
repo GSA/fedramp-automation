@@ -62,7 +62,7 @@ const PartiesGrid = () => (
   <section className="padding-y-10">
     <div className="grid-container">
       <h2 className="text-center text-theme-dark-blue text-uppercase font-sans-xl margin-top-0">
-        Who will use ASAP?
+        Who uses ASAP?
       </h2>
       <div className="grid-row">
         <div className="tablet:grid-col-6 desktop:grid-col-4 display-flex flex-align-start">
@@ -129,7 +129,7 @@ const HeroSection = () => {
               <div className="tablet:grid-col-6">
                 <p className="font-sans-lg">
                   Welcome to Automated Security Authorization Processing (ASAP),
-                  the upcoming FedRAMP audit validation tool. Project funded by{' '}
+                  the FedRAMP audit validation tool. Project funded by{' '}
                   <a
                     className="text-white text-underline"
                     href="https://10x.gsa.gov/"
@@ -170,7 +170,7 @@ const HeroSection = () => {
                   is available.
                 </p>
                 <p>
-                  This user interface, which will apply validations to a FedRAMP
+                  This user interface, which applies validations to a FedRAMP
                   OSCAL System Security Plan and display validation errors
                   in-browser.
                 </p>
