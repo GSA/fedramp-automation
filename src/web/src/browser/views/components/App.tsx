@@ -41,11 +41,7 @@ const CurrentPage = () => {
       </>
     );
   } else if (currentRoute.type === 'Developers') {
-    return (
-      <InnerPageLayout>
-        <DevelopersPage />
-      </InnerPageLayout>
-    );
+    return <DevelopersPage />;
   } else {
     const _exhaustiveCheck: never = currentRoute;
     return <></>;

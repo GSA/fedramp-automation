@@ -127,22 +127,25 @@ const HeroSection = () => {
             </h1>
             <div className="grid-row grid-gap">
               <div className="tablet:grid-col-6">
-                <p>
+                <p className="font-sans-lg">
                   Welcome to Automated Security Authorization Processing (ASAP),
-                  the upcoming FedRAMP audit validation tool. Funded by{' '}
+                  the upcoming FedRAMP audit validation tool. Project funded by{' '}
                   <a
                     className="text-white text-underline"
                     href="https://10x.gsa.gov/"
                   >
-                    10x
+                    10x.
                   </a>
-                  , ASAP is comprised of the following components:
                 </p>
-                <a className="usa-button" href={getUrl(Routes.documentSummary)}>
+                <a
+                  className="usa-button usa-button--big margin-top-2"
+                  href={getUrl(Routes.documentSummary)}
+                >
                   Try it now
                 </a>
               </div>
               <div className="tablet:grid-col-6 padding-left-2">
+                <p>ASAP is comprised of the following components:</p>
                 <p>
                   <a
                     className="text-white text-underline"
