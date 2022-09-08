@@ -52,14 +52,16 @@ const ProcessList = () => (
           </ol>
         </div>
         <div className="desktop:grid-col-6">
-          <video
-            className="radius-lg"
-            controls
-            width="640"
-            src={asapMovie}
-            autoPlay
-            loop
-          />
+          <div className="add-aspect-16x9 shadow-4">
+            <video
+              className="radius-lg"
+              controls
+              width="100%"
+              src={asapMovie}
+              autoPlay
+              loop
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -222,17 +224,6 @@ const WhySection = () => (
             correct System Security Plans, and helps the FedRAMP Audit Review
             Team evaluate them efficiently.
           </p>
-          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-y-0">
-            What's next?
-          </h2>
-          <ul>
-            <li>User feedback</li>
-            <li>
-              In addition to SSP, support for Plan of Actions and Milestones
-              (POA&M), Security Assessment Plan (SAP), and Security Assessment
-              Report (SAR) validations
-            </li>
-          </ul>
           <h2 className="text-theme-dark-blue font-sans-xl text-light margin-y-0">
             Contact us
           </h2>
