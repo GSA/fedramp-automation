@@ -2,7 +2,6 @@ import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import partnersCloudSvg from '../images/partners-cloud.svg';
 import partnersAssessorsSvg from '../images/partners-assessors.svg';
 import partnersAgenciesSvg from '../images/bldg.svg';
-import gif from '../images/gif.png';
 import whyIllustration from '../images/partners_fed-agencies.png';
 import '../styles/HomePage.scss';
 import asapMovie from '../images/asap-540-2.mp4';
