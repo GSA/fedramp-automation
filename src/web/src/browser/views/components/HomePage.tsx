@@ -5,6 +5,7 @@ import partnersAgenciesSvg from '../images/bldg.svg';
 import gif from '../images/gif.png';
 import whyIllustration from '../images/partners_fed-agencies.png';
 import '../styles/HomePage.scss';
+import asapMovie from '../images/asap-540-2.mp4';
 
 import { useAppContext } from '../context';
 
@@ -51,7 +52,14 @@ const ProcessList = () => (
           </ol>
         </div>
         <div className="desktop:grid-col-6">
-          <img src={gif} alt="video tutorial of ASAP tool" />
+          <video
+            className="radius-lg"
+            controls
+            width="640"
+            src={asapMovie}
+            autoPlay
+            loop
+          />
         </div>
       </div>
     </div>
