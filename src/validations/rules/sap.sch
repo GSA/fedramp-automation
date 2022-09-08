@@ -333,6 +333,121 @@
     </sch:pattern>
     
     <sch:pattern
+        id="control-objective-selection">
+        <sch:rule
+            context="oscal:control-objective-selection">
+            <sch:let
+                name="exclude-control-objective-ids"
+                value="oscal:exclude-objective/@objective-id ! xs:string(.)" />
+            <sch:let
+                name="include-control-objective-ids"
+                value="oscal:include-objective/@objective-id ! xs:string(.)" />
+            <sch:let
+                name="matching-control-objective-ids"
+                value="$exclude-control-objective-ids[. = $include-control-objective-ids]" />
+
+            <sch:assert
+                diagnostics="include-all-or-include-objective-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.24"
+                id="include-all-or-include-objective"
+                role="fatal"
+                test="(oscal:include-all and not(oscal:include-objective)) or (oscal:include-objective and not(oscal:include-all))">An OSCAL SAP
+                control objective selection element must have either an include-all element or include-control element(s) children.</sch:assert>
+
+            <sch:assert
+                diagnostics="duplicate-exclude-objective-and-include-objective-values-diagnostic"
+                id="duplicate-exclude-objective-and-include-objective-values"
+                role="error"
+                test="count($matching-control-objective-ids) = 0">The exclude-control and include-control sibling element @control-id values must be
+                different.</sch:assert>
+            </sch:rule>
+        
+        <sch:rule context="oscal:control-objective-selection/oscal:include-objective">
+            <sch:assert
+                diagnostics="duplicate-include-objective-values-diagnostic"
+                id="duplicate-include-objective-values"
+                role="error"
+                test="if (following-sibling::oscal:include-objective)
+                then if(@objective-id = following-sibling::oscal:include-objective/@objective-id)
+                then false()
+                else true()
+                else true()">The
+                include-objective/@objective-id values are unique.</sch:assert>
+        </sch:rule>
+            
+            <sch:rule context="oscal:control-objective-selection/oscal:exclude-objective">
+                <sch:assert
+                    diagnostics="duplicate-exclude-objective-values-diagnostic"
+                    id="duplicate-exclude-objective-values"
+                    role="error"
+                    test="if (following-sibling::oscal:exclude-objective)
+                    then if(@objective-id = following-sibling::oscal:exclude-objective/@objective-id)
+                    then false()
+                    else true()
+                    else true()">The
+                    exclude-objective/@objective-id values are unique.</sch:assert>
+            </sch:rule>
+            
+        <!-- This series of variables gets to the profile file to match the include and exclude asserts below -->
+        <sch:let
+            name="profile-href"
+            value="resolve-uri($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, base-uri())" />
+        <sch:let
+            name="profile-available"
+            value="
+                if (: this is not a relative reference :) (not(starts-with(@href, '#')))
+                then
+                    (: the referenced document must be available :)
+                    if (doc-available($profile-href))
+                    then
+                        exists(doc($profile-href)/oscal:profile)
+                    else
+                        false()
+                else
+                    true()" />
+        <sch:let
+            name="profile-doc"
+            value="
+                if ($profile-available)
+                then
+                    doc($profile-href)
+                else
+                    ()" />
+        <sch:let
+            name="profile-objective-ids"
+            value="$profile-doc//oscal:add/@by-id" />
+        <sch:rule
+            context="oscal:assessment-plan">
+            <sch:assert
+                diagnostics="is-profile-document-diagnostic"
+                id="is-profile-document"
+                role="fatal"
+                test="$profile-available eq true()"
+                unit:override-xspec="both">The associated SSP must have an import-profile that references a profile document.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:include-objective">
+            <sch:assert
+                diagnostics="objective-inclusion-values-exist-in-profile-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.24"
+                id="objective-inclusion-values-exist-in-profile"
+                role="error"
+                test="@objective-id[. = $profile-objective-ids]"
+                unit:override-xspec="both">SAP included objectives are identified in the associated profile.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:exclude-objective">
+            <sch:assert
+                diagnostics="objective-exclusion-values-exist-in-profile-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.24"
+                id="objective-exclusion-values-exist-in-profile"
+                role="error"
+                test="@objective-id[. = $profile-objective-ids]"
+                unit:override-xspec="both">SAP excluded objective are identified in the associated profile.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+  
+    <sch:pattern
         id="assessment-subject">
         <sch:let
             name="ssp-users"
@@ -1066,6 +1181,44 @@
             doc:context="oscal:control-selection"
             id="include-all-or-include-control-diagnostic">A control-selection element may not have both include-all and include-control element
             children.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="include-all-or-include-objective"
+            doc:context="oscal:control-objective-selection"
+            id="include-all-or-include-objective-diagnostic">A control-objective-selection element may not have both include-all and include-objective
+            element children.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="duplicate-exclude-objective-and-include-objective-values"
+            doc:context="oscal:control-objective-selection"
+            id="duplicate-exclude-objective-and-include-objective-values-diagnostic">The @control-id values <sch:value-of
+                select="$matching-control-objective-ids" /> are not allowed to occur more than once in this control-objective-selection
+            element.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="duplicate-include-objective-values"
+            doc:context="oscal:control-objective-selection"
+            id="duplicate-include-objective-values-diagnostic">Duplicate values are not allowed to occur in include-objective/@objective-id, <sch:value-of
+                select="@objective-id" />, elements.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="duplicate-exclude-objective-values"
+            doc:context="oscal:control-objective-selection"
+            id="duplicate-exclude-objective-values-diagnostic">Duplicate values are not allowed to occur in exclude-objective/@objective-id, <sch:value-of
+                select="@objective-id" />, elements.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="objective-inclusion-values-exist-in-profile"
+            doc:context="oscal:included-objective"
+            id="objective-inclusion-values-exist-in-profile-diagnostic">The included objective <sch:value-of
+                select="@objective-id" /> does not exist in the associated profile.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="objective-exclusion-values-exist-in-profile"
+            doc:context="oscal:excluded-objective"
+            id="objective-exclusion-values-exist-in-profile-diagnostic">The excluded objective <sch:value-of
+                select="@objective-id" /> does not exist in the associated profile.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="duplicate-exclude-control-and-include-control-values"
             doc:context="oscal:control-selection"
@@ -1091,6 +1244,7 @@
             doc:context="oscal:excluded-control"
             id="control-exclusion-values-exist-in-ssp-diagnostic">The excluded control <sch:value-of
                 select="@control-id" /> does not exist in the associated SSP.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="location-not-include-all-element"
             doc:context="oscal:assessment-subject[@type='location']"
@@ -1106,6 +1260,7 @@
             doc:context="oscal:assessment-subject[@type='location']"
             id="component-uuid-matches-diagnostic">This include or exclude subject, <sch:value-of
                 select="@subject-uuid" />, does not have a matching SSP component or SAP inventory-item.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="matches-web-app-task"
             doc:context="oscal:task[oscal:prop[@name = 'type' and @value eq 'web-application']]"
@@ -1130,13 +1285,13 @@
             doc:context="oscal:assessment-plan"
             id="has-web-applications-diagnostic">These web testing activities, <sch:value-of
                 select="$missing-web-tasks" />, do not have matching tasks in the SSP or SAP.</sch:diagnostic>
-      
+
         <sch:diagnostic
             doc:assert="user-uuid-matches"
             doc:context="oscal:assessment-subject[@type='location']"
             id="user-uuid-matches-diagnostic">This include-subject, <sch:value-of
                 select="@subject-uuid" />, references a non-existent (neither in the SSP nor SAP) user.</sch:diagnostic>
-        
+      
         <sch:diagnostic
             doc:assert="matches-user-app-task"
             doc:context="oscal:task[oscal:prop[@name = 'type' and @value eq 'role']]"
@@ -1314,6 +1469,12 @@
             doc:context="oscal:metadata"
             id="has-metadata-correctly-formatted-party-diagnostic">This FedRAMP metadata/party with an @name of 'iso-iec-17020-identifier' does not
             have a correctly formatted @value.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="is-profile-document"
+            doc:context="oscal:assessment-plan"
+            id="is-profile-document-diagnostic">The associated SSP document does not have an import-profile that references a profile
+            document.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-software-component-vendor"
