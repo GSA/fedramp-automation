@@ -6,8 +6,14 @@
   padding-top: 6rem;
   padding-bottom: 4rem;
 
+  // tablet
+  @media (min-width: 50rem) {
+    background-position: center;
+    background-image: url(../images/homepage-banner-tablet.jpg);
+  }
+
   // desktop and up
-  @media (min-width: 64rem) {
+  @media (min-width: 80rem) {
     background-image: url(../images/homepage-banner-desktop.jpeg);
   }
 }
