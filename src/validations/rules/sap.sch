@@ -960,6 +960,43 @@
                 the Points of Contact must be an Operations Center.</sch:assert>
           </sch:rule>
     </sch:pattern>
+    
+    <sch:pattern id="assessment-assets">
+        <sch:rule
+            context="oscal:assessment-assets/oscal:component[@type = 'software']">
+            <sch:assert
+                diagnostics="has-software-component-vendor-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.13"
+                fedramp:specific="true"
+                id="has-software-component-vendor"
+                role="error"
+                test="oscal:prop[@name = 'vendor']">A FedRAMP SAP assessment asset component must have a vendor name.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-software-component-tool-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.13"
+                fedramp:specific="true"
+                id="has-software-component-tool"
+                role="error"
+                test="oscal:prop[@name = 'name']">A FedRAMP SAP assessment asset component must have a tool name.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-software-component-version-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.13"
+                fedramp:specific="true"
+                id="has-software-component-version"
+                role="error"
+                test="oscal:prop[@name = 'version']">A FedRAMP SAP assessment asset component must have a version number for the tool.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-software-component-status-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.13"
+                fedramp:specific="true"
+                id="has-software-component-status"
+                role="warning"
+                test="oscal:status[@state='operational']">A FedRAMP SAP assessment asset component has a status with a state of 'operational'.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
 
     <sch:diagnostics>
 
@@ -1054,7 +1091,6 @@
             doc:context="oscal:excluded-control"
             id="control-exclusion-values-exist-in-ssp-diagnostic">The excluded control <sch:value-of
                 select="@control-id" /> does not exist in the associated SSP.</sch:diagnostic>
-
         <sch:diagnostic
             doc:assert="location-not-include-all-element"
             doc:context="oscal:assessment-subject[@type='location']"
@@ -1070,7 +1106,6 @@
             doc:context="oscal:assessment-subject[@type='location']"
             id="component-uuid-matches-diagnostic">This include or exclude subject, <sch:value-of
                 select="@subject-uuid" />, does not have a matching SSP component or SAP inventory-item.</sch:diagnostic>
-
         <sch:diagnostic
             doc:assert="matches-web-app-task"
             doc:context="oscal:task[oscal:prop[@name = 'type' and @value eq 'web-application']]"
@@ -1281,6 +1316,30 @@
             have a correctly formatted @value.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-software-component-vendor"
+            doc:context="oscal:assessment-assets/oscal:component[@type='software']"
+            id="has-software-component-vendor-diagnostic">This FedRAMP SAP has a assessment asset component, <sch:value-of
+                select="@uuid" />, that does not identify the vendor name.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-software-component-tool"
+            doc:context="oscal:assessment-assets/oscal:component[@type='software']"
+            id="has-software-component-tool-diagnostic">This FedRAMP SAP has a assessment asset component, <sch:value-of
+                select="@uuid" />, that does not identify the tool name.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-software-component-version"
+            doc:context="oscal:assessment-assets/oscal:component[@type='software']"
+            id="has-software-component-version-diagnostic">This FedRAMP SAP has a assessment asset component, <sch:value-of
+                select="@uuid" />, that does not identify the version of the tool.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-software-component-status"
+            doc:context="oscal:assessment-assets/oscal:component[@type='software']"
+            id="has-software-component-status-diagnostic">This FedRAMP SAP has a assessment asset component, <sch:value-of
+                select="@uuid" />, that does not identify the status state as 'operational'.</sch:diagnostic>
+        
+            <sch:diagnostic
             doc:assert="has-metadata-assessment-team-role"
             doc:context="oscal:metadata"
             id="has-metadata-assessment-team-role-diagnostic">This FedRAMP metadata does not contain a role with an @id of
