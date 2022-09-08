@@ -7,7 +7,6 @@ import { DevelopersPage } from './DevelopersPage';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { HomePage } from './HomePage';
-import { InnerPageLayout } from './InnerPageLayout';
 import { UsaBanner } from './UsaBanner';
 import { ValidatorPage } from './ValidatorPage';
 import { useAppContext } from '../context';
