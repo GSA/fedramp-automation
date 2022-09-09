@@ -54,32 +54,3 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           make test-validations test-web
-
-      # Sets the test report path for visibility
-      - name: Publish XSpec Test Results
-        uses: mikepenz/action-junit-report@v1
-        if: runner.os == 'Linux'
-        with:
-          report_paths: "**/report/test/*junit.xml"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-
-      # Publish the test summary as comment on the PR
-      - name: Publish XSpec Test Results Summary
-        uses: EnricoMi/publish-unit-test-result-action@v1.15
-        if: runner.os == 'Linux'
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          check_name: XSpec Test Results
-          files: "**/report/test/*junit.xml"
-          report_individual_runs: true
-          deduplicate_classes_by_file_name: false
-
-      - name: Upload Resulting Schematron SVRL Report
-        uses: actions/upload-artifact@27bce4eee761b5bc643f46a8dfb41b430c8d05f6 # v2
-        if: runner.os == 'Linux'
-        with:
-          name: fedramp-automation-validation-unit-tests-${{ github.sha }}
-          path: |
-            ./src/validations/report/schematron/**/*.*
-            ./src/validations/report/test/**/*.*
-          if-no-files-found: error
