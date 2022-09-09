@@ -2483,5 +2483,128 @@
                     label="that is incorrect" />
             </x:scenario>            
         </x:scenario>
+        <x:scenario label="in an assessment-platform">
+            <x:scenario label="when a prop has a @name of 'ip4-address">
+                <x:scenario label="and has a correctly formatted value">
+                        <x:context>
+                            <assessment-platform 
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <prop name="ipv4-address" value="10.10.10.10"/>
+                            </assessment-platform>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="ipv4-has-content"
+                            label="that is correct" />
+                </x:scenario>
+                <x:scenario label="and has an incorrectly formatted value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv4-address" value="10.10.10.1088888"/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv4-has-content"
+                        label="that is incorrect" />
+                </x:scenario>                
+                <x:scenario label="and has a placeholder value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv4-address" value="0.0.0.0"/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv4-has-non-placeholder"
+                        label="that is incorrect" />
+                </x:scenario>
+                <x:scenario label="and has a non-placeholder value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv4-address" value="10.10.10.10"/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv4-has-non-placeholder"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="when a prop has a @name of 'ipv6-address">
+                <x:scenario label="and has a correctly formatted value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv6-address" value="2001:db8:3333:4444:5555:6666:7777:8888."/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv6-has-content"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario label="and has an incorrectly formatted value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv6-address" value="1234:5678:9012:3456"/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv6-has-content"
+                        label="that is incorrect" />
+                </x:scenario>                
+                <x:scenario label="and has a placeholder value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv6-address" value="::"/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv6-has-non-placeholder"
+                        label="that is incorrect" />
+                </x:scenario>
+                <x:scenario label="and has a non-placeholder value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv6-address" value="2001:db8:3333:4444:5555:6666:7777:8888."/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv6-has-non-placeholder"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="when uses-component/@component-uuid value matches an assessment-plan/component/@uuid value">
+                <x:context>                    
+                    <assessment-assets
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <component type="hardware" uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                        <component type="software" uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+                        <assessment-platform>
+                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                            <uses-component component-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+                        </assessment-platform>
+                    </assessment-assets>
+                </x:context>
+                <x:expect-not-assert id="has-uses-component-match" label="that is correct"/>
+            </x:scenario>
+            <x:scenario label="when uses-component/@component-uuid value does not match an assessment-plan/component/@uuid value">
+                <x:context>                    
+                    <assessment-assets
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <component type="hardware" uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                        <assessment-platform>
+                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                            <uses-component component-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+                        </assessment-platform>
+                    </assessment-assets>
+                </x:context>
+                <x:expect-assert id="has-uses-component-match" label="that is incorrect"/>
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
 </x:description>

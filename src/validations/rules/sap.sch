@@ -1134,6 +1134,82 @@
                 test="oscal:status[@state='operational']">A FedRAMP SAP assessment asset component has a status with a state of 'operational'.</sch:assert>
         </sch:rule>
     </sch:pattern>
+    <sch:pattern
+        id="assessment-assets">
+        <sch:rule
+            context="oscal:assessment-platform">
+            <sch:assert
+                diagnostics="ipv4-has-content-diagnostic"
+                id="ipv4-has-content"
+                role="error"
+                test="
+                    if (oscal:prop[@name eq 'ipv4-address'])
+                    then
+                        (oscal:prop[matches(@value, '(^[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?$)')])
+                    else
+                        (true())"><sch:value-of
+                    select="oscal:prop[@name = 'ipv4-address']/@value" />A FedRAMP SAP assessment-platform IPv4 value must be valid.</sch:assert>
+
+            <sch:assert
+                diagnostics="ipv4-has-non-placeholder-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv4-has-non-placeholder"
+                role="error"
+                test="
+                    if (oscal:prop[@name eq 'ipv4-address']/@value = '0.0.0.0')
+                    then
+                        (false())
+                    else
+                        (true())"><sch:value-of
+                    select="oscal:prop[@name = 'asset-id']/@value" />A FedRAMP SAP assessment-platform element must not define a placeholder IPv4 value.</sch:assert>
+
+            <sch:let
+                name="IPv6-regex"
+                value="
+                    '(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:)
+                {1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:)
+                {1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]
+                {1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:
+                ((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'" />
+            <sch:assert
+                diagnostics="ipv6-has-content-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv6-has-content"
+                role="error"
+                test="
+                    if (oscal:prop[@name eq 'ipv6-address'])
+                    then
+                        (oscal:prop[matches(@value, $IPv6-regex)])
+                    else
+                        (true())"><sch:value-of
+                    select="oscal:prop[@name = 'asset-id']/@value" />A FedRAMP SAP assessment-platform IPv6 value must be valid.</sch:assert>
+            <sch:assert
+                diagnostics="ipv6-has-non-placeholder-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv6-has-non-placeholder"
+                role="error"
+                test="
+                    if (oscal:prop[@name eq 'ipv6-address']/@value eq '::')
+                    then
+                        (false())
+                    else
+                        (true())"><sch:value-of
+                    select="oscal:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv6 value.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:assessment-platform/oscal:uses-component">
+            <sch:let
+                name="SAP-assessment-assets-components"
+                value="../../oscal:component/@uuid" />
+            <sch:assert
+                diagnostics="has-uses-component-match-diagnostic"
+                fedramp:specific="true"
+                id="has-uses-component-match"
+                role="error"
+                test="@component-uuid[. = $SAP-assessment-assets-components]">A FedRAMP SAP must have assessment platform uses-component uuid values that
+                match assessment-assets component uuid values.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
 
     <sch:diagnostics>
 
@@ -1503,6 +1579,34 @@
             doc:context="oscal:metadata"
             id="has-metadata-correctly-formatted-party-diagnostic">This FedRAMP metadata/party with an @name of 'iso-iec-17020-identifier' does not
             have a correctly formatted @value.</sch:diagnostic>
+            
+        <sch:diagnostic
+            doc:assertion="ipv4-has-content"
+            doc:context="oscal:assessment-plan[oscal:prop[@name eq 'ipv4-address']]"
+            id="ipv4-has-content-diagnostic">The @value content of prop whose @name is 'ipv4-address' has incorrect content.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assertion="ipv4-has-non-placeholder"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'ipv4-address']]"
+            id="ipv4-has-non-placeholder-diagnostic">The @value content of prop whose @name is 'ipv4-address' has placeholder value of
+            0.0.0.0.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assertion="ipv6-has-non-placeholder"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'ipv6-address']]"
+            id="ipv6-has-non-placeholder-diagnostic">The @value content of prop whose @name is 'ipv6-address' has placeholder value of
+            ::.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assertion="ipv6-has-content"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'ipv6-address']]"
+            id="ipv6-has-content-diagnostic">The @value content of prop whose @name is 'ipv6-address' has incorrect content.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assertion="has-uses-component-match"
+            doc:context="oscal:assessment-platform/oscal:uses-component"
+            id="has-uses-component-match-diagnostic">This assessment platform uses-component uuid value, <sch:value-of
+                select="@component-uuid" /> does not have a matching assessment-assets component uuid value.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="is-profile-document"
