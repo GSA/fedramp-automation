@@ -580,6 +580,15 @@
                 Disclosures.</sch:assert>
 
             <sch:assert
+                diagnostics="has-part-named-excluded-activities-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.19"
+                fedramp:specific="true"
+                id="has-part-named-excluded-activities"
+                role="error"
+                test="oscal:part[@name = 'excluded-activities']">The SAP terms and conditions must contain a part called
+                excluded-activities.</sch:assert>
+                
+            <sch:assert
                 diagnostics="has-part-named-liability-limitations-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.22"
                 fedramp:specific="true"
@@ -587,7 +596,6 @@
                 role="error"
                 test="oscal:part[@name = 'liability-limitations']">The SAP terms and conditions must contain a part called
                 liability-limitations.</sch:assert>
-
         </sch:rule>
 
         <sch:rule
@@ -659,6 +667,20 @@
                 test="oscal:part[@name eq 'disclosure']">The SAP Rules of Engagement (ROE) Disclosures have one or more detail disclosure
                 statements.</sch:assert>
 
+        </sch:rule>
+        
+        <sch:rule
+            context="oscal:terms-and-conditions/oscal:part[@name eq 'excluded-activities']">
+            
+            <sch:assert
+                diagnostics="has-roe-excluded-activity-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.19"
+                fedramp:specific="true"
+                id="has-roe-excluded-activity"
+                role="error"
+                test="oscal:part[@name eq 'excluded-activity']">The SAP Rules of Engagement (ROE) excluded activities must have one or more excluded
+                activity parts.</sch:assert>
+            
         </sch:rule>
 
         <sch:rule
@@ -1336,6 +1358,12 @@
             id="has-disclosures-diagnostic">The SAP terms and conditions lacks Rules of Engagement (ROE) Disclosures.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="has-part-named-excluded-activities"
+            doc:context="oscal:terms-and-conditions"
+            id="has-part-named-excluded-activities-diagnostic">The SAP terms and conditions lacks Rules of Engagement (ROE) part of
+            excluded-activities.</sch:diagnostic>
+            
+        <sch:diagnostic
             doc:assert="has-part-named-liability-limitations"
             doc:context="oscal:terms-and-conditions"
             id="has-part-named-liability-limitations-diagnostic">The SAP terms and conditions lacks a liability and limitations part.</sch:diagnostic>
@@ -1363,6 +1391,12 @@
             id="has-roe-disclosure-detail-diagnostic">The SAP Rules of Engagement (ROE) Disclosures lacks detail disclosure
             statements.</sch:diagnostic>
 
+        <sch:diagnostic
+            doc:assert="has-roe-excluded-activity"
+            doc:context="oscal:terms-and-conditions/part[@name eq 'excluded-activities']"
+            id="has-roe-excluded-activity-diagnostic">The SAP Rules of Engagement (ROE) included activities lacks an excluded activity
+            part.</sch:diagnostic>
+            
         <sch:diagnostic
             doc:assert="has-liability-limitation"
             doc:context="oscal:terms-and-conditions/part[@name eq 'liability-limitations']"
