@@ -657,7 +657,6 @@
 
         <sch:rule
             context="oscal:terms-and-conditions/oscal:part[@name eq 'disclosures']">
-
             <sch:assert
                 diagnostics="has-roe-disclosure-detail-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.17"
@@ -667,6 +666,20 @@
                 test="oscal:part[@name eq 'disclosure']">The SAP Rules of Engagement (ROE) Disclosures have one or more detail disclosure
                 statements.</sch:assert>
 
+            <sch:let
+                name="unsorted_disclosures"
+                value="oscal:part[@name eq 'disclosure']/oscal:prop[@name eq 'sort-id']/@value" />
+            <sch:let
+                name="sorted_disclosures"
+                value="sort($unsorted_disclosures)" />
+            <sch:assert
+                diagnostics="disclosure-ordered-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.17"
+                fedramp:specific="true"
+                id="disclosure-ordered"
+                role="error"
+                test="deep-equal($unsorted_disclosures, $sorted_disclosures)">The SAP terms and conditions disclosures part must have disclosure parts that
+                are ordered.</sch:assert>
         </sch:rule>
         
         <sch:rule
@@ -1423,6 +1436,11 @@
             doc:context="oscal:terms-and-conditions"
             id="assumption-ordered-diagnostic">The SAP assumption parts are incorrectly ordered.</sch:diagnostic>
 
+        <sch:diagnostic
+            doc:assert="disclosure-ordered"
+            doc:context="oscal:terms-and-conditions"
+            id="disclosure-ordered-diagnostic">The SAP disclosure parts are incorrectly ordered.</sch:diagnostic>
+        
         <sch:diagnostic
             doc:assert="has-methodology-diagnostic"
             doc:context="oscal:terms-and-conditions"
