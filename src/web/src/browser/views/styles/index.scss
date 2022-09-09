@@ -23,6 +23,12 @@
 .text-theme-dark-blue {
   color: var(--theme-dark-cyan);
 }
+.text-theme-red {
+  color: var(--theme-red);
+}
+.bg-theme-light-cyan {
+  background-color: var(--theme-light-cyan);
+}
 
 .loader {
   border: 8px solid color('base-lightest');
