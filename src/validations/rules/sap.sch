@@ -333,6 +333,121 @@
     </sch:pattern>
     
     <sch:pattern
+        id="control-objective-selection">
+        <sch:rule
+            context="oscal:control-objective-selection">
+            <sch:let
+                name="exclude-control-objective-ids"
+                value="oscal:exclude-objective/@objective-id ! xs:string(.)" />
+            <sch:let
+                name="include-control-objective-ids"
+                value="oscal:include-objective/@objective-id ! xs:string(.)" />
+            <sch:let
+                name="matching-control-objective-ids"
+                value="$exclude-control-objective-ids[. = $include-control-objective-ids]" />
+
+            <sch:assert
+                diagnostics="include-all-or-include-objective-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.24"
+                id="include-all-or-include-objective"
+                role="fatal"
+                test="(oscal:include-all and not(oscal:include-objective)) or (oscal:include-objective and not(oscal:include-all))">An OSCAL SAP
+                control objective selection element must have either an include-all element or include-control element(s) children.</sch:assert>
+
+            <sch:assert
+                diagnostics="duplicate-exclude-objective-and-include-objective-values-diagnostic"
+                id="duplicate-exclude-objective-and-include-objective-values"
+                role="error"
+                test="count($matching-control-objective-ids) = 0">The exclude-control and include-control sibling element @control-id values must be
+                different.</sch:assert>
+            </sch:rule>
+        
+        <sch:rule context="oscal:control-objective-selection/oscal:include-objective">
+            <sch:assert
+                diagnostics="duplicate-include-objective-values-diagnostic"
+                id="duplicate-include-objective-values"
+                role="error"
+                test="if (following-sibling::oscal:include-objective)
+                then if(@objective-id = following-sibling::oscal:include-objective/@objective-id)
+                then false()
+                else true()
+                else true()">The
+                include-objective/@objective-id values are unique.</sch:assert>
+        </sch:rule>
+            
+            <sch:rule context="oscal:control-objective-selection/oscal:exclude-objective">
+                <sch:assert
+                    diagnostics="duplicate-exclude-objective-values-diagnostic"
+                    id="duplicate-exclude-objective-values"
+                    role="error"
+                    test="if (following-sibling::oscal:exclude-objective)
+                    then if(@objective-id = following-sibling::oscal:exclude-objective/@objective-id)
+                    then false()
+                    else true()
+                    else true()">The
+                    exclude-objective/@objective-id values are unique.</sch:assert>
+            </sch:rule>
+            
+        <!-- This series of variables gets to the profile file to match the include and exclude asserts below -->
+        <sch:let
+            name="profile-href"
+            value="resolve-uri($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, base-uri())" />
+        <sch:let
+            name="profile-available"
+            value="
+                if (: this is not a relative reference :) (not(starts-with(@href, '#')))
+                then
+                    (: the referenced document must be available :)
+                    if (doc-available($profile-href))
+                    then
+                        exists(doc($profile-href)/oscal:profile)
+                    else
+                        false()
+                else
+                    true()" />
+        <sch:let
+            name="profile-doc"
+            value="
+                if ($profile-available)
+                then
+                    doc($profile-href)
+                else
+                    ()" />
+        <sch:let
+            name="profile-objective-ids"
+            value="$profile-doc//oscal:add/@by-id" />
+        <sch:rule
+            context="oscal:assessment-plan">
+            <sch:assert
+                diagnostics="is-profile-document-diagnostic"
+                id="is-profile-document"
+                role="fatal"
+                test="$profile-available eq true()"
+                unit:override-xspec="both">The associated SSP must have an import-profile that references a profile document.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:include-objective">
+            <sch:assert
+                diagnostics="objective-inclusion-values-exist-in-profile-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.24"
+                id="objective-inclusion-values-exist-in-profile"
+                role="error"
+                test="@objective-id[. = $profile-objective-ids]"
+                unit:override-xspec="both">SAP included objectives are identified in the associated profile.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:exclude-objective">
+            <sch:assert
+                diagnostics="objective-exclusion-values-exist-in-profile-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.24"
+                id="objective-exclusion-values-exist-in-profile"
+                role="error"
+                test="@objective-id[. = $profile-objective-ids]"
+                unit:override-xspec="both">SAP excluded objective are identified in the associated profile.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+  
+    <sch:pattern
         id="assessment-subject">
         <sch:let
             name="ssp-users"
@@ -465,6 +580,15 @@
                 Disclosures.</sch:assert>
 
             <sch:assert
+                diagnostics="has-part-named-excluded-activities-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.19"
+                fedramp:specific="true"
+                id="has-part-named-excluded-activities"
+                role="error"
+                test="oscal:part[@name = 'excluded-activities']">The SAP terms and conditions must contain a part called
+                excluded-activities.</sch:assert>
+                
+            <sch:assert
                 diagnostics="has-part-named-liability-limitations-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.22"
                 fedramp:specific="true"
@@ -472,7 +596,6 @@
                 role="error"
                 test="oscal:part[@name = 'liability-limitations']">The SAP terms and conditions must contain a part called
                 liability-limitations.</sch:assert>
-
         </sch:rule>
 
         <sch:rule
@@ -534,7 +657,6 @@
 
         <sch:rule
             context="oscal:terms-and-conditions/oscal:part[@name eq 'disclosures']">
-
             <sch:assert
                 diagnostics="has-roe-disclosure-detail-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.17"
@@ -544,6 +666,34 @@
                 test="oscal:part[@name eq 'disclosure']">The SAP Rules of Engagement (ROE) Disclosures have one or more detail disclosure
                 statements.</sch:assert>
 
+            <sch:let
+                name="unsorted_disclosures"
+                value="oscal:part[@name eq 'disclosure']/oscal:prop[@name eq 'sort-id']/@value" />
+            <sch:let
+                name="sorted_disclosures"
+                value="sort($unsorted_disclosures)" />
+            <sch:assert
+                diagnostics="disclosure-ordered-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.17"
+                fedramp:specific="true"
+                id="disclosure-ordered"
+                role="error"
+                test="deep-equal($unsorted_disclosures, $sorted_disclosures)">The SAP terms and conditions disclosures part must have disclosure parts that
+                are ordered.</sch:assert>
+        </sch:rule>
+        
+        <sch:rule
+            context="oscal:terms-and-conditions/oscal:part[@name eq 'excluded-activities']">
+            
+            <sch:assert
+                diagnostics="has-roe-excluded-activity-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.19"
+                fedramp:specific="true"
+                id="has-roe-excluded-activity"
+                role="error"
+                test="oscal:part[@name eq 'excluded-activity']">The SAP Rules of Engagement (ROE) excluded activities must have one or more excluded
+                activity parts.</sch:assert>
+            
         </sch:rule>
 
         <sch:rule
@@ -997,6 +1147,82 @@
                 test="oscal:status[@state='operational']">A FedRAMP SAP assessment asset component has a status with a state of 'operational'.</sch:assert>
         </sch:rule>
     </sch:pattern>
+    <sch:pattern
+        id="assessment-assets">
+        <sch:rule
+            context="oscal:assessment-platform">
+            <sch:assert
+                diagnostics="ipv4-has-content-diagnostic"
+                id="ipv4-has-content"
+                role="error"
+                test="
+                    if (oscal:prop[@name eq 'ipv4-address'])
+                    then
+                        (oscal:prop[matches(@value, '(^[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?$)')])
+                    else
+                        (true())"><sch:value-of
+                    select="oscal:prop[@name = 'ipv4-address']/@value" />A FedRAMP SAP assessment-platform IPv4 value must be valid.</sch:assert>
+
+            <sch:assert
+                diagnostics="ipv4-has-non-placeholder-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv4-has-non-placeholder"
+                role="error"
+                test="
+                    if (oscal:prop[@name eq 'ipv4-address']/@value = '0.0.0.0')
+                    then
+                        (false())
+                    else
+                        (true())"><sch:value-of
+                    select="oscal:prop[@name = 'asset-id']/@value" />A FedRAMP SAP assessment-platform element must not define a placeholder IPv4 value.</sch:assert>
+
+            <sch:let
+                name="IPv6-regex"
+                value="
+                    '(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:)
+                {1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:)
+                {1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]
+                {1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:
+                ((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))'" />
+            <sch:assert
+                diagnostics="ipv6-has-content-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv6-has-content"
+                role="error"
+                test="
+                    if (oscal:prop[@name eq 'ipv6-address'])
+                    then
+                        (oscal:prop[matches(@value, $IPv6-regex)])
+                    else
+                        (true())"><sch:value-of
+                    select="oscal:prop[@name = 'asset-id']/@value" />A FedRAMP SAP assessment-platform IPv6 value must be valid.</sch:assert>
+            <sch:assert
+                diagnostics="ipv6-has-non-placeholder-diagnostic"
+                feddoc:documentation-reference="OMB Mandate M-21-07"
+                id="ipv6-has-non-placeholder"
+                role="error"
+                test="
+                    if (oscal:prop[@name eq 'ipv6-address']/@value eq '::')
+                    then
+                        (false())
+                    else
+                        (true())"><sch:value-of
+                    select="oscal:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv6 value.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:assessment-platform/oscal:uses-component">
+            <sch:let
+                name="SAP-assessment-assets-components"
+                value="../../oscal:component/@uuid" />
+            <sch:assert
+                diagnostics="has-uses-component-match-diagnostic"
+                fedramp:specific="true"
+                id="has-uses-component-match"
+                role="error"
+                test="@component-uuid[. = $SAP-assessment-assets-components]">A FedRAMP SAP must have assessment platform uses-component uuid values that
+                match assessment-assets component uuid values.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
 
     <sch:diagnostics>
 
@@ -1066,6 +1292,44 @@
             doc:context="oscal:control-selection"
             id="include-all-or-include-control-diagnostic">A control-selection element may not have both include-all and include-control element
             children.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="include-all-or-include-objective"
+            doc:context="oscal:control-objective-selection"
+            id="include-all-or-include-objective-diagnostic">A control-objective-selection element may not have both include-all and include-objective
+            element children.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="duplicate-exclude-objective-and-include-objective-values"
+            doc:context="oscal:control-objective-selection"
+            id="duplicate-exclude-objective-and-include-objective-values-diagnostic">The @control-id values <sch:value-of
+                select="$matching-control-objective-ids" /> are not allowed to occur more than once in this control-objective-selection
+            element.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="duplicate-include-objective-values"
+            doc:context="oscal:control-objective-selection"
+            id="duplicate-include-objective-values-diagnostic">Duplicate values are not allowed to occur in include-objective/@objective-id, <sch:value-of
+                select="@objective-id" />, elements.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="duplicate-exclude-objective-values"
+            doc:context="oscal:control-objective-selection"
+            id="duplicate-exclude-objective-values-diagnostic">Duplicate values are not allowed to occur in exclude-objective/@objective-id, <sch:value-of
+                select="@objective-id" />, elements.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="objective-inclusion-values-exist-in-profile"
+            doc:context="oscal:included-objective"
+            id="objective-inclusion-values-exist-in-profile-diagnostic">The included objective <sch:value-of
+                select="@objective-id" /> does not exist in the associated profile.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="objective-exclusion-values-exist-in-profile"
+            doc:context="oscal:excluded-objective"
+            id="objective-exclusion-values-exist-in-profile-diagnostic">The excluded objective <sch:value-of
+                select="@objective-id" /> does not exist in the associated profile.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="duplicate-exclude-control-and-include-control-values"
             doc:context="oscal:control-selection"
@@ -1091,6 +1355,7 @@
             doc:context="oscal:excluded-control"
             id="control-exclusion-values-exist-in-ssp-diagnostic">The excluded control <sch:value-of
                 select="@control-id" /> does not exist in the associated SSP.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="location-not-include-all-element"
             doc:context="oscal:assessment-subject[@type='location']"
@@ -1106,6 +1371,7 @@
             doc:context="oscal:assessment-subject[@type='location']"
             id="component-uuid-matches-diagnostic">This include or exclude subject, <sch:value-of
                 select="@subject-uuid" />, does not have a matching SSP component or SAP inventory-item.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="matches-web-app-task"
             doc:context="oscal:task[oscal:prop[@name = 'type' and @value eq 'web-application']]"
@@ -1130,13 +1396,13 @@
             doc:context="oscal:assessment-plan"
             id="has-web-applications-diagnostic">These web testing activities, <sch:value-of
                 select="$missing-web-tasks" />, do not have matching tasks in the SSP or SAP.</sch:diagnostic>
-      
+
         <sch:diagnostic
             doc:assert="user-uuid-matches"
             doc:context="oscal:assessment-subject[@type='location']"
             id="user-uuid-matches-diagnostic">This include-subject, <sch:value-of
                 select="@subject-uuid" />, references a non-existent (neither in the SSP nor SAP) user.</sch:diagnostic>
-        
+      
         <sch:diagnostic
             doc:assert="matches-user-app-task"
             doc:context="oscal:task[oscal:prop[@name = 'type' and @value eq 'role']]"
@@ -1171,6 +1437,11 @@
             id="assumption-ordered-diagnostic">The SAP assumption parts are incorrectly ordered.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="disclosure-ordered"
+            doc:context="oscal:terms-and-conditions"
+            id="disclosure-ordered-diagnostic">The SAP disclosure parts are incorrectly ordered.</sch:diagnostic>
+        
+        <sch:diagnostic
             doc:assert="has-methodology-diagnostic"
             doc:context="oscal:terms-and-conditions"
             id="has-methodology-diagnostic">The SAP terms and conditions lacks a description of the methodology which will be used.</sch:diagnostic>
@@ -1180,6 +1451,12 @@
             doc:context="oscal:terms-and-conditions"
             id="has-disclosures-diagnostic">The SAP terms and conditions lacks Rules of Engagement (ROE) Disclosures.</sch:diagnostic>
 
+        <sch:diagnostic
+            doc:assert="has-part-named-excluded-activities"
+            doc:context="oscal:terms-and-conditions"
+            id="has-part-named-excluded-activities-diagnostic">The SAP terms and conditions lacks Rules of Engagement (ROE) part of
+            excluded-activities.</sch:diagnostic>
+            
         <sch:diagnostic
             doc:assert="has-part-named-liability-limitations"
             doc:context="oscal:terms-and-conditions"
@@ -1208,6 +1485,12 @@
             id="has-roe-disclosure-detail-diagnostic">The SAP Rules of Engagement (ROE) Disclosures lacks detail disclosure
             statements.</sch:diagnostic>
 
+        <sch:diagnostic
+            doc:assert="has-roe-excluded-activity"
+            doc:context="oscal:terms-and-conditions/part[@name eq 'excluded-activities']"
+            id="has-roe-excluded-activity-diagnostic">The SAP Rules of Engagement (ROE) included activities lacks an excluded activity
+            part.</sch:diagnostic>
+            
         <sch:diagnostic
             doc:assert="has-liability-limitation"
             doc:context="oscal:terms-and-conditions/part[@name eq 'liability-limitations']"
@@ -1314,6 +1597,40 @@
             doc:context="oscal:metadata"
             id="has-metadata-correctly-formatted-party-diagnostic">This FedRAMP metadata/party with an @name of 'iso-iec-17020-identifier' does not
             have a correctly formatted @value.</sch:diagnostic>
+            
+        <sch:diagnostic
+            doc:assertion="ipv4-has-content"
+            doc:context="oscal:assessment-plan[oscal:prop[@name eq 'ipv4-address']]"
+            id="ipv4-has-content-diagnostic">The @value content of prop whose @name is 'ipv4-address' has incorrect content.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assertion="ipv4-has-non-placeholder"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'ipv4-address']]"
+            id="ipv4-has-non-placeholder-diagnostic">The @value content of prop whose @name is 'ipv4-address' has placeholder value of
+            0.0.0.0.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assertion="ipv6-has-non-placeholder"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'ipv6-address']]"
+            id="ipv6-has-non-placeholder-diagnostic">The @value content of prop whose @name is 'ipv6-address' has placeholder value of
+            ::.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assertion="ipv6-has-content"
+            doc:context="oscal:inventory-item[oscal:prop[@name eq 'ipv6-address']]"
+            id="ipv6-has-content-diagnostic">The @value content of prop whose @name is 'ipv6-address' has incorrect content.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assertion="has-uses-component-match"
+            doc:context="oscal:assessment-platform/oscal:uses-component"
+            id="has-uses-component-match-diagnostic">This assessment platform uses-component uuid value, <sch:value-of
+                select="@component-uuid" /> does not have a matching assessment-assets component uuid value.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="is-profile-document"
+            doc:context="oscal:assessment-plan"
+            id="is-profile-document-diagnostic">The associated SSP document does not have an import-profile that references a profile
+            document.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-software-component-vendor"

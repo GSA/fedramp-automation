@@ -523,7 +523,7 @@
                 </x:scenario>
             </x:scenario>
         </x:scenario>
-        
+
         <x:scenario
             label="when the disclosures part">
             <x:scenario
@@ -796,15 +796,18 @@
 
             </x:scenario>
         </x:scenario>
-        <x:scenario label="when in a control-selection element">
+        <x:scenario
+            label="when in a control-selection element">
             <x:scenario
                 label="and an include-all or include-control, but not both, is present">
-                <x:scenario label="when that is true">
+                <x:scenario
+                    label="when that is true">
                     <x:context>
                         <control-selection
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <include-all/>
-                            <exclude-control control-id="ac-1"/>
+                            <include-all />
+                            <exclude-control
+                                control-id="ac-1" />
                         </control-selection>
                     </x:context>
                     <x:expect-not-assert
@@ -816,8 +819,9 @@
                     <x:context>
                         <control-selection
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <include-all/>
-                            <include-control control-id="ac-1"/>
+                            <include-all />
+                            <include-control
+                                control-id="ac-1" />
                         </control-selection>
                     </x:context>
                     <x:expect-assert
@@ -827,12 +831,15 @@
             </x:scenario>
             <x:scenario
                 label="and the include-control/@control-id and exclude-control/@control-id values are all different">
-                <x:scenario label="when that is true">
+                <x:scenario
+                    label="when that is true">
                     <x:context>
                         <control-selection
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <exclude-control control-id="ac-1"/>
-                            <include-control control-id="ac-2"/>
+                            <exclude-control
+                                control-id="ac-1" />
+                            <include-control
+                                control-id="ac-2" />
                         </control-selection>
                     </x:context>
                     <x:expect-not-assert
@@ -843,24 +850,29 @@
                     label="when that is false">
                     <x:context>
                         <control-selection
-                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
-                            <exclude-control control-id="ac-1"/>
-                            <include-control control-id="ac-1"/>
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <exclude-control
+                                control-id="ac-1" />
+                            <include-control
+                                control-id="ac-1" />
                         </control-selection>
                     </x:context>
                     <x:expect-assert
                         id="duplicate-exclude-control-and-include-control-values"
                         label="this is incorrect" />
                 </x:scenario>
-            </x:scenario>            
+            </x:scenario>
             <x:scenario
                 label="and the include-control/@control-id values are all different">
-                <x:scenario label="when that is true">
+                <x:scenario
+                    label="when that is true">
                     <x:context>
                         <control-selection
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <include-control control-id="ac-1"/>
-                            <include-control control-id="ac-2"/>
+                            <include-control
+                                control-id="ac-1" />
+                            <include-control
+                                control-id="ac-2" />
                         </control-selection>
                     </x:context>
                     <x:expect-not-assert
@@ -871,9 +883,11 @@
                     label="when that is false">
                     <x:context>
                         <control-selection
-                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
-                            <include-control control-id="ac-1"/>
-                            <include-control control-id="ac-1"/>
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <include-control
+                                control-id="ac-1" />
+                            <include-control
+                                control-id="ac-1" />
                         </control-selection>
                     </x:context>
                     <x:expect-assert
@@ -883,12 +897,15 @@
             </x:scenario>
             <x:scenario
                 label="and the exclude-control/@control-id values are all different">
-                <x:scenario label="when that is true">
+                <x:scenario
+                    label="when that is true">
                     <x:context>
                         <control-selection
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <exclude-control control-id="ac-1"/>
-                            <exclude-control control-id="ac-2"/>
+                            <exclude-control
+                                control-id="ac-1" />
+                            <exclude-control
+                                control-id="ac-2" />
                         </control-selection>
                     </x:context>
                     <x:expect-not-assert
@@ -899,9 +916,11 @@
                     label="when that is false">
                     <x:context>
                         <control-selection
-                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
-                            <exclude-control control-id="ac-1"/>
-                            <exclude-control control-id="ac-1"/>
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <exclude-control
+                                control-id="ac-1" />
+                            <exclude-control
+                                control-id="ac-1" />
                         </control-selection>
                     </x:context>
                     <x:expect-assert
@@ -910,6 +929,140 @@
                 </x:scenario>
             </x:scenario>
         </x:scenario>
+
+        <x:scenario
+            label="when in a control-objective-selection element">
+            <x:scenario
+                label="and an include-all or include-control, but not both, is present">
+                <x:scenario
+                    label="when that is true">
+                    <x:context>
+                        <control-objective-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <include-all />
+                            <exclude-control
+                                control-id="ac-1" />
+                        </control-objective-selection>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="include-all-or-include-objective"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when that is false">
+                    <x:context>
+                        <control-objective-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <include-all />
+                            <include-objective
+                                objective-id="ac-1.a.1_obj.1" />
+                        </control-objective-selection>
+                    </x:context>
+                    <x:expect-assert
+                        id="include-all-or-include-objective"
+                        label="this is an error" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="and the include-objective/@objective-id and exclude-objective/@objective-id values are all different">
+                <x:scenario
+                    label="when that is true">
+                    <x:context>
+                        <control-objective-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <include-objective
+                                objective-id="ac-1.a.1_obj.1" />
+                            <exclude-objective
+                                objective-id="ac-1.a.1_obj.2" />
+                        </control-objective-selection>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="duplicate-exclude-objective-and-include-objective-values"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when that is false">
+                    <x:context>
+                        <control-objective-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <include-objective
+                                objective-id="ac-1.a.1_obj.1" />
+                            <exclude-objective
+                                objective-id="ac-1.a.1_obj.1" />
+                        </control-objective-selection>
+                    </x:context>
+                    <x:expect-assert
+                        id="duplicate-exclude-objective-and-include-objective-values"
+                        label="this is incorrect" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="and the include-objective/@objective-id values are all different">
+                <x:context>
+                    <control-objective-selection
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <include-objective
+                            objective-id="ac-1.a.1_obj.1" />
+                        <include-objective
+                            objective-id="ac-1.a.1_obj.2" />
+                    </control-objective-selection>
+                </x:context>
+                <x:expect-not-assert
+                    id="duplicate-include-objective-values"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="and the include-objective/@objective-id values are not different">
+                <x:context>
+                    <control-objective-selection
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <include-objective
+                            objective-id="ac-1.a.1_obj.1" />
+                        <include-objective
+                            objective-id="ac-1.a.1_obj.2" />
+                        <include-objective
+                            objective-id="ac-1.a.1_obj.1" />
+                    </control-objective-selection>
+                </x:context>
+                <x:expect-assert
+                    id="duplicate-include-objective-values"
+                    label="this is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="and the exclude-objective/@objective-id values are all different">
+                <x:scenario
+                    label="when that is true">
+                    <x:context>
+                        <control-objective-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <exclude-objective
+                                objective-id="ac-1.a.1_obj.1" />
+                            <exclude-objective
+                                objective-id="ac-1.a.1_obj.2" />
+                        </control-objective-selection>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="duplicate-exclude-objective-values"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when that is false">
+                    <x:context>
+                        <control-objective-selection
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <exclude-objective
+                                objective-id="ac-1.a.1_obj.1" />
+                            <exclude-objective
+                                objective-id="ac-1.a.1_obj.1" />
+                        </control-objective-selection>
+                    </x:context>
+                    <x:expect-assert
+                        id="duplicate-exclude-objective-values"
+                        label="this is incorrect" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+
         <x:scenario
             label="when in an assessment-subject[@type='location'] element">
             <x:scenario
@@ -1137,8 +1290,146 @@
                         label="that is incorrect" />
                 </x:scenario>
             </x:scenario>
-            
-            
+            <x:scenario
+                label="within a part named 'disclosures'">
+                <x:scenario
+                    label="when the parts named 'disclosure' are correctly ordered">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="disclosures">
+                                    <part
+                                        name="disclosure">
+                                        <prop
+                                            name="sort-id"
+                                            value="001" />
+                                    </part>
+                                    <part
+                                        name="disclosure">
+                                        <prop
+                                            name="sort-id"
+                                            value="002" />
+                                    </part>
+                                    <part
+                                        name="disclosure">
+                                        <prop
+                                            name="sort-id"
+                                            value="003" />
+                                    </part>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="disclosure-ordered"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="when the parts named 'disclosure' are not correctly ordered">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="disclosures">
+                                    <part
+                                        name="disclosure">
+                                        <prop
+                                            name="sort-id"
+                                            value="002" />
+                                    </part>
+                                    <part
+                                        name="disclosure">
+                                        <prop
+                                            name="sort-id"
+                                            value="001" />
+                                    </part>
+                                    <part
+                                        name="disclosure">
+                                        <prop
+                                            name="sort-id"
+                                            value="003" />
+                                    </part>
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="disclosure-ordered"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
+            label="when a task has a property of the value 'web-application'">
+            <x:scenario
+                label="has a part named 'excluded-activities'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <part
+                                name="excluded-activities" />
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-part-named-excluded-activities"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="does not have a part named 'excluded-activities'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-part-named-excluded-activities"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="has a part named 'excluded-activities'">
+                <x:scenario
+                    label="and at least one part named 'excluded-activity'">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="excluded-activities">
+                                    <part
+                                        name="excluded-activity" />
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-roe-excluded-activity"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and does not have at least one part named 'excluded-activity'">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="excluded-activities" />
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-roe-excluded-activity"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
+            label="when a task has a property of the value 'web-application'">
             <x:scenario
                 label="has a part named 'liability-limitations'">
                 <x:context>
@@ -1272,9 +1563,6 @@
                         label="that is incorrect" />
                 </x:scenario>
             </x:scenario>
-            
-            
-            
         </x:scenario>
         <x:scenario
             label="when a task has a property of the value 'web-application'">
@@ -2268,6 +2556,129 @@
                     id="has-login-id-user-task"
                     label="that is incorrect" />
             </x:scenario>            
+        </x:scenario>
+        <x:scenario label="in an assessment-platform">
+            <x:scenario label="when a prop has a @name of 'ip4-address">
+                <x:scenario label="and has a correctly formatted value">
+                        <x:context>
+                            <assessment-platform 
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <prop name="ipv4-address" value="10.10.10.10"/>
+                            </assessment-platform>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="ipv4-has-content"
+                            label="that is correct" />
+                </x:scenario>
+                <x:scenario label="and has an incorrectly formatted value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv4-address" value="10.10.10.1088888"/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv4-has-content"
+                        label="that is incorrect" />
+                </x:scenario>                
+                <x:scenario label="and has a placeholder value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv4-address" value="0.0.0.0"/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv4-has-non-placeholder"
+                        label="that is incorrect" />
+                </x:scenario>
+                <x:scenario label="and has a non-placeholder value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv4-address" value="10.10.10.10"/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv4-has-non-placeholder"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="when a prop has a @name of 'ipv6-address">
+                <x:scenario label="and has a correctly formatted value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv6-address" value="2001:db8:3333:4444:5555:6666:7777:8888."/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv6-has-content"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario label="and has an incorrectly formatted value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv6-address" value="1234:5678:9012:3456"/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv6-has-content"
+                        label="that is incorrect" />
+                </x:scenario>                
+                <x:scenario label="and has a placeholder value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv6-address" value="::"/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-assert
+                        id="ipv6-has-non-placeholder"
+                        label="that is incorrect" />
+                </x:scenario>
+                <x:scenario label="and has a non-placeholder value">
+                    <x:context>
+                        <assessment-platform 
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop name="ipv6-address" value="2001:db8:3333:4444:5555:6666:7777:8888."/>
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv6-has-non-placeholder"
+                        label="that is correct" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario label="when uses-component/@component-uuid value matches an assessment-plan/component/@uuid value">
+                <x:context>                    
+                    <assessment-assets
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <component type="hardware" uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                        <component type="software" uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+                        <assessment-platform>
+                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                            <uses-component component-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+                        </assessment-platform>
+                    </assessment-assets>
+                </x:context>
+                <x:expect-not-assert id="has-uses-component-match" label="that is correct"/>
+            </x:scenario>
+            <x:scenario label="when uses-component/@component-uuid value does not match an assessment-plan/component/@uuid value">
+                <x:context>                    
+                    <assessment-assets
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <component type="hardware" uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                        <assessment-platform>
+                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                            <uses-component component-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+                        </assessment-platform>
+                    </assessment-assets>
+                </x:context>
+                <x:expect-assert id="has-uses-component-match" label="that is incorrect"/>
+            </x:scenario>
         </x:scenario>
     </x:scenario>
 </x:description>
