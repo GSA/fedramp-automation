@@ -44,11 +44,11 @@ export const ValidatorPage = ({
       />
       <nav
         aria-label="Secondary navigation"
-        className="display-none desktop:display-block padding-y-2 border-base-light border-bottom-1px"
+        className="display-none desktop:display-block border-base-light border-bottom-1px"
       >
         <div className="grid-container grid-row flex-row flex-justify">
           <a
-            className={classnames({
+            className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentSummary',
             })}
             href={getUrl(Routes.documentSummary)}
@@ -56,7 +56,7 @@ export const ValidatorPage = ({
             Summary
           </a>
           <a
-            className={classnames({
+            className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentPOAM',
             })}
             href={getUrl(Routes.documentPOAM)}
@@ -69,7 +69,7 @@ export const ValidatorPage = ({
             )}
           </a>
           <a
-            className={classnames({
+            className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentSAP',
             })}
             href={getUrl(Routes.documentSAP)}
@@ -82,7 +82,7 @@ export const ValidatorPage = ({
             )}
           </a>
           <a
-            className={classnames({
+            className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentSAR',
             })}
             href={getUrl(Routes.documentSAR)}
@@ -95,7 +95,7 @@ export const ValidatorPage = ({
             )}
           </a>
           <a
-            className={classnames({
+            className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentSSP',
             })}
             href={getUrl(Routes.documentSSP)}
