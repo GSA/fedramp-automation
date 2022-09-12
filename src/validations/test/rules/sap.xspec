@@ -1361,6 +1361,81 @@
                         label="that is incorrect" />
                 </x:scenario>
             </x:scenario>
+            <x:scenario
+                label="has a part named 'included-activities'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions>
+                            <part
+                                name="included-activities" />
+                        </terms-and-conditions>
+                    </assessment-plan>
+                </x:context>
+                <x:expect-not-assert
+                    id="has-part-named-included-activities"
+                    label="that is correct" />
+            </x:scenario>
+            <x:scenario
+                label="does not have a part named 'included-activities'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-part-named-included-activities"
+                    label="that is incorrect" />
+            </x:scenario>
+            <x:scenario
+                label="has a part named 'included-activities'">
+                <x:scenario
+                    label="and at least one part named 'included-activity'">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="included-activities">
+                                    <part
+                                        name="included-activity" />
+                                </part>
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-roe-included-activity"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and does not have at least one part named 'included-activity'">
+                    <x:context>
+                        <assessment-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <terms-and-conditions>
+                                <part
+                                    name="included-activities" />
+                            </terms-and-conditions>
+                        </assessment-plan>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-roe-included-activity"
+                        label="that is incorrect" />
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="does not have a part named 'included-activities'">
+                <x:context>
+                    <assessment-plan
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                        <terms-and-conditions />
+                    </assessment-plan>
+                </x:context>
+                <x:expect-assert
+                    id="has-part-named-included-activities"
+                    label="that is incorrect" />
+            </x:scenario> 
         </x:scenario>
         <x:scenario
             label="when a task has a property of the value 'web-application'">

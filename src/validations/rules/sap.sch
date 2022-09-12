@@ -580,6 +580,14 @@
                 Disclosures.</sch:assert>
 
             <sch:assert
+                diagnostics="has-part-named-included-activities-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.18"
+                fedramp:specific="true"
+                id="has-part-named-included-activities"
+                role="error"
+                test="oscal:part[@name = 'included-activities']">The SAP terms and conditions must contain a part called included-activities.</sch:assert>
+            
+            <sch:assert
                 diagnostics="has-part-named-excluded-activities-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.19"
                 fedramp:specific="true"
@@ -612,8 +620,7 @@
                 fedramp:specific="true"
                 id="assumption-ordered"
                 role="error"
-                test="deep-equal($unsorted_assumptions, $sorted_assumptions)">The SAP terms and conditions assumptions part has assumption parts that
-                are ordered.</sch:assert>
+                test="deep-equal($unsorted_assumptions, $sorted_assumptions)">The SAP terms and conditions assumptions part must have assumption parts that are ordered.</sch:assert>
         </sch:rule>
 
         <sch:rule
@@ -722,6 +729,20 @@
                 role="error"
                 test="deep-equal($unsorted_limitations, $sorted_limitations)">The SAP terms and conditions liability-limitations part has
                 liability-limitation parts that are ordered.</sch:assert>
+
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:terms-and-conditions/oscal:part[@name eq 'included-activities']">
+
+            <sch:assert
+                diagnostics="has-roe-included-activity-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.18"
+                fedramp:specific="true"
+                id="has-roe-included-activity"
+                role="error"
+                test="oscal:part[@name eq 'included-activity']">The SAP Rules of Engagement (ROE) included activities must have one or more included
+                activity parts.</sch:assert>
 
         </sch:rule>
 
@@ -1450,6 +1471,11 @@
             doc:assert="has-disclosures-diagnostic"
             doc:context="oscal:terms-and-conditions"
             id="has-disclosures-diagnostic">The SAP terms and conditions lacks Rules of Engagement (ROE) Disclosures.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-part-named-included-activities"
+            doc:context="oscal:terms-and-conditions"
+            id="has-part-named-included-activities-diagnostic">The SAP terms and conditions lacks Rules of Engagement (ROE) part of included-activities.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-part-named-excluded-activities"
@@ -1484,6 +1510,11 @@
             doc:context="oscal:terms-and-conditions/part[@name eq 'disclosures']"
             id="has-roe-disclosure-detail-diagnostic">The SAP Rules of Engagement (ROE) Disclosures lacks detail disclosure
             statements.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-roe-included-activity"
+            doc:context="oscal:terms-and-conditions/part[@name eq 'included-activities']"
+            id="has-roe-included-activity-diagnostic">The SAP Rules of Engagement (ROE) included activities lacks an included activity part.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-roe-excluded-activity"
