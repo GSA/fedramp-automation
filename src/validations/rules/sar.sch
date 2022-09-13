@@ -42,11 +42,11 @@
             NB:
             Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5 asserts
             "The SAR must import an OSCAL-based SAP, even if no OSCAL-based SSP exists."
-            This means there is no accomodation for a non-OSCAL SAP.
+            This means there is no accommodation for a non-OSCAL SAP.
         -->
 
         <sch:rule
-            context="oscal:assessment-plan">
+            context="oscal:assessment-results">
 
             <sch:assert
                 diagnostics="has-import-ap-diagnostic"
@@ -175,7 +175,7 @@
         </sch:rule>-->
 
     </sch:pattern>
-
+    
     <sch:pattern
         id="results">
         <sch:let
@@ -219,6 +219,107 @@
                 else
                     ()" />
 
+        <sch:rule
+            context="oscal:actor">
+            <sch:let
+                name="SAP-parties"
+                value="$sap-doc/oscal:assessment-plan/oscal:metadata/oscal:party/@uuid" />
+            <sch:let
+                name="SAR-parties"
+                value="/oscal:assessment-results/oscal:metadata/oscal:party/@uuid" />
+            <sch:assert
+                diagnostics="has-matching-SAP-party-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.3"
+                fedramp:specific="true"
+                id="has-matching-SAP-party"
+                role="error"
+                test="
+                if (@type = 'party')
+                then
+                if (@actor-uuid[. = $SAP-parties])
+                then
+                true()
+                else
+                if (@actor-uuid[. = $SAR-parties])
+                then
+                true()
+                else
+                false()
+                else
+                true()"
+                unit:override-xspec="both">A <sch:value-of
+                    select="../../local-name()" /> must have an actor who is described in a SAP or SAR party assembly.</sch:assert>
+            <sch:let
+                name="actorTypes"
+                value="'tool', 'party', 'assessment-platform'" />
+            <sch:assert
+                diagnostics="has-correct-actor-type-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.1"
+                fedramp:specific="true"
+                id="has-correct-actor-type"
+                role="error"
+                test="@type[. = $actorTypes]">The actor @type must have one of the following as string content: 'tool', 'party', or
+                'assessment-platform'.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:subject">
+            <sch:let
+                name="SAR-backmatter-resources"
+                value="/oscal:assessment-results/oscal:back-matter/oscal:resource/@uuid" />
+            <sch:let
+                name="subjectValues"
+                value="'component', 'inventory-item', 'location', 'party', 'user'" />
+            
+            <sch:assert
+                diagnostics="has-correct-subject-values-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.1"
+                fedramp:specific="true"
+                id="has-correct-subject-values"
+                role="error"
+                test="@type[. = $subjectValues]">A subject element type attribute must contain one of the following as string content: 'component',
+                'inventory-item', 'location', 'party', or 'user'.</sch:assert>
+            
+            <sch:assert
+                diagnostics="has-subject-matching-resource-uuid-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.1"
+                fedramp:specific="true"
+                id="has-subject-matching-resource-uuid"
+                role="error"
+                test="
+                if (../oscal:type = 'control-objective' and ../oscal:method = 'EXAMINE')
+                then
+                @subject-uuid[. = $SAR-backmatter-resources]
+                else
+                true()">A subject uuid within an observation of type 'control-objective' must have a matching resource @uuid in the
+                back-matter.</sch:assert>
+        </sch:rule>
+        
+        <sch:rule context="oscal:method">
+            <sch:let name="methodValues" value="'EXAMINE', 'INTERVIEW', 'TEST'"/>
+            <sch:assert
+                diagnostics="has-correct-method-values-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.1"
+                fedramp:specific="true"
+                id="has-correct-method-values"
+                role="error"
+                test=". = $methodValues">A method element must contain one of the following strings: 'EXAMINE', 'INTERVIEW', or 'TEST'.</sch:assert>
+        </sch:rule>
+        
+        <sch:rule
+            context="oscal:related-task">
+            <sch:let
+                name="sap-tasks"
+                value="$sap-doc/oscal:assessment-plan/oscal:task/@uuid" />
+            <sch:assert
+                diagnostics="has-matching-SAP-tasks-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.1"
+                fedramp:specific="true"
+                id="has-matching-SAP-tasks"
+                role="error"
+                test="@task-uuid[. = $sap-tasks]"
+                unit:override-xspec="both">A related-task element's uuid attribute must match a task @uuid value in the associated SAP.</sch:assert>
+        </sch:rule>
+        
         <sch:rule
             context="oscal:observation">
             <sch:let
@@ -484,8 +585,8 @@
 
         <sch:diagnostic
             doc:assert="has-import-ap"
-            doc:context="oscal:assessment-plan"
-            id="has-import-ap-diagnostic">This OSCAL SAR lacks have an import-ap element.</sch:diagnostic>
+            doc:context="oscal:assessment-results"
+            id="has-import-ap-diagnostic">This OSCAL SAR lacks an import-ap element.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-import-ap-href"
@@ -528,6 +629,52 @@
             id="has-no-base64-diagnostic">This OSCAL SAR has a base64 element in a security-assessment-plan resource.</sch:diagnostic>-->
 
         <!-- results -->
+        <sch:diagnostic
+            doc:assert="has-matching-SAP-party"
+            doc:context="oscal:finding"
+            id="has-matching-SAP-party-diagnostic">The <sch:value-of
+                select="../../local-name()" />, <sch:value-of
+                select="../../@uuid" />, has a party, <sch:value-of
+                select="@actor-uuid" />, that does not match a SAP or SAR party assembly.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-subject-matching-resource-uuid"
+            doc:context="oscal:subject"
+            id="has-subject-matching-resource-uuid-diagnostic">The observation, <sch:value-of
+                select="../@uuid" />, has a subject uuid, <sch:value-of
+                select="@subject-uuid" />, that does not match a resource @uuid in the SAR back-matter assembly.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-correct-method-values"
+            doc:context="oscal:method"
+            id="has-correct-method-values-diagnostic">A method element in <sch:value-of
+                select="../local-name()" />, does not contain one of the following strings: 'EXAMINE', 'INTERVIEW', or 'TEST'.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-correct-subject-values"
+            doc:context="oscal:subject"
+            id="has-correct-subject-values-diagnostic">A subject element's type attribute in <sch:value-of
+                select="../local-name()" />
+            <sch:value-of
+                select="../@uuid" />, does not contain one of the following strings: 'component', 'inventory-item', 'location', 'party', or
+            'user'.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-correct-actor-type"
+            doc:context="oscal:subject"
+            id="has-correct-actor-type-diagnostic">An actor element's type attribute in <sch:value-of
+                select="../../local-name()" />
+            <sch:value-of
+                select="../../@uuid" />, does not contain one of the following strings: 'tool', 'party', or 'assessment-platform'.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-matching-SAP-tasks"
+            doc:context="oscal:subject"
+            id="has-matching-SAP-tasks-diagnostic">A related-task element's uuid attribute in <sch:value-of
+                select="../../local-name()" />
+            <sch:value-of
+                select="../../@uuid" />, does not match any task @uuid value in the associated SAP.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="has-risk-adjustment-observation"
             doc:context="oscal:observation"
@@ -577,6 +724,7 @@
             doc:context="oscal:attestation"
             id="has-attestation-value-no-diagnostic">The recommend-authorization attestation with a non-yes value does not have a first part with a
             first paragraph that matches the text in the Guide.</sch:diagnostic>
+            
         <sch:diagnostic
             doc:assert="has-duplicate-priority-value"
             doc:context="oscal:result"

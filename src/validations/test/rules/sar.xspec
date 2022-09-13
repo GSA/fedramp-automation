@@ -12,7 +12,7 @@
             label="import-ap">
 
             <x:context>
-                <assessment-plan
+                <assessment-results
                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                     <import-ap
                         href="#bf974aa0-d662-4aef-a7a5-8f4cce398746" />
@@ -28,7 +28,7 @@
                                 media-type="text/xml" />
                         </resource>
                     </back-matter>
-                </assessment-plan>
+                </assessment-results>
             </x:context>
 
             <x:scenario
@@ -44,10 +44,10 @@
                 <x:scenario
                     label="is absent">
                     <x:context>
-                        <assessment-plan
+                        <assessment-results
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <!-- missing import-ap -->
-                        </assessment-plan>
+                        </assessment-results>
                     </x:context>
                     <x:expect-assert
                         id="has-import-ap"
@@ -64,10 +64,10 @@
                 <x:scenario
                     label="lacks an href attribute">
                     <x:context>
-                        <assessment-plan
+                        <assessment-results
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <import-ap /><!-- missing href -->
-                        </assessment-plan>
+                        </assessment-results>
                     </x:context>
                     <x:expect-assert
                         id="has-import-ap-href"
@@ -470,72 +470,6 @@
                         </x:scenario>
                     </x:scenario>
                 </x:scenario>
-            </x:scenario>
-        </x:scenario>
-        
-        <x:scenario
-            label="results">
-            <x:scenario
-                label="when a result">
-                <x:scenario
-                    label="has a risk">
-                    <x:scenario
-                        label="with a status of 'closed'">
-                        <x:scenario
-                            label="and has a risk-log/entry/status-change of 'closed'">
-                            <x:context>
-                                <assessment-results
-                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                    <result>
-                                        <risk
-                                            uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
-                                            <status>closed</status>
-                                            <risk-log>
-                                                <entry
-                                                    uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
-                                                    <status-change>closed</status-change>
-                                                </entry>
-                                            </risk-log>
-                                        </risk>
-                                    </result>
-                                </assessment-results>
-                            </x:context>
-                            <x:expect-not-assert
-                                id="has-risk-log-status-closed"
-                                label="this is correct" />
-                        </x:scenario>
-                        <x:scenario
-                            label="and does not have a risk-log/entry/status-change of 'closed'">
-                            <x:context>
-                                <assessment-results
-                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                    <result>
-                                        <risk
-                                            uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
-                                            <status>closed</status>
-                                            <risk-log>
-                                                <entry
-                                                    uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
-                                                    <status-change>open</status-change>
-                                                </entry>
-                                            </risk-log>
-                                        </risk>
-                                    </result>
-                                </assessment-results>
-                            </x:context>
-                            <x:expect-assert
-                                id="has-risk-log-status-closed"
-                                label="this is incorrect" />
-                        </x:scenario>
-                    </x:scenario>
-                </x:scenario>
-            </x:scenario>
-        </x:scenario>
-
-        <x:scenario
-            label="results">
-            <x:scenario
-                label="when a result">
                 <x:scenario
                     label="has an attestation">
                     <x:scenario
@@ -644,6 +578,55 @@
                 <x:scenario
                     label="has a risk">
                     <x:scenario
+                        label="with a status of 'closed'">
+                        <x:scenario
+                            label="and has a risk-log/entry/status-change of 'closed'">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <risk
+                                            uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
+                                            <status>closed</status>
+                                            <risk-log>
+                                                <entry
+                                                    uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
+                                                    <status-change>closed</status-change>
+                                                </entry>
+                                            </risk-log>
+                                        </risk>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-risk-log-status-closed"
+                                label="this is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="and does not have a risk-log/entry/status-change of 'closed'">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <risk
+                                            uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7">
+                                            <status>closed</status>
+                                            <risk-log>
+                                                <entry
+                                                    uuid="0b09e341-cf3c-4de7-b728-751c6e88b653">
+                                                    <status-change>open</status-change>
+                                                </entry>
+                                            </risk-log>
+                                        </risk>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-risk-log-status-closed"
+                                label="this is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
+                    <x:scenario
                         label="with a prop of @name = 'priority'">
                         <x:scenario
                             label="and the @value of that prop is unique">
@@ -701,8 +684,184 @@
                         </x:scenario>
                     </x:scenario>
                 </x:scenario>
+                <x:scenario
+                    label="has an observation">
+                    <x:scenario
+                        label="of a type 'control-objective'">
+                        <x:scenario label="and a method of 'EXAMINE'">
+                            <x:scenario
+                                label="and the subject's uuid matches a back-matter resource uuid">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <observation
+                                                uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
+                                                <method>EXAMINE</method>
+                                                <type>control-objective</type>
+                                                <subject
+                                                    subject-uuid="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7" />
+                                            </observation>
+                                        </result>
+                                        <back-matter>
+                                            <resource
+                                                uuid="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7" />
+                                        </back-matter>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-not-assert
+                                    id="has-subject-matching-resource-uuid"
+                                    label="that is correct" />
+                            </x:scenario>
+                            <x:scenario
+                                label="and the subject's uuid does not match a back-matter resource uuid">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <observation
+                                                uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">                                             
+                                                <method>EXAMINE</method>
+                                                <type>control-objective</type>   
+                                                <subject
+                                                    subject-uuid="1234-1234" />
+                                            </observation>
+                                        </result>
+                                        <back-matter>
+                                            <resource
+                                                uuid="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7" />
+                                        </back-matter>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-assert
+                                    id="has-subject-matching-resource-uuid"
+                                    label="that is incorrect" />
+                            </x:scenario>
+                        </x:scenario>
+                    </x:scenario>
+                    <x:scenario
+                        label="and the method element">
+                        <x:scenario
+                            label="contains a correct string">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
+                                            <method>TEST</method>
+                                        </observation>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-correct-method-values"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="does not contain a correct string">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
+                                            <method>MIXED</method>
+                                        </observation>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-correct-method-values"
+                                label="that is incorrect" />
+                        </x:scenario>
+                    </x:scenario>                    
+                    <x:scenario
+                        label="and the subject element">
+                        <x:scenario label="has a type attribute">
+                            <x:scenario
+                                label="that contains a correct string">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <observation
+                                                uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
+                                                <subject type="component"/>
+                                            </observation>
+                                        </result>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-not-assert
+                                    id="has-correct-subject-values"
+                                    label="that is correct" />
+                            </x:scenario>
+                            <x:scenario
+                                label="that does not contain a correct string">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <observation
+                                                uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
+                                                <subject type="mixed"/>
+                                            </observation>
+                                        </result>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-assert
+                                    id="has-correct-subject-values"
+                                    label="that is incorrect" />
+                            </x:scenario>
+                        </x:scenario>
+                    </x:scenario>
+
+                    <x:scenario
+                        label="and the actor element">
+                        <x:scenario label="has a type attribute">
+                            <x:scenario
+                                label="that contains a correct string">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <observation
+                                                uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
+                                                <actor type="party"/>
+                                            </observation>
+                                        </result>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-not-assert
+                                    id="has-correct-actor-type"
+                                    label="that is correct" />
+                            </x:scenario>
+                            <x:scenario
+                                label="that does not contain a correct string">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <observation
+                                                uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
+                                                <actor type="mixed"/>
+                                            </observation>
+                                        </result>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-assert
+                                    id="has-correct-actor-type"
+                                    label="that is incorrect" />
+                            </x:scenario>
+                        </x:scenario>
+                    </x:scenario>
+
+                </x:scenario>
+                
             </x:scenario>
         </x:scenario>
+
+        
         <x:scenario
             label="age-checks">
 
