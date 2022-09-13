@@ -418,13 +418,13 @@ diagnostics="has-matching-SAP-party-diagnostic"
                     else
                         true()">An observation with a type of 'risk-adjustment' must have a @uuid that matches a
                 finding/related-observation/@observation-uuid.</sch:assert>
-                
+
             <sch:assert
                 diagnostics="has-operational-requirement-observation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.2"
                 id="has-operational-requirement-observation"
                 role="error"
-               test="
+                test="
                     if (oscal:type = 'operational-requirement')
                     then
                         if (@uuid[. = $related-observations])
@@ -436,7 +436,7 @@ diagnostics="has-matching-SAP-party-diagnostic"
                         true()">An observation with a type of 'operational-requirement' must have a @uuid that matches a
                 finding/related-observation/@observation-uuid.</sch:assert>
 
-             <sch:assert
+            <sch:assert
                 diagnostics="has-risk-adjustment-relevant-evidence-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.3"
                 id="has-risk-adjustment-relevant-evidence"
@@ -475,8 +475,54 @@ diagnostics="has-matching-SAP-party-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.5"
                 id="has-method-MIXED"
                 role="error"
-                test="oscal:type = 'historic' and oscal:method = 'MIXED'">An observation of type 'historic' must also have a method of 'MIXED'.</sch:assert>
+                test="oscal:type = 'historic' and oscal:method = 'MIXED'">An observation of type 'historic' must also have a method of
+                'MIXED'.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-type-ssp-statement-issue-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.5"
+                id="has-type-ssp-statement-issue"
+                role="error"
+                test="
+                    if (oscal:type = 'ssp-statement-issue')
+                    then
+                        oscal:method = 'EXAMINE'
+                    else
+                        true()">An observation with a type of 'ssp-statement-issue' must also have a method of 'EXAMINE'.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-type-ssp-statement-issue-matches-related-observation-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.5"
+                id="has-type-ssp-statement-issue-matches-related-observation"
+                role="error"
+                test="
+                    if (oscal:type = 'ssp-statement-issue')
+                    then
+                        @uuid[. = $related-observations]
+                    else
+                        true()">An observation with a type of 'ssp-statement-issue' must have a matching
+                finding/related-observation/@observation-uuid value.</sch:assert>
             
+            <sch:let
+                name="ssp-statement-uuids"
+                value="$ssp-doc//oscal:statement/@uuid" />
+            <sch:assert
+                diagnostics="has-implementation-statement-uuid-matches-ssp-statement-uuid-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.5"
+                id="has-implementation-statement-uuid-matches-ssp-statement-uuid"
+                role="error"
+                test="
+                    if (oscal:type = 'ssp-statement-issue')
+                    then
+                        if (@uuid[. = $related-observations])
+                        then
+                            ../oscal:finding[oscal:related-observation/@observation-uuid = current()/@uuid]/oscal:implementation-statement-uuid[. = $ssp-statement-uuids]
+                        else
+                            true()
+                    else
+                        true()"
+                unit:override-xspec="both">The finding that has a related-observation/observation-uuid that matches an observation/@uuid, must also
+                have a implementation-statement-uuid value that matches a statement/@uuid in the associated SSP.</sch:assert>
         </sch:rule>
 
         <sch:let
@@ -576,8 +622,8 @@ diagnostics="has-matching-SAP-party-diagnostic"
                         true()">The recommend-authorization attestation with a non-yes value must have a first part with a first
                 paragraph that matches the text in the Guide.</sch:assert>
         </sch:rule>
+        
     </sch:pattern>
-    
     <sch:pattern
         id="sar-age-checks">
 
@@ -730,6 +776,25 @@ diagnostics="has-matching-SAP-party-diagnostic"
                 select="../../@uuid" />, has a party, <sch:value-of
                 select="@actor-uuid" />, that does not match a SAP or SAR party assembly.</sch:diagnostic>
 
+        <!-- results -->
+        <sch:diagnostic
+            doc:assert="has-type-ssp-statement-issue"
+            doc:context="oscal:observation"
+            id="has-type-ssp-statement-issue-diagnostic">The observation, <sch:value-of
+                select="@uuid" />, has a type of 'ssp-statement-issue' but does not have a method of 'EXAMINE'.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="has-type-ssp-statement-issue-matches-related-observation"
+            doc:context="oscal:observation"
+            id="has-type-ssp-statement-issue-matches-related-observation-diagnostic">The observation, <sch:value-of
+                select="@uuid" />, does not have a matching finding/related-observation/@observation-uuid in the SAR.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="has-implementation-statement-uuid-matches-ssp-statement-uuid"
+            doc:context="oscal:observation"
+            id="has-implementation-statement-uuid-matches-ssp-statement-uuid-diagnostic">The finding, <sch:value-of
+                select="../oscal:finding[oscal:related-observation/@observation-uuid = current()/@uuid]/@uuid" />, that has a
+            related-observation/observation-uuid that matches an observation/@uuid, also has a implementation-statement-uuid value that matches a
+            statement/@uuid in the associated SSP.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="has-subject-matching-resource-uuid"
             doc:context="oscal:subject"
@@ -752,7 +817,6 @@ diagnostics="has-matching-SAP-party-diagnostic"
                 select="../@uuid" />, does not contain one of the following strings: 'component', 'inventory-item', 'location', 'party', or
             'user'.</sch:diagnostic>
 
-        <!-- results -->
         <sch:diagnostic
             doc:assert="has-matching-historic-party"
             doc:context="oscal:result"

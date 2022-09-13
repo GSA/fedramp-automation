@@ -503,6 +503,80 @@
                                 label="that is incorrect" />
                         </x:scenario>
                     </x:scenario>
+                    <x:scenario label="with a type of 'ssp-statement-issue'">
+                        <x:scenario label="and has a method of 'EXAMINE'">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                            <method>EXAMINE</method>
+                                            <type>ssp-statement-issue</type>
+                                        </observation>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-type-ssp-statement-issue"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario label="and does not have a method of 'EXAMINE'">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                            <method>MIXED</method>
+                                            <type>ssp-statement-issue</type>
+                                        </observation>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-type-ssp-statement-issue"
+                                label="that is incorrect" />
+                        </x:scenario>
+                        
+                        <x:scenario label="and has a matching finding/related-observation/observation-uuid value">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                            <method>EXAMINE</method>
+                                            <type>ssp-statement-issue</type>
+                                        </observation>
+                                        <finding uuid="33e43825-6fd7-49c6-a610-4c795954a167">
+                                            <related-observation observation-uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308"/>
+                                        </finding>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-type-ssp-statement-issue-matches-related-observation"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario label="and does not have a matching finding/related-observation/observation-uuid value">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation uuid="1234-1234">
+                                            <method>EXAMINE</method>
+                                            <type>ssp-statement-issue</type>
+                                        </observation>
+                                        <finding uuid="33e43825-6fd7-49c6-a610-4c795954a167">
+                                            <related-observation observation-uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308"/>
+                                        </finding>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-type-ssp-statement-issue-matches-related-observation"
+                                label="that is incorrect" />
+                        </x:scenario>
+                        
+                    </x:scenario>
                 </x:scenario>
                 <x:scenario
                     label="has an attestation">
