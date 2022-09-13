@@ -788,6 +788,62 @@ diagnostics="has-matching-SAP-party-diagnostic"
     </sch:pattern>
 
     <sch:pattern
+        id="results">
+        <sch:rule
+            context="oscal:observation">
+            <sch:let
+                name="related-observations"
+                value="/oscal:assessment-results/oscal:result/oscal:finding/oscal:related-observation/@observation-uuid" />
+
+            <sch:assert
+                diagnostics="has-false-positive-observation-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.1"
+                id="has-false-positive-observation"
+                role="error"
+                test="
+                    if (oscal:type = 'false-positive')
+                    then
+                        if (@uuid[. = $related-observations])
+                        then
+                            true()
+                        else
+                            false()
+                    else
+                        true()">An observation with a type of 'false-positive' must have a @uuid that matches a
+                finding/related-observation/@observation-uuid.</sch:assert>
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:related-observation">
+            <sch:let
+                name="false-positive-observations"
+                value="/oscal:assessment-results/oscal:result/oscal:observation[oscal:type = 'false-positive']/@uuid" />
+            <sch:let
+                name="false-positive-risks"
+                value="/oscal:assessment-results/oscal:result/oscal:risk/@uuid" />
+            
+            <sch:assert
+                diagnostics="has-false-positive-related-related-observation-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.1"
+                id="has-false-positive-related-related-observation"
+                role="error"
+                test="
+                    if (@observation-uuid[. = $false-positive-observations])
+                    then
+                        if (../oscal:associated-risk/@risk-uuid[. = $false-positive-risks])
+                        then
+                            true()
+                        else
+                            false()
+                    else
+                    true()">A related-observation that has an @observation-uuid that matches an observation/@uuid with a type of
+                'false-positive' must have an associated-risk/@risk-uuid that matches a risk/@uuid.</sch:assert>
+        </sch:rule>
+
+
+    </sch:pattern>
+
+    <sch:pattern
         id="sar-age-checks">
 
         <!-- Note that there are no Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) references -->
@@ -1014,6 +1070,21 @@ diagnostics="has-matching-SAP-party-diagnostic"
             related-observation/observation-uuid that matches an observation/@uuid, also has a implementation-statement-uuid value that matches a
             statement/@uuid in the associated SSP.</sch:diagnostic>
 
+        <!-- results -->
+        <sch:diagnostic
+            doc:assert="has-false-positive-observation"
+            doc:context="oscal:observation"
+            id="has-false-positive-observation-diagnostic">An observation, <sch:value-of
+                select="@uuid" />, with a type of 'false-positive' does not have a @uuid that matches a
+            finding/related-observation/@observation-uuid.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-false-positive-related-related-observation"
+            doc:context="oscal:observation"
+            id="has-false-positive-related-related-observation-diagnostic">A related-observation, within the finding <sch:value-of
+                select="../@uuid" />, that has an @observation-uuid that matches an observation/@uuid with a type of 'false-positive' does not have an
+            associated-risk/@risk-uuid that matches a risk/@uuid.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="has-subject-matching-resource-uuid"
             doc:context="oscal:subject"
@@ -1064,7 +1135,6 @@ diagnostics="has-matching-SAP-party-diagnostic"
             <sch:value-of
                 select="../../@uuid" />, does not match any task @uuid value in the associated SAP.</sch:diagnostic>
 
-        <!-- results -->
         <sch:diagnostic
             doc:assert="has-pen-test-finding-resource"
             doc:context="oscal:observation"

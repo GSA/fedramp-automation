@@ -1474,6 +1474,118 @@
         </x:scenario>
 
         <x:scenario
+            label="results">
+            <x:scenario
+                label="when a result">
+                <x:scenario
+                    label="has an observation">
+                    <x:scenario label="that has a type of 'false-positive'">
+                        <x:scenario label="and has a @uuid that matches a finding/related-observation/@observation-uuid">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="46209140-8263-4e74-b3c9-cead4ffed22c">
+                                            <method>EXAMINE</method>
+                                            <type>false-positive</type>
+                                        </observation>
+                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
+                                            <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
+                                            <related-observation observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c"/>
+                                            <related-observation observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a"/>
+                                        </finding>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-false-positive-observation"
+                                label="this is correct" />
+                        </x:scenario>
+                        <x:scenario label="and has a @uuid that does not match a finding/related-observation/@observation-uuid">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="1234-1234">
+                                            <method>EXAMINE</method>
+                                            <type>false-positive</type>
+                                        </observation>
+                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
+                                            <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
+                                            <related-observation observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c"/>
+                                            <related-observation observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a"/>
+                                        </finding>                                        
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-false-positive-observation"
+                                label="this is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
+                </x:scenario>
+                <x:scenario label="has a related-observation">
+                    <x:scenario label="whose @observation-uuid matches a observation/@uuid where the type has a value of 'false-positive'">
+                        <x:scenario label="and the sibling associated-risk matches a risk/@uuid">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="46209140-8263-4e74-b3c9-cead4ffed22c">
+                                            <method>EXAMINE</method>
+                                            <type>false-positive</type>
+                                        </observation>
+                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
+                                            <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
+                                            <related-observation observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c"/>
+                                            <related-observation observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a"/>
+                                            <associated-risk risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7"/>
+                                        </finding>
+                                        <risk uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7"/>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-false-positive-related-related-observation"
+                                label="this is correct" />
+                        </x:scenario>
+                        <x:scenario label="and the sibling associated-risk does not match a risk/@uuid">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="46209140-8263-4e74-b3c9-cead4ffed22c">
+                                            <method>EXAMINE</method>
+                                            <type>false-positive</type>
+                                        </observation>
+                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
+                                            <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
+                                            <related-observation observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c"/>
+                                            <related-observation observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a"/>
+                                            <associated-risk risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7"/>
+                                        </finding>
+                                        <risk uuid="1234-1234"/>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-false-positive-related-related-observation"
+                                label="this is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        
+        <x:scenario
             label="age-checks">
 
             <!-- WARNING: The related checks depend on current-dateTime() -->
