@@ -182,6 +182,23 @@
             name="ssp-import-url"
             value="resolve-uri($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
         <sch:let
+            name="ssp-available"
+            value="
+                if (: this is not a relative reference :) (not(starts-with($ssp-import-url, '#')))
+                then
+                    (: the referenced document must be available :)
+                    doc-available($ssp-import-url)
+                else
+                    true()" />
+        <sch:let
+            name="ssp-doc"
+            value="
+                if ($ssp-available)
+                then
+                    doc($ssp-import-url)
+                else
+                    ()" />     
+        <sch:let
             name="sap-import-url"
             value="resolve-uri(/oscal:assessment-results/oscal:import-ap/@href, base-uri())" />
         <sch:let
@@ -200,24 +217,32 @@
                 then
                     doc($sap-import-url)
                 else
-                    ()" />
+                    ()" />  
         <sch:let
-            name="ssp-available"
-            value="
-                if (: this is not a relative reference :) (not(starts-with($ssp-import-url, '#')))
-                then
-                    (: the referenced document must be available :)
-                    doc-available($ssp-import-url)
-                else
-                    true()" />
+            name="ssp-parties"
+            value="$ssp-doc/oscal:system-security-plan/oscal:metadata/oscal:party/@uuid" />
+        <!-- When combining due to conflict, move the *-parties out of oscal:actor rule and into direct child of results pattern -->
+        <!-- Also lowercase all instances of sap, sar, ssp in variables -->
         <sch:let
-            name="ssp-doc"
-            value="
-                if ($ssp-available)
-                then
-                    doc($ssp-import-url)
-                else
-                    ()" />
+            name="sap-parties"
+            value="$sap-doc/oscal:assessment-plan/oscal:metadata/oscal:party/@uuid" />
+        <sch:let
+            name="sar-parties"
+            value="/oscal:assessment-results/oscal:metadata/oscal:party/@uuid" />
+        
+        <!-- Unclear Guide instructions. -->
+        <!-- See https://github.com/GSA/fedramp-automation-guides/issues/41 -->
+        <!--<sch:rule
+            context="oscal:relevant-evidence">
+            <sch:let name="sap-resources" value="/oscal:assessment-results/oscal:back-matter/oscal:resource/@uuid"/>
+            <sch:assert
+                diagnostics="has-relevant-evidence-matching-resource-uuid-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.2"
+                fedramp:specific="true"
+                id="has-relevant-evidence-matching-resource-uuid"
+                role="error"
+                test="substring-after(@href, '#') or  oscal:link/@href[substring-after(., '#') = sap-resources]">A relevant-evidence href has a matching resource uuid in the SAR back-matter.</sch:assert>
+        </sch:rule>-->
 
         <sch:rule
             context="oscal:actor">
@@ -263,13 +288,39 @@
         </sch:rule>
         <sch:rule
             context="oscal:subject">
+            <sch:assert
+                diagnostics="has-subject-matching-party-uuid-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.2"
+                fedramp:specific="true"
+                id="has-subject-matching-party-uuid"
+                role="error"
+                test="
+                    if (../oscal:type = 'control-objective' and ../oscal:method = 'INTERVIEW')
+                    then
+                        if (@subject-uuid[. = $ssp-parties])
+                        then
+                            true()
+                        else
+                            if (@subject-uuid[. = $sap-parties])
+                            then
+                                true()
+                            else
+                                if (@subject-uuid[. = $sar-parties])
+                                then
+                                    true()
+                                else
+                                    false()
+                    else
+                        true()"
+                unit:override-xspec="both">A subject uuid within an observation of type 'control-objective' must have a matching party @uuid in the
+                metadata.</sch:assert>
             <sch:let
                 name="SAR-backmatter-resources"
                 value="/oscal:assessment-results/oscal:back-matter/oscal:resource/@uuid" />
             <sch:let
                 name="subjectValues"
                 value="'component', 'inventory-item', 'location', 'party', 'user'" />
-            
+
             <sch:assert
                 diagnostics="has-correct-subject-values-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.1"
@@ -278,7 +329,7 @@
                 role="error"
                 test="@type[. = $subjectValues]">A subject element type attribute must contain one of the following as string content: 'component',
                 'inventory-item', 'location', 'party', or 'user'.</sch:assert>
-            
+
             <sch:assert
                 diagnostics="has-subject-matching-resource-uuid-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.1"
@@ -286,12 +337,12 @@
                 id="has-subject-matching-resource-uuid"
                 role="error"
                 test="
-                if (../oscal:type = 'control-objective' and ../oscal:method = 'EXAMINE')
-                then
-                @subject-uuid[. = $SAR-backmatter-resources]
-                else
-                true()">A subject uuid within an observation of type 'control-objective' must have a matching resource @uuid in the
-                back-matter.</sch:assert>
+                    if (../oscal:type = 'control-objective' and ../oscal:method = 'EXAMINE')
+                    then
+                        @subject-uuid[. = $SAR-backmatter-resources]
+                    else
+                        true()">A subject uuid within an observation of type 'control-objective' must have a matching resource @uuid
+                in the back-matter.</sch:assert>
         </sch:rule>
         
         <sch:rule context="oscal:method">
@@ -496,7 +547,6 @@
                         true()">The recommend-authorization attestation with a non-yes value must have a first part with a first
                 paragraph that matches the text in the Guide.</sch:assert>
         </sch:rule>
-
     </sch:pattern>
     
     <sch:pattern
@@ -627,8 +677,22 @@
             doc:assert="has-no-base64"
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'security-assessment-plan']]/oscal:base64"
             id="has-no-base64-diagnostic">This OSCAL SAR has a base64 element in a security-assessment-plan resource.</sch:diagnostic>-->
-
+        
         <!-- results -->
+        <sch:diagnostic
+            doc:assert="has-subject-matching-party-uuid"
+            doc:context="oscal:subject"
+            id="has-subject-matching-party-uuid-diagnostic">The observation, <sch:value-of
+                select="../@uuid" />, has a subject uuid, <sch:value-of
+                    select="@subject-uuid" />, that does not match a party @uuid in the SSP, SAP, or SAR metadata assembly.</sch:diagnostic>
+        
+        <!--<sch:diagnostic
+            doc:assert="has-relevant-evidence-matching-resource-uuid"
+            doc:context="oscal:relevant-evidence"
+            id="has-relevant-evidence-matching-resource-uuid-diagnostic">The observation, <sch:value-of
+                select="../@uuid" />, has a relevant-evidence href, <sch:value-of
+                    select="@href" />, that does not match a resource @uuid in the SAR back-matter assembly.</sch:diagnostic>-->
+        
         <sch:diagnostic
             doc:assert="has-matching-SAP-party"
             doc:context="oscal:finding"
