@@ -625,6 +625,77 @@ diagnostics="has-matching-SAP-party-diagnostic"
         
     </sch:pattern>
     <sch:pattern
+        id="results">
+        <sch:rule
+            context="oscal:finding">
+            <sch:assert
+                diagnostics="has-finding-target-status-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.5"
+                id="has-finding-target-status-issue"
+                role="error"
+                test="
+                    if (oscal:target/oscal:status/@state = 'not-satisfied')
+                    then
+                        exists(oscal:associated-risk)
+                    else
+                        true()">A finding with a target/status of 'not-satisfied must have an associated-risk element.</sch:assert>
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:associated-risk">
+            <sch:let
+                name="SAR-risk-uuids"
+                value="/oscal:assessment-results/oscal:result/oscal:risk/@uuid" />
+            <sch:assert
+                diagnostics="has-associated-risk-matching-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.6"
+                id="has-associated-risk-matching"
+                role="error"
+                test="@risk-uuid[. = $SAR-risk-uuids]">An associated-risk/@risk-uuid must have a matching risk/@uuid in the SAR.</sch:assert>
+        </sch:rule>
+
+        <!-- It is not clear from the current SAR Guide how to handle multiple facet elements with differing prop[@name='state']/@value values. -->
+        <!--<sch:rule
+            context="oscal:characterization">
+            <sch:assert
+                diagnostics="has-likelihood-and-impact-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.6"
+                id="has-likelihood-and-impact"
+                role="error"
+                see="https://github.com/GSA/fedramp-automation-guides/issues/44"
+                test="">Each characterization must have pairs of facet elements where the @name is 'likelihood' or 'impact' and the child prop[@name='state'] have the same @value values.</sch:assert>
+        </sch:rule>-->
+
+        <sch:rule
+            context="oscal:characterization">
+            <sch:assert
+                diagnostics="has-facet-likelihood-and-impact-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.6"
+                id="has-facet-likelihood-and-impact"
+                role="error"
+                test="oscal:facet[@name = 'likelihood' and @system = 'https://fedramp.gov'] and oscal:facet[@name = 'impact' and @system = 'https://fedramp.gov']">Facets
+                with @name of 'likelihood' and @name='impact' must exist in the characterization.</sch:assert>
+        </sch:rule>
+
+        <sch:rule
+            context="oscal:facet">
+            <sch:assert
+                diagnostics="has-facet-correct-values-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.6"
+                id="has-facet-correct-values"
+                role="error"
+                test="
+                    if ((@name = 'likelihood') and @system = 'https://fedramp.gov' or (@name = 'impact') and @system = 'https://fedramp.gov')
+                    then
+                        @value = ('low', 'moderate', 'high')
+                    else
+                        true()">A facet with @name = 'likelihood' or @name='impact' must have an @value of either 'low', 'moderate', or
+                'high'.</sch:assert>
+        </sch:rule>
+        <!-- It is not clear from the current SAR Guide where the Risk Exposure Level is recorded. -->
+    </sch:pattern>
+
+    <sch:pattern
         id="sar-age-checks">
 
         <!-- Note that there are no Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) references -->
@@ -752,8 +823,28 @@ diagnostics="has-matching-SAP-party-diagnostic"
             doc:assert="has-no-base64"
             doc:context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'security-assessment-plan']]/oscal:base64"
             id="has-no-base64-diagnostic">This OSCAL SAR has a base64 element in a security-assessment-plan resource.</sch:diagnostic>-->
-        
+            
         <!-- results -->
+        <sch:diagnostic
+            doc:assert="has-finding-target-status"
+            doc:context="oscal:finding"
+            id="has-finding-target-status-diagnostic">This finding, <sch:value-of select="@uuid"/>, has a target/status of the value 'not-satisfied' but does not have an associated-risk element.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-associated-risk-matching"
+            doc:context="oscal:finding"
+            id="has-associated-risk-matching-diagnostic">This associated-risk, <sch:value-of select="@risk-uuid"/>, does not match any risk uuid values in the SAR.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-facet-correct-values"
+            doc:context="oscal:finding"
+            id="has-facet-correct-values-diagnostic">This risk, <sch:value-of select="../../@uuid"/>, has a characterization/facet element with the @name of either 'likelihood' or 'impact' whose @value is not 'low', 'moderate' or 'high'..</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assert="has-facet-likelihood-and-impact"
+            doc:context="oscal:finding"
+            id="has-facet-likelihood-and-impact-diagnostic">Within a characterization in the risk assembly, <sch:value-of select="../@uuid"/>, there is not a facet[@name='likelihood'] and a facet[@name='impact'].</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="has-subject-matching-party-uuid"
             doc:context="oscal:subject"
@@ -776,17 +867,18 @@ diagnostics="has-matching-SAP-party-diagnostic"
                 select="../../@uuid" />, has a party, <sch:value-of
                 select="@actor-uuid" />, that does not match a SAP or SAR party assembly.</sch:diagnostic>
 
-        <!-- results -->
         <sch:diagnostic
             doc:assert="has-type-ssp-statement-issue"
             doc:context="oscal:observation"
             id="has-type-ssp-statement-issue-diagnostic">The observation, <sch:value-of
                 select="@uuid" />, has a type of 'ssp-statement-issue' but does not have a method of 'EXAMINE'.</sch:diagnostic>
+                
         <sch:diagnostic
             doc:assert="has-type-ssp-statement-issue-matches-related-observation"
             doc:context="oscal:observation"
             id="has-type-ssp-statement-issue-matches-related-observation-diagnostic">The observation, <sch:value-of
                 select="@uuid" />, does not have a matching finding/related-observation/@observation-uuid in the SAR.</sch:diagnostic>
+                
         <sch:diagnostic
             doc:assert="has-implementation-statement-uuid-matches-ssp-statement-uuid"
             doc:context="oscal:observation"

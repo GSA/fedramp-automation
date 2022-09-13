@@ -971,6 +971,210 @@
 
         
         <x:scenario
+            label="results">
+            <x:scenario
+                label="when a result">
+                <x:scenario
+                    label="has a finding">
+                    <x:scenario
+                        label="and it has a target/status with a @state value of 'not-satisfied">
+                        <x:scenario
+                            label="and there is an element associated-risk">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result><finding
+                                            uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <target
+                                                target-id="cm-2.1_smt.c"
+                                                type="statement-id">
+                                                <status
+                                                    state="not-satisfied" />
+                                            </target>
+                                            <associated-risk
+                                                risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7" />
+                                        </finding></result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-finding-target-status-issue"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="and there is not an element associated-risk">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result><finding
+                                            uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <target
+                                                target-id="cm-2.1_smt.c"
+                                                type="statement-id">
+                                                <status
+                                                    state="not-satisfied" />
+                                            </target>
+                                        </finding></result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-finding-target-status-issue"
+                                label="that is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
+                    <x:scenario
+                        label="and there is an element associated-risk with a @risk-uuid that matches a risk @uuid value">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result>
+                                    <risk
+                                        uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9" /><finding
+                                        uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                        <associated-risk
+                                            risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9" />
+                                    </finding></result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="has-associated-risk-matching"
+                            label="that is correct" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and there is an element associated-risk with a @risk-uuid that does not match a risk @uuid value">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result>
+                                    <risk
+                                        uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c0" /><finding
+                                        uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                        <associated-risk
+                                            risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9" />
+                                    </finding></result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-assert
+                            id="has-associated-risk-matching"
+                            label="that is incorrect" />
+                    </x:scenario>
+                </x:scenario>
+                <x:scenario
+                    label="has a risk">
+                    <x:scenario
+                        label="with a characterization">
+                        <x:scenario
+                            label="that has a facet">
+                            <x:scenario
+                                label="with the @name of 'likelihood' or 'impact'">
+
+                                <x:scenario
+                                    label="both exist in the same characterization">
+                                    <x:context>
+                                        <assessment-results
+                                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                            <result>
+                                                <risk
+                                                    uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9">
+                                                    <characterization>
+                                                        <facet
+                                                            name="likelihood"
+                                                            system="https://fedramp.gov"
+                                                            value="high" />
+                                                        <facet
+                                                            name="impact"
+                                                            system="https://fedramp.gov"
+                                                            value="high" />
+                                                    </characterization>
+                                                </risk>
+                                            </result>
+                                        </assessment-results>
+                                    </x:context>
+                                    <x:expect-not-assert
+                                        id="has-facet-likelihood-and-impact"
+                                        label="that is correct" />
+                                </x:scenario>
+                                <x:scenario
+                                    label="both do not exist within the same characterization">
+                                    <x:context>
+                                        <assessment-results
+                                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                            <result>
+                                                <risk
+                                                    uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9">
+                                                    <characterization>
+                                                        <facet
+                                                            name="likelihood"
+                                                            system="https://fedramp.gov"
+                                                            value="high" />
+                                                    </characterization>
+                                                </risk>
+                                            </result>
+                                        </assessment-results>
+                                    </x:context>
+                                    <x:expect-assert
+                                        id="has-facet-likelihood-and-impact"
+                                        label="that is incorrect" />
+                                </x:scenario>
+
+                                <x:scenario
+                                    label="that has a @value of 'low', 'moderate', or 'high'">
+                                    <x:context>
+                                        <assessment-results
+                                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                            <result>
+                                                <risk
+                                                    uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9">
+                                                    <characterization>
+                                                        <facet
+                                                            name="likelihood"
+                                                            system="https://fedramp.gov"
+                                                            value="high">
+                                                            <prop
+                                                                name="state"
+                                                                value="initial" />
+                                                        </facet>
+                                                    </characterization>
+                                                </risk>
+                                            </result>
+                                        </assessment-results>
+                                    </x:context>
+                                    <x:expect-not-assert
+                                        id="has-facet-correct-values"
+                                        label="that is correct" />
+                                </x:scenario>
+                                <x:scenario
+                                    label="that does not have a @value of 'low', 'moderate', or 'high'">
+                                    <x:context>
+                                        <assessment-results
+                                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                            <result>
+                                                <risk
+                                                    uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9">
+                                                    <characterization>
+                                                        <facet
+                                                            name="likelihood"
+                                                            system="https://fedramp.gov"
+                                                            value="uneven">
+                                                            <prop
+                                                                name="state"
+                                                                value="initial" />
+                                                        </facet>
+                                                    </characterization>
+                                                </risk>
+                                            </result>
+                                        </assessment-results>
+                                    </x:context>
+                                    <x:expect-assert
+                                        id="has-facet-correct-values"
+                                        label="that is incorrect" />
+                                </x:scenario>
+                            </x:scenario>
+                        </x:scenario>
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+        <x:scenario
             label="age-checks">
 
             <!-- WARNING: The related checks depend on current-dateTime() -->
