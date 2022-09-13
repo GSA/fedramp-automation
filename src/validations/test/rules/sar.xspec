@@ -1430,6 +1430,151 @@
 
         </x:scenario>
 
+        <x:scenario
+            label="in the back-matter">
+            <x:scenario
+                label="when a resource">
+                <x:scenario
+                    label="has a type property of 'evidence' or 'artifact'">
+                    <x:scenario
+                        label="and a child rlink or base64">
+                        <x:context>
+                            <assessment-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource
+                                        uuid="65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
+                                        <prop
+                                            name="type"
+                                            value="evidence" />
+                                        <rlink
+                                            href="./evidence/interview-notes.docx"
+                                            media-type="application/msword" />
+                                        <base64
+                                            filename="interview-notes.docx"
+                                            media-type="application/msword">00000000</base64>
+                                    </resource>
+                                </back-matter>
+                            </assessment-plan>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="has-type-artifact-evidence-rlink-base64"
+                            label="that is correct" />
+                        <x:scenario
+                            label="where the rlink/@href has a relative path">
+                            <x:context>
+                                <assessment-plan
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <back-matter>
+                                        <resource
+                                            uuid="65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
+                                            <prop
+                                                name="type"
+                                                value="evidence" />
+                                            <rlink
+                                                href="./evidence/interview-notes.docx"
+                                                media-type="application/msword" />
+                                        </resource>
+                                    </back-matter>
+                                </assessment-plan>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-type-artifact-evidence-rlink-relative-path"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="where the rlink/@href does not have a relative path">
+                            <x:context>
+                                <assessment-plan
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <back-matter>
+                                        <resource
+                                            uuid="65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
+                                            <prop
+                                                name="type"
+                                                value="evidence" />
+                                            <rlink
+                                                href="/evidence/interview-notes.docx"
+                                                media-type="application/msword" />
+                                        </resource>
+                                    </back-matter>
+                                </assessment-plan>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-type-artifact-evidence-rlink-relative-path"
+                                label="that is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
+                    <x:scenario
+                        label="and does not have a child rlink or base64">
+                        <x:context>
+                            <assessment-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource
+                                        uuid="65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
+                                        <prop
+                                            name="type"
+                                            value="evidence" />
+                                    </resource>
+                                </back-matter>
+                            </assessment-plan>
+                        </x:context>
+                        <x:expect-assert
+                            id="has-type-artifact-evidence-rlink-base64"
+                            label="that is incorrect" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and the resource/@uuid matches a subject/@uuid or relevant-evidence/@href value in the document">
+                        <x:context>
+                            <assessment-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <observation
+                                    uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774">
+                                    <relevant-evidence
+                                        href="#65fb91b1-f7dc-46bf-8b99-bd98f1a5293d" />
+                                </observation>
+                                <back-matter>
+                                    <resource
+                                        uuid="65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
+                                        <prop
+                                            name="type"
+                                            value="evidence" />
+                                    </resource>
+                                </back-matter>
+                            </assessment-plan>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="has-type-artifact-evidence-resource"
+                            label="that is correct" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and the resource/@uuid does not match a subject/@uuid or relevant-evidence/@href value in the document">
+                        <x:context>
+                            <assessment-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <observation
+                                    uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774">
+                                    <relevant-evidence
+                                        href="#65fb91b1-f7dc-46bf-8b99-bd98f1a5293d" />
+                                </observation>
+                                <back-matter>
+                                    <resource
+                                        uuid="1234-1234">
+                                        <prop
+                                            name="type"
+                                            value="evidence" />
+                                    </resource>
+                                </back-matter>
+                            </assessment-plan>
+                        </x:context>
+                        <x:expect-assert
+                            id="has-type-artifact-evidence-resource"
+                            label="that is incorrect" />
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
     </x:scenario>
 
 </x:description>

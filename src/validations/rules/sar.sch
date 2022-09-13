@@ -129,6 +129,46 @@
         </sch:rule>
 
         <sch:rule
+            context="oscal:resource[oscal:prop[@name = 'type' and @value = 'evidence']] | oscal:resource[oscal:prop[@name = 'type' and @value = 'artifact']]">
+            <sch:let
+                name="relevant-evidence-href"
+                value="//oscal:observation/oscal:relevant-evidence/substring-after(@href, '#')" />
+            <sch:let
+                name="subject-UUID"
+                value="//oscal:observation/oscal:subject/@subject-uuid" />
+            <sch:assert
+                diagnostics="has-type-artifact-evidence-resource-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.4"
+                id="has-type-artifact-evidence-resource"
+                role="error"
+                test="
+                    if (@uuid[. = $relevant-evidence-href])
+                    then
+                        true()
+                    else
+                        if (@uuid[. = $subject-UUID])
+                        then
+                            true()
+                        else
+                            false()">Resources of type 'evidence' or 'artifact' must have a matching relevant-evidence or subject
+                UUID.</sch:assert>
+            <sch:assert
+                diagnostics="has-type-artifact-evidence-rlink-base64-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.4"
+                id="has-type-artifact-evidence-rlink-base64"
+                role="error"
+                test="oscal:rlink or oscal:base64">An observation of type 'evidence' or 'artifact' must have at least one rlink and/or base64
+                element.</sch:assert>
+            <sch:assert
+                diagnostics="has-type-artifact-evidence-rlink-relative-path-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.4"
+                id="has-type-artifact-evidence-rlink-relative-path"
+                role="error"
+                test="oscal:rlink[not(matches(@href, '^/'))]">If an observation of type 'evidence' or 'artifact' has an rlink the @href value must be a
+                relative path.</sch:assert>
+        </sch:rule>
+
+        <sch:rule
             context="oscal:resource[oscal:prop[@name = 'type' and @value eq 'security-assessment-plan']]">
 
             <sch:assert
@@ -811,6 +851,22 @@ diagnostics="has-matching-SAP-party-diagnostic"
             doc:context="oscal:back-matter"
             id="has-security-assessment-plan-resource-diagnostic">This OSCAL SAR which does not directly import the SAP does not declare the SAP as a
             back-matter resource.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-type-artifact-evidence-resource"
+            doc:context="oscal:resource"
+            id="has-type-artifact-evidence-resource-diagnostic">The resource, <sch:value-of
+                select="@uuid" />, of type 'evidence' or 'artifact' does not have a matching relevant-evidence or subject UUID.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="has-type-artifact-evidence-rlink-base64"
+            doc:context="oscal:resource"
+            id="has-type-artifact-evidence-rlink-base64-diagnostic">The resource, <sch:value-of
+                select="@uuid" />, of type 'evidence' or 'artifact' does not have at least one rlink or base64 child element.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assert="has-type-artifact-evidence-rlink-relative-path"
+            doc:context="oscal:resource"
+            id="has-type-artifact-evidence-rlink-relative-path-diagnostic">A resource, <sch:value-of
+                select="@uuid" />, of type 'evidence' or 'artifact' has an rlink where the @href value is not a relative path.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-sap-rlink"
