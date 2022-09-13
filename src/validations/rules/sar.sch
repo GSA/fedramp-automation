@@ -243,7 +243,7 @@
                 role="error"
                 test="substring-after(@href, '#') or  oscal:link/@href[substring-after(., '#') = sap-resources]">A relevant-evidence href has a matching resource uuid in the SAR back-matter.</sch:assert>
         </sch:rule>-->
-
+        
         <sch:rule
             context="oscal:actor">
             <sch:let
@@ -584,7 +584,15 @@ diagnostics="has-matching-SAP-party-diagnostic"
                             else
                                 false()
                     else
-                        true()">Risks with priority properties must have unique priority values.</sch:assert>
+                        true()">Risks with priority properties must have unique priority values.</sch:assert>            
+            
+            <sch:assert
+                diagnostics="has-lifecycle-recommendation-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.6.1"
+                id="has-lifecycle-recommendation"
+                role="error"
+                see="https://github.com/GSA/fedramp-automation-guides/issues/45"
+                test="oscal:response[@lifecycle='recommendation']">A risk must have a response of lifecycle with a value of recommendation.</sch:assert>
         </sch:rule>
         
         <sch:let
@@ -623,9 +631,6 @@ diagnostics="has-matching-SAP-party-diagnostic"
                 paragraph that matches the text in the Guide.</sch:assert>
         </sch:rule>
         
-    </sch:pattern>
-    <sch:pattern
-        id="results">
         <sch:rule
             context="oscal:finding">
             <sch:assert
@@ -825,6 +830,11 @@ diagnostics="has-matching-SAP-party-diagnostic"
             id="has-no-base64-diagnostic">This OSCAL SAR has a base64 element in a security-assessment-plan resource.</sch:diagnostic>-->
             
         <!-- results -->
+        <sch:diagnostic
+            doc:assert="has-lifecycle-recommendation"
+            doc:context="oscal:risk"
+            id="has-lifecycle-recommendation-diagnostic">This risk, <sch:value-of select="@uuid"/>, does not have a response element with a lifecycle of 'recommendation'.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="has-finding-target-status"
             doc:context="oscal:finding"

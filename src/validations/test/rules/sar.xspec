@@ -311,11 +311,14 @@
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                        <observation
+                                            uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
                                             <type>operational-requirement</type>
                                         </observation>
-                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
-                                            <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
+                                        <finding
+                                            uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation
+                                                observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6" />
                                         </finding>
                                     </result>
                                 </assessment-results>
@@ -330,11 +333,14 @@
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                        <observation
+                                            uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
                                             <type>operational-requirement</type>
                                         </observation>
-                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
-                                            <related-observation observation-uuid="1234-1234"/>
+                                        <finding
+                                            uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation
+                                                observation-uuid="1234-1234" />
                                         </finding>
                                     </result>
                                 </assessment-results>
@@ -349,13 +355,16 @@
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                        <observation
+                                            uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
                                             <type>operational-requirement</type>
-                                            <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61"/>
+                                            <relevant-evidence
+                                                href="#53af7193-b25d-4ed2-a82f-5954d2d0df61" />
                                         </observation>
-                                    </result>                                    
+                                    </result>
                                     <back-matter>
-                                        <resource uuid="53af7193-b25d-4ed2-a82f-5954d2d0df61"/>
+                                        <resource
+                                            uuid="53af7193-b25d-4ed2-a82f-5954d2d0df61" />
                                     </back-matter>
                                 </assessment-results>
                             </x:context>
@@ -369,13 +378,16 @@
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                        <observation
+                                            uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
                                             <type>operational-requirement</type>
-                                            <relevant-evidence href="#53af7193-b25d-4ed2-a82f-5954d2d0df61"/>
+                                            <relevant-evidence
+                                                href="#53af7193-b25d-4ed2-a82f-5954d2d0df61" />
                                         </observation>
                                     </result>
                                     <back-matter>
-                                        <resource uuid="1234-1234"/>
+                                        <resource
+                                            uuid="1234-1234" />
                                     </back-matter>
                                 </assessment-results>
                             </x:context>
@@ -392,11 +404,14 @@
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                        <observation
+                                            uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
                                             <type>risk-adjustment</type>
                                         </observation>
-                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
-                                            <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
+                                        <finding
+                                            uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation
+                                                observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6" />
                                         </finding>
                                     </result>
                                 </assessment-results>
@@ -411,11 +426,14 @@
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                        <observation
+                                            uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
                                             <type>risk-adjustment</type>
                                         </observation>
-                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
-                                            <related-observation observation-uuid="1234-1234"/>
+                                        <finding
+                                            uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation
+                                                observation-uuid="1234-1234" />
                                         </finding>
                                     </result>
                                 </assessment-results>
@@ -430,15 +448,18 @@
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                        <observation
+                                            uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
                                             <type>risk-adjustment</type>
                                             <relevant-evidence>
-                                                <link href="#53af7193-b25d-4ed2-a82f-5954d2d0df61"/>
+                                                <link
+                                                    href="#53af7193-b25d-4ed2-a82f-5954d2d0df61" />
                                             </relevant-evidence>
                                         </observation>
-                                    </result>                                    
+                                    </result>
                                     <back-matter>
-                                        <resource uuid="53af7193-b25d-4ed2-a82f-5954d2d0df61"/>
+                                        <resource
+                                            uuid="53af7193-b25d-4ed2-a82f-5954d2d0df61" />
                                     </back-matter>
                                 </assessment-results>
                             </x:context>
@@ -452,15 +473,18 @@
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
+                                        <observation
+                                            uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6">
                                             <type>risk-adjustment</type>
                                             <relevant-evidence>
-                                                <link href="#53af7193-b25d-4ed2-a82f-5954d2d0df61"/>
+                                                <link
+                                                    href="#53af7193-b25d-4ed2-a82f-5954d2d0df61" />
                                             </relevant-evidence>
                                         </observation>
                                     </result>
                                     <back-matter>
-                                        <resource uuid="1234-1234"/>
+                                        <resource
+                                            uuid="1234-1234" />
                                     </back-matter>
                                 </assessment-results>
                             </x:context>
@@ -469,13 +493,16 @@
                                 label="this is incorrect" />
                         </x:scenario>
                     </x:scenario>
-                    <x:scenario label="with a type of 'historic'">
-                        <x:scenario label="and has a method of 'MIXED'">
+                    <x:scenario
+                        label="with a type of 'historic'">
+                        <x:scenario
+                            label="and has a method of 'MIXED'">
                             <x:context>
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                        <observation
+                                            uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
                                             <method>MIXED</method>
                                             <type>historic</type>
                                         </observation>
@@ -486,12 +513,14 @@
                                 id="has-method-MIXED"
                                 label="that is correct" />
                         </x:scenario>
-                        <x:scenario label="and does not have a method of 'MIXED'">
+                        <x:scenario
+                            label="and does not have a method of 'MIXED'">
                             <x:context>
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                        <observation
+                                            uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
                                             <method>TEST</method>
                                             <type>historic</type>
                                         </observation>
@@ -503,13 +532,16 @@
                                 label="that is incorrect" />
                         </x:scenario>
                     </x:scenario>
-                    <x:scenario label="with a type of 'ssp-statement-issue'">
-                        <x:scenario label="and has a method of 'EXAMINE'">
+                    <x:scenario
+                        label="with a type of 'ssp-statement-issue'">
+                        <x:scenario
+                            label="and has a method of 'EXAMINE'">
                             <x:context>
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                        <observation
+                                            uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
                                             <method>EXAMINE</method>
                                             <type>ssp-statement-issue</type>
                                         </observation>
@@ -520,12 +552,14 @@
                                 id="has-type-ssp-statement-issue"
                                 label="that is correct" />
                         </x:scenario>
-                        <x:scenario label="and does not have a method of 'EXAMINE'">
+                        <x:scenario
+                            label="and does not have a method of 'EXAMINE'">
                             <x:context>
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                        <observation
+                                            uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
                                             <method>MIXED</method>
                                             <type>ssp-statement-issue</type>
                                         </observation>
@@ -536,18 +570,22 @@
                                 id="has-type-ssp-statement-issue"
                                 label="that is incorrect" />
                         </x:scenario>
-                        
-                        <x:scenario label="and has a matching finding/related-observation/observation-uuid value">
+
+                        <x:scenario
+                            label="and has a matching finding/related-observation/observation-uuid value">
                             <x:context>
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                        <observation
+                                            uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
                                             <method>EXAMINE</method>
                                             <type>ssp-statement-issue</type>
                                         </observation>
-                                        <finding uuid="33e43825-6fd7-49c6-a610-4c795954a167">
-                                            <related-observation observation-uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308"/>
+                                        <finding
+                                            uuid="33e43825-6fd7-49c6-a610-4c795954a167">
+                                            <related-observation
+                                                observation-uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308" />
                                         </finding>
                                     </result>
                                 </assessment-results>
@@ -556,17 +594,21 @@
                                 id="has-type-ssp-statement-issue-matches-related-observation"
                                 label="that is correct" />
                         </x:scenario>
-                        <x:scenario label="and does not have a matching finding/related-observation/observation-uuid value">
+                        <x:scenario
+                            label="and does not have a matching finding/related-observation/observation-uuid value">
                             <x:context>
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                     <result>
-                                        <observation uuid="1234-1234">
+                                        <observation
+                                            uuid="1234-1234">
                                             <method>EXAMINE</method>
                                             <type>ssp-statement-issue</type>
                                         </observation>
-                                        <finding uuid="33e43825-6fd7-49c6-a610-4c795954a167">
-                                            <related-observation observation-uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308"/>
+                                        <finding
+                                            uuid="33e43825-6fd7-49c6-a610-4c795954a167">
+                                            <related-observation
+                                                observation-uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308" />
                                         </finding>
                                     </result>
                                 </assessment-results>
@@ -575,7 +617,7 @@
                                 id="has-type-ssp-statement-issue-matches-related-observation"
                                 label="that is incorrect" />
                         </x:scenario>
-                        
+
                     </x:scenario>
                 </x:scenario>
                 <x:scenario
@@ -665,14 +707,20 @@
                             </x:scenario>
                         </x:scenario>
                     </x:scenario>
-                    <x:scenario label="that does not have a property with a name of 'recommend-authorization'">
+                    <x:scenario
+                        label="that does not have a property with a name of 'recommend-authorization'">
                         <x:context>
                             <assessment-results
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <result uuid="af0c8632-e994-48a7-924e-2354b6abace7">
+                                <result
+                                    uuid="af0c8632-e994-48a7-924e-2354b6abace7">
                                     <attestation>
-                                        <part name="authorization-statements">
-                                            <prop ns="https://fedramp.gov/ns/oscal" name="authorized" value="yes"/>
+                                        <part
+                                            name="authorization-statements">
+                                            <prop
+                                                name="authorized"
+                                                ns="https://fedramp.gov/ns/oscal"
+                                                value="yes" />
                                         </part>
                                     </attestation>
                                 </result>
@@ -791,12 +839,57 @@
                                 label="this is incorrect" />
                         </x:scenario>
                     </x:scenario>
+                    <x:scenario
+                        label="with a response element">
+                        <x:scenario
+                            label="that has a lifecycle attribute">
+                            <x:scenario
+                                label="with a value of 'recommendation'">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <risk
+                                                uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9">
+                                                <response
+                                                    lifecycle="recommendation"
+                                                    uuid="fde4758d-6417-4f35-ba71-278af4f008f8" />
+                                            </risk>
+                                        </result>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-not-assert
+                                    id="has-lifecycle-recommendation"
+                                    label="that is correct" />
+                            </x:scenario>
+                            <x:scenario
+                                label="without a value of 'recommendation'">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <risk
+                                                uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9">
+                                                <response
+                                                    lifecycle="MIXED"
+                                                    uuid="fde4758d-6417-4f35-ba71-278af4f008f8" />
+                                            </risk>
+                                        </result>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-assert
+                                    id="has-lifecycle-recommendation"
+                                    label="that is incorrect" />
+                            </x:scenario>
+                        </x:scenario>
+                    </x:scenario>
                 </x:scenario>
                 <x:scenario
                     label="has an observation">
                     <x:scenario
                         label="of a type 'control-objective'">
-                        <x:scenario label="and a method of 'EXAMINE'">
+                        <x:scenario
+                            label="and a method of 'EXAMINE'">
                             <x:scenario
                                 label="and the subject's uuid matches a back-matter resource uuid">
                                 <x:context>
@@ -828,9 +921,9 @@
                                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                         <result>
                                             <observation
-                                                uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">                                             
+                                                uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
                                                 <method>EXAMINE</method>
-                                                <type>control-objective</type>   
+                                                <type>control-objective</type>
                                                 <subject
                                                     subject-uuid="1234-1234" />
                                             </observation>
@@ -883,10 +976,11 @@
                                 id="has-correct-method-values"
                                 label="that is incorrect" />
                         </x:scenario>
-                    </x:scenario>                    
+                    </x:scenario>
                     <x:scenario
                         label="and the subject element">
-                        <x:scenario label="has a type attribute">
+                        <x:scenario
+                            label="has a type attribute">
                             <x:scenario
                                 label="that contains a correct string">
                                 <x:context>
@@ -895,7 +989,8 @@
                                         <result>
                                             <observation
                                                 uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
-                                                <subject type="component"/>
+                                                <subject
+                                                    type="component" />
                                             </observation>
                                         </result>
                                     </assessment-results>
@@ -912,7 +1007,8 @@
                                         <result>
                                             <observation
                                                 uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
-                                                <subject type="mixed"/>
+                                                <subject
+                                                    type="mixed" />
                                             </observation>
                                         </result>
                                     </assessment-results>
@@ -926,7 +1022,8 @@
 
                     <x:scenario
                         label="and the actor element">
-                        <x:scenario label="has a type attribute">
+                        <x:scenario
+                            label="has a type attribute">
                             <x:scenario
                                 label="that contains a correct string">
                                 <x:context>
@@ -935,7 +1032,8 @@
                                         <result>
                                             <observation
                                                 uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
-                                                <actor type="party"/>
+                                                <actor
+                                                    type="party" />
                                             </observation>
                                         </result>
                                     </assessment-results>
@@ -952,7 +1050,8 @@
                                         <result>
                                             <observation
                                                 uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
-                                                <actor type="mixed"/>
+                                                <actor
+                                                    type="mixed" />
                                             </observation>
                                         </result>
                                     </assessment-results>
@@ -965,7 +1064,7 @@
                     </x:scenario>
 
                 </x:scenario>
-                
+
             </x:scenario>
         </x:scenario>
 
