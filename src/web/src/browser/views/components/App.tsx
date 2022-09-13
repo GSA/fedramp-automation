@@ -7,7 +7,6 @@ import { DevelopersPage } from './DevelopersPage';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { HomePage } from './HomePage';
-import { InnerPageLayout } from './InnerPageLayout';
 import { UsaBanner } from './UsaBanner';
 import { ValidatorPage } from './ValidatorPage';
 import { useAppContext } from '../context';
@@ -16,11 +15,7 @@ const CurrentPage = () => {
   const currentRoute = useAppContext().state.router.currentRoute;
 
   if (currentRoute.type === 'Home') {
-    return (
-      <div className="grid-container">
-        <HomePage />
-      </div>
-    );
+    return <HomePage />;
   } else if (
     currentRoute.type === 'DocumentSummary' ||
     currentRoute.type === 'DocumentPOAM' ||
@@ -45,11 +40,7 @@ const CurrentPage = () => {
       </>
     );
   } else if (currentRoute.type === 'Developers') {
-    return (
-      <InnerPageLayout>
-        <DevelopersPage />
-      </InnerPageLayout>
-    );
+    return <DevelopersPage />;
   } else {
     const _exhaustiveCheck: never = currentRoute;
     return <></>;

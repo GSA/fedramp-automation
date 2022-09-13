@@ -9,19 +9,38 @@
 @import 'highlight.js/scss/github.scss';
 
 :root {
-  --theme-light-cyan: #0a90b7;
-  --theme-dark-cyan: #1889bc;
-  --theme-light-blue: #1a4480; // 'primary-dark'
-  --theme-dark-blue: #162e51; // 'primary-darker'
-  --theme-cornflower: #d9f1fd;
+  --theme-light-blue: #d9f1fd;
+  --theme-teal: #0a90b7;
   --theme-red: #c71f25;
-  --theme-light-grey: #f2f2f2;
-  --theme-grey-text: #757575; // 'gray-50'
+  --theme-vivid-blue: #1a4480; // 'primary-dark'
+  --theme-deep-blue: #162e51; // 'primary-darker'
+  --theme-light-grey: #f2f2f2; // background
+  --theme-headings-text: #757575; // 'gray-50'
+  --theme-body-text: #454545;
+  --theme-dark-cyan: #1889bc;
   --theme-dark-text: #5a5353;
 }
 
 .text-theme-dark-blue {
-  color: var(--theme-dark-cyan);
+  color: var(--theme-dark-cyan) !important;
+}
+
+.text-theme-light-blue {
+  color: var(--theme-light-blue) !important;
+}
+
+.bg-theme-deep-blue {
+  background-color: var(--theme-deep-blue) !important;
+}
+
+.vertical-align-middle {
+  vertical-align: middle !important;
+}
+.text-theme-red {
+  color: var(--theme-red);
+}
+.bg-theme-light-cyan {
+  background-color: var(--theme-light-cyan);
 }
 
 .loader {
@@ -89,4 +108,26 @@
 
 .bg-info-lighter {
   @include checkbox-and-radio-colors('info-lighter');
+}
+
+.usa-nav__primary button:hover {
+  color: var(--theme-red);
+}
+
+.usa-header--basic .usa-nav__primary-item > .usa-current::after,
+.usa-header--basic .usa-nav__link:hover::after {
+  background-color: var(--theme-red);
+}
+
+.usa-nav__primary > .usa-nav__primary-item > a:hover {
+  color: var(--theme-red);
+}
+.usa-header--basic .usa-nav__primary-item > .usa-current,
+.usa-header--basic .usa-nav__link:hover {
+  color: var(--theme-red);
+}
+@media (min-width: 64em) {
+  .usa-nav__primary button[aria-expanded='true'] {
+    color: white !important;
+  }
 }

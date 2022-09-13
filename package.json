@@ -8,7 +8,5 @@
     "federalist": "make init-repo && npm run build:validation-ui && npm run link:validation-ui",
     "link:validation-ui": "ln -sf ./src/web/dist _site"
   },
-  "dependencies": {
-    "saxon-js": "^2.4.0"
-  }
+  "dependencies": {}
 }
