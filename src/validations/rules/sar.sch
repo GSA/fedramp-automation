@@ -253,7 +253,28 @@
                 name="SAR-parties"
                 value="/oscal:assessment-results/oscal:metadata/oscal:party/@uuid" />
             <sch:assert
-                diagnostics="has-matching-SAP-party-diagnostic"
+                diagnostics="has-matching-historic-party-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.5"
+                id="has-matching-historic-party"
+                role="error"
+                test="
+                    if (../../oscal:type = 'historic')
+                    then
+                        if (@actor-uuid[. = $SAP-parties])
+                        then
+                            true()
+                        else
+                            if (@actor-uuid[. = $SAR-parties])
+                            then
+                                true()
+                            else
+                                false()
+                    else
+                        true()"
+                unit:override-xspec="both">A historic observation must have an actor that is described in either the SAP or the SAR party
+                assemblies.</sch:assert>
+                <sch:assert 
+diagnostics="has-matching-SAP-party-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.3"
                 fedramp:specific="true"
                 id="has-matching-SAP-party"
@@ -286,6 +307,7 @@
                 test="@type[. = $actorTypes]">The actor @type must have one of the following as string content: 'tool', 'party', or
                 'assessment-platform'.</sch:assert>
         </sch:rule>
+        
         <sch:rule
             context="oscal:subject">
             <sch:assert
@@ -448,6 +470,13 @@
                         true()">An observation with a type of 'operational-requirement' must have a relevant-evidence/@href, whose
                 value after the '#', matches a back-matter/resource/@uuid.</sch:assert>
 
+            <sch:assert
+                diagnostics="has-method-MIXED-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.5"
+                id="has-method-MIXED"
+                role="error"
+                test="oscal:type = 'historic' and oscal:method = 'MIXED'">An observation of type 'historic' must also have a method of 'MIXED'.</sch:assert>
+            
         </sch:rule>
 
         <sch:let
@@ -723,6 +752,19 @@
                 select="../@uuid" />, does not contain one of the following strings: 'component', 'inventory-item', 'location', 'party', or
             'user'.</sch:diagnostic>
 
+        <!-- results -->
+        <sch:diagnostic
+            doc:assert="has-matching-historic-party"
+            doc:context="oscal:result"
+            id="has-matching-historic-party-diagnostic">The historic observation, <sch:value-of
+                select="../../@uuid" />, has an actor that is not described in either the SAP or the SAR party assemblies.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-method-MIXED"
+            doc:context="oscal:result"
+            id="has-method-MIXED-diagnostic">The historic observation, <sch:value-of
+                select="@uuid" />, does not have a method of 'MIXED'.</sch:diagnostic>
+                
         <sch:diagnostic
             doc:assert="has-correct-actor-type"
             doc:context="oscal:subject"

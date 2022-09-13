@@ -469,6 +469,40 @@
                                 label="this is incorrect" />
                         </x:scenario>
                     </x:scenario>
+                    <x:scenario label="with a type of 'historic'">
+                        <x:scenario label="and has a method of 'MIXED'">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                            <method>MIXED</method>
+                                            <type>historic</type>
+                                        </observation>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-method-MIXED"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario label="and does not have a method of 'MIXED'">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                            <method>TEST</method>
+                                            <type>historic</type>
+                                        </observation>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-method-MIXED"
+                                label="that is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
                 </x:scenario>
                 <x:scenario
                     label="has an attestation">
