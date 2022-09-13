@@ -741,6 +741,53 @@ diagnostics="has-matching-SAP-party-diagnostic"
     </sch:pattern>
 
     <sch:pattern
+        id="results">
+        <sch:rule
+            context="oscal:observation">
+            <sch:assert
+                diagnostics="has-pen-test-finding-resource-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.8"
+                fedramp:specific="true"
+                id="has-pen-test-finding-resource"
+                role="error"
+                test="
+                    if (oscal:type = 'finding' and oscal:method = 'TEST')
+                    then
+                        if (oscal:relevant-evidence[substring-after(@href, '#') = /oscal:assessment-results/oscal:back-matter/oscal:resource[
+                        oscal:prop[@value = 'penetration-test-report']]/@uuid])
+                        then
+                            true()
+                        else
+                            false()
+                    else
+                        true()">An observation must have a relevant-evidence href that matches the penetration-test-report back-matter
+                resource @uuid value.</sch:assert>
+
+            <sch:let
+                name="pen-test-team"
+                value="/oscal:assessment-results/oscal:metadata/oscal:responsible-party[@role-id = 'penetration-test-lead']/oscal:party-uuid | /oscal:assessment-results/oscal:metadata/oscal:responsible-party[@role-id = 'penetration-test-team']/oscal:party-uuid" />
+            <sch:assert
+                diagnostics="has-pen-test-team-match-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.8"
+                fedramp:specific="true"
+                id="has-pen-test-team-match"
+                role="error"
+                test="
+                    if (oscal:type = 'finding' and oscal:method = 'TEST' and not(oscal:subject/@type = 'component') and oscal:relevant-evidence[substring-after(@href, '#') = /oscal:assessment-results/oscal:back-matter/oscal:resource[
+                    oscal:prop[@value = 'penetration-test-report']]/@uuid])
+                    then
+                        if (oscal:origin/oscal:actor[@type = 'party']/@actor-uuid[. = $pen-test-team])
+                        then
+                            true()
+                        else
+                            false()
+                    else
+                        true()">A penetration test observation must have actors that are described in the responsible-party assemblies for
+                'penetration-test-lead' or 'penetration-test-team'.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+
+    <sch:pattern
         id="sar-age-checks">
 
         <!-- Note that there are no Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) references -->
@@ -822,6 +869,20 @@ diagnostics="has-matching-SAP-party-diagnostic"
 
     </sch:pattern>
 
+    <sch:pattern
+        id="metadata">
+        <sch:rule
+            context="oscal:metadata">
+            <sch:assert
+                diagnostics="has-pen-test-lead-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.8"
+                fedramp:specific="true"
+                id="has-pen-test-lead"
+                role="error"
+                test="exists(oscal:responsible-party[@role-id = 'penetration-test-lead']/oscal:party-uuid) and not(exists(oscal:responsible-party[@role-id = 'penetration-test-lead']/oscal:party-uuid[2]))">The
+                count of party-uuid elements of a responsible-party of role-id 'penetration-test-lead' must be one.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
     <sch:diagnostics>
 
         <sch:diagnostic
@@ -1003,6 +1064,27 @@ diagnostics="has-matching-SAP-party-diagnostic"
             <sch:value-of
                 select="../../@uuid" />, does not match any task @uuid value in the associated SAP.</sch:diagnostic>
 
+        <!-- results -->
+        <sch:diagnostic
+            doc:assert="has-pen-test-finding-resource"
+            doc:context="oscal:observation"
+            id="has-pen-test-finding-resource-diagnostic">An observation has a relevant-evidence href that does not matches the
+            penetration-test-report back-matter resource @uuid value.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-pen-test-team-match"
+            doc:context="oscal:observation"
+            id="has-pen-test-team-match-diagnostic">A penetration test observation, <sch:value-of
+                select="@uuid" /> has actors that are not described in the responsible-party assemblies for 'penetration-test-lead' or
+            'penetration-test-team'.</sch:diagnostic>
+
+        <!-- metadata -->
+        <sch:diagnostic
+            doc:assert="has-pen-test-lead"
+            doc:context="oscal:observation"
+            id="has-pen-test-lead-diagnostic">The count of party-uuid elements of a responsible-party of role-id 'penetration-test-lead' is not
+            one.</sch:diagnostic>
+            
         <sch:diagnostic
             doc:assert="has-risk-adjustment-observation"
             doc:context="oscal:observation"

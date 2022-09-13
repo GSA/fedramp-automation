@@ -1274,6 +1274,206 @@
             </x:scenario>
         </x:scenario>
         <x:scenario
+            label="when the metadata">
+            <x:scenario
+                label="has a responsible-party of role-id 'penetration-test-lead'">
+                <x:scenario
+                    label="and there is one party-uuid child">
+                    <x:context>
+                        <assessment-results
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <responsible-party
+                                    role-id="penetration-test-lead">
+                                    <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                </responsible-party>
+                            </metadata>
+                        </assessment-results>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="has-pen-test-lead"
+                        label="this is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and there is zero or more than one party-uuid child">
+                    <x:context>
+                        <assessment-results
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <metadata>
+                                <responsible-party
+                                    role-id="penetration-test-lead">
+                                    <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                    <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2ff</party-uuid>
+                                </responsible-party>
+                            </metadata>
+                        </assessment-results>
+                    </x:context>
+                    <x:expect-assert
+                        id="has-pen-test-lead"
+                        label="this is incorrect" />
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="results">
+            <x:scenario
+                label="when a result">
+                <x:scenario
+                    label="has an observation">
+                    <x:scenario
+                        label="with a type of 'finding' and a method of 'TEST'">
+                        <x:scenario
+                            label="and does not have a subject of type component">
+                            <x:scenario
+                                label="and whose relevant-evidence/@href value matches the penetration-test-report resource in the back-matter">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <observation
+                                                uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                                <method>TEST</method>
+                                                <type>finding</type>
+                                                <relevant-evidence
+                                                    href="#19a07333-4e87-46dc-abab-adad60e706b9" />
+                                            </observation>
+                                        </result>
+                                        <back-matter>
+                                            <resource
+                                                uuid="19a07333-4e87-46dc-abab-adad60e706b9">
+                                                <prop
+                                                    name="type"
+                                                    value="penetration-test-report" />
+                                            </resource>
+                                        </back-matter>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-not-assert
+                                    id="has-pen-test-finding-resource"
+                                    label="this is correct" />
+                                <x:scenario
+                                    label="and has party that matches the penetration-test-lead responsible-party">
+                                    <x:context>
+                                        <assessment-results
+                                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                            <metadata>
+                                                <responsible-party
+                                                    role-id="penetration-test-team">
+                                                    <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                                    <party-uuid>ca9fca9c-4a8a-4487-8242-0a06d6fbed1f</party-uuid>
+                                                </responsible-party>
+                                                <responsible-party
+                                                    role-id="penetration-test-lead">
+                                                    <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                                </responsible-party>
+                                            </metadata>
+                                            <result>
+                                                <observation
+                                                    uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                                    <method>TEST</method>
+                                                    <type>finding</type>
+                                                    <origin>
+                                                        <actor
+                                                            actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"
+                                                            type="party" />
+                                                        <actor
+                                                            actor-uuid="ca9fca9c-4a8a-4487-8242-0a06d6fbed1f"
+                                                            type="party" />
+                                                    </origin>
+                                                    <relevant-evidence
+                                                        href="#19a07333-4e87-46dc-abab-adad60e706b9" />
+                                                </observation>
+                                            </result>
+                                            <back-matter>
+                                                <resource
+                                                    uuid="19a07333-4e87-46dc-abab-adad60e706b9">
+                                                    <prop
+                                                        name="type"
+                                                        value="penetration-test-report" />
+                                                </resource>
+                                            </back-matter>
+                                        </assessment-results>
+                                    </x:context>
+                                    <x:expect-not-assert
+                                        id="has-pen-test-team-match"
+                                        label="this is correct" />
+                                </x:scenario>
+                                <x:scenario
+                                    label="and has party that does not match the penetration-test-lead responsible-party">
+                                    <x:context>
+                                        <assessment-results
+                                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                            <metadata>
+                                                <responsible-party
+                                                    role-id="penetration-test-lead">
+                                                    <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
+                                                </responsible-party>
+                                            </metadata>
+                                            <result>
+                                                <observation
+                                                    uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                                    <method>TEST</method>
+                                                    <type>finding</type>
+                                                    <origin>
+                                                        <actor
+                                                            actor-uuid="1234-1234"
+                                                            type="party" />
+                                                    </origin>
+                                                    <relevant-evidence
+                                                        href="#19a07333-4e87-46dc-abab-adad60e706b9" />
+                                                </observation>
+                                            </result>
+                                            <back-matter>
+                                                <resource
+                                                    uuid="19a07333-4e87-46dc-abab-adad60e706b9">
+                                                    <prop
+                                                        name="type"
+                                                        value="penetration-test-report" />
+                                                </resource>
+                                            </back-matter>
+                                        </assessment-results>
+                                    </x:context>
+                                    <x:expect-assert
+                                        id="has-pen-test-team-match"
+                                        label="this is incorrect" />
+                                </x:scenario>
+                            </x:scenario>
+                            <x:scenario
+                                label="and whose relevant-evidence/@href value does not match the penetration-test-report resource in the back-matter">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <observation
+                                                uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                                <method>TEST</method>
+                                                <type>finding</type>
+                                                <relevant-evidence
+                                                    href="#1234-1234" />
+                                            </observation>
+                                        </result>
+                                        <back-matter>
+                                            <resource
+                                                uuid="19a07333-4e87-46dc-abab-adad60e706b9">
+                                                <prop
+                                                    name="type"
+                                                    value="penetration-test-report" />
+                                            </resource>
+                                        </back-matter>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-assert
+                                    id="has-pen-test-finding-resource"
+                                    label="this is incorrect" />
+                            </x:scenario>
+                        </x:scenario>
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
             label="age-checks">
 
             <!-- WARNING: The related checks depend on current-dateTime() -->
