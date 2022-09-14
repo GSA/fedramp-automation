@@ -1,4 +1,3 @@
-import type { ValidationReport } from '@asap/shared/use-cases/schematron';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import type { ActionContext } from '..';

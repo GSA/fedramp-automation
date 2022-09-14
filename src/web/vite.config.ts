@@ -1,3 +1,5 @@
+import { execSync } from 'child_process';
+
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
@@ -7,6 +9,7 @@ const GITHUB = {
   owner: process.env.OWNER || '18F',
   repository: process.env.REPOSITORY || 'fedramp-automation',
   branch: process.env.BRANCH || 'master',
+  commit: execSync('git rev-parse HEAD').toString().trim(),
 };
 
 const DEPLOYMENT_ID =

@@ -13051,7 +13051,7 @@
 
     <x:scenario
         label="Authoritative DNS Service positive tests">
-        
+
         <x:context>
             <system-implementation
                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">

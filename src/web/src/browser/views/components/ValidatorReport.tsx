@@ -1,7 +1,10 @@
 import spriteSvg from 'uswds/img/sprite.svg';
 
 import * as assertionDocumentation from '@asap/browser/presenter/actions/assertion-documentation';
-import { showAssertionContext } from '@asap/browser/presenter/actions/validator';
+import {
+  downloadSVRL,
+  showAssertionContext,
+} from '@asap/browser/presenter/actions/validator';
 import {
   selectFilterOptions,
   selectSchematronReport,
@@ -25,7 +28,6 @@ export const ValidatorReport = ({ documentType }: Props) => {
     filterOptions.assertionViews,
     oscalDocument.filter.assertionViewId,
   );
-
   return (
     <>
       <div className="top-0 padding-y-1">
@@ -33,20 +35,32 @@ export const ValidatorReport = ({ documentType }: Props) => {
           <h1 className="margin-0 font-sans-lg desktop:font-sans-xl">
             {validationResult.summary.title}
           </h1>
-          <span
-            className="font-heading-sm text-secondary-light text-error"
-            style={{ float: 'right' }}
-          >
-            <svg
-              className="usa-icon margin-right-05 text-error"
-              aria-hidden="true"
-              focusable="false"
-              role="img"
+          <div className="float-right">
+            <div
+              className="font-heading-sm text-secondary-light text-error"
+              style={{ textAlign: 'right' }}
             >
-              <use xlinkHref={`${spriteSvg}#flag`}></use>
-            </svg>
-            {schematronReport.assertionCount} concerns
-          </span>
+              <svg
+                className="usa-icon margin-right-05 text-error"
+                aria-hidden="true"
+                focusable="false"
+                role="img"
+              >
+                <use xlinkHref={`${spriteSvg}#flag`}></use>
+              </svg>
+              {schematronReport.assertionCount} concerns
+            </div>
+            {validationResult.current === 'HAS_RESULT' ? (
+              <button
+                className="usa-button usa-button--unstyled usa-tooltip padding-top-1"
+                data-position="left"
+                title="Download the raw Schematron Validation Report Language XML document"
+                onClick={() => dispatch(downloadSVRL(documentType))}
+              >
+                Download SVRL
+              </button>
+            ) : null}
+          </div>
         </div>
         <h2 className="margin-top-05 margin-bottom-0 text-normal">
           {viewTitle}
@@ -116,9 +130,8 @@ export const ValidatorReport = ({ documentType }: Props) => {
                             Learn more
                           </span>
                           <span className="margin-right-1">|</span>
-                          <a
-                            href="#"
-                            className="text-primary text-underline"
+                          <button
+                            className="usa-button usa-button--unstyled margin-right-1"
                             onClick={() =>
                               dispatch(
                                 assertionDocumentation.show({
@@ -129,18 +142,26 @@ export const ValidatorReport = ({ documentType }: Props) => {
                             }
                           >
                             View Examples
+                          </button>
+                          <span className="margin-right-1">|</span>
+                          <a
+                            href={check.referenceUrl}
+                            className="text-primary text-underline"
+                            target="_blank"
+                            rel="noopener"
+                          >
+                            View Schematron
                           </a>
                         </div>
                       </summary>
+                      <p className="text-ink margin-y-05">
+                        Select an item below to show source documentation
+                        context
+                      </p>
                       <ul className="padding-left-2">
-                        <p className="text-ink margin-y-05">
-                          Select an item below to show source documentation
-                          context
-                        </p>
                         {check.fired.map((firedCheck, index) => (
-                          <>
+                          <li key={index} className="text-base-darker">
                             <a
-                              href="#"
                               className="usa-tooltip line-height-code-3"
                               data-position="bottom"
                               onClick={() =>
@@ -153,20 +174,18 @@ export const ValidatorReport = ({ documentType }: Props) => {
                               }
                               title="Show source document context"
                             >
-                              <li key={index} className="text-base-darker">
-                                <svg
-                                  className="usa-icon"
-                                  aria-hidden="true"
-                                  role="img"
-                                >
-                                  <use xlinkHref={`${spriteSvg}#remove`}></use>
-                                </svg>
-                                {firedCheck.diagnosticReferences.length > 0
-                                  ? firedCheck.diagnosticReferences.join(', ')
-                                  : firedCheck.text}
-                              </li>
+                              <svg
+                                className="usa-icon"
+                                aria-hidden="true"
+                                role="img"
+                              >
+                                <use xlinkHref={`${spriteSvg}#remove`}></use>
+                              </svg>
+                              {firedCheck.diagnosticReferences.length > 0
+                                ? firedCheck.diagnosticReferences.join(', ')
+                                : firedCheck.text}
                             </a>
-                          </>
+                          </li>
                         ))}
                       </ul>
                     </details>
@@ -176,9 +195,8 @@ export const ValidatorReport = ({ documentType }: Props) => {
                         <b>{group.isValidated ? 'PASS: ' : null}</b>
                         {check.message}
                         <div>
-                          <a
-                            href="#"
-                            className="text-primary text-underline"
+                          <button
+                            className="usa-button usa-button--unstyled margin-right-1"
                             onClick={() =>
                               dispatch(
                                 assertionDocumentation.show({
@@ -189,6 +207,15 @@ export const ValidatorReport = ({ documentType }: Props) => {
                             }
                           >
                             View Examples
+                          </button>
+                          <span className="margin-right-1">|</span>
+                          <a
+                            href={check.referenceUrl}
+                            className="text-primary text-underline"
+                            target="_blank"
+                            rel="noopener"
+                          >
+                            View Schematron
                           </a>
                         </div>
                       </div>

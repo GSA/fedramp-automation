@@ -1,5 +1,6 @@
 import { it, describe, expect } from 'vitest';
 
+import { SchematronAssert } from '@asap/shared/domain/schematron';
 import type { BaseState, PassStatus } from '../state/schematron-machine';
 import * as helpers from './helpers';
 
@@ -11,7 +12,6 @@ describe('presenter schematron library', () => {
           assertionViews: [
             {
               title: 'Assertion view title',
-              isValidated: false,
               groups: [
                 {
                   title: 'Assertion group title',
@@ -26,19 +26,16 @@ describe('presenter schematron library', () => {
               id: 'unique-1',
               message: 'Assertion message',
               role: 'error',
-              isValidated: true,
             },
             {
               id: 'unique-2',
               message: 'Assertion message',
               role: 'error',
-              isValidated: true,
             },
             {
               id: 'unique-3',
               message: 'Assertion message',
               role: 'error',
-              isValidated: true,
             },
           ],
         },
@@ -138,7 +135,6 @@ describe('presenter schematron library', () => {
                 id: 'unique-1',
                 message: 'Assertion message',
                 role: 'error',
-                isValidated: true,
               },
               {
                 fired: [],
@@ -149,14 +145,13 @@ describe('presenter schematron library', () => {
                 id: 'unique-2',
                 message: 'Assertion message',
                 role: 'error',
-                isValidated: true,
               },
             ],
             summary: '0 / 2 flagged',
             summaryColor: 'green',
           },
-          title: 'Assertion group title',
           isValidated: true,
+          title: 'Assertion group title',
         },
       ]);
     });
@@ -181,7 +176,7 @@ describe('presenter schematron library', () => {
           id: 'incorrect-role-association',
           message: 'incorrect role assertion message',
           role: 'error',
-          isValidated: true,
+          referenceUrl: '#TODO',
         },
       ]);
     });
@@ -203,7 +198,7 @@ describe('presenter schematron library', () => {
           id: 'incorrect-role-association',
           message: 'incorrect role assertion message',
           role: 'error',
-          isValidated: true,
+          referenceUrl: '#TODO',
         },
       ]);
     });
@@ -240,24 +235,24 @@ describe('presenter schematron library', () => {
   });
 });
 
-const MOCK_SCHEMATRON_ASSERTIONS = [
+const MOCK_SCHEMATRON_ASSERTIONS: SchematronAssert[] = [
   {
     id: 'incorrect-role-association',
     message: 'incorrect role assertion message',
     role: 'error',
-    isValidated: true,
+    referenceUrl: '#TODO',
   },
   {
     id: 'incomplete-core-implemented-requirements',
     message: 'incomplete core implemented requirements assertion message',
     role: 'info',
-    isValidated: true,
+    referenceUrl: '#TODO',
   },
   {
     id: 'untriggered-requirement',
     message: 'untriggered requirement assertion message',
     role: 'warn',
-    isValidated: true,
+    referenceUrl: '#TODO',
   },
 ];
 

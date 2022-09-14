@@ -1,5 +1,6 @@
 import classnames from 'classnames';
 import closeSvg from 'uswds/img/usa-icons/close.svg';
+import logo from '../images/logo.svg';
 
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 import { useAppContext } from '../context';
@@ -10,13 +11,23 @@ export const Header = () => {
   return (
     <header className="usa-header usa-header--basic usa-header--megamenu">
       <div className="usa-nav-container">
-        <div className="usa-navbar">
-          <div className="usa-logo" id="basic-mega-logo">
-            <em className="usa-logo__text">
-              <a href={getUrl(Routes.home)} title="Home" aria-label="Home">
-                FedRAMP ASAP
-              </a>
-            </em>
+        <div className="usa-navbar width-auto">
+          <div className="usa-logo margin-0" id="basic-mega-logo">
+            <a
+              className="display-flex flex-align-center"
+              href={getUrl(Routes.home)}
+              title="Home"
+              aria-label="Home"
+            >
+              <img
+                src={logo}
+                alt="FedRamp logo"
+                className="width-4 tablet:width-5 desktop:width-9"
+              />
+              <em className="usa-logo__text margin-left-2">
+                Automated Security Authorization Processing
+              </em>
+            </a>
           </div>
           <button className="usa-menu-btn">Menu</button>
         </div>

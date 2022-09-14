@@ -1,8 +1,8 @@
+import type { GetSchematronAssertions } from '@asap/shared/domain/schematron';
 import type { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
-import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/assertion-documentation';
 import type { GetAssertionViews } from '@asap/shared/use-cases/assertion-views';
 import type { OscalService } from '@asap/shared/use-cases/oscal';
-import type { GetSchematronAssertions } from '@asap/shared/use-cases/schematron';
+import type { GetXSpecScenarioSummaries } from '@asap/shared/use-cases/xspec-summary';
 
 import type { Location } from './state/router';
 import { State, StateTransition, initialState } from './state';

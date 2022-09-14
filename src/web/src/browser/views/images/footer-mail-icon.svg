@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27" height="20" viewBox="0 0 27 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="27" height="20" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="mail" clip-path="url(#clip-path)">
+    <path id="mail-2" data-name="mail" d="M0,0V20H27V0ZM13.5,13.333l-10.125-10h20.25Z" fill="#d9f1fd" fill-rule="evenodd"/>
+  </g>
+</svg>

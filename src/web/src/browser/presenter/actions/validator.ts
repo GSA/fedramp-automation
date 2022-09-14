@@ -1,5 +1,5 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import type { ValidationReport } from '@asap/shared/use-cases/schematron';
+import type { ValidationReport } from '@asap/shared/domain/schematron';
 import { setCurrentRoute } from '.';
 
 import type { ActionContext } from '..';
@@ -25,9 +25,10 @@ export const validateOscalDocument =
     if (config.getState().validator.current === 'PROCESSING') {
       config.effects.useCases.oscalService
         .validateXmlOrJson(options.fileContents)
-        .then(({ documentType, validationReport, xmlString }) => {
+        .then(({ documentType, svrlString, validationReport, xmlString }) => {
           setValidationReport({
             documentType,
+            svrlString,
             validationReport,
             xmlString,
           })(config);
@@ -47,9 +48,10 @@ export const setXmlUrl =
     if (config.getState().validator.current === 'PROCESSING') {
       config.effects.useCases.oscalService
         .validateXmlOrJsonByUrl(xmlFileUrl)
-        .then(({ documentType, validationReport, xmlString }) => {
+        .then(({ documentType, svrlString, validationReport, xmlString }) => {
           setValidationReport({
             documentType,
+            svrlString,
             validationReport,
             xmlString,
           })(config);
@@ -73,10 +75,12 @@ export const setProcessingError =
 export const setValidationReport =
   ({
     documentType,
+    svrlString,
     validationReport,
     xmlString,
   }: {
     documentType: OscalDocumentKey;
+    svrlString: string;
     validationReport: ValidationReport;
     xmlString: string;
   }) =>
@@ -103,6 +107,7 @@ export const setValidationReport =
           type: 'SET_RESULTS',
           data: {
             annotatedXML,
+            svrlString,
             validationReport,
           },
         });
@@ -141,3 +146,25 @@ export const clearAssertionContext = (
   machine: `validationResults.${documentType}`,
   type: 'CLEAR_ASSERTION_CONTEXT',
 });
+
+export const downloadSVRL =
+  (documentType: OscalDocumentKey) => (config: ActionContext) => {
+    const state = config.getState();
+    const validationResults = state.validationResults[documentType];
+    if (validationResults.current === 'HAS_RESULT') {
+      var element = document.createElement('a');
+      element.setAttribute(
+        'href',
+        'data:text/xml;charset=utf-8,' +
+          encodeURIComponent(validationResults.svrlString),
+      );
+      element.setAttribute(
+        'download',
+        `${validationResults.summary.title}.svrl.xml`,
+      );
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+  };

@@ -20,3 +20,14 @@ export const base64DataUriForJson = (jsonString: string) => {
     reader.readAsDataURL(blob);
   });
 };
+
+// Returns a string of the form "00:00:00"
+export const formatElapsedTime = (milliseconds: number) => {
+  return new Date(milliseconds).toLocaleTimeString('en-GB', {
+    timeZone: 'Etc/UTC',
+    hour12: false,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+};

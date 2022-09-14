@@ -6,6 +6,7 @@ summary {
 
 .usa-icon-list__content ul li {
   list-style-type: none !important;
+  cursor: pointer;
 }
 
 details > summary {
@@ -16,9 +17,9 @@ details > summary {
 }
 
 details > summary .learn-more::after {
-  content: '\22C1';
+  content: ' \22C1';
 }
 
 details[open] > summary .learn-more::after {
-  content: '\22C0';
+  content: ' \22C0';
 }

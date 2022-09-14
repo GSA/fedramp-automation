@@ -111,6 +111,13 @@ export const ValidatorFileSelectForm = () => {
             </svg>
           )}
         </div>
+        {state.validator.current === 'PROCESSING' && (
+          <div className="z-top usa-hint loader-message">
+            <div className="loader-message-text">
+              Please wait, this document is still processing...
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

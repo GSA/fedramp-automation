@@ -10,6 +10,7 @@ describe('github', () => {
           owner: 'owner',
           branch: 'master',
           repository: 'my-repository',
+          commit: 'master',
         }),
       ).toEqual('https://github.com/owner/my-repository');
     });
@@ -19,6 +20,7 @@ describe('github', () => {
           owner: 'owner',
           branch: 'branch-name',
           repository: 'my-repository',
+          commit: 'master',
         }),
       ).toEqual('https://github.com/owner/my-repository/tree/branch-name');
     });
@@ -31,6 +33,7 @@ describe('github', () => {
             owner: '18F',
             branch: 'master',
             repository: 'fedramp-automation',
+            commit: 'master',
           },
           'src/validations/test/demo/FedRAMP-SSP-OSCAL-Template.xml',
         ),
@@ -46,9 +49,43 @@ describe('github', () => {
           owner: '18F',
           branch: 'my-branch',
           repository: 'fedramp-automation',
+          commit: 'master',
         }),
       ).toEqual(
         'https://github.com/18F/fedramp-automation/tree/my-branch/src/examples',
+      );
+    });
+  });
+  describe('getBlobFileUrl', () => {
+    it('returns correct URL with line numbers', () => {
+      expect(
+        github.getBlobFileUrl(
+          {
+            owner: '18F',
+            branch: 'master',
+            repository: 'fedramp-automation',
+            commit: 'master',
+          },
+          '/src/validations/rules/ssp.sch',
+          { start: 545, end: 551 },
+        ),
+      ).toEqual(
+        'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/ssp.sch#L545-L551',
+      );
+    });
+    it('returns correct URL without line numbers', () => {
+      expect(
+        github.getBlobFileUrl(
+          {
+            owner: '18F',
+            branch: 'master',
+            repository: 'fedramp-automation',
+            commit: 'master',
+          },
+          '/src/validations/rules/ssp.sch',
+        ),
+      ).toEqual(
+        'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/ssp.sch',
       );
     });
   });

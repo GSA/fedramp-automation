@@ -1,7 +1,7 @@
 import type {
   FailedAssert,
   ValidationReport,
-} from '@asap/shared/use-cases/schematron';
+} from '@asap/shared/domain/schematron';
 
 type BaseState = {
   summary: {
@@ -14,6 +14,7 @@ type ResultState = BaseState & {
   annotatedXML: string;
   assertionsById: Record<FailedAssert['id'], FailedAssert[]> | null;
   failedAssertionCounts: Record<FailedAssert['id'], number> | null;
+  svrlString: string;
   validationReport: ValidationReport;
 };
 
@@ -38,6 +39,7 @@ export type StateTransition =
       type: 'SET_RESULTS';
       data: {
         annotatedXML: string;
+        svrlString: string;
         validationReport: ValidationReport;
       };
     }
@@ -87,6 +89,7 @@ export const nextState = (state: State, event: StateTransition): State => {
             return acc;
           }, {});
         })(),
+        svrlString: event.data.svrlString,
         summary: {
           firedCount: event.data.validationReport.failedAsserts.length,
           title: event.data.validationReport.title,
@@ -104,6 +107,7 @@ export const nextState = (state: State, event: StateTransition): State => {
         assertionId: event.data.assertionId,
         annotatedXML: state.annotatedXML,
         failedAssertionCounts: state.failedAssertionCounts,
+        svrlString: state.svrlString,
         summary: state.summary,
         validationReport: {
           ...state.validationReport,
@@ -118,6 +122,7 @@ export const nextState = (state: State, event: StateTransition): State => {
         annotatedXML: state.annotatedXML,
         failedAssertionCounts: state.failedAssertionCounts,
         summary: state.summary,
+        svrlString: state.svrlString,
         validationReport: {
           ...state.validationReport,
         },
