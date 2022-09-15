@@ -9,7 +9,8 @@
     xmlns:map="http://www.w3.org/2005/xpath-functions/map"
     xmlns:oscal="http://csrc.nist.gov/ns/oscal/1.0"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-    xmlns:unit="http://us.gov/testing/unit-testing">
+    xmlns:unit="http://us.gov/testing/unit-testing"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
     <sch:ns
         prefix="f"
@@ -34,23 +35,29 @@
         href="../test/rules/sar.xspec" />
 
     <sch:title>FedRAMP Security Assessment Results Validations</sch:title>
-
+    <xsl:param
+        as="xs:string"
+        name="registry-base-path"
+        select="'../../content/resources/xml'" />
+    <sch:let
+        name="fedramp-values"
+        value="doc(concat($registry-base-path, '/fedramp_values.xml'))" />
     <sch:pattern
         id="import-ap">
 
         <!--
             NB:
-            Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5 asserts
+            Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5 asserts
             "The SAR must import an OSCAL-based SAP, even if no OSCAL-based SSP exists."
             This means there is no accommodation for a non-OSCAL SAP.
         -->
 
         <sch:rule
             context="oscal:assessment-results">
-
+            
             <sch:assert
                 diagnostics="has-import-ap-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5"
                 id="has-import-ap"
                 role="error"
                 test="oscal:import-ap">An OSCAL SAR must have an import-ap element.</sch:assert>
@@ -62,14 +69,14 @@
 
             <sch:assert
                 diagnostics="has-import-ap-href-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5"
                 id="has-import-ap-href"
                 role="error"
                 test="exists(@href)">An OSCAL SAR import-ap element must have an href attribute.</sch:assert>
 
             <sch:assert
                 diagnostics="has-import-ap-internal-href-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5"
                 id="has-import-ap-internal-href"
                 role="error"
                 test="
@@ -89,7 +96,7 @@
 
             <sch:assert
                 diagnostics="has-import-ap-external-href-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5"
                 id="has-import-ap-external-href"
                 role="error"
                 test="
@@ -109,11 +116,11 @@
             context="oscal:back-matter">
 
             <!-- TODO: fedramp_values does has no entry for an assessment plan resource -->
-            <!-- TODO: Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5 uses the type "sap" -->
+            <!-- TODO: Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5 uses the type "sap" -->
 
             <sch:assert
                 diagnostics="has-security-assessment-plan-resource-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5"
                 id="has-security-assessment-plan-resource"
                 role="error"
                 test="
@@ -173,7 +180,7 @@
 
             <sch:assert
                 diagnostics="has-sap-rlink-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5"
                 id="has-sap-rlink"
                 role="error"
                 test="exists(oscal:rlink) and not(exists(oscal:rlink[2]))">An OSCAL SAR with a SAP resource declaration must have one and only one
@@ -186,7 +193,7 @@
 
             <sch:assert
                 diagnostics="has-acceptable-security-assessment-plan-rlink-media-type-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5"
                 id="has-acceptable-security-assessment-plan-rlink-media-type"
                 role="error"
                 test="@media-type = ('text/xml', 'application/json')">An OSCAL SAR SAP rlink must have a 'text/xml' or 'application/json'
@@ -197,7 +204,7 @@
         </sch:rule>
 
         <!-- TODO:
-            Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5 allows base64
+            Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5 allows base64
             but it also uses href on base64 so may be bogus.
             Commented out base64 restriction until verified.
         -->
@@ -207,7 +214,7 @@
 
             <sch:assert
                 diagnostics="has-no-base64-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5"
                 id="has-no-base64"
                 role="error"
                 test="false()">An OSCAL SAR must not use a base64 element in a security-assessment-plan resource.</sch:assert>
@@ -218,26 +225,6 @@
     
     <sch:pattern
         id="results">
-        <sch:let
-            name="ssp-import-url"
-            value="resolve-uri($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
-        <sch:let
-            name="ssp-available"
-            value="
-                if (: this is not a relative reference :) (not(starts-with($ssp-import-url, '#')))
-                then
-                    (: the referenced document must be available :)
-                    doc-available($ssp-import-url)
-                else
-                    true()" />
-        <sch:let
-            name="ssp-doc"
-            value="
-                if ($ssp-available)
-                then
-                    doc($ssp-import-url)
-                else
-                    ()" />     
         <sch:let
             name="sap-import-url"
             value="resolve-uri(/oscal:assessment-results/oscal:import-ap/@href, base-uri())" />
@@ -257,7 +244,48 @@
                 then
                     doc($sap-import-url)
                 else
-                    ()" />  
+                    ()" />
+        <sch:let
+            name="ssp-import-url"
+            value="resolve-uri($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
+        <sch:let
+            name="ssp-available"
+            value="
+                if (: this is not a relative reference :) (not(starts-with($ssp-import-url, '#')))
+                then
+                    (: the referenced document must be available :)
+                    doc-available($ssp-import-url)
+                else
+                    true()" />
+        <sch:let
+            name="ssp-doc"
+            value="
+                if ($ssp-available)
+                then
+                    doc($ssp-import-url)
+                else
+                    ()" />
+        <sch:let
+            name="profile-import-url"
+            value="resolve-uri($ssp-doc//oscal:import-profile/@href, base-uri())" />
+        <sch:let
+            name="profile-available"
+            value="
+                if (: this is not a relative reference :) (not(starts-with($profile-import-url, '#')))
+                then
+                    (: the referenced document must be available :)
+                    doc-available($profile-import-url)
+                else
+                    true()" />
+        <sch:let
+            name="profile-doc"
+            value="
+                if ($profile-available)
+                then
+                    doc($profile-import-url)
+                else
+                    ()" /> 
+        
         <sch:let
             name="ssp-parties"
             value="$ssp-doc/oscal:system-security-plan/oscal:metadata/oscal:party/@uuid" />
@@ -293,34 +321,24 @@
                 name="SAR-parties"
                 value="/oscal:assessment-results/oscal:metadata/oscal:party/@uuid" />
             <sch:assert
+                diagnostics="has-matching-SAP-party-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.3"
+                id="has-matching-SAP-party"
+                role="error"
+                test="
+                    if (../../oscal:target[@type = 'objective-id'])
+                    then
+                    (@actor-uuid[. = $SAP-parties]) or (@actor-uuid[. = $SAR-parties])
+                    else
+                        true()"
+                unit:override-xspec="both">A finding must have an actor who is described in a SAP or SAR party assembly.</sch:assert>
+            <sch:assert
                 diagnostics="has-matching-historic-party-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.4.5"
                 id="has-matching-historic-party"
                 role="error"
                 test="
-                    if (../../oscal:type = 'historic')
-                    then
-                        if (@actor-uuid[. = $SAP-parties])
-                        then
-                            true()
-                        else
-                            if (@actor-uuid[. = $SAR-parties])
-                            then
-                                true()
-                            else
-                                false()
-                    else
-                        true()"
-                unit:override-xspec="both">A historic observation must have an actor that is described in either the SAP or the SAR party
-                assemblies.</sch:assert>
-                <sch:assert 
-diagnostics="has-matching-SAP-party-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.3"
-                fedramp:specific="true"
-                id="has-matching-SAP-party"
-                role="error"
-                test="
-                if (@type = 'party')
+                if (../../oscal:type = 'historic')
                 then
                 if (@actor-uuid[. = $SAP-parties])
                 then
@@ -333,8 +351,8 @@ diagnostics="has-matching-SAP-party-diagnostic"
                 false()
                 else
                 true()"
-                unit:override-xspec="both">A <sch:value-of
-                    select="../../local-name()" /> must have an actor who is described in a SAP or SAR party assembly.</sch:assert>
+                unit:override-xspec="both">A historic observation must have an actor that is described in either the SAP or the SAR party
+                assemblies.</sch:assert>
             <sch:let
                 name="actorTypes"
                 value="'tool', 'party', 'assessment-platform'" />
@@ -346,6 +364,77 @@ diagnostics="has-matching-SAP-party-diagnostic"
                 role="error"
                 test="@type[. = $actorTypes]">The actor @type must have one of the following as string content: 'tool', 'party', or
                 'assessment-platform'.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:target">
+            <sch:let
+                name="implementation-status"
+                value="$fedramp-values/f:fedramp-values/f:value-set[@name = 'control-implementation-status']/f:allowed-values/f:enum/@value" />
+
+            <sch:assert
+                diagnostics="has-implementation-status-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.3"
+                fedramp:specific="true"
+                id="has-implementation-status"
+                role="error"
+                test="
+                    if (current()[@type = 'objective-id'])
+                    then
+                        oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'implementation-status']
+                    else
+                        true()">A target of objective-id type must have a property of 'implementation-status'.</sch:assert>
+
+            <sch:assert
+                diagnostics="implementation-status-value-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.3"
+                fedramp:specific="true"
+                id="implementation-status-value"
+                role="error"
+                test="
+                    if (current()[@type = 'objective-id']/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'implementation-status'])
+                    then
+                        oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'implementation-status']/@value[. = $implementation-status]
+                    else
+                        true()"
+                unit:override-xspec="both">The target's implementation-status property must be properly identified.</sch:assert>
+
+            <sch:let
+                name="satisfaction-status"
+                value="'satisfied', 'other-than-satisfied'" />
+            <sch:assert
+                diagnostics="has-satisfaction-status-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.3"
+                fedramp:specific="true"
+                id="has-satisfaction-status"
+                role="error"
+                test="
+                    if (current()[@type = 'objective-id'])
+                    then
+                        oscal:status
+                    else
+                        true()">A target of objective-id type must have a status.</sch:assert>
+
+            <sch:assert
+                diagnostics="satisfaction-status-value-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.3"
+                fedramp:specific="true"
+                id="satisfaction-status-value"
+                role="error"
+                test="
+                    if (current()[@type = 'objective-id']/oscal:status)
+                    then
+                        oscal:status/@state[. = $satisfaction-status]
+                    else
+                        true()">The target's status element must be properly identified.</sch:assert>
+            
+            <sch:assert
+                diagnostics="no-duplicate-target-id-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.3"
+                fedramp:specific="true"
+                id="no-duplicate-target-id"
+                role="error"
+                test="count(ancestor::oscal:result//oscal:target/@target-id[. eq current()/@target-id]) eq 1">Every finding target must be
+                unique within a result.</sch:assert>
         </sch:rule>
         
         <sch:rule
@@ -563,8 +652,92 @@ diagnostics="has-matching-SAP-party-diagnostic"
                         true()"
                 unit:override-xspec="both">The finding that has a related-observation/observation-uuid that matches an observation/@uuid, must also
                 have a implementation-statement-uuid value that matches a statement/@uuid in the associated SSP.</sch:assert>
+            
+            <sch:assert
+                diagnostics="has-false-positive-observation-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.1"
+                id="has-false-positive-observation"
+                role="error"
+                test="
+                if (oscal:type = 'false-positive')
+                then
+                if (@uuid[. = $related-observations])
+                then
+                true()
+                else
+                false()
+                else
+                true()">An observation with a type of 'false-positive' must have a @uuid that matches a
+                finding/related-observation/@observation-uuid.</sch:assert>
+            <sch:assert
+                diagnostics="has-pen-test-finding-resource-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.8"
+                fedramp:specific="true"
+                id="has-pen-test-finding-resource"
+                role="error"
+                test="
+                if (oscal:type = 'finding' and oscal:method = 'TEST')
+                then
+                if (oscal:relevant-evidence[substring-after(@href, '#') = /oscal:assessment-results/oscal:back-matter/oscal:resource[
+                oscal:prop[@value = 'penetration-test-report']]/@uuid])
+                then
+                true()
+                else
+                false()
+                else
+                true()">An observation must have a relevant-evidence href that matches the penetration-test-report back-matter
+                resource @uuid value.</sch:assert>
+            
+            <sch:let
+                name="pen-test-team"
+                value="/oscal:assessment-results/oscal:metadata/oscal:responsible-party[@role-id = 'penetration-test-lead']/oscal:party-uuid | /oscal:assessment-results/oscal:metadata/oscal:responsible-party[@role-id = 'penetration-test-team']/oscal:party-uuid" />
+            <sch:assert
+                diagnostics="has-pen-test-team-match-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.8"
+                fedramp:specific="true"
+                id="has-pen-test-team-match"
+                role="error"
+                test="
+                if (oscal:type = 'finding' and oscal:method = 'TEST' and not(oscal:subject/@type = 'component') and oscal:relevant-evidence[substring-after(@href, '#') = /oscal:assessment-results/oscal:back-matter/oscal:resource[
+                oscal:prop[@value = 'penetration-test-report']]/@uuid])
+                then
+                if (oscal:origin/oscal:actor[@type = 'party']/@actor-uuid[. = $pen-test-team])
+                then
+                true()
+                else
+                false()
+                else
+                true()">A penetration test observation must have actors that are described in the responsible-party assemblies for
+                'penetration-test-lead' or 'penetration-test-team'.</sch:assert>
         </sch:rule>
 
+        <sch:rule
+            context="oscal:related-observation">
+            <sch:let
+                name="false-positive-observations"
+                value="/oscal:assessment-results/oscal:result/oscal:observation[oscal:type = 'false-positive']/@uuid" />
+            <sch:let
+                name="false-positive-risks"
+                value="/oscal:assessment-results/oscal:result/oscal:risk/@uuid" />
+            
+            <sch:assert
+                diagnostics="has-false-positive-related-related-observation-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.1"
+                id="has-false-positive-related-related-observation"
+                role="error"
+                test="
+                if (@observation-uuid[. = $false-positive-observations])
+                then
+                if (../oscal:associated-risk/@risk-uuid[. = $false-positive-risks])
+                then
+                true()
+                else
+                false()
+                else
+                true()">A related-observation that has an @observation-uuid that matches an observation/@uuid with a type of
+                'false-positive' must have an associated-risk/@risk-uuid that matches a risk/@uuid.</sch:assert>
+        </sch:rule>
+        
         <sch:let
             name="ssp-statement-uuids"
             value="$ssp-doc//oscal:statement/@uuid" />
@@ -738,109 +911,6 @@ diagnostics="has-matching-SAP-party-diagnostic"
                 'high'.</sch:assert>
         </sch:rule>
         <!-- It is not clear from the current SAR Guide where the Risk Exposure Level is recorded. -->
-    </sch:pattern>
-
-    <sch:pattern
-        id="results">
-        <sch:rule
-            context="oscal:observation">
-            <sch:assert
-                diagnostics="has-pen-test-finding-resource-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.8"
-                fedramp:specific="true"
-                id="has-pen-test-finding-resource"
-                role="error"
-                test="
-                    if (oscal:type = 'finding' and oscal:method = 'TEST')
-                    then
-                        if (oscal:relevant-evidence[substring-after(@href, '#') = /oscal:assessment-results/oscal:back-matter/oscal:resource[
-                        oscal:prop[@value = 'penetration-test-report']]/@uuid])
-                        then
-                            true()
-                        else
-                            false()
-                    else
-                        true()">An observation must have a relevant-evidence href that matches the penetration-test-report back-matter
-                resource @uuid value.</sch:assert>
-
-            <sch:let
-                name="pen-test-team"
-                value="/oscal:assessment-results/oscal:metadata/oscal:responsible-party[@role-id = 'penetration-test-lead']/oscal:party-uuid | /oscal:assessment-results/oscal:metadata/oscal:responsible-party[@role-id = 'penetration-test-team']/oscal:party-uuid" />
-            <sch:assert
-                diagnostics="has-pen-test-team-match-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.8"
-                fedramp:specific="true"
-                id="has-pen-test-team-match"
-                role="error"
-                test="
-                    if (oscal:type = 'finding' and oscal:method = 'TEST' and not(oscal:subject/@type = 'component') and oscal:relevant-evidence[substring-after(@href, '#') = /oscal:assessment-results/oscal:back-matter/oscal:resource[
-                    oscal:prop[@value = 'penetration-test-report']]/@uuid])
-                    then
-                        if (oscal:origin/oscal:actor[@type = 'party']/@actor-uuid[. = $pen-test-team])
-                        then
-                            true()
-                        else
-                            false()
-                    else
-                        true()">A penetration test observation must have actors that are described in the responsible-party assemblies for
-                'penetration-test-lead' or 'penetration-test-team'.</sch:assert>
-        </sch:rule>
-    </sch:pattern>
-
-    <sch:pattern
-        id="results">
-        <sch:rule
-            context="oscal:observation">
-            <sch:let
-                name="related-observations"
-                value="/oscal:assessment-results/oscal:result/oscal:finding/oscal:related-observation/@observation-uuid" />
-
-            <sch:assert
-                diagnostics="has-false-positive-observation-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.1"
-                id="has-false-positive-observation"
-                role="error"
-                test="
-                    if (oscal:type = 'false-positive')
-                    then
-                        if (@uuid[. = $related-observations])
-                        then
-                            true()
-                        else
-                            false()
-                    else
-                        true()">An observation with a type of 'false-positive' must have a @uuid that matches a
-                finding/related-observation/@observation-uuid.</sch:assert>
-        </sch:rule>
-
-        <sch:rule
-            context="oscal:related-observation">
-            <sch:let
-                name="false-positive-observations"
-                value="/oscal:assessment-results/oscal:result/oscal:observation[oscal:type = 'false-positive']/@uuid" />
-            <sch:let
-                name="false-positive-risks"
-                value="/oscal:assessment-results/oscal:result/oscal:risk/@uuid" />
-            
-            <sch:assert
-                diagnostics="has-false-positive-related-related-observation-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.10.1"
-                id="has-false-positive-related-related-observation"
-                role="error"
-                test="
-                    if (@observation-uuid[. = $false-positive-observations])
-                    then
-                        if (../oscal:associated-risk/@risk-uuid[. = $false-positive-risks])
-                        then
-                            true()
-                        else
-                            false()
-                    else
-                    true()">A related-observation that has an @observation-uuid that matches an observation/@uuid with a type of
-                'false-positive' must have an associated-risk/@risk-uuid that matches a risk/@uuid.</sch:assert>
-        </sch:rule>
-
-
     </sch:pattern>
 
     <sch:pattern
@@ -1069,8 +1139,37 @@ diagnostics="has-matching-SAP-party-diagnostic"
                 select="../oscal:finding[oscal:related-observation/@observation-uuid = current()/@uuid]/@uuid" />, that has a
             related-observation/observation-uuid that matches an observation/@uuid, also has a implementation-statement-uuid value that matches a
             statement/@uuid in the associated SSP.</sch:diagnostic>
+        
+        <!-- Results -->
+        <sch:diagnostic
+            doc:assert="no-duplicate-target-id"
+            doc:context="oscal:result"
+            id="no-duplicate-target-id-diagnostic">At least one objective target in the most recent result assembly is duplicated.</sch:diagnostic>
 
-        <!-- results -->
+        <sch:diagnostic
+            doc:assert="has-implementation-status"
+            doc:context="oscal:target"
+            id="has-implementation-status-diagnostic">The target, <sch:value-of
+                select="@target-id" />, does not have a property of 'implementation-status'.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="implementation-status-value"
+            doc:context="oscal:target"
+            id="implementation-status-value-diagnostic">The implementation-status of the target, <sch:value-of
+                select="@target-id" />, does not match acceptable FedRAMP values.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-satisfaction-status"
+            doc:context="oscal:target"
+            id="has-satisfaction-status-diagnostic">The target, <sch:value-of
+                select="@target-id" />, does not have a status child element.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="satisfaction-status-value"
+            doc:context="oscal:target"
+            id="satisfaction-status-value-diagnostic">The satisfaction status of the target, <sch:value-of
+                select="@target-id" />, does not match acceptable FedRAMP values.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="has-false-positive-observation"
             doc:context="oscal:observation"

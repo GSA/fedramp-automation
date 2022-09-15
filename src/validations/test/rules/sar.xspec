@@ -4,7 +4,12 @@
     run-as="external"
     schematron="../../rules/sar.sch"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">
-
+    <x:param
+        name="allow-foreign">true</x:param>
+    <x:param
+        name="only-child-elements">false</x:param>
+    <x:param
+        name="visit-text">true</x:param>
     <x:scenario
         label="In FedRAMP OSCAL SAR">
 
@@ -1585,6 +1590,221 @@
             </x:scenario>
         </x:scenario>
         
+        <x:scenario
+            label="results">
+            <x:scenario
+                label="when a result">
+                <x:scenario
+                    label="is the most recent result assembly">
+                    <x:scenario
+                        label="and the target objectives in the findings are distinct">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <start>2022-05-02T00:00:00Z</start>
+                                    <end>2022-05-06T00:00:00Z</end>
+                                    <finding>
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id" />
+                                    </finding>
+                                    <finding>
+                                        <target
+                                            target-id="ac-1.a.1_obj.2"
+                                            type="objective-id" />
+                                    </finding>
+                                </result>
+                                <result
+                                    uuid="d755e7fd-346d-40f0-b538-1b1da1aa5821">
+                                    <start>2018-03-01T00:00:00Z</start>
+                                    <end>2018-03-12T00:00:00Z</end>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="no-duplicate-target-id"
+                            label="that is correct" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and at least one of the target objectives in the findings are duplicated">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <start>2022-05-02T00:00:00Z</start>
+                                    <end>2022-05-06T00:00:00Z</end>
+                                    <finding>
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id" />
+                                    </finding>
+                                    <finding>
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id" />
+                                    </finding>
+                                </result>
+                                <result
+                                    uuid="d755e7fd-346d-40f0-b538-1b1da1aa5821">
+                                    <start>2018-03-01T00:00:00Z</start>
+                                    <end>2018-03-12T00:00:00Z</end>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-assert
+                            id="no-duplicate-target-id"
+                            label="that is incorrect" />
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="when a target">
+                <x:scenario
+                    label="has a type of 'objective-id'">
+                    <x:scenario
+                        label="and has a property of 'implementation-status">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id">
+                                            <prop
+                                                name="implementation-status"
+                                                ns="https://fedramp.gov/ns/oscal"
+                                                value="implemented" />
+                                        </target>
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="has-implementation-status"
+                            label="that is correct" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and does not have a property of 'implementation-status">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id" />
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-assert
+                            id="has-implementation-status"
+                            label="that is incorrect" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and has a status element">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id">
+                                            <status
+                                                state="other-than-satisfied" />
+                                        </target>
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="has-satisfaction-status"
+                            label="that is correct" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and does not have a status element">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id" />
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-assert
+                            id="has-satisfaction-status"
+                            label="that is incorrect" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and has a status element">
+                        <x:scenario
+                            label="with a correct @state value">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result
+                                        uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                        <finding
+                                            uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                            <target
+                                                target-id="ac-1.a.1_obj.1"
+                                                type="objective-id">
+                                                <status
+                                                    state="other-than-satisfied" />
+                                            </target>
+                                        </finding>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="satisfaction-status-value"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="with an incorrect @state value">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result
+                                        uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                        <finding
+                                            uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                            <target
+                                                target-id="ac-1.a.1_obj.1"
+                                                type="objective-id">
+                                                <status
+                                                    state="not-satisfied" />
+                                            </target>
+                                        </finding>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="satisfaction-status-value"
+                                label="that is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+
         <x:scenario
             label="age-checks">
 
