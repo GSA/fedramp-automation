@@ -50,6 +50,7 @@ export const runBrowserContext = ({
         treeUrl: github.getBranchTreeUrl(githubRepository),
         sampleDocuments: github.getSampleOscalDocuments(githubRepository),
         developerExampleUrl: github.getDeveloperExampleUrl(githubRepository),
+        newIssueUrl: github.getNewIssueUrl(githubRepository),
       },
     }),
     {

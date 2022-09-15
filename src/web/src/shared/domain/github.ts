@@ -67,3 +67,7 @@ export const getDeveloperExampleUrl = (github: GithubRepository) => {
   const branchTree = getBranchTreeUrl(github, false);
   return `${branchTree}/src/examples`;
 };
+
+export const getNewIssueUrl = (github: GithubRepository) => {
+  return `https://github.com/${github.owner}/${github.repository}/issues/new/choose`;
+};

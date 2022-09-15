@@ -147,10 +147,10 @@ const HeroSection = () => {
                   </a>
                 </p>
                 <a
-                  className="usa-button usa-button--big margin-top-2"
+                  className="usa-button usa-button--big margin-top-2 bg-theme-deep-blue radius-pill padding-x-6"
                   href={getUrl(Routes.documentSummary)}
                 >
-                  Try it now
+                  Try It Now
                 </a>
               </div>
               <div className="tablet:grid-col-6 padding-left-2">
@@ -203,44 +203,48 @@ const HeroSection = () => {
   );
 };
 
-const WhySection = () => (
-  <section className="padding-y-10">
-    <div className="grid-container">
-      <div className="grid-row grid-gap">
-        <div className="desktop:grid-col-6">
-          <img
-            src={whyIllustration}
-            alt="pillars with folders, cart, zoom window, and envelope"
-          />
-        </div>
-        <div className="desktop:grid-col-6">
-          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-y-0">
-            Why should I care?
-          </h2>
-          <p>
-            FedRAMP audit approvals are expensive for both FedRAMP and CSPs
-            (Cloud Service Providers). The ASAP validation tool helps CSPs craft
-            correct System Security Plans, and helps the FedRAMP Audit Review
-            Team evaluate them efficiently.
-          </p>
-          <h2 className="text-theme-dark-blue font-sans-xl text-light margin-y-0">
-            Contact us
-          </h2>
-          <p>
-            Please give us your feedback via a{' '}
+const WhySection = () => {
+  const { newIssueUrl } = useAppContext().state.config.sourceRepository;
+  return (
+    <section className="padding-y-10">
+      <div className="grid-container">
+        <div className="grid-row grid-gap">
+          <div className="desktop:grid-col-6">
+            <img
+              src={whyIllustration}
+              alt="pillars with folders, cart, zoom window, and envelope"
+            />
+          </div>
+          <div className="desktop:grid-col-6">
+            <h2 className="text-theme-dark-blue font-sans-xl text-light margin-y-0">
+              Why should I care?
+            </h2>
+            <p>
+              FedRAMP audit approvals are expensive for both FedRAMP and CSPs
+              (Cloud Service Providers). The ASAP validation tool helps CSPs
+              craft correct System Security Plans, and helps the FedRAMP Audit
+              Review Team evaluate them efficiently.
+            </p>
+            <h2 className="text-theme-dark-blue font-sans-xl text-light margin-y-0">
+              Contact us
+            </h2>
+            <p>
+              Your feedback is important to us. Please send us any problems or
+              feature requests to our team to help make ASAP better for
+              everyone.
+            </p>
             <a
-              className="text-underline text-primary"
-              href="https://github.com/GSA/fedramp-automation/issues"
+              className="usa-button radius-pill bg-theme-deep-blue margin-top-1 text-uppercase"
+              href={newIssueUrl}
             >
-              Github issue
+              Provide Feedback
             </a>
-            .
-          </p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 export const HomePage = () => (
   <div className="usa-prose">
     <HeroSection />
