@@ -38,10 +38,6 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Install Docker on macOS
-        uses: docker-practice/actions-setup-docker@1.0.11
-        if: runner.os == 'macOS'
-
       # Initialize the workspace with submodules and dependencies.
       - name: Initialize workspace
         shell: bash
@@ -54,12 +50,18 @@ jobs:
 
       - name: Run complete test suite
         shell: bash
-        if: runner.os == 'Linux' || runner.os == 'macOS'
+        if: runner.os == 'Linux'
         run: |
           make test
 
       - name: Run limited test suite
         shell: bash
-        if: runner.os == 'Windows'
+        if: runner.os == 'Windows' || runner.os == 'macOS'
         run: |
           make test-validations test-web
+
+      - name: Build all
+        shell: bash
+        if: runner.os == 'Windows' || runner.os == 'macOS'
+        run: |
+          make build
