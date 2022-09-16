@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [macos-latest, ubuntu-latest, windows-latest]
 
     # Checkout repository and its submodules
     steps:
@@ -33,6 +33,15 @@ jobs:
         with:
           node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
 
+      - name: Install required Python version
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install Docker on macOS
+        uses: docker-practice/actions-setup-docker@1.0.11
+        if: runner.os == 'macOS'
+
       # Initialize the workspace with submodules and dependencies.
       - name: Initialize workspace
         shell: bash
@@ -45,7 +54,7 @@ jobs:
 
       - name: Run complete test suite
         shell: bash
-        if: runner.os == 'Linux'
+        if: runner.os == 'Linux' || runner.os == 'macOS'
         run: |
           make test
 
