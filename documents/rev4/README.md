@@ -16,7 +16,7 @@ This includes the following content:
 
 **NOTE: The FedRAMP OSCAL Registry is now a machine-readable file using the DRAFT NIST OSCAL Extensions Model**
 - [xml](../../dist/content/resources/xml/FedRAMP_extensions.xml)
-- [json](../../dist/content/resources/json/FedRAMP_extensions.jsonFedRAMP_extensions.json)
+- [json](../../dist/content/resources/json/FedRAMP_extensions.json)
 - [html](../FedRAMP_extensions.html)
 - [pdf](FedRAMP_Extensions.pdf)
 
