@@ -914,6 +914,65 @@
     </sch:pattern>
 
     <sch:pattern
+        id="automated-tools">
+        <sch:rule
+            context="oscal:observation[oscal:origin/oscal:actor/@type = 'tool']">
+            <sch:assert
+                diagnostics="has-method-TEST-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.7"
+                id="has-method-TEST"
+                role="error"
+                test="oscal:type = 'finding' and oscal:method = 'TEST'">An observation of actor type 'tool' must have a type of 'finding' and a method
+                of 'TEST'.</sch:assert>
+
+            <sch:let
+                name="assessment-assets-components"
+                value="../oscal:local-definitions/oscal:assessment-assets/oscal:component/@uuid" />
+            <sch:assert
+                diagnostics="has-matching-assessment-asset-component-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.7"
+                id="has-matching-assessment-asset-component"
+                role="error"
+                test="@uuid[. = $assessment-assets-components]">An observation with an actor of type 'tool' must have a matching
+                assessment-assets/component.</sch:assert>
+
+            <sch:let
+                name="relatedObservationUUIDs"
+                value="../oscal:finding/oscal:related-observation/@observation-uuid" />
+            <sch:assert
+                diagnostics="has-related-observation-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.7"
+                id="has-related-observation"
+                role="error"
+                test="@uuid[. = $relatedObservationUUIDs]">The observation UUID must be cited by (at least) one of the parent result's finding related
+                observations.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-relevant-evidence-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.7"
+                id="has-relevant-evidence"
+                role="error"
+                test="
+                    (: there is a raw-tool-output resource with the UUID referenced by the context item's relevant-evidence :)
+                    //oscal:resource[oscal:prop[@name eq 'type' and @value eq 'raw-tool-output'] and @uuid eq current()/oscal:relevant-evidence[substring-after(@href, '#')]]">This
+                observation has a relevant-evidence href that references a raw-tool-output back-matter resource.</sch:assert>
+        </sch:rule>
+        <sch:rule
+            context="oscal:observation[oscal:origin/oscal:actor/@type = 'tool']/oscal:subject">
+            <sch:let
+                name="local-definition-subjects"
+                value="../../oscal:local-definitions/oscal:component/@uuid | ../../oscal:local-definitions/oscal:inventory-item/@uuid" />            
+            <sch:assert
+                diagnostics="observation-subject-is-locally-defined-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.7"
+                id="observation-subject-is-locally-defined"
+                role="error"
+                test="@subject-uuid[. = $local-definition-subjects]">Each subject of an automated tool must correspond to one of the locally defined
+                components or inventory-items.</sch:assert>
+        </sch:rule>
+    </sch:pattern>
+    
+    <sch:pattern
         id="sar-age-checks">
 
         <!-- Note that there are no Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) references -->
@@ -1232,8 +1291,8 @@
             id="has-matching-SAP-tasks-diagnostic">A related-task element's uuid attribute in <sch:value-of
                 select="../../local-name()" />
             <sch:value-of
-                select="../../@uuid" />, does not match any task @uuid value in the associated SAP.</sch:diagnostic>
-
+                select="../../@uuid" />, does not match any task @uuid value in the associated SAP.</sch:diagnostic>        
+        
         <sch:diagnostic
             doc:assert="has-pen-test-finding-resource"
             doc:context="oscal:observation"
@@ -1246,6 +1305,38 @@
             id="has-pen-test-team-match-diagnostic">A penetration test observation, <sch:value-of
                 select="@uuid" /> has actors that are not described in the responsible-party assemblies for 'penetration-test-lead' or
             'penetration-test-team'.</sch:diagnostic>
+
+        <!-- automated-tools -->
+        <sch:diagnostic
+            doc:assert="has-related-observation"
+            doc:context="oscal:observation"
+            id="has-related-observation-diagnostic">An observation, <sch:value-of
+                select="@uuid" />, is not cited by (at least) one of the parent result's finding related observations.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-method-TEST"
+            doc:context="oscal:observation"
+            id="has-method-TEST-diagnostic">The finding observation, <sch:value-of
+                select="@uuid" />, of actor type 'tool' does not have a type of 'finding' and a method of 'TEST'.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-matching-assessment-asset-component"
+            doc:context="oscal:observation"
+            id="has-matching-assessment-asset-component-diagnostic">An observation with an actor of type 'tool' does not have a matching
+            assessment-assets/component.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="observation-subject-is-locally-defined"
+            doc:context="oscal:subject"
+            id="observation-subject-is-locally-defined-diagnostic">The subject, <sch:value-of
+                select="@subject-uuid" />, does not correspond to one of the locally defined components or inventory-items.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="has-relevant-evidence"
+            doc:context="oscal:observation"
+            id="has-relevant-evidence-diagnostic">The observation, <sch:value-of
+                select="@uuid" />, has a relevant-evidence href that does not reference any raw-tool-output
+            back-matter resource @uuid value.</sch:diagnostic>
 
         <!-- metadata -->
         <sch:diagnostic
@@ -1309,9 +1400,8 @@
             doc:context="oscal:result"
             id="has-duplicate-priority-value-diagnostic">The risk, <sch:value-of
                 select="@uuid" /> has a priority property that is not a unique priority value.</sch:diagnostic>
-                
+             
         <!-- age checks -->
-
         <sch:diagnostic
             doc:assert="start-precedes-end"
             doc:context="oscal:result"
