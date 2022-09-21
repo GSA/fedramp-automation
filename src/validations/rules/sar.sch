@@ -35,6 +35,72 @@
         href="../test/rules/sar.xspec" />
 
     <sch:title>FedRAMP Security Assessment Results Validations</sch:title>
+
+    <!-- Global Variables -->
+    <sch:let
+        name="sap-import-url"
+        value="
+            if (starts-with(/oscal:assessment-results/oscal:import-ap/@href, '#'))
+            then
+                resolve-uri(/oscal:assessment-results/oscal:back-matter/oscal:resource[substring-after(/oscal:assessment-results/oscal:import-ap/@href, '#') = @uuid]/oscal:rlink/@href, base-uri())
+            else
+                resolve-uri(/oscal:assessment-results/oscal:import-ap/@href, base-uri())" />
+    <sch:let
+        name="sap-available"
+        value="doc-available($sap-import-url)" />
+    <sch:let
+        name="sap-doc"
+        value="
+            if ($sap-available)
+            then
+                doc($sap-import-url)
+            else
+                ()" />
+    <sch:let
+        name="ssp-import-url"
+        value="
+            if (starts-with($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, '#'))
+            then
+                resolve-uri($sap-doc/oscal:assessment-plan/oscal:back-matter/oscal:resource[substring-after($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, '#') = @uuid]/oscal:rlink/@href, base-uri())
+            else
+                resolve-uri($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
+    <sch:let
+        name="ssp-available"
+        value="
+            if (: this is not a relative reference :) (not(starts-with($ssp-import-url, '#')))
+            then
+                (: the referenced document must be available :)
+                doc-available($ssp-import-url)
+            else
+                true()" />
+    <sch:let
+        name="ssp-doc"
+        value="
+            if ($ssp-available)
+            then
+                doc($ssp-import-url)
+            else
+                ()" />
+    <sch:let
+        name="resolved-profile-import-url"
+        value="
+            if (starts-with($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, '#'))
+            then
+                resolve-uri($ssp-doc/oscal:system-security-plan/oscal:back-matter/oscal:resource[substring-after($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, '#') = @uuid]/oscal:rlink/@href, base-uri())
+            else
+                resolve-uri($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, base-uri())" />
+    <sch:let
+        name="resolved-profile-available"
+        value="doc-available($resolved-profile-import-url)" />
+    <sch:let
+        name="resolved-profile-doc"
+        value="
+            if ($resolved-profile-available)
+            then
+                doc($resolved-profile-import-url)
+            else
+                ()" />
+    
     <xsl:param
         as="xs:string"
         name="registry-base-path"
@@ -42,6 +108,19 @@
     <sch:let
         name="fedramp-values"
         value="doc(concat($registry-base-path, '/fedramp_values.xml'))" />
+    
+    <sch:let
+        name="ssp-parties"
+        value="$ssp-doc/oscal:system-security-plan/oscal:metadata/oscal:party/@uuid" />
+    <!-- When combining due to conflict, move the *-parties out of oscal:actor rule and into direct child of results pattern -->
+    <!-- Also lowercase all instances of sap, sar, ssp in variables -->
+    <sch:let
+        name="sap-parties"
+        value="$sap-doc/oscal:assessment-plan/oscal:metadata/oscal:party/@uuid" />
+    <sch:let
+        name="sar-parties"
+        value="/oscal:assessment-results/oscal:metadata/oscal:party/@uuid" />
+        
     <sch:pattern
         id="import-ap">
 
@@ -90,10 +169,32 @@
                 the document. <sch:value-of
                     select="@href" />.</sch:assert>
 
-            <sch:let
-                name="import-ap-url"
-                value="resolve-uri(@href, base-uri())" />
+            <sch:assert
+                diagnostics="sap-document-available-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5"
+                id="sap-document-available"
+                role="fatal"
+                test="$sap-doc/oscal:assessment-plan"
+                unit:override-xspec="both">An OSCAL SAR import-ap element must reference an available SAP document.</sch:assert>
 
+            <sch:assert
+                diagnostics="ssp-document-available-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.2"
+                id="ssp-document-available"
+                role="fatal"
+                test="$ssp-doc/oscal:system-security-plan"
+                unit:override-xspec="both">An OSCAL SAR import-ap element must reference an available SAP document that has an import-ssp element that
+                references an available SSP document.</sch:assert>
+            
+            <sch:assert
+                diagnostics="resolved-profile-catalog-document-available-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.2"
+                id="resolved-profile-catalog-document-available"
+                role="fatal"
+                test="$resolved-profile-doc/oscal:catalog"
+                unit:override-xspec="both">An OSCAL SAR import-ap element must reference an available SAP document that has an import-ssp element that
+                references an available SSP document that has a import-profile element that references a resolved profile catalog document.</sch:assert>
+            
             <sch:assert
                 diagnostics="has-import-ap-external-href-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5"
@@ -103,7 +204,7 @@
                     if (: this is not a relative reference :) (not(starts-with(@href, '#')))
                     then
                         (: the referenced document must be available :)
-                        doc-available($import-ap-url)
+                        doc-available($sap-import-url)
                     else
                         (: the assertion succeeds :)
                         true()"
@@ -225,78 +326,55 @@
     
     <sch:pattern
         id="results">
-        <sch:let
-            name="sap-import-url"
-            value="resolve-uri(/oscal:assessment-results/oscal:import-ap/@href, base-uri())" />
-        <sch:let
-            name="sap-available"
-            value="
-                if (: this is not a relative reference :) (not(starts-with($sap-import-url, '#')))
-                then
-                    (: the referenced document must be available :)
-                    doc-available($sap-import-url)
-                else
-                    true()" />
-        <sch:let
-            name="sap-doc"
-            value="
-                if ($sap-available)
-                then
-                    doc($sap-import-url)
-                else
-                    ()" />
-        <sch:let
-            name="ssp-import-url"
-            value="resolve-uri($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
-        <sch:let
-            name="ssp-available"
-            value="
-                if (: this is not a relative reference :) (not(starts-with($ssp-import-url, '#')))
-                then
-                    (: the referenced document must be available :)
-                    doc-available($ssp-import-url)
-                else
-                    true()" />
-        <sch:let
-            name="ssp-doc"
-            value="
-                if ($ssp-available)
-                then
-                    doc($ssp-import-url)
-                else
-                    ()" />
-        <sch:let
-            name="profile-import-url"
-            value="resolve-uri($ssp-doc//oscal:import-profile/@href, base-uri())" />
-        <sch:let
-            name="profile-available"
-            value="
-                if (: this is not a relative reference :) (not(starts-with($profile-import-url, '#')))
-                then
-                    (: the referenced document must be available :)
-                    doc-available($profile-import-url)
-                else
-                    true()" />
-        <sch:let
-            name="profile-doc"
-            value="
-                if ($profile-available)
-                then
-                    doc($profile-import-url)
-                else
-                    ()" /> 
         
-        <sch:let
-            name="ssp-parties"
-            value="$ssp-doc/oscal:system-security-plan/oscal:metadata/oscal:party/@uuid" />
-        <!-- When combining due to conflict, move the *-parties out of oscal:actor rule and into direct child of results pattern -->
-        <!-- Also lowercase all instances of sap, sar, ssp in variables -->
-        <sch:let
-            name="sap-parties"
-            value="$sap-doc/oscal:assessment-plan/oscal:metadata/oscal:party/@uuid" />
-        <sch:let
-            name="sar-parties"
-            value="/oscal:assessment-results/oscal:metadata/oscal:party/@uuid" />
+        <sch:rule
+            context="oscal:result">
+            
+            <sch:let
+                name="excluded-controls"
+                value="oscal:reviewed-controls/oscal:control-selection/oscal:exclude-control/@control-id" />
+            <sch:let
+                name="included-controls"
+                value="
+                    if (oscal:reviewed-controls/oscal:control-selection/oscal:include-all)
+                    then
+                        $resolved-profile-doc//oscal:control/@id
+                    else
+                        oscal:reviewed-controls/oscal:control-selection/oscal:include-control/@control-id" />
+            <sch:let
+                name="in-scope-controls"
+                value="$included-controls[not(. = $excluded-controls)]" />
+            <sch:let
+                name="matching-response-point-ids"
+                value="
+                    for $i in $in-scope-controls
+                    return
+                        $resolved-profile-doc//oscal:control[@id = $i]//oscal:part[@name = 'objective'][oscal:prop[@name = 'response-point']]/@id" />
+            <sch:let
+                name="finding-target-IDs"
+                value="oscal:finding/oscal:target[@type = 'objective-id']/@target-id" />
+            <sch:let
+                name="finding-not-matches-with-response-points"
+                value="$matching-response-point-ids[not(. = $finding-target-IDs)]" />
+
+            <sch:assert
+                diagnostics="objectives-match-response-points-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.2"
+                fedramp:specific="true"
+                id="objectives-match-response-points"
+                role="error"
+                test="$finding-not-matches-with-response-points = ''"
+                unit:override-xspec="both">All in scope controls in the resolved baseline profile must have objectives that
+                match a finding/target/@target-id in the current result assembly.</sch:assert>
+
+            <sch:assert
+                diagnostics="has-attestation-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §4.12"
+                fedramp:specific="true"
+                id="has-attestation"
+                role="error"
+                test="oscal:attestation[oscal:part[@name = 'authorization-statements']/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'recommend-authorization']]">
+                There must exist an attestation with a part containing a property with a name of 'recommend-authorization'.</sch:assert>
         
         <!-- Unclear Guide instructions. -->
         <!-- See https://github.com/GSA/fedramp-automation-guides/issues/41 -->
@@ -311,15 +389,9 @@
                 role="error"
                 test="substring-after(@href, '#') or  oscal:link/@href[substring-after(., '#') = sap-resources]">A relevant-evidence href has a matching resource uuid in the SAR back-matter.</sch:assert>
         </sch:rule>-->
-        
+        </sch:rule>
         <sch:rule
             context="oscal:actor">
-            <sch:let
-                name="SAP-parties"
-                value="$sap-doc/oscal:assessment-plan/oscal:metadata/oscal:party/@uuid" />
-            <sch:let
-                name="SAR-parties"
-                value="/oscal:assessment-results/oscal:metadata/oscal:party/@uuid" />
             <sch:assert
                 diagnostics="has-matching-SAP-party-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.3"
@@ -328,7 +400,7 @@
                 test="
                     if (../../oscal:target[@type = 'objective-id'])
                     then
-                    (@actor-uuid[. = $SAP-parties]) or (@actor-uuid[. = $SAR-parties])
+                    (@actor-uuid[. = $sap-parties]) or (@actor-uuid[. = $sar-parties])
                     else
                         true()"
                 unit:override-xspec="both">A finding must have an actor who is described in a SAP or SAR party assembly.</sch:assert>
@@ -340,11 +412,11 @@
                 test="
                 if (../../oscal:type = 'historic')
                 then
-                if (@actor-uuid[. = $SAP-parties])
+                if (@actor-uuid[. = $sap-parties])
                 then
                 true()
                 else
-                if (@actor-uuid[. = $SAR-parties])
+                if (@actor-uuid[. = $sar-parties])
                 then
                 true()
                 else
@@ -811,17 +883,6 @@
         <sch:let
             name="risk-priority-values"
             value="distinct-values(//oscal:risk/oscal:prop[@name = 'priority']/@value[. = following::oscal:risk/oscal:prop[@name = 'priority']/@value])" />
-
-        <sch:rule
-            context="oscal:result">
-            <sch:assert
-                diagnostics="has-attestation-diagnostic"
-                fedramp:specific="true"
-                id="has-attestation"
-                role="error"
-                test="oscal:attestation[oscal:part[@name = 'authorization-statements']/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'recommend-authorization']]">
-                There must exist an attestation with a part containing a property with a name of 'recommend-authorization'.</sch:assert>
-        </sch:rule>
         
         <sch:rule
             context="oscal:attestation/oscal:part[@name = 'authorization-statements'][oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'recommend-authorization']]">
@@ -1093,6 +1154,24 @@
             identify an available target.</sch:diagnostic>
 
         <sch:diagnostic
+            doc:assert="sap-document-available"
+            doc:context="oscal:import-ap"
+            id="sap-document-available-diagnostic">This OSCAL SAR import-ap element does not reference an available SAP document.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="ssp-document-available"
+            doc:context="oscal:import-ap"
+            id="ssp-document-available-diagnostic">This OSCAL SAR import-ap element does not reference an available SAP document that has an
+            import-ssp element that references an available SSP document.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="resolved-profile-catalog-document-available"
+            doc:context="oscal:import-ap"
+            id="resolved-profile-catalog-document-available-diagnostic">This OSCAL SAR import-ap element does not reference an available SAP document
+            that has an import-ssp element that references an available SSP document that has a import-profile element that references a resolved
+            profile catalog document.</sch:diagnostic>
+
+        <sch:diagnostic
             doc:assert="has-security-assessment-plan-resource"
             doc:context="oscal:back-matter"
             id="has-security-assessment-plan-resource-diagnostic">This OSCAL SAR which does not directly import the SAP does not declare the SAP as a
@@ -1132,6 +1211,17 @@
             id="has-no-base64-diagnostic">This OSCAL SAR has a base64 element in a security-assessment-plan resource.</sch:diagnostic>-->
             
         <!-- results -->
+        <sch:diagnostic
+            doc:assert="not-in-resolved-baseline-controls"
+            doc:context="oscal:finding"
+            id="not-in-resolved-baseline-controls-diagnostic">The control(s) <sch:value-of
+                select="$not-in-resolved-baseline-controls" /> do not exist in the resolved baseline profile document.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="objectives-match-response-points"
+            doc:context="oscal:finding"
+            id="objectives-match-response-points-diagnostic">In the result, <sch:value-of select="@uuid"/>, the following response points do not have matching finding/target/@target-id values: <sch:value-of select="$finding-not-matches-with-response-points"/>.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="has-lifecycle-recommendation"
             doc:context="oscal:risk"
@@ -1199,7 +1289,6 @@
             related-observation/observation-uuid that matches an observation/@uuid, also has a implementation-statement-uuid value that matches a
             statement/@uuid in the associated SSP.</sch:diagnostic>
         
-        <!-- Results -->
         <sch:diagnostic
             doc:assert="no-duplicate-target-id"
             doc:context="oscal:result"
@@ -1363,26 +1452,28 @@
             doc:assert="has-risk-adjustment-matching-control-implementation-statement"
             doc:context="oscal:risk"
             id="has-risk-adjustment-matching-control-implementation-statement-diagnostic">A risk, <sch:value-of
-                select="@uuid" />, with a type of 'risk-adjustment' does not have a matching statement @uuid in the associated SSP.</sch:diagnostic>      
-      
-      <sch:diagnostic
+                select="@uuid" />, with a type of 'risk-adjustment' does not have a matching statement @uuid in the associated SSP.</sch:diagnostic>
+
+        <sch:diagnostic
             doc:assert="has-risk-log-status-closed"
             doc:context="oscal:risk"
             id="has-risk-log-status-closed-diagnostic">A risk, <sch:value-of
                 select="@uuid" />, with a status of 'closed' does not have a risk-log/entry with a status-change of 'closed'.</sch:diagnostic>
-                
+
         <sch:diagnostic
             doc:assert="has-operational-requirement-observation"
             doc:context="oscal:observation"
-            id="has-operational-requirement-observation-diagnostic">An observation, <sch:value-of select="@uuid"/>, with a type of 'operational-requirement' does not have a @uuid that
-            matches a finding/related-observation/@observation-uuid.</sch:diagnostic>
+            id="has-operational-requirement-observation-diagnostic">An observation, <sch:value-of
+                select="@uuid" />, with a type of 'operational-requirement' does not have a @uuid that matches a
+            finding/related-observation/@observation-uuid.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-operational-requirement-relevant-evidence"
             doc:context="oscal:observation"
-            id="has-operational-requirement-relevant-evidence-diagnostic">An observation, <sch:value-of select="@uuid"/>, with a type of 'operational-requirement' does not have a
-            relevant-evidence/@href, whose value after the '#', matches a back-matter/resource/@uuid.</sch:diagnostic>
-            
+            id="has-operational-requirement-relevant-evidence-diagnostic">An observation, <sch:value-of
+                select="@uuid" />, with a type of 'operational-requirement' does not have a relevant-evidence/@href, whose value after the '#',
+            matches a back-matter/resource/@uuid.</sch:diagnostic>
+
         <sch:diagnostic
             doc:assert="has-attestation"
             doc:context="oscal:result"
@@ -1400,7 +1491,7 @@
             doc:context="oscal:result"
             id="has-duplicate-priority-value-diagnostic">The risk, <sch:value-of
                 select="@uuid" /> has a priority property that is not a unique priority value.</sch:diagnostic>
-             
+                
         <!-- age checks -->
         <sch:diagnostic
             doc:assert="start-precedes-end"
