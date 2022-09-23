@@ -202,7 +202,7 @@
     <!-- Schematron variable use-remote-resources  -->
     <sch:let
         name="use-remote-resources"
-        value="$param-use-remote-resources or matches(lower-case(environment-variable('use_remote_resources')), '1|true') " />
+        value="$param-use-remote-resources or matches(lower-case(environment-variable('use_remote_resources')), '1|true')" />
 
     <!-- setting for use of debug mode -->
     <!-- XSLT parameter param-use-debug-mode -->
@@ -210,12 +210,12 @@
         as="xs:boolean"
         name="param-use-debug-mode"
         select="false()" />
-    
+
     <!-- schematron variable use-debug-mode -->
     <sch:let
         name="use-debug-mode"
         value="$param-use-debug-mode or matches(lower-case(environment-variable('use_debug_mode')), '1|true')" />
-    
+
     <sch:pattern
         id="parameters-and-variables">
         <sch:rule
@@ -258,7 +258,7 @@
                             environment-variable('use_debug_mode')
                         else
                             'not defined'" />.</sch:report>
-            
+
             <sch:report
                 id="variable-use-debug-mode"
                 role="information"
@@ -529,6 +529,7 @@
                         select="current()/text()" />, so analysis could be inaccurate or it completely failed.</xsl:for-each>
             </xsl:if></xsl:value-of>
     </xsl:template>
+
     <sch:pattern
         id="phase2">
         <sch:rule
@@ -544,18 +545,18 @@
                 value="lv:correct($ok-values, $sensitivity-level)" />
             <sch:assert
                 diagnostics="no-registry-values-diagnostic"
-                id="no-registry-values"
                 fedramp:specific="true"
+                id="no-registry-values"
                 role="fatal"
-                unit:override-xspec="both"
-                test="count($registry/f:fedramp-values/f:value-set) &gt; 0">The validation technical components are present.</sch:assert>
+                test="count($registry/f:fedramp-values/f:value-set) &gt; 0"
+                unit:override-xspec="both">The validation technical components are present.</sch:assert>
             <sch:assert
                 diagnostics="no-security-sensitivity-level-diagnostic"
                 doc:checklist-reference="Section C Check 1.a"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.2"
                 doc:template-reference="System Security Plan Template §2.2"
-                id="no-security-sensitivity-level"
                 fedramp:specific="true"
+                id="no-security-sensitivity-level"
                 role="fatal"
                 test="$sensitivity-level ne ''">A FedRAMP SSP must define its sensitivity level.</sch:assert>
             <sch:assert
@@ -563,8 +564,8 @@
                 doc:checklist-reference="Section C Check 1.a"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.2"
                 doc:template-reference="System Security Plan Template §2.2"
-                id="invalid-security-sensitivity-level"
                 fedramp:specific="true"
+                id="invalid-security-sensitivity-level"
                 role="fatal"
                 test="empty($ok-values) or not(exists($corrections))">A FedRAMP SSP must have an allowed sensitivity level.</sch:assert>
             <sch:let
@@ -572,12 +573,13 @@
                 value="/oscal:system-security-plan/oscal:control-implementation/oscal:implemented-requirement/oscal:statement" />
             <sch:report
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                id="implemented-response-points"
                 fedramp:specific="true"
+                id="implemented-response-points"
                 role="information"
-                test="$use-debug-mode eq true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for required controls: <sch:value-of
+                test="$use-debug-mode eq true()">A FedRAMP SSP must implement a statement for each of the following lettered response points for
+                required controls: <sch:value-of
                     select="$implemented/@statement-id" />.</sch:report>
-        </sch:rule>        
+        </sch:rule>
         <sch:rule
             context="oscal:system-security-plan/oscal:system-implementation/oscal:component">
             <sch:assert
@@ -618,8 +620,8 @@
                 value="$implemented[not(@control-id = $required-controls/@id)]" />
             <sch:report
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                id="each-required-control-report"
                 fedramp:specific="true"
+                id="each-required-control-report"
                 role="information"
                 test="$use-debug-mode eq true()">Sensitivity-level is <sch:value-of
                     select="$sensitivity-level" />, the following <sch:value-of
@@ -635,8 +637,8 @@
                 diagnostics="incomplete-core-implemented-requirements-diagnostic"
                 doc:checklist-reference="Section C Check 3"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                id="incomplete-core-implemented-requirements"
                 fedramp:specific="true"
+                id="incomplete-core-implemented-requirements"
                 role="error"
                 test="not(exists($core-missing))">A FedRAMP SSP must implement the most important controls.</sch:assert>
             <sch:assert
@@ -644,8 +646,8 @@
                 doc:checklist-reference="Section C Check 2"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 doc:template-reference="System Security Plan Template §13"
-                id="incomplete-all-implemented-requirements"
                 fedramp:specific="true"
+                id="incomplete-all-implemented-requirements"
                 role="warning"
                 test="not(exists($all-missing))">A FedRAMP SSP must implement all required controls.</sch:assert>
             <sch:assert
@@ -653,8 +655,8 @@
                 doc:checklist-reference="Section C Check 2"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 doc:template-reference="System Security Plan Template §13"
-                id="extraneous-implemented-requirements"
                 fedramp:specific="true"
+                id="extraneous-implemented-requirements"
                 role="warning"
                 test="not(exists($extraneous))">A FedRAMP SSP must not include implemented controls beyond what is required for the applied
                 baseline.</sch:assert>
@@ -666,8 +668,8 @@
                 value="$results/reports/@count" />
             <sch:report
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
-                id="control-implemented-requirements-stats"
                 fedramp:specific="true"
+                id="control-implemented-requirements-stats"
                 role="information"
                 test="count($results/errors/error) = 0 and $use-debug-mode eq true()">
                 <sch:value-of
@@ -749,8 +751,8 @@
                     select="@control-id" /> exists.</sch:assert>
             <sch:assert
                 diagnostics="configuration-management-controls-described-diagnostic"
-                id="configuration-management-controls-described"
                 fedramp:specific="true"
+                id="configuration-management-controls-described"
                 role="warning"
                 see="https://github.com/18F/fedramp-automation/issues/313"
                 test="
@@ -1038,8 +1040,7 @@
                 id="rlink-href-is-available"
                 role="error"
                 test="not($use-remote-resources) or unparsed-text-available(@href)"
-                unit:override-xspec="both">Every supporting artifact found in a citation rlink must have a
-                reachable reference.</sch:assert>
+                unit:override-xspec="both">Every supporting artifact found in a citation rlink must have a reachable reference.</sch:assert>
             <!--<sch:assert id="rlink-has-media-type"
                 role="warning"
                 test="$WARNING and @media-type">the &lt;<sch:name/>&gt; element should have a media-type attribute</sch:assert>-->
@@ -1064,6 +1065,7 @@
                 test="@media-type = $media-types">A media-type attribute must have an allowed value.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
         id="base64">
@@ -1117,6 +1119,7 @@
             <!-- FYI: http://expath.org/spec/binary#decode-string handles base64 but Saxon-PE or higher is necessary -->
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         id="specific-attachments">
         <sch:title>Constraints for specific attachments</sch:title>
@@ -1215,6 +1218,7 @@
                 A FedRAMP SSP must have a Separation of Duties Matrix attached.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
         doc:template-reference="System Security Plan Template §15"
@@ -1322,6 +1326,7 @@
                     )"> Policy and procedure documents must have unique per-control-family associations.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         id="privacy1">
         <sch:title>A FedRAMP SSP must define a Privacy Point of Contact</sch:title>
@@ -1374,6 +1379,7 @@
                 Contact.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         id="privacy2">
         <sch:title>A FedRAMP SSP may need to incorporate a PIA and possibly a SORN</sch:title>
@@ -1499,6 +1505,7 @@
                 This FedRAMP SSP must incorporate a Privacy Impact Analysis.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
         id="fips-140"
@@ -1571,8 +1578,7 @@
                 id="has-accessible-CMVP-validation-details"
                 role="error"
                 test="not($use-remote-resources) or unparsed-text-available(@href)"
-                unit:override-xspec="both">The NIST Cryptographic Module Validation Program (CMVP)
-                certificate detail page is available.</sch:assert>
+                unit:override-xspec="both">The NIST Cryptographic Module Validation Program (CMVP) certificate detail page is available.</sch:assert>
             <sch:assert
                 diagnostics="has-consonant-CMVP-validation-details-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
@@ -1583,6 +1589,7 @@
                 must be in accord with its sibling validation reference.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         doc:checklist-reference="Section B Check 3.10"
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
@@ -1630,16 +1637,16 @@
                 role="error"
                 test="current() = $security-sensitivity-levels">A FedRAMP SSP must specify an allowed security sensitivity level.</sch:assert>
             <sch:let
-                name="securityLevelStr"
+                name="security-level-string"
                 value="string-join(../oscal:security-impact-level//text())" />
             <sch:let
-                name="securityImpactLevel"
+                name="security-impact-level"
                 value="
-                    if (matches($securityLevelStr, 'high'))
+                    if (matches($security-level-string, 'high'))
                     then
                         ('fips-199-high')
                     else
-                        (if (matches($securityLevelStr, 'moderate'))
+                        (if (matches($security-level-string, 'moderate'))
                         then
                             ('fips-199-moderate')
                         else
@@ -1655,9 +1662,9 @@
                 fedramp:specific="true"
                 id="security-sensitivity-level-matches-security-impact-level"
                 role="error"
-                test=". eq $securityImpactLevel"><xsl:value-of
-                    select="$securityLevelStr" /> -- A FedRAMP SSP security sensitivity level must match the highest level within the security impact
-                levels.</sch:assert>
+                test=". eq $security-impact-level"><xsl:value-of
+                    select="$security-level-string" /> -- A FedRAMP SSP security sensitivity level must match the highest level within the security
+                impact levels.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:security-impact-level"
@@ -1708,32 +1715,32 @@
                 role="error"
                 test="current() = $security-objective-levels">A FedRAMP SSP must specify an allowed security objective value.</sch:assert>
             <sch:let
-                name="impactName"
+                name="impact-name"
                 value="substring-after(substring-after(local-name(), '-'), '-')" />
             <sch:let
-                name="impactSelected"
-                value="string-join(/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information//oscal:information-type//*[contains(local-name(), $impactName)]/oscal:selected/text())" />
+                name="impact-selected"
+                value="string-join(/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information//oscal:information-type//*[contains(local-name(), $impact-name)]/oscal:selected/text())" />
             <sch:let
                 name="impactBase"
-                value="string-join(/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information//oscal:information-type//*[contains(local-name(), $impactName)]/oscal:base/text())" />
+                value="string-join(/oscal:system-security-plan/oscal:system-characteristics/oscal:system-information//oscal:information-type//*[contains(local-name(), $impact-name)]/oscal:base/text())" />
             <sch:let
-                name="securityImpactLevelSelected"
+                name="security-impact-level-selected"
                 value="
-                    if (matches($impactSelected, 'high'))
+                    if (matches($impact-selected, 'high'))
                     then
                         ('fips-199-high')
                     else
-                        (if (matches($impactSelected, 'moderate'))
+                        (if (matches($impact-selected, 'moderate'))
                         then
                             ('fips-199-moderate')
                         else
-                            (if (matches($impactSelected, 'low'))
+                            (if (matches($impact-selected, 'low'))
                             then
                                 ('fips-199-low')
                             else
                                 ('fips-199-low')))" />
             <sch:let
-                name="securityImpactLevelBase"
+                name="security-impact-level-base"
                 value="
                     if (matches($impactBase, 'high'))
                     then
@@ -1751,21 +1758,22 @@
             <sch:let
                 name="impactValue"
                 value="
-                    if ($securityImpactLevelSelected ne '')
+                    if ($security-impact-level-selected ne '')
                     then
-                        ($securityImpactLevelSelected)
+                        ($security-impact-level-selected)
                     else
-                        ($securityImpactLevelBase)" />
+                        ($security-impact-level-base)" />
             <sch:assert
                 diagnostics="cia-impact-matches-security-objective-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.4"
-                id="cia-impact-matches-security-objective"
                 fedramp:specific="true"
+                id="cia-impact-matches-security-objective"
                 role="warning"
                 test="$impactValue eq .">An SSP security objective value must be the same as highest available value of the same information type
                 impact element.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
         doc:template-reference="System Security Plan Template §2.1"
@@ -1847,8 +1855,8 @@
                 diagnostics="categorization-has-correct-system-attribute-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
                 doc:template-reference="System Security Plan Template §2.1"
-                id="categorization-has-correct-system-attribute"
                 fedramp:specific="true"
+                id="categorization-has-correct-system-attribute"
                 role="error"
                 test="@system eq 'https://doi.org/10.6028/NIST.SP.800-60v2r1'">A FedRAMP SSP information type categorization must have a correct
                 system attribute.</sch:assert>
@@ -1932,6 +1940,7 @@
                 confidentiality, integrity, impact levels of its information types (per FIPS-199).</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         doc:checklist-reference="Section B Check 3.3, Section C Check 7"
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.5"
@@ -2038,6 +2047,7 @@
                 level.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
         id="system-inventory"
@@ -2161,6 +2171,7 @@
                 role="error"
                 test="@value = $scan-types">A scan-type property must have an allowed value.</sch:assert>
         </sch:rule>
+
         <sch:title>FedRAMP SSP inventory components</sch:title>
         <sch:rule
             context="oscal:component"
@@ -2195,6 +2206,7 @@
                 role="error"
                 test="not(oscal:prop[@name eq 'asset-type'][2])">A component must have only one asset type.</sch:assert>
         </sch:rule>
+
         <sch:title>FedRAMP SSP inventory items</sch:title>
         <sch:rule
             context="oscal:inventory-item"
@@ -2601,14 +2613,14 @@
                 test="exists(oscal:component[@type eq 'this-system'])">A FedRAMP SSP must have a self-referential (i.e., to the SSP itself)
                 component.</sch:assert>
             <sch:let
-                name="emailString"
+                name="email-string"
                 value="'email|e-mail|electronic mail'" />
             <sch:assert
                 diagnostics="has-email-and-DMARC-diagnostic"
                 id="has-email-and-DMARC"
                 role="warning"
                 test="
-                    if (//*[matches(lower-case(.), $emailString)])
+                    if (//*[matches(lower-case(.), $email-string)])
                     then
                         (if (../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'DMARC')] and
                         ../oscal:control-implementation/oscal:implemented-requirement[@control-id eq 'si-8']//*[matches(., 'SPF')] and
@@ -2934,6 +2946,7 @@
                 test="oscal:address/oscal:country eq 'US'">Each data center must have an address that is within the United States.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
         id="implementation-roles"
@@ -2979,6 +2992,7 @@
                 assembly.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         doc:template-reference="System Security Plan Template §9.3"
         id="user-properties">
@@ -3235,6 +3249,7 @@
                 references a back-matter resource representing the diagram document.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.22 Network Architecture Diagram"
         doc:template-reference="System Security Plan Template §9.4"
@@ -3342,6 +3357,7 @@
                 references a back-matter resource representing the diagram document.</sch:assert>
         </sch:rule>
     </sch:pattern>
+
     <sch:pattern
         doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.24 Data Flow Diagram"
         doc:template-reference="System Security Plan Template §10.1"
@@ -3515,15 +3531,13 @@
                 fedramp:specific="true"
                 id="technical-control-exists"
                 role="error"
-                test="count($missing-required-technical-controls) eq 0">Every required technical control is
-                implemented.</sch:assert>
+                test="count($missing-required-technical-controls) eq 0">Every required technical control is implemented.</sch:assert>
             <sch:assert
                 diagnostics="automation-control-exists-diagnostic"
                 fedramp:specific="true"
                 id="automation-control-exists"
                 role="error"
-                test="count($missing-required-automation-controls) eq 0">Every required automation control is
-                implemented.</sch:assert>
+                test="count($missing-required-automation-controls) eq 0">Every required automation control is implemented.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:implemented-requirement"
@@ -3713,7 +3727,7 @@
                 test="
                     if (matches(@control-id, 'ia-2.11'))
                     then
-                    (if (self::oscal:implemented-requirement//*[matches(., 'CMVP validated|NIAP Certification|NSA approval')])
+                        (if (self::oscal:implemented-requirement//*[matches(., 'CMVP validated|NIAP Certification|NSA approval')])
                         then
                             (true())
                         else
@@ -4231,7 +4245,7 @@
 
             <!-- ensure zone name used for query ends with dot -->
             <sch:let
-                name="DoH_target"
+                name="DoH-target"
                 value="
                     if (ends-with(@value, '.')) then
                         @value
@@ -4242,10 +4256,10 @@
 
             <sch:let
                 name="DoH_query"
-                value="concat('https://dns.google/resolve?name=', $DoH_target, '&amp;type=SOA')" />
+                value="concat('https://dns.google/resolve?name=', $DoH-target, '&amp;type=SOA')" />
 
             <sch:let
-                name="DoH_response"
+                name="DoH-response"
                 value="
                     if ($well-formed) then
                         unparsed-text($DoH_query)
@@ -4256,7 +4270,7 @@
                 name="response"
                 value="
                     if ($well-formed) then
-                        parse-json($DoH_response)
+                        parse-json($DoH-response)
                     else
                         ()" />
 
@@ -5723,7 +5737,7 @@
 
         <sch:diagnostic
             id="DoH-response">The DNS query returned <sch:value-of
-                select="$DoH_response" />.</sch:diagnostic>
+                select="$DoH-response" />.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-DNS-authoritative-service-diagnostic"
