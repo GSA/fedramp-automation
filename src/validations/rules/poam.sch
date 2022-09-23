@@ -31,13 +31,21 @@
         href="../test/rules/poam.xspec" />
 
     <sch:title>FedRAMP Plan of Action and Milestones Validations</sch:title>
-    
+
     <!-- Global Variables -->
-    
-    <sch:let name="risk-UUIDs" value="//oscal:risk/@uuid"/>
-    <sch:let name="planned-risk-UUIDs" value="//oscal:risk[oscal:response[@lifecycle eq 'planned']]/@uuid"/>
-    <sch:let name="observation-UUIDs" value="//oscal:observation/@uuid"/>
-    <sch:let name="associated-risk-UUIDs" value="//oscal:poam-item/oscal:associated-risk/@risk-uuid"/>
+
+    <sch:let
+        name="risk-UUIDs"
+        value="//oscal:risk/@uuid" />
+    <sch:let
+        name="planned-risk-UUIDs"
+        value="//oscal:risk[oscal:response[@lifecycle eq 'planned']]/@uuid" />
+    <sch:let
+        name="observation-UUIDs"
+        value="//oscal:observation/@uuid" />
+    <sch:let
+        name="associated-risk-UUIDs"
+        value="//oscal:poam-item/oscal:associated-risk/@risk-uuid" />
 
     <sch:pattern>
 
@@ -210,7 +218,7 @@
     </sch:pattern>
 
     <sch:pattern
-        id="basics">        
+        id="basics">
 
         <sch:rule
             context="oscal:poam-item">
@@ -246,18 +254,20 @@
 
         <sch:rule
             context="oscal:poam-item/oscal:associated-risk">
-            
+
             <sch:assert
                 diagnostics="associated-risk-has-target-diagnostic"
                 id="associated-risk-has-target"
                 role="error"
-                test="@risk-uuid [. = $risk-UUIDs]">poam-item <sch:value-of select="@risk-uuid"/> associated-risk references a risk in this document.</sch:assert>
-            
+                test="@risk-uuid[. = $risk-UUIDs]">poam-item <sch:value-of
+                    select="@risk-uuid" /> associated-risk references a risk in this document.</sch:assert>
+
             <sch:assert
                 diagnostics="associated-risk-has-planned-response-diagnostic"
                 id="associated-risk-has-planned-response"
                 role="error"
-                test="@risk-uuid [. = $planned-risk-UUIDs]">poam-item <sch:value-of select="@risk-uuid"/> associated-risk references a risk with a planned response.</sch:assert>
+                test="@risk-uuid[. = $planned-risk-UUIDs]">poam-item <sch:value-of
+                    select="@risk-uuid" /> associated-risk references a risk with a planned response.</sch:assert>
 
         </sch:rule>
 
@@ -268,13 +278,12 @@
                 diagnostics="related-observation-has-observation-diagnostic"
                 id="related-observation-has-observation"
                 role="error"
-                test="@observation-uuid [. = $observation-UUIDs]">related-observation references an observation in this
-                document.</sch:assert>
+                test="@observation-uuid[. = $observation-UUIDs]">related-observation references an observation in this document.</sch:assert>
 
         </sch:rule>
 
         <sch:rule
-            context="oscal:risk[@uuid [. = $associated-risk-UUIDs]]"
+            context="oscal:risk[@uuid[. = $associated-risk-UUIDs]]"
             see="https://github.com/18F/fedramp-automation/issues/353">
             <sch:assert
                 diagnostics="risk-has-deadline-diagnostic"

@@ -2134,7 +2134,7 @@
                             </x:context>
                             <x:expect-not-assert
                                 id="resource-base64-available-filename"
-                                label="this is correct." />
+                                label="that is correct." />
                         </x:scenario>
                         <x:scenario
                             label="that does not have a @filename">
@@ -2150,7 +2150,7 @@
                             </x:context>
                             <x:expect-assert
                                 id="resource-base64-available-filename"
-                                label="this is incorrect." />
+                                label="that is incorrect." />
                         </x:scenario>
                         <x:scenario
                             label="that has a @media-type">
@@ -2166,7 +2166,7 @@
                             </x:context>
                             <x:expect-not-assert
                                 id="resource-base64-available-media-type"
-                                label="this is correct." />
+                                label="that is correct." />
                         </x:scenario>
                         <x:scenario
                             label="that does not have a @media-type">
@@ -2182,7 +2182,7 @@
                             </x:context>
                             <x:expect-assert
                                 id="resource-base64-available-media-type"
-                                label="this is incorrect." />
+                                label="that is incorrect." />
                         </x:scenario>
                     </x:scenario>
                 </x:scenario>
@@ -7417,7 +7417,7 @@
                     </x:context>
                     <x:expect-not-assert
                         id="no-description-text-in-component"
-                        label="this is correct." />
+                        label="that is correct." />
                 </x:scenario>
             </x:scenario>
             <x:scenario
@@ -7440,7 +7440,7 @@
                     </x:context>
                     <x:expect-not-assert
                         id="FedRAMP-ATO-Identifier-exists"
-                        label="this is correct." />
+                        label="that is correct." />
                 </x:scenario>
             </x:scenario>
         </x:scenario>
@@ -13186,8 +13186,7 @@
             <x:expect-assert
                 id="has-resolved-zone"
                 label="that is an error." />
-        </x:scenario>
-        
+        </x:scenario>        
         
         <x:scenario
             label="When an authoritative DNS service zone lacks DNSSEC">
