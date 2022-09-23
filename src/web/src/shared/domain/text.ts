@@ -35,32 +35,19 @@ export const linesOf = (text: string, substring: string) => {
   return null;
 };
 
-const clipBefore = (str: string, elem: string) => {
-  const startIndex = str.substring(1).search(`<${elem}`) + 1;
-  return str.substring(startIndex);
-};
-
-const closingIndex = (str: string, elem: string) => {
+const closingIndex = (str: string, elem: string, startIndex: number) => {
   const pattern = `</${elem}>`;
-  const index = str.search(pattern);
+  const index = str.indexOf(pattern, startIndex);
   if (index > -1) {
     return index + pattern.length;
   }
 
   const selfClosingPattern = '/>';
-  const selfClosingIndex = str.search(selfClosingPattern);
+  const selfClosingIndex = str.indexOf(selfClosingPattern, startIndex);
   if (selfClosingIndex === -1) {
-    throw new Error(`cosingIndex: cannot find ${str}`);
+    throw new Error(`closingIndex: cannot find ${str}`);
   }
   return selfClosingIndex + selfClosingPattern.length;
-};
-
-const clipAfter = (str: string, elems: string[]) => {
-  let endIndex = 0;
-  for (const elem of elems) {
-    endIndex = endIndex + closingIndex(str.substring(endIndex), elem);
-  }
-  return str.substring(0, endIndex);
 };
 
 export const getElementString = (
@@ -68,12 +55,15 @@ export const getElementString = (
   openedElements: string[],
   closedElements: string[],
 ) => {
-  let elementString = xml;
+  let startIndex = -1;
   for (const openedElement of openedElements) {
-    elementString = clipBefore(elementString, openedElement);
+    startIndex = xml.indexOf(`<${openedElement}`, startIndex + 1);
   }
-  elementString = clipAfter(elementString, closedElements);
-  return elementString;
+  let endIndex = 0;
+  for (const elem of closedElements) {
+    endIndex = closingIndex(xml, elem, startIndex + endIndex);
+  }
+  return xml.substring(startIndex, endIndex);
 };
 
 /**
