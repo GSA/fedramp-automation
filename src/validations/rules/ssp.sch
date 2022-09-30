@@ -3485,14 +3485,50 @@
             context="oscal:import-profile"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
             doc:template-reference="System Security Plan Template §13"
-            see="Guide to OSCAL-based FedRAMP System Security Plans §5.1">
+            see="Guide to OSCAL-based FedRAMP Security Assessment Results §3.2.1">
+            <sch:let
+                name="resolved-profile-import-url"
+                value="
+                    if (starts-with(@href, '#'))
+                    then
+                        resolve-uri(/oscal:system-security-plan/oscal:back-matter/oscal:resource[substring-after(current()/@href, '#') = @uuid]/oscal:rlink[1]/@href, base-uri())
+                    else
+                        resolve-uri(@href, base-uri())" />
+            <sch:let
+                name="resolved-profile-available"
+                value="doc-available($resolved-profile-import-url)" />
+            <sch:let
+                name="resolved-profile-doc"
+                value="
+                    if ($resolved-profile-available)
+                    then
+                        doc($resolved-profile-import-url)
+                    else
+                        ()" />
             <sch:assert
                 diagnostics="import-profile-has-href-attribute-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
                 doc:template-reference="System Security Plan Template §13"
                 id="import-profile-has-href-attribute"
-                role="error"
+                role="fatal"
                 test="@href">The import-profile element has a reference.</sch:assert>
+            <sch:assert
+                diagnostics="import-profile-has-available-document-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
+                doc:template-reference="System Security Plan Template §13"
+                id="import-profile-has-available-document"
+                role="fatal"
+                test="$resolved-profile-available = true()"
+                unit:override-xspec="both">The import-profile element references an available document.</sch:assert>
+            <sch:assert
+                diagnostics="import-profile-resolves-to-catalog-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
+                doc:template-reference="System Security Plan Template §13"
+                id="import-profile-resolves-to-catalog"
+                role="fatal"
+                test="$resolved-profile-doc/oscal:catalog"
+                unit:override-xspec="both">The import-profile element references an available oscal resolved baseline profile catalog
+                document.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:control-implementation">
@@ -5476,6 +5512,16 @@
             doc:assertion="import-profile-has-href-attribute"
             doc:context="oscal:import-profile"
             id="import-profile-has-href-attribute-diagnostic">The import-profile element lacks an href attribute.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="import-profile-has-available-document"
+            doc:context="oscal:import-profile"
+            id="import-profile-has-available-document-diagnostic">The import-profile element has an href attribute that does not reference an
+            available document.</sch:diagnostic>
+        <sch:diagnostic
+            doc:assertion="import-profile-resolves-to-catalog"
+            doc:context="oscal:import-profile"
+            id="import-profile-resolves-to-catalog-diagnostic">The import-profile element has an href attribute that does not reference a resolved
+            baseline profile catalog document.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="technical-control-exists"
             doc:context="oscal:control-implementation"

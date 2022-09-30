@@ -34,15 +34,20 @@
 
     <!-- Global Variables -->
     <sch:let
-        name="ssp-href"
-        value="resolve-uri(/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
+        name="ssp-import-url"
+        value="
+            if (starts-with(/oscal:assessment-plan/oscal:import-ssp/@href, '#'))
+            then
+                resolve-uri(/oscal:assessment-plan/oscal:back-matter/oscal:resource[substring-after(/oscal:assessment-plan/oscal:import-ssp/@href, '#') = @uuid]/oscal:rlink[1]/@href, base-uri())
+            else
+                resolve-uri(/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
     <sch:let
         name="ssp-available"
         value="
-            if (: this is not a relative reference :) (not(starts-with(@href, '#')))
+            if (: this is not a relative reference :) (not(starts-with($ssp-import-url, '#')))
             then
                 (: the referenced document must be available :)
-                doc-available($ssp-href)
+                doc-available($ssp-import-url)
             else
                 true()" />
     <sch:let
@@ -50,7 +55,7 @@
         value="
             if ($ssp-available)
             then
-                doc($ssp-href)
+                doc($ssp-import-url)
             else
                 ()" />
     <sch:let
@@ -117,7 +122,7 @@
                 diagnostics="has-import-ssp-href-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §3.5"
                 id="has-import-ssp-href"
-                role="error"
+                role="fatal"
                 test="exists(@href)">An OSCAL SAP import-ssp element must have an href attribute.</sch:assert>
 
             <sch:assert
@@ -155,6 +160,23 @@
                         true()"
                 unit:override-xspec="both">An OSCAL SAP import-ssp element href attribute which is an external reference must identify an available
                 target.</sch:assert>
+
+            <sch:assert
+                diagnostics="import-ssp-has-available-document-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans §3.5"
+                id="import-ssp-has-available-document"
+                role="fatal"
+                test="$ssp-available = true()"
+                unit:override-xspec="both">The import-ssp element href attribute references an available document.</sch:assert>
+
+            <sch:assert
+                diagnostics="import-ssp-resolves-to-ssp-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans §3.5"
+                id="import-ssp-resolves-to-ssp"
+                role="fatal"
+                test="$ssp-doc/oscal:system-security-plan"
+                unit:override-xspec="both">The import-ssp element href attribute references an available OSCAL system security plan
+                document.</sch:assert>
 
         </sch:rule>
 
@@ -1300,6 +1322,18 @@
             doc:context="oscal:import-ssp"
             id="has-import-ssp-external-href-diagnostic">This OSCAL SAP import-ssp element href attribute which is an external reference does not
             identify an available target.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assertion="import-ssp-has-available-document"
+            doc:context="oscal:import-ssp"
+            id="import-ssp-has-available-document-diagnostic">The import-ssp element has an href attribute that does not reference an available
+            document.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assertion="import-ssp-resolves-to-ssp"
+            doc:context="oscal:import-ssp"
+            id="import-ssp-resolves-to-ssp-diagnostic">The import-ssp element has an href attribute that does not reference an OSCAL system security
+            plan document.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-system-security-plan-resource"
