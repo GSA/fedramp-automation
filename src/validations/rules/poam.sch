@@ -210,6 +210,7 @@
             <sch:assert
                 diagnostics="has-ssp-rlink-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
+                fedramp:specific="true"
                 id="has-ssp-rlink"
                 role="error"
                 test="exists(oscal:rlink) and not(exists(oscal:rlink[2]))">An OSCAL POA&amp;M with a SSP resource declaration must have one and only
@@ -223,6 +224,7 @@
             <sch:assert
                 diagnostics="has-non-OSCAL-system-security-plan-resource-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5.2"
+                fedramp:specific="true"
                 id="has-non-OSCAL-system-security-plan-resource"
                 role="warning"
                 test="
@@ -237,6 +239,7 @@
             <sch:assert
                 diagnostics="has-acceptable-system-security-plan-rlink-media-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
+                fedramp:specific="true"
                 id="has-acceptable-system-security-plan-rlink-media-type"
                 role="error"
                 test="@media-type = ('text/xml', 'application/json')">An OSCAL POA&amp;M SSP rlink must have a 'text/xml' or 'application/json'
@@ -252,6 +255,7 @@
             <sch:assert
                 diagnostics="has-no-base64-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
+                fedramp:specific="true"
                 id="has-no-base64"
                 role="error"
                 test="false()">An OSCAL POA&amp;M must not use a base64 element in a system-security-plan resource.</sch:assert>
@@ -268,6 +272,7 @@
             <sch:assert
                 diagnostics="poam-item-has-associated-risk-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.2.1"
+                fedramp:specific="true"
                 id="poam-item-has-associated-risk"
                 role="error"
                 test="exists(oscal:associated-risk)">poam-item has associated-risk.</sch:assert>
@@ -283,6 +288,7 @@
             <sch:assert
                 diagnostics="poam-item-has-related-observation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.2.1"
+                fedramp:specific="true"
                 id="poam-item-has-related-observation"
                 role="error"
                 test="exists(oscal:related-observation)">poam-item has related-observation.</sch:assert>
@@ -300,6 +306,7 @@
 
             <sch:assert
                 diagnostics="associated-risk-has-target-diagnostic"
+                fedramp:specific="true"
                 id="associated-risk-has-target"
                 role="error"
                 test="@risk-uuid[. = $risk-UUIDs]">poam-item <sch:value-of
@@ -307,6 +314,7 @@
 
             <sch:assert
                 diagnostics="associated-risk-has-planned-response-diagnostic"
+                fedramp:specific="true"
                 id="associated-risk-has-planned-response"
                 role="error"
                 test="@risk-uuid[. = $planned-risk-UUIDs]">poam-item <sch:value-of
@@ -319,6 +327,7 @@
 
             <sch:assert
                 diagnostics="related-observation-has-observation-diagnostic"
+                fedramp:specific="true"
                 id="related-observation-has-observation"
                 role="error"
                 test="@observation-uuid[. = $observation-UUIDs]">related-observation references an observation in this document.</sch:assert>
@@ -330,6 +339,7 @@
             see="https://github.com/18F/fedramp-automation/issues/353">
             <sch:assert
                 diagnostics="risk-has-deadline-diagnostic"
+                fedramp:specific="true"
                 id="risk-has-deadline"
                 role="error"
                 see="https://github.com/18F/fedramp-automation/issues/353"
@@ -338,6 +348,7 @@
             <sch:assert
                 diagnostics="risk-has-recommendation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3"
+                fedramp:specific="true"
                 id="risk-has-recommendation"
                 role="error"
                 test="oscal:response[@lifecycle eq 'recommendation']">A risk must have a recommendation response.</sch:assert>
@@ -345,6 +356,7 @@
             <sch:assert
                 diagnostics="risk-has-planned-response-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3"
+                fedramp:specific="true"
                 id="risk-has-planned-response"
                 role="error"
                 test="oscal:response[@lifecycle eq 'planned']">A risk must have a planned response.</sch:assert>
@@ -352,6 +364,7 @@
 
             <sch:assert
                 diagnostics="risk-has-milestones-diagnostic"
+                fedramp:specific="true"
                 id="risk-has-milestones"
                 role="error"
                 test="exists(oscal:response/oscal:task[@type eq 'milestone'])">A risk associated with a poam-item must have one or more milestones
@@ -384,6 +397,7 @@
 
             <sch:assert
                 diagnostics="has-risk-impact-characterization-facet-diagnostic"
+                fedramp:specific="true"
                 id="has-risk-impact-characterization-facet"
                 role="error"
                 test="exists(oscal:characterization/oscal:facet[@name eq 'impact'])"
@@ -403,6 +417,7 @@
 
             <sch:assert
                 diagnostics="has-timely-completion-date-diagnostic"
+                fedramp:specific="true"
                 id="has-timely-completion-date"
                 role="error"
                 see="https://github.com/18F/fedramp-automation/issues/353"
@@ -418,6 +433,7 @@
             <sch:assert
                 diagnostics="milestone-has-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3.1"
+                fedramp:specific="true"
                 id="milestone-has-description"
                 role="error"
                 test="exists(oscal:description)">A milestone task has a description.</sch:assert>
@@ -425,6 +441,7 @@
             <sch:assert
                 diagnostics="milestone-has-timing-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3.1"
+                fedramp:specific="true"
                 id="milestone-has-timing"
                 role="error"
                 test="exists(oscal:timing)">A milestone task has a timing element.</sch:assert>
@@ -432,6 +449,7 @@
             <sch:assert
                 diagnostics="milestone-has-timing-within-date-range-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3.1"
+                fedramp:specific="true"
                 id="milestone-has-timing-within-date-range"
                 role="error"
                 test="exists(oscal:timing/oscal:within-date-range) (: accept on-date as well :) or exists(oscal:timing/oscal:on-date)">A milestone
