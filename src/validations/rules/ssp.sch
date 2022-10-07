@@ -1224,15 +1224,17 @@
         doc:template-reference="System Security Plan Template §15"
         id="policy-and-procedure">
         <sch:title>Policy and Procedure attachments</sch:title>
-        <sch:title>A FedRAMP SSP must incorporate one policy document and one procedure document for each of the 17 NIST SP 800-54 Revision 4 control
-            families</sch:title>
+        <sch:title>A FedRAMP SSP must incorporate one policy document and one procedure document for each NIST SP 800-53 control family</sch:title>
         <!-- TODO: handle attachments declared by component (see implemented-requirement ac-1 for an example) -->
         <!-- FIXME: XSpec testing malfunctions when the following rule context is constrained to XX-1 control-ids -->
+        <!-- NB: The presence of all required control implementations is handled elsewhere. -->
+
         <sch:rule
             context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
             doc:template-reference="System Security Plan Template §15 Attachment 1"
             see="Guide to OSCAL-based FedRAMP System Security Plans §6">
+
             <sch:assert
                 diagnostics="has-policy-link-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -1249,10 +1251,12 @@
                     (some $c in
                     //oscal:component[@uuid = current()/descendant::oscal:by-component/@component-uuid]
                         satisfies $c/@type = 'policy' and $c/oscal:link[@rel eq 'policy'])">A FedRAMP SSP must incorporate a policy
-                document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                document for each NIST SP 800-53 control family.</sch:assert>
+
             <sch:let
                 name="policy-hrefs"
                 value="distinct-values((descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href, //oscal:component[@type = 'policy' and @uuid = current()/descendant::oscal:by-component/@component-uuid]/oscal:link/@href) ! substring-after(., '#'))" />
+
             <sch:assert
                 diagnostics="has-policy-attachment-resource-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -1264,8 +1268,9 @@
                 test="
                     every $ref in $policy-hrefs
                         satisfies exists(//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'policy']][@uuid eq $ref])">A
-                FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                FedRAMP SSP must incorporate a policy document for each NIST SP 800-53 control family.</sch:assert>
             <!-- TODO: ensure resource has an rlink -->
+
             <sch:assert
                 diagnostics="has-procedure-link-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -1282,10 +1287,12 @@
                     (some $c in
                     //oscal:component[@uuid = current()/descendant::oscal:by-component/@component-uuid]
                         satisfies $c/@type = 'procedure' and $c/oscal:link[@rel eq 'procedure'])">A FedRAMP SSP must incorporate a
-                procedure document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                procedure document for each NIST SP 800-53 control family.</sch:assert>
+
             <sch:let
                 name="procedure-hrefs"
                 value="distinct-values((descendant::oscal:by-component/oscal:link[@rel eq 'procedure']/@href, //oscal:component[@type = 'procedure' and @uuid = current()/descendant::oscal:by-component/@component-uuid]/oscal:link/@href) ! substring-after(., '#'))" />
+
             <sch:assert
                 diagnostics="has-procedure-attachment-resource-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -1298,7 +1305,7 @@
                     (: targets of links exist in the document :)
                     every $ref in $procedure-hrefs
                         satisfies exists(//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'procedure']][@uuid eq $ref])">A
-                FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                FedRAMP SSP must incorporate a procedure document for each NIST SP 800-53 control family.</sch:assert>
             <!-- TODO: ensure resource has an rlink -->
         </sch:rule>
         <sch:rule
@@ -1323,7 +1330,7 @@
                     @href =
                     (: all controls except the current :) (//oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')] except $ir)
                     (: all their @hrefs :)/descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href
-                    )"> Policy and procedure documents must have unique per-control-family associations.</sch:assert>
+                    )">Policy and procedure documents must have unique per-control-family associations.</sch:assert>
         </sch:rule>
     </sch:pattern>
 
