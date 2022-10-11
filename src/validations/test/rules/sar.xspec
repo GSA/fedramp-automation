@@ -1069,7 +1069,62 @@
                     </x:scenario>
 
                 </x:scenario>
-
+                <x:scenario
+                    label="has a finding for control PL-2">
+                    <x:scenario
+                        label="and there is no more than one PL-2 finding that does not have a status of 'satisfied'">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result>
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3c">
+                                        <target
+                                            target-id="pl-2.a.1_obj"
+                                            type="objective-id">
+                                            <status
+                                                state="other-than-satisfied" />
+                                        </target>
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="minimal-control-PL-2-findings"
+                            label="that is correct" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and there is more than one PL-2 finding that does not have a status of 'satisfied'">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result>
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3c">
+                                        <target
+                                            target-id="pl-2.a.1_obj"
+                                            type="objective-id">
+                                            <status
+                                                state="other-than-satisfied" />
+                                        </target>
+                                    </finding>
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3d">
+                                        <target
+                                            target-id="pl-2.a.2_obj"
+                                            type="objective-id">
+                                            <status
+                                                state="other-than-satisfied" />
+                                        </target>
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-assert
+                            id="minimal-control-PL-2-findings"
+                            label="that is incorrect" />
+                    </x:scenario>
+                </x:scenario>
             </x:scenario>
         </x:scenario>
 

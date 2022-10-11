@@ -382,6 +382,35 @@
                 test="oscal:attestation[oscal:part[@name = 'authorization-statements']/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'recommend-authorization']]">
                 There must exist an attestation with a part containing a property with a name of 'recommend-authorization'.</sch:assert>
 
+            <sch:let
+                name="pl-2-other-than-satisfied-findings"
+                value="oscal:finding/oscal:target[@type = 'objective-id'][oscal:status ne 'satisfied'][matches(@target-id, '^pl-2\.')]/@target-id" />
+
+            <sch:let
+                name="pl-2-profile-objectives"
+                value="$resolved-profile-doc/oscal:catalog//oscal:part[@name eq 'objective'][ancestor::oscal:control[@id eq 'pl-2']]/@id" />
+
+            <sch:let
+                name="pl-2-not-matches-other-than-satisfied-findings"
+                value="$pl-2-other-than-satisfied-findings[not(. = $pl-2-profile-objectives)]" />
+
+            <sch:assert
+                diagnostics="matching-control-PL-2-objectives-diagnostic"
+                fedramp:specific="true"
+                id="matching-control-PL-2-objectives"
+                role="error"
+                test="count($pl-2-other-than-satisfied-findings) gt 0"
+                unit:override-xspec="both">Within a SAR, every unsatisfied PL-2 objective must have a matching resolved baseline profile catalog
+                part.</sch:assert>
+
+            <sch:assert
+                diagnostics="minimal-control-PL-2-findings-diagnostic"
+                fedramp:specific="true"
+                id="minimal-control-PL-2-findings"
+                role="error"
+                test="count(oscal:finding[oscal:target[@type = 'objective-id' and oscal:status/@state ne 'statisfied' and matches(@target-id, '^pl-2\.')]]) lt 2">Every
+                result must contain no more than one unsatisfied finding for the control PL-2.</sch:assert>
+
             <!-- Unclear Guide instructions. -->
             <!-- See https://github.com/GSA/fedramp-automation-guides/issues/41 -->
             <!--<sch:rule
@@ -1526,6 +1555,19 @@
             doc:context="oscal:result"
             id="has-attestation-diagnostic">The result, <sch:value-of
                 select="@uuid" />, does not contain an attestation/part with a property of 'recommend-authorization'.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="matching-control-PL-2-objectives"
+            doc:context="oscal:result"
+            id="matching-control-PL-2-objectives-diagnostic">Within a SAR, the PL-2 unsatisfied objectives, <sch:value-of
+                select="$pl-2-not-matches-other-than-satisfied-findings" />, do not have a matching part in the resolved profile
+            catalog.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="minimal-control-PL-2-findings"
+            doc:context="oscal:result"
+            id="minimal-control-PL-2-findings-diagnostic">Within a SAR, the result, <sch:value-of
+                select="@uuid" />, contains more than one finding for the control PL-2.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-attestation-value-no"
