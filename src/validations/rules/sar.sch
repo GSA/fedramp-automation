@@ -104,7 +104,7 @@
     <xsl:param
         as="xs:string"
         name="registry-base-path"
-        select="'../../content/resources/xml'" />
+        select="'../../content/rev4/resources/xml'" />
     <sch:let
         name="fedramp-values"
         value="doc(concat($registry-base-path, '/fedramp_values.xml'))" />

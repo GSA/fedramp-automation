@@ -502,7 +502,7 @@
    <import-profile
       href="https://raw.githubusercontent.com/GSA/fedramp-automation/release/fedramp1.0.0-oscal1.0.0/baselines/rev4/xml/FedRAMP_rev4_MODERATE-baseline_profile.xml">
       <remarks>
-          <p>This example points to the FedRAMP Rev 4 Moderate baseline that is part of the official FedRAMP 1.0.0 release.</p>
+         <p>This example points to the FedRAMP Rev 4 Moderate baseline that is part of the official FedRAMP 1.0.0 release.</p>
          <p>Must adjust accordingly for applicable baseline and revision.</p>
       </remarks>
    </import-profile>
