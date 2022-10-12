@@ -712,6 +712,7 @@
                 value="oscal:prop[@name = 'leveraged-authorization-uuid']/@value" />
             <sch:assert
                 diagnostics="leveraged-PE-controls-implemented-requirement-diagnostic"
+                fedramp:specific="true"
                 id="leveraged-PE-controls-implemented-requirement"
                 role="warning"
                 test="
@@ -736,6 +737,7 @@
                 test="not(exists($corrections))">Implementation status is correct.</sch:assert>
             <sch:assert
                 diagnostics="DNSSEC-described-diagnostic"
+                fedramp:specific="true"
                 id="DNSSEC-described"
                 role="warning"
                 test="
@@ -992,6 +994,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
                 doc:template-reference="System Security Plan Template §15"
                 id="resource-has-title"
+                fedramp:specific="true"
                 role="warning"
                 test="oscal:title">Every supporting artifact found in a citation should have a title.</sch:assert>
             <sch:assert
@@ -1224,15 +1227,17 @@
         doc:template-reference="System Security Plan Template §15"
         id="policy-and-procedure">
         <sch:title>Policy and Procedure attachments</sch:title>
-        <sch:title>A FedRAMP SSP must incorporate one policy document and one procedure document for each of the 17 NIST SP 800-54 Revision 4 control
-            families</sch:title>
+        <sch:title>A FedRAMP SSP must incorporate one policy document and one procedure document for each NIST SP 800-53 control family</sch:title>
         <!-- TODO: handle attachments declared by component (see implemented-requirement ac-1 for an example) -->
         <!-- FIXME: XSpec testing malfunctions when the following rule context is constrained to XX-1 control-ids -->
+        <!-- NB: The presence of all required control implementations is handled elsewhere. -->
+
         <sch:rule
             context="oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')]"
             doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
             doc:template-reference="System Security Plan Template §15 Attachment 1"
             see="Guide to OSCAL-based FedRAMP System Security Plans §6">
+
             <sch:assert
                 diagnostics="has-policy-link-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -1249,10 +1254,12 @@
                     (some $c in
                     //oscal:component[@uuid = current()/descendant::oscal:by-component/@component-uuid]
                         satisfies $c/@type = 'policy' and $c/oscal:link[@rel eq 'policy'])">A FedRAMP SSP must incorporate a policy
-                document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                document for each NIST SP 800-53 control family.</sch:assert>
+
             <sch:let
                 name="policy-hrefs"
                 value="distinct-values((descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href, //oscal:component[@type = 'policy' and @uuid = current()/descendant::oscal:by-component/@component-uuid]/oscal:link/@href) ! substring-after(., '#'))" />
+
             <sch:assert
                 diagnostics="has-policy-attachment-resource-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -1264,8 +1271,9 @@
                 test="
                     every $ref in $policy-hrefs
                         satisfies exists(//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'policy']][@uuid eq $ref])">A
-                FedRAMP SSP must incorporate a policy document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                FedRAMP SSP must incorporate a policy document for each NIST SP 800-53 control family.</sch:assert>
             <!-- TODO: ensure resource has an rlink -->
+
             <sch:assert
                 diagnostics="has-procedure-link-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -1282,10 +1290,12 @@
                     (some $c in
                     //oscal:component[@uuid = current()/descendant::oscal:by-component/@component-uuid]
                         satisfies $c/@type = 'procedure' and $c/oscal:link[@rel eq 'procedure'])">A FedRAMP SSP must incorporate a
-                procedure document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                procedure document for each NIST SP 800-53 control family.</sch:assert>
+
             <sch:let
                 name="procedure-hrefs"
                 value="distinct-values((descendant::oscal:by-component/oscal:link[@rel eq 'procedure']/@href, //oscal:component[@type = 'procedure' and @uuid = current()/descendant::oscal:by-component/@component-uuid]/oscal:link/@href) ! substring-after(., '#'))" />
+
             <sch:assert
                 diagnostics="has-procedure-attachment-resource-diagnostic"
                 doc:checklist-reference="Section B Check 3.1"
@@ -1298,7 +1308,7 @@
                     (: targets of links exist in the document :)
                     every $ref in $procedure-hrefs
                         satisfies exists(//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'procedure']][@uuid eq $ref])">A
-                FedRAMP SSP must incorporate a procedure document for each of the 17 NIST SP 800-54 Revision 4 control families.</sch:assert>
+                FedRAMP SSP must incorporate a procedure document for each NIST SP 800-53 control family.</sch:assert>
             <!-- TODO: ensure resource has an rlink -->
         </sch:rule>
         <sch:rule
@@ -1323,7 +1333,7 @@
                     @href =
                     (: all controls except the current :) (//oscal:implemented-requirement[matches(@control-id, '^[a-z]{2}-1$')] except $ir)
                     (: all their @hrefs :)/descendant::oscal:by-component/oscal:link[@rel eq 'policy']/@href
-                    )"> Policy and procedure documents must have unique per-control-family associations.</sch:assert>
+                    )">Policy and procedure documents must have unique per-control-family associations.</sch:assert>
         </sch:rule>
     </sch:pattern>
 
@@ -1576,6 +1586,7 @@
                 diagnostics="has-accessible-CMVP-validation-details-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 id="has-accessible-CMVP-validation-details"
+                fedramp:specific="true"
                 role="error"
                 test="not($use-remote-resources) or unparsed-text-available(@href)"
                 unit:override-xspec="both">The NIST Cryptographic Module Validation Program (CMVP) certificate detail page is available.</sch:assert>
@@ -1679,7 +1690,7 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="has-security-objective-confidentiality"
                 role="error"
-                test="oscal:security-objective-confidentiality">A FedRAMP SSP must specify a confidentiality security objective.</sch:assert>
+                test="oscal:security-objective-confidentiality">An OSCAL SSP must specify a confidentiality security objective.</sch:assert>
             <sch:assert
                 diagnostics="has-security-objective-integrity-diagnostic"
                 doc:checklist-reference="Section B Check 3.10"
@@ -1687,7 +1698,7 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="has-security-objective-integrity"
                 role="error"
-                test="oscal:security-objective-integrity">A FedRAMP SSP must specify an integrity security objective.</sch:assert>
+                test="oscal:security-objective-integrity">An OSCAL SSP must specify an integrity security objective.</sch:assert>
             <sch:assert
                 diagnostics="has-security-objective-availability-diagnostic"
                 doc:checklist-reference="Section B Check 3.10"
@@ -1695,7 +1706,7 @@
                 doc:template-reference="System Security Plan Template §2.2"
                 id="has-security-objective-availability"
                 role="error"
-                test="oscal:security-objective-availability">A FedRAMP SSP must specify an availability security objective.</sch:assert>
+                test="oscal:security-objective-availability">An OSCAL SSP must specify an availability security objective.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
@@ -1790,7 +1801,7 @@
                 doc:template-reference="System Security Plan Template §2"
                 id="system-information-has-information-type"
                 role="error"
-                test="oscal:information-type">A FedRAMP SSP must define at least one information type.</sch:assert>
+                test="oscal:information-type">An OSCAL SSP must define at least one information type.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:information-type"
@@ -1802,19 +1813,20 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="information-type-has-title"
                 role="error"
-                test="oscal:title">A FedRAMP SSP information type must have a title.</sch:assert>
+                test="oscal:title">An OSCAL SSP information type must have a title.</sch:assert>
             <sch:assert
                 diagnostics="information-type-has-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
                 doc:template-reference="System Security Plan Template §2.1"
                 id="information-type-has-description"
                 role="error"
-                test="oscal:description">A FedRAMP SSP information type must have a description.</sch:assert>
+                test="oscal:description">An OSCAL SSP information type must have a description.</sch:assert>
             <sch:assert
                 diagnostics="information-type-has-categorization-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
                 doc:template-reference="System Security Plan Template §2.1"
                 id="information-type-has-categorization"
+                fedramp:specific="true"
                 role="error"
                 test="oscal:categorization">A FedRAMP SSP information type must have at least one categorization.</sch:assert>
             <sch:assert
@@ -1823,21 +1835,21 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="information-type-has-confidentiality-impact"
                 role="error"
-                test="oscal:confidentiality-impact">A FedRAMP SSP information type must have a confidentiality impact.</sch:assert>
+                test="oscal:confidentiality-impact">An OSCAL SSP information type must have a confidentiality impact.</sch:assert>
             <sch:assert
                 diagnostics="information-type-has-integrity-impact-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
                 doc:template-reference="System Security Plan Template §2.1"
                 id="information-type-has-integrity-impact"
                 role="error"
-                test="oscal:integrity-impact">A FedRAMP SSP information type must have an integrity impact.</sch:assert>
+                test="oscal:integrity-impact">An OSCAL SSP information type must have an integrity impact.</sch:assert>
             <sch:assert
                 diagnostics="information-type-has-availability-impact-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
                 doc:template-reference="System Security Plan Template §2.1"
                 id="information-type-has-availability-impact"
                 role="error"
-                test="oscal:availability-impact">A FedRAMP SSP information type must have an availability impact.</sch:assert>
+                test="oscal:availability-impact">An OSCAL SSP information type must have an availability impact.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:categorization"
@@ -1883,6 +1895,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
                 doc:template-reference="System Security Plan Template §2.1"
                 id="has-allowed-information-type-id"
+                fedramp:specific="true"
                 role="error"
                 see="https://doi.org/10.6028/NIST.SP.800-60v2r1"
                 test="current()[. = $information-types]">A FedRAMP SSP information type identifier must be chosen from those found in NIST SP
@@ -1898,7 +1911,7 @@
                 doc:template-reference="System Security Plan Template §2.1"
                 id="cia-impact-has-base"
                 role="error"
-                test="oscal:base">A FedRAMP SSP information type confidentiality, integrity, or availability impact must specify the base
+                test="oscal:base">An OSCAL SSP information type confidentiality, integrity, or availability impact must specify the base
                 impact.</sch:assert>
             <sch:assert
                 diagnostics="cia-impact-has-selected-diagnostic"
@@ -2394,6 +2407,7 @@
                 diagnostics="has-prohibited-vendor-name-diagnostic"
                 feddoc:documentation-reference="FAR 889(a)(1)(B)"
                 id="has-prohibited-vendor-name"
+                fedramp:specific="true"
                 role="warning"
                 test="not(oscal:prop[@name eq 'vendor-name']/@value = $prohibit-vendor)">The inventory item does not cite a banned
                 vendor.</sch:assert>
@@ -2543,6 +2557,7 @@
                 diagnostics="ipv6-has-content-diagnostic"
                 feddoc:documentation-reference="OMB Mandate M-21-07"
                 id="ipv6-has-content"
+                fedramp:specific="true"
                 role="error"
                 test="
                     if (oscal:prop[@name eq 'ipv6-address'])
@@ -2555,6 +2570,7 @@
                 diagnostics="ipv6-has-non-placeholder-diagnostic"
                 feddoc:documentation-reference="OMB Mandate M-21-07"
                 id="ipv6-has-non-placeholder"
+                fedramp:specific="true"
                 role="error"
                 test="
                     if (oscal:prop[@name eq 'ipv6-address']/@value eq '::')
@@ -3081,6 +3097,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
                 doc:template-reference="System Security Plan Template §9.3"
                 id="user-privilege-level-has-allowed-value"
+                fedramp:specific="true"
                 role="error"
                 test="current()/@value = $user-privilege-levels">User privilege level has an allowed value.</sch:assert>
         </sch:rule>
@@ -3108,6 +3125,7 @@
                 diagnostics="authorized-privilege-has-title-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
                 doc:template-reference="System Security Plan Template §9.3"
+                fedramp:specific="true"
                 id="authorized-privilege-has-title"
                 role="error"
                 test="oscal:title">In an OSCAL SSP document every authorized privilege has a title.</sch:assert>
@@ -3128,6 +3146,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
                 doc:template-reference="System Security Plan Template §9.3"
                 id="authorized-privilege-has-non-empty-title"
+                fedramp:specific="true"
                 role="error"
                 test="current() ne ''">Every authorized privilege title is not empty.</sch:assert>
         </sch:rule>
@@ -3192,12 +3211,13 @@
                 doc:template-reference="System Security Plan Template §9.2"
                 id="has-authorization-boundary-diagram-uuid"
                 role="error"
-                test="@uuid">Each FedRAMP SSP authorization boundary diagram has a unique identifier.</sch:assert>
+                test="@uuid">Each OSCAL SSP authorization boundary diagram has a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-authorization-boundary-diagram-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.17 Authorization Boundary Diagram"
                 doc:template-reference="System Security Plan Template §9.2"
                 id="has-authorization-boundary-diagram-description"
+                fedramp:specific="true"
                 role="error"
                 test="oscal:description">An OSCAL SSP document authorization boundary diagram has a description.</sch:assert>
             <sch:assert
@@ -3306,6 +3326,7 @@
                 diagnostics="has-network-architecture-diagram-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.22 Network Architecture Diagram"
                 doc:template-reference="System Security Plan Template §9.4"
+                fedramp:specific="true"
                 id="has-network-architecture-diagram-description"
                 role="error"
                 test="oscal:description">Each FedRAMP SSP network architecture diagram has a description.</sch:assert>
@@ -3407,7 +3428,7 @@
                 doc:template-reference="System Security Plan Template §10.1"
                 id="has-data-flow-diagram-uuid"
                 role="error"
-                test="@uuid">A data flow diagram, in an OSCAL SSP document, has a unique identifier.</sch:assert>
+                test="@uuid">An OSCAL SSP document with a data flow diagram has a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="has-data-flow-diagram-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.24 Data Flow Diagram"
@@ -3525,9 +3546,10 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
                 doc:template-reference="System Security Plan Template §13"
                 id="import-profile-resolves-to-catalog"
+                fedramp:specific="true"
                 role="fatal"
                 test="$resolved-profile-doc/oscal:catalog"
-                unit:override-xspec="both">The import-profile element references an available oscal resolved baseline profile catalog
+                unit:override-xspec="both">The import-profile element references an available OSCAL resolved baseline profile catalog
                 document.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -4032,6 +4054,7 @@
                 diagnostics="interconnection-has-protocol-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
+                fedramp:specific="true"
                 id="interconnection-has-protocol"
                 role="error"
                 test="oscal:protocol">A system interconnection must describe the protocols used for information transfer.</sch:assert>
@@ -4048,6 +4071,7 @@
                 diagnostics="interconnection-has-local-and-remote-addresses-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
+                fedramp:specific="true"
                 id="interconnection-has-local-and-remote-addresses"
                 role="error"
                 test="
@@ -4077,6 +4101,7 @@
                 diagnostics="interconnection-has-isa-poc-local-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
+                fedramp:specific="true"
                 id="interconnection-has-isa-poc-local"
                 role="error"
                 test="oscal:responsible-role[@role-id eq 'isa-poc-local']">A system interconnection must specify a responsible local (CSP) point of
@@ -4085,6 +4110,7 @@
                 diagnostics="interconnection-has-isa-poc-remote-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
+                fedramp:specific="true"
                 id="interconnection-has-isa-poc-remote"
                 role="error"
                 test="oscal:responsible-role[@role-id eq 'isa-poc-remote']">A system interconnection must specify a responsible remote point of
@@ -4093,6 +4119,7 @@
                 diagnostics="interconnection-has-isa-authorizing-official-local-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
+                fedramp:specific="true"
                 id="interconnection-has-isa-authorizing-official-local"
                 role="error"
                 test="oscal:responsible-role[@role-id eq 'isa-authorizing-official-local']">A system interconnection must specify a local authorizing
@@ -4101,6 +4128,7 @@
                 diagnostics="interconnection-has-isa-authorizing-official-remote-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
+                fedramp:specific="true"
                 id="interconnection-has-isa-authorizing-official-remote"
                 role="error"
                 test="oscal:responsible-role[@role-id eq 'isa-authorizing-official-remote']">A system interconnection must specify a remote
@@ -4193,6 +4221,7 @@
                 diagnostics="interconnection-protocol-port-range-has-transport-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
                 doc:template-reference="System Security Plan Template §11"
+                fedramp:specific="true"
                 id="interconnection-protocol-port-range-has-transport"
                 role="error"
                 test="@transport">A system interconnection protocol port range declaration must state a transport protocol.</sch:assert>
@@ -4246,6 +4275,7 @@
 
             <sch:assert
                 diagnostics="has-DNS-authoritative-service-diagnostic"
+                fedramp:specific="true"
                 id="has-DNS-authoritative-service"
                 role="information"
                 test="exists(oscal:component[@type eq 'DNS-authoritative-service'])">A DNS authoritative service is defined.</sch:assert>
@@ -4257,6 +4287,7 @@
 
             <sch:assert
                 diagnostics="has-DNS-zone-diagnostic"
+                fedramp:specific="true"
                 id="has-DNS-zone"
                 role="error"
                 test="exists(oscal:prop[@name eq 'DNS-zone' and exists(@value)])">The DNS authoritative service has one or more zones
@@ -4275,6 +4306,7 @@
                 value="matches(@value, $zone-regex, 'ix')" />
             <sch:assert
                 diagnostics="has-well-formed-DNS-zone-diagnostic"
+                fedramp:specific="true"
                 id="has-well-formed-DNS-zone"
                 role="error"
                 test="$well-formed">Each zone name for the DNS authoritative service is well-formed.</sch:assert>
@@ -4320,12 +4352,14 @@
 
             <sch:assert
                 diagnostics="has-resolved-zone-diagnostic DoH-response"
+                fedramp:specific="true"
                 id="has-resolved-zone"
                 role="error"
                 test="$has-resolved-zone">Each zone for the DNS authoritative service can be resolved.</sch:assert>
 
             <sch:assert
                 diagnostics="zone-has-DNSSEC-diagnostic DoH-response"
+                fedramp:specific="true"
                 id="zone-has-DNSSEC"
                 role="error"
                 test="$has-resolved-zone and $response?AD eq true()">Each zone for the DNS authoritative service has DNSSEC.</sch:assert>
@@ -4836,11 +4870,11 @@
         <sch:diagnostic
             doc:assertion="information-type-has-title"
             doc:context="oscal:information-type"
-            id="information-type-has-title-diagnostic">A FedRAMP SSP information-type lacks a title.</sch:diagnostic>
+            id="information-type-has-title-diagnostic">An OSCAL SSP information-type lacks a title.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="information-type-has-description"
             doc:context="oscal:information-type"
-            id="information-type-has-description-diagnostic">A FedRAMP SSP information-type lacks a description.</sch:diagnostic>
+            id="information-type-has-description-diagnostic">An OSCAL SSP information-type lacks a description.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="information-type-has-categorization"
             doc:context="oscal:information-type"
@@ -4848,16 +4882,16 @@
         <sch:diagnostic
             doc:assertion="information-type-has-confidentiality-impact"
             doc:context="oscal:information-type"
-            id="information-type-has-confidentiality-impact-diagnostic">A FedRAMP SSP information-type lacks a
+            id="information-type-has-confidentiality-impact-diagnostic">An OSCAL SSP information-type lacks a
             confidentiality-impact.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="information-type-has-integrity-impact"
             doc:context="oscal:information-type"
-            id="information-type-has-integrity-impact-diagnostic">A FedRAMP SSP information-type lacks a integrity-impact.</sch:diagnostic>
+            id="information-type-has-integrity-impact-diagnostic">An OSCAL SSP information-type lacks a integrity-impact.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="information-type-has-availability-impact"
             doc:context="oscal:information-type"
-            id="information-type-has-availability-impact-diagnostic">A FedRAMP SSP information-type lacks a availability-impact.</sch:diagnostic>
+            id="information-type-has-availability-impact-diagnostic">An OSCAL SSP information-type lacks a availability-impact.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="cia-impact-matches-security-objective"
             doc:context="oscal:security-objective-confidentiality | oscal:security-objective-integrity | oscal:security-objective-availability"
@@ -4886,7 +4920,7 @@
         <sch:diagnostic
             doc:assertion="cia-impact-has-base"
             doc:context="oscal:confidentiality-impact | oscal:integrity-impact | oscal:availability-impact"
-            id="cia-impact-has-base-diagnostic">A FedRAMP SSP information-type confidentiality-, integrity-, or availability-impact lacks a base
+            id="cia-impact-has-base-diagnostic">An OSCAL SSP information-type confidentiality-, integrity-, or availability-impact lacks a base
             element.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="cia-impact-has-selected"

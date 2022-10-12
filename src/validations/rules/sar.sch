@@ -248,6 +248,7 @@
             <sch:assert
                 diagnostics="has-type-artifact-evidence-resource-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.4.4"
+                fedramp:specific="true"
                 id="has-type-artifact-evidence-resource"
                 role="error"
                 test="
@@ -264,6 +265,7 @@
             <sch:assert
                 diagnostics="has-type-artifact-evidence-rlink-base64-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.4.4"
+                fedramp:specific="true"
                 id="has-type-artifact-evidence-rlink-base64"
                 role="error"
                 test="oscal:rlink or oscal:base64">An observation of type 'evidence' or 'artifact' must have at least one rlink and/or base64
@@ -271,6 +273,7 @@
             <sch:assert
                 diagnostics="has-type-artifact-evidence-rlink-relative-path-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.4.4"
+                fedramp:specific="true"
                 id="has-type-artifact-evidence-rlink-relative-path"
                 role="error"
                 test="oscal:rlink[not(matches(@href, '^/'))]">If an observation of type 'evidence' or 'artifact' has an rlink the @href value must be
@@ -283,6 +286,7 @@
             <sch:assert
                 diagnostics="has-sap-rlink-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5"
+                fedramp:specific="true"
                 id="has-sap-rlink"
                 role="error"
                 test="exists(oscal:rlink) and not(exists(oscal:rlink[2]))">An OSCAL SAR with a SAP resource declaration must have one and only one
@@ -296,6 +300,7 @@
             <sch:assert
                 diagnostics="has-acceptable-security-assessment-plan-rlink-media-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §3.5"
+                fedramp:specific="true"
                 id="has-acceptable-security-assessment-plan-rlink-media-type"
                 role="error"
                 test="@media-type = ('text/xml', 'application/json')">An OSCAL SAR SAP rlink must have a 'text/xml' or 'application/json'
@@ -377,6 +382,35 @@
                 test="oscal:attestation[oscal:part[@name = 'authorization-statements']/oscal:prop[@ns = 'https://fedramp.gov/ns/oscal' and @name = 'recommend-authorization']]">
                 There must exist an attestation with a part containing a property with a name of 'recommend-authorization'.</sch:assert>
 
+            <sch:let
+                name="pl-2-other-than-satisfied-findings"
+                value="oscal:finding/oscal:target[@type = 'objective-id'][oscal:status ne 'satisfied'][matches(@target-id, '^pl-2\.')]/@target-id" />
+
+            <sch:let
+                name="pl-2-profile-objectives"
+                value="$resolved-profile-doc/oscal:catalog//oscal:part[@name eq 'objective'][ancestor::oscal:control[@id eq 'pl-2']]/@id" />
+
+            <sch:let
+                name="pl-2-not-matches-other-than-satisfied-findings"
+                value="$pl-2-other-than-satisfied-findings[not(. = $pl-2-profile-objectives)]" />
+
+            <sch:assert
+                diagnostics="matching-control-PL-2-objectives-diagnostic"
+                fedramp:specific="true"
+                id="matching-control-PL-2-objectives"
+                role="error"
+                test="count($pl-2-other-than-satisfied-findings) gt 0"
+                unit:override-xspec="both">Within a SAR, every unsatisfied PL-2 objective must have a matching resolved baseline profile catalog
+                part.</sch:assert>
+
+            <sch:assert
+                diagnostics="minimal-control-PL-2-findings-diagnostic"
+                fedramp:specific="true"
+                id="minimal-control-PL-2-findings"
+                role="error"
+                test="count(oscal:finding[oscal:target[@type = 'objective-id' and oscal:status/@state ne 'statisfied' and matches(@target-id, '^pl-2\.')]]) lt 2">Every
+                result must contain no more than one unsatisfied finding for the control PL-2.</sch:assert>
+
             <!-- Unclear Guide instructions. -->
             <!-- See https://github.com/GSA/fedramp-automation-guides/issues/41 -->
             <!--<sch:rule
@@ -397,6 +431,7 @@
             <sch:assert
                 diagnostics="has-matching-SAP-party-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.3"
+                fedramp:specific="true"
                 id="has-matching-SAP-party"
                 role="error"
                 test="
@@ -409,6 +444,7 @@
             <sch:assert
                 diagnostics="has-matching-historic-party-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.4.5"
+                fedramp:specific="true"
                 id="has-matching-historic-party"
                 role="error"
                 test="
@@ -612,6 +648,7 @@
             <sch:assert
                 diagnostics="has-risk-adjustment-observation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.10.3"
+                fedramp:specific="true"
                 id="has-risk-adjustment-observation"
                 role="error"
                 test="
@@ -629,6 +666,7 @@
             <sch:assert
                 diagnostics="has-operational-requirement-observation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.10.2"
+                fedramp:specific="true"
                 id="has-operational-requirement-observation"
                 role="error"
                 test="
@@ -646,6 +684,7 @@
             <sch:assert
                 diagnostics="has-risk-adjustment-relevant-evidence-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.10.3"
+                fedramp:specific="true"
                 id="has-risk-adjustment-relevant-evidence"
                 role="error"
                 test="
@@ -663,6 +702,7 @@
             <sch:assert
                 diagnostics="has-operational-requirement-relevant-evidence-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.10.2"
+                fedramp:specific="true"
                 id="has-operational-requirement-relevant-evidence"
                 role="error"
                 test="
@@ -680,6 +720,7 @@
             <sch:assert
                 diagnostics="has-method-MIXED-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.4.5"
+                fedramp:specific="true"
                 id="has-method-MIXED"
                 role="error"
                 test="oscal:type = 'historic' and oscal:method = 'MIXED'">An observation of type 'historic' must also have a method of
@@ -688,6 +729,7 @@
             <sch:assert
                 diagnostics="has-type-ssp-statement-issue-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.5"
+                fedramp:specific="true"
                 id="has-type-ssp-statement-issue"
                 role="error"
                 test="
@@ -700,6 +742,7 @@
             <sch:assert
                 diagnostics="has-type-ssp-statement-issue-matches-related-observation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.5"
+                fedramp:specific="true"
                 id="has-type-ssp-statement-issue-matches-related-observation"
                 role="error"
                 test="
@@ -716,6 +759,7 @@
             <sch:assert
                 diagnostics="has-implementation-statement-uuid-matches-ssp-statement-uuid-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.5"
+                fedramp:specific="true"
                 id="has-implementation-statement-uuid-matches-ssp-statement-uuid"
                 role="error"
                 test="
@@ -734,6 +778,7 @@
             <sch:assert
                 diagnostics="has-false-positive-observation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.10.1"
+                fedramp:specific="true"
                 id="has-false-positive-observation"
                 role="error"
                 test="
@@ -801,6 +846,7 @@
             <sch:assert
                 diagnostics="has-false-positive-related-related-observation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.10.1"
+                fedramp:specific="true"
                 id="has-false-positive-related-related-observation"
                 role="error"
                 test="
@@ -825,6 +871,7 @@
             <sch:assert
                 diagnostics="has-risk-adjustment-matching-control-implementation-statement-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.10.3"
+                fedramp:specific="true"
                 id="has-risk-adjustment-matching-control-implementation-statement"
                 role="warning"
                 test="
@@ -843,6 +890,7 @@
             <sch:assert
                 diagnostics="has-risk-log-status-closed-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.11"
+                fedramp:specific="true"
                 id="has-risk-log-status-closed"
                 role="error"
                 test="
@@ -880,6 +928,7 @@
             <sch:assert
                 diagnostics="has-lifecycle-recommendation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.6.1"
+                fedramp:specific="true"
                 id="has-lifecycle-recommendation"
                 role="error"
                 see="https://github.com/GSA/fedramp-automation-guides/issues/45"
@@ -917,6 +966,7 @@
             <sch:assert
                 diagnostics="has-finding-target-status-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.5"
+                fedramp:specific="true"
                 id="has-finding-target-status-issue"
                 role="error"
                 test="
@@ -935,6 +985,7 @@
             <sch:assert
                 diagnostics="has-associated-risk-matching-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.6"
+                fedramp:specific="true"
                 id="has-associated-risk-matching"
                 role="error"
                 test="@risk-uuid[. = $SAR-risk-uuids]">An associated-risk/@risk-uuid must have a matching risk/@uuid in the SAR.</sch:assert>
@@ -957,6 +1008,7 @@
             <sch:assert
                 diagnostics="has-facet-likelihood-and-impact-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.6"
+                fedramp:specific="true"
                 id="has-facet-likelihood-and-impact"
                 role="error"
                 test="oscal:facet[@name = 'likelihood' and @system = 'https://fedramp.gov'] and oscal:facet[@name = 'impact' and @system = 'https://fedramp.gov']">Facets
@@ -968,6 +1020,7 @@
             <sch:assert
                 diagnostics="has-facet-correct-values-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.6"
+                fedramp:specific="true"
                 id="has-facet-correct-values"
                 role="error"
                 test="
@@ -988,6 +1041,7 @@
             <sch:assert
                 diagnostics="has-method-TEST-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.7"
+                fedramp:specific="true"
                 id="has-method-TEST"
                 role="error"
                 test="oscal:type = 'finding' and oscal:method = 'TEST'">An observation of actor type 'tool' must have a type of 'finding' and a method
@@ -999,6 +1053,7 @@
             <sch:assert
                 diagnostics="has-matching-assessment-asset-component-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.7"
+                fedramp:specific="true"
                 id="has-matching-assessment-asset-component"
                 role="error"
                 test="@uuid[. = $assessment-assets-components]">An observation with an actor of type 'tool' must have a matching
@@ -1010,6 +1065,7 @@
             <sch:assert
                 diagnostics="has-related-observation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.7"
+                fedramp:specific="true"
                 id="has-related-observation"
                 role="error"
                 test="@uuid[. = $related-observation-UUIDs]">The observation UUID must be cited by (at least) one of the parent result's finding
@@ -1018,6 +1074,7 @@
             <sch:assert
                 diagnostics="has-relevant-evidence-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.7"
+                fedramp:specific="true"
                 id="has-relevant-evidence"
                 role="error"
                 test="
@@ -1033,6 +1090,7 @@
             <sch:assert
                 diagnostics="observation-subject-is-locally-defined-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.7"
+                fedramp:specific="true"
                 id="observation-subject-is-locally-defined"
                 role="error"
                 test="@subject-uuid[. = $local-definition-subjects]">Each subject of an automated tool must correspond to one of the locally defined
@@ -1063,6 +1121,7 @@
 
             <sch:assert
                 diagnostics="assessment-has-ended-diagnostic"
+                fedramp:specific="true"
                 id="assessment-has-ended"
                 role="warning"
                 test="exists(oscal:end)">All assessments should be completed.</sch:assert>
@@ -1083,6 +1142,7 @@
 
             <sch:assert
                 diagnostics="has-contemporary-assessment-diagnostic"
+                fedramp:specific="true"
                 id="has-contemporary-assessment"
                 role="error"
                 see="https://github.com/18F/fedramp-automation/issues/348"
@@ -1495,6 +1555,19 @@
             doc:context="oscal:result"
             id="has-attestation-diagnostic">The result, <sch:value-of
                 select="@uuid" />, does not contain an attestation/part with a property of 'recommend-authorization'.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="matching-control-PL-2-objectives"
+            doc:context="oscal:result"
+            id="matching-control-PL-2-objectives-diagnostic">Within a SAR, the PL-2 unsatisfied objectives, <sch:value-of
+                select="$pl-2-not-matches-other-than-satisfied-findings" />, do not have a matching part in the resolved profile
+            catalog.</sch:diagnostic>
+
+        <sch:diagnostic
+            doc:assert="minimal-control-PL-2-findings"
+            doc:context="oscal:result"
+            id="minimal-control-PL-2-findings-diagnostic">Within a SAR, the result, <sch:value-of
+                select="@uuid" />, contains more than one finding for the control PL-2.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-attestation-value-no"

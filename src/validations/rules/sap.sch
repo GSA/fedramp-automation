@@ -79,6 +79,7 @@
             <sch:assert
                 diagnostics="has-user-assessment-subject-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.7"
+                fedramp:specific="true"
                 id="has-user-assessment-subject"
                 role="error"
                 test="exists(oscal:assessment-subject[@type = 'user'])">A FedRAMP SAP must have an assesment-subject with a type of
@@ -109,6 +110,7 @@
             <sch:assert
                 diagnostics="has-location-assessment-subject-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.3"
+                fedramp:specific="true"
                 id="has-location-assessment-subject"
                 role="error"
                 test="exists(oscal:assessment-subject[@type = 'location'])">A FedRAMP SAP must have a assessment-subject with a type of
@@ -206,9 +208,10 @@
             <sch:assert
                 diagnostics="has-ssp-rlink-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §3.5"
+                fedramp:specific="true"
                 id="has-ssp-rlink"
                 role="error"
-                test="exists(oscal:rlink) and not(exists(oscal:rlink[2]))">An OSCAL SAP with a SSP resource declaration must have one and only one
+                test="exists(oscal:rlink) and not(exists(oscal:rlink[2]))">A FedRAMP SAP with a SSP resource declaration must have one and only one
                 rlink element.</sch:assert>
 
         </sch:rule>
@@ -219,11 +222,12 @@
             <sch:assert
                 diagnostics="has-non-OSCAL-system-security-plan-resource-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §3.5.2"
+                fedramp:specific="true"
                 id="has-non-OSCAL-system-security-plan-resource"
                 role="warning"
                 test="
                     (: always warn :)
-                    false()">An OSCAL SAP which lacks an OSCAL SSP must declare a no-oscal-ssp resource.</sch:assert>
+                    false()">A FedRAMP SAP which lacks an OSCAL SSP must declare a no-oscal-ssp resource.</sch:assert>
 
         </sch:rule>
 
@@ -233,6 +237,7 @@
             <sch:assert
                 diagnostics="has-acceptable-system-security-plan-rlink-media-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §3.5"
+                fedramp:specific="true"
                 id="has-acceptable-system-security-plan-rlink-media-type"
                 role="error"
                 test="@media-type = ('text/xml', 'application/json')">An OSCAL SAP SSP rlink must have a 'text/xml' or 'application/json'
@@ -248,9 +253,10 @@
             <sch:assert
                 diagnostics="has-no-base64-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §3.5"
+                fedramp:specific="true"
                 id="has-no-base64"
                 role="error"
-                test="false()">An OSCAL SAP must not use a base64 element in a system-security-plan resource.</sch:assert>
+                test="false()">A FedRAMP SAP must not use a base64 element in a system-security-plan resource.</sch:assert>
 
         </sch:rule>
 
@@ -378,6 +384,7 @@
 
             <sch:assert
                 diagnostics="duplicate-exclude-objective-and-include-objective-values-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.1"
                 id="duplicate-exclude-objective-and-include-objective-values"
                 role="error"
                 test="count($matching-control-objective-ids) = 0">The exclude-control and include-control sibling element @control-id values must be
@@ -388,6 +395,7 @@
             context="oscal:control-objective-selection/oscal:include-objective">
             <sch:assert
                 diagnostics="duplicate-include-objective-values-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.1"
                 id="duplicate-include-objective-values"
                 role="error"
                 test="
@@ -406,6 +414,7 @@
             context="oscal:control-objective-selection/oscal:exclude-objective">
             <sch:assert
                 diagnostics="duplicate-exclude-objective-values-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.1"
                 id="duplicate-exclude-objective-values"
                 role="error"
                 test="
@@ -824,6 +833,7 @@
             <sch:assert
                 diagnostics="signed-sap-resource-has-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.26"
+                fedramp:specific="true"
                 id="signed-sap-resource-has-description"
                 role="warning"
                 test="exists(oscal:description)">An OSCAL SAP `signed-sap` resource must have a description.</sch:assert>
@@ -831,6 +841,7 @@
             <sch:assert
                 diagnostics="signed-sap-resource-has-rlink-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.26"
+                fedramp:specific="true"
                 id="signed-sap-resource-has-rlink"
                 role="error"
                 test="exists(oscal:rlink)">An OSCAL SAP `signed-sap` resource must have an rlink.</sch:assert>
@@ -843,6 +854,7 @@
             <sch:assert
                 diagnostics="signed-sap-rlink-has-media-type-pdf-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.26"
+                fedramp:specific="true"
                 id="signed-sap-rlink-has-media-type-pdf"
                 role="warning"
                 test="@media-type eq 'application/pdf'">An OSCAL SAP `signed-sap` resource rlink should use 'application/pdf' media-type.</sch:assert>
@@ -1221,7 +1233,7 @@
                 test="
                     if (oscal:prop[@name eq 'ipv4-address'])
                     then
-                        (oscal:prop[matches(@value, '(^[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?$)')])
+                        (oscal:prop[@name eq 'ipv4-address'][matches(@value, '(^[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?$)')])
                     else
                         (true())"><sch:value-of
                     select="oscal:prop[@name = 'ipv4-address']/@value" />A FedRAMP SAP assessment-platform IPv4 value must be valid.</sch:assert>
@@ -1229,6 +1241,7 @@
             <sch:assert
                 diagnostics="ipv4-has-non-placeholder-diagnostic"
                 feddoc:documentation-reference="OMB Mandate M-21-07"
+                fedramp:specific="true"
                 id="ipv4-has-non-placeholder"
                 role="error"
                 test="
@@ -1256,7 +1269,7 @@
                 test="
                     if (oscal:prop[@name eq 'ipv6-address'])
                     then
-                        (oscal:prop[matches(@value, $IPv6-regex)])
+                        (oscal:prop[@name eq 'ipv6-address'][matches(@value, $IPv6-regex)])
                     else
                         (true())"><sch:value-of
                     select="oscal:prop[@name = 'asset-id']/@value" />A FedRAMP SAP assessment-platform IPv6 value must be valid.</sch:assert>
