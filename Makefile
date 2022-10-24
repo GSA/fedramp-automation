@@ -11,7 +11,7 @@ include src/web/module.mk
 
 .PHONY: help
 
-all: clean test build  ## Complete clean build with tests
+all: clean build test  ## Complete clean build with tests
 
 init: init-repo init-validations init-web  ## Initialize project dependencies
 
