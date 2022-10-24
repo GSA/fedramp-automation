@@ -21,7 +21,7 @@ export const CommandLineController = (ctx: CommandLineContext) => {
     .command('validate <oscal-file-path>')
     .description('validate OSCAL document (SSP, SAP, SAR, or POA&M)')
     .action(async oscalFilePath => {
-      await ctx.useCases.oscalService.validateXmlOrJsonFile(oscalFilePath);
+      await ctx.useCases.oscalService.validateOscalFile(oscalFilePath);
     });
   cli
     .command('generate-schematron-summaries')

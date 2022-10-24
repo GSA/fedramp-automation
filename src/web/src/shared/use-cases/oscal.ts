@@ -17,18 +17,18 @@ export class OscalService {
     private readStringFile?: (fileName: string) => Promise<string>,
   ) {}
 
-  async validateXmlOrJsonFile(oscalFilePath: string) {
+  async validateOscalFile(oscalFilePath: string) {
     if (!this.readStringFile) {
       throw new Error('readStringFile not provided');
     }
     const xmlString = await this.readStringFile(oscalFilePath);
-    const result = await this.validateXmlOrJson(xmlString);
+    const result = await this.validateOscal(xmlString);
     this.console.log(
       `Found ${result.validationReport.failedAsserts.length} assertions in ${result.documentType}`,
     );
   }
 
-  validateXmlOrJson(oscalString: string): Promise<{
+  validateOscal(oscalString: string): Promise<{
     documentType: OscalDocumentKey;
     svrlString: string;
     validationReport: ValidationReport;
@@ -48,10 +48,10 @@ export class OscalService {
       });
   }
 
-  validateXmlOrJsonByUrl(fileUrl: string) {
+  validateOscalByUrl(fileUrl: string) {
     return this.fetch(fileUrl)
       .then(response => response.text())
-      .then(value => this.validateXmlOrJson(value));
+      .then(value => this.validateOscal(value));
   }
 
   validateXml(xmlString: string): Promise<{

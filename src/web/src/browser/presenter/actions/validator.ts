@@ -24,7 +24,7 @@ export const validateOscalDocument =
     });
     if (config.getState().validator.current === 'PROCESSING') {
       config.effects.useCases.oscalService
-        .validateXmlOrJson(options.fileContents)
+        .validateOscal(options.fileContents)
         .then(({ documentType, svrlString, validationReport, xmlString }) => {
           setValidationReport({
             documentType,
@@ -47,7 +47,7 @@ export const setXmlUrl =
     });
     if (config.getState().validator.current === 'PROCESSING') {
       config.effects.useCases.oscalService
-        .validateXmlOrJsonByUrl(xmlFileUrl)
+        .validateOscalByUrl(xmlFileUrl)
         .then(({ documentType, svrlString, validationReport, xmlString }) => {
           setValidationReport({
             documentType,
