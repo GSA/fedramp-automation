@@ -1,3 +1,5 @@
+import { parse as parseYaml } from 'yaml';
+
 import { getDocumentTypeForRootNode, OscalDocumentKey } from '../domain/oscal';
 import type {
   SchematronJSONToXMLProcessors,
@@ -60,6 +62,7 @@ export class OscalService {
     validationReport: ValidationReport;
   }> {
     return this.schematronProcessor(xmlString).then(result => {
+      this.console.log(result);
       return {
         documentType: result.documentType,
         svrlString: result.schematronResult.svrlString,
@@ -69,34 +72,51 @@ export class OscalService {
   }
 
   async ensureXml(oscalString: string): Promise<string> {
-    // Convert JSON to XML, if necessary.
     const detected = detectFormat(oscalString);
+
+    if (detected.format === 'yaml') {
+      const jsonString = JSON.stringify(parseYaml(oscalString));
+      const documentType = getDocumentTypeForRootNode(detected.type || '');
+      if (documentType === null) {
+        return oscalString;
+      }
+      return this.jsonOscalToXmlProcessors[documentType](jsonString);
+    }
+
     if (detected.format === 'json') {
       const documentType = getDocumentTypeForRootNode(detected.type || '');
       if (documentType === null) {
         return oscalString;
       }
       return this.jsonOscalToXmlProcessors[documentType](oscalString);
-    } else {
-      return oscalString;
     }
+
+    return oscalString;
   }
 }
 
 const detectFormat = (document: string) => {
   // Naive detection of JSON format - first non-whitespace character should be
   // `{`, and we will extract the opening tag name to detect the document type.
-  const match = document.match(/^\s*\{\s*"(.+)"/);
-  if (match === null) {
-    return {
-      format: 'xml',
-    };
-  } else {
+  const jsonMatch = document.match(/^\s*\{\s*"(.+)"/);
+  if (jsonMatch !== null) {
     return {
       format: 'json',
-      type: match[1],
+      type: jsonMatch[1],
     };
   }
+
+  const yamlMatch = document.match(/^---\s*(.+):/);
+  if (yamlMatch !== null) {
+    return {
+      format: 'yaml',
+      type: yamlMatch[1],
+    };
+  }
+
+  return {
+    format: 'xml',
+  };
 };
 
 const generateValidationReport = (
