@@ -62,7 +62,6 @@ export class OscalService {
     validationReport: ValidationReport;
   }> {
     return this.schematronProcessor(xmlString).then(result => {
-      this.console.log(result);
       return {
         documentType: result.documentType,
         svrlString: result.schematronResult.svrlString,
