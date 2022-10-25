@@ -11,7 +11,7 @@ import saxonc  # type: ignore
 EXAMPLE_SSP_PATH_JSON = os.path.abspath(
     os.path.join(
         os.path.dirname(__file__),
-        "../../../dist/content/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json",
+        "../../../dist/content/rev4/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json",
     )
 )
 # XSLT stylesheet that converts a JSON SSP to XML.
