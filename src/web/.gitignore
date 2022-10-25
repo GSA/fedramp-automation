@@ -1,6 +1,5 @@
 .vite_temp
 bin
-build
 coverage
 dist
 node_modules
