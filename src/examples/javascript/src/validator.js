@@ -6,10 +6,10 @@ const path = require('path');
 const SaxonJS = require('saxon-js');
 
 /** Location of baseline 800-53rev4 definitions */
-const BASELINES_PATH = path.resolve('../../../dist/content/baselines/rev4/xml');
+const BASELINES_PATH = path.resolve('../../../dist/content/rev4/baselines/xml');
 
 /** Location of resource values */
-const RESOURCES_PATH = path.resolve('../../../dist/content/resources/xml');
+const RESOURCES_PATH = path.resolve('../../../dist/content/rev4/resources/xml');
 
 /** Path to compiled Schematron XSLT validation rules */
 const COMPILED_XSLT = {

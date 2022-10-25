@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fedramp-values xmlns="https://fedramp.gov/ns/oscal">
+   <metadata>
+      <title>[EXPERIMENTAL] FedRAMP Defined Identifiers and Accepted Values</title>
+      <title-short>FedRAMP Data Values (Experimental)</title-short>
+      <published>2021-10-22T05:55:26Z</published>
+      <last-modified>2021-10-22T05:55:26Z</last-modified>
+      <version>fedramp1.2.1-oscal1.0.0</version>
+      <author>FedRAMP PMO</author>
+      <description>This EXPERIMENTAL file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
+      <remarks />
+   </metadata>
+
+   <namespace>
+      <ns name="fedramp" ns="https://fedramp.gov/ns/oscal" />
+   </namespace>
+
+   <value-set name="system-identifier-type">
+      <formal-name>System Identifier Type</formal-name>
+      <description>Indicates the source of the unique ID assigned to the system. FedRAMP requires a FedRAMP-assigned identifier; however, additional identifiers may also be provided.</description>
+      <binding pattern="system-id/@identifier-type" />
+      <allowed-values allow-other="yes">
+         <enum value="http://fedramp.gov" short-label="FedRAMP ID">FedRAMP-Assigned Identifier</enum>
+         <enum value="https://ietf.org/rfc/rfc4122" short-label="UUIDv4">RFC-4122 UUIDv4 Value</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="address-type">
+      <formal-name>Address Type</formal-name>
+      <description>The type of address for the party</description>
+      <binding pattern="party/address/@type" />
+      <allowed-values allow-other="no">
+         <enum value="home" short-label="Home">Home</enum>
+         <enum value="work" short-label="Work">Work</enum>
+      </allowed-values>
+      <remarks>FedRAMP requires work addresses.</remarks>
+   </value-set>
+
+   <value-set name="eauth-level">
+      <formal-name>eAuth Level</formal-name>
+      <description>The eAuthentication level as defined by NIST SP 800-63, Revision 3.</description>
+      <binding pattern="system-characteristics/prop[@name='security-eauth-level'][@ns='https://fedramp.gov/ns/oscal']" />
+      <allowed-values allow-other="no">
+         <enum value="1" short-label="L">Low</enum>
+         <enum value="2" short-label="M">Moderate</enum>
+         <enum value="3" short-label="H">High</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="identity-assurance-level">
+      <formal-name>Identity Assurance Level</formal-name>
+      <description>The identity assurance level as defined by NIST SP 800-63, Revision 3.</description>
+      <binding pattern="system-characteristics/prop[@name='identity-assurance-level']" />
+      <allowed-values allow-other="no">
+         <enum value="1" short-label="L">Low</enum>
+         <enum value="2" short-label="M">Moderate</enum>
+         <enum value="3" short-label="H">High</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="authenticator-assurance-level">
+      <formal-name>Authenticator Assurance Level</formal-name>
+      <description>The authenticator assurance level as defined by NIST SP 800-63, Revision 3.</description>
+      <binding pattern="system-characteristics/prop[@name='authenticator-assurance-level']" />
+      <allowed-values allow-other="no">
+         <enum value="1" short-label="L">Low</enum>
+         <enum value="2" short-label="M">Moderate</enum>
+         <enum value="3" short-label="H">High</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="federation-assurance-level">
+      <formal-name>Federation Assurance Level</formal-name>
+      <description>The federation assurance level as defined by NIST SP 800-63, Revision 3.</description>
+      <binding pattern="system-characteristics/prop[@name='federation-assurance-level']" />
+      <allowed-values allow-other="no">
+         <enum value="1" short-label="L">Low</enum>
+         <enum value="2" short-label="M">Moderate</enum>
+         <enum value="3" short-label="H">High</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="authorization-type">
+      <formal-name>Authorization Type</formal-name>
+      <description>The FedRAMP Authorization Type</description>
+      <binding pattern="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']" />
+      <allowed-values allow-other="no">
+         <enum value="fedramp-jab" short-label="JAB">FedRAMP JAB P-ATO</enum>
+         <enum value="fedramp-agency" short-label="Agency">FedRAMP Agency ATO</enum>
+         <enum value="fedramp-li-saas" short-label="LI-SaaS">FedRAMP Tailored for LI-SaaS</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="service-model">
+      <formal-name>Service Model</formal-name>
+      <description>The cloud service model.</description>
+      <binding pattern="system-characteristics/prop[@name='cloud-service-model']/@value" />
+      <allowed-values allow-other="no">
+         <enum value="saas" short-label="SaaS">Software as a Service</enum>
+         <enum value="paas" short-label="PaaS">Platform as a Service</enum>
+         <enum value="iaas" short-label="IaaS">Infrastructure as a Service</enum>
+         <enum value="other" short-label="Other">Other</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="deployment-model">
+      <formal-name>Deployment Model</formal-name>
+      <description>The cloud deployment model.</description>
+      <binding pattern="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" />
+      <allowed-values allow-other="no">
+         <enum value="public-cloud" short-label="Public">Public Cloud</enum>
+         <enum value="private-cloud" short-label="Private">Private Cloud</enum>         <enum value="government-only-cloud" short-label="USG-Only">U.S. Government Only</enum>
+         <enum value="hybrid-cloud" short-label="Hybrid">Hybrid</enum>
+         <enum value="other" short-label="Other">Other</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="security-level">
+      <formal-name>Security Impact Level</formal-name>
+      <description>The security objective level as defined by NIST SP 800-60.</description>
+      <binding pattern="security-sensitivity-level"/>
+      <binding pattern="security-impact-level"/>
+      <binding pattern="(security-objective-confidentiality|security-objective-integrity|security-objective-availability)"/>
+      <binding pattern="system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)" />
+      <allowed-values allow-other="no">
+         <enum value="fips-199-low" short-label="L">Low</enum>
+         <enum value="fips-199-moderate" short-label="M">Moderate</enum>
+         <enum value="fips-199-high" short-label="H">High</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="privacy-designation">
+      <formal-name>Privacy Designation</formal-name>
+      <description>Indicates whether this system is privacy sensitive.</description>
+      <binding pattern="system-information/prop[@name='privacy-sensitive']" />
+      <allowed-values allow-other="no">
+         <enum value="yes" short-label="Yes">Privacy Sensitive</enum>
+         <enum value="no" short-label="No">Not Privacy Sensitive</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="privacy-threshold-analysis-q1">
+      <formal-name>Privacy Threshold Analysis (Q1)</formal-name>
+      <description>Does the ISA collect, maintain, or share PII in any identifiable form?</description>
+      <binding pattern="system-information/prop[@name='pta-1'][@ns='https://fedramp.gov/ns/oscal']" />
+      <allowed-values allow-other="no">
+         <enum value="yes" short-label="Yes">Yes</enum>
+         <enum value="no" short-label="No">No</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="privacy-threshold-analysis-q2">
+      <formal-name>Privacy Threshold Analysis (Q2)</formal-name>
+      <description>Does the ISA collect, maintain, share PII info from or about the public?</description>
+      <binding pattern="system-information/prop[@name='pta-2'][@ns='https://fedramp.gov/ns/oscal']" />
+      <allowed-values allow-other="no">
+         <enum value="yes" short-label="Yes">Yes</enum>
+         <enum value="no" short-label="No">No</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="privacy-threshold-analysis-q3">
+      <formal-name>Privacy Threshold Analysis (Q3)</formal-name>
+      <description>Has a Privacy Impact Assessment ever been performed for the ISA?</description>
+      <binding pattern="system-information/prop[@name='pta-3'][@ns='https://fedramp.gov/ns/oscal']" />
+      <allowed-values allow-other="no">
+         <enum value="yes" short-label="Yes">Yes</enum>
+         <enum value="no" short-label="No">No</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="privacy-threshold-analysis-q4">
+      <formal-name>Privacy Threshold Analysis (Q4)</formal-name>
+      <description>Is there a Privacy Act System of Records Notice (SORN) for this ISA system?</description>
+      <binding pattern="system-information/prop[@name='pta-4'][@ns='https://fedramp.gov/ns/oscal']" />
+      <allowed-values allow-other="no">
+         <enum value="yes" short-label="Yes">Yes</enum>
+         <enum value="no" short-label="No">No</enum>
+      </allowed-values>
+      <remarks>If "yes" a SORN ID must be provided.</remarks>
+   </value-set>
+
+   <value-set name="likelihood">
+      <formal-name>Likelihood</formal-name>
+      <description>The likelihood of a risk.</description>
+      <binding pattern="risk/risk-metric[@name='likelihood'][@system='https://fedramp.gov']" />
+      <allowed-values allow-other="no">
+         <enum value="low" short-label="L">Low</enum>
+         <enum value="moderate" short-label="M">Moderate</enum>
+         <enum value="high" short-label="H">High</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="impact-level">
+      <formal-name>Impact Level</formal-name>
+      <description>The impact level of a risk.</description>
+      <binding pattern="risk/risk-metric[@name='impact'][@system='https://fedramp.gov']" />
+      <allowed-values allow-other="no">
+         <enum value="low" short-label="L">Low</enum>
+         <enum value="moderate" short-label="M">Moderate</enum>
+         <enum value="high" short-label="H">High</enum>
+      </allowed-values>
+   </value-set>
+
+   <!-- Additional values to be defined here. -->
+
+   <value-set name="information-type-system">
+      <formal-name>Information Type System</formal-name>
+      <description>Identifies the system from which the information type was defined.</description>
+      <binding pattern="information-type/information-type-id/@system" />
+      <allowed-values allow-other="no">
+         <enum value="https://doi.org/10.6028/NIST.SP.800-60v2r1" short-label="SP 800-60 V2R1">NIST SP 800-60, Volume 2, Revision 1</enum>
+      </allowed-values>
+      <remarks>FedRAMP only allows information types defined in NIST SP 800-60v2r1.</remarks>
+   </value-set>
+
+   <value-set name="operational-status">
+      <formal-name>Operational Status (system)</formal-name>
+      <description>The operational status of the system</description>
+      <binding pattern="status/@state" />
+      <allowed-values allow-other="no">
+         <enum value="operational" short-label="Operational">Operational</enum>
+         <enum value="under-development" short-label="Development">Under Development</enum>
+         <enum value="under-major-modification" short-label="Major Mod.">Major Modification</enum>
+         <enum value="disposition" short-label="Alternative">Alternative Implementation</enum>
+         <enum value="other" short-label="Other">Other</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="user-type">
+      <formal-name>User Type</formal-name>
+      <description>Identifies the user type.</description>
+      <binding pattern="user/prop[@name='type']/@value" />
+      <allowed-values allow-other="no">
+         <enum value="internal" short-label="I">Internal</enum>
+         <enum value="external" short-label="E">External</enum>
+         <enum value="general-public" short-label="P">General Public</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="user-privilege">
+      <formal-name>User Privilege</formal-name>
+      <description>Identifies the privilege level of the user.</description>
+      <binding pattern="user/prop[@name='privilege-level']/@value" />
+      <allowed-values allow-other="no">
+         <enum value="privileged" short-label="P">Privileged</enum>
+         <enum value="non-privileged" short-label="NP">Non-Privileged</enum>
+         <enum value="no-logical-access" short-label="NLA">No Logical Access</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="user-sensitivity-level">
+      <formal-name>User Sensitivity level</formal-name>
+      <description>Identifies the sensitivity level of the user.</description>
+      <binding pattern="user/prop[@name='sensitivity'][@ns='https://fedramp.gov/ns/oscal']" />
+      <allowed-values allow-other="no">
+         <enum value="high-risk" short-label="High">High Risk</enum>
+         <enum value="severe" short-label="Sev.">Severe</enum>
+         <enum value="moderate" short-label="Mod.">Moderate</enum>
+         <enum value="limited" short-label="Lim.">Limited</enum>
+         <enum value="not-applicable" short-label="N/A">Not Applicable</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="interconnection-direction">
+      <formal-name>Interconnection Direction</formal-name>
+      <description>Identifies the direction of information flow for the interconnection.</description>
+      <binding pattern="component[@component-type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']" />
+      <allowed-values allow-other="no">
+         <enum value="incoming" short-label="In">Incoming</enum>
+         <enum value="outgoing" short-label="Out">Outgoing</enum>
+         <enum value="incoming-outgoing" short-label="In/Out">Bi-Directional</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="interconnection-security">
+      <formal-name>Interconnection Security</formal-name>
+      <description>Identifies the type of security applied to the interconnection.</description>
+      <binding pattern="component[@component-type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value" />
+      <allowed-values allow-other="no">
+         <enum value="ipsec" short-label="IPsec">IPsec</enum>
+         <enum value="vpn" short-label="VPN">Virtual Private Network</enum>
+         <enum value="tls" short-label="TLS">Transport-Layer Security</enum>
+         <enum value="dtls" short-label="TLS">Transport-Layer Security</enum>
+         <enum value="certificate" short-label="Cert">Certificate Authentication Security</enum>
+         <enum value="secure-file-transfer" short-label="SFT">Secure File Transfer</enum>
+         <enum value="other" short-label="Other">Other</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="component-type">
+      <formal-name>Component Type</formal-name>
+      <description>identifies the component type.</description>
+      <binding pattern="component/@component-type" />
+      <allowed-values allow-other="yes">
+         <enum value="software" short-label="S/W">Software</enum>
+         <enum value="hardware" short-label="H/W">Hardware</enum>
+         <enum value="service" short-label="Svc">Service</enum>
+         <enum value="policy" short-label="Pol">Policy</enum>
+         <enum value="process" short-label="Pros">Process</enum>
+         <enum value="procedure" short-label="Proc">Procedure</enum>
+         <enum value="plan" short-label="Plan">Plan</enum>
+         <enum value="guidance" short-label="Guide">Guidance</enum>
+         <enum value="standard" short-label="Std">Standard</enum>
+         <enum value="validation" short-label="Val">Validation</enum>
+         <enum value="this-system" short-label="Sys">This System</enum>
+         <enum value="interconnection" short-label="Int">Interconnection</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="asset-type">
+      <formal-name>Asset Type</formal-name>
+      <description>Identifies the type of asset.</description>
+      <binding pattern="component/prop[@name='asset-type']" />
+      <binding pattern="inventory-item/prop[@name='asset-type']" />
+      <allowed-values allow-other="yes">
+         <enum value="operating-system" short-label="OS">Operating System</enum>
+         <enum value="database" short-label="DB">Database</enum>
+         <enum value="web-server" short-label="Web">Service</enum>
+         <enum value="dns-server" short-label="DNS">Policy</enum>
+         <enum value="email-server" short-label="eMail">Process</enum>
+         <enum value="directory-server" short-label="LDAP">Procedure</enum>
+         <enum value="pbx" short-label="PBX">Private Branch Exchange</enum>
+         <enum value="firewall" short-label="FW">Firewall</enum>
+         <enum value="router" short-label="Rtr">Router</enum>
+         <enum value="switch" short-label="Swtch">Switch</enum>
+         <enum value="storage-array" short-label="Store">Storage Array</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="scan-type">
+      <formal-name>Scan Type</formal-name>
+      <description>Identifies the type of scan.</description>
+      <binding pattern="component/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']" />
+      <binding pattern="inventory-item/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']" />
+      <allowed-values allow-other="no">
+         <enum value="infrastructure" short-label="Inf./OS">Infrastructure and Operating System Scan</enum>
+         <enum value="database" short-label="DB">Database Scan</enum>
+         <enum value="web" short-label="Web">Web Scan</enum>
+         <enum value="other" short-label="Other">Web Scan</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="transport-type">
+      <formal-name>Transport Type</formal-name>
+      <description>The internet protocol transport type.</description>
+      <binding pattern="component[@component-type='service']/protocol/port-range/@transport" />
+      <allowed-values allow-other="no">
+         <enum value="tcp" short-label="TCP">TCP</enum>
+         <enum value="udp" short-label="UDP">UDP</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="virtual">
+      <formal-name>Virtual</formal-name>
+      <description>Indicates if the asset is virtual.</description>
+      <binding pattern="inventory-item/prop[@name='virtual']" />
+      <binding pattern="component/prop[@name='virtual']" />
+      <allowed-values allow-other="no">
+         <enum value="yes" short-label="Y">Yes</enum>
+         <enum value="no" short-label="N">No</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="public">
+      <formal-name>Public</formal-name>
+      <description>Indicates if the asset is exposed to the public Internet.</description>
+      <binding pattern="inventory-item/prop[@name='public']" />
+      <binding pattern="component/prop[@name='public']" />
+      <allowed-values allow-other="no">
+         <enum value="yes" short-label="Y">Yes</enum>
+         <enum value="no" short-label="N">No</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="allows-authenticated-scan">
+      <formal-name>Allows Authenticated Scan</formal-name>
+      <description>Indicates if the asset is capable of having an authenticated scan.</description>
+      <binding pattern="inventory-item/prop[@name='allows-authenticated-scan']/@value" />
+      <binding pattern="component/prop[@name='allows-authenticated-scan']/@value" />
+      <allowed-values allow-other="no">
+         <enum value="yes" short-label="Y">Yes</enum>
+         <enum value="no" short-label="N">No</enum>
+      </allowed-values>
+      <remarks>if the value is "no", the prop remarks must contain the reason why.</remarks>
+   </value-set>
+
+   <value-set name="is-scanned">
+      <formal-name>Is Scanned</formal-name>
+      <description>Indicates if the asset is scan.</description>
+      <binding pattern="inventory-item/prop[@name='is-scanned']/@value" />
+      <binding pattern="component/prop[@name='is-scanned']/@value" />
+      <allowed-values allow-other="no">
+         <enum value="yes" short-label="Y">Yes</enum>
+         <enum value="no" short-label="N">No</enum>
+      </allowed-values>
+      <remarks>if the value is "no", the prop remarks must contain the reason why.</remarks>
+   </value-set>
+
+   <value-set name="control-implementation-status">
+      <formal-name>Control Implementation Status</formal-name>
+      <description>The implementation status of the control.</description>
+      <binding pattern="implemented-requirement/prop[@name='implementation-status']/@value" />
+      <allowed-values allow-other="no">
+         <enum value="implemented" short-label="Implemented">Implemented</enum>
+         <enum value="partial" short-label="Partial">Partially Implemented</enum>
+         <enum value="planned" short-label="Planned">Planned</enum>
+         <enum value="alternative" short-label="Alternative">Alternative Implementation</enum>
+         <enum value="not-applicable" short-label="N/A">Not Applicable</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="control-origination">
+      <formal-name>Control Origination</formal-name>
+      <description>The point(s) from which the control satisfaction originates.</description>
+      <binding pattern="implemented-requirement/prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value" />
+      <allowed-values allow-other="no">
+         <enum value="sp-corporate" short-label="SP Corporate">Service Provider (Corporate)</enum>
+         <enum value="sp-system" short-label="SP System">Service Provider (System Specific)</enum>
+         <enum value="customer-configured" short-label="Cust. Configured">Configured by Customer</enum>
+         <enum value="customer-provided" short-label="Cust. Provided">Provided by Customer</enum>
+         <enum value="inherited" short-label="Inherited">Inherited</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="attachment-type">
+      <formal-name>Attachment Type</formal-name>
+      <description>Identifies the type of attachment.</description>
+      <binding pattern="resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']" />
+      <allowed-values allow-other="yes">
+         <enum value="law" short-label="Law">Law or Statute</enum>
+         <enum value="regulation" short-label="Regulation">Regulation or Directive</enum>
+         <enum value="standard" short-label="Standard">Industry Standard</enum>
+         <enum value="guidance" short-label="Guidance">Guidance</enum>
+         <enum value="policy" short-label="Policy">Polciy</enum>
+         <enum value="procedure" short-label="Procedure">Procedure</enum>
+         <enum value="guide" short-label="Guidance">Guidance Document</enum>
+         <enum value="rules-of-behavior" short-label="ROB">Rules of Behavior</enum>
+         <enum value="plan" short-label="Plan">Plan</enum>
+         <enum value="system-security-plan" short-label="SSP">System Security Plan</enum>
+         <enum value="artifact" short-label="artifact">Artifact</enum>
+         <enum value="evidence" short-label="evidence">Evidence</enum>
+         <enum value="screen-shot" short-label="screen">Screen Shot</enum>
+         <enum value="image" short-label="image">Image</enum>
+         <enum value="tool-report" short-label="Report">Tool Report</enum>
+         <enum value="raw-tool-output" short-label="Raw">Raw Tool Output</enum>
+         <enum value="interview-notes" short-label="Notes">Interview Notes</enum>
+         <enum value="questionnaire" short-label="Questions">Questions</enum>
+         <enum value="report" short-label="Report">Report</enum>
+         <enum value="fedramp-citations" short-label="FR Citations">FedRAMP Citations</enum>
+         <enum value="fedramp-acronyms" short-label="FR Acronyms">FedRAMP Acronyms</enum>
+         <enum value="fedramp-logo" short-label="FR Logo">FedRAMP Logo</enum>
+         <enum value="separation-of-duties-matrix" short-label="SoD Matrix">Separation of Duties Matrix</enum>
+         <enum value="logo" short-label="Logo">Logo</enum>
+         <!-- See, e.g., https://www.dol.gov/general/ppii#:~:text=Personal%20Identifiable%20Information%20(PII)%20is,either%20direct%20or%20indirect%20means. -->
+         <!-- All the privacy "types" need rationalization -->
+         <enum value="personally-identifiable-information" short-label="PII">Personal Identifiable Information (PII)</enum>
+         <enum value="agreement" short-label="Agreement">Agreement</enum>
+         <enum value="isa-agreement" short-label="Agreement">Interconnection Security Agreement</enum>
+         <enum value="incident-response-plan" short-label="IRP">Incident Response Plan</enum>
+         <enum value="information-security-policies-and-procedures" short-label="ISPP">Incident Security Policies and Procedures</enum>
+         <enum value="user-guide" short-label="User Guide">User Guide</enum>
+         <enum value="privacy-impact-assessment" short-label="PIA">Privacy Impact Assessment</enum>
+         <enum value="information-system-contingency-plan" short-label="ISCP">Information System Contingency Plan</enum>
+         <enum value="configuration-management-plan" short-label="CMP">configuration-management-plan</enum>
+      </allowed-values>
+      <remarkas>Not all values apply to all FedRAMP artifacts.</remarkas>
+   </value-set>
+
+   <value-set name="hash-algorithm">
+      <formal-name>Hash Algorithm</formal-name>
+      <description>Identifies the algorithm used to create the hash value of the attachment.</description>
+      <binding pattern="resource/hash/@algorithm" />
+      <allowed-values allow-other="yes">
+         <enum value="SHA-224" short-label="SHA-224">SHA-224</enum>
+         <enum value="SHA-256" short-label="SHA-256">SHA-256</enum>
+         <enum value="SHA-384" short-label="SHA-384">SHA-384</enum>
+         <enum value="SHA-512" short-label="SHA-512">SHA-512</enum>
+         <enum value="RIPEMD-160" short-label="RIPEMD-160">RIPEMD-160</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set name="role-type">
+      <formal-name>Defined Role Identifiers</formal-name>
+      <description>Identifies the type of role for a responsible party.</description>
+      <binding pattern="role/@id" />
+      <allowed-values allow-other="yes">
+         <enum value="assessor" label="Assessor">Assessor</enum>
+         <enum value="assessment-team" label="Assessment Team">Assessment Team</enum>
+         <enum value="assessment-lead" label="Assessment Lead">Assessment Lead</enum>
+         <enum value="assessment-executive" label="Assessment Executive">Assessment Executive</enum>
+         <enum value="cloud-service-provider" label="CSP">Cloud Service Provider</enum>
+         <enum value="csp-operations-center" label="CSP Operations Center">Cloud Service Provider Operations Center</enum>
+         <enum value="csp-assessment-poc" label="CSP Assessment PoC">Cloud Service Provider Assessment Point(s) of Contact</enum>
+         <enum value="csp-end-of-testing-poc" label="CSP End of Testing PoC">Cloud Service Provider End of Testing Point(s) of Contact</enum>
+         <enum value="csp-results-poc" label="CSP Results PoC">Cloud Service Provider Point(s) of Contact</enum>
+         <enum value="fedramp-pmo" label="FedRAMP PMO">FedRAMP Project Management Office (PMO)</enum>
+         <enum value="fedramp-jab" label="FedRAMP JAB">FedRAMP Joint Authorization Board (JAB)</enum>
+         <enum value="penetration-test-team" label="Penetration Test Team">Penetration Test Team</enum>
+         <enum value="penetration-test-lead" label="Penetration Test Lead">Penetration Test Lead</enum>
+      </allowed-values>
+   </value-set>
+
+   <value-set
+      name="media-type">
+      <formal-name>Resource Media Types</formal-name>
+      <description>A subset of IANA media types expected to be encountered.</description>
+      <binding
+         pattern="rlink/@media-type" />
+      <binding
+         pattern="base64/@media-type" />
+      <allowed-values>
+         <enum
+            value="application/gzip">application/gzip</enum>
+         <enum
+            value="application/msword">application/msword</enum>
+         <enum
+            value="application/octet-stream">application/octet-stream<!-- (NOTE: Used for a variety of binary formats, often ZIP archives.) --></enum>
+         <enum
+            value="application/pdf">application/pdf</enum>
+         <enum
+            value="application/vnd.ms-excel">application/vnd.ms-excel</enum>
+         <enum
+            value="application/vnd.ms-works">application/vnd.ms-works</enum>
+         <enum
+            value="application/vnd.oasis.opendocument.graphics">application/vnd.oasis.opendocument.graphics</enum>
+         <enum
+            value="application/vnd.oasis.opendocument.presentation">application/vnd.oasis.opendocument.presentation</enum>
+         <enum
+            value="application/vnd.oasis.opendocument.spreadsheet">application/vnd.oasis.opendocument.spreadsheet</enum>
+         <enum
+            value="application/vnd.oasis.opendocument.text">application/vnd.oasis.opendocument.text</enum>
+         <enum
+            value="application/vnd.openxmlformats-officedocument.presentationml.presentation">application/vnd.openxmlformats-officedocument.presentationml.presentation</enum>
+         <enum
+            value="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</enum>
+         <enum
+            value="application/vnd.openxmlformats-officedocument.wordprocessingml.document">application/vnd.openxmlformats-officedocument.wordprocessingml.document</enum>
+         <enum
+            value="application/x-bzip">application/x-bzip</enum>
+         <enum
+            value="application/x-bzip2">application/x-bzip2</enum>
+         <enum
+            value="application/x-tar">application/x-tar</enum>
+         <enum
+            value="application/zip">application/zip</enum>
+         <enum
+            value="image/bmp">image/bmp</enum>
+         <enum
+            value="image/jpeg">image/jpeg<!-- (NOTE: Not standard, but very frequently used)--></enum>
+         <enum
+            value="image/png">image/png</enum>
+         <enum
+            value="image/tiff">image/tiff</enum>
+         <enum
+            value="image/webp">image/webp</enum>
+         <enum
+            value="image/svg+xml">image/svg+xml</enum>
+         <enum
+            value="text/csv">text/csv</enum>
+         <enum
+            value="text/html">text/html</enum>
+         <enum
+            value="text/plain">text/plain</enum>
+      </allowed-values>
+   </value-set>
+
+</fedramp-values>

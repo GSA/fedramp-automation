@@ -9,7 +9,7 @@ public class OscalJsonToXmlConverterTest {
 
   /** absolute location of the demo SSP file (JSON) */
   private static final String DEMO_JSON_SSP_PATH =
-      new File("../../../dist/content/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json")
+      new File("../../../dist/content/rev4/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json")
           .getAbsolutePath();
 
   @Test

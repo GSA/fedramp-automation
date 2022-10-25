@@ -141,7 +141,7 @@ Per [18F/fedramp-automation#61](https://github.com/18F/fedramp-automation/issues
 
 When contributing, please use the following indentation and formatting settings. Formatting options are chosen for readability, and for clean git diffs.
 
-For Oxygen XML Editor: 
+For Oxygen XML Editor:
 - Indent size 4
 - 150 character line width (folding threshold)
 - Preserve empty lines
@@ -153,6 +153,6 @@ For Oxygen XML Editor:
 
 ### Generating a sample OSCAL System Security Plan XML document
 
-An XSL transform [`sample-ssp.xsl`](rules/sample-ssp.xsl) can be used to produce a (rather rudimentary) OSCAL SSP document in XML form. The transform uses one of the [resolved catalogs](../../dist/content/baselines/rev4/xml) as input.
+An XSL transform [`sample-ssp.xsl`](rules/sample-ssp.xsl) can be used to produce a (rather rudimentary) OSCAL SSP document in XML form. The transform uses one of the [resolved catalogs](../../dist/content/rev4/baselines/xml) as input.
 
 Saxon-PE or Saxon-EE is required (such as within oXygen XML Editor). Saxon-HE is not supported, due to extension usage.

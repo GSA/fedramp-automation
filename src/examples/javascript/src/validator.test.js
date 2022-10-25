@@ -10,16 +10,16 @@ const { validateOscalDocument } = require('./validator');
 /** OSCAL example documents */
 const TEMPLATES = {
   ssp: path.resolve(
-    '../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml',
+    '../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml',
   ),
   sap: path.resolve(
-    '../../../dist/content/templates/sap/xml/FedRAMP-SAP-OSCAL-Template.xml',
+    '../../../dist/content/rev4/templates/sap/xml/FedRAMP-SAP-OSCAL-Template.xml',
   ),
   sar: path.resolve(
-    '../../../dist/content/templates/sar/xml/FedRAMP-SAR-OSCAL-Template.xml',
+    '../../../dist/content/rev4/templates/sar/xml/FedRAMP-SAR-OSCAL-Template.xml',
   ),
   poam: path.resolve(
-    '../../../dist/content/templates/poam/xml/FedRAMP-POAM-OSCAL-Template.xml',
+    '../../../dist/content/rev4/templates/poam/xml/FedRAMP-POAM-OSCAL-Template.xml',
   ),
 };
 

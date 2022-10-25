@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fedramp-threats xmlns="https://fedramp.gov/ns/oscal" uuid="7539047F-158B-4AA0-8FC5-F0530F1CC5CF">
+
+    <metadata>
+        <title>FedRAMP Defined Threat Table [Experimental]</title>
+        <published>2021-10-22T05:55:26Z</published>
+        <last-modified>2021-10-22T05:55:26Z</last-modified>
+        <version>fedramp1.2.1-oscal1.0.0</version>
+        <revisions>
+            <revision>
+                <published>2019-06-01T00:00:00.00-04:00</published>
+                <version>DRAFT-01</version>
+                <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+                <remarks>
+                    <p>Initial draft.</p>
+                </remarks>
+            </revision>
+            <revision>
+                <published>2021-01-15T00:00:00.00-04:00</published>
+                <version>DRAFT-02</version>
+                <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+                <remarks>
+                    <p>Revised draft to align metadata with OSCAL syntax, and to provide a machine-readble definition for threat origination types.</p>
+                </remarks>
+            </revision>
+            <revision>
+                <published>2021-08-11T23:18:00.00-00:00</published>
+                <version>fedramp1.0.2-oscal1.0.0</version>
+                <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+                <remarks>
+                    <p>Updated version reviewed for fedramp1.0.2-oscal1.0.0 releases.</p>
+                </remarks>
+            </revision>
+            <revision>
+                <published>2021-08-12T12:38:01.00-00:00</published>
+                <version>fedramp1.1.0-oscal1.0.0</version>
+                <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+                <remarks>
+                    <p>Updated version reviewed for fedramp1.1.0-oscal1.0.0 releasess.</p>
+                </remarks>
+            </revision>
+            <revision>
+                <published>2021-10-22T05:55:26Z</published>
+                <version>fedramp1.2.1-oscal1.0.0</version>
+                <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal">6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</prop>
+                <remarks>
+                    <p>Fix missed updates for target and touch-ups from review for fedramp1.2.1-oscal1.0.0 release.</p>
+                </remarks>
+            </revision>
+        </revisions>
+        
+        <role id="prepared-by">
+            <title>Prepared By</title>
+            <description>
+                <p>The organization that prepared this content.</p>
+            </description>
+        </role>
+        
+        <party uuid="77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d" type="organization">
+            <name>Federal Risk and Authorization Management Program: Program Management
+                Office</name>
+            <short-name>FedRAMP PMO</short-name>
+            <link href="https://fedramp.gov"/>
+            <email-address>info@fedramp.gov</email-address>
+            <address type="work">
+                <addr-line>1800 F St. NW</addr-line>
+                <addr-line/>
+                <city>Washington</city>
+                <state>DC</state>
+                <postal-code/>
+                <country>US</country>
+            </address>
+            <remarks>
+                <p>This party entry must be present in a FedRAMP SSP.</p>
+                <p>The uuid may be different; however, the uuid must be associated with the
+                    "fedramp-pmo" role in the responsible-party assemblies.</p>
+            </remarks>
+        </party>
+        
+        <responsible-party role-id="prepared-by">
+            <party-uuid>77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d</party-uuid>
+        </responsible-party>
+        
+        <remarks>
+            <p>This file provides the FedRAMP threat table from the MS Word-based FedRAMP SAR template in machine-readable format.</p>
+        </remarks>
+    </metadata>
+
+    <constraint>
+        <allowed-values target="/*/threats/origination">
+            <enum value="P">Threat launched purposefully.</enum>
+            <enum value="U">Threat created by unintentional human or machine error.</enum>
+            <enum value="E">Threat caused by environmental agents or disruptions.</enum>
+        </allowed-values>
+    </constraint>
+
+    <threats>
+        <threat id="T-1" system="https://fedramp.gov">
+            <title>Alteration</title>
+            <origination>P</origination>
+            <origination>U</origination>
+            <origination>E</origination>
+            <description><p>Alteration of data, files, or records.</p></description>
+            <integrity-impact>Modification</integrity-impact>
+        </threat>
+        <threat id="T-2" system="https://fedramp.gov">
+            <title>Audit Compromise</title>
+            <origination>P</origination>
+            <description><p>An unauthorized user gains access to the audit trail and could cause audit records to be deleted or modified, or prevents future audit records from being recorded, thus masking a security relevant event.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Unavailable Accurate Records</availability-impact>
+        </threat>
+        <threat id="T-3" system="https://fedramp.gov">
+            <title>Bomb</title>
+            <origination>P</origination>
+            <description><p>An intentional explosion.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-4" system="https://fedramp.gov">
+            <title>Communications Failure</title>
+            <origination>U</origination>
+            <origination>E</origination>
+            <description><p>Cut of fiber optic lines, trees falling on telephone lines.</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-5" system="https://fedramp.gov">
+            <title>Compromising Emanations</title>
+            <origination>P</origination>
+            <description><p>Eavesdropping can occur via electronic media directed against large scale 
+                electronic facilities that do not process classified National Security 
+                Information.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+        </threat>
+        <threat id="T-6" system="https://fedramp.gov">
+            <title>Cyber Brute Force</title>
+            <origination>P</origination>
+            <description><p>Unauthorized user could gain access to the information systems by 
+                random or systematic guessing of passwords, possibly supported by 
+                password cracking utilities.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-7" system="https://fedramp.gov">
+            <title>Data Disclosure Attack</title>
+            <origination>P</origination>
+            <description><p>An attacker uses techniques that could result in the disclosure of sensitive 
+                information by exploiting weaknesses in the design or configuration.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+        </threat>
+        <threat id="T-8" system="https://fedramp.gov">
+            <title>Data Entry Error</title>
+            <origination>U</origination>
+            <description><p>Human inattention, lack of knowledge, and failure to cross-check system 
+                activities could contribute to errors becoming integrated and ingrained in 
+                automated systems.</p></description>
+            <integrity-impact>Modification</integrity-impact>
+        </threat>
+        <threat id="T-9" system="https://fedramp.gov">
+            <title>Denial of Service Attack</title>
+            <origination>P</origination>
+            <description><p>An adversary uses techniques to attack a single target rendering it unable 
+                to respond and could cause denial of service for users of the targeted 
+                information systems. </p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-10" system="https://fedramp.gov">
+            <title>Distributed Denial of Service Attack</title>
+            <origination>P</origination>
+            <description><p>An adversary uses multiple compromised information systems to attack a 
+                single target and could cause denial of service for users of the targeted 
+                information systems. </p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-11" system="https://fedramp.gov">
+            <title>Earthquake</title>
+            <origination>E</origination>
+            <description><p>Seismic activity can damage the information system or its facility. Refer 
+                to the following document for earthquake probability maps 
+                http://pubs.usgs.gov/of/2008/1128/pdf/OF08-1128_v1.1.pdf </p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-12" system="https://fedramp.gov">
+            <title>Electromagnetic Interference</title>
+            <origination>P</origination>
+            <origination>E</origination>
+            <description><p>Disruption of electronic and wire transmissions could be caused by high 
+                frequency (HF), very high frequency (VHF), and ultra-high frequency 
+                (UHF) communications devices (jamming) or sun spots.</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-13" system="https://fedramp.gov">
+            <title>Espionage</title>
+            <origination>P</origination>
+            <description><p>The illegal covert act of copying, reproducing, recording, photographing 
+                or intercepting to obtain sensitive information.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification</integrity-impact>
+        </threat>
+        <threat id="T-14" system="https://fedramp.gov">
+            <title>Fire</title>
+            <origination>P</origination>
+            <origination>E</origination>
+            <description><p>Fire can be caused by arson, electrical problems, lightning, chemical 
+                agents, or other unrelated proximity fires.</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-15" system="https://fedramp.gov">
+            <title>Floods</title>
+            <origination>E</origination>
+            <description><p>Water damage caused by flood hazards can be caused by proximity to 
+                local flood plains. Flood maps and base flood elevation must be 
+                considered.</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-16" system="https://fedramp.gov">
+            <title>Fraud</title>
+            <origination>P</origination>
+            <description><p>Intentional deception regarding data or information about an information 
+                system could compromise the confidentiality, integrity, or availability of 
+                an information system.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-17" system="https://fedramp.gov">
+            <title>Hardware or Equipment Failure</title>
+            <origination>E</origination>
+            <description><p>Hardware or equipment may fail due to a variety of reasons.</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-18" system="https://fedramp.gov">
+            <title>Hardware Tampering</title>
+            <origination>P</origination>
+            <description><p>An unauthorized modification to hardware that alters the proper 
+                functioning of equipment in a manner that degrades the security 
+                functionality the asset provides.</p></description>
+            <integrity-impact>Modification</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-19" system="https://fedramp.gov">
+            <title>Hurricane</title>
+            <origination>E</origination>
+            <description><p>A category 1, 2, 3, 4, or 5 land falling hurricane could impact the facilities 
+                that house the information systems.</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-20" system="https://fedramp.gov">
+            <title>Malicious Software</title>
+            <origination>P</origination>
+            <description><p>Software that damages a system such a virus, Trojan, or worm.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-21" system="https://fedramp.gov">
+            <title>Phishing Attack</title>
+            <origination>P</origination>
+            <description><p>Adversary attempts to acquire sensitive information such as usernames, 
+                passwords, or SSNs, by pretending to be communications from a 
+                legitimate/trustworthy source.</p>
+                <p>Typical attacks occur via email, instant messaging, or comparable means; 
+                commonly directing users to Web sites that appear to be legitimate sites, 
+                while actually stealing the entered information.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-22" system="https://fedramp.gov">
+            <title>Power Interruptions</title>
+            <origination>E</origination>
+            <description><p>Power interruptions may be due to any number of reasons such as 
+                electrical grid failures, generator failures, uninterruptable power supply 
+                failures (e.g. spike, surge, brownout, or blackout).</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-23" system="https://fedramp.gov">
+            <title>Procedural Error</title>
+            <origination>U</origination>
+            <description><p>An error in procedures could result in unintended consequences. </p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-24" system="https://fedramp.gov">
+            <title>Procedural Violations</title>
+            <origination>P</origination>
+            <description><p>Violations of standard procedures. </p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-25" system="https://fedramp.gov">
+            <title>Resource Exhaustion</title>
+            <origination>U</origination>
+            <description><p>An errant (buggy) process may create a situation that exhausts critical 
+                resources preventing access to services.</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-26" system="https://fedramp.gov">
+            <title>Sabotage</title>
+            <origination>P</origination>
+            <description><p>Underhand interference with work.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-27" system="https://fedramp.gov">
+            <title>Scavenging</title>
+            <origination>P</origination>
+            <description><p>Searching through disposal containers (e.g. dumpsters) to acquire 
+                unauthorized data.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+        </threat>
+        <threat id="T-28" system="https://fedramp.gov">
+            <title>Severe Weather</title>
+            <origination>E</origination>
+            <description><p>Naturally occurring forces of nature could disrupt the operation of an 
+                information system by freezing, sleet, hail, heat, lightning, thunderstorms, 
+                tornados, or snowfall.</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-29" system="https://fedramp.gov">
+            <title>Social Engineering</title>
+            <origination>P</origination>
+            <description><p>An attacker manipulates people into performing actions or divulging 
+                confidential information, as well as possible access to computer systems 
+                or facilities.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+        </threat>
+        <threat id="T-30" system="https://fedramp.gov">
+            <title>Software Tampering</title>
+            <origination>P</origination>
+            <description><p>Unauthorized modification of software (e.g. files, programs, database 
+                records) that alters the proper operational functions.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+        </threat>
+        <threat id="T-31" system="https://fedramp.gov">
+            <title>Terrorist</title>
+            <origination>P</origination>
+            <description><p>An individual performing a deliberate violent act could use a variety of 
+                agents to damage the information system, its facility, and/or its operations.</p></description>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-32" system="https://fedramp.gov">
+            <title>Theft</title>
+            <origination>P</origination>
+            <description><p>An adversary could steal elements of the hardware.</p></description>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-33" system="https://fedramp.gov">
+            <title>Time and State</title>
+            <origination>P</origination>
+            <description><p>An attacker exploits weaknesses in timing or state of functions to perform 
+                actions that would otherwise be prevented (e.g. race conditions, 
+                manipulation user state).</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-34" system="https://fedramp.gov">
+            <title>Transportation Accidents</title>
+            <origination>E</origination>
+            <description><p>Transportation accidents include train derailments, river barge accidents, 
+                trucking accidents, and airlines accidents. Local transportation accidents 
+                typically occur when airports, sea ports, railroad tracks, and major 
+                trucking routes occur in close proximity to systems facilities. Likelihood 
+                of HAZMAT cargo must be determined when considering the probability 
+                of local transportation accidents.</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-35" system="https://fedramp.gov">
+            <title>Unauthorized Facility Access</title>
+            <origination>P</origination>
+            <description><p>An unauthorized individual accesses a facility which may result in 
+                comprises of confidentiality, integrity, or availability.</p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+        <threat id="T-36" system="https://fedramp.gov">
+            <title></title>
+            <origination>P</origination>
+            <description><p>An unauthorized user accesses a system or data. </p></description>
+            <confidentiality-impact>Disclosure</confidentiality-impact>
+            <integrity-impact>Modification or Destruction</integrity-impact>
+        </threat>
+        <threat id="T-37" system="https://fedramp.gov">
+            <title>Volcanic Activity</title>
+            <origination>E</origination>
+            <description><p>A crack, perforation, or vent in the earth’s crust followed by molten lava, 
+                steam, gases, and ash forcefully ejected into the atmosphere. For a list of 
+                volcanoes in the U.S. see:
+                http://volcanoes.usgs.gov/about/volcanoes/volcanolist.php .</p></description>
+            <integrity-impact>Destruction</integrity-impact>
+            <availability-impact>Denial of Service</availability-impact>
+        </threat>
+    </threats>
+</fedramp-threats>
