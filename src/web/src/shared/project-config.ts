@@ -15,11 +15,11 @@ const REPOSITORY_ROOT = join(PROJECT_ROOT, '../../');
 
 export const REGISTRY_PATH = join(
   PROJECT_ROOT,
-  '../../dist/content/resources/xml',
+  '../../dist/content/rev4/resources/xml',
 );
 export const BASELINES_PATH = join(
   PROJECT_ROOT,
-  '../../dist/content/baselines/rev4/xml',
+  '../../dist/content/rev4/baselines/xml',
 );
 export const PUBLIC_PATH = join(PROJECT_ROOT, 'public');
 export const BUILD_PATH = join(PROJECT_ROOT, 'build');

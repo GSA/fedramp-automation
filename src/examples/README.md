@@ -24,8 +24,8 @@ Additionally, these examples serve as basic automated tests of the validation su
 
 The Schematron rules support a number of parameters that can be applied via XSLT stylesheet parameters.
 
-- `baselines-base-path` - Path to this repository's baselines. Default value is path relative to Schematron source document. Set to local or network root path. See: https://github.com/GSA/fedramp-automation/tree/master/dist/content/baselines/rev4/xml
-- `registry-base-path` - Path to this repository's registry values. Default value is path relative to Schematron source document. Set to local or network root path. See: https://github.com/GSA/fedramp-automation/tree/master/dist/content/resources/xml
+- `baselines-base-path` - Path to this repository's baselines. Default value is path relative to Schematron source document. Set to local or network root path. See: https://github.com/GSA/fedramp-automation/tree/master/dist/content/rev4/baselines/xml
+- `registry-base-path` - Path to this repository's registry values. Default value is path relative to Schematron source document. Set to local or network root path. See: https://github.com/GSA/fedramp-automation/tree/master/dist/content/rev4/resources/xml
 - `param-use-remote-resources` - Boolean, default False. If True, validate references to external resources, which may be remote.
 
 # JSON support

@@ -15,7 +15,7 @@ BASELINES_BASE_PATH = urljoin(
         os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
-                "../../../dist/content/baselines/rev4/xml",
+                "../../../dist/content/rev4/baselines/xml",
             )
         )
     ),
@@ -27,7 +27,7 @@ REGISTRY_BASE_PATH = urljoin(
         os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
-                "../../../dist/content/resources/xml",
+                "../../../dist/content/rev4/resources/xml",
             )
         )
     ),
