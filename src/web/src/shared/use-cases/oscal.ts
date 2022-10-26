@@ -1,3 +1,5 @@
+import { parse as parseYaml } from 'yaml';
+
 import { getDocumentTypeForRootNode, OscalDocumentKey } from '../domain/oscal';
 import type {
   SchematronJSONToXMLProcessors,
@@ -17,18 +19,18 @@ export class OscalService {
     private readStringFile?: (fileName: string) => Promise<string>,
   ) {}
 
-  async validateXmlOrJsonFile(oscalFilePath: string) {
+  async validateOscalFile(oscalFilePath: string) {
     if (!this.readStringFile) {
       throw new Error('readStringFile not provided');
     }
     const xmlString = await this.readStringFile(oscalFilePath);
-    const result = await this.validateXmlOrJson(xmlString);
+    const result = await this.validateOscal(xmlString);
     this.console.log(
       `Found ${result.validationReport.failedAsserts.length} assertions in ${result.documentType}`,
     );
   }
 
-  validateXmlOrJson(oscalString: string): Promise<{
+  validateOscal(oscalString: string): Promise<{
     documentType: OscalDocumentKey;
     svrlString: string;
     validationReport: ValidationReport;
@@ -48,10 +50,10 @@ export class OscalService {
       });
   }
 
-  validateXmlOrJsonByUrl(fileUrl: string) {
+  validateOscalByUrl(fileUrl: string) {
     return this.fetch(fileUrl)
       .then(response => response.text())
-      .then(value => this.validateXmlOrJson(value));
+      .then(value => this.validateOscal(value));
   }
 
   validateXml(xmlString: string): Promise<{
@@ -69,34 +71,51 @@ export class OscalService {
   }
 
   async ensureXml(oscalString: string): Promise<string> {
-    // Convert JSON to XML, if necessary.
     const detected = detectFormat(oscalString);
+
+    if (detected.format === 'yaml') {
+      const jsonString = JSON.stringify(parseYaml(oscalString));
+      const documentType = getDocumentTypeForRootNode(detected.type || '');
+      if (documentType === null) {
+        return oscalString;
+      }
+      return this.jsonOscalToXmlProcessors[documentType](jsonString);
+    }
+
     if (detected.format === 'json') {
       const documentType = getDocumentTypeForRootNode(detected.type || '');
       if (documentType === null) {
         return oscalString;
       }
       return this.jsonOscalToXmlProcessors[documentType](oscalString);
-    } else {
-      return oscalString;
     }
+
+    return oscalString;
   }
 }
 
 const detectFormat = (document: string) => {
   // Naive detection of JSON format - first non-whitespace character should be
   // `{`, and we will extract the opening tag name to detect the document type.
-  const match = document.match(/^\s*\{\s*"(.+)"/);
-  if (match === null) {
-    return {
-      format: 'xml',
-    };
-  } else {
+  const jsonMatch = document.match(/^\s*\{\s*"(.+)"/);
+  if (jsonMatch !== null) {
     return {
       format: 'json',
-      type: match[1],
+      type: jsonMatch[1],
     };
   }
+
+  const yamlMatch = document.match(/^---\s*(.+):/);
+  if (yamlMatch !== null) {
+    return {
+      format: 'yaml',
+      type: yamlMatch[1],
+    };
+  }
+
+  return {
+    format: 'xml',
+  };
 };
 
 const generateValidationReport = (

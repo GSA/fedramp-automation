@@ -70,7 +70,7 @@ describe('validate ssp use case', () => {
         ctx.fetch,
         ctx.console,
       );
-      const retVal = await oscalService.validateXmlOrJson(mockJson);
+      const retVal = await oscalService.validateOscal(mockJson);
       expect(ctx.jsonOscalToXml).toHaveBeenCalledWith(mockJson);
       expect(ctx.processSchematron).toHaveBeenCalledWith(mockXml);
       expect(retVal).toEqual({
@@ -118,7 +118,7 @@ describe('validate ssp url use case', () => {
       ctx.fetch,
       ctx.console,
     );
-    const retVal = await oscalService.validateXmlOrJsonByUrl(
+    const retVal = await oscalService.validateOscalByUrl(
       'https://sample.gov/ssp-url.xml',
     );
     expect(retVal).toEqual({

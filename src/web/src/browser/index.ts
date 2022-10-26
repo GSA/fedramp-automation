@@ -140,7 +140,7 @@ export const runBrowserContext = ({
             }),
             sap: SaxonJsJsonOscalToXmlProcessor({
               console,
-              sefUrl: `${rulesUrl}oscal_assessment-plan_json-to-xml-converter.json`,
+              sefUrl: `${rulesUrl}oscal_assessment-plan_json-to-xml-converter.sef.json`,
               SaxonJS,
             }),
             sar: SaxonJsJsonOscalToXmlProcessor({

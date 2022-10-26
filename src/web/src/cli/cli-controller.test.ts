@@ -14,7 +14,7 @@ describe('command-line controller', () => {
       useCases: {
         assertionViewGenerator: mock<AssertionViewGenerator>(),
         oscalService: mock<OscalService>({
-          validateXmlOrJsonFile: vi.fn(),
+          validateOscalFile: vi.fn(),
         }),
         schematronSummary: mock<SchematronSummary>(),
         xSpecAssertionSummaryGenerator: mock<XSpecAssertionSummaryGenerator>(),
@@ -22,6 +22,6 @@ describe('command-line controller', () => {
     };
     const cli = CommandLineController(ctx);
     await cli.parseAsync(['node', 'index.ts', 'validate', 'ssp.xml']);
-    expect(ctx.useCases.oscalService.validateXmlOrJsonFile).toHaveBeenCalled();
+    expect(ctx.useCases.oscalService.validateOscalFile).toHaveBeenCalled();
   });
 });

@@ -2,10 +2,12 @@
 # are working against known samples
 name: "OSCAL Validations: Unit Tests"
 
-# Triggered when code is pushed to any branch in a repository and on pull requests
+# Triggered when code is pushed to master and on pull requests
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - master
+  pull_request:
 
 # the job requires some dependencies to be installed (including submodules), runs the tests, and then reports results
 jobs:
