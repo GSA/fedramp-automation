@@ -2122,6 +2122,145 @@
                                 xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                                 <back-matter>
                                     <resource>
+                                        <rlink />
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-assert
+                            id="resource-uuid-required"
+                            label="back-matter resource missing uuid attribute." />
+                        <!--<x:expect-assert id="resource-rlink-required"
+                                         label="back-matter resource rlink missing href attribute." />-->
+                    </x:scenario>
+                    <x:scenario
+                        label="has @uuid">
+                        <x:context>
+                            <system-security-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource
+                                        uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
+                                        <rlink />
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="resource-uuid-required"
+                            label="back-matter resource has uuid attribute." />
+                    </x:scenario>
+                    <x:scenario
+                        label="has valid rlink">
+                        <x:context>
+                            <system-security-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource
+                                        uuid="e6522953-6714-435d-a0d3-140df554c186">
+                                        <title>FedRAMP Moderate Baseline</title>
+                                        <rlink />
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="resource-rlink-required"
+                            label="resource rlink should exist." />
+                    </x:scenario>
+                    <x:scenario
+                        label="has a Policies and Procedures document attached"
+                        pending="">
+                        <x:context>
+                            <system-security-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource
+                                        uuid="3327cd40-a16e-48da-9b58-c95922834f649">
+                                        <prop
+                                            name="type"
+                                            ns="https://fedramp.gov/ns/oscal"
+                                            value="procedure" />
+                                        <prop
+                                            name="type"
+                                            ns="https://fedramp.gov/ns/oscal"
+                                            value="information-security-policies-and-procedures" />
+                                        <base64
+                                            filename="information_security_policies_and_procedures.docx"
+                                            media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"> 00000000</base64>
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="attachment-required-ispp"
+                            label="it should exist." />
+                    </x:scenario>
+                    <x:scenario
+                        label="has a User Guide document attached"
+                        pending="">
+                        <x:context>
+                            <system-security-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource
+                                        uuid="8f831302-1fab-4a1a-8989-1600ce26d559">
+                                        <prop
+                                            name="type"
+                                            ns="https://fedramp.gov/ns/oscal"
+                                            value="guide" />
+                                        <prop
+                                            name="type"
+                                            ns="https://fedramp.gov/ns/oscal"
+                                            value="user-guide" />
+                                        <base64
+                                            filename="user_guide.docx"
+                                            media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"> 00000000</base64>
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="attachment-required-user-guide"
+                            label="it should exist." />
+                    </x:scenario>
+                    <x:scenario
+                        label="has a Privacy Impact Assessment document attached"
+                        pending="">
+                        <x:context>
+                            <system-security-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource
+                                        uuid="2c096832-2c5c-4ee8-b7dd-eb682870a2a2">
+                                        <prop
+                                            name="type"
+                                            ns="https://fedramp.gov/ns/oscal"
+                                            value="privacy-impact-assessment" />
+                                        <base64
+                                            filename="privacy_impact_assessment.docx"
+                                            media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"> 00000000</base64>
+                                    </resource>
+                                </back-matter>
+                            </system-security-plan>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="attachment-required-privacy-impact-assessment"
+                            label="it should exist." />
+                    </x:scenario>
+                    <x:scenario
+                        label="has a Rules of Behavior document attached"
+                        pending="">
+                        <x:context>
+                            <system-security-plan
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <back-matter>
+                                    <resource
+                                        uuid="872d6f42-f566-4189-82f9-e94c9fdaaf38">
+                                        <prop
+                                            name="type"
+                                            ns="https://fedramp.gov/ns/oscal"
+                                            value="rules-of-behavior" />
                                         <base64
                                             filename="logo.png" />
                                     </resource>
@@ -6452,66 +6591,6 @@
                 </x:scenario>
             </x:scenario>
             <x:scenario
-                label="has purpose property.">
-                <x:scenario
-                    label="affirmative">
-                    <x:context>
-                        <inventory-item
-                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop
-                                name="purpose" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-not-assert
-                        id="inventory-item-has-purpose"
-                        label="correct" />
-                </x:scenario>
-                <x:scenario
-                    label="negative">
-                    <x:context>
-                        <inventory-item
-                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop
-                                name="not-a-purpose" />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-assert
-                        id="inventory-item-has-purpose"
-                        label="error" />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario
-                label="has sufficient purpose property.">
-                <x:scenario
-                    label="affirmative">
-                    <x:context>
-                        <inventory-item
-                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop
-                                name="purpose"
-                                value="This value is more than twenty characters long." />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-not-assert
-                        id="inventory-item-has-sufficient-purpose"
-                        label="correct" />
-                </x:scenario>
-                <x:scenario
-                    label="negative">
-                    <x:context>
-                        <inventory-item
-                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop
-                                name="purpose"
-                                value="This value is less." />
-                        </inventory-item>
-                    </x:context>
-                    <x:expect-assert
-                        id="inventory-item-has-sufficient-purpose"
-                        label="error" />
-                </x:scenario>
-            </x:scenario>
-            <x:scenario
                 label="has a allows-authenticated-scan property">
                 <x:context>
                     <inventory-item
@@ -6715,15 +6794,15 @@
                         id="inventory-item-has-one-vendor-name"
                         label="error" />
                 </x:scenario>
-            </x:scenario>            
+            </x:scenario>
             <x:scenario
                 label="has an acceptable vendor-name value">
                 <x:context>
                     <inventory-item
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop
-                            name="vendor-name" 
-                            value="Amazon"/>
+                            name="vendor-name"
+                            value="Amazon" />
                     </inventory-item>
                 </x:context>
                 <x:expect-not-assert
@@ -6737,13 +6816,13 @@
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <prop
                             name="vendor-name"
-                            value="Huawei"/>
+                            value="Huawei" />
                     </inventory-item>
                 </x:context>
                 <x:expect-assert
                     id="has-prohibited-vendor-name"
                     label="that is an error" />
-            </x:scenario>            
+            </x:scenario>
             <x:scenario
                 label="&quot;infrastructure&quot; asset-type has a hardware-model property.">
                 <x:scenario
@@ -7082,12 +7161,12 @@
                     <x:context>
                         <inventory-item
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop 
-                                name="ipv4-address" 
-                                value="10.2.2.2"/>
-                            <prop 
-                                name="ipv6-address" 
-                                value="0000:0000:0000:0000"/>
+                            <prop
+                                name="ipv4-address"
+                                value="10.2.2.2" />
+                            <prop
+                                name="ipv6-address"
+                                value="0000:0000:0000:0000" />
                         </inventory-item>
                     </x:context>
                     <x:expect-not-assert
@@ -7100,16 +7179,16 @@
                     <x:context>
                         <inventory-item
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop 
-                                name="ipv4-address" 
-                                value="10.2.2.2"/>
+                            <prop
+                                name="ipv4-address"
+                                value="10.2.2.2" />
                         </inventory-item>
                     </x:context>
                     <x:expect-assert
                         id="inventory-item-network-address"
                         label="error" />
                 </x:scenario>
-            </x:scenario>            
+            </x:scenario>
             <x:scenario
                 label="ipv4 has appropriate content">
                 <x:scenario
@@ -7117,9 +7196,9 @@
                     <x:context>
                         <inventory-item
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop 
-                                name="ipv4-address" 
-                                value="10.2.2.2"/>
+                            <prop
+                                name="ipv4-address"
+                                value="10.2.2.2" />
                         </inventory-item>
                     </x:context>
                     <x:expect-not-assert
@@ -7132,9 +7211,9 @@
                     <x:context>
                         <inventory-item
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop 
-                                name="ipv4-address" 
-                                value="10.2.2"/>
+                            <prop
+                                name="ipv4-address"
+                                value="10.2.2" />
                         </inventory-item>
                     </x:context>
                     <x:expect-assert
@@ -7149,9 +7228,9 @@
                     <x:context>
                         <inventory-item
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop 
-                                name="ipv4-address" 
-                                value="0.0.0.0"/>
+                            <prop
+                                name="ipv4-address"
+                                value="0.0.0.0" />
                         </inventory-item>
                     </x:context>
                     <x:expect-not-assert
@@ -7164,9 +7243,9 @@
                     <x:context>
                         <inventory-item
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop 
-                                name="ipv4-address" 
-                                value="10.2.2.2"/>
+                            <prop
+                                name="ipv4-address"
+                                value="10.2.2.2" />
                         </inventory-item>
                     </x:context>
                     <x:expect-assert
@@ -7181,9 +7260,9 @@
                     <x:context>
                         <inventory-item
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop 
-                                name="ipv6-address" 
-                                value="2001:0db8:85a3:0000:0000:8a2e:0370:7334"/>
+                            <prop
+                                name="ipv6-address"
+                                value="2001:0db8:85a3:0000:0000:8a2e:0370:7334" />
                         </inventory-item>
                     </x:context>
                     <x:expect-not-assert
@@ -7196,9 +7275,9 @@
                     <x:context>
                         <inventory-item
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop 
-                                name="ipv6-address" 
-                                value="1234:5678:9012:3456"/>
+                            <prop
+                                name="ipv6-address"
+                                value="1234:5678:9012:3456" />
                         </inventory-item>
                     </x:context>
                     <x:expect-assert
@@ -7213,9 +7292,9 @@
                     <x:context>
                         <inventory-item
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop 
-                                name="ipv6-address" 
-                                value="1234:5678:9012:3456"/>
+                            <prop
+                                name="ipv6-address"
+                                value="1234:5678:9012:3456" />
                         </inventory-item>
                     </x:context>
                     <x:expect-not-assert
@@ -7228,9 +7307,9 @@
                     <x:context>
                         <inventory-item
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop 
-                                name="ipv6-address" 
-                                value="1234:5678:9012:3456"/>
+                            <prop
+                                name="ipv6-address"
+                                value="1234:5678:9012:3456" />
                         </inventory-item>
                     </x:context>
                     <x:expect-assert
@@ -7383,33 +7462,50 @@
                 <x:scenario
                     label="When it does">
                     <x:context>
-                    <system-security-plan
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <system-implementation>
-                            <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system">
-                                <title>Name of Leveraged System</title>
-                                <description>
-                                    <p>The entire system as depicted in the system authorization boundary</p>
-                                </description>
-                                <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
-                                <prop name="implementation-point" value="external"/>
-                                <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001"/>
-                                <status state="operational"/>
-                            </component>
-                            <component uuid="77A1614A-57B3-4B32-9FEE-613A6520EC58" type="service">
-                                <title>Service Provided by Leveraged System</title>
-                                <description>
-                                    <p>If the leveraged system owner provides a UUID for their system (such as in an
-                                        OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
-                                        property.</p>
-                                </description>                                
-                                <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
-                                <prop name="implementation-point" value="external"/>
-                                <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000002"/>
-                                <status state="operational"/>
-                            </component>
-                        </system-implementation>
-                    </system-security-plan>
+                        <system-security-plan
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <system-implementation>
+                                <component
+                                    type="leveraged-system"
+                                    uuid="e82e6e07-0c62-417e-8a19-3744991b4c65">
+                                    <title>Name of Leveraged System</title>
+                                    <description>
+                                        <p>The entire system as depicted in the system authorization boundary</p>
+                                    </description>
+                                    <prop
+                                        name="leveraged-authorization-uuid"
+                                        value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
+                                    <prop
+                                        name="implementation-point"
+                                        value="external" />
+                                    <prop
+                                        name="inherited-uuid"
+                                        value="11111111-0000-4000-9001-000000000001" />
+                                    <status
+                                        state="operational" />
+                                </component>
+                                <component
+                                    type="service"
+                                    uuid="77A1614A-57B3-4B32-9FEE-613A6520EC58">
+                                    <title>Service Provided by Leveraged System</title>
+                                    <description>
+                                        <p>If the leveraged system owner provides a UUID for their system (such as in an OSCAL-based CRM), it should
+                                            be reflected in the <code>inherited-uuid</code> property.</p>
+                                    </description>
+                                    <prop
+                                        name="leveraged-authorization-uuid"
+                                        value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
+                                    <prop
+                                        name="implementation-point"
+                                        value="external" />
+                                    <prop
+                                        name="inherited-uuid"
+                                        value="11111111-0000-4000-9001-000000000002" />
+                                    <status
+                                        state="operational" />
+                                </component>
+                            </system-implementation>
+                        </system-security-plan>
                     </x:context>
                     <x:expect-not-assert
                         id="no-description-text-in-component"
@@ -7424,11 +7520,12 @@
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-implementation>
-                                <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
-                                    <title>Name of Underlying System</title>         
-                                    <prop 
-                                        ns="https://fedramp.gov/ns/oscal" 
-                                        name="leveraged-system-identifier" 
+                                <leveraged-authorization
+                                    uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
+                                    <title>Name of Underlying System</title>
+                                    <prop
+                                        name="leveraged-system-identifier"
+                                        ns="https://fedramp.gov/ns/oscal"
                                         value="F1206061353" />
                                 </leveraged-authorization>
                             </system-implementation>
@@ -7633,23 +7730,41 @@
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-implementation>
-                                <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system">
+                                <component
+                                    type="leveraged-system"
+                                    uuid="e82e6e07-0c62-417e-8a19-3744991b4c65">
                                     <title>Name of Leveraged System</title>
                                     <description>
-                                        <p></p>
+                                        <p />
                                     </description>
-                                    <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
-                                    <prop name="implementation-point" value="external"/>
-                                    <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001"/>
-                                    <status state="operational"/>
+                                    <prop
+                                        name="leveraged-authorization-uuid"
+                                        value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
+                                    <prop
+                                        name="implementation-point"
+                                        value="external" />
+                                    <prop
+                                        name="inherited-uuid"
+                                        value="11111111-0000-4000-9001-000000000001" />
+                                    <status
+                                        state="operational" />
                                 </component>
-                                <component uuid="77A1614A-57B3-4B32-9FEE-613A6520EC58" type="service">
+                                <component
+                                    type="service"
+                                    uuid="77A1614A-57B3-4B32-9FEE-613A6520EC58">
                                     <title>Service Provided by Leveraged System</title>
-                                    <description/>                                                                    
-                                    <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
-                                    <prop name="implementation-point" value="external"/>
-                                    <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000002"/>
-                                    <status state="operational"/>
+                                    <description />
+                                    <prop
+                                        name="leveraged-authorization-uuid"
+                                        value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
+                                    <prop
+                                        name="implementation-point"
+                                        value="external" />
+                                    <prop
+                                        name="inherited-uuid"
+                                        value="11111111-0000-4000-9001-000000000002" />
+                                    <status
+                                        state="operational" />
                                 </component>
                             </system-implementation>
                         </system-security-plan>
@@ -7667,8 +7782,9 @@
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-implementation>
-                                <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
-                                    <title>Name of Underlying System</title>         
+                                <leveraged-authorization
+                                    uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
+                                    <title>Name of Underlying System</title>
                                 </leveraged-authorization>
                             </system-implementation>
                         </system-security-plan>
@@ -7958,7 +8074,7 @@
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="Each person must have no more than one responsibility.">
                 <x:context>
@@ -7980,13 +8096,13 @@
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="There must be a single primary data center.">
                 <x:context>
-                    <location 
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
-                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                    <location
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>Primary Data Center</title>
                         <address>
                             <addr-line>2222 Main Street</addr-line>
@@ -7994,11 +8110,11 @@
                             <state>--</state>
                             <postal-code>00000-0000</postal-code>
                         </address>
-                        <prop 
-                            name="type" 
-                            class="primary" 
+                        <prop
+                            class="primary"
+                            name="type"
                             value="data-center" />
-                    </location>                    
+                    </location>
                 </x:context>
                 <x:scenario
                     label="When that is true">
@@ -8007,13 +8123,13 @@
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="There must be one (1) or more alternate data center(s).">
                 <x:context>
-                    <location 
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
-                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                    <location
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>Secondary Data Center</title>
                         <address>
                             <addr-line>2222 Main Street</addr-line>
@@ -8021,11 +8137,11 @@
                             <state>--</state>
                             <postal-code>00000-0000</postal-code>
                         </address>
-                        <prop 
-                            name="type" 
-                            class="alternate" 
+                        <prop
+                            class="alternate"
+                            name="type"
                             value="data-center" />
-                    </location>   
+                    </location>
                 </x:context>
                 <x:scenario
                     label="When that is true">
@@ -8034,13 +8150,13 @@
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="There must be at least two (2) data centers listed.">
                 <x:context>
-                    <location 
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
-                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                    <location
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>Primary Data Center</title>
                         <address>
                             <addr-line>2222 Main Street</addr-line>
@@ -8048,14 +8164,14 @@
                             <state>--</state>
                             <postal-code>00000-0000</postal-code>
                         </address>
-                        <prop 
-                            name="type" 
-                            class="primary" 
+                        <prop
+                            class="primary"
+                            name="type"
                             value="data-center" />
-                    </location>   
-                    <location 
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
-                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                    </location>
+                    <location
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>Secondary Data Center</title>
                         <address>
                             <addr-line>2222 Main Street</addr-line>
@@ -8063,11 +8179,11 @@
                             <state>--</state>
                             <postal-code>00000-0000</postal-code>
                         </address>
-                        <prop 
-                            name="type" 
-                            class="alternate" 
+                        <prop
+                            class="alternate"
+                            name="type"
                             value="data-center" />
-                    </location> 
+                    </location>
                 </x:context>
                 <x:scenario
                     label="When that is true">
@@ -8076,13 +8192,13 @@
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="Each location that is a data center must have a country">
                 <x:context>
-                    <location 
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
-                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                    <location
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>Primary Data Center</title>
                         <address>
                             <addr-line>2222 Main Street</addr-line>
@@ -8091,11 +8207,11 @@
                             <postal-code>00000-0000</postal-code>
                             <country>US</country>
                         </address>
-                        <prop 
-                            name="type" 
-                            class="primary" 
+                        <prop
+                            class="primary"
+                            name="type"
                             value="data-center" />
-                    </location>                    
+                    </location>
                 </x:context>
                 <x:scenario
                     label="When that is true">
@@ -8104,13 +8220,13 @@
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="The country in locations for data centers must be 'US'">
                 <x:context>
-                    <location 
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
-                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                    <location
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>Primary Data Center</title>
                         <address>
                             <addr-line>2222 Main Street</addr-line>
@@ -8119,11 +8235,11 @@
                             <postal-code>00000-0000</postal-code>
                             <country>US</country>
                         </address>
-                        <prop 
-                            name="type" 
-                            class="primary" 
+                        <prop
+                            class="primary"
+                            name="type"
                             value="data-center" />
-                    </location>                    
+                    </location>
                 </x:context>
                 <x:scenario
                     label="When that is true">
@@ -8132,7 +8248,7 @@
                         label="that is correct." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="An implemented-requirement must have one or more responsible-role definitions (except when the implementation-status is 'not-applicable').">
                 <x:context>
@@ -8455,7 +8571,7 @@
                         label="that is an anomaly." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="Each person must have no more than one responsibility.">
                 <x:context>
@@ -8481,13 +8597,13 @@
                         label="that is an anomaly." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="There must be a single primary data center.">
                 <x:context>
-                    <location 
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
-                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                    <location
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>Primary Data Center</title>
                         <address>
                             <addr-line>2222 Main Street</addr-line>
@@ -8495,11 +8611,11 @@
                             <state>--</state>
                             <postal-code>00000-0000</postal-code>
                         </address>
-                        <prop 
-                            name="type" 
-                            class="alternate" 
+                        <prop
+                            class="alternate"
+                            name="type"
                             value="data-center" />
-                    </location>                    
+                    </location>
                 </x:context>
                 <x:scenario
                     label="When that is false">
@@ -8508,13 +8624,13 @@
                         label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="There must be one (1) or more alternate data center(s).">
                 <x:context>
-                    <location 
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
-                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                    <location
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>Secondary Data Center</title>
                         <address>
                             <addr-line>2222 Main Street</addr-line>
@@ -8522,11 +8638,11 @@
                             <state>--</state>
                             <postal-code>00000-0000</postal-code>
                         </address>
-                        <prop 
-                            name="type" 
-                            class="primary" 
+                        <prop
+                            class="primary"
+                            name="type"
                             value="data-center" />
-                    </location>   
+                    </location>
                 </x:context>
                 <x:scenario
                     label="When that is false">
@@ -8535,13 +8651,13 @@
                         label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="There must be at least two (2) data centers listed.">
                 <x:context>
-                    <location 
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
-                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                    <location
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>Primary Data Center</title>
                         <address>
                             <addr-line>2222 Main Street</addr-line>
@@ -8549,11 +8665,11 @@
                             <state>--</state>
                             <postal-code>00000-0000</postal-code>
                         </address>
-                        <prop 
-                            name="type" 
-                            class="primary" 
+                        <prop
+                            class="primary"
+                            name="type"
                             value="data-center" />
-                    </location>                    
+                    </location>
                 </x:context>
                 <x:scenario
                     label="When that is false">
@@ -8562,13 +8678,13 @@
                         label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="Each location that is a data center must have a country">
                 <x:context>
-                    <location 
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
-                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                    <location
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>Primary Data Center</title>
                         <address>
                             <addr-line>2222 Main Street</addr-line>
@@ -8576,11 +8692,11 @@
                             <state>--</state>
                             <postal-code>00000-0000</postal-code>
                         </address>
-                        <prop 
-                            name="type" 
-                            class="primary" 
+                        <prop
+                            class="primary"
+                            name="type"
                             value="data-center" />
-                    </location>                    
+                    </location>
                 </x:context>
                 <x:scenario
                     label="When that is false">
@@ -8589,13 +8705,13 @@
                         label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="The country in locations for data centers must be 'US'">
                 <x:context>
-                    <location 
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" 
-                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec">
+                    <location
+                        uuid="16adcc8d-65d8-4583-80d3-9cf007744fec"
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <title>Primary Data Center</title>
                         <address>
                             <addr-line>2222 Main Street</addr-line>
@@ -8604,11 +8720,11 @@
                             <postal-code>00000-0000</postal-code>
                             <country>GB</country>
                         </address>
-                        <prop 
-                            name="type" 
-                            class="primary" 
+                        <prop
+                            class="primary"
+                            name="type"
                             value="data-center" />
-                    </location>                    
+                    </location>
                 </x:context>
                 <x:scenario
                     label="When that is false">
@@ -8617,13 +8733,13 @@
                         label="that is an error." />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="An implemented-requirement must have one or more responsible-role definitions (except when the implementation-status is 'not-applicable').">
                 <x:context>
                     <ssp
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <implemented-requirement >
+                        <implemented-requirement>
                             <prop
                                 name="implementation-status"
                                 ns="https://fedramp.gov/ns/oscal"
@@ -10116,7 +10232,7 @@
         </x:scenario>
     </x:scenario>
     <x:scenario
-        label="FedRAMP OSCAL SSP Control Implementation">   
+        label="FedRAMP OSCAL SSP Control Implementation">
         <x:scenario
             label="A FedRAMP SSP references 'email', 'e-mail' or 'electronic mail and 'DMARC', 'SPF', and 'DKIM' are not referenced in control si-8.'">
             <x:scenario
@@ -10125,25 +10241,36 @@
                     <system-security-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <system-implementation>
-                            <component uuid="60f92bcf-f353-4236-9803-2a5d417555f4" type="this-system">
+                            <component
+                                type="this-system"
+                                uuid="60f92bcf-f353-4236-9803-2a5d417555f4">
                                 <title>This System</title>
                                 <description>
-                                    <p>The entire system as depicted in the system authorization boundary</p>      
+                                    <p>The entire system as depicted in the system authorization boundary</p>
                                 </description>
-                                <status state="operational"/>
+                                <status
+                                    state="operational" />
                             </component>
-                            <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system">
+                            <component
+                                type="leveraged-system"
+                                uuid="e82e6e07-0c62-417e-8a19-3744991b4c65">
                                 <title>Name of Leveraged System</title>
                                 <description>
-                                    <p>If the leveraged system owner provides a UUID for their system (such as in an
-                                        OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
-                                        property.</p>
+                                    <p>If the leveraged system owner provides a UUID for their system (such as in an OSCAL-based CRM), it should be
+                                        reflected in the <code>inherited-uuid</code> property.</p>
                                     <p>Email is employed.</p>
                                 </description>
-                                <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
-                                <prop name="implementation-point" value="external"/>
-                                <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001"/>
-                                <status state="operational"/>
+                                <prop
+                                    name="leveraged-authorization-uuid"
+                                    value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
+                                <prop
+                                    name="implementation-point"
+                                    value="external" />
+                                <prop
+                                    name="inherited-uuid"
+                                    value="11111111-0000-4000-9001-000000000001" />
+                                <status
+                                    state="operational" />
                             </component>
                         </system-implementation>
                         <control-implementation>
@@ -10153,21 +10280,27 @@
                                 <!--There are no control parameters-->
                                 <responsible-role
                                     role-id="implemented-requirement-responsible-role" />
-                                <statement statement-id="si-8_smt" uuid="9e061e1e-10fa-4896-8597-294d8fd8e52b">
-                                    <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
+                                <statement
+                                    statement-id="si-8_smt"
+                                    uuid="9e061e1e-10fa-4896-8597-294d8fd8e52b">
+                                    <by-component
+                                        component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
                                         uuid="663f84e5-9c13-49a5-b7de-25ced4e8aef8">
                                         <description>
                                             <p>Describe how the control is satisfied within the system.</p>
                                             <p>DMARC is employed.</p>
                                             <p>SPF is employed.</p>
                                         </description>
-                                        <set-parameter param-id="si-8_prm_1">
+                                        <set-parameter
+                                            param-id="si-8_prm_1">
                                             <value>[replace with list of personnel or roles]</value>
                                         </set-parameter>
-                                        <set-parameter param-id="si-8_prm_2">
+                                        <set-parameter
+                                            param-id="si-8_prm_2">
                                             <value>[specify frequency]</value>
                                         </set-parameter>
-                                        <set-parameter param-id="si-8_prm_3">
+                                        <set-parameter
+                                            param-id="si-8_prm_3">
                                             <value>[specify frequency]</value>
                                         </set-parameter>
                                     </by-component>
@@ -10190,25 +10323,36 @@
                     <system-security-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <system-implementation>
-                            <component uuid="60f92bcf-f353-4236-9803-2a5d417555f4" type="this-system">
+                            <component
+                                type="this-system"
+                                uuid="60f92bcf-f353-4236-9803-2a5d417555f4">
                                 <title>This System</title>
                                 <description>
-                                    <p>The entire system as depicted in the system authorization boundary</p>      
+                                    <p>The entire system as depicted in the system authorization boundary</p>
                                 </description>
-                                <status state="operational"/>
+                                <status
+                                    state="operational" />
                             </component>
-                            <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system">
+                            <component
+                                type="leveraged-system"
+                                uuid="e82e6e07-0c62-417e-8a19-3744991b4c65">
                                 <title>Name of Leveraged System</title>
                                 <description>
-                                    <p>If the leveraged system owner provides a UUID for their system (such as in an
-                                        OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code>
-                                        property.</p>
+                                    <p>If the leveraged system owner provides a UUID for their system (such as in an OSCAL-based CRM), it should be
+                                        reflected in the <code>inherited-uuid</code> property.</p>
                                     <p>Email is employed.</p>
                                 </description>
-                                <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
-                                <prop name="implementation-point" value="external"/>
-                                <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001"/>
-                                <status state="operational"/>
+                                <prop
+                                    name="leveraged-authorization-uuid"
+                                    value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497" />
+                                <prop
+                                    name="implementation-point"
+                                    value="external" />
+                                <prop
+                                    name="inherited-uuid"
+                                    value="11111111-0000-4000-9001-000000000001" />
+                                <status
+                                    state="operational" />
                             </component>
                         </system-implementation>
                         <control-implementation>
@@ -10218,8 +10362,11 @@
                                 <!--There are no control parameters-->
                                 <responsible-role
                                     role-id="implemented-requirement-responsible-role" />
-                                <statement statement-id="si-8_smt" uuid="9e061e1e-10fa-4896-8597-294d8fd8e52b">
-                                    <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
+                                <statement
+                                    statement-id="si-8_smt"
+                                    uuid="9e061e1e-10fa-4896-8597-294d8fd8e52b">
+                                    <by-component
+                                        component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"
                                         uuid="663f84e5-9c13-49a5-b7de-25ced4e8aef8">
                                         <description>
                                             <p>Describe how the control is satisfied within the system.</p>
@@ -10227,13 +10374,16 @@
                                             <p>SPF is employed.</p>
                                             <p>DKIM is employed.</p>
                                         </description>
-                                        <set-parameter param-id="si-8_prm_1">
+                                        <set-parameter
+                                            param-id="si-8_prm_1">
                                             <value>[replace with list of personnel or roles]</value>
                                         </set-parameter>
-                                        <set-parameter param-id="si-8_prm_2">
+                                        <set-parameter
+                                            param-id="si-8_prm_2">
                                             <value>[specify frequency]</value>
                                         </set-parameter>
-                                        <set-parameter param-id="si-8_prm_3">
+                                        <set-parameter
+                                            param-id="si-8_prm_3">
                                             <value>[specify frequency]</value>
                                         </set-parameter>
                                     </by-component>
@@ -10248,8 +10398,8 @@
                     label="that is correct." />
             </x:scenario>
         </x:scenario>
-        
-        
+
+
         <x:scenario
             label="A FedRAMP OSCAL SSP declares the related FedRAMP OSCAL Profile using an import-profile
             element.">
@@ -10349,7 +10499,8 @@
                     <system-security-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <control-implementation>
-                            <implemented-requirement control-id="ac-2.10">
+                            <implemented-requirement
+                                control-id="ac-2.10">
                                 <prop
                                     name="implementation-status"
                                     ns="https://fedramp.gov/ns/oscal"
@@ -10368,7 +10519,8 @@
                     <system-security-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <control-implementation>
-                            <implemented-requirement control-id="ac-2.10">
+                            <implemented-requirement
+                                control-id="ac-2.10">
                                 <prop
                                     name="implementation-status"
                                     ns="https://fedramp.gov/ns/oscal"
@@ -10393,41 +10545,76 @@
                             <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
                         </system-characteristics>
                         <control-implementation>
-                            <implemented-requirement control-id="ac-2.10"/>
-                            <implemented-requirement control-id="ac-3"/>
-                            <implemented-requirement control-id="ac-5"/>
-                            <implemented-requirement control-id="ac-6"/>
-                            <implemented-requirement control-id="ac-6.1"/>
-                            <implemented-requirement control-id="ac-6.5"/>
-                            <implemented-requirement control-id="ac-6.9"/>
-                            <implemented-requirement control-id="ac-6.10"/>
-                            <implemented-requirement control-id="ac-7"/>
-                            <implemented-requirement control-id="ac-8"/>
-                            <implemented-requirement control-id="ac-10"/>
-                            <implemented-requirement control-id="ac-11"/>
-                            <implemented-requirement control-id="ac-11.1"/>
-                            <implemented-requirement control-id="ac-17.1"/>
-                            <implemented-requirement control-id="ac-17.2"/>
-                            <implemented-requirement control-id="ac-18.1"/>
-                            <implemented-requirement control-id="ac-19"/>
-                            <implemented-requirement control-id="ac-19.5"/>
-                            <implemented-requirement control-id="ac-20"/>
-                            <implemented-requirement control-id="ac-20.1"/>
-                            <implemented-requirement control-id="ac-20.2"/>
-                            <implemented-requirement control-id="ac-21"/>
-                            <implemented-requirement control-id="au-2.3"/>
-                            <implemented-requirement control-id="au-6"/>
-                            <implemented-requirement control-id="au-9.2"/>
-                            <implemented-requirement control-id="au-9.4"/>
-                            <implemented-requirement control-id="au-11"/>
-                            <implemented-requirement control-id="cm-5"/>
-                            <implemented-requirement control-id="cm-5.1"/>
-                            <implemented-requirement control-id="cm-10"/>
-                            <implemented-requirement control-id="ia-4.4"/>
-                            <implemented-requirement control-id="ia-5.4"/>
-                            <implemented-requirement control-id="ia-6"/>
-                            <implemented-requirement control-id="sc-7.5"/>
-                            <implemented-requirement control-id="sc-10"/>                         
+                            <implemented-requirement
+                                control-id="ac-2.10" />
+                            <implemented-requirement
+                                control-id="ac-3" />
+                            <implemented-requirement
+                                control-id="ac-5" />
+                            <implemented-requirement
+                                control-id="ac-6" />
+                            <implemented-requirement
+                                control-id="ac-6.1" />
+                            <implemented-requirement
+                                control-id="ac-6.5" />
+                            <implemented-requirement
+                                control-id="ac-6.9" />
+                            <implemented-requirement
+                                control-id="ac-6.10" />
+                            <implemented-requirement
+                                control-id="ac-7" />
+                            <implemented-requirement
+                                control-id="ac-8" />
+                            <implemented-requirement
+                                control-id="ac-10" />
+                            <implemented-requirement
+                                control-id="ac-11" />
+                            <implemented-requirement
+                                control-id="ac-11.1" />
+                            <implemented-requirement
+                                control-id="ac-17.1" />
+                            <implemented-requirement
+                                control-id="ac-17.2" />
+                            <implemented-requirement
+                                control-id="ac-18.1" />
+                            <implemented-requirement
+                                control-id="ac-19" />
+                            <implemented-requirement
+                                control-id="ac-19.5" />
+                            <implemented-requirement
+                                control-id="ac-20" />
+                            <implemented-requirement
+                                control-id="ac-20.1" />
+                            <implemented-requirement
+                                control-id="ac-20.2" />
+                            <implemented-requirement
+                                control-id="ac-21" />
+                            <implemented-requirement
+                                control-id="au-2.3" />
+                            <implemented-requirement
+                                control-id="au-6" />
+                            <implemented-requirement
+                                control-id="au-9.2" />
+                            <implemented-requirement
+                                control-id="au-9.4" />
+                            <implemented-requirement
+                                control-id="au-11" />
+                            <implemented-requirement
+                                control-id="cm-5" />
+                            <implemented-requirement
+                                control-id="cm-5.1" />
+                            <implemented-requirement
+                                control-id="cm-10" />
+                            <implemented-requirement
+                                control-id="ia-4.4" />
+                            <implemented-requirement
+                                control-id="ia-5.4" />
+                            <implemented-requirement
+                                control-id="ia-6" />
+                            <implemented-requirement
+                                control-id="sc-7.5" />
+                            <implemented-requirement
+                                control-id="sc-10" />
                         </control-implementation>
                     </system-security-plan>
                 </x:context>
@@ -10444,7 +10631,8 @@
                             <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
                         </system-characteristics>
                         <control-implementation>
-                            <implemented-requirement control-id="ac-2.1"/>                            
+                            <implemented-requirement
+                                control-id="ac-2.1" />
                         </control-implementation>
                     </system-security-plan>
                 </x:context>
@@ -10452,7 +10640,7 @@
                     id="technical-control-exists"
                     label="that is an error" />
             </x:scenario>
-        </x:scenario>        
+        </x:scenario>
         <x:scenario
             label="An automation control must be implemented.">
             <x:scenario
@@ -10461,7 +10649,8 @@
                     <system-security-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <control-implementation>
-                            <implemented-requirement control-id="ac-2.1">
+                            <implemented-requirement
+                                control-id="ac-2.1">
                                 <prop
                                     name="implementation-status"
                                     ns="https://fedramp.gov/ns/oscal"
@@ -10480,7 +10669,8 @@
                     <system-security-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <control-implementation>
-                            <implemented-requirement control-id="ac-2.1">
+                            <implemented-requirement
+                                control-id="ac-2.1">
                                 <prop
                                     name="implementation-status"
                                     ns="https://fedramp.gov/ns/oscal"
@@ -10505,41 +10695,76 @@
                             <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
                         </system-characteristics>
                         <control-implementation>
-                            <implemented-requirement control-id="ac-2.1"/>
-                            <implemented-requirement control-id="ac-12"/>
-                            <implemented-requirement control-id="ac-18.3"/>
-                            <implemented-requirement control-id="au-6.1"/>
-                            <implemented-requirement control-id="au-3.2"/>
-                            <implemented-requirement control-id="au-6.4"/>
-                            <implemented-requirement control-id="au-7.1"/>
-                            <implemented-requirement control-id="at-3.4"/>
-                            <implemented-requirement control-id="ca-7"/>
-                            <implemented-requirement control-id="cm-2.2"/>
-                            <implemented-requirement control-id="cm-3.1"/>
-                            <implemented-requirement control-id="cm-3.6"/>
-                            <implemented-requirement control-id="cm-6.1"/>
-                            <implemented-requirement control-id="cm-8.3"/>
-                            <implemented-requirement control-id="cm-11"/>
-                            <implemented-requirement control-id="cp-10"/>
-                            <implemented-requirement control-id="ir-4.1"/>
-                            <implemented-requirement control-id="ir-5.1"/>
-                            <implemented-requirement control-id="ir-6.1"/>
-                            <implemented-requirement control-id="pe-3"/>
-                            <implemented-requirement control-id="pe-8.1"/>
-                            <implemented-requirement control-id="pe-11.1"/>
-                            <implemented-requirement control-id="pe-13.1"/>
-                            <implemented-requirement control-id="pe-13.2"/>
-                            <implemented-requirement control-id="pe-13.3"/>
-                            <implemented-requirement control-id="pe-15.1"/>
-                            <implemented-requirement control-id="ps-4.2"/>
-                            <implemented-requirement control-id="sc-23.1"/>
-                            <implemented-requirement control-id="si-2.2"/>
-                            <implemented-requirement control-id="si-3.2"/>
-                            <implemented-requirement control-id="si-4.2"/>
-                            <implemented-requirement control-id="si-5.1"/>
-                            <implemented-requirement control-id="si-7.2"/>
-                            <implemented-requirement control-id="si-7.5"/>
-                            <implemented-requirement control-id="si-8.2"/>                       
+                            <implemented-requirement
+                                control-id="ac-2.1" />
+                            <implemented-requirement
+                                control-id="ac-12" />
+                            <implemented-requirement
+                                control-id="ac-18.3" />
+                            <implemented-requirement
+                                control-id="au-6.1" />
+                            <implemented-requirement
+                                control-id="au-3.2" />
+                            <implemented-requirement
+                                control-id="au-6.4" />
+                            <implemented-requirement
+                                control-id="au-7.1" />
+                            <implemented-requirement
+                                control-id="at-3.4" />
+                            <implemented-requirement
+                                control-id="ca-7" />
+                            <implemented-requirement
+                                control-id="cm-2.2" />
+                            <implemented-requirement
+                                control-id="cm-3.1" />
+                            <implemented-requirement
+                                control-id="cm-3.6" />
+                            <implemented-requirement
+                                control-id="cm-6.1" />
+                            <implemented-requirement
+                                control-id="cm-8.3" />
+                            <implemented-requirement
+                                control-id="cm-11" />
+                            <implemented-requirement
+                                control-id="cp-10" />
+                            <implemented-requirement
+                                control-id="ir-4.1" />
+                            <implemented-requirement
+                                control-id="ir-5.1" />
+                            <implemented-requirement
+                                control-id="ir-6.1" />
+                            <implemented-requirement
+                                control-id="pe-3" />
+                            <implemented-requirement
+                                control-id="pe-8.1" />
+                            <implemented-requirement
+                                control-id="pe-11.1" />
+                            <implemented-requirement
+                                control-id="pe-13.1" />
+                            <implemented-requirement
+                                control-id="pe-13.2" />
+                            <implemented-requirement
+                                control-id="pe-13.3" />
+                            <implemented-requirement
+                                control-id="pe-15.1" />
+                            <implemented-requirement
+                                control-id="ps-4.2" />
+                            <implemented-requirement
+                                control-id="sc-23.1" />
+                            <implemented-requirement
+                                control-id="si-2.2" />
+                            <implemented-requirement
+                                control-id="si-3.2" />
+                            <implemented-requirement
+                                control-id="si-4.2" />
+                            <implemented-requirement
+                                control-id="si-5.1" />
+                            <implemented-requirement
+                                control-id="si-7.2" />
+                            <implemented-requirement
+                                control-id="si-7.5" />
+                            <implemented-requirement
+                                control-id="si-8.2" />
                         </control-implementation>
                     </system-security-plan>
                 </x:context>
@@ -10556,7 +10781,8 @@
                             <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
                         </system-characteristics>
                         <control-implementation>
-                            <implemented-requirement control-id="ac-2.10"/>                            
+                            <implemented-requirement
+                                control-id="ac-2.10" />
                         </control-implementation>
                     </system-security-plan>
                 </x:context>
@@ -10638,7 +10864,7 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
-        
+
         <x:scenario
             label="An implemented control must have a prop with only the allowed values.">
             <x:scenario
@@ -10648,7 +10874,10 @@
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <control-implementation>
                             <implemented-requirement>
-                                <prop ns='https://fedramp.gov/ns/oscal' name='implementation-status' value='implemented'/>
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="implemented" />
                             </implemented-requirement>
                         </control-implementation>
                     </system-security-plan>
@@ -10664,7 +10893,10 @@
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <control-implementation>
                             <implemented-requirement>
-                                <prop ns='https://fedramp.gov/ns/oscal' name='implementation-status' value='completed'/>
+                                <prop
+                                    name="implementation-status"
+                                    ns="https://fedramp.gov/ns/oscal"
+                                    value="completed" />
                             </implemented-requirement>
                         </control-implementation>
                     </system-security-plan>
@@ -10674,8 +10906,8 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
-        
-        
+
+
         <x:scenario
             label="Incomplete control implementations have an explanation.">
             <x:scenario
@@ -10939,8 +11171,8 @@
                     id="partial-implemented-requirement-has-plan"
                     label="that is an error" />
             </x:scenario>
-        </x:scenario>   
-        
+        </x:scenario>
+
         <x:scenario
             label="An implemented control's implementation status must be implemented, partial and planned, planned, alternative, or not applicable.">
             <x:scenario
@@ -10990,53 +11222,65 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
-        
-        
+
+
         <x:scenario
             label="There are PE family controls inherited from leveraged authorizations.">
             <x:scenario
                 label="And the PE control's leveraged authorization UUID value matches the system-implementation's leveraged authorization UUID value">
-                <x:scenario label="when this is true">
+                <x:scenario
+                    label="when this is true">
                     <x:context>
                         <system-security-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-implementation>
-                                <leveraged-authorization uuid="e82e6e07-0c62-417e-8a19-3744991b4c65"/>                              
+                                <leveraged-authorization
+                                    uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" />
                             </system-implementation>
                             <control-implementation>
-                                <implemented-requirement uuid="uuid-value" control-id="pe-1">
-                                    <prop name="leveraged-authorization-uuid" value="e82e6e07-0c62-417e-8a19-3744991b4c65"/>
+                                <implemented-requirement
+                                    control-id="pe-1"
+                                    uuid="uuid-value">
+                                    <prop
+                                        name="leveraged-authorization-uuid"
+                                        value="e82e6e07-0c62-417e-8a19-3744991b4c65" />
                                 </implemented-requirement>
                             </control-implementation>
                         </system-security-plan>
                     </x:context>
                     <x:expect-not-assert
                         id="leveraged-PE-controls-implemented-requirement"
-                        label="that is correct" 
-                    role="warning"/>
+                        label="that is correct"
+                        role="warning" />
                 </x:scenario>
-                <x:scenario label="when this is false">
+                <x:scenario
+                    label="when this is false">
                     <x:context>
                         <system-security-plan
-                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">                            
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <system-implementation>
-                                <leveraged-authorization uuid="e82e6e07-0c62-417e-8a19-3744991b4c65"/>                              
+                                <leveraged-authorization
+                                    uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" />
                             </system-implementation>
                             <control-implementation>
-                                <implemented-requirement uuid="uuid-value" control-id="pe-1">
-                                    <prop name="leveraged-authorization-uuid" value="e82e6e07-0c62-417e-8a19-3744991b4c66"/>
+                                <implemented-requirement
+                                    control-id="pe-1"
+                                    uuid="uuid-value">
+                                    <prop
+                                        name="leveraged-authorization-uuid"
+                                        value="e82e6e07-0c62-417e-8a19-3744991b4c66" />
                                 </implemented-requirement>
                             </control-implementation>
                         </system-security-plan>
                     </x:context>
                     <x:expect-assert
                         id="leveraged-PE-controls-implemented-requirement"
-                        label="that is incorrect" 
+                        label="that is incorrect"
                         role="warning" />
                 </x:scenario>
             </x:scenario>
         </x:scenario>
-        
+
         <x:scenario
             label="Planned completion date is valid.">
             <x:scenario
@@ -11837,7 +12081,7 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
-        
+
         <x:scenario
             label="A FedRAMP SSP must define a leveraged authorization for any paas or saas cloud service model.">
             <x:scenario
@@ -11854,7 +12098,7 @@
                     </system-characteristics>
                     <system-implementation
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <leveraged-authorization 
+                        <leveraged-authorization
                             uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
                             <title>Name of Underlying System</title>
                         </leveraged-authorization>
@@ -11879,7 +12123,7 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
-        
+
         <x:scenario
             label="A FedRAMP SSP with a cloud service model of &quot;other&quot; must supply remarks.">
             <x:scenario
@@ -12174,7 +12418,7 @@
                                 value="description" />
                             <link
                                 href="#c95172cb-7e95-42b9-a5fd-cf4605c5c4a6"
-                                rel="agreement" />
+                                rel="isa-agreement" />
                             <status
                                 state="operational" />
                             <responsible-role
@@ -12991,10 +13235,10 @@
             </x:scenario>
         </x:scenario>
     </x:scenario>
-    
+
     <x:scenario
         label="SSP Network Protocols">
-        
+
         <x:scenario
             label="When expected network protocols are present">
             <x:context>
@@ -13019,7 +13263,7 @@
                 id="has-expected-network-protocols"
                 label="that is correct." />
         </x:scenario>
-        
+
         <x:scenario
             label="When expected network protocols are not present">
             <x:context>
@@ -13042,7 +13286,7 @@
                 id="has-expected-network-protocols"
                 label="that is an anomaly." />
         </x:scenario>
-        
+
     </x:scenario>
 
     <x:scenario
@@ -13061,49 +13305,49 @@
                 </component>
             </system-implementation>
         </x:context>
-        
+
         <x:scenario
             label="When an authoritative DNS service is declared ">
             <x:expect-not-assert
                 id="has-DNS-authoritative-service"
                 label="that is of interest." />
         </x:scenario>
-        
+
         <x:scenario
             label="When an authoritative DNS service zone is declared">
             <x:expect-not-assert
                 id="has-DNS-zone"
                 label="that is correct." />
         </x:scenario>
-        
+
         <x:scenario
             label="When an authoritative DNS service zone is well-formed">
             <x:expect-not-assert
                 id="has-well-formed-DNS-zone"
                 label="that is correct." />
         </x:scenario>
-        
+
         <x:scenario
             label="When an authoritative DNS service zone is resolvable">
             <x:expect-not-assert
                 id="has-resolved-zone"
                 label="that is correct." />
         </x:scenario>
-        
-        
+
+
         <x:scenario
             label="When an authoritative DNS service zone has DNSSEC">
             <x:expect-not-assert
                 id="zone-has-DNSSEC"
                 label="that is correct." />
         </x:scenario>
-        
+
     </x:scenario>
-    
+
     <x:scenario
         label="Authoritative DNS Service negative tests"
         pending="pending remote resource resolution">
-        
+
         <x:scenario
             label="When no authoritative DNS service is declared ">
             <x:context>
@@ -13123,7 +13367,7 @@
                 id="has-DNS-authoritative-service"
                 label="that is of interest." />
         </x:scenario>
-        
+
         <x:scenario
             label="When no authoritative DNS service zone is declared">
             <x:context>
@@ -13143,7 +13387,7 @@
                 id="has-DNS-zone"
                 label="that is an error." />
         </x:scenario>
-        
+
         <x:scenario
             label="When an authoritative DNS service zone is not well-formed">
             <x:context>
@@ -13163,7 +13407,7 @@
                 id="has-well-formed-DNS-zone"
                 label="that is an error." />
         </x:scenario>
-        
+
         <x:scenario
             label="When an authoritative DNS service zone is not resolvable">
             <x:context>
@@ -13182,8 +13426,8 @@
             <x:expect-assert
                 id="has-resolved-zone"
                 label="that is an error." />
-        </x:scenario>        
-        
+        </x:scenario>
+
         <x:scenario
             label="When an authoritative DNS service zone lacks DNSSEC">
             <x:context>
@@ -13203,7 +13447,7 @@
                 id="zone-has-DNSSEC"
                 label="that is an error." />
         </x:scenario>
-        
+
     </x:scenario>
-    
+
 </x:description>

@@ -28,6 +28,24 @@ export const ValidatorReport = ({ documentType }: Props) => {
     filterOptions.assertionViews,
     oscalDocument.filter.assertionViewId,
   );
+
+  interface FedRampTagProp {
+    isFedRamp: boolean;
+  }
+
+  const FedRampTag = ({ isFedRamp }: FedRampTagProp) =>
+    isFedRamp ? (
+      <div>
+        <span
+          className="usa-tag bg-cyan text-uppercase usa-tooltip"
+          data-position="right"
+          title="FedRAMP-specific validation rule"
+        >
+          FedRAMP
+        </span>
+      </div>
+    ) : null;
+
   return (
     <>
       <div className="top-0 padding-y-1">
@@ -119,12 +137,16 @@ export const ValidatorReport = ({ documentType }: Props) => {
                     </svg>
                   </div>
                   {check.fired.length ? (
+                    // FAILED
                     <details className="usa-icon-list__content">
                       <summary>
-                        <b>{`${
-                          check.fired.length
-                        } ${check.role.toUpperCase()}: `}</b>
-                        {check.message}
+                        <b>
+                          {`${
+                            check.fired.length
+                          } ${check.role.toUpperCase()}: `}
+                        </b>
+                        <span>{check.message}</span>
+                        <FedRampTag isFedRamp={check.fedrampSpecific} />
                         <div>
                           <span className="text-primary text-underline margin-right-1 learn-more">
                             Learn more
@@ -190,34 +212,34 @@ export const ValidatorReport = ({ documentType }: Props) => {
                       </ul>
                     </details>
                   ) : (
+                    // PASS
                     <div className="usa-icon-list__content">
+                      <b>{group.isValidated ? 'PASS: ' : null}</b>
+                      <span> {check.message}</span>
+                      <FedRampTag isFedRamp={check.fedrampSpecific} />
                       <div>
-                        <b>{group.isValidated ? 'PASS: ' : null}</b>
-                        {check.message}
-                        <div>
-                          <button
-                            className="usa-button usa-button--unstyled margin-right-1"
-                            onClick={() =>
-                              dispatch(
-                                assertionDocumentation.show({
-                                  assertionId: check.id,
-                                  documentType,
-                                }),
-                              )
-                            }
-                          >
-                            View Examples
-                          </button>
-                          <span className="margin-right-1">|</span>
-                          <a
-                            href={check.referenceUrl}
-                            className="text-primary text-underline"
-                            target="_blank"
-                            rel="noopener"
-                          >
-                            View Schematron
-                          </a>
-                        </div>
+                        <button
+                          className="usa-button usa-button--unstyled margin-right-1"
+                          onClick={() =>
+                            dispatch(
+                              assertionDocumentation.show({
+                                assertionId: check.id,
+                                documentType,
+                              }),
+                            )
+                          }
+                        >
+                          View Examples
+                        </button>
+                        <span className="margin-right-1">|</span>
+                        <a
+                          href={check.referenceUrl}
+                          className="text-primary text-underline"
+                          target="_blank"
+                          rel="noopener"
+                        >
+                          View Schematron
+                        </a>
                       </div>
                     </div>
                   )}

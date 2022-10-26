@@ -1,0 +1,467 @@
+{
+    "fedramp-threats": {
+        "xmlns": "https://fedramp.gov/ns/oscal",
+        "uuid": "7539047F-158B-4AA0-8FC5-F0530F1CC5CF",
+        "metadata": {
+            "title": "FedRAMP Defined Threat Table [Experimental]",
+            "published": "2021-10-22T05:55:26Z",
+            "last-modified": "2021-10-22T05:55:26Z",
+            "version": "fedramp1.2.1-oscal1.0.0",
+            "revisions": {
+                "revision": [
+                    {
+                        "published": "2019-06-01T00:00:00.00-04:00",
+                        "version": "DRAFT-01",
+                        "prop": {
+                            "name": "party-uuid",
+                            "ns": "https://fedramp.gov/ns/oscal",
+                            "#text": "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"
+                        },
+                        "remarks": {"p": "Initial draft."}
+                    },
+                    {
+                        "published": "2021-01-15T00:00:00.00-04:00",
+                        "version": "DRAFT-02",
+                        "prop": {
+                            "name": "party-uuid",
+                            "ns": "https://fedramp.gov/ns/oscal",
+                            "#text": "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"
+                        },
+                        "remarks": {"p": "Revised draft to align metadata with OSCAL syntax, and to provide a machine-readble definition for threat origination types."}
+                    },
+                    {
+                        "published": "2021-08-11T23:18:00.00-00:00",
+                        "version": "fedramp1.0.2-oscal1.0.0",
+                        "prop": {
+                            "name": "party-uuid",
+                            "ns": "https://fedramp.gov/ns/oscal",
+                            "#text": "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"
+                        },
+                        "remarks": {"p": "Updated version reviewed for fedramp1.0.2-oscal1.0.0 releases."}
+                    },
+                    {
+                        "published": "2021-08-12T12:38:01.00-00:00",
+                        "version": "fedramp1.1.0-oscal1.0.0",
+                        "prop": {
+                            "name": "party-uuid",
+                            "ns": "https://fedramp.gov/ns/oscal",
+                            "#text": "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"
+                        },
+                        "remarks": {"p": "Updated version reviewed for fedramp1.1.0-oscal1.0.0 releasess."}
+                    },
+                    {
+                        "published": "2021-10-22T05:55:26Z",
+                        "version": "fedramp1.2.1-oscal1.0.0",
+                        "prop": {
+                            "name": "party-uuid",
+                            "ns": "https://fedramp.gov/ns/oscal",
+                            "#text": "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"
+                        },
+                        "remarks": {"p": "Fix missed updates for target and touch-ups from review for fedramp1.2.1-oscal1.0.0 release."}
+                    }
+                ]
+            },
+            "role": {
+                "id": "prepared-by",
+                "title": "Prepared By",
+                "description": {"p": "The organization that prepared this content."}
+            },
+            "party": {
+                "uuid": "77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d",
+                "type": "organization",
+                "name": "Federal Risk and Authorization Management Program: Program Management\n                Office",
+                "short-name": "FedRAMP PMO",
+                "link": {"href": "https://fedramp.gov"},
+                "email-address": "info@fedramp.gov",
+                "address": {
+                    "type": "work",
+                    "addr-line": [
+                        "1800 F St. NW",
+                        ""
+                    ],
+                    "city": "Washington",
+                    "state": "DC",
+                    "postal-code": "",
+                    "country": "US"
+                },
+                "remarks": {
+                    "p": [
+                        "This party entry must be present in a FedRAMP SSP.",
+                        "The uuid may be different; however, the uuid must be associated with the\n                    \"fedramp-pmo\" role in the responsible-party assemblies."
+                    ]
+                }
+            },
+            "responsible-party": {
+                "role-id": "prepared-by",
+                "party-uuid": "77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d"
+            },
+            "remarks": {"p": "This file provides the FedRAMP threat table from the MS Word-based FedRAMP SAR template in machine-readable format."}
+        },
+        "constraint": {
+            "allowed-values": {
+                "target": "/*/threats/origination",
+                "enum": [
+                    {
+                        "value": "P",
+                        "#text": "Threat launched purposefully."
+                    },
+                    {
+                        "value": "U",
+                        "#text": "Threat created by unintentional human or machine error."
+                    },
+                    {
+                        "value": "E",
+                        "#text": "Threat caused by environmental agents or disruptions."
+                    }
+                ]
+            }
+        },
+        "threats": {
+            "threat": [
+                {
+                    "id": "T-1",
+                    "system": "https://fedramp.gov",
+                    "title": "Alteration",
+                    "origination": [
+                        "P",
+                        "U",
+                        "E"
+                    ],
+                    "description": {"p": "Alteration of data, files, or records."},
+                    "integrity-impact": "Modification"
+                },
+                {
+                    "id": "T-2",
+                    "system": "https://fedramp.gov",
+                    "title": "Audit Compromise",
+                    "origination": "P",
+                    "description": {"p": "An unauthorized user gains access to the audit trail and could cause audit records to be deleted or modified, or prevents future audit records from being recorded, thus masking a security relevant event."},
+                    "integrity-impact": "Modification or Destruction",
+                    "availability-impact": "Unavailable Accurate Records"
+                },
+                {
+                    "id": "T-3",
+                    "system": "https://fedramp.gov",
+                    "title": "Bomb",
+                    "origination": "P",
+                    "description": {"p": "An intentional explosion."},
+                    "integrity-impact": "Modification or Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-4",
+                    "system": "https://fedramp.gov",
+                    "title": "Communications Failure",
+                    "origination": [
+                        "U",
+                        "E"
+                    ],
+                    "description": {"p": "Cut of fiber optic lines, trees falling on telephone lines."},
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-5",
+                    "system": "https://fedramp.gov",
+                    "title": "Compromising Emanations",
+                    "origination": "P",
+                    "description": {"p": "Eavesdropping can occur via electronic media directed against large scale \n                electronic facilities that do not process classified National Security \n                Information."},
+                    "confidentiality-impact": "Disclosure"
+                },
+                {
+                    "id": "T-6",
+                    "system": "https://fedramp.gov",
+                    "title": "Cyber Brute Force",
+                    "origination": "P",
+                    "description": {"p": "Unauthorized user could gain access to the information systems by \n                random or systematic guessing of passwords, possibly supported by \n                password cracking utilities."},
+                    "confidentiality-impact": "Disclosure",
+                    "integrity-impact": "Modification or Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-7",
+                    "system": "https://fedramp.gov",
+                    "title": "Data Disclosure Attack",
+                    "origination": "P",
+                    "description": {"p": "An attacker uses techniques that could result in the disclosure of sensitive \n                information by exploiting weaknesses in the design or configuration."},
+                    "confidentiality-impact": "Disclosure"
+                },
+                {
+                    "id": "T-8",
+                    "system": "https://fedramp.gov",
+                    "title": "Data Entry Error",
+                    "origination": "U",
+                    "description": {"p": "Human inattention, lack of knowledge, and failure to cross-check system \n                activities could contribute to errors becoming integrated and ingrained in \n                automated systems."},
+                    "integrity-impact": "Modification"
+                },
+                {
+                    "id": "T-9",
+                    "system": "https://fedramp.gov",
+                    "title": "Denial of Service Attack",
+                    "origination": "P",
+                    "description": {"p": "An adversary uses techniques to attack a single target rendering it unable \n                to respond and could cause denial of service for users of the targeted \n                information systems. "},
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-10",
+                    "system": "https://fedramp.gov",
+                    "title": "Distributed Denial of Service Attack",
+                    "origination": "P",
+                    "description": {"p": "An adversary uses multiple compromised information systems to attack a \n                single target and could cause denial of service for users of the targeted \n                information systems. "},
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-11",
+                    "system": "https://fedramp.gov",
+                    "title": "Earthquake",
+                    "origination": "E",
+                    "description": {"p": "Seismic activity can damage the information system or its facility. Refer \n                to the following document for earthquake probability maps \n                http://pubs.usgs.gov/of/2008/1128/pdf/OF08-1128_v1.1.pdf "},
+                    "integrity-impact": "Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-12",
+                    "system": "https://fedramp.gov",
+                    "title": "Electromagnetic Interference",
+                    "origination": [
+                        "P",
+                        "E"
+                    ],
+                    "description": {"p": "Disruption of electronic and wire transmissions could be caused by high \n                frequency (HF), very high frequency (VHF), and ultra-high frequency \n                (UHF) communications devices (jamming) or sun spots."},
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-13",
+                    "system": "https://fedramp.gov",
+                    "title": "Espionage",
+                    "origination": "P",
+                    "description": {"p": "The illegal covert act of copying, reproducing, recording, photographing \n                or intercepting to obtain sensitive information."},
+                    "confidentiality-impact": "Disclosure",
+                    "integrity-impact": "Modification"
+                },
+                {
+                    "id": "T-14",
+                    "system": "https://fedramp.gov",
+                    "title": "Fire",
+                    "origination": [
+                        "P",
+                        "E"
+                    ],
+                    "description": {"p": "Fire can be caused by arson, electrical problems, lightning, chemical \n                agents, or other unrelated proximity fires."},
+                    "integrity-impact": "Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-15",
+                    "system": "https://fedramp.gov",
+                    "title": "Floods",
+                    "origination": "E",
+                    "description": {"p": "Water damage caused by flood hazards can be caused by proximity to \n                local flood plains. Flood maps and base flood elevation must be \n                considered."},
+                    "integrity-impact": "Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-16",
+                    "system": "https://fedramp.gov",
+                    "title": "Fraud",
+                    "origination": "P",
+                    "description": {"p": "Intentional deception regarding data or information about an information \n                system could compromise the confidentiality, integrity, or availability of \n                an information system."},
+                    "confidentiality-impact": "Disclosure",
+                    "integrity-impact": "Modification or Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-17",
+                    "system": "https://fedramp.gov",
+                    "title": "Hardware or Equipment Failure",
+                    "origination": "E",
+                    "description": {"p": "Hardware or equipment may fail due to a variety of reasons."},
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-18",
+                    "system": "https://fedramp.gov",
+                    "title": "Hardware Tampering",
+                    "origination": "P",
+                    "description": {"p": "An unauthorized modification to hardware that alters the proper \n                functioning of equipment in a manner that degrades the security \n                functionality the asset provides."},
+                    "integrity-impact": "Modification",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-19",
+                    "system": "https://fedramp.gov",
+                    "title": "Hurricane",
+                    "origination": "E",
+                    "description": {"p": "A category 1, 2, 3, 4, or 5 land falling hurricane could impact the facilities \n                that house the information systems."},
+                    "integrity-impact": "Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-20",
+                    "system": "https://fedramp.gov",
+                    "title": "Malicious Software",
+                    "origination": "P",
+                    "description": {"p": "Software that damages a system such a virus, Trojan, or worm."},
+                    "integrity-impact": "Modification or Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-21",
+                    "system": "https://fedramp.gov",
+                    "title": "Phishing Attack",
+                    "origination": "P",
+                    "description": {
+                        "p": [
+                            "Adversary attempts to acquire sensitive information such as usernames, \n                passwords, or SSNs, by pretending to be communications from a \n                legitimate/trustworthy source.",
+                            "Typical attacks occur via email, instant messaging, or comparable means; \n                commonly directing users to Web sites that appear to be legitimate sites, \n                while actually stealing the entered information."
+                        ]
+                    },
+                    "confidentiality-impact": "Disclosure",
+                    "integrity-impact": "Modification or Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-22",
+                    "system": "https://fedramp.gov",
+                    "title": "Power Interruptions",
+                    "origination": "E",
+                    "description": {"p": "Power interruptions may be due to any number of reasons such as \n                electrical grid failures, generator failures, uninterruptable power supply \n                failures (e.g. spike, surge, brownout, or blackout)."},
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-23",
+                    "system": "https://fedramp.gov",
+                    "title": "Procedural Error",
+                    "origination": "U",
+                    "description": {"p": "An error in procedures could result in unintended consequences. "},
+                    "confidentiality-impact": "Disclosure",
+                    "integrity-impact": "Modification or Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-24",
+                    "system": "https://fedramp.gov",
+                    "title": "Procedural Violations",
+                    "origination": "P",
+                    "description": {"p": "Violations of standard procedures. "},
+                    "confidentiality-impact": "Disclosure",
+                    "integrity-impact": "Modification or Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-25",
+                    "system": "https://fedramp.gov",
+                    "title": "Resource Exhaustion",
+                    "origination": "U",
+                    "description": {"p": "An errant (buggy) process may create a situation that exhausts critical \n                resources preventing access to services."},
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-26",
+                    "system": "https://fedramp.gov",
+                    "title": "Sabotage",
+                    "origination": "P",
+                    "description": {"p": "Underhand interference with work."},
+                    "integrity-impact": "Modification or Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-27",
+                    "system": "https://fedramp.gov",
+                    "title": "Scavenging",
+                    "origination": "P",
+                    "description": {"p": "Searching through disposal containers (e.g. dumpsters) to acquire \n                unauthorized data."},
+                    "confidentiality-impact": "Disclosure"
+                },
+                {
+                    "id": "T-28",
+                    "system": "https://fedramp.gov",
+                    "title": "Severe Weather",
+                    "origination": "E",
+                    "description": {"p": "Naturally occurring forces of nature could disrupt the operation of an \n                information system by freezing, sleet, hail, heat, lightning, thunderstorms, \n                tornados, or snowfall."},
+                    "integrity-impact": "Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-29",
+                    "system": "https://fedramp.gov",
+                    "title": "Social Engineering",
+                    "origination": "P",
+                    "description": {"p": "An attacker manipulates people into performing actions or divulging \n                confidential information, as well as possible access to computer systems \n                or facilities."},
+                    "confidentiality-impact": "Disclosure"
+                },
+                {
+                    "id": "T-30",
+                    "system": "https://fedramp.gov",
+                    "title": "Software Tampering",
+                    "origination": "P",
+                    "description": {"p": "Unauthorized modification of software (e.g. files, programs, database \n                records) that alters the proper operational functions."},
+                    "integrity-impact": "Modification or Destruction"
+                },
+                {
+                    "id": "T-31",
+                    "system": "https://fedramp.gov",
+                    "title": "Terrorist",
+                    "origination": "P",
+                    "description": {"p": "An individual performing a deliberate violent act could use a variety of \n                agents to damage the information system, its facility, and/or its operations."},
+                    "integrity-impact": "Modification or Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-32",
+                    "system": "https://fedramp.gov",
+                    "title": "Theft",
+                    "origination": "P",
+                    "description": {"p": "An adversary could steal elements of the hardware."},
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-33",
+                    "system": "https://fedramp.gov",
+                    "title": "Time and State",
+                    "origination": "P",
+                    "description": {"p": "An attacker exploits weaknesses in timing or state of functions to perform \n                actions that would otherwise be prevented (e.g. race conditions, \n                manipulation user state)."},
+                    "confidentiality-impact": "Disclosure",
+                    "integrity-impact": "Modification",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-34",
+                    "system": "https://fedramp.gov",
+                    "title": "Transportation Accidents",
+                    "origination": "E",
+                    "description": {"p": "Transportation accidents include train derailments, river barge accidents, \n                trucking accidents, and airlines accidents. Local transportation accidents \n                typically occur when airports, sea ports, railroad tracks, and major \n                trucking routes occur in close proximity to systems facilities. Likelihood \n                of HAZMAT cargo must be determined when considering the probability \n                of local transportation accidents."},
+                    "integrity-impact": "Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-35",
+                    "system": "https://fedramp.gov",
+                    "title": "Unauthorized Facility Access",
+                    "origination": "P",
+                    "description": {"p": "An unauthorized individual accesses a facility which may result in \n                comprises of confidentiality, integrity, or availability."},
+                    "confidentiality-impact": "Disclosure",
+                    "integrity-impact": "Modification or Destruction",
+                    "availability-impact": "Denial of Service"
+                },
+                {
+                    "id": "T-36",
+                    "system": "https://fedramp.gov",
+                    "title": {},
+                    "origination": "P",
+                    "description": {"p": "An unauthorized user accesses a system or data. "},
+                    "confidentiality-impact": "Disclosure",
+                    "integrity-impact": "Modification or Destruction"
+                },
+                {
+                    "id": "T-37",
+                    "system": "https://fedramp.gov",
+                    "title": "Volcanic Activity",
+                    "origination": "E",
+                    "description": {"p": "A crack, perforation, or vent in the earth\u2019s crust followed by molten lava, \n                steam, gases, and ash forcefully ejected into the atmosphere. For a list of \n                volcanoes in the U.S. see:\n                http://volcanoes.usgs.gov/about/volcanoes/volcanolist.php ."},
+                    "integrity-impact": "Destruction",
+                    "availability-impact": "Denial of Service"
+                }
+            ]
+        }
+    }
+}

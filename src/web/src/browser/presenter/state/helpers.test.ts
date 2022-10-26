@@ -40,6 +40,7 @@ describe('presenter schematron library', () => {
           ],
         },
         filter: {
+          fedrampSpecificOption: 'all',
           passStatus: 'all' as PassStatus,
           role: 'error',
           text: '',
@@ -163,6 +164,7 @@ describe('presenter schematron library', () => {
         helpers.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            fedrampSpecific: 'all',
             passStatus: 'all',
             role: 'error',
             text: '',
@@ -177,6 +179,7 @@ describe('presenter schematron library', () => {
           message: 'incorrect role assertion message',
           role: 'error',
           referenceUrl: '#TODO',
+          fedrampSpecific: true,
         },
       ]);
     });
@@ -185,6 +188,7 @@ describe('presenter schematron library', () => {
         helpers.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            fedrampSpecific: 'all',
             passStatus: 'all',
             role: 'all',
             text: 'role assertion',
@@ -199,6 +203,7 @@ describe('presenter schematron library', () => {
           message: 'incorrect role assertion message',
           role: 'error',
           referenceUrl: '#TODO',
+          fedrampSpecific: true,
         },
       ]);
     });
@@ -207,6 +212,7 @@ describe('presenter schematron library', () => {
         helpers.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            fedrampSpecific: 'all',
             passStatus: 'all',
             role: 'non-matching',
             text: 'role assertion',
@@ -222,6 +228,7 @@ describe('presenter schematron library', () => {
         helpers.filterAssertions(
           MOCK_SCHEMATRON_ASSERTIONS,
           {
+            fedrampSpecific: 'all',
             passStatus: 'all',
             role: 'error',
             text: 'non-matching',
@@ -241,18 +248,21 @@ const MOCK_SCHEMATRON_ASSERTIONS: SchematronAssert[] = [
     message: 'incorrect role assertion message',
     role: 'error',
     referenceUrl: '#TODO',
+    fedrampSpecific: true,
   },
   {
     id: 'incomplete-core-implemented-requirements',
     message: 'incomplete core implemented requirements assertion message',
     role: 'info',
     referenceUrl: '#TODO',
+    fedrampSpecific: true,
   },
   {
     id: 'untriggered-requirement',
     message: 'untriggered requirement assertion message',
     role: 'warn',
     referenceUrl: '#TODO',
+    fedrampSpecific: true,
   },
 ];
 
