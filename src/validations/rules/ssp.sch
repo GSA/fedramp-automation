@@ -4156,7 +4156,7 @@
                 fedramp:specific="true"
                 id="interconnection-cites-interconnection-agreement"
                 role="error"
-                test="oscal:link[@rel eq 'agreement']">A system interconnection must cite an interconnection agreement.</sch:assert>
+                test="oscal:link[@rel eq 'isa-agreement']">A system interconnection must cite an interconnection agreement.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-cites-interconnection-agreement-href-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
@@ -4164,7 +4164,7 @@
                 fedramp:specific="true"
                 id="interconnection-cites-interconnection-agreement-href"
                 role="error"
-                test="oscal:link[@rel eq 'agreement' and matches(@href, '^#')]">A system interconnection must cite an intra-document defined
+                test="oscal:link[@rel eq 'isa-agreement' and matches(@href, '^#')]">A system interconnection must cite an intra-document defined
                 interconnection agreement.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-cites-attached-interconnection-agreement-diagnostic"

@@ -12290,7 +12290,7 @@
                                 value="description" />
                             <link
                                 href="#c95172cb-7e95-42b9-a5fd-cf4605c5c4a6"
-                                rel="agreement" />
+                                rel="isa-agreement" />
                             <status
                                 state="operational" />
                             <responsible-role
