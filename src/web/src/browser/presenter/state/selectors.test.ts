@@ -19,12 +19,31 @@ describe('selectors', () => {
             },
           ],
           schematronAsserts: [
-            { id: '0', message: 'msg0', role: 'error', referenceUrl: '#TODO' },
-            { id: '1', message: 'msg1', role: 'error', referenceUrl: '#TODO' },
-            { id: '2', message: 'msg2', role: 'error', referenceUrl: '#TODO' },
+            {
+              id: '0',
+              message: 'msg0',
+              role: 'error',
+              referenceUrl: '#TODO',
+              fedrampSpecific: true,
+            },
+            {
+              id: '1',
+              message: 'msg1',
+              role: 'error',
+              referenceUrl: '#TODO',
+              fedrampSpecific: true,
+            },
+            {
+              id: '2',
+              message: 'msg2',
+              role: 'error',
+              referenceUrl: '#TODO',
+              fedrampSpecific: true,
+            },
           ],
         },
         {
+          fedrampSpecificOption: 'all',
           passStatus: 'all',
           role: 'error',
           text: '',
@@ -34,6 +53,26 @@ describe('selectors', () => {
         ['0', '1'],
       );
       expect(options).toEqual({
+        fedrampSpecificOptions: [
+          {
+            count: 2,
+            enabled: true,
+            option: 'all',
+            subtitle: 'All validation rules',
+          },
+          {
+            count: 2,
+            enabled: false,
+            option: 'fedramp',
+            subtitle: 'FedRAMP-specific validation rules',
+          },
+          {
+            count: 0,
+            enabled: false,
+            option: 'non-fedramp',
+            subtitle: 'General OSCAL validation rules',
+          },
+        ],
         assertionViews: [
           {
             index: 0,
@@ -88,6 +127,7 @@ describe('selectors', () => {
           schematronAsserts: [],
         },
         {
+          fedrampSpecificOption: 'all',
           passStatus: 'all',
           role: 'error',
           text: '',
@@ -97,6 +137,26 @@ describe('selectors', () => {
         ['0', '1'],
       );
       expect(options).toEqual({
+        fedrampSpecificOptions: [
+          {
+            count: 0,
+            option: 'all',
+            enabled: true,
+            subtitle: 'All validation rules',
+          },
+          {
+            count: 0,
+            option: 'fedramp',
+            enabled: false,
+            subtitle: 'FedRAMP-specific validation rules',
+          },
+          {
+            count: 0,
+            option: 'non-fedramp',
+            enabled: false,
+            subtitle: 'General OSCAL validation rules',
+          },
+        ],
         assertionViews: [],
         roles: [
           {

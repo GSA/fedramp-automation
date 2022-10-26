@@ -99,6 +99,7 @@ export const filterAssertions = (
     role: state.Role;
     text: string;
     assertionViewIds: string[];
+    fedrampSpecific: state.FedRampSpecific;
   },
   roleOptions: state.Role[],
   failedAssertionMap: FailedAssertionMap | null,
@@ -126,6 +127,15 @@ export const filterAssertions = (
       );
     });
   }
+  if (filter.fedrampSpecific !== 'all') {
+    assertions = assertions.filter(assert => {
+      return (
+        (filter.fedrampSpecific === 'fedramp' && assert.fedrampSpecific) ||
+        (filter.fedrampSpecific === 'non-fedramp' && !assert.fedrampSpecific)
+      );
+    });
+  }
+
   return assertions;
 };
 
