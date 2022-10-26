@@ -993,8 +993,8 @@
                 diagnostics="resource-has-title-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
                 doc:template-reference="System Security Plan Template §15"
-                id="resource-has-title"
                 fedramp:specific="true"
+                id="resource-has-title"
                 role="warning"
                 test="oscal:title">Every supporting artifact found in a citation should have a title.</sch:assert>
             <sch:assert
@@ -1585,8 +1585,8 @@
             <sch:assert
                 diagnostics="has-accessible-CMVP-validation-details-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
-                id="has-accessible-CMVP-validation-details"
                 fedramp:specific="true"
+                id="has-accessible-CMVP-validation-details"
                 role="error"
                 test="not($use-remote-resources) or unparsed-text-available(@href)"
                 unit:override-xspec="both">The NIST Cryptographic Module Validation Program (CMVP) certificate detail page is available.</sch:assert>
@@ -1825,8 +1825,8 @@
                 diagnostics="information-type-has-categorization-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
                 doc:template-reference="System Security Plan Template §2.1"
-                id="information-type-has-categorization"
                 fedramp:specific="true"
+                id="information-type-has-categorization"
                 role="error"
                 test="oscal:categorization">A FedRAMP SSP information type must have at least one categorization.</sch:assert>
             <sch:assert
@@ -1894,8 +1894,8 @@
                 diagnostics="has-allowed-information-type-id-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.3"
                 doc:template-reference="System Security Plan Template §2.1"
-                id="has-allowed-information-type-id"
                 fedramp:specific="true"
+                id="has-allowed-information-type-id"
                 role="error"
                 see="https://doi.org/10.6028/NIST.SP.800-60v2r1"
                 test="current()[. = $information-types]">A FedRAMP SSP information type identifier must be chosen from those found in NIST SP
@@ -2312,23 +2312,6 @@
                 id="inventory-item-has-one-scan-type"
                 role="error"
                 test="not(oscal:prop[@name eq 'scan-type'][2])">An inventory item has only one scan-type property.</sch:assert>
-            <sch:assert
-                diagnostics="inventory-item-has-purpose-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
-                fedramp:specific="true"
-                id="inventory-item-has-purpose"
-                role="error"
-                test="oscal:prop[@name eq 'purpose']">An inventory item must have a purpose property.</sch:assert>
-            <sch:assert
-                diagnostics="inventory-item-has-sufficient-purpose-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.5"
-                doc:template-reference="System Security Plan Template §15 Attachment 13"
-                fedramp:specific="true"
-                id="inventory-item-has-sufficient-purpose"
-                role="error"
-                test="oscal:prop[@name eq 'purpose' and string-length(@value) ge 20]">An inventory item must have a purpose property of adequate
-                length (20 characters or more).</sch:assert>
             <!-- restrict the following to "infrastructure" -->
             <sch:let
                 name="is-infrastructure"
@@ -2406,8 +2389,8 @@
             <sch:assert
                 diagnostics="has-prohibited-vendor-name-diagnostic"
                 feddoc:documentation-reference="FAR 889(a)(1)(B)"
-                id="has-prohibited-vendor-name"
                 fedramp:specific="true"
+                id="has-prohibited-vendor-name"
                 role="warning"
                 test="not(oscal:prop[@name eq 'vendor-name']/@value = $prohibit-vendor)">The inventory item does not cite a banned
                 vendor.</sch:assert>
@@ -2556,8 +2539,8 @@
             <sch:assert
                 diagnostics="ipv6-has-content-diagnostic"
                 feddoc:documentation-reference="OMB Mandate M-21-07"
-                id="ipv6-has-content"
                 fedramp:specific="true"
+                id="ipv6-has-content"
                 role="error"
                 test="
                     if (oscal:prop[@name eq 'ipv6-address'])
@@ -2569,8 +2552,8 @@
             <sch:assert
                 diagnostics="ipv6-has-non-placeholder-diagnostic"
                 feddoc:documentation-reference="OMB Mandate M-21-07"
-                id="ipv6-has-non-placeholder"
                 fedramp:specific="true"
+                id="ipv6-has-non-placeholder"
                 role="error"
                 test="
                     if (oscal:prop[@name eq 'ipv6-address']/@value eq '::')
@@ -3096,8 +3079,8 @@
                 diagnostics="user-privilege-level-has-allowed-value-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
                 doc:template-reference="System Security Plan Template §9.3"
-                id="user-privilege-level-has-allowed-value"
                 fedramp:specific="true"
+                id="user-privilege-level-has-allowed-value"
                 role="error"
                 test="current()/@value = $user-privilege-levels">User privilege level has an allowed value.</sch:assert>
         </sch:rule>
@@ -3145,8 +3128,8 @@
                 diagnostics="authorized-privilege-has-non-empty-title-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.18"
                 doc:template-reference="System Security Plan Template §9.3"
-                id="authorized-privilege-has-non-empty-title"
                 fedramp:specific="true"
+                id="authorized-privilege-has-non-empty-title"
                 role="error"
                 test="current() ne ''">Every authorized privilege title is not empty.</sch:assert>
         </sch:rule>
@@ -3216,8 +3199,8 @@
                 diagnostics="has-authorization-boundary-diagram-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.17 Authorization Boundary Diagram"
                 doc:template-reference="System Security Plan Template §9.2"
-                id="has-authorization-boundary-diagram-description"
                 fedramp:specific="true"
+                id="has-authorization-boundary-diagram-description"
                 role="error"
                 test="oscal:description">An OSCAL SSP document authorization boundary diagram has a description.</sch:assert>
             <sch:assert
@@ -3545,8 +3528,8 @@
                 diagnostics="import-profile-resolves-to-catalog-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.1"
                 doc:template-reference="System Security Plan Template §13"
-                id="import-profile-resolves-to-catalog"
                 fedramp:specific="true"
+                id="import-profile-resolves-to-catalog"
                 role="fatal"
                 test="$resolved-profile-doc/oscal:catalog"
                 unit:override-xspec="both">The import-profile element references an available OSCAL resolved baseline profile catalog
@@ -4173,7 +4156,7 @@
                 fedramp:specific="true"
                 id="interconnection-cites-interconnection-agreement"
                 role="error"
-                test="oscal:link[@rel eq 'agreement']">A system interconnection must cite an interconnection agreement.</sch:assert>
+                test="oscal:link[@rel eq 'isa-agreement']">A system interconnection must cite an interconnection agreement.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-cites-interconnection-agreement-href-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §4.20"
@@ -4181,7 +4164,7 @@
                 fedramp:specific="true"
                 id="interconnection-cites-interconnection-agreement-href"
                 role="error"
-                test="oscal:link[@rel eq 'agreement' and matches(@href, '^#')]">A system interconnection must cite an intra-document defined
+                test="oscal:link[@rel eq 'isa-agreement' and matches(@href, '^#')]">A system interconnection must cite an intra-document defined
                 interconnection agreement.</sch:assert>
             <sch:assert
                 diagnostics="interconnection-cites-attached-interconnection-agreement-diagnostic"
@@ -4882,8 +4865,7 @@
         <sch:diagnostic
             doc:assertion="information-type-has-confidentiality-impact"
             doc:context="oscal:information-type"
-            id="information-type-has-confidentiality-impact-diagnostic">An OSCAL SSP information-type lacks a
-            confidentiality-impact.</sch:diagnostic>
+            id="information-type-has-confidentiality-impact-diagnostic">An OSCAL SSP information-type lacks a confidentiality-impact.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="information-type-has-integrity-impact"
             doc:context="oscal:information-type"

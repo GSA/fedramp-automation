@@ -53,6 +53,7 @@ export type SchematronAssert = {
   message: string;
   role: string;
   referenceUrl: string;
+  fedrampSpecific: boolean;
 };
 
 export type ParseSchematronAssertions = (

@@ -389,6 +389,7 @@ export const SchematronParser =
       id: assert.getAttribute('id'),
       message: assert.textContent,
       role: assert.getAttribute('role'),
+      fedrampSpecific: assert.getAttribute('fedramp:specific') === 'true',
     }));
   };
 

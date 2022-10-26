@@ -114,6 +114,9 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
           <div className="usa-radio desktop:padding-left-2 desktop:width-mobile">
             {filterOptions.assertionViews.map(assertionView => (
               <div key={assertionView.index}>
+                {/* 
+                TODO: remove after debugging
+                <pre>{JSON.stringify(assertionView, null, 2)}</pre> */}
                 <input
                   className="usa-radio__input"
                   id={`${documentType}-assertion-view-${assertionView.index}`}
@@ -143,6 +146,55 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                     title={`${assertionView.count} results`}
                   >
                     {assertionView.count}
+                  </span>
+                </label>
+              </div>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset className="usa-fieldset margin-y-3">
+          <legend className="usa-legend usa-legend--large font-sans-md margin-bottom-1">
+            Filter by FedRAMP status
+          </legend>
+          <div className="usa-radio">
+            {filterOptions.fedrampSpecificOptions.map((option, index) => (
+              <div key={index} className="bg-info-lighter">
+                <input
+                  className="usa-radio__input usa-radio__input--tile"
+                  id={`${documentType}-fedramp-specific-${option.option}`}
+                  type="radio"
+                  name="fedrampSpecific"
+                  value={option.option}
+                  checked={
+                    oscalDocument.filter.fedrampSpecificOption === option.option
+                  }
+                  onChange={() => {
+                    dispatch(
+                      schematron.setFilterFedrampOption({
+                        documentType,
+                        fedrampFilterOption: option.option,
+                      }),
+                    );
+                    scrollIntoView();
+                  }}
+                />
+                <label
+                  className="usa-radio__label"
+                  htmlFor={`${documentType}-fedramp-specific-${option.option}`}
+                >
+                  <div className="desktop:width-card desktop:display-flex desktop:flex-justify desktop:width-full desktop:padding-right-3">
+                    <span>
+                      {option.option.toLocaleUpperCase() || '<not specified>'}
+                    </span>
+                    <span
+                      className="margin-left-1 usa-tag"
+                      title={`${option.count} results`}
+                    >
+                      {option.count}
+                    </span>
+                  </div>
+                  <span className="usa-checkbox__label-description">
+                    {option.subtitle}
                   </span>
                 </label>
               </div>

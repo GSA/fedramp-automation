@@ -3,7 +3,13 @@ import { createSelector, defaultMemoize as memoize } from 'reselect';
 import { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { State } from '.';
 import { filterAssertions, getReportGroups } from './helpers';
-import { FilterOptions, PassStatus, Role } from './schematron-machine';
+import {
+  FedRampSpecific,
+  FedRampSpecificOptions,
+  FilterOptions,
+  PassStatus,
+  Role,
+} from './schematron-machine';
 import { AssertionView } from '@asap/shared/use-cases/assertion-views';
 
 const selectOscalDocument = memoize(
@@ -46,12 +52,38 @@ export const selectFilterOptions = memoize((documentType: OscalDocumentKey) =>
         new Set(config.schematronAsserts.map(assert => assert.role)),
       );
       return {
+        fedrampSpecificOptions: FedRampSpecificOptions.map(
+          (option: FedRampSpecific) => ({
+            option,
+            enabled: filter.fedrampSpecificOption === option,
+            subtitle:
+              {
+                all: 'All validation rules',
+                fedramp: 'FedRAMP-specific validation rules',
+                'non-fedramp': 'General OSCAL validation rules',
+              }[option] || '',
+            count: filterAssertions(
+              config.schematronAsserts,
+              {
+                fedrampSpecific: option,
+                passStatus: filter.passStatus,
+                role: filter.role,
+                text: filter.text,
+                assertionViewIds,
+              },
+              availableRoles,
+              failedAssertionMap,
+            ).length,
+          }),
+        ),
+
         assertionViews: config.assertionViews.map((view, index) => ({
           ...view,
           index,
           count: filterAssertions(
             config.schematronAsserts,
             {
+              fedrampSpecific: filter.fedrampSpecificOption,
               passStatus: filter.passStatus,
               role: filter.role,
               text: filter.text,
@@ -78,6 +110,7 @@ export const selectFilterOptions = memoize((documentType: OscalDocumentKey) =>
               count: filterAssertions(
                 config.schematronAsserts,
                 {
+                  fedrampSpecific: filter.fedrampSpecificOption,
                   passStatus: filter.passStatus,
                   role,
                   text: filter.text,
@@ -97,6 +130,7 @@ export const selectFilterOptions = memoize((documentType: OscalDocumentKey) =>
             count: filterAssertions(
               config.schematronAsserts,
               {
+                fedrampSpecific: filter.fedrampSpecificOption,
                 passStatus: 'all',
                 role: filter.role,
                 text: filter.text,
@@ -113,6 +147,7 @@ export const selectFilterOptions = memoize((documentType: OscalDocumentKey) =>
             count: filterAssertions(
               config.schematronAsserts,
               {
+                fedrampSpecific: filter.fedrampSpecificOption,
                 passStatus: 'pass',
                 role: filter.role,
                 text: filter.text,
@@ -129,6 +164,7 @@ export const selectFilterOptions = memoize((documentType: OscalDocumentKey) =>
             count: filterAssertions(
               config.schematronAsserts,
               {
+                fedrampSpecific: filter.fedrampSpecificOption,
                 passStatus: 'fail',
                 role: filter.role,
                 text: filter.text,
@@ -193,6 +229,7 @@ export const selectSchematronReport = memoize(
         const schematronChecksFiltered = filterAssertions(
           config.schematronAsserts,
           {
+            fedrampSpecific: filter.fedrampSpecificOption,
             passStatus: filter.passStatus,
             role: filter.role,
             text: filter.text,
