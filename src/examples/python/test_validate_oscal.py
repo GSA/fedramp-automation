@@ -8,7 +8,7 @@ def test_ssp_validation() -> None:
     example_ssp_path = os.path.abspath(
         os.path.join(
             os.path.dirname(__file__),
-            "../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml",
+            "../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml",
         )
     )
     # Schematron rules compiled to an XSLT stylesheet.
@@ -39,7 +39,7 @@ def test_sap_validation() -> None:
         os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
-                "../../../dist/content/templates/sap/xml/FedRAMP-SAP-OSCAL-Template.xml",
+                "../../../dist/content/rev4/templates/sap/xml/FedRAMP-SAP-OSCAL-Template.xml",
             )
         ),
         os.path.abspath(
@@ -57,7 +57,7 @@ def test_sar_validation() -> None:
         os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
-                "../../../dist/content/templates/sar/xml/FedRAMP-SAR-OSCAL-Template.xml",
+                "../../../dist/content/rev4/templates/sar/xml/FedRAMP-SAR-OSCAL-Template.xml",
             )
         ),
         os.path.abspath(
@@ -75,7 +75,7 @@ def test_poam_validation() -> None:
         os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
-                "../../../dist/content/templates/poam/xml/FedRAMP-POAM-OSCAL-Template.xml",
+                "../../../dist/content/rev4/templates/poam/xml/FedRAMP-POAM-OSCAL-Template.xml",
             )
         ),
         os.path.abspath(

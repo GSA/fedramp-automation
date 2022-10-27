@@ -31,13 +31,47 @@
         href="../test/rules/poam.xspec" />
 
     <sch:title>FedRAMP Plan of Action and Milestones Validations</sch:title>
-    
+
     <!-- Global Variables -->
-    
-    <sch:let name="risk-UUIDs" value="//oscal:risk/@uuid"/>
-    <sch:let name="planned-risk-UUIDs" value="//oscal:risk[oscal:response[@lifecycle eq 'planned']]/@uuid"/>
-    <sch:let name="observation-UUIDs" value="//oscal:observation/@uuid"/>
-    <sch:let name="associated-risk-UUIDs" value="//oscal:poam-item/oscal:associated-risk/@risk-uuid"/>
+
+    <sch:let
+        name="ssp-import-url"
+        value="
+            if (starts-with(/oscal:plan-of-action-and-milestones/oscal:import-ssp/@href, '#'))
+            then
+                resolve-uri(/oscal:plan-of-action-and-milestones/oscal:back-matter/oscal:resource[substring-after(/oscal:plan-of-action-and-milestones/oscal:import-ssp/@href, '#') = @uuid]/oscal:rlink[1]/@href, base-uri())
+            else
+                resolve-uri(/oscal:plan-of-action-and-milestones/oscal:import-ssp/@href, base-uri())" />
+    <sch:let
+        name="ssp-available"
+        value="
+            if (: this is not a relative reference :) (not(starts-with($ssp-import-url, '#')))
+            then
+                (: the referenced document must be available :)
+                doc-available($ssp-import-url)
+            else
+                true()" />
+    <sch:let
+        name="ssp-doc"
+        value="
+            if ($ssp-available)
+            then
+                doc($ssp-import-url)
+            else
+                ()" />
+
+    <sch:let
+        name="risk-UUIDs"
+        value="//oscal:risk/@uuid" />
+    <sch:let
+        name="planned-risk-UUIDs"
+        value="//oscal:risk[oscal:response[@lifecycle eq 'planned']]/@uuid" />
+    <sch:let
+        name="observation-UUIDs"
+        value="//oscal:observation/@uuid" />
+    <sch:let
+        name="associated-risk-UUIDs"
+        value="//oscal:poam-item/oscal:associated-risk/@risk-uuid" />
 
     <sch:pattern>
 
@@ -92,7 +126,7 @@
                 diagnostics="has-import-ssp-href-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
                 id="has-import-ssp-href"
-                role="error"
+                role="fatal"
                 test="exists(@href)">An OSCAL POA&amp;M import-ssp element must have an href attribute.</sch:assert>
 
             <sch:assert
@@ -130,6 +164,23 @@
                         true()"
                 unit:override-xspec="both">An OSCAL POA&amp;M import-ssp element href attribute which is an external reference must identify an
                 available target.</sch:assert>
+            
+            <sch:assert
+                diagnostics="import-ssp-has-available-document-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
+                id="import-ssp-has-available-document"
+                role="fatal"
+                test="$ssp-available = true()"
+                unit:override-xspec="both">The import-ssp element href attribute references an available document.</sch:assert>
+            
+            <sch:assert
+                diagnostics="import-ssp-resolves-to-ssp-diagnostic"
+                doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
+                id="import-ssp-resolves-to-ssp"
+                role="fatal"
+                test="$ssp-doc/oscal:system-security-plan"
+                unit:override-xspec="both">The import-ssp element href attribute references an available OSCAL system security plan
+                document.</sch:assert>
 
         </sch:rule>
 
@@ -159,6 +210,7 @@
             <sch:assert
                 diagnostics="has-ssp-rlink-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
+                fedramp:specific="true"
                 id="has-ssp-rlink"
                 role="error"
                 test="exists(oscal:rlink) and not(exists(oscal:rlink[2]))">An OSCAL POA&amp;M with a SSP resource declaration must have one and only
@@ -172,6 +224,7 @@
             <sch:assert
                 diagnostics="has-non-OSCAL-system-security-plan-resource-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5.2"
+                fedramp:specific="true"
                 id="has-non-OSCAL-system-security-plan-resource"
                 role="warning"
                 test="
@@ -186,6 +239,7 @@
             <sch:assert
                 diagnostics="has-acceptable-system-security-plan-rlink-media-type-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
+                fedramp:specific="true"
                 id="has-acceptable-system-security-plan-rlink-media-type"
                 role="error"
                 test="@media-type = ('text/xml', 'application/json')">An OSCAL POA&amp;M SSP rlink must have a 'text/xml' or 'application/json'
@@ -201,6 +255,7 @@
             <sch:assert
                 diagnostics="has-no-base64-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
+                fedramp:specific="true"
                 id="has-no-base64"
                 role="error"
                 test="false()">An OSCAL POA&amp;M must not use a base64 element in a system-security-plan resource.</sch:assert>
@@ -210,13 +265,14 @@
     </sch:pattern>
 
     <sch:pattern
-        id="basics">        
+        id="basics">
 
         <sch:rule
             context="oscal:poam-item">
             <sch:assert
                 diagnostics="poam-item-has-associated-risk-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.2.1"
+                fedramp:specific="true"
                 id="poam-item-has-associated-risk"
                 role="error"
                 test="exists(oscal:associated-risk)">poam-item has associated-risk.</sch:assert>
@@ -232,6 +288,7 @@
             <sch:assert
                 diagnostics="poam-item-has-related-observation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.2.1"
+                fedramp:specific="true"
                 id="poam-item-has-related-observation"
                 role="error"
                 test="exists(oscal:related-observation)">poam-item has related-observation.</sch:assert>
@@ -246,18 +303,22 @@
 
         <sch:rule
             context="oscal:poam-item/oscal:associated-risk">
-            
+
             <sch:assert
                 diagnostics="associated-risk-has-target-diagnostic"
+                fedramp:specific="true"
                 id="associated-risk-has-target"
                 role="error"
-                test="@risk-uuid [. = $risk-UUIDs]">poam-item <sch:value-of select="@risk-uuid"/> associated-risk references a risk in this document.</sch:assert>
-            
+                test="@risk-uuid[. = $risk-UUIDs]">poam-item <sch:value-of
+                    select="@risk-uuid" /> associated-risk references a risk in this document.</sch:assert>
+
             <sch:assert
                 diagnostics="associated-risk-has-planned-response-diagnostic"
+                fedramp:specific="true"
                 id="associated-risk-has-planned-response"
                 role="error"
-                test="@risk-uuid [. = $planned-risk-UUIDs]">poam-item <sch:value-of select="@risk-uuid"/> associated-risk references a risk with a planned response.</sch:assert>
+                test="@risk-uuid[. = $planned-risk-UUIDs]">poam-item <sch:value-of
+                    select="@risk-uuid" /> associated-risk references a risk with a planned response.</sch:assert>
 
         </sch:rule>
 
@@ -266,18 +327,19 @@
 
             <sch:assert
                 diagnostics="related-observation-has-observation-diagnostic"
+                fedramp:specific="true"
                 id="related-observation-has-observation"
                 role="error"
-                test="@observation-uuid [. = $observation-UUIDs]">related-observation references an observation in this
-                document.</sch:assert>
+                test="@observation-uuid[. = $observation-UUIDs]">related-observation references an observation in this document.</sch:assert>
 
         </sch:rule>
 
         <sch:rule
-            context="oscal:risk[@uuid [. = $associated-risk-UUIDs]]"
+            context="oscal:risk[@uuid[. = $associated-risk-UUIDs]]"
             see="https://github.com/18F/fedramp-automation/issues/353">
             <sch:assert
                 diagnostics="risk-has-deadline-diagnostic"
+                fedramp:specific="true"
                 id="risk-has-deadline"
                 role="error"
                 see="https://github.com/18F/fedramp-automation/issues/353"
@@ -286,6 +348,7 @@
             <sch:assert
                 diagnostics="risk-has-recommendation-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3"
+                fedramp:specific="true"
                 id="risk-has-recommendation"
                 role="error"
                 test="oscal:response[@lifecycle eq 'recommendation']">A risk must have a recommendation response.</sch:assert>
@@ -293,6 +356,7 @@
             <sch:assert
                 diagnostics="risk-has-planned-response-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3"
+                fedramp:specific="true"
                 id="risk-has-planned-response"
                 role="error"
                 test="oscal:response[@lifecycle eq 'planned']">A risk must have a planned response.</sch:assert>
@@ -300,6 +364,7 @@
 
             <sch:assert
                 diagnostics="risk-has-milestones-diagnostic"
+                fedramp:specific="true"
                 id="risk-has-milestones"
                 role="error"
                 test="exists(oscal:response/oscal:task[@type eq 'milestone'])">A risk associated with a poam-item must have one or more milestones
@@ -332,6 +397,7 @@
 
             <sch:assert
                 diagnostics="has-risk-impact-characterization-facet-diagnostic"
+                fedramp:specific="true"
                 id="has-risk-impact-characterization-facet"
                 role="error"
                 test="exists(oscal:characterization/oscal:facet[@name eq 'impact'])"
@@ -351,6 +417,7 @@
 
             <sch:assert
                 diagnostics="has-timely-completion-date-diagnostic"
+                fedramp:specific="true"
                 id="has-timely-completion-date"
                 role="error"
                 see="https://github.com/18F/fedramp-automation/issues/353"
@@ -366,6 +433,7 @@
             <sch:assert
                 diagnostics="milestone-has-description-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3.1"
+                fedramp:specific="true"
                 id="milestone-has-description"
                 role="error"
                 test="exists(oscal:description)">A milestone task has a description.</sch:assert>
@@ -373,6 +441,7 @@
             <sch:assert
                 diagnostics="milestone-has-timing-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3.1"
+                fedramp:specific="true"
                 id="milestone-has-timing"
                 role="error"
                 test="exists(oscal:timing)">A milestone task has a timing element.</sch:assert>
@@ -380,6 +449,7 @@
             <sch:assert
                 diagnostics="milestone-has-timing-within-date-range-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §4.3.1"
+                fedramp:specific="true"
                 id="milestone-has-timing-within-date-range"
                 role="error"
                 test="exists(oscal:timing/oscal:within-date-range) (: accept on-date as well :) or exists(oscal:timing/oscal:on-date)">A milestone
@@ -497,6 +567,18 @@
             doc:context="oscal:import-ssp"
             id="has-import-ssp-external-href-diagnostic">This OSCAL POA&amp;M import-ssp element href attribute which is an external reference does
             not identify an available target.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assertion="import-ssp-has-available-document"
+            doc:context="oscal:import-ssp"
+            id="import-ssp-has-available-document-diagnostic">The import-ssp element has an href attribute that does not reference an available
+            document.</sch:diagnostic>
+        
+        <sch:diagnostic
+            doc:assertion="import-ssp-resolves-to-ssp"
+            doc:context="oscal:import-ssp"
+            id="import-ssp-resolves-to-ssp-diagnostic">The import-ssp element has an href attribute that does not reference an OSCAL system security plan
+            document.</sch:diagnostic>
 
         <sch:diagnostic
             doc:assert="has-system-security-plan-resource"

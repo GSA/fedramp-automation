@@ -7,6 +7,7 @@ import { useAppContext } from '../context';
 
 export const Header = () => {
   const { currentRoute } = useAppContext().state.router;
+  const { newIssueUrl } = useAppContext().state.config.sourceRepository;
 
   return (
     <header className="usa-header usa-header--basic usa-header--megamenu">
@@ -98,6 +99,14 @@ export const Header = () => {
                 href={getUrl(Routes.developers)}
               >
                 <span>Developers</span>
+              </a>
+            </li>
+            <li className="usa-nav__primary-item">
+              <a
+                className="usa-button bg-transparent border-1px radius-pill nav-btn margin-top-1 desktop:margin-top-0"
+                href={newIssueUrl}
+              >
+                <span>Provide Feedback</span>
               </a>
             </li>
           </ul>

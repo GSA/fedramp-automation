@@ -43,7 +43,7 @@ Constraints define required or recommended data elements FedRAMP expects in synt
 
 Schematron constraints have thus far been for system security plan documents. They are found in a Schematron document [`ssp.sch`](ssp.sch).
 
-A companion document [`fedramp_values.xml`](../../dist/content/resources/xml/fedramp_values.xml) defines sets of allowed values for various FedRAMP OSCAL XML elements and their attributes.
+A companion document [`fedramp_values.xml`](../../dist/content/rev4/resources/xml/fedramp_values.xml) defines sets of allowed values for various FedRAMP OSCAL XML elements and their attributes.
 
 An additional Schematron document [`sch.sch`](../styleguides/sch.sch) defines a style guide for FedRAMP Schematron to ensure developers continue to follow best practices. These augmentations provide
 
@@ -89,7 +89,7 @@ The following examples use XML namespace prefixes declared at the root element o
     <sch:ns
         prefix="map"
         uri="http://www.w3.org/2005/xpath-functions/map" />
-``` 
+```
 Namespace declarations made on the root element are for that document.
 
 Namespace declarations via the `<sch:ns>` element are for instance documents to be validated.
@@ -260,7 +260,7 @@ The first (`id="responsible-party-has-role"`) assertion is an existence (presenc
 
 The second (`id="responsible-party-has-party-uuid"`) assertion is just an existential test for `<party-uuid>`.
 
-The third (`id="responsible-party-has-definition"`) assertion is an existential test that every `<party-uuid>` reference (there may be more than one subordinate to `<responsible-party>`) references a `<party>` anywhere within the ndocument. 
+The third (`id="responsible-party-has-definition"`) assertion is an existential test that every `<party-uuid>` reference (there may be more than one subordinate to `<responsible-party>`) references a `<party>` anywhere within the ndocument.
 
 The fourth (`id="responsible-party-is-person"`) assertion ensures that specific role types identify a responsible **person** (i.e., a `<party>` defined as a person).
 

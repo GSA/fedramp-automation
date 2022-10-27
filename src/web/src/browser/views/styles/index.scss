@@ -40,7 +40,28 @@
   color: var(--theme-red);
 }
 .bg-theme-light-cyan {
-  background-color: var(--theme-light-cyan);
+  background-color: var(--theme-teal);
+}
+
+// Button hover overrides
+.usa-button:hover {
+  background-color: var(--theme-red) !important;
+  transition: 0.5s;
+}
+.usa-button--unstyled:hover {
+  background-color: transparent !important;
+}
+
+// nav button
+.nav-btn {
+  border-color: var(--theme-headings-text) !important;
+  color: var(--theme-headings-text) !important;
+  font-size: initial;
+  &:hover {
+    border-color: var(--theme-red) !important;
+    color: var(--theme-red) !important;
+    background-color: transparent !important;
+  }
 }
 
 .loader {

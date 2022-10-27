@@ -4,7 +4,12 @@
     run-as="external"
     schematron="../../rules/sar.sch"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">
-
+    <x:param
+        name="allow-foreign">true</x:param>
+    <x:param
+        name="only-child-elements">false</x:param>
+    <x:param
+        name="visit-text">true</x:param>
     <x:scenario
         label="In FedRAMP OSCAL SAR">
 
@@ -24,7 +29,7 @@
                                 name="type"
                                 value="security-assessment-plan" />
                             <rlink
-                                href="../../../../dist/content/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
+                                href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
                                 media-type="text/xml" />
                         </resource>
                     </back-matter>
@@ -209,10 +214,10 @@
                                         name="type"
                                         value="security-assessment-plan" />
                                     <rlink
-                                        href="../../../../dist/content/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
+                                        href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
                                         media-type="text/xml" />
                                     <rlink
-                                        href="../../../../dist/content/templates/ssp/json/FedRAMP-SAR-OSCAL-Template.json"
+                                        href="../../../../dist/content/rev4/templates/ssp/json/FedRAMP-SAR-OSCAL-Template.json"
                                         media-type="application/json" />
                                 </resource>
                             </back-matter>
@@ -244,7 +249,7 @@
                                         name="type"
                                         value="security-assessment-plan" />
                                     <rlink
-                                        href="../../../../dist/content/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
+                                        href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
                                         media-type="text/markdown" />
                                 </resource>
                             </back-matter>
@@ -255,7 +260,7 @@
                         label="that is an error" />
                 </x:scenario>
 
-                <!-- TODO: 
+                <!-- TODO:
                     Guide to OSCAL-based FedRAMP Security Assessment Plans (SAR) §3.5 allows base64
                     but it also uses href on base64 so may be bogus.
                     Pending base64 restriction until verified.
@@ -296,7 +301,7 @@
             </x:scenario>
 
         </x:scenario>
-        
+
         <x:scenario
             label="results">
             <x:scenario
@@ -325,7 +330,7 @@
                             </x:context>
                             <x:expect-not-assert
                                 id="has-operational-requirement-observation"
-                                label="this is correct" />
+                                label="that is correct" />
                         </x:scenario>
                         <x:scenario
                             label="and does not have a @uuid that matches a finding/related-observation/@observation-uuid">
@@ -347,7 +352,7 @@
                             </x:context>
                             <x:expect-assert
                                 id="has-operational-requirement-observation"
-                                label="this is incorrect" />
+                                label="that is incorrect" />
                         </x:scenario>
                         <x:scenario
                             label="and has a relevant-evidence/@href, whose value after the '#', matches a back-matter/resource/@uuid">
@@ -370,7 +375,7 @@
                             </x:context>
                             <x:expect-not-assert
                                 id="has-operational-requirement-relevant-evidence"
-                                label="this is correct" />
+                                label="that is correct" />
                         </x:scenario>
                         <x:scenario
                             label="and does not have a relevant-evidence/@href, whose value after the '#', matches a back-matter/resource/@uuid">
@@ -393,7 +398,7 @@
                             </x:context>
                             <x:expect-assert
                                 id="has-operational-requirement-relevant-evidence"
-                                label="this is incorrect" />
+                                label="that is incorrect" />
                         </x:scenario>
                     </x:scenario>
                     <x:scenario
@@ -418,7 +423,7 @@
                             </x:context>
                             <x:expect-not-assert
                                 id="has-risk-adjustment-observation"
-                                label="this is correct" />
+                                label="that is correct" />
                         </x:scenario>
                         <x:scenario
                             label="and does not have a @uuid that matches a finding/related-observation/@observation-uuid">
@@ -440,7 +445,7 @@
                             </x:context>
                             <x:expect-assert
                                 id="has-risk-adjustment-observation"
-                                label="this is incorrect" />
+                                label="that is incorrect" />
                         </x:scenario>
                         <x:scenario
                             label="and has a relevant-evidence/link/@href, whose value after the '#', matches a back-matter/resource/@uuid">
@@ -465,7 +470,7 @@
                             </x:context>
                             <x:expect-not-assert
                                 id="has-risk-adjustment-relevant-evidence"
-                                label="this is correct" />
+                                label="that is correct" />
                         </x:scenario>
                         <x:scenario
                             label="and does not have a relevant-evidence/link/@href, whose value after the '#', matches a back-matter/resource/@uuid">
@@ -490,7 +495,7 @@
                             </x:context>
                             <x:expect-assert
                                 id="has-risk-adjustment-relevant-evidence"
-                                label="this is incorrect" />
+                                label="that is incorrect" />
                         </x:scenario>
                     </x:scenario>
                     <x:scenario
@@ -643,7 +648,7 @@
                         </x:context>
                         <x:expect-not-assert
                             id="has-attestation"
-                            label="this is correct" />
+                            label="that is correct" />
                         <x:scenario
                             label="that has a value that is not 'yes'">
                             <x:scenario
@@ -674,7 +679,7 @@
                                 </x:context>
                                 <x:expect-not-assert
                                     id="has-attestation-value-no"
-                                    label="this is correct" />
+                                    label="that is correct" />
                             </x:scenario>
                             <x:scenario
                                 label="and has a first part child with a first paragraph whose text does not match the example in the Guide.">
@@ -703,7 +708,7 @@
                                 </x:context>
                                 <x:expect-assert
                                     id="has-attestation-value-no"
-                                    label="this is incorrect" />
+                                    label="that is incorrect" />
                             </x:scenario>
                         </x:scenario>
                     </x:scenario>
@@ -728,7 +733,7 @@
                         </x:context>
                         <x:expect-assert
                             id="has-attestation"
-                            label="this is incorrect" />
+                            label="that is incorrect" />
                     </x:scenario>
                 </x:scenario>
                 <x:scenario
@@ -756,7 +761,7 @@
                             </x:context>
                             <x:expect-not-assert
                                 id="has-risk-log-status-closed"
-                                label="this is correct" />
+                                label="that is correct" />
                         </x:scenario>
                         <x:scenario
                             label="and does not have a risk-log/entry/status-change of 'closed'">
@@ -779,7 +784,7 @@
                             </x:context>
                             <x:expect-assert
                                 id="has-risk-log-status-closed"
-                                label="this is incorrect" />
+                                label="that is incorrect" />
                         </x:scenario>
                     </x:scenario>
                     <x:scenario
@@ -809,7 +814,7 @@
                             </x:context>
                             <x:expect-not-assert
                                 id="has-duplicate-priority-value"
-                                label="this is correct" />
+                                label="that is correct" />
                         </x:scenario>
                         <x:scenario
                             label="and the @value of that prop is not unique">
@@ -836,7 +841,7 @@
                             </x:context>
                             <x:expect-assert
                                 id="has-duplicate-priority-value"
-                                label="this is incorrect" />
+                                label="that is incorrect" />
                         </x:scenario>
                     </x:scenario>
                     <x:scenario
@@ -1064,11 +1069,66 @@
                     </x:scenario>
 
                 </x:scenario>
-
+                <x:scenario
+                    label="has a finding for control PL-2">
+                    <x:scenario
+                        label="and there is no more than one PL-2 finding that does not have a status of 'satisfied'">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result>
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3c">
+                                        <target
+                                            target-id="pl-2.a.1_obj"
+                                            type="objective-id">
+                                            <status
+                                                state="other-than-satisfied" />
+                                        </target>
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="minimal-control-PL-2-findings"
+                            label="that is correct" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and there is more than one PL-2 finding that does not have a status of 'satisfied'">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result>
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3c">
+                                        <target
+                                            target-id="pl-2.a.1_obj"
+                                            type="objective-id">
+                                            <status
+                                                state="other-than-satisfied" />
+                                        </target>
+                                    </finding>
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3d">
+                                        <target
+                                            target-id="pl-2.a.2_obj"
+                                            type="objective-id">
+                                            <status
+                                                state="other-than-satisfied" />
+                                        </target>
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-assert
+                            id="minimal-control-PL-2-findings"
+                            label="that is incorrect" />
+                    </x:scenario>
+                </x:scenario>
             </x:scenario>
         </x:scenario>
 
-        
+
         <x:scenario
             label="results">
             <x:scenario
@@ -1292,7 +1352,7 @@
                     </x:context>
                     <x:expect-not-assert
                         id="has-pen-test-lead"
-                        label="this is correct" />
+                        label="that is correct" />
                 </x:scenario>
                 <x:scenario
                     label="and there is zero or more than one party-uuid child">
@@ -1310,7 +1370,7 @@
                     </x:context>
                     <x:expect-assert
                         id="has-pen-test-lead"
-                        label="this is incorrect" />
+                        label="that is incorrect" />
                 </x:scenario>
             </x:scenario>
         </x:scenario>
@@ -1351,7 +1411,7 @@
                                 </x:context>
                                 <x:expect-not-assert
                                     id="has-pen-test-finding-resource"
-                                    label="this is correct" />
+                                    label="that is correct" />
                                 <x:scenario
                                     label="and has party that matches the penetration-test-lead responsible-party">
                                     <x:context>
@@ -1397,7 +1457,7 @@
                                     </x:context>
                                     <x:expect-not-assert
                                         id="has-pen-test-team-match"
-                                        label="this is correct" />
+                                        label="that is correct" />
                                 </x:scenario>
                                 <x:scenario
                                     label="and has party that does not match the penetration-test-lead responsible-party">
@@ -1436,7 +1496,7 @@
                                     </x:context>
                                     <x:expect-assert
                                         id="has-pen-test-team-match"
-                                        label="this is incorrect" />
+                                        label="that is incorrect" />
                                 </x:scenario>
                             </x:scenario>
                             <x:scenario
@@ -1465,7 +1525,7 @@
                                 </x:context>
                                 <x:expect-assert
                                     id="has-pen-test-finding-resource"
-                                    label="this is incorrect" />
+                                    label="that is incorrect" />
                             </x:scenario>
                         </x:scenario>
                     </x:scenario>
@@ -1479,8 +1539,10 @@
                 label="when a result">
                 <x:scenario
                     label="has an observation">
-                    <x:scenario label="that has a type of 'false-positive'">
-                        <x:scenario label="and has a @uuid that matches a finding/related-observation/@observation-uuid">
+                    <x:scenario
+                        label="that has a type of 'false-positive'">
+                        <x:scenario
+                            label="and has a @uuid that matches a finding/related-observation/@observation-uuid">
                             <x:context>
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
@@ -1490,20 +1552,26 @@
                                             <method>EXAMINE</method>
                                             <type>false-positive</type>
                                         </observation>
-                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
-                                            <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
-                                            <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
-                                            <related-observation observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c"/>
-                                            <related-observation observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a"/>
+                                        <finding
+                                            uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation
+                                                observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52" />
+                                            <related-observation
+                                                observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6" />
+                                            <related-observation
+                                                observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c" />
+                                            <related-observation
+                                                observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a" />
                                         </finding>
                                     </result>
                                 </assessment-results>
                             </x:context>
                             <x:expect-not-assert
                                 id="has-false-positive-observation"
-                                label="this is correct" />
+                                label="that is correct" />
                         </x:scenario>
-                        <x:scenario label="and has a @uuid that does not match a finding/related-observation/@observation-uuid">
+                        <x:scenario
+                            label="and has a @uuid that does not match a finding/related-observation/@observation-uuid">
                             <x:context>
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
@@ -1513,24 +1581,32 @@
                                             <method>EXAMINE</method>
                                             <type>false-positive</type>
                                         </observation>
-                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
-                                            <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
-                                            <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
-                                            <related-observation observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c"/>
-                                            <related-observation observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a"/>
-                                        </finding>                                        
+                                        <finding
+                                            uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation
+                                                observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52" />
+                                            <related-observation
+                                                observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6" />
+                                            <related-observation
+                                                observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c" />
+                                            <related-observation
+                                                observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a" />
+                                        </finding>
                                     </result>
                                 </assessment-results>
                             </x:context>
                             <x:expect-assert
                                 id="has-false-positive-observation"
-                                label="this is incorrect" />
+                                label="that is incorrect" />
                         </x:scenario>
                     </x:scenario>
                 </x:scenario>
-                <x:scenario label="has a related-observation">
-                    <x:scenario label="whose @observation-uuid matches a observation/@uuid where the type has a value of 'false-positive'">
-                        <x:scenario label="and the sibling associated-risk matches a risk/@uuid">
+                <x:scenario
+                    label="has a related-observation">
+                    <x:scenario
+                        label="whose @observation-uuid matches a observation/@uuid where the type has a value of 'false-positive'">
+                        <x:scenario
+                            label="and the sibling associated-risk matches a risk/@uuid">
                             <x:context>
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
@@ -1540,22 +1616,30 @@
                                             <method>EXAMINE</method>
                                             <type>false-positive</type>
                                         </observation>
-                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
-                                            <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
-                                            <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
-                                            <related-observation observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c"/>
-                                            <related-observation observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a"/>
-                                            <associated-risk risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7"/>
+                                        <finding
+                                            uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation
+                                                observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52" />
+                                            <related-observation
+                                                observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6" />
+                                            <related-observation
+                                                observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c" />
+                                            <related-observation
+                                                observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a" />
+                                            <associated-risk
+                                                risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7" />
                                         </finding>
-                                        <risk uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7"/>
+                                        <risk
+                                            uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7" />
                                     </result>
                                 </assessment-results>
                             </x:context>
                             <x:expect-not-assert
                                 id="has-false-positive-related-related-observation"
-                                label="this is correct" />
+                                label="that is correct" />
                         </x:scenario>
-                        <x:scenario label="and the sibling associated-risk does not match a risk/@uuid">
+                        <x:scenario
+                            label="and the sibling associated-risk does not match a risk/@uuid">
                             <x:context>
                                 <assessment-results
                                     xmlns="http://csrc.nist.gov/ns/oscal/1.0">
@@ -1565,26 +1649,554 @@
                                             <method>EXAMINE</method>
                                             <type>false-positive</type>
                                         </observation>
-                                        <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
-                                            <related-observation observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52"/>
-                                            <related-observation observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6"/>
-                                            <related-observation observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c"/>
-                                            <related-observation observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a"/>
-                                            <associated-risk risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7"/>
+                                        <finding
+                                            uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
+                                            <related-observation
+                                                observation-uuid="63fd3d97-26c9-4d4c-8d24-9fbc482b7f52" />
+                                            <related-observation
+                                                observation-uuid="9de7cba9-40fc-4c4d-b6af-01bd24f1def6" />
+                                            <related-observation
+                                                observation-uuid="46209140-8263-4e74-b3c9-cead4ffed22c" />
+                                            <related-observation
+                                                observation-uuid="7acee179-1570-4ea0-94dc-01b8c0a29c0a" />
+                                            <associated-risk
+                                                risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7" />
                                         </finding>
-                                        <risk uuid="1234-1234"/>
+                                        <risk
+                                            uuid="1234-1234" />
                                     </result>
                                 </assessment-results>
                             </x:context>
                             <x:expect-assert
                                 id="has-false-positive-related-related-observation"
-                                label="this is incorrect" />
+                                label="that is incorrect" />
                         </x:scenario>
                     </x:scenario>
                 </x:scenario>
             </x:scenario>
         </x:scenario>
-        
+
+        <x:scenario
+            label="results">
+            <x:scenario
+                label="when a result">
+                <x:scenario
+                    label="is the most recent result assembly">
+                    <x:scenario
+                        label="and the target objectives in the findings are distinct">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <start>2022-05-02T00:00:00Z</start>
+                                    <end>2022-05-06T00:00:00Z</end>
+                                    <finding>
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id" />
+                                    </finding>
+                                    <finding>
+                                        <target
+                                            target-id="ac-1.a.1_obj.2"
+                                            type="objective-id" />
+                                    </finding>
+                                </result>
+                                <result
+                                    uuid="d755e7fd-346d-40f0-b538-1b1da1aa5821">
+                                    <start>2018-03-01T00:00:00Z</start>
+                                    <end>2018-03-12T00:00:00Z</end>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="no-duplicate-target-id"
+                            label="that is correct" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and at least one of the target objectives in the findings are duplicated">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <start>2022-05-02T00:00:00Z</start>
+                                    <end>2022-05-06T00:00:00Z</end>
+                                    <finding>
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id" />
+                                    </finding>
+                                    <finding>
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id" />
+                                    </finding>
+                                </result>
+                                <result
+                                    uuid="d755e7fd-346d-40f0-b538-1b1da1aa5821">
+                                    <start>2018-03-01T00:00:00Z</start>
+                                    <end>2018-03-12T00:00:00Z</end>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-assert
+                            id="no-duplicate-target-id"
+                            label="that is incorrect" />
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+            <x:scenario
+                label="when a target">
+                <x:scenario
+                    label="has a type of 'objective-id'">
+                    <x:scenario
+                        label="and has a property of 'implementation-status">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id">
+                                            <prop
+                                                name="implementation-status"
+                                                ns="https://fedramp.gov/ns/oscal"
+                                                value="implemented" />
+                                        </target>
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="has-implementation-status"
+                            label="that is correct" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and does not have a property of 'implementation-status">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id" />
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-assert
+                            id="has-implementation-status"
+                            label="that is incorrect" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and has a status element">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id">
+                                            <status
+                                                state="other-than-satisfied" />
+                                        </target>
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-not-assert
+                            id="has-satisfaction-status"
+                            label="that is correct" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and does not have a status element">
+                        <x:context>
+                            <assessment-results
+                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                <result
+                                    uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                    <finding
+                                        uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                        <target
+                                            target-id="ac-1.a.1_obj.1"
+                                            type="objective-id" />
+                                    </finding>
+                                </result>
+                            </assessment-results>
+                        </x:context>
+                        <x:expect-assert
+                            id="has-satisfaction-status"
+                            label="that is incorrect" />
+                    </x:scenario>
+                    <x:scenario
+                        label="and has a status element">
+                        <x:scenario
+                            label="with a correct @state value">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result
+                                        uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                        <finding
+                                            uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                            <target
+                                                target-id="ac-1.a.1_obj.1"
+                                                type="objective-id">
+                                                <status
+                                                    state="other-than-satisfied" />
+                                            </target>
+                                        </finding>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="satisfaction-status-value"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="with an incorrect @state value">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result
+                                        uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
+                                        <finding
+                                            uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                            <target
+                                                target-id="ac-1.a.1_obj.1"
+                                                type="objective-id">
+                                                <status
+                                                    state="not-satisfied" />
+                                            </target>
+                                        </finding>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="satisfaction-status-value"
+                                label="that is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+
+        <x:scenario
+            label="results">
+            <x:scenario
+                label="when a result">
+                <x:scenario
+                    label="has an observation">
+                    <x:scenario
+                        label="with an origin/actor of type = 'tool'">
+                        <x:scenario
+                            label="with a type of 'finding' and a method of 'TEST'">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                            <method>TEST</method>
+                                            <type>finding</type>
+                                            <origin>
+                                                <actor
+                                                    actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                                                    type="tool" />
+                                            </origin>
+                                        </observation>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-method-TEST"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="whose @uuid value matches a local-definitions/assessment-assets/component/@uuid value">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <local-definitions>
+                                            <assessment-assets>
+                                                <component
+                                                    type="hardware"
+                                                    uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d" />
+                                            </assessment-assets>
+                                        </local-definitions>
+                                        <observation
+                                            uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                            <method>TEST</method>
+                                            <type>finding</type>
+                                            <origin>
+                                                <actor
+                                                    actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                                                    type="tool" />
+                                            </origin>
+                                            <subject
+                                                subject-uuid="75b059f2-a9ba-40b1-a1e0-881196ca1ead"
+                                                type="component" />
+                                        </observation>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-matching-assessment-asset-component"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="whose @uuid value matches a local-definitions/assessment-assets/component/@uuid value">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <local-definitions>
+                                            <assessment-assets>
+                                                <component
+                                                    type="hardware"
+                                                    uuid="1234-1234" />
+                                            </assessment-assets>
+                                        </local-definitions>
+                                        <observation
+                                            uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                            <method>TEST</method>
+                                            <type>finding</type>
+                                            <origin>
+                                                <actor
+                                                    actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                                                    type="tool" />
+                                            </origin>
+                                            <subject
+                                                subject-uuid="75b059f2-a9ba-40b1-a1e0-881196ca1ead"
+                                                type="component" />
+                                        </observation>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-matching-assessment-asset-component"
+                                label="that is incorrect" />
+                        </x:scenario>
+                        <x:scenario
+                            label="with a subject">
+                            <x:scenario
+                                label="whose @subject-uuid value matches a locally defined component or inventory-item">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <local-definitions>
+                                                <inventory-item
+                                                    uuid="75b059f2-a9ba-40b1-a1e0-881196ca1ead" />
+                                            </local-definitions>
+                                            <observation
+                                                uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                                <method>TEST</method>
+                                                <type>finding</type>
+                                                <origin>
+                                                    <actor
+                                                        actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                                                        type="tool" />
+                                                </origin>
+                                                <subject
+                                                    subject-uuid="75b059f2-a9ba-40b1-a1e0-881196ca1ead"
+                                                    type="inventory-item" />
+                                            </observation>
+                                        </result>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-not-assert
+                                    id="observation-subject-is-locally-defined"
+                                    label="that is correct" />
+                            </x:scenario>
+                            <x:scenario
+                                label="whose @subject-uuid value does not match a locally defined component or inventory-item">
+                                <x:context>
+                                    <assessment-results
+                                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                        <result>
+                                            <local-definitions>
+                                                <component
+                                                    uuid="1234-1234" />
+                                            </local-definitions>
+                                            <observation
+                                                uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                                <method>TEST</method>
+                                                <type>finding</type>
+                                                <origin>
+                                                    <actor
+                                                        actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                                                        type="tool" />
+                                                </origin>
+                                                <subject
+                                                    subject-uuid="75b059f2-a9ba-40b1-a1e0-881196ca1ead"
+                                                    type="component" />
+                                            </observation>
+                                        </result>
+                                    </assessment-results>
+                                </x:context>
+                                <x:expect-assert
+                                    id="observation-subject-is-locally-defined"
+                                    label="that is incorrect" />
+                            </x:scenario>
+                        </x:scenario>
+                        <x:scenario
+                            label="whose relevant-evidence/@href value references the raw-tool-output resource in the back-matter">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                            <method>TEST</method>
+                                            <type>finding</type>
+                                            <relevant-evidence
+                                                href="#19a07333-4e87-46dc-abab-adad60e706b9" />
+                                        </observation>
+                                    </result>
+                                    <back-matter>
+                                        <resource
+                                            uuid="19a07333-4e87-46dc-abab-adad60e706b9">
+                                            <prop
+                                                name="type"
+                                                value="raw-tool-output" />
+                                        </resource>
+                                    </back-matter>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-relevant-evidence"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="whose relevant-evidence/@href value does not match a the raw-tool-output resource in the back-matter">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                            <method>TEST</method>
+                                            <type>finding</type>
+                                            <origin>
+                                                <actor
+                                                    actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                                                    type="tool" />
+                                            </origin>
+                                            <relevant-evidence
+                                                href="#1234-1234" />
+                                        </observation>
+                                    </result>
+                                    <back-matter>
+                                        <resource
+                                            uuid="19a07333-4e87-46dc-abab-adad60e706b9">
+                                            <prop
+                                                name="type"
+                                                value="raw-tool-output" />
+                                        </resource>
+                                    </back-matter>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-relevant-evidence"
+                                label="that is incorrect" />
+                        </x:scenario>
+
+                        <x:scenario
+                            label="whose relevant-evidence/@href value matches the raw-tool-output resource in the back-matter">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
+                                            <method>TEST</method>
+                                            <type>finding</type>
+                                            <origin>
+                                                <actor
+                                                    actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                                                    type="tool" />
+                                            </origin>
+                                        </observation>
+                                        <finding
+                                            uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                            <related-observation
+                                                observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab" />
+                                        </finding>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-not-assert
+                                id="has-related-observation"
+                                label="that is correct" />
+                        </x:scenario>
+                        <x:scenario
+                            label="whose relevant-evidence/@href value does not match a the raw-tool-output resource in the back-matter">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
+                                            <method>TEST</method>
+                                            <type>finding</type>
+                                            <origin>
+                                                <actor
+                                                    actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                                                    type="tool" />
+                                            </origin>
+                                        </observation>
+                                        <finding
+                                            uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
+                                            <related-observation
+                                                observation-uuid="1234-1234" />
+                                        </finding>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-related-observation"
+                                label="that is incorrect" />
+                        </x:scenario>
+                        <x:scenario
+                            label="with a type of 'finding' and not a method of 'TEST'">
+                            <x:context>
+                                <assessment-results
+                                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                                    <result>
+                                        <observation
+                                            uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d">
+                                            <method>MIXED</method>
+                                            <type>finding</type>
+                                            <origin>
+                                                <actor
+                                                    actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e"
+                                                    type="tool" />
+                                            </origin>
+                                        </observation>
+                                    </result>
+                                </assessment-results>
+                            </x:context>
+                            <x:expect-assert
+                                id="has-method-TEST"
+                                label="that is incorrect" />
+                        </x:scenario>
+                    </x:scenario>
+                </x:scenario>
+            </x:scenario>
+        </x:scenario>
+
         <x:scenario
             label="age-checks">
 

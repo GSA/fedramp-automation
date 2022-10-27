@@ -1,7 +1,11 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import type { ActionContext } from '..';
-import type { PassStatus, Role } from '../state/schematron-machine';
+import type {
+  FedRampSpecific,
+  PassStatus,
+  Role,
+} from '../state/schematron-machine';
 
 export const initialize = (config: ActionContext) => {
   Promise.all([
@@ -50,6 +54,22 @@ export const initialize = (config: ActionContext) => {
     });
   });
 };
+
+export const setFilterFedrampOption =
+  ({
+    documentType,
+    fedrampFilterOption,
+  }: {
+    documentType: OscalDocumentKey;
+    fedrampFilterOption: FedRampSpecific;
+  }) =>
+  (config: ActionContext) => {
+    config.dispatch({
+      machine: `oscalDocuments.${documentType}`,
+      type: 'FILTER_FEDRAMPSPECIFIC_CHANGED',
+      data: { fedrampSpecificOption: fedrampFilterOption },
+    });
+  };
 
 export const setFilterRole =
   ({ documentType, role }: { documentType: OscalDocumentKey; role: Role }) =>

@@ -35,6 +35,37 @@ export const linesOf = (text: string, substring: string) => {
   return null;
 };
 
+const closingIndex = (str: string, elem: string, startIndex: number) => {
+  const pattern = `</${elem}>`;
+  const index = str.indexOf(pattern, startIndex);
+  if (index > -1) {
+    return index + pattern.length;
+  }
+
+  const selfClosingPattern = '/>';
+  const selfClosingIndex = str.indexOf(selfClosingPattern, startIndex);
+  if (selfClosingIndex === -1) {
+    throw new Error(`closingIndex: cannot find ${str}`);
+  }
+  return selfClosingIndex + selfClosingPattern.length;
+};
+
+export const getElementString = (
+  xml: string,
+  openedElements: string[],
+  closedElements: string[],
+) => {
+  let startIndex = -1;
+  for (const openedElement of openedElements) {
+    startIndex = xml.indexOf(`<${openedElement}`, startIndex + 1);
+  }
+  let endIndex = 0;
+  for (const elem of closedElements) {
+    endIndex = closingIndex(xml, elem, startIndex + endIndex);
+  }
+  return xml.substring(startIndex, endIndex);
+};
+
 /**
  * Using the parent nodes of an element, returns the lines of an XML node
  * within a document.
@@ -48,13 +79,7 @@ export const linesOfXml = (
   openedElements: string[],
   closedElements: string[],
 ) => {
-  const regExp = createXmlMatchRegExp(openedElements, closedElements);
-  const match = xml.match(regExp);
-  if (match === null) {
-    console.error(`XML match not found: ${regExp}`);
-    return null;
-  }
-  const elementString = match[1];
+  const elementString = getElementString(xml, openedElements, closedElements);
   const lines = linesOf(xml, elementString);
   return lines;
 };

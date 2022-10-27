@@ -3,6 +3,12 @@ import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 
 export type Role = string;
 export type PassStatus = 'pass' | 'fail' | 'all';
+export const FedRampSpecificOptions = [
+  'all',
+  'fedramp',
+  'non-fedramp',
+] as const;
+export type FedRampSpecific = typeof FedRampSpecificOptions[number];
 
 export type FilterOptions = {
   assertionViews: {
@@ -21,6 +27,12 @@ export type FilterOptions = {
     enabled: boolean;
     count: number;
   }[];
+  fedrampSpecificOptions: {
+    option: FedRampSpecific;
+    enabled: boolean;
+    count: number;
+    subtitle: string;
+  }[];
 };
 
 export type BaseState = {
@@ -33,6 +45,7 @@ export type BaseState = {
     text: string;
     assertionViewId: number;
     passStatus: PassStatus;
+    fedrampSpecificOption: FedRampSpecific;
   };
 };
 
@@ -45,6 +58,12 @@ export type State =
     });
 
 export type StateTransition =
+  | {
+      type: 'FILTER_FEDRAMPSPECIFIC_CHANGED';
+      data: {
+        fedrampSpecificOption: FedRampSpecific;
+      };
+    }
   | {
       type: 'CONFIG_LOADED';
       data: {
@@ -96,6 +115,7 @@ export const nextState = (state: State, event: StateTransition): State => {
       return {
         current: 'INITIALIZED',
         filter: {
+          fedrampSpecificOption: 'all',
           passStatus: 'all',
           role: 'all',
           text: '',
@@ -137,8 +157,17 @@ export const nextState = (state: State, event: StateTransition): State => {
           passStatus: event.data.passStatus,
         },
       };
+    } else if (event.type === 'FILTER_FEDRAMPSPECIFIC_CHANGED') {
+      return {
+        ...state,
+        filter: {
+          ...state.filter,
+          fedrampSpecificOption: event.data.fedrampSpecificOption,
+        },
+      };
     }
   }
+
   return state;
 };
 
@@ -149,6 +178,7 @@ export const initialState: State = {
     schematronAsserts: [],
   },
   filter: {
+    fedrampSpecificOption: 'all',
     passStatus: 'all',
     role: 'all',
     text: '',

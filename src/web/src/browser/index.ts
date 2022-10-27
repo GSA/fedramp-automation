@@ -50,6 +50,7 @@ export const runBrowserContext = ({
         treeUrl: github.getBranchTreeUrl(githubRepository),
         sampleDocuments: github.getSampleOscalDocuments(githubRepository),
         developerExampleUrl: github.getDeveloperExampleUrl(githubRepository),
+        newIssueUrl: github.getNewIssueUrl(githubRepository),
       },
     }),
     {
@@ -139,7 +140,7 @@ export const runBrowserContext = ({
             }),
             sap: SaxonJsJsonOscalToXmlProcessor({
               console,
-              sefUrl: `${rulesUrl}oscal_assessment-plan_json-to-xml-converter.json`,
+              sefUrl: `${rulesUrl}oscal_assessment-plan_json-to-xml-converter.sef.json`,
               SaxonJS,
             }),
             sar: SaxonJsJsonOscalToXmlProcessor({

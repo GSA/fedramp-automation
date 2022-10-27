@@ -108,7 +108,7 @@ export const SaxonJsSchematronProcessorGateway =
       const rootNodeName = resource.documentElement.nodeName as string;
       const documentType = getDocumentTypeForRootNode(rootNodeName);
       if (documentType === null) {
-        throw new Error(`Unknown root node "{rootNodeName}"`);
+        throw new Error(`Unknown root node "${rootNodeName}"`);
       }
       return (
         ctx.SaxonJS.transform(
@@ -389,6 +389,7 @@ export const SchematronParser =
       id: assert.getAttribute('id'),
       message: assert.textContent,
       role: assert.getAttribute('role'),
+      fedrampSpecific: assert.getAttribute('fedramp:specific') === 'true',
     }));
   };
 

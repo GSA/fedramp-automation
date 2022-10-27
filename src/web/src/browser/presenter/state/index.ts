@@ -12,6 +12,7 @@ export type State = {
       treeUrl?: string;
       sampleDocuments: SampleDocument[];
       developerExampleUrl?: string;
+      newIssueUrl?: string;
     };
   };
   assertionDocumentation: assertionDocumentation.State;

@@ -21,7 +21,7 @@
                             name="type"
                             value="system-security-plan" />
                         <rlink
-                            href="../../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                            href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
                             media-type="text/xml" />
                     </resource>
                 </back-matter>
@@ -207,10 +207,10 @@
                                     name="type"
                                     value="system-security-plan" />
                                 <rlink
-                                    href="../../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                                    href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
                                     media-type="text/xml" />
                                 <rlink
-                                    href="../../../../dist/content/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json"
+                                    href="../../../../dist/content/rev4/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json"
                                     media-type="application/json" />
                             </resource>
                         </back-matter>
@@ -242,7 +242,7 @@
                                     name="type"
                                     value="system-security-plan" />
                                 <rlink
-                                    href="../../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                                    href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
                                     media-type="text/markdown" />
                             </resource>
                         </back-matter>
@@ -328,7 +328,7 @@
                 label="that should produce no warning" />
         </x:scenario>
     </x:scenario>
-    
+
 
     <x:scenario
         label="In an OSCAL SAP">
@@ -376,10 +376,10 @@
                             name="type"
                             value="system-security-plan" />
                         <rlink
-                            href="../../../../dist/content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                            href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
                             media-type="text/xml" />
                         <rlink
-                            href="../../../../dist/content/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json"
+                            href="../../../../dist/content/rev4/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json"
                             media-type="application/json" />
                     </resource>
                 </back-matter>
@@ -859,7 +859,7 @@
                     </x:context>
                     <x:expect-assert
                         id="duplicate-exclude-control-and-include-control-values"
-                        label="this is incorrect" />
+                        label="that is incorrect" />
                 </x:scenario>
             </x:scenario>
             <x:scenario
@@ -892,7 +892,7 @@
                     </x:context>
                     <x:expect-assert
                         id="duplicate-include-control-values"
-                        label="this is incorrect" />
+                        label="that is incorrect" />
                 </x:scenario>
             </x:scenario>
             <x:scenario
@@ -925,7 +925,7 @@
                     </x:context>
                     <x:expect-assert
                         id="duplicate-exclude-control-values"
-                        label="this is incorrect" />
+                        label="that is incorrect" />
                 </x:scenario>
             </x:scenario>
         </x:scenario>
@@ -993,7 +993,7 @@
                     </x:context>
                     <x:expect-assert
                         id="duplicate-exclude-objective-and-include-objective-values"
-                        label="this is incorrect" />
+                        label="that is incorrect" />
                 </x:scenario>
             </x:scenario>
             <x:scenario
@@ -1026,7 +1026,7 @@
                 </x:context>
                 <x:expect-assert
                     id="duplicate-include-objective-values"
-                    label="this is incorrect" />
+                    label="that is incorrect" />
             </x:scenario>
             <x:scenario
                 label="and the exclude-objective/@objective-id values are all different">
@@ -1058,7 +1058,7 @@
                     </x:context>
                     <x:expect-assert
                         id="duplicate-exclude-objective-values"
-                        label="this is incorrect" />
+                        label="that is incorrect" />
                 </x:scenario>
             </x:scenario>
         </x:scenario>
@@ -1089,7 +1089,7 @@
                 </x:context>
                 <x:expect-not-assert
                     id="location-not-include-all-element"
-                    label="this is correct" />
+                    label="that is correct" />
             </x:scenario>
         </x:scenario>
     </x:scenario>
@@ -1118,7 +1118,8 @@
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <role id="junk"/>
+                            <role
+                                id="junk" />
                         </metadata>
                     </assessment-plan>
                 </x:context>
@@ -1163,7 +1164,7 @@
                             <metadata>
                                 <responsible-party
                                     role-id="csp-end-of-testing-poc">
-                                    <party-uuid/>
+                                    <party-uuid />
                                 </responsible-party>
                             </metadata>
                         </assessment-plan>
@@ -1179,7 +1180,7 @@
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <metadata>
                                 <responsible-party
-                                    role-id="csp-end-of-testing-poc"/>                                
+                                    role-id="csp-end-of-testing-poc" />
                             </metadata>
                         </assessment-plan>
                     </x:context>
@@ -1435,7 +1436,7 @@
                 <x:expect-assert
                     id="has-part-named-included-activities"
                     label="that is incorrect" />
-            </x:scenario> 
+            </x:scenario>
         </x:scenario>
         <x:scenario
             label="when a task has a property of the value 'web-application'">
@@ -1532,10 +1533,11 @@
                     id="has-part-named-liability-limitations"
                     label="that is incorrect" />
             </x:scenario>
-            
+
             <x:scenario
                 label="has a part named 'liability-limitations'">
-                <x:scenario label="and there is at least one child part named 'liability-limitation'">
+                <x:scenario
+                    label="and there is at least one child part named 'liability-limitation'">
                     <x:context>
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
@@ -1543,10 +1545,8 @@
                                 <part
                                     name="liability-limitations">
                                     <part
-                                        name="liability-limitation"/>
-                                    
-                                    <part
-                                        name="liability-limitation"/>
+                                        name="liability-limitation" /> <part
+                                        name="liability-limitation" />
                                 </part>
                             </terms-and-conditions>
                         </assessment-plan>
@@ -1555,16 +1555,17 @@
                         id="has-liability-limitation"
                         label="that is correct" />
                 </x:scenario>
-                <x:scenario label="and there is not at least one child part named 'liability-limitation'">
+                <x:scenario
+                    label="and there is not at least one child part named 'liability-limitation'">
                     <x:context>
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <terms-and-conditions>
                                 <part
-                                    name="liability-limitations"/>                                
+                                    name="liability-limitations" />
                             </terms-and-conditions>
                         </assessment-plan>
-                    </x:context>                    
+                    </x:context>
                     <x:expect-assert
                         id="has-liability-limitation"
                         label="that is incorrect" />
@@ -1715,10 +1716,10 @@
                     id="has-login-id-task"
                     label="that is incorrect" />
             </x:scenario>
-      </x:scenario>
-      <x:scenario
+        </x:scenario>
+        <x:scenario
             label="in the metadata">
-          <x:scenario
+            <x:scenario
                 label="when there is an assessment-subject with a @type='location'">
                 <x:context>
                     <assessment-plan
@@ -1739,7 +1740,7 @@
                 </x:context>
                 <x:expect-not-assert
                     id="has-location-assessment-subject"
-                    label="this is correct" />
+                    label="that is correct" />
             </x:scenario>
         </x:scenario>
         <x:scenario
@@ -1752,8 +1753,12 @@
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <assessment-assets>
-                                <component uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" type="software">
-                                    <prop name='vendor' value='Vendor Name'/>
+                                <component
+                                    type="software"
+                                    uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460">
+                                    <prop
+                                        name="vendor"
+                                        value="Vendor Name" />
                                 </component>
                             </assessment-assets>
                         </assessment-plan>
@@ -1768,7 +1773,9 @@
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <assessment-assets>
-                                <component uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" type="software"/>                                
+                                <component
+                                    type="software"
+                                    uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" />
                             </assessment-assets>
                         </assessment-plan>
                     </x:context>
@@ -1782,8 +1789,12 @@
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <assessment-assets>
-                                <component uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" type="software">
-                                    <prop name='name' value='Tool Name'/>
+                                <component
+                                    type="software"
+                                    uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460">
+                                    <prop
+                                        name="name"
+                                        value="Tool Name" />
                                 </component>
                             </assessment-assets>
                         </assessment-plan>
@@ -1798,7 +1809,9 @@
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <assessment-assets>
-                                <component uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" type="software"/>                                
+                                <component
+                                    type="software"
+                                    uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" />
                             </assessment-assets>
                         </assessment-plan>
                     </x:context>
@@ -1812,8 +1825,12 @@
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <assessment-assets>
-                                <component uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" type="software">
-                                    <prop name='version' value='1.2.3'/>
+                                <component
+                                    type="software"
+                                    uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460">
+                                    <prop
+                                        name="version"
+                                        value="1.2.3" />
                                 </component>
                             </assessment-assets>
                         </assessment-plan>
@@ -1828,7 +1845,9 @@
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <assessment-assets>
-                                <component uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" type="software"/>                                
+                                <component
+                                    type="software"
+                                    uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" />
                             </assessment-assets>
                         </assessment-plan>
                     </x:context>
@@ -1842,8 +1861,11 @@
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <assessment-assets>
-                                <component uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" type="software">
-                                    <status state="operational"/>
+                                <component
+                                    type="software"
+                                    uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460">
+                                    <status
+                                        state="operational" />
                                 </component>
                             </assessment-assets>
                         </assessment-plan>
@@ -1858,9 +1880,12 @@
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <assessment-assets>
-                                <component uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" type="software">
-                                    <status state="operating"/>
-                                </component>                                
+                                <component
+                                    type="software"
+                                    uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460">
+                                    <status
+                                        state="operating" />
+                                </component>
                             </assessment-assets>
                         </assessment-plan>
                     </x:context>
@@ -1873,7 +1898,7 @@
                 label="when there is an assessment-subject with a @type='location'">
                 <x:context>
                     <assessment-plan
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>                
+                        xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
                 </x:context>
                 <x:expect-assert
                     id="has-location-assessment-subject"
@@ -1885,12 +1910,12 @@
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <assessment-subject
-                            type="location"/>
-                    </assessment-plan>                
+                            type="location" />
+                    </assessment-plan>
                 </x:context>
                 <x:expect-not-assert
                     id="has-location-assessment-subject"
-                    label="this is correct" />
+                    label="that is correct" />
             </x:scenario>
             <x:scenario
                 label="when there is a role element with an @id of 'assessor'">
@@ -1973,7 +1998,7 @@
                     id="has-metadata-responsible-party-assessment"
                     label="that is incorrect" />
             </x:scenario>
-            
+
             <x:scenario
                 label="when there is a responsible-party element with an @role-id of 'assessment-lead'">
                 <x:context>
@@ -2031,22 +2056,26 @@
                 </x:context>
                 <x:expect-assert
                     id="has-metadata-responsible-party-lead-multiple"
-                    label="that is incorrect" />            
+                    label="that is incorrect" />
             </x:scenario>
-            
-            <x:scenario label="when a responsible-party with an @role-id of 'assessment lead' exists">
-                <x:scenario label="and has a child party-uuid value that matches a party-uuid value in the responsible-party with an @role-id of 'assessment-team'">
+
+            <x:scenario
+                label="when a responsible-party with an @role-id of 'assessment lead' exists">
+                <x:scenario
+                    label="and has a child party-uuid value that matches a party-uuid value in the responsible-party with an @role-id of 'assessment-team'">
                     <x:context>
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <metadata>
-                                <responsible-party role-id="assessment-team">
+                                <responsible-party
+                                    role-id="assessment-team">
                                     <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                                     <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
                                     <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
                                     <party-uuid>9135b789-a40c-4a20-9be6-fab23c0ab0f3</party-uuid>
                                 </responsible-party>
-                                <responsible-party role-id="assessment-lead">
+                                <responsible-party
+                                    role-id="assessment-lead">
                                     <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                                 </responsible-party>
                             </metadata>
@@ -2056,18 +2085,21 @@
                         id="has-metadata-responsible-party-lead-matches"
                         label="that is correct" />
                 </x:scenario>
-                <x:scenario label="and has a child party-uuid value that does not matche a party-uuid value in the responsible-party with an @role-id of 'assessment-team'">
+                <x:scenario
+                    label="and has a child party-uuid value that does not matche a party-uuid value in the responsible-party with an @role-id of 'assessment-team'">
                     <x:context>
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <metadata>
-                                <responsible-party role-id="assessment-team">
+                                <responsible-party
+                                    role-id="assessment-team">
                                     <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                                     <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
                                     <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
                                     <party-uuid>9135b789-a40c-4a20-9be6-fab23c0ab0f3</party-uuid>
                                 </responsible-party>
-                                <responsible-party role-id="assessment-lead">
+                                <responsible-party
+                                    role-id="assessment-lead">
                                     <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fc</party-uuid>
                                 </responsible-party>
                             </metadata>
@@ -2078,18 +2110,27 @@
                         label="that is incorrect" />
                 </x:scenario>
             </x:scenario>
-            
+
             <x:scenario
                 label="when assessment team has at least one party-uuid element">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person"/>
-                            <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person"/>
-                            <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person"/>
-                            <party uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3" type="person"/>
-                            <responsible-party role-id="assessment-team">
+                            <party
+                                type="person"
+                                uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" />
+                            <party
+                                type="person"
+                                uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" />
+                            <party
+                                type="person"
+                                uuid="bcf47707-49e4-4acc-bf43-e63156046390" />
+                            <party
+                                type="person"
+                                uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3" />
+                            <responsible-party
+                                role-id="assessment-team">
                                 <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                                 <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
                                 <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
@@ -2108,10 +2149,17 @@
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person"/>
-                            <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person"/>
-                            <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person"/>
-                            <responsible-party role-id="assessment-team"/>                            
+                            <party
+                                type="person"
+                                uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" />
+                            <party
+                                type="person"
+                                uuid="bcf47707-49e4-4acc-bf43-e63156046390" />
+                            <party
+                                type="person"
+                                uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" />
+                            <responsible-party
+                                role-id="assessment-team" />
                         </metadata>
                     </assessment-plan>
                 </x:context>
@@ -2119,19 +2167,28 @@
                     id="has-metadata-responsible-party-has-party-uuid"
                     label="that is incorrect" />
             </x:scenario>
-            
-            
+
+
             <x:scenario
                 label="when assessment team has matching party uuids">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person"/>
-                            <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person"/>
-                            <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person"/>
-                            <party uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3" type="person"/>
-                            <responsible-party role-id="assessment-team">
+                            <party
+                                type="person"
+                                uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" />
+                            <party
+                                type="person"
+                                uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" />
+                            <party
+                                type="person"
+                                uuid="bcf47707-49e4-4acc-bf43-e63156046390" />
+                            <party
+                                type="person"
+                                uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3" />
+                            <responsible-party
+                                role-id="assessment-team">
                                 <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                                 <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
                                 <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
@@ -2150,10 +2207,17 @@
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person"/>
-                            <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person"/>
-                            <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person"/>
-                            <responsible-party role-id="assessment-team">
+                            <party
+                                type="person"
+                                uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" />
+                            <party
+                                type="person"
+                                uuid="bcf47707-49e4-4acc-bf43-e63156046390" />
+                            <party
+                                type="person"
+                                uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" />
+                            <responsible-party
+                                role-id="assessment-team">
                                 <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                                 <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
                                 <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
@@ -2165,22 +2229,27 @@
                 <x:expect-assert
                     id="has-metadata-responsible-party-matches"
                     label="that is incorrect" />
-            </x:scenario>                        
+            </x:scenario>
             <x:scenario
                 label="when the assessment-lead has a party-uuid that matches a party/@uuid that has a telephone number">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
+                            <party
+                                type="person"
+                                uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe">
                                 <name>[SAMPLE]Person Name 2</name>
-                                <prop name="mail-stop" value="Office 2-B"/>
+                                <prop
+                                    name="mail-stop"
+                                    value="Office 2-B" />
                                 <email-address>name@example.com</email-address>
                                 <telephone-number>202-000-0002</telephone-number>
                                 <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
                                 <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
-                            </party>                            
-                            <responsible-party role-id="assessment-team">
+                            </party>
+                            <responsible-party
+                                role-id="assessment-team">
                                 <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                                 <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
                             </responsible-party>
@@ -2197,14 +2266,19 @@
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
+                            <party
+                                type="person"
+                                uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe">
                                 <name>[SAMPLE]Person Name 2</name>
-                                <prop name="mail-stop" value="Office 2-B"/>
+                                <prop
+                                    name="mail-stop"
+                                    value="Office 2-B" />
                                 <email-address>name@example.com</email-address>
                                 <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
                                 <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
                             </party>
-                            <responsible-party role-id="assessment-lead">
+                            <responsible-party
+                                role-id="assessment-lead">
                                 <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                             </responsible-party>
                         </metadata>
@@ -2220,14 +2294,19 @@
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
+                            <party
+                                type="person"
+                                uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe">
                                 <name>[SAMPLE]Person Name 2</name>
-                                <prop name="mail-stop" value="Office 2-B"/>
+                                <prop
+                                    name="mail-stop"
+                                    value="Office 2-B" />
                                 <email-address>name@example.com</email-address>
                                 <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
                                 <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
-                            </party>                            
-                            <responsible-party role-id="assessment-team">
+                            </party>
+                            <responsible-party
+                                role-id="assessment-team">
                                 <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                                 <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
                             </responsible-party>
@@ -2244,14 +2323,19 @@
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
+                            <party
+                                type="person"
+                                uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe">
                                 <name>[SAMPLE]Person Name 2</name>
-                                <prop name="mail-stop" value="Office 2-B"/>
+                                <prop
+                                    name="mail-stop"
+                                    value="Office 2-B" />
                                 <telephone-number>202-000-0002</telephone-number>
                                 <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
                                 <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
                             </party>
-                            <responsible-party role-id="assessment-lead">
+                            <responsible-party
+                                role-id="assessment-lead">
                                 <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                             </responsible-party>
                         </metadata>
@@ -2316,75 +2400,85 @@
                     id="has-metadata-csp-poc-responsible-party"
                     label="that is incorrect" />
             </x:scenario>
-            <x:scenario label="when there are at least 3 party-uuid elements as children of responsible-party[@role-id='csp-assessment-poc']">
+            <x:scenario
+                label="when there are at least 3 party-uuid elements as children of responsible-party[@role-id='csp-assessment-poc']">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <responsible-party role-id="csp-assessment-poc">
+                            <responsible-party
+                                role-id="csp-assessment-poc">
                                 <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
                                 <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                                 <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
                             </responsible-party>
                         </metadata>
-                    </assessment-plan>                 
-                </x:context>                
+                    </assessment-plan>
+                </x:context>
                 <x:expect-not-assert
                     id="has-metadata-responsible-party-csp-poc-matches"
                     label="that is correct" />
             </x:scenario>
-            <x:scenario label="when there are not at least 3 party-uuid elements as children of responsible-party[@role-id='csp-assessment-poc']">
+            <x:scenario
+                label="when there are not at least 3 party-uuid elements as children of responsible-party[@role-id='csp-assessment-poc']">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <responsible-party role-id="csp-assessment-poc">
+                            <responsible-party
+                                role-id="csp-assessment-poc">
                                 <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
                                 <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                             </responsible-party>
                         </metadata>
                     </assessment-plan>
-                </x:context>                
+                </x:context>
                 <x:expect-assert
                     id="has-metadata-responsible-party-csp-poc-matches"
                     label="that is incorrect" />
             </x:scenario>
             <!--  -->
-            <x:scenario label="when at least one of the responsible party POCs is an Operations Center">
+            <x:scenario
+                label="when at least one of the responsible party POCs is an Operations Center">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <responsible-party role-id="csp-operations-center">
+                            <responsible-party
+                                role-id="csp-operations-center">
                                 <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
                             </responsible-party>
-                            <responsible-party role-id="csp-assessment-poc">
+                            <responsible-party
+                                role-id="csp-assessment-poc">
                                 <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
                                 <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                                 <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
                             </responsible-party>
                         </metadata>
-                    </assessment-plan>                 
-                </x:context>                
+                    </assessment-plan>
+                </x:context>
                 <x:expect-not-assert
                     id="has-metadata-csp-poc-responsible-party-ops-center"
                     label="that is correct" />
             </x:scenario>
-            <x:scenario label="when at least one of the responsible party POCs is not an Operations Center">
+            <x:scenario
+                label="when at least one of the responsible party POCs is not an Operations Center">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <responsible-party role-id="csp-operations-center">
+                            <responsible-party
+                                role-id="csp-operations-center">
                                 <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
                             </responsible-party>
-                            <responsible-party role-id="csp-assessment-poc">
+                            <responsible-party
+                                role-id="csp-assessment-poc">
                                 <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
                                 <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
                             </responsible-party>
                         </metadata>
                     </assessment-plan>
-                </x:context>                
+                </x:context>
                 <x:expect-assert
                     id="has-metadata-csp-poc-responsible-party-ops-center"
                     label="that is incorrect" />
@@ -2454,7 +2548,7 @@
                     id="has-metadata-party"
                     label="that is an error" />
             </x:scenario>
-            
+
             <x:scenario
                 label="when there is a party element with the @name of 'iso-iec-17020-identifier'">
                 <x:scenario
@@ -2499,12 +2593,14 @@
                         label="that is an error" />
                 </x:scenario>
             </x:scenario>
-            <x:scenario label="when there is a role with an @id of 'csp-results-poc'">
+            <x:scenario
+                label="when there is a role with an @id of 'csp-results-poc'">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <role id="csp-results-poc"/>                            
+                            <role
+                                id="csp-results-poc" />
                         </metadata>
                     </assessment-plan>
                 </x:context>
@@ -2512,23 +2608,26 @@
                     id="has-metadata-role-test-results"
                     label="that is correct" />
             </x:scenario>
-            <x:scenario label="when there is not a role with an @id of 'csp-results-poc'">
+            <x:scenario
+                label="when there is not a role with an @id of 'csp-results-poc'">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <metadata/>
+                        <metadata />
                     </assessment-plan>
                 </x:context>
                 <x:expect-assert
                     id="has-metadata-role-test-results"
                     label="that is incorrect" />
             </x:scenario>
-            <x:scenario label="when there is a responsible-party with an @role-id of 'csp-results-poc'">
+            <x:scenario
+                label="when there is a responsible-party with an @role-id of 'csp-results-poc'">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <metadata>
-                            <responsible-party role-id="csp-results-poc"/>                                                     
+                            <responsible-party
+                                role-id="csp-results-poc" />
                         </metadata>
                     </assessment-plan>
                 </x:context>
@@ -2536,26 +2635,30 @@
                     id="has-metadata-responsible-party-test-results"
                     label="that is correct" />
             </x:scenario>
-            <x:scenario label="when there is not a responsible-party with an @role-id of 'csp-results-poc'">
+            <x:scenario
+                label="when there is not a responsible-party with an @role-id of 'csp-results-poc'">
                 <x:context>
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <metadata/>
+                        <metadata />
                     </assessment-plan>
                 </x:context>
                 <x:expect-assert
                     id="has-metadata-responsible-party-test-results"
                     label="that is incorrect" />
             </x:scenario>
-            <x:scenario label="when there is a responsible-party with an @role-id of 'csp-results-poc'">
-                <x:scenario label="and it has at least one child party-uuid element">
+            <x:scenario
+                label="when there is a responsible-party with an @role-id of 'csp-results-poc'">
+                <x:scenario
+                    label="and it has at least one child party-uuid element">
                     <x:context>
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <metadata>
-                                <responsible-party role-id="csp-results-poc">
-                                    <party-uuid/>
-                                </responsible-party>                                                     
+                                <responsible-party
+                                    role-id="csp-results-poc">
+                                    <party-uuid />
+                                </responsible-party>
                             </metadata>
                         </assessment-plan>
                     </x:context>
@@ -2563,12 +2666,14 @@
                         id="has-metadata-responsible-party-results-uuid"
                         label="that is correct" />
                 </x:scenario>
-                <x:scenario label="and it does not have a child party-uuid element'">
+                <x:scenario
+                    label="and it does not have a child party-uuid element'">
                     <x:context>
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <metadata>                                
-                                <responsible-party role-id="csp-results-poc"/>
+                            <metadata>
+                                <responsible-party
+                                    role-id="csp-results-poc" />
                             </metadata>
                         </assessment-plan>
                     </x:context>
@@ -2581,8 +2686,10 @@
         <x:scenario
             label="there exists an assessment-subject with a type of 'user'">
             <x:context>
-                <assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                    <assessment-subject type="user"/>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                    <assessment-subject
+                        type="user" />
                 </assessment-plan>
             </x:context>
             <x:expect-not-assert
@@ -2592,7 +2699,8 @@
         <x:scenario
             label="there does not exist an assessment-subject with a type of 'user'">
             <x:context>
-                <assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"/>
+                <assessment-plan
+                    xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
             </x:context>
             <x:expect-assert
                 id="has-user-assessment-subject"
@@ -2606,9 +2714,12 @@
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <task>
-                            <prop value="role-based"/>
-                            <prop name="login-id" ns="https://fedramp.gov/ns/oscal"
-                                value='https://service.offering.com/login'/>
+                            <prop
+                                value="role-based" />
+                            <prop
+                                name="login-id"
+                                ns="https://fedramp.gov/ns/oscal"
+                                value="https://service.offering.com/login" />
                         </task>
                     </assessment-plan>
                 </x:context>
@@ -2622,56 +2733,73 @@
                     <assessment-plan
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                         <task>
-                            <prop value="role-based"/>
-                            <prop value="test" name="test"/>
-                        </task>                
+                            <prop
+                                value="role-based" />
+                            <prop
+                                name="test"
+                                value="test" />
+                        </task>
                     </assessment-plan>
                 </x:context>
                 <x:expect-assert
                     id="has-login-id-user-task"
                     label="that is incorrect" />
-            </x:scenario>            
+            </x:scenario>
         </x:scenario>
-        <x:scenario label="in an assessment-platform">
-            <x:scenario label="when a prop has a @name of 'ip4-address">
-                <x:scenario label="and has a correctly formatted value">
-                        <x:context>
-                            <assessment-platform 
-                                xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                                <prop name="ipv4-address" value="10.10.10.10"/>
-                            </assessment-platform>
-                        </x:context>
-                        <x:expect-not-assert
-                            id="ipv4-has-content"
-                            label="that is correct" />
-                </x:scenario>
-                <x:scenario label="and has an incorrectly formatted value">
+        <x:scenario
+            label="in an assessment-platform">
+            <x:scenario
+                label="when a prop has a @name of 'ip4-address">
+                <x:scenario
+                    label="and has a correctly formatted value">
                     <x:context>
-                        <assessment-platform 
+                        <assessment-platform
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="ipv4-address" value="10.10.10.1088888"/>
+                            <prop
+                                name="ipv4-address"
+                                value="10.10.10.10" />
+                        </assessment-platform>
+                    </x:context>
+                    <x:expect-not-assert
+                        id="ipv4-has-content"
+                        label="that is correct" />
+                </x:scenario>
+                <x:scenario
+                    label="and has an incorrectly formatted value">
+                    <x:context>
+                        <assessment-platform
+                            xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+                            <prop
+                                name="ipv4-address"
+                                value="10.10.10.1088888" />
                         </assessment-platform>
                     </x:context>
                     <x:expect-assert
                         id="ipv4-has-content"
                         label="that is incorrect" />
-                </x:scenario>                
-                <x:scenario label="and has a placeholder value">
+                </x:scenario>
+                <x:scenario
+                    label="and has a placeholder value">
                     <x:context>
-                        <assessment-platform 
+                        <assessment-platform
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="ipv4-address" value="0.0.0.0"/>
+                            <prop
+                                name="ipv4-address"
+                                value="0.0.0.0" />
                         </assessment-platform>
                     </x:context>
                     <x:expect-assert
                         id="ipv4-has-non-placeholder"
                         label="that is incorrect" />
                 </x:scenario>
-                <x:scenario label="and has a non-placeholder value">
+                <x:scenario
+                    label="and has a non-placeholder value">
                     <x:context>
-                        <assessment-platform 
+                        <assessment-platform
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="ipv4-address" value="10.10.10.10"/>
+                            <prop
+                                name="ipv4-address"
+                                value="10.10.10.10" />
                         </assessment-platform>
                     </x:context>
                     <x:expect-not-assert
@@ -2679,45 +2807,58 @@
                         label="that is correct" />
                 </x:scenario>
             </x:scenario>
-            <x:scenario label="when a prop has a @name of 'ipv6-address">
-                <x:scenario label="and has a correctly formatted value">
+            <x:scenario
+                label="when a prop has a @name of 'ipv6-address">
+                <x:scenario
+                    label="and has a correctly formatted value">
                     <x:context>
-                        <assessment-platform 
+                        <assessment-platform
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="ipv6-address" value="2001:db8:3333:4444:5555:6666:7777:8888."/>
+                            <prop
+                                name="ipv6-address"
+                                value="2001:db8:3333:4444:5555:6666:7777:8888." />
                         </assessment-platform>
                     </x:context>
                     <x:expect-not-assert
                         id="ipv6-has-content"
                         label="that is correct" />
                 </x:scenario>
-                <x:scenario label="and has an incorrectly formatted value">
+                <x:scenario
+                    label="and has an incorrectly formatted value">
                     <x:context>
-                        <assessment-platform 
+                        <assessment-platform
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="ipv6-address" value="1234:5678:9012:3456"/>
+                            <prop
+                                name="ipv6-address"
+                                value="1234:5678:9012:3456" />
                         </assessment-platform>
                     </x:context>
                     <x:expect-assert
                         id="ipv6-has-content"
                         label="that is incorrect" />
-                </x:scenario>                
-                <x:scenario label="and has a placeholder value">
+                </x:scenario>
+                <x:scenario
+                    label="and has a placeholder value">
                     <x:context>
-                        <assessment-platform 
+                        <assessment-platform
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="ipv6-address" value="::"/>
+                            <prop
+                                name="ipv6-address"
+                                value="::" />
                         </assessment-platform>
                     </x:context>
                     <x:expect-assert
                         id="ipv6-has-non-placeholder"
                         label="that is incorrect" />
                 </x:scenario>
-                <x:scenario label="and has a non-placeholder value">
+                <x:scenario
+                    label="and has a non-placeholder value">
                     <x:context>
-                        <assessment-platform 
+                        <assessment-platform
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                            <prop name="ipv6-address" value="2001:db8:3333:4444:5555:6666:7777:8888."/>
+                            <prop
+                                name="ipv6-address"
+                                value="2001:db8:3333:4444:5555:6666:7777:8888." />
                         </assessment-platform>
                     </x:context>
                     <x:expect-not-assert
@@ -2725,34 +2866,52 @@
                         label="that is correct" />
                 </x:scenario>
             </x:scenario>
-            <x:scenario label="when uses-component/@component-uuid value matches an assessment-plan/component/@uuid value">
-                <x:context>                    
+            <x:scenario
+                label="when uses-component/@component-uuid value matches an assessment-plan/component/@uuid value">
+                <x:context>
                     <assessment-assets
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <component type="hardware" uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
-                        <component type="software" uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+                        <component
+                            type="hardware"
+                            uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9" />
+                        <component
+                            type="software"
+                            uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" />
                         <assessment-platform>
-                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
-                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
-                            <uses-component component-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+                            <uses-component
+                                component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9" />
+                            <uses-component
+                                component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9" />
+                            <uses-component
+                                component-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" />
                         </assessment-platform>
                     </assessment-assets>
                 </x:context>
-                <x:expect-not-assert id="has-uses-component-match" label="that is correct"/>
+                <x:expect-not-assert
+                    id="has-uses-component-match"
+                    label="that is correct" />
             </x:scenario>
-            <x:scenario label="when uses-component/@component-uuid value does not match an assessment-plan/component/@uuid value">
-                <x:context>                    
+            <x:scenario
+                label="when uses-component/@component-uuid value does not match an assessment-plan/component/@uuid value">
+                <x:context>
                     <assessment-assets
                         xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <component type="hardware" uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
+                        <component
+                            type="hardware"
+                            uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9" />
                         <assessment-platform>
-                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
-                            <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9"/>
-                            <uses-component component-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
+                            <uses-component
+                                component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9" />
+                            <uses-component
+                                component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9" />
+                            <uses-component
+                                component-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460" />
                         </assessment-platform>
                     </assessment-assets>
                 </x:context>
-                <x:expect-assert id="has-uses-component-match" label="that is incorrect"/>
+                <x:expect-assert
+                    id="has-uses-component-match"
+                    label="that is incorrect" />
             </x:scenario>
         </x:scenario>
     </x:scenario>
