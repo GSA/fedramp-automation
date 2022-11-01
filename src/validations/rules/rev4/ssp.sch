@@ -279,7 +279,7 @@
     <xsl:param
         as="xs:string"
         name="baselines-base-path"
-        select="'../../../dist/content/rev4/baselines/xml'" />
+        select="'../../../../dist/content/rev4/baselines/xml'" />
     <sch:let
         name="registry"
         value="doc(concat($registry-base-path, '/fedramp_values.xml')) | doc(concat($registry-base-path, '/fedramp_threats.xml')) | doc(concat($registry-base-path, '/information-types.xml'))" />

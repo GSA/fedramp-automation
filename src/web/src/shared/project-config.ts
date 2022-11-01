@@ -52,10 +52,10 @@ export const SCHEMATRON_SUMMARY_LOCAL_PATHS: Record<OscalDocumentKey, string> =
   };
 
 export const XSPEC_REPOSITORY_PATHS: Record<OscalDocumentKey, `/${string}`> = {
-  ssp: '/src/validations/test/rules/ssp.xspec',
-  sap: '/src/validations/test/rules/sap.xspec',
-  sar: '/src/validations/test/rules/sar.xspec',
-  poam: '/src/validations/test/rules/poam.xspec',
+  ssp: '/src/validations/test/rules/rev4/ssp.xspec',
+  sap: '/src/validations/test/rules/rev4/sap.xspec',
+  sar: '/src/validations/test/rules/rev4/sar.xspec',
+  poam: '/src/validations/test/rules/rev4/poam.xspec',
 };
 
 export const XSPEC_LOCAL_PATHS: Record<OscalDocumentKey, string> = {
