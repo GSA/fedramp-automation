@@ -3,7 +3,8 @@
 <x:description
     run-as="external"
     schematron="../../rules/sar.sch"
-    xmlns:x="http://www.jenitennison.com/xslt/xspec">
+    xmlns:x="http://www.jenitennison.com/xslt/xspec"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <x:param
         name="allow-foreign">true</x:param>
     <x:param
@@ -2310,16 +2311,16 @@
 
                 <x:scenario
                     label="has recent observation">
-                    <x:context>
+                    <x:context expand-text="yes">
                         <assessment-plan
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <result
                                 uuid="23b7ebf2-9bc2-4bc4-bcf6-022443117308">
-                                <start>2022-05-02T00:00:00Z</start>
-                                <end>2022-05-06T00:00:00Z</end>
+                                <start>{current-dateTime() - xs:dayTimeDuration('P1D')}</start>
+                                <end>{current-dateTime()}</end>
                                 <observation
                                     uuid="f0a94298-dd1e-4462-b63c-db80d7baaf96">
-                                    <collected>2022-05-04T12:00:00Z</collected>
+                                    <collected>{current-dateTime()}</collected>
                                 </observation>
                             </result>
                         </assessment-plan>
