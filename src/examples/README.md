@@ -12,7 +12,7 @@ Additionally, these examples serve as basic automated tests of the validation su
 
 ## General overview
 
-- The source SSP rules defined in [../validations/rules/ssp.sch](../validations/rules/ssp.sch) are compiled into a single XSLT file, [../validations/target/rules/ssp.sch.xsl](../validations/target/rules/ssp.sch.xsl). Similar artifacts are produced for SAP, SAR, and POA&M rules.
+- The source SSP rules defined in [../validations/rules/ssp.sch](../validations/rules/ssp.sch) are compiled into a single XSLT file, [../validations/target/rules/rev4/ssp.sch.xsl](../validations/target/rules/rev4/ssp.sch.xsl). Similar artifacts are produced for SAP, SAR, and POA&M rules.
 - The compiled XSLT file must be evaluated by an XSLT 3.0 compatible processor. The [Saxon](https://www.saxonica.com/) suite of libraries are the only compatible XSLT 3.0 processors at the time of writing.
   - Java Saxon-HE is open-source and recommended.
   - Javascript Saxon-JS is free, but not open-source. The UI for this project may be referenced as an example.
