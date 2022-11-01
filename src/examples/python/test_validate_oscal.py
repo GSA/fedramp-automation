@@ -81,7 +81,7 @@ def test_poam_validation() -> None:
         os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
-                "../../validations/target/rules/poam.sch.xsl",
+                "../../validations/target/rules/rev4/poam.sch.xsl",
             )
         ),
     )

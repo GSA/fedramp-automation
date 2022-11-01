@@ -30,10 +30,10 @@ export const SCHEMATRON_REPOSITORY_PATHS: Record<
   OscalDocumentKey,
   `/${string}`
 > = {
-  ssp: '/src/validations/rules/ssp.sch',
-  sap: '/src/validations/rules/sap.sch',
-  sar: '/src/validations/rules/sar.sch',
-  poam: '/src/validations/rules/poam.sch',
+  ssp: '/src/validations/rules/rev4/ssp.sch',
+  sap: '/src/validations/rules/rev4/sap.sch',
+  sar: '/src/validations/rules/rev4/sar.sch',
+  poam: '/src/validations/rules/rev4/poam.sch',
 };
 
 export const SCHEMATRON_LOCAL_PATHS: Record<OscalDocumentKey, string> = {

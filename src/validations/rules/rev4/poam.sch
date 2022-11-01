@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="../styleguides/sch.sch" phase="basic" title="Schematron Style Guide for FedRAMP Validations" ?>
+<?xml-model schematypens="http://purl.oclc.org/dsdl/schematron" href="../../styleguides/sch.sch" phase="basic" title="Schematron Style Guide for FedRAMP Validations" ?>
 <sch:schema
     queryBinding="xslt2"
     xmlns:array="http://www.w3.org/2005/xpath-functions/array"
@@ -28,7 +28,7 @@
         uri="http://us.gov/testing/unit-testing" />
 
     <doc:xspec
-        href="../test/rules/poam.xspec" />
+        href="../../test/rules/rev4/poam.xspec" />
 
     <sch:title>FedRAMP Plan of Action and Milestones Validations</sch:title>
 
@@ -164,7 +164,7 @@
                         true()"
                 unit:override-xspec="both">An OSCAL POA&amp;M import-ssp element href attribute which is an external reference must identify an
                 available target.</sch:assert>
-            
+
             <sch:assert
                 diagnostics="import-ssp-has-available-document-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
@@ -172,7 +172,7 @@
                 role="fatal"
                 test="$ssp-available = true()"
                 unit:override-xspec="both">The import-ssp element href attribute references an available document.</sch:assert>
-            
+
             <sch:assert
                 diagnostics="import-ssp-resolves-to-ssp-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
@@ -567,13 +567,13 @@
             doc:context="oscal:import-ssp"
             id="has-import-ssp-external-href-diagnostic">This OSCAL POA&amp;M import-ssp element href attribute which is an external reference does
             not identify an available target.</sch:diagnostic>
-        
+
         <sch:diagnostic
             doc:assertion="import-ssp-has-available-document"
             doc:context="oscal:import-ssp"
             id="import-ssp-has-available-document-diagnostic">The import-ssp element has an href attribute that does not reference an available
             document.</sch:diagnostic>
-        
+
         <sch:diagnostic
             doc:assertion="import-ssp-resolves-to-ssp"
             doc:context="oscal:import-ssp"

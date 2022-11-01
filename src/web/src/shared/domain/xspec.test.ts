@@ -109,7 +109,7 @@ describe('xspec', () => {
 
 const MOCK_XSPEC_XML = `<?xml version="1.0" encoding="UTF-8"?>
 <x:description
-    schematron="../../rules/poam.sch"
+    schematron="../../rules/rev4/poam.sch"
     xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">

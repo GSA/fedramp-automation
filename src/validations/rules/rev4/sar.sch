@@ -32,7 +32,7 @@
         uri="http://us.gov/testing/unit-testing" />
 
     <doc:xspec
-        href="../test/rules/sar.xspec" />
+        href="../../test/rules/rev4/sar.xspec" />
 
     <sch:title>FedRAMP Security Assessment Results Validations</sch:title>
 
@@ -104,7 +104,7 @@
     <xsl:param
         as="xs:string"
         name="registry-base-path"
-        select="'../../content/rev4/resources/xml'" />
+        select="'../../../content/rev4/resources/xml'" />
     <sch:let
         name="fedramp-values"
         value="doc(concat($registry-base-path, '/fedramp_values.xml'))" />
