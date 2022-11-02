@@ -22,9 +22,10 @@ export const validateOscalDocument =
       type: 'VALIDATOR_PROCESSING_STRING',
       data: { fileName: options.fileName },
     });
-    if (config.getState().validator.current === 'PROCESSING') {
+    const state = config.getState();
+    if (state.validator.current === 'PROCESSING') {
       config.effects.useCases.oscalService
-        .validateOscal(options.fileContents)
+        .validateOscal('rev4', options.fileContents)
         .then(({ documentType, svrlString, validationReport, xmlString }) => {
           setValidationReport({
             documentType,
@@ -47,7 +48,7 @@ export const setXmlUrl =
     });
     if (config.getState().validator.current === 'PROCESSING') {
       config.effects.useCases.oscalService
-        .validateOscalByUrl(xmlFileUrl)
+        .validateOscalByUrl('rev4', xmlFileUrl)
         .then(({ documentType, svrlString, validationReport, xmlString }) => {
           setValidationReport({
             documentType,

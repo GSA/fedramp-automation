@@ -1,5 +1,6 @@
 import { it, describe, expect, vi } from 'vitest';
 import { mock } from 'vitest-mock-extended';
+import { SchematronProcessors } from '../domain/schematron';
 
 import { OscalService } from './oscal';
 
@@ -19,12 +20,14 @@ describe('validate ssp use case', () => {
     const ctx = {
       console: mock<Console>(),
       jsonOscalToXml: vi.fn().mockReturnValue(Promise.resolve('')),
-      processSchematron: vi.fn().mockReturnValue(
-        Promise.resolve({
-          documentType: 'ssp',
-          schematronResult: MOCK_SCHEMATRON_RESULT,
-        }),
-      ),
+      schematronProcessors: mock<SchematronProcessors>({
+        rev4: vi.fn().mockReturnValue(
+          Promise.resolve({
+            documentType: 'ssp',
+            schematronResult: MOCK_SCHEMATRON_RESULT,
+          }),
+        ),
+      }),
       fetch: vi.fn(),
     };
     const oscalService = new OscalService(
@@ -34,11 +37,11 @@ describe('validate ssp use case', () => {
         sar: ctx.jsonOscalToXml,
         poam: ctx.jsonOscalToXml,
       },
-      ctx.processSchematron,
+      ctx.schematronProcessors,
       ctx.fetch,
       ctx.console,
     );
-    const retVal = await oscalService.validateXml(mockXml);
+    const retVal = await oscalService.validateXml('rev4', mockXml);
     expect(retVal).toEqual({
       documentType: 'ssp',
       svrlString: '<svrl />',
@@ -51,12 +54,14 @@ describe('validate ssp use case', () => {
       const ctx = {
         console: mock<Console>(),
         jsonOscalToXml: vi.fn().mockReturnValue(Promise.resolve(mockXml)),
-        processSchematron: vi.fn().mockReturnValue(
-          Promise.resolve({
-            documentType: 'ssp',
-            schematronResult: MOCK_SCHEMATRON_RESULT,
-          }),
-        ),
+        schematronProcessors: mock<SchematronProcessors>({
+          rev4: vi.fn().mockReturnValue(
+            Promise.resolve({
+              documentType: 'ssp',
+              schematronResult: MOCK_SCHEMATRON_RESULT,
+            }),
+          ),
+        }),
         fetch: vi.fn(),
       };
       const oscalService = new OscalService(
@@ -66,13 +71,13 @@ describe('validate ssp use case', () => {
           sar: ctx.jsonOscalToXml,
           poam: ctx.jsonOscalToXml,
         },
-        ctx.processSchematron,
+        ctx.schematronProcessors,
         ctx.fetch,
         ctx.console,
       );
-      const retVal = await oscalService.validateOscal(mockJson);
+      const retVal = await oscalService.validateOscal('rev4', mockJson);
       expect(ctx.jsonOscalToXml).toHaveBeenCalledWith(mockJson);
-      expect(ctx.processSchematron).toHaveBeenCalledWith(mockXml);
+      expect(ctx.schematronProcessors.rev4).toHaveBeenCalledWith(mockXml);
       expect(retVal).toEqual({
         documentType: 'ssp',
         svrlString: '<svrl />',
@@ -99,12 +104,14 @@ describe('validate ssp url use case', () => {
         });
       }),
       jsonOscalToXml: vi.fn().mockReturnValue(xmlString),
-      processSchematron: vi.fn().mockImplementation(xmlStr => {
-        expect(xmlStr).toEqual(xmlString);
-        return Promise.resolve({
-          documentType: 'ssp',
-          schematronResult: MOCK_SCHEMATRON_RESULT,
-        });
+      schematronProcessors: mock<SchematronProcessors>({
+        rev4: vi.fn().mockImplementation(xmlStr => {
+          expect(xmlStr).toEqual(xmlString);
+          return Promise.resolve({
+            documentType: 'ssp',
+            schematronResult: MOCK_SCHEMATRON_RESULT,
+          });
+        }),
       }),
     };
     const oscalService = new OscalService(
@@ -114,11 +121,12 @@ describe('validate ssp url use case', () => {
         sar: ctx.jsonOscalToXml,
         poam: ctx.jsonOscalToXml,
       },
-      ctx.processSchematron,
+      ctx.schematronProcessors,
       ctx.fetch,
       ctx.console,
     );
     const retVal = await oscalService.validateOscalByUrl(
+      'rev4',
       'https://sample.gov/ssp-url.xml',
     );
     expect(retVal).toEqual({

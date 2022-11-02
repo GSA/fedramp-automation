@@ -84,18 +84,20 @@ const controller = CommandLineController({
           SaxonJS,
         }),
       },
-      SaxonJsSchematronProcessorGateway({
-        console,
-        sefUrls: {
-          poam: `file://${join(config.BUILD_PATH, 'poam.sef.json')}`,
-          sap: `file://${join(config.BUILD_PATH, 'sap.sef.json')}`,
-          sar: `file://${join(config.BUILD_PATH, 'sar.sef.json')}`,
-          ssp: `file://${join(config.BUILD_PATH, 'ssp.sef.json')}`,
-        },
-        SaxonJS: SaxonJS,
-        baselinesBaseUrl: config.BASELINES_PATH,
-        registryBaseUrl: config.REGISTRY_PATH,
-      }),
+      {
+        rev4: SaxonJsSchematronProcessorGateway({
+          console,
+          sefUrls: {
+            poam: `file://${join(config.BUILD_PATH, 'poam.sef.json')}`,
+            sap: `file://${join(config.BUILD_PATH, 'sap.sef.json')}`,
+            sar: `file://${join(config.BUILD_PATH, 'sar.sef.json')}`,
+            ssp: `file://${join(config.BUILD_PATH, 'ssp.sef.json')}`,
+          },
+          SaxonJS: SaxonJS,
+          baselinesBaseUrl: config.LOCAL_PATHS.BASELINES_PATH,
+          registryBaseUrl: config.LOCAL_PATHS.REGISTRY_PATH,
+        }),
+      },
       null as unknown as typeof fetch,
       console,
       readStringFile,

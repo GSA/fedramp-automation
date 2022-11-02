@@ -21,7 +21,7 @@ describe('command-line controller', () => {
       },
     };
     const cli = CommandLineController(ctx);
-    await cli.parseAsync(['node', 'index.ts', 'validate', 'ssp.xml']);
+    await cli.parseAsync(['node', 'index.ts', 'validate', 'rev4', 'ssp.xml']);
     expect(ctx.useCases.oscalService.validateOscalFile).toHaveBeenCalled();
   });
 });

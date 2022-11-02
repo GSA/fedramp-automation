@@ -1,7 +1,4 @@
-import {
-  SCHEMATRON_REPOSITORY_PATHS,
-  XSPEC_REPOSITORY_PATHS,
-} from '../project-config';
+import { REPOSITORY_PATHS } from '../project-config';
 import { getBlobFileUrl, GithubRepository } from './github';
 import { OscalDocumentKey } from './oscal';
 import { getSchematronAssertLineRanges } from './schematron';
@@ -21,7 +18,7 @@ export const getDocumentReferenceUrls = ({
     assertions: getElementReferenceUrls({
       lineRanges: getSchematronAssertLineRanges(schXmlString),
       github,
-      xmlRepositoryPath: SCHEMATRON_REPOSITORY_PATHS[documentType],
+      xmlRepositoryPath: REPOSITORY_PATHS.SCHEMATRON[documentType],
     }),
   };
 };

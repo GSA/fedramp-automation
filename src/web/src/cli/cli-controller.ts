@@ -18,10 +18,13 @@ export type CommandLineContext = {
 export const CommandLineController = (ctx: CommandLineContext) => {
   const cli = new Command();
   cli
-    .command('validate <oscal-file-path>')
+    .command('validate <schematron-ruleset> <oscal-file-path>')
     .description('validate OSCAL document (SSP, SAP, SAR, or POA&M)')
-    .action(async oscalFilePath => {
-      await ctx.useCases.oscalService.validateOscalFile(oscalFilePath);
+    .action(async (schematronRuleset, oscalFilePath) => {
+      await ctx.useCases.oscalService.validateOscalFile(
+        schematronRuleset,
+        oscalFilePath,
+      );
     });
   cli
     .command('generate-schematron-summaries')

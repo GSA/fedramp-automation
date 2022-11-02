@@ -1,8 +1,5 @@
 import { OscalDocumentKey, OscalDocumentKeys } from '../domain/oscal';
-import {
-  ASSERTION_VIEW_LOCAL_PATHS,
-  SCHEMATRON_LOCAL_PATHS,
-} from '../project-config';
+import { LOCAL_PATHS } from '../project-config';
 
 export type AssertionGroup = {
   title: string;
@@ -102,7 +99,7 @@ export class AssertionViewGenerator {
       this.paths.assertionViewSEFPath,
     );
     const schematronXML = await this.readStringFile(
-      SCHEMATRON_LOCAL_PATHS[documentType],
+      LOCAL_PATHS.SCHEMATRON[documentType],
     );
     const assertionViewJSON = await this.processXSLT(
       stylesheetSEFText,
@@ -111,7 +108,7 @@ export class AssertionViewGenerator {
     const assertionViews = validateAssertionViews(
       JSON.parse(assertionViewJSON),
     );
-    const outputFilePath = ASSERTION_VIEW_LOCAL_PATHS[documentType];
+    const outputFilePath = LOCAL_PATHS.ASSERTION_VIEW[documentType];
     await this.writeStringFile(outputFilePath, JSON.stringify(assertionViews));
     this.console.log(`Wrote ${outputFilePath} assertion view to filesystem`);
   }

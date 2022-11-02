@@ -6,11 +6,7 @@ import {
   SummariesByAssertionId,
 } from '@asap/shared/domain/xspec';
 import { OscalDocumentKey, OscalDocumentKeys } from '../domain/oscal';
-import {
-  XSPEC_LOCAL_PATHS,
-  XSPEC_REPOSITORY_PATHS,
-  XSPEC_SUMMARY_LOCAL_PATHS,
-} from '../project-config';
+import { LOCAL_PATHS, REPOSITORY_PATHS } from '../project-config';
 
 export type XSpecScenarioSummaries = {
   poam: SummariesByAssertionId;
@@ -40,18 +36,18 @@ export class XSpecAssertionSummaryGenerator {
   async generate(documentType: OscalDocumentKey) {
     this.console.log(`Generating ${documentType} xspec summary...`);
     const xspecString = await this.readStringFile(
-      XSPEC_LOCAL_PATHS[documentType],
+      LOCAL_PATHS.XSPEC[documentType],
     );
     const xspec = this.parseXspec(xspecString);
     const scenarios = await getXSpecAssertionSummaries(
       { formatXml: this.formatXml },
       this.github,
-      XSPEC_REPOSITORY_PATHS[documentType],
+      REPOSITORY_PATHS.XSPEC[documentType],
       xspec,
       xspecString,
     );
     this.writeStringFile(
-      XSPEC_SUMMARY_LOCAL_PATHS[documentType],
+      LOCAL_PATHS.XSPEC_SUMMARY[documentType],
       JSON.stringify(scenarios),
     );
     this.console.log(`Wrote ${documentType} xspec summary to filesystem.`);

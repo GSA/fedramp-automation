@@ -20,6 +20,21 @@ type BrowserContext = {
   githubRepository: github.GithubRepository;
 };
 
+const createSchematronProcessor = (baseUrl: `${string}/`, ruleset: string) => {
+  return SaxonJsSchematronProcessorGateway({
+    console,
+    sefUrls: {
+      poam: `${baseUrl}rules/poam.sef.json`,
+      sap: `${baseUrl}rules/sap.sef.json`,
+      sar: `${baseUrl}rules/sar.sef.json`,
+      ssp: `${baseUrl}rules/ssp.sef.json`,
+    },
+    SaxonJS,
+    baselinesBaseUrl: `${baseUrl}content/${ruleset}/baselines/xml`,
+    registryBaseUrl: `${baseUrl}content/${ruleset}/resources/xml`,
+  });
+};
+
 export const runBrowserContext = ({
   element,
   baseUrl,
@@ -30,18 +45,6 @@ export const runBrowserContext = ({
 
   const rulesUrl = `${baseUrl}rules/`;
 
-  const processSchematron = SaxonJsSchematronProcessorGateway({
-    console,
-    sefUrls: {
-      poam: `${rulesUrl}poam.sef.json`,
-      sap: `${rulesUrl}sap.sef.json`,
-      sar: `${rulesUrl}sar.sef.json`,
-      ssp: `${rulesUrl}ssp.sef.json`,
-    },
-    SaxonJS,
-    baselinesBaseUrl: `${baseUrl}baselines`,
-    registryBaseUrl: `${baseUrl}xml`,
-  });
   const renderApp = createAppRenderer(
     element,
     getInitialState({
@@ -154,7 +157,9 @@ export const runBrowserContext = ({
               SaxonJS,
             }),
           },
-          processSchematron,
+          {
+            rev4: createSchematronProcessor(baseUrl, 'rev4'),
+          },
           window.fetch.bind(window),
           console,
         ),

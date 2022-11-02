@@ -1,3 +1,5 @@
+import { SchematronRuleset } from '@asap/shared/domain/schematron';
+
 export type State =
   | {
       current: 'UNLOADED';
@@ -38,6 +40,12 @@ export type StateTransition =
     }
   | {
       type: 'VALIDATOR_VALIDATED';
+    }
+  | {
+      type: 'VALIDATOR_SET_RULESET';
+      data: {
+        ruleset: SchematronRuleset;
+      };
     };
 
 export const nextState = (state: State, event: StateTransition): State => {
