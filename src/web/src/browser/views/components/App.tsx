@@ -2,7 +2,6 @@ import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { AssertionDocumentationOverlay } from './AssertionDocumentationOverlay';
 import { DocumentViewerOverlay } from './DocumentViewerOverlay';
-import { BetaBanner } from './BetaBanner';
 import { DevelopersPage } from './DevelopersPage';
 import { Footer } from './Footer';
 import { Header } from './Header';
@@ -50,7 +49,6 @@ const CurrentPage = () => {
 export const App = () => {
   return (
     <div>
-      <BetaBanner />
       <UsaBanner />
       <Header />
       <CurrentPage />
