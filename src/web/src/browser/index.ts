@@ -159,6 +159,7 @@ export const runBrowserContext = ({
           },
           {
             rev4: createSchematronProcessor(baseUrl, 'rev4'),
+            rev5: createSchematronProcessor(baseUrl, 'rev5'),
           },
           window.fetch.bind(window),
           console,

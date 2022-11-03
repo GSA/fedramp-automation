@@ -1,6 +1,9 @@
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
-import type { ValidationReport } from '@asap/shared/domain/schematron';
-import { setCurrentRoute } from '.';
+import type {
+  SchematronRulesetKey,
+  ValidationReport,
+} from '@asap/shared/domain/schematron';
+import { setCurrentRoute, validator } from '.';
 
 import type { ActionContext } from '..';
 import { StateTransition } from '../state';
@@ -168,4 +171,14 @@ export const downloadSVRL =
       element.click();
       document.body.removeChild(element);
     }
+  };
+
+export const setSchematronRuleset =
+  (rulesetKey: SchematronRulesetKey) =>
+  ({ dispatch }: ActionContext) => {
+    dispatch({
+      machine: 'validator',
+      type: 'VALIDATOR_SET_RULESET',
+      data: { rulesetKey },
+    });
   };

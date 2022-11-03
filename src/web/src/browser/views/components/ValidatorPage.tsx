@@ -9,6 +9,7 @@ import { ValidatorResultsFilterForm } from './ValidatorResultsFilterForm';
 import { useAppContext } from '../context';
 import tableImage from '../images/2022-05-19-first-oscal-system-security-plan.png';
 import '../styles/ValidatorPage.scss';
+import { RulesetPicker } from './RulesetPicker';
 
 const DocumentValidator = ({
   documentType,
@@ -42,6 +43,8 @@ export const ValidatorPage = ({
         secondaryText="Browse FedRAMP OSCAL validation rules and
           apply them to your own documents"
       />
+
+      <RulesetPicker />
       <nav
         aria-label="Secondary navigation"
         className="display-none desktop:display-block border-base-light border-bottom-1px"

@@ -48,13 +48,13 @@ export type SchematronProcessor = (oscalXmlString: string) => Promise<{
   schematronResult: SchematronResult;
 }>;
 
-export type SchematronRulesetKey = 'rev4'; // | 'rev5', etc
+export type SchematronRulesetKey = 'rev4' | 'rev5';
 
 // See the concrete implementation in project-config.ts
 export type SchematronRuleset = {
   // The key corresponds to the directory used in the project structure,
   // such as "rev4"
-  key: 'rev4';
+  key: SchematronRulesetKey;
   // The title for this ruleset is displayed in the user interface
   title: string;
 };
@@ -66,6 +66,10 @@ export const SCHEMATRON_RULESETS: Record<
   rev4: {
     key: 'rev4',
     title: 'NIST RMF revision 4',
+  },
+  rev5: {
+    key: 'rev5',
+    title: 'NIST RMF revision 5',
   },
 } as const;
 
