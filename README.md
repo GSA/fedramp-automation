@@ -87,7 +87,7 @@ If you are developing on Windows, [msys2](https://www.msys2.org/) may be used fo
 FedRAMP automation is composed of the following implementation details:
 
 - [Validation rules](./src/validations/README.md) are implemented in Schematron with xspec test coverage.
-- [Validation rules web documentation](./src/web/README.md) provides a browser of implemented validation rules and may be used to validate FedRAMP OSCAL documents in-browser. A deployed version is available here: [FedRAMP ASAP Validation Documentation](https://federalist-2372d2fd-fc94-42fe-bcc7-a8af4f664a51.app.cloud.gov/site/18f/fedramp-automation/)
+- [Validation rules web documentation](./src/web/README.md) provides a browser of implemented validation rules and may be used to validate FedRAMP OSCAL documents in-browser. A deployed version is available here: [FedRAMP ASAP Validation Documentation](https://federalist-b6c4d61f-facd-4833-a4a9-554523a87147.sites.pages.cloud.gov/site/gsa/fedramp-automation/)
 - [Example code](./src/examples/README.md) is provided to demonstrate how to apply the validation rules using the compiled-XSLT artifact in selected languages.
 
 ### Creating a release
