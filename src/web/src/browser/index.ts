@@ -24,10 +24,10 @@ const createSchematronProcessor = (baseUrl: `${string}/`, ruleset: string) => {
   return SaxonJsSchematronProcessorGateway({
     console,
     sefUrls: {
-      poam: `${baseUrl}rules/poam.sef.json`,
-      sap: `${baseUrl}rules/sap.sef.json`,
-      sar: `${baseUrl}rules/sar.sef.json`,
-      ssp: `${baseUrl}rules/ssp.sef.json`,
+      poam: `${baseUrl}rules/${ruleset}/poam.sef.json`,
+      sap: `${baseUrl}rules/${ruleset}/sap.sef.json`,
+      sar: `${baseUrl}rules/${ruleset}/sar.sef.json`,
+      ssp: `${baseUrl}rules/${ruleset}/ssp.sef.json`,
     },
     SaxonJS,
     baselinesBaseUrl: `${baseUrl}content/${ruleset}/baselines/xml`,
@@ -78,16 +78,16 @@ export const runBrowserContext = ({
         }),
         getAssertionViews: async () => {
           const responses = await Promise.all([
-            fetch(`${rulesUrl}assertion-views-poam.json`).then(response =>
+            fetch(`${rulesUrl}rev4/assertion-views-poam.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}assertion-views-sap.json`).then(response =>
+            fetch(`${rulesUrl}rev4/assertion-views-sap.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}assertion-views-sar.json`).then(response =>
+            fetch(`${rulesUrl}rev4/assertion-views-sar.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}assertion-views-ssp.json`).then(response =>
+            fetch(`${rulesUrl}rev4/assertion-views-ssp.json`).then(response =>
               response.json(),
             ),
           ]);
@@ -100,10 +100,12 @@ export const runBrowserContext = ({
         },
         getSchematronAssertions: async () => {
           const responses = await Promise.all([
-            fetch(`${rulesUrl}poam.json`).then(response => response.json()),
-            fetch(`${rulesUrl}sap.json`).then(response => response.json()),
-            fetch(`${rulesUrl}sar.json`).then(response => response.json()),
-            fetch(`${rulesUrl}ssp.json`).then(response => response.json()),
+            fetch(`${rulesUrl}rev4/poam.json`).then(response =>
+              response.json(),
+            ),
+            fetch(`${rulesUrl}rev4/sap.json`).then(response => response.json()),
+            fetch(`${rulesUrl}rev4/sar.json`).then(response => response.json()),
+            fetch(`${rulesUrl}rev4/ssp.json`).then(response => response.json()),
           ]);
           return {
             poam: responses[0],
@@ -114,16 +116,16 @@ export const runBrowserContext = ({
         },
         getXSpecScenarioSummaries: async () => {
           const responses = await Promise.all([
-            fetch(`${rulesUrl}xspec-summary-poam.json`).then(response =>
+            fetch(`${rulesUrl}rev4/xspec-summary-poam.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}xspec-summary-sap.json`).then(response =>
+            fetch(`${rulesUrl}rev4/xspec-summary-sap.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}xspec-summary-sar.json`).then(response =>
+            fetch(`${rulesUrl}rev4/xspec-summary-sar.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}xspec-summary-ssp.json`).then(response =>
+            fetch(`${rulesUrl}rev4/xspec-summary-ssp.json`).then(response =>
               response.json(),
             ),
           ]);

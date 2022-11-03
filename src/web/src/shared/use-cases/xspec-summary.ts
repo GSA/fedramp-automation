@@ -7,6 +7,10 @@ import {
 } from '@asap/shared/domain/xspec';
 import { OscalDocumentKey, OscalDocumentKeys } from '../domain/oscal';
 import { LOCAL_PATHS, REPOSITORY_PATHS } from '../project-config';
+import {
+  SchematronRulesetKey,
+  SchematronRulesetKeys,
+} from '../domain/schematron';
 
 export type XSpecScenarioSummaries = {
   poam: SummariesByAssertionId;
@@ -28,26 +32,31 @@ export class XSpecAssertionSummaryGenerator {
   ) {}
 
   async generateAll() {
-    for (const documentType of OscalDocumentKeys) {
-      await this.generate(documentType);
+    for (const rulesetKey of SchematronRulesetKeys) {
+      for (const documentType of OscalDocumentKeys) {
+        await this.generate(documentType, rulesetKey);
+      }
     }
   }
 
-  async generate(documentType: OscalDocumentKey) {
+  async generate(
+    documentType: OscalDocumentKey,
+    rulesetKey: SchematronRulesetKey,
+  ) {
     this.console.log(`Generating ${documentType} xspec summary...`);
     const xspecString = await this.readStringFile(
-      LOCAL_PATHS.XSPEC[documentType],
+      LOCAL_PATHS[rulesetKey].XSPEC[documentType],
     );
     const xspec = this.parseXspec(xspecString);
     const scenarios = await getXSpecAssertionSummaries(
       { formatXml: this.formatXml },
       this.github,
-      REPOSITORY_PATHS.XSPEC[documentType],
+      REPOSITORY_PATHS[rulesetKey].XSPEC[documentType],
       xspec,
       xspecString,
     );
     this.writeStringFile(
-      LOCAL_PATHS.XSPEC_SUMMARY[documentType],
+      LOCAL_PATHS[rulesetKey].XSPEC_SUMMARY[documentType],
       JSON.stringify(scenarios),
     );
     this.console.log(`Wrote ${documentType} xspec summary to filesystem.`);

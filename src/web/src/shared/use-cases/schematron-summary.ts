@@ -3,6 +3,8 @@ import { OscalDocumentKey, OscalDocumentKeys } from '../domain/oscal';
 import {
   generateSchematronSummary,
   ParseSchematronAssertions,
+  SchematronRulesetKey,
+  SchematronRulesetKeys,
 } from '../domain/schematron';
 import { LOCAL_PATHS, REPOSITORY_PATHS } from '../project-config';
 
@@ -19,26 +21,33 @@ export class SchematronSummary {
   ) {}
 
   async generateAllSummaries() {
-    for (const documentType of OscalDocumentKeys) {
-      await this.generateSummary(documentType);
+    for (const rulesetKey of SchematronRulesetKeys) {
+      for (const documentType of OscalDocumentKeys) {
+        await this.generateSummary(documentType, rulesetKey);
+      }
     }
   }
 
-  async generateSummary(documentType: OscalDocumentKey) {
+  async generateSummary(
+    documentType: OscalDocumentKey,
+    rulesetKey: SchematronRulesetKey,
+  ) {
     const xmlString = await this.readStringFile(
-      LOCAL_PATHS.SCHEMATRON[documentType],
+      LOCAL_PATHS[rulesetKey].SCHEMATRON[documentType],
     );
     const schematronAsserts = await this.parseSchematron(xmlString);
     const schematronSummary = generateSchematronSummary(
       xmlString,
       schematronAsserts,
       this.github,
-      REPOSITORY_PATHS.SCHEMATRON[documentType],
+      REPOSITORY_PATHS[rulesetKey].SCHEMATRON[documentType],
     );
     await this.writeStringFile(
-      LOCAL_PATHS.SCHEMATRON_SUMMARY[documentType],
+      LOCAL_PATHS[rulesetKey].SCHEMATRON_SUMMARY[documentType],
       JSON.stringify(schematronSummary),
     );
-    this.console.log(`Wrote ${LOCAL_PATHS.SCHEMATRON_SUMMARY[documentType]}`);
+    this.console.log(
+      `Wrote ${LOCAL_PATHS[rulesetKey].SCHEMATRON_SUMMARY[documentType]}`,
+    );
   }
 }

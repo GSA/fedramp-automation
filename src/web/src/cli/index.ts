@@ -21,6 +21,7 @@ import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
 import { XSpecAssertionSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
 
 import { CommandLineController } from './cli-controller';
+import { SchematronCompiler } from '@asap/shared/use-cases/schematron-compiler';
 
 const readStringFile = async (fileName: string) =>
   fs.readFile(fileName, 'utf-8');
@@ -88,32 +89,33 @@ const controller = CommandLineController({
         rev4: SaxonJsSchematronProcessorGateway({
           console,
           sefUrls: {
-            poam: `file://${join(config.BUILD_PATH, 'poam.sef.json')}`,
-            sap: `file://${join(config.BUILD_PATH, 'sap.sef.json')}`,
-            sar: `file://${join(config.BUILD_PATH, 'sar.sef.json')}`,
-            ssp: `file://${join(config.BUILD_PATH, 'ssp.sef.json')}`,
+            poam: `file://${join(config.BUILD_PATH, 'rev4/poam.sef.json')}`,
+            sap: `file://${join(config.BUILD_PATH, 'rev4/sap.sef.json')}`,
+            sar: `file://${join(config.BUILD_PATH, 'rev4/sar.sef.json')}`,
+            ssp: `file://${join(config.BUILD_PATH, 'rev4/ssp.sef.json')}`,
           },
           SaxonJS: SaxonJS,
-          baselinesBaseUrl: config.LOCAL_PATHS.BASELINES_PATH,
-          registryBaseUrl: config.LOCAL_PATHS.REGISTRY_PATH,
+          baselinesBaseUrl: config.LOCAL_PATHS.rev4.BASELINES_PATH,
+          registryBaseUrl: config.LOCAL_PATHS.rev4.REGISTRY_PATH,
         }),
         rev5: SaxonJsSchematronProcessorGateway({
           console,
           sefUrls: {
-            poam: `file://${join(config.BUILD_PATH, 'poam.sef.json')}`,
-            sap: `file://${join(config.BUILD_PATH, 'sap.sef.json')}`,
-            sar: `file://${join(config.BUILD_PATH, 'sar.sef.json')}`,
-            ssp: `file://${join(config.BUILD_PATH, 'ssp.sef.json')}`,
+            poam: `file://${join(config.BUILD_PATH, 'rev5/poam.sef.json')}`,
+            sap: `file://${join(config.BUILD_PATH, 'rev5/sap.sef.json')}`,
+            sar: `file://${join(config.BUILD_PATH, 'rev5/sar.sef.json')}`,
+            ssp: `file://${join(config.BUILD_PATH, 'rev5/ssp.sef.json')}`,
           },
           SaxonJS: SaxonJS,
-          baselinesBaseUrl: config.LOCAL_PATHS.BASELINES_PATH,
-          registryBaseUrl: config.LOCAL_PATHS.REGISTRY_PATH,
+          baselinesBaseUrl: config.LOCAL_PATHS.rev5.BASELINES_PATH,
+          registryBaseUrl: config.LOCAL_PATHS.rev5.REGISTRY_PATH,
         }),
       },
       null as unknown as typeof fetch,
       console,
       readStringFile,
     ),
+    schematronCompiler: new SchematronCompiler(console),
     schematronSummary: new SchematronSummary(
       SchematronParser({ SaxonJS }),
       readStringFile,

@@ -1,4 +1,8 @@
 import { OscalDocumentKey, OscalDocumentKeys } from '../domain/oscal';
+import {
+  SchematronRulesetKey,
+  SchematronRulesetKeys,
+} from '../domain/schematron';
 import { LOCAL_PATHS } from '../project-config';
 
 export type AssertionGroup = {
@@ -89,17 +93,25 @@ export class AssertionViewGenerator {
   ) {}
 
   async generateAll() {
-    for (const documentType of OscalDocumentKeys) {
-      await this.generate({ documentType });
+    for (const rulesetKey of SchematronRulesetKeys) {
+      for (const documentType of OscalDocumentKeys) {
+        await this.generate({ documentType, rulesetKey });
+      }
     }
   }
 
-  private async generate({ documentType }: { documentType: OscalDocumentKey }) {
+  private async generate({
+    documentType,
+    rulesetKey,
+  }: {
+    documentType: OscalDocumentKey;
+    rulesetKey: SchematronRulesetKey;
+  }) {
     const stylesheetSEFText = await this.readStringFile(
       this.paths.assertionViewSEFPath,
     );
     const schematronXML = await this.readStringFile(
-      LOCAL_PATHS.SCHEMATRON[documentType],
+      LOCAL_PATHS[rulesetKey].SCHEMATRON[documentType],
     );
     const assertionViewJSON = await this.processXSLT(
       stylesheetSEFText,
@@ -108,7 +120,7 @@ export class AssertionViewGenerator {
     const assertionViews = validateAssertionViews(
       JSON.parse(assertionViewJSON),
     );
-    const outputFilePath = LOCAL_PATHS.ASSERTION_VIEW[documentType];
+    const outputFilePath = LOCAL_PATHS[rulesetKey].ASSERTION_VIEW[documentType];
     await this.writeStringFile(outputFilePath, JSON.stringify(assertionViews));
     this.console.log(`Wrote ${outputFilePath} assertion view to filesystem`);
   }

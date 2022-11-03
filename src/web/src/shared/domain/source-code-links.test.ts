@@ -15,8 +15,8 @@ describe('source code link generator', () => {
         getDocumentReferenceUrls({
           github,
           documentType: 'ssp',
+          rulesetKey: 'rev4',
           schXmlString: TEST_SCH,
-          xspecXmlString: TEST_XSPEC,
         }),
       ).toEqual({
         assertions: {

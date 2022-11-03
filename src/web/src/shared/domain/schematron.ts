@@ -48,7 +48,8 @@ export type SchematronProcessor = (oscalXmlString: string) => Promise<{
   schematronResult: SchematronResult;
 }>;
 
-export type SchematronRulesetKey = 'rev4' | 'rev5';
+export const SchematronRulesetKeys = ['rev4', 'rev5'] as const;
+export type SchematronRulesetKey = typeof SchematronRulesetKeys[number];
 
 // See the concrete implementation in project-config.ts
 export type SchematronRuleset = {
