@@ -4,7 +4,7 @@ about: Provide feedback, ask a question, or request an enhancement related to an
   of the OSCAL-based FedRAMP resources published for public comment
 title: ''
 labels: ''
-assignees: ohsh6o
+assignees: volpet2014
 
 ---
 
