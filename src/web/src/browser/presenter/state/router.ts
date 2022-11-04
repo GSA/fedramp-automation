@@ -50,7 +50,7 @@ export namespace Routes {
     type: 'DocumentSSP',
     ruleset,
   });
-  export const developers = {
+  export const developers: RouteTypes['Developers'] = {
     type: 'Developers',
   };
   export type NotFound = { type: 'NotFound' };
@@ -114,79 +114,6 @@ export const getRoute = (url: string): Route | Routes.NotFound => {
     }
   }
   return Routes.notFound;
-};
-
-type Breadcrumb = {
-  text: string;
-  linkUrl: string | false;
-};
-export const breadcrumbs: Record<
-  Route['type'] & string,
-  (route: any) => Breadcrumb[]
-> = {
-  Home: (route: Route) => {
-    return [
-      {
-        text: 'Home',
-        linkUrl: route.type !== 'Home' && getUrl(Routes.home),
-      },
-    ];
-  },
-  DocumentSummary: (route: Route) => {
-    return [
-      ...breadcrumbs.Home(route),
-      {
-        text: 'Document Rules',
-        linkUrl:
-          route.type !== 'DocumentSummary' && getUrl(Routes.documentSummary),
-      },
-    ];
-  },
-  DocumentPOAM: (route: Route) => {
-    return [
-      ...breadcrumbs.DocumentSummary(route),
-      {
-        text: 'Plan of Action and Milestones',
-        linkUrl: route.type !== 'DocumentPOAM' && getUrl(Routes.documentPOAM),
-      },
-    ];
-  },
-  DocumentSAP: (route: Route) => {
-    return [
-      ...breadcrumbs.DocumentSummary(route),
-      {
-        text: 'Security Assessment Plan',
-        linkUrl: route.type !== 'DocumentSAP' && getUrl(Routes.documentSAP),
-      },
-    ];
-  },
-  DocumentSAR: (route: Route) => {
-    return [
-      ...breadcrumbs.DocumentSummary(route),
-      {
-        text: 'Security Assessment Report',
-        linkUrl: route.type !== 'DocumentSAR' && getUrl(Routes.documentSAR),
-      },
-    ];
-  },
-  DocumentSSP: (route: Route) => {
-    return [
-      ...breadcrumbs.DocumentSummary(route),
-      {
-        text: 'System Security Plan',
-        linkUrl: route.type !== 'DocumentSSP' && getUrl(Routes.documentSSP),
-      },
-    ];
-  },
-  Developers: (route: RouteTypes['Developers']) => {
-    return [
-      ...breadcrumbs.Home(route),
-      {
-        text: 'Developer documentation',
-        linkUrl: route.type !== 'Developers' && getUrl(Routes.developers),
-      },
-    ];
-  },
 };
 
 export type Location = {

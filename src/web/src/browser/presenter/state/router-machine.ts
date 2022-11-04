@@ -2,7 +2,6 @@ import * as router from './router';
 
 type BaseState = {
   currentRoute: router.Route;
-  breadcrumbs: { text: string; linkUrl: string | false }[];
 };
 
 export type State = BaseState & {
@@ -20,9 +19,6 @@ export const nextState = (state: State, event: StateTransition): State => {
   if (state.current === 'VALID_PAGE') {
     if (event.type === 'ROUTE_CHANGED') {
       return {
-        breadcrumbs: router.breadcrumbs[state.currentRoute.type](
-          state.currentRoute,
-        ),
         current: 'VALID_PAGE',
         currentRoute: event.data.route,
       };
@@ -34,5 +30,4 @@ export const nextState = (state: State, event: StateTransition): State => {
 export const initialState: State = {
   current: 'VALID_PAGE',
   currentRoute: router.Routes.home,
-  breadcrumbs: router.breadcrumbs[router.Routes.home.type](router.Routes.home),
 };
