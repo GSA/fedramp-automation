@@ -3,7 +3,7 @@ name: PMO Action Item (FedRAMP PMO Use Only)
 about: Capture an action item intended for follow-up by the FedRAMP PMO.
 title: ''
 labels: ''
-assignees: ohsh6o
+assignees: volpet2014
 
 ---
 
@@ -46,7 +46,7 @@ NOTE: For issues related to the OSCAL syntax itself, please create or add to an 
 
 ## Acceptance Criteria
 
-- [ ] All [FedRAMP Documents Related to OSCAL Adoption](https://github.com/GSA/fedramp-automation) affected by the changes in this issue have been updated. 
+- [ ] All [FedRAMP Documents Related to OSCAL Adoption](https://github.com/GSA/fedramp-automation) affected by the changes in this issue have been updated.
 - [ ] A Pull Request (PR) is submitted that fully addresses the goals of this User Story. This issue is referenced in the PR.
 
 {The items above are general acceptance criteria for all User Stories. Please describe anything else that must be completed for this issue to be considered resolved.}
