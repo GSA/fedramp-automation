@@ -50,7 +50,7 @@ tomli==1.1.0
     #   pep517
 typing-extensions==3.10.0.0
     # via mypy
-wheel==0.36.2
+wheel==0.38.0
     # via pip-tools
 
 # The following packages are considered to be unsafe in a requirements file:
