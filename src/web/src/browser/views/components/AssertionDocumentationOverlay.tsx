@@ -12,7 +12,7 @@ export const AssertionDocumentationOverlay = () => {
     <div className="bg-base-dark">
       <Modal
         className="overflow-scroll radius-lg padding-x-10 padding-y-5"
-        isOpen={state.assertionDocumentation.current === 'SHOWING'}
+        isOpen={state.rulesets.rev4.assertionDocumentation.current === 'SHOWING'}
         onRequestClose={() => dispatch(assertionDocumentation.close)}
         contentLabel="Assertion rule examples"
         style={{

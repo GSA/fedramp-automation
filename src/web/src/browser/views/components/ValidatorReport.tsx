@@ -9,19 +9,21 @@ import {
   selectFilterOptions,
   selectSchematronReport,
 } from '@asap/browser/presenter/state/selectors';
-import { getAssertionViewTitleByIndex } from '@asap/browser/presenter/state/schematron-machine';
+import { getAssertionViewTitleByIndex } from '@asap/browser/presenter/state/ruleset/schematron-machine';
 import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { useAppContext } from '../context';
 import '../styles/ValidatorReport.scss';
+import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 
 type Props = {
   documentType: OscalDocumentKey;
+  rulesetKey: SchematronRulesetKey;
 };
 
-export const ValidatorReport = ({ documentType }: Props) => {
+export const ValidatorReport = ({ documentType, rulesetKey }: Props) => {
   const { dispatch, state } = useAppContext();
-  const oscalDocument = state.oscalDocuments[documentType];
-  const validationResult = state.validationResults[documentType];
+  const oscalDocument = state.rulesets[rulesetKey].oscalDocuments[documentType];
+  const validationResult = state.rulesets[rulesetKey].validationResults[documentType];
   const filterOptions = selectFilterOptions(documentType)(state);
   const schematronReport = selectSchematronReport(documentType)(state);
   const viewTitle = getAssertionViewTitleByIndex(

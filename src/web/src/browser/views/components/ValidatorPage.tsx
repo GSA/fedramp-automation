@@ -10,21 +10,24 @@ import { useAppContext } from '../context';
 import tableImage from '../images/2022-05-19-first-oscal-system-security-plan.png';
 import '../styles/ValidatorPage.scss';
 import { RulesetPicker } from './RulesetPicker';
+import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 
 const DocumentValidator = ({
   documentType,
+  rulesetKey,
 }: {
   documentType: OscalDocumentKey;
+  rulesetKey: SchematronRulesetKey;
 }) => (
   <>
     <div className="grid-row tablet:padding-top-5">
       <div className="tablet:grid-col-4">
         <div className="position-sticky top-1 height-viewport overflow-y-auto">
-          <ValidatorResultsFilterForm documentType={documentType} />
+          <ValidatorResultsFilterForm documentType={documentType} rulesetKey={rulesetKey} />
         </div>
       </div>
       <div className="tablet:grid-col-8 tablet:padding-left-2">
-        <ValidatorReport documentType={documentType} />
+        <ValidatorReport documentType={documentType} rulesetKey={rulesetKey} />
       </div>
     </div>
   </>
@@ -32,10 +35,13 @@ const DocumentValidator = ({
 
 export const ValidatorPage = ({
   documentType,
+  rulesetKey,
 }: {
   documentType: OscalDocumentKey | null;
+  rulesetKey: SchematronRulesetKey;
 }) => {
-  const { oscalDocuments, router, validationResults } = useAppContext().state;
+  const { router, rulesets } = useAppContext().state;
+  const { oscalDocuments, validationResults } = rulesets[rulesetKey];
   return (
     <>
       <HeadingOne
@@ -124,7 +130,7 @@ export const ValidatorPage = ({
         </div>
 
         {documentType ? (
-          <DocumentValidator documentType={documentType} />
+          <DocumentValidator documentType={documentType} rulesetKey={rulesetKey} />
         ) : (
           <div className="grid-row grid-gap">
             <div className="desktop:grid-col">

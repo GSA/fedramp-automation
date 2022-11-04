@@ -5,7 +5,7 @@ import type {
   FedRampSpecific,
   PassStatus,
   Role,
-} from '../state/schematron-machine';
+} from '../state/ruleset/schematron-machine';
 
 export const initialize = (config: ActionContext) => {
   Promise.all([

@@ -1,12 +1,14 @@
 import { match } from 'path-to-regexp';
 
+import type { SchematronRulesetKey } from '@asap/shared/domain/schematron';
+
 export type RouteTypes = {
   Home: { type: 'Home' };
-  DocumentSummary: { type: 'DocumentSummary' };
-  DocumentPOAM: { type: 'DocumentPOAM' };
-  DocumentSAP: { type: 'DocumentSAP' };
-  DocumentSAR: { type: 'DocumentSAR' };
-  DocumentSSP: { type: 'DocumentSSP' };
+  DocumentSummary: { type: 'DocumentSummary'; ruleset: SchematronRulesetKey };
+  DocumentPOAM: { type: 'DocumentPOAM'; ruleset: SchematronRulesetKey };
+  DocumentSAP: { type: 'DocumentSAP'; ruleset: SchematronRulesetKey };
+  DocumentSAR: { type: 'DocumentSAR'; ruleset: SchematronRulesetKey };
+  DocumentSSP: { type: 'DocumentSSP'; ruleset: SchematronRulesetKey };
   Developers: {
     type: 'Developers';
   };
@@ -18,22 +20,37 @@ export namespace Routes {
   export const home: RouteTypes['Home'] = {
     type: 'Home',
   };
-  export const documentSummary: RouteTypes['DocumentSummary'] = {
+  export const documentSummary = (
+    ruleset: SchematronRulesetKey,
+  ): RouteTypes['DocumentSummary'] => ({
     type: 'DocumentSummary',
-  };
-  export const documentPOAM: RouteTypes['DocumentPOAM'] = {
+    ruleset,
+  });
+  export const documentPOAM = (
+    ruleset: SchematronRulesetKey,
+  ): RouteTypes['DocumentPOAM'] => ({
     type: 'DocumentPOAM',
-  };
-  export const documentSAP: RouteTypes['DocumentSAP'] = {
+    ruleset,
+  });
+  export const documentSAP = (
+    ruleset: SchematronRulesetKey,
+  ): RouteTypes['DocumentSAP'] => ({
     type: 'DocumentSAP',
-  };
-  export const documentSAR: RouteTypes['DocumentSAR'] = {
+    ruleset,
+  });
+  export const documentSAR = (
+    ruleset: SchematronRulesetKey,
+  ): RouteTypes['DocumentSAR'] => ({
     type: 'DocumentSAR',
-  };
-  export const documentSSP: RouteTypes['DocumentSSP'] = {
+    ruleset,
+  });
+  export const documentSSP = (
+    ruleset: SchematronRulesetKey,
+  ): RouteTypes['DocumentSSP'] => ({
     type: 'DocumentSSP',
-  };
-  export const developers: RouteTypes['Developers'] = {
+    ruleset,
+  });
+  export const developers = {
     type: 'Developers',
   };
   export type NotFound = { type: 'NotFound' };
@@ -69,22 +86,22 @@ const matchRoute = <L extends Route>(
 
 const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
   Home: matchRoute('#/', () => Routes.home),
-  DocumentSummary: matchRoute('#/documents', () => Routes.documentSummary),
+  DocumentSummary: matchRoute('#/:ruleset/documents', Routes.documentSummary),
   DocumentPOAM: matchRoute(
-    '#/documents/plan-of-action-and-milestones',
-    () => Routes.documentPOAM,
+    '#/:ruleset/documents/plan-of-action-and-milestones',
+    Routes.documentPOAM,
   ),
   DocumentSAP: matchRoute(
-    '#/documents/security-assessment-plan',
-    () => Routes.documentSAP,
+    '#/:ruleset/documents/security-assessment-plan',
+    Routes.documentSAP,
   ),
   DocumentSAR: matchRoute(
-    '#/documents/security-assessment-report',
-    () => Routes.documentSAR,
+    '#/:ruleset/documents/security-assessment-report',
+    Routes.documentSAR,
   ),
   DocumentSSP: matchRoute(
-    '#/documents/system-security-plan',
-    () => Routes.documentSSP,
+    '#/:ruleset/documents/system-security-plan',
+    Routes.documentSSP,
   ),
   Developers: matchRoute('#/developers', () => Routes.developers),
 };

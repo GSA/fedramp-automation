@@ -1,6 +1,8 @@
 import { createSelector, defaultMemoize as memoize } from 'reselect';
 
 import { OscalDocumentKey } from '@asap/shared/domain/oscal';
+import { AssertionView } from '@asap/shared/use-cases/assertion-views';
+
 import { State } from '.';
 import { filterAssertions, getReportGroups } from './helpers';
 import {
@@ -9,8 +11,7 @@ import {
   FilterOptions,
   PassStatus,
   Role,
-} from './schematron-machine';
-import { AssertionView } from '@asap/shared/use-cases/assertion-views';
+} from './ruleset/schematron-machine';
 
 const selectOscalDocument = memoize(
   (documentType: OscalDocumentKey) => (state: State) =>

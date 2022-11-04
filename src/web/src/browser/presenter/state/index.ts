@@ -1,9 +1,8 @@
 import * as assertionDocumentation from './assertion-documetation';
 import * as metrics from './metrics';
 import * as routerMachine from './router-machine';
-import * as schematron from './schematron-machine';
+import { RulesetState } from './ruleset';
 import * as validator from './validator-machine';
-import * as validationResults from './validation-results-machine';
 
 export type State = {
   config: {
@@ -16,20 +15,12 @@ export type State = {
     };
   };
   assertionDocumentation: assertionDocumentation.State;
-  oscalDocuments: {
-    poam: schematron.State;
-    sap: schematron.State;
-    sar: schematron.State;
-    ssp: schematron.State;
-  };
   router: routerMachine.State;
-  validator: validator.State;
-  validationResults: {
-    poam: validationResults.State;
-    sap: validationResults.State;
-    sar: validationResults.State;
-    ssp: validationResults.State;
+  rulesets: {
+    rev4: RulesetState;
+    rev5: RulesetState;
   };
+  validator: validator.State;
 };
 
 type ScopedTransition = {
