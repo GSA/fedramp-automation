@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "build": "run-s build:cli build:schematron build:schematron-summary build:json build:typecheck build:vite",
+    "build": "run-s build:cli build:schematron build:schematron:summary build:json build:typecheck build:vite",
     "build:cli": "tsup --format cjs --out-dir ./bin ./src/cli/index.ts",
     "build:json": "run-p build:json:sef:* && run-p build:json:cli:*",
     "build:json:cli:assertion-views": "node bin/index.cjs create-assertion-view",
