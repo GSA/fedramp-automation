@@ -57,7 +57,7 @@ export const setXmlUrl =
     });
     if (config.getState().validator.current === 'PROCESSING') {
       config.effects.useCases.oscalService
-        .validateOscalByUrl('rev4', xmlFileUrl)
+        .validateOscalByUrl(rulesetKey, xmlFileUrl)
         .then(({ documentType, svrlString, validationReport, xmlString }) => {
           setValidationReport({
             documentType,

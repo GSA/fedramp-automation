@@ -8,7 +8,10 @@ import {
   isRulesetRoute,
 } from '@asap/browser/presenter/state/router';
 import { useAppContext } from '../context';
-import { SCHEMATRON_RULESETS } from '@asap/shared/domain/schematron';
+import {
+  SchematronRulesetKeys,
+  SCHEMATRON_RULESETS,
+} from '@asap/shared/domain/schematron';
 
 export const Header = () => {
   const { currentRoute } = useAppContext().state.router;
@@ -67,16 +70,13 @@ export const Header = () => {
                 <span>Document Rules</span>
               </button>
               <ul id="document-rules" className="usa-nav__submenu">
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSummary('rev4'))}>
-                    {SCHEMATRON_RULESETS['rev4'].title}
-                  </a>
-                </li>
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSummary('rev5'))}>
-                    {SCHEMATRON_RULESETS['rev5'].title}
-                  </a>
-                </li>
+                {SchematronRulesetKeys.map(rulesetKey => (
+                  <li className="usa-nav__submenu-item">
+                    <a href={getUrl(Routes.documentSummary(rulesetKey))}>
+                      {SCHEMATRON_RULESETS[rulesetKey].title}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </li>
             <li className="usa-nav__primary-item">

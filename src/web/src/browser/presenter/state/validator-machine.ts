@@ -1,5 +1,6 @@
 import {
   SchematronRulesetKey,
+  SchematronRulesetKeys,
   SCHEMATRON_RULESETS,
 } from '@asap/shared/domain/schematron';
 
@@ -137,7 +138,7 @@ export const nextState = (state: State, event: StateTransition): State => {
 export const initialState: State = {
   current: 'UNLOADED',
   ruleset: {
-    selected: 'rev4',
+    selected: SchematronRulesetKeys[0],
     choices: SCHEMATRON_RULESETS,
   },
 };

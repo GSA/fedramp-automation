@@ -6,7 +6,10 @@
 
 import { join } from 'path';
 import { OscalDocumentKey } from './domain/oscal';
-import { SchematronRulesetKey } from './domain/schematron';
+import {
+  SchematronRulesetKey,
+  SchematronRulesetKeys,
+} from './domain/schematron';
 
 // This should map to the directory containing the package.json.
 // By convention, assume that the originating process was run from the root
@@ -34,10 +37,12 @@ export const getRepositoryPaths = (rulesetKey: SchematronRulesetKey) => ({
   } as Record<OscalDocumentKey, `/${string}`>,
 });
 
-export const REPOSITORY_PATHS = {
-  rev4: getRepositoryPaths('rev4'),
-  rev5: getRepositoryPaths('rev5'),
-};
+export const REPOSITORY_PATHS = Object.fromEntries(
+  SchematronRulesetKeys.map(rulesetKey => [
+    rulesetKey,
+    getRepositoryPaths(rulesetKey),
+  ]),
+) as Record<SchematronRulesetKey, ReturnType<typeof getRepositoryPaths>>;
 
 export const getLocalPaths = (rulesetKey: SchematronRulesetKey) => ({
   REPOSITORY_ROOT,
@@ -81,7 +86,9 @@ export const getLocalPaths = (rulesetKey: SchematronRulesetKey) => ({
   } as Record<OscalDocumentKey, string>,
 });
 
-export const LOCAL_PATHS = {
-  rev4: getLocalPaths('rev4'),
-  rev5: getLocalPaths('rev5'),
-};
+export const LOCAL_PATHS = Object.fromEntries(
+  SchematronRulesetKeys.map(rulesetKey => [
+    rulesetKey,
+    getLocalPaths(rulesetKey),
+  ]),
+) as Record<SchematronRulesetKey, ReturnType<typeof getLocalPaths>>;

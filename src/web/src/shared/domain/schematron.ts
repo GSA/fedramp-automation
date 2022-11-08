@@ -66,13 +66,13 @@ export const SCHEMATRON_RULESETS: Record<
   SchematronRulesetKey,
   SchematronRuleset
 > = {
-  rev4: {
-    key: 'rev4',
-    title: 'NIST RMF revision 4',
-  },
   rev5: {
     key: 'rev5',
     title: 'NIST RMF revision 5',
+  },
+  rev4: {
+    key: 'rev4',
+    title: 'NIST RMF revision 4',
   },
 } as const;
 

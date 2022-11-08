@@ -143,7 +143,7 @@ export const ValidatorPage = ({
           <div className="grid-row grid-gap">
             <div className="desktop:grid-col">
               <h2 className="font-sans-2xl text-light text-theme-dark-blue margin-0">
-                {SCHEMATRON_RULESETS['rev4'].title} Summary
+                {ruleset.meta.title} Summary
               </h2>
               <img src={tableImage} alt="laptop with report on screen" />
             </div>

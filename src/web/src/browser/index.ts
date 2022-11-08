@@ -4,7 +4,11 @@ import {
   SaxonJsSchematronProcessorGateway,
 } from '@asap/shared/adapters/saxon-js-gateway';
 import * as github from '@asap/shared/domain/github';
-import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
+import {
+  SchematronProcessor,
+  SchematronRulesetKey,
+  SchematronRulesetKeys,
+} from '@asap/shared/domain/schematron';
 import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import { OscalService } from '@asap/shared/use-cases/oscal';
 
@@ -19,21 +23,6 @@ type BrowserContext = {
   element: HTMLElement;
   baseUrl: `${string}/`;
   githubRepository: github.GithubRepository;
-};
-
-const createSchematronProcessor = (baseUrl: `${string}/`, ruleset: string) => {
-  return SaxonJsSchematronProcessorGateway({
-    console,
-    sefUrls: {
-      poam: `${baseUrl}rules/${ruleset}/poam.sef.json`,
-      sap: `${baseUrl}rules/${ruleset}/sap.sef.json`,
-      sar: `${baseUrl}rules/${ruleset}/sar.sef.json`,
-      ssp: `${baseUrl}rules/${ruleset}/ssp.sef.json`,
-    },
-    SaxonJS,
-    baselinesBaseUrl: `${baseUrl}content/${ruleset}/baselines/xml`,
-    registryBaseUrl: `${baseUrl}content/${ruleset}/resources/xml`,
-  });
 };
 
 export const runBrowserContext = ({
@@ -166,10 +155,23 @@ export const runBrowserContext = ({
               SaxonJS,
             }),
           },
-          {
-            rev4: createSchematronProcessor(baseUrl, 'rev4'),
-            rev5: createSchematronProcessor(baseUrl, 'rev5'),
-          },
+          Object.fromEntries(
+            SchematronRulesetKeys.map(rulesetKey => [
+              rulesetKey,
+              SaxonJsSchematronProcessorGateway({
+                console,
+                sefUrls: {
+                  poam: `${baseUrl}rules/${rulesetKey}/poam.sef.json`,
+                  sap: `${baseUrl}rules/${rulesetKey}/sap.sef.json`,
+                  sar: `${baseUrl}rules/${rulesetKey}/sar.sef.json`,
+                  ssp: `${baseUrl}rules/${rulesetKey}/ssp.sef.json`,
+                },
+                SaxonJS,
+                baselinesBaseUrl: `${baseUrl}content/${rulesetKey}/baselines/xml`,
+                registryBaseUrl: `${baseUrl}content/${rulesetKey}/resources/xml`,
+              }),
+            ]),
+          ) as Record<SchematronRulesetKey, SchematronProcessor>,
           window.fetch.bind(window),
           console,
         ),
