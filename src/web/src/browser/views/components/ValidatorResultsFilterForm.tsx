@@ -50,7 +50,11 @@ export const ValidatorResultsFilterForm = ({ documentType, rulesetKey }: Props) 
               if (event && event.target) {
                 text = event.target.value;
               }
-              dispatch(schematron.setFilterText({ documentType, text }));
+              dispatch(schematron.setFilterText({
+                documentType,
+                rulesetKey,
+                text
+              }));
             }}
             placeholder="Search text..."
           />
@@ -87,6 +91,7 @@ export const ValidatorResultsFilterForm = ({ documentType, rulesetKey }: Props) 
                     dispatch(
                       schematron.setPassStatus({
                         documentType,
+                        rulesetKey,
                         passStatus: passStatus.id,
                       }),
                     );
@@ -132,6 +137,7 @@ export const ValidatorResultsFilterForm = ({ documentType, rulesetKey }: Props) 
                     dispatch(
                       schematron.setFilterAssertionView({
                         documentType,
+                        rulesetKey,
                         assertionViewId: assertionView.index,
                       }),
                     );
@@ -174,6 +180,7 @@ export const ValidatorResultsFilterForm = ({ documentType, rulesetKey }: Props) 
                     dispatch(
                       schematron.setFilterFedrampOption({
                         documentType,
+                        rulesetKey,
                         fedrampFilterOption: option.option,
                       }),
                     );
@@ -221,6 +228,7 @@ export const ValidatorResultsFilterForm = ({ documentType, rulesetKey }: Props) 
                     dispatch(
                       schematron.setFilterRole({
                         documentType,
+                        rulesetKey,
                         role: filterRole.name,
                       }),
                     );

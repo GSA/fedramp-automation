@@ -92,7 +92,9 @@ export type SchematronAssert = {
 export type ParseSchematronAssertions = (
   schematron: string,
 ) => SchematronAssert[];
-export type GetSchematronAssertions = () => Promise<{
+export type GetSchematronAssertions = (
+  rulesetKey: SchematronRulesetKey,
+) => Promise<{
   poam: SchematronAssert[];
   sap: SchematronAssert[];
   sar: SchematronAssert[];

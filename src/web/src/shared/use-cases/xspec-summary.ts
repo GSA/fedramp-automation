@@ -19,7 +19,9 @@ export type XSpecScenarioSummaries = {
   ssp: SummariesByAssertionId;
 };
 
-export type GetXSpecScenarioSummaries = () => Promise<XSpecScenarioSummaries>;
+export type GetXSpecScenarioSummaries = (
+  rulesetKey: SchematronRulesetKey,
+) => Promise<XSpecScenarioSummaries>;
 
 export class XSpecAssertionSummaryGenerator {
   constructor(

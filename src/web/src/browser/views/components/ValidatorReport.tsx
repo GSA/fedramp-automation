@@ -193,6 +193,7 @@ export const ValidatorReport = ({ documentType, rulesetKey }: Props) => {
                                   showAssertionContext({
                                     assertionId: firedCheck.uniqueId,
                                     documentType,
+                                    rulesetKey,
                                   }),
                                 )
                               }

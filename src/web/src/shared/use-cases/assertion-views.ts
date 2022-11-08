@@ -66,7 +66,7 @@ export const validateAssertionViews = (input: any): AssertionViews | null => {
   }
 };
 
-export type GetAssertionViews = () => Promise<{
+export type GetAssertionViews = (rulesetKey: SchematronRulesetKey) => Promise<{
   poam: AssertionViews;
   sap: AssertionViews;
   sar: AssertionViews;

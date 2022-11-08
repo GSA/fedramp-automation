@@ -4,6 +4,7 @@ import {
   SaxonJsSchematronProcessorGateway,
 } from '@asap/shared/adapters/saxon-js-gateway';
 import * as github from '@asap/shared/domain/github';
+import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import { OscalService } from '@asap/shared/use-cases/oscal';
 
@@ -76,18 +77,40 @@ export const runBrowserContext = ({
           },
           SaxonJS,
         }),
-        getAssertionViews: async () => {
+        getAssertionViews: async (rulesetKey: SchematronRulesetKey) => {
           const responses = await Promise.all([
-            fetch(`${rulesUrl}rev4/assertion-views-poam.json`).then(response =>
+            fetch(`${rulesUrl}${rulesetKey}/assertion-views-poam.json`).then(
+              response => response.json(),
+            ),
+            fetch(`${rulesUrl}${rulesetKey}/assertion-views-sap.json`).then(
+              response => response.json(),
+            ),
+            fetch(`${rulesUrl}${rulesetKey}/assertion-views-sar.json`).then(
+              response => response.json(),
+            ),
+            fetch(`${rulesUrl}${rulesetKey}/assertion-views-ssp.json`).then(
+              response => response.json(),
+            ),
+          ]);
+          return {
+            poam: responses[0],
+            sap: responses[1],
+            sar: responses[2],
+            ssp: responses[3],
+          };
+        },
+        getSchematronAssertions: async (rulesetKey: SchematronRulesetKey) => {
+          const responses = await Promise.all([
+            fetch(`${rulesUrl}${rulesetKey}/poam.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}rev4/assertion-views-sap.json`).then(response =>
+            fetch(`${rulesUrl}${rulesetKey}/sap.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}rev4/assertion-views-sar.json`).then(response =>
+            fetch(`${rulesUrl}${rulesetKey}/sar.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}rev4/assertion-views-ssp.json`).then(response =>
+            fetch(`${rulesUrl}${rulesetKey}/ssp.json`).then(response =>
               response.json(),
             ),
           ]);
@@ -98,35 +121,19 @@ export const runBrowserContext = ({
             ssp: responses[3],
           };
         },
-        getSchematronAssertions: async () => {
+        getXSpecScenarioSummaries: async (rulesetKey: SchematronRulesetKey) => {
           const responses = await Promise.all([
-            fetch(`${rulesUrl}rev4/poam.json`).then(response =>
-              response.json(),
+            fetch(`${rulesUrl}${rulesetKey}/xspec-summary-poam.json`).then(
+              response => response.json(),
             ),
-            fetch(`${rulesUrl}rev4/sap.json`).then(response => response.json()),
-            fetch(`${rulesUrl}rev4/sar.json`).then(response => response.json()),
-            fetch(`${rulesUrl}rev4/ssp.json`).then(response => response.json()),
-          ]);
-          return {
-            poam: responses[0],
-            sap: responses[1],
-            sar: responses[2],
-            ssp: responses[3],
-          };
-        },
-        getXSpecScenarioSummaries: async () => {
-          const responses = await Promise.all([
-            fetch(`${rulesUrl}rev4/xspec-summary-poam.json`).then(response =>
-              response.json(),
+            fetch(`${rulesUrl}${rulesetKey}/xspec-summary-sap.json`).then(
+              response => response.json(),
             ),
-            fetch(`${rulesUrl}rev4/xspec-summary-sap.json`).then(response =>
-              response.json(),
+            fetch(`${rulesUrl}${rulesetKey}/xspec-summary-sar.json`).then(
+              response => response.json(),
             ),
-            fetch(`${rulesUrl}rev4/xspec-summary-sar.json`).then(response =>
-              response.json(),
-            ),
-            fetch(`${rulesUrl}rev4/xspec-summary-ssp.json`).then(response =>
-              response.json(),
+            fetch(`${rulesUrl}${rulesetKey}/xspec-summary-ssp.json`).then(
+              response => response.json(),
             ),
           ]);
           return {

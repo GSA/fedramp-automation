@@ -3,7 +3,7 @@ import type {
   SchematronRulesetKey,
   ValidationReport,
 } from '@asap/shared/domain/schematron';
-import { setCurrentRoute, validator } from '.';
+import { setCurrentRoute } from '.';
 
 import type { ActionContext } from '..';
 import { StateTransition } from '../state';
@@ -116,7 +116,7 @@ export const setValidationReport =
       })
       .then(annotatedXML => {
         config.dispatch({
-          machine: `validationResults.${documentType}`,
+          machine: `${rulesetKey}.validationResults.${documentType}`,
           type: 'SET_RESULTS',
           data: {
             annotatedXML,
@@ -142,11 +142,13 @@ export const setValidationReport =
 export const showAssertionContext = ({
   assertionId,
   documentType,
+  rulesetKey,
 }: {
   assertionId: string;
   documentType: OscalDocumentKey;
+  rulesetKey: SchematronRulesetKey;
 }): StateTransition => ({
-  machine: `validationResults.${documentType}`,
+  machine: `${rulesetKey}.validationResults.${documentType}`,
   type: 'SET_ASSERTION_CONTEXT',
   data: {
     assertionId,
@@ -155,8 +157,9 @@ export const showAssertionContext = ({
 
 export const clearAssertionContext = (
   documentType: OscalDocumentKey,
+  rulesetKey: SchematronRulesetKey,
 ): StateTransition => ({
-  machine: `validationResults.${documentType}`,
+  machine: `${rulesetKey}.validationResults.${documentType}`,
   type: 'CLEAR_ASSERTION_CONTEXT',
 });
 

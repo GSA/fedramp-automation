@@ -50,7 +50,7 @@ export const DocumentViewerOverlay = ({
     <Modal
       className="overflow-scroll radius-lg padding-x-10 padding-y-5"
       isOpen={validationResult.current === 'ASSERTION_CONTEXT'}
-      onRequestClose={() => dispatch(clearAssertionContext(documentType))}
+      onRequestClose={() => dispatch(clearAssertionContext(documentType, rulesetKey))}
       contentLabel="Assertion rule examples"
       style={{
         overlay: {
