@@ -17,7 +17,11 @@ export const reset = ({ dispatch }: ActionContext) => {
 };
 
 export const validateOscalDocument =
-  (options: { fileName: string; fileContents: string }) =>
+  (options: {
+    rulesetKey: SchematronRulesetKey;
+    fileName: string;
+    fileContents: string;
+  }) =>
   async (config: ActionContext) => {
     reset(config);
     config.dispatch({
@@ -28,10 +32,11 @@ export const validateOscalDocument =
     const state = config.getState();
     if (state.validator.current === 'PROCESSING') {
       config.effects.useCases.oscalService
-        .validateOscal('rev4', options.fileContents)
+        .validateOscal(options.rulesetKey, options.fileContents)
         .then(({ documentType, svrlString, validationReport, xmlString }) => {
           setValidationReport({
             documentType,
+            rulesetKey: options.rulesetKey,
             svrlString,
             validationReport,
             xmlString,
@@ -42,7 +47,8 @@ export const validateOscalDocument =
   };
 
 export const setXmlUrl =
-  (xmlFileUrl: string) => async (config: ActionContext) => {
+  (rulesetKey: SchematronRulesetKey, xmlFileUrl: string) =>
+  async (config: ActionContext) => {
     reset(config);
     config.dispatch({
       machine: 'validator',
@@ -55,6 +61,7 @@ export const setXmlUrl =
         .then(({ documentType, svrlString, validationReport, xmlString }) => {
           setValidationReport({
             documentType,
+            rulesetKey,
             svrlString,
             validationReport,
             xmlString,
@@ -79,11 +86,13 @@ export const setProcessingError =
 export const setValidationReport =
   ({
     documentType,
+    rulesetKey,
     svrlString,
     validationReport,
     xmlString,
   }: {
     documentType: OscalDocumentKey;
+    rulesetKey: SchematronRulesetKey;
     svrlString: string;
     validationReport: ValidationReport;
     xmlString: string;
@@ -120,10 +129,10 @@ export const setValidationReport =
       setCurrentRoute(
         getUrl(
           {
-            poam: Routes.documentPOAM,
-            sap: Routes.documentSAP,
-            sar: Routes.documentSAR,
-            ssp: Routes.documentSSP,
+            poam: Routes.documentPOAM(rulesetKey),
+            sap: Routes.documentSAP(rulesetKey),
+            sar: Routes.documentSAR(rulesetKey),
+            ssp: Routes.documentSSP(rulesetKey),
           }[documentType],
         ),
       ),
@@ -152,9 +161,11 @@ export const clearAssertionContext = (
 });
 
 export const downloadSVRL =
-  (documentType: OscalDocumentKey) => (config: ActionContext) => {
+  (documentType: OscalDocumentKey, rulesetKey: SchematronRulesetKey) =>
+  (config: ActionContext) => {
     const state = config.getState();
-    const validationResults = state.validationResults[documentType];
+    const validationResults =
+      state.rulesets[rulesetKey].validationResults[documentType];
     if (validationResults.current === 'HAS_RESULT') {
       var element = document.createElement('a');
       element.setAttribute(

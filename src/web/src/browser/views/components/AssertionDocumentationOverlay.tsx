@@ -4,15 +4,16 @@ import spriteSvg from 'uswds/img/sprite.svg';
 
 import { AssertionXSpecScenarios } from './AssertionXSpecScenarios';
 import * as assertionDocumentation from '../../presenter/actions/assertion-documentation';
+import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 
-export const AssertionDocumentationOverlay = () => {
+export const AssertionDocumentationOverlay = ({ rulesetKey }: { rulesetKey: SchematronRulesetKey }) => {
   const { dispatch, state } = useAppContext();
 
   return (
     <div className="bg-base-dark">
       <Modal
         className="overflow-scroll radius-lg padding-x-10 padding-y-5"
-        isOpen={state.rulesets.rev4.assertionDocumentation.current === 'SHOWING'}
+        isOpen={state.assertionDocumentation.current === 'SHOWING'}
         onRequestClose={() => dispatch(assertionDocumentation.close)}
         contentLabel="Assertion rule examples"
         style={{
@@ -66,7 +67,7 @@ export const AssertionDocumentationOverlay = () => {
             </div>
           </div>
         </div>
-        <AssertionXSpecScenarios />
+        <AssertionXSpecScenarios rulesetKey={rulesetKey} />
       </Modal>
     </div>
   );

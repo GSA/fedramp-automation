@@ -1,7 +1,10 @@
 import { it, describe, expect } from 'vitest';
 
 import { SchematronAssert } from '@asap/shared/domain/schematron';
-import type { BaseState, PassStatus } from '../state/schematron-machine';
+import type {
+  BaseState,
+  PassStatus,
+} from '../state/ruleset/schematron-machine';
 import * as helpers from './helpers';
 
 describe('presenter schematron library', () => {

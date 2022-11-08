@@ -17,7 +17,7 @@ export const ValidatorResultsFilterForm = ({ documentType, rulesetKey }: Props) 
   const oscalDocument = state.rulesets[rulesetKey].oscalDocuments[documentType];
   const { dispatch } = useAppContext();
 
-  const filterOptions = selectFilterOptions(documentType)(state);
+  const filterOptions = selectFilterOptions(documentType, rulesetKey)(state);
 
   const topRef = useRef<HTMLHeadingElement>(null);
   const scrollIntoView = () => {

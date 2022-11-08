@@ -10,7 +10,7 @@ import { useAppContext } from '../context';
 import tableImage from '../images/2022-05-19-first-oscal-system-security-plan.png';
 import '../styles/ValidatorPage.scss';
 import { RulesetPicker } from './RulesetPicker';
-import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
+import { SchematronRulesetKey, SCHEMATRON_RULESETS } from '@asap/shared/domain/schematron';
 
 const DocumentValidator = ({
   documentType,
@@ -41,7 +41,7 @@ export const ValidatorPage = ({
   rulesetKey: SchematronRulesetKey;
 }) => {
   const { router, rulesets } = useAppContext().state;
-  const { oscalDocuments, validationResults } = rulesets[rulesetKey];
+  const ruleset = rulesets[rulesetKey];
   return (
     <>
       <HeadingOne
@@ -50,7 +50,6 @@ export const ValidatorPage = ({
           apply them to your own documents"
       />
 
-      <RulesetPicker />
       <nav
         aria-label="Secondary navigation"
         className="display-none desktop:display-block border-base-light border-bottom-1px"
@@ -60,20 +59,20 @@ export const ValidatorPage = ({
             className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentSummary',
             })}
-            href={getUrl(Routes.documentSummary)}
+            href={getUrl(Routes.documentSummary(rulesetKey))}
           >
-            Summary
+            {SCHEMATRON_RULESETS[rulesetKey].title}
           </a>
           <a
             className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentPOAM',
             })}
-            href={getUrl(Routes.documentPOAM)}
+            href={getUrl(Routes.documentPOAM(rulesetKey))}
           >
             Plan of Action and Milestones
-            {validationResults.poam.current === 'HAS_RESULT' && (
+            {ruleset.validationResults.poam.current === 'HAS_RESULT' && (
               <span className="usa-tag margin-left-1 bg-theme-red">
-                {validationResults.poam.summary.firedCount}
+                {ruleset.validationResults.poam.summary.firedCount}
               </span>
             )}
           </a>
@@ -81,12 +80,12 @@ export const ValidatorPage = ({
             className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentSAP',
             })}
-            href={getUrl(Routes.documentSAP)}
+            href={getUrl(Routes.documentSAP(rulesetKey))}
           >
             Security Assessment Plan
-            {validationResults.sap.current === 'HAS_RESULT' && (
+            {ruleset.validationResults.sap.current === 'HAS_RESULT' && (
               <span className="usa-tag margin-left-1 bg-theme-red">
-                {validationResults.sap.summary.firedCount}
+                {ruleset.validationResults.sap.summary.firedCount}
               </span>
             )}
           </a>
@@ -94,12 +93,12 @@ export const ValidatorPage = ({
             className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentSAR',
             })}
-            href={getUrl(Routes.documentSAR)}
+            href={getUrl(Routes.documentSAR(rulesetKey))}
           >
             Security Assessment Report
-            {validationResults.sar.current === 'HAS_RESULT' && (
+            {ruleset.validationResults.sar.current === 'HAS_RESULT' && (
               <span className="usa-tag margin-left-1 bg-theme-red">
-                {validationResults.sar.summary.firedCount}
+                {ruleset.validationResults.sar.summary.firedCount}
               </span>
             )}
           </a>
@@ -107,12 +106,12 @@ export const ValidatorPage = ({
             className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentSSP',
             })}
-            href={getUrl(Routes.documentSSP)}
+            href={getUrl(Routes.documentSSP(rulesetKey))}
           >
             System Security Plan
-            {validationResults.ssp.current === 'HAS_RESULT' && (
+            {ruleset.validationResults.ssp.current === 'HAS_RESULT' && (
               <span className="usa-tag margin-left-1 bg-theme-red">
-                {validationResults.ssp.summary.firedCount}
+                {ruleset.validationResults.ssp.summary.firedCount}
               </span>
             )}
           </a>
@@ -126,7 +125,7 @@ export const ValidatorPage = ({
               Choose an XML file to process
             </h1>
           </div>
-          <ValidatorFileSelectForm />
+          <ValidatorFileSelectForm rulesetKey={rulesetKey} />
         </div>
 
         {documentType ? (
@@ -134,8 +133,8 @@ export const ValidatorPage = ({
         ) : (
           <div className="grid-row grid-gap">
             <div className="desktop:grid-col">
-              <h2 className="font-sans-2xl text-light text-theme-dark-blue margin-0 margin-bottom-5">
-                Summary Table
+              <h2 className="font-sans-2xl text-light text-theme-dark-blue margin-0">
+                {SCHEMATRON_RULESETS['rev4'].title} Summary
               </h2>
               <img src={tableImage} alt="laptop with report on screen" />
             </div>
@@ -152,35 +151,35 @@ export const ValidatorPage = ({
                 <tbody>
                   <tr>
                     <td>
-                      <a href={getUrl(Routes.documentSSP)}>
+                      <a href={getUrl(Routes.documentSSP(rulesetKey))}>
                         System Security Plan
                       </a>
                     </td>
                     <td
                       className={classnames({
                         'text-success':
-                          validationResults.ssp.summary.firedCount ===
+                          ruleset.validationResults.ssp.summary.firedCount ===
                           (0 || null),
                         'text-error':
-                          validationResults.ssp.summary.firedCount !== null &&
-                          validationResults.ssp.summary.firedCount > 0,
+                          ruleset.validationResults.ssp.summary.firedCount !== null &&
+                          ruleset.validationResults.ssp.summary.firedCount > 0,
                       })}
                     >
                       <b>
-                        {validationResults.ssp.summary.firedCount !== null &&
-                        validationResults.ssp.summary.firedCount > 0
+                        {ruleset.validationResults.ssp.summary.firedCount !== null &&
+                        ruleset.validationResults.ssp.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
                     </td>
                     <td>
-                      {oscalDocuments.ssp.config.schematronAsserts.length}
+                      {ruleset.oscalDocuments.ssp.config.schematronAsserts.length}
                     </td>
-                    <td>{validationResults.ssp.summary.firedCount}</td>
+                    <td>{ruleset.validationResults.ssp.summary.firedCount}</td>
                   </tr>
                   <tr>
                     <td>
-                      <a href={getUrl(Routes.documentSAR)}>
+                      <a href={getUrl(Routes.documentSAR(rulesetKey))}>
                         Security Assessment Report
                       </a>
                     </td>
@@ -188,79 +187,79 @@ export const ValidatorPage = ({
                       <b
                         className={classnames({
                           'text-success':
-                            validationResults.sar.summary.firedCount ===
+                            ruleset.validationResults.sar.summary.firedCount ===
                             (0 || null),
                           'text-error':
-                            validationResults.sar.summary.firedCount !== null &&
-                            validationResults.sar.summary.firedCount > 0,
+                            ruleset.validationResults.sar.summary.firedCount !== null &&
+                            ruleset.validationResults.sar.summary.firedCount > 0,
                         })}
                       >
-                        {validationResults.sar.summary.firedCount !== null &&
-                        validationResults.sar.summary.firedCount > 0
+                        {ruleset.validationResults.sar.summary.firedCount !== null &&
+                        ruleset.validationResults.sar.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
                     </td>
                     <td>
-                      {oscalDocuments.sar.config.schematronAsserts.length}
+                      {ruleset.oscalDocuments.sar.config.schematronAsserts.length}
                     </td>
-                    <td>{validationResults.sar.summary.firedCount}</td>
+                    <td>{ruleset.validationResults.sar.summary.firedCount}</td>
                   </tr>
                   <tr>
                     <td>
-                      <a href={getUrl(Routes.documentSAP)}>
+                      <a href={getUrl(Routes.documentSAP(rulesetKey))}>
                         Security Assessment Plan
                       </a>
                     </td>
                     <td
                       className={classnames({
                         'text-success':
-                          validationResults.sap.summary.firedCount ===
+                          ruleset.validationResults.sap.summary.firedCount ===
                           (0 || null),
                         'text-error':
-                          validationResults.sap.summary.firedCount !== null &&
-                          validationResults.sap.summary.firedCount > 0,
+                          ruleset.validationResults.sap.summary.firedCount !== null &&
+                          ruleset.validationResults.sap.summary.firedCount > 0,
                       })}
                     >
                       <b>
-                        {validationResults.sap.summary.firedCount !== null &&
-                        validationResults.sap.summary.firedCount > 0
+                        {ruleset.validationResults.sap.summary.firedCount !== null &&
+                        ruleset.validationResults.sap.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
                     </td>
                     <td>
-                      {oscalDocuments.sap.config.schematronAsserts.length}
+                      {ruleset.oscalDocuments.sap.config.schematronAsserts.length}
                     </td>
-                    <td>{validationResults.sap.summary.firedCount}</td>
+                    <td>{ruleset.validationResults.sap.summary.firedCount}</td>
                   </tr>
                   <tr>
                     <td>
-                      <a href={getUrl(Routes.documentPOAM)}>
+                      <a href={getUrl(Routes.documentPOAM(rulesetKey))}>
                         Plan of Action and Milestones
                       </a>
                     </td>
                     <td
                       className={classnames({
                         'text-success':
-                          validationResults.poam.summary.firedCount ===
+                          ruleset.validationResults.poam.summary.firedCount ===
                           (0 || null),
                         'text-error':
-                          validationResults.poam.summary.firedCount !== null &&
-                          validationResults.poam.summary.firedCount > 0,
+                          ruleset.validationResults.poam.summary.firedCount !== null &&
+                          ruleset.validationResults.poam.summary.firedCount > 0,
                       })}
                     >
                       <b>
-                        {validationResults.poam.summary.firedCount !== null &&
-                        validationResults.poam.summary.firedCount > 0
+                        {ruleset.validationResults.poam.summary.firedCount !== null &&
+                        ruleset.validationResults.poam.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
                     </td>
                     <td>
-                      {oscalDocuments.poam.config.schematronAsserts.length}
+                      {ruleset.oscalDocuments.poam.config.schematronAsserts.length}
                     </td>
-                    <td>{validationResults.poam.summary.firedCount}</td>
+                    <td>{ruleset.validationResults.poam.summary.firedCount}</td>
                   </tr>
                 </tbody>
               </table>

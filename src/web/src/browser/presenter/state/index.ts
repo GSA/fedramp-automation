@@ -1,7 +1,13 @@
+import {
+  SchematronRulesetKey,
+  SCHEMATRON_RULESETS,
+} from '@asap/shared/domain/schematron';
 import * as assertionDocumentation from './assertion-documetation';
 import * as metrics from './metrics';
 import * as routerMachine from './router-machine';
 import { RulesetState } from './ruleset';
+import * as schematron from './ruleset/schematron-machine';
+import * as validationResults from './ruleset/validation-results-machine';
 import * as validator from './validator-machine';
 
 export type State = {
@@ -46,20 +52,40 @@ export const initialState: State = {
     },
   },
   assertionDocumentation: assertionDocumentation.initialState,
-  oscalDocuments: {
-    poam: schematron.initialState,
-    sap: schematron.initialState,
-    sar: schematron.initialState,
-    ssp: schematron.initialState,
+  rulesets: {
+    rev4: {
+      meta: SCHEMATRON_RULESETS['rev4'],
+      oscalDocuments: {
+        poam: schematron.initialState,
+        sap: schematron.initialState,
+        sar: schematron.initialState,
+        ssp: schematron.initialState,
+      },
+      validationResults: {
+        poam: validationResults.initialState,
+        sap: validationResults.initialState,
+        sar: validationResults.initialState,
+        ssp: validationResults.initialState,
+      },
+    },
+    rev5: {
+      meta: SCHEMATRON_RULESETS['rev5'],
+      oscalDocuments: {
+        poam: schematron.initialState,
+        sap: schematron.initialState,
+        sar: schematron.initialState,
+        ssp: schematron.initialState,
+      },
+      validationResults: {
+        poam: validationResults.initialState,
+        sap: validationResults.initialState,
+        sar: validationResults.initialState,
+        ssp: validationResults.initialState,
+      },
+    },
   },
   router: routerMachine.initialState,
   validator: validator.initialState,
-  validationResults: {
-    poam: validationResults.initialState,
-    sap: validationResults.initialState,
-    sar: validationResults.initialState,
-    ssp: validationResults.initialState,
-  },
 };
 
 const createMachineReducer =
@@ -113,28 +139,61 @@ const reducers = {
   validator: createMachineReducer('validator', validator.nextState),
 } as const;
 
+const rulesetReducer = (
+  state: State,
+  event: StateTransition,
+  rulesetKey: SchematronRulesetKey,
+) => ({
+  meta: state.rulesets[rulesetKey].meta,
+  oscalDocuments: {
+    poam: reducers[`oscalDocuments.poam`](
+      state.rulesets[rulesetKey].oscalDocuments.poam,
+      event,
+    ),
+    sap: reducers[`oscalDocuments.sap`](
+      state.rulesets[rulesetKey].oscalDocuments.sap,
+      event,
+    ),
+    sar: reducers[`oscalDocuments.sar`](
+      state.rulesets[rulesetKey].oscalDocuments.sar,
+      event,
+    ),
+    ssp: reducers[`oscalDocuments.ssp`](
+      state.rulesets[rulesetKey].oscalDocuments.ssp,
+      event,
+    ),
+  },
+  validationResults: {
+    poam: reducers[`validationResults.poam`](
+      state.rulesets[rulesetKey].validationResults.poam,
+      event,
+    ),
+    sap: reducers[`validationResults.sap`](
+      state.rulesets[rulesetKey].validationResults.sap,
+      event,
+    ),
+    sar: reducers[`validationResults.sar`](
+      state.rulesets[rulesetKey].validationResults.sar,
+      event,
+    ),
+    ssp: reducers[`validationResults.ssp`](
+      state.rulesets[rulesetKey].validationResults.ssp,
+      event,
+    ),
+  },
+});
+
 export const rootReducer = (state: State, event: StateTransition): State => ({
   config: state.config,
   assertionDocumentation: reducers.assertionDocumentation(
     state.assertionDocumentation,
     event,
   ),
-  oscalDocuments: {
-    poam: reducers['oscalDocuments.poam'](state.oscalDocuments.poam, event),
-    sap: reducers['oscalDocuments.sap'](state.oscalDocuments.sap, event),
-    sar: reducers['oscalDocuments.sar'](state.oscalDocuments.sar, event),
-    ssp: reducers['oscalDocuments.ssp'](state.oscalDocuments.ssp, event),
+  rulesets: {
+    rev4: rulesetReducer(state, event, 'rev4'),
+    rev5: rulesetReducer(state, event, 'rev5'),
   },
   router: reducers.router(state.router, event),
-  validationResults: {
-    poam: reducers['validationResults.poam'](
-      state.validationResults.poam,
-      event,
-    ),
-    sap: reducers['validationResults.sap'](state.validationResults.sap, event),
-    sar: reducers['validationResults.sar'](state.validationResults.sar, event),
-    ssp: reducers['validationResults.ssp'](state.validationResults.ssp, event),
-  },
   validator: reducers.validator(state.validator, event),
 });
 

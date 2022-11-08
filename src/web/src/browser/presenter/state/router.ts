@@ -1,10 +1,16 @@
 import { match } from 'path-to-regexp';
 
-import type { SchematronRulesetKey } from '@asap/shared/domain/schematron';
+import {
+  SchematronRulesetKey,
+  SchematronRulesetKeys,
+} from '@asap/shared/domain/schematron';
 
 export type RouteTypes = {
   Home: { type: 'Home' };
-  DocumentSummary: { type: 'DocumentSummary'; ruleset: SchematronRulesetKey };
+  DocumentSummary: {
+    type: 'DocumentSummary';
+    ruleset: SchematronRulesetKey;
+  };
   DocumentPOAM: { type: 'DocumentPOAM'; ruleset: SchematronRulesetKey };
   DocumentSAP: { type: 'DocumentSAP'; ruleset: SchematronRulesetKey };
   DocumentSAR: { type: 'DocumentSAR'; ruleset: SchematronRulesetKey };
@@ -19,6 +25,10 @@ export type RouteType = Route['type'];
 export namespace Routes {
   export const home: RouteTypes['Home'] = {
     type: 'Home',
+  };
+  export const defaultDocumentSummary: RouteTypes['DocumentSummary'] = {
+    type: 'DocumentSummary',
+    ruleset: SchematronRulesetKeys[0],
   };
   export const documentSummary = (
     ruleset: SchematronRulesetKey,
@@ -59,11 +69,16 @@ export namespace Routes {
 
 const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   Home: () => '#/',
-  DocumentSummary: () => '#/documents',
-  DocumentPOAM: () => '#/documents/plan-of-action-and-milestones',
-  DocumentSAP: () => '#/documents/security-assessment-plan',
-  DocumentSAR: () => '#/documents/security-assessment-report',
-  DocumentSSP: () => '#/documents/system-security-plan',
+  DocumentSummary: (route: RouteTypes['DocumentSummary']) =>
+    `#/${route.ruleset}/documents`,
+  DocumentPOAM: (route: RouteTypes['DocumentPOAM']) =>
+    `#/${route.ruleset}/documents/plan-of-action-and-milestones`,
+  DocumentSAP: (route: RouteTypes['DocumentSAP']) =>
+    `#/${route.ruleset}/documents/security-assessment-plan`,
+  DocumentSAR: (route: RouteTypes['DocumentSAR']) =>
+    `#/${route.ruleset}/documents/security-assessment-report`,
+  DocumentSSP: (route: RouteTypes['DocumentSSP']) =>
+    `#/${route.ruleset}/documents/system-security-plan`,
   Developers: () => '#/developers',
 };
 
@@ -86,22 +101,24 @@ const matchRoute = <L extends Route>(
 
 const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
   Home: matchRoute('#/', () => Routes.home),
-  DocumentSummary: matchRoute('#/:ruleset/documents', Routes.documentSummary),
+  DocumentSummary: matchRoute('#/:ruleset/documents', ({ ruleset }) =>
+    Routes.documentSummary(ruleset),
+  ),
   DocumentPOAM: matchRoute(
     '#/:ruleset/documents/plan-of-action-and-milestones',
-    Routes.documentPOAM,
+    ({ ruleset }) => Routes.documentPOAM(ruleset),
   ),
   DocumentSAP: matchRoute(
     '#/:ruleset/documents/security-assessment-plan',
-    Routes.documentSAP,
+    ({ ruleset }) => Routes.documentSAP(ruleset),
   ),
   DocumentSAR: matchRoute(
     '#/:ruleset/documents/security-assessment-report',
-    Routes.documentSAR,
+    ({ ruleset }) => Routes.documentSAR(ruleset),
   ),
   DocumentSSP: matchRoute(
     '#/:ruleset/documents/system-security-plan',
-    Routes.documentSSP,
+    ({ ruleset }) => Routes.documentSSP(ruleset),
   ),
   Developers: matchRoute('#/developers', () => Routes.developers),
 };
@@ -120,4 +137,8 @@ export type Location = {
   getCurrent: () => string;
   listen: (listener: (url: string) => void) => void;
   replace: (url: string) => void;
+};
+
+export const isRulesetRoute = (route: Route) => {
+  return (route as any).ruleset !== undefined;
 };

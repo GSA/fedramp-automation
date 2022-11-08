@@ -48,7 +48,9 @@ export type SchematronProcessor = (oscalXmlString: string) => Promise<{
   schematronResult: SchematronResult;
 }>;
 
-export const SchematronRulesetKeys = ['rev4', 'rev5'] as const;
+// Define these in priority order - ie, the most-recent (or most-relevant)
+// ruleset should be first in the list.
+export const SchematronRulesetKeys = ['rev5', 'rev4'] as const;
 export type SchematronRulesetKey = typeof SchematronRulesetKeys[number];
 
 // See the concrete implementation in project-config.ts

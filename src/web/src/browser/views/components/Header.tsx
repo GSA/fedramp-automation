@@ -2,8 +2,9 @@ import classnames from 'classnames';
 import closeSvg from 'uswds/img/usa-icons/close.svg';
 import logo from '../images/logo.svg';
 
-import { getUrl, Routes } from '@asap/browser/presenter/state/router';
+import { getUrl, Routes, isRulesetRoute } from '@asap/browser/presenter/state/router';
 import { useAppContext } from '../context';
+import { SCHEMATRON_RULESETS } from '@asap/shared/domain/schematron';
 
 export const Header = () => {
   const { currentRoute } = useAppContext().state.router;
@@ -53,13 +54,7 @@ export const Header = () => {
                   'usa-accordion__button',
                   'usa-nav__link',
                   {
-                    'usa-current': [
-                      Routes.documentSummary.type,
-                      Routes.documentPOAM.type,
-                      Routes.documentSAP.type,
-                      Routes.documentSAR.type,
-                      Routes.documentSSP.type,
-                    ].includes(currentRoute.type as any),
+                    'usa-current': isRulesetRoute(currentRoute),
                   },
                 )}
                 aria-expanded="false"
@@ -69,25 +64,10 @@ export const Header = () => {
               </button>
               <ul id="document-rules" className="usa-nav__submenu">
                 <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSummary)}>Summary</a>
+                  <a href={getUrl(Routes.documentSummary("rev4"))}>{SCHEMATRON_RULESETS['rev4'].title}</a>
                 </li>
                 <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentPOAM)}>
-                    Plan of Action and Milestones
-                  </a>
-                </li>
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSAP)}>
-                    Security Assessment Plan
-                  </a>
-                </li>
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSAR)}>
-                    Security Assessment Report
-                  </a>
-                </li>
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
+                  <a href={getUrl(Routes.documentSummary("rev5"))}>{SCHEMATRON_RULESETS['rev5'].title}</a>
                 </li>
               </ul>
             </li>

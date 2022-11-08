@@ -31,10 +31,10 @@ const CurrentPage = () => {
     }[currentRoute.type] as OscalDocumentKey | null;
     return (
       <>
-        <ValidatorPage documentType={documentType} />
-        <AssertionDocumentationOverlay />
+        <ValidatorPage documentType={documentType} rulesetKey={currentRoute.ruleset} />
+        <AssertionDocumentationOverlay rulesetKey={currentRoute.ruleset} />
         {documentType ? (
-          <DocumentViewerOverlay documentType={documentType} />
+          <DocumentViewerOverlay documentType={documentType} rulesetKey={currentRoute.ruleset} />
         ) : null}
       </>
     );

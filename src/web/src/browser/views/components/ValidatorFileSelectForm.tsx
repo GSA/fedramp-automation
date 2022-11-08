@@ -3,8 +3,9 @@ import spriteSvg from 'uswds/img/sprite.svg';
 import { onFileInputChangeGetFile } from '../../util/file-input';
 import * as validator from '../../presenter/actions/validator';
 import { useAppContext } from '../context';
+import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 
-export const ValidatorFileSelectForm = () => {
+export const ValidatorFileSelectForm = ({ rulesetKey }: { rulesetKey: SchematronRulesetKey }) => {
   const { dispatch, state } = useAppContext();
 
   return (
@@ -23,6 +24,7 @@ export const ValidatorFileSelectForm = () => {
           onChange={onFileInputChangeGetFile(fileDetails => {
             dispatch(
               validator.validateOscalDocument({
+                rulesetKey,
                 fileName: fileDetails.name,
                 fileContents: fileDetails.text,
               }),
@@ -56,6 +58,7 @@ export const ValidatorFileSelectForm = () => {
               window.requestAnimationFrame(() =>
                 dispatch(
                   validator.setXmlUrl(
+                    rulesetKey,
                     event.target.options[event.target.selectedIndex].value,
                   ),
                 ),
@@ -68,7 +71,7 @@ export const ValidatorFileSelectForm = () => {
                 <option
                   key={index}
                   onSelect={() =>
-                    dispatch(validator.setXmlUrl(sampleDocument.url))
+                    dispatch(validator.setXmlUrl(rulesetKey, sampleDocument.url))
                   }
                   value={sampleDocument.url}
                 >

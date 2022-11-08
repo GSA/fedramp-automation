@@ -7,16 +7,19 @@ import { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { CodeViewer } from './CodeViewer';
 import { useAppContext, useSelector } from '../context';
 import { selectValidationResult } from '@asap/browser/presenter/state/selectors';
+import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 
 type DocumentViewerOverlayProps = {
   documentType: OscalDocumentKey;
+  rulesetKey: SchematronRulesetKey;
 };
 
 export const DocumentViewerOverlay = ({
   documentType,
+  rulesetKey
 }: DocumentViewerOverlayProps) => {
   const { dispatch } = useAppContext();
-  const validationResult = useSelector(selectValidationResult(documentType));
+  const validationResult = useSelector(selectValidationResult(documentType, rulesetKey));
 
   // Hightlight and scroll to node when mounted to DOM.
   const refCallback = useCallback(

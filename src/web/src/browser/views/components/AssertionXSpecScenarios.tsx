@@ -1,9 +1,10 @@
 import { selectVisibleScenarioSummaries } from '@asap/browser/presenter/state/selectors';
+import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 import { useSelector } from '../context';
 import { CodeViewer } from './CodeViewer';
 
-export const AssertionXSpecScenarios = () => {
-  const scenarioSummaries = useSelector(selectVisibleScenarioSummaries);
+export const AssertionXSpecScenarios = ({ rulesetKey }: {rulesetKey: SchematronRulesetKey}) => {
+  const scenarioSummaries = useSelector(selectVisibleScenarioSummaries(rulesetKey));
   return (
     <ul>
       {scenarioSummaries.map((summary, index) => (

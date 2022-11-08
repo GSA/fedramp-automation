@@ -4,8 +4,8 @@ import type {
 } from '@asap/shared/domain/schematron';
 import type { AssertionView } from '@asap/shared/use-cases/assertion-views';
 
-import * as state from '../state/schematron-machine';
-import { FailedAssertionMap } from '../state/validation-results-machine';
+import * as state from '../state/ruleset/schematron-machine';
+import { FailedAssertionMap } from '../state/ruleset/validation-results-machine';
 
 type Icon = {
   sprite: string;
