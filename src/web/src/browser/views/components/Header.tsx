@@ -71,7 +71,7 @@ export const Header = () => {
               </button>
               <ul id="document-rules" className="usa-nav__submenu">
                 {SchematronRulesetKeys.map(rulesetKey => (
-                  <li className="usa-nav__submenu-item">
+                  <li className="usa-nav__submenu-item" key={rulesetKey}>
                     <a href={getUrl(Routes.documentSummary(rulesetKey))}>
                       {SCHEMATRON_RULESETS[rulesetKey].title}
                     </a>
