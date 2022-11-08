@@ -23,9 +23,13 @@ type Props = {
 export const ValidatorReport = ({ documentType, rulesetKey }: Props) => {
   const { dispatch, state } = useAppContext();
   const oscalDocument = state.rulesets[rulesetKey].oscalDocuments[documentType];
-  const validationResult = state.rulesets[rulesetKey].validationResults[documentType];
+  const validationResult =
+    state.rulesets[rulesetKey].validationResults[documentType];
   const filterOptions = selectFilterOptions(documentType, rulesetKey)(state);
-  const schematronReport = selectSchematronReport(documentType, rulesetKey)(state);
+  const schematronReport = selectSchematronReport(
+    documentType,
+    rulesetKey,
+  )(state);
   const viewTitle = getAssertionViewTitleByIndex(
     filterOptions.assertionViews,
     oscalDocument.filter.assertionViewId,

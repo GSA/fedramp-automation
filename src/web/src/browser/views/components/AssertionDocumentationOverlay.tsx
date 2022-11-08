@@ -6,7 +6,11 @@ import { AssertionXSpecScenarios } from './AssertionXSpecScenarios';
 import * as assertionDocumentation from '../../presenter/actions/assertion-documentation';
 import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 
-export const AssertionDocumentationOverlay = ({ rulesetKey }: { rulesetKey: SchematronRulesetKey }) => {
+export const AssertionDocumentationOverlay = ({
+  rulesetKey,
+}: {
+  rulesetKey: SchematronRulesetKey;
+}) => {
   const { dispatch, state } = useAppContext();
 
   return (

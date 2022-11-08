@@ -12,7 +12,10 @@ type Props = {
   rulesetKey: SchematronRulesetKey;
 };
 
-export const ValidatorResultsFilterForm = ({ documentType, rulesetKey }: Props) => {
+export const ValidatorResultsFilterForm = ({
+  documentType,
+  rulesetKey,
+}: Props) => {
   const { state } = useAppContext();
   const oscalDocument = state.rulesets[rulesetKey].oscalDocuments[documentType];
   const { dispatch } = useAppContext();
@@ -50,11 +53,13 @@ export const ValidatorResultsFilterForm = ({ documentType, rulesetKey }: Props) 
               if (event && event.target) {
                 text = event.target.value;
               }
-              dispatch(schematron.setFilterText({
-                documentType,
-                rulesetKey,
-                text
-              }));
+              dispatch(
+                schematron.setFilterText({
+                  documentType,
+                  rulesetKey,
+                  text,
+                }),
+              );
             }}
             placeholder="Search text..."
           />

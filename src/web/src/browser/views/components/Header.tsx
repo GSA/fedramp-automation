@@ -2,7 +2,11 @@ import classnames from 'classnames';
 import closeSvg from 'uswds/img/usa-icons/close.svg';
 import logo from '../images/logo.svg';
 
-import { getUrl, Routes, isRulesetRoute } from '@asap/browser/presenter/state/router';
+import {
+  getUrl,
+  Routes,
+  isRulesetRoute,
+} from '@asap/browser/presenter/state/router';
 import { useAppContext } from '../context';
 import { SCHEMATRON_RULESETS } from '@asap/shared/domain/schematron';
 
@@ -64,10 +68,14 @@ export const Header = () => {
               </button>
               <ul id="document-rules" className="usa-nav__submenu">
                 <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSummary("rev4"))}>{SCHEMATRON_RULESETS['rev4'].title}</a>
+                  <a href={getUrl(Routes.documentSummary('rev4'))}>
+                    {SCHEMATRON_RULESETS['rev4'].title}
+                  </a>
                 </li>
                 <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSummary("rev5"))}>{SCHEMATRON_RULESETS['rev5'].title}</a>
+                  <a href={getUrl(Routes.documentSummary('rev5'))}>
+                    {SCHEMATRON_RULESETS['rev5'].title}
+                  </a>
                 </li>
               </ul>
             </li>

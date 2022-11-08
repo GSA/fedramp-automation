@@ -16,10 +16,12 @@ type DocumentViewerOverlayProps = {
 
 export const DocumentViewerOverlay = ({
   documentType,
-  rulesetKey
+  rulesetKey,
 }: DocumentViewerOverlayProps) => {
   const { dispatch } = useAppContext();
-  const validationResult = useSelector(selectValidationResult(documentType, rulesetKey));
+  const validationResult = useSelector(
+    selectValidationResult(documentType, rulesetKey),
+  );
 
   // Hightlight and scroll to node when mounted to DOM.
   const refCallback = useCallback(
@@ -50,7 +52,9 @@ export const DocumentViewerOverlay = ({
     <Modal
       className="overflow-scroll radius-lg padding-x-10 padding-y-5"
       isOpen={validationResult.current === 'ASSERTION_CONTEXT'}
-      onRequestClose={() => dispatch(clearAssertionContext(documentType, rulesetKey))}
+      onRequestClose={() =>
+        dispatch(clearAssertionContext(documentType, rulesetKey))
+      }
       contentLabel="Assertion rule examples"
       style={{
         overlay: {

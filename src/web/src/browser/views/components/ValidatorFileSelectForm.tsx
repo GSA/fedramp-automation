@@ -5,7 +5,11 @@ import * as validator from '../../presenter/actions/validator';
 import { useAppContext } from '../context';
 import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 
-export const ValidatorFileSelectForm = ({ rulesetKey }: { rulesetKey: SchematronRulesetKey }) => {
+export const ValidatorFileSelectForm = ({
+  rulesetKey,
+}: {
+  rulesetKey: SchematronRulesetKey;
+}) => {
   const { dispatch, state } = useAppContext();
 
   return (
@@ -71,7 +75,9 @@ export const ValidatorFileSelectForm = ({ rulesetKey }: { rulesetKey: Schematron
                 <option
                   key={index}
                   onSelect={() =>
-                    dispatch(validator.setXmlUrl(rulesetKey, sampleDocument.url))
+                    dispatch(
+                      validator.setXmlUrl(rulesetKey, sampleDocument.url),
+                    )
                   }
                   value={sampleDocument.url}
                 >

@@ -10,7 +10,10 @@ import { useAppContext } from '../context';
 import tableImage from '../images/2022-05-19-first-oscal-system-security-plan.png';
 import '../styles/ValidatorPage.scss';
 import { RulesetPicker } from './RulesetPicker';
-import { SchematronRulesetKey, SCHEMATRON_RULESETS } from '@asap/shared/domain/schematron';
+import {
+  SchematronRulesetKey,
+  SCHEMATRON_RULESETS,
+} from '@asap/shared/domain/schematron';
 
 const DocumentValidator = ({
   documentType,
@@ -23,7 +26,10 @@ const DocumentValidator = ({
     <div className="grid-row tablet:padding-top-5">
       <div className="tablet:grid-col-4">
         <div className="position-sticky top-1 height-viewport overflow-y-auto">
-          <ValidatorResultsFilterForm documentType={documentType} rulesetKey={rulesetKey} />
+          <ValidatorResultsFilterForm
+            documentType={documentType}
+            rulesetKey={rulesetKey}
+          />
         </div>
       </div>
       <div className="tablet:grid-col-8 tablet:padding-left-2">
@@ -129,7 +135,10 @@ export const ValidatorPage = ({
         </div>
 
         {documentType ? (
-          <DocumentValidator documentType={documentType} rulesetKey={rulesetKey} />
+          <DocumentValidator
+            documentType={documentType}
+            rulesetKey={rulesetKey}
+          />
         ) : (
           <div className="grid-row grid-gap">
             <div className="desktop:grid-col">
@@ -161,19 +170,24 @@ export const ValidatorPage = ({
                           ruleset.validationResults.ssp.summary.firedCount ===
                           (0 || null),
                         'text-error':
-                          ruleset.validationResults.ssp.summary.firedCount !== null &&
+                          ruleset.validationResults.ssp.summary.firedCount !==
+                            null &&
                           ruleset.validationResults.ssp.summary.firedCount > 0,
                       })}
                     >
                       <b>
-                        {ruleset.validationResults.ssp.summary.firedCount !== null &&
+                        {ruleset.validationResults.ssp.summary.firedCount !==
+                          null &&
                         ruleset.validationResults.ssp.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
                     </td>
                     <td>
-                      {ruleset.oscalDocuments.ssp.config.schematronAsserts.length}
+                      {
+                        ruleset.oscalDocuments.ssp.config.schematronAsserts
+                          .length
+                      }
                     </td>
                     <td>{ruleset.validationResults.ssp.summary.firedCount}</td>
                   </tr>
@@ -190,18 +204,24 @@ export const ValidatorPage = ({
                             ruleset.validationResults.sar.summary.firedCount ===
                             (0 || null),
                           'text-error':
-                            ruleset.validationResults.sar.summary.firedCount !== null &&
-                            ruleset.validationResults.sar.summary.firedCount > 0,
+                            ruleset.validationResults.sar.summary.firedCount !==
+                              null &&
+                            ruleset.validationResults.sar.summary.firedCount >
+                              0,
                         })}
                       >
-                        {ruleset.validationResults.sar.summary.firedCount !== null &&
+                        {ruleset.validationResults.sar.summary.firedCount !==
+                          null &&
                         ruleset.validationResults.sar.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
                     </td>
                     <td>
-                      {ruleset.oscalDocuments.sar.config.schematronAsserts.length}
+                      {
+                        ruleset.oscalDocuments.sar.config.schematronAsserts
+                          .length
+                      }
                     </td>
                     <td>{ruleset.validationResults.sar.summary.firedCount}</td>
                   </tr>
@@ -217,19 +237,24 @@ export const ValidatorPage = ({
                           ruleset.validationResults.sap.summary.firedCount ===
                           (0 || null),
                         'text-error':
-                          ruleset.validationResults.sap.summary.firedCount !== null &&
+                          ruleset.validationResults.sap.summary.firedCount !==
+                            null &&
                           ruleset.validationResults.sap.summary.firedCount > 0,
                       })}
                     >
                       <b>
-                        {ruleset.validationResults.sap.summary.firedCount !== null &&
+                        {ruleset.validationResults.sap.summary.firedCount !==
+                          null &&
                         ruleset.validationResults.sap.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
                     </td>
                     <td>
-                      {ruleset.oscalDocuments.sap.config.schematronAsserts.length}
+                      {
+                        ruleset.oscalDocuments.sap.config.schematronAsserts
+                          .length
+                      }
                     </td>
                     <td>{ruleset.validationResults.sap.summary.firedCount}</td>
                   </tr>
@@ -245,19 +270,24 @@ export const ValidatorPage = ({
                           ruleset.validationResults.poam.summary.firedCount ===
                           (0 || null),
                         'text-error':
-                          ruleset.validationResults.poam.summary.firedCount !== null &&
+                          ruleset.validationResults.poam.summary.firedCount !==
+                            null &&
                           ruleset.validationResults.poam.summary.firedCount > 0,
                       })}
                     >
                       <b>
-                        {ruleset.validationResults.poam.summary.firedCount !== null &&
+                        {ruleset.validationResults.poam.summary.firedCount !==
+                          null &&
                         ruleset.validationResults.poam.summary.firedCount > 0
                           ? 'FAIL'
                           : 'PASS'}
                       </b>
                     </td>
                     <td>
-                      {ruleset.oscalDocuments.poam.config.schematronAsserts.length}
+                      {
+                        ruleset.oscalDocuments.poam.config.schematronAsserts
+                          .length
+                      }
                     </td>
                     <td>{ruleset.validationResults.poam.summary.firedCount}</td>
                   </tr>
