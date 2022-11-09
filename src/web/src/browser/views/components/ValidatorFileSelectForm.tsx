@@ -16,7 +16,8 @@ export const ValidatorFileSelectForm = ({
     <>
       <div className="tablet:grid-col-4">
         <div className="usa-hint" id="file-input-specific-hint">
-          Select FedRAMP OSCAL XML or JSON file (SSP, SAP, SAR, or POA&M)
+          Select FedRAMP OSCAL SSP, SAP, SAR, or POA&M (XML, JSON or YAML
+          format)
         </div>
         <input
           id="file-input-specific"

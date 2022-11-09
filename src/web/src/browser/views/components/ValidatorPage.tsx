@@ -67,8 +67,12 @@ export const ValidatorPage = ({
             })}
             href={getUrl(Routes.documentSummary(rulesetKey))}
           >
-            {SCHEMATRON_RULESETS[rulesetKey].title}
+            Summary
+            <br />
+            sample:
+            {ruleset.meta.description}
           </a>
+          <RulesetPicker />
           <a
             className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentPOAM',
