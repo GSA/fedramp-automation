@@ -60,7 +60,7 @@ export type SchematronRuleset = {
   key: SchematronRulesetKey;
   // The title for this ruleset is displayed in the user interface
   title: string;
-  description: string;
+  description?: string;
 };
 
 export const SCHEMATRON_RULESETS: Record<
@@ -70,12 +70,12 @@ export const SCHEMATRON_RULESETS: Record<
   rev5: {
     key: 'rev5',
     title: 'NIST RMF revision 5',
-    description: 'lorem upsum dolar....',
+    description: '',
   },
   rev4: {
     key: 'rev4',
     title: 'NIST RMF revision 4',
-    description: 'lorem upsum dolar....',
+    description: 'The latest NIST RMF is rev5',
   },
 } as const;
 

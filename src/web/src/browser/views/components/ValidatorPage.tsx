@@ -68,11 +68,7 @@ export const ValidatorPage = ({
             href={getUrl(Routes.documentSummary(rulesetKey))}
           >
             Summary
-            <br />
-            sample:
-            {ruleset.meta.description}
           </a>
-          <RulesetPicker />
           <a
             className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentPOAM',
@@ -125,9 +121,18 @@ export const ValidatorPage = ({
               </span>
             )}
           </a>
+          <RulesetPicker />
         </div>
       </nav>
-
+      {ruleset.meta.description && (
+        <div className="grid-container">
+          <div className="usa-alert usa-alert--info usa-alert--slim">
+            <div className="usa-alert__body">
+              <p className="usa-alert__text">{ruleset.meta.description}</p>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="grid-container">
         <div className="grid-row grid-gap margin-bottom-5">
           <div className="tablet:grid-col-12">
