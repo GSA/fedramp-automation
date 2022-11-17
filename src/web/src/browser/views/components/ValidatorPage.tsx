@@ -58,9 +58,9 @@ export const ValidatorPage = ({
 
       <nav
         aria-label="Secondary navigation"
-        className="display-none desktop:display-block border-base-light border-bottom-1px"
+        className="desktop:display-block border-base-light border-bottom-1px"
       >
-        <div className="grid-container grid-row flex-row flex-justify">
+        <div className="grid-container grid-row flex-justify secondary-nav-container">
           <a
             className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentSummary',

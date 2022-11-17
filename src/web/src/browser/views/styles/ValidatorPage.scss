@@ -14,3 +14,12 @@ a {
   color: var(--theme-dark-text) !important;
   font-weight: bold;
 }
+.secondary-nav-container {
+  flex-direction: column;
+}
+// desktop and up
+@media (min-width: 60rem) {
+  .secondary-nav-container {
+    flex-direction: row;
+  }
+}

@@ -7,9 +7,9 @@ import { getUrl, Routes } from '@asap/browser/presenter/state/router';
 export const RulesetPicker = () => {
   const { dispatch, state } = useAppContext();
   return (
-    <section className="ruleset-picker">
+    <section className="ruleset-picker padding-2 tablet:padding-0">
       <select
-        className="usa-select margin-right-105 border-0 padding-top-0 padding-bottom-0 margin-top-0"
+        className="usa-select margin-right-105 border-0 padding-top-0 padding-bottom-0 padding-left-0 tablet:padding-left-2 margin-top-0"
         name="schematron-ruleset"
         id="schematron-ruleset"
         disabled={state.validator.current === 'PROCESSING'}
