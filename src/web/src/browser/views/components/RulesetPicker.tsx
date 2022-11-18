@@ -29,7 +29,7 @@ export const RulesetPicker = () => {
         {Object.entries(state.validator.ruleset.choices).map(
           ([rulesetKey, ruleset], index) => (
             <option key={index} value={rulesetKey}>
-              {ruleset.key}
+              {ruleset.title}
             </option>
           ),
         )}
