@@ -61,6 +61,7 @@ export const ValidatorPage = ({
         className="desktop:display-block border-base-light border-bottom-1px"
       >
         <div className="grid-container grid-row flex-justify secondary-nav-container">
+          <RulesetPicker />
           <a
             className={classnames('padding-2', {
               'active-link': router.currentRoute.type === 'DocumentSummary',
@@ -121,7 +122,6 @@ export const ValidatorPage = ({
               </span>
             )}
           </a>
-          <RulesetPicker />
         </div>
       </nav>
       {ruleset.meta.description && (

@@ -56,28 +56,14 @@ export const Header = () => {
               </a>
             </li>
             <li className="usa-nav__primary-item">
-              <button
-                className={classnames(
-                  'usa-accordion__button',
-                  'usa-nav__link',
-                  {
-                    'usa-current': isRulesetRoute(currentRoute),
-                  },
-                )}
-                aria-expanded="false"
-                aria-controls="document-rules"
+              <a
+                className={classnames('usa-nav__link', {
+                  'usa-current': isRulesetRoute(currentRoute),
+                })}
+                href={getUrl(Routes.documentSummary('rev5'))}
               >
                 <span>Document Rules</span>
-              </button>
-              <ul id="document-rules" className="usa-nav__submenu">
-                {SchematronRulesetKeys.map(rulesetKey => (
-                  <li className="usa-nav__submenu-item" key={rulesetKey}>
-                    <a href={getUrl(Routes.documentSummary(rulesetKey))}>
-                      {SCHEMATRON_RULESETS[rulesetKey].title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              </a>
             </li>
             <li className="usa-nav__primary-item">
               <a
