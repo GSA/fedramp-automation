@@ -57,7 +57,7 @@ export const Header = () => {
                 className={classnames('usa-nav__link', {
                   'usa-current': isRulesetRoute(currentRoute),
                 })}
-                href={getUrl(Routes.documentSummary('rev5'))}
+                href={getUrl(Routes.defaultDocumentSummary)}
               >
                 <span>Document Rules</span>
               </a>
