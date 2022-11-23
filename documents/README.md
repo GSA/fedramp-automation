@@ -10,7 +10,7 @@ This includes the following content:
 
 - **[Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP)](./Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Plans_(SAP).pdf)**
 
-- **[Guide to OSCAL-based FedRAMP Security Assessment Reports (SAR)](./Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Reports_(SAR).pdf)**
+- **[Guide to OSCAL-based FedRAMP Security Assessment Results (SAR)](./Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Reports_(SAR).pdf)**
 
 - **[Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&M)](./Guide_to_OSCAL-based_FedRAMP_Plan_of_Action_and_Milestones_(POAM).pdf)**
 

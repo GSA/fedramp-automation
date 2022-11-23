@@ -38,7 +38,7 @@
     </rule>
     <rule
         doc:checklist-reference="Section B Check 5.0">
-        <statement>A FedRAMP SSP submission must include a Security Assessment Report (SAR).</statement>
+        <statement>A FedRAMP SSP submission must include a Security Assessment Results (SAR).</statement>
     </rule>
     <rule
         doc:checklist-reference="Section B Check 6.0">
