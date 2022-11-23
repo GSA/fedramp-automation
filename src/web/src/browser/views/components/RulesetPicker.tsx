@@ -1,8 +1,9 @@
-import { useAppContext } from '../context';
-import '../styles/RulesetPicker.scss';
 import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 import { setCurrentRoute } from '@asap/browser/presenter/actions';
 import { getUrl, Routes } from '@asap/browser/presenter/state/router';
+
+import { useAppContext } from '../context';
+import '../styles/RulesetPicker.scss';
 
 export const RulesetPicker = () => {
   const { dispatch, state } = useAppContext();
@@ -13,6 +14,7 @@ export const RulesetPicker = () => {
         name="schematron-ruleset"
         id="schematron-ruleset"
         disabled={state.validator.current === 'PROCESSING'}
+        defaultValue={(state.router.currentRoute as any).ruleset}
         onChange={event => {
           dispatch(
             setCurrentRoute(
