@@ -137,7 +137,7 @@ export const ValidatorPage = ({
         <div className="grid-row grid-gap margin-bottom-5">
           <div className="tablet:grid-col-12">
             <h1 className="font-sans-2xl text-light text-theme-dark-blue">
-              Choose an XML file to process
+              Choose an OSCAL file to process
             </h1>
           </div>
           <ValidatorFileSelectForm rulesetKey={rulesetKey} />

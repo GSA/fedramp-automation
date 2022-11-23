@@ -1,17 +1,14 @@
 import classnames from 'classnames';
 import closeSvg from 'uswds/img/usa-icons/close.svg';
-import logo from '../images/logo.svg';
 
 import {
   getUrl,
   Routes,
   isRulesetRoute,
 } from '@asap/browser/presenter/state/router';
+
 import { useAppContext } from '../context';
-import {
-  SchematronRulesetKeys,
-  SCHEMATRON_RULESETS,
-} from '@asap/shared/domain/schematron';
+import logo from '../images/logo.svg';
 
 export const Header = () => {
   const { currentRoute } = useAppContext().state.router;
