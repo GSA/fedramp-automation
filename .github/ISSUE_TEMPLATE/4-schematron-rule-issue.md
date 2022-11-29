@@ -1,6 +1,6 @@
 ---
-name: 10x ASAP Phase 4 Validations
-about: For 10x ASAP phase 4 validation-related issues
+name: Schematron validation rule
+about: Validation-related issues
 title: ''
 labels: ''
 assignees: ''
