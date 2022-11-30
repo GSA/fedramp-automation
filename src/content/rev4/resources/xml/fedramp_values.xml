@@ -1266,6 +1266,14 @@
                 value="text/html">text/html</enum>
             <enum
                 value="text/plain">text/plain</enum>
+            <enum
+                value="application/xml">application/xml</enum>
+            <enum
+                value="text/xml">text/xml</enum>
+            <enum
+                value="application/json">application/json</enum>
+            <enum
+                value="application/yaml">application/yaml</enum>
         </allowed-values>
     </value-set>
 
