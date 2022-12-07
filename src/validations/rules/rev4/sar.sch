@@ -947,7 +947,7 @@
                 fedramp:specific="true"
                 id="has-attestation-value-no"
                 role="error"
-                see="Guide to OSCAL-based FedRAMP Security Assessment Reports - Section 4.12"
+                see="Guide to OSCAL-based FedRAMP Security Assessment Results - Section 4.12"
                 test="
                     if (oscal:prop/@value ne 'yes')
                     then

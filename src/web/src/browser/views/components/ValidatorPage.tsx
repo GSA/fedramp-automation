@@ -10,10 +10,7 @@ import { useAppContext } from '../context';
 import tableImage from '../images/2022-05-19-first-oscal-system-security-plan.png';
 import '../styles/ValidatorPage.scss';
 import { RulesetPicker } from './RulesetPicker';
-import {
-  SchematronRulesetKey,
-  SCHEMATRON_RULESETS,
-} from '@asap/shared/domain/schematron';
+import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 
 const DocumentValidator = ({
   documentType,
@@ -102,7 +99,7 @@ export const ValidatorPage = ({
             })}
             href={getUrl(Routes.documentSAR(rulesetKey))}
           >
-            Security Assessment Report
+            Security Assessment Results
             {ruleset.validationResults.sar.current === 'HAS_RESULT' && (
               <span className="usa-tag margin-left-1 bg-theme-red">
                 {ruleset.validationResults.sar.summary.firedCount}
@@ -203,7 +200,7 @@ export const ValidatorPage = ({
                   <tr>
                     <td>
                       <a href={getUrl(Routes.documentSAR(rulesetKey))}>
-                        Security Assessment Report
+                        Security Assessment Results
                       </a>
                     </td>
                     <td>
