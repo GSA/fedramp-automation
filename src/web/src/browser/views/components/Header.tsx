@@ -83,7 +83,7 @@ export const Header = () => {
                 </li>
                 <li className="usa-nav__submenu-item">
                   <a href={getUrl(Routes.documentSAR)}>
-                    Security Assessment Report
+                    Security Assessment Results
                   </a>
                 </li>
                 <li className="usa-nav__submenu-item">

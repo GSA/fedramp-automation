@@ -19,7 +19,7 @@ assignees: volpet2014
   - [ ] the **Guide to OSCAL-based FedRAMP Content** (PDF)
   - [ ] the **Guide to OSCAL-based FedRAMP System Security Plans (SSP)** (PDF)
   - [ ] the **Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP)** (PDF)
-  - [ ] the **Guide to OSCAL-based FedRAMP Security Assessment Reports (SAR)** (PDF)
+  - [ ] the **Guide to OSCAL-based FedRAMP Security Assessment Results (SAR)** (PDF)
   - [ ] the **Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&M)** (PDF)
   - [ ] the **FedRAMP SSP OSCAL Template** (JSON or XML Format)
   - [ ] the **FedRAMP SAP OSCAL Template** (JSON or XML Format)
