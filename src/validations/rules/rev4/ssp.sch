@@ -4233,7 +4233,7 @@
 
         <sch:rule
             context="oscal:system-implementation">
-
+            <!-- Make sure that these protocols are in upper case -->
             <sch:let
                 name="expected-network-protocols"
                 value="'DNS', 'NTP', 'SSH', 'HTTPS', 'TLS'" />
@@ -4245,7 +4245,8 @@
                 role="information"
                 test="
                     every $p in $expected-network-protocols
-                        satisfies exists(//oscal:protocol[@name eq $p])">All expected network protocols are specified.</sch:assert>
+                        satisfies exists(//oscal:protocol[upper-case(@name) eq $p])">All expected network protocols are
+                specified.</sch:assert>
         </sch:rule>
 
     </sch:pattern>
