@@ -4233,7 +4233,7 @@
 
         <sch:rule
             context="oscal:system-implementation">
-            <!-- Please make sure that that these protocols are in upper case -->
+            <!-- Make sure that these protocols are in upper case -->
             <sch:let
                 name="expected-network-protocols"
                 value="'DNS', 'NTP', 'SSH', 'HTTPS', 'TLS'" />
