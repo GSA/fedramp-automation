@@ -1,13 +1,13 @@
-
 ---
-name: 10x Phase 4 ASAP VALIDATIONS DoD
-about: For 10x ASAP phase 4 validations (non-tooling) stories
+name: Validation tooling
+about: Validation tooling-related issues (node.js project, build system)
 title: ''
-labels: template
+labels: ''
 assignees: ''
+
 ---
 
-Extended Description**
+**Extended Description**
 - As a ... , in order to ... , I want ...
 
 **Preconditions**
@@ -21,13 +21,14 @@ Extended Description**
 
 **Definition of Done**
  - [ ] Acceptance criteria met
- - [ ] Unit test coverage of our code > 95%
- - [ ] Automated code quality checks passed
- - [ ] Security reviewed and reported (Wes to be consulted on this)
+ - [ ] Unit test coverage of our code > 90% - needs automation story
+ - [ ] Accessibility tests pass - needs automation story
+ - [ ] Automated code quality checks pass
+ - [ ] Security reviewed and reported - check in with Wes on what we could do here
  - [ ] Reviewed against plain language guidelines
+ - [ ] Design QA passed
  - [ ] Code must be self-documenting
  - [ ] No local tech debt
- - [ ] Load/performance tests passed – needs to be created/automated
  - [ ] Documentation updated
  - [ ] Architectural Decision Record completed as necessary for significant design choices
  - [ ] PR reviewed & approved
