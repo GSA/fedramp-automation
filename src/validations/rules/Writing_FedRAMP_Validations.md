@@ -29,7 +29,7 @@ The pertinent normative documents are
 
 - [Guide to OSCAL-based FedRAMP Security Assessment Plans  (SAP)](../../../documents/Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Plans_(SAP).pdf)
 
-- [Guide to OSCAL-based FedRAMP Security Assessment Results (SAR)](../../../documents/Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Reports_(SAR).pdf)
+- [Guide to OSCAL-based FedRAMP Security Assessment Results (SAR)](../../../documents/Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Results_(SAR).pdf)
 
 - [Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&M)](../../../documents/Guide_to_OSCAL-based_FedRAMP_Plan_of_Action_and_Milestones_(POAM).pdf)
 
