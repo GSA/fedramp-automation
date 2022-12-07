@@ -87,7 +87,7 @@ export const ValidatorPage = ({
             })}
             href={getUrl(Routes.documentSAR)}
           >
-            Security Assessment Report
+            Security Assessment Results
             {validationResults.sar.current === 'HAS_RESULT' && (
               <span className="usa-tag margin-left-1 bg-theme-red">
                 {validationResults.sar.summary.firedCount}
@@ -172,7 +172,7 @@ export const ValidatorPage = ({
                   <tr>
                     <td>
                       <a href={getUrl(Routes.documentSAR)}>
-                        Security Assessment Report
+                        Security Assessment Results
                       </a>
                     </td>
                     <td>

@@ -147,7 +147,7 @@ export const breadcrumbs: Record<
     return [
       ...breadcrumbs.DocumentSummary(route),
       {
-        text: 'Security Assessment Report',
+        text: 'Security Assessment Results',
         linkUrl: route.type !== 'DocumentSAR' && getUrl(Routes.documentSAR),
       },
     ];
