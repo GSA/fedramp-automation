@@ -22,7 +22,7 @@ export const BASELINES_PATH = join(
   '../../dist/content/rev4/baselines/xml',
 );
 export const PUBLIC_PATH = join(PROJECT_ROOT, 'public');
-export const BUILD_PATH = join(PROJECT_ROOT, 'build');
+export const BUILD_PATH = join(PUBLIC_PATH, 'rules');
 export const RULES_PATH = join(PROJECT_ROOT, '../validations/rules');
 export const RULES_TEST_PATH = join(PROJECT_ROOT, '../validations/test/rules');
 
@@ -45,10 +45,10 @@ export const SCHEMATRON_LOCAL_PATHS: Record<OscalDocumentKey, string> = {
 
 export const SCHEMATRON_SUMMARY_LOCAL_PATHS: Record<OscalDocumentKey, string> =
   {
-    ssp: join(REPOSITORY_ROOT, './src/web/build/ssp.json'),
-    sar: join(REPOSITORY_ROOT, './src/web/build/sar.json'),
-    sap: join(REPOSITORY_ROOT, './src/web/build/sap.json'),
-    poam: join(REPOSITORY_ROOT, './src/web/build/poam.json'),
+    ssp: join(REPOSITORY_ROOT, './src/web/public/rules/ssp.json'),
+    sar: join(REPOSITORY_ROOT, './src/web/public/rules/sar.json'),
+    sap: join(REPOSITORY_ROOT, './src/web/public/rules/sap.json'),
+    poam: join(REPOSITORY_ROOT, './src/web/public/rules/poam.json'),
   };
 
 export const XSPEC_REPOSITORY_PATHS: Record<OscalDocumentKey, `/${string}`> = {
