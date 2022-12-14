@@ -18,7 +18,7 @@ const PROJECT_ROOT = process.cwd();
 export const REPOSITORY_ROOT = join(PROJECT_ROOT, '../../');
 
 export const PUBLIC_PATH = join(PROJECT_ROOT, 'public');
-export const BUILD_PATH = join(PROJECT_ROOT, 'build');
+export const BUILD_PATH = join(PUBLIC_PATH, 'rules');
 export const RULES_PATH = join(PROJECT_ROOT, '../validations/rules');
 export const RULES_TEST_PATH = join(PROJECT_ROOT, '../validations/test/rules');
 
@@ -85,6 +85,13 @@ export const getLocalPaths = (rulesetKey: SchematronRulesetKey) => ({
     poam: join(BUILD_PATH, `./${rulesetKey}/assertion-views-poam.json`),
   } as Record<OscalDocumentKey, string>,
 });
+export const SCHEMATRON_SUMMARY_LOCAL_PATHS: Record<OscalDocumentKey, string> =
+  {
+    ssp: join(REPOSITORY_ROOT, './src/web/public/rules/ssp.json'),
+    sar: join(REPOSITORY_ROOT, './src/web/public/rules/sar.json'),
+    sap: join(REPOSITORY_ROOT, './src/web/public/rules/sap.json'),
+    poam: join(REPOSITORY_ROOT, './src/web/public/rules/poam.json'),
+  };
 
 export const LOCAL_PATHS = Object.fromEntries(
   SchematronRulesetKeys.map(rulesetKey => [
