@@ -15,19 +15,19 @@ describe('source code link generator', () => {
         getDocumentReferenceUrls({
           github,
           documentType: 'ssp',
+          rulesetKey: 'rev4',
           schXmlString: TEST_SCH,
-          xspecXmlString: TEST_XSPEC,
         }),
       ).toEqual({
         assertions: {
           'has-import-ssp':
-            'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/ssp.sch#L8-L13',
+            'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/rev4/ssp.sch#L8-L13',
           'has-import-ssp-href':
-            'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/ssp.sch#L43-L48',
+            'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/rev4/ssp.sch#L43-L48',
           'has-location-assessment-subject':
-            'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/ssp.sch#L34-L39',
+            'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/rev4/ssp.sch#L34-L39',
           'has-web-applications':
-            'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/ssp.sch#L24-L32',
+            'https://github.com/18F/fedramp-automation/blob/master/src/validations/rules/rev4/ssp.sch#L24-L32',
         },
       });
     });
@@ -66,7 +66,7 @@ const TEST_SCH = `<?xml version="1.0" encoding="utf-8"?>
                 see="https://github.com/GSA/fedramp-automation-guides/issues/31"
                 test="count($web-apps[not(. = $sap-web-tasks)]) = 0"
                 unit:override-xspec="both">For every web interface to be tested there must be a matching task entry.</sch:assert>
-            
+
             <sch:assert
                 diagnostics="has-location-assessment-subject-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP) §4.3"
@@ -107,7 +107,7 @@ const TEST_XSPEC = `<x:description
         <x:scenario
             label="Section 2.1">
             <x:scenario
-                label="when the security sensitivity level">                
+                label="when the security sensitivity level">
                 <x:scenario
                     label="is defined">
                     <x:context>

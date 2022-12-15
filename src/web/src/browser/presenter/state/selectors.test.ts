@@ -4,7 +4,7 @@ import { selectFilterOptions } from './selectors';
 describe('selectors', () => {
   describe('selectFilterOptions', () => {
     it('handles group with two assertions', () => {
-      const options = selectFilterOptions('ssp').resultFunc(
+      const options = selectFilterOptions('ssp', 'rev4').resultFunc(
         {
           assertionViews: [
             {
@@ -121,7 +121,7 @@ describe('selectors', () => {
 
   describe('selectFilterOptions', () => {
     it('handles empty state', () => {
-      const options = selectFilterOptions('ssp').resultFunc(
+      const options = selectFilterOptions('ssp', 'rev4').resultFunc(
         {
           assertionViews: [],
           schematronAsserts: [],

@@ -4,8 +4,13 @@ import spriteSvg from 'uswds/img/sprite.svg';
 
 import { AssertionXSpecScenarios } from './AssertionXSpecScenarios';
 import * as assertionDocumentation from '../../presenter/actions/assertion-documentation';
+import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 
-export const AssertionDocumentationOverlay = () => {
+export const AssertionDocumentationOverlay = ({
+  rulesetKey,
+}: {
+  rulesetKey: SchematronRulesetKey;
+}) => {
   const { dispatch, state } = useAppContext();
 
   return (
@@ -66,7 +71,7 @@ export const AssertionDocumentationOverlay = () => {
             </div>
           </div>
         </div>
-        <AssertionXSpecScenarios />
+        <AssertionXSpecScenarios rulesetKey={rulesetKey} />
       </Modal>
     </div>
   );

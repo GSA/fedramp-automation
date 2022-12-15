@@ -28,7 +28,7 @@
         uri="http://us.gov/testing/unit-testing" />
 
     <doc:xspec
-        href="../test/rules/sap.xspec" />
+        href="../../test/rules/rev4/sap.xspec" />
 
     <sch:title>FedRAMP Security Assessment Plan Validations</sch:title>
 
@@ -1335,7 +1335,7 @@
             doc:context="oscal:import-ssp"
             id="has-import-ssp-external-href-diagnostic">This OSCAL SAP import-ssp element href attribute which is an external reference does not
             identify an available target.</sch:diagnostic>
-        
+
         <sch:diagnostic
             doc:assertion="import-ssp-has-available-document"
             doc:context="oscal:import-ssp"

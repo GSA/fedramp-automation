@@ -60,48 +60,14 @@ npm run test:watch
 To run the CLI:
 
 ```bash
-# To validate the demo SSP.
-npm run cli -- validate ../content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml
+# To validate the demo SSP, provide the Schematron ruleset (eg, "rev4") and the document to validate:
+npm run cli -- validate rev4 ../content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml
 ```
 
-### Saxon performance comparisons
+### Command-line validation
 
-To time Saxon-JS vs Saxon-HE performance:
-
-#### Saxon-JS
+The Schematron validation may be tested via the SaxonJS-backed node.js command line inteface.
 
 ```bash
-time npm run cli -- validate ../content/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml
-```
-
-Example output:
-
-```
-Found 328 assertions in ssp
-Done
-npm run cli -- validate   13.80s user 0.31s system 107% cpu 13.160 total
-```
-
-#### Saxon-HE
-
-```bash
-cd ../validations
-# First, compile Schematron to XSLT:
-./bin/validate_with_schematron.sh
-# Then, time the stylesheet transform:
-time ./bin/validate_with_schematron.sh -f ./test/demo/FedRAMP-SSP-OSCAL-Template.xml -t
-```
-
-Example output:
-
-```
-output dir report/schematron
-doc requested to be validated: ./test/demo/FedRAMP-SSP-OSCAL-Template.xml
-using saxon version 10.8
-Saxon JAR at classpath /Users/dan/.m2/repository/net/sf/saxon/Saxon-HE/10.8/Saxon-HE-10.8.jar is valid
-validating doc: ./test/demo/FedRAMP-SSP-OSCAL-Template.xml with rules/poam.sch output found in report/schematron/./test/demo/FedRAMP-SSP-OSCAL-Template.xml__poam.results.xml
-validating doc: ./test/demo/FedRAMP-SSP-OSCAL-Template.xml with rules/sap.sch output found in report/schematron/./test/demo/FedRAMP-SSP-OSCAL-Template.xml__sap.results.xml
-validating doc: ./test/demo/FedRAMP-SSP-OSCAL-Template.xml with rules/sar.sch output found in report/schematron/./test/demo/FedRAMP-SSP-OSCAL-Template.xml__sar.results.xml
-validating doc: ./test/demo/FedRAMP-SSP-OSCAL-Template.xml with rules/ssp.sch output found in report/schematron/./test/demo/FedRAMP-SSP-OSCAL-Template.xml__ssp.results.xml
-./bin/validate_with_schematron.sh -f  -t  21.09s user 1.55s system 262% cpu 8.628 total
+npm run cli -- validate rev4 ../content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml
 ```

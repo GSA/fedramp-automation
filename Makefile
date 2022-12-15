@@ -28,9 +28,9 @@ test: test-validations test-web test-examples ## Test all
 
 build: build-validations build-web dist  ## Build all artifacts and copy into dist directory
 	# Copy validations
-	mkdir -p dist/validations
-	cp src/validations/target/rules/*.xsl dist/validations
-	cp src/validations/rules/*.sch dist/validations
+	mkdir -p dist/validations/rev4
+	cp src/validations/target/rules/rev4/*.xsl dist/validations/rev4
+	cp src/validations/rules/rev4/*.sch dist/validations/rev4
 
 	# Copy web build to dist
 	cp -R ./src/web/dist dist/web

@@ -1,9 +1,14 @@
 import classnames from 'classnames';
 import closeSvg from 'uswds/img/usa-icons/close.svg';
-import logo from '../images/logo.svg';
 
-import { getUrl, Routes } from '@asap/browser/presenter/state/router';
+import {
+  getUrl,
+  Routes,
+  isRulesetRoute,
+} from '@asap/browser/presenter/state/router';
+
 import { useAppContext } from '../context';
+import logo from '../images/logo.svg';
 
 export const Header = () => {
   const { currentRoute } = useAppContext().state.router;
@@ -48,48 +53,14 @@ export const Header = () => {
               </a>
             </li>
             <li className="usa-nav__primary-item">
-              <button
-                className={classnames(
-                  'usa-accordion__button',
-                  'usa-nav__link',
-                  {
-                    'usa-current': [
-                      Routes.documentSummary.type,
-                      Routes.documentPOAM.type,
-                      Routes.documentSAP.type,
-                      Routes.documentSAR.type,
-                      Routes.documentSSP.type,
-                    ].includes(currentRoute.type as any),
-                  },
-                )}
-                aria-expanded="false"
-                aria-controls="document-rules"
+              <a
+                className={classnames('usa-nav__link', {
+                  'usa-current': isRulesetRoute(currentRoute),
+                })}
+                href={getUrl(Routes.defaultDocumentSummary)}
               >
                 <span>Document Rules</span>
-              </button>
-              <ul id="document-rules" className="usa-nav__submenu">
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSummary)}>Summary</a>
-                </li>
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentPOAM)}>
-                    Plan of Action and Milestones
-                  </a>
-                </li>
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSAP)}>
-                    Security Assessment Plan
-                  </a>
-                </li>
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSAR)}>
-                    Security Assessment Results
-                  </a>
-                </li>
-                <li className="usa-nav__submenu-item">
-                  <a href={getUrl(Routes.documentSSP)}>System Security Plan</a>
-                </li>
-              </ul>
+              </a>
             </li>
             <li className="usa-nav__primary-item">
               <a
