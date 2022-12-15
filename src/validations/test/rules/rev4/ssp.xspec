@@ -1,5 +1,5 @@
 <x:description
-    schematron="../../rules/ssp.sch"
+    schematron="../../../rules/rev4/ssp.sch"
     xmlns:f="https://fedramp.gov/ns/oscal"
     xmlns:lv="local-validations"
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
@@ -11592,7 +11592,7 @@
             </x:scenario>
         </x:scenario>
         <x:scenario
-            label="In the corresponding baseline-resolved-profile catalog, all param elements, that do not have child value elements, have an @id value 
+            label="In the corresponding baseline-resolved-profile catalog, all param elements, that do not have child value elements, have an @id value
             that also occurs in the matching implemented-requirement set-parameter element @id in the SSP.">
             <x:scenario
                 label="When that is true">
@@ -11688,7 +11688,7 @@
             </x:scenario>
         </x:scenario>
         <x:scenario
-            label="In the SSP, all implemented-requirement set-parameter element @id values also occur in the corresponding baseline-resolved-profile 
+            label="In the SSP, all implemented-requirement set-parameter element @id values also occur in the corresponding baseline-resolved-profile
             catalog control param elements, that do not have child value elements, @id attributes.">
             <x:scenario
                 label="When that is true">

@@ -21,6 +21,12 @@ import { SchematronSummary } from '@asap/shared/use-cases/schematron-summary';
 import { XSpecAssertionSummaryGenerator } from '@asap/shared/use-cases/xspec-summary';
 
 import { CommandLineController } from './cli-controller';
+import { SchematronCompiler } from '@asap/shared/use-cases/schematron-compiler';
+import {
+  SchematronProcessors,
+  SchematronRulesetKey,
+  SchematronRulesetKeys,
+} from '@asap/shared/domain/schematron';
 
 const readStringFile = async (fileName: string) =>
   fs.readFile(fileName, 'utf-8');
@@ -84,22 +90,40 @@ const controller = CommandLineController({
           SaxonJS,
         }),
       },
-      SaxonJsSchematronProcessorGateway({
-        console,
-        sefUrls: {
-          poam: `file://${join(config.BUILD_PATH, 'poam.sef.json')}`,
-          sap: `file://${join(config.BUILD_PATH, 'sap.sef.json')}`,
-          sar: `file://${join(config.BUILD_PATH, 'sar.sef.json')}`,
-          ssp: `file://${join(config.BUILD_PATH, 'ssp.sef.json')}`,
-        },
-        SaxonJS: SaxonJS,
-        baselinesBaseUrl: config.BASELINES_PATH,
-        registryBaseUrl: config.REGISTRY_PATH,
-      }),
+      Object.fromEntries(
+        SchematronRulesetKeys.map((rulesetKey: SchematronRulesetKey) => [
+          rulesetKey,
+          SaxonJsSchematronProcessorGateway({
+            console,
+            sefUrls: {
+              poam: `file://${join(
+                config.BUILD_PATH,
+                `{rulesetKey}/poam.sef.json`,
+              )}`,
+              sap: `file://${join(
+                config.BUILD_PATH,
+                `{rulesetKey}/sap.sef.json`,
+              )}`,
+              sar: `file://${join(
+                config.BUILD_PATH,
+                `{rulesetKey}/sar.sef.json`,
+              )}`,
+              ssp: `file://${join(
+                config.BUILD_PATH,
+                `{rulesetKey}/ssp.sef.json`,
+              )}`,
+            },
+            SaxonJS: SaxonJS,
+            baselinesBaseUrl: config.LOCAL_PATHS[rulesetKey].BASELINES_PATH,
+            registryBaseUrl: config.LOCAL_PATHS[rulesetKey].REGISTRY_PATH,
+          }),
+        ]),
+      ) as SchematronProcessors,
       null as unknown as typeof fetch,
       console,
       readStringFile,
     ),
+    schematronCompiler: new SchematronCompiler(console),
     schematronSummary: new SchematronSummary(
       SchematronParser({ SaxonJS }),
       readStringFile,

@@ -649,7 +649,7 @@
                 <xsl:variable
                     as="document-node()"
                     name="fvxml"
-                    select="doc('../../content/rev4/resources/xml/fedramp_values.xml')" />
+                    select="doc('../../../content/rev4/resources/xml/fedramp_values.xml')" />
                 <table
                     id="fedramp_values.xml">
                     <caption><code>fedramp_values.xml</code> constraints</caption>
@@ -677,7 +677,7 @@
                 <xsl:variable
                     as="document-node()"
                     name="fx"
-                    select="doc('../../content/rev4/resources/xml/FedRAMP_extensions.xml')" />
+                    select="doc('../../../content/rev4/resources/xml/FedRAMP_extensions.xml')" />
                 <table
                     id="FedRAMP_extensions.xml">
                     <caption><code>FedRAMP_extensions.xml</code> constraints</caption>

@@ -7,6 +7,7 @@ import '../styles/HomePage.scss';
 import asapMovie from '../images/asap-540-2.mp4';
 
 import { useAppContext } from '../context';
+import { SchematronRulesetKeys } from '@asap/shared/domain/schematron';
 
 const ProcessList = () => (
   <section className="bg-gray-10 padding-y-10">
@@ -148,7 +149,7 @@ const HeroSection = () => {
                 </p>
                 <a
                   className="usa-button usa-button--big margin-top-2 bg-theme-deep-blue radius-pill padding-x-6"
-                  href={getUrl(Routes.documentSummary)}
+                  href={getUrl(Routes.defaultDocumentSummary)}
                 >
                   Try It Now
                 </a>
@@ -169,14 +170,14 @@ const HeroSection = () => {
                   >
                     Schematron
                   </a>{' '}
-                  format. A{' '}
+                  format. A summary of the NIST rev 4 ruleset{' '}
                   <a
                     className="text-white text-underline"
                     href={`${state.config.baseUrl}rules/rules.html`}
                   >
-                    rules summary
-                  </a>{' '}
-                  is available.
+                    is available
+                  </a>
+                  .
                 </p>
                 <p>
                   This user interface, which applies validations to a FedRAMP

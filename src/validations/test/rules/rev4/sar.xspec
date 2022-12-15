@@ -2,7 +2,7 @@
 
 <x:description
     run-as="external"
-    schematron="../../rules/sar.sch"
+    schematron="../../../rules/rev4/sar.sch"
     xmlns:x="http://www.jenitennison.com/xslt/xspec"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <x:param
@@ -11,6 +11,8 @@
         name="only-child-elements">false</x:param>
     <x:param
         name="visit-text">true</x:param>
+    <x:param
+        name="test-date">2022-09-06T00:00:00Z</x:param>
     <x:scenario
         label="In FedRAMP OSCAL SAR">
 

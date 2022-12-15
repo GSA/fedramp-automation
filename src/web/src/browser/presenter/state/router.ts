@@ -1,12 +1,20 @@
 import { match } from 'path-to-regexp';
 
+import {
+  SchematronRulesetKey,
+  SchematronRulesetKeys,
+} from '@asap/shared/domain/schematron';
+
 export type RouteTypes = {
   Home: { type: 'Home' };
-  DocumentSummary: { type: 'DocumentSummary' };
-  DocumentPOAM: { type: 'DocumentPOAM' };
-  DocumentSAP: { type: 'DocumentSAP' };
-  DocumentSAR: { type: 'DocumentSAR' };
-  DocumentSSP: { type: 'DocumentSSP' };
+  DocumentSummary: {
+    type: 'DocumentSummary';
+    ruleset: SchematronRulesetKey;
+  };
+  DocumentPOAM: { type: 'DocumentPOAM'; ruleset: SchematronRulesetKey };
+  DocumentSAP: { type: 'DocumentSAP'; ruleset: SchematronRulesetKey };
+  DocumentSAR: { type: 'DocumentSAR'; ruleset: SchematronRulesetKey };
+  DocumentSSP: { type: 'DocumentSSP'; ruleset: SchematronRulesetKey };
   Developers: {
     type: 'Developers';
   };
@@ -18,21 +26,40 @@ export namespace Routes {
   export const home: RouteTypes['Home'] = {
     type: 'Home',
   };
-  export const documentSummary: RouteTypes['DocumentSummary'] = {
+  export const defaultDocumentSummary: RouteTypes['DocumentSummary'] = {
     type: 'DocumentSummary',
+    ruleset: SchematronRulesetKeys[0],
   };
-  export const documentPOAM: RouteTypes['DocumentPOAM'] = {
+  export const documentSummary = (
+    ruleset: SchematronRulesetKey,
+  ): RouteTypes['DocumentSummary'] => ({
+    type: 'DocumentSummary',
+    ruleset,
+  });
+  export const documentPOAM = (
+    ruleset: SchematronRulesetKey,
+  ): RouteTypes['DocumentPOAM'] => ({
     type: 'DocumentPOAM',
-  };
-  export const documentSAP: RouteTypes['DocumentSAP'] = {
+    ruleset,
+  });
+  export const documentSAP = (
+    ruleset: SchematronRulesetKey,
+  ): RouteTypes['DocumentSAP'] => ({
     type: 'DocumentSAP',
-  };
-  export const documentSAR: RouteTypes['DocumentSAR'] = {
+    ruleset,
+  });
+  export const documentSAR = (
+    ruleset: SchematronRulesetKey,
+  ): RouteTypes['DocumentSAR'] => ({
     type: 'DocumentSAR',
-  };
-  export const documentSSP: RouteTypes['DocumentSSP'] = {
+    ruleset,
+  });
+  export const documentSSP = (
+    ruleset: SchematronRulesetKey,
+  ): RouteTypes['DocumentSSP'] => ({
     type: 'DocumentSSP',
-  };
+    ruleset,
+  });
   export const developers: RouteTypes['Developers'] = {
     type: 'Developers',
   };
@@ -42,11 +69,16 @@ export namespace Routes {
 
 const RouteUrl: Record<Route['type'], (route?: any) => string> = {
   Home: () => '#/',
-  DocumentSummary: () => '#/documents',
-  DocumentPOAM: () => '#/documents/plan-of-action-and-milestones',
-  DocumentSAP: () => '#/documents/security-assessment-plan',
-  DocumentSAR: () => '#/documents/security-assessment-report',
-  DocumentSSP: () => '#/documents/system-security-plan',
+  DocumentSummary: (route: RouteTypes['DocumentSummary']) =>
+    `#/${route.ruleset}/documents`,
+  DocumentPOAM: (route: RouteTypes['DocumentPOAM']) =>
+    `#/${route.ruleset}/documents/plan-of-action-and-milestones`,
+  DocumentSAP: (route: RouteTypes['DocumentSAP']) =>
+    `#/${route.ruleset}/documents/security-assessment-plan`,
+  DocumentSAR: (route: RouteTypes['DocumentSAR']) =>
+    `#/${route.ruleset}/documents/security-assessment-report`,
+  DocumentSSP: (route: RouteTypes['DocumentSSP']) =>
+    `#/${route.ruleset}/documents/system-security-plan`,
   Developers: () => '#/developers',
 };
 
@@ -69,22 +101,24 @@ const matchRoute = <L extends Route>(
 
 const RouteMatch: Record<Route['type'], (url: string) => Route | undefined> = {
   Home: matchRoute('#/', () => Routes.home),
-  DocumentSummary: matchRoute('#/documents', () => Routes.documentSummary),
+  DocumentSummary: matchRoute('#/:ruleset/documents', ({ ruleset }) =>
+    Routes.documentSummary(ruleset),
+  ),
   DocumentPOAM: matchRoute(
-    '#/documents/plan-of-action-and-milestones',
-    () => Routes.documentPOAM,
+    '#/:ruleset/documents/plan-of-action-and-milestones',
+    ({ ruleset }) => Routes.documentPOAM(ruleset),
   ),
   DocumentSAP: matchRoute(
-    '#/documents/security-assessment-plan',
-    () => Routes.documentSAP,
+    '#/:ruleset/documents/security-assessment-plan',
+    ({ ruleset }) => Routes.documentSAP(ruleset),
   ),
   DocumentSAR: matchRoute(
-    '#/documents/security-assessment-report',
-    () => Routes.documentSAR,
+    '#/:ruleset/documents/security-assessment-report',
+    ({ ruleset }) => Routes.documentSAR(ruleset),
   ),
   DocumentSSP: matchRoute(
-    '#/documents/system-security-plan',
-    () => Routes.documentSSP,
+    '#/:ruleset/documents/system-security-plan',
+    ({ ruleset }) => Routes.documentSSP(ruleset),
   ),
   Developers: matchRoute('#/developers', () => Routes.developers),
 };
@@ -99,81 +133,12 @@ export const getRoute = (url: string): Route | Routes.NotFound => {
   return Routes.notFound;
 };
 
-type Breadcrumb = {
-  text: string;
-  linkUrl: string | false;
-};
-export const breadcrumbs: Record<
-  Route['type'] & string,
-  (route: any) => Breadcrumb[]
-> = {
-  Home: (route: Route) => {
-    return [
-      {
-        text: 'Home',
-        linkUrl: route.type !== 'Home' && getUrl(Routes.home),
-      },
-    ];
-  },
-  DocumentSummary: (route: Route) => {
-    return [
-      ...breadcrumbs.Home(route),
-      {
-        text: 'Document Rules',
-        linkUrl:
-          route.type !== 'DocumentSummary' && getUrl(Routes.documentSummary),
-      },
-    ];
-  },
-  DocumentPOAM: (route: Route) => {
-    return [
-      ...breadcrumbs.DocumentSummary(route),
-      {
-        text: 'Plan of Action and Milestones',
-        linkUrl: route.type !== 'DocumentPOAM' && getUrl(Routes.documentPOAM),
-      },
-    ];
-  },
-  DocumentSAP: (route: Route) => {
-    return [
-      ...breadcrumbs.DocumentSummary(route),
-      {
-        text: 'Security Assessment Plan',
-        linkUrl: route.type !== 'DocumentSAP' && getUrl(Routes.documentSAP),
-      },
-    ];
-  },
-  DocumentSAR: (route: Route) => {
-    return [
-      ...breadcrumbs.DocumentSummary(route),
-      {
-        text: 'Security Assessment Results',
-        linkUrl: route.type !== 'DocumentSAR' && getUrl(Routes.documentSAR),
-      },
-    ];
-  },
-  DocumentSSP: (route: Route) => {
-    return [
-      ...breadcrumbs.DocumentSummary(route),
-      {
-        text: 'System Security Plan',
-        linkUrl: route.type !== 'DocumentSSP' && getUrl(Routes.documentSSP),
-      },
-    ];
-  },
-  Developers: (route: RouteTypes['Developers']) => {
-    return [
-      ...breadcrumbs.Home(route),
-      {
-        text: 'Developer documentation',
-        linkUrl: route.type !== 'Developers' && getUrl(Routes.developers),
-      },
-    ];
-  },
-};
-
 export type Location = {
   getCurrent: () => string;
   listen: (listener: (url: string) => void) => void;
   replace: (url: string) => void;
+};
+
+export const isRulesetRoute = (route: Route) => {
+  return (route as any).ruleset !== undefined;
 };

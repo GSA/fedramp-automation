@@ -4,6 +4,11 @@ import {
   SaxonJsSchematronProcessorGateway,
 } from '@asap/shared/adapters/saxon-js-gateway';
 import * as github from '@asap/shared/domain/github';
+import {
+  SchematronProcessor,
+  SchematronRulesetKey,
+  SchematronRulesetKeys,
+} from '@asap/shared/domain/schematron';
 import { AnnotateXMLUseCase } from '@asap/shared/use-cases/annotate-xml';
 import { OscalService } from '@asap/shared/use-cases/oscal';
 
@@ -30,18 +35,6 @@ export const runBrowserContext = ({
 
   const rulesUrl = `${baseUrl}rules/`;
 
-  const processSchematron = SaxonJsSchematronProcessorGateway({
-    console,
-    sefUrls: {
-      poam: `${rulesUrl}poam.sef.json`,
-      sap: `${rulesUrl}sap.sef.json`,
-      sar: `${rulesUrl}sar.sef.json`,
-      ssp: `${rulesUrl}ssp.sef.json`,
-    },
-    SaxonJS,
-    baselinesBaseUrl: `${baseUrl}baselines`,
-    registryBaseUrl: `${baseUrl}xml`,
-  });
   const renderApp = createAppRenderer(
     element,
     getInitialState({
@@ -73,18 +66,40 @@ export const runBrowserContext = ({
           },
           SaxonJS,
         }),
-        getAssertionViews: async () => {
+        getAssertionViews: async (rulesetKey: SchematronRulesetKey) => {
           const responses = await Promise.all([
-            fetch(`${rulesUrl}assertion-views-poam.json`).then(response =>
+            fetch(`${rulesUrl}${rulesetKey}/assertion-views-poam.json`).then(
+              response => response.json(),
+            ),
+            fetch(`${rulesUrl}${rulesetKey}/assertion-views-sap.json`).then(
+              response => response.json(),
+            ),
+            fetch(`${rulesUrl}${rulesetKey}/assertion-views-sar.json`).then(
+              response => response.json(),
+            ),
+            fetch(`${rulesUrl}${rulesetKey}/assertion-views-ssp.json`).then(
+              response => response.json(),
+            ),
+          ]);
+          return {
+            poam: responses[0],
+            sap: responses[1],
+            sar: responses[2],
+            ssp: responses[3],
+          };
+        },
+        getSchematronAssertions: async (rulesetKey: SchematronRulesetKey) => {
+          const responses = await Promise.all([
+            fetch(`${rulesUrl}${rulesetKey}/poam.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}assertion-views-sap.json`).then(response =>
+            fetch(`${rulesUrl}${rulesetKey}/sap.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}assertion-views-sar.json`).then(response =>
+            fetch(`${rulesUrl}${rulesetKey}/sar.json`).then(response =>
               response.json(),
             ),
-            fetch(`${rulesUrl}assertion-views-ssp.json`).then(response =>
+            fetch(`${rulesUrl}${rulesetKey}/ssp.json`).then(response =>
               response.json(),
             ),
           ]);
@@ -95,33 +110,19 @@ export const runBrowserContext = ({
             ssp: responses[3],
           };
         },
-        getSchematronAssertions: async () => {
+        getXSpecScenarioSummaries: async (rulesetKey: SchematronRulesetKey) => {
           const responses = await Promise.all([
-            fetch(`${rulesUrl}poam.json`).then(response => response.json()),
-            fetch(`${rulesUrl}sap.json`).then(response => response.json()),
-            fetch(`${rulesUrl}sar.json`).then(response => response.json()),
-            fetch(`${rulesUrl}ssp.json`).then(response => response.json()),
-          ]);
-          return {
-            poam: responses[0],
-            sap: responses[1],
-            sar: responses[2],
-            ssp: responses[3],
-          };
-        },
-        getXSpecScenarioSummaries: async () => {
-          const responses = await Promise.all([
-            fetch(`${rulesUrl}xspec-summary-poam.json`).then(response =>
-              response.json(),
+            fetch(`${rulesUrl}${rulesetKey}/xspec-summary-poam.json`).then(
+              response => response.json(),
             ),
-            fetch(`${rulesUrl}xspec-summary-sap.json`).then(response =>
-              response.json(),
+            fetch(`${rulesUrl}${rulesetKey}/xspec-summary-sap.json`).then(
+              response => response.json(),
             ),
-            fetch(`${rulesUrl}xspec-summary-sar.json`).then(response =>
-              response.json(),
+            fetch(`${rulesUrl}${rulesetKey}/xspec-summary-sar.json`).then(
+              response => response.json(),
             ),
-            fetch(`${rulesUrl}xspec-summary-ssp.json`).then(response =>
-              response.json(),
+            fetch(`${rulesUrl}${rulesetKey}/xspec-summary-ssp.json`).then(
+              response => response.json(),
             ),
           ]);
           return {
@@ -154,7 +155,23 @@ export const runBrowserContext = ({
               SaxonJS,
             }),
           },
-          processSchematron,
+          Object.fromEntries(
+            SchematronRulesetKeys.map(rulesetKey => [
+              rulesetKey,
+              SaxonJsSchematronProcessorGateway({
+                console,
+                sefUrls: {
+                  poam: `${baseUrl}rules/${rulesetKey}/poam.sef.json`,
+                  sap: `${baseUrl}rules/${rulesetKey}/sap.sef.json`,
+                  sar: `${baseUrl}rules/${rulesetKey}/sar.sef.json`,
+                  ssp: `${baseUrl}rules/${rulesetKey}/ssp.sef.json`,
+                },
+                SaxonJS,
+                baselinesBaseUrl: `${baseUrl}content/${rulesetKey}/baselines/xml`,
+                registryBaseUrl: `${baseUrl}content/${rulesetKey}/resources/xml`,
+              }),
+            ]),
+          ) as Record<SchematronRulesetKey, SchematronProcessor>,
           window.fetch.bind(window),
           console,
         ),

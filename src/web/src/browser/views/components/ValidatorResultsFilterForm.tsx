@@ -5,17 +5,22 @@ import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { useAppContext } from '../context';
 import { selectFilterOptions } from '@asap/browser/presenter/state/selectors';
 import '../styles/ValidatorResultsFilterForm.scss';
+import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 
 type Props = {
   documentType: OscalDocumentKey;
+  rulesetKey: SchematronRulesetKey;
 };
 
-export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
+export const ValidatorResultsFilterForm = ({
+  documentType,
+  rulesetKey,
+}: Props) => {
   const { state } = useAppContext();
-  const oscalDocument = state.oscalDocuments[documentType];
+  const oscalDocument = state.rulesets[rulesetKey].oscalDocuments[documentType];
   const { dispatch } = useAppContext();
 
-  const filterOptions = selectFilterOptions(documentType)(state);
+  const filterOptions = selectFilterOptions(documentType, rulesetKey)(state);
 
   const topRef = useRef<HTMLHeadingElement>(null);
   const scrollIntoView = () => {
@@ -48,7 +53,13 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
               if (event && event.target) {
                 text = event.target.value;
               }
-              dispatch(schematron.setFilterText({ documentType, text }));
+              dispatch(
+                schematron.setFilterText({
+                  documentType,
+                  rulesetKey,
+                  text,
+                }),
+              );
             }}
             placeholder="Search text..."
           />
@@ -85,6 +96,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                     dispatch(
                       schematron.setPassStatus({
                         documentType,
+                        rulesetKey,
                         passStatus: passStatus.id,
                       }),
                     );
@@ -114,7 +126,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
           <div className="usa-radio desktop:padding-left-2 desktop:width-mobile">
             {filterOptions.assertionViews.map(assertionView => (
               <div key={assertionView.index}>
-                {/* 
+                {/*
                 TODO: remove after debugging
                 <pre>{JSON.stringify(assertionView, null, 2)}</pre> */}
                 <input
@@ -130,6 +142,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                     dispatch(
                       schematron.setFilterAssertionView({
                         documentType,
+                        rulesetKey,
                         assertionViewId: assertionView.index,
                       }),
                     );
@@ -172,6 +185,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                     dispatch(
                       schematron.setFilterFedrampOption({
                         documentType,
+                        rulesetKey,
                         fedrampFilterOption: option.option,
                       }),
                     );
@@ -219,6 +233,7 @@ export const ValidatorResultsFilterForm = ({ documentType }: Props) => {
                     dispatch(
                       schematron.setFilterRole({
                         documentType,
+                        rulesetKey,
                         role: filterRole.name,
                       }),
                     );

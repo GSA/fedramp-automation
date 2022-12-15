@@ -7,16 +7,21 @@ import { OscalDocumentKey } from '@asap/shared/domain/oscal';
 import { CodeViewer } from './CodeViewer';
 import { useAppContext, useSelector } from '../context';
 import { selectValidationResult } from '@asap/browser/presenter/state/selectors';
+import { SchematronRulesetKey } from '@asap/shared/domain/schematron';
 
 type DocumentViewerOverlayProps = {
   documentType: OscalDocumentKey;
+  rulesetKey: SchematronRulesetKey;
 };
 
 export const DocumentViewerOverlay = ({
   documentType,
+  rulesetKey,
 }: DocumentViewerOverlayProps) => {
   const { dispatch } = useAppContext();
-  const validationResult = useSelector(selectValidationResult(documentType));
+  const validationResult = useSelector(
+    selectValidationResult(documentType, rulesetKey),
+  );
 
   // Hightlight and scroll to node when mounted to DOM.
   const refCallback = useCallback(
@@ -47,7 +52,9 @@ export const DocumentViewerOverlay = ({
     <Modal
       className="overflow-scroll radius-lg padding-x-10 padding-y-5"
       isOpen={validationResult.current === 'ASSERTION_CONTEXT'}
-      onRequestClose={() => dispatch(clearAssertionContext(documentType))}
+      onRequestClose={() =>
+        dispatch(clearAssertionContext(documentType, rulesetKey))
+      }
       contentLabel="Assertion rule examples"
       style={{
         overlay: {

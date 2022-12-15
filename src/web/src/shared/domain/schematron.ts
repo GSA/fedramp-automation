@@ -48,6 +48,42 @@ export type SchematronProcessor = (oscalXmlString: string) => Promise<{
   schematronResult: SchematronResult;
 }>;
 
+// See the concrete implementation in project-config.ts
+export type SchematronRuleset = {
+  // The key corresponds to the directory used in the project structure,
+  // such as "rev4"
+  key: SchematronRulesetKey;
+  // The title for this ruleset is displayed in the user interface
+  title: string;
+  description?: string;
+};
+
+// Define these in priority order - ie, the most-recent (or most-relevant)
+// ruleset should be first in the list.
+export const SchematronRulesetKeys = ['rev4'] as const;
+export type SchematronRulesetKey = typeof SchematronRulesetKeys[number];
+
+export const SCHEMATRON_RULESETS: Record<
+  SchematronRulesetKey,
+  SchematronRuleset
+> = {
+  /*rev5: {
+    key: 'rev5',
+    title: 'NIST RMF revision 5',
+    description: '',
+  },*/
+  rev4: {
+    key: 'rev4',
+    title: 'NIST RMF revision 4',
+    description: 'The latest NIST RMF is rev5',
+  },
+} as const;
+
+export type SchematronProcessors = Record<
+  SchematronRuleset['key'],
+  SchematronProcessor
+>;
+
 export type SchematronAssert = {
   id: string;
   message: string;
@@ -59,7 +95,9 @@ export type SchematronAssert = {
 export type ParseSchematronAssertions = (
   schematron: string,
 ) => SchematronAssert[];
-export type GetSchematronAssertions = () => Promise<{
+export type GetSchematronAssertions = (
+  rulesetKey: SchematronRulesetKey,
+) => Promise<{
   poam: SchematronAssert[];
   sap: SchematronAssert[];
   sar: SchematronAssert[];

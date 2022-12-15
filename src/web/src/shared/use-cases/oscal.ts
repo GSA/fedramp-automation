@@ -3,8 +3,9 @@ import { parse as parseYaml } from 'yaml';
 import { getDocumentTypeForRootNode, OscalDocumentKey } from '../domain/oscal';
 import type {
   SchematronJSONToXMLProcessors,
-  SchematronProcessor,
+  SchematronProcessors,
   SchematronResult,
+  SchematronRulesetKey,
   ValidationReport,
 } from '../domain/schematron';
 
@@ -13,24 +14,30 @@ type Fetch = typeof fetch;
 export class OscalService {
   constructor(
     private jsonOscalToXmlProcessors: SchematronJSONToXMLProcessors,
-    private schematronProcessor: SchematronProcessor,
+    private schematronProcessors: SchematronProcessors,
     private fetch: Fetch,
     private console: Console,
     private readStringFile?: (fileName: string) => Promise<string>,
   ) {}
 
-  async validateOscalFile(oscalFilePath: string) {
+  async validateOscalFile(
+    ruleset: SchematronRulesetKey,
+    oscalFilePath: string,
+  ) {
     if (!this.readStringFile) {
       throw new Error('readStringFile not provided');
     }
     const xmlString = await this.readStringFile(oscalFilePath);
-    const result = await this.validateOscal(xmlString);
+    const result = await this.validateOscal(ruleset, xmlString);
     this.console.log(
       `Found ${result.validationReport.failedAsserts.length} assertions in ${result.documentType}`,
     );
   }
 
-  validateOscal(oscalString: string): Promise<{
+  validateOscal(
+    ruleset: SchematronRulesetKey,
+    oscalString: string,
+  ): Promise<{
     documentType: OscalDocumentKey;
     svrlString: string;
     validationReport: ValidationReport;
@@ -40,7 +47,7 @@ export class OscalService {
     return this.ensureXml(oscalString)
       .then(str => {
         xmlString = str;
-        return this.validateXml(xmlString);
+        return this.validateXml(ruleset, xmlString);
       })
       .then(result => {
         return {
@@ -50,18 +57,21 @@ export class OscalService {
       });
   }
 
-  validateOscalByUrl(fileUrl: string) {
+  validateOscalByUrl(ruleset: SchematronRulesetKey, fileUrl: string) {
     return this.fetch(fileUrl)
       .then(response => response.text())
-      .then(value => this.validateOscal(value));
+      .then(value => this.validateOscal(ruleset, value));
   }
 
-  validateXml(xmlString: string): Promise<{
+  validateXml(
+    ruleset: SchematronRulesetKey,
+    xmlString: string,
+  ): Promise<{
     documentType: OscalDocumentKey;
     svrlString: string;
     validationReport: ValidationReport;
   }> {
-    return this.schematronProcessor(xmlString).then(result => {
+    return this.schematronProcessors[ruleset](xmlString).then(result => {
       return {
         documentType: result.documentType,
         svrlString: result.schematronResult.svrlString,

@@ -15,7 +15,7 @@ def test_ssp_validation() -> None:
     ssp_xsl_file = os.path.abspath(
         os.path.join(
             os.path.dirname(__file__),
-            "../../validations/target/rules/ssp.sch.xsl",
+            "../../validations/target/rules/rev4/ssp.sch.xsl",
         )
     )
 
@@ -45,7 +45,7 @@ def test_sap_validation() -> None:
         os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
-                "../../validations/target/rules/sap.sch.xsl",
+                "../../validations/target/rules/rev4/sap.sch.xsl",
             )
         ),
     )
@@ -63,7 +63,7 @@ def test_sar_validation() -> None:
         os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
-                "../../validations/target/rules/sar.sch.xsl",
+                "../../validations/target/rules/rev4/sar.sch.xsl",
             )
         ),
     )
@@ -81,7 +81,7 @@ def test_poam_validation() -> None:
         os.path.abspath(
             os.path.join(
                 os.path.dirname(__file__),
-                "../../validations/target/rules/poam.sch.xsl",
+                "../../validations/target/rules/rev4/poam.sch.xsl",
             )
         ),
     )

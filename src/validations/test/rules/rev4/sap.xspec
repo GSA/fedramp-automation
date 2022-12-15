@@ -2,7 +2,7 @@
 
 <x:description
     run-as="external"
-    schematron="../../rules/sap.sch"
+    schematron="../../../rules/rev4/sap.sch"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">
 
     <x:scenario

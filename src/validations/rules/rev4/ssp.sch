@@ -191,7 +191,7 @@
     </sch:phase>
 
     <doc:xspec
-        href="../test/rules/ssp.xspec" />
+        href="../../test/rules/rev4/ssp.xspec" />
 
     <!-- settings for use (or not) of remote resources -->
     <!-- XSLT parameter param-use-remote-resources -->
@@ -275,11 +275,11 @@
     <xsl:param
         as="xs:string"
         name="registry-base-path"
-        select="'../../content/rev4/resources/xml'" />
+        select="'../../../content/rev4/resources/xml'" />
     <xsl:param
         as="xs:string"
         name="baselines-base-path"
-        select="'../../../dist/content/rev4/baselines/xml'" />
+        select="'../../../../dist/content/rev4/baselines/xml'" />
     <sch:let
         name="registry"
         value="doc(concat($registry-base-path, '/fedramp_values.xml')) | doc(concat($registry-base-path, '/fedramp_threats.xml')) | doc(concat($registry-base-path, '/information-types.xml'))" />

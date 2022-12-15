@@ -2,7 +2,6 @@ import type { OscalDocumentKey } from '@asap/shared/domain/oscal';
 
 import { AssertionDocumentationOverlay } from './AssertionDocumentationOverlay';
 import { DocumentViewerOverlay } from './DocumentViewerOverlay';
-import { BetaBanner } from './BetaBanner';
 import { DevelopersPage } from './DevelopersPage';
 import { Footer } from './Footer';
 import { Header } from './Header';
@@ -32,10 +31,16 @@ const CurrentPage = () => {
     }[currentRoute.type] as OscalDocumentKey | null;
     return (
       <>
-        <ValidatorPage documentType={documentType} />
-        <AssertionDocumentationOverlay />
+        <ValidatorPage
+          documentType={documentType}
+          rulesetKey={currentRoute.ruleset}
+        />
+        <AssertionDocumentationOverlay rulesetKey={currentRoute.ruleset} />
         {documentType ? (
-          <DocumentViewerOverlay documentType={documentType} />
+          <DocumentViewerOverlay
+            documentType={documentType}
+            rulesetKey={currentRoute.ruleset}
+          />
         ) : null}
       </>
     );
@@ -50,7 +55,6 @@ const CurrentPage = () => {
 export const App = () => {
   return (
     <div>
-      <BetaBanner />
       <UsaBanner />
       <Header />
       <CurrentPage />

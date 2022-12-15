@@ -16,16 +16,16 @@ public class FedrampAutomationValidatorTest {
   private static final String RESOURCES_XML = "../../../dist/content/rev4/resources/xml";
 
   /** compiled Schematron XSLT path for SSP resource values */
-  private static final String SSP_RESOURCE = "../../../src/validations/target/rules/ssp.sch.xsl";
+  private static final String SSP_RESOURCE = "../../../src/validations/target/rules/rev4/ssp.sch.xsl";
 
   /** compiled Schematron XSLT path for SAP resource values */
-  private static final String SAP_RESOURCE = "../../../src/validations/target/rules/sap.sch.xsl";
+  private static final String SAP_RESOURCE = "../../../src/validations/target/rules/rev4/sap.sch.xsl";
 
   /** compiled Schematron XSLT path for SAR resource values */
-  private static final String SAR_RESOURCE = "../../../src/validations/target/rules/sar.sch.xsl";
+  private static final String SAR_RESOURCE = "../../../src/validations/target/rules/rev4/sar.sch.xsl";
 
   /** compiled Schematron XSLT path for POA&M resource values */
-  private static final String POAM_RESOURCE = "../../../src/validations/target/rules/poam.sch.xsl";
+  private static final String POAM_RESOURCE = "../../../src/validations/target/rules/rev4/poam.sch.xsl";
 
   /** SSP template */
   private static final String SSP_TEMPLATE = "../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml";
