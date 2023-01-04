@@ -3495,9 +3495,9 @@
                 value="
                     if (starts-with(@href, '#'))
                     then
-                        resolve-uri(/oscal:system-security-plan/oscal:back-matter/oscal:resource[substring-after(current()/@href, '#') = @uuid]/oscal:rlink[1]/@href, base-uri())
+                        resolve-uri(/oscal:system-security-plan/oscal:back-matter/oscal:resource[substring-after(current()/@href, '#') = @uuid]/oscal:rlink[1]/@href, xs:anyURI(substring-before(base-uri(), '#')))
                     else
-                        resolve-uri(@href, base-uri())" />
+                        resolve-uri(@href, xs:anyURI(substring-before(base-uri(), '#')))" />
             <sch:let
                 name="resolved-profile-available"
                 value="doc-available($resolved-profile-import-url)" />

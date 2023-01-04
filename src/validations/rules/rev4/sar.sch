@@ -42,9 +42,9 @@
         value="
             if (starts-with(/oscal:assessment-results/oscal:import-ap/@href, '#'))
             then
-                resolve-uri(/oscal:assessment-results/oscal:back-matter/oscal:resource[substring-after(/oscal:assessment-results/oscal:import-ap/@href, '#') = @uuid]/oscal:rlink/@href, base-uri())
+                resolve-uri(/oscal:assessment-results/oscal:back-matter/oscal:resource[substring-after(/oscal:assessment-results/oscal:import-ap/@href, '#') = @uuid]/oscal:rlink/@href, xs:anyURI(substring-before(base-uri(), '#')))
             else
-                resolve-uri(/oscal:assessment-results/oscal:import-ap/@href, base-uri())" />
+                resolve-uri(/oscal:assessment-results/oscal:import-ap/@href, xs:anyURI(substring-before(base-uri(), '#')))" />
     <sch:let
         name="sap-available"
         value="doc-available($sap-import-url)" />
@@ -61,9 +61,9 @@
         value="
             if (starts-with($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, '#'))
             then
-                resolve-uri($sap-doc/oscal:assessment-plan/oscal:back-matter/oscal:resource[substring-after($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, '#') = @uuid]/oscal:rlink/@href, base-uri())
+                resolve-uri($sap-doc/oscal:assessment-plan/oscal:back-matter/oscal:resource[substring-after($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, '#') = @uuid]/oscal:rlink/@href, xs:anyURI(substring-before(base-uri(), '#')))
             else
-                resolve-uri($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
+                resolve-uri($sap-doc/oscal:assessment-plan/oscal:import-ssp/@href, xs:anyURI(substring-before(base-uri(), '#')))" />
     <sch:let
         name="ssp-available"
         value="
@@ -86,9 +86,9 @@
         value="
             if (starts-with($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, '#'))
             then
-                resolve-uri($ssp-doc/oscal:system-security-plan/oscal:back-matter/oscal:resource[substring-after($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, '#') = @uuid]/oscal:rlink/@href, base-uri())
+                resolve-uri($ssp-doc/oscal:system-security-plan/oscal:back-matter/oscal:resource[substring-after($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, '#') = @uuid]/oscal:rlink/@href, xs:anyURI(substring-before(base-uri(), '#')))
             else
-                resolve-uri($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, base-uri())" />
+                resolve-uri($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, xs:anyURI(substring-before(base-uri(), '#')))" />
     <sch:let
         name="resolved-profile-available"
         value="doc-available($resolved-profile-import-url)" />
@@ -1071,15 +1071,14 @@
                 test="@uuid[. = $related-observation-UUIDs]">The observation UUID must be cited by (at least) one of the parent result's finding
                 related observations.</sch:assert>
 
+            <!-- there is a raw-rool-output resource with the UUID referenced by the context item's relevant-evidence -->
             <sch:assert
                 diagnostics="has-relevant-evidence-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Security Assessment Results (SAR) §4.7"
                 fedramp:specific="true"
                 id="has-relevant-evidence"
                 role="error"
-                test="
-                    (: there is a raw-tool-output resource with the UUID referenced by the context item's relevant-evidence :)
-                    //oscal:resource[oscal:prop[@name eq 'type' and @value eq 'raw-tool-output'] and @uuid eq current()/oscal:relevant-evidence[substring-after(@href, '#')]]">This
+                test="//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'raw-tool-output'] and @uuid eq current()/oscal:relevant-evidence[substring-after(@href, '#')]]">This
                 observation has a relevant-evidence href that references a raw-tool-output back-matter resource.</sch:assert>
         </sch:rule>
         <sch:rule

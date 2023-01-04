@@ -38,9 +38,9 @@
         value="
             if (starts-with(/oscal:assessment-plan/oscal:import-ssp/@href, '#'))
             then
-                resolve-uri(/oscal:assessment-plan/oscal:back-matter/oscal:resource[substring-after(/oscal:assessment-plan/oscal:import-ssp/@href, '#') = @uuid]/oscal:rlink[1]/@href, base-uri())
+                resolve-uri(/oscal:assessment-plan/oscal:back-matter/oscal:resource[substring-after(/oscal:assessment-plan/oscal:import-ssp/@href, '#') = @uuid]/oscal:rlink[1]/@href, xs:anyURI(substring-before(base-uri(), '#')))
             else
-                resolve-uri(/oscal:assessment-plan/oscal:import-ssp/@href, base-uri())" />
+                resolve-uri(/oscal:assessment-plan/oscal:import-ssp/@href, xs:anyURI(substring-before(base-uri(), '#')))" />
     <sch:let
         name="ssp-available"
         value="
@@ -145,7 +145,7 @@
 
             <sch:let
                 name="import-ssp-url"
-                value="resolve-uri(@href, base-uri())" />
+                value="resolve-uri(@href, xs:anyURI(substring-before(base-uri(), '#')))" />
 
             <sch:assert
                 diagnostics="has-import-ssp-external-href-diagnostic"
@@ -432,7 +432,7 @@
         <!-- This series of variables gets to the profile file to match the include and exclude asserts below -->
         <sch:let
             name="profile-href"
-            value="resolve-uri($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, base-uri())" />
+            value="resolve-uri($ssp-doc/oscal:system-security-plan/oscal:import-profile/@href, xs:anyURI(substring-before(base-uri(), '#')))" />
         <sch:let
             name="profile-available"
             value="

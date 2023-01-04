@@ -39,9 +39,9 @@
         value="
             if (starts-with(/oscal:plan-of-action-and-milestones/oscal:import-ssp/@href, '#'))
             then
-                resolve-uri(/oscal:plan-of-action-and-milestones/oscal:back-matter/oscal:resource[substring-after(/oscal:plan-of-action-and-milestones/oscal:import-ssp/@href, '#') = @uuid]/oscal:rlink[1]/@href, base-uri())
+                resolve-uri(/oscal:plan-of-action-and-milestones/oscal:back-matter/oscal:resource[substring-after(/oscal:plan-of-action-and-milestones/oscal:import-ssp/@href, '#') = @uuid]/oscal:rlink[1]/@href, xs:anyURI(substring-before(base-uri(), '#')))
             else
-                resolve-uri(/oscal:plan-of-action-and-milestones/oscal:import-ssp/@href, base-uri())" />
+                resolve-uri(/oscal:plan-of-action-and-milestones/oscal:import-ssp/@href, xs:anyURI(substring-before(base-uri(), '#')))" />
     <sch:let
         name="ssp-available"
         value="
@@ -147,7 +147,7 @@
 
             <sch:let
                 name="import-ssp-url"
-                value="resolve-uri(@href, base-uri())" />
+                value="resolve-uri(@href, xs:anyURI(substring-before(base-uri(), '#')))" />
 
             <sch:assert
                 diagnostics="has-import-ssp-external-href-diagnostic"
