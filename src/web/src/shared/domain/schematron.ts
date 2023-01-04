@@ -75,7 +75,8 @@ export const SCHEMATRON_RULESETS: Record<
   rev4: {
     key: 'rev4',
     title: 'NIST RMF revision 4',
-    description: 'The latest NIST RMF is rev5',
+    //description: 'The latest NIST RMF is rev5',
+    description: '',
   },
 } as const;
 
