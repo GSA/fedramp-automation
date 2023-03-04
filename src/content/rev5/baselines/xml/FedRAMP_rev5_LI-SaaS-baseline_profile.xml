@@ -3,9 +3,9 @@
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="2b515da9-8a5e-4b7c-9cce-6451e70ca75d">
     <metadata>
         <title>FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
-        <published>2022-12-02T00:00:00.000Z</published>
-        <last-modified>2023-02-21T00:00:00.000Z</last-modified>
-        <version>fedramp1.2.0-oscal1.0.4</version>
+        <published>2023-03-03T00:00:00.000Z</published>
+        <last-modified>2023-03-03T00:00:00.000Z</last-modified>
+        <version>fedramp-2.0.0-oscal1.0.4</version>
         <oscal-version>1.0.4</oscal-version>
         <role id="prepared-by">
             <title>Document creator</title>
@@ -1307,9 +1307,7 @@
         <alter control-id="ac-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ac-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -1326,9 +1324,7 @@
             <remove by-id="ac-2_smt.l"/>
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ac-2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ac-2_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1372,9 +1368,7 @@
         </alter>
         <!-- - - AC-7 - -  -->
         <alter control-id="ac-7">
-            <add position="starting" by-id="ac-7">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ac-7_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1421,9 +1415,7 @@
         <alter control-id="ac-18">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ac-18">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
                 <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1435,9 +1427,7 @@
         <alter control-id="ac-19">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ac-19">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
                 <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1455,9 +1445,7 @@
         </alter>
         <!-- - - AC-22 - -  -->
         <alter control-id="ac-22">
-            <add position="starting" by-id="ac-22">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ac-22_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1469,9 +1457,7 @@
         <alter control-id="at-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="at-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -1480,9 +1466,7 @@
         <alter control-id="at-2">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="at-2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -1491,9 +1475,7 @@
         <alter control-id="at-2.2">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="at-2.2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -1502,9 +1484,7 @@
         <alter control-id="at-3">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="at-3">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -1513,9 +1493,7 @@
         <alter control-id="at-4">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="at-4">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -1524,9 +1502,7 @@
         <alter control-id="au-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="au-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -1535,9 +1511,7 @@
         <alter control-id="au-2">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="au-2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -1573,9 +1547,7 @@
         </alter>
         <!-- - - AU-6 - -  -->
         <alter control-id="au-6">
-            <add position="starting" by-id="au-6">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="au-6_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1603,9 +1575,7 @@
         <alter control-id="au-11">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="au-11">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
                 <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1625,18 +1595,14 @@
         <alter control-id="ca-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ca-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
         </alter>
         <!-- - - CA-2 - -  -->
         <alter control-id="ca-2">
-            <add position="starting" by-id="ca-2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ca-2_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1654,9 +1620,7 @@
         </alter>
         <!-- - - CA-3 - -  -->
         <alter control-id="ca-3">
-            <add position="starting" by-id="ca-3">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ca-3_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1672,9 +1636,7 @@
         <alter control-id="ca-5">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ca-5">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
                 <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1693,9 +1655,7 @@
         </alter>
         <!-- - - CA-7 - -  -->
         <alter control-id="ca-7">
-            <add position="starting" by-id="ca-7">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ca-7_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1705,9 +1665,7 @@
         </alter>
         <!-- - - CA-7(4) -  -->
         <alter control-id="ca-7.4">
-            <add position="starting" by-id="ca-7.4">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ca-7.4_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1717,9 +1675,7 @@
         </alter>
         <!-- - - CA-8 -  -->
         <alter control-id="ca-8">
-            <add position="starting" by-id="ca-8">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ca-8_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1729,9 +1685,7 @@
         </alter>
         <!-- - - CA-9 - -  -->
         <alter control-id="ca-9">
-            <add position="starting" by-id="ca-9">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ca-9_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1747,9 +1701,7 @@
         <alter control-id="cm-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="cm-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -1773,9 +1725,7 @@
         </alter>
         <!-- - - CM-5 - -  -->
         <alter control-id="cm-5">
-            <add position="starting" by-id="cm-5">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="cm-5_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1785,9 +1735,7 @@
         </alter>
         <!-- - - CM-6 - -  -->
         <alter control-id="cm-6">
-            <add position="starting" by-id="cm-6">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="cm-6_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1823,9 +1771,7 @@
         </alter>
         <!-- - - CM-8 - -  -->
         <alter control-id="cm-8">
-            <add position="starting" by-id="cm-8">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="cm-8_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -1859,9 +1805,7 @@
         <alter control-id="cp-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="cp-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -1870,9 +1814,7 @@
         <alter control-id="cp-2">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="cp-2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
                 <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1884,9 +1826,7 @@
         <alter control-id="cp-3">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="cp-3">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
                 <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1898,9 +1838,7 @@
         <alter control-id="cp-4">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="cp-4">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="NSO"/>
                 <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -1932,9 +1870,7 @@
         <alter control-id="ia-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ia-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -1970,18 +1906,14 @@
         <alter control-id="ia-2.2">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ia-2.2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ASSESS"/>
             </add>
         </alter>
         <!-- - - IA-2 (8) - -  -->
         <alter control-id="ia-2.8">
-            <add position="starting" by-id="ia-2.8">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ia-2.8_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2014,9 +1946,7 @@
         <alter control-id="ia-4">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ia-4">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2025,9 +1955,7 @@
         <alter control-id="ia-5">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ia-5">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2036,9 +1964,7 @@
         <alter control-id="ia-5.1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ia-5.1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2106,9 +2032,7 @@
         <alter control-id="ia-11">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ia-11">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2117,9 +2041,7 @@
         <alter control-id="ir-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ir-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2128,9 +2050,7 @@
         <alter control-id="ir-2">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ir-2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2154,9 +2074,7 @@
         </alter>
         <!-- - - IR-6 - -  -->
         <alter control-id="ir-6">
-            <add position="starting" by-id="ir-6">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ir-6_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2176,9 +2094,7 @@
         <alter control-id="ir-8">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ir-8">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
                 <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -2190,9 +2106,7 @@
         <alter control-id="ma-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ma-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2214,9 +2128,7 @@
         <alter control-id="ma-4">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ma-4">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2238,9 +2150,7 @@
         <alter control-id="mp-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="mp-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2288,18 +2198,14 @@
         <alter control-id="pe-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="pe-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
         </alter>
         <!-- - - PE-2 - -  -->
         <alter control-id="pe-2">
-            <add position="starting" by-id="pe-2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="pe-2_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2313,9 +2219,7 @@
         </alter>
         <!-- - - PE-3 - -  -->
         <alter control-id="pe-3">
-            <add position="starting" by-id="pe-3">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="pe-3_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2329,9 +2233,7 @@
         </alter>
         <!-- - - PE-6 - -  -->
         <alter control-id="pe-6">
-            <add position="starting" by-id="pe-6">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="pe-6_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2345,9 +2247,7 @@
         </alter>
         <!-- - - PE-8 - -  -->
         <alter control-id="pe-8">
-            <add position="starting" by-id="pe-8">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="pe-8_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2437,18 +2337,14 @@
         <alter control-id="pl-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="pl-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
         </alter>
         <!-- - - PL-2 - -  -->
         <alter control-id="pl-2">
-            <add position="starting" by-id="pl-2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="pl-2_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2468,18 +2364,14 @@
         <alter control-id="pl-4.1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="pl-4.1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
         </alter>
         <!-- - - PL-8 -  -->
         <alter control-id="pl-8">
-            <add position="starting" by-id="pl-8">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="pl-8_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2491,9 +2383,7 @@
         <alter control-id="pl-10">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="pl-10">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2502,9 +2392,7 @@
         <alter control-id="pl-11">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="pl-11">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2513,9 +2401,7 @@
         <alter control-id="ps-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ps-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2541,9 +2427,7 @@
         <alter control-id="ps-4">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ps-4">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2552,9 +2436,7 @@
         <alter control-id="ps-5">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ps-5">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2563,9 +2445,7 @@
         <alter control-id="ps-6">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ps-6">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2574,9 +2454,7 @@
         <alter control-id="ps-7">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ps-7">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
                 <part name="guidance" class="FedRAMP-Tailored-LI-SaaS">
@@ -2596,9 +2474,7 @@
         <alter control-id="ps-9">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ps-9">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2607,9 +2483,7 @@
         <alter control-id="ra-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ra-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2638,18 +2512,14 @@
         <alter control-id="ra-3.1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="ra-3.1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
         </alter>
         <!-- - - RA-5 - -  -->
         <alter control-id="ra-5">
-            <add position="starting" by-id="ra-5">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ra-5_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2659,9 +2529,7 @@
         </alter>
         <!-- - - RA-5(2) -  -->
         <alter control-id="ra-5.2">
-            <add position="starting" by-id="ra-5.2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ra-5.2_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2671,9 +2539,7 @@
         </alter>
         <!-- - - RA-5(11) -  -->
         <alter control-id="ra-5.11">
-            <add position="starting" by-id="ra-5.11">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ra-5.11_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2683,9 +2549,7 @@
         </alter>
         <!-- - - RA-7 - -  -->
         <alter control-id="ra-7">
-            <add position="starting" by-id="ra-7">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="ra-7_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2697,9 +2561,7 @@
         <alter control-id="sa-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sa-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2732,9 +2594,7 @@
         <alter control-id="sa-4.10">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sa-4.10">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2751,9 +2611,7 @@
         <alter control-id="sa-8">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sa-8">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2769,9 +2627,7 @@
         </alter>
         <!-- - - SA-22 - -  -->
         <alter control-id="sa-22">
-            <add position="starting" by-id="sa-22">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="sa-22_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2783,9 +2639,7 @@
         <alter control-id="sc-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sc-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -2814,9 +2668,7 @@
         </alter>
         <!-- - - SC-8 -  -->
         <alter control-id="sc-8">
-            <add position="starting" by-id="sc-8">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="sc-8_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2826,9 +2678,7 @@
         </alter>
         <!-- - - SC-8(1) -  -->
         <alter control-id="sc-8.1">
-            <add position="starting" by-id="sc-8.1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="sc-8.1_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2847,9 +2697,7 @@
         </alter>
         <!-- - - SC-13 - -  -->
         <alter control-id="sc-13">
-            <add position="starting" by-id="sc-13">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="sc-13_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2898,9 +2746,7 @@
         </alter>
         <!-- - - SC-28 -  -->
         <alter control-id="sc-28">
-            <add position="starting" by-id="sc-28">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="sc-28_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2910,9 +2756,7 @@
         </alter>
         <!-- - - SC-28(1) -  -->
         <alter control-id="sc-28.1">
-            <add position="starting" by-id="sc-28.1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="sc-28.1_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2932,18 +2776,14 @@
         <alter control-id="si-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="si-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
         </alter>
         <!-- - - SI-2 - -  -->
         <alter control-id="si-2">
-            <add position="starting" by-id="si-2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="si-2_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2953,9 +2793,7 @@
         </alter>
         <!-- - - SI-3 - -  -->
         <alter control-id="si-3">
-            <add position="starting" by-id="si-3">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="si-3_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2965,9 +2803,7 @@
         </alter>
         <!-- - - SI-4 - -  -->
         <alter control-id="si-4">
-            <add position="starting" by-id="si-4">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add by-id="si-4_smt" position="starting">
                 <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="Required"/>
             </add>
@@ -2998,9 +2834,7 @@
         <alter control-id="sr-1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sr-1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -3009,9 +2843,7 @@
         <alter control-id="sr-2">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sr-2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -3020,9 +2852,7 @@
         <alter control-id="sr-2.1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sr-2.1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -3031,9 +2861,7 @@
         <alter control-id="sr-3">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sr-3">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -3042,9 +2870,7 @@
         <alter control-id="sr-5">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sr-5">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -3053,9 +2879,7 @@
         <alter control-id="sr-8">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sr-8">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -3064,9 +2888,7 @@
         <alter control-id="sr-10">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sr-10">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -3075,9 +2897,7 @@
         <alter control-id="sr-11">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sr-11">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -3086,9 +2906,7 @@
         <alter control-id="sr-11.1">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sr-11.1">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -3097,9 +2915,7 @@
         <alter control-id="sr-11.2">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sr-11.2">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
@@ -3108,9 +2924,7 @@
         <alter control-id="sr-12">
             <remove by-name="assessment-objective"/>
             <remove by-name="assessment-method"/>
-            <add position="starting" by-id="sr-12">
-                <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
-            </add>
+
             <add position="ending">
                 <prop name="method" ns="http://csrc.nist.gov/ns/rmf" class="FedRAMP-Tailored-LI-SaaS" value="ATTEST"/>
             </add>
