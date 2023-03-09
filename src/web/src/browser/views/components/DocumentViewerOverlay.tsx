@@ -25,7 +25,7 @@ export const DocumentViewerOverlay = ({
 
   // Hightlight and scroll to node when mounted to DOM.
   const refCallback = useCallback(
-    node => {
+    (node: any) => {
       if (!node) {
         return;
       }
