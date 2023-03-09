@@ -275,12 +275,13 @@ export const selectVisibleScenarioSummaries = memoize(
           if (visibleAssertion === null) {
             return [];
           }
-          return assertionDocumentation.xspecScenarioSummaries[
-            visibleAssertion.documentType
-          ][visibleAssertion.assertionId];
-        } else {
-          return [];
+          return (
+            assertionDocumentation.xspecScenarioSummaries[
+              visibleAssertion.documentType
+            ][visibleAssertion.assertionId] || []
+          );
         }
+        return [];
       },
     ),
 );
