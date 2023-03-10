@@ -4,11 +4,16 @@
     queryBinding="xslt2"
     xmlns:sch="http://purl.oclc.org/dsdl/schematron"
     xmlns:sqf="http://www.schematron-quickfix.com/validator/process"
+    xmlns:unit="http://us.gov/testing/unit-testing"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">
 
     <sch:ns
         prefix="sch"
         uri="http://purl.oclc.org/dsdl/schematron" />
+    
+    <sch:ns
+        prefix="unit"
+        uri="http://us.gov/testing/unit-testing" />
 
     <sch:ns
         prefix="x"
@@ -66,22 +71,16 @@
                 diagnostics="lacks-affirmative-test"
                 id="has-affirmative-test"
                 role="warning"
-                test="
-                    (: FIXME: force true until missing XSpec test designation is complete :)
-                    true() or
-                    (every $id in $schematron//sch:assert/@id
-                        satisfies $id = //x:expect-not-assert/@id)">Every Schematron assertion has a counterpart affirmative
+                test="every $id in $schematron//sch:assert[not(@unit:override-xspec)]/@id satisfies $id = 
+                      //x:expect-not-assert/@id">Every Schematron assertion has a counterpart affirmative
                 test.</sch:assert>
 
             <sch:assert
                 diagnostics="lacks-negative-test"
                 id="has-negative-test"
                 role="warning"
-                test="
-                    (: FIXME: force true until missing XSpec test designation is complete :)
-                    true() or
-                    (every $id in $schematron//sch:assert/@id
-                        satisfies $id = //x:expect-assert/@id)">Every Schematron assertion has a counterpart negative
+                test="every $id in $schematron//sch:assert[not(@unit:override-xspec)]/@id satisfies $id = 
+                      //x:expect-assert/@id">Every Schematron assertion has a counterpart negative
                 test.</sch:assert>
 
         </sch:rule>
