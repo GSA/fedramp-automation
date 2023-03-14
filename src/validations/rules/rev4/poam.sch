@@ -44,13 +44,7 @@
                 resolve-uri(/oscal:plan-of-action-and-milestones/oscal:import-ssp/@href, base-uri())" />
     <sch:let
         name="ssp-available"
-        value="
-            if (: this is not a relative reference :) (not(starts-with($ssp-import-url, '#')))
-            then
-                (: the referenced document must be available :)
-                doc-available($ssp-import-url)
-            else
-                true()" />
+        value="doc-available($ssp-import-url)" />
     <sch:let
         name="ssp-doc"
         value="
@@ -144,26 +138,6 @@
                         true()">An OSCAL POA&amp;M import-ssp element href attribute which is document-relative must identify a target
                 within the document. <sch:value-of
                     select="@href" />.</sch:assert>
-
-            <sch:let
-                name="import-ssp-url"
-                value="resolve-uri(@href, base-uri())" />
-
-            <sch:assert
-                diagnostics="has-import-ssp-external-href-diagnostic"
-                doc:guide-reference="Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&amp;M) §3.5"
-                id="has-import-ssp-external-href"
-                role="error"
-                test="
-                    if (: this is not a relative reference :) (not(starts-with(@href, '#')))
-                    then
-                        (: the referenced document must be available :)
-                        doc-available($import-ssp-url)
-                    else
-                        (: the assertion succeeds :)
-                        true()"
-                unit:override-xspec="both">An OSCAL POA&amp;M import-ssp element href attribute which is an external reference must identify an
-                available target.</sch:assert>
 
             <sch:assert
                 diagnostics="import-ssp-has-available-document-diagnostic"
