@@ -537,12 +537,6 @@
             identify a target within the document.</sch:diagnostic>
 
         <sch:diagnostic
-            doc:assert="has-import-ssp-external-href"
-            doc:context="oscal:import-ssp"
-            id="has-import-ssp-external-href-diagnostic">This OSCAL POA&amp;M import-ssp element href attribute which is an external reference does
-            not identify an available target.</sch:diagnostic>
-
-        <sch:diagnostic
             doc:assertion="import-ssp-has-available-document"
             doc:context="oscal:import-ssp"
             id="import-ssp-has-available-document-diagnostic">The import-ssp element has an href attribute that does not reference an available
