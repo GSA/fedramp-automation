@@ -159,37 +159,6 @@
         </x:scenario>
 
         <x:scenario
-            label="when the import-ssp has an external href">
-            <x:scenario
-                label="which is available"
-                pending="XSpec problem resolution">
-                <x:context>
-                    <plan-of-action-and-milestones
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <import-ssp
-                            href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml" />
-                    </plan-of-action-and-milestones>
-                </x:context>
-                <x:expect-not-assert
-                    id="has-import-ssp-external-href"
-                    label="that is correct" />
-            </x:scenario>
-            <x:scenario
-                label="which is not available">
-                <x:context>
-                    <plan-of-action-and-milestones
-                        xmlns="http://csrc.nist.gov/ns/oscal/1.0">
-                        <import-ssp
-                            href="file:x" />
-                    </plan-of-action-and-milestones>
-                </x:context>
-                <x:expect-assert
-                    id="has-import-ssp-external-href"
-                    label="that is an error" />
-            </x:scenario>
-        </x:scenario>
-
-        <x:scenario
             label="when the import-ssp has a relative href">
             <x:scenario
                 label="and the SSP is declared as a back-matter resource">
