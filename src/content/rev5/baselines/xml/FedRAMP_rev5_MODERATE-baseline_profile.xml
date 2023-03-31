@@ -3,8 +3,8 @@
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="71ba09a5-97a8-483f-92bd-3db6358f005d">
 	<metadata>
 		<title>FedRAMP Rev 5 Moderate Baseline</title>
-		<published>2023-03-03T00:00:00.000Z</published>
-		<last-modified>2023-03-03T00:00:00.000Z</last-modified>
+		<published>2023-03-30T00:00:00.000Z</published>
+		<last-modified>2023-03-30T00:00:00.000Z</last-modified>
 		<version>fedramp-2.0.0-oscal1.0.4</version>
 		<oscal-version>1.0.4</oscal-version>
 		<role id="prepared-by">
@@ -524,11 +524,10 @@
 				</description>
 			</constraint>
 		</set-parameter>
-
-		<set-parameter param-id="ac-11_odp.01">
+		<set-parameter param-id="ac-11_odp.02">
 			<constraint>
 				<description>
-					<p>fifteen (15) minutes; requiring the user to initiate a device lock before leaving the system unattended</p>
+					<p>fifteen (15) minutes</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -816,10 +815,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-
-
-
-		<set-parameter param-id="cm-3.4_prm_1">
+		<set-parameter param-id="cm-03.04_odp.03">
 			<constraint>
 				<description>
 					<p>Configuration control board (CCB) or similar (as defined in CM-3)</p>
@@ -858,11 +854,17 @@
 		<set-parameter param-id="cm-8.3_prm_1">
 			<constraint>
 				<description>
-					<p>Continuously, using automated mechanisms with a maximum five-minute delay in detection.</p>
+					<p>automated mechanisms with a maximum five-minute delay in detection</p>
 				</description>
 			</constraint>
 		</set-parameter>
-
+		<set-parameter param-id="cm-08.03_odp.04">
+			<constraint>
+				<description>
+					<p>continuously</p>
+				</description>
+			</constraint>
+		</set-parameter>
 		<set-parameter param-id="cm-11_odp.03">
 			<constraint>
 				<description>
@@ -948,7 +950,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="cp-04_odp.02">
+		<set-parameter param-id="cp-4_prm_2">
 			<constraint>
 				<description>
 					<p>functional exercises</p>
@@ -1180,7 +1182,7 @@
 		<set-parameter param-id="ma-03.03_odp">
 			<constraint>
 				<description>
-					<p>the information owner explicitly authorizing removal of the equipment from the facility</p>
+					<p>the information owner</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1505,7 +1507,7 @@
 			</constraint>
 		</set-parameter>
 
-		<set-parameter param-id="ps-05_odp.01">
+		<set-parameter param-id="ps-05_odp.02">
 			<constraint>
 				<description>
 					<p>twenty-four (24) hours </p>
@@ -1932,7 +1934,14 @@
 		<set-parameter param-id="si-03_odp.04">
 			<constraint>
 				<description>
-					<p>to include blocking and quarantining malicious code and alerting administrator or defined security personnel near-realtime</p>
+					<p>to include blocking and quarantining malicious code</p>
+				</description>
+			</constraint>
+		</set-parameter>
+		<set-parameter param-id="si-03_odp.05">
+			<constraint>
+				<description>
+					<p>administrator or defined security personnel near-realtime</p>
 				</description>
 			</constraint>
 		</set-parameter>

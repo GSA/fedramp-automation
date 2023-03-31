@@ -3,8 +3,8 @@
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="2b515da9-8a5e-4b7c-9cce-6451e70ca75d">
     <metadata>
         <title>FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
-        <published>2023-03-03T00:00:00.000Z</published>
-        <last-modified>2023-03-03T00:00:00.000Z</last-modified>
+        <published>2023-03-30T00:00:00.000Z</published>
+        <last-modified>2023-03-30T00:00:00.000Z</last-modified>
         <version>fedramp-2.0.0-oscal1.0.4</version>
         <oscal-version>1.0.4</oscal-version>
         <role id="prepared-by">
@@ -593,7 +593,7 @@
                 </description>
             </constraint>
         </set-parameter>
-        <set-parameter param-id="cp-04_odp.02">
+        <set-parameter param-id="cp-4_prm_2">
             <constraint>
                 <description>
                     <p>classroom exercise/table top written tests</p>
@@ -1235,7 +1235,14 @@
         <set-parameter param-id="si-03_odp.04">
             <constraint>
                 <description>
-                    <p>to include blocking and quarantining malicious code and alerting administrator or defined security personnel near-realtime</p>
+                    <p>to include blocking and quarantining malicious code</p>
+                </description>
+            </constraint>
+        </set-parameter>
+        <set-parameter param-id="si-03_odp.05">
+            <constraint>
+                <description>
+                    <p>administrator or defined security personnel near-realtime</p>
                 </description>
             </constraint>
         </set-parameter>
