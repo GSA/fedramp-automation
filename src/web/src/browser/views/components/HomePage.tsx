@@ -170,14 +170,21 @@ const HeroSection = () => {
                   >
                     Schematron
                   </a>{' '}
-                  format. A summary of the NIST rev 4 ruleset{' '}
+                  format. A summary of the NIST{' '}
                   <a
                     className="text-white text-underline"
-                    href={`${state.config.baseUrl}rules/rules.html`}
+                    href={`${state.config.baseUrl}rules/rules-rev4.html`}
                   >
-                    is available
+                    rev 4
                   </a>
-                  .
+                    and{' '}
+                  <a
+                    className="text-white text-underline"
+                    href={`${state.config.baseUrl}rules/rules-rev5.html`}
+                  >
+                    rev 5
+                  </a>
+                    {' '}rulesets are available.
                 </p>
                 <p>
                   This user interface, which applies validations to a FedRAMP

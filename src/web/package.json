@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "build": "mkdirp public/rules && run-s build:cli build:schematron build:schematron:summary build:json build:typecheck build:vite",
+    "build": "mkdirp public/rules && run-s build:cli build:schematron build:schematron:summary:* build:json build:typecheck build:vite",
     "build:cli": "tsup --format cjs --out-dir ./bin ./src/cli/index.ts",
     "build:json": "run-p build:json:sef:* && run-p build:json:cli:*",
     "build:json:cli:assertion-views": "node bin/index.cjs create-assertion-view",
@@ -13,7 +13,8 @@
     "build:json:sef:sar-json-to-xml": "xslt3 -xsl:../../vendor/oscal/xml/convert/oscal_assessment-results_json-to-xml-converter.xsl -export:public/rules/oscal_assessment-results_json-to-xml-converter.sef.json -relocate:on -nogo",
     "build:json:sef:poam-json-to-xml": "xslt3 -xsl:../../vendor/oscal/xml/convert/oscal_poam_json-to-xml-converter.xsl -export:public/rules/oscal_poam_json-to-xml-converter.sef.json -relocate:on -nogo",
     "build:schematron": "node bin/index.cjs compile-schematron",
-    "build:schematron:summary": "xslt3 -s:../validations/rules/rev4/rules.xsl -xsl:../validations/rules/rev4/rules.xsl -o:public/rules/rules.html",
+    "build:schematron:summary:rev4": "xslt3 -s:../validations/rules/rev4/rules.xsl -xsl:../validations/rules/rev4/rules.xsl -o:public/rules/rules-rev4.html",
+    "build:schematron:summary:rev5": "xslt3 -s:../validations/rules/rev5/rules.xsl -xsl:../validations/rules/rev5/rules.xsl -o:public/rules/rules-rev5.html",
     "build:typecheck": "tsc --noEmit",
     "build:vite": "vite build",
     "cli": "node bin/index.cjs",
