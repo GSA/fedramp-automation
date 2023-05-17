@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>-->
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="8c000726-ba93-480d-a221-8cb60df10c24">
    <metadata>
@@ -7,12 +6,12 @@
       <published>2023-05-16T00:00:00Z</published>
       <last-modified>2023-05-16T00:00:00Z</last-modified>
       <version>fedramp1.1.0-oscal1.0.0</version>
-      <oscal-version>1.0.0</oscal-version>
+      <oscal-version>1.0.4</oscal-version>
       <revisions>
          <revision>
             <published>2023-05-16T00:00:00Z</published>
             <version>1.0</version>
-            <oscal-version>1.0.0</oscal-version>
+            <oscal-version>1.0.4</oscal-version>
             <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"/>
             <remarks>
                <p>Initial publication.</p>
@@ -57,7 +56,7 @@
          <short-name>CSP</short-name>
       </role>
       <role id="system-owner">
-         <!-- Section 4 - System Owner -->
+         <!-- Referenced in Section 4 - System Owner -->
          <title>Information System Owner</title>
          <description>
             <p>The individual within the CSP who is ultimately accountable for everything related to this system.</p>
@@ -94,7 +93,7 @@
          </description>
       </role>
       <role id="information-system-security-officer">
-         <!-- Section 5 - Assignment of Security Responsibility -->
+         <!-- Referenced in Section 5 - Assignment of Security Responsibility -->
          <title>System Information System Security Officer (or Equivalent)</title>
          <description>
             <p>The individual accountable for the security posture of the system on behalf of the system owner.</p>
@@ -222,7 +221,7 @@
          </remarks>
       </location>
       <party uuid="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" type="organization">
-         <!-- CSP Name (Table 3.1) -->
+         <!-- CSP Name - refernced in Table 3.1 -->
          <name>Cloud Service Provider (CSP) Name</name>
          <short-name>CSP Acronym/Short Name</short-name>
          <link href="#31a46c4f-2959-4287-bc1c-67297d7da60b" rel="logo"/>
@@ -575,18 +574,12 @@
             </availability-impact>
          </information-type>
       </system-information>
-      <!-- Table 2-3 Security Impact Level -->
+      <!-- Security Impact Level -->
       <security-impact-level>
          <security-objective-confidentiality>fips-199-moderate</security-objective-confidentiality>
          <security-objective-integrity>fips-199-moderate</security-objective-integrity>
          <security-objective-availability>fips-199-moderate</security-objective-availability>
       </security-impact-level>
-      <!-- Section 2.3 Digital Identity Determination & Table 7-1 System Status -->
-      <status state="operational">
-         <remarks>
-            <p>Remarks are required if status/state is "other". Optional otherwise.</p>
-         </remarks>
-      </status>
 
       <!-- Section 8 - Illustrated Architecture and Narrative -->
       <authorization-boundary>
@@ -633,11 +626,12 @@
       </data-flow>
    </system-characteristics>
    <system-implementation>
+      <!-- Rev 5 update - these "users-*" props are optional in rev 5 -->
       <prop ns="https://fedramp.gov/ns/oscal" name="users-internal" value="0"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="users-external" value="0"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="users-internal-future" value="0"/>
       <prop ns="https://fedramp.gov/ns/oscal" name="users-external-future" value="0"/>
-      <!-- Section 6 - Leveraged Authorizations -->
+      <!-- Section 6 - Leveraged Authorizations.  Add one for each leveraged system -->
       <leveraged-authorization uuid="5a9c98ab-8e5e-433d-a7bd-515c07cd1497">
          <title>GovCloud</title>
          <prop ns="https://fedramp.gov/ns/oscal" name="leveraged-system-identifier" value="F1603047866"/>
@@ -651,7 +645,8 @@
             <p>The link fields are optional, but preferred where known. Often, a leveraging system's SSP author will not have access to the leveraged system's SSP, but should have access to the leveraged system's CRM.</p>
          </remarks>
       </leveraged-authorization>
-      <!-- Users -->
+      <!-- Users - list the types of users that interact with the system -->
+      <!-- NOTE - users may be referenced throughout the document (e.g., Table 6.1, Table 7.1, etc.) -->
       <user uuid="9cb0fab0-78bd-44ba-bcb8-3e9801cc952f">
          <title>[SAMPLE]Unix System Administrator</title>
          <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="high-risk"/>
@@ -705,25 +700,49 @@
          <status state="operational"/>
       </component>
 
-      <!-- NOTE: all components must specify services, ports, and protocols (Section 9) -->
+      <!-- NOTE: when applicable, all components must specify services, ports, and protocols (Section 9) -->
       <!-- Additionally, all components that use or implement enryption must reference a cryptographic module component -->
 
       <!-- Section 10 / Appendix Q - Cryptographic Modules -->
-      <!-- NOTE: Recommend setting type="cryptographic-module" and relaxing schematron validaton (since OSCAL constraint for type indicates it may be locally defined) -->
+      <!-- NOTE: Must set type="cryptographic-module" -->
+      <!-- Todo - consider relaxing schematron validaton (since OSCAL constraint for type indicates it may be locally defined) -->
       <!-- List all cryptographic modules for Data-at-Rest (DAT) - must referenced by using component(s), provide CMVP #, FIPS validation status, Vendor Name, Module Name, and brief usage description -->
       <component uuid="95beec7e-6f82-4aaa-8211-969cd7c1f1ab" type="cryptographic-module">
          <!-- Todo: schematron should not require components of type "validation" to have an "asset-type" prop -->
-         <title>[SAMPLE]Module Name</title>
+         <title>[SAMPLE]Cryptographic Module Name</title>
          <description>
-            <p>[SAMPLE]FIPS 140 Validated Module</p>
+            <p>Provide a description and any pertinent note regarding the use of this CM.</p>
+            <p>For data-at-rest modules, describe type of encryption implemented (e.g., full disk, file, record-level, etc.)</p>
+            <p>Lastly, provide any supporting notes on FIPS status (e.g. historical) or lack of FIPS compliance (e.g., Module in Process).</p>
          </description>
+         <!-- Rev5 new props for CMs -->
+         <prop name="vendor-name" ns="https://fedramp.gov/ns/oscal" value="CM Vendor"/>
+         <prop name="cryptographic-module-usage" ns="https://fedramp.gov/ns/oscal" value="data-at-rest"/>
+         <!-- Provide the validation type for this CM -->
          <prop name="validation-type" value="fips-140-2"/>
-         <!-- identifies the certificate number -->
+         <!-- Provide the certificate number (CMVP #) -->
          <prop name="validation-reference" value="3928"/>
          <link rel="validation-details" href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/Certificate/3928"/>
          <status state="operational"/>
       </component>
       <!-- List all cryptographic modules for Data-in-Transit (DIT) - must referenced by using component(s), provide CMVP #, FIPS validation status, Vendor Name, Module Name, and brief usage description -->
+      <component uuid="95beec7e-6f82-4aaa-8211-969cd7c1f1ab" type="cryptographic-module">
+         <!-- Todo: schematron should not require components of type "validation" to have an "asset-type" prop -->
+         <title>[SAMPLE]Cryptographic Module Name</title>
+         <description>
+            <p>Provide a description and any pertinent note regarding the use of this CM.</p>
+            <p>For example, any supporting notes on FIPS status (e.g. historical) or lack of FIPS compliance (e.g., Module in Process).</p>
+         </description>
+         <!-- Rev5 new props for CMs -->
+         <prop name="vendor-name" ns="https://fedramp.gov/ns/oscal" value="CM Vendor"/>
+         <prop name="cryptographic-module-usage" ns="https://fedramp.gov/ns/oscal" value="data-in-transit"/>
+         <!-- Provide the validation type for this CM -->
+         <prop name="validation-type" value="fips-140-3"/>
+         <!-- Provide the certificate number (CMVP #) -->
+         <prop name="validation-reference" value="3920"/>
+         <link rel="validation-details" href="https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3920"/>
+         <status state="operational"/>
+      </component>
 
       <!-- Section 6 - Leveraged FedRAMP-Authorized Services -->
       <!-- Must have a component for each FedRAMP Authorized Service -->
@@ -734,10 +753,21 @@
          <title>Name of Leveraged System</title>
          <description>
             <p>If the leveraged system owner provides a UUID for their system (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
+            <p>Must include all levereged services and features fromthe leveraged authorization here.</p>
          </description>
+         <!-- Components of type "interconnection" must have the following props  -->
+         <prop name="isa-title" value="system interconnection agreement"/>
+         <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
+         <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="SLA" /><!-- New Rev5 prop.  Specify ty e type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
+         <prop name="ipv4-address" value="172.0. 0.0"/>
+         <prop name="ipv6-address" value="::"/>
+         <prop name="direction" value="incoming"/>
+         <prop name="information" ns="https://fedramp.gov/ns/oscal" value="describe information being transferred" />
+         <!-- other props -->
          <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
          <prop name="implementation-point" value="external"/>
          <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000001"/>
+
          <status state="operational"/>
       </component>
       <component uuid="77A1614A-57B3-4B32-9FEE-613A6520EC58" type="service">
@@ -745,6 +775,7 @@
          <title>Service Provided by Leveraged System</title>
          <description>
             <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
+            <p>Must include all levereged services and features fromthe leveraged authorization here.</p>
          </description>
          <!--<prop name="asset-type" value="iaas" />-->
          <!-- Todo: confirm if "asset-type" prop is needed for a "service" component.  Allowed values do not seem to apply here. -->
@@ -765,6 +796,10 @@
             <p>Briefly describe the interconnection.</p>
          </description>
          <prop ns="https://fedramp.gov/ns/oscal" name="service-processor" value="[SAMPLE] Telco Name"/>
+         <!-- Components of type "interconnection" must have the following props  -->
+         <prop name="isa-title" value="system interconnection agreement"/>
+         <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
+         <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="Contract" /><!-- New Rev5 prop.  Specify ty e type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
          <prop name="ipv4-address" class="local" value="10.1.1.1"/>
          <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
          <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a02:0202"/>
@@ -1220,7 +1255,7 @@
    -->
    <control-implementation>
       <description>
-         <p>FedRAMP SSP Template Section 13</p>
+         <p>Appendix A - FedRAMP SSP Rev5 Template</p>
          <p>This description field is required by OSCAL.</p>
          <p>FedRAMP does not require any specific information here.</p>
       </description>
@@ -2501,7 +2536,57 @@
                </set-parameter>
             </by-component>
          </statement>
-         <!--Required response points are: -->
+      </implemented-requirement>
+      <implemented-requirement uuid="" control-id="sr-1">
+         <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
+            <remarks>
+               <p>Describe the plan to complete the implementation.</p>
+            </remarks>
+         </prop>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <link href="#7d440e15-ca4d-4e4a-8fcc-50bb05ffa2fd" rel="policy"/>
+         <link href="#b2aaedad-5ff0-4b0c-b490-bbe64b2033b0" rel="procedure"/>
+         <responsible-role role-id="information-system-security-officer">
+            <party-uuid>36b8d6c0-3b25-42cc-b529-cf4066145cdd</party-uuid>
+         </responsible-role>
+         <statement statement-id="sr-1_smt" uuid="ea3cc181-1a55-4350-94a6-faf42f003045">
+            <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="ea3cc181-1a55-4350-94a6-faf42f003045">
+               <description>
+                  <p>Describe how the control is satisfied within the system.</p>
+               </description>
+               <set-parameter param-id="sr-1_prm_1">
+                  <value>to include chief privacy and ISSO and/or similar role or designees</value>
+               </set-parameter>
+               <set-parameter param-id="sr-1_prm_2">
+                  <value>at least every 3 years</value>
+               </set-parameter>
+               <set-parameter param-id="sr-1_prm_3">
+                  <value>at least annually</value>
+               </set-parameter>
+            </by-component>
+         </statement>
+         <statement statement-id="sr-1_smt.a" uuid="">
+            <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="319cc842-aebc-4625-8cfe-1586e57148a5">
+               <description>
+                  <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
+               </description>
+            </by-component>
+            <by-component component-uuid="88b8d7bb-ba23-4430-bf62-028eab822050" uuid="51c4938e-7239-4b6f-ac7a-226719347d54">
+               <description>
+                  <p>Describe how this policy component satisfies part a.</p>
+                  <p>Component approach. This links to a component representing the Policy.</p>
+                  <p>That component contains a link to the policy, so it does not have to be linked here too.</p>
+               </description>
+            </by-component>
+            <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" uuid="73b85fca-3995-447a-a47f-23531335ea58">
+               <description>
+                  <p>Describe how this procedure component satisfies part a.</p>
+                  <p>Component approach. This links to a component representing the procedure.</p>
+                  <p>That component contains a link to the procedure, so it does not have to be linked here too.</p>
+               </description>
+            </by-component>
+         </statement>
       </implemented-requirement>
    </control-implementation>
    <!-- SSP Attachments -->
@@ -3191,7 +3276,7 @@
       <!-- Appendix J - CIS and CRM Workbook -->
       <!-- Note - This can be generated from the content in the Security Controls section and no longer needs to be maintained separately or attached. -->
       <!-- Appendix K - FIPS 199 Worksheet -->
-      <!-- Note - This is specified in the document (see //system-security-plan/system-characteristics[1]/system-information[1]/information-type) and no longer need to be maintained separately or attached -->     
+      <!-- Note - This is specified in the document (see //system-security-plan/system-characteristics[1]/system-information[1]/information-type) and no longer need to be maintained separately or attached -->
       <!-- Appendix L - CSP-Specific Required Laws and Regulations -->
       <resource uuid="a8a0cc81-800f-479f-93d3-8b8743d9b98d">
          <title>[SAMPLE] Laws and Regulations </title>
@@ -3205,7 +3290,7 @@
          <!-- Todo: Fix Schematron. Make base64 optional -->
       </resource>
       <!-- Appendix M - Integrated Inventory Workbook -->
-      <!-- Note - This is specified in the document (see //system-security-plan/system-implementation[1]/inventory-item) and no longer need to be maintained separately or attached -->     
+      <!-- Note - This is specified in the document (see //system-security-plan/system-implementation[1]/inventory-item) and no longer need to be maintained separately or attached -->
       <!-- Appendix N - Continuous Monitoring Plan -->
       <resource uuid="ab56cf27-0dae-40d6-89b7-d750137309af">
          <title>Document Title</title>
