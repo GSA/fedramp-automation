@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://github.com/usnistgov/OSCAL/raw/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
+<plan-of-action-and-milestones
+    uuid="eaa872ba-9212-4112-ab05-60a2d0e1aded"
+    xmlns="http://csrc.nist.gov/ns/oscal/1.0">
+
+    <!-- The document root element name evokes https://csrc.nist.gov/glossary/term/poam. -->
+
+    <!-- The document schema does not declare a milestone element (despite the root element name). -->
+
+    <metadata>
+
+        <title>POA&amp;M Unit Test</title>
+
+        <last-modified>2022-06-02T11:38:29Z</last-modified>
+
+        <version>latest</version>
+
+        <oscal-version>1.0.4</oscal-version>
+
+        <!-- The cardinality of revisions is {0,1}. -->
+        <revisions>
+            <!-- The cardinality of revision is {0,∞}. -->
+            <!-- Maybe the revision cardinality should be {1,∞}? -->
+        </revisions>
+
+    </metadata>
+
+    <!-- The cardinality of import-ssp is {0,1}. -->
+    <import-ssp
+        href="ssp.xml">
+        <!-- Note the absence of a media-type. -->
+        <!-- A media-type can only be specified if an in-document (back-matter resource) is used for the import-ssp. -->
+        <!-- Were there a media-type attribute of import-ssp the target could be identified as XML or JSON. -->
+    </import-ssp>
+
+    <observation
+        uuid="034fd2a1-ef2d-41a7-b131-1878593dbc1d">
+        <description><!-- Note that while description is required, no content therein is required. --></description>
+        <method>test twice</method>
+        <type>finding</type>
+        <collected>2022-06-02T11:38:29Z</collected>
+    </observation>
+
+    <risk
+        uuid="f85976a4-c5e8-44a1-b7bd-36c0ef1509b9">
+
+        <!-- Note that there is no creation date for a risk. Time of creation must be inferred from something else. -->
+        <!-- related-observation (and thus the time thereof) is not assured. -->
+
+        <title><!-- Note that while title is required, no content therein is required. --></title>
+
+        <description><!-- Note that while description is required, no content therein is required. --></description>
+
+        <statement><!-- Note that while statement is required, no content therein is required. --></statement>
+
+        <status>open</status>
+
+        <characterization>
+
+            <origin>
+
+                <!-- Note that the actor definition need not reside within this document. -->
+                <!-- There is a weak implication that a target might be found in the imported SSP. -->
+                <actor
+                    actor-uuid="4e6b380e-4c43-4d02-af7c-a07711f98403"
+                    type="nemesis" />
+
+            </origin>
+
+            <!-- Note that facet primacy (within system+name) can only be document order. -->
+            <!-- Note as well that there is no way to link facets to or from the risk-log. -->
+
+            <facet
+                name="impact"
+                system="https://fedramp.gov"
+                value="high">
+                <!-- the following prop is peculiar to FedRAMP. -->
+                <prop
+                    name="state"
+                    value="initial" />
+                <remarks />
+            </facet>
+
+            <facet
+                name="impact"
+                system="https://fedramp.gov"
+                value="moderate">
+                <!-- the following prop is peculiar to FedRAMP. -->
+                <prop
+                    name="state"
+                    value="adjusted" />
+                <remarks>
+                    <p>nemesis is an old pal.</p>
+                </remarks>
+            </facet>
+
+        </characterization>
+
+        <!-- The cardinality of deadline is {0,1}. -->
+        <!-- The XML Schema says it is "the date/time by which the risk must be resolved". -->
+        <!-- Does that also constrain resolution of any poam-item which associates the risk? -->
+        <!-- Does deadline have an affect on response task timings? -->
+        <!-- Do response task timings have an affect on deadline? -->
+        <deadline>2022-11-29T13:37:22Z</deadline>
+
+        <response
+            lifecycle="recommendation"
+            uuid="8bea3be1-96a4-475f-a991-096ae19587a2">
+            <title />
+            <description />
+        </response>
+
+        <response
+            lifecycle="planned"
+            uuid="0ae485ea-e372-4eb8-8d67-ee486f1b99f7">
+
+            <title><!-- Note that while title is required, no content therein is required. --></title>
+
+            <description><!-- Note that while description is required, no content therein is required. --></description>
+
+            <!-- The cardinality of task is {0,∞}. -->
+            <task
+                type="fret"
+                uuid="658b179b-36c9-489c-8faa-2f35e595063f">
+
+                <title><!-- Note that while title is required, no content therein is required. --></title>
+
+                <timing>
+                    <!-- Note that at-frequency cannot express a point at which the recurring task begins, ends, or begins and ends. -->
+                    <!-- Thus the task is eternal. -->
+                    <!-- Perhaps it should be accompanied by within-date-range? Or just optional start and end attributes? -->
+                    <!-- See https://www.loc.gov/standards/datetime/iso-tc154-wg5_n0039_iso_wd_8601-2_2016-02-16.pdf for alternative methods of specification. -->
+                    <at-frequency
+                        period="1"
+                        unit="week" />
+                </timing>
+            </task>
+
+            <task
+                type="milestone"
+                uuid="eb485f28-df57-48d4-a65b-60481c85cc38">
+
+                <title><!-- Note that while title is required, no content therein is required. --></title>
+
+                <description><!-- description is optional in OSCAL; required by FedRAMP --></description>
+
+                <timing>
+                    <within-date-range
+                        end="2022-08-01T13:25:59Z"
+                        start="2022-06-02T11:38:29Z" />
+                </timing>
+            </task>
+
+            <task
+                type="milestone"
+                uuid="118bda4c-9d45-454e-b0e7-a1cf6ff06235">
+
+                <title><!-- Note that while title is required, no content therein is required. --></title>
+
+                <description><!-- description is optional in OSCAL; required by FedRAMP --></description>
+
+                <timing>
+                    <within-date-range
+                        end="2022-09-30T13:25:14Z"
+                        start="2022-06-02T11:38:29Z" />
+                </timing>
+            </task>
+
+            <task
+                type="milestone"
+                uuid="1f5fcf35-8e8c-499e-bd26-1141c8b52890">
+
+                <title>Close POA&amp;M</title>
+
+                <description><!-- description is optional in OSCAL; required by FedRAMP --></description>
+
+                <timing>
+                    <on-date
+                        date="2022-11-29T13:37:22Z"><!-- The element name implies a date but the attribute demands a dateTime. --></on-date>
+                </timing>
+            </task>
+
+        </response>
+
+        <!-- The cardinality of risk-log is {0,1}. -->
+        <risk-log>
+            <entry
+                uuid="e5ed128c-3c2d-4d42-9151-f460020c0687">
+
+                <title><!-- title is optional in OSCAL; required by FedRAMP --></title>
+
+                <description><!-- description is optional in OSCAL; required by FedRAMP --></description>
+
+                <start>2022-06-02T11:38:29Z</start>
+
+            </entry>
+        </risk-log>
+
+        <!-- The cardinality of related-observation is {0,∞}. -->
+        <related-observation
+            observation-uuid="034fd2a1-ef2d-41a7-b131-1878593dbc1d" />
+    </risk>
+
+    <poam-item>
+
+        <!-- Could this element have been named "poam"? -->
+        <!-- Or is a poam-item a subordinate component of a (not defined) poam? -->
+
+        <title><!-- Note that while title is required, no content therein is required. --></title>
+
+        <description><!-- Note that while description is required, no content therein is required. --></description>
+
+        <!-- The cardinality of related-observation is {0,∞}. -->
+        <!-- That allows a poam-item which has no direct association with an observation. -->
+        <!-- The related-observation uuid is not constrained by the XML Schema to be present in the document. -->
+        <related-observation
+            observation-uuid="034fd2a1-ef2d-41a7-b131-1878593dbc1d" />
+
+        <!-- The cardinality of associated-risk is {0,∞}. -->
+        <!-- That allows a poam-item which has no direct association with a risk. -->
+        <!-- The associated-risk uuid is not constrained by the XML Schema to be present in the document. -->
+        <!-- FedRAMP allows only one associated-risk per poam-item. -->
+        <associated-risk
+            risk-uuid="f85976a4-c5e8-44a1-b7bd-36c0ef1509b9" />
+
+    </poam-item>
+
+</plan-of-action-and-milestones>
