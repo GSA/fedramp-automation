@@ -2719,7 +2719,6 @@
 			</add>
 		</alter>
 		<alter control-id="ia-5.1">
-
 			<add position="ending" by-id="ia-5.1_smt">
 				<part id="ia-5.1_fr" name="item">
 					<title>IA-5 (1) Additional FedRAMP Requirements and Guidance</title>
@@ -2729,12 +2728,12 @@
 					</part>
 					<part id="ia-5.1_fr_smt.2" name="item">
 						<prop name="label" value="(h) Requirement:"/>
-						<p>For cases where technology doesn’t allow multi-factor authentication, complexity and length rules should be enforced: 15 characters minimum, including uppercase letters, lowercase letters, numbers, and/or special characters.</p>
-						<p>For emergency use accounts, complexity and length rules should be used: 15 characters minimum, including uppercase letters, lowercase letters, numbers, and/or special characters and passwords must be changed if used.</p>
+						<p>For cases where technology doesn’t allow multi-factor authentication, these rules should be enforced: must have a minimum length of 14 characters and must support all printable ASCII characters.</p>
+						<p>For emergency use accounts, these rules should be enforced: must have a minimum length of 14 characters, must support all printable ASCII characters, and passwords must be changed if used.</p>
 					</part>
 					<part id="ia-5.1_fr_gdn.1" name="guidance">
 						<prop name="label" value="Guidance:"/>
-						<p>Note that (c) and (d) require the use of cryptography which must be compliant with Federal requirements and utilize FIPS validated or NSA approved cryptography (see SC-13.)</p>
+						<p>Note that (c) and (d) require the use of cryptography which must be compliant with Federal requirements and utilize FIPS validated or NSA approved cryptography (see SC-13).</p>
 					</part>
 				</part>
 			</add>
