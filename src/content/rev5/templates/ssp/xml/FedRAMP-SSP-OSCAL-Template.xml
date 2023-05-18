@@ -12,13 +12,13 @@
             <published>2023-05-16T00:00:00Z</published>
             <version>1.0</version>
             <oscal-version>1.0.4</oscal-version>
-            <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" uuid="528974e9-fcde-494f-a2fa-35d6f1e31171"/>
             <remarks>
                <p>Initial publication.</p>
             </remarks>
          </revision>
       </revisions>
-      <prop name="marking" value="Controlled Unclassified Information"/>
+      <prop name="marking" value="Controlled Unclassified Information" uuid="ecdf148f-f8ce-40b1-b0a8-93b779f3eae9"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <role id="fedramp-pmo">
@@ -211,7 +211,7 @@
             <postal-code>00000-0000</postal-code>
             <country>US</country>
          </address>
-         <prop name="type" class="alternate" value="data-center"/>
+         <prop name="type" class="alternate" value="data-center" uuid="661c0c80-77e2-4618-963b-f3d81abd7e82"/>
          <remarks>
             <p>There must be one location for each data center.</p>
             <p>There must be at least two data center locations.</p>
@@ -236,7 +236,6 @@
          <short-name>FedRAMP PMO</short-name>
          <link href="https://fedramp.gov" rel="homepage"/>
          <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
-         <link href="#985475ee-d4d6-4581-8fdf-d84d3d8caa48" rel="reference"/>
          <link href="#1a23a771-d481-4594-9a1a-71d584fa4123" rel="reference"/>
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
@@ -294,7 +293,7 @@
       </party>
       <party uuid="09ad840f-aa79-43aa-9f22-25182c2ab11b" type="person">
          <name>[SAMPLE]ICA POC's Name</name>
-         <prop name="job-title" value="Individual's Title"/>
+         <prop name="job-title" value="Individual's Title" uuid="9ae1e2eb-3e09-45be-8a49-3c6aff6792d1"/>
          <email-address>person@ica.example.org</email-address>
          <telephone-number>2025551212</telephone-number>
          <member-of-organization>80361ec4-bfce-4b5c-85c8-313d6ebd220b</member-of-organization>
@@ -308,8 +307,8 @@
       </party>
       <party uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6" type="person">
          <name>[SAMPLE]Person Name 1</name>
-         <prop name="job-title" value="Individual's Title"/>
-         <prop name="mail-stop" value="Mailstop A-1"/>
+         <prop name="job-title" value="Individual's Title" uuid="36bb6aa7-dd46-468a-89b3-3af382892ed6"/>
+         <prop name="mail-stop" value="Mailstop A-1" uuid="c2bab95d-32b7-43d6-92a2-1baea2a10fd9"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000001</telephone-number>
          <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
@@ -317,7 +316,7 @@
       </party>
       <party uuid="36b8d6c0-3b25-42cc-b529-cf4066145cdd" type="person">
          <name>[SAMPLE]Person Name 2</name>
-         <prop name="job-title" value="Individual's Title"/>
+         <prop name="job-title" value="Individual's Title" uuid="85a85a6b-4cb9-4409-989e-4c9597f76173"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000002</telephone-number>
          <address type="work">
@@ -331,7 +330,7 @@
       </party>
       <party uuid="0cec09d9-20c6-470b-9ffc-85763375880b" type="person">
          <name>[SAMPLE]Person Name 3</name>
-         <prop name="job-title" value="Individual's Title"/>
+         <prop name="job-title" value="Individual's Title" uuid="ee191aa6-d956-4f58-b198-65486ba112da"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000003</telephone-number>
          <address type="work">
@@ -345,7 +344,7 @@
       </party>
       <party uuid="f75e21f6-43d8-46ab-890d-7f2eebc5a830" type="person">
          <name>[SAMPLE]Person Name 4</name>
-         <prop name="job-title" value="Individual's Title"/>
+         <prop name="job-title" value="Individual's Title" uuid="f5a88036-93a3-4396-99b8-928e2284396f"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000004</telephone-number>
          <address type="work">
@@ -359,7 +358,7 @@
       </party>
       <party uuid="132953a9-640c-46f7-9de9-3fa15ec99361" type="person">
          <name>[SAMPLE]Person Name 5</name>
-         <prop name="job-title" value="Individual's Title"/>
+         <prop name="job-title" value="Individual's Title" uuid="3b86065b-efa0-4925-8c44-ada8dd827815"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000005</telephone-number>
          <address type="work">
@@ -373,7 +372,7 @@
       </party>
       <party uuid="4fded5fd-7a65-47ea-bd76-df57c46e27d1" type="person">
          <name>[SAMPLE]Person Name 6</name>
-         <prop name="job-title" value="Individual's Title"/>
+         <prop name="job-title" value="Individual's Title" uuid="456ef21c-1a5d-4531-8849-e345dbc550b0"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000006</telephone-number>
          <address type="work">
@@ -387,7 +386,7 @@
       </party>
       <party uuid="db234cb7-1776-425c-9ac4-b067c1723011" type="person">
          <name>[SAMPLE]Person Name 7</name>
-         <prop name="job-title" value="Individual's Title"/>
+         <prop name="job-title" value="Individual's Title" uuid="ffbbeb06-5ee3-497a-88a9-bc43681466ae" />
          <email-address>name@example.com</email-address>
          <telephone-number>2020000007</telephone-number>
          <address type="work">
@@ -505,6 +504,11 @@
       <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
       <system-name>System's Full Name</system-name>
       <system-name-short>System's Short Name or Acronym</system-name-short>
+      <!-- General System Description -->
+      <description>
+         <p>Describe the purpose and functions of this system here. This includes any narrative text usually included in section 9.1 of the SSP.</p>
+         <p>NOTE: The description is expected to be at least 32 words in length.</p>
+      </description>
       <!-- service & deployment model -->
       <prop name="cloud-service-model" value="saas">
          <remarks>
@@ -522,24 +526,12 @@
       <prop name="identity-assurance-level" value="2"/>
       <prop name="authenticator-assurance-level" value="2"/>
       <prop name="federation-assurance-level" value="2"/>
-      <!-- FIPS PUB 199 Level -->
-      <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
-      <!-- Fully Operational as of -->
-      <status state="operational">
-         <remarks>
-            <p>Remarks are optional if status/state is "operational".</p>
-            <p>Remarks are required otherwise.</p>
-         </remarks>
-      </status>
       <prop name="fully-operational-date" ns="https://fedramp.gov/ns/oscal" value="yyyy-mm-ddThh:mmZ"/>
       <!-- Rev5 update - new prop -->
       <!-- FedRAMP Authorization Path: fedramp-jab, fedramp-agency, or fedramp-li-saas -->
       <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
-      <!-- General System Description -->
-      <description>
-         <p>Describe the purpose and functions of this system here. This includes any narrative text usually included in section 9.1 of the SSP.</p>
-         <p>NOTE: The description is expected to be at least 32 words in length.</p>
-      </description>
+      <!-- FIPS PUB 199 Level -->
+      <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
       <system-information>
          <!-- Rev5 update - PIA/PTAs are no longer required by FedRAMP -->
          <!-- Use the information-type element to provide details about all information types that are stored, processed, or transmitted by the system -->
@@ -580,9 +572,21 @@
          <security-objective-integrity>fips-199-moderate</security-objective-integrity>
          <security-objective-availability>fips-199-moderate</security-objective-availability>
       </security-impact-level>
-
+      
+      <!-- Fully Operational as of -->
+      <status state="operational">
+         <remarks>
+            <p>Remarks are optional if status/state is "operational".</p>
+            <p>Remarks are required otherwise.</p>
+         </remarks>
+      </status>
+      
       <!-- Section 8 - Illustrated Architecture and Narrative -->
       <authorization-boundary>
+         <!-- Section 8.2 Narrative (boundary) -->
+         <description>
+            <p>A holistic, top-level explanation of the FedRAMP authorization boundary.</p>
+         </description>
          <!-- Section 8.1 Illustrated Architecture (boundary diagram) -->
          <diagram uuid="dbf46c27-52a9-49c4-beb6-b6399cd75497">
             <description>
@@ -591,12 +595,12 @@
             <link href="#d2eb3c18-6754-4e3a-a933-03d289e3fad5" rel="diagram"/>
             <caption>Authorization Boundary Diagram</caption>
          </diagram>
-         <!-- Section 8.2 Narrative (boundary) -->
-         <description>
-            <p>A holistic, top-level explanation of the FedRAMP authorization boundary.</p>
-         </description>
       </authorization-boundary>
       <network-architecture>
+         <!-- Section 8.2 Narrative (network) -->
+         <description>
+            <p>A holistic, top-level explanation of the network architecture.</p>
+         </description>
          <!-- Section 8.1 Illustrated Architecture (network diagram) -->
          <diagram uuid="e97c3395-433a-48c1-8cc7-dd1e1555941c">
             <description>
@@ -605,12 +609,12 @@
             <link href="#61081e81-850b-43c1-bf43-1ecbddcb9e7f" rel="diagram"/>
             <caption>Network Diagram</caption>
          </diagram>
-         <!-- Section 8.2 Narrative (network) -->
-         <description>
-            <p>A holistic, top-level explanation of the network architecture.</p>
-         </description>
       </network-architecture>
       <data-flow>
+         <!-- Section 8.2 Narrative (data flows) -->
+         <description>
+            <p>A holistic, top-level explanation of the system's data flows.</p>
+         </description>
          <!-- Section 8.1 Illustrated Architecture (data flows) -->
          <diagram uuid="e3b98448-4219-46a5-b229-412423c566f3">
             <description>
@@ -619,10 +623,6 @@
             <link href="#ac5d7535-f3b8-45d3-bf3b-735c82c64547" rel="diagram"/>
             <caption>Data Flow Diagram</caption>
          </diagram>
-         <!-- Section 8.2 Narrative (data flows) -->
-         <description>
-            <p>A holistic, top-level explanation of the system's data flows.</p>
-         </description>
       </data-flow>
    </system-characteristics>
    <system-implementation>
@@ -759,7 +759,7 @@
          <prop name="isa-title" value="system interconnection agreement"/>
          <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
          <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="SLA" /><!-- New Rev5 prop.  Specify ty e type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
-         <prop name="ipv4-address" value="172.0. 0.0"/>
+         <prop name="ipv4-address" value="172.0.0.0"/>
          <prop name="ipv6-address" value="::"/>
          <prop name="direction" value="incoming"/>
          <prop name="information" ns="https://fedramp.gov/ns/oscal" value="describe information being transferred" />
@@ -802,7 +802,7 @@
          <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="Contract" /><!-- New Rev5 prop.  Specify ty e type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
          <prop name="ipv4-address" class="local" value="10.1.1.1"/>
          <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
-         <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a02:0202"/>
+         <prop name="ipv6-address" value="::ffff:10.2.2.2"/>
          <!-- describe the flow of information transmitted -->
          <!-- determine why schematron is not validating direciton of data flow per props below -->
          <prop name="direction" value="incoming"/>
@@ -2537,7 +2537,7 @@
             </by-component>
          </statement>
       </implemented-requirement>
-      <implemented-requirement uuid="" control-id="sr-1">
+      <implemented-requirement control-id="sr-1" uuid="2286bf93-2664-4852-bc4c-e235ec076b94">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
             <remarks>
@@ -2566,7 +2566,7 @@
                </set-parameter>
             </by-component>
          </statement>
-         <statement statement-id="sr-1_smt.a" uuid="">
+         <statement statement-id="sr-1_smt.a" uuid="76bc5347-1fbd-4386-a839-ac042e59ac82">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="319cc842-aebc-4625-8cfe-1586e57148a5">
                <description>
                   <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
@@ -3187,7 +3187,7 @@
          <description>
             <p>User's Guide</p>
          </description>
-         <prop name="type" value="user-guide"/>
+         <prop name="type" value="users-guide"/>
          <prop name="type" ns="https://fedramp.gov/ns/oscal" value="user-guide"/>
          <!-- Fix Schematron validation.  FR prop can be deprecated -->
          <prop name="published" value="2023-01-01T00:00:00Z"/>
@@ -3292,7 +3292,7 @@
       <!-- Appendix M - Integrated Inventory Workbook -->
       <!-- Note - This is specified in the document (see //system-security-plan/system-implementation[1]/inventory-item) and no longer need to be maintained separately or attached -->
       <!-- Appendix N - Continuous Monitoring Plan -->
-      <resource uuid="ab56cf27-0dae-40d6-89b7-d750137309af">
+      <resource uuid="47ba08df-d619-4f18-9daf-78d416eede79">
          <title>Document Title</title>
          <description>
             <p>Continuous Monitoring Plan</p>
