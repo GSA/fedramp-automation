@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<!-- Modified by the OSCAL 1.0.0 RC2 to OSCAL 1.0.0 conversion XSLT on 2021-06-09T14:27:43.166-04:00 -->
-<assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-                 uuid="c94691c8-0b83-483c-bc02-f3d3bf026abb">
+<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
+<assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="c94691c8-0b83-483c-bc02-f3d3bf026abb">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Plan (SAP)</title>
-      <published>2021-02-25T00:00:00.00-04:00</published>
-      <last-modified>2021-06-09T14:27:43.166-04:00</last-modified>
+      <published>2023-04-25T00:00:00Z</published>
+      <last-modified>2023-04-25T14:27:43Z</last-modified>
       <version>fedramp1.1.0-oscal1.0.0</version>
       <oscal-version>1.0.0</oscal-version>
-      <prop name="marking" value="Controlled Unclassified Information"/>
+      <prop name="marking" value="Controlled Unclassified Information" uuid="02ced31a-9724-40f5-bdbc-0b0ba7cbcc09"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
@@ -125,19 +123,31 @@
                name="iso-iec-17020-identifier"
                value="0000.00"/>
          <link href="https://assessor.web.site" rel="home-page"/>
-         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
          <remarks>
             <p>Replace sample 3PAO information.</p>
             <p>If the assessor is A2LA Certified, include the ISO/IEC-17020 </p>
          </remarks>
       </party>
+      <!--<party uuid="a6ad0049-c9d8-4a6f-bef2-fe1c5791226d" type="organization">
+         <name>CSP Organization Name</name>
+         <short-name>CSP Short Name</short-name>
+         <address type="work">
+            <addr-line>123 Main Street</addr-line>
+            <city>AnyTown</city>
+            <state>NY</state>
+            <postal-code>10001</postal-code>
+            <country>US</country>
+         </address>
+         <remarks>
+            <p>This party entry must be present in a FedRAMP SAP.</p>
+         </remarks>
+      </party>-->
       <party uuid="77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d" type="organization">
          <name>Federal Risk and Authorization Management Program: Program Management Office</name>
          <short-name>FedRAMP PMO</short-name>
          <link href="https://fedramp.gov" rel="homepage"/>
          <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
-         <link href="#985475ee-d4d6-4581-8fdf-d84d3d8caa48" rel="reference"/>
-         <link href="#1a23a771-d481-4594-9a1a-71d584fa4123" rel="reference"/>
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
@@ -153,57 +163,57 @@
       </party>
       <party uuid="f4568fda-c6d2-4640-adec-0012015af7d0" type="person">
          <name>[SAMPLE]Person Name 1</name>
-         <prop name="job-title" value="Individual's Title"/>
-         <prop name="mail-stop" value="Office 1-A"/>
+         <prop name="job-title" value="Individual's Title" uuid="1146fc8a-3a2e-4196-b098-fb6944bd364f"/>
+         <prop name="mail-stop" value="Office 1-A" uuid="7709b968-6f59-4e7c-9fda-259a5b3ff316"/>
          <email-address>name@example.com</email-address>
          <telephone-number>202-000-0001</telephone-number>
-         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
          <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
       </party>
       <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
          <name>[SAMPLE]Person Name 2</name>
-         <prop name="mail-stop" value="Office 2-B"/>
+         <prop name="mail-stop" value="Office 2-B" uuid="3ddccafa-e9c8-4832-a085-bc42557fc10f"/>
          <email-address>name@example.com</email-address>
          <telephone-number>202-000-0002</telephone-number>
-         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
          <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
       </party>
       <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person">
          <name>[SAMPLE]Person Name 3</name>
-         <prop name="mail-stop" value="Office 3-C"/>
+         <prop name="mail-stop" value="Office 3-C" uuid="14c88675-1e7d-4e19-94e2-18e653dac452"/>
          <email-address>name@example.com</email-address>
          <telephone-number>202-000-0003</telephone-number>
-         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
          <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
       </party>
       <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person">
          <name>[SAMPLE]Person Name 4</name>
-         <prop name="mail-stop" value="Office 4-D"/>
+         <prop name="mail-stop" value="Office 4-D" uuid="9618632e-0d9a-4478-ad75-9373ae5310a0"/>
          <email-address>name@example.com</email-address>
          <telephone-number>202-000-0004</telephone-number>
-         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
          <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
       </party>
       <party uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3" type="person">
          <name>[SAMPLE]Person Name 5</name>
-         <prop name="job-title" value="Individual's Title"/>
-         <prop name="mail-stop" value="Office 5-E"/>
+         <prop name="job-title" value="Individual's Title" uuid="0662559e-78c3-43a7-80f2-6b9b5e1fa3fb"/>
+         <prop name="mail-stop" value="Office 5-E" uuid="db2999e9-526d-4ec6-9fad-4bdf1f8b0d4a"/>
          <email-address>name@example.com</email-address>
          <telephone-number>202-000-0005</telephone-number>
-         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
          <member-of-organization>49f73135-efab-4275-9a79-003656ad890a</member-of-organization>
       </party>
       <party uuid="ca9fca9c-4a8a-4487-8242-0a06d6fbed1f" type="person">
          <name>[SAMPLE]Person Name 6</name>
-         <prop name="job-title" value="Individual's Title"/>
-         <prop name="mail-stop" value="Office 6-F"/>
+         <prop name="job-title" value="Individual's Title" uuid="fbd2d7c3-d71e-4cb0-adfb-e466e4d4470a"/>
+         <prop name="mail-stop" value="Office 6-F" uuid="f80b13b8-be5b-4242-bf2a-033c25b3c448"/>
          <email-address>name@example.com</email-address>
          <telephone-number type="mobile">000-000-0000</telephone-number>
-         <location-uuid>49f73135-efab-4275-9a79-003656ad890a</location-uuid>
+         <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
       </party>
       <party uuid="877e5bdc-07c3-45da-a2b4-35367a9a0cd0" type="person">
          <name>[SAMPLE]Person Name 7</name>
-         <prop name="job-title" value="Individual's Title"/>
+         <prop name="job-title" value="Individual's Title" uuid="d76162f8-2448-406f-9524-5585fb996bfe"/>
          <email-address>name@example.com</email-address>
          <telephone-number type="office">000-000-0000</telephone-number>
          <address type="work">
@@ -215,7 +225,7 @@
          </address>
       </party>
       <responsible-party role-id="fedramp-pmo">
-         <party-uuid>8cc0b8e5-9650-4d5f-9796-316f05fa9a2d</party-uuid>
+         <party-uuid>77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d</party-uuid>
       </responsible-party>
       <responsible-party role-id="prepared-by">
          <party-uuid>49f73135-efab-4275-9a79-003656ad890a</party-uuid>
@@ -225,7 +235,7 @@
          </remarks>
       </responsible-party>
       <responsible-party role-id="prepared-for">
-         <party-uuid>295f4810-9add-4d64-b28e-06eccd0b6a33</party-uuid>
+         <party-uuid>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
          <remarks>
             <p>Exactly one party.</p>
             <p>This is the UUID for the CSP in the imported SSP.</p>
@@ -281,7 +291,7 @@
          </remarks>
       </responsible-party>
       <responsible-party role-id="csp-operations-center">
-         <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
+         <party-uuid>6b286b5d-8f07-4fa7-8847-1dd0d88f73fb</party-uuid>
          <remarks>
             <p>Exactly one party</p>
             <p>The party-uuid should observation-source a party in the SSP.</p>
@@ -293,7 +303,7 @@
       <responsible-party role-id="csp-assessment-poc">
          <party-uuid>f4568fda-c6d2-4640-adec-0012015af7d0</party-uuid>
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
-         <party-uuid>4c9df173-6e48-4c4b-ad6a-957f54a2823e</party-uuid>
+         <party-uuid>877e5bdc-07c3-45da-a2b4-35367a9a0cd0</party-uuid>
          <remarks>
             <p>There should be at least three CSP Assessment POCs.</p>
             <p>At least one should be available 24x7 during assessment activities.</p>
@@ -322,7 +332,9 @@
             assessment planning.</p>
       </remarks>
    </metadata>
-   <import-ssp href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.xml">
+   <!-- Link this SAP to as specific SSP via import -->
+   <!--<import-ssp href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.xml">-->
+   <import-ssp href="#7c30125f-c056-4888-9f1a-7ed1b6a1b638">
       <remarks>
          <p>Link the SAP to the SSP.</p>
          <p>FedRAMP prefers the path for the SSP be relative to the location of this SAP file.
@@ -334,18 +346,20 @@
       </remarks>
    </import-ssp>
    <local-definitions>
+      <!-- Components not already listed in SSP -->
       <component uuid="59406025-116a-4fee-84c3-932a9968de54" type="subnet">
          <title>Subnet </title>
          <description>
             <p>A known subnet, which is not defined in the SSP inventory.</p>
          </description>
-         <prop name="ipv4-subnet" value="10.20.30.0/24"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-subnet" value="10.20.30.0/24"/>
          <status state="operational"/>
          <remarks>
             <p>Use any needed prop/annotation allowed in an SSP inventory-item.</p>
             <p>If correcting existing SSP, use the "updates-uuid" property to cite the original content.</p>
          </remarks>
       </component>
+      <!-- Inventory not already listed in SSP -->
       <inventory-item uuid="ce6b1a6e-0391-45d1-997e-3cc97db97d9f">
          <description>
             <p>A network appliance, not defined in the SSP inventory.</p>
@@ -355,12 +369,10 @@
          <prop name="public" value="no"/>
          <prop name="fqdn" value="dns.name"/>
          <prop name="mac-address" value="00:00:00:00:00:00"/>
-         <prop name="version" value="V 0.0.0"/>
-         <prop name="asset-type" value="infrastructure"/>
-         <!-- insert the scan-type property into this assembly  -->
-         <prop ns="https://fedramp.gov/ns/oscal"
-               name="scan-type"
-               value="infrastructure"/>
+         <prop name="hardware-model" value="hardware-model" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="vendor-name" />
+         <prop name="asset-type" value="appliance"/><!-- NOTE: "asset-type" only allows certain values. -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
          <remarks>
             <p>Use any needed prop/annotation allowed in an SSP inventory-item.</p>
@@ -376,17 +388,18 @@
          <prop name="public" value="no"/>
          <prop name="fqdn" value="dns.name"/>
          <prop name="mac-address" value="00:00:00:00:00:00"/>
-         <prop name="software-name" value="Windows 10"/>
-         <prop name="version" value="V 0.0.0"/>
-         <prop name="asset-type" value="os"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-               name="scan-type"
-               value="infrastructure"/>
+         <prop name="os-name" value="Windows 10"/>
+         <prop name="os-version" value="10.0.190944" />
+         <prop name="hardware-model" value="hardware-model" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="vendor-name" />
+         <prop name="asset-type" value="operating-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <remarks>
             <p>Use any needed prop/annotation allowed in an SSP inventory-item.</p>
             <p>If correcting existing SSP, use the "updates-uuid" property to cite the original content.</p>
          </remarks>
       </inventory-item>
+      <!-- Users not already specified in SSP -->
       <user uuid="ba6b8bd4-c6f1-4b60-aa0f-69875b108f16">
          <title>Updated Role</title>
          <description>
@@ -423,32 +436,59 @@
          </remarks>
       </user>
       <objectives-and-methods control-id="ac-2">
-         <part id="ac-2_sap_obj_1" name="objective">
-            <title>SAP Inserted Objective</title>
-            <prop name="label" value="AC-2[SAP][1]"/>
-            <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
-            <prop name="method" class="fedramp" value="EXAMINE"/>
-            <prop name="method" class="fedramp" value="INTERVIEW"/>
-            <prop name="method" class="fedramp" value="TEST"/>
-            <p>Custom assessment objective for this control.</p>
+         <!-- assessment procedure for ac-2.f.1 -->
+         <part id="ac-2.f_obj.1" name="assessment-objective">
+            <title>Assessment Objective</title>
+            <p>Determine if the organization:</p>
+            <p> - defines procedures or conditions to:</p>
+            <p>   - create information system accounts</p>
+            <p>   - enable information system accounts</p>
+            <p>   - modify information system accounts</p>
+            <p>   - disable information system accounts</p>
+            <p>   - remove information system accounts</p>
          </part>
-         <part id="ac-2_sap_obj_1-1" name="assessment">
+         <part id="ac-2.f_obj.1-1" name="assessment-method">
             <prop name="method" value="EXAMINE"/>
-            <part name="objects">
-               <p>Unusual policy</p>
-               <p>Unexpected procedure addressing client access</p>
+            <part id="ac-2.f_obj.1-1_object" name="assessment-objects">
+               <p>Access control policy; procedures addressing account management; security plan; information system design documentation; information system configuration settings and associated documentation; list of active system accounts along with the name of the individual associated with each account; list of conditions for group and role membership; notifications or records of recently transferred, separated, or terminated employees; list of recently disabled information system accounts along with the name of the individual associated with each account; access authorization records; account management compliance reviews; information system monitoring records; information system audit records; other relevant documents or records</p>               
             </part>
          </part>
-         <part id="ac-2_sap_obj_1-2" name="assessment">
+      </objectives-and-methods>
+      <objectives-and-methods control-id="ac-2">
+         <!-- assessment procedure for ac-2.f.2 -->
+         <part id="ac-2.f_obj.2" name="assessment-objective">
+            <title>Assessment Objective</title>
+            <p>Determine if the organization:</p>
+            <p> - in accordance with organization-defined procedures or conditions:</p>
+            <p>   - create information system accounts</p>
+            <p>   - enable information system accounts</p>
+            <p>   - modify information system accounts</p>
+            <p>   - disable information system accounts</p>
+            <p>   - remove information system accounts</p>
+         </part>
+         <part id="ac-2.f_obj.2-1" name="assessment-method">
             <prop name="method" value="INTERVIEW"/>
-            <part name="objects">
-               <p>Organizational personnel responsible for Unexpected Procedure</p>
+            <part id="ac-2.f_obj.2-1_object" name="assessment-objects">
+               <p>Organizational personnel with account management responsibilities; system/network administrators; organizational personnel with information security responsibilities</p>               
             </part>
          </part>
-         <part id="ac-2_sap_obj_1-3" name="assessment">
+      </objectives-and-methods>
+      <objectives-and-methods control-id="ac-2">
+         <!-- assessment procedure for ac-2.f.2 -->
+         <part id="ac-2.f_obj.2" name="assessment-objective">
+            <title>Assessment Objective</title>
+            <p>Determine if the organization:</p>
+            <p> - in accordance with organization-defined procedures or conditions:</p>
+            <p>   - create information system accounts</p>
+            <p>   - enable information system accounts</p>
+            <p>   - modify information system accounts</p>
+            <p>   - disable information system accounts</p>
+            <p>   - remove information system accounts</p>
+         </part>
+         <part id="ac-2.f_obj.2-2" name="assessment-method">
             <prop name="method" value="TEST"/>
-            <part name="objects">
-               <p>Cutting Edge Technology Product</p>
+            <part id="ac-2.f_obj.2-2_object" name="assessment-objects">
+               <p>Organizational processes for account management on the information system; automated mechanisms for implementing account management</p>               
             </part>
          </part>
       </objectives-and-methods>
@@ -457,25 +497,26 @@
          <description>
             <p>Description of the manual test</p>
          </description>
-         <prop name="type" value="manual"/>
-         <prop name="label" value="Test ID"/>
+         <prop name="method" value="EXAMINE" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="manual"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="label" value="Test ID"/>
          <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
             <description>
                <p>Describe test step #1</p>
             </description>
-            <prop name="sort-id" value="001"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
          </step>
          <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
             <description>
                <p>Describe test step #2</p>
             </description>
-            <prop name="sort-id" value="002"/>
+            <prop  ns="https://fedramp.gov/ns/oscal" name="sort-id" value="002"/>
          </step>
          <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
             <description>
                <p>Describe test step #3</p>
             </description>
-            <prop name="sort-id" value="003"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="003"/>
          </step>
       </activity>
       <activity uuid="3ba68918-80ef-4846-89e0-9f1def7e5223">
@@ -485,52 +526,59 @@
                Administrator and Database Administrator privileges and authorizations by navigating
                to different views and manually forcing the browser to various URLs</p>
          </description>
-         <prop name="type" value="manual"/>
-         <prop name="label" value="Test ID"/>
+         <prop name="method" value="TEST" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="manual"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="label" value="Test ID"/>
       </activity>
       <activity uuid="2233cf20-282a-4967-ab07-a4b7d1ae3a4b">
          <title>[SAMPLE]CAPTCHA</title>
          <description>
             <p>We will test the CAPTCHA function on the web form manually</p>
          </description>
-         <prop name="type" value="manual"/>
-         <prop name="label" value="Test ID"/>
+         <prop name="method" value="TEST" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="manual"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="label" value="Test ID"/>
       </activity>
       <activity uuid="f818a896-3438-409f-a2a4-583a56fa41b4">
          <title>[SAMPLE]OCSP</title>
          <description>
             <p>We will manually test to see if OCSP is validating certificates.</p>
          </description>
-         <prop name="type" value="manual"/>
-         <prop name="label" value="Test ID"/>
+         <prop name="method" value="EXAMINE" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="manual"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="label" value="Test ID"/>
       </activity>
       <activity uuid="315b3118-3d2e-420b-b4fb-5acf13b08381">
          <title>Web Application Test #1</title>
          <description>
             <p>Describe this web application test.</p>
          </description>
-         <prop name="type" value="web-application"/>
+         <prop name="method" value="TEST" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="web-application"/>
       </activity>
       <activity uuid="64142a6f-d8d4-47c6-8bb1-a0e33f17664d">
          <title>Web Application Test #2</title>
          <description>
             <p>Describe this web application test.</p>
          </description>
-         <prop name="type" value="web-application"/>
+         <prop name="method" value="TEST" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="web-application"/>
       </activity>
       <activity uuid="dc858ece-b430-485d-886c-3a812bb77b13">
          <title>Role Based Test #1</title>
          <description>
             <p>Describe this role based test.</p>
          </description>
-         <prop name="type" value="role-based"/>
+         <prop name="method" value="TEST" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="role-based"/>
       </activity>
       <activity uuid="74830d19-2820-4487-bd1d-91d8656b7eb0">
          <title>Role Based Test #2</title>
          <description>
             <p>Describe this role based test.</p>
          </description>
-         <prop name="type" value="role-based"/>
+         <prop name="method" value="INTERVIEW" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="role-based"/>
       </activity>
    </local-definitions>
    <terms-and-conditions>
@@ -539,41 +587,41 @@
       </part>
       <part name="assumptions">
          <part name="assumption">
-            <prop name="sort-id" value="001"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
             <p>[CSP Name] resources, including documentation and individuals with knowledge of the
                [CSP Name] systems and infrastructure and their contact information, will be
                available to [3PAO Name] staff during the time necessary to complete assessments.</p>
          </part>
          <part name="assumption">
-            <prop name="sort-id" value="002"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="002"/>
             <p>The [CSP Name] will provide login account information/credentials necessary for [3PAO
                Name] to use its testing devices to perform authenticated scans of devices and
                applications.</p>
          </part>
          <part name="assumption">
-            <prop name="sort-id" value="003"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="003"/>
             <p>The [CSP Name] will permit [3PAO Name] to connect its testing laptops to the [CSP
                Name] networks defined within the scope of this assessment.</p>
          </part>
          <part name="assumption">
-            <prop name="sort-id" value="004"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="004"/>
             <p>The [CSP Name] will permit communication from Third Party Assessment Organization
                testing appliances to an internet hosted vulnerability management service to permit
                the analysis of vulnerability data.</p>
          </part>
          <part name="assumption">
-            <prop name="sort-id" value="005"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="005"/>
             <p>Security controls that have been identified as “Not Applicable” in the SSP will be
                verified as such and further testing will not be performed on these security
                controls.</p>
          </part>
          <part name="assumption">
-            <prop name="sort-id" value="006"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="006"/>
             <p>Significant upgrades or changes to the infrastructure and components of the system
                undergoing testing will not be performed during the security assessment period.</p>
          </part>
          <part name="assumption">
-            <prop name="sort-id" value="007"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="007"/>
             <p>For onsite control assessment, [CSP Name] personnel will be available should the
                [3PAO Name] staff determine that either after hours work, or weekend work, is
                necessary to support the security assessment.</p>
@@ -608,23 +656,25 @@
             <li>Technical Tests: the IA will perform technical tests, including penetration testing,
                on system components using automated and manual methods</li>
          </ul>
-         <p>[3PAO Name] [ will | will not ] use sampling when performing this assessment.</p>
+         <!-- the following should match the "sampling" prop value -->
+         <!--<p>[3PAO Name] [ will | will not ] use sampling when performing this assessment.</p>-->
+         <p>[3PAO Name] will not use sampling when performing this assessment.</p>
       </part>
       <part name="disclosures">
          <part name="disclosure">
-            <prop name="sort-id" value="001"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
             <p>Any testing will be performed according to terms and conditions designed to minimize
                risk exposure that could occur during security testing.</p>
          </part>
          <part name="disclosure">
-            <prop name="sort-id" value="002"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="002"/>
             <p>A disclosure statement</p>
          </part>
       </part>
-      <part name="liability-limitations">
+      <part ns="https://fedramp.gov/ns/oscal" name="liability-limitations">
          <title>FedRAMP Required Limitation of Liability Statements</title>
          <part name="liability-limitation">
-            <prop name="sort-id" value="001"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
             <p>[3PAO Name], and its stated partners, shall not be held liable to [CSP Name] for any
                and all liabilities, claims, or damages arising out of or relating to the security
                vulnerability testing portion of this agreement, howsoever caused and regardless of
@@ -632,7 +682,7 @@
                liability, statutory liability, or otherwise.</p>
          </part>
          <part name="liability-limitation">
-            <prop name="sort-id" value="002"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="002"/>
             <p>[CSP Name] acknowledges that there are limitations inherent in the methodologies
                implemented, and the assessment of security and vulnerability relating to information
                technology is an uncertain process based on past experiences, currently available
@@ -643,15 +693,15 @@
          </part>
          <part name="liability-limitation">
             <title>Additional Limitation of Liability Statements</title>
-            <prop name="sort-id" value="003"/>
+            <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="003"/>
             <part name="liability-limitation">
-               <prop name="sort-id" value="003-01"/>
+               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="003-01"/>
                <p>This is a limitation statement, such as a liability limitation, that would appear in
                the rules of engagement.</p>
             </part>
          </part>
       </part>
-      <part name="included-activities">
+      <part name="assessment-inclusions"><!-- Todo: update Schematron rule w/ part name -->
          <title>Included Activities</title>
          <p>The following activities are to be included as part of the FedRAMP assessment.</p>
          <part name="included-activity">
@@ -683,7 +733,7 @@
             <p>Adding user accounts</p>
          </part>
       </part>
-      <part name="excluded-activities">
+      <part name="assessment-exclusions"><!-- Todo: update Schematron rule w/ part name -->
          <title>Excluded Activities</title>
          <p>The following activities are explicitly excluded from the assessment.</p>
          <part name="excluded-activity">
@@ -725,9 +775,12 @@
          <description>
             <h1>Control Objective Scope</h1>
             <p>Within the OSCAL-based FedRAMP baselines, FedRAMP has defined the control objectives for which an assessor must respond. Those must be explicityly listed here.</p>
-            <p>This template only includes the AC-1 response points from the FedRAMP Moderate Baseline based on NIST SP 800-53 Revision 4.</p>
+            <p>This template only includes the AC-2(f) response points from the FedRAMP Moderate Baseline based on NIST SP 800-53 Revision 4.</p>
             <p>This is analgous to the individual rows listed in the empty FedRAMP Test Case Workbook (<a href="https://www.fedramp.gov/assets/resources/templates/SAP-AA-FedRAMP-Moderate-Security-Test-Case-Procedures-Template.xlsx">Moderate</a>).</p>
+            <p>Note that the specified objective-ids must exist in the referenced profile / catalog.</p>
          </description>
+         <!-- sample assessment objectives -->
+         <!-- 
          <include-objective objective-id="ac-1.a.1_obj.1"/>
          <include-objective objective-id="ac-1.a.1_obj.2"/>
          <include-objective objective-id="ac-1.a.1_obj.3"/>
@@ -738,6 +791,9 @@
          <include-objective objective-id="ac-1.b.1_obj.2"/>
          <include-objective objective-id="ac-1.b.2_obj.1"/>
          <include-objective objective-id="ac-1.b.2_obj.2"/>
+         -->
+         <include-objective objective-id="ac-2.f_obj.1"/>
+         <include-objective objective-id="ac-2.f_obj.2"/>
       </control-objective-selection>
       <remarks>
          <h1>IMPORTANT: RESPONSE POINTS</h1>
@@ -747,7 +803,7 @@
          <p>For this task, tools should either scan the resolved profile catalog version of each baseline, or resolve the profile against its catalog before processing.</p>
          <p>XPath for all control objectie response points in a resolved profile catalog: <code>//control/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id</code>
          </p>
-         <p>XPath for AC-1 control objectie response points in a resolved profile catalog: <code>//control[@id='ac-1']/part[@name='objective']//prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id</code>
+         <p>XPath for AC-2(f) control objective response points in a resolved profile catalog: <code>//*/part[@name='objective' and contains(@id, 'ac-2.f')]/prop[@name='response-point'][@ns='https://fedramp.gov/ns/oscal']/../@id</code>
          </p>
       </remarks>
    </reviewed-controls>
@@ -822,7 +878,7 @@
          <p>Briefly description the included users here.</p>
       </description>
       <include-all/>
-      <exclude-subject subject-uuid="ce1a3dbc-2bf5-4899-9fcf-090e299533bb" type="user"/>
+      <exclude-subject subject-uuid="ba6b8bd4-c6f1-4b60-aa0f-69875b108f16" type="user"/>
       <remarks>
          <p>This refers to user assemblies identified in the system-implementation section of the SSP and the local-definitions of the SAP. </p>
          <p>Using include-all means all user roles defined both in the SSP and in the local-definitions of the SAP are included in the assessment.</p>
@@ -838,7 +894,7 @@
          <h2>Selective Example</h2>
          <p>Briefly description the included users here.</p>
       </description>
-      <include-subject subject-uuid="ce1a3dbc-2bf5-4899-9fcf-090e299533bb" type="user"/>
+      <include-subject subject-uuid="58bb5a77-b40a-4104-ac29-299a1691f76a" type="user"/>
       <remarks>
          <p>This refers to user assemblies identified in the system-implementation section of the SSP and the local-definitions of the SAP. </p>
          <p>This <code>assessment-subject</code> is citing OSCAL <code>user</code> assemblies in the SSP.</p>
@@ -852,7 +908,7 @@
          <description>
             <p>Describe assessment laptop.</p>
          </description>
-         <prop name="ipv4-address" value="10.10.10.10"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" value="10.10.10.10"/>
          <status state="operational"/>
          <remarks>
             <p>Ideally, this assessment laptop would have been defined in the SAP, and not repeated here.</p>
@@ -864,8 +920,8 @@
          <description>
             <p>Describe the purpose of the tool here.</p>
          </description>
-         <prop name="vendor" value="Vendor Name"/>
-         <prop name="name" value="Tool Name"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor" value="Vendor Name"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="name" value="Tool Name"/>
          <prop name="version" value="1.2.3"/>
          <status state="operational"/>
       </component>
@@ -874,8 +930,8 @@
          <description>
             <p>Describe the purpose of the tool here.</p>
          </description>
-         <prop name="vendor" value="Vendor Name"/>
-         <prop name="name" value="Tool Name"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor" value="Vendor Name"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="name" value="Tool Name"/>
          <prop name="version" value="1.2.3"/>
          <status state="operational"/>
       </component>
@@ -889,9 +945,9 @@
       </component>
       <assessment-platform uuid="60218FE9-B01A-4553-B705-DBE9DEC44AA1">
          <title>Scanning Tools</title>
-         <prop name="ipv4-address" value="10.10.10.10"/>
-         <prop name="ipv4-address" value="10.10.10.11"/>
-         <prop name="ipv4-address" value="10.10.10.12"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" value="10.10.10.10"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" value="10.10.10.11"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" value="10.10.10.12"/>
          <uses-component component-uuid="BA991C3F-1E00-4C38-BF81-86A9E503F3B9">
             <remarks>
                <p>Cites assessment laptop.</p>
@@ -1120,58 +1176,72 @@
       </task>
    </task>
    <back-matter>
+      <!-- OSCAL-based SSP -->
+      <resource uuid="7c30125f-c056-4888-9f1a-7ed1b6a1b638">
+         <title>[System Name] [FIPS-199 Level] SSP</title>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="system-security-plan"/>
+         <prop name="published" value="2023-04-21T00:00:00Z"/>
+         <prop name="version" value="SSP Version"/>
+         <rlink media-type="text/xml" href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"/>
+         <!--<rlink media-type="application/json" href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.json"/>-->
+         <remarks>
+            <p>Use this to point to an OSCAL-based SSP.</p>
+            <p>For FedRAMP, do not attach the SSP. This should be delivered by the CSP.</p>
+         </remarks>
+      </resource>
+      <!-- Optional resourse for non-OSCAL-based SSP -->
       <resource uuid="a78f7e4c-a27a-4b1e-901b-ebfecf2b0301">
          <title>System's Full Name</title>
          <description>
             <h1>ONLY USE THIS RESOURCE WHEN NO OSCAL-BASED SSP EXISTS</h1>
             <p>Briefly describe the system. This will appear in the SAR.</p>
          </description>
-         <prop name="type" value="no-oscal-ssp"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="no-oscal-ssp"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="title-short" value="SFN"/>
          <prop ns="https://fedramp.gov/ns/oscal"
-               name="system-id"
-               value="FR00000000"/>
+            name="system-id"
+            value="FR00000000"/>
          <prop ns="https://fedramp.gov/ns/oscal"
-               name="import-profile"
-               value="#890170c3-d4fa-4d25-ab96-8e4bf7cc237c"/>
+            name="import-profile"
+            value="#890170c3-d4fa-4d25-ab96-8e4bf7cc237c"/>
          <prop ns="https://fedramp.gov/ns/oscal"
-               name="purpose"
-               value="Briefly state the system's purpose. This will appear in the SAR."/>
+            name="purpose"
+            value="Briefly state the system's purpose. This will appear in the SAR."/>
          <prop ns="https://fedramp.gov/ns/oscal"
-               name="authorization-date"
-               value="2017-01-23T00:00:00Z"/>
+            name="authorization-date"
+            value="2017-01-23T00:00:00Z"/>
          <remarks>
             <p>Only include this resource if no OSCAL-based SSP is available.</p>
             <p>Delete it otherwise.</p>
          </remarks>
       </resource>
-      <resource uuid="7c30125f-c056-4888-9f1a-7ed1b6a1b638">
-         <title>[System Name] [FIPS-199 Level] SSP</title>
-         <prop name="type" value="system-security-plan"/>
-         <prop name="publication" value="SSP Date"/>
-         <prop name="version" value="SSP Version"/>
-         <rlink media-type="application/xml" href="../ssp/CSP_System_SSP.xml"/>
-         <rlink media-type="application/json" href="../ssp/CSP_System_SSP.json"/>
+      <!-- Laws, Acronyms, and other attachments -->
+      <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
+         <title>FedRAMP Applicable Laws and Regulations</title>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="fedramp-citations"/>
+         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
+         <base64 filename="SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" media-type="application/vnd.ms-excel">00000000</base64>
+         <!-- Todo: Fix Schematron. Make base64 optional -->
          <remarks>
-            <p>Use this to point to an OSCAL-based SSP.</p>
-            <p>For FedRAMP, do not attach the SSP. This should be delivered by the CSP.</p>
+            <p>Must be present in a FedRAMP SAP.</p>
          </remarks>
       </resource>
-      <resource uuid="16805868-6fa2-41d4-b2b1-bcd95c9168c7">
-         <title>FedRAMP Applicable Laws and Regulations</title>
-         <prop name="type" value="fedramp-citations"/>
-         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
-      </resource>
-      <resource uuid="07145a97-2dd1-4efc-bb10-a8bc93e05342">
+      <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
          <title>FedRAMP Master Acronym and Glossary</title>
-         <prop name="type" value="fedramp-acronyms"/>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="fedramp-acronyms"/>
          <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
+         <base64 filename="FedRAMP_Master_Acronym_and_Glossary.pdf" media-type="application/pdf">00000000</base64>
+         <!-- Todo: Fix Schematron. Make base64 optional -->
+         <remarks>
+            <p>Must be present in a FedRAMP SAP.</p>
+         </remarks>
       </resource>
+      <!-- SAP signature page -->
       <resource uuid="671dcc43-fb4d-4d93-b321-88beb2844673">
          <description>
             <p>Signed SAP</p>
          </description>
-         <prop name="type" value="signature"/>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="signed-sap"/>
          <!-- Use rlink and/or base64 -->
          <rlink href="./signed-sap.pdf" media-type="application/pdf"/>
          <base64 filename="sap.pdf" media-type="application/pdf">00000000</base64>
@@ -1185,15 +1255,17 @@
             <p>If your organization prefers another approach, please seek prior approval from the FedRAMP PMO.</p>
          </remarks>
       </resource>
+      <!-- Penetration Test Plan -->
       <resource uuid="8e8d05e4-0d47-4bf9-bbf0-b7070d60a671">
          <description>
             <p>Penetration Test Plan</p>
          </description>
-         <prop name="type" value="penetration-test-plan"/>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="penetration-test-plan"/>
          <!-- Use rlink and/or base64 -->
          <rlink href="./pen_test_plan.pdf" media-type="application/pdf"/>
          <base64 filename="pen_test_plan.pdf" media-type="application/pdf">00000000</base64>
       </resource>
+      <!-- 3PAO Logo -->
       <resource uuid="91d242d0-ccf9-4ff0-996d-e204c19dac52">
          <description>
             <p>3PAO Logo</p>
@@ -1203,38 +1275,13 @@
          <rlink href="./logo.png" media-type="image/png"/>
          <base64>00000000</base64>
       </resource>
+      <!-- FedRAMP Log -->
       <resource uuid="031a32be-f9ef-45a0-994e-20eb58456dee">
          <description>
             <p>FedRAMP Logo</p>
          </description>
          <prop name="type" value="logo"/>
          <rlink href="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png"/>
-      </resource>
-      <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
-         <title>FedRAMP Applicable Laws and Regulations</title>
-         <prop name="type" value="fedramp-citations"/>
-         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
-         <remarks>
-            <p>Must be present in a FedRAMP SSP.</p>
-         </remarks>
-      </resource>
-      <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
-         <title>FedRAMP Master Acronym and Glossary</title>
-         <prop name="type" value="fedramp-acronyms"/>
-         <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
-         <remarks>
-            <p>Must be present in a FedRAMP SSP.</p>
-         </remarks>
-      </resource>
-      <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
-         <description>
-            <p>FedRAMP Logo</p>
-         </description>
-         <prop name="type" value="logo"/>
-         <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
-         <remarks>
-            <p>Must be present in a FedRAMP SSP.</p>
-         </remarks>
       </resource>
    </back-matter>
 </assessment-plan>

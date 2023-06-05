@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>-->
-<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
+<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_ssp_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="8c000726-ba93-480d-a221-8cb60df10c24">
    <metadata>
       <title>FedRAMP System Security Plan (SSP)</title>
@@ -488,10 +487,12 @@
          <p>Guidance for OSCAL-based FedRAMP Tailored Low Impact - Software as a Service (LI-SaaS) content has not yet been developed.</p>
       </remarks>
    </metadata>
-   <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev4/baselines/xml/FedRAMP_rev4_MODERATE-baseline-resolved-profile_catalog.xml">
+   <!-- Link this SSP to a source profile or resolved profile catalog -->
+   <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/fedramp-2.0.0-oscal-1.0.2/dist/content/baselines/rev4/xml/FedRAMP_rev4_MODERATE-baseline-resolved-profile_catalog.xml">
       <remarks>
          <p>This example points to the FedRAMP Rev 4 Moderate baseline that is part of the official FedRAMP 1.0.4 release.</p>
          <p>Must adjust accordingly for applicable baseline and revision.</p>
+         <p>This may point to a back-matter resource using a URI fragment.</p>
       </remarks>
    </import-profile>
    <system-characteristics>
@@ -909,7 +910,7 @@
          <prop ns="https://fedramp.gov/ns/oscal" name="service-processor" value="[SAMPLE] Telco Name"/>
          <prop name="ipv4-address" class="local" value="10.1.1.1"/>
          <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
-         <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a02:0202"/>
+         <prop name="ipv6-address" value="2001:0000:0000:0000:0000:ffff:0a02:0202"/>
          <!-- describe the flow of information transmitted -->
          <!-- determine why schematron is not validating direciton of data flow per props below -->
          <prop name="direction" value="incoming"/>
@@ -981,7 +982,7 @@
             <p>Legacy Example (No implemented-component).</p>
          </description>
          <prop name="asset-id" value="unique-asset-ID-1"/>
-         <prop name="ipv4-address" value="10.1.1.1"/>
+         <prop name="ipv4-address" value="10.1.1.100"/>
          <!-- Todo: check why schematron validation is indicating that this is not a valid ipv4 value -->
          <prop name="ipv6-address" value="2001:db8:3333:4444:5555:6666:7777:8888"/>
          <prop name="virtual" value="no"/>
@@ -1176,6 +1177,8 @@
          </description>
          <prop name="asset-id" value="unique-asset-ID-10"/>
          <prop name="asset-type" value="email-server"/>
+         <prop name="ipv4-address" value="10.10.10.100"/>
+         <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a08:0808"/>
          <prop name="virtual" value="yes"/>
          <prop name="public" value="no"/>
          <prop name="is-scanned" value="yes"/>
@@ -1211,7 +1214,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ac-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ac-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1284,6 +1287,8 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
+         <!-- sample implementation-status below -->
+         <!-- 
          <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial">
             <remarks>
                <p>Describe the portion of the control that is not satisfied.</p>
@@ -1294,6 +1299,7 @@
                <p>Describe the justification for marking this control Not Applicable.</p>
             </remarks>
          </prop>
+         -->
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="customer-configured">
             <remarks>
@@ -1423,7 +1429,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="at-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="at-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1488,7 +1494,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="au-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="au-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1556,7 +1562,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ca-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ca-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1621,7 +1627,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="cm-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="cm-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1644,7 +1650,7 @@
                   <p>That component contains a link to the policy, so it does not have to be linked here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" uuid="a1606990-7d49-43a5-b881-f1f177221dda">
+            <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" uuid="4ae3ed72-ea26-469e-a78e-02dcdca7d857">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -1684,7 +1690,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="cp-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="cp-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1749,7 +1755,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ia-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ia-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1814,7 +1820,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ir-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ir-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1879,7 +1885,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ma-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ma-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1944,7 +1950,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="mp-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="mp-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1967,7 +1973,7 @@
                   <p>That component contains a link to the policy, so it does not have to be linked here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" uuid="b32a203d-aa70-4f72-9f3f-a10e738247cc">
+            <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" uuid="79170a56-7f2f-4002-9665-6ba6d531b8ab">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -2009,7 +2015,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="pe-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="pe-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2074,7 +2080,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="pl-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="pl-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2139,7 +2145,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ps-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ps-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2204,7 +2210,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ra-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ra-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2269,7 +2275,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="sa-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="sa-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2334,7 +2340,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="sc-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="sc-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2399,7 +2405,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="si-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="si-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2462,7 +2468,7 @@
                   <p>DKIM is employed.</p>
                </description>
                <set-parameter param-id="si-8_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="si-8_prm_2">
                   <value>[specify frequency]</value>
@@ -3179,13 +3185,13 @@
          <description>
             <p>User's Guide</p>
          </description>
-         <prop name="type" value="user-guide"/>
+         <prop name="type" value="users-guide"/>
          <prop name="type" ns="https://fedramp.gov/ns/oscal" value="user-guide"/>
          <!-- Fix Schematron validation.  FR prop can be deprecated -->
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <rlink href="./documents/guides/sample_guide.pdf"/>
-         <base64 media-type="application/pdf" filename="sample_guide.pdf">00000000</base64>
+         <!--<base64 media-type="application/pdf" filename="sample_guide.pdf">00000000</base64>-->
          <remarks>
             <p>Table 15-1 Attachments: User's Guide Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
@@ -3205,7 +3211,7 @@
          </remarks>
       </resource>
       <resource uuid="489112e1-57f2-4c29-8dd0-95b1442fbf3b">
-         <title>Document Title</title>
+         <title>Rules of Behavior (RoB)</title>
          <description>
             <p>Rules of Behavior</p>
          </description>
@@ -3222,7 +3228,7 @@
          </remarks>
       </resource>
       <resource uuid="c7860916-f2f4-43aa-b578-d48cf8e6d381">
-         <title>Document Title</title>
+         <title>Contingency Plan (CP)</title>
          <description>
             <p>Contingency Plan (CP)</p>
          </description>
@@ -3239,7 +3245,7 @@
          </remarks>
       </resource>
       <resource uuid="ab56cf27-0dae-40d6-89b7-d750137309af">
-         <title>Document Title</title>
+         <title>Configuration Management (CM) Plan</title>
          <description>
             <p>Configuration Management (CM) Plan</p>
          </description>
@@ -3256,7 +3262,7 @@
          </remarks>
       </resource>
       <resource uuid="3f771ab5-8016-4571-98d1-f0fb962e15e2">
-         <title>Document Title</title>
+         <title>Incident Response (IR) Plan</title>
          <description>
             <p>Incident Response (IR) Plan</p>
          </description>
