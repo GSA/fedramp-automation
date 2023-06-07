@@ -2798,7 +2798,7 @@
 			</add>
 		</alter>
 		<alter control-id="cm-9">
-			<add position="ending" by-id="cm-9">
+			<add position="ending" by-id="cm-9_smt">
 				<part id="cm-9_fr_gdn.1" name="guidance">
 					<prop name="label" value="Guidance:"/>
 					<p>FedRAMP does not provide a template for the Configuration Management Plan. However, NIST SP 800-128, Guide for Security-Focused Configuration Management of Information Systems, provides guidelines for the implementation of CM controls as well as a sample CMP outline in Appendix D of the Guide</p>
@@ -3692,7 +3692,7 @@
 			</add>
 		</alter>
 		<alter control-id="si-5">
-			<add position="ending" by-id="si-5">
+			<add position="ending" by-id="si-5_smt">
 				<part id="si-5_fr_smt.1" name="item">
 					<title>SI-5 Additional FedRAMP Requirements and Guidance</title>
 					<prop name="label" value="Requirement:"/>

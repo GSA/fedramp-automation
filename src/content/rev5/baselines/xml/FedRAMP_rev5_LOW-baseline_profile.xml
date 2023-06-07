@@ -2177,7 +2177,7 @@
             </add>
         </alter>
         <alter control-id="si-5">
-            <add position="ending" by-id="si-5">
+            <add position="ending" by-id="si-5_smt">
                 <part id="si-5_fr_smt.1" name="item">
                     <title>SI-5 Additional FedRAMP Requirements and Guidance</title>
                     <prop name="label" value="Requirement:"/>
