@@ -18,7 +18,7 @@
             </remarks>
          </revision>
       </revisions>
-      <prop name="marking" value="Controlled Unclassified Information" uuid="ecdf148f-f8ce-40b1-b0a8-93b779f3eae9"/>
+      <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <role id="fedramp-pmo">
@@ -211,7 +211,7 @@
             <postal-code>00000-0000</postal-code>
             <country>US</country>
          </address>
-         <prop name="type" class="alternate" value="data-center" uuid="661c0c80-77e2-4618-963b-f3d81abd7e82"/>
+         <prop name="type" class="alternate" value="data-center"/>
          <remarks>
             <p>There must be one location for each data center.</p>
             <p>There must be at least two data center locations.</p>
@@ -293,7 +293,7 @@
       </party>
       <party uuid="09ad840f-aa79-43aa-9f22-25182c2ab11b" type="person">
          <name>[SAMPLE]ICA POC's Name</name>
-         <prop name="job-title" value="Individual's Title" uuid="9ae1e2eb-3e09-45be-8a49-3c6aff6792d1"/>
+         <prop name="job-title" value="Individual's Title"/>
          <email-address>person@ica.example.org</email-address>
          <telephone-number>2025551212</telephone-number>
          <member-of-organization>80361ec4-bfce-4b5c-85c8-313d6ebd220b</member-of-organization>
@@ -307,8 +307,8 @@
       </party>
       <party uuid="3360e343-9860-4bda-9dfc-ff427c3dfab6" type="person">
          <name>[SAMPLE]Person Name 1</name>
-         <prop name="job-title" value="Individual's Title" uuid="36bb6aa7-dd46-468a-89b3-3af382892ed6"/>
-         <prop name="mail-stop" value="Mailstop A-1" uuid="c2bab95d-32b7-43d6-92a2-1baea2a10fd9"/>
+         <prop name="job-title" value="Individual's Title"/>
+         <prop name="mail-stop" value="Mailstop A-1"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000001</telephone-number>
          <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
@@ -316,7 +316,7 @@
       </party>
       <party uuid="36b8d6c0-3b25-42cc-b529-cf4066145cdd" type="person">
          <name>[SAMPLE]Person Name 2</name>
-         <prop name="job-title" value="Individual's Title" uuid="85a85a6b-4cb9-4409-989e-4c9597f76173"/>
+         <prop name="job-title" value="Individual's Title"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000002</telephone-number>
          <address type="work">
@@ -330,7 +330,7 @@
       </party>
       <party uuid="0cec09d9-20c6-470b-9ffc-85763375880b" type="person">
          <name>[SAMPLE]Person Name 3</name>
-         <prop name="job-title" value="Individual's Title" uuid="ee191aa6-d956-4f58-b198-65486ba112da"/>
+         <prop name="job-title" value="Individual's Title"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000003</telephone-number>
          <address type="work">
@@ -344,7 +344,7 @@
       </party>
       <party uuid="f75e21f6-43d8-46ab-890d-7f2eebc5a830" type="person">
          <name>[SAMPLE]Person Name 4</name>
-         <prop name="job-title" value="Individual's Title" uuid="f5a88036-93a3-4396-99b8-928e2284396f"/>
+         <prop name="job-title" value="Individual's Title"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000004</telephone-number>
          <address type="work">
@@ -358,7 +358,7 @@
       </party>
       <party uuid="132953a9-640c-46f7-9de9-3fa15ec99361" type="person">
          <name>[SAMPLE]Person Name 5</name>
-         <prop name="job-title" value="Individual's Title" uuid="3b86065b-efa0-4925-8c44-ada8dd827815"/>
+         <prop name="job-title" value="Individual's Title"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000005</telephone-number>
          <address type="work">
@@ -372,7 +372,7 @@
       </party>
       <party uuid="4fded5fd-7a65-47ea-bd76-df57c46e27d1" type="person">
          <name>[SAMPLE]Person Name 6</name>
-         <prop name="job-title" value="Individual's Title" uuid="456ef21c-1a5d-4531-8849-e345dbc550b0"/>
+         <prop name="job-title" value="Individual's Title"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000006</telephone-number>
          <address type="work">
@@ -386,7 +386,7 @@
       </party>
       <party uuid="db234cb7-1776-425c-9ac4-b067c1723011" type="person">
          <name>[SAMPLE]Person Name 7</name>
-         <prop name="job-title" value="Individual's Title" uuid="ffbbeb06-5ee3-497a-88a9-bc43681466ae" />
+         <prop name="job-title" value="Individual's Title"/>
          <email-address>name@example.com</email-address>
          <telephone-number>2020000007</telephone-number>
          <address type="work">
@@ -812,9 +812,9 @@
          <prop ns="https://fedramp.gov/ns/oscal" name="information" value="Describe the information being transmitted."/>
          <prop ns="https://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
          <prop name="interconnection-security" ns="https://fedramp.gov/ns/oscal" value="ipsec">
-            <remarks>
+         <remarks>
                <p>If "other", remarks are required. Optional otherwise.</p>
-            </remarks>
+         </remarks>
          </prop>
          <!-- TODO: Discuss adding "agreement" to core OSCAL -->
          <link rel="isa-agreement" href="#9d6cf2b4-8e88-4040-a33c-7bc206553a1a"/>
@@ -1003,6 +1003,48 @@
             <p>
                <b>SERVICES ARE NOW COMPONENTS WITH type='service'</b>
             </p>
+         </remarks>
+      </component>
+      <component uuid="2812ef51-61e7-4505-afbb-da5a073a2a5b" type="interconnection">
+         <!-- Todo: schematron should not require components of type "interconnection" to have an "asset-type" prop -->
+         <title>[EXAMPLE]Authorized Connection Information System Name</title>
+         <description>
+            <p>Briefly describe the interconnection.</p>
+         </description>
+         <prop ns="https://fedramp.gov/ns/oscal" name="service-processor" value="[SAMPLE] Telco Name"/>
+         <prop name="ipv4-address" class="local" value="10.1.1.1"/>
+         <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
+         <prop name="ipv6-address" value="2001:0000:0000:0000:0000:ffff:0a02:0202"/>
+         <!-- describe the flow of information transmitted -->
+         <!-- determine why schematron is not validating direciton of data flow per props below -->
+         <prop name="direction" value="incoming"/>
+         <!-- Fix schematron.  Core OSCAL prop should be acceptable -->
+         <prop name="direction" value="outgoing"/>
+         <!-- Fix schematron.  Core OSCAL prop should be acceptable -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="information" value="Describe the information being transmitted."/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
+         <prop name="interconnection-security" ns="https://fedramp.gov/ns/oscal" value="ipsec">
+            <remarks>
+               <p>If "other", remarks are required. Optional otherwise.</p>
+            </remarks>
+         </prop>
+         <!-- TODO: Discuss adding "agreement" to core OSCAL -->
+         <link rel="isa-agreement" href="#9d6cf2b4-8e88-4040-a33c-7bc206553a1a"/>
+         <status state="operational"/>
+         <responsible-role role-id="isa-poc-remote">
+            <party-uuid>09ad840f-aa79-43aa-9f22-25182c2ab11b</party-uuid>
+         </responsible-role>
+         <responsible-role role-id="isa-poc-local">
+            <party-uuid>09ad840f-aa79-43aa-9f22-25182c2ab11b</party-uuid>
+         </responsible-role>
+         <responsible-role role-id="isa-authorizing-official-remote">
+            <party-uuid>09ad840f-aa79-43aa-9f22-25182c2ab11b</party-uuid>
+         </responsible-role>
+         <responsible-role role-id="isa-authorizing-official-local">
+            <party-uuid>09ad840f-aa79-43aa-9f22-25182c2ab11b</party-uuid>
+         </responsible-role>
+         <remarks>
+            <p>Optional notes about this interconnection</p>
          </remarks>
       </component>
       <component type="network" uuid="55b55b3d-3bd9-409a-bc87-3b9a2074bacd">
@@ -1240,6 +1282,8 @@
          </description>
          <prop name="asset-id" value="unique-asset-ID-10"/>
          <prop name="asset-type" value="email-server"/>
+         <prop name="ipv4-address" value="10.10.10.100"/>
+         <prop name="ipv6-address" value="0000:0000:0000:0000:0000:ffff:0a08:0808"/>
          <prop name="virtual" value="yes"/>
          <prop name="public" value="no"/>
          <prop name="is-scanned" value="yes"/>
@@ -1275,7 +1319,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ac-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ac-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1348,6 +1392,8 @@
                <p>Describe the plan to complete the implementation.</p>
             </remarks>
          </prop>
+         <!-- sample implementation-status below -->
+         <!-- 
          <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial">
             <remarks>
                <p>Describe the portion of the control that is not satisfied.</p>
@@ -1358,6 +1404,7 @@
                <p>Describe the justification for marking this control Not Applicable.</p>
             </remarks>
          </prop>
+         -->
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="customer-configured">
             <remarks>
@@ -1487,7 +1534,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="at-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="at-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1552,7 +1599,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="au-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="au-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1620,7 +1667,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ca-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ca-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1685,7 +1732,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="cm-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="cm-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1708,7 +1755,7 @@
                   <p>That component contains a link to the policy, so it does not have to be linked here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" uuid="a1606990-7d49-43a5-b881-f1f177221dda">
+            <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" uuid="4ae3ed72-ea26-469e-a78e-02dcdca7d857">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -1748,7 +1795,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="cp-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="cp-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1813,7 +1860,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ia-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ia-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1878,7 +1925,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ir-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ir-1_prm_2">
                   <value>at least every 3 years</value>
@@ -1943,7 +1990,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ma-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ma-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2008,7 +2055,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="mp-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="mp-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2031,7 +2078,7 @@
                   <p>That component contains a link to the policy, so it does not have to be linked here too.</p>
                </description>
             </by-component>
-            <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" uuid="b32a203d-aa70-4f72-9f3f-a10e738247cc">
+            <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" uuid="79170a56-7f2f-4002-9665-6ba6d531b8ab">
                <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
@@ -2073,7 +2120,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="pe-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="pe-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2138,7 +2185,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="pl-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="pl-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2203,7 +2250,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ps-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ps-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2268,7 +2315,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="ra-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="ra-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2333,7 +2380,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="sa-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="sa-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2398,7 +2445,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="sc-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="sc-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2463,7 +2510,7 @@
                   <p>Describe how the control is satisfied within the system.</p>
                </description>
                <set-parameter param-id="si-1_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="si-1_prm_2">
                   <value>at least every 3 years</value>
@@ -2526,7 +2573,7 @@
                   <p>DKIM is employed.</p>
                </description>
                <set-parameter param-id="si-8_prm_1">
-                  <value>[replace with list of personnel or roles]</value>
+                  <value>organization-defined personnel or roles</value>
                </set-parameter>
                <set-parameter param-id="si-8_prm_2">
                   <value>[specify frequency]</value>
@@ -2540,9 +2587,9 @@
       <implemented-requirement control-id="sr-1" uuid="2286bf93-2664-4852-bc4c-e235ec076b94">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-            <remarks>
+         <remarks>
                <p>Describe the plan to complete the implementation.</p>
-            </remarks>
+         </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#7d440e15-ca4d-4e4a-8fcc-50bb05ffa2fd" rel="policy"/>
@@ -2552,9 +2599,9 @@
          </responsible-role>
          <statement statement-id="sr-1_smt" uuid="ea3cc181-1a55-4350-94a6-faf42f003045">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="ea3cc181-1a55-4350-94a6-faf42f003045">
-               <description>
+         <description>
                   <p>Describe how the control is satisfied within the system.</p>
-               </description>
+         </description>
                <set-parameter param-id="sr-1_prm_1">
                   <value>to include chief privacy and ISSO and/or similar role or designees</value>
                </set-parameter>
@@ -2568,23 +2615,23 @@
          </statement>
          <statement statement-id="sr-1_smt.a" uuid="76bc5347-1fbd-4386-a839-ac042e59ac82">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="319cc842-aebc-4625-8cfe-1586e57148a5">
-               <description>
+         <description>
                   <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
-               </description>
+         </description>
             </by-component>
             <by-component component-uuid="88b8d7bb-ba23-4430-bf62-028eab822050" uuid="51c4938e-7239-4b6f-ac7a-226719347d54">
-               <description>
+         <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
                   <p>That component contains a link to the policy, so it does not have to be linked here too.</p>
-               </description>
+         </description>
             </by-component>
             <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" uuid="73b85fca-3995-447a-a47f-23531335ea58">
-               <description>
+         <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
                   <p>That component contains a link to the procedure, so it does not have to be linked here too.</p>
-               </description>
+         </description>
             </by-component>
          </statement>
       </implemented-requirement>
@@ -3193,7 +3240,7 @@
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <rlink href="./documents/guides/sample_guide.pdf"/>
-         <base64 media-type="application/pdf" filename="sample_guide.pdf">00000000</base64>
+         <!--<base64 media-type="application/pdf" filename="sample_guide.pdf">00000000</base64>-->
          <remarks>
             <p>Table 12-1 Attachments: User's Guide Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
