@@ -5,4 +5,4 @@ test-validations-rules: $(RULES_XSPEC_SRC_TARGETS)
 
 # Apply xspec
 $(VALIDATIONS_DIR)/report/test/rules/%-junit.xml: $(VALIDATIONS_DIR)/test/rules/%.xspec
-	$(EVAL_XSPEC) $<
+	TEST_DIR=$(dir $@) bash vendor/xspec/bin/xspec.sh -e -s -j $<
