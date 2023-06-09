@@ -2917,7 +2917,7 @@
 				<part id="pe-14_fr" name="item">
 					<title>PE-14 Additional FedRAMP Requirements and Guidance</title>
 					<part id="pe-14_fr_smt.1" name="item">
-						<prop name="label" value="Requirement:"/>
+						<prop name="label" value="(a) Requirement:"/>
 						<p>The service provider measures temperature at server inlets and humidity levels by dew point.</p>
 					</part>
 				</part>
@@ -2984,15 +2984,15 @@
 						<p>See the FedRAMP Documents page> Vulnerability Scanning Requirements https://www.FedRAMP.gov/documents/</p>
 					</part>
 					<part id="ra-5_fr_smt.1" name="item">
-						<prop name="label" value="Requirement:"/>
+						<prop name="label" value="(a) Requirement:"/>
 						<p>an accredited independent assessor scans operating systems/infrastructure, web applications, and databases once annually.</p>
 					</part>
 					<part id="ra-5_fr_smt.2" name="item">
-						<prop name="label" value="Requirement:"/>
+						<prop name="label" value="(d) Requirement:"/>
 						<p>If a vulnerability is listed among the CISA Known Exploited Vulnerability (KEV) Catalog (https://www.cisa.gov/known-exploited-vulnerabilities-catalog) the KEV remediation date supersedes the FedRAMP parameter requirement.</p>
 					</part>
 					<part id="ra-5_fr_smt.3" name="item">
-						<prop name="label" value="Requirement:"/>
+						<prop name="label" value="(e) Requirement:"/>
 						<p>to include all Authorizing Officials; for JAB authorizations to include FedRAMP</p>
 					</part>
 					<part id="ra-5_fr_gdn.2" name="guidance">
