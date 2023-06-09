@@ -9,7 +9,7 @@ To accompany these guides, the FedRAMP PMO has also drafted OSCAL files in XML a
 
 ## Support and OSCAL Deprecation Strategy
 
-The FedRAMP PMO has [a release strategy and versioning procedures](./documents/adr/0002-git-release-version-strategy.md). FedRAMP has a minimally supported version of OSCAL, unless explicitly noted otherwise in specific documents or source code in this repository. Baselines, guides, templates, and associated tools in this repository will only support OSCAL data with a version number no lower than specified by FedRAMP version tags. A version tag that ends in `-oscal1.0.0` will only support data with `oscal-version` equal to `1.0.0` or newer, it will not support `1.0.0-milestone3`, `1.0.0-rc1`, or `1.0.0-rc2`. A future version tag ending in `-oscal1.1.0` indicates FedRAMP source code and guides will support data with `oscal-version` equal to `1.1.0` or newer, but not `1.0.0`.
+The FedRAMP PMO has [a release strategy and versioning procedures](./documents/adr/0002-git-release-version-strategy.md). FedRAMP has a minimally supported version of OSCAL, unless explicitly noted otherwise in specific documents or source code in this repository. Baselines, guides, templates, and associated tools in this repository will only support OSCAL data with a version number no lower than specified by FedRAMP version tags. A version tag that ends in `-oscal1.0.0` will only support data with `oscal-version` equal to `1.0.0` or newer, it will not support `1.0.1`, `1.0.2`, `1.0.3`, `1.0.4`, etc. A future version tag ending in `-oscal1.1.0` indicates FedRAMP source code and guides will support data with `oscal-version` equal to `1.1.0` or newer, but not `1.0.0`.
 
 Changes to the minimally supported version and deprecation notices will be made in advance of a release.
 
@@ -19,32 +19,34 @@ This repository is for the development and enhancement of OSCAL artifacts only. 
 
 The FedRAMP PMO is releasing the following files for public review and comment:
 
-- **FedRAMP Baselines:** The FedRAMP baselines for High, Moderate, Low, and Tailored for Low Impact-Software as a Service (LI-SaaS) in OSCAL (XML and JSON formats) are available [here](./dist/content/rev4/baselines).
+- **FedRAMP Baselines:** The FedRAMP rev 5 baselines for High, Moderate, Low, and Tailored for Low Impact-Software as a Service (LI-SaaS) in OSCAL (XML and JSON formats) are available [here](./dist/content/rev5/baselines).
 
-- **FedRAMP OSCAL Templates:** The template files are pre-populated with FedRAMP extensions, defined-identifiers, and conformity tags where practical. They also include sample data, and are the basis for their respective guidance documents above. The drafts for public comment are available in both XML and JSON formats [here](./dist/content/rev4/templates/).
+*The FedRAMP OSCAL templates, registry, and implementation guides for rev 5 will be released in a few weeks*.
 
-- **FedRAMP OSCAL Registry** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The draft for public comment is available [here](./documents/FedRAMP_Extensions.pdf).
+- **FedRAMP OSCAL Templates:** The template files are pre-populated with FedRAMP extensions, defined-identifiers, and conformity tags where practical. They also include sample data, and are the basis for their respective guidance documents above. The FedRAMP OSCAL SSP, SAP, SAR, and POA&M template will be available soon in XML, JSON, and YAML formats.
 
-- **Implementation Guides:** These documents enables tool developers to generate OSCAL-based FedRAMP deliverabes that are fully compliant with FedRAMP’s extensions, defined identifiers, conformity tags, and acceptable values. The drafts for public comment are available [here](./documents/).
+- **FedRAMP OSCAL Registry** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The FedRAMP OSCAL Registry will be available soon in XML format.
+
+- **Implementation Guides:** These documents help tool developers and content authors ensure any generated OSCAL-based FedRAMP deliverabes are fully compliant with FedRAMP’s extensions, defined identifiers, conformity tags, and acceptable values. The FedRAMP OSCAL implementation guides will be available soon in PDF format.
 
 Please ask questions or provide feedback on the items above above either via email to [oscal@fedramp.gov](mailto:oscal@fedramp.gov), as a comment to an existing [issue](https://github.com/GSA/fedramp-automation/issues), or as a new [issue](https://github.com/GSA/fedramp-automation/issues).
 
 ## Dependencies
 
-FedRAMP's work is based on NIST's [OSCAL 1.0.0](https://github.com/usnistgov/OSCAL/releases/tag/v1.0.0), and requires an understanding of the core OSCAL syntax, as well as NIST-provided resources to function correctly.
+FedRAMP's work is based on NIST's [OSCAL 1.0.4](https://github.com/usnistgov/OSCAL/releases/tag/v1.0.4), and requires an understanding of the core OSCAL syntax, as well as NIST-provided resources to function correctly.
 
-**IMPORTANT**: NIST has made minor syntax updates since releasing `1.0.0-rc2`, which are also reflected in these guides. Please review [the NIST OSCAL release notes](https://pages.nist.gov/OSCAL/reference/release-notes/) in addition to guides here for more information about these changes.
+**IMPORTANT**: As NIST makes minor syntax updates and releases new versions, please review [the NIST OSCAL release notes](https://pages.nist.gov/OSCAL/reference/release-notes/) in addition to guides here for more information about these changes.
 
 The following NIST resources are available:
 - **NIST's Main OSCAL Site:** [https://pages.nist.gov/OSCAL/](https://pages.nist.gov/OSCAL/)
 
 - **NIST's OSCAL GitHub Repository:** [https://github.com/usnistgov/OSCAL](https://github.com/usnistgov/OSCAL)
 
-- **OSCAL Workshop Training Slides:** Provided at an October workshop hosted by the NIST OSCAL Team. The early portions of the deck provide an overview, with more technical details beginning on slide 52. [https://pages.nist.gov/OSCAL/downloads/OSCAL-workshop-20191105.pdf](https://pages.nist.gov/OSCAL/learn/presentations/OSCAL-workshop-20191105.pdf)
+- **OSCAL Workshop Training Slides:** Videos and content from NIST's annual OSCAL Conference and Workshop are available at [https://pages.nist.gov/OSCAL/learn/presentations/](https://pages.nist.gov/OSCAL/learn/presentations)
 
 - **Content Converters:** The converters accurately convert OSCAL catalog, profile, SSP, SAP, SAR, and POA&M content from [XML to JSON](https://github.com/usnistgov/OSCAL/tree/master/json/convert) and [JSON to XML](https://github.com/usnistgov/OSCAL/tree/master/xml/convert).
 
-- **NIST SP 800-53 & 53A Revision 4 in OSCAL:** NIST is also providing SP 800-53 and 800-53A, Revision 4 content as well as the NIST High, Moderate, and Low baselines in OSCAL (XML, JSON, and YAML formats) [here](https://github.com/usnistgov/OSCAL/tree/master/content/nist.gov/SP800-53/rev4).
+- **NIST SP 800-53 & 53A Revision 4 in OSCAL:** NIST is also providing SP 800-53 and 800-53A, Revision 5 content as well as the NIST High, Moderate, and Low baselines in OSCAL (XML, JSON, and YAML formats) [here](https://github.com/usnistgov/OSCAL/tree/master/content/nist.gov/SP800-53/rev5).
 
 NIST offers a complete package containing the NIST OSCAL converters, syntax validation tools, 800-53 and FedRAMP baselines content is available for download in both ZIP and BZ2 format. Visit the [NIST OSCAL Github releases page for more information](https://github.com/usnistgov/OSCAL/releases/latest).
 
