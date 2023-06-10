@@ -1,4 +1,5 @@
-<img src='./assets/FedRAMP_LOGO.png' alt="FedRAMP" width="76" height="94"><br />
+<img src="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png" alt="FedRAMP" width="76" height="94"><br />
+
 # Federal Risk and Authorization Management Program (FedRAMP) Automation
 
 ## OSCAL Guides and Templates
@@ -15,9 +16,9 @@ Changes to the minimally supported version and deprecation notices will be made 
 
 This repository is for the development and enhancement of OSCAL artifacts only. For issues with the [Word and Excel-based templates and artifacts on the fedramp.gov site](https://www.fedramp.gov/documents-templates/), please send requests to [info@fedramp.gov](mailto:info@gfedramp.gov).
 
-## We Want Your Feedback!
+## FedRAMP OSCAL Rev 5 Releases:
 
-The FedRAMP PMO is releasing the following files for public review and comment:
+The FedRAMP PMO is releasing the following OSCAL content:
 
 - **FedRAMP Baselines:** The FedRAMP rev 5 baselines for High, Moderate, Low, and Tailored for Low Impact-Software as a Service (LI-SaaS) in OSCAL (XML and JSON formats) are available [here](./dist/content/rev5/baselines).
 
