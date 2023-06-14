@@ -5,11 +5,11 @@
       <title>FedRAMP System Security Plan (SSP)</title>
       <published>2023-05-16T00:00:00Z</published>
       <last-modified>2023-05-16T00:00:00Z</last-modified>
-      <version>fedramp1.1.0-oscal1.0.0</version>
+      <version>fedramp2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <revisions>
          <revision>
-            <published>2023-05-16T00:00:00Z</published>
+            <published>2023-06-30T00:00:00Z</published>
             <version>1.0</version>
             <oscal-version>1.0.4</oscal-version>
             <prop ns="https://fedramp.gov/ns/oscal" name="party-uuid" value="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" uuid="528974e9-fcde-494f-a2fa-35d6f1e31171"/>
@@ -221,7 +221,7 @@
          </remarks>
       </location>
       <party uuid="6b286b5d-8f07-4fa7-8847-1dd0d88f73fb" type="organization">
-         <!-- CSP Name - refernced in Table 3.1 -->
+         <!-- CSP Name - referenced in Table 3.1 -->
          <name>Cloud Service Provider (CSP) Name</name>
          <short-name>CSP Acronym/Short Name</short-name>
          <link href="#31a46c4f-2959-4287-bc1c-67297d7da60b" rel="logo"/>
@@ -500,13 +500,14 @@
    </import-profile>
    <system-characteristics>
       <!-- Section 3 - System Information -->
-      <!-- Table 3-1 Information System Name and Title -->
+      <!-- Table 3.1 Information System Name and Title -->
       <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
       <system-name>System's Full Name</system-name>
       <system-name-short>System's Short Name or Acronym</system-name-short>
       <!-- General System Description -->
       <description>
-         <p>Describe the purpose and functions of this system here. This includes any narrative text usually included in section 9.1 of the SSP.</p>
+         <p>[Insert CSO Name] is delivered as [a/an] [insert based on the Service Model above] offering using a multi-tenant [insert based on the Deployment Model above] cloud computing environment. It is available to [Insert scope of customers in accordance with instructions above (for example, the public, federal, state, local, and tribal governments, as well as research institutions, federal contractors, government contractors etc.)].</p>
+         <p>NOTE: Additional description, including the purpose and functions of this system may be added here. This includes any narrative text usually included in section 9.1 of the SSP.</p>
          <p>NOTE: The description is expected to be at least 32 words in length.</p>
       </description>
       <!-- service & deployment model -->
@@ -534,7 +535,7 @@
       <security-sensitivity-level>fips-199-moderate</security-sensitivity-level>
       <system-information>
          <!-- Rev5 update - PIA/PTAs are no longer required by FedRAMP -->
-         <!-- Use the information-type element to provide details about all information types that are stored, processed, or transmitted by the system -->
+         <!-- Table K.1 - Use the information-type element to provide details about all information types that are stored, processed, or transmitted by the system -->
          <information-type uuid="06ecba4f-db96-4491-a3a2-7febfa227435">
             <title>Information Type Name</title>
             <description>
@@ -641,8 +642,8 @@
          <party-uuid>f0bc13a4-3303-47dd-80d3-380e159c8362</party-uuid>
          <date-authorized>2015-01-01</date-authorized>
          <remarks>
-            <p>Use one leveraged-authorization assembly for each underlying system. (In the legacy world, these may be general support systems.</p>
-            <p>The link fields are optional, but preferred where known. Often, a leveraging system's SSP author will not have access to the leveraged system's SSP, but should have access to the leveraged system's CRM.</p>
+            <p>Use one leveraged-authorization assembly for each underlying system. In the legacy world, these may be general support systems.</p>
+            <p>The link fields are optional, but preferred when known. Often, a leveraging system's SSP author will not have access to the leveraged system's SSP, but should have access to the leveraged system's CRM.</p>
          </remarks>
       </leveraged-authorization>
       <!-- Users - list the types of users that interact with the system -->
@@ -679,6 +680,8 @@
          <prop name="privilege-level" value="no-logical-access"/>
          <prop name="type" value="internal"/>
          <role-id>information-system-security-officer</role-id>
+         <role-id>isa-poc-local</role-id>
+         <role-id>isa-authorizing-official-local</role-id>
          <authorized-privilege>
             <title>Administrative Access Approver</title>
             <function-performed>Approves access requests for administrative accounts.</function-performed>
@@ -687,6 +690,18 @@
             <title>Access Approver</title>
             <function-performed>Approves access requests for administrative accounts.</function-performed>
          </authorized-privilege>
+      </user>
+      <user uuid="73ae456f-5581-4ff7-9ada-49fc057b2e0b">
+         <title>[SAMPLE]ISA POC</title>
+         <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="not-applicable"/>
+         <prop name="privilege-level" value="no-logical-access"/>
+         <prop name="type" value="external"/>
+         <role-id>isa-poc-remote</role-id>
+         <role-id>isa-authorizing-official-remote</role-id>
+         <authorized-privilege>
+            <title>External System Access Provider</title>
+            <function-performed>Authorizes access to external interconnected system.</function-performed>
+         </authorized-privilege>        
       </user>
       <!-- Components -->
       <!-- OSCAL requires existance of a "this-system" component -->
@@ -787,19 +802,41 @@
 
       <!-- Section 7 - External Systems and Services Not Having FedRAMP-Authorization -->
       <!-- Must have a component for each external, non-FedRAMP Authorized Service -->
-      <!-- type (1=Non-FedRAMP authorized cloud service, 2=Corporate Shared Services, 3-update Service for In-Boundary SW/Services -->
       <!-- System/Service/API Name, Connection Details, Nature of agreement, Support Status, Data Types, Data Categorization, authorized users/authentication, other compliance programs, hosting environment, risk/impact/mitigation -->
       <component uuid="2812ef51-61e7-4505-afbb-da5a073a2a5b" type="interconnection">
          <!-- Todo: schematron should not require components of type "interconnection" to have an "asset-type" prop -->
+         <!-- Use title element to provid System/ Service/ API/CLI Name -->
          <title>[EXAMPLE]Authorized Connection Information System Name</title>
          <description>
-            <p>Briefly describe the interconnection.</p>
+            <p>Briefly describe the interconnection, including the connection details.</p>
          </description>
          <prop ns="https://fedramp.gov/ns/oscal" name="service-processor" value="[SAMPLE] Telco Name"/>
+         <!-- New Rev5 prop.  Specify the type of interconnection (1=Non-FedRAMP authorized cloud service, 2=Corporate Shared Services, 3-update Service for In-Boundary SW/Services) -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="1" />
+         <!-- New Rev5 prop.  Specify the type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc.) -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="Contract" />
+         <!-- New Rev5 prop.  Specify if this product still supported by the manufacturer? Accepted values are "yes" or "no" -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="still-supported" value="yes" />
+         <!-- New Rev5 prop. Add a prop for each data type and metadatat type transmitted, stored or processed by the system / service, including federal and sensitive system data.  Specify the value based on NIST 800-60 Vol II data types for the system. -->
+         <!-- Alternatively, if the list is long, data types may be provided as a link to a backmatter resource containing all the information -->
+         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.1" /><!-- system development information type -->
+         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.8" /><!-- system & network monitoring information type --> 
+         <!-- New Rev5 prop. For each interconnection-data-type above, add a prop for the corresponding data categorization.  Use the security impact level of the data (Low, Moderate, High) in accordance with FIPS 199 & NIST 800-60 Vol. 2. -->
+         <!-- Alternatively, if the list is long, data categorization may be provided as a link to a backmatter resource containing all the information -->
+         <prop ns="https://fedramp.gov/ns/oscal" class="C.3.5.1" name="interconnection-data-categorization" value="low" /><!-- low, moderate, high -->
+         <prop ns="https://fedramp.gov/ns/oscal" class="C.3.5.8" name="interconnection-data-categorization" value="moderate" /><!-- low, moderate, high --> 
+         <!-- New Rev5 prop.  Use prop to list the user roles (e.g., SecOps engineers) authorized to access the service, and provide the authentication method. -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="authorized-users" value="SecOps engineers" />
+         <!-- New Rev5 prop.  List any certifications for this service (e.g., PCI SOC 2, CSA STAR Level 2, FISMA, etc.) -->
+         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-compliance" value="PCI SOC 2" />
+         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-compliance" value="ISO/IEC 27001" />
+         <!-- New Rev5 prop. Describe the hosting environemnt (e.g., corporate newtork, IaaS, self-hosted, etc.) -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-hosting-environment" value="PaaS" />
+         <!-- New Rev5 prop. Describe potential risks introduced by the external system/service and impact to the CSO or federal data if the CIA of the system/service is compromised. Describe any mitigations or compensating controls in place to reduce risk. -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-risk" value="None" />
          <!-- Components of type "interconnection" must have the following props  -->
          <prop name="isa-title" value="system interconnection agreement"/>
          <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
-         <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="Contract" /><!-- New Rev5 prop.  Specify ty e type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
          <prop name="ipv4-address" class="local" value="10.1.1.1"/>
          <prop name="ipv4-address" class="remote" value="10.2.2.2"/>
          <prop name="ipv6-address" value="::ffff:10.2.2.2"/>
@@ -811,7 +848,7 @@
          <!-- Fix schematron.  Core OSCAL prop should be acceptable -->
          <prop ns="https://fedramp.gov/ns/oscal" name="information" value="Describe the information being transmitted."/>
          <prop ns="https://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
-         <prop name="interconnection-security" ns="https://fedramp.gov/ns/oscal" value="ipsec">
+         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-security" value="ipsec">
          <remarks>
                <p>If "other", remarks are required. Optional otherwise.</p>
          </remarks>
@@ -2565,7 +2602,7 @@
             <party-uuid>59cdc953-5902-4fa4-a878-f3163854624c</party-uuid>
          </responsible-role>
          <statement statement-id="si-8_smt" uuid="9e061e1e-10fa-4896-8597-294d8fd8e52b">
-            <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5" uuid="663f84e5-9c13-49a5-b7de-25ced4e8aef8">
+            <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f5" uuid="d63e6f79-c7c5-455b-8b42-8c60c4e7939b">
                <description>
                   <p>Describe how the control is satisfied within the system.</p>
                   <p>DMARC is employed.</p>
@@ -2638,6 +2675,25 @@
    </control-implementation>
    <!-- SSP Attachments -->
    <back-matter>
+      <!-- Cloud Service Provider (CSP) Signatures -->
+      <resource uuid="2ff2eb61-d8b3-4d17-8257-727468329c82">
+         <description>
+            <p>SSP Signature</p>
+         </description>
+         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="signed-ssp"/>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="./signed-ssp.pdf" media-type="application/pdf"/>
+         <base64 filename="ssp.pdf" media-type="application/pdf">00000000</base64>
+         <remarks>
+            <p>FedRAMP is formulating guidelines for handling digital/electronic signatures in OSCAL, and welcome feedback on solutions.</p>
+            <p>For now, FedRAMP recommends one of the following:</p>
+            <ul>
+               <li>Render the OSCAL SSP content as a PDF that is digitally signed and attached.</li>
+               <li>Render the OSCAL SSP content as a printed page that is physically signed, scanned, and attached.</li>
+            </ul>
+            <p>If your organization prefers another approach, please seek prior approval from the FedRAMP PMO.</p>
+         </remarks>
+      </resource>
       <!-- Section 12 lists required attachments -->
       <!-- Appendix B - Related Acronyms -->
       <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
