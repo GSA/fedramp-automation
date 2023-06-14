@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://github.com/usnistgov/OSCAL/blob/main/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
+<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="9af0a7d3-252c-4f18-9baf-4f10e82bfac8">
 	<metadata>
 		<title>FedRAMP Rev 5 High Baseline</title>
-		<published>2023-03-30T00:00:00.000Z</published>
-		<last-modified>2023-03-30T00:00:00.000Z</last-modified>
+		<published>2023-06-15T00:00:00Z</published>
+		<last-modified>2023-06-15T00:00:00Z</last-modified>
 		<version>fedramp-2.0.0-oscal1.0.4</version>
 		<oscal-version>1.0.4</oscal-version>
 		<role id="prepared-by">
