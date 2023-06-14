@@ -652,7 +652,7 @@
 		<set-parameter param-id="ac-11_odp.02">
 			<constraint>
 				<description>
-					<p>fifteen (15) minutes</p>					
+					<p>fifteen (15) minutes</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -810,7 +810,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="au-06.05_odp.01">			
+		<set-parameter param-id="au-06.05_odp.01">
 			<constraint>
 				<description>
 					<p>vulnerability scanning information; performance data; information system monitoring information; penetration test data; <insert type="param" id-ref="au-06.05_odp.02"/></p>
@@ -1188,7 +1188,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-		<set-parameter param-id="cp-4_prm_2">	
+		<set-parameter param-id="cp-4_prm_2">
 			<constraint>
 				<description>
 					<p>functional exercises</p>
@@ -1447,7 +1447,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-				<set-parameter param-id="ma-03.03_odp">
+		<set-parameter param-id="ma-03.03_odp">
 			<constraint>
 				<description>
 					<p>the information owner</p>
@@ -1706,7 +1706,7 @@
 				</description>
 			</constraint>
 		</set-parameter>
-			<set-parameter param-id="pl-02_odp.01">
+		<set-parameter param-id="pl-02_odp.01">
 			<constraint>
 				<description>
 					<p>to include chief privacy and ISSO and/or similar role or designees</p>
@@ -2289,14 +2289,14 @@
 				</description>
 			</constraint>
 		</set-parameter>
-				<set-parameter param-id="si-06_odp.04">
+		<set-parameter param-id="si-06_odp.04">
 			<constraint>
 				<description>
 					<p>to include upon system startup and/or restart</p>
 				</description>
 			</constraint>
 		</set-parameter>
-			<set-parameter param-id="si-06_odp.05">
+		<set-parameter param-id="si-06_odp.05">
 			<constraint>
 				<description>
 					<p>at least monthly</p>
