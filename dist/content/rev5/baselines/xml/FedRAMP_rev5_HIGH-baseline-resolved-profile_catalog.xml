@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="c3a17636-014d-41a8-8b35-5fc1b01688c9">
+         uuid="330d0e1e-406e-4234-9074-c6e4863afd2d">
    <metadata>
       <title>FedRAMP Rev 5 High Baseline</title>
       <published>2023-06-15T00:00:00Z</published>
-      <last-modified>2023-06-18T10:00:35.100684-04:00</last-modified>
+      <last-modified>2023-06-18T10:44:13.824085-04:00</last-modified>
       <version>fedramp-2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <link rel="resolution-source" href="FedRAMP_rev5_HIGH-baseline_profile.xml"/>
