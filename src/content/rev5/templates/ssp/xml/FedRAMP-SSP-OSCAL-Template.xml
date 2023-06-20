@@ -3,8 +3,8 @@
 <system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="8c000726-ba93-480d-a221-8cb60df10c24">
    <metadata>
       <title>FedRAMP System Security Plan (SSP)</title>
-      <published>2023-05-16T00:00:00Z</published>
-      <last-modified>2023-05-16T00:00:00Z</last-modified>
+      <published>2023-06-30T00:00:00Z</published>
+      <last-modified>2023-06-30T00:00:00Z</last-modified>
       <version>fedramp2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <revisions>
@@ -19,6 +19,9 @@
          </revision>
       </revisions>
       <prop name="marking" value="Controlled Unclassified Information"/>
+      <!-- New rev 5 prop -->
+      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource"
+         value="#ace2963d-ecb4-4be5-bdd0-1f6fd7610f41" />
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <role id="fedramp-pmo">
@@ -527,7 +530,7 @@
       <prop name="identity-assurance-level" value="2"/>
       <prop name="authenticator-assurance-level" value="2"/>
       <prop name="federation-assurance-level" value="2"/>
-      <prop name="fully-operational-date" ns="https://fedramp.gov/ns/oscal" value="yyyy-mm-ddThh:mmZ"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="fully-operational-date" value="yyyy-mm-ddThh:mmZ"/>
       <!-- Rev5 update - new prop -->
       <!-- FedRAMP Authorization Path: fedramp-jab, fedramp-agency, or fedramp-li-saas -->
       <prop ns="https://fedramp.gov/ns/oscal" name="authorization-type" value="fedramp-agency"/>
@@ -731,8 +734,8 @@
             <p>Lastly, provide any supporting notes on FIPS status (e.g. historical) or lack of FIPS compliance (e.g., Module in Process).</p>
          </description>
          <!-- Rev5 new props for CMs -->
-         <prop name="vendor-name" ns="https://fedramp.gov/ns/oscal" value="CM Vendor"/>
-         <prop name="cryptographic-module-usage" ns="https://fedramp.gov/ns/oscal" value="data-at-rest"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-at-rest"/>
          <!-- Provide the validation type for this CM -->
          <prop name="validation-type" value="fips-140-2"/>
          <!-- Provide the certificate number (CMVP #) -->
@@ -749,8 +752,8 @@
             <p>For example, any supporting notes on FIPS status (e.g. historical) or lack of FIPS compliance (e.g., Module in Process).</p>
          </description>
          <!-- Rev5 new props for CMs -->
-         <prop name="vendor-name" ns="https://fedramp.gov/ns/oscal" value="CM Vendor"/>
-         <prop name="cryptographic-module-usage" ns="https://fedramp.gov/ns/oscal" value="data-in-transit"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-in-transit"/>
          <!-- Provide the validation type for this CM -->
          <prop name="validation-type" value="fips-140-3"/>
          <!-- Provide the certificate number (CMVP #) -->
@@ -773,11 +776,11 @@
          <!-- Components of type "interconnection" must have the following props  -->
          <prop name="isa-title" value="system interconnection agreement"/>
          <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
-         <prop name="nature-of-agreement" ns="https://fedramp.gov/ns/oscal" value="SLA" /><!-- New Rev5 prop.  Specify ty e type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="SLA" /><!-- New Rev5 prop.  Specify ty e type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
          <prop name="ipv4-address" value="172.0.0.0"/>
          <prop name="ipv6-address" value="::"/>
          <prop name="direction" value="incoming"/>
-         <prop name="information" ns="https://fedramp.gov/ns/oscal" value="describe information being transferred" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="information" value="describe information being transferred" />
          <!-- other props -->
          <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
          <prop name="implementation-point" value="external"/>
@@ -1060,7 +1063,7 @@
          <!-- Fix schematron.  Core OSCAL prop should be acceptable -->
          <prop ns="https://fedramp.gov/ns/oscal" name="information" value="Describe the information being transmitted."/>
          <prop ns="https://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
-         <prop name="interconnection-security" ns="https://fedramp.gov/ns/oscal" value="ipsec">
+         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-security" value="ipsec">
             <remarks>
                <p>If "other", remarks are required. Optional otherwise.</p>
             </remarks>
@@ -1202,7 +1205,7 @@
                <p>If no, explain why. If yes, omit remark.</p>
             </remarks>
          </prop>
-         <prop name="scan-latest" ns="https://fedramp.gov/ns/oscal" value="yes">
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-latest" value="yes">
             <remarks>
                <p>If no, explain why. If yes, omit remark.</p>
             </remarks>
@@ -2595,8 +2598,8 @@
       </implemented-requirement>
       <implemented-requirement control-id="si-8" uuid="f33674dc-d16f-4a8c-8902-b8e60f947ce7">
          <!--Spam Protection-->
-         <prop name="control-origination" ns="https://fedramp.gov/ns/oscal" value="sp-system"/>
-         <prop name="implementation-status" ns="https://fedramp.gov/ns/oscal" value="implemented"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="implemented"/>
          <!--There are no control parameters-->
          <responsible-role role-id="asset-administrator">
             <party-uuid>59cdc953-5902-4fa4-a878-f3163854624c</party-uuid>
@@ -2675,12 +2678,23 @@
    </control-implementation>
    <!-- SSP Attachments -->
    <back-matter>
+      <!-- Todo: For SSP need to add a prop called "resolution-resource" in metadata and in backmater resource for rev 5 -->
+      <resource uuid="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41">
+         <title>Resolution Resource</title>
+         <prop name="dataset" class="collection" value="Special Publication"/>
+         <prop name="dataset" class="name" value="800-53"/>
+         <prop name="dataset" class="version" value="5.0.2"/>
+         <prop name="dataset" class="organization" value="gov.nist.csrc"/>
+         <remarks>
+            <p>This "resolution resource" is used by FedRAMP as a local, authoritative indicator of what version SSP (rev 4 or rev 5) this OSCAL document is for.</p>
+         </remarks>
+      </resource>
       <!-- Cloud Service Provider (CSP) Signatures -->
       <resource uuid="2ff2eb61-d8b3-4d17-8257-727468329c82">
          <description>
             <p>SSP Signature</p>
          </description>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="signed-ssp"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="signed-ssp"/>
          <!-- Use rlink and/or base64 -->
          <rlink href="./signed-ssp.pdf" media-type="application/pdf"/>
          <base64 filename="ssp.pdf" media-type="application/pdf">00000000</base64>
@@ -2698,7 +2712,7 @@
       <!-- Appendix B - Related Acronyms -->
       <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
          <title>FedRAMP Master Acronym and Glossary</title>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="fedramp-acronyms"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
          <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
          <base64 filename="FedRAMP_Master_Acronym_and_Glossary.pdf" media-type="application/pdf">00000000</base64>
          <!-- Todo: Fix Schematron. Make base64 optional -->
@@ -3290,8 +3304,7 @@
          <description>
             <p>User's Guide</p>
          </description>
-         <prop name="type" value="users-guide"/>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="user-guide"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="user-guide"/>
          <!-- Fix Schematron validation.  FR prop can be deprecated -->
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
@@ -3310,13 +3323,13 @@
          <description>
             <p>Rules of Behavior</p>
          </description>
-         <prop name="type" value="rules-of-behavior"/>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="rules-of-behavior"/>
+<!--         <prop name="type" value="rules-of-behavior"/>-->
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="rules-of-behavior"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/rob.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
-         <base64 filename="rob.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
+         <rlink href="./documents/rob.docx" media-type="application/msword"/>
+         <base64 filename="rob.docx" media-type="application/msword">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Rules of Behavior (ROB)</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
@@ -3329,12 +3342,12 @@
             <p>Contingency Plan (CP)</p>
          </description>
          <prop name="type" value="plan"/>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="information-system-contingency-plan"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="information-system-contingency-plan"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/cp.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
-         <base64 filename="cp.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
+         <rlink href="./documents/cp.docx" media-type="application/msword"/>
+         <base64 filename="cp.docx" media-type="application/msword">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Contingency Plan (CP) Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
@@ -3347,12 +3360,12 @@
             <p>Configuration Management (CM) Plan</p>
          </description>
          <prop name="type" value="plan"/>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="configuration-management-plan"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="configuration-management-plan"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/CM_Plan.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
-         <base64 filename="CM_Plan.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
+         <rlink href="./documents/CM_Plan.docx" media-type="application/msword"/>
+         <base64 filename="CM_Plan.docx" media-type="application/msword">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Configuration Management (CM) Plan Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
@@ -3365,12 +3378,12 @@
             <p>Incident Response (IR) Plan</p>
          </description>
          <prop name="type" value="plan"/>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="incident-response-plan"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="incident-response-plan"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/IR_Plan.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
-         <base64 filename="IR_Plan.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
+         <rlink href="./documents/IR_Plan.docx" media-type="application/msword"/>
+         <base64 filename="IR_Plan.docx" media-type="application/msword">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Incident Response (IR) Plan Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
@@ -3384,7 +3397,7 @@
       <resource uuid="a8a0cc81-800f-479f-93d3-8b8743d9b98d">
          <title>[SAMPLE] Laws and Regulations </title>
          <prop name="type" value="law"/>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="personally-identifiable-information"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="personally-identifiable-information"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <document-id scheme="https://www.doi.org/">Identification Number</document-id>
@@ -3401,12 +3414,12 @@
             <p>Continuous Monitoring Plan</p>
          </description>
          <prop name="type" value="plan"/>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="continuous-monitoring-plan"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="continuous-monitoring-plan"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/ConMon_Plan.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
-         <base64 filename="ConMon_Plan.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
+         <rlink href="./documents/ConMon_Plan.docx" media-type="application/msword"/>
+         <base64 filename="ConMon_Plan.docx" media-type="application/msword">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Continuous Monitoring Plan Attachment</p>
             <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
@@ -3458,7 +3471,7 @@
          <description>
             <p>FedRAMP Logo</p>
          </description>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="fedramp-logo"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-logo"/>
          <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
          <base64 filename="logo-main-fedramp.png" media-type="image/png">00000000</base64>
          <!-- Todo: Fix Schematron. Make base64 optional -->
@@ -3545,12 +3558,12 @@
          <description>
             <p>Separation of Duties Matrix</p>
          </description>
-         <prop name="type" ns="https://fedramp.gov/ns/oscal" value="separation-of-duties-matrix"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="separation-of-duties-matrix"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
-         <rlink href="./documents/Sep_Matrix.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
-         <base64 filename="Sep_Matrix.docx" media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">00000000</base64>
+         <rlink href="./documents/Sep_Matrix.docx" media-type="application/msword"/>
+         <base64 filename="Sep_Matrix.docx" media-type="application/msword">00000000</base64>
          <remarks>
             <p>May use <code>rlink</code> with a relative path, or embedded as <code>base64</code>.</p>
          </remarks>

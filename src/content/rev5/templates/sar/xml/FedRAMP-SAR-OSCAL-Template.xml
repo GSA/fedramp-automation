@@ -4,9 +4,9 @@
    uuid="7ea5c269-ee26-48c8-b32c-91aa26339023">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Results (SAR)</title>
-      <published>2023-06-01T02:22:00Z</published>
-      <last-modified>2023-06-01T02:22:00Z</last-modified>
-      <version>fedramp1.2.1-oscal1.0.4</version>
+      <published>2023-06-30T00:00:00Z</published>
+      <last-modified>2023-06-30T00:00:00Z</last-modified>
+      <version>fedramp2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- The following role definitions are required by FedRAMP -->
@@ -318,7 +318,6 @@
       </remarks>
    </metadata>
    <!-- Link this SAR to the SAP via import -->
-   <!--<import-ap href="../sap/FedRAMP-SAP-OSCAL-Template.xml">-->
    <import-ap href="#5cce2310-8fcc-49f8-8cae-8e31dc8048f1">
       <remarks>
          <p>FedRAMP prefers the path for the SAP be relative to the location of this SAR file.
@@ -326,17 +325,34 @@
          <p>In this example, the SAR points to the SAP as a back-matter resource using a URI fragment.</p>
       </remarks>
    </import-ap>
+   <!-- Section 2 Executive Summary -->
+   <!--
+      Data values for FedRAMP unique identifier, CSP name, CSO, service model, deployment model, impact level 
+      are required to render a human-readable version of the SAP that adheres to the FedRAMP (MS Word) template.
+      These and other values should be retrieved from the appropriate FedRAMP OSCAL (SSP, SAP, SAR) template's 
+      data items as needed.  Refer to the "Guide to OSCAL-Based FedRAMP SAR" for sample XPath queries illustrating
+      where and how to retrieve these values.
+   -->
+   <!-- Section 3 System Overview - Refer to the "Guide to OSCAL-Based FedRAMP SAR" for sample XPath queries illustrating where and how to retrieve these values. -->
    <local-definitions>
       <objectives-and-methods control-id="ac-2">
-         <part name="assessment-objective" id="sap-obj-1">
+         <part id="sap-obj" name="assessment-objective">
             <title>SAP Inserted Objective</title>
+            <prop name="method-id" value="sap-obj-1" /><!-- associates "assessment-objective" to one or more "assessment-method" -->
             <prop name="label" value="AC-2 SAP-1"/>
+         </part>
+         <part id="sap-obj-1" name="assessment-method">
+            <prop name="method" value="INTERVIEW" />
+            <part id="sap-obj-1_object" name="assessment-objects">
+               <p>Insert assessment object description</p>
+            </part>
          </part>
       </objectives-and-methods>
       <objectives-and-methods control-id="ac-2">
          <!-- assessment procedure for ac-2.a.1 -->
          <part id="ac-2.a_obj.1" name="assessment-objective">
             <title>Assessment Objective</title>
+            <prop name="method-id" value="ac-2.a_obj.1-1" /><!-- associates "assessment-objective" to one or more "assessment-method" -->
             <p>Determine if the organization:</p>
             <p> - defines information system account types to be identified and selected to support organizational missions/business functions</p>
          </part>
@@ -351,6 +367,7 @@
          <!-- assessment procedure for ac-2.a.2 -->
          <part id="ac-2.a_obj.2" name="assessment-objective">
             <title>Assessment Objective</title>
+            <prop name="method-id" value="ac-2.a_obj.2-1" /><!-- associates "assessment-objective" to one or more "assessment-method" -->
             <p>Determine if the organization:</p>
             <p> - identifies and selects organization-defined information system account types to support organizational missions/business functions</p>
          </part>
@@ -365,6 +382,7 @@
          <!-- assessment procedure for ac-2.a.2 -->
          <part id="ac-2.a_obj.2" name="assessment-objective">
             <title>Assessment Objective</title>
+            <prop name="method-id" value="ac-2.a_obj.2-2" /><!-- associates "assessment-objective" to one or more "assessment-method" -->
             <p>Determine if the organization:</p>
             <p> - identifies and selects organization-defined information system account types to support organizational missions/business functions</p>
          </part>
@@ -375,11 +393,13 @@
             </part>
          </part>
       </objectives-and-methods>
+      <!-- Section 4.1 Deviation from the SAP -->
+      <!-- FedRAMP will compare planned activities from the SAP versus locally defined activities in this SAR to identify deviations from the SAP. -->
       <activity uuid="1BC8F0BB-E601-4946-A0E6-FCB934EBAA06">
-         <title>Locally Defined Activity</title>
-         <description>
+         <title>Locally Defined Activity</title><!-- Corresponds to FedRAMP SAR Table 4-1 column "Deviation Description" -->
+         <description><!-- Corresponds to FedRAMP SAR Table 4-1 column "Justification" -->
             <p>This describes an activity that was not defined in the SAP, but was performed during
-               the assessment.</p>
+               the assessment. The justification must be included.</p>
          </description>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="manual"/>
          <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
@@ -402,6 +422,7 @@
          </step>
       </activity>
    </local-definitions>
+   <!-- Section 4.4 Documented Results -->
    <result uuid="af0c8632-e994-48a7-924e-2354b6abace7">
       <title>2023 Annual Assessment</title>
       <description>
@@ -415,6 +436,7 @@
                <p>A Windows laptop, which is not defined in the SSP inventory.</p>
             </description>
             <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" value="10.1.1.99"/>
+            <prop name="allows-authenticated-scan" value="yes"/>
          </inventory-item>
          <assessment-assets>
             <component type="hardware" uuid="C1461F8A-684F-4727-8C08-4BB56C33A8DD">
@@ -436,7 +458,7 @@
                <description>
                   <p>Describe scannilng tool used by assessor.</p>
                </description>
-               <status state="operation" />
+               <status state="operational" />
             </component>
             <assessment-platform uuid="67D98337-884A-46FF-98B1-42C53A4A7611">
                <title>Revised Assessment Platform</title>
@@ -481,27 +503,43 @@
          </control-objective-selection>
       </reviewed-controls>
       <attestation>
+         <!-- Section 2 of FedRAMP SAR (Executive Summary) contains the authorization statements -->
          <part name="authorization-statements">
             <prop ns="https://fedramp.gov/ns/oscal" name="recommend-authorization" value="yes"/>
+            <!-- Include appropriate authorization recommendation statement(s) -->
+            <!-- new authorization example -->
             <part name="authorization-statement">
                <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
-               <p>Priority levels were established based on [describe].</p>
+               <p>[IA Name] recommends this system for authorization.</p>
             </part>
             <part name="authorization-statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="002"/>
-               <p>Notes and other information the assessor may wish to provide related to a
-                  continued authorization recommendation.</p>
+               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+               <p>[IA Name] does not recommend this system for authorization.</p>
+            </part>
+            <!-- continued authorization example -->
+            <part name="authorization-statement">
+               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+               <p>[IA Name] recommends this system for continued authorization.</p>
             </part>
             <part name="authorization-statement">
-               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="999"/>
-               <p>[3PAO Name] attests that the SAR from the [system name] [initial | annual]
-                  assessment testing provides a complete assessment of the applicable FedRAMP
-                  controls as stipulated in the SAP. Evidence to validate the successful
-                  implementation of the various security controls has been collected and validated.
-                  Based on the remaining risks, and continuous improvements of security related
-                  processes and controls, [3PAO Name] recommends a continued authorization be
-                  granted for the [system name].</p>
+               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+               <p>[IA Name] does not recommend this system for continued authorization.</p>
             </part>
+            <!-- significant change authorization example -->
+            <part name="authorization-statement">
+               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+               <p>[IA Name] recommends the following [significant change/significant changes] for authorization:</p>
+               <ul>
+                  <li>[list significant changes approved for authorization]</li>
+               </ul>
+            </part>
+            <part name="authorization-statement">
+               <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
+               <p>[IA Name] does not recommend the following [significant change/significant changes] for authorization:</p>
+               <ul>
+                  <li>[list significant changes not approved for authorization]</li>
+               </ul>
+            </part>           
          </part>
       </attestation>
       <assessment-log>
@@ -618,6 +656,7 @@
             <end>2023-06-15T00:00:00Z</end>
          </entry>
       </assessment-log>
+      <!-- Observations -->
       <observation uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab">
          <title>[EXAMPLE]Examine AC Policy</title>
          <description>
@@ -811,6 +850,54 @@
          </relevant-evidence>
          <collected>2023-05-10T00:00:00Z</collected>
       </observation>
+      <observation uuid="6d4435b2-c1b4-4adc-9057-0bf40635728b">
+         <description>
+            <p>Infrastructure Scan Percentage.</p>
+         </description>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="infrastructure" value="95" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="infrastructure" value="no" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="infrastructure" value="yes" />
+         <method>EXAMINE</method>
+         <collected>2023-05-10T00:00:00Z</collected>
+         <remarks>
+            <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepencies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
+            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items.  In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
+         </remarks>
+      </observation>
+      <observation uuid="6d4435b2-c1b4-4adc-9057-0bf40635728b">
+         <description>
+            <p>Database Scan Percentage.</p>
+         </description>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="database" value="100" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="database" value="no" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="database" value="no" />
+         <method>EXAMINE</method>
+         <collected>2023-05-10T03:00:00Z</collected>
+         <remarks>
+            <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepencies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
+            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items.  In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
+         </remarks>
+      </observation>
+      <observation uuid="6d4435b2-c1b4-4adc-9057-0bf40635728b">
+         <description>
+            <p>Web Scan Percentage.</p>
+         </description>
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="web" value="75" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="web" value="yes" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies-reason" class="web" value="yes">
+            <!-- Must include a remark with justification for the discrepencies -->
+            <remarks>
+               <p>EXAMPLE - Next Gen Web Application Firewall is blocking requests from scanner.</p>
+            </remarks>
+         </prop>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="web" value="yes" />
+         <method>EXAMINE</method>
+         <collected>2023-05-10T03:00:00Z</collected>
+         <remarks>
+            <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepencies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
+            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items.  In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
+         </remarks>
+      </observation>
       <observation uuid="21b26801-2e00-4e59-979c-bf2a4ed93920">
          <description>
             <p>[EXAMPLE]Describe the finding.</p>
@@ -848,6 +935,7 @@
                SSP.</p>
          </remarks>
       </observation>
+      <!-- Risks -->
       <risk uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9">
          <title>Risk Title</title>
          <description>
@@ -1058,6 +1146,7 @@
             </remarks>
          </response>
       </risk>
+      <!-- Findings -->
       <finding uuid="951325ce-c0ca-4f8f-9b37-11ccf5258f3b">
          <title>[EXAMPLE]TCW Objective AC-1(a)(1)[1] (Examine)</title>
          <description>
@@ -1214,7 +1303,7 @@
          </origin>
          <target type="objective-id" target-id="ca-8.1_obj">
             <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="alternative" /><!-- todo - deprecate this property -->
-            <status state="other-than-satisfied"/> <!-- FedRAMP state conflicts with core OSCAL constraint -->           
+            <status state="other-than-satisfied"/> <!-- FedRAMP status value conflicts with core OSCAL constraint -->           
             <implementation-status state="alternative" />            
          </target>
          <related-observation observation-uuid="21b26801-2e00-4e59-979c-bf2a4ed93920"/>
@@ -1272,6 +1361,59 @@
       </attestation>
    </result>
    <back-matter>
+      <!-- OSCAL-Based SAP -->
+      <resource uuid="5cce2310-8fcc-49f8-8cae-8e31dc8048f1">
+         <title>[System Name] [FIPS-199 Level] SAP</title>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="security-assessment-plan"/>
+         <prop name="published" value="2023-06-30T00:00:00Z"/>
+         <prop name="version" value="SAP Version"/>
+         <rlink media-type="text/xml" href="../../sap/xml/FedRAMP-SAP-OSCAL-Template.xml" />
+         <!--<base64 filename="FedRAMP-SAP-OSCAL-Template.xml" media-type="application/xml">00000000</base64>-->
+      </resource>
+      <!-- Laws, Acronyms, and other attachments -->
+      <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
+         <title>FedRAMP Applicable Laws and Regulations</title>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-citations"/>
+         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
+         <base64 filename="SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" media-type="application/vnd.ms-excel">00000000</base64>
+         <!-- Todo: Fix Schematron. Make base64 optional -->
+         <remarks>
+            <p>Must be present in a FedRAMP SAR.</p>
+         </remarks>
+      </resource>
+      <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
+         <title>FedRAMP Master Acronym and Glossary</title>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
+         <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
+         <base64 filename="FedRAMP_Master_Acronym_and_Glossary.pdf" media-type="application/pdf">00000000</base64>
+         <!-- Todo: Fix Schematron. Make base64 optional -->
+         <remarks>
+            <p>Must be present in a FedRAMP SAR.</p>
+         </remarks>
+      </resource>
+      <!-- SAR signature page -->
+      <resource uuid="3a9ace38-c36a-4478-bd2a-f00961889214">
+         <description>
+            <p>Signed SAR</p>
+         </description>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="signature"/>
+         <!-- Use rlink and/or base64 -->
+         <rlink href="./signed-sar.pdf" media-type="application/pdf"/>
+         <!--<base64 filename="sar.pdf" media-type="application/pdf">00000000</base64>-->
+         <remarks>
+            <p>FedRAMP is formulating guidelines for handling digital/electronic signatures in
+               OSCAL, and welcome feedback on solutions.</p>
+            <p>For now, FedRAMP recommends one of the following:</p>
+            <ul>
+               <li>Render the OSCAL SAR content as a PDF that is digitally signed and attached.</li>
+               <li>Render the OSCAL SAR content as printed pages that are physically signed,
+                  scanned, and attached.</li>
+            </ul>
+            <p>If your organization prefers another approach, please seek prior approval from the
+               FedRAMP PMO.</p>
+         </remarks>
+      </resource>
+      <!-- Assessor Notes -->
       <resource uuid="65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
          <title>[EXAMPLE]Interview Notes</title>
          <prop name="type" value="evidence"/>
@@ -1285,6 +1427,7 @@
                path.</p>
          </remarks>
       </resource>
+      <!-- Evidence / Artifacts -->
       <resource uuid="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
          <title>[EXAMPLE]AC Policy</title>
          <prop name="type" value="artifact"/>
@@ -1314,6 +1457,7 @@
                path.</p>
          </remarks>
       </resource>
+      <!-- Appendix C - Scans -->
       <resource uuid="19a07333-4e87-46dc-abab-adad60e706b9">
          <title>[EXAMPLE]Raw Scan Results - Discovery Scan</title>
          <description>
@@ -1346,6 +1490,8 @@
                path.</p>
          </remarks>
       </resource>
+      <!-- Appendix E - Add any other auxiliary documents here -->
+      <!-- Appendix F - Pen Test Report -->
       <resource uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07">
          <title>Penetration Test Report</title>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="penetration-test-report"/>
@@ -1359,64 +1505,23 @@
                path.</p>
          </remarks>
       </resource>
-      <resource uuid="5cce2310-8fcc-49f8-8cae-8e31dc8048f1">
-         <title>[System Name] [FIPS-199 Level] SAP</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="security-assessment-plan"/>
-         <prop name="published" value="2023-04-25T00:00:00Z"/>
-         <prop name="version" value="SAP Version"/>
-         <rlink media-type="text/xml" href="../../sap/xml/FedRAMP-SAP-OSCAL-Template.xml" />
-         <!--<rlink media-type="application/json" href="../sap/FedRAMP-SAP-OSCAL-Template.json"/>-->
-         <!--<base64 filename="FedRAMP-SAP-OSCAL-Template.xml" media-type="application/xml">00000000</base64>-->
-      </resource>
-      <resource uuid="3a9ace38-c36a-4478-bd2a-f00961889214">
+      <!-- 3PAO Logo -->
+      <resource uuid="91d242d0-ccf9-4ff0-996d-e204c19dac52">
          <description>
-            <p>Signed SAR</p>
+            <p>3PAO Logo</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="signature"/>
+         <prop name="type" value="logo"/>
          <!-- Use rlink and/or base64 -->
-         <rlink href="./signed-sar.pdf" media-type="application/pdf"/>
-         <!--<base64 filename="sar.pdf" media-type="application/pdf">00000000</base64>-->
-         <remarks>
-            <p>FedRAMP is formulating guidelines for handling digital/electronic signatures in
-               OSCAL, and welcome feedback on solutions.</p>
-            <p>For now, FedRAMP recommends one of the following:</p>
-            <ul>
-               <li>Render the OSCAL SAR content as a PDF that is digitally signed and attached.</li>
-               <li>Render the OSCAL SAR content as printed pages that are physically signed,
-                  scanned, and attached.</li>
-            </ul>
-            <p>If your organization prefers another approach, please seek prior approval from the
-               FedRAMP PMO.</p>
-         </remarks>
+         <rlink href="./logo.png" media-type="image/png"/>
+         <base64>00000000</base64>
       </resource>
-      <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
-         <title>FedRAMP Applicable Laws and Regulations</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-citations"/>
-         <rlink
-            href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
-         <remarks>
-            <p>Must be present in a FedRAMP SAR.</p>
-         </remarks>
-      </resource>
-      <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
-         <title>FedRAMP Master Acronym and Glossary</title>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
-         <rlink
-            href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
-         <remarks>
-            <p>Must be present in a FedRAMP SAR.</p>
-         </remarks>
-      </resource>
-      <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
-         <title>FedRAMP Logo</title>
+      <!-- FedRAMP Log -->
+      <resource uuid="031a32be-f9ef-45a0-994e-20eb58456dee">
          <description>
             <p>FedRAMP Logo</p>
          </description>
          <prop name="type" value="logo"/>
-         <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
-         <remarks>
-            <p>Must be present in a FedRAMP SAR.</p>
-         </remarks>
+         <rlink href="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png"/>
       </resource>
    </back-matter>
 </assessment-results>

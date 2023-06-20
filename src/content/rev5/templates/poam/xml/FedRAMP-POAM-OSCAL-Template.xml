@@ -4,10 +4,10 @@
                                uuid="c9db1389-df23-4118-b1a2-078d33734880">
    <metadata>
       <title>[System Name] FedRAMP Plan of Action and Milestones (POA&amp;M)</title>
-      <published>2023-05-25T00:00:00Z</published>
-      <last-modified>2023-05-31T14:30:00Z</last-modified>
-      <version>fedramp1.1.0-oscal1.0.0</version>
-      <oscal-version>1.0.0</oscal-version>
+      <published>2023-06-30T00:00:00Z</published>
+      <last-modified>2023-06-30T00:00:00Z</last-modified>
+      <version>fedramp2.0.0-oscal1.0.4</version>
+      <oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
@@ -118,7 +118,6 @@
       </responsible-party>
    </metadata>
    <!-- Link this POA&M to the subject system's SSP via import -->
-   <!--<import-ssp href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.xml">-->
    <import-ssp href="#7c30125f-c056-4888-9f1a-7ed1b6a1b638">
       <remarks>
          <p>Link the SAP to the SSP.</p>
@@ -150,9 +149,11 @@
          <description>
             <p>A virtual component.</p>
          </description>
-         <!--<prop name="os-name" value="Linux Flavor"/>
+         <!--
+         <prop name="os-name" value="Linux Flavor"/>
          <prop name="os-version" value="1.2.0"/>
-         <prop name="is-scanned" value="yes"/>-->
+         <prop name="is-scanned" value="yes"/>
+         -->
          <prop name="allows-authenticated-scan" value="yes"/>
          <status state="operational"/>
          <remarks>
@@ -541,43 +542,52 @@
       <associated-risk risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7"/>
    </poam-item>
    <back-matter>
+      <!-- OSCAL-based SSP -->
+      <resource uuid="7c30125f-c056-4888-9f1a-7ed1b6a1b638">
+         <title>[System Name] [FIPS-199 Level] SSP</title>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="system-security-plan"/>
+         <prop name="published" value="2023-04-21T00:00:00Z"/>
+         <prop name="version" value="SSP Version"/>
+         <rlink media-type="text/xml" href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"/>
+         <!--<rlink media-type="application/json" href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.json"/>-->
+         <remarks>
+            <p>Use this to point to an OSCAL-based SSP.</p>
+            <p>For FedRAMP, do not attach the SSP. This should be delivered by the CSP.</p>
+         </remarks>
+      </resource>
+      <!-- Optional resource for non-OSCAL-based SSP -->
       <resource uuid="a78f7e4c-a27a-4b1e-901b-ebfecf2b0301">
          <title>System's Full Name</title>
+         <description>
+            <h1>ONLY USE THIS RESOURCE WHEN NO OSCAL-BASED SSP EXISTS</h1>
+            <p>Briefly describe the system. This will appear in the SAR.</p>
+         </description>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="no-oscal-ssp"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="title-short" value="SFN"/>
          <prop ns="https://fedramp.gov/ns/oscal"
-               name="system-id"
-               value="FR00000000"/>
+            name="system-id"
+            value="FR00000000"/>
          <prop ns="https://fedramp.gov/ns/oscal"
-               name="import-profile"
-               value="#fedramp-moderate-baseline"/>
+            name="import-profile"
+            value="#890170c3-d4fa-4d25-ab96-8e4bf7cc237c"/>
+         <prop ns="https://fedramp.gov/ns/oscal"
+            name="purpose"
+            value="Briefly state the system's purpose. This will appear in the SAR."/>
+         <prop ns="https://fedramp.gov/ns/oscal"
+            name="authorization-date"
+            value="2017-01-23T00:00:00Z"/>
          <remarks>
-            <p>Include this resource if no OSCAL-based SSP is available, or if making a monthly
-               POA&amp;M deliverable without an attached OSCAL-based SSP.</p>
+            <p>Only include this resource if no OSCAL-based SSP is available.</p>
             <p>Delete it otherwise.</p>
          </remarks>
       </resource>
-      <resource uuid="7c30125f-c056-4888-9f1a-7ed1b6a1b638">
-         <title>[System Name] [FIPS-199 Level] SSP</title>
-         <prop ns="https://fedramp.gov/ns/oscal"
-               name="type"
-               value="system-security-plan"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-               name="publication"
-               value="SSP Date"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-               name="version"
-               value="SSP Version"/>
-         <rlink media-type="text/xml" href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"/>
-         <!--<rlink media-type="application/json" href="../../ssp/xml/FedRAMP-SSP-OSCAL-Template.json"/>-->
-         <!--<base64 media-type="application/xml" filename="CSP_System_SSP.xml">00000000</base64>-->
-         <remarks>
-            <p>Use this to point to an OSCAL-based SSP.</p>
-         </remarks>
-      </resource>
+      <!-- Laws, Acronyms, and other attachments -->
       <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
          <title>FedRAMP Applicable Laws and Regulations</title>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-citations"/>
          <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
+         <base64 filename="SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" media-type="application/vnd.ms-excel">00000000</base64>
+         <!-- Todo: Fix Schematron. Make base64 optional -->
          <remarks>
             <p>Must be present in a FedRAMP POA&amp;M.</p>
          </remarks>
@@ -586,20 +596,19 @@
          <title>FedRAMP Master Acronym and Glossary</title>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
          <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
+         <base64 filename="FedRAMP_Master_Acronym_and_Glossary.pdf" media-type="application/pdf">00000000</base64>
+         <!-- Todo: Fix Schematron. Make base64 optional -->
          <remarks>
             <p>Must be present in a FedRAMP POA&amp;M.</p>
          </remarks>
       </resource>
-      <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
-         <title>FedRAMP Logo</title>
+      <!-- FedRAMP Log -->
+      <resource uuid="031a32be-f9ef-45a0-994e-20eb58456dee">
          <description>
             <p>FedRAMP Logo</p>
          </description>
          <prop name="type" value="logo"/>
-         <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
-         <remarks>
-            <p>Must be present in a FedRAMP POA&amp;M.</p>
-         </remarks>
+         <rlink href="https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png"/>
       </resource>
    </back-matter>
 </plan-of-action-and-milestones>
