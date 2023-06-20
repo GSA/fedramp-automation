@@ -1122,7 +1122,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Content §4.1"
                 fedramp:specific="true"
                 id="has-fedramp-logo"
-                role="error"
+                role="warning"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'fedramp-logo']]">A FedRAMP
                 SSP must have the FedRAMP Logo attached.</sch:assert>
             <sch:assert
@@ -1133,8 +1133,7 @@
                 fedramp:specific="true"
                 id="has-user-guide"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'user-guide']]">A FedRAMP SSP
-                must have a User Guide attached.</sch:assert>
+                test="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'users-guide']]">A FedRAMP SSP must have a User Guide attached.</sch:assert>
             <sch:assert
                 diagnostics="has-rules-of-behavior-diagnostic"
                 doc:checklist-reference="Section B Check 3.5"
@@ -1143,8 +1142,7 @@
                 fedramp:specific="true"
                 id="has-rules-of-behavior"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'rules-of-behavior']]"> A
-                FedRAMP SSP must have Rules of Behavior.</sch:assert>
+                test="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'rules-of-behavior']]">A FedRAMP SSP must have Rules of Behavior.</sch:assert>
             <sch:assert
                 diagnostics="has-information-system-contingency-plan-diagnostic"
                 doc:checklist-reference="Section B Check 3.6"
@@ -1153,7 +1151,7 @@
                 fedramp:specific="true"
                 id="has-information-system-contingency-plan"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'information-system-contingency-plan']]">
+                test="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'plan' and @class eq 'information-system-contingency-plan']]">
                 A FedRAMP SSP must have a Contingency Plan attached.</sch:assert>
             <sch:assert
                 diagnostics="has-configuration-management-plan-diagnostic"
@@ -1163,7 +1161,7 @@
                 fedramp:specific="true"
                 id="has-configuration-management-plan"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'configuration-management-plan']]">
+                test="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'plan' and @class eq 'configuration-management-plan']]">
                 A FedRAMP SSP must have a Configuration Management Plan attached.</sch:assert>
             <sch:assert
                 diagnostics="has-incident-response-plan-diagnostic"
@@ -1173,8 +1171,8 @@
                 fedramp:specific="true"
                 id="has-incident-response-plan"
                 role="error"
-                test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'incident-response-plan']]">A
-                FedRAMP SSP must have an Incident Response Plan attached.</sch:assert>
+                test="oscal:resource[oscal:prop[@name eq 'type' and @value eq 'plan' and @class eq 'incident-response-plan']]">A FedRAMP SSP must have 
+                an Incident Response Plan attached.</sch:assert>
             <!-- Section B Check 3.9 is not used -->
             <!-- Section B Check 3.10 is not used -->
             <sch:assert
