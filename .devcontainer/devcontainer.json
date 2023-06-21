@@ -1,0 +1,13 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:1": {
+      "version": "latest",
+      "moby": true
+    },
+    "ghcr.io/devcontainers/features/node:1.2.0": {},
+    "ghcr.io/devcontainers/features/java:1.2.1": {},
+    "ghcr.io/devcontainers/features/python:1.1.0": {}
+  },
+  "postCreateCommand": "bash -i -c 'nvm install'"
+}
