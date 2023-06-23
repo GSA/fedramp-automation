@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="dc8a8438-f493-48d8-aad4-120f53a91011">
+         uuid="57630f2b-8a89-4fbb-85cd-e9438da15b5e">
    <metadata>
       <title>FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
-      <published>2021-02-17T00:00:00.000-04:00</published>
-      <last-modified>2023-06-18T11:54:39.806356-04:00</last-modified>
-      <version>fedramp1.1.0-oscal1.0.0</version>
-      <oscal-version>1.0.0</oscal-version>
+      <published>2021-02-05T00:00:00.000-04:00</published>
+      <last-modified>2023-06-23T16:14:04.627075-04:00</last-modified>
+      <version>fedramp1.1.1-oscal1.0.4</version>
+      <oscal-version>1.0.4</oscal-version>
       <link rel="resolution-source"
             href="FedRAMP_rev4_LI-SaaS-baseline_profile.xml"/>
       <role id="prepared-by">
@@ -14,11 +14,11 @@
       </role>
       <role id="fedramp-pmo">
          <title>The FedRAMP Program Management Office (PMO)</title>
-         <short-name>CSP</short-name>
+         <short-name>PMO</short-name>
       </role>
       <role id="fedramp-jab">
          <title>The FedRAMP Joint Authorization Board (JAB)</title>
-         <short-name>CSP</short-name>
+         <short-name>JAB</short-name>
       </role>
       <party uuid="8cc0b8e5-9650-4d5f-9796-316f05fa9a2d" type="organization">
          <name>Federal Risk and Authorization Management Program: Program Management Office</name>
@@ -26,7 +26,6 @@
          <link href="https://fedramp.gov" rel="homepage"/>
          <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
          <link href="#985475ee-d4d6-4581-8fdf-d84d3d8caa48" rel="reference"/>
-         <link href="#1a23a771-d481-4594-9a1a-71d584fa4123" rel="reference"/>
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
@@ -6026,6 +6025,19 @@
                <prop name="label" value="e."/>
                <p>Updates the risk assessment <insert type="param" id-ref="ra-3_prm_5"/> or whenever there are significant changes to the information system or environment of operation (including the identification of new threats and vulnerabilities), or other conditions that may impact the security state of the system.</p>
             </part>
+            <part id="ra-3_fr" name="item">
+               <title>RA-3 Additional FedRAMP Requirements and Guidance</title>
+               <part id="ra-3_fr_gdn.1" name="guidance">
+                  <prop name="label" value="Guidance:"/>
+                  <p>Significant change is defined in NIST Special Publication 800-37 Revision 1,
+                          Appendix F</p>
+               </part>
+               <part id="ra-3_fr_smt.d" name="item">
+                  <prop name="label" value="RA-3 (d) Requirement:"/>
+                  <p>Include all Authorizing Officials; for JAB authorizations to include
+                          FedRAMP.</p>
+               </part>
+            </part>
          </part>
          <part id="ra-3_gdn" name="guidance">
             <p>Clearly defined authorization boundaries are a prerequisite for effective risk assessments. Risk assessments take into account threats, vulnerabilities, likelihood, and impact to organizational operations and assets, individuals, other organizations, and the Nation based on the operation and use of information systems. Risk assessments also take into account risk from external parties (e.g., service providers, contractors operating information systems on behalf of the organization, individuals accessing organizational information systems, outsourcing entities). In accordance with OMB policy and related E-authentication initiatives, authentication of public users accessing federal information systems may also be required to protect nonpublic or privacy-related information. As such, organizational assessments of risk also address public access to federal information systems. Risk assessments (either formal or informal) can be conducted at all three tiers in the risk management hierarchy (i.e., organization level, mission/business process level, or information system level) and at any phase in the system development life cycle. Risk assessments can also be conducted at various steps in the Risk Management Framework, including categorization, security control selection, security control implementation, security control assessment, information system authorization, and security control monitoring. RA-3 is noteworthy in that the control must be partially implemented prior to the implementation of other controls in order to complete the first two steps in the Risk Management Framework. Risk assessments can play an important role in security control selection processes, particularly during the application of tailoring guidance, which includes security control supplementation.</p>
@@ -8265,18 +8277,16 @@
       </resource>
       <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
          <title>FedRAMP Applicable Laws and Regulations</title>
-         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
-      </resource>
-      <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
-         <title>FedRAMP Master Acronym and Glossary</title>
-         <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
+         <rlink media-type="application/vnd.ms-excel"
+                href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
       </resource>
       <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
          <description>
             <p>FedRAMP Logo</p>
          </description>
          <prop name="type" value="logo"/>
-         <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
+         <rlink media-type="image/png"
+                href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
       </resource>
    </back-matter>
 </catalog>

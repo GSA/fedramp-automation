@@ -1,12 +1,12 @@
 ---
 catalog:
-  uuid: 8077568e-0de5-479c-9e1c-3e3347710504
+  uuid: 96951ec8-7c1e-4ec1-a0d2-192fc84b5ec8
   metadata:
     title: FedRAMP Rev 4 Moderate Baseline
     published: 2021-02-05T00:00:00.000-04:00
-    last-modified: 2023-06-18T11:55:23.40898-04:00
-    version: fedramp1.1.0-oscal1.0.0
-    oscal-version: 1.0.0
+    last-modified: 2023-06-23T16:14:51.867151-04:00
+    version: fedramp1.1.1-oscal1.0.4
+    oscal-version: 1.0.4
     links:
       - href: FedRAMP_rev4_MODERATE-baseline_profile.yaml
         rel: resolution-source
@@ -15,10 +15,10 @@ catalog:
         title: Document creator
       - id: fedramp-pmo
         title: The FedRAMP Program Management Office (PMO)
-        short-name: CSP
+        short-name: PMO
       - id: fedramp-jab
         title: The FedRAMP Joint Authorization Board (JAB)
-        short-name: CSP
+        short-name: JAB
     parties:
       - uuid: 8cc0b8e5-9650-4d5f-9796-316f05fa9a2d
         type: organization
@@ -31,8 +31,6 @@ catalog:
           - href: "#a2381e87-3d04-4108-a30b-b4d2f36d001f"
             rel: logo
           - href: "#985475ee-d4d6-4581-8fdf-d84d3d8caa48"
-            rel: reference
-          - href: "#1a23a771-d481-4594-9a1a-71d584fa4123"
             rel: reference
         email-addresses:
           - info@fedramp.gov
@@ -2644,6 +2642,12 @@ catalog:
                 - id: ac-4_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: AC-4[1]
                   prose: the organization defines information flow control policies
@@ -2652,6 +2656,15 @@ catalog:
                 - id: ac-4_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: AC-4[2]
                   prose: the information system enforces approved authorizations for
@@ -4849,6 +4862,12 @@ catalog:
                 - id: ac-12_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: AC-12[1]
                   prose: the organization defines conditions or trigger events requiring
@@ -9577,6 +9596,12 @@ catalog:
                 - id: au-4_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: AU-4[1]
                   prose: defines audit record storage requirements; and
@@ -11059,6 +11084,18 @@ catalog:
                 - id: au-9_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: AU-9[1]
                   prose: "the information system protects audit information from unauthorized:"
@@ -11084,6 +11121,18 @@ catalog:
                 - id: au-9_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: AU-9[2]
                   prose: "the information system protects audit tools from unauthorized:"
@@ -11473,6 +11522,12 @@ catalog:
                 - id: au-11_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: AU-11[1]
                   prose: defines a time period to retain audit records that is consistent
@@ -14767,6 +14822,12 @@ catalog:
                 - id: ca-8_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: CA-8[1]
                   prose: defines information systems or system components on which
@@ -14774,6 +14835,12 @@ catalog:
                 - id: ca-8_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: CA-8[2]
                   prose: defines the frequency to conduct penetration testing on organization-defined
@@ -16810,6 +16877,19 @@ catalog:
                   rel: related
             - id: cm-4_obj
               name: objective
+              props:
+                - name: response-point
+                  ns: https://fedramp.gov/ns/oscal
+                  value: You must fill in this response point.
+                - name: method
+                  value: EXAMINE
+                  class: fedramp
+                - name: method
+                  value: INTERVIEW
+                  class: fedramp
+                - name: method
+                  value: TEST
+                  class: fedramp
               prose: Determine if the organization analyzes changes to the information
                 system to determine potential security impacts prior to change implementation.
             - name: assessment
@@ -16912,6 +16992,12 @@ catalog:
                 - id: cm-5_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: CM-5[1]
                   prose: defines physical access restrictions associated with changes
@@ -16919,6 +17005,12 @@ catalog:
                 - id: cm-5_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: CM-5[2]
                   prose: documents physical access restrictions associated with changes
@@ -16926,6 +17018,15 @@ catalog:
                 - id: cm-5_obj.3
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: CM-5[3]
                   prose: approves physical access restrictions associated with changes
@@ -16933,6 +17034,12 @@ catalog:
                 - id: cm-5_obj.4
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
                     - name: label
                       value: CM-5[4]
                   prose: enforces physical access restrictions associated with changes
@@ -16940,6 +17047,12 @@ catalog:
                 - id: cm-5_obj.5
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: CM-5[5]
                   prose: defines logical access restrictions associated with changes
@@ -16947,6 +17060,12 @@ catalog:
                 - id: cm-5_obj.6
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: CM-5[6]
                   prose: documents logical access restrictions associated with changes
@@ -22668,6 +22787,15 @@ catalog:
                 - id: cp-6_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
                     - name: label
                       value: CP-6[1]
                   prose: establishes an alternate storage site including necessary
@@ -22676,6 +22804,15 @@ catalog:
                 - id: cp-6_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: CP-6[2]
                   prose: ensures that the alternate storage site provides information
@@ -23547,6 +23684,12 @@ catalog:
                 - id: cp-8_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: CP-8[1]
                   prose: defines information system operations requiring alternate
@@ -23555,6 +23698,12 @@ catalog:
                 - id: cp-8_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: CP-8[2]
                   prose: defines the time period to permit resumption of organization-defined
@@ -23563,6 +23712,15 @@ catalog:
                 - id: cp-8_obj.3
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: CP-8[3]
                   prose: establishes alternate telecommunications services including
@@ -24459,6 +24617,15 @@ catalog:
                 - id: cp-10_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: CP-10[2]
                   prose: "the reconstitution of the information system to a known\
@@ -25097,6 +25264,19 @@ catalog:
                   rel: related
             - id: ia-2_obj
               name: objective
+              props:
+                - name: response-point
+                  ns: https://fedramp.gov/ns/oscal
+                  value: You must fill in this response point.
+                - name: method
+                  value: EXAMINE
+                  class: fedramp
+                - name: method
+                  value: INTERVIEW
+                  class: fedramp
+                - name: method
+                  value: TEST
+                  class: fedramp
               prose: Determine if the information system uniquely identifies and authenticates
                 organizational users (or processes acting on behalf of organizational
                 users).
@@ -26058,6 +26238,12 @@ catalog:
                 - id: ia-3_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: IA-3[1]
                   prose: "the organization defines specific and/or types of devices\
@@ -28872,6 +29058,19 @@ catalog:
                   rel: related
             - id: ia-8_obj
               name: objective
+              props:
+                - name: response-point
+                  ns: https://fedramp.gov/ns/oscal
+                  value: You must fill in this response point.
+                - name: method
+                  value: EXAMINE
+                  class: fedramp
+                - name: method
+                  value: INTERVIEW
+                  class: fedramp
+                - name: method
+                  value: TEST
+                  class: fedramp
               prose: Determine if the information system uniquely identifies and authenticates
                 non-organizational users (or processes acting on behalf of non-organizational
                 users).
@@ -30093,6 +30292,12 @@ catalog:
                 - id: ir-3_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: IR-3[1]
                   prose: defines incident response tests to test the incident response
@@ -30100,6 +30305,12 @@ catalog:
                 - id: ir-3_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: IR-3[2]
                   prose: defines the frequency to test the incident response capability
@@ -30676,6 +30887,15 @@ catalog:
                 - id: ir-5_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: IR-5[1]
                   prose: tracks information system security incidents; and
@@ -31080,6 +31300,18 @@ catalog:
                 - id: ir-7_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: IR-7[1]
                   prose: that is integral to the organizational incident response
@@ -31087,6 +31319,18 @@ catalog:
                 - id: ir-7_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: IR-7[2]
                   prose: that offers advice and assistance to users of the information
@@ -33449,18 +33693,45 @@ catalog:
                 - id: ma-3_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
                     - name: label
                       value: MA-3[1]
                   prose: approves information system maintenance tools;
                 - id: ma-3_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
                     - name: label
                       value: MA-3[2]
                   prose: controls information system maintenance tools; and
                 - id: ma-3_obj.3
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: MA-3[3]
                   prose: monitors information system maintenance tools.
@@ -34826,6 +35097,12 @@ catalog:
                 - id: ma-6_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: MA-6[1]
                   prose: defines information system components for which maintenance
@@ -34833,6 +35110,12 @@ catalog:
                 - id: ma-6_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: MA-6[2]
                   prose: defines the time period within which maintenance support
@@ -34840,6 +35123,15 @@ catalog:
                 - id: ma-6_obj.3
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: MA-6[3]
                   parts:
@@ -36662,6 +36954,12 @@ catalog:
                 - id: mp-7_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: MP-7[1]
                   prose: "defines types of information system media to be:"
@@ -36683,6 +36981,12 @@ catalog:
                 - id: mp-7_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: MP-7[2]
                   prose: "defines information systems or system components on which\
@@ -39264,6 +39568,18 @@ catalog:
                 - id: pe-12_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: PE-12[1]
                   prose: activates in the event of a power outage or disruption; and
@@ -39355,6 +39671,18 @@ catalog:
                 - id: pe-13_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: PE-13[1]
                   prose: employs fire suppression and detection devices/systems for
@@ -39363,6 +39691,18 @@ catalog:
                 - id: pe-13_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: PE-13[2]
                   prose: maintains fire suppression and detection devices/systems
@@ -47739,6 +48079,19 @@ catalog:
                   rel: related
             - id: sa-4_obj
               name: objective
+              props:
+                - name: response-point
+                  ns: https://fedramp.gov/ns/oscal
+                  value: You must fill in this response point.
+                - name: method
+                  value: EXAMINE
+                  class: fedramp
+                - name: method
+                  value: INTERVIEW
+                  class: fedramp
+                - name: method
+                  value: TEST
+                  class: fedramp
               prose: "Determine if the organization includes the following requirements,\
                 \ descriptions, and criteria, explicitly or by reference, in the acquisition\
                 \ contracts for the information system, system component, or information\
@@ -52080,6 +52433,12 @@ catalog:
                 - id: sc-5_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: SC-5[1]
                   prose: the organization defines types of denial of service attacks
@@ -52088,6 +52447,12 @@ catalog:
                 - id: sc-5_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: SC-5[2]
                   prose: the organization defines security safeguards to be employed
@@ -52096,6 +52461,15 @@ catalog:
                 - id: sc-5_obj.3
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: SC-5[3]
                   prose: the information system protects against or limits the effects
@@ -54213,6 +54587,12 @@ catalog:
                 - id: sc-12_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: SC-12[1]
                   prose: "defines requirements for cryptographic key:"
@@ -54250,6 +54630,15 @@ catalog:
                 - id: sc-12_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: SC-12[2]
                   prose: establishes and manages cryptographic keys for required cryptography
@@ -56127,6 +56516,12 @@ catalog:
                 - id: sc-28_obj.1
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: EXAMINE
+                      class: fedramp
                     - name: label
                       value: SC-28[1]
                   prose: "the organization defines information at rest requiring one\
@@ -56147,6 +56542,15 @@ catalog:
                 - id: sc-28_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: SC-28[2]
                   prose: "the information system protects:"
@@ -60587,6 +60991,15 @@ catalog:
                 - id: si-7_obj.2
                   name: objective
                   props:
+                    - name: response-point
+                      ns: https://fedramp.gov/ns/oscal
+                      value: You must fill in this response point.
+                    - name: method
+                      value: INTERVIEW
+                      class: fedramp
+                    - name: method
+                      value: TEST
+                      class: fedramp
                     - name: label
                       value: SI-7[2]
                   prose: "employs integrity verification tools to detect unauthorized\
@@ -62650,10 +63063,7 @@ catalog:
         title: FedRAMP Applicable Laws and Regulations
         rlinks:
           - href: https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx
-      - uuid: 1a23a771-d481-4594-9a1a-71d584fa4123
-        title: FedRAMP Master Acronym and Glossary
-        rlinks:
-          - href: https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf
+            media-type: application/vnd.ms-excel
       - uuid: a2381e87-3d04-4108-a30b-b4d2f36d001f
         description: FedRAMP Logo
         props:
@@ -62661,3 +63071,4 @@ catalog:
             value: logo
         rlinks:
           - href: https://www.fedramp.gov/assets/img/logo-main-fedramp.png
+            media-type: image/png

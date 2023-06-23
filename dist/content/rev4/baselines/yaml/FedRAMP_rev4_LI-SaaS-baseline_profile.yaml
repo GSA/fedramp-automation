@@ -3,19 +3,19 @@ profile:
   uuid: 145f590d-2443-4c34-9ce9-37ccbe88abf9
   metadata:
     title: FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline
-    published: 2021-02-17T00:00:00.000-04:00
-    last-modified: 2021-06-09T14:28:03.343-04:00
-    version: fedramp1.1.0-oscal1.0.0
-    oscal-version: 1.0.0
+    published: 2021-02-05T00:00:00.000-04:00
+    last-modified: 2023-06-23T00:00:00.000-04:00
+    version: fedramp1.1.1-oscal1.0.4
+    oscal-version: 1.0.4
     roles:
       - id: prepared-by
         title: Document creator
       - id: fedramp-pmo
         title: The FedRAMP Program Management Office (PMO)
-        short-name: CSP
+        short-name: PMO
       - id: fedramp-jab
         title: The FedRAMP Joint Authorization Board (JAB)
-        short-name: CSP
+        short-name: JAB
     parties:
       - uuid: 8cc0b8e5-9650-4d5f-9796-316f05fa9a2d
         type: organization
@@ -28,8 +28,6 @@ profile:
           - href: "#a2381e87-3d04-4108-a30b-b4d2f36d001f"
             rel: logo
           - href: "#985475ee-d4d6-4581-8fdf-d84d3d8caa48"
-            rel: reference
-          - href: "#1a23a771-d481-4594-9a1a-71d584fa4123"
             rel: reference
         email-addresses:
           - info@fedramp.gov
@@ -4831,7 +4829,7 @@ profile:
                       mechanisms supporting and/or for conducting, documenting, reviewing,
                       disseminating, and updating the risk assessment.
           - position: ending
-            by-id: ra-_smt
+            by-id: ra-3_smt
             parts:
               - id: ra-3_fr
                 name: item
@@ -5966,10 +5964,7 @@ profile:
         title: FedRAMP Applicable Laws and Regulations
         rlinks:
           - href: https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx
-      - uuid: 1a23a771-d481-4594-9a1a-71d584fa4123
-        title: FedRAMP Master Acronym and Glossary
-        rlinks:
-          - href: https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf
+            media-type: application/vnd.ms-excel
       - uuid: a2381e87-3d04-4108-a30b-b4d2f36d001f
         description: FedRAMP Logo
         props:
@@ -5977,6 +5972,7 @@ profile:
             value: logo
         rlinks:
           - href: https://www.fedramp.gov/assets/img/logo-main-fedramp.png
+            media-type: image/png
       - uuid: ad005eae-cc63-4e64-9109-3905a9a825e4
         title: NIST Special Publication (SP) 800-53
         props:

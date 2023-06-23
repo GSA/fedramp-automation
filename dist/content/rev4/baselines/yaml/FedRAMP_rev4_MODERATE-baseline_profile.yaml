@@ -4,18 +4,18 @@ profile:
   metadata:
     title: FedRAMP Rev 4 Moderate Baseline
     published: 2021-02-05T00:00:00.000-04:00
-    last-modified: 2021-06-09T14:27:27.561-04:00
-    version: fedramp1.1.0-oscal1.0.0
-    oscal-version: 1.0.0
+    last-modified: 2023-06-23T00:00:00.000-04:00
+    version: fedramp1.1.1-oscal1.0.4
+    oscal-version: 1.0.4
     roles:
       - id: prepared-by
         title: Document creator
       - id: fedramp-pmo
         title: The FedRAMP Program Management Office (PMO)
-        short-name: CSP
+        short-name: PMO
       - id: fedramp-jab
         title: The FedRAMP Joint Authorization Board (JAB)
-        short-name: CSP
+        short-name: JAB
     parties:
       - uuid: 8cc0b8e5-9650-4d5f-9796-316f05fa9a2d
         type: organization
@@ -28,8 +28,6 @@ profile:
           - href: "#a2381e87-3d04-4108-a30b-b4d2f36d001f"
             rel: logo
           - href: "#985475ee-d4d6-4581-8fdf-d84d3d8caa48"
-            rel: reference
-          - href: "#1a23a771-d481-4594-9a1a-71d584fa4123"
             rel: reference
         email-addresses:
           - info@fedramp.gov
@@ -1228,7 +1226,7 @@ profile:
                 ns: https://fedramp.gov/ns/oscal
                 value: "true"
           - position: starting
-            by-id: ac-12.1_obj
+            by-id: ac-12_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -2569,7 +2567,7 @@ profile:
                 ns: https://fedramp.gov/ns/oscal
                 value: "true"
           - position: starting
-            by-id: ac-4.1_obj
+            by-id: ac-4_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -2578,7 +2576,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: ac-4.2_obj
+            by-id: ac-4_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -3596,7 +3594,7 @@ profile:
                 ns: https://fedramp.gov/ns/oscal
                 value: "true"
           - position: starting
-            by-id: au-11.1_obj
+            by-id: au-11_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -3947,7 +3945,7 @@ profile:
       - control-id: au-4
         adds:
           - position: starting
-            by-id: au-4.1_obj
+            by-id: au-4_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -4403,7 +4401,7 @@ profile:
       - control-id: au-9
         adds:
           - position: starting
-            by-id: au-9.1_obj
+            by-id: au-9_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -4418,7 +4416,7 @@ profile:
                 value: TEST
                 class: fedramp
           - position: starting
-            by-id: au-9.2_obj
+            by-id: au-9_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -5537,7 +5535,7 @@ profile:
                 ns: https://fedramp.gov/ns/oscal
                 value: "true"
           - position: starting
-            by-id: ca-8.1_obj
+            by-id: ca-8_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -5546,7 +5544,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: ca-8.2_obj
+            by-id: ca-8_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -6382,7 +6380,7 @@ profile:
       - control-id: cm-4
         adds:
           - position: starting
-            by-id: cm-4.1_obj
+            by-id: cm-4_obj
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -6405,7 +6403,7 @@ profile:
       - control-id: cm-5
         adds:
           - position: starting
-            by-id: cm-5.1_obj
+            by-id: cm-5_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -6414,7 +6412,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: cm-5.2_obj
+            by-id: cm-5_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -6423,7 +6421,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: cm-5.3_obj
+            by-id: cm-5_obj.3
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -6435,7 +6433,7 @@ profile:
                 value: TEST
                 class: fedramp
           - position: starting
-            by-id: cm-5.4_obj
+            by-id: cm-5_obj.4
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -6444,7 +6442,7 @@ profile:
                 value: INTERVIEW
                 class: fedramp
           - position: starting
-            by-id: cm-5.5_obj
+            by-id: cm-5_obj.5
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -6453,7 +6451,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: cm-5.6_obj
+            by-id: cm-5_obj.6
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -7491,7 +7489,7 @@ profile:
                 value: TEST
                 class: fedramp
           - position: starting
-            by-id: cp-10.2_obj
+            by-id: cp-10_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -8038,7 +8036,7 @@ profile:
       - control-id: cp-6
         adds:
           - position: starting
-            by-id: cp-6.1_obj
+            by-id: cp-6_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -8050,7 +8048,7 @@ profile:
                 value: INTERVIEW
                 class: fedramp
           - position: starting
-            by-id: cp-6.2_obj
+            by-id: cp-6_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -8332,7 +8330,7 @@ profile:
                     prose: The service provider defines a time period consistent with
                       the recovery time objectives and business impact analysis.
           - position: starting
-            by-id: cp-8.1_obj
+            by-id: cp-8_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -8341,7 +8339,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: cp-8.2_obj
+            by-id: cp-8_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -8350,7 +8348,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: cp-8.3_obj
+            by-id: cp-8_obj.3
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -8756,7 +8754,7 @@ profile:
       - control-id: ia-2
         adds:
           - position: starting
-            by-id: ia-2.1_obj
+            by-id: ia-2_obj
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -9034,7 +9032,7 @@ profile:
       - control-id: ia-3
         adds:
           - position: starting
-            by-id: ia-3.1_obj
+            by-id: ia-3_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -10019,7 +10017,7 @@ profile:
       - control-id: ia-8
         adds:
           - position: starting
-            by-id: ia-8.1_obj
+            by-id: ia-8_obj
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -10382,7 +10380,7 @@ profile:
                 ns: https://fedramp.gov/ns/oscal
                 value: "true"
           - position: starting
-            by-id: ir-3.1_obj
+            by-id: ir-3_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -10391,7 +10389,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: ir-3.2_obj
+            by-id: ir-3_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -10538,7 +10536,7 @@ profile:
       - control-id: ir-5
         adds:
           - position: starting
-            by-id: ir-5.1_obj
+            by-id: ir-5_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -10669,7 +10667,7 @@ profile:
       - control-id: ir-7
         adds:
           - position: starting
-            by-id: ir-7.1_obj
+            by-id: ir-7_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -10684,7 +10682,7 @@ profile:
                 value: TEST
                 class: fedramp
           - position: starting
-            by-id: ir-7.2_obj
+            by-id: ir-7_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -11547,7 +11545,7 @@ profile:
       - control-id: ma-3
         adds:
           - position: starting
-            by-id: ma-3.1_obj
+            by-id: ma-3_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -11559,7 +11557,7 @@ profile:
                 value: INTERVIEW
                 class: fedramp
           - position: starting
-            by-id: ma-3.2_obj
+            by-id: ma-3_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -11571,7 +11569,7 @@ profile:
                 value: INTERVIEW
                 class: fedramp
           - position: starting
-            by-id: ma-3.3_obj
+            by-id: ma-3_obj.3
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -11942,7 +11940,7 @@ profile:
       - control-id: ma-6
         adds:
           - position: starting
-            by-id: ma-6.1_obj
+            by-id: ma-6_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -11951,7 +11949,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: ma-6.2_obj
+            by-id: ma-6_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -11960,7 +11958,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: ma-6.3_obj
+            by-id: ma-6_obj.3
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -12526,7 +12524,7 @@ profile:
       - control-id: mp-7
         adds:
           - position: starting
-            by-id: mp-7.1_obj
+            by-id: mp-7_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -12535,7 +12533,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: mp-7.2_obj
+            by-id: mp-7_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -12803,7 +12801,7 @@ profile:
       - control-id: pe-12
         adds:
           - position: starting
-            by-id: pe-12.1_obj
+            by-id: pe-12_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -12841,7 +12839,7 @@ profile:
       - control-id: pe-13
         adds:
           - position: starting
-            by-id: pe-13.1_obj
+            by-id: pe-13_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -12856,7 +12854,7 @@ profile:
                 value: TEST
                 class: fedramp
           - position: starting
-            by-id: pe-13.2_obj
+            by-id: pe-13_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -16646,7 +16644,7 @@ profile:
                     prose: The use of Common Criteria (ISO/IEC 15408) evaluated products
                       is strongly preferred. See [https://www.niap-ccevs.org/Product/](https://www.niap-ccevs.org/Product/).
           - position: starting
-            by-id: sa-4.1_obj
+            by-id: sa-4_obj
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -17397,7 +17395,7 @@ profile:
                         value: "Guidance:"
                     prose: Federally approved and validated cryptography.
           - position: starting
-            by-id: sc-12.1_obj
+            by-id: sc-12_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -17406,7 +17404,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: sc-12.2_obj
+            by-id: sc-12_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -17950,7 +17948,7 @@ profile:
                     prose: The organization supports the capability to use cryptographic
                       mechanisms to protect information at rest.
           - position: starting
-            by-id: sc-28.1_obj
+            by-id: sc-28_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -17959,7 +17957,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: sc-28.2_obj
+            by-id: sc-28_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -18063,7 +18061,7 @@ profile:
       - control-id: sc-5
         adds:
           - position: starting
-            by-id: sc-5.1_obj
+            by-id: sc-5_obj.1
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -18072,7 +18070,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: sc-5.2_obj
+            by-id: sc-5_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -18081,7 +18079,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: sc-5.3_obj
+            by-id: sc-5_obj.3
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -20039,7 +20037,7 @@ profile:
                 value: EXAMINE
                 class: fedramp
           - position: starting
-            by-id: si-7.2_obj
+            by-id: si-7_obj.2
             props:
               - name: response-point
                 ns: https://fedramp.gov/ns/oscal
@@ -20237,10 +20235,7 @@ profile:
         title: FedRAMP Applicable Laws and Regulations
         rlinks:
           - href: https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx
-      - uuid: 1a23a771-d481-4594-9a1a-71d584fa4123
-        title: FedRAMP Master Acronym and Glossary
-        rlinks:
-          - href: https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf
+            media-type: application/vnd.ms-excel
       - uuid: a2381e87-3d04-4108-a30b-b4d2f36d001f
         description: FedRAMP Logo
         props:
@@ -20248,6 +20243,7 @@ profile:
             value: logo
         rlinks:
           - href: https://www.fedramp.gov/assets/img/logo-main-fedramp.png
+            media-type: image/png
       - uuid: ad005eae-cc63-4e64-9109-3905a9a825e4
         title: NIST Special Publication (SP) 800-53
         props:
