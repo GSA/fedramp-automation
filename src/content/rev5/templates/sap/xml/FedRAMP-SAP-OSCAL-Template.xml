@@ -445,37 +445,24 @@
          <!-- assessment procedure for ac-2.f.1 -->
          <part id="ac-2.f_obj.1" name="assessment-objective">
             <title>Assessment Objective</title>
+            <prop name="method-id" value="ac-2.f_obj.1-1" />
             <p>Determine if the organization:</p>
-            <p> - defines procedures or conditions to:</p>
-            <p>   - create information system accounts</p>
-            <p>   - enable information system accounts</p>
-            <p>   - modify information system accounts</p>
-            <p>   - disable information system accounts</p>
-            <p>   - remove information system accounts</p>
+            <ul>
+               <li>defines procedures or conditions to:
+                  <ul>
+                     <li>create information system accounts</li>
+                     <li>enable information system accounts</li>
+                     <li>modify information system accounts</li>
+                     <li>disable information system accounts</li>
+                     <li>remove information system accounts</li>
+                  </ul>
+               </li>
+            </ul>
          </part>
          <part id="ac-2.f_obj.1-1" name="assessment-method">
             <prop name="method" value="EXAMINE"/>
             <part id="ac-2.f_obj.1-1_object" name="assessment-objects">
                <p>Access control policy; procedures addressing account management; security plan; information system design documentation; information system configuration settings and associated documentation; list of active system accounts along with the name of the individual associated with each account; list of conditions for group and role membership; notifications or records of recently transferred, separated, or terminated employees; list of recently disabled information system accounts along with the name of the individual associated with each account; access authorization records; account management compliance reviews; information system monitoring records; information system audit records; other relevant documents or records</p>               
-            </part>
-         </part>
-      </objectives-and-methods>
-      <objectives-and-methods control-id="ac-2">
-         <!-- assessment procedure for ac-2.f.2 -->
-         <part id="ac-2.f_obj.2" name="assessment-objective">
-            <title>Assessment Objective</title>
-            <p>Determine if the organization:</p>
-            <p> - in accordance with organization-defined procedures or conditions:</p>
-            <p>   - create information system accounts</p>
-            <p>   - enable information system accounts</p>
-            <p>   - modify information system accounts</p>
-            <p>   - disable information system accounts</p>
-            <p>   - remove information system accounts</p>
-         </part>
-         <part id="ac-2.f_obj.2-1" name="assessment-method">
-            <prop name="method" value="INTERVIEW"/>
-            <part id="ac-2.f_obj.2-1_object" name="assessment-objects">
-               <p>Organizational personnel with account management responsibilities; system/network administrators; organizational personnel with information security responsibilities</p>               
             </part>
          </part>
       </objectives-and-methods>
@@ -495,6 +482,12 @@
                   </ul>
                </li>
             </ul>
+         </part>
+         <part id="ac-2.f_obj.2-1" name="assessment-method">
+            <prop name="method" value="INTERVIEW"/>
+            <part id="ac-2.f_obj.2-1_object" name="assessment-objects">
+               <p>Organizational personnel with account management responsibilities; system/network administrators; organizational personnel with information security responsibilities</p>               
+            </part>
          </part>
          <part id="ac-2.f_obj.2-2" name="assessment-method">
             <prop name="method" value="TEST"/>
