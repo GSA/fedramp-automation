@@ -38,7 +38,7 @@
     "react-modal": "^3.16.1",
     "reselect": "^4.1.7",
     "saxon-js": "2.4.0",
-    "uswds": "^2.13.0",
+    "uswds": "^2.14.0",
     "xml-formatter": "^2.6.1",
     "yaml": "^2.2.2"
   },
