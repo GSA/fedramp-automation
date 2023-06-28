@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="8c000726-ba93-480d-a221-8cb60df10c24">
+<system-security-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="9809eddf-2cd5-468f-97c5-9769905d0629">
    <metadata>
       <title>FedRAMP System Security Plan (SSP)</title>
       <published>2023-06-30T00:00:00Z</published>
@@ -21,7 +21,7 @@
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- New rev 5 prop -->
       <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource"
-         value="#ace2963d-ecb4-4be5-bdd0-1f6fd7610f41" />
+         value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41" />
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <role id="fedramp-pmo">
@@ -495,7 +495,6 @@
       </remarks>
    </metadata>
    <import-profile href="https://raw.githubusercontent.com/GSA/fedramp-automation/master/dist/content/rev5/baselines/xml/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.xml">
-      <!-- Rev5 update - switch to rev5 baseline -->
       <remarks>
          <p>This example points to the FedRAMP Rev 5 Moderate baseline that is part of the official FedRAMP 1.0.4 release.</p>
          <p>Must adjust accordingly for applicable baseline and revision.</p>
@@ -513,7 +512,7 @@
          <p>NOTE: Additional description, including the purpose and functions of this system may be added here. This includes any narrative text usually included in section 9.1 of the SSP.</p>
          <p>NOTE: The description is expected to be at least 32 words in length.</p>
       </description>
-      <!-- service & deployment model -->
+      <!-- Service & Deployment Model -->
       <prop name="cloud-service-model" value="saas">
          <remarks>
             <p>Remarks are required if service model is "other". Optional otherwise.</p>
@@ -721,7 +720,6 @@
       <!-- Components -->
       <!-- OSCAL requires existance of a "this-system" component -->
       <component uuid="60f92bcf-f353-4236-9803-2a5d417555f4" type="this-system">
-         <!-- Todo: schematron should not require components of type "this-system" to have an "asset-type" prop -->
          <title>This System</title>
          <description>
             <p>The entire system as depicted in the system authorization boundary</p>
@@ -735,17 +733,15 @@
 
       <!-- Section 10 / Appendix Q - Cryptographic Modules -->
       <!-- NOTE: Must set type="cryptographic-module" -->
-      <!-- Todo - consider relaxing schematron validaton (since OSCAL constraint for type indicates it may be locally defined) -->
       <!-- List all cryptographic modules for Data-at-Rest (DAT) - must referenced by using component(s), provide CMVP #, FIPS validation status, Vendor Name, Module Name, and brief usage description -->
       <component uuid="95beec7e-6f82-4aaa-8211-969cd7c1f1ab" type="validation">
-         <!-- Todo: schematron should not require components of type "validation" to have an "asset-type" prop -->
          <title>[SAMPLE]Cryptographic Module Name</title>
          <description>
             <p>Provide a description and any pertinent note regarding the use of this CM.</p>
             <p>For data-at-rest modules, describe type of encryption implemented (e.g., full disk, file, record-level, etc.)</p>
             <p>Lastly, provide any supporting notes on FIPS status (e.g. historical) or lack of FIPS compliance (e.g., Module in Process).</p>
          </description>
-         <!-- Rev5 new props for CMs -->
+         <!-- Rev 5 new props for CMs -->
          <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module" />
          <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-at-rest"/>
@@ -758,7 +754,6 @@
       </component>
       <!-- List all cryptographic modules for Data-in-Transit (DIT) - must referenced by using component(s), provide CMVP #, FIPS validation status, Vendor Name, Module Name, and brief usage description -->
       <component uuid="1eaaabbd-b3a6-4316-a868-7b815e7c40f5" type="validation">
-         <!-- Todo: schematron should not require components of type "validation" to have an "asset-type" prop -->
          <title>[SAMPLE]Cryptographic Module Name</title>
          <description>
             <p>Provide a description and any pertinent note regarding the use of this CM.</p>
@@ -781,7 +776,6 @@
       <!-- include authorization status, link to marketplace, CSO Service, nature of agreement, authorized users/authentication -->
       <!-- data types (as backmatter resource) -->
       <component uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" type="leveraged-system">
-         <!-- Todo: schematron should not require components of type "validation" to have an "asset-type" prop -->
          <title>Name of Leveraged System</title>
          <description>
             <p>If the leveraged system owner provides a UUID for their system (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
@@ -791,12 +785,12 @@
          <!-- Components of type "interconnection" must have the following props  -->
          <prop name="isa-title" value="system interconnection agreement"/>
          <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="SLA" /><!-- New Rev5 prop.  Specify ty e type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="SLA" /><!-- New Rev 5 prop - Specify ty e type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
          <prop name="ipv4-address" value="172.0.0.0"/>
          <prop name="ipv6-address" value="::"/>
          <prop name="direction" value="incoming"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="information" value="describe information being transferred" />
-         <!-- New Rev5 prop. Add a prop for each data type and metadata type transmitted, stored or processed by the system / service, including federal and sensitive system data.  Specify the value based on NIST 800-60 Vol II data types for the system. -->
+         <!-- New Rev 5 prop - Add a prop for each data type and metadata type transmitted, stored or processed by the system / service, including federal and sensitive system data.  Specify the value based on NIST 800-60 Vol II data types for the system. -->
          <!-- Alternatively, if the list is long, data types may be provided as a link to a backmatter resource containing all the information -->
          <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.1" /><!-- system development information type -->
          <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.8" /><!-- system & network monitoring information type --> 
@@ -808,14 +802,11 @@
          <status state="operational"/>
       </component>
       <component uuid="77A1614A-57B3-4B32-9FEE-613A6520EC58" type="service">
-         <!-- Todo: schematron should not require components of type "service" to have an "asset-type" prop -->
          <title>Service Provided by Leveraged System</title>
          <description>
             <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
             <p>Must include all levereged services and features fromthe leveraged authorization here.</p>
          </description>
-         <!--<prop name="asset-type" value="iaas" />-->
-         <!-- Todo: confirm if "asset-type" prop is needed for a "service" component.  Allowed values do not seem to apply here. -->
          <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
          <prop name="implementation-point" value="external"/>
          <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000002"/>
@@ -827,7 +818,6 @@
       <!-- Must have a component for each external, non-FedRAMP Authorized Service -->
       <!-- System/Service/API Name, Connection Details, Nature of agreement, Support Status, Data Types, Data Categorization, authorized users/authentication, other compliance programs, hosting environment, risk/impact/mitigation -->
       <component uuid="2812ef51-61e7-4505-afbb-da5a073a2a5b" type="interconnection">
-         <!-- Todo: schematron should not require components of type "interconnection" to have an "asset-type" prop -->
          <!-- Use title element to provid System/ Service/ API/CLI Name -->
          <title>[EXAMPLE]Authorized Connection Information System Name</title>
          <description>
@@ -866,9 +856,7 @@
          <!-- describe the flow of information transmitted -->
          <!-- determine why schematron is not validating direciton of data flow per props below -->
          <prop name="direction" value="incoming"/>
-         <!-- Fix schematron.  Core OSCAL prop should be acceptable -->
          <prop name="direction" value="outgoing"/>
-         <!-- Fix schematron.  Core OSCAL prop should be acceptable -->
          <prop ns="https://fedramp.gov/ns/oscal" name="information" value="Describe the information being transmitted."/>
          <prop ns="https://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-security" value="ipsec">
@@ -876,7 +864,6 @@
                <p>If "other", remarks are required. Optional otherwise.</p>
          </remarks>
          </prop>
-         <!-- TODO: Discuss adding "agreement" to core OSCAL -->
          <link rel="isa-agreement" href="#9d6cf2b4-8e88-4040-a33c-7bc206553a1a"/>
          <status state="operational"/>
          <responsible-role role-id="isa-poc-remote">
@@ -908,7 +895,6 @@
          </description>
          <prop name="asset-type" value="operating-system"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
-         <!-- TODO: make sure "vendor-name" is an allowed value for type=('hardware', 'software','service') -->
          <prop name="vendor-name" value="Vendor Name"/>
          <prop name="model" value="Model Number"/>
          <prop name="version" value="Version Number"/>
@@ -985,7 +971,6 @@
 
       <!-- SSP Attachments - Policies -->
       <component uuid="88b8d7bb-ba23-4430-bf62-028eab822050" type="policy">
-         <!-- Todo: schematron should not require components of type "policy" to have an "asset-type" prop -->
          <title>[EXAMPLE]Policies</title>
          <description>
             <p>[EXAMPLE]component representing a collection of policies in appendix A.</p>
@@ -1014,7 +999,6 @@
       </component>
       <!-- SSP Attachments - Procedures -->
       <component uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" type="procedure">
-         <!-- Todo: schematron should not require components of type "procedure" to have an "asset-type" prop -->
          <title>[EXAMPLE]Procedures</title>
          <description>
             <p>[EXAMPLE]component representing a collection of procedures in appendix A.</p>
@@ -1044,7 +1028,6 @@
 
       <!-- Other miscellaneous components -->
       <component uuid="d5841417-de4c-4d84-ab3c-39dd1fd32a96" type="service">
-         <!-- Todo: schematron should not require components of type "service" to have an "asset-type" prop -->
          <title>[SAMPLE]Service Name</title>
          <description>
             <p>Describe the service</p>
@@ -1067,7 +1050,6 @@
          </remarks>
       </component>
       <component uuid="2812ef51-61e7-4505-afbb-da5a073a2a5b" type="interconnection">
-         <!-- Todo: schematron should not require components of type "interconnection" to have an "asset-type" prop -->
          <title>[EXAMPLE]Authorized Connection Information System Name</title>
          <description>
             <p>Briefly describe the interconnection.</p>
@@ -1079,9 +1061,7 @@
          <!-- describe the flow of information transmitted -->
          <!-- determine why schematron is not validating direciton of data flow per props below -->
          <prop name="direction" value="incoming"/>
-         <!-- Fix schematron.  Core OSCAL prop should be acceptable -->
          <prop name="direction" value="outgoing"/>
-         <!-- Fix schematron.  Core OSCAL prop should be acceptable -->
          <prop ns="https://fedramp.gov/ns/oscal" name="information" value="Describe the information being transmitted."/>
          <prop ns="https://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-security" value="ipsec">
@@ -1089,7 +1069,6 @@
                <p>If "other", remarks are required. Optional otherwise.</p>
             </remarks>
          </prop>
-         <!-- TODO: Discuss adding "agreement" to core OSCAL -->
          <link rel="isa-agreement" href="#9d6cf2b4-8e88-4040-a33c-7bc206553a1a"/>
          <status state="operational"/>
          <responsible-role role-id="isa-poc-remote">
@@ -1109,7 +1088,6 @@
          </remarks>
       </component>
       <component type="network" uuid="55b55b3d-3bd9-409a-bc87-3b9a2074bacd">
-         <!-- Todo: schematron should not require components of type "network" to have an "asset-type" prop -->
          <title>IPv4 Production Subnet</title>
          <description>
             <p>IPv4 Production Subnet.</p>
@@ -1120,7 +1098,6 @@
          <status state="operational"/>
       </component>
       <component type="network" uuid="c0dbefa1-c8e8-4ca8-bd73-67cb7b1fa3f6">
-         <!-- Todo: schematron should not require components of type "network" to have an "asset-type" prop -->
          <title>IPv4 Management Subnet</title>
          <description>
             <p>IPv4 Management Subnet.</p>
@@ -1132,7 +1109,6 @@
          <status state="operational"/>
       </component>
       <component type="service" uuid="60f92bcf-f353-4236-9803-2a5d417555f5">
-         <!-- Todo: schematron should not require components of type "subnet" to have an "asset-type" prop -->
          <title>Email Service</title>
          <description>
             <p>Email Service</p>
@@ -1150,7 +1126,6 @@
          </description>
          <prop name="asset-id" value="unique-asset-ID-1"/>
          <prop name="ipv4-address" value="10.1.1.1"/>
-         <!-- Todo: check why schematron validation is indicating that this is not a valid ipv4 value -->
          <prop name="ipv6-address" value="2001:db8:3333:4444:5555:6666:7777:8888"/>
          <prop name="virtual" value="no"/>
          <prop name="public" value="no"/>
@@ -1300,7 +1275,6 @@
          <prop name="virtual" value="no"/>
          <prop name="public" value="no"/>
          <prop name="is-scanned" value="no">
-            <!-- Todo: Fix schematron to not require scan-type when is-scanned is "no" -->
             <remarks>
                <p>Asset wasn't running at time of scan.</p>
             </remarks>
@@ -1455,18 +1429,6 @@
             </remarks>
          </prop>
          <!-- sample implementation-status below -->
-         <!-- 
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial">
-            <remarks>
-               <p>Describe the portion of the control that is not satisfied.</p>
-            </remarks>
-         </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="not-applicable">
-            <remarks>
-               <p>Describe the justification for marking this control Not Applicable.</p>
-            </remarks>
-         </prop>
-         -->
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="customer-configured">
             <remarks>
@@ -2700,7 +2662,7 @@
    </control-implementation>
    <!-- SSP Attachments -->
    <back-matter>
-      <!-- Todo: For SSP need to add a prop called "resolution-resource" in metadata and in backmater resource for rev 5 -->
+      <!-- Rev 5 new "resolution-resource" prop in metadata and corresponding resource in back-matter -->
       <resource uuid="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41">
          <title>Resolution Resource</title>
          <prop name="dataset" class="collection" value="Special Publication"/>
@@ -2730,14 +2692,25 @@
             <p>If your organization prefers another approach, please seek prior approval from the FedRAMP PMO.</p>
          </remarks>
       </resource>
+      <!-- FedRAMP Laws -->
+      <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
+         <title>FedRAMP Applicable Laws and Regulations</title>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-citations"/>
+         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
+         <!-- Todo: Make base64 optional -->
+         <base64 filename="SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx" media-type="application/vnd.ms-excel">00000000</base64>
+         <remarks>
+            <p>Must be present in a FedRAMP SAP.</p>
+         </remarks>
+      </resource>
       <!-- Section 12 lists required attachments -->
       <!-- Appendix B - Related Acronyms -->
       <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
          <title>FedRAMP Master Acronym and Glossary</title>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-acronyms"/>
          <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
+         <!-- Todo: Make base64 optional -->
          <base64 filename="FedRAMP_Master_Acronym_and_Glossary.pdf" media-type="application/pdf">00000000</base64>
-         <!-- Todo: Fix Schematron. Make base64 optional -->
          <remarks>
             <p>Must be present in a FedRAMP SSP.</p>
          </remarks>
@@ -2753,6 +2726,7 @@
          <!-- document date -->
          <prop name="version" value="Document Version"/>
          <rlink media-type="application/pdf" href="./documents/policies/sample_AC_policy.pdf"/>
+         <!-- Todo: Make base64 optional -->
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -2833,6 +2807,7 @@
          <!-- document date -->
          <prop name="version" value="Document Version"/>
          <rlink media-type="application/pdf" href="./documents/policies/sample_CP_policy.pdf"/>
+         <!-- Todo: Make base64 optional -->
          <base64 filename="sample_policy.pdf" media-type="application/pdf">00000000</base64>
          <remarks>
             <p>Table 12-1 Attachments: Policy Attachment</p>
@@ -3478,8 +3453,8 @@
          <prop name="version" value="Document Version"/>
          <prop name="type" value="agreement" class="isa"/>
          <rlink href="./documents/ISAs/ISA-1.docx"/>
+         <!-- Todo: Make base64 optional -->
          <base64 filename="ISA-1.docx" media-type="application/msword">00000000</base64>
-         <!-- Todo: Fix Schematron. Make base64 optional -->
       </resource>
       <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
          <title>FedRAMP Logo</title>
@@ -3488,8 +3463,8 @@
          </description>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="fedramp-logo"/>
          <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
+         <!-- Todo: Make base64 optional -->
          <base64 filename="logo-main-fedramp.png" media-type="image/png">00000000</base64>
-         <!-- Todo: Fix Schematron. Make base64 optional -->
          <remarks>
             <p>Must be present in a FedRAMP SSP.</p>
          </remarks>

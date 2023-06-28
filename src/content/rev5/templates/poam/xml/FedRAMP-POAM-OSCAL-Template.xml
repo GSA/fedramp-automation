@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
 <plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-                               uuid="c9db1389-df23-4118-b1a2-078d33734880">
+   uuid="6d072a8d-9657-446d-a487-4b6984782472">
    <metadata>
       <title>[System Name] FedRAMP Plan of Action and Milestones (POA&amp;M)</title>
       <published>2023-06-30T00:00:00Z</published>
@@ -9,6 +9,9 @@
       <version>fedramp2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
+      <!-- New rev 5 prop -->
+      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource"
+         value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41" />
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
@@ -382,7 +385,6 @@
                 value="high"
                 system="http://csrc.nist.gov/ns/oscal/unknown"/>
       </characterization>
-      <!-- TODO: Finish converting these. -->
       <characterization>
          <origin>
             <actor type="party" actor-uuid="49f73135-efab-4275-9a79-003656ad890a"/>
@@ -542,6 +544,17 @@
       <associated-risk risk-uuid="ae628cc5-b64c-4030-af30-57e6b24a6ae7"/>
    </poam-item>
    <back-matter>
+      <!-- Rev 5 new "resolution-resource" prop in metadata and corresponding resource in back-matter -->
+      <resource uuid="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41">
+         <title>Resolution Resource</title>
+         <prop name="dataset" class="collection" value="Special Publication"/>
+         <prop name="dataset" class="name" value="800-53"/>
+         <prop name="dataset" class="version" value="5.0.2"/>
+         <prop name="dataset" class="organization" value="gov.nist.csrc"/>
+         <remarks>
+            <p>This "resolution resource" is used by FedRAMP as a local, authoritative indicator of what version POA&amp;M (rev 4 or rev 5) this OSCAL document is for.</p>
+         </remarks>
+      </resource>
       <!-- OSCAL-based SSP -->
       <resource uuid="7c30125f-c056-4888-9f1a-7ed1b6a1b638">
          <title>[System Name] [FIPS-199 Level] SSP</title>
@@ -602,7 +615,7 @@
             <p>Must be present in a FedRAMP POA&amp;M.</p>
          </remarks>
       </resource>
-      <!-- FedRAMP Log -->
+      <!-- FedRAMP Logo -->
       <resource uuid="031a32be-f9ef-45a0-994e-20eb58456dee">
          <description>
             <p>FedRAMP Logo</p>

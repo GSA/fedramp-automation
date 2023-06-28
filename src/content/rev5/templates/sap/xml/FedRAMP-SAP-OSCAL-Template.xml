@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="c94691c8-0b83-483c-bc02-f3d3bf026abb">
+<assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="1a58d031-b0ef-4e3a-9d6f-5c5969bb711e">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Plan (SAP)</title>
       <published>2023-06-30T00:00:00Z</published>
@@ -8,10 +8,13 @@
       <version>fedramp2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information" />
-      <!-- Rev5 update - assessment-scope (initial|annual|significant-change|other) -->
+      <!-- New rev 5 prop -->
+      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource"
+         value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41" />
+      <!-- Rev 5 update - assessment-scope (initial|annual|significant-change|other) -->
       <prop ns="https://fedramp.gov/ns/oscal" name="assessment-type"  class="scope" value="annual" />
       <prop ns="https://fedramp.gov/ns/oscal" name="assessment-type"  class="scope" value="significant-change" />
-      <!-- Rev5 update - significant-changes-scope (none | one | many) -->
+      <!-- Rev 5 update - significant-changes-scope (none | one | many) -->
       <prop ns="https://fedramp.gov/ns/oscal" name="significant-changes-scope" value="many" />
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
@@ -250,7 +253,7 @@
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
          <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
          <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
-         <!-- Rev5 Update - New props for SAP Table 6-1 -->
+         <!-- Rev 5 Update - New props for SAP Table 6-1 -->
          <prop ns="https://fedramp.gov/ns/oscal" name="ia-validated" value="yes" />
          <prop ns="https://fedramp.gov/ns/oscal" name="csp-validated" value="yes" />
          <remarks>
@@ -261,7 +264,7 @@
       </responsible-party>
       <responsible-party role-id="assessment-team">
          <party-uuid>9135b789-a40c-4a20-9be6-fab23c0ab0f3</party-uuid>
-         <!-- Rev5 Update - New props for SAP Table 6-1 -->
+         <!-- Rev 5 Update - New props for SAP Table 6-1 -->
          <prop ns="https://fedramp.gov/ns/oscal" name="ia-validated" value="yes" />
          <prop ns="https://fedramp.gov/ns/oscal" name="csp-validated" value="no" />
       </responsible-party>
@@ -496,7 +499,7 @@
             </part>
          </part>
       </objectives-and-methods>
-      <!-- Section 6.5 Schedule -->
+      <!-- Section 6.4 Testing performed through manual methods -->
       <activity uuid="2715174e-9355-4775-bea4-4068e59e916b">
          <title>Title of the Manual Test</title>
          <description>
@@ -1420,6 +1423,17 @@
       </task>
    </task>
    <back-matter>
+      <!-- Rev 5 new "resolution-resource" prop in metadata and corresponding resource in back-matter -->
+      <resource uuid="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41">
+         <title>Resolution Resource</title>
+         <prop name="dataset" class="collection" value="Special Publication"/>
+         <prop name="dataset" class="name" value="800-53"/>
+         <prop name="dataset" class="version" value="5.0.2"/>
+         <prop name="dataset" class="organization" value="gov.nist.csrc"/>
+         <remarks>
+            <p>This "resolution resource" is used by FedRAMP as a local, authoritative indicator of what version SAP (rev 4 or rev 5) this OSCAL document is for.</p>
+         </remarks>
+      </resource>
       <!-- OSCAL-based SSP -->
       <resource uuid="7c30125f-c056-4888-9f1a-7ed1b6a1b638">
          <title>[System Name] [FIPS-199 Level] SSP</title>
@@ -1506,7 +1520,7 @@
          <description>
             <p>Embed or reference copies of the sampling methodology for security controls assessment and vulnerability scanning (if applicable).</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="sampling-metthodology"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="type" value="sampling-methodology"/>
          <!-- Use rlink and/or base64 -->
          <rlink href="./sampling-methodology-reference-1.pdf" media-type="application/pdf"/>
          <rlink href="./sampling-methodology-reference-2.docx" media-type="application/msword"/>
@@ -1524,14 +1538,14 @@
                   <th>Mandatory Attack Vectors</th>
                   <th>Include</th>
                   <th>Threat Models</th>
-                  <th>Inclucde</th>
+                  <th>Include</th>
                   <th>Attack Models</th>
                </tr>
                <tr>
                   <td>x</td>
                   <td>External to Corporate</td>
                   <td></td>
-                  <td>Internet based (untursted)</td>
+                  <td>Internet based (untrusted)</td>
                   <td></td>
                   <td>Enterprise</td>
                </tr>
@@ -1623,7 +1637,7 @@
          <rlink href="./logo.png" media-type="image/png"/>
          <base64>00000000</base64>
       </resource>
-      <!-- FedRAMP Log -->
+      <!-- FedRAMP Logo -->
       <resource uuid="031a32be-f9ef-45a0-994e-20eb58456dee">
          <description>
             <p>FedRAMP Logo</p>

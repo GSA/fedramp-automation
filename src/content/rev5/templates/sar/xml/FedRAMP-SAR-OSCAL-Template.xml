@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
 <assessment-results xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-   uuid="7ea5c269-ee26-48c8-b32c-91aa26339023">
+   uuid="26a53d2c-4249-4e0c-9939-410590f3ae9e">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Results (SAR)</title>
       <published>2023-06-30T00:00:00Z</published>
@@ -9,6 +9,9 @@
       <version>fedramp2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
+      <!-- New rev 5 prop -->
+      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource"
+         value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41" />
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
@@ -1361,6 +1364,17 @@
       </attestation>
    </result>
    <back-matter>
+      <!-- Rev 5 new "resolution-resource" prop in metadata and corresponding resource in back-matter -->
+      <resource uuid="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41">
+         <title>Resolution Resource</title>
+         <prop name="dataset" class="collection" value="Special Publication"/>
+         <prop name="dataset" class="name" value="800-53"/>
+         <prop name="dataset" class="version" value="5.0.2"/>
+         <prop name="dataset" class="organization" value="gov.nist.csrc"/>
+         <remarks>
+            <p>This "resolution resource" is used by FedRAMP as a local, authoritative indicator of what version SAR (rev 4 or rev 5) this OSCAL document is for.</p>
+         </remarks>
+      </resource>
       <!-- OSCAL-Based SAP -->
       <resource uuid="5cce2310-8fcc-49f8-8cae-8e31dc8048f1">
          <title>[System Name] [FIPS-199 Level] SAP</title>
@@ -1515,7 +1529,7 @@
          <rlink href="./logo.png" media-type="image/png"/>
          <base64>00000000</base64>
       </resource>
-      <!-- FedRAMP Log -->
+      <!-- FedRAMP Logo -->
       <resource uuid="031a32be-f9ef-45a0-994e-20eb58456dee">
          <description>
             <p>FedRAMP Logo</p>
