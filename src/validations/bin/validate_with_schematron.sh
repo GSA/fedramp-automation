@@ -86,7 +86,7 @@ else
 fi
 
 #if version not specified default
-SAXON_VERSION=${SAXON_VERSION:-12.2}
+SAXON_VERSION=${SAXON_VERSION:-10.8}
 SAXON_OPTS="${SAXON_OPTS:-allow-foreign=true diagnose=true}"
 BASE_DIR="${BASE_DIR:-.}"
 
