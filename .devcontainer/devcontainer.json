@@ -5,9 +5,13 @@
       "version": "latest",
       "moby": true
     },
-    "ghcr.io/devcontainers/features/node:1.2.0": {},
-    "ghcr.io/devcontainers/features/java:1.2.1": {},
-    "ghcr.io/devcontainers/features/python:1.1.0": {}
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.10.12"
+    }
   },
-  "postCreateCommand": "bash -i -c 'nvm install'"
+  "postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install"
 }
