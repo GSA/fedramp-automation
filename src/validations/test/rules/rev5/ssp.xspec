@@ -3025,8 +3025,8 @@
                             <resource>
                                 <prop
                                     name="type"
-                                    value="plan"
-                                    class="not-information-system-contingency-plan" />
+                                    value="0"
+                                    class="information-system-contingency-plan" />
                             </resource>
                         </back-matter>
                     </x:context>
