@@ -28,7 +28,7 @@
         uri="http://us.gov/testing/unit-testing" />
 
     <doc:xspec
-        href="../../test/rules/rev4/poam.xspec" />
+        href="../../test/rules/rev5/poam.xspec" />
 
     <sch:title>FedRAMP Plan of Action and Milestones Validations</sch:title>
 

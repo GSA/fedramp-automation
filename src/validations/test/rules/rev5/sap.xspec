@@ -2,7 +2,7 @@
 
 <x:description
     run-as="external"
-    schematron="../../../rules/rev4/sap.sch"
+    schematron="../../../rules/rev5/sap.sch"
     xmlns:x="http://www.jenitennison.com/xslt/xspec">
 
     <x:scenario
@@ -21,7 +21,7 @@
                             name="type"
                             value="system-security-plan" />
                         <rlink
-                            href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                            href="../../../../dist/content/rev5/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
                             media-type="text/xml" />
                     </resource>
                 </back-matter>
@@ -207,10 +207,10 @@
                                     name="type"
                                     value="system-security-plan" />
                                 <rlink
-                                    href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                                    href="../../../../dist/content/rev5/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
                                     media-type="text/xml" />
                                 <rlink
-                                    href="../../../../dist/content/rev4/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json"
+                                    href="../../../../dist/content/rev5/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json"
                                     media-type="application/json" />
                             </resource>
                         </back-matter>
@@ -242,7 +242,7 @@
                                     name="type"
                                     value="system-security-plan" />
                                 <rlink
-                                    href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                                    href="../../../../dist/content/rev5/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
                                     media-type="text/markdown" />
                             </resource>
                         </back-matter>
@@ -376,10 +376,10 @@
                             name="type"
                             value="system-security-plan" />
                         <rlink
-                            href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
+                            href="../../../../dist/content/rev5/templates/ssp/xml/FedRAMP-SSP-OSCAL-Template.xml"
                             media-type="text/xml" />
                         <rlink
-                            href="../../../../dist/content/rev4/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json"
+                            href="../../../../dist/content/rev5/templates/ssp/json/FedRAMP-SSP-OSCAL-Template.json"
                             media-type="application/json" />
                     </resource>
                 </back-matter>

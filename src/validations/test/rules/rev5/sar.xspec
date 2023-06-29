@@ -2,7 +2,7 @@
 
 <x:description
     run-as="external"
-    schematron="../../../rules/rev4/sar.sch"
+    schematron="../../../rules/rev5/sar.sch"
     xmlns:x="http://www.jenitennison.com/xslt/xspec"
     xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <x:param
@@ -32,7 +32,7 @@
                                 name="type"
                                 value="security-assessment-plan" />
                             <rlink
-                                href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
+                                href="../../../../dist/content/rev5/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
                                 media-type="text/xml" />
                         </resource>
                     </back-matter>
@@ -217,10 +217,10 @@
                                         name="type"
                                         value="security-assessment-plan" />
                                     <rlink
-                                        href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
+                                        href="../../../../dist/content/rev5/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
                                         media-type="text/xml" />
                                     <rlink
-                                        href="../../../../dist/content/rev4/templates/ssp/json/FedRAMP-SAR-OSCAL-Template.json"
+                                        href="../../../../dist/content/rev5/templates/ssp/json/FedRAMP-SAR-OSCAL-Template.json"
                                         media-type="application/json" />
                                 </resource>
                             </back-matter>
@@ -252,7 +252,7 @@
                                         name="type"
                                         value="security-assessment-plan" />
                                     <rlink
-                                        href="../../../../dist/content/rev4/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
+                                        href="../../../../dist/content/rev5/templates/ssp/xml/FedRAMP-SAR-OSCAL-Template.xml"
                                         media-type="text/markdown" />
                                 </resource>
                             </back-matter>

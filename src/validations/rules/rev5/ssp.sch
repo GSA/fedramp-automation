@@ -178,7 +178,7 @@
     </sch:phase>
 
     <doc:xspec
-        href="../../test/rules/rev4/ssp.xspec" />
+        href="../../test/rules/rev5/ssp.xspec" />
 
     <!-- settings for use (or not) of remote resources -->
     <!-- XSLT parameter param-use-remote-resources -->
@@ -262,11 +262,11 @@
     <xsl:param
         as="xs:string"
         name="registry-base-path"
-        select="'../../../content/rev4/resources/xml'" />
+        select="'../../../content/rev5/resources/xml'" />
     <xsl:param
         as="xs:string"
         name="baselines-base-path"
-        select="'../../../../dist/content/rev4/baselines/xml'" />
+        select="'../../../../dist/content/rev5/baselines/xml'" />
     <sch:let
         name="registry"
         value="doc(concat($registry-base-path, '/fedramp_values.xml')) | doc(concat($registry-base-path, '/fedramp_threats.xml')) | doc(concat($registry-base-path, '/information-types.xml'))" />
@@ -339,13 +339,13 @@
         <xsl:variable
             name="profile-map">
             <profile
-                href="{concat($baselines-base-path, '/FedRAMP_rev4_LOW-baseline-resolved-profile_catalog.xml')}"
+                href="{concat($baselines-base-path, '/FedRAMP_rev5_LOW-baseline-resolved-profile_catalog.xml')}"
                 level="fips-199-low" />
             <profile
-                href="{concat($baselines-base-path, '/FedRAMP_rev4_MODERATE-baseline-resolved-profile_catalog.xml')}"
+                href="{concat($baselines-base-path, '/FedRAMP_rev5_MODERATE-baseline-resolved-profile_catalog.xml')}"
                 level="fips-199-moderate" />
             <profile
-                href="{concat($baselines-base-path, '/FedRAMP_rev4_HIGH-baseline-resolved-profile_catalog.xml')}"
+                href="{concat($baselines-base-path, '/FedRAMP_rev5_HIGH-baseline-resolved-profile_catalog.xml')}"
                 level="fips-199-high" />
         </xsl:variable>
         <xsl:variable

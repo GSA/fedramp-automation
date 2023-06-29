@@ -28,7 +28,7 @@
         uri="http://us.gov/testing/unit-testing" />
 
     <doc:xspec
-        href="../../test/rules/rev4/sap.xspec" />
+        href="../../test/rules/rev5/sap.xspec" />
 
     <sch:title>FedRAMP Security Assessment Plan Validations</sch:title>
 

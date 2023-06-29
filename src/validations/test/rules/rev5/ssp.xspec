@@ -1,5 +1,5 @@
 <x:description
-    schematron="../../../rules/rev4/ssp.sch"
+    schematron="../../../rules/rev5/ssp.sch"
     xmlns:f="https://fedramp.gov/ns/oscal"
     xmlns:lv="local-validations"
     xmlns:o="http://csrc.nist.gov/ns/oscal/1.0"
