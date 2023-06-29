@@ -3062,8 +3062,8 @@
                             <resource>
                                 <prop
                                     name="type"
-                                    value="plan"
-                                    class="not-configuration-management-plan" />
+                                    value="0"
+                                    class="configuration-management-plan" />
                             </resource>
                         </back-matter>
                     </x:context>
