@@ -2973,7 +2973,6 @@
                             <resource>
                                 <prop
                                     name="type"
-                                    ns="https://fedramp.gov/ns/oscal"
                                     value="rules-of-behavior" />
                             </resource>
                         </back-matter>
@@ -2990,7 +2989,6 @@
                             <resource>
                                 <prop
                                     name="type"
-                                    ns="https://fedramp.gov/ns/oscal"
                                     value="not-rules-of-behavior" />
                             </resource>
                         </back-matter>
