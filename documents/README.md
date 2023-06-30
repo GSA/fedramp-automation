@@ -4,7 +4,7 @@
 
 The following FedRAMP guides, based on the Open Security Controls Assessment Language (OSCAL), are available:
 
-- **Guide to OSCAL-based FedRAMP Content** <span style='color:red'>[START HERE]</span> ([rev 4](./rev4/Guide_to_OSCAL-based_FedRAMP_Content_rev4.pdf) | [rev 5](./rev5/Guide_to_OSCAL-based_FedRAMP_Content_rev5.pdf))
+- **Guide to OSCAL-based FedRAMP Content** <span style='color:red'>[START HERE]</span> ([rev 4](./rev4/Guide_to_OSCAL-based_FedRAMP_Content.pdf) | [rev 5](./rev5/Guide_to_OSCAL-based_FedRAMP_Content_rev5.pdf))
 
 - **Guide to OSCAL-based FedRAMP System Security Plans (SSP)** ([rev 4](./rev4/Guide_to_OSCAL-based_FedRAMP_System_Security_Plans_(SSP)_rev4.pdf) | [rev 5](./rev5/Guide_to_OSCAL-based_FedRAMP_System_Security_Plans_(SSP)_rev5.pdf))
 
