@@ -24,11 +24,11 @@ The FedRAMP PMO is releasing the following OSCAL content:
 
 *The FedRAMP OSCAL templates, registry, and implementation guides for rev 5 will be released in a few weeks*.
 
-- **FedRAMP OSCAL Templates:** The template files are pre-populated with FedRAMP extensions, defined-identifiers, and conformity tags where practical. They also include sample data, and are the basis for their respective guidance documents above. The FedRAMP OSCAL SSP, SAP, SAR, and POA&M template will be available soon in XML, JSON, and YAML formats.
+- **FedRAMP OSCAL Templates:** The template files are pre-populated with FedRAMP extensions, defined-identifiers, and conformity tags where practical. They also include sample data, and are the basis for their respective guidance documents above. The FedRAMP OSCAL SSP, SAP, SAR, and POA&M template are now available [here](./documents/) in XML, JSON, and YAML formats.
 
-- **FedRAMP OSCAL Registry** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The FedRAMP OSCAL Registry will be available soon in XML format.
+- **FedRAMP OSCAL Registry** This registry is the authoritative source for all FedRAMP extensions to the OSCAL syntax, FedRAMP-defined identifiers, and accepted values. The FedRAMP OSCAL Registry is now available [here](./dist/content/rev5/resources) in XML format.
 
-- **Implementation Guides:** These documents help tool developers and content authors ensure any generated OSCAL-based FedRAMP deliverabes are fully compliant with FedRAMP’s extensions, defined identifiers, conformity tags, and acceptable values. The FedRAMP OSCAL implementation guides will be available soon in PDF format.
+- **Implementation Guides:** These documents help tool developers and content authors ensure any generated OSCAL-based FedRAMP deliverabes are fully compliant with FedRAMP’s extensions, defined identifiers, conformity tags, and acceptable values. The FedRAMP OSCAL implementation guides is now available [here](./documents/) in PDF format.
 
 Please ask questions or provide feedback on the items above above either via email to [oscal@fedramp.gov](mailto:oscal@fedramp.gov), as a comment to an existing [issue](https://github.com/GSA/fedramp-automation/issues), or as a new [issue](https://github.com/GSA/fedramp-automation/issues).
 
