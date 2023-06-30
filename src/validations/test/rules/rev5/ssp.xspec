@@ -2041,8 +2041,8 @@
                                         value="plan" />
                                     <prop
                                         name="type"
-                                        ns="https://fedramp.gov/ns/oscal"
-                                        value="information-system-contingency-plan" />
+                                        value="plan"
+                                        class="information-system-contingency-plan" />
                                     <base64
                                         filename="information_system_contingency_plan.docx"
                                         media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"> 00000000</base64>
@@ -3019,8 +3019,8 @@
                             <resource>
                                 <prop
                                     name="type"
-                                    value="plan"
-                                    class="not-information-system-contingency-plan" />
+                                    value="0"
+                                    class="information-system-contingency-plan" />
                             </resource>
                         </back-matter>
                     </x:context>
