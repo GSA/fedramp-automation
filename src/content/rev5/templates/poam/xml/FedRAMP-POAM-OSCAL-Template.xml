@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-   uuid="6d072a8d-9657-446d-a487-4b6984782472">
+<plan-of-action-and-milestones xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="6d072a8d-9657-446d-a487-4b6984782472">
    <metadata>
       <title>[System Name] FedRAMP Plan of Action and Milestones (POA&amp;M)</title>
       <published>2023-06-30T00:00:00Z</published>
@@ -10,8 +9,7 @@
       <oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- New rev 5 prop -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource"
-         value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41" />
+      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
@@ -124,12 +122,9 @@
    <import-ssp href="#7c30125f-c056-4888-9f1a-7ed1b6a1b638">
       <remarks>
          <p>Link the SAP to the SSP.</p>
-         <p>FedRAMP prefers the path for the SSP be relative to the location of this SAP file.
-            Absolute links will likely not work when FedRAMP tools import the content.</p>
+         <p>FedRAMP prefers the path for the SSP be relative to the location of this SAP file. Absolute links will likely not work when FedRAMP tools import the content.</p>
          <p>This may point to a back-matter resource using a URI fragment.</p>
-         <p>If no OSCAL-based SSP exists, this must be a URI fragment pointing to a special
-            back-matter resource. The resource must include the <code>no-oscal-ssp</code> conformity
-            tag.</p>
+         <p>If no OSCAL-based SSP exists, this must be a URI fragment pointing to a special back-matter resource. The resource must include the <code>no-oscal-ssp</code> conformity tag.</p>
       </remarks>
    </import-ssp>
    <system-id identifier-type="https://fedramp.gov">F00000000</system-id>
@@ -299,9 +294,7 @@
       <statement>
          <p>Describe the risk</p>
       </statement>
-      <prop ns="https://fedramp.gov/ns/oscal"
-            name="impacted-control-id"
-            value="ac-2"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="impacted-control-id" value="ac-2"/>
       <status>open</status>
       <characterization>
          <origin>
@@ -353,37 +346,23 @@
          <p>This is a statement about the identified risk as provided by the tool.</p>
          <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
       </statement>
-      <prop ns="https://fedramp.gov/ns/oscal"
-            name="impacted-control-id"
-            value="ac-2"/>
-      <prop ns="https://fedramp.gov/ns/oscal"
-            name="vendor-dependency"
-            value="tracking"/>
-      <prop ns="https://fedramp.gov/ns/oscal"
-            name="operational-requirement"
-            value="approved"/>
-      <prop ns="https://fedramp.gov/ns/oscal"
-            name="false-positive"
-            value="withdrawn"/>
-      <prop ns="https://fedramp.gov/ns/oscal"
-            name="risk-adjustment"
-            value="approved"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="impacted-control-id" value="ac-2"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="vendor-dependency" value="tracking"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="operational-requirement" value="approved"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="false-positive" value="withdrawn"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="risk-adjustment" value="approved"/>
       <status>open</status>
       <characterization>
          <origin>
             <actor type="tool" actor-uuid="9d194268-a9d1-4c38-839f-9c4aa57bf71e">
-               <prop ns="https://fedramp.gov/ns/oscal" name="vulnerability-id" value="VulID-001" />
+               <prop ns="https://fedramp.gov/ns/oscal" name="vulnerability-id" value="VulID-001"/>
                <prop ns="https://fedramp.gov/ns/oscal" name="plugin-id" value="Plugin-ID"/>
             </actor>
          </origin>
          <facet name="iavm-severity" value="high" system="https://us-cert.cisa.gov"/>
          <facet name="attack-vector" value="network" system="http://www.first.org/cvss/v3.1"/>
-         <facet name="cve-id"
-                value="CVE-2020-00000"
-                system="http://cve.mitre.org"/>
-         <facet name="impact"
-                value="high"
-                system="http://csrc.nist.gov/ns/oscal/unknown"/>
+         <facet name="cve-id" value="CVE-2020-00000" system="http://cve.mitre.org"/>
+         <facet name="impact" value="high" system="http://csrc.nist.gov/ns/oscal/unknown"/>
       </characterization>
       <characterization>
          <origin>
@@ -399,17 +378,14 @@
                </remarks>
             </prop>
          </facet>
-         <facet name="AV"
-                value="network"
-                system="http://csrc.nist.gov/ns/oscal/unknown"/>
+         <facet name="AV" value="network" system="http://csrc.nist.gov/ns/oscal/unknown"/>
       </characterization>
       <mitigating-factor uuid="260d3c0a-fc2e-4627-9fb9-a003acdc4b14">
          <description>
             <p>Describe mitigating factor</p>
          </description>
       </mitigating-factor>
-      <mitigating-factor uuid="fd061039-e9b0-4b4c-a78b-ca024d411174"
-                         implementation-uuid="46f4c261-e488-4fb5-84d6-6a61dd30c3d7">
+      <mitigating-factor uuid="fd061039-e9b0-4b4c-a78b-ca024d411174" implementation-uuid="46f4c261-e488-4fb5-84d6-6a61dd30c3d7">
          <description>
             <p>Describe why the cited implementation statement justifies lowering the risk.</p>
          </description>
@@ -577,18 +553,10 @@
          </description>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="no-oscal-ssp"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="title-short" value="SFN"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-            name="system-id"
-            value="FR00000000"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-            name="import-profile"
-            value="#890170c3-d4fa-4d25-ab96-8e4bf7cc237c"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-            name="purpose"
-            value="Briefly state the system's purpose. This will appear in the SAR."/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-            name="authorization-date"
-            value="2017-01-23T00:00:00Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="system-id" value="FR00000000"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="import-profile" value="#890170c3-d4fa-4d25-ab96-8e4bf7cc237c"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="purpose" value="Briefly state the system's purpose. This will appear in the SAR."/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authorization-date" value="2017-01-23T00:00:00Z"/>
          <remarks>
             <p>Only include this resource if no OSCAL-based SSP is available.</p>
             <p>Delete it otherwise.</p>

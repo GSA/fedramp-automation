@@ -20,8 +20,7 @@
       </revisions>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- New rev 5 prop -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource"
-         value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41" />
+      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <role id="fedramp-pmo">
@@ -231,7 +230,7 @@
          <location-uuid>27b78960-59ef-4619-82b0-ae20b9c709ac</location-uuid>
          <remarks>
             <p>Replace sample CSP information.</p>
-            <p>CSP informaton must be present and associated with the "cloud-service-provider" role via <code>responsible-party</code>.</p>
+            <p>CSP information must be present and associated with the "cloud-service-provider" role via <code>responsible-party</code>.</p>
          </remarks>
       </party>
       <party uuid="77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d" type="organization">
@@ -575,7 +574,7 @@
          <security-objective-integrity>fips-199-moderate</security-objective-integrity>
          <security-objective-availability>fips-199-moderate</security-objective-availability>
       </security-impact-level>
-      
+
       <!-- Fully Operational as of -->
       <status state="operational">
          <remarks>
@@ -583,7 +582,7 @@
             <p>Remarks are required otherwise.</p>
          </remarks>
       </status>
-      
+
       <!-- Section 8 - Illustrated Architecture and Narrative -->
       <authorization-boundary>
          <!-- Section 8.2 Narrative (boundary) -->
@@ -676,7 +675,8 @@
          <prop ns="https://fedramp.gov/ns/oscal" name="sensitivity" value="moderate"/>
          <prop name="privilege-level" value="non-privileged"/>
          <!-- New Rev 5 prop - refer to for authentication methods NIST 800-63B (https://pages.nist.gov/800-63-3/sp800-63b.html) for authentiction methods -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="memorized seccret plus SF OTP device"/><prop name="type" value="external"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authentication-method" value="memorized seccret plus SF OTP device"/>
+         <prop name="type" value="external"/>
          <role-id>admin-client</role-id>
          <authorized-privilege>
             <title>Portal administration</title>
@@ -715,7 +715,7 @@
          <authorized-privilege>
             <title>External System Access Provider</title>
             <function-performed>Authorizes access to external interconnected system.</function-performed>
-         </authorized-privilege>        
+         </authorized-privilege>
       </user>
       <!-- Components -->
       <!-- OSCAL requires existance of a "this-system" component -->
@@ -742,7 +742,7 @@
             <p>Lastly, provide any supporting notes on FIPS status (e.g. historical) or lack of FIPS compliance (e.g., Module in Process).</p>
          </description>
          <!-- Rev 5 new props for CMs -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-at-rest"/>
          <!-- Provide the validation type for this CM -->
@@ -760,7 +760,7 @@
             <p>For example, any supporting notes on FIPS status (e.g. historical) or lack of FIPS compliance (e.g., Module in Process).</p>
          </description>
          <!-- Rev5 new props for CMs -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="cryptographic-module"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="CM Vendor"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="cryptographic-module-usage" value="data-in-transit"/>
          <!-- Provide the validation type for this CM -->
@@ -779,21 +779,24 @@
          <title>Name of Leveraged System</title>
          <description>
             <p>If the leveraged system owner provides a UUID for their system (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
-            <p>Must include all levereged services and features fromthe leveraged authorization here.</p>
+            <p>Must include all leveraged services and features from the leveraged authorization here.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="paas" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="asset-type" value="paas"/>
          <!-- Components of type "interconnection" must have the following props  -->
          <prop name="isa-title" value="system interconnection agreement"/>
          <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="SLA" /><!-- New Rev 5 prop - Specify ty e type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="SLA"/>
+         <!-- New Rev 5 prop - Specify ty e type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc. -->
          <prop name="ipv4-address" value="172.0.0.0"/>
          <prop name="ipv6-address" value="::"/>
          <prop name="direction" value="incoming"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="information" value="describe information being transferred" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="information" value="describe information being transferred"/>
          <!-- New Rev 5 prop - Add a prop for each data type and metadata type transmitted, stored or processed by the system / service, including federal and sensitive system data.  Specify the value based on NIST 800-60 Vol II data types for the system. -->
          <!-- Alternatively, if the list is long, data types may be provided as a link to a backmatter resource containing all the information -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.1" /><!-- system development information type -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.8" /><!-- system & network monitoring information type --> 
+         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.1"/>
+         <!-- system development information type -->
+         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.8"/>
+         <!-- system & network monitoring information type -->
          <!-- other props -->
          <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
          <prop name="implementation-point" value="external"/>
@@ -805,12 +808,12 @@
          <title>Service Provided by Leveraged System</title>
          <description>
             <p>If the leveraged system owner provides a UUID for their service (such as in an OSCAL-based CRM), it should be reflected in the <code>inherited-uuid</code> property.</p>
-            <p>Must include all levereged services and features fromthe leveraged authorization here.</p>
+            <p>Must include all leveraged services and features from the leveraged authorization here.</p>
          </description>
          <prop name="leveraged-authorization-uuid" value="5a9c98ab-8e5e-433d-a7bd-515c07cd1497"/>
          <prop name="implementation-point" value="external"/>
          <prop name="inherited-uuid" value="11111111-0000-4000-9001-000000000002"/>
-         <link href="60f92bcf-f353-4236-9803-2a5d417555f4" rel="used-by" />
+         <link href="60f92bcf-f353-4236-9803-2a5d417555f4" rel="used-by"/>
          <status state="operational"/>
       </component>
 
@@ -825,28 +828,32 @@
          </description>
          <prop ns="https://fedramp.gov/ns/oscal" name="service-processor" value="[SAMPLE] Telco Name"/>
          <!-- New Rev5 prop.  Specify the type of interconnection (1=Non-FedRAMP authorized cloud service, 2=Corporate Shared Services, 3-update Service for In-Boundary SW/Services) -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-type" value="1" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-type" value="1"/>
          <!-- New Rev5 prop.  Specify the type of agreement (e.g., EULA, SLA, App License Agreement, Contract, etc.) -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="Contract" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="nature-of-agreement" value="Contract"/>
          <!-- New Rev5 prop.  Specify if this product still supported by the manufacturer? Accepted values are "yes" or "no" -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="still-supported" value="yes" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="still-supported" value="yes"/>
          <!-- New Rev5 prop. Add a prop for each data type and metadata type transmitted, stored or processed by the system / service, including federal and sensitive system data.  Specify the value based on NIST 800-60 Vol II data types for the system. -->
          <!-- Alternatively, if the list is long, data types may be provided as a link to a backmatter resource containing all the information -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.1" /><!-- system development information type -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.8" /><!-- system & network monitoring information type --> 
+         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.1"/>
+         <!-- system development information type -->
+         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-data-type" value="C.3.5.8"/>
+         <!-- system & network monitoring information type -->
          <!-- New Rev5 prop. For each interconnection-data-type above, add a prop for the corresponding data categorization.  Use the security impact level of the data (Low, Moderate, High) in accordance with FIPS 199 & NIST 800-60 Vol. 2. -->
          <!-- Alternatively, if the list is long, data categorization may be provided as a link to a backmatter resource containing all the information -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="C.3.5.1" name="interconnection-data-categorization" value="low" /><!-- low, moderate, high -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="C.3.5.8" name="interconnection-data-categorization" value="moderate" /><!-- low, moderate, high --> 
+         <prop ns="https://fedramp.gov/ns/oscal" class="C.3.5.1" name="interconnection-data-categorization" value="low"/>
+         <!-- low, moderate, high -->
+         <prop ns="https://fedramp.gov/ns/oscal" class="C.3.5.8" name="interconnection-data-categorization" value="moderate"/>
+         <!-- low, moderate, high -->
          <!-- New Rev5 prop.  Use prop to list the user roles (e.g., SecOps engineers) authorized to access the service, and provide the authentication method. -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="authorized-users" value="SecOps engineers" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="authorized-users" value="SecOps engineers"/>
          <!-- New Rev5 prop.  List any certifications for this service (e.g., PCI SOC 2, CSA STAR Level 2, FISMA, etc.) -->
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-compliance" value="PCI SOC 2" />
-         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-compliance" value="ISO/IEC 27001" />
+         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-compliance" value="PCI SOC 2"/>
+         <prop ns="https://fedramp.gov/ns/oscal" class="fedramp" name="interconnection-compliance" value="ISO/IEC 27001"/>
          <!-- New Rev5 prop. Describe the hosting environemnt (e.g., corporate newtork, IaaS, self-hosted, etc.) -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-hosting-environment" value="PaaS" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-hosting-environment" value="PaaS"/>
          <!-- New Rev5 prop. Describe potential risks introduced by the external system/service and impact to the CSO or federal data if the CIA of the system/service is compromised. Describe any mitigations or compensating controls in place to reduce risk. -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-risk" value="None" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-risk" value="None"/>
          <!-- Components of type "interconnection" must have the following props  -->
          <prop name="isa-title" value="system interconnection agreement"/>
          <prop name="isa-date" value="2023-01-01T00:00:00Z"/>
@@ -860,9 +867,9 @@
          <prop ns="https://fedramp.gov/ns/oscal" name="information" value="Describe the information being transmitted."/>
          <prop ns="https://fedramp.gov/ns/oscal" name="port" class="remote" value="80"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="interconnection-security" value="ipsec">
-         <remarks>
+            <remarks>
                <p>If "other", remarks are required. Optional otherwise.</p>
-         </remarks>
+            </remarks>
          </prop>
          <link rel="isa-agreement" href="#9d6cf2b4-8e88-4040-a33c-7bc206553a1a"/>
          <status state="operational"/>
@@ -1033,8 +1040,8 @@
             <p>Describe the service</p>
          </description>
          <purpose>Describe the reason the service is needed.</purpose>
-         <link href="60f92bcf-f353-4236-9803-2a5d417555f4" rel="used-by" />
-         <link href="77A1614A-57B3-4B32-9FEE-613A6520EC58" rel="provided-by" />
+         <link href="60f92bcf-f353-4236-9803-2a5d417555f4" rel="used-by"/>
+         <link href="77A1614A-57B3-4B32-9FEE-613A6520EC58" rel="provided-by"/>
          <status state="operational"/>
          <protocol name="http" uuid="653ad9b9-9c78-4bc0-8a93-6ebd3c0fce54">
             <port-range start="80" end="80" transport="TCP"/>
@@ -1113,7 +1120,7 @@
          <description>
             <p>Email Service</p>
          </description>
-         <link href="60f92bcf-f353-4236-9803-2a5d417555f4" rel="used-by" />
+         <link href="60f92bcf-f353-4236-9803-2a5d417555f4" rel="used-by"/>
          <!-- is-scanned prop applies to inventory-item (not component) -->
          <!-- <prop name="is-scanned" value="yes"/> -->
          <status state="operational"/>
@@ -1463,8 +1470,8 @@
          <statement statement-id="ac-2_smt.a" uuid="24a85abb-25ad-4686-850c-5c0e8ab69a0c">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="b29d1505-69fa-4ad0-834b-d179e7f44f98">
                <description>
-                  <p>Describe how AC-2, part a is statisfied within this sytem.</p>
-                  <p>This points to the "Ths System" component, and is used any time a more specific component reference is not available.</p>
+                  <p>Describe how AC-2, part a is satisfied within this system.</p>
+                  <p>This points to the "This System" component, and is used any time a more specific component reference is not available.</p>
                </description>
                <export>
                   <provided uuid="b068e08a-53b9-4f80-ac5f-0476c35c6e46">
@@ -1511,7 +1518,7 @@
                   <p>The component-uuid above points to the "this system" component.</p>
                   <p>Any control response content that does not cleanly fit another system component is placed here. This includes customer responsibility content.</p>
                   <p>This can also be used to provide a summary, such as a holistic overview of how multiple components work together.</p>
-                  <p>While the "this system" component is not expclicity required within every <code>statement</code>, it will typically be present.</p>
+                  <p>While the "this system" component is not explicitly required within every <code>statement</code>, it will typically be present.</p>
                </remarks>
             </by-component>
             <by-component component-uuid="e82e6e07-0c62-417e-8a19-3744991b4c65" uuid="84de735f-ba37-4bb4-b784-79760f986a40">
@@ -1524,15 +1531,15 @@
                      <p>Consumer-appropriate description of what may be inherited as provided by the leveraged system.</p>
                      <p>In the context of this component in satisfaction of AC-2, part a.</p>
                      <p>The <code>provided-uuid</code> links this to the same statement in the leveraged system's SSP.</p>
-                     <p>It may be linked directly, but is more commonly provided via an OSCAL-based CRM (Inheritence and Responsibility Model).</p>
+                     <p>It may be linked directly, but is more commonly provided via an OSCAL-based CRM (Inheritance and Responsibility Model).</p>
                   </description>
                </inherited>
                <satisfied responsibility-uuid="11111111-0000-4000-9009-002001002002" uuid="6486F725-1372-434F-9B1B-7CF3F50C32D1">
                   <description>
                      <p>Description of how the responsibility was satisfied.</p>
                      <p>The <code>responsibility-uuid</code> links this to the same statement in the leveraged system's SSP.</p>
-                     <p>It may be linked directly, but is more commonly provided via an OSCAL-based CRM (Inheritence and Responsibility Model).</p>
-                     <p>Tools should use this to ensure all identified customer <code>responsiblity</code> statements have a corrisponding <code>satisfied</code> statement in the leveraging system's SSP.</p>
+                     <p>It may be linked directly, but is more commonly provided via an OSCAL-based CRM (Inheritance and Responsibility Model).</p>
+                     <p>Tools should use this to ensure all identified customer <code>responsibility</code> statements have a corresponding <code>satisfied</code> statement in the leveraging system's SSP.</p>
                      <p>Tool developers should be mindful that </p>
                   </description>
                </satisfied>
@@ -2611,9 +2618,9 @@
       <implemented-requirement control-id="sr-1" uuid="2286bf93-2664-4852-bc4c-e235ec076b94">
          <prop ns="https://fedramp.gov/ns/oscal" name="planned-completion-date" value="2024-01-31Z"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="planned">
-         <remarks>
+            <remarks>
                <p>Describe the plan to complete the implementation.</p>
-         </remarks>
+            </remarks>
          </prop>
          <prop ns="https://fedramp.gov/ns/oscal" name="control-origination" value="sp-system"/>
          <link href="#7d440e15-ca4d-4e4a-8fcc-50bb05ffa2fd" rel="policy"/>
@@ -2623,9 +2630,9 @@
          </responsible-role>
          <statement statement-id="sr-1_smt" uuid="ea3cc181-1a55-4350-94a6-faf42f003045">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="ea3cc181-1a55-4350-94a6-faf42f003045">
-         <description>
+               <description>
                   <p>Describe how the control is satisfied within the system.</p>
-         </description>
+               </description>
                <set-parameter param-id="sr-1_prm_1">
                   <value>to include chief privacy and ISSO and/or similar role or designees</value>
                </set-parameter>
@@ -2639,23 +2646,23 @@
          </statement>
          <statement statement-id="sr-1_smt.a" uuid="76bc5347-1fbd-4386-a839-ac042e59ac82">
             <by-component component-uuid="60f92bcf-f353-4236-9803-2a5d417555f4" uuid="319cc842-aebc-4625-8cfe-1586e57148a5">
-         <description>
+               <description>
                   <p>For the portion of the control satisfied by the service provider, describe <strong>how</strong> the control is met.</p>
-         </description>
+               </description>
             </by-component>
             <by-component component-uuid="88b8d7bb-ba23-4430-bf62-028eab822050" uuid="51c4938e-7239-4b6f-ac7a-226719347d54">
-         <description>
+               <description>
                   <p>Describe how this policy component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the Policy.</p>
                   <p>That component contains a link to the policy, so it does not have to be linked here too.</p>
-         </description>
+               </description>
             </by-component>
             <by-component component-uuid="fa90644a-8bf8-47da-b0d3-82bffc708afc" uuid="73b85fca-3995-447a-a47f-23531335ea58">
-         <description>
+               <description>
                   <p>Describe how this procedure component satisfies part a.</p>
                   <p>Component approach. This links to a component representing the procedure.</p>
                   <p>That component contains a link to the procedure, so it does not have to be linked here too.</p>
-         </description>
+               </description>
             </by-component>
          </statement>
       </implemented-requirement>
@@ -2721,7 +2728,7 @@
          <description>
             <p>AC Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ac" />
+         <prop name="type" value="policy" class="ac"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2786,7 +2793,7 @@
          <description>
             <p>CM Policy document</p>
          </description>
-         <prop name="type" value="policy" class="cm" />
+         <prop name="type" value="policy" class="cm"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2798,11 +2805,11 @@
          </remarks>
       </resource>
       <resource uuid="4c4395c5-a126-4b77-8c62-cac98c563915">
-         <title>Contigency Planning Policy Title</title>
+         <title>Contingency Planning Policy Title</title>
          <description>
             <p>CP Policy document</p>
          </description>
-         <prop name="type" value="policy" class="cp" />
+         <prop name="type" value="policy" class="cp"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2819,7 +2826,7 @@
          <description>
             <p>IA Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ia" />
+         <prop name="type" value="policy" class="ia"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2835,7 +2842,7 @@
          <description>
             <p>IR Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ir" />
+         <prop name="type" value="policy" class="ir"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2851,7 +2858,7 @@
          <description>
             <p>MA Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ma" />
+         <prop name="type" value="policy" class="ma"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2867,7 +2874,7 @@
          <description>
             <p>MP Policy document</p>
          </description>
-         <prop name="type" value="policy" class="mp" />
+         <prop name="type" value="policy" class="mp"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2883,7 +2890,7 @@
          <description>
             <p>PE Policy document</p>
          </description>
-         <prop name="type" value="policy" class="pe" />
+         <prop name="type" value="policy" class="pe"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2899,7 +2906,7 @@
          <description>
             <p>PL Policy document</p>
          </description>
-         <prop name="type" value="policy" class="pl" />
+         <prop name="type" value="policy" class="pl"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2915,7 +2922,7 @@
          <description>
             <p>PS Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ps" />
+         <prop name="type" value="policy" class="ps"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2931,7 +2938,7 @@
          <description>
             <p>RA Policy document</p>
          </description>
-         <prop name="type" value="policy" class="ra" />
+         <prop name="type" value="policy" class="ra"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2947,7 +2954,7 @@
          <description>
             <p>SA Policy document</p>
          </description>
-         <prop name="type" value="policy" class="sa" />
+         <prop name="type" value="policy" class="sa"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2963,7 +2970,7 @@
          <description>
             <p>SC Policy document</p>
          </description>
-         <prop name="type" value="policy" class="sc" />
+         <prop name="type" value="policy" class="sc"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2979,7 +2986,7 @@
          <description>
             <p>SI Policy document</p>
          </description>
-         <prop name="type" value="policy" class="si" />
+         <prop name="type" value="policy" class="si"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -2995,7 +3002,7 @@
          <description>
             <p>SR Policy document</p>
          </description>
-         <prop name="type" value="policy" class="sr" />
+         <prop name="type" value="policy" class="sr"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3012,7 +3019,7 @@
          <description>
             <p>AC Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ac" />
+         <prop name="type" value="procedure" class="ac"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3028,7 +3035,7 @@
          <description>
             <p>AT Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="at" />
+         <prop name="type" value="procedure" class="at"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3044,7 +3051,7 @@
          <description>
             <p>AU Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="au" />
+         <prop name="type" value="procedure" class="au"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3060,7 +3067,7 @@
          <description>
             <p>CA Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ca" />
+         <prop name="type" value="procedure" class="ca"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3076,7 +3083,7 @@
          <description>
             <p>CM Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="cm" />
+         <prop name="type" value="procedure" class="cm"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3088,7 +3095,7 @@
          </remarks>
       </resource>
       <resource uuid="2f1cb360-a743-4ebe-915a-27f215f44dc5">
-         <title>Contigency Planning Procedure Title</title>
+         <title>Contingency Planning Procedure Title</title>
          <description>
             <p>CP Procedure document</p>
          </description>
@@ -3124,7 +3131,7 @@
          <description>
             <p>IR Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ir" />
+         <prop name="type" value="procedure" class="ir"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3140,7 +3147,7 @@
          <description>
             <p>MA Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ma" />
+         <prop name="type" value="procedure" class="ma"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3156,7 +3163,7 @@
          <description>
             <p>MP Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="mp" />
+         <prop name="type" value="procedure" class="mp"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3172,7 +3179,7 @@
          <description>
             <p>PE Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="pe" />
+         <prop name="type" value="procedure" class="pe"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3188,7 +3195,7 @@
          <description>
             <p>PL Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="pl" />
+         <prop name="type" value="procedure" class="pl"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3204,7 +3211,7 @@
          <description>
             <p>PS Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ps" />
+         <prop name="type" value="procedure" class="ps"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3220,7 +3227,7 @@
          <description>
             <p>RA Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="ra" />
+         <prop name="type" value="procedure" class="ra"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3236,7 +3243,7 @@
          <description>
             <p>SA Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="sa" />
+         <prop name="type" value="procedure" class="sa"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3284,7 +3291,7 @@
          <description>
             <p>SR Procedure document</p>
          </description>
-         <prop name="type" value="procedure" class="sr" />
+         <prop name="type" value="procedure" class="sr"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <prop name="version" value="Document Version"/>
@@ -3301,7 +3308,7 @@
          <description>
             <p>User's Guide</p>
          </description>
-         <prop name="type" value="users-guide" />
+         <prop name="type" value="users-guide"/>
          <prop name="published" value="2023-01-01T00:00:00Z"/>
          <!-- document date -->
          <rlink href="./documents/guides/sample_guide.pdf"/>

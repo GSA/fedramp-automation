@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<assessment-results xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-   uuid="26a53d2c-4249-4e0c-9939-410590f3ae9e">
+<assessment-results xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="26a53d2c-4249-4e0c-9939-410590f3ae9e">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Results (SAR)</title>
       <published>2023-06-30T00:00:00Z</published>
@@ -10,16 +9,14 @@
       <oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- New rev 5 prop -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource"
-         value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41" />
+      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
       <role id="fedramp-pmo">
          <title>FedRAMP Program Management Office</title>
          <description>
-            <p>The organization that prepared this SSP. If developed in-house, this is the CSP
-               itself.</p>
+            <p>The organization that prepared this SSP. If developed in-house, this is the CSP itself.</p>
          </description>
       </role>
       <role id="prepared-by">
@@ -73,8 +70,7 @@
       <role id="assessment-executive">
          <title>Assessment Organization's Managerial POC</title>
          <description>
-            <p>The management-level POC within the assessor's organization accountable for the
-               organization's assessment performance.</p>
+            <p>The management-level POC within the assessor's organization accountable for the organization's assessment performance.</p>
          </description>
       </role>
       <role id="csp-assessment-poc">
@@ -92,15 +88,13 @@
       <role id="csp-end-of-testing-poc">
          <title>CSP's End of Testing Notification POC</title>
          <description>
-            <p>A role for an individual within the CSP to be notified by the assessor when testing
-               is complete.</p>
+            <p>A role for an individual within the CSP to be notified by the assessor when testing is complete.</p>
          </description>
       </role>
       <role id="csp-results-poc">
          <title>CSP Results POCs </title>
          <description>
-            <p>A role for the individuals within the CSP who are to receive the assessment
-               results.</p>
+            <p>A role for the individuals within the CSP who are to receive the assessment results.</p>
          </description>
       </role>
       <location uuid="2ba201ac-8ee9-4a1d-812a-a755591a3963">
@@ -114,14 +108,13 @@
             <country>US</country>
          </address>
          <remarks>
-            <p>The assessor's HQ, or the address of the assessment team's primary business
-               location.</p>
+            <p>The assessor's HQ, or the address of the assessment team's primary business location.</p>
          </remarks>
       </location>
       <party uuid="49f73135-efab-4275-9a79-003656ad890a" type="organization">
          <name>Assessment Organization Name</name>
          <short-name>Acronym/Short Name</short-name>
-         <prop ns="https://fedramp.gov/ns/oscal" name="iso-iec-17020-identifier" value="0000.00" uuid="2fdac229-9dc9-4115-a2ff-34d4c8b6b60b" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="iso-iec-17020-identifier" value="0000.00" uuid="2fdac229-9dc9-4115-a2ff-34d4c8b6b60b"/>
          <link href="https://assessor.web.site" rel="home-page"/>
          <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
          <remarks>
@@ -146,14 +139,13 @@
          </address>
          <remarks>
             <p>This party entry must be present in a FedRAMP SAR.</p>
-            <p>The uuid may be different; however, the uuid must be associated with the
-               "fedramp-pmo" role in the responsible-party assemblies.</p>
+            <p>The uuid may be different; however, the uuid must be associated with the "fedramp-pmo" role in the responsible-party assemblies.</p>
          </remarks>
       </party>
       <party uuid="f4568fda-c6d2-4640-adec-0012015af7d0" type="person">
          <name>[SAMPLE]Person Name 1</name>
-         <prop name="job-title" value="Individual's Title" uuid="c97c29fe-0c17-4d63-af00-f2a55ec399d5" />
-         <prop name="mail-stop" value="Office 1-A" uuid="92e19c7f-b097-456e-9a13-714dd0e34ee8" />
+         <prop name="job-title" value="Individual's Title" uuid="c97c29fe-0c17-4d63-af00-f2a55ec399d5"/>
+         <prop name="mail-stop" value="Office 1-A" uuid="92e19c7f-b097-456e-9a13-714dd0e34ee8"/>
          <email-address>name@example.com</email-address>
          <telephone-number>202-000-0001</telephone-number>
          <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
@@ -161,7 +153,7 @@
       </party>
       <party uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe" type="person">
          <name>[SAMPLE]Person Name 2</name>
-         <prop name="mail-stop" value="Mailstop 2-B" uuid="b6aeaaa9-cb22-456c-ba62-847a791f6f48" />
+         <prop name="mail-stop" value="Mailstop 2-B" uuid="b6aeaaa9-cb22-456c-ba62-847a791f6f48"/>
          <email-address>name@example.com</email-address>
          <telephone-number>202-000-0002</telephone-number>
          <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
@@ -169,7 +161,7 @@
       </party>
       <party uuid="bcf47707-49e4-4acc-bf43-e63156046390" type="person">
          <name>[SAMPLE]Person Name 3</name>
-         <prop name="mail-stop" value="Mailstop 3-C" uuid="cf479652-2676-4d1b-9861-e46bd07f34fe" />
+         <prop name="mail-stop" value="Mailstop 3-C" uuid="cf479652-2676-4d1b-9861-e46bd07f34fe"/>
          <email-address>name@example.com</email-address>
          <telephone-number>202-000-0003</telephone-number>
          <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
@@ -177,7 +169,7 @@
       </party>
       <party uuid="abc15ce6-1f43-4951-bcd5-ab62cdff7ed9" type="person">
          <name>[SAMPLE]Person Name 4</name>
-         <prop name="mail-stop" value="Mailstop 4-D" uuid="674694e1-b704-4257-99d9-a3effec0dd56" />
+         <prop name="mail-stop" value="Mailstop 4-D" uuid="674694e1-b704-4257-99d9-a3effec0dd56"/>
          <email-address>name@example.com</email-address>
          <telephone-number>202-000-0004</telephone-number>
          <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
@@ -185,8 +177,8 @@
       </party>
       <party uuid="9135b789-a40c-4a20-9be6-fab23c0ab0f3" type="person">
          <name>[SAMPLE]Person Name 5</name>
-         <prop name="job-title" value="Individual's Title" uuid="902460ae-5c57-44c8-82c4-676ab25dce90" />
-         <prop name="mail-stop" value="Mailstop 5-E" uuid="35104264-7126-4d29-b3b8-40b34ac1b8d5" />
+         <prop name="job-title" value="Individual's Title" uuid="902460ae-5c57-44c8-82c4-676ab25dce90"/>
+         <prop name="mail-stop" value="Mailstop 5-E" uuid="35104264-7126-4d29-b3b8-40b34ac1b8d5"/>
          <email-address>name@example.com</email-address>
          <telephone-number>202-000-0005</telephone-number>
          <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
@@ -195,14 +187,14 @@
       <party uuid="ca9fca9c-4a8a-4487-8242-0a06d6fbed1f" type="person">
          <name>[SAMPLE]Person Name 6</name>
          <prop name="job-title" value="Individual's Title" uuid="5ae47d93-affd-4571-b7c0-94f666235067"/>
-         <prop name="mail-stop" value="Mailstop 6-F" uuid="a3f7a62f-c9bd-40ae-ba4a-a9222fb6ab7b" />
+         <prop name="mail-stop" value="Mailstop 6-F" uuid="a3f7a62f-c9bd-40ae-ba4a-a9222fb6ab7b"/>
          <email-address>name@example.com</email-address>
          <telephone-number type="mobile">000-000-0000</telephone-number>
          <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
       </party>
       <party uuid="877e5bdc-07c3-45da-a2b4-35367a9a0cd0" type="person">
          <name>[SAMPLE]Person Name 7</name>
-         <prop name="job-title" value="Individual's Title" uuid="b835391b-b607-4c98-a5cd-05898a6a28e3" />
+         <prop name="job-title" value="Individual's Title" uuid="b835391b-b607-4c98-a5cd-05898a6a28e3"/>
          <email-address>name@example.com</email-address>
          <telephone-number type="office">000-000-0000</telephone-number>
          <address type="work">
@@ -228,8 +220,7 @@
          <remarks>
             <p>Exactly one party.</p>
             <p>This is the UUID for the CSP in the SSP.</p>
-            <p>If no OSCAL-based SSP exists, create a CSP party in the SAP, and provide that UUID
-               here.</p>
+            <p>If no OSCAL-based SSP exists, create a CSP party in the SAP, and provide that UUID here.</p>
          </remarks>
       </responsible-party>
       <responsible-party role-id="content-approver">
@@ -285,8 +276,7 @@
          <remarks>
             <p>Exactly one party</p>
             <p>The party-uuid should reference a party in the SSP.</p>
-            <p>If an appropriate party does not exist in the SSP, the SAP tool should add a party to
-               the SAP, or have the CSP add the party to the SSP..</p>
+            <p>If an appropriate party does not exist in the SSP, the SAP tool should add a party to the SAP, or have the CSP add the party to the SSP..</p>
             <p>The SAP tool should not modify the SSP.</p>
          </remarks>
       </responsible-party>
@@ -298,8 +288,7 @@
             <p>At least one should be available 24x7 during assessment activities.</p>
             <p>At least one should be an operations center, such a SOC or NOC.</p>
             <p>The party-uuid should reference a party in the SSP or SAP.</p>
-            <p>If an appropriate party does not exist in the SSP or SAP, the SAR tool should add a
-               party to the SAR.</p>
+            <p>If an appropriate party does not exist in the SSP or SAP, the SAR tool should add a party to the SAR.</p>
             <p>The SAP tool should not modify the SSP.</p>
          </remarks>
       </responsible-party>
@@ -316,15 +305,13 @@
          </remarks>
       </responsible-party>
       <remarks>
-         <p>This OSCAL-based FedRAMP SAR Template can be used for the FedRAMP initial or annual
-            assessment reporting.</p>
+         <p>This OSCAL-based FedRAMP SAR Template can be used for the FedRAMP initial or annual assessment reporting.</p>
       </remarks>
    </metadata>
    <!-- Link this SAR to the SAP via import -->
    <import-ap href="#5cce2310-8fcc-49f8-8cae-8e31dc8048f1">
       <remarks>
-         <p>FedRAMP prefers the path for the SAP be relative to the location of this SAR file.
-            Absolute links will not work when FedRAMP tools import the content.</p>
+         <p>FedRAMP prefers the path for the SAP be relative to the location of this SAR file. Absolute links will not work when FedRAMP tools import the content.</p>
          <p>In this example, the SAR points to the SAP as a back-matter resource using a URI fragment.</p>
       </remarks>
    </import-ap>
@@ -341,11 +328,12 @@
       <objectives-and-methods control-id="ac-2">
          <part id="sap-obj" name="assessment-objective">
             <title>SAP Inserted Objective</title>
-            <prop name="method-id" value="sap-obj-1" /><!-- associates "assessment-objective" to one or more "assessment-method" -->
+            <prop name="method-id" value="sap-obj-1"/>
+            <!-- associates "assessment-objective" to one or more "assessment-method" -->
             <prop name="label" value="AC-2 SAP-1"/>
          </part>
          <part id="sap-obj-1" name="assessment-method">
-            <prop name="method" value="INTERVIEW" />
+            <prop name="method" value="INTERVIEW"/>
             <part id="sap-obj-1_object" name="assessment-objects">
                <p>Insert assessment object description</p>
             </part>
@@ -355,14 +343,15 @@
          <!-- assessment procedure for ac-2.a.1 -->
          <part id="ac-2.a_obj.1" name="assessment-objective">
             <title>Assessment Objective</title>
-            <prop name="method-id" value="ac-2.a_obj.1-1" /><!-- associates "assessment-objective" to one or more "assessment-method" -->
+            <prop name="method-id" value="ac-2.a_obj.1-1"/>
+            <!-- associates "assessment-objective" to one or more "assessment-method" -->
             <p>Determine if the organization:</p>
             <p> - defines information system account types to be identified and selected to support organizational missions/business functions</p>
          </part>
          <part id="ac-2.a_obj.1-1" name="assessment-method">
             <prop name="method" value="EXAMINE"/>
             <part id="ac-2.f_obj.1-1_object" name="assessment-objects">
-               <p>Access control policy; procedures addressing account management; security plan; information system design documentation; information system configuration settings and associated documentation; list of active system accounts along with the name of the individual associated with each account; list of conditions for group and role membership; notifications or records of recently transferred, separated, or terminated employees; list of recently disabled information system accounts along with the name of the individual associated with each account; access authorization records; account management compliance reviews; information system monitoring records; information system audit records; other relevant documents or records</p>               
+               <p>Access control policy; procedures addressing account management; security plan; information system design documentation; information system configuration settings and associated documentation; list of active system accounts along with the name of the individual associated with each account; list of conditions for group and role membership; notifications or records of recently transferred, separated, or terminated employees; list of recently disabled information system accounts along with the name of the individual associated with each account; access authorization records; account management compliance reviews; information system monitoring records; information system audit records; other relevant documents or records</p>
             </part>
          </part>
       </objectives-and-methods>
@@ -370,7 +359,8 @@
          <!-- assessment procedure for ac-2.a.2 -->
          <part id="ac-2.a_obj.2" name="assessment-objective">
             <title>Assessment Objective</title>
-            <prop name="method-id" value="ac-2.a_obj.2-1" /><!-- associates "assessment-objective" to one or more "assessment-method" -->
+            <prop name="method-id" value="ac-2.a_obj.2-1"/>
+            <!-- associates "assessment-objective" to one or more "assessment-method" -->
             <p>Determine if the organization:</p>
             <p> - identifies and selects organization-defined information system account types to support organizational missions/business functions</p>
          </part>
@@ -385,7 +375,8 @@
          <!-- assessment procedure for ac-2.a.2 -->
          <part id="ac-2.a_obj.2" name="assessment-objective">
             <title>Assessment Objective</title>
-            <prop name="method-id" value="ac-2.a_obj.2-2" /><!-- associates "assessment-objective" to one or more "assessment-method" -->
+            <prop name="method-id" value="ac-2.a_obj.2-2"/>
+            <!-- associates "assessment-objective" to one or more "assessment-method" -->
             <p>Determine if the organization:</p>
             <p> - identifies and selects organization-defined information system account types to support organizational missions/business functions</p>
          </part>
@@ -399,10 +390,11 @@
       <!-- Section 4.1 Deviation from the SAP -->
       <!-- FedRAMP will compare planned activities from the SAP versus locally defined activities in this SAR to identify deviations from the SAP. -->
       <activity uuid="1BC8F0BB-E601-4946-A0E6-FCB934EBAA06">
-         <title>Locally Defined Activity</title><!-- Corresponds to FedRAMP SAR Table 4-1 column "Deviation Description" -->
-         <description><!-- Corresponds to FedRAMP SAR Table 4-1 column "Justification" -->
-            <p>This describes an activity that was not defined in the SAP, but was performed during
-               the assessment. The justification must be included.</p>
+         <title>Locally Defined Activity</title>
+         <!-- Corresponds to FedRAMP SAR Table 4-1 column "Deviation Description" -->
+         <description>
+            <!-- Corresponds to FedRAMP SAR Table 4-1 column "Justification" -->
+            <p>This describes an activity that was not defined in the SAP, but was performed during the assessment. The justification must be included.</p>
          </description>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="manual"/>
          <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
@@ -450,10 +442,8 @@
                <prop ns="https://fedramp.gov/ns/oscal" name="ipv4-address" value="10.10.10.10"/>
                <status state="operational"/>
                <remarks>
-                  <p>Ideally, this assessment laptop would have been defined in the SAP, and not
-                     repeated here.</p>
-                  <p>If the laptop was not known at the time the SAP was drafted, or something
-                     different was used, it must be defined here.</p>
+                  <p>Ideally, this assessment laptop would have been defined in the SAP, and not repeated here.</p>
+                  <p>If the laptop was not known at the time the SAP was drafted, or something different was used, it must be defined here.</p>
                </remarks>
             </component>
             <component type="tool" uuid="fff18c72-4c24-44a2-999d-24fcb13a46d0">
@@ -461,7 +451,7 @@
                <description>
                   <p>Describe scannilng tool used by assessor.</p>
                </description>
-               <status state="operational" />
+               <status state="operational"/>
             </component>
             <assessment-platform uuid="67D98337-884A-46FF-98B1-42C53A4A7611">
                <title>Revised Assessment Platform</title>
@@ -482,12 +472,8 @@
                </uses-component>
                <remarks>
                   <p>This is an example of a revised assessment platform.</p>
-                  <p>Ideally, all assessment platforms and components are defined in the SAP. If
-                     there is a departure from what is defined in the SAP, it must be defined in the
-                     SAR.</p>
-                  <p>This is a mixed example showing a revised component (a different assessment
-                     laptop defined as a component in the SAR) being paired with tools previously
-                     defined in the SAP.</p>
+                  <p>Ideally, all assessment platforms and components are defined in the SAP. If there is a departure from what is defined in the SAP, it must be defined in the SAR.</p>
+                  <p>This is a mixed example showing a revised component (a different assessment laptop defined as a component in the SAR) being paired with tools previously defined in the SAP.</p>
                </remarks>
             </assessment-platform>
          </assessment-assets>
@@ -495,8 +481,7 @@
       <reviewed-controls>
          <control-selection>
             <description>
-               <p>Include all controls in the specified in the assessment plan, except as explicitly
-                  excluded here.</p>
+               <p>Include all controls in the specified in the assessment plan, except as explicitly excluded here.</p>
             </description>
             <include-all/>
             <exclude-control control-id="ac-1"/>
@@ -542,7 +527,7 @@
                <ul>
                   <li>[list significant changes not approved for authorization]</li>
                </ul>
-            </part>           
+            </part>
          </part>
       </attestation>
       <assessment-log>
@@ -674,8 +659,7 @@
          <subject type="component" subject-uuid="f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7">
             <title>Reviewed Policy</title>
             <remarks>
-               <p>If the policy is defined in the SSP as a component, you can cite it using
-                     <code>subject</code>, and use the UUID of the policy component in the SSP.</p>
+               <p>If the policy is defined in the SSP as a component, you can cite it using <code>subject</code>, and use the UUID of the policy component in the SSP.</p>
             </remarks>
          </subject>
          <relevant-evidence>
@@ -684,18 +668,14 @@
             </description>
             <link href="#f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7" rel="policy"/>
             <remarks>
-               <p>If the policy is <em>not</em> an SSP component, it should be attached to the SAR
-                  as a <code>resource</code>, and cited here as a URI fragment.</p>
+               <p>If the policy is <em>not</em> an SSP component, it should be attached to the SAR as a <code>resource</code>, and cited here as a URI fragment.</p>
             </remarks>
          </relevant-evidence>
          <collected>2023-05-10T00:00:00Z</collected>
          <remarks>
-            <p>The subject-reference identifies a policy that was reviewed and is attached in the
-               back-matter.</p>
-            <p>The observation source is linked to the task in the schedule associated with
-               performing document reviews.</p>
-            <p>Even though the policy may be defined in the SSP and OSCAL would allow the SAR to
-               reference it, FedRAMP requires the assessor attach all evidence to the SAR..</p>
+            <p>The subject-reference identifies a policy that was reviewed and is attached in the back-matter.</p>
+            <p>The observation source is linked to the task in the schedule associated with performing document reviews.</p>
+            <p>Even though the policy may be defined in the SSP and OSCAL would allow the SAR to reference it, FedRAMP requires the assessor attach all evidence to the SAR..</p>
          </remarks>
       </observation>
       <observation uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774">
@@ -715,16 +695,13 @@
          <relevant-evidence href="#65fb91b1-f7dc-46bf-8b99-bd98f1a5293d">
             <description>
                <p>This describes the evidence, and adds relevant detail.</p>
-               <p>For example, this could cite where to find this information in interview
-                  notes.</p>
+               <p>For example, this could cite where to find this information in interview notes.</p>
             </description>
             <remarks>
                <p>The subject-reference is linked to the person interviewed.</p>
-               <p>The observation source is linked to the task in the schedule associated with
-                  performing staff interviews.</p>
+               <p>The observation source is linked to the task in the schedule associated with performing staff interviews.</p>
                <p>The relevant-evidence is linked to the interview notes.</p>
-               <p>These may be defined in the SSP, SAP, or SAR. Tools should check all three
-                  locations.</p>
+               <p>These may be defined in the SSP, SAP, or SAR. Tools should check all three locations.</p>
             </remarks>
          </relevant-evidence>
          <collected>2023-05-10T00:00:00Z</collected>
@@ -738,20 +715,23 @@
          <origin>
             <actor type="tool" actor-uuid="fff18c72-4c24-44a2-999d-24fcb13a46d0"/>
          </origin>
-         <subject type="inventory-item" subject-uuid="c916d3c5-229e-4786-bf3f-4d71baa0e7a5"/><!-- from SSP -->
-         <subject type="inventory-item" subject-uuid="fb7a84fb-7e30-4f5b-9997-2ecd4d270bdd"/><!-- from SSP -->
-         <subject type="inventory-item" subject-uuid="0f9049ed-a01f-484a-b70d-b1894fd196b8"/><!-- from SAP -->
-         <subject type="component" subject-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"/><!-- from SSP -->
+         <subject type="inventory-item" subject-uuid="c916d3c5-229e-4786-bf3f-4d71baa0e7a5"/>
+         <!-- from SSP -->
+         <subject type="inventory-item" subject-uuid="fb7a84fb-7e30-4f5b-9997-2ecd4d270bdd"/>
+         <!-- from SSP -->
+         <subject type="inventory-item" subject-uuid="0f9049ed-a01f-484a-b70d-b1894fd196b8"/>
+         <!-- from SAP -->
+         <subject type="component" subject-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"/>
+         <!-- from SSP -->
          <relevant-evidence href="#19a07333-4e87-46dc-abab-adad60e706b9">
             <description>
                <p>Raw scanner tool output - discovery scan.</p>
             </description>
-            <link href="#171b44a2-9b52-4c46-b912-54bd274b2761" rel="raw-tool-output" />
+            <link href="#171b44a2-9b52-4c46-b912-54bd274b2761" rel="raw-tool-output"/>
          </relevant-evidence>
          <collected>2023-05-10T00:00:00Z</collected>
          <remarks>
-            <p>Undocumented hosts are entered into the SAR's result/local-definitions section as
-               inventory-items or components.</p>
+            <p>Undocumented hosts are entered into the SAR's result/local-definitions section as inventory-items or components.</p>
             <p>Undocumented hosts are listed in the observations assembly as subject-references.</p>
             <p>The origin must contain the UUID of the tool used to perform the scan.</p>
          </remarks>
@@ -765,15 +745,19 @@
          <origin>
             <actor type="tool" actor-uuid="fff18c72-4c24-44a2-999d-24fcb13a46d0"/>
          </origin>
-         <subject type="inventory-item" subject-uuid="c916d3c5-229e-4786-bf3f-4d71baa0e7a5"/><!-- from SSP -->
-         <subject type="inventory-item" subject-uuid="fb7a84fb-7e30-4f5b-9997-2ecd4d270bdd"/><!-- from SSP -->
-         <subject type="inventory-item" subject-uuid="0f9049ed-a01f-484a-b70d-b1894fd196b8"/><!-- from SAP -->
-         <subject type="component" subject-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"/><!-- from SSP -->
+         <subject type="inventory-item" subject-uuid="c916d3c5-229e-4786-bf3f-4d71baa0e7a5"/>
+         <!-- from SSP -->
+         <subject type="inventory-item" subject-uuid="fb7a84fb-7e30-4f5b-9997-2ecd4d270bdd"/>
+         <!-- from SSP -->
+         <subject type="inventory-item" subject-uuid="0f9049ed-a01f-484a-b70d-b1894fd196b8"/>
+         <!-- from SAP -->
+         <subject type="component" subject-uuid="60f92bcf-f353-4236-9803-2a5d417555f5"/>
+         <!-- from SSP -->
          <relevant-evidence href="#171b44a2-9b52-4c46-b912-54bd274b2761">
             <description>
                <p>Raw scanner tool output - Infrastructure and OS Scan.</p>
             </description>
-            <link href="#171b44a2-9b52-4c46-b912-54bd274b2761" rel="raw-tool-output" />
+            <link href="#171b44a2-9b52-4c46-b912-54bd274b2761" rel="raw-tool-output"/>
          </relevant-evidence>
          <collected>2023-05-10T00:00:00Z</collected>
       </observation>
@@ -829,8 +813,7 @@
             <link href="#53af7193-b25d-4ed2-a82f-5954d2d0df61" rel="evidence"/>
             <remarks>
                <p>Attach relevant evidence as a <code>resource</code>.</p>
-               <p>Use a <code>link</code> field with a URI fragment to link to the resource using
-                  its UUID.</p>
+               <p>Use a <code>link</code> field with a URI fragment to link to the resource using its UUID.</p>
             </remarks>
          </relevant-evidence>
          <collected>2023-05-10T00:00:00Z</collected>
@@ -857,48 +840,48 @@
          <description>
             <p>Infrastructure Scan Percentage.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="infrastructure" value="95" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="infrastructure" value="no" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="infrastructure" value="yes" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="infrastructure" value="95"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="infrastructure" value="no"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="infrastructure" value="yes"/>
          <method>EXAMINE</method>
          <collected>2023-05-10T00:00:00Z</collected>
          <remarks>
             <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepencies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
-            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items.  In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
+            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items. In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
          </remarks>
       </observation>
       <observation uuid="6d4435b2-c1b4-4adc-9057-0bf40635728b">
          <description>
             <p>Database Scan Percentage.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="database" value="100" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="database" value="no" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="database" value="no" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="database" value="100"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="database" value="no"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="database" value="no"/>
          <method>EXAMINE</method>
          <collected>2023-05-10T03:00:00Z</collected>
          <remarks>
             <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepencies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
-            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items.  In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
+            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items. In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
          </remarks>
       </observation>
       <observation uuid="6d4435b2-c1b4-4adc-9057-0bf40635728b">
          <description>
             <p>Web Scan Percentage.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="web" value="75" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="web" value="yes" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="web" value="75"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="web" value="yes"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies-reason" class="web" value="yes">
             <!-- Must include a remark with justification for the discrepencies -->
             <remarks>
                <p>EXAMPLE - Next Gen Web Application Firewall is blocking requests from scanner.</p>
             </remarks>
          </prop>
-         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="web" value="yes" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="web" value="yes"/>
          <method>EXAMINE</method>
          <collected>2023-05-10T03:00:00Z</collected>
          <remarks>
             <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepencies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
-            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items.  In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
+            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items. In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
          </remarks>
       </observation>
       <observation uuid="21b26801-2e00-4e59-979c-bf2a4ed93920">
@@ -929,13 +912,9 @@
          </origin>
          <collected>2023-05-10T00:00:00Z</collected>
          <remarks>
-            <p>The <code>type</code> field designates this observations as an issue with a statement
-               in the SSP. Tools can filter on this field to summarize all SSP issues.</p>
-            <p>The <code>origin</code> identifies the assessor who found the SSP statement
-               issue.</p>
-            <p>If relevant, evidence can be cited as well using the <code>relevant-evidence</code>
-               assembly, such as a screenshot showing a setting is different than stated in the
-               SSP.</p>
+            <p>The <code>type</code> field designates this observations as an issue with a statement in the SSP. Tools can filter on this field to summarize all SSP issues.</p>
+            <p>The <code>origin</code> identifies the assessor who found the SSP statement issue.</p>
+            <p>If relevant, evidence can be cited as well using the <code>relevant-evidence</code> assembly, such as a screenshot showing a setting is different than stated in the SSP.</p>
          </remarks>
       </observation>
       <!-- Risks -->
@@ -1029,8 +1008,7 @@
          </description>
          <statement>
             <p>This is a statement about the identified risk as provided by the tool.</p>
-            <p>This field must be present, but may be blank (or state 'No Risk Statement' if no
-               statement is provided by the tool.</p>
+            <p>This field must be present, but may be blank (or state 'No Risk Statement' if no statement is provided by the tool.</p>
          </statement>
          <prop ns="https://fedramp.gov/ns/oscal" name="priority" value="1"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="operational-requirement" value="approved"/>
@@ -1041,8 +1019,7 @@
             <origin>
                <actor type="tool" actor-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
             </origin>
-            <facet name="vulnerability-id" system="http://csrc.nist.gov/ns/oscal/unknown"
-               value="VulID-001"/>
+            <facet name="vulnerability-id" system="http://csrc.nist.gov/ns/oscal/unknown" value="VulID-001"/>
             <facet name="plugin-id" system="http://csrc.nist.gov/ns/oscal/unknown" value="Plugin-ID"/>
             <facet name="iavm-severity" system="https://us-cert.cisa.gov/" value="high"/>
             <facet name="cve-id" system="http://cve.mitre.org" value="CVE-2020-00000"/>
@@ -1066,8 +1043,7 @@
                <p>Describe mitigating factor</p>
             </description>
          </mitigating-factor>
-         <mitigating-factor uuid="fd061039-e9b0-4b4c-a78b-ca024d411174"
-            implementation-uuid="46f4c261-e488-4fb5-84d6-6a61dd30c3d7">
+         <mitigating-factor uuid="fd061039-e9b0-4b4c-a78b-ca024d411174" implementation-uuid="46f4c261-e488-4fb5-84d6-6a61dd30c3d7">
             <description>
                <p>Describe why the cited implementation statement justifies lowering the risk.</p>
             </description>
@@ -1081,8 +1057,7 @@
                <actor type="tool" actor-uuid="040937c3-2e0e-407a-bb3c-d4e61ac1c460"/>
             </origin>
             <remarks>
-               <p>Recommended and planned remediation entries should remain when the risk is
-                  closed.</p>
+               <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
                <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
             </remarks>
          </response>
@@ -1095,11 +1070,9 @@
                <actor type="party" actor-uuid="49f73135-efab-4275-9a79-003656ad890a"/>
             </origin>
             <remarks>
-               <p>The assessor may add their recommendation in addition to the tool's
-                  recommendation, or if no tool recommendation is provided.</p>
+               <p>The assessor may add their recommendation in addition to the tool's recommendation, or if no tool recommendation is provided.</p>
                <p>The assessor should leave the tool recommendation, even if adding their own.</p>
-               <p>Recommended and planned remediation entries should remain when the risk is
-                  closed.</p>
+               <p>Recommended and planned remediation entries should remain when the risk is closed.</p>
                <p>Simply add the closure-actions field and change the risk-status to "closed".</p>
             </remarks>
          </response>
@@ -1166,10 +1139,8 @@
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
          <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
          <remarks>
-            <p>There should be at least one <code>related-observation</code> for each test method.
-               There may be more than one.</p>
-            <p>This objective only has one method (Examine), so there should be at least one
-                  <code>related-objservation</code>.</p>
+            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
+            <p>This objective only has one method (Examine), so there should be at least one <code>related-observation</code>.</p>
          </remarks>
       </finding>
       <finding uuid="EF489684-C2E5-46BD-887A-A86A4AA210D9">
@@ -1188,10 +1159,8 @@
          <related-observation observation-uuid="d02f9117-84e3-4993-af59-c5ce5e8675ab"/>
          <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
          <remarks>
-            <p>There should be at least one <code>related-observation</code> for each test method.
-               There may be more than one.</p>
-            <p>This objective only has one method (Examine), so there should be at least one
-                  <code>related-objservation</code>.</p>
+            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
+            <p>This objective only has one method (Examine), so there should be at least one <code>related-observation</code>.</p>
          </remarks>
       </finding>
       <finding uuid="0D3EE91E-8A4E-455B-BC84-EB31C7C3C34B">
@@ -1211,11 +1180,8 @@
          <related-observation observation-uuid="29e4ce70-6a17-411d-aa65-ec7cef21e774"/>
          <associated-risk risk-uuid="1689ec06-100a-4fed-9df9-e69f07d3f3c9"/>
          <remarks>
-            <p>There should be at least one <code>related-observation</code> for each test method.
-               There may be more than one.</p>
-            <p>This objective has two methods (Examine and Interview), so there should be at least
-               two <code>related-objservation</code>, including at least one observaton of each
-               type.</p>
+            <p>There should be at least one <code>related-observation</code> for each test method. There may be more than one.</p>
+            <p>This objective has two methods (Examine and Interview), so there should be at least two <code>related-observation</code>, including at least one observation of each type.</p>
          </remarks>
       </finding>
       <finding uuid="33e43825-6fd7-49c6-a610-4c795954a167">
@@ -1233,10 +1199,8 @@
          <implementation-statement-uuid>9a2bd937-226e-4aaf-8261-2cf0c2e3aa10</implementation-statement-uuid>
          <related-observation observation-uuid="A38F3BBA-5B71-400D-B8F2-D808E1D4627F"/>
          <remarks>
-            <p>The <code>implementation-statement-uuid</code> contains the UUID of the erroneous
-               statement in the SSP.</p>
-            <p>The <code>related-observation</code> contains the UUID of an observation with details
-               about the issue, including a statement and any relevant evidence.</p>
+            <p>The <code>implementation-statement-uuid</code> contains the UUID of the erroneous statement in the SSP.</p>
+            <p>The <code>related-observation</code> contains the UUID of an observation with details about the issue, including a statement and any relevant evidence.</p>
          </remarks>
       </finding>
       <finding uuid="d6316907-a5e5-4ad5-871d-f2f29938360e">
@@ -1253,8 +1217,7 @@
          </target>
          <related-observation observation-uuid="6841d8eb-a72c-4672-acc2-2fd265d9617d"/>
          <remarks>
-            <p>The UUID for the tool operator must be listed as the party-uuid for the finding.
-               There may be more than one.</p>
+            <p>The UUID for the tool operator must be listed as the party-uuid for the finding. There may be more than one.</p>
          </remarks>
       </finding>
       <finding uuid="170dd310-1a92-4fcf-a12b-ebfa03d9e6d8">
@@ -1285,14 +1248,15 @@
             <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <target type="objective-id" target-id="at-2.c_obj.2">
-            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial" /><!-- todo - deprecate this property -->
-            <status state="other-than-satisfied"/><!-- FedRAMP state conflicts with core OSCAL constraint -->
-            <implementation-status state="partial" />            
+            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
+            <!-- todo - deprecate this property -->
+            <status state="other-than-satisfied"/>
+            <!-- FedRAMP state conflicts with core OSCAL constraint -->
+            <implementation-status state="partial"/>
          </target>
          <related-observation observation-uuid="21b26801-2e00-4e59-979c-bf2a4ed93920"/>
          <remarks>
-            <p>When reporting a result for a test such as the spear phishing activity, a risk
-               assembly is required if the result is to be reported in the Risk Exposure Table.</p>
+            <p>When reporting a result for a test such as the spear phishing activity, a risk assembly is required if the result is to be reported in the Risk Exposure Table.</p>
          </remarks>
       </finding>
       <finding uuid="b56edab1-8cdc-45f9-8589-35f1bd7b3348">
@@ -1305,17 +1269,17 @@
             <actor type="party" actor-uuid="e934d8b5-13e5-4f77-b55e-871e6f2df2fe"/>
          </origin>
          <target type="objective-id" target-id="ca-8.1_obj">
-            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="alternative" /><!-- todo - deprecate this property -->
-            <status state="other-than-satisfied"/> <!-- FedRAMP status value conflicts with core OSCAL constraint -->           
-            <implementation-status state="alternative" />            
+            <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="alternative"/>
+            <!-- todo - deprecate this property -->
+            <status state="other-than-satisfied"/>
+            <!-- FedRAMP status value conflicts with core OSCAL constraint -->
+            <implementation-status state="alternative"/>
          </target>
          <related-observation observation-uuid="21b26801-2e00-4e59-979c-bf2a4ed93920"/>
          <associated-risk risk-uuid="e552fb72-d662-4c01-b2d7-4dcb2086bb07"/>
          <remarks>
-            <p>If a penetration test result is favorable, such as to say the SOC detected the
-               activities appropriately, no risk is required.</p>
-            <p>If a penetration test result identifies a vulnerability or deficiency, the risk
-               assembly is required.</p>
+            <p>If a penetration test result is favorable, such as to say the SOC detected the activities appropriately, no risk is required.</p>
+            <p>If a penetration test result identifies a vulnerability or deficiency, the risk assembly is required.</p>
          </remarks>
       </finding>
    </result>
@@ -1381,7 +1345,7 @@
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="security-assessment-plan"/>
          <prop name="published" value="2023-06-30T00:00:00Z"/>
          <prop name="version" value="SAP Version"/>
-         <rlink media-type="text/xml" href="../../sap/xml/FedRAMP-SAP-OSCAL-Template.xml" />
+         <rlink media-type="text/xml" href="../../sap/xml/FedRAMP-SAP-OSCAL-Template.xml"/>
          <!--<base64 filename="FedRAMP-SAP-OSCAL-Template.xml" media-type="application/xml">00000000</base64>-->
       </resource>
       <!-- Laws, Acronyms, and other attachments -->
@@ -1415,16 +1379,13 @@
          <rlink href="./signed-sar.pdf" media-type="application/pdf"/>
          <!--<base64 filename="sar.pdf" media-type="application/pdf">00000000</base64>-->
          <remarks>
-            <p>FedRAMP is formulating guidelines for handling digital/electronic signatures in
-               OSCAL, and welcome feedback on solutions.</p>
+            <p>FedRAMP is formulating guidelines for handling digital/electronic signatures in OSCAL, and welcome feedback on solutions.</p>
             <p>For now, FedRAMP recommends one of the following:</p>
             <ul>
                <li>Render the OSCAL SAR content as a PDF that is digitally signed and attached.</li>
-               <li>Render the OSCAL SAR content as printed pages that are physically signed,
-                  scanned, and attached.</li>
+               <li>Render the OSCAL SAR content as printed pages that are physically signed, scanned, and attached.</li>
             </ul>
-            <p>If your organization prefers another approach, please seek prior approval from the
-               FedRAMP PMO.</p>
+            <p>If your organization prefers another approach, please seek prior approval from the FedRAMP PMO.</p>
          </remarks>
       </resource>
       <!-- Assessor Notes -->
@@ -1437,8 +1398,7 @@
             <p>A tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
-               path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
          </remarks>
       </resource>
       <!-- Evidence / Artifacts -->
@@ -1454,8 +1414,7 @@
             <p>A tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
-               path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
          </remarks>
       </resource>
       <resource uuid="53af7193-b25d-4ed2-a82f-5954d2d0df61">
@@ -1467,8 +1426,7 @@
             <p>A tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
-               path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
          </remarks>
       </resource>
       <!-- Appendix C - Scans -->
@@ -1484,8 +1442,7 @@
             <p>A SAR tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
-               path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
          </remarks>
       </resource>
       <resource uuid="171b44a2-9b52-4c46-b912-54bd274b2761">
@@ -1500,8 +1457,7 @@
             <p>A SAR tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
-               path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
          </remarks>
       </resource>
       <!-- Appendix E - Add any other auxiliary documents here -->
@@ -1515,8 +1471,7 @@
             <p>A SAR tool could use either an rlink or base64 field.</p>
             <p>If both are present, FedRAMP tools will give preference to the base64 content.</p>
             <p>There may be more than one rlink.</p>
-            <p>If there is no base64 field, at lest one of the rlink fields must include a relative
-               path.</p>
+            <p>If there is no base64 field, at lest one of the rlink fields must include a relative path.</p>
          </remarks>
       </resource>
       <!-- 3PAO Logo -->

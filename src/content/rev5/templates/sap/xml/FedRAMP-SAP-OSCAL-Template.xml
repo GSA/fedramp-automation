@@ -7,15 +7,14 @@
       <last-modified>2023-06-30T00:00:00Z</last-modified>
       <version>fedramp2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
-      <prop name="marking" value="Controlled Unclassified Information" />
+      <prop name="marking" value="Controlled Unclassified Information"/>
       <!-- New rev 5 prop -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource"
-         value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41" />
+      <prop ns="https://fedramp.gov/ns/oscal" name="resolution-resource" value="ace2963d-ecb4-4be5-bdd0-1f6fd7610f41"/>
       <!-- Rev 5 update - assessment-scope (initial|annual|significant-change|other) -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="assessment-type"  class="scope" value="annual" />
-      <prop ns="https://fedramp.gov/ns/oscal" name="assessment-type"  class="scope" value="significant-change" />
+      <prop ns="https://fedramp.gov/ns/oscal" name="assessment-type" class="scope" value="annual"/>
+      <prop ns="https://fedramp.gov/ns/oscal" name="assessment-type" class="scope" value="significant-change"/>
       <!-- Rev 5 update - significant-changes-scope (none | one | many) -->
-      <prop ns="https://fedramp.gov/ns/oscal" name="significant-changes-scope" value="many" />
+      <prop ns="https://fedramp.gov/ns/oscal" name="significant-changes-scope" value="many"/>
       <!-- The following role definitions are required by FedRAMP -->
       <!-- Do not change the ID's or titles. -->
       <!-- Only recreate roles normally found in the SSP if no OSCAL-based SSP exists -->
@@ -120,16 +119,13 @@
             <country>US</country>
          </address>
          <remarks>
-            <p>The assessor's HQ, or the address of the assessment team's primary business
-               location.</p>
+            <p>The assessor's HQ, or the address of the assessment team's primary business location.</p>
          </remarks>
       </location>
       <party uuid="49f73135-efab-4275-9a79-003656ad890a" type="organization">
          <name>Assessment Organization Name</name>
          <short-name>Acronym/Short Name</short-name>
-         <prop ns="https://fedramp.gov/ns/oscal"
-               name="iso-iec-17020-identifier"
-               value="0000.00"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="iso-iec-17020-identifier" value="0000.00"/>
          <link href="https://assessor.web.site" rel="home-page"/>
          <location-uuid>2ba201ac-8ee9-4a1d-812a-a755591a3963</location-uuid>
          <remarks>
@@ -254,8 +250,8 @@
          <party-uuid>bcf47707-49e4-4acc-bf43-e63156046390</party-uuid>
          <party-uuid>abc15ce6-1f43-4951-bcd5-ab62cdff7ed9</party-uuid>
          <!-- Rev 5 Update - New props for SAP Table 6-1 -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="ia-validated" value="yes" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="csp-validated" value="yes" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="ia-validated" value="yes"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="csp-validated" value="yes"/>
          <remarks>
             <p>One or more parties</p>
             <p>If the "responsible-party" contains multiple "party-uuid", FedRAMP assumes the "ia-validated" and "csp-validated" prop values apply to each referenced party.</p>
@@ -265,8 +261,8 @@
       <responsible-party role-id="assessment-team">
          <party-uuid>9135b789-a40c-4a20-9be6-fab23c0ab0f3</party-uuid>
          <!-- Rev 5 Update - New props for SAP Table 6-1 -->
-         <prop ns="https://fedramp.gov/ns/oscal" name="ia-validated" value="yes" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="csp-validated" value="no" />
+         <prop ns="https://fedramp.gov/ns/oscal" name="ia-validated" value="yes"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="csp-validated" value="no"/>
       </responsible-party>
       <responsible-party role-id="assessment-lead">
          <party-uuid>e934d8b5-13e5-4f77-b55e-871e6f2df2fe</party-uuid>
@@ -299,8 +295,7 @@
          <remarks>
             <p>Exactly one party</p>
             <p>The party-uuid should observation-source a party in the SSP.</p>
-            <p>If an appropriate party does not exist in the SSP, the SAP tool should add a party to
-               the SAP, or have the CSP add the party to the SSP.</p>
+            <p>If an appropriate party does not exist in the SSP, the SAP tool should add a party to the SAP, or have the CSP add the party to the SSP.</p>
             <p>The SAP tool should not modify the SSP.</p>
          </remarks>
       </responsible-party>
@@ -313,8 +308,7 @@
             <p>At least one should be available 24x7 during assessment activities.</p>
             <p>At least one should be an operations center, such a SOC or NOC.</p>
             <p>The party-uuid should observation-source a party in the SSP or SAP.</p>
-            <p>If an appropriate party does not exist in the SSP or SAP, the SAR tool should add a
-               party to the SAR.</p>
+            <p>If an appropriate party does not exist in the SSP or SAP, the SAR tool should add a party to the SAR.</p>
             <p>The SAP tool should not modify the SSP.</p>
          </remarks>
       </responsible-party>
@@ -332,20 +326,16 @@
          </remarks>
       </responsible-party>
       <remarks>
-         <p>This OSCAL-based FedRAMP SAP Template can be used for the FedRAMP initial or annual
-            assessment planning.</p>
+         <p>This OSCAL-based FedRAMP SAP Template can be used for the FedRAMP initial or annual assessment planning.</p>
       </remarks>
    </metadata>
    <!-- Link this SAP to a specific SSP via import -->
    <import-ssp href="#7c30125f-c056-4888-9f1a-7ed1b6a1b638">
       <remarks>
          <p>Link the SAP to the SSP.</p>
-         <p>FedRAMP prefers the path for the SSP be relative to the location of this SAP file.
-            Absolute links will likely not work when FedRAMP tools import the content.</p>
+         <p>FedRAMP prefers the path for the SSP be relative to the location of this SAP file. Absolute links will likely not work when FedRAMP tools import the content.</p>
          <p>This may point to a back-matter resource using a URI fragment.</p>
-         <p>If no OSCAL-based SSP exists, this must be a URI fragment pointing to a special
-            back-matter resource. The resource must include the <code>no-oscal-ssp</code> conformity
-            tag.</p>
+         <p>If no OSCAL-based SSP exists, this must be a URI fragment pointing to a special back-matter resource. The resource must include the <code>no-oscal-ssp</code> conformity tag.</p>
       </remarks>
    </import-ssp>
    <local-definitions>
@@ -374,9 +364,10 @@
          <prop name="public" value="no"/>
          <prop name="fqdn" value="dns.name"/>
          <prop name="mac-address" value="00:00:00:00:00:00"/>
-         <prop name="hardware-model" value="hardware-model" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="vendor-name" />
-         <prop name="asset-type" value="appliance"/><!-- NOTE: "asset-type" only allows certain values. -->
+         <prop name="hardware-model" value="hardware-model"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="vendor-name"/>
+         <prop name="asset-type" value="appliance"/>
+         <!-- NOTE: "asset-type" only allows certain values. -->
          <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="web"/>
          <prop name="allows-authenticated-scan" value="no"/>
@@ -396,9 +387,9 @@
          <prop name="fqdn" value="dns.name"/>
          <prop name="mac-address" value="00:00:00:00:00:00"/>
          <prop name="os-name" value="Windows 10"/>
-         <prop name="os-version" value="10.0.190944" />
-         <prop name="hardware-model" value="hardware-model" />
-         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="vendor-name" />
+         <prop name="os-version" value="10.0.190944"/>
+         <prop name="hardware-model" value="hardware-model"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="vendor-name"/>
          <prop name="asset-type" value="operating-system"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="scan-type" value="infrastructure"/>
          <prop name="allows-authenticated-scan" value="yes"/>
@@ -436,11 +427,9 @@
          </authorized-privilege>
          <remarks>
             <p>The ID assigned to this missing role must not be used in the SSP user list.</p>
-            <p>The SAP user assembly duplicates the SSP user assembly, which requires a
-               role-id.</p>
+            <p>The SAP user assembly duplicates the SSP user assembly, which requires a role-id.</p>
             <p>If an existing role in the SSP is appropriate, reference it here.</p>
-            <p>If no appropriate role exists in the SSP, the role-id may be left blank in the
-               SAP.</p>
+            <p>If no appropriate role exists in the SSP, the role-id may be left blank in the SAP.</p>
          </remarks>
       </user>
       <!-- Objectives and Methods -->
@@ -448,11 +437,10 @@
          <!-- assessment procedure for ac-2.f.1 -->
          <part id="ac-2.f_obj.1" name="assessment-objective">
             <title>Assessment Objective</title>
-            <prop name="method-id" value="ac-2.f_obj.1-1" />
+            <prop name="method-id" value="ac-2.f_obj.1-1"/>
             <p>Determine if the organization:</p>
             <ul>
-               <li>defines procedures or conditions to:
-                  <ul>
+               <li>defines procedures or conditions to: <ul>
                      <li>create information system accounts</li>
                      <li>enable information system accounts</li>
                      <li>modify information system accounts</li>
@@ -465,7 +453,7 @@
          <part id="ac-2.f_obj.1-1" name="assessment-method">
             <prop name="method" value="EXAMINE"/>
             <part id="ac-2.f_obj.1-1_object" name="assessment-objects">
-               <p>Access control policy; procedures addressing account management; security plan; information system design documentation; information system configuration settings and associated documentation; list of active system accounts along with the name of the individual associated with each account; list of conditions for group and role membership; notifications or records of recently transferred, separated, or terminated employees; list of recently disabled information system accounts along with the name of the individual associated with each account; access authorization records; account management compliance reviews; information system monitoring records; information system audit records; other relevant documents or records</p>               
+               <p>Access control policy; procedures addressing account management; security plan; information system design documentation; information system configuration settings and associated documentation; list of active system accounts along with the name of the individual associated with each account; list of conditions for group and role membership; notifications or records of recently transferred, separated, or terminated employees; list of recently disabled information system accounts along with the name of the individual associated with each account; access authorization records; account management compliance reviews; information system monitoring records; information system audit records; other relevant documents or records</p>
             </part>
          </part>
       </objectives-and-methods>
@@ -475,8 +463,7 @@
             <title>Assessment Objective</title>
             <p>Determine if the organization:</p>
             <ul>
-               <li>in accordance with organization-defined procedures or conditions:
-                  <ul>
+               <li>in accordance with organization-defined procedures or conditions: <ul>
                      <li>create information system accounts</li>
                      <li>enable information system accounts</li>
                      <li>modify information system accounts</li>
@@ -489,13 +476,13 @@
          <part id="ac-2.f_obj.2-1" name="assessment-method">
             <prop name="method" value="INTERVIEW"/>
             <part id="ac-2.f_obj.2-1_object" name="assessment-objects">
-               <p>Organizational personnel with account management responsibilities; system/network administrators; organizational personnel with information security responsibilities</p>               
+               <p>Organizational personnel with account management responsibilities; system/network administrators; organizational personnel with information security responsibilities</p>
             </part>
          </part>
          <part id="ac-2.f_obj.2-2" name="assessment-method">
             <prop name="method" value="TEST"/>
             <part id="ac-2.f_obj.2-2_object" name="assessment-objects">
-               <p>Organizational processes for account management on the information system; automated mechanisms for implementing account management</p>               
+               <p>Organizational processes for account management on the information system; automated mechanisms for implementing account management</p>
             </part>
          </part>
       </objectives-and-methods>
@@ -505,7 +492,7 @@
          <description>
             <p>Description of the manual test</p>
          </description>
-         <prop name="method" value="EXAMINE" />
+         <prop name="method" value="EXAMINE"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="manual"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="label" value="Test ID"/>
          <step uuid="FB039FD7-5A2B-4C0F-867C-88CCE9C3778C">
@@ -530,11 +517,9 @@
       <activity uuid="3ba68918-80ef-4846-89e0-9f1def7e5223">
          <title>[SAMPLE]Forceful Browsing</title>
          <description>
-            <p>We will login as a customer and try to see if we can gain access to the Network
-               Administrator and Database Administrator privileges and authorizations by navigating
-               to different views and manually forcing the browser to various URLs</p>
+            <p>We will login as a customer and try to see if we can gain access to the Network Administrator and Database Administrator privileges and authorizations by navigating to different views and manually forcing the browser to various URLs</p>
          </description>
-         <prop name="method" value="TEST" />
+         <prop name="method" value="TEST"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="manual"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="label" value="Test ID"/>
       </activity>
@@ -543,7 +528,7 @@
          <description>
             <p>We will test the CAPTCHA function on the web form manually</p>
          </description>
-         <prop name="method" value="TEST" />
+         <prop name="method" value="TEST"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="manual"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="label" value="Test ID"/>
       </activity>
@@ -552,7 +537,7 @@
          <description>
             <p>We will manually test to see if OCSP is validating certificates.</p>
          </description>
-         <prop name="method" value="EXAMINE" />
+         <prop name="method" value="EXAMINE"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="manual"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="label" value="Test ID"/>
       </activity>
@@ -561,7 +546,7 @@
          <description>
             <p>Describe this web application test.</p>
          </description>
-         <prop name="method" value="TEST" />
+         <prop name="method" value="TEST"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="web-application"/>
       </activity>
       <activity uuid="64142a6f-d8d4-47c6-8bb1-a0e33f17664d">
@@ -569,7 +554,7 @@
          <description>
             <p>Describe this web application test.</p>
          </description>
-         <prop name="method" value="TEST" />
+         <prop name="method" value="TEST"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="web-application"/>
       </activity>
       <activity uuid="dc858ece-b430-485d-886c-3a812bb77b13">
@@ -577,7 +562,7 @@
          <description>
             <p>Describe this role based test.</p>
          </description>
-         <prop name="method" value="TEST" />
+         <prop name="method" value="TEST"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="role-based"/>
       </activity>
       <activity uuid="74830d19-2820-4487-bd1d-91d8656b7eb0">
@@ -585,7 +570,7 @@
          <description>
             <p>Describe this role based test.</p>
          </description>
-         <prop name="method" value="INTERVIEW" />
+         <prop name="method" value="INTERVIEW"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="role-based"/>
       </activity>
    </local-definitions>
@@ -605,22 +590,22 @@
             <p>This SAP has been developed by [IA Name] and is for [an initial assessment/an annual assessment/an annual assessment and significant change assessment/a significant change assessment] of the [CSP Name], [CSO Name]. The SAP provides the goals for the assessment and details how the assessment will be conducted.</p>
          </part>
          <!-- Section 2.2 -->
-         <part ns="https://fedramp.gov/ns/oscal" name="laws-regulations" >
+         <part ns="https://fedramp.gov/ns/oscal" name="laws-regulations">
             <title>Applicable Laws, Regulations, Standards and Guidance</title>
             <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="002"/>
             <p>The FedRAMP-applicable laws, regulations, standards and guidance is included in the [CSO Name] SSP section – System Security Plan Approvals. Additionally, in Appendix L of the SSP, the [CSP Name] has included laws, regulations, standards, and guidance that apply specifically to this system.</p>
          </part>
       </part>
       <!-- Section 3 Scope -->
-      <part ns="https://fedramp.gov/ns/oscal" name="scope" >
+      <part ns="https://fedramp.gov/ns/oscal" name="scope">
          <title>Scope</title>
          <!-- Table 3-1 Assessment Scope values should be retrieved from this SAP or imported SSP -->
-         <part ns="https://fedramp.gov/ns/oscal" name="initial-assessment" >
+         <part ns="https://fedramp.gov/ns/oscal" name="initial-assessment">
             <title>Initial Assessment</title>
             <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="001"/>
             <p>This plan is for an initial assessment of [CSO Name], a [One: High/Moderate/ Low] baseline system. 100% of the FedRAMP security controls in the system baseline are assessed. The security controls that will be assessed are listed in Appendix A.</p>
          </part>
-         <part ns="https://fedramp.gov/ns/oscal" name="annual-assessment" >
+         <part ns="https://fedramp.gov/ns/oscal" name="annual-assessment">
             <title>Annual Assessment</title>
             <p>This plan is for an annual assessment of [CSO Name], a [One: High/Moderate/ Low] baseline system. After the initial security assessment, FedRAMP requires that the system is assessed annually thereafter (12 months from an agency ATO / JAB P-ATO date). While the entire set of security controls is assessed during the initial assessment, a subset is assessed during the annual assessment. The control selection is in accordance with the criteria outlined in the <a href="https://www.fedramp.gov/assets/resources/documents/CSP_Annual_Assessment_Guidance.pdf">FedRAMP Annual Assessment Guidance</a> and includes:</p>
             <ul>
@@ -633,7 +618,7 @@
             </ul>
             <p>The detailed control list, including the rationale for each control’s selection, is included in SAP Appendix A, FedRAMP [CSO Name] Security Controls Selection Worksheet.</p>
          </part>
-         <part ns="https://fedramp.gov/ns/oscal" name="significant-change" >
+         <part ns="https://fedramp.gov/ns/oscal" name="significant-change">
             <title>Significant Change</title>
             <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="002"/>
             <p>This document [is for/also includes] the assessment plan for [a significant change/several significant changes]. Appendix D includes the significant change request documentation submitted by [CSP Name] to the [AO/JAB].</p>
@@ -654,9 +639,9 @@
             </table>
          </part>
          <!-- Section 3.1 -->
-         <part ns="https://fedramp.gov/ns/oscal" name="location" >
+         <part ns="https://fedramp.gov/ns/oscal" name="location">
             <title>Location of Component</title>
-            <p>The physical locations of all the different components that will be tested are described in Table 3-3.  </p>
+            <p>The physical locations of all the different components that will be tested are described in Table 3-3. </p>
             <!-- Table 3-3 Location of Components information should be obtained either from the imported SSP metadata or from this SAP's metadata -->
             <table>
                <tr>
@@ -672,7 +657,7 @@
             </table>
          </part>
          <!-- Section 3.2 -->
-         <part ns="https://fedramp.gov/ns/oscal" name="ip-addresses" >
+         <part ns="https://fedramp.gov/ns/oscal" name="ip-addresses">
             <title>IP Addresses Slated for Testing</title>
             <p>SSP Appendix M, FedRAMP Integrated Inventory Workbook, captures the inventory items for the entire system and includes all the following required to be tested for the authorization of this system:</p>
             <ul>
@@ -686,7 +671,7 @@
             <p>The methodology section of this document describes the approach to the assessment of the inventory.</p>
          </part>
          <!-- Section 3.3 -->
-         <part ns="https://fedramp.gov/ns/oscal" name="role-exclusions" >
+         <part ns="https://fedramp.gov/ns/oscal" name="role-exclusions">
             <title>Role Testing Exclusions</title>
             <!-- Table 3-4 Exclusions for Role Testing -->
             <table>
@@ -701,7 +686,7 @@
             </table>
          </part>
          <!-- Section 3.4 -->
-         <part ns="https://fedramp.gov/ns/oscal" name="roles-scr" >
+         <part ns="https://fedramp.gov/ns/oscal" name="roles-scr">
             <title>Role Testing for Significant Change Requests</title>
             <p>Additional roles that are being introduced as part of significant changes will be tested and are noted in Appendix D. Role testing will be performed to test the authorization restrictions for each role. [IA Name] will access the system while logged in as different user types and attempt to perform restricted functions for that user.</p>
          </part>
@@ -717,9 +702,8 @@
             <li>[CSO Name] resources, including documentation and individuals with knowledge of the [CSO Name] systems and infrastructure and their contact information, will be available to [IA Name] staff during the time necessary to complete assessments.</li>
             <li>The [CSP Name] will provide login account information / credentials necessary for [IA Name] to use its testing devices to perform authenticated scans of all devices and applications.</li>
             <li>The [CSP Name] will permit [IA Name] to connect its testing laptops to the [CSP Name] networks defined within the scope of this assessment.</li>
-            <li>The [CSP Name]> will permit communication from [IA Name] testing appliances to an internet hosted vulnerability management service to permit the analysis of vulnerability data, as applicable.</li> 
-            <li>Security controls that have been identified as “Not Applicable” (NA) in the SSP will be validated by [IA Name] as “Not Applicable”, and further testing will not be performed on these security controls during the assessment. This process is completed for all assessments, including annual assessments. For this assessment, the following controls identified as NA controls will be validated by [IA Name]:
-               <ul>
+            <li>The [CSP Name]> will permit communication from [IA Name] testing appliances to an internet hosted vulnerability management service to permit the analysis of vulnerability data, as applicable.</li>
+            <li>Security controls that have been identified as “Not Applicable” (NA) in the SSP will be validated by [IA Name] as “Not Applicable”, and further testing will not be performed on these security controls during the assessment. This process is completed for all assessments, including annual assessments. For this assessment, the following controls identified as NA controls will be validated by [IA Name]: <ul>
                   <li>List all NA controls that will be validated by the IA for this assessment</li>
                </ul>
             </li>
@@ -754,17 +738,17 @@
                <li>Request any follow-up documentation, files, or information needed that is not provided in FedRAMP required documentation.</li>
                <li>Travel to the [CSP Name] sites as necessary to inspect systems and meet with CSP staff.</li>
                <li>Obtain information using security testing tools.</li>
-               <li>Ensure that the testing proceeds as outlined in this SAP. If the testing must be augmented or reduced in scope, these are considered “Deviations” and must be recorded in the SAR.</li>                     
+               <li>Ensure that the testing proceeds as outlined in this SAP. If the testing must be augmented or reduced in scope, these are considered “Deviations” and must be recorded in the SAR.</li>
             </ul>
             <p>Security controls will be verified using one or more of the following assessment methods:</p>
             <ul>
                <li>Examine: [IA Name] will review, analyze, inspect, or observe one or more assessment artifacts as specified in the SRTM. Note that the SSP is considered a "roadmap" for identification and collection of other artifacts. Therefore, other CSP artifacts should be provided (e.g., screenshots, policies, procedures, records etc.).</li>
                <li>Interview: [IA Name] will conduct discussions with individuals within the organization to facilitate assessor understanding, achieve clarification, or obtain evidence.</li>
-               <li>Technical Tests: [IA Name] will perform technical tests, including penetration testing on system components, using automated and manual methods.</li>                  
+               <li>Technical Tests: [IA Name] will perform technical tests, including penetration testing on system components, using automated and manual methods.</li>
             </ul>
          </part>
          <!-- Section 5.3 Sampling -->
-         <part ns="https://fedramp.gov/ns/oscal" name="sampling">  
+         <part ns="https://fedramp.gov/ns/oscal" name="sampling">
             <title>Sampling</title>
             <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="003"/>
             <prop ns="https://fedramp.gov/ns/oscal" name="sampling" value="no"/>
@@ -783,7 +767,7 @@
             <prop ns="https://fedramp.gov/ns/oscal" name="sort-id" value="004"/>
             <p>The Penetration Test Plan and Methodology is attached in Appendix C.</p>
          </part>
-      </part>      
+      </part>
       <!-- Section 6 Test Plan -->
       <part ns="https://fedramp.gov/ns/oscal" name="test-plan">
          <title>Test Plan</title>
@@ -1181,8 +1165,7 @@
          <prop name="version" value="1.2.3"/>
          <status state="operational"/>
       </component>
-      <component uuid="332517E5-2033-47DD-A4D0-6CA9C9786F6B"
-                 type="assessment-origination">
+      <component uuid="332517E5-2033-47DD-A4D0-6CA9C9786F6B" type="assessment-origination">
          <title>Assessment Addresses</title>
          <description>
             <p>Identifies all addresses from which the assessment may be conducted, including scans and penetration testing activities.</p>
@@ -1347,12 +1330,8 @@
       <title>Web Application Tests</title>
       <task uuid="16CC716D-B519-416A-BA61-EDD4AFFBDDDB" type="action">
          <title>Web Application Test #1</title>
-         <prop ns="http://fedramp.gov/ns/oscal"
-               name="test-type"
-               value="web-application"/>
-         <prop ns="http://fedramp.gov/ns/oscal"
-               name="login-url"
-               value="https://service.offering.com/login"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="test-type" value="web-application"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="login-url" value="https://service.offering.com/login"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="login-id" value="test-user"/>
          <associated-activity activity-uuid="315b3118-3d2e-420b-b4fb-5acf13b08381">
             <subject type="inventory-item">
@@ -1366,12 +1345,8 @@
       </task>
       <task uuid="FC869008-9CD5-4499-82C8-6BC532A86142" type="action">
          <title>Web Application Test #2</title>
-         <prop ns="http://fedramp.gov/ns/oscal"
-               name="test-type"
-               value="web-application"/>
-         <prop ns="http://fedramp.gov/ns/oscal"
-               name="login-url"
-               value="https://admin-portal.offering.com/login"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="test-type" value="web-application"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="login-url" value="https://admin-portal.offering.com/login"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="login-id" value="test-admin"/>
          <associated-activity activity-uuid="64142a6f-d8d4-47c6-8bb1-a0e33f17664d">
             <subject type="inventory-item">
@@ -1380,20 +1355,16 @@
                   <p>References an inventory item, which is linked to a component. The component has a <code>scan-type</code> FedRAMP Extension with a value of "web"</p>
                </remarks>
             </subject>
-          </associated-activity>
+         </associated-activity>
       </task>
    </task>
    <task uuid="EDDBCFA9-D296-4818-ADCC-3D5465ED3FDD" type="action">
       <title>Role-Based Tests</title>
       <task uuid="CFCB0F24-2E1B-49D7-B938-5F58479ED874" type="action">
          <title>Role Based Test #1</title>
-         <prop ns="http://fedramp.gov/ns/oscal"
-               name="test-type"
-               value="role-based"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="test-type" value="role-based"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="login-id" value="test-user"/>
-         <prop ns="http://fedramp.gov/ns/oscal"
-               name="user-uuid"
-               value="9cb0fab0-78bd-44ba-bcb8-3e9801cc952f"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="user-uuid" value="9cb0fab0-78bd-44ba-bcb8-3e9801cc952f"/>
          <associated-activity activity-uuid="dc858ece-b430-485d-886c-3a812bb77b13">
             <subject type="inventory-item">
                <include-subject subject-uuid="779d4e89-bba6-432c-b50d-d699fe534129" type="inventory-item"/>
@@ -1405,13 +1376,9 @@
       </task>
       <task uuid="74830d19-2820-4487-bd1d-91d8656b7eb0" type="action">
          <title>Role Based Test #2</title>
-         <prop ns="http://fedramp.gov/ns/oscal"
-               name="test-type"
-               value="role-based"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="test-type" value="role-based"/>
          <prop ns="http://fedramp.gov/ns/oscal" name="login-id" value="test-admin"/>
-         <prop ns="http://fedramp.gov/ns/oscal"
-               name="user-uuid"
-               value="sys-role-2"/>
+         <prop ns="http://fedramp.gov/ns/oscal" name="user-uuid" value="sys-role-2"/>
          <associated-activity activity-uuid="64142a6f-d8d4-47c6-8bb1-a0e33f17664d">
             <subject type="inventory-item">
                <include-subject subject-uuid="779d4e89-bba6-432c-b50d-d699fe534129" type="inventory-item"/>
@@ -1456,18 +1423,10 @@
          </description>
          <prop ns="https://fedramp.gov/ns/oscal" name="type" value="no-oscal-ssp"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="title-short" value="SFN"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-            name="system-id"
-            value="FR00000000"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-            name="import-profile"
-            value="#890170c3-d4fa-4d25-ab96-8e4bf7cc237c"/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-            name="purpose"
-            value="Briefly state the system's purpose. This will appear in the SAR."/>
-         <prop ns="https://fedramp.gov/ns/oscal"
-            name="authorization-date"
-            value="2017-01-23T00:00:00Z"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="system-id" value="FR00000000"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="import-profile" value="#890170c3-d4fa-4d25-ab96-8e4bf7cc237c"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="purpose" value="Briefly state the system's purpose. This will appear in the SAR."/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="authorization-date" value="2017-01-23T00:00:00Z"/>
          <remarks>
             <p>Only include this resource if no OSCAL-based SSP is available.</p>
             <p>Delete it otherwise.</p>
@@ -1544,49 +1503,49 @@
                <tr>
                   <td>x</td>
                   <td>External to Corporate</td>
-                  <td></td>
+                  <td/>
                   <td>Internet based (untrusted)</td>
-                  <td></td>
+                  <td/>
                   <td>Enterprise</td>
                </tr>
                <tr>
                   <td>x</td>
                   <td>External to CSP Target System</td>
-                  <td></td>
+                  <td/>
                   <td>Network Threat Actor</td>
-                  <td></td>
+                  <td/>
                   <td>Reconnaissance</td>
                </tr>
                <tr>
                   <td>x</td>
                   <td>Tenant to CSP Management System</td>
-                  <td></td>
+                  <td/>
                   <td>Attack on CSP managed user</td>
-                  <td></td>
+                  <td/>
                   <td>Resource Development</td>
                </tr>
                <tr>
                   <td>x</td>
                   <td>Tenant to Tenant</td>
-                  <td></td>
+                  <td/>
                   <td>Email attack against CSP managed user</td>
-                  <td></td>
+                  <td/>
                   <td>Initial Access</td>
                </tr>
                <tr>
                   <td>x</td>
                   <td>Mobile Application to Target System</td>
-                  <td></td>
+                  <td/>
                   <td>Application Threat Actor</td>
-                  <td></td>
+                  <td/>
                   <td>Execution</td>
                </tr>
                <tr>
                   <td>x</td>
                   <td>Client-side Application and/or Agents to Target System</td>
-                  <td></td>
+                  <td/>
                   <td>Physical based attack</td>
-                  <td></td>
+                  <td/>
                   <td>Persistence</td>
                </tr>
             </table>
@@ -1615,9 +1574,9 @@
                   <th>Associated Functions</th>
                </tr>
                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td/>
+                  <td/>
+                  <td/>
                </tr>
             </table>
          </description>
