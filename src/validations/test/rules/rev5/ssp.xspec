@@ -1964,12 +1964,10 @@
                                     uuid="8f831302-1fab-4a1a-8989-1600ce26d559">
                                     <prop
                                         name="type"
-                                        ns="https://fedramp.gov/ns/oscal"
                                         value="guide" />
                                     <prop
                                         name="type"
-                                        ns="https://fedramp.gov/ns/oscal"
-                                        value="user-guide" />
+                                        value="users-guide" />
                                     <base64
                                         filename="user_guide.docx"
                                         media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"> 00000000</base64>
@@ -2207,12 +2205,10 @@
                                         uuid="8f831302-1fab-4a1a-8989-1600ce26d559">
                                         <prop
                                             name="type"
-                                            ns="https://fedramp.gov/ns/oscal"
                                             value="guide" />
                                         <prop
                                             name="type"
-                                            ns="https://fedramp.gov/ns/oscal"
-                                            value="user-guide" />
+                                            value="users-guide" />
                                         <base64
                                             filename="user_guide.docx"
                                             media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"> 00000000</base64>
