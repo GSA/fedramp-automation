@@ -1249,8 +1249,8 @@
          </origin>
          <target type="objective-id" target-id="at-2.c_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="partial"/>
-            <!-- todo - deprecate this property -->
-            <status state="other-than-satisfied"/>
+            <!-- todo - need to relax constraint to allow local definitions like "other-than-satisfied" -->
+            <status state="not-satisfied"/>
             <!-- FedRAMP state conflicts with core OSCAL constraint -->
             <implementation-status state="partial"/>
          </target>
@@ -1270,8 +1270,8 @@
          </origin>
          <target type="objective-id" target-id="ca-8.1_obj">
             <prop ns="https://fedramp.gov/ns/oscal" name="implementation-status" value="alternative"/>
-            <!-- todo - deprecate this property -->
-            <status state="other-than-satisfied"/>
+            <!-- todo - need to relax constraint to allow local definitions like "other-than-satisfied" -->
+            <status state="not-satisfied"/>
             <!-- FedRAMP status value conflicts with core OSCAL constraint -->
             <implementation-status state="alternative"/>
          </target>
