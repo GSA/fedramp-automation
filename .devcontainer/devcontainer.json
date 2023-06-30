@@ -13,5 +13,12 @@
       "version": "3.10.12"
     }
   },
-  "postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install"
+  "postCreateCommand": ". ${NVM_DIR}/nvm.sh && nvm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.java"
+      ]
+    }
+  }
 }
