@@ -2065,12 +2065,8 @@
                                     uuid="0681015f-7022-4977-b067-20a67da32409">
                                     <prop
                                         name="type"
-                                        ns="https://fedramp.gov/ns/oscal"
-                                        value="plan" />
-                                    <prop
-                                        name="type"
-                                        ns="https://fedramp.gov/ns/oscal"
-                                        value="configuration-management-plan" />
+                                        value="plan"
+                                        class="configuration-management-plan" />
                                     <base64
                                         filename="configuration_management_plan.docx"
                                         media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"> 00000000</base64>
