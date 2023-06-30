@@ -2014,7 +2014,6 @@
                                     uuid="872d6f42-f566-4189-82f9-e94c9fdaaf38">
                                     <prop
                                         name="type"
-                                        ns="https://fedramp.gov/ns/oscal"
                                         value="rules-of-behavior" />
                                     <base64
                                         filename="rules_of_behavior.docx"
@@ -2255,7 +2254,6 @@
                                         uuid="872d6f42-f566-4189-82f9-e94c9fdaaf38">
                                         <prop
                                             name="type"
-                                            ns="https://fedramp.gov/ns/oscal"
                                             value="rules-of-behavior" />
                                         <base64
                                             filename="logo.png" />
