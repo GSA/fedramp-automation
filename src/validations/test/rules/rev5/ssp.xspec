@@ -2089,12 +2089,12 @@
                                     uuid="ea1523ed-aad3-4346-acc7-b9d491488268">
                                     <prop
                                         name="type"
-                                        ns="https://fedramp.gov/ns/oscal"
-                                        value="plan" />
+                                        value="plan"
+                                        class="incident-response-plan" />
                                     <prop
                                         name="type"
-                                        ns="https://fedramp.gov/ns/oscal"
-                                        value="incident-response-plan" />
+                                        value="incident-response-plan"
+                                        class="0" />
                                     <base64
                                         filename="incident_response_plan.docx"
                                         media-type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"> 00000000</base64>
@@ -3072,8 +3072,8 @@
                             <resource>
                                 <prop
                                     name="type"
-                                    ns="https://fedramp.gov/ns/oscal"
-                                    value="incident-response-plan" />
+                                    value="plan"
+                                    class="incident-response-plan"/>
                             </resource>
                         </back-matter>
                     </x:context>
@@ -3089,8 +3089,8 @@
                             <resource>
                                 <prop
                                     name="type"
-                                    ns="https://fedramp.gov/ns/oscal"
-                                    value="not-incident-response-plan" />
+                                    value="0"
+                                    class="incident-response-plan"/>
                             </resource>
                         </back-matter>
                     </x:context>
