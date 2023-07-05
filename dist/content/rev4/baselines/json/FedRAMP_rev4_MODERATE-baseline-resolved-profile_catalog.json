@@ -1,12 +1,12 @@
 {
   "catalog": {
-    "uuid": "7d7c0d83-78e0-45bb-ba92-3bcd895f4295",
+    "uuid": "a679bbfe-e5f1-4da0-b683-04a1ae9b429a",
     "metadata": {
       "title": "FedRAMP Rev 4 Moderate Baseline",
       "published": "2021-02-05T00:00:00.000-04:00",
-      "last-modified": "2023-06-14T16:01:18.748355-04:00",
-      "version": "fedramp1.1.0-oscal1.0.0",
-      "oscal-version": "1.0.0",
+      "last-modified": "2023-07-02T10:32:13.384314-04:00",
+      "version": "fedramp1.1.1-oscal1.0.4",
+      "oscal-version": "1.0.4",
       "links": [
         {
           "href": "FedRAMP_rev4_MODERATE-baseline_profile.json",
@@ -21,12 +21,12 @@
         {
           "id": "fedramp-pmo",
           "title": "The FedRAMP Program Management Office (PMO)",
-          "short-name": "CSP"
+          "short-name": "PMO"
         },
         {
           "id": "fedramp-jab",
           "title": "The FedRAMP Joint Authorization Board (JAB)",
-          "short-name": "CSP"
+          "short-name": "JAB"
         }
       ],
       "parties": [
@@ -46,10 +46,6 @@
             },
             {
               "href": "#985475ee-d4d6-4581-8fdf-d84d3d8caa48",
-              "rel": "reference"
-            },
-            {
-              "href": "#1a23a771-d481-4594-9a1a-71d584fa4123",
               "rel": "reference"
             }
           ],
@@ -3774,6 +3770,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "AC-4[1]"
                       }
@@ -3784,6 +3790,21 @@
                     "id": "ac-4_obj.2",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "AC-4[2]"
@@ -6673,6 +6694,16 @@
                     "id": "ac-12_obj.1",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "AC-12[1]"
@@ -13225,6 +13256,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "AU-4[1]"
                       }
@@ -15294,6 +15335,26 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "AU-9[1]"
                       }
@@ -15339,6 +15400,26 @@
                     "id": "au-9_obj.2",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "AU-9[2]"
@@ -15835,6 +15916,16 @@
                     "id": "au-11_obj.1",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "AU-11[1]"
@@ -20445,6 +20536,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "CA-8[1]"
                       }
@@ -20455,6 +20556,16 @@
                     "id": "ca-8_obj.2",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "CA-8[2]"
@@ -23250,6 +23361,28 @@
               {
                 "id": "cm-4_obj",
                 "name": "objective",
+                "props": [
+                  {
+                    "name": "response-point",
+                    "ns": "https://fedramp.gov/ns/oscal",
+                    "value": "You must fill in this response point."
+                  },
+                  {
+                    "name": "method",
+                    "value": "EXAMINE",
+                    "class": "fedramp"
+                  },
+                  {
+                    "name": "method",
+                    "value": "INTERVIEW",
+                    "class": "fedramp"
+                  },
+                  {
+                    "name": "method",
+                    "value": "TEST",
+                    "class": "fedramp"
+                  }
+                ],
                 "prose": "Determine if the organization analyzes changes to the information system to determine potential security impacts prior to change implementation."
               },
               {
@@ -23355,6 +23488,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "CM-5[1]"
                       }
@@ -23365,6 +23508,16 @@
                     "id": "cm-5_obj.2",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "CM-5[2]"
@@ -23377,6 +23530,21 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "CM-5[3]"
                       }
@@ -23387,6 +23555,16 @@
                     "id": "cm-5_obj.4",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "CM-5[4]"
@@ -23399,6 +23577,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "CM-5[5]"
                       }
@@ -23409,6 +23597,16 @@
                     "id": "cm-5_obj.6",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "CM-5[6]"
@@ -31167,6 +31365,21 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "CP-6[1]"
                       }
@@ -31177,6 +31390,21 @@
                     "id": "cp-6_obj.2",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "CP-6[2]"
@@ -32239,6 +32467,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "CP-8[1]"
                       }
@@ -32250,6 +32488,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "CP-8[2]"
                       }
@@ -32260,6 +32508,21 @@
                     "id": "cp-8_obj.3",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "CP-8[3]"
@@ -33470,6 +33733,21 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "CP-10[2]"
                       }
@@ -34377,6 +34655,28 @@
               {
                 "id": "ia-2_obj",
                 "name": "objective",
+                "props": [
+                  {
+                    "name": "response-point",
+                    "ns": "https://fedramp.gov/ns/oscal",
+                    "value": "You must fill in this response point."
+                  },
+                  {
+                    "name": "method",
+                    "value": "EXAMINE",
+                    "class": "fedramp"
+                  },
+                  {
+                    "name": "method",
+                    "value": "INTERVIEW",
+                    "class": "fedramp"
+                  },
+                  {
+                    "name": "method",
+                    "value": "TEST",
+                    "class": "fedramp"
+                  }
+                ],
                 "prose": "Determine if the information system uniquely identifies and authenticates organizational users (or processes acting on behalf of organizational users)."
               },
               {
@@ -35498,6 +35798,16 @@
                     "id": "ia-3_obj.1",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "IA-3[1]"
@@ -39493,6 +39803,28 @@
               {
                 "id": "ia-8_obj",
                 "name": "objective",
+                "props": [
+                  {
+                    "name": "response-point",
+                    "ns": "https://fedramp.gov/ns/oscal",
+                    "value": "You must fill in this response point."
+                  },
+                  {
+                    "name": "method",
+                    "value": "EXAMINE",
+                    "class": "fedramp"
+                  },
+                  {
+                    "name": "method",
+                    "value": "INTERVIEW",
+                    "class": "fedramp"
+                  },
+                  {
+                    "name": "method",
+                    "value": "TEST",
+                    "class": "fedramp"
+                  }
+                ],
                 "prose": "Determine if the information system uniquely identifies and authenticates non-organizational users (or processes acting on behalf of non-organizational users)."
               },
               {
@@ -41066,6 +41398,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "IR-3[1]"
                       }
@@ -41076,6 +41418,16 @@
                     "id": "ir-3_obj.2",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "IR-3[2]"
@@ -41860,6 +42212,21 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "IR-5[1]"
                       }
@@ -42411,6 +42778,26 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "IR-7[1]"
                       }
@@ -42421,6 +42808,26 @@
                     "id": "ir-7_obj.2",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "IR-7[2]"
@@ -45888,6 +46295,21 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "MA-3[1]"
                       }
@@ -45899,6 +46321,21 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "MA-3[2]"
                       }
@@ -45909,6 +46346,21 @@
                     "id": "ma-3_obj.3",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "MA-3[3]"
@@ -47738,6 +48190,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "MA-6[1]"
                       }
@@ -47749,6 +48211,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "MA-6[2]"
                       }
@@ -47759,6 +48231,21 @@
                     "id": "ma-6_obj.3",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "MA-6[3]"
@@ -50332,6 +50819,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "MP-7[1]"
                       }
@@ -50366,6 +50863,16 @@
                     "id": "mp-7_obj.2",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "MP-7[2]"
@@ -54106,6 +54613,26 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "PE-12[1]"
                       }
@@ -54234,6 +54761,26 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "PE-13[1]"
                       }
@@ -54244,6 +54791,26 @@
                     "id": "pe-13_obj.2",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "PE-13[2]"
@@ -66242,6 +66809,28 @@
               {
                 "id": "sa-4_obj",
                 "name": "objective",
+                "props": [
+                  {
+                    "name": "response-point",
+                    "ns": "https://fedramp.gov/ns/oscal",
+                    "value": "You must fill in this response point."
+                  },
+                  {
+                    "name": "method",
+                    "value": "EXAMINE",
+                    "class": "fedramp"
+                  },
+                  {
+                    "name": "method",
+                    "value": "INTERVIEW",
+                    "class": "fedramp"
+                  },
+                  {
+                    "name": "method",
+                    "value": "TEST",
+                    "class": "fedramp"
+                  }
+                ],
                 "prose": "Determine if the organization includes the following requirements, descriptions, and criteria, explicitly or by reference, in the acquisition contracts for the information system, system component, or information system service in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, standards, guidelines, and organizational mission/business needs:",
                 "parts": [
                   {
@@ -71619,6 +72208,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "SC-5[1]"
                       }
@@ -71630,6 +72229,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "SC-5[2]"
                       }
@@ -71640,6 +72249,21 @@
                     "id": "sc-5_obj.3",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "SC-5[3]"
@@ -74329,6 +74953,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "SC-12[1]"
                       }
@@ -74396,6 +75030,21 @@
                     "id": "sc-12_obj.2",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "SC-12[2]"
@@ -76907,6 +77556,16 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "EXAMINE",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "SC-28[1]"
                       }
@@ -76941,6 +77600,21 @@
                     "id": "sc-28_obj.2",
                     "name": "objective",
                     "props": [
+                      {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
                       {
                         "name": "label",
                         "value": "SC-28[2]"
@@ -82909,6 +83583,21 @@
                     "name": "objective",
                     "props": [
                       {
+                        "name": "response-point",
+                        "ns": "https://fedramp.gov/ns/oscal",
+                        "value": "You must fill in this response point."
+                      },
+                      {
+                        "name": "method",
+                        "value": "INTERVIEW",
+                        "class": "fedramp"
+                      },
+                      {
+                        "name": "method",
+                        "value": "TEST",
+                        "class": "fedramp"
+                      },
+                      {
                         "name": "label",
                         "value": "SI-7[2]"
                       }
@@ -85996,16 +86685,8 @@
           "title": "FedRAMP Applicable Laws and Regulations",
           "rlinks": [
             {
-              "href": "https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"
-            }
-          ]
-        },
-        {
-          "uuid": "1a23a771-d481-4594-9a1a-71d584fa4123",
-          "title": "FedRAMP Master Acronym and Glossary",
-          "rlinks": [
-            {
-              "href": "https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"
+              "href": "https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx",
+              "media-type": "application/vnd.ms-excel"
             }
           ]
         },
@@ -86020,7 +86701,8 @@
           ],
           "rlinks": [
             {
-              "href": "https://www.fedramp.gov/assets/img/logo-main-fedramp.png"
+              "href": "https://www.fedramp.gov/assets/img/logo-main-fedramp.png",
+              "media-type": "image/png"
             }
           ]
         }
