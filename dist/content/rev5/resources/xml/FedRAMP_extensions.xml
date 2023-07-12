@@ -20,7 +20,14 @@
             <version>DRAFT-02</version>
             <remarks>
                <p>Updated remarks for deprecated extensions, and added new rev5 extensions.</p>
-               <p>The bindings and constaints for the new rev5 extensions are pending and will be added in a future revision.</p>
+               <p>The bindings and constraints for the new rev5 extensions are pending and will be added in a future revision.</p>
+            </remarks>
+         </revision>
+         <revision>
+            <published>2023-07-12T00:00:00Z</published>
+            <version>DRAFT-03</version>
+            <remarks>
+               <p>Minor edits.</p>
             </remarks>
          </revision>
       </revisions>
@@ -845,7 +852,7 @@
          <matches data-type="NCName"/>
       </constraint>
       <remarks>
-         <p>Extention renamed from "logn-url" to "login-url".</p>
+         <p>Extension renamed from "login-url" to "login-url".</p>
       </remarks>
    </extension>
 
@@ -859,7 +866,7 @@
          <matches data-type="NCName"/>
       </constraint>
       <remarks>
-         <p>Extention renamed from "logn-id" to "login-id".</p>
+         <p>Extension renamed from "login-id" to "login-id".</p>
       </remarks>
    </extension>
 
@@ -1075,7 +1082,7 @@
    <extension id="authentication-method">
       <extension-name>authentication-method</extension-name>
       <formal-name>Authentication Method</formal-name>
-      <description>The authentication method(s) for users of a leveraged service or external interconnection. Refer to for authentication methods NIST 800-63B (https://pages.nist.gov/800-63-3/sp800-63b.html) for authentiction methods</description>
+      <description>The authentication method(s) for users of a leveraged service or external interconnection. Refer to for authentication methods NIST 800-63B (https://pages.nist.gov/800-63-3/sp800-63b.html) for authentication methods</description>
       <!-- Todo: add bindings -->
       <!-- Todo: add constraints -->
       <remarks>
@@ -1128,8 +1135,8 @@
    </extension>
 
    <extension id="discrepencies-reason">
-      <extension-name>discrepencies-reason</extension-name>
-      <formal-name>Discrepencies Reason</formal-name>
+      <extension-name>discrepancies-reason</extension-name>
+      <formal-name>Discrepancies Reason</formal-name>
       <description>The justification or reason for any discrepancies between inventory that was in scope for the planned assessment and the assets in the assessment results.</description>
       <!-- Todo: add bindings -->
       <!-- Todo: add constraints -->
@@ -1343,7 +1350,7 @@
    <extension id="resolution-resource">
       <extension-name>resolution-resource</extension-name>
       <formal-name>Resolution Resource</formal-name>
-      <description>The back-matter resource reference used to determine which FedRAMP validation rulesets apply.</description>
+      <description>The back-matter resource reference used to determine which FedRAMP validation rule sets apply.</description>
       <!-- Todo: add bindings -->
       <!-- Todo: add constraints -->
       <remarks>
