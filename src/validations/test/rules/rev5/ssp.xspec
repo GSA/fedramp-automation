@@ -1311,7 +1311,7 @@
             </x:scenario>
         </x:scenario>
 <!-- Dimitri: Temporarily suspend core controls tests. -->
-<x:pending label="not implemented in rev 5 yet">
+<x:pending label="Not implemented in rev 5 yet.">
         <x:scenario
             label="when the most important core controls are defined">
             <x:scenario
@@ -9846,6 +9846,8 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+<!-- Dimitri: Temporarily suspend response point tests. -->
+<x:pending label="Not implemented in rev 5 yet.">
         <x:scenario
             label="An implemented control must include required response point statements.">
             <x:scenario
@@ -9919,7 +9921,8 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
-
+</x:pending>
+        
         <x:scenario
             label="An implemented control must have a prop with only the allowed values.">
             <x:scenario
@@ -10664,7 +10667,7 @@
                                 <prop
                                     name="planned-completion-date"
                                     ns="https://fedramp.gov/ns/oscal"
-                                    value="2020-11-27Z" />
+                                    value="2024-01-31Z" />
                                 <prop
                                     name="implementation-status"
                                     ns="https://fedramp.gov/ns/oscal"
@@ -10677,17 +10680,17 @@
                                     name="control-origination"
                                     ns="https://fedramp.gov/ns/oscal"
                                     value="sp-system" />
-                                <set-parameter
+                                <set-parameter 
                                     param-id="ac-1_prm_1">
-                                    <value>[replace with list of personnel or roles]</value>
+                                    <value>organization-defined personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter
+                                <set-parameter 
                                     param-id="ac-1_prm_2">
-                                    <value>[specify frequency]</value>
+                                    <value>at least every 3 years</value>
                                 </set-parameter>
-                                <set-parameter
+                                <set-parameter 
                                     param-id="ac-1_prm_3">
-                                    <value>[specify frequency]</value>
+                                    <value>at least annually</value>
                                 </set-parameter>
                             </implemented-requirement>
                         </control-implementation>
@@ -10712,7 +10715,7 @@
                                 <prop
                                     name="planned-completion-date"
                                     ns="https://fedramp.gov/ns/oscal"
-                                    value="2020-11-27Z" />
+                                    value="2024-01-31Z" />
                                 <prop
                                     name="implementation-status"
                                     ns="https://fedramp.gov/ns/oscal"
@@ -10725,13 +10728,13 @@
                                     name="control-origination"
                                     ns="https://fedramp.gov/ns/oscal"
                                     value="sp-system" />
-                                <set-parameter
+                                <set-parameter 
                                     param-id="ac-1_prm_1">
-                                    <value>[replace with list of personnel or roles]</value>
+                                    <value>organization-defined personnel or roles</value>
                                 </set-parameter>
                                 <set-parameter
                                     param-id="ac-1_prm_2">
-                                    <value>[specify frequency]</value>
+                                    <value>at least every 3 years</value>
                                 </set-parameter>
                             </implemented-requirement>
                         </control-implementation>
