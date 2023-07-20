@@ -10782,7 +10782,7 @@
                                 <prop
                                     name="planned-completion-date"
                                     ns="https://fedramp.gov/ns/oscal"
-                                    value="2020-11-27Z" />
+                                    value="2024-01-31Z" />
                                 <prop
                                     name="implementation-status"
                                     ns="https://fedramp.gov/ns/oscal"
@@ -10797,15 +10797,28 @@
                                     value="sp-system" />
                                 <set-parameter
                                     param-id="ac-1_prm_1">
-                                    <value>[replace with list of personnel or roles]</value>
+                                    <value>organization-defined personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter
-                                    param-id="ac-1_prm_2">
-                                    <value>[specify frequency]</value>
+                                <set-parameter param-id="ac-01_odp.02">
+                                    <value>personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter
-                                    param-id="ac-1_prm_3">
-                                    <value>[specify frequency]</value>
+                                <set-parameter param-id="ac-01_odp.03">
+                                    <value>organization-level, mission/business process-level, or system-level</value>
+                                </set-parameter>
+                                <set-parameter param-id="ac-01_odp.04">
+                                    <value>official</value>
+                                </set-parameter>
+                                <set-parameter param-id="ac-01_odp.05">
+                                    <value>frequency</value>
+                                </set-parameter>
+                                <set-parameter param-id="ac-01_odp.06">
+                                    <value>events</value>
+                                </set-parameter>
+                                <set-parameter param-id="ac-01_odp.07">
+                                    <value>frequency</value>
+                                </set-parameter>
+                                <set-parameter param-id="ac-01_odp.08">
+                                    <value>events</value>
                                 </set-parameter>
                             </implemented-requirement>
                         </control-implementation>
