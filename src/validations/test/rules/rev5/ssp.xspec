@@ -9546,6 +9546,8 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+<!-- Dimitri: Suspend technical control checks. -->
+<x:pending label="Waiting for a definitive answer if technical controls should be removed in rev 5.">
         <x:scenario
             label="A technical control must be implemented.">
             <x:scenario
@@ -9696,6 +9698,7 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+</x:pending>
         <x:scenario
             label="An automation control must be implemented.">
             <x:scenario
