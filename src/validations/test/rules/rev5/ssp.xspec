@@ -10687,13 +10687,29 @@
                                     param-id="ac-1_prm_1">
                                     <value>organization-defined personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter 
-                                    param-id="ac-1_prm_2">
-                                    <value>at least every 3 years</value>
+                                <set-parameter param-id="ac-01_odp.01">
+                                    <value>personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter 
-                                    param-id="ac-1_prm_3">
-                                    <value>at least annually</value>
+                                <set-parameter param-id="ac-01_odp.02">
+                                    <value>personnel or roles</value>
+                                </set-parameter>
+                                <set-parameter param-id="ac-01_odp.03">
+                                    <value>organization-level, mission/business process-level, or system-level</value>
+                                </set-parameter>
+                                <set-parameter param-id="ac-01_odp.04">
+                                    <value>official</value>
+                                </set-parameter>
+                                <set-parameter param-id="ac-01_odp.05">
+                                    <value>frequency</value>
+                                </set-parameter>
+                                <set-parameter param-id="ac-01_odp.06">
+                                    <value>events</value>
+                                </set-parameter>
+                                <set-parameter param-id="ac-01_odp.07">
+                                    <value>frequency</value>
+                                </set-parameter>
+                                <set-parameter param-id="ac-01_odp.08">
+                                    <value>events</value>
                                 </set-parameter>
                             </implemented-requirement>
                         </control-implementation>
