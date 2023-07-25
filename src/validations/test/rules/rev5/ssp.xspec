@@ -9547,7 +9547,7 @@
             </x:scenario>
         </x:scenario>
 <!-- Dimitri: Suspend technical control checks. -->
-<x:pending label="Waiting for a definitive answer if technical controls should be removed in rev 5.">
+<x:pending label="Pending decision to keep or remove technical controls in rev 5.">
         <x:scenario
             label="A technical control must be implemented.">
             <x:scenario
@@ -9699,6 +9699,8 @@
             </x:scenario>
         </x:scenario>
 </x:pending>
+<!-- Dimitri: Suspend automation control checks. -->
+<x:pending label="Pending decision to keep or remove automation controls in rev 5.">
         <x:scenario
             label="An automation control must be implemented.">
             <x:scenario
@@ -9849,6 +9851,7 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+</x:pending>
 <!-- Dimitri: Temporarily suspend response point tests. -->
 <x:pending label="Not implemented in rev 5 yet.">
         <x:scenario
