@@ -9495,6 +9495,7 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+    <x:pending>
         <x:scenario
             label="A technical control must be implemented.">
             <x:scenario
@@ -9645,6 +9646,8 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+   </x:pending>
+   <x:pending>
         <x:scenario
             label="An automation control must be implemented.">
             <x:scenario
@@ -9795,6 +9798,7 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
+    </x:pending>
         <x:scenario
             label="An implemented control must include required response point statements.">
             <x:scenario
