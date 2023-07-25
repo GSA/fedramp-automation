@@ -60,18 +60,18 @@ export type SchematronRuleset = {
 
 // Define these in priority order - ie, the most-recent (or most-relevant)
 // ruleset should be first in the list.
-export const SchematronRulesetKeys = ['rev4'] as const;
+export const SchematronRulesetKeys = ['rev4','rev5'] as const;
 export type SchematronRulesetKey = typeof SchematronRulesetKeys[number];
 
 export const SCHEMATRON_RULESETS: Record<
   SchematronRulesetKey,
   SchematronRuleset
 > = {
-  /*rev5: {
+  rev5: {
     key: 'rev5',
     title: 'NIST RMF revision 5',
     description: '',
-  },*/
+  },
   rev4: {
     key: 'rev4',
     title: 'NIST RMF revision 4',

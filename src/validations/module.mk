@@ -1,4 +1,4 @@
-SAXON_VERSION := 10.5
+SAXON_VERSION := 10.8
 SAXON_JAR := Saxon-HE-$(SAXON_VERSION).jar
 SAXON_LOCATION := saxon/Saxon-HE/$(SAXON_VERSION)/$(SAXON_JAR)
 SAXON_URL := https://repo1.maven.org/maven2/net/sf/$(SAXON_LOCATION)
