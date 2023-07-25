@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/release-1.0/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
-<!-- Modified by the OSCAL 1.0.0 RC2 to OSCAL 1.0.0 conversion XSLT on 2021-06-09T14:27:27.561-04:00 -->
+<?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0"
          uuid="a8aadf50-d5ea-46d2-bdf3-3d49947ce761">
    <metadata>
       <title>FedRAMP Rev 4 Moderate Baseline</title>
       <published>2021-02-05T00:00:00.000-04:00</published>
-      <last-modified>2021-06-09T14:27:27.561-04:00</last-modified>
-      <version>fedramp1.1.0-oscal1.0.0</version>
-      <oscal-version>1.0.0</oscal-version>
+      <last-modified>2023-06-23T00:00:00.000-04:00</last-modified>
+      <version>fedramp1.1.1-oscal1.0.4</version>
+      <oscal-version>1.0.4</oscal-version>
       <role id="prepared-by">
          <title>Document creator</title>
       </role>
       <role id="fedramp-pmo">
          <title>The FedRAMP Program Management Office (PMO)</title>
-         <short-name>CSP</short-name>
+         <short-name>PMO</short-name>
       </role>
       <role id="fedramp-jab">
          <title>The FedRAMP Joint Authorization Board (JAB)</title>
-         <short-name>CSP</short-name>
+         <short-name>JAB</short-name>
       </role>
       <party uuid="8cc0b8e5-9650-4d5f-9796-316f05fa9a2d" type="organization">
          <name>Federal Risk and Authorization Management Program: Program Management Office</name>
@@ -26,7 +25,6 @@
          <link href="https://fedramp.gov" rel="homepage"/>
          <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
          <link href="#985475ee-d4d6-4581-8fdf-d84d3d8caa48" rel="reference"/>
-         <link href="#1a23a771-d481-4594-9a1a-71d584fa4123" rel="reference"/>
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
@@ -1739,7 +1737,7 @@
          <add position="starting" by-id="ac-12">
             <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
          </add>
-         <add position="starting" by-id="ac-12.1_obj">
+         <add position="starting" by-id="ac-12_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
@@ -2384,11 +2382,11 @@
          <add position="starting" by-id="ac-4">
             <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
          </add>
-         <add position="starting" by-id="ac-4.1_obj">
+         <add position="starting" by-id="ac-4_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="ac-4.2_obj">
+         <add position="starting" by-id="ac-4_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -2889,7 +2887,7 @@
          <add position="starting" by-id="au-11">
             <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
          </add>
-         <add position="starting" by-id="au-11.1_obj">
+         <add position="starting" by-id="au-11_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
@@ -3069,7 +3067,7 @@
          </add>
       </alter>
       <alter control-id="au-4">
-         <add position="starting" by-id="au-4.1_obj">
+         <add position="starting" by-id="au-4_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
@@ -3295,13 +3293,13 @@
          </add>
       </alter>
       <alter control-id="au-9">
-         <add position="starting" by-id="au-9.1_obj">
+         <add position="starting" by-id="au-9_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
          </add>
-         <add position="starting" by-id="au-9.2_obj">
+         <add position="starting" by-id="au-9_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
@@ -3864,11 +3862,11 @@
          <add position="starting" by-id="ca-8">
             <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
          </add>
-         <add position="starting" by-id="ca-8.1_obj">
+         <add position="starting" by-id="ca-8_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="ca-8.2_obj">
+         <add position="starting" by-id="ca-8_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
@@ -4263,7 +4261,7 @@
          </add>
       </alter>
       <alter control-id="cm-4">
-         <add position="starting" by-id="cm-4.1_obj">
+         <add position="starting" by-id="cm-4_obj">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
@@ -4274,28 +4272,28 @@
          </add>
       </alter>
       <alter control-id="cm-5">
-         <add position="starting" by-id="cm-5.1_obj">
+         <add position="starting" by-id="cm-5_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="cm-5.2_obj">
+         <add position="starting" by-id="cm-5_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="cm-5.3_obj">
+         <add position="starting" by-id="cm-5_obj.3">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
          </add>
-         <add position="starting" by-id="cm-5.4_obj">
+         <add position="starting" by-id="cm-5_obj.4">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
          </add>
-         <add position="starting" by-id="cm-5.5_obj">
+         <add position="starting" by-id="cm-5_obj.5">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="cm-5.6_obj">
+         <add position="starting" by-id="cm-5_obj.6">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
@@ -4804,7 +4802,7 @@
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="TEST"/>
          </add>
-         <add position="starting" by-id="cp-10.2_obj">
+         <add position="starting" by-id="cp-10_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -5069,12 +5067,12 @@
          </add>
       </alter>
       <alter control-id="cp-6">
-         <add position="starting" by-id="cp-6.1_obj">
+         <add position="starting" by-id="cp-6_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
          </add>
-         <add position="starting" by-id="cp-6.2_obj">
+         <add position="starting" by-id="cp-6_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -5220,15 +5218,15 @@
                </part>
             </part>
          </add>
-         <add position="starting" by-id="cp-8.1_obj">
+         <add position="starting" by-id="cp-8_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="cp-8.2_obj">
+         <add position="starting" by-id="cp-8_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="cp-8.3_obj">
+         <add position="starting" by-id="cp-8_obj.3">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -5430,7 +5428,7 @@
          </add>
       </alter>
       <alter control-id="ia-2">
-         <add position="starting" by-id="ia-2.1_obj">
+         <add position="starting" by-id="ia-2_obj">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
@@ -5566,7 +5564,7 @@
          </add>
       </alter>
       <alter control-id="ia-3">
-         <add position="starting" by-id="ia-3.1_obj">
+         <add position="starting" by-id="ia-3_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
@@ -6036,7 +6034,7 @@
          </add>
       </alter>
       <alter control-id="ia-8">
-         <add position="starting" by-id="ia-8.1_obj">
+         <add position="starting" by-id="ia-8_obj">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
@@ -6210,11 +6208,11 @@
          <add position="starting" by-id="ir-3">
             <prop ns="https://fedramp.gov/ns/oscal" name="CORE" value="true"/>
          </add>
-         <add position="starting" by-id="ir-3.1_obj">
+         <add position="starting" by-id="ir-3_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="ir-3.2_obj">
+         <add position="starting" by-id="ir-3_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
@@ -6289,7 +6287,7 @@
          </add>
       </alter>
       <alter control-id="ir-5">
-         <add position="starting" by-id="ir-5.1_obj">
+         <add position="starting" by-id="ir-5_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -6354,13 +6352,13 @@
          </add>
       </alter>
       <alter control-id="ir-7">
-         <add position="starting" by-id="ir-7.1_obj">
+         <add position="starting" by-id="ir-7_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
          </add>
-         <add position="starting" by-id="ir-7.2_obj">
+         <add position="starting" by-id="ir-7_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
@@ -6765,17 +6763,17 @@
          </add>
       </alter>
       <alter control-id="ma-3">
-         <add position="starting" by-id="ma-3.1_obj">
+         <add position="starting" by-id="ma-3_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
          </add>
-         <add position="starting" by-id="ma-3.2_obj">
+         <add position="starting" by-id="ma-3_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
          </add>
-         <add position="starting" by-id="ma-3.3_obj">
+         <add position="starting" by-id="ma-3_obj.3">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -6953,15 +6951,15 @@
          </add>
       </alter>
       <alter control-id="ma-6">
-         <add position="starting" by-id="ma-6.1_obj">
+         <add position="starting" by-id="ma-6_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="ma-6.2_obj">
+         <add position="starting" by-id="ma-6_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="ma-6.3_obj">
+         <add position="starting" by-id="ma-6_obj.3">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -7237,11 +7235,11 @@
          </add>
       </alter>
       <alter control-id="mp-7">
-         <add position="starting" by-id="mp-7.1_obj">
+         <add position="starting" by-id="mp-7_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="mp-7.2_obj">
+         <add position="starting" by-id="mp-7_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
@@ -7366,7 +7364,7 @@
          </add>
       </alter>
       <alter control-id="pe-12">
-         <add position="starting" by-id="pe-12.1_obj">
+         <add position="starting" by-id="pe-12_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
@@ -7383,13 +7381,13 @@
          </add>
       </alter>
       <alter control-id="pe-13">
-         <add position="starting" by-id="pe-13.1_obj">
+         <add position="starting" by-id="pe-13_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
          </add>
-         <add position="starting" by-id="pe-13.2_obj">
+         <add position="starting" by-id="pe-13_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
@@ -9179,7 +9177,7 @@
                </part>
             </part>
          </add>
-         <add position="starting" by-id="sa-4.1_obj">
+         <add position="starting" by-id="sa-4_obj">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
@@ -9538,11 +9536,11 @@
                </part>
             </part>
          </add>
-         <add position="starting" by-id="sc-12.1_obj">
+         <add position="starting" by-id="sc-12_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="sc-12.2_obj">
+         <add position="starting" by-id="sc-12_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -9803,11 +9801,11 @@
                </part>
             </part>
          </add>
-         <add position="starting" by-id="sc-28.1_obj">
+         <add position="starting" by-id="sc-28_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="sc-28.2_obj">
+         <add position="starting" by-id="sc-28_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -9857,15 +9855,15 @@
          </add>
       </alter>
       <alter control-id="sc-5">
-         <add position="starting" by-id="sc-5.1_obj">
+         <add position="starting" by-id="sc-5_obj.1">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="sc-5.2_obj">
+         <add position="starting" by-id="sc-5_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="sc-5.3_obj">
+         <add position="starting" by-id="sc-5_obj.3">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -10779,7 +10777,7 @@
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="EXAMINE"/>
          </add>
-         <add position="starting" by-id="si-7.2_obj">
+         <add position="starting" by-id="si-7_obj.2">
             <prop ns="https://fedramp.gov/ns/oscal" name="response-point" value="You must fill in this response point."/>
             <prop name="method" class="fedramp" value="INTERVIEW"/>
             <prop name="method" class="fedramp" value="TEST"/>
@@ -10876,18 +10874,16 @@
    <back-matter>
       <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
          <title>FedRAMP Applicable Laws and Regulations</title>
-         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
-      </resource>
-      <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
-         <title>FedRAMP Master Acronym and Glossary</title>
-         <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
+         <rlink media-type="application/vnd.ms-excel" 
+                href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
       </resource>
       <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
          <description>
             <p>FedRAMP Logo</p>
          </description>
          <prop name="type" value="logo"/>
-         <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
+         <rlink media-type="image/png" 
+                href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
       </resource>
       <resource uuid="ad005eae-cc63-4e64-9109-3905a9a825e4">
          <title>NIST Special Publication (SP) 800-53</title>
