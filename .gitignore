@@ -28,3 +28,4 @@ src/validations/test/rules/xspec
 *.xpr
 
 src/validations/test/rules/rev5/ssp-result.html
+src/validations/test/rules/rev4/ssp-result.html

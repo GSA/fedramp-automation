@@ -3339,15 +3339,6 @@
                 name="implemented-controls"
                 value="oscal:implemented-requirement/@control-id ! xs:string(.)" />
             <sch:let
-                name="technical-controls"
-                value="$fedramp-values//fedramp:value-set[@name eq 'technical-control-id']//fedramp:enum/@value ! xs:string(.)" />
-            <sch:let
-                name="required-technical-controls"
-                value="$technical-controls[. = $required-controls]" />
-            <sch:let
-                name="missing-required-technical-controls"
-                value="$required-technical-controls[not(. = $implemented-controls)]" />
-            <sch:let
                 name="automation-controls"
                 value="$fedramp-values//fedramp:value-set[@name eq 'automation-control-id']//fedramp:enum/@value ! xs:string(.)" />
             <sch:let
@@ -3356,12 +3347,6 @@
             <sch:let
                 name="missing-required-automation-controls"
                 value="$required-automation-controls[not(. = $implemented-controls)]" />
-            <sch:assert
-                diagnostics="technical-control-exists-diagnostic"
-                fedramp:specific="true"
-                id="technical-control-exists"
-                role="error"
-                test="count($missing-required-technical-controls) eq 0">Every required technical control is implemented.</sch:assert>
             <sch:assert
                 diagnostics="automation-control-exists-diagnostic"
                 fedramp:specific="true"
@@ -3379,27 +3364,8 @@
                 name="selected-profile"
                 value="$sensitivity-level => lv:profile()" />
             <sch:let
-                name="technical-controls"
-                value="$fedramp-values//fedramp:value-set[@name eq 'technical-control-id']//fedramp:enum/@value ! xs:string(.)" />
-            <sch:let
                 name="automation-controls"
                 value="$fedramp-values//fedramp:value-set[@name eq 'automation-control-id']//fedramp:enum/@value ! xs:string(.)" />
-            <sch:assert
-                diagnostics="technical-control-is-implemented-diagnostic"
-                fedramp:specific="true"
-                id="technical-control-is-implemented"
-                role="error"
-                test="
-                    if (@control-id = $technical-controls)
-                    then
-                        (
-                        if (exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'implementation-status' and @value eq 'implemented']))
-                        then
-                            (true())
-                        else
-                            (false()))
-                    else
-                        (true())">Every technical control is fully implemented.</sch:assert>
             <sch:assert
                 diagnostics="automation-control-is-implemented-diagnostic"
                 fedramp:specific="true"
@@ -5249,16 +5215,6 @@
             doc:context="oscal:import-profile"
             id="import-profile-resolves-to-catalog-diagnostic">The import-profile element has an href attribute that does not reference a resolved
             baseline profile catalog document.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="technical-control-exists"
-            doc:context="oscal:control-implementation"
-            id="technical-control-exists-diagnostic">The SSP document does not contain the following implemented requirement(s) <sch:value-of
-                select="$missing-required-technical-controls" />.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="technical-control-is-implemented"
-            doc:context="oscal:implemented-requirement"
-            id="technical-control-is-implemented-diagnostic">The technical control implementation <sch:value-of
-                select="@control-id" /> does not have an implementation status of 'implemented'.</sch:diagnostic>
         <sch:diagnostic
             doc:assertion="automation-control-exists"
             doc:context="oscal:control-implementation"
