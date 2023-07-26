@@ -1,10 +1,10 @@
 {
   "catalog": {
-    "uuid": "a0015147-580d-4130-a8b1-6071340eb38e",
+    "uuid": "a83b4874-17aa-4636-8f95-c6a11aec3d80",
     "metadata": {
       "title": "FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline",
       "published": "2021-02-05T00:00:00.000-04:00",
-      "last-modified": "2023-07-26T14:17:03.727753-04:00",
+      "last-modified": "2023-07-26T17:08:55.184026-04:00",
       "version": "fedramp1.1.1-oscal1.0.4",
       "oscal-version": "1.0.4",
       "links": [
