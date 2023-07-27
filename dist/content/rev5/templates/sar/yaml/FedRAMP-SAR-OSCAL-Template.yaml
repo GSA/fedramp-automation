@@ -3,8 +3,8 @@ assessment-results:
   uuid: 26a53d2c-4249-4e0c-9939-410590f3ae9e
   metadata:
     title: "[System Name] FedRAMP Security Assessment Results (SAR)"
-    published: 2023-06-30T00:00:00Z
-    last-modified: 2023-06-30T16:27:00Z
+    published: 2023-07-06T00:00:00Z
+    last-modified: 2023-07-06T00:00:00Z
     version: fedramp2.0.0-oscal1.0.4
     oscal-version: 1.0.4
     props:
@@ -910,7 +910,7 @@ assessment-results:
               ns: https://fedramp.gov/ns/oscal
               value: "95"
               class: infrastructure
-            - name: discrepencies
+            - name: discrepancies
               ns: https://fedramp.gov/ns/oscal
               value: no
               class: infrastructure
@@ -923,13 +923,13 @@ assessment-results:
           collected: 2023-05-10T00:00:00Z
           remarks: >-
             Describe how comprehensive the scans were by using the FedRAMP
-            \"scan-percentage\", \"discrepencies\", and \"ia-manual-review\"
+            \"scan-percentage\", \"discrepancies\", and \"ia-manual-review\"
             `prop` within the `observation` data item.
 
 
-            If the value of the \"discrepencies\" `prop` is \"yes\", that indicates
-            that there are discrepencies between the inventory and the scanned items.
-            In that case, a \"discrepencies-reason\" `prop` must be provided.
+            If the value of the \"discrepancies\" `prop` is \"yes\", that indicates
+            that there are discrepancies between the inventory and the scanned items.
+            In that case, a \"discrepancies-reason\" `prop` must be provided.
         - uuid: 6d4435b2-c1b4-4adc-9057-0bf40635728b
           description: Database Scan Percentage.
           props:
@@ -937,7 +937,7 @@ assessment-results:
               ns: https://fedramp.gov/ns/oscal
               value: "100"
               class: database
-            - name: discrepencies
+            - name: discrepancies
               ns: https://fedramp.gov/ns/oscal
               value: no
               class: database
@@ -950,13 +950,13 @@ assessment-results:
           collected: 2023-05-10T03:00:00Z
           remarks: >-
             Describe how comprehensive the scans were by using the FedRAMP
-            \"scan-percentage\", \"discrepencies\", and \"ia-manual-review\"
+            \"scan-percentage\", \"discrepancies\", and \"ia-manual-review\"
             `prop` within the `observation` data item.
 
 
-            If the value of the \"discrepencies\" `prop` is \"yes\", that indicates
-            that there are discrepencies between the inventory and the scanned items.
-            In that case, a \"discrepencies-reason\" `prop` must be provided.
+            If the value of the \"discrepancies\" `prop` is \"yes\", that indicates
+            that there are discrepancies between the inventory and the scanned items.
+            In that case, a \"discrepancies-reason\" `prop` must be provided.
         - uuid: 6d4435b2-c1b4-4adc-9057-0bf40635728b
           description: Web Scan Percentage.
           props:
@@ -964,11 +964,11 @@ assessment-results:
               ns: https://fedramp.gov/ns/oscal
               value: "75"
               class: web
-            - name: discrepencies
+            - name: discrepancies
               ns: https://fedramp.gov/ns/oscal
               value: yes
               class: web
-            - name: discrepencies-reason
+            - name: discrepancies-reason
               ns: https://fedramp.gov/ns/oscal
               value: yes
               class: web
@@ -983,13 +983,13 @@ assessment-results:
           collected: 2023-05-10T03:00:00Z
           remarks: >-
             Describe how comprehensive the scans were by using the FedRAMP
-            \"scan-percentage\", \"discrepencies\", and \"ia-manual-review\"
+            \"scan-percentage\", \"discrepancies\", and \"ia-manual-review\"
             `prop` within the `observation` data item.
 
 
-            If the value of the \"discrepencies\" `prop` is \"yes\", that indicates
-            that there are discrepencies between the inventory and the scanned items.
-            In that case, a \"discrepencies-reason\" `prop` must be provided.
+            If the value of the \"discrepancies\" `prop` is \"yes\", that indicates
+            that there are discrepancies between the inventory and the scanned items.
+            In that case, a \"discrepancies-reason\" `prop` must be provided.
         - uuid: 21b26801-2e00-4e59-979c-bf2a4ed93920
           description: "[EXAMPLE]Describe the finding."
           methods:

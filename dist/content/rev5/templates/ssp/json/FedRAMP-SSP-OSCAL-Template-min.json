@@ -3,8 +3,8 @@
     "uuid": "9809eddf-2cd5-468f-97c5-9769905d0629",
     "metadata": {
       "title": "FedRAMP System Security Plan (SSP)",
-      "published": "2023-06-30T00:00:00Z",
-      "last-modified": "2023-06-30T00:00:00Z",
+      "published": "2023-07-06T00:00:00Z",
+      "last-modified": "2023-07-06T00:00:00Z",
       "version": "fedramp2.0.0-oscal1.0.4",
       "oscal-version": "1.0.4",
       "revisions": [
@@ -21,6 +21,20 @@
             }
           ],
           "remarks": "Initial publication."
+        },
+        {
+          "published": "2023-07-06T00:00:00Z",
+          "version": "1.1",
+          "oscal-version": "1.0.4",
+          "props": [
+            {
+              "name": "party-uuid",
+              "uuid": "528974e9-fcde-494f-a2fa-35d6f1e31171",
+              "ns": "https://fedramp.gov/ns/oscal",
+              "value": "6b286b5d-8f07-4fa7-8847-1dd0d88f73fb"
+            }
+          ],
+          "remarks": "Minor `prop` updates."
         }
       ],
       "props": [
@@ -2103,12 +2117,6 @@
             {
               "name": "allows-authenticated-scan",
               "value": "no",
-              "remarks": "If no, explain why. If yes, omit remark."
-            },
-            {
-              "name": "scan-latest",
-              "ns": "https://fedramp.gov/ns/oscal",
-              "value": "yes",
               "remarks": "If no, explain why. If yes, omit remark."
             },
             {

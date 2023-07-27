@@ -3,8 +3,8 @@
 <assessment-plan xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="1a58d031-b0ef-4e3a-9d6f-5c5969bb711e">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Plan (SAP)</title>
-      <published>2023-06-30T00:00:00Z</published>
-      <last-modified>2023-06-30T00:00:00Z</last-modified>
+      <published>2023-07-06T00:00:00Z</published>
+      <last-modified>2023-07-06T00:00:00Z</last-modified>
       <version>fedramp2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
@@ -1150,7 +1150,7 @@
          <description>
             <p>Describe the purpose of the tool here.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="vendor" value="Vendor Name"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="Vendor Name"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="name" value="Tool Name"/>
          <prop name="version" value="1.2.3"/>
          <status state="operational"/>
@@ -1160,7 +1160,7 @@
          <description>
             <p>Describe the purpose of the tool here.</p>
          </description>
-         <prop ns="https://fedramp.gov/ns/oscal" name="vendor" value="Vendor Name"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="vendor-name" value="Vendor Name"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="name" value="Tool Name"/>
          <prop name="version" value="1.2.3"/>
          <status state="operational"/>

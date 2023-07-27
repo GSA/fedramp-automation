@@ -3,8 +3,8 @@
 <assessment-results xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="26a53d2c-4249-4e0c-9939-410590f3ae9e">
    <metadata>
       <title>[System Name] FedRAMP Security Assessment Results (SAR)</title>
-      <published>2023-06-30T00:00:00Z</published>
-      <last-modified>2023-06-30T16:27:00Z</last-modified>
+      <published>2023-07-06T00:00:00Z</published>
+      <last-modified>2023-07-06T00:00:00Z</last-modified>
       <version>fedramp2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <prop name="marking" value="Controlled Unclassified Information"/>
@@ -841,13 +841,13 @@
             <p>Infrastructure Scan Percentage.</p>
          </description>
          <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="infrastructure" value="95"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="infrastructure" value="no"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="discrepancies" class="infrastructure" value="no"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="infrastructure" value="yes"/>
          <method>EXAMINE</method>
          <collected>2023-05-10T00:00:00Z</collected>
          <remarks>
-            <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepencies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
-            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items. In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
+            <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepancies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
+            <p>If the value of the "discrepancies" <code>prop</code> is "yes", that indicates that there are discrepancies between the inventory and the scanned items. In that case, a "discrepancies-reason" <code>prop</code> must be provided.</p>
          </remarks>
       </observation>
       <observation uuid="6d4435b2-c1b4-4adc-9057-0bf40635728b">
@@ -855,13 +855,13 @@
             <p>Database Scan Percentage.</p>
          </description>
          <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="database" value="100"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="database" value="no"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="discrepancies" class="database" value="no"/>
          <prop ns="https://fedramp.gov/ns/oscal" name="ia-manual-review" class="database" value="no"/>
          <method>EXAMINE</method>
          <collected>2023-05-10T03:00:00Z</collected>
          <remarks>
-            <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepencies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
-            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items. In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
+            <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepancies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
+            <p>If the value of the "discrepancies" <code>prop</code> is "yes", that indicates that there are discrepancies between the inventory and the scanned items. In that case, a "discrepancies-reason" <code>prop</code> must be provided.</p>
          </remarks>
       </observation>
       <observation uuid="6d4435b2-c1b4-4adc-9057-0bf40635728b">
@@ -869,9 +869,9 @@
             <p>Web Scan Percentage.</p>
          </description>
          <prop ns="https://fedramp.gov/ns/oscal" name="scan-percentage" class="web" value="75"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies" class="web" value="yes"/>
-         <prop ns="https://fedramp.gov/ns/oscal" name="discrepencies-reason" class="web" value="yes">
-            <!-- Must include a remark with justification for the discrepencies -->
+         <prop ns="https://fedramp.gov/ns/oscal" name="discrepancies" class="web" value="yes"/>
+         <prop ns="https://fedramp.gov/ns/oscal" name="discrepancies-reason" class="web" value="yes">
+            <!-- Must include a remark with justification for the discrepancies -->
             <remarks>
                <p>EXAMPLE - Next Gen Web Application Firewall is blocking requests from scanner.</p>
             </remarks>
@@ -880,8 +880,8 @@
          <method>EXAMINE</method>
          <collected>2023-05-10T03:00:00Z</collected>
          <remarks>
-            <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepencies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
-            <p>If the value of the "discrepencies" <code>prop</code> is "yes", that indicates that there are discrepencies between the inventory and the scanned items. In that case, a "discrepencies-reason" <code>prop</code> must be provided.</p>
+            <p>Describe how comprehensive the scans were by using the FedRAMP "scan-percentage", "discrepancies", and "ia-manual-review" <code>prop</code> within the <code>observation</code> data item.</p>
+            <p>If the value of the "discrepancies" <code>prop</code> is "yes", that indicates that there are discrepancies between the inventory and the scanned items. In that case, a "discrepancies-reason" <code>prop</code> must be provided.</p>
          </remarks>
       </observation>
       <observation uuid="21b26801-2e00-4e59-979c-bf2a4ed93920">

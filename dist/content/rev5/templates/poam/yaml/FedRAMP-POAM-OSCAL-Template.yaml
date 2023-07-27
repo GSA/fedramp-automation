@@ -3,8 +3,8 @@ plan-of-action-and-milestones:
   uuid: 6d072a8d-9657-446d-a487-4b6984782472
   metadata:
     title: "[System Name] FedRAMP Plan of Action and Milestones (POA&M)"
-    published: 2023-06-30T00:00:00Z
-    last-modified: 2023-06-30T00:00:00Z
+    published: 2023-07-06T00:00:00Z
+    last-modified: 2023-07-06T00:00:00Z
     version: fedramp2.0.0-oscal1.0.4
     oscal-version: 1.0.4
     props:
@@ -151,7 +151,7 @@ plan-of-action-and-milestones:
         title: XYZ Vulnerability Scanning Tool
         description: Provide description
         props:
-          - name: vendor
+          - name: vendor-name
             ns: https://fedramp.gov/ns/oscal
             value: Vendor Name
           - name: name
