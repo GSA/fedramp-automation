@@ -3,7 +3,7 @@
    <metadata>
       <title>[EXPERIMENTAL] FedRAMP Extensions</title>
       <published>2023-06-30T00:00:00Z</published>
-      <last-modified>2023-06-30T00:00:00Z</last-modified>
+      <last-modified>2023-07-05T00:00:00Z</last-modified>
       <version>fedramp2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <revisions>
@@ -13,6 +13,21 @@
             <prop name="party-uuid" ns="https://fedramp.gov/ns/oscal" value="9505ecff-86c4-42ad-aeb9-e6b0f8eacb69"/>
             <remarks>
                <p>Initial draft for fedramp2.0.0-oscal1.0.4 release. Subject to change.</p>
+            </remarks>
+         </revision>
+         <revision>
+            <published>2023-07-06T00:00:00Z</published>
+            <version>DRAFT-02</version>
+            <remarks>
+               <p>Updated remarks for deprecated extensions, and added new rev5 extensions.</p>
+               <p>The bindings and constraints for the new rev5 extensions are pending and will be added in a future revision.</p>
+            </remarks>
+         </revision>
+         <revision>
+            <published>2023-07-12T00:00:00Z</published>
+            <version>DRAFT-03</version>
+            <remarks>
+               <p>Minor edits.</p>
             </remarks>
          </revision>
       </revisions>
@@ -173,7 +188,7 @@
          </allowed-values>
       </constraint>
       <remarks>
-         <p>FedRAMP requires all Low systems to be at Level 1</p>
+         <p>Deprecated.</p>
       </remarks>
    </extension>
 
@@ -250,6 +265,9 @@
             <enum value="no" label="No">Not Privacy Sensitive</enum>
          </allowed-values>
       </constraint>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
    </extension>
 
    <extension id="privacy-threshold-analysis-q1">
@@ -265,6 +283,9 @@
             <enum value="no" label="No">No, the ISA does not collect, maintain, or share PII in any form.</enum>
          </allowed-values>
       </constraint>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
    </extension>
 
    <extension id="privacy-threshold-analysis-q2">
@@ -280,6 +301,9 @@
             <enum value="no" label="No">No, the ISA does not collect, maintain, or share PII from or about the public.</enum>
          </allowed-values>
       </constraint>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
    </extension>
 
    <extension id="privacy-threshold-analysis-q3">
@@ -295,6 +319,9 @@
             <enum value="no" label="No">No, a PIA has not been performed..</enum>
          </allowed-values>
       </constraint>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
    </extension>
 
    <extension id="privacy-threshold-analysis-q4">
@@ -310,6 +337,9 @@
             <enum value="no" label="No">No, there is not a SORN ID for this system.</enum>
          </allowed-values>
       </constraint>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
    </extension>
 
    <extension id="sorn-id">
@@ -322,6 +352,9 @@
          <has-cardinality min-occurs="0" max-occurs="1"/>
          <expect test=".[@name='pta-4'][@ns='https://fedramp.gov/ns/oscal']/@value='yes' and .[@name='sorn-id'][@ns='https://fedramp.gov/ns/oscal']"/>
       </constraint>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
    </extension>
 
    <extension id="user-sensitivity-level">
@@ -404,6 +437,10 @@
             <enum value="incoming-outgoing" short-label="In/Out">Bi-Directional</enum>
          </allowed-values>
       </constraint>
+      <remarks>
+         <p>Deprecated.</p>
+         <p>Use core OSCAL "direction" <code>prop</code> instead.</p>
+      </remarks>
    </extension>
 
    <extension id="interconnection-security">
@@ -443,6 +480,10 @@
             <enum value="no" short-label="N">No</enum>
          </allowed-values>
       </constraint>
+      <remarks>
+         <p>Deprecated.</p>
+         <p>Use core OSCAL "public" and "virtual" <code>prop</code> instead.</p>
+      </remarks>
    </extension>
 
    <extension id="circuit">
@@ -456,9 +497,9 @@
       </constraint>
    </extension>
 
-   <extension id="connection-security">
-      <extension-name>connection-security</extension-name>
-      <formal-name>Connection Security</formal-name>
+   <extension id="interconnection-security">
+      <extension-name>interconnection-security</extension-name>
+      <formal-name>Interconnection Security</formal-name>
       <description>Identifies the mechanisms/protocol(s) used to secure the communication.</description>
       <binding pattern="/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop"/>
       <constraint>
@@ -473,6 +514,9 @@
             <enum value="other" label="Other">Other</enum>
          </allowed-values>
       </constraint>
+      <remarks>
+         <p>Renamed from "connection-security" to "interconnection-security".</p>
+      </remarks>
    </extension>
 
    <extension id="service-used-by">
@@ -532,6 +576,10 @@
             <enum value="no" label="No">No, the assessor does not recommend the system for authorization.</enum>
          </allowed-values>
       </constraint>
+      <remarks>
+         <p>Deprecated.</p>
+         <p>Use "recommend-authorization" <code>prop</code> instead.</p>
+      </remarks>
    </extension>
 
    <extension id="title-short">
@@ -628,6 +676,9 @@
          <!-- Need to double-check guidebooks. -->
          <!-- Probably needs to be a separate constraint below. -->
       </constraint>
+      <remarks>
+         <p>Deprecated.</p>
+      </remarks>
    </extension>
 
    <extension id="sampling">
@@ -662,6 +713,10 @@
             <enum value="not-applicable" label="Not Applicable (N/A)">The assessor finds this control objective does not apply to this system.</enum>
          </allowed-values>
       </constraint>
+      <remarks>
+         <p>Deprecated.</p>
+         <p>Use "implementation-status" <code>prop</code> instead.</p>
+      </remarks>
    </extension>
 
    <extension id="control-implementation-status">
@@ -669,12 +724,29 @@
       <formal-name>Control Implementation Status</formal-name>
       <description>Indicates the implementation status of the control.</description>
       <binding pattern="o:implemented-requirement/o:prop[@name='implementation-status']/@value"/>
+      <binding pattern="/o:assessment-results/o:results/o:finding/o:target/o:prop"/>
+      <constraint>
+         <matches data-type="token"/>
+         <has-cardinality min-occurs="0" max-occurs="1"/>
+         <allowed-values allow-other="no">
+            <enum value="implemented" label="Implemented">The assessor finds sufficient evidence to agree the control objective is fully implemented.</enum>
+            <enum value="partial" label="Partial">The assessor finds evidence to suggest a portion of the control objective is implemented and a portion is not.</enum>
+            <enum value="planned" label="Planned">The assessor finds this control objective is not implemented, but there is evidence the system owner has a plan for implementing it.</enum>
+            <enum value="alternative" label="Alternative Implementation">The assessor finds evidence of an alternative implementation, which the assessor judges to provide protection similar enough to satisfy this control.</enum>
+            <enum value="not-applicable" label="Not Applicable (N/A)">The assessor finds this control objective does not apply to this system.</enum>
+         </allowed-values>
+      </constraint>
+      <remarks>
+         <p>Updated bindings and constraint.</p>
+      </remarks>
+      <!--
       <constraint>
          <has-cardinality min-occurs="1" max-occurs="unbounded"/>
          <remarks>
             <p>When an prop is defined as an extension, a separate constraint assembly is needed to specify data type and allowed values on the <code>@value</code> flag.</p>
          </remarks>
       </constraint>
+      -->
    </extension>
 
    <extension id="leveraged-authorization">
@@ -770,7 +842,7 @@
    </extension>
 
    <extension id="task-login-url">
-      <extension-name>logn-url</extension-name>
+      <extension-name>login-url</extension-name>
       <formal-name>Login URL</formal-name>
       <description>The login URL for a web application.</description>
       <binding pattern="/o:system-security-plan/o:system-implementation/o:o:inventory-item/o:prop"/>
@@ -779,10 +851,13 @@
       <constraint>
          <matches data-type="NCName"/>
       </constraint>
+      <remarks>
+         <p>Extension renamed from "login-url" to "login-url".</p>
+      </remarks>
    </extension>
 
    <extension id="task-login-id">
-      <extension-name>logn-id</extension-name>
+      <extension-name>login-id</extension-name>
       <formal-name>Login ID</formal-name>
       <description>The login ID used to assess the web application.</description>
       <binding pattern="/o:assessment-plan//o:task/o:prop"/>
@@ -790,6 +865,9 @@
       <constraint>
          <matches data-type="NCName"/>
       </constraint>
+      <remarks>
+         <p>Extension renamed from "login-id" to "login-id".</p>
+      </remarks>
    </extension>
 
    <extension id="task-test-type">
@@ -801,7 +879,7 @@
       <constraint>
          <matches data-type="NCName"/>
          <allowed-values>
-            <enum value="web-applicaiton" label="Web Application">This task tests a web application.</enum>
+            <enum value="web-application" label="Web Application">This task tests a web application.</enum>
          </allowed-values>
       </constraint>
    </extension>
@@ -985,6 +1063,368 @@
          </allowed-values>
       </constraint>
    </extension>
+
+   <!-- ===================================================================== -->
+   <!--  EXTENSIONS added for rev5 templates -->
+   <!-- ===================================================================== -->
+
+   <extension id="assessment-type">
+      <extension-name>assessment-type</extension-name>
+      <formal-name>Assessment Type</formal-name>
+      <description>The type of assessment (e.g., initial authorization, annual assessment, assessment for a significant change, or another type of assessment).</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="authentication-method">
+      <extension-name>authentication-method</extension-name>
+      <formal-name>Authentication Method</formal-name>
+      <description>The authentication method(s) for users of a leveraged service or external interconnection. Refer to for authentication methods NIST 800-63B (https://pages.nist.gov/800-63-3/sp800-63b.html) for authentication methods</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="authorized-users">
+      <extension-name>authorized-users</extension-name>
+      <formal-name>Authorized Users</formal-name>
+      <description>The users or roles that can access the leveraged service or external interconnection. </description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="cryptographic-module-usage">
+      <extension-name>cryptographic-module-usage</extension-name>
+      <formal-name>Cryptographic Module Usage</formal-name>
+      <description>The cryptographic module is used for data at rest (DAT) or data in transit (DIT).</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="csp-validated">
+      <extension-name>csp-validated</extension-name>
+      <formal-name>CSP Validated</formal-name>
+      <description>The CSP ensured the independent assessor team roles are appropriately filled.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="discrepancies">
+      <extension-name>discrepancies</extension-name>
+      <formal-name>Discrepancies</formal-name>
+      <description>Any discrepancies between inventory that was in scope for the planned assessment and the assets in the assessment results.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="discrepencies-reason">
+      <extension-name>discrepancies-reason</extension-name>
+      <formal-name>Discrepancies Reason</formal-name>
+      <description>The justification or reason for any discrepancies between inventory that was in scope for the planned assessment and the assets in the assessment results.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="fully-operational-date">
+      <extension-name>fully-operational-date</extension-name>
+      <formal-name>Fully Operational Date</formal-name>
+      <description>The date when security control implementations for the appropriate control baseline was completed.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+         <p>“Fully operational” means there are no “gaps” in the security control baseline implementations for the system. The CSP attests that the security controls are implemented correctly, operating as intended, and producing the desired outcome with respect to meeting established security requirements.</p>
+      </remarks>
+   </extension>
+
+   <extension id="ia-manual-review">
+      <extension-name>ia-manual-review</extension-name>
+      <formal-name>IA Manual Review</formal-name>
+      <description>Confirmation that the independent assessor performed a manual review of (scan) configuration files to analyze for existing vulnerabilities. </description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="ia-validated">
+      <extension-name>ia-validated</extension-name>
+      <formal-name>IA Validated</formal-name>
+      <description>The independent assessor ensured the assessment team roles are appropriately filled.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="impact-level">
+      <extension-name>impact-level</extension-name>
+      <formal-name>Impact Level</formal-name>
+      <description>The impact level of a leveraged authorization.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-compliance">
+      <extension-name>interconnection-compliance</extension-name>
+      <formal-name>Interconnection Compliance</formal-name>
+      <description>Any (security) compliance certifications the third party external service has (e.g., PCI SOC 2, CSA STAR Level 2, etc.).</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-data-categorization">
+      <extension-name>interconnection-data-categorization</extension-name>
+      <formal-name>Interconnection Data Categorization</formal-name>
+      <description>The security impact level of the data (Low, Moderate, High), processed by or stored in the external service, in accordance with FIPS 199 &amp; NIST 800-60 Vol. 2.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-data-type">
+      <extension-name>interconnection-data-type</extension-name>
+      <formal-name>Interconnection Data Type</formal-name>
+      <description>The type of data / information processed by or stored in the external service, in accordance with NIST 800-60 Vol. 2.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-hosting-environment">
+      <extension-name>interconnection-hosting-environment</extension-name>
+      <formal-name>Interconnection Hosting Environment</formal-name>
+      <description>A description of the hosting environment (e.g., corporate network, IaaS, or self-hosted) for the external service.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-risk">
+      <extension-name>interconnection-risk</extension-name>
+      <formal-name>Interconnection Risk</formal-name>
+      <description>A description of the potential risks introduced by the external system/service and impact to the CSO or federal data if the confidentiality, integrity, and availability (CIA) of the system/service is compromised.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="interconnection-type">
+      <extension-name>interconnection-type</extension-name>
+      <formal-name>Interconnection Type</formal-name>
+      <description>Numeric indicator of the type of interconnection, where 1 = Non-FedRAMP Authorized Cloud Services, 2 = Corporate Shared Services, and 3 = Update Services for In-Boundary Software/Services. </description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="ipv4-address">
+      <extension-name>ipv4-address</extension-name>
+      <formal-name>IPv4 Address</formal-name>
+      <description>The IP address of a component, inventory item, or other asset.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+         <p>Core OSCAL has an "ipv4-address" <code>prop</code> which can be used for certain component types and for inventory items.  This extension can be used instead, and is also applicable for other assemblies such as <code>assessment-platform</code>.</p>
+      </remarks>
+   </extension>
+
+   <extension id="ipv4-subnet">
+      <extension-name>ipv4-subnet</extension-name>
+      <formal-name>IPv4 Subnet</formal-name>
+      <description>The subnet for a component of inventory item.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="kev-catalog">
+      <extension-name>kev-catalog</extension-name>
+      <formal-name>KEV Catalog</formal-name>
+      <description>Indicates if this vulnerability is on the CISA Known Exploited Vulnerabilities (KEV) Catalog.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+         <p>In accordance with Binding Operational Directive (BOD) 22-01, CSPs must track their vulnerabilities against the KEV catalog.</p>
+      </remarks>
+   </extension>
+
+   <extension id="kev-due-date">
+      <extension-name>kev-due-date</extension-name>
+      <formal-name>Due Date</formal-name>
+      <description>The KEV catalog specified due date by which the vulnerability must be remediated.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+         <p>In accordance with Binding Operational Directive (BOD) 22-01, CSPs must track their vulnerabilities against the KEV catalog.</p>
+      </remarks>
+   </extension>
+
+   <extension id="label">
+      <extension-name>label</extension-name>
+      <formal-name>Test ID</formal-name>
+      <description>The test ID for the manual test method.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="leveraged-system-identifier">
+      <extension-name>leveraged-system-identifier</extension-name>
+      <formal-name>leveraged-system-identifier</formal-name>
+      <description>The identifier corresponding to the FedRAMP package ID.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="name">
+      <extension-name>name</extension-name>
+      <formal-name>Tool Name</formal-name>
+      <description>The product or tool name for a component or inventory item.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="nature-of-agreement">
+      <extension-name>nature-of-agreement</extension-name>
+      <formal-name>Nature of Agreement</formal-name>
+      <description>Any type of agreement between a CSP and the leveraged CSP vendors who support products (e.g., End User Licensing Agreement (EULA), Service-Level Agreement (SLA), App License Agreement, Contract, etc.).</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="resolution-resource">
+      <extension-name>resolution-resource</extension-name>
+      <formal-name>Resolution Resource</formal-name>
+      <description>The back-matter resource reference used to determine which FedRAMP validation rule sets apply.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="scan-percentage">
+      <extension-name>scan-percentage</extension-name>
+      <formal-name>Scan Percentage</formal-name>
+      <description>The scan coverage</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="significant-changes-scope">
+      <extension-name>significant-changes-scope</extension-name>
+      <formal-name>Significant Changes Scope</formal-name>
+      <description>The general quantity of significant change(s) in scope.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="sort-id">
+      <extension-name>sort-id</extension-name>
+      <formal-name>Sort ID</formal-name>
+      <description>Identifier for sort ordering content.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Core OSCAL has a "sort-id" <code>prop</code>, however this "sort-id" extension can be applied to any assembly that provided information which may need to be rendered in a specific order.  The <code>step</code> assembly is an example of this.</p>
+      </remarks>
+   </extension>
+
+   <extension id="still-supported">
+      <extension-name>still-supported</extension-name>
+      <formal-name>Still Supported</formal-name>
+      <description>Specify if the product / component is still supported by the vendor / manufacturer.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
+   <extension id="type">
+      <extension-name>type</extension-name>
+      <formal-name>Type</formal-name>
+      <description>The "type" of back-matter resource.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+         <p>Locally defined resource types.</p>
+      </remarks>
+   </extension>
+
+   <extension id="vendor-name">
+      <extension-name>vendor-name</extension-name>
+      <formal-name>Vendor Name</formal-name>
+      <description>The vendor or manufacturer of a component or inventory item.</description>
+      <!-- Todo: add bindings -->
+      <!-- Todo: add constraints -->
+      <remarks>
+         <p>Added for rev 5 templates.</p>
+      </remarks>
+   </extension>
+
 
    <!-- ===================================================================================== -->
 

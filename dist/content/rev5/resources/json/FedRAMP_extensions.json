@@ -6,9 +6,9 @@
         "metadata": {
             "title": "[EXPERIMENTAL] FedRAMP Extensions",
             "published": "2023-06-30T00:00:00Z",
-            "last-modified": "2023-06-30T00:00:00Z",
+            "last-modified": "2023-07-12T00:00:00Z",
             "version": "fedramp2.0.0-oscal1.0.4",
-            "oscal-version": "oscal-1.0.4",
+            "oscal-version": "1.0.4",
             "revisions": {
                 "revision": [
                     {
@@ -17,9 +17,28 @@
                         "prop": {
                             "name": "party-uuid",
                             "ns": "https://fedramp.gov/ns/oscal",
-                            "#text": "9505ecff-86c4-42ad-aeb9-e6b0f8eacb69"
+                            "value": "9505ecff-86c4-42ad-aeb9-e6b0f8eacb69"
                         },
                         "remarks": {"p": "Initial draft for fedramp2.0.0-oscal1.0.4 release. Subject to change."}
+                    },
+                    {
+                        "published": "2023-07-06T00:00:00Z",
+                        "version": "DRAFT-02",
+                        "remarks": {
+                            "p": [
+                                "Updated remarks for deprecated extensions, and added new rev5 extensions.",
+                                "The bindings and constraints for the new rev5 extensions are pending and will be added in a future revision."
+                            ]
+                        }
+                    },
+                    {
+                        "published": "2023-07-12T00:00:00Z",
+                        "version": "DRAFT-03",
+                        "remarks": {
+                            "p": [
+                                "Minor edits."
+                            ]
+                        }
                     }
                 ]
             },
@@ -31,7 +50,7 @@
             "party": {
                 "uuid": "77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d",
                 "type": "organization",
-                "name": "Federal Risk and Authorization Management Program: Program Management\n            Office",
+                "name": "Federal Risk and Authorization Management Program: Program Management Office",
                 "short-name": "FedRAMP PMO",
                 "link": {"href": "https://fedramp.gov"},
                 "email-address": "info@fedramp.gov",
@@ -49,7 +68,7 @@
                 "remarks": {
                     "p": [
                         "This party entry must be present in a FedRAMP SSP.",
-                        "The uuid may be different; however, the uuid must be associated with the\n               \"fedramp-pmo\" role in the responsible-party assemblies."
+                        "The uuid may be different; however, the uuid must be associated with the \"fedramp-pmo\" role in the responsible-party assemblies."
                     ]
                 }
             },
@@ -207,7 +226,7 @@
                         ]
                     }
                 },
-                "remarks": {"p": "FedRAMP requires all Low systems to be at Level 1"}
+                "remarks": {"p": "Deprecated."}
             },
             {
                 "id": "authorization-type",
@@ -326,7 +345,8 @@
                             }
                         ]
                     }
-                }
+                },
+                "remarks": {"p": "Deprecated."}
             },
             {
                 "id": "privacy-threshold-analysis-q1",
@@ -355,7 +375,8 @@
                             }
                         ]
                     }
-                }
+                },
+                "remarks": {"p": "Deprecated."}
             },
             {
                 "id": "privacy-threshold-analysis-q2",
@@ -384,7 +405,8 @@
                             }
                         ]
                     }
-                }
+                },
+                "remarks": {"p": "Deprecated."}
             },
             {
                 "id": "privacy-threshold-analysis-q3",
@@ -413,7 +435,8 @@
                             }
                         ]
                     }
-                }
+                },
+                "remarks": {"p": "Deprecated."}
             },
             {
                 "id": "privacy-threshold-analysis-q4",
@@ -442,7 +465,8 @@
                             }
                         ]
                     }
-                }
+                },
+                "remarks": {"p": "Deprecated."}
             },
             {
                 "id": "sorn-id",
@@ -457,7 +481,8 @@
                         "max-occurs": 1
                     },
                     "expect": {"test": ".[@name='pta-4'][@ns='https://fedramp.gov/ns/oscal']/@value='yes' and .[@name='sorn-id'][@ns='https://fedramp.gov/ns/oscal']"}
-                }
+                },
+                "remarks": {"p": "Deprecated."}
             },
             {
                 "id": "user-sensitivity-level",
@@ -605,7 +630,7 @@
                             },
                             {
                                 "value": "switch",
-                                "short-label": "Switch",
+                                "short-label": "Swtch",
                                 "#text": "Switch"
                             },
                             {
@@ -645,6 +670,16 @@
                             }
                         ]
                     }
+                },
+                "remarks": {
+                    "p": [
+                        "Deprecated.",
+                        {
+                            "#text": "Use core OSCAL \"direction\" ",
+                            "code": "prop",
+                            "#text1": " instead."
+                        }
+                    ]
                 }
             },
             {
@@ -724,6 +759,16 @@
                             }
                         ]
                     }
+                },
+                "remarks": {
+                    "p": [
+                        "Deprecated.",
+                        {
+                            "#text": "Use core OSCAL \"public\" and \"virtual\" ",
+                            "code": "prop",
+                            "#text1": " instead."
+                        }
+                    ]
                 }
             },
             {
@@ -741,9 +786,9 @@
                 }
             },
             {
-                "id": "connection-security",
-                "extension-name": "connection-security",
-                "formal-name": "Connection Security",
+                "id": "interconnection-security",
+                "extension-name": "interconnection-security",
+                "formal-name": "Interconnection Security",
                 "description": "Identifies the mechanisms/protocol(s) used to secure the communication.",
                 "binding": {"pattern": "/o:system-security-plan/o:system-implementation/o:component[@type='interconnection']/o:prop"},
                 "constraint": {
@@ -787,7 +832,8 @@
                             }
                         ]
                     }
-                }
+                },
+                "remarks": {"p": "Renamed from \"connection-security\" to \"interconnection-security\"."}
             },
             {
                 "id": "service-used-by",
@@ -890,6 +936,16 @@
                             }
                         ]
                     }
+                },
+                "remarks": {
+                    "p": [
+                        "Deprecated.",
+                        {
+                            "#text": "Use \"recommend-authorization\" ",
+                            "code": "prop",
+                            "#text1": " instead."
+                        }
+                    ]
                 }
             },
             {
@@ -992,7 +1048,8 @@
                         "min-occurs": 0,
                         "max-occurs": 1
                     }
-                }
+                },
+                "remarks": {"p": "Deprecated."}
             },
             {
                 "id": "sampling",
@@ -1068,6 +1125,16 @@
                             }
                         ]
                     }
+                },
+                "remarks": {
+                    "p": [
+                        "Deprecated.",
+                        {
+                            "#text": "Use \"implementation-status\" ",
+                            "code": "prop",
+                            "#text1": " instead."
+                        }
+                    ]
                 }
             },
             {
@@ -1075,20 +1142,48 @@
                 "extension-name": "implementation-status",
                 "formal-name": "Control Implementation Status",
                 "description": "Indicates the implementation status of the control.",
-                "binding": {"pattern": "o:implemented-requirement/o:prop[@name='implementation-status']/@value"},
+                "binding": [
+                    {"pattern": "o:implemented-requirement/o:prop[@name='implementation-status']/@value"},
+                    {"pattern": "/o:assessment-results/o:results/o:finding/o:target/o:prop"}
+                ],
                 "constraint": {
+                    "matches": {"data-type": "token"},
                     "has-cardinality": {
-                        "min-occurs": 1,
-                        "max-occurs": "unbounded"
+                        "min-occurs": 0,
+                        "max-occurs": 1
                     },
-                    "remarks": {
-                        "p": {
-                            "#text": "When an prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the ",
-                            "code": "@value",
-                            "#text1": " flag."
-                        }
+                    "allowed-values": {
+                        "allow-other": "no",
+                        "enum": [
+                            {
+                                "value": "implemented",
+                                "label": "Implemented",
+                                "#text": "The assessor finds sufficient evidence to agree the control objective is fully implemented."
+                            },
+                            {
+                                "value": "partial",
+                                "label": "Partial",
+                                "#text": "The assessor finds evidence to suggest a portion of the control objective is implemented and a portion is not."
+                            },
+                            {
+                                "value": "planned",
+                                "label": "Planned",
+                                "#text": "The assessor finds this control objective is not implemented, but there is evidence the system owner has a plan for implementing it."
+                            },
+                            {
+                                "value": "alternative",
+                                "label": "Alternative Implementation",
+                                "#text": "The assessor finds evidence of an alternative implementation, which the assessor judges to provide protection similar enough to satisfy this control."
+                            },
+                            {
+                                "value": "not-applicable",
+                                "label": "Not Applicable (N/A)",
+                                "#text": "The assessor finds this control objective does not apply to this system."
+                            }
+                        ]
                     }
-                }
+                },
+                "remarks": {"p": "Updated bindings and constraint."}
             },
             {
                 "id": "leveraged-authorization",
@@ -1126,7 +1221,7 @@
                     },
                     "remarks": {
                         "p": {
-                            "#text": "When an prop is defined as an extension, a separate constraint assembly is needed to specify datatype and allowed values on the ",
+                            "#text": "When an prop is defined as an extension, a separate constraint assembly is needed to specify data type and allowed values on the ",
                             "code": "@value",
                             "#text1": " flag."
                         }
@@ -1236,7 +1331,7 @@
             },
             {
                 "id": "task-login-url",
-                "extension-name": "logn-url",
+                "extension-name": "login-url",
                 "formal-name": "Login URL",
                 "description": "The login URL for a web application.",
                 "binding": [
@@ -1246,11 +1341,12 @@
                 ],
                 "constraint": {
                     "matches": {"data-type": "NCName"}
-                }
+                },
+                "remarks": {"p": "Extention renamed from \"logn-url\" to \"login-url\"."}
             },
             {
                 "id": "task-login-id",
-                "extension-name": "logn-id",
+                "extension-name": "login-id",
                 "formal-name": "Login ID",
                 "description": "The login ID used to assess the web application.",
                 "binding": [
@@ -1259,7 +1355,8 @@
                 ],
                 "constraint": {
                     "matches": {"data-type": "NCName"}
-                }
+                },
+                "remarks": {"p": "Extention renamed from \"logn-id\" to \"login-id\"."}
             },
             {
                 "id": "task-test-type",
@@ -1604,6 +1701,269 @@
                         ]
                     }
                 }
+            },
+            {
+                "id": "assessment-type",
+                "extension-name": "assessment-type",
+                "formal-name": "Assessment Type",
+                "description": "The type of assessment (e.g., initial authorization, annual assessment, assessment for a significant change, or another type of assessment).",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "authentication-method",
+                "extension-name": "authentication-method",
+                "formal-name": "Authentication Method",
+                "description": "The authentication method(s) for users of a leveraged service or external interconnection. Refer to for authentication methods NIST 800-63B (https://pages.nist.gov/800-63-3/sp800-63b.html) for authentiction methods",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "authorized-users",
+                "extension-name": "authorized-users",
+                "formal-name": "Authorized Users",
+                "description": "The users or roles that can access the leveraged service or external interconnection. ",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "cryptographic-module-usage",
+                "extension-name": "cryptographic-module-usage",
+                "formal-name": "Cryptographic Module Usage",
+                "description": "The cryptographic module is used for data at rest (DAT) or data in transit (DIT).",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "csp-validated",
+                "extension-name": "csp-validated",
+                "formal-name": "CSP Validated",
+                "description": "The CSP ensured the independent assessor team roles are appropriately filled.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "discrepancies",
+                "extension-name": "discrepancies",
+                "formal-name": "Discrepancies",
+                "description": "Any discrepancies between inventory that was in scope for the planned assessment and the assets in the assessment results.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "discrepencies-reason",
+                "extension-name": "discrepencies-reason",
+                "formal-name": "Discrepencies Reason",
+                "description": "The justification or reason for any discrepancies between inventory that was in scope for the planned assessment and the assets in the assessment results.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "fully-operational-date",
+                "extension-name": "fully-operational-date",
+                "formal-name": "Fully Operational Date",
+                "description": "The date when security control implementations for the appropriate control baseline was completed.",
+                "remarks": {
+                    "p": [
+                        "Added for rev 5 templates.",
+                        "\u201cFully operational\u201d means there are no \u201cgaps\u201d in the security control baseline implementations for the system. The CSP attests that the security controls are implemented correctly, operating as intended, and producing the desired outcome with respect to meeting established security requirements."
+                    ]
+                }
+            },
+            {
+                "id": "ia-manual-review",
+                "extension-name": "ia-manual-review",
+                "formal-name": "IA Manual Review",
+                "description": "Confirmation that the independent assessor performed a manual review of (scan) configuration files to analyze for existing vulnerabilities. ",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "ia-validated",
+                "extension-name": "ia-validated",
+                "formal-name": "IA Validated",
+                "description": "The independent assessor ensured the assessment team roles are appropriately filled.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "impact-level",
+                "extension-name": "impact-level",
+                "formal-name": "Impact Level",
+                "description": "The impact level of a leveraged authorization.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "interconnection-compliance",
+                "extension-name": "interconnection-compliance",
+                "formal-name": "Interconnection Compliance",
+                "description": "Any (security) compliance certifications the third party external service has (e.g., PCI SOC 2, CSA STAR Level 2, etc.).",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "interconnection-data-categorization",
+                "extension-name": "interconnection-data-categorization",
+                "formal-name": "Interconnection Data Categorization",
+                "description": "The security impact level of the data (Low, Moderate, High), processed by or stored in the external service, in accordance with FIPS 199 & NIST 800-60 Vol. 2.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "interconnection-data-type",
+                "extension-name": "interconnection-data-type",
+                "formal-name": "Interconnection Data Type",
+                "description": "The type of data / information processed by or stored in the external service, in accordance with NIST 800-60 Vol. 2.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "interconnection-hosting-environment",
+                "extension-name": "interconnection-hosting-environment",
+                "formal-name": "Interconnection Hosting Environment",
+                "description": "A description of the hosting environment (e.g., corporate network, IaaS, or self-hosted) for the external service.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "interconnection-risk",
+                "extension-name": "interconnection-risk",
+                "formal-name": "Interconnection Risk",
+                "description": "A description of the potential risks introduced by the external system/service and impact to the CSO or federal data if the confidentiality, integrity, and availability (CIA) of the system/service is compromised.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "interconnection-type",
+                "extension-name": "interconnection-type",
+                "formal-name": "Interconnection Type",
+                "description": "Numeric indicator of the type of interconnection, where 1 = Non-FedRAMP Authorized Cloud Services, 2 = Corporate Shared Services, and 3 = Update Services for In-Boundary Software/Services. ",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "ipv4-address",
+                "extension-name": "ipv4-address",
+                "formal-name": "IPv4 Address",
+                "description": "The IP address of a component, inventory item, or other asset.",
+                "remarks": {
+                    "p": [
+                        "Added for rev 5 templates.",
+                        {
+                            "#text": "Core OSCAL has an \"ipv4-address\" ",
+                            "code": "prop",
+                            "#text1": " which can be used for certain component types and for inventory items.  This extension can be used instead, and is also applicable for other assemblies such as ",
+                            "code#1": "assessment-platform",
+                            "#text2": "."
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "ipv4-subnet",
+                "extension-name": "ipv4-subnet",
+                "formal-name": "IPv4 Subnet",
+                "description": "The subnet for a component of inventory item.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "kev-catalog",
+                "extension-name": "kev-catalog",
+                "formal-name": "KEV Catalog",
+                "description": "Indicates if this vulnerability is on the CISA Known Exploited Vulnerabilities (KEV) Catalog.",
+                "remarks": {
+                    "p": [
+                        "Added for rev 5 templates.",
+                        "In accordance with Binding Operational Directive (BOD) 22-01, CSPs must track their vulnerabilities against the KEV catalog."
+                    ]
+                }
+            },
+            {
+                "id": "kev-due-date",
+                "extension-name": "kev-due-date",
+                "formal-name": "Due Date",
+                "description": "The KEV catalog specified due date by which the vulnerability must be remediated.",
+                "remarks": {
+                    "p": [
+                        "Added for rev 5 templates.",
+                        "In accordance with Binding Operational Directive (BOD) 22-01, CSPs must track their vulnerabilities against the KEV catalog."
+                    ]
+                }
+            },
+            {
+                "id": "label",
+                "extension-name": "label",
+                "formal-name": "Test ID",
+                "description": "The test ID for the manual test method.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "leveraged-system-identifier",
+                "extension-name": "leveraged-system-identifier",
+                "formal-name": "leveraged-system-identifier",
+                "description": "The identifier corresponding to the FedRAMP package ID.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "name",
+                "extension-name": "name",
+                "formal-name": "Tool Name",
+                "description": "The product or tool name for a component or inventory item.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "nature-of-agreement",
+                "extension-name": "nature-of-agreement",
+                "formal-name": "Nature of Agreement",
+                "description": "Any type of agreement between a CSP and the leveraged CSP vendors who support products (e.g., End User Licensing Agreement (EULA), Service-Level Agreement (SLA), App License Agreement, Contract, etc.).",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "resolution-resource",
+                "extension-name": "resolution-resource",
+                "formal-name": "Resolution Resource",
+                "description": "The back-matter resource reference used to determine which FedRAMP validation rulesets apply.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "scan-percentage",
+                "extension-name": "scan-percentage",
+                "formal-name": "Scan Percentage",
+                "description": "The scan coverage",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "significant-changes-scope",
+                "extension-name": "significant-changes-scope",
+                "formal-name": "Significant Changes Scope",
+                "description": "The general quantity of significant change(s) in scope.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "sort-id",
+                "extension-name": "sort-id",
+                "formal-name": "Sort ID",
+                "description": "Identifier for sort ordering content.",
+                "remarks": {
+                    "p": {
+                        "#text": "Core OSCAL has a \"sort-id\" ",
+                        "code": "prop",
+                        "#text1": ", however this \"sort-id\" extension can be applied to any assembly that provided information which may need to be rendered in a specific order.  The ",
+                        "code#1": "step",
+                        "#text2": " assembly is an example of this."
+                    }
+                }
+            },
+            {
+                "id": "still-supported",
+                "extension-name": "still-supported",
+                "formal-name": "Still Supported",
+                "description": "Specify if the product / component is still supported by the vendor / manufacturer.",
+                "remarks": {"p": "Added for rev 5 templates."}
+            },
+            {
+                "id": "type",
+                "extension-name": "type",
+                "formal-name": "Type",
+                "description": "The \"type\" of back-matter resource.",
+                "remarks": {
+                    "p": [
+                        "Added for rev 5 templates.",
+                        "Locally defined resource types."
+                    ]
+                }
+            },
+            {
+                "id": "vendor-name",
+                "extension-name": "vendor-name",
+                "formal-name": "Vendor Name",
+                "description": "The vendor or manufacturer of a component or inventory item.",
+                "remarks": {"p": "Added for rev 5 templates."}
             }
         ],
         "constraint": [
@@ -1670,7 +2030,7 @@
                 "name": "control-origination-constraints",
                 "formal-name": "Control Origination",
                 "description": "The point(s) from which the control satisfaction originates.",
-                "binding": {"pattern": "/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"},
+                "binding": {"pattern": "/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"},
                 "matches": {"data-type": "token"},
                 "allowed-values": {
                     "allow-other": "no",
@@ -1707,7 +2067,7 @@
                 "name": "control-implementation-status-constraints",
                 "formal-name": "Control Implementation Status Constraints",
                 "description": "Defines the data type and allowed values for the Control Implementation Status",
-                "binding": {"pattern": "/o:system-security-plan/o:control-implementation/o:implemented-requirement/o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal']/@value"},
+                "binding": {"pattern": "/o:system-security-plan/o:control-implmentation/o:implemented-requirement/o:prop[@name='implementation-status'][@ns='https://fedramp.gov/ns/oscal']/@value"},
                 "matches": {"data-type": "token"},
                 "allowed-values": {
                     "allow-other": "no",
@@ -1744,7 +2104,7 @@
             {
                 "formal-name": "Control Implementation Status Constraints",
                 "description": "Remarks are required for certain Control Implementation Status values.",
-                "binding": {"pattern": "/o:system-security-plan/o:control-implementation/o:implemented-requirement"},
+                "binding": {"pattern": "/o:system-security-plan/o:control-implmentation/o:implemented-requirement"},
                 "matches": {"data-type": "NCName"},
                 "expect": {"test": "(o:prop[@name='planned-completion'][@ns='https://fedramp.gov/ns/oscal'])"}
             },
