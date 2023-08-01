@@ -620,14 +620,15 @@
                         else
                             ' controls'" /> are required: <sch:value-of
                     select="$required-controls/@id" />.</sch:report>
-            <sch:assert
+            <!-- DZ: Temporarily disable core control tests (not implemented in rev 5 yet). -->
+            <!--sch:assert
                 diagnostics="incomplete-core-implemented-requirements-diagnostic"
                 doc:checklist-reference="Section C Check 3"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 fedramp:specific="true"
                 id="incomplete-core-implemented-requirements"
                 role="error"
-                test="not(exists($core-missing))">A FedRAMP SSP must implement the most important controls.</sch:assert>
+                test="not(exists($core-missing))">A FedRAMP SSP must implement the most important controls.</sch:assert-->
             <sch:assert
                 diagnostics="incomplete-all-implemented-requirements-diagnostic"
                 doc:checklist-reference="Section C Check 2"
@@ -4209,7 +4210,8 @@
             doc:context="oscal:system-security-plan/oscal:system-implementation/oscal:leveraged-authorization"
             id="FedRAMP-ATO-Identifier-exists-diagnostics">Component _<xsl:value-of
                 select="oscal:title" />_ is missing an identifier.</sch:diagnostic>
-        <sch:diagnostic
+        <!-- DZ: Temporarily disable core control diagnostic (not implemented in rev 5 yet). -->
+        <!--sch:diagnostic
             doc:assertion="incomplete-core-implemented-requirements"
             doc:context="/oscal:system-security-plan/oscal:control-implementation"
             id="incomplete-core-implemented-requirements-diagnostic">A FedRAMP SSP must implement the most important <sch:value-of
@@ -4219,7 +4221,7 @@
                         ' control'
                     else
                         ' controls'" />: <sch:value-of
-                select="$core-missing/@id" />.</sch:diagnostic>
+                select="$core-missing/@id" />.</sch:diagnostic-->
         <sch:diagnostic
             doc:assertion="incomplete-all-implemented-requirements"
             doc:context="/oscal:system-security-plan/oscal:control-implementation"

@@ -1310,7 +1310,7 @@
                 </x:scenario>
             </x:scenario>
         </x:scenario>
-<!-- Dimitri: Temporarily suspend core controls tests. -->
+<!-- DZ: Temporarily suspend core control tests. -->
 <x:pending label="Not implemented in rev 5 yet.">
         <x:scenario
             label="when the most important core controls are defined">
@@ -9546,7 +9546,7 @@
                     label="that is an error" />
             </x:scenario>
         </x:scenario>
-<!-- Dimitri: Suspend technical control checks. -->
+<!-- DZ: Suspend technical control checks. -->
 <x:pending label="Pending decision to keep or remove technical controls in rev 5.">
         <x:scenario
             label="A technical control must be implemented.">
@@ -9699,7 +9699,7 @@
             </x:scenario>
         </x:scenario>
 </x:pending>
-<!-- Dimitri: Suspend automation control checks. -->
+<!-- DZ: Suspend automation control checks. -->
 <x:pending label="Pending decision to keep or remove automation controls in rev 5.">
         <x:scenario
             label="An automation control must be implemented.">
@@ -9852,7 +9852,7 @@
             </x:scenario>
         </x:scenario>
 </x:pending>
-<!-- Dimitri: Temporarily suspend response point tests. -->
+<!-- DZ: Temporarily suspend response point tests. -->
 <x:pending label="Not implemented in rev 5 yet.">
         <x:scenario
             label="An implemented control must include required response point statements.">
