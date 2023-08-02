@@ -944,6 +944,8 @@
             </x:scenario>
             <x:scenario
                 label="and the profile defines specific response points to address specific control requirements">
+<!-- DZ: Temporarily suspend response point tests. -->
+<x:pending label="Not implemented in rev 5 yet.">
                 <x:scenario
                     label="and response points are properly defined"
                     pending="">
@@ -1004,6 +1006,7 @@
                         id="implemented-response-points"
                         label="this is informational" />
                 </x:scenario>
+</x:pending>
                 <x:scenario
                     label="and response points are missing">
                     <x:context>

@@ -3513,7 +3513,8 @@
             <sch:let
                 name="provided-response-points"
                 value="oscal:statement/@statement-id" />
-            <sch:assert
+            <!-- DZ: Temporarily disable response point tests (not implemented in rev 5 yet). -->
+            <!--sch:assert
                 diagnostics="implemented-requirement-has-required-response-points-diagnostic"
                 doc:checklist-reference="Section C Check 2"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
@@ -3524,7 +3525,7 @@
                 test="
                     every $rrp in $required-response-points
                         satisfies $rrp = $provided-response-points">An implemented control must include required response point
-                statements.</sch:assert>
+                statements.</sch:assert-->
             <sch:assert
                 diagnostics="set-parameter-elements-match-baseline-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
@@ -5306,13 +5307,14 @@
             id="implemented-requirement-has-allowed-composite-implementation-status-diagnostic">This implemented-requirement has an invalid
             implementation-status composition (<sch:value-of
                 select="string-join((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value), ', ')" />).</sch:diagnostic>
-        <sch:diagnostic
+        <!-- DZ: Temporarily disable response point diagnostic (not implemented in rev 5 yet). -->
+        <!--sch:diagnostic
             doc:assertion="implemented-requirement-has-required-response-points"
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-required-response-points-diagnostic">This implemented requirement is missing required response point(s).
             Required response points are <sch:value-of
                 select="$required-response-points" />; only <sch:value-of
-                select="$provided-response-points" />) response point(s) are provided.</sch:diagnostic>
+                select="$provided-response-points" />) response point(s) are provided.</sch:diagnostic-->
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-allowed-implementation-status"
             doc:context="oscal:implemented-requirement"
