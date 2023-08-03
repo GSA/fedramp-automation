@@ -3337,21 +3337,6 @@
             <sch:let
                 name="implemented-controls"
                 value="oscal:implemented-requirement/@control-id ! xs:string(.)" />
-            <sch:let
-                name="automation-controls"
-                value="$fedramp-values//fedramp:value-set[@name eq 'automation-control-id']//fedramp:enum/@value ! xs:string(.)" />
-            <sch:let
-                name="required-automation-controls"
-                value="$automation-controls[. = $required-controls]" />
-            <sch:let
-                name="missing-required-automation-controls"
-                value="$required-automation-controls[not(. = $implemented-controls)]" />
-            <sch:assert
-                diagnostics="automation-control-exists-diagnostic"
-                fedramp:specific="true"
-                id="automation-control-exists"
-                role="error"
-                test="count($missing-required-automation-controls) eq 0">Every required automation control is implemented.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:implemented-requirement"
@@ -3362,25 +3347,6 @@
             <sch:let
                 name="selected-profile"
                 value="$sensitivity-level => lv:profile()" />
-            <sch:let
-                name="automation-controls"
-                value="$fedramp-values//fedramp:value-set[@name eq 'automation-control-id']//fedramp:enum/@value ! xs:string(.)" />
-            <sch:assert
-                diagnostics="automation-control-is-implemented-diagnostic"
-                fedramp:specific="true"
-                id="automation-control-is-implemented"
-                role="error"
-                test="
-                    if (@control-id = $automation-controls)
-                    then
-                        (
-                        if (exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'implementation-status' and @value eq 'implemented']))
-                        then
-                            (true())
-                        else
-                            (false()))
-                    else
-                        (true())">Every automation control is fully implemented.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-implementation-status-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
@@ -5217,21 +5183,10 @@
             id="import-profile-resolves-to-catalog-diagnostic">The import-profile element has an href attribute that does not reference a resolved
             baseline profile catalog document.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="automation-control-exists"
-            doc:context="oscal:control-implementation"
-            id="automation-control-exists-diagnostic">The SSP document does not contain the following implemented requirement(s) <sch:value-of
-                select="$missing-required-automation-controls" />.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="automation-control-is-implemented"
-            doc:context="oscal:implemented-requirement"
-            id="automation-control-is-implemented-diagnostic">The technical control implementation <sch:value-of
-                select="@control-id" /> does not have an implementation status of 'implemented'.</sch:diagnostic>
-        <sch:diagnostic
             doc:assertion="implemented-requirement-has-implementation-status"
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-implementation-status-diagnostic">This implemented-requirement lacks an
             implementation-status.</sch:diagnostic>
-
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-planned-completion-date"
             doc:context="oscal:implemented-requirement"
