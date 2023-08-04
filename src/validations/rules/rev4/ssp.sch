@@ -1213,7 +1213,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 1"
                 fedramp:specific="true"
                 id="has-policy-link"
-                role="error"
+                role="warning"
                 test="
                     (: legacy approach :)
                     (descendant::oscal:by-component/oscal:link[@rel eq 'policy'])
