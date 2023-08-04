@@ -720,7 +720,7 @@
                 doc:template-reference="System Security Plan Template §13"
                 fedramp:specific="true"
                 id="invalid-implementation-status"
-                role="error"
+                role="information"
                 test="not(exists($corrections))">Implementation status is correct.</sch:assert>
             <sch:assert
                 diagnostics="DNSSEC-described-diagnostic"
@@ -911,7 +911,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6"
                 doc:template-reference="System Security Plan Template §9.3"
                 id="resource-uuid-required"
-                role="error"
+                role="warning"
                 test="@uuid">Every supporting artifact found in a citation has a unique identifier.</sch:assert>
         </sch:rule>
         <!-- The following rule is commented out because doc-available does not provide the desired existence check -->
@@ -974,7 +974,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
                 doc:template-reference="System Security Plan Template §15"
                 id="resource-has-uuid"
-                role="error"
+                role="warning"
                 test="@uuid">Every supporting artifact found in a citation must have a unique identifier.</sch:assert>
             <sch:assert
                 diagnostics="resource-has-title-diagnostic"
@@ -990,7 +990,7 @@
                 doc:template-reference="System Security Plan Template §15"
                 fedramp:specific="true"
                 id="resource-has-rlink"
-                role="error"
+                role="warning"
                 test="oscal:rlink">Every supporting artifact found in a citation must have a rlink element.</sch:assert>
             <sch:assert
                 diagnostics="resource-is-referenced-diagnostic"
@@ -1021,14 +1021,14 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
                 doc:template-reference="System Security Plan Template §15"
                 id="rlink-has-href"
-                role="error"
+                role="warning"
                 test="@href">Every supporting artifact found in a citation rlink must have a reference.</sch:assert>
             <sch:assert
                 diagnostics="rlink-href-is-available-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
                 doc:template-reference="System Security Plan Template §15"
                 id="rlink-href-is-available"
-                role="error"
+                role="warning"
                 test="not($use-remote-resources) or unparsed-text-available(@href)"
                 unit:override-xspec="both">Every supporting artifact found in a citation rlink must have a reachable reference.</sch:assert>
             <!--<sch:assert id="rlink-has-media-type"
@@ -1076,7 +1076,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §6.1"
                 doc:template-reference="System Security Plan Template §15"
                 id="resource-has-base64-cardinality"
-                role="error"
+                role="warning"
                 test="not(oscal:base64[2])">A supporting artifact found in a citation must have only one embedded attachment element.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -1122,7 +1122,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP Content §4.1"
                 fedramp:specific="true"
                 id="has-fedramp-logo"
-                role="error"
+                role="warning"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'fedramp-logo']]">A FedRAMP
                 SSP must have the FedRAMP Logo attached.</sch:assert>
             <sch:assert
@@ -1132,7 +1132,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 2"
                 fedramp:specific="true"
                 id="has-user-guide"
-                role="error"
+                role="warning"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'user-guide']]">A FedRAMP SSP
                 must have a User Guide attached.</sch:assert>
             <sch:assert
@@ -1142,7 +1142,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 5"
                 fedramp:specific="true"
                 id="has-rules-of-behavior"
-                role="error"
+                role="warning"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'rules-of-behavior']]"> A
                 FedRAMP SSP must have Rules of Behavior.</sch:assert>
             <sch:assert
@@ -1152,7 +1152,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 6"
                 fedramp:specific="true"
                 id="has-information-system-contingency-plan"
-                role="error"
+                role="warning"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'information-system-contingency-plan']]">
                 A FedRAMP SSP must have a Contingency Plan attached.</sch:assert>
             <sch:assert
@@ -1162,7 +1162,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 7"
                 fedramp:specific="true"
                 id="has-configuration-management-plan"
-                role="error"
+                role="warning"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'configuration-management-plan']]">
                 A FedRAMP SSP must have a Configuration Management Plan attached.</sch:assert>
             <sch:assert
@@ -1172,7 +1172,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 8"
                 fedramp:specific="true"
                 id="has-incident-response-plan"
-                role="error"
+                role="warning"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'incident-response-plan']]">A
                 FedRAMP SSP must have an Incident Response Plan attached.</sch:assert>
             <!-- Section B Check 3.9 is not used -->
@@ -1184,7 +1184,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 11"
                 fedramp:specific="true"
                 id="has-separation-of-duties-matrix"
-                role="error"
+                role="warning"
                 test="oscal:resource[oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'type' and @value eq 'separation-of-duties-matrix']]">
                 A FedRAMP SSP must have a Separation of Duties Matrix attached.</sch:assert>
         </sch:rule>
@@ -1235,7 +1235,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 1"
                 fedramp:specific="true"
                 id="has-policy-attachment-resource"
-                role="error"
+                role="warning"
                 test="
                     every $ref in $policy-hrefs
                         satisfies exists(//oscal:resource[oscal:prop[@name eq 'type' and @value eq 'policy']][@uuid eq $ref])">A
@@ -1249,7 +1249,7 @@
                 doc:template-reference="System Security Plan Template §15"
                 fedramp:specific="true"
                 id="has-procedure-link"
-                role="error"
+                role="warning"
                 test="
                     (: legacy approach :)
                     (descendant::oscal:by-component/oscal:link[@rel eq 'procedure'])
@@ -1271,7 +1271,7 @@
                 doc:template-reference="System Security Plan Template §15 Attachment 1"
                 fedramp:specific="true"
                 id="has-procedure-attachment-resource"
-                role="error"
+                role="warning"
                 test="
                     (: targets of links exist in the document :)
                     every $ref in $procedure-hrefs
@@ -1368,9 +1368,9 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
                 fedramp:specific="true"
                 id="has-credible-CMVP-validation-details"
-                role="error"
-                test="matches(@href, '^https://csrc\.nist\.gov/projects/cryptographic-module-validation-program/[Cc]ertificate/\d{3,4}$')">A
-                validation details must refer to a NIST Cryptographic Module Validation Program (CMVP) certificate detail page.</sch:assert>
+                role="warning"
+                test="matches(@href, '^https://csrc\.nist\.gov/projects/cryptographic-module-validation-program/[Cc]ertificate/\d{3,4}$')">
+                Validation details must refer to a NIST Cryptographic Module Validation Program (CMVP) certificate detail page.</sch:assert>
             <sch:assert
                 diagnostics="has-accessible-CMVP-validation-details-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans Appendix A"
@@ -2527,7 +2527,7 @@
                 diagnostics="has-matching-ATO-identifier-diagnostic"
                 fedramp:specific="true"
                 id="has-matching-ATO-identifier"
-                role="error"
+                role="warning"
                 test="
                     not($use-remote-resources) or
                     (some $p in array:flatten($fedramp_data?data?Providers)
@@ -2970,7 +2970,7 @@
                 doc:template-reference="System Security Plan Template §9.2"
                 fedramp:specific="true"
                 id="has-authorization-boundary-diagram"
-                role="error"
+                role="warning"
                 test="oscal:diagram">A FedRAMP SSP has at least one authorization boundary diagram.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -3079,7 +3079,7 @@
                 doc:template-reference="System Security Plan Template §9.4"
                 fedramp:specific="true"
                 id="has-network-architecture-diagram"
-                role="error"
+                role="warning"
                 test="oscal:diagram">A FedRAMP SSP has at least one network architecture diagram.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -3145,7 +3145,7 @@
                 doc:template-reference="System Security Plan Template §9.4"
                 fedramp:specific="true"
                 id="has-network-architecture-diagram-link-href-target"
-                role="error"
+                role="warning"
                 test="exists(//oscal:resource[@uuid eq substring-after(current()/@href, '#')])">A FedRAMP SSP network architecture diagram link
                 references a back-matter resource representing the diagram document.</sch:assert>
         </sch:rule>
@@ -3167,7 +3167,7 @@
                 doc:template-reference="System Security Plan Template §10.1"
                 fedramp:specific="true"
                 id="has-data-flow"
-                role="error"
+                role="warning"
                 test="oscal:data-flow">A FedRAMP SSP includes a data flow diagram.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -3187,7 +3187,7 @@
                 doc:template-reference="System Security Plan Template §10.1"
                 fedramp:specific="true"
                 id="has-data-flow-diagram"
-                role="error"
+                role="warning"
                 test="oscal:diagram">A FedRAMP SSP has at least one data flow diagram.</sch:assert>
         </sch:rule>
         <sch:rule
@@ -3541,7 +3541,7 @@
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
                 fedramp:specific="true"
                 id="planned-completion-date-is-not-past"
-                role="error"
+                role="warning"
                 see="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
                 test="not(@value castable as xs:date) or (@value castable as xs:date and xs:date(@value) gt current-date())">Planned completion date
                 is not past.</sch:assert>
