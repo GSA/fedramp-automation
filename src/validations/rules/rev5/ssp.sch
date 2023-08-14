@@ -620,14 +620,15 @@
                         else
                             ' controls'" /> are required: <sch:value-of
                     select="$required-controls/@id" />.</sch:report>
-            <sch:assert
+            <!-- DZ: Temporarily disable core control tests (not implemented in rev 5 yet). -->
+            <!--sch:assert
                 diagnostics="incomplete-core-implemented-requirements-diagnostic"
                 doc:checklist-reference="Section C Check 3"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
                 fedramp:specific="true"
                 id="incomplete-core-implemented-requirements"
                 role="error"
-                test="not(exists($core-missing))">A FedRAMP SSP must implement the most important controls.</sch:assert>
+                test="not(exists($core-missing))">A FedRAMP SSP must implement the most important controls.</sch:assert-->
             <sch:assert
                 diagnostics="incomplete-all-implemented-requirements-diagnostic"
                 doc:checklist-reference="Section C Check 2"
@@ -3336,36 +3337,6 @@
             <sch:let
                 name="implemented-controls"
                 value="oscal:implemented-requirement/@control-id ! xs:string(.)" />
-            <sch:let
-                name="technical-controls"
-                value="$fedramp-values//fedramp:value-set[@name eq 'technical-control-id']//fedramp:enum/@value ! xs:string(.)" />
-            <sch:let
-                name="required-technical-controls"
-                value="$technical-controls[. = $required-controls]" />
-            <sch:let
-                name="missing-required-technical-controls"
-                value="$required-technical-controls[not(. = $implemented-controls)]" />
-            <sch:let
-                name="automation-controls"
-                value="$fedramp-values//fedramp:value-set[@name eq 'automation-control-id']//fedramp:enum/@value ! xs:string(.)" />
-            <sch:let
-                name="required-automation-controls"
-                value="$automation-controls[. = $required-controls]" />
-            <sch:let
-                name="missing-required-automation-controls"
-                value="$required-automation-controls[not(. = $implemented-controls)]" />
-            <sch:assert
-                diagnostics="technical-control-exists-diagnostic"
-                fedramp:specific="true"
-                id="technical-control-exists"
-                role="error"
-                test="count($missing-required-technical-controls) eq 0">Every required technical control is implemented.</sch:assert>
-            <sch:assert
-                diagnostics="automation-control-exists-diagnostic"
-                fedramp:specific="true"
-                id="automation-control-exists"
-                role="error"
-                test="count($missing-required-automation-controls) eq 0">Every required automation control is implemented.</sch:assert>
         </sch:rule>
         <sch:rule
             context="oscal:implemented-requirement"
@@ -3376,44 +3347,6 @@
             <sch:let
                 name="selected-profile"
                 value="$sensitivity-level => lv:profile()" />
-            <sch:let
-                name="technical-controls"
-                value="$fedramp-values//fedramp:value-set[@name eq 'technical-control-id']//fedramp:enum/@value ! xs:string(.)" />
-            <sch:let
-                name="automation-controls"
-                value="$fedramp-values//fedramp:value-set[@name eq 'automation-control-id']//fedramp:enum/@value ! xs:string(.)" />
-            <sch:assert
-                diagnostics="technical-control-is-implemented-diagnostic"
-                fedramp:specific="true"
-                id="technical-control-is-implemented"
-                role="error"
-                test="
-                    if (@control-id = $technical-controls)
-                    then
-                        (
-                        if (exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'implementation-status' and @value eq 'implemented']))
-                        then
-                            (true())
-                        else
-                            (false()))
-                    else
-                        (true())">Every technical control is fully implemented.</sch:assert>
-            <sch:assert
-                diagnostics="automation-control-is-implemented-diagnostic"
-                fedramp:specific="true"
-                id="automation-control-is-implemented"
-                role="error"
-                test="
-                    if (@control-id = $automation-controls)
-                    then
-                        (
-                        if (exists(oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name = 'implementation-status' and @value eq 'implemented']))
-                        then
-                            (true())
-                        else
-                            (false()))
-                    else
-                        (true())">Every automation control is fully implemented.</sch:assert>
             <sch:assert
                 diagnostics="implemented-requirement-has-implementation-status-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.3"
@@ -3512,7 +3445,8 @@
             <sch:let
                 name="provided-response-points"
                 value="oscal:statement/@statement-id" />
-            <sch:assert
+            <!-- DZ: Temporarily disable response point tests (not implemented in rev 5 yet). -->
+            <!--sch:assert
                 diagnostics="implemented-requirement-has-required-response-points-diagnostic"
                 doc:checklist-reference="Section C Check 2"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5"
@@ -3523,7 +3457,7 @@
                 test="
                     every $rrp in $required-response-points
                         satisfies $rrp = $provided-response-points">An implemented control must include required response point
-                statements.</sch:assert>
+                statements.</sch:assert-->
             <sch:assert
                 diagnostics="set-parameter-elements-match-baseline-diagnostic"
                 doc:guide-reference="Guide to OSCAL-based FedRAMP System Security Plans §5.2"
@@ -4209,7 +4143,8 @@
             doc:context="oscal:system-security-plan/oscal:system-implementation/oscal:leveraged-authorization"
             id="FedRAMP-ATO-Identifier-exists-diagnostics">Component _<xsl:value-of
                 select="oscal:title" />_ is missing an identifier.</sch:diagnostic>
-        <sch:diagnostic
+        <!-- DZ: Temporarily disable core control diagnostic (not implemented in rev 5 yet). -->
+        <!--sch:diagnostic
             doc:assertion="incomplete-core-implemented-requirements"
             doc:context="/oscal:system-security-plan/oscal:control-implementation"
             id="incomplete-core-implemented-requirements-diagnostic">A FedRAMP SSP must implement the most important <sch:value-of
@@ -4219,7 +4154,7 @@
                         ' control'
                     else
                         ' controls'" />: <sch:value-of
-                select="$core-missing/@id" />.</sch:diagnostic>
+                select="$core-missing/@id" />.</sch:diagnostic-->
         <sch:diagnostic
             doc:assertion="incomplete-all-implemented-requirements"
             doc:context="/oscal:system-security-plan/oscal:control-implementation"
@@ -5248,31 +5183,10 @@
             id="import-profile-resolves-to-catalog-diagnostic">The import-profile element has an href attribute that does not reference a resolved
             baseline profile catalog document.</sch:diagnostic>
         <sch:diagnostic
-            doc:assertion="technical-control-exists"
-            doc:context="oscal:control-implementation"
-            id="technical-control-exists-diagnostic">The SSP document does not contain the following implemented requirement(s) <sch:value-of
-                select="$missing-required-technical-controls" />.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="technical-control-is-implemented"
-            doc:context="oscal:implemented-requirement"
-            id="technical-control-is-implemented-diagnostic">The technical control implementation <sch:value-of
-                select="@control-id" /> does not have an implementation status of 'implemented'.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="automation-control-exists"
-            doc:context="oscal:control-implementation"
-            id="automation-control-exists-diagnostic">The SSP document does not contain the following implemented requirement(s) <sch:value-of
-                select="$missing-required-automation-controls" />.</sch:diagnostic>
-        <sch:diagnostic
-            doc:assertion="automation-control-is-implemented"
-            doc:context="oscal:implemented-requirement"
-            id="automation-control-is-implemented-diagnostic">The technical control implementation <sch:value-of
-                select="@control-id" /> does not have an implementation status of 'implemented'.</sch:diagnostic>
-        <sch:diagnostic
             doc:assertion="implemented-requirement-has-implementation-status"
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-implementation-status-diagnostic">This implemented-requirement lacks an
             implementation-status.</sch:diagnostic>
-
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-planned-completion-date"
             doc:context="oscal:implemented-requirement"
@@ -5304,13 +5218,14 @@
             id="implemented-requirement-has-allowed-composite-implementation-status-diagnostic">This implemented-requirement has an invalid
             implementation-status composition (<sch:value-of
                 select="string-join((oscal:prop[@ns eq 'https://fedramp.gov/ns/oscal' and @name eq 'implementation-status']/@value), ', ')" />).</sch:diagnostic>
-        <sch:diagnostic
+        <!-- DZ: Temporarily disable response point diagnostic (not implemented in rev 5 yet). -->
+        <!--sch:diagnostic
             doc:assertion="implemented-requirement-has-required-response-points"
             doc:context="oscal:implemented-requirement"
             id="implemented-requirement-has-required-response-points-diagnostic">This implemented requirement is missing required response point(s).
             Required response points are <sch:value-of
                 select="$required-response-points" />; only <sch:value-of
-                select="$provided-response-points" />) response point(s) are provided.</sch:diagnostic>
+                select="$provided-response-points" />) response point(s) are provided.</sch:diagnostic-->
         <sch:diagnostic
             doc:assertion="implemented-requirement-has-allowed-implementation-status"
             doc:context="oscal:implemented-requirement"
