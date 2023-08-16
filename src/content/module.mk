@@ -21,6 +21,6 @@ test-content:  ## Test src/content
 
 build-content:  ## Build dist/content
 	@echo "Building content..."
-	#$(OSCAL_DOCKER) run cli $(MNT)/$(CICD_DIR_PATH)/copy-and-convert-content.sh -v -o $(MNT)/$(OSCAL_DIR) -a $(MNT) -c $(MNT)/$(CONTENT_CONFIG_PATH) -w $(MNT)/dist --resolve-profiles
+	$(OSCAL_DOCKER) run cli $(MNT)/$(CICD_DIR_PATH)/copy-and-convert-content.sh -v -o $(MNT)/$(OSCAL_DIR) -a $(MNT) -c $(MNT)/$(CONTENT_CONFIG_PATH) -w $(MNT)/dist --resolve-profiles
 	cp -R $(CONTENT_DIR)/rev4/resources/xml/. dist/content/rev4/resources/xml
 	cp -R $(CONTENT_DIR)/rev5/resources/xml/. dist/content/rev5/resources/xml
