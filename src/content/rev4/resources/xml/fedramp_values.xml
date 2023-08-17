@@ -9,13 +9,13 @@
         <version>fedramp1.2.1-oscal1.0.0</version>
         <author>FedRAMP PMO</author>
         <description>This EXPERIMENTAL file provides the FedRAMP defined identifiers and acceptable values in a machine-readable format.</description>
-        <remarks />
+        <remarks/>
     </metadata>
 
     <namespace>
         <ns
             name="fedramp"
-            ns="https://fedramp.gov/ns/oscal" />
+            ns="https://fedramp.gov/ns/oscal"/>
     </namespace>
 
     <value-set
@@ -24,7 +24,7 @@
         <description>Indicates the source of the unique ID assigned to the system. FedRAMP requires a FedRAMP-assigned identifier; however, additional
             identifiers may also be provided.</description>
         <binding
-            pattern="system-id/@identifier-type" />
+            pattern="system-id/@identifier-type"/>
         <allowed-values
             allow-other="yes">
             <enum
@@ -41,7 +41,7 @@
         <formal-name>Address Type</formal-name>
         <description>The type of address for the party</description>
         <binding
-            pattern="party/address/@type" />
+            pattern="party/address/@type"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -61,7 +61,7 @@
         <formal-name>Identity Assurance Level</formal-name>
         <description>The identity assurance level as defined by NIST SP 800-63, Revision 3.</description>
         <binding
-            pattern="system-characteristics/prop[@name='identity-assurance-level']" />
+            pattern="system-characteristics/prop[@name='identity-assurance-level']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -81,7 +81,7 @@
         <formal-name>Authenticator Assurance Level</formal-name>
         <description>The authenticator assurance level as defined by NIST SP 800-63, Revision 3.</description>
         <binding
-            pattern="system-characteristics/prop[@name='authenticator-assurance-level']" />
+            pattern="system-characteristics/prop[@name='authenticator-assurance-level']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -101,7 +101,7 @@
         <formal-name>Federation Assurance Level</formal-name>
         <description>The federation assurance level as defined by NIST SP 800-63, Revision 3.</description>
         <binding
-            pattern="system-characteristics/prop[@name='federation-assurance-level']" />
+            pattern="system-characteristics/prop[@name='federation-assurance-level']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -121,7 +121,7 @@
         <formal-name>Authorization Type</formal-name>
         <description>The FedRAMP Authorization Type</description>
         <binding
-            pattern="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']" />
+            pattern="system-characteristics/prop[@name='authorization-type'][@ns='https://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -141,7 +141,7 @@
         <formal-name>Service Model</formal-name>
         <description>The cloud service model.</description>
         <binding
-            pattern="system-characteristics/prop[@name='cloud-service-model']/@value" />
+            pattern="system-characteristics/prop[@name='cloud-service-model']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -164,7 +164,7 @@
         <formal-name>Deployment Model</formal-name>
         <description>The cloud deployment model.</description>
         <binding
-            pattern="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value" />
+            pattern="system-characteristics/prop[@name='cloud-deployment-model'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -190,13 +190,13 @@
         <formal-name>Security Impact Level</formal-name>
         <description>The security objective level as defined by NIST SP 800-60.</description>
         <binding
-            pattern="security-sensitivity-level" />
+            pattern="security-sensitivity-level"/>
         <binding
-            pattern="security-impact-level" />
+            pattern="security-impact-level"/>
         <binding
-            pattern="(security-objective-confidentiality|security-objective-integrity|security-objective-availability)" />
+            pattern="(security-objective-confidentiality|security-objective-integrity|security-objective-availability)"/>
         <binding
-            pattern="system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)" />
+            pattern="system-information/information-type/(confidentiality-impact|integrity-impact|availability-impact)/(base|selected)"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -216,7 +216,7 @@
         <formal-name>Privacy Designation</formal-name>
         <description>Indicates whether this system is privacy sensitive.</description>
         <binding
-            pattern="system-information/prop[@name='privacy-sensitive']" />
+            pattern="system-information/prop[@name='privacy-sensitive']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -233,7 +233,7 @@
         <formal-name>Privacy Threshold Analysis (Q1)</formal-name>
         <description>Does the ISA collect, maintain, or share PII in any identifiable form?</description>
         <binding
-            pattern="system-information/prop[@name='pta-1'][@ns='https://fedramp.gov/ns/oscal']" />
+            pattern="system-information/prop[@name='pta-1'][@ns='https://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -250,7 +250,7 @@
         <formal-name>Privacy Threshold Analysis (Q2)</formal-name>
         <description>Does the ISA collect, maintain, share PII info from or about the public?</description>
         <binding
-            pattern="system-information/prop[@name='pta-2'][@ns='https://fedramp.gov/ns/oscal']" />
+            pattern="system-information/prop[@name='pta-2'][@ns='https://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -267,7 +267,7 @@
         <formal-name>Privacy Threshold Analysis (Q3)</formal-name>
         <description>Has a Privacy Impact Assessment ever been performed for the ISA?</description>
         <binding
-            pattern="system-information/prop[@name='pta-3'][@ns='https://fedramp.gov/ns/oscal']" />
+            pattern="system-information/prop[@name='pta-3'][@ns='https://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -284,7 +284,7 @@
         <formal-name>Privacy Threshold Analysis (Q4)</formal-name>
         <description>Is there a Privacy Act System of Records Notice (SORN) for this ISA system?</description>
         <binding
-            pattern="system-information/prop[@name='pta-4'][@ns='https://fedramp.gov/ns/oscal']" />
+            pattern="system-information/prop[@name='pta-4'][@ns='https://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -302,7 +302,7 @@
         <formal-name>Likelihood</formal-name>
         <description>The likelihood of a risk.</description>
         <binding
-            pattern="risk/risk-metric[@name='likelihood'][@system='https://fedramp.gov']" />
+            pattern="risk/risk-metric[@name='likelihood'][@system='https://fedramp.gov']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -322,7 +322,7 @@
         <formal-name>Impact Level</formal-name>
         <description>The impact level of a risk.</description>
         <binding
-            pattern="risk/risk-metric[@name='impact'][@system='https://fedramp.gov']" />
+            pattern="risk/risk-metric[@name='impact'][@system='https://fedramp.gov']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -344,7 +344,7 @@
         <formal-name>Information Type System</formal-name>
         <description>Identifies the system from which the information type was defined.</description>
         <binding
-            pattern="information-type/information-type-id/@system" />
+            pattern="information-type/information-type-id/@system"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -359,7 +359,7 @@
         <formal-name>Operational Status (system)</formal-name>
         <description>The operational status of the system</description>
         <binding
-            pattern="status/@state" />
+            pattern="status/@state"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -385,7 +385,7 @@
         <formal-name>User Type</formal-name>
         <description>Identifies the user type.</description>
         <binding
-            pattern="user/prop[@name='type']/@value" />
+            pattern="user/prop[@name='type']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -405,7 +405,7 @@
         <formal-name>User Privilege</formal-name>
         <description>Identifies the privilege level of the user.</description>
         <binding
-            pattern="user/prop[@name='privilege-level']/@value" />
+            pattern="user/prop[@name='privilege-level']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -425,7 +425,7 @@
         <formal-name>User Sensitivity level</formal-name>
         <description>Identifies the sensitivity level of the user.</description>
         <binding
-            pattern="user/prop[@name='sensitivity'][@ns='https://fedramp.gov/ns/oscal']" />
+            pattern="user/prop[@name='sensitivity'][@ns='https://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -451,7 +451,7 @@
         <formal-name>Interconnection Direction</formal-name>
         <description>Identifies the direction of information flow for the interconnection.</description>
         <binding
-            pattern="component[@component-type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']" />
+            pattern="component[@component-type='interconnection']/prop[@name='interconnection-direction'][@ns='https://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -471,7 +471,7 @@
         <formal-name>Interconnection Security</formal-name>
         <description>Identifies the type of security applied to the interconnection.</description>
         <binding
-            pattern="component[@component-type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value" />
+            pattern="component[@component-type='interconnection']/prop[@name='interconnection-security'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -503,7 +503,7 @@
         <formal-name>Component Type</formal-name>
         <description>identifies the component type.</description>
         <binding
-            pattern="component/@component-type" />
+            pattern="component/@component-type"/>
         <allowed-values
             allow-other="yes">
             <enum
@@ -550,9 +550,9 @@
         <formal-name>Asset Type</formal-name>
         <description>Identifies the type of asset.</description>
         <binding
-            pattern="component/prop[@name='asset-type']" />
+            pattern="component/prop[@name='asset-type']"/>
         <binding
-            pattern="inventory-item/prop[@name='asset-type']" />
+            pattern="inventory-item/prop[@name='asset-type']"/>
         <allowed-values
             allow-other="yes">
             <enum
@@ -596,9 +596,9 @@
         <formal-name>Scan Type</formal-name>
         <description>Identifies the type of scan.</description>
         <binding
-            pattern="component/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']" />
+            pattern="component/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']"/>
         <binding
-            pattern="inventory-item/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']" />
+            pattern="inventory-item/prop[@name='scan-type'][@ns='https://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -621,7 +621,7 @@
         <formal-name>Transport Type</formal-name>
         <description>The internet protocol transport type.</description>
         <binding
-            pattern="component[@component-type='service']/protocol/port-range/@transport" />
+            pattern="component[@component-type='service']/protocol/port-range/@transport"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -638,9 +638,9 @@
         <formal-name>Virtual</formal-name>
         <description>Indicates if the asset is virtual.</description>
         <binding
-            pattern="inventory-item/prop[@name='virtual']" />
+            pattern="inventory-item/prop[@name='virtual']"/>
         <binding
-            pattern="component/prop[@name='virtual']" />
+            pattern="component/prop[@name='virtual']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -657,9 +657,9 @@
         <formal-name>Public</formal-name>
         <description>Indicates if the asset is exposed to the public Internet.</description>
         <binding
-            pattern="inventory-item/prop[@name='public']" />
+            pattern="inventory-item/prop[@name='public']"/>
         <binding
-            pattern="component/prop[@name='public']" />
+            pattern="component/prop[@name='public']"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -676,9 +676,9 @@
         <formal-name>Allows Authenticated Scan</formal-name>
         <description>Indicates if the asset is capable of having an authenticated scan.</description>
         <binding
-            pattern="inventory-item/prop[@name='allows-authenticated-scan']/@value" />
+            pattern="inventory-item/prop[@name='allows-authenticated-scan']/@value"/>
         <binding
-            pattern="component/prop[@name='allows-authenticated-scan']/@value" />
+            pattern="component/prop[@name='allows-authenticated-scan']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -696,9 +696,9 @@
         <formal-name>Is Scanned</formal-name>
         <description>Indicates if the asset is scan.</description>
         <binding
-            pattern="inventory-item/prop[@name='is-scanned']/@value" />
+            pattern="inventory-item/prop[@name='is-scanned']/@value"/>
         <binding
-            pattern="component/prop[@name='is-scanned']/@value" />
+            pattern="component/prop[@name='is-scanned']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -716,7 +716,7 @@
         <formal-name>Control Implementation Status</formal-name>
         <description>The implementation status of the control.</description>
         <binding
-            pattern="implemented-requirement/prop[@name='implementation-status']/@value" />
+            pattern="implemented-requirement/prop[@name='implementation-status']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -742,7 +742,7 @@
         <formal-name>Control Origination</formal-name>
         <description>The point(s) from which the control satisfaction originates.</description>
         <binding
-            pattern="implemented-requirement/prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value" />
+            pattern="implemented-requirement/prop[@name='control-origination'][@ns='https://fedramp.gov/ns/oscal']/@value"/>
         <allowed-values
             allow-other="no">
             <enum
@@ -764,264 +764,11 @@
     </value-set>
 
     <value-set
-        name="automation-control-id">
-        <formal-name>Automation Control IDs</formal-name>
-        <description>The control IDs for implemented requirements that are focused on automation aspects.</description>
-        <binding
-            pattern="implemented-requirement/@control-id" />
-        <allowed-values
-            allow-other="no">
-            <enum
-                short-label="ac-2.1"
-                value="ac-2.1">ac-2.1</enum>
-            <enum
-                short-label="ac-12"
-                value="ac-12">ac-12</enum>
-            <enum
-                short-label="ac-18.3"
-                value="ac-18.3">ac-18.3</enum>
-            <enum
-                short-label="au-6.1"
-                value="au-6.1">au-6.1</enum>
-            <enum
-                short-label="au-3.2"
-                value="au-3.2">au-3.2</enum>
-            <enum
-                short-label="au-6.4"
-                value="au-6.4">au-6.4</enum>
-            <enum
-                short-label="au-7.1"
-                value="au-7.1">au-7.1</enum>
-            <enum
-                short-label="at-3.4"
-                value="at-3.4">at-3.4</enum>
-            <enum
-                short-label="ca-7"
-                value="ca-7">ca-7</enum>
-            <enum
-                short-label="cm-2.2"
-                value="cm-2.2">cm-2.2</enum>
-            <enum
-                short-label="cm-3.1"
-                value="cm-3.1">cm-3.1</enum>
-            <enum
-                short-label="cm-3.6"
-                value="cm-3.6">cm-3.6</enum>
-            <enum
-                short-label="cm-6.1"
-                value="cm-6.1">cm-6.1</enum>
-            <enum
-                short-label="cm-8.2"
-                value="cm-8.2">cm-8.2</enum>
-            <enum
-                short-label="cm-8.3"
-                value="cm-8.3">cm-8.3</enum>
-            <enum
-                short-label="cm-11"
-                value="cm-11">cm-11</enum>
-            <enum
-                short-label="cp-10"
-                value="cp-10">cp-10</enum>
-            <enum
-                short-label="ir-4.1"
-                value="ir-4.1">ir-4.1</enum>
-            <enum
-                short-label="ir-5.1"
-                value="ir-5.1">ir-5.1</enum>
-            <enum
-                short-label="ir-6.1"
-                value="ir-6.1">ir-6.1</enum>
-            <enum
-                short-label="pe-3"
-                value="pe-3">pe-3</enum>
-            <enum
-                short-label="pe-8.1"
-                value="pe-8.1">pe-8.1</enum>
-            <enum
-                short-label="pe-11.1"
-                value="pe-11.1">pe-11.1</enum>
-            <enum
-                short-label="pe-13.1"
-                value="pe-13.1">pe-13.1</enum>
-            <enum
-                short-label="pe-13.2"
-                value="pe-13.2">pe-13.2</enum>
-            <enum
-                short-label="pe-13.3"
-                value="pe-13.3">pe-13.3</enum>
-            <enum
-                short-label="pe-15.1"
-                value="pe-15.1">pe-15.1</enum>
-            <enum
-                short-label="ps-4.2"
-                value="ps-4.2">ps-4.2</enum>
-            <enum
-                short-label="sc-23.1"
-                value="sc-23.1">sc-23.1</enum>
-            <enum
-                short-label="si-2.2"
-                value="si-2.2">si-2.2</enum>
-            <enum
-                short-label="si-3.2"
-                value="si-3.2">si-3.2</enum>
-            <enum
-                short-label="si-4.2"
-                value="si-4.2">si-4.2</enum>
-            <enum
-                short-label="si-4.20"
-                value="si-4.20">si-4.20</enum>
-            <enum
-                short-label="si-5.1"
-                value="si-5.1">si-5.1</enum>
-            <enum
-                short-label="si-7.2"
-                value="si-7.2">si-7.2</enum>
-            <enum
-                short-label="si-7.5"
-                value="si-7.5">si-7.5</enum>
-            <enum
-                short-label="si-8.2"
-                value="si-8.2">si-8.2</enum>
-        </allowed-values>
-    </value-set>
-
-    <value-set
-        name="technical-control-id">
-        <formal-name>Technical Control IDs</formal-name>
-        <description>The control IDs for implemented requirements that are focused on technical aspects.</description>
-        <binding
-            pattern="implemented-requirement/@control-id" />
-        <allowed-values
-            allow-other="no">
-            <enum
-                short-label="ac-2.10"
-                value="ac-2.10">ac-2.10</enum>
-            <enum
-                short-label="ac-3"
-                value="ac-3">ac-3</enum>
-            <enum
-                short-label="ac-5"
-                value="ac-5">ac-5</enum>
-            <enum
-                short-label="ac-6"
-                value="ac-6">ac-6</enum>
-            <enum
-                short-label="ac-6.1"
-                value="ac-6.1">ac-6.1</enum>
-            <enum
-                short-label="ac-6.5"
-                value="ac-6.5">ac-6.5</enum>
-            <enum
-                short-label="ac-6.7"
-                value="ac-6.7">ac-6.7</enum>
-            <enum
-                short-label="ac-6.9"
-                value="ac-6.9">ac-6.9</enum>
-            <enum
-                short-label="ac-6.10"
-                value="ac-6.10">ac-6.10</enum>
-            <enum
-                short-label="ac-7"
-                value="ac-7">ac-7</enum>
-            <enum
-                short-label="ac-7.2"
-                value="ac-7.2">ac-7.2</enum>
-            <enum
-                short-label="ac-8"
-                value="ac-8">ac-8</enum>
-            <enum
-                short-label="ac-10"
-                value="ac-10">ac-10</enum>
-            <enum
-                short-label="ac-11"
-                value="ac-11">ac-11</enum>
-            <enum
-                short-label="ac-11.1"
-                value="ac-11.1">ac-11.1</enum>
-            <enum
-                short-label="ac-17.1"
-                value="ac-17.1">ac-17.1</enum>
-            <enum
-                short-label="ac-17.2"
-                value="ac-17.2">ac-17.2</enum>
-            <enum
-                short-label="ac-18.1"
-                value="ac-18.1">ac-18.1</enum>
-            <enum
-                short-label="ac-19"
-                value="ac-19">ac-19</enum>
-            <enum
-                short-label="ac-19.5"
-                value="ac-19.5">ac-19.5</enum>
-            <enum
-                short-label="ac-20"
-                value="ac-20">ac-20</enum>
-            <enum
-                short-label="ac-20.1"
-                value="ac-20.1">ac-20.1</enum>
-            <enum
-                short-label="ac-20.2"
-                value="ac-20.2">ac-20.2</enum>
-            <enum
-                short-label="ac-21"
-                value="ac-21">ac-21</enum>
-            <enum
-                short-label="au-2.3"
-                value="au-2.3">au-2.3</enum>
-            <enum
-                short-label="au-5.2"
-                value="au-5.2">au-5.2</enum>
-            <enum
-                short-label="au-6"
-                value="au-6">au-6</enum>
-            <enum
-                short-label="au-6.7"
-                value="au-6.7">au-6.7</enum>
-            <enum
-                short-label="au-9.2"
-                value="au-9.2">au-9.2</enum>
-            <enum
-                short-label="au-9.4"
-                value="au-9.4">au-9.4</enum>
-            <enum
-                short-label="au-11"
-                value="au-11">au-11</enum>
-            <enum
-                short-label="cm-5"
-                value="cm-5">cm-5</enum>
-            <enum
-                short-label="cm-5.1"
-                value="cm-5.1">cm-5.1</enum>
-            <enum
-                short-label="cm-10"
-                value="cm-10">cm-10</enum>
-            <enum
-                short-label="ia-4.4"
-                value="ia-4.4">ia-4.4</enum>
-            <enum
-                short-label="ia-5.4"
-                value="ia-5.4">ia-5.4</enum>
-            <enum
-                short-label="ia-6"
-                value="ia-6">ia-6</enum>
-            <enum
-                short-label="ir-2.2"
-                value="ir-2.2">ir-2.2</enum>
-            <enum
-                short-label="sc-7.5"
-                value="sc-7.5">sc-7.5</enum>
-            <enum
-                short-label="sc-10"
-                value="sc-10">sc-10</enum>
-        </allowed-values>
-    </value-set>
-
-    <value-set
         name="attachment-type">
         <formal-name>Attachment Type</formal-name>
         <description>Identifies the type of attachment.</description>
         <binding
-            pattern="resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']" />
+            pattern="resource/prop[@name='type'][@ns='https://fedramp.gov/ns/oscal']"/>
         <allowed-values
             allow-other="yes">
             <enum
@@ -1134,7 +881,7 @@
         <formal-name>Hash Algorithm</formal-name>
         <description>Identifies the algorithm used to create the hash value of the attachment.</description>
         <binding
-            pattern="resource/hash/@algorithm" />
+            pattern="resource/hash/@algorithm"/>
         <allowed-values
             allow-other="yes">
             <enum
@@ -1160,7 +907,7 @@
         <formal-name>Defined Role Identifiers</formal-name>
         <description>Identifies the type of role for a responsible party.</description>
         <binding
-            pattern="role/@id" />
+            pattern="role/@id"/>
         <allowed-values
             allow-other="yes">
             <enum
@@ -1210,9 +957,9 @@
         <formal-name>Resource Media Types</formal-name>
         <description>A subset of IANA media types expected to be encountered.</description>
         <binding
-            pattern="rlink/@media-type" />
+            pattern="rlink/@media-type"/>
         <binding
-            pattern="base64/@media-type" />
+            pattern="base64/@media-type"/>
         <allowed-values>
             <enum
                 value="application/gzip">application/gzip</enum>
