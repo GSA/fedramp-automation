@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "build": "mkdirp public/rules && run-s build:cli build:schematron build:schematron:summary build:json build:typecheck build:vite",
+    "build": "mkdirp public/rules && run-s build:cli build:schematron build:schematron:summary:* build:json build:typecheck build:vite",
     "build:cli": "tsup --format cjs --out-dir ./bin ./src/cli/index.ts",
     "build:json": "run-p build:json:sef:* && run-p build:json:cli:*",
     "build:json:cli:assertion-views": "node bin/index.cjs create-assertion-view",
@@ -13,7 +13,8 @@
     "build:json:sef:sar-json-to-xml": "xslt3 -xsl:../../vendor/oscal/xml/convert/oscal_assessment-results_json-to-xml-converter.xsl -export:public/rules/oscal_assessment-results_json-to-xml-converter.sef.json -relocate:on -nogo",
     "build:json:sef:poam-json-to-xml": "xslt3 -xsl:../../vendor/oscal/xml/convert/oscal_poam_json-to-xml-converter.xsl -export:public/rules/oscal_poam_json-to-xml-converter.sef.json -relocate:on -nogo",
     "build:schematron": "node bin/index.cjs compile-schematron",
-    "build:schematron:summary": "xslt3 -s:../validations/rules/rev4/rules.xsl -xsl:../validations/rules/rev4/rules.xsl -o:public/rules/rules.html",
+    "build:schematron:summary:rev4": "xslt3 -s:../validations/rules/rev4/rules.xsl -xsl:../validations/rules/rev4/rules.xsl -o:public/rules/rules-rev4.html",
+    "build:schematron:summary:rev5": "xslt3 -s:../validations/rules/rev5/rules.xsl -xsl:../validations/rules/rev5/rules.xsl -o:public/rules/rules-rev5.html",
     "build:typecheck": "tsc --noEmit",
     "build:vite": "vite build",
     "cli": "node bin/index.cjs",
@@ -40,7 +41,7 @@
     "saxon-js": "2.4.0",
     "uswds": "^2.13.0",
     "xml-formatter": "^2.6.1",
-    "yaml": "^2.1.3"
+    "yaml": "^2.3.1"
   },
   "devDependencies": {
     "@types/node": "^18.11.15",
@@ -57,7 +58,7 @@
     "sass": "^1.56.2",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4",
-    "vite": "^3.2.5",
+    "vite": "^3.2.7",
     "vite-tsconfig-paths": "^4.0.3",
     "vitest": "^0.25.8",
     "vitest-mock-extended": "^1.0.7",

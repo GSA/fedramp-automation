@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="8ff4384f-ab40-4ee0-ba7d-90f92d816288">
+         uuid="f1495344-5824-4b22-9e6e-b2f6996cb120">
    <metadata>
       <title>FedRAMP Rev 4 Moderate Baseline</title>
       <published>2021-02-05T00:00:00.000-04:00</published>
-      <last-modified>2023-03-09T16:50:57.06149-05:00</last-modified>
-      <version>fedramp1.1.0-oscal1.0.0</version>
-      <oscal-version>1.0.0</oscal-version>
+      <last-modified>2023-08-16T16:48:11.570597-04:00</last-modified>
+      <version>fedramp1.1.1-oscal1.0.4</version>
+      <oscal-version>1.0.4</oscal-version>
       <link rel="resolution-source"
             href="FedRAMP_rev4_MODERATE-baseline_profile.xml"/>
       <role id="prepared-by">
@@ -14,11 +14,11 @@
       </role>
       <role id="fedramp-pmo">
          <title>The FedRAMP Program Management Office (PMO)</title>
-         <short-name>CSP</short-name>
+         <short-name>PMO</short-name>
       </role>
       <role id="fedramp-jab">
          <title>The FedRAMP Joint Authorization Board (JAB)</title>
-         <short-name>CSP</short-name>
+         <short-name>JAB</short-name>
       </role>
       <party uuid="8cc0b8e5-9650-4d5f-9796-316f05fa9a2d" type="organization">
          <name>Federal Risk and Authorization Management Program: Program Management Office</name>
@@ -26,7 +26,6 @@
          <link href="https://fedramp.gov" rel="homepage"/>
          <link href="#a2381e87-3d04-4108-a30b-b4d2f36d001f" rel="logo"/>
          <link href="#985475ee-d4d6-4581-8fdf-d84d3d8caa48" rel="reference"/>
-         <link href="#1a23a771-d481-4594-9a1a-71d584fa4123" rel="reference"/>
          <email-address>info@fedramp.gov</email-address>
          <address type="work">
             <addr-line>1800 F St. NW</addr-line>
@@ -1517,10 +1516,19 @@
          <part id="ac-4_obj" name="objective">
             <p>Determine if:</p>
             <part id="ac-4_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="AC-4[1]"/>
                <p>the organization defines information flow control policies to control the flow of information within the system and between interconnected systems; and</p>
             </part>
             <part id="ac-4_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="AC-4[2]"/>
                <p>the information system enforces approved authorizations for controlling the flow of information within the system and between interconnected systems based on organization-defined information flow control policies.</p>
             </part>
@@ -2770,6 +2778,10 @@
          <part id="ac-12_obj" name="objective">
             <p>Determine if:</p>
             <part id="ac-12_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="AC-12[1]"/>
                <p>the organization defines conditions or trigger events requiring session disconnect; and</p>
             </part>
@@ -5401,6 +5413,10 @@
          <part id="au-4_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="au-4_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="AU-4[1]"/>
                <p>defines audit record storage requirements; and</p>
             </part>
@@ -6245,6 +6261,12 @@
          <part id="au-9_obj" name="objective">
             <p>Determine if:</p>
             <part id="au-9_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="AU-9[1]"/>
                <p>the information system protects audit information from unauthorized:</p>
                <part id="au-9_obj.1.a" name="objective">
@@ -6261,6 +6283,12 @@
                </part>
             </part>
             <part id="au-9_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="AU-9[2]"/>
                <p>the information system protects audit tools from unauthorized:</p>
                <part id="au-9_obj.2.a" name="objective">
@@ -6481,6 +6509,10 @@
          <part id="au-11_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="au-11_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="AU-11[1]"/>
                <p>defines a time period to retain audit records that is consistent with records retention policy;</p>
             </part>
@@ -8369,10 +8401,18 @@
          <part id="ca-8_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="ca-8_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="CA-8[1]"/>
                <p>defines information systems or system components on which penetration testing is to be conducted;</p>
             </part>
             <part id="ca-8_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="CA-8[2]"/>
                <p>defines the frequency to conduct penetration testing on organization-defined information systems or system components; and</p>
             </part>
@@ -9512,6 +9552,12 @@
             <link rel="related" href="#si-2"/>
          </part>
          <part id="cm-4_obj" name="objective">
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
+            <prop name="method" class="fedramp" value="EXAMINE"/>
+            <prop name="method" class="fedramp" value="INTERVIEW"/>
+            <prop name="method" class="fedramp" value="TEST"/>
             <p>Determine if the organization analyzes changes to the information system to determine potential security impacts prior to change implementation.</p>
          </part>
          <part name="assessment">
@@ -9561,26 +9607,51 @@
          <part id="cm-5_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="cm-5_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="CM-5[1]"/>
                <p>defines physical access restrictions associated with changes to the information system;</p>
             </part>
             <part id="cm-5_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="CM-5[2]"/>
                <p>documents physical access restrictions associated with changes to the information system;</p>
             </part>
             <part id="cm-5_obj.3" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="CM-5[3]"/>
                <p>approves physical access restrictions associated with changes to the information system;</p>
             </part>
             <part id="cm-5_obj.4" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="label" value="CM-5[4]"/>
                <p>enforces physical access restrictions associated with changes to the information system;</p>
             </part>
             <part id="cm-5_obj.5" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="CM-5[5]"/>
                <p>defines logical access restrictions associated with changes to the information system;</p>
             </part>
             <part id="cm-5_obj.6" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="CM-5[6]"/>
                <p>documents logical access restrictions associated with changes to the information system;</p>
             </part>
@@ -12780,10 +12851,20 @@
          <part id="cp-6_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="cp-6_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="label" value="CP-6[1]"/>
                <p>establishes an alternate storage site including necessary agreements to permit the storage and retrieval of information system backup information; and</p>
             </part>
             <part id="cp-6_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="CP-6[2]"/>
                <p>ensures that the alternate storage site provides information security safeguards equivalent to that of the primary site.</p>
             </part>
@@ -13244,14 +13325,27 @@
          <part id="cp-8_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="cp-8_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="CP-8[1]"/>
                <p>defines information system operations requiring alternate telecommunications services to be established to permit the resumption of such operations;</p>
             </part>
             <part id="cp-8_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="CP-8[2]"/>
                <p>defines the time period to permit resumption of organization-defined information system operations for essential missions and business functions; and</p>
             </part>
             <part id="cp-8_obj.3" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="CP-8[3]"/>
                <p>establishes alternate telecommunications services including necessary agreements to permit the resumption of organization-defined information system operations for essential missions and business functions, within the organization-defined time period, when the primary telecommunications capabilities are unavailable at either the primary or alternate processing or storage sites.</p>
             </part>
@@ -13767,6 +13861,11 @@
                </part>
             </part>
             <part id="cp-10_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="CP-10[2]"/>
                <p>the reconstitution of the information system to a known state after:</p>
                <part id="cp-10_obj.2.a" name="objective">
@@ -14116,6 +14215,12 @@
             <link rel="related" href="#ia-8"/>
          </part>
          <part id="ia-2_obj" name="objective">
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
+            <prop name="method" class="fedramp" value="EXAMINE"/>
+            <prop name="method" class="fedramp" value="INTERVIEW"/>
+            <prop name="method" class="fedramp" value="TEST"/>
             <p>Determine if the information system uniquely identifies and authenticates organizational users (or processes acting on behalf of organizational users).</p>
          </part>
          <part name="assessment">
@@ -14625,6 +14730,10 @@
          <part id="ia-3_obj" name="objective">
             <p>Determine if:</p>
             <part id="ia-3_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="IA-3[1]"/>
                <p>the organization defines specific and/or types of devices that the information system uniquely identifies and authenticates before establishing one or more of the following:</p>
                <part id="ia-3_obj.1.a" name="objective">
@@ -16231,6 +16340,12 @@
             <link rel="related" href="#sc-8"/>
          </part>
          <part id="ia-8_obj" name="objective">
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
+            <prop name="method" class="fedramp" value="EXAMINE"/>
+            <prop name="method" class="fedramp" value="INTERVIEW"/>
+            <prop name="method" class="fedramp" value="TEST"/>
             <p>Determine if the information system uniquely identifies and authenticates non-organizational users (or processes acting on behalf of non-organizational users).</p>
          </part>
          <part name="assessment">
@@ -16906,10 +17021,18 @@
          <part id="ir-3_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="ir-3_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="IR-3[1]"/>
                <p>defines incident response tests to test the incident response capability for the information system;</p>
             </part>
             <part id="ir-3_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="IR-3[2]"/>
                <p>defines the frequency to test the incident response capability for the information system; and</p>
             </part>
@@ -17237,6 +17360,11 @@
          <part id="ir-5_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="ir-5_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="IR-5[1]"/>
                <p>tracks information system security incidents; and</p>
             </part>
@@ -17467,10 +17595,22 @@
          <part id="ir-7_obj" name="objective">
             <p>Determine if the organization provides an incident response support resource:</p>
             <part id="ir-7_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="IR-7[1]"/>
                <p>that is integral to the organizational incident response capability; and</p>
             </part>
             <part id="ir-7_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="IR-7[2]"/>
                <p>that offers advice and assistance to users of the information system for the handling and reporting of security incidents.</p>
             </part>
@@ -18854,14 +18994,29 @@
          <part id="ma-3_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="ma-3_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="label" value="MA-3[1]"/>
                <p>approves information system maintenance tools;</p>
             </part>
             <part id="ma-3_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
                <prop name="label" value="MA-3[2]"/>
                <p>controls information system maintenance tools; and</p>
             </part>
             <part id="ma-3_obj.3" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="MA-3[3]"/>
                <p>monitors information system maintenance tools.</p>
             </part>
@@ -19596,14 +19751,27 @@
          <part id="ma-6_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="ma-6_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="MA-6[1]"/>
                <p>defines information system components for which maintenance support and/or spare parts are to be obtained;</p>
             </part>
             <part id="ma-6_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="MA-6[2]"/>
                <p>defines the time period within which maintenance support and/or spare parts are to be obtained after a failure;</p>
             </part>
             <part id="ma-6_obj.3" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="MA-6[3]"/>
                <part id="ma-6_obj.3.a" name="objective">
                   <prop name="label" value="MA-6[3][a]"/>
@@ -20650,6 +20818,10 @@
          <part id="mp-7_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="mp-7_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="MP-7[1]"/>
                <p>defines types of information system media to be:</p>
                <part id="mp-7_obj.1.a" name="objective">
@@ -20662,6 +20834,10 @@
                </part>
             </part>
             <part id="mp-7_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="MP-7[2]"/>
                <p>defines information systems or system components on which the use of organization-defined types of information system media is to be one of the following:</p>
                <part id="mp-7_obj.2.a" name="objective">
@@ -22175,6 +22351,12 @@
          <part id="pe-12_obj" name="objective">
             <p>Determine if the organization employs and maintains automatic emergency lighting for the information system that:</p>
             <part id="pe-12_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="PE-12[1]"/>
                <p>activates in the event of a power outage or disruption; and</p>
             </part>
@@ -22230,10 +22412,22 @@
          <part id="pe-13_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="pe-13_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="PE-13[1]"/>
                <p>employs fire suppression and detection devices/systems for the information system that are supported by an independent energy source; and</p>
             </part>
             <part id="pe-13_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="PE-13[2]"/>
                <p>maintains fire suppression and detection devices/systems for the information system that are supported by an independent energy source.</p>
             </part>
@@ -27025,6 +27219,12 @@
             <link rel="related" href="#sa-12"/>
          </part>
          <part id="sa-4_obj" name="objective">
+            <prop ns="https://fedramp.gov/ns/oscal"
+                  name="response-point"
+                  value="You must fill in this response point."/>
+            <prop name="method" class="fedramp" value="EXAMINE"/>
+            <prop name="method" class="fedramp" value="INTERVIEW"/>
+            <prop name="method" class="fedramp" value="TEST"/>
             <p>Determine if the organization includes the following requirements, descriptions, and criteria, explicitly or by reference, in the acquisition contracts for the information system, system component, or information system service in accordance with applicable federal laws, Executive Orders, directives, policies, regulations, standards, guidelines, and organizational mission/business needs:</p>
             <part id="sa-4.a_obj" name="objective">
                <prop name="label" value="SA-4(a)"/>
@@ -29306,14 +29506,27 @@
          <part id="sc-5_obj" name="objective">
             <p>Determine if:</p>
             <part id="sc-5_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="SC-5[1]"/>
                <p>the organization defines types of denial of service attacks or reference to source of such information for the information system to protect against or limit the effects;</p>
             </part>
             <part id="sc-5_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="SC-5[2]"/>
                <p>the organization defines security safeguards to be employed by the information system to protect against or limit the effects of organization-defined types of denial of service attacks; and</p>
             </part>
             <part id="sc-5_obj.3" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="SC-5[3]"/>
                <p>the information system protects against or limits the effects of the organization-defined denial or service attacks (or reference to source for such information) by employing organization-defined security safeguards.</p>
             </part>
@@ -30479,6 +30692,10 @@
          <part id="sc-12_obj" name="objective">
             <p>Determine if the organization:</p>
             <part id="sc-12_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="SC-12[1]"/>
                <p>defines requirements for cryptographic key:</p>
                <part id="sc-12_obj.1.a" name="objective">
@@ -30503,6 +30720,11 @@
                </part>
             </part>
             <part id="sc-12_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="SC-12[2]"/>
                <p>establishes and manages cryptographic keys for required cryptography employed within the information system in accordance with organization-defined requirements for key generation, distribution, storage, access, and destruction.</p>
             </part>
@@ -31527,6 +31749,10 @@
          <part id="sc-28_obj" name="objective">
             <p>Determine if:</p>
             <part id="sc-28_obj.1" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="EXAMINE"/>
                <prop name="label" value="SC-28[1]"/>
                <p>the organization defines information at rest requiring one or more of the following:</p>
                <part id="sc-28_obj.1.a" name="objective">
@@ -31539,6 +31765,11 @@
                </part>
             </part>
             <part id="sc-28_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="SC-28[2]"/>
                <p>the information system protects:</p>
                <part id="sc-28_obj.2.a" name="objective">
@@ -34019,6 +34250,11 @@
                </part>
             </part>
             <part id="si-7_obj.2" name="objective">
+               <prop ns="https://fedramp.gov/ns/oscal"
+                     name="response-point"
+                     value="You must fill in this response point."/>
+               <prop name="method" class="fedramp" value="INTERVIEW"/>
+               <prop name="method" class="fedramp" value="TEST"/>
                <prop name="label" value="SI-7[2]"/>
                <p>employs integrity verification tools to detect unauthorized changes to organization-defined:</p>
                <part id="si-7_obj.2.a" name="objective">
@@ -35552,18 +35788,16 @@
       </resource>
       <resource uuid="985475ee-d4d6-4581-8fdf-d84d3d8caa48">
          <title>FedRAMP Applicable Laws and Regulations</title>
-         <rlink href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
-      </resource>
-      <resource uuid="1a23a771-d481-4594-9a1a-71d584fa4123">
-         <title>FedRAMP Master Acronym and Glossary</title>
-         <rlink href="https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"/>
+         <rlink media-type="application/vnd.ms-excel"
+                href="https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"/>
       </resource>
       <resource uuid="a2381e87-3d04-4108-a30b-b4d2f36d001f">
          <description>
             <p>FedRAMP Logo</p>
          </description>
          <prop name="type" value="logo"/>
-         <rlink href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
+         <rlink media-type="image/png"
+                href="https://www.fedramp.gov/assets/img/logo-main-fedramp.png"/>
       </resource>
    </back-matter>
 </catalog>

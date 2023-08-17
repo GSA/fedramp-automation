@@ -1,12 +1,12 @@
 ---
 catalog:
-  uuid: 8b16d8b3-7c6d-4eea-b891-de309996e58d
+  uuid: 9cc57181-d7af-452e-8ce6-e34af1459549
   metadata:
     title: FedRAMP Rev 4 Tailored Low Impact Software as a Service (LI-SaaS) Baseline
-    published: 2021-02-17T00:00:00.000-04:00
-    last-modified: 2023-03-09T16:50:01.221783-05:00
-    version: fedramp1.1.0-oscal1.0.0
-    oscal-version: 1.0.0
+    published: 2021-02-05T00:00:00.000-04:00
+    last-modified: 2023-08-16T16:47:06.863755-04:00
+    version: fedramp1.1.1-oscal1.0.4
+    oscal-version: 1.0.4
     links:
       - href: FedRAMP_rev4_LI-SaaS-baseline_profile.yaml
         rel: resolution-source
@@ -15,10 +15,10 @@ catalog:
         title: Document creator
       - id: fedramp-pmo
         title: The FedRAMP Program Management Office (PMO)
-        short-name: CSP
+        short-name: PMO
       - id: fedramp-jab
         title: The FedRAMP Joint Authorization Board (JAB)
-        short-name: CSP
+        short-name: JAB
     parties:
       - uuid: 8cc0b8e5-9650-4d5f-9796-316f05fa9a2d
         type: organization
@@ -31,8 +31,6 @@ catalog:
           - href: "#a2381e87-3d04-4108-a30b-b4d2f36d001f"
             rel: logo
           - href: "#985475ee-d4d6-4581-8fdf-d84d3d8caa48"
-            rel: reference
-          - href: "#1a23a771-d481-4594-9a1a-71d584fa4123"
             rel: reference
         email-addresses:
           - info@fedramp.gov
@@ -11308,6 +11306,24 @@ catalog:
                     \ system or environment of operation (including the identification\
                     \ of new threats and vulnerabilities), or other conditions that\
                     \ may impact the security state of the system."
+                - id: ra-3_fr
+                  name: item
+                  title: RA-3 Additional FedRAMP Requirements and Guidance
+                  parts:
+                    - id: ra-3_fr_gdn.1
+                      name: guidance
+                      props:
+                        - name: label
+                          value: "Guidance:"
+                      prose: Significant change is defined in NIST Special Publication
+                        800-37 Revision 1, Appendix F
+                    - id: ra-3_fr_smt.d
+                      name: item
+                      props:
+                        - name: label
+                          value: "RA-3 (d) Requirement:"
+                      prose: Include all Authorizing Officials; for JAB authorizations
+                        to include FedRAMP.
             - id: ra-3_gdn
               name: guidance
               prose: Clearly defined authorization boundaries are a prerequisite for
@@ -14897,10 +14913,7 @@ catalog:
         title: FedRAMP Applicable Laws and Regulations
         rlinks:
           - href: https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx
-      - uuid: 1a23a771-d481-4594-9a1a-71d584fa4123
-        title: FedRAMP Master Acronym and Glossary
-        rlinks:
-          - href: https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf
+            media-type: application/vnd.ms-excel
       - uuid: a2381e87-3d04-4108-a30b-b4d2f36d001f
         description: FedRAMP Logo
         props:
@@ -14908,3 +14921,4 @@ catalog:
             value: logo
         rlinks:
           - href: https://www.fedramp.gov/assets/img/logo-main-fedramp.png
+            media-type: image/png

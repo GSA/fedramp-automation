@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:doc="https://fedramp.gov/oscal/fedramp-automation-documentation">
+  <xs:import namespace="https://fedramp.gov/oscal/fedramp-automation-documentation" schemaLocation="doc.xsd"/>
+  <xs:element name="business-rules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="rule"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="statement"/>
+      </xs:sequence>
+      <xs:attribute name="assertions" type="xs:NCName"/>
+      <xs:attribute ref="doc:attachment"/>
+      <xs:attribute ref="doc:checklist-reference"/>
+      <xs:attribute ref="doc:guide-reference"/>
+      <xs:attribute ref="doc:organizational-id"/>
+      <xs:attribute ref="doc:template-reference"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="statement" type="xs:string"/>
+</xs:schema>

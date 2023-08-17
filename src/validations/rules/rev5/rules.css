@@ -1,0 +1,119 @@
+caption {
+    font-weight: bold;
+    font-size: large;
+}
+
+thead tr {
+    background-color: #e0e0e0;
+    color: inherit;
+}
+
+thead th {
+    vertical-align: bottom;
+    text-align: left;
+    white-space: normal;
+}
+
+thead td {
+}
+
+tbody tr {
+    vertical-align: top;
+}
+
+tbody th {
+    text-align: left;
+    background-color: #e8e8e8;
+    color: inherit;
+}
+
+tbody tr {
+    background-color: #f0f0f0;
+    color: inherit;
+}
+
+code code {
+    color: inherit;
+}
+
+.highlight {
+    background-color: powderblue;
+}
+.highlight-missed {
+    background-color: yellow;
+}
+
+.missing {
+    background-color: orange;
+}
+
+.NB {
+    background-color: thistle;
+}
+
+.FedRAMP-ns {
+    background-color: chartreuse;
+}
+
+.context-item {
+    font-variant: small-caps;
+}
+
+.role-error,
+.role-fatal {
+    color: red;
+}
+
+.role-warning {
+    color: orange;
+}
+
+blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C" "\201D" "\2018" "\2019";
+    width: 50%;
+}
+
+*[title] {
+    cursor: help;
+}
+
+.assertion,
+.diagnostic {
+    font-style: italic;
+}
+.assertion,
+.diagnostic {
+    /*font-weight: bold;*/
+    font-size: inherit;
+}
+.assertion:before,
+.diagnostic:before {
+    /*content: "affirmative message: ";*/
+    font-style: normal;
+    font-weight: normal;
+}
+.diagnostic:before {
+    /*content: "diagnostic message: ";*/
+    font-style: normal;
+}
+
+.substitution {
+    font-family: monospace;
+    background-color: lightgrey;
+}
+
+span.has-assertion {
+    text-decoration: underline;
+    text-decoration-color: green;
+    -moz-text-decoration-color:green;
+}
+
+span.lacks-assertion {
+    text-decoration: underline;
+    text-decoration-color: orange;
+    -moz-text-decoration-color:orange;
+}

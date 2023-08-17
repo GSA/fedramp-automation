@@ -4,9 +4,9 @@
     "metadata": {
       "title": "FedRAMP Rev 4 Low Baseline",
       "published": "2021-02-05T00:00:00.000-04:00",
-      "last-modified": "2021-06-09T14:27:40.706-04:00",
-      "version": "fedramp1.1.0-oscal1.0.0",
-      "oscal-version": "1.0.0",
+      "last-modified": "2023-06-23T00:00:00.000-04:00",
+      "version": "fedramp1.1.1-oscal1.0.4",
+      "oscal-version": "1.0.4",
       "roles": [
         {
           "id": "prepared-by",
@@ -15,12 +15,12 @@
         {
           "id": "fedramp-pmo",
           "title": "The FedRAMP Program Management Office (PMO)",
-          "short-name": "CSP"
+          "short-name": "PMO"
         },
         {
           "id": "fedramp-jab",
           "title": "The FedRAMP Joint Authorization Board (JAB)",
-          "short-name": "CSP"
+          "short-name": "JAB"
         }
       ],
       "parties": [
@@ -40,10 +40,6 @@
             },
             {
               "href": "#985475ee-d4d6-4581-8fdf-d84d3d8caa48",
-              "rel": "reference"
-            },
-            {
-              "href": "#1a23a771-d481-4594-9a1a-71d584fa4123",
               "rel": "reference"
             }
           ],
@@ -3637,7 +3633,7 @@
             },
             {
               "position": "starting",
-              "by-id": "au-11.1_obj",
+              "by-id": "au-11_obj.1",
               "props": [
                 {
                   "name": "response-point",
@@ -4076,7 +4072,7 @@
           "adds": [
             {
               "position": "starting",
-              "by-id": "au-4.1_obj",
+              "by-id": "au-4_obj.1",
               "props": [
                 {
                   "name": "response-point",
@@ -4488,7 +4484,7 @@
           "adds": [
             {
               "position": "starting",
-              "by-id": "au-9.1_obj",
+              "by-id": "au-9_obj.1",
               "props": [
                 {
                   "name": "response-point",
@@ -4514,7 +4510,7 @@
             },
             {
               "position": "starting",
-              "by-id": "au-9.2_obj",
+              "by-id": "au-9_obj.2",
               "props": [
                 {
                   "name": "response-point",
@@ -6518,7 +6514,7 @@
           "adds": [
             {
               "position": "starting",
-              "by-id": "cm-4.1_obj",
+              "by-id": "cm-4_obj",
               "props": [
                 {
                   "name": "response-point",
@@ -7401,7 +7397,7 @@
             },
             {
               "position": "starting",
-              "by-id": "cp-10.2_obj",
+              "by-id": "cp-10_obj.2",
               "props": [
                 {
                   "name": "response-point",
@@ -8597,7 +8593,7 @@
           "adds": [
             {
               "position": "starting",
-              "by-id": "ia-2.1_obj",
+              "by-id": "ia-2_obj",
               "props": [
                 {
                   "name": "response-point",
@@ -9996,7 +9992,7 @@
           "adds": [
             {
               "position": "starting",
-              "by-id": "ia-8.1_obj",
+              "by-id": "ia-8_obj",
               "props": [
                 {
                   "name": "response-point",
@@ -10737,7 +10733,7 @@
           "adds": [
             {
               "position": "starting",
-              "by-id": "ir-5.1_obj",
+              "by-id": "ir-5_obj.1",
               "props": [
                 {
                   "name": "response-point",
@@ -10931,7 +10927,7 @@
           "adds": [
             {
               "position": "starting",
-              "by-id": "ir-7.1_obj",
+              "by-id": "ir-7_obj.1",
               "props": [
                 {
                   "name": "response-point",
@@ -10957,7 +10953,7 @@
             },
             {
               "position": "starting",
-              "by-id": "ir-7.2_obj",
+              "by-id": "ir-7_obj.2",
               "props": [
                 {
                   "name": "response-point",
@@ -12641,7 +12637,7 @@
           "adds": [
             {
               "position": "starting",
-              "by-id": "mp-7.1_obj",
+              "by-id": "mp-7_obj.1",
               "props": [
                 {
                   "name": "response-point",
@@ -12657,7 +12653,7 @@
             },
             {
               "position": "starting",
-              "by-id": "mp-7.2_obj",
+              "by-id": "mp-7_obj.2",
               "props": [
                 {
                   "name": "response-point",
@@ -12945,7 +12941,7 @@
           "adds": [
             {
               "position": "starting",
-              "by-id": "pe-12.1_obj",
+              "by-id": "pe-12_obj.1",
               "props": [
                 {
                   "name": "response-point",
@@ -13013,7 +13009,7 @@
           "adds": [
             {
               "position": "starting",
-              "by-id": "pe-13.1_obj",
+              "by-id": "pe-13_obj.1",
               "props": [
                 {
                   "name": "response-point",
@@ -13039,7 +13035,7 @@
             },
             {
               "position": "starting",
-              "by-id": "pe-13.2_obj",
+              "by-id": "pe-13_obj.2",
               "props": [
                 {
                   "name": "response-point",
@@ -17938,7 +17934,7 @@
             },
             {
               "position": "starting",
-              "by-id": "sa-4.1_obj",
+              "by-id": "sa-4_obj",
               "props": [
                 {
                   "name": "response-point",
@@ -18036,37 +18032,6 @@
                   "name": "response-point",
                   "ns": "https://fedramp.gov/ns/oscal",
                   "value": "You must fill in this response point."
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "control-id": "sa-4.10",
-          "adds": [
-            {
-              "position": "starting",
-              "by-id": "sa-4.10_obj",
-              "props": [
-                {
-                  "name": "response-point",
-                  "ns": "https://fedramp.gov/ns/oscal",
-                  "value": "You must fill in this response point."
-                },
-                {
-                  "name": "method",
-                  "value": "EXAMINE",
-                  "class": "fedramp"
-                },
-                {
-                  "name": "method",
-                  "value": "INTERVIEW",
-                  "class": "fedramp"
-                },
-                {
-                  "name": "method",
-                  "value": "TEST",
-                  "class": "fedramp"
                 }
               ]
             }
@@ -18718,7 +18683,7 @@
             },
             {
               "position": "starting",
-              "by-id": "sc-12.1_obj",
+              "by-id": "sc-12_obj.1",
               "props": [
                 {
                   "name": "response-point",
@@ -18734,7 +18699,7 @@
             },
             {
               "position": "starting",
-              "by-id": "sc-12.2_obj",
+              "by-id": "sc-12_obj.2",
               "props": [
                 {
                   "name": "response-point",
@@ -19239,7 +19204,7 @@
           "adds": [
             {
               "position": "starting",
-              "by-id": "sc-5.1_obj",
+              "by-id": "sc-5_obj.1",
               "props": [
                 {
                   "name": "response-point",
@@ -19255,7 +19220,7 @@
             },
             {
               "position": "starting",
-              "by-id": "sc-5.2_obj",
+              "by-id": "sc-5_obj.2",
               "props": [
                 {
                   "name": "response-point",
@@ -19271,7 +19236,7 @@
             },
             {
               "position": "starting",
-              "by-id": "sc-5.3_obj",
+              "by-id": "sc-5_obj.3",
               "props": [
                 {
                   "name": "response-point",
@@ -20818,16 +20783,8 @@
           "title": "FedRAMP Applicable Laws and Regulations",
           "rlinks": [
             {
-              "href": "https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx"
-            }
-          ]
-        },
-        {
-          "uuid": "1a23a771-d481-4594-9a1a-71d584fa4123",
-          "title": "FedRAMP Master Acronym and Glossary",
-          "rlinks": [
-            {
-              "href": "https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf"
+              "href": "https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx",
+              "media-type": "application/vnd.ms-excel"
             }
           ]
         },
@@ -20842,7 +20799,8 @@
           ],
           "rlinks": [
             {
-              "href": "https://www.fedramp.gov/assets/img/logo-main-fedramp.png"
+              "href": "https://www.fedramp.gov/assets/img/logo-main-fedramp.png",
+              "media-type": "image/png"
             }
           ]
         },

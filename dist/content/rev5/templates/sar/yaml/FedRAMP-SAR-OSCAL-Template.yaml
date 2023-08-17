@@ -1,0 +1,1829 @@
+---
+assessment-results:
+  uuid: 26a53d2c-4249-4e0c-9939-410590f3ae9e
+  metadata:
+    title: "[System Name] FedRAMP Security Assessment Results (SAR)"
+    published: 2023-07-06T00:00:00Z
+    last-modified: 2023-07-06T00:00:00Z
+    version: fedramp2.0.0-oscal1.0.4
+    oscal-version: 1.0.4
+    props:
+      - name: marking
+        value: Controlled Unclassified Information
+      - name: resolution-resource
+        ns: https://fedramp.gov/ns/oscal
+        value: ace2963d-ecb4-4be5-bdd0-1f6fd7610f41
+    roles:
+      - id: fedramp-pmo
+        title: FedRAMP Program Management Office
+        description: The organization that prepared this SSP. If developed in-house,
+          this is the CSP itself.
+      - id: prepared-by
+        title: Prepared By
+        description: The organization that prepared this SAR.
+      - id: prepared-for
+        title: Prepared For
+        description: The organization for which this SAR was prepared. Typically the
+          CSP.
+      - id: content-approver
+        title: Security Assessment Plan Approval
+        description: The individual or individuals accountable for the accuracy of
+          this SAR.
+      - id: assessor
+        title: Assessment Organization
+        description: The organization performing the assessment.
+      - id: assessment-team
+        title: Assessment Team
+        description: The individual or individuals performing the assessment.
+      - id: assessment-lead
+        title: Assessment Lead
+        description: The individual leading the assessment activities.
+      - id: penetration-test-team
+        title: Penetration Test Team
+        description: The individual or individuals performing the penetration test.
+      - id: penetration-test-lead
+        title: Penetration Test Lead
+        description: The individual leading the penetration test activities.
+      - id: assessment-executive
+        title: Assessment Organization's Managerial POC
+        description: The management-level POC within the assessor's organization accountable
+          for the organization's assessment performance.
+      - id: csp-assessment-poc
+        title: CSP POCs During Testing
+        description: At least three CSP testing points of contact must be identified
+          in a FedRAMP SAP.
+      - id: csp-operations-center
+        title: CSP Operations POC
+        description: An operations center role, such as a SOC or NOC.
+      - id: csp-end-of-testing-poc
+        title: CSP's End of Testing Notification POC
+        description: A role for an individual within the CSP to be notified by the
+          assessor when testing is complete.
+      - id: csp-results-poc
+        title: "CSP Results POCs "
+        description: A role for the individuals within the CSP who are to receive
+          the assessment results.
+    locations:
+      - uuid: 2ba201ac-8ee9-4a1d-812a-a755591a3963
+        title: Assessor's HQ
+        address:
+          type: work
+          addr-lines:
+            - Suite 0000
+            - 1234 Some Street
+          city: Haven
+          state: ME
+          postal-code: "00000"
+          country: US
+        remarks: The assessor's HQ, or the address of the assessment team's primary
+          business location.
+    parties:
+      - uuid: 49f73135-efab-4275-9a79-003656ad890a
+        type: organization
+        name: Assessment Organization Name
+        short-name: Acronym/Short Name
+        props:
+          - name: iso-iec-17020-identifier
+            uuid: 2fdac229-9dc9-4115-a2ff-34d4c8b6b60b
+            ns: https://fedramp.gov/ns/oscal
+            value: "0000.00"
+        links:
+          - href: https://assessor.web.site
+            rel: home-page
+        location-uuids:
+          - 2ba201ac-8ee9-4a1d-812a-a755591a3963
+        remarks: |-
+          Replace sample 3PAO information.
+
+          If the assessor is A2LA Certified, include the ISO/IEC-17020 
+      - uuid: 77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d
+        type: organization
+        name: "Federal Risk and Authorization Management Program: Program Management\
+          \ Office"
+        short-name: FedRAMP PMO
+        links:
+          - href: https://fedramp.gov
+            rel: homepage
+          - href: "#a2381e87-3d04-4108-a30b-b4d2f36d001f"
+            rel: logo
+          - href: "#985475ee-d4d6-4581-8fdf-d84d3d8caa48"
+            rel: reference
+          - href: "#1a23a771-d481-4594-9a1a-71d584fa4123"
+            rel: reference
+        email-addresses:
+          - info@fedramp.gov
+        addresses:
+          - type: work
+            addr-lines:
+              - 1800 F St. NW
+            city: Washington
+            state: DC
+            postal-code: "20006"
+            country: US
+        remarks: >-
+          This party entry must be present in a FedRAMP SAR.
+
+
+          The uuid may be different; however, the uuid must be associated with the
+          \"fedramp-pmo\" role in the responsible-party assemblies.
+      - uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+        type: person
+        name: "[SAMPLE]Person Name 1"
+        props:
+          - name: job-title
+            uuid: c97c29fe-0c17-4d63-af00-f2a55ec399d5
+            value: Individual's Title
+          - name: mail-stop
+            uuid: 92e19c7f-b097-456e-9a13-714dd0e34ee8
+            value: Office 1-A
+        email-addresses:
+          - name@example.com
+        telephone-numbers:
+          - number: 202-000-0001
+        location-uuids:
+          - 2ba201ac-8ee9-4a1d-812a-a755591a3963
+        member-of-organizations:
+          - 49f73135-efab-4275-9a79-003656ad890a
+      - uuid: e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+        type: person
+        name: "[SAMPLE]Person Name 2"
+        props:
+          - name: mail-stop
+            uuid: b6aeaaa9-cb22-456c-ba62-847a791f6f48
+            value: Mailstop 2-B
+        email-addresses:
+          - name@example.com
+        telephone-numbers:
+          - number: 202-000-0002
+        location-uuids:
+          - 2ba201ac-8ee9-4a1d-812a-a755591a3963
+        member-of-organizations:
+          - 49f73135-efab-4275-9a79-003656ad890a
+      - uuid: bcf47707-49e4-4acc-bf43-e63156046390
+        type: person
+        name: "[SAMPLE]Person Name 3"
+        props:
+          - name: mail-stop
+            uuid: cf479652-2676-4d1b-9861-e46bd07f34fe
+            value: Mailstop 3-C
+        email-addresses:
+          - name@example.com
+        telephone-numbers:
+          - number: 202-000-0003
+        location-uuids:
+          - 2ba201ac-8ee9-4a1d-812a-a755591a3963
+        member-of-organizations:
+          - 49f73135-efab-4275-9a79-003656ad890a
+      - uuid: abc15ce6-1f43-4951-bcd5-ab62cdff7ed9
+        type: person
+        name: "[SAMPLE]Person Name 4"
+        props:
+          - name: mail-stop
+            uuid: 674694e1-b704-4257-99d9-a3effec0dd56
+            value: Mailstop 4-D
+        email-addresses:
+          - name@example.com
+        telephone-numbers:
+          - number: 202-000-0004
+        location-uuids:
+          - 2ba201ac-8ee9-4a1d-812a-a755591a3963
+        member-of-organizations:
+          - 49f73135-efab-4275-9a79-003656ad890a
+      - uuid: 9135b789-a40c-4a20-9be6-fab23c0ab0f3
+        type: person
+        name: "[SAMPLE]Person Name 5"
+        props:
+          - name: job-title
+            uuid: 902460ae-5c57-44c8-82c4-676ab25dce90
+            value: Individual's Title
+          - name: mail-stop
+            uuid: 35104264-7126-4d29-b3b8-40b34ac1b8d5
+            value: Mailstop 5-E
+        email-addresses:
+          - name@example.com
+        telephone-numbers:
+          - number: 202-000-0005
+        location-uuids:
+          - 2ba201ac-8ee9-4a1d-812a-a755591a3963
+        member-of-organizations:
+          - 49f73135-efab-4275-9a79-003656ad890a
+      - uuid: ca9fca9c-4a8a-4487-8242-0a06d6fbed1f
+        type: person
+        name: "[SAMPLE]Person Name 6"
+        props:
+          - name: job-title
+            uuid: 5ae47d93-affd-4571-b7c0-94f666235067
+            value: Individual's Title
+          - name: mail-stop
+            uuid: a3f7a62f-c9bd-40ae-ba4a-a9222fb6ab7b
+            value: Mailstop 6-F
+        email-addresses:
+          - name@example.com
+        telephone-numbers:
+          - type: mobile
+            number: 000-000-0000
+        location-uuids:
+          - 2ba201ac-8ee9-4a1d-812a-a755591a3963
+      - uuid: 877e5bdc-07c3-45da-a2b4-35367a9a0cd0
+        type: person
+        name: "[SAMPLE]Person Name 7"
+        props:
+          - name: job-title
+            uuid: b835391b-b607-4c98-a5cd-05898a6a28e3
+            value: Individual's Title
+        email-addresses:
+          - name@example.com
+        telephone-numbers:
+          - type: office
+            number: 000-000-0000
+        addresses:
+          - type: work
+            addr-lines:
+              - Suite 0000
+              - 1234 Some Street
+            city: Haven
+            state: ME
+            postal-code: "00000"
+    responsible-parties:
+      - role-id: fedramp-pmo
+        party-uuids:
+          - 77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d
+      - role-id: prepared-by
+        party-uuids:
+          - 49f73135-efab-4275-9a79-003656ad890a
+        remarks: |-
+          Exactly one party
+
+          This is the assessor.
+      - role-id: prepared-for
+        party-uuids:
+          - 77e0e2c8-2560-4fe9-ac78-c3ff4ffc9f6d
+        remarks: >-
+          Exactly one party.
+
+
+          This is the UUID for the CSP in the SSP.
+
+
+          If no OSCAL-based SSP exists, create a CSP party in the SAP, and provide
+          that UUID here.
+      - role-id: content-approver
+        party-uuids:
+          - f4568fda-c6d2-4640-adec-0012015af7d0
+        remarks: One ore more parties
+      - role-id: assessor
+        party-uuids:
+          - 49f73135-efab-4275-9a79-003656ad890a
+        remarks: |-
+          Exactly one party
+
+          Assessment Organization (3PAO)
+      - role-id: assessment-team
+        party-uuids:
+          - e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+          - bcf47707-49e4-4acc-bf43-e63156046390
+          - abc15ce6-1f43-4951-bcd5-ab62cdff7ed9
+          - 9135b789-a40c-4a20-9be6-fab23c0ab0f3
+        remarks: One or more parties
+      - role-id: assessment-lead
+        party-uuids:
+          - e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+        remarks: Exactly one party
+      - role-id: penetration-test-team
+        party-uuids:
+          - e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+          - ca9fca9c-4a8a-4487-8242-0a06d6fbed1f
+          - 877e5bdc-07c3-45da-a2b4-35367a9a0cd0
+        remarks: One or more partys
+      - role-id: penetration-test-lead
+        party-uuids:
+          - e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+        remarks: Exactly one party
+      - role-id: assessment-executive
+        party-uuids:
+          - f4568fda-c6d2-4640-adec-0012015af7d0
+        remarks: Exactly one party
+      - role-id: csp-operations-center
+        party-uuids:
+          - 6b286b5d-8f07-4fa7-8847-1dd0d88f73fb
+        remarks: >-
+          Exactly one party
+
+
+          The party-uuid should reference a party in the SSP.
+
+
+          If an appropriate party does not exist in the SSP, the SAP tool should add
+          a party to the SAP, or have the CSP add the party to the SSP..
+
+
+          The SAP tool should not modify the SSP.
+      - role-id: csp-assessment-poc
+        party-uuids:
+          - e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+          - bcf47707-49e4-4acc-bf43-e63156046390
+        remarks: >-
+          There should be at least three CSP Assessment POCs.
+
+
+          At least one should be available 24x7 during assessment activities.
+
+
+          At least one should be an operations center, such a SOC or NOC.
+
+
+          The party-uuid should reference a party in the SSP or SAP.
+
+
+          If an appropriate party does not exist in the SSP or SAP, the SAR tool should
+          add a party to the SAR.
+
+
+          The SAP tool should not modify the SSP.
+      - role-id: csp-end-of-testing-poc
+        party-uuids:
+          - e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+        remarks: One or more parties
+      - role-id: csp-results-poc
+        party-uuids:
+          - e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+        remarks: One or more parties
+    remarks: This OSCAL-based FedRAMP SAR Template can be used for the FedRAMP initial
+      or annual assessment reporting.
+  import-ap:
+    href: "#5cce2310-8fcc-49f8-8cae-8e31dc8048f1"
+    remarks: >-
+      FedRAMP prefers the path for the SAP be relative to the location of this
+      SAR file. Absolute links will not work when FedRAMP tools import the
+      content.
+
+
+      In this example, the SAR points to the SAP as a back-matter resource using a
+      URI fragment.
+  local-definitions:
+    objectives-and-methods:
+      - control-id: ac-2
+        parts:
+          - id: sap-obj
+            name: assessment-objective
+            title: SAP Inserted Objective
+            props:
+              - name: method-id
+                value: sap-obj-1
+              - name: label
+                value: AC-2 SAP-1
+          - id: sap-obj-1
+            name: assessment-method
+            props:
+              - name: method
+                value: INTERVIEW
+            parts:
+              - id: sap-obj-1_object
+                name: assessment-objects
+                prose: Insert assessment object description
+      - control-id: ac-2
+        parts:
+          - id: ac-2.a_obj.1
+            name: assessment-objective
+            title: Assessment Objective
+            props:
+              - name: method-id
+                value: ac-2.a_obj.1-1
+            prose: >-
+              Determine if the organization:
+
+               - defines information system account types to be identified and selected
+              to support organizational missions/business functions
+          - id: ac-2.a_obj.1-1
+            name: assessment-method
+            props:
+              - name: method
+                value: EXAMINE
+            parts:
+              - id: ac-2.f_obj.1-1_object
+                name: assessment-objects
+                prose: Access control policy; procedures addressing account management;
+                  security plan; information system design documentation; information
+                  system configuration settings and associated documentation; list
+                  of active system accounts along with the name of the individual
+                  associated with each account; list of conditions for group and role
+                  membership; notifications or records of recently transferred, separated,
+                  or terminated employees; list of recently disabled information system
+                  accounts along with the name of the individual associated with each
+                  account; access authorization records; account management compliance
+                  reviews; information system monitoring records; information system
+                  audit records; other relevant documents or records
+      - control-id: ac-2
+        parts:
+          - id: ac-2.a_obj.2
+            name: assessment-objective
+            title: Assessment Objective
+            props:
+              - name: method-id
+                value: ac-2.a_obj.2-1
+            prose: >-
+              Determine if the organization:
+
+               - identifies and selects organization-defined information system account
+              types to support organizational missions/business functions
+          - id: ac-2.a_obj.2-1
+            name: assessment-method
+            props:
+              - name: method
+                value: EXAMINE
+            parts:
+              - id: ac-2.a_obj.2-1_object
+                name: assessment-objects
+                prose: Access control policy; procedures addressing account management;
+                  security plan; information system design documentation; information
+                  system configuration settings and associated documentation; list
+                  of active system accounts along with the name of the individual
+                  associated with each account; list of conditions for group and role
+                  membership; notifications or records of recently transferred, separated,
+                  or terminated employees; list of recently disabled information system
+                  accounts along with the name of the individual associated with each
+                  account; access authorization records; account management compliance
+                  reviews; information system monitoring records; information system
+                  audit records; other relevant documents or records
+      - control-id: ac-2
+        parts:
+          - id: ac-2.a_obj.2
+            name: assessment-objective
+            title: Assessment Objective
+            props:
+              - name: method-id
+                value: ac-2.a_obj.2-2
+            prose: >-
+              Determine if the organization:
+
+               - identifies and selects organization-defined information system account
+              types to support organizational missions/business functions
+          - id: ac-2.a_obj.2-2
+            name: assessment-method
+            props:
+              - name: method
+                value: INTERVIEW
+            parts:
+              - id: ac-2.a_obj.2-1_object
+                name: assessment-objects
+                prose: Organizational personnel with account management responsibilities;
+                  system/network administrators; organizational personnel with information
+                  security responsibilities
+    activities:
+      - uuid: 1BC8F0BB-E601-4946-A0E6-FCB934EBAA06
+        title: Locally Defined Activity
+        description: This describes an activity that was not defined in the SAP, but
+          was performed during the assessment. The justification must be included.
+        props:
+          - name: type
+            ns: https://fedramp.gov/ns/oscal
+            value: manual
+        steps:
+          - uuid: FB039FD7-5A2B-4C0F-867C-88CCE9C3778C
+            description: "Describe test step #1"
+            props:
+              - name: sort-id
+                ns: https://fedramp.gov/ns/oscal
+                value: "001"
+          - uuid: FB039FD7-5A2B-4C0F-867C-88CCE9C3778C
+            description: "Describe test step #2"
+            props:
+              - name: sort-id
+                ns: https://fedramp.gov/ns/oscal
+                value: "002"
+          - uuid: FB039FD7-5A2B-4C0F-867C-88CCE9C3778C
+            description: "Describe test step #3"
+            props:
+              - name: sort-id
+                ns: https://fedramp.gov/ns/oscal
+                value: "003"
+  results:
+    - uuid: af0c8632-e994-48a7-924e-2354b6abace7
+      title: 2023 Annual Assessment
+      description: Brief assessment description.
+      start: 2023-03-01T00:00:00Z
+      end: 2023-03-12T00:00:00Z
+      local-definitions:
+        inventory-items:
+          - uuid: efa0013f-d35b-43a3-a8b6-674740e6af62
+            description: A Windows laptop, which is not defined in the SSP inventory.
+            props:
+              - name: ipv4-address
+                ns: https://fedramp.gov/ns/oscal
+                value: 10.1.1.99
+              - name: allows-authenticated-scan
+                value: yes
+        assessment-assets:
+          components:
+            - uuid: C1461F8A-684F-4727-8C08-4BB56C33A8DD
+              type: hardware
+              title: Assessment Laptop
+              description: Describe assessment laptop.
+              props:
+                - name: ipv4-address
+                  ns: https://fedramp.gov/ns/oscal
+                  value: 10.10.10.10
+              status:
+                state: operational
+              remarks: >-
+                Ideally, this assessment laptop would have been defined in the
+                SAP, and not repeated here.
+
+
+                If the laptop was not known at the time the SAP was drafted, or something
+                different was used, it must be defined here.
+            - uuid: fff18c72-4c24-44a2-999d-24fcb13a46d0
+              type: tool
+              title: Assessor Scanning Tool
+              description: Describe scannilng tool used by assessor.
+              status:
+                state: operational
+          assessment-platforms:
+            - uuid: 67D98337-884A-46FF-98B1-42C53A4A7611
+              title: Revised Assessment Platform
+              uses-components:
+                - component-uuid: C1461F8A-684F-4727-8C08-4BB56C33A8DD
+                  remarks: Cites the Assessment laptop above.
+                - component-uuid: 040937c3-2e0e-407a-bb3c-d4e61ac1c460
+                  remarks: Cites the Vulnerability Scanning Tool identified in the
+                    SAP.
+                - component-uuid: 8F01C4AB-123F-4D1E-8BBF-22AD454B0BC1
+                  remarks: Cites the XYZ Database Scanning Tool identified in the
+                    SAP.
+              remarks: >-
+                This is an example of a revised assessment platform.
+
+
+                Ideally, all assessment platforms and components are defined in the
+                SAP. If there is a departure from what is defined in the SAP, it must
+                be defined in the SAR.
+
+
+                This is a mixed example showing a revised component (a different assessment
+                laptop defined as a component in the SAR) being paired with tools
+                previously defined in the SAP.
+      reviewed-controls:
+        control-selections:
+          - description: Include all controls in the specified in the assessment plan,
+              except as explicitly excluded here.
+            include-all: {}
+            exclude-controls:
+              - control-id: ac-1
+        control-objective-selections:
+          - include-all: {}
+      attestations:
+        - parts:
+            - name: authorization-statements
+              props:
+                - name: recommend-authorization
+                  ns: https://fedramp.gov/ns/oscal
+                  value: yes
+              parts:
+                - name: authorization-statement
+                  props:
+                    - name: sort-id
+                      ns: https://fedramp.gov/ns/oscal
+                      value: "001"
+                  prose: "[IA Name] recommends this system for authorization."
+                - name: authorization-statement
+                  props:
+                    - name: sort-id
+                      ns: https://fedramp.gov/ns/oscal
+                      value: "001"
+                  prose: "[IA Name] does not recommend this system for authorization."
+                - name: authorization-statement
+                  props:
+                    - name: sort-id
+                      ns: https://fedramp.gov/ns/oscal
+                      value: "001"
+                  prose: "[IA Name] recommends this system for continued authorization."
+                - name: authorization-statement
+                  props:
+                    - name: sort-id
+                      ns: https://fedramp.gov/ns/oscal
+                      value: "001"
+                  prose: "[IA Name] does not recommend this system for continued authorization."
+                - name: authorization-statement
+                  props:
+                    - name: sort-id
+                      ns: https://fedramp.gov/ns/oscal
+                      value: "001"
+                  prose: >
+                    [IA Name] recommends the following [significant
+                    change/significant changes] for authorization:
+
+
+                    * [list significant changes approved for authorization]
+                - name: authorization-statement
+                  props:
+                    - name: sort-id
+                      ns: https://fedramp.gov/ns/oscal
+                      value: "001"
+                  prose: >
+                    [IA Name] does not recommend the following [significant
+                    change/significant changes] for authorization:
+
+
+                    * [list significant changes not approved for authorization]
+      assessment-log:
+        entries:
+          - uuid: 17030aaf-7712-4228-8607-a5a97a785efa
+            title: Prepare Test Plan
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: b65e7779-bd3d-4a49-9de5-3122c290792f
+            title: Meeting to Review Test Plan
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: b8389553-f0f7-4ae9-9331-203608222770
+            title: Test Plan Update
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: e1890486-a9f0-4388-b2bc-34fb6c623686
+            title: Review CSP Documentation
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: 172d4ba2-3362-4e3b-9379-a65a50e399bf
+            title: Conduct Interviews of CSP Staff
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: aa5344be-18c4-4529-8937-0f4b873b8fcd
+            title: Perform Assessment Testing
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: 8937348c-5ebb-40bd-a8eb-faff99af156e
+            title: Perform Penetration Testing
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: 7f2a5095-5f53-461b-b12f-3d649f6d7a6c
+            title: Vulnerability Analysis and Threat Assessment
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: 4f90df2a-c94c-494f-9999-0695a4dbe9ca
+            title: Risk Exposure Table Development
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: 0378802d-1288-4305-9eaf-bec8ee1a138c
+            title: Complete Draft SAR
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: 2a04884f-6b75-4133-857b-ded12e12b38c
+            title: Draft SAR Delivered to CSP
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: 933b1eea-6ec3-4fbf-850a-33c8f5c44225
+            title: Issue Resolution Meeting
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: 7f377a32-5012-4d76-becf-9f70d6a9f104
+            title: Complete Final Version of SAR
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+          - uuid: 45e2af99-bebf-4a2b-ad6f-b325e910aa12
+            title: Send Final Version of SAR to CSP and ISSO
+            description: optional description here
+            start: 2023-06-01T00:00:00Z
+            end: 2023-06-15T00:00:00Z
+      observations:
+        - uuid: d02f9117-84e3-4993-af59-c5ce5e8675ab
+          title: "[EXAMPLE]Examine AC Policy"
+          description: "[EXAMPLE]The AC policy existed, and had all the required elements."
+          methods:
+            - EXAMINE
+          types:
+            - control-objective
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+              related-tasks:
+                - task-uuid: e1890486-a9f0-4388-b2bc-34fb6c623686
+          subjects:
+            - subject-uuid: f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7
+              type: component
+              title: Reviewed Policy
+              remarks: If the policy is defined in the SSP as a component, you can
+                cite it using `subject`, and use the UUID of the policy component
+                in the SSP.
+          relevant-evidence:
+            - description: Reviewed Policy
+              links:
+                - href: "#f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7"
+                  rel: policy
+              remarks: If the policy is *not* an SSP component, it should be attached
+                to the SAR as a `resource`, and cited here as a URI fragment.
+          collected: 2023-05-10T00:00:00Z
+          remarks: >-
+            The subject-reference identifies a policy that was reviewed and is
+            attached in the back-matter.
+
+
+            The observation source is linked to the task in the schedule associated
+            with performing document reviews.
+
+
+            Even though the policy may be defined in the SSP and OSCAL would allow
+            the SAR to reference it, FedRAMP requires the assessor attach all evidence
+            to the SAR..
+        - uuid: 29e4ce70-6a17-411d-aa65-ec7cef21e774
+          title: "[EXAMPLE]AC Policy Interview"
+          description: "[EXAMPLE]The person interviewed knew about the policy and\
+            \ where to find it."
+          methods:
+            - INTERVIEW
+          types:
+            - control-objective
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+              related-tasks:
+                - task-uuid: 172d4ba2-3362-4e3b-9379-a65a50e399bf
+          subjects:
+            - subject-uuid: bcf47707-49e4-4acc-bf43-e63156046390
+              type: party
+              title: Interviewed Person
+          relevant-evidence:
+            - href: "#65fb91b1-f7dc-46bf-8b99-bd98f1a5293d"
+              description: >-
+                This describes the evidence, and adds relevant detail.
+
+
+                For example, this could cite where to find this information in interview
+                notes.
+              remarks: >-
+                The subject-reference is linked to the person interviewed.
+
+
+                The observation source is linked to the task in the schedule associated
+                with performing staff interviews.
+
+
+                The relevant-evidence is linked to the interview notes.
+
+
+                These may be defined in the SSP, SAP, or SAR. Tools should check all
+                three locations.
+          collected: 2023-05-10T00:00:00Z
+        - uuid: 6841d8eb-a72c-4672-acc2-2fd265d9617d
+          description: Undocumented devices found on network.
+          methods:
+            - TEST
+          types:
+            - finding
+          origins:
+            - actors:
+                - type: tool
+                  actor-uuid: fff18c72-4c24-44a2-999d-24fcb13a46d0
+          subjects:
+            - subject-uuid: c916d3c5-229e-4786-bf3f-4d71baa0e7a5
+              type: inventory-item
+            - subject-uuid: fb7a84fb-7e30-4f5b-9997-2ecd4d270bdd
+              type: inventory-item
+            - subject-uuid: 0f9049ed-a01f-484a-b70d-b1894fd196b8
+              type: inventory-item
+            - subject-uuid: 60f92bcf-f353-4236-9803-2a5d417555f5
+              type: component
+          relevant-evidence:
+            - href: "#19a07333-4e87-46dc-abab-adad60e706b9"
+              description: Raw scanner tool output - discovery scan.
+              links:
+                - href: "#171b44a2-9b52-4c46-b912-54bd274b2761"
+                  rel: raw-tool-output
+          collected: 2023-05-10T00:00:00Z
+          remarks: >-
+            Undocumented hosts are entered into the SAR's
+            result/local-definitions section as inventory-items or components.
+
+
+            Undocumented hosts are listed in the observations assembly as subject-references.
+
+
+            The origin must contain the UUID of the tool used to perform the scan.
+        - uuid: 63fd3d97-26c9-4d4c-8d24-9fbc482b7f52
+          description: "[EXAMPLE]Scanner Output."
+          methods:
+            - TEST
+          types:
+            - finding
+          origins:
+            - actors:
+                - type: tool
+                  actor-uuid: fff18c72-4c24-44a2-999d-24fcb13a46d0
+          subjects:
+            - subject-uuid: c916d3c5-229e-4786-bf3f-4d71baa0e7a5
+              type: inventory-item
+            - subject-uuid: fb7a84fb-7e30-4f5b-9997-2ecd4d270bdd
+              type: inventory-item
+            - subject-uuid: 0f9049ed-a01f-484a-b70d-b1894fd196b8
+              type: inventory-item
+            - subject-uuid: 60f92bcf-f353-4236-9803-2a5d417555f5
+              type: component
+          relevant-evidence:
+            - href: "#171b44a2-9b52-4c46-b912-54bd274b2761"
+              description: Raw scanner tool output - Infrastructure and OS Scan.
+              links:
+                - href: "#171b44a2-9b52-4c46-b912-54bd274b2761"
+                  rel: raw-tool-output
+          collected: 2023-05-10T00:00:00Z
+        - uuid: 9de7cba9-40fc-4c4d-b6af-01bd24f1def6
+          title: Operational Requirement
+          description: Provide the justification for the operational requirement.
+          methods:
+            - EXAMINE
+          types:
+            - operational-requirement
+          relevant-evidence:
+            - href: "#53af7193-b25d-4ed2-a82f-5954d2d0df61"
+              description: A screen shot showing the system impact when patch is applied.
+            - href: https://vendor.site/article/describing/something.htm
+              description: Vendor detail describing why this happens.
+          collected: 2023-05-10T00:00:00Z
+        - uuid: 46209140-8263-4e74-b3c9-cead4ffed22c
+          title: False Positive
+          description: Describe the false positive here.
+          methods:
+            - EXAMINE
+          types:
+            - false-positive
+          relevant-evidence:
+            - href: "#53af7193-b25d-4ed2-a82f-5954d2d0df61"
+              description: A screen shot showing the setting is correct
+            - href: https://vendor.site/article/describing/something.htm
+              description: Vendor detail describing why this happens.
+          collected: 2023-05-10T00:00:00Z
+        - uuid: 7acee179-1570-4ea0-94dc-01b8c0a29c0a
+          title: Risk Adjustment
+          description: Describe the risk adjustment justification here.
+          methods:
+            - EXAMINE
+          types:
+            - risk-adjustment
+          relevant-evidence:
+            - description: Describe the risk adjustment evidence here.
+              links:
+                - href: "#53af7193-b25d-4ed2-a82f-5954d2d0df61"
+                  rel: evidence
+              remarks: >-
+                Attach relevant evidence as a `resource`.
+
+
+                Use a `link` field with a URI fragment to link to the resource using
+                its UUID.
+          collected: 2023-05-10T00:00:00Z
+        - uuid: 21b26801-2e00-4e59-979c-bf2a4ed93920
+          description: |-
+            [EXAMPLE]Spear phishing test yielded a 22% click rate.
+
+            [EXAMPLE]The target threshold was below 20%.
+          methods:
+            - TEST
+          types:
+            - finding
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+              related-tasks:
+                - task-uuid: 8937348c-5ebb-40bd-a8eb-faff99af156e
+          relevant-evidence:
+            - href: "#e552fb72-d662-4c01-b2d7-4dcb2086bb07"
+              description: Spear Phishing Report.
+          collected: 2023-05-10T00:00:00Z
+        - uuid: 6d4435b2-c1b4-4adc-9057-0bf40635728b
+          description: Infrastructure Scan Percentage.
+          props:
+            - name: scan-percentage
+              ns: https://fedramp.gov/ns/oscal
+              value: "95"
+              class: infrastructure
+            - name: discrepancies
+              ns: https://fedramp.gov/ns/oscal
+              value: no
+              class: infrastructure
+            - name: ia-manual-review
+              ns: https://fedramp.gov/ns/oscal
+              value: yes
+              class: infrastructure
+          methods:
+            - EXAMINE
+          collected: 2023-05-10T00:00:00Z
+          remarks: >-
+            Describe how comprehensive the scans were by using the FedRAMP
+            \"scan-percentage\", \"discrepancies\", and \"ia-manual-review\"
+            `prop` within the `observation` data item.
+
+
+            If the value of the \"discrepancies\" `prop` is \"yes\", that indicates
+            that there are discrepancies between the inventory and the scanned items.
+            In that case, a \"discrepancies-reason\" `prop` must be provided.
+        - uuid: 6d4435b2-c1b4-4adc-9057-0bf40635728b
+          description: Database Scan Percentage.
+          props:
+            - name: scan-percentage
+              ns: https://fedramp.gov/ns/oscal
+              value: "100"
+              class: database
+            - name: discrepancies
+              ns: https://fedramp.gov/ns/oscal
+              value: no
+              class: database
+            - name: ia-manual-review
+              ns: https://fedramp.gov/ns/oscal
+              value: no
+              class: database
+          methods:
+            - EXAMINE
+          collected: 2023-05-10T03:00:00Z
+          remarks: >-
+            Describe how comprehensive the scans were by using the FedRAMP
+            \"scan-percentage\", \"discrepancies\", and \"ia-manual-review\"
+            `prop` within the `observation` data item.
+
+
+            If the value of the \"discrepancies\" `prop` is \"yes\", that indicates
+            that there are discrepancies between the inventory and the scanned items.
+            In that case, a \"discrepancies-reason\" `prop` must be provided.
+        - uuid: 6d4435b2-c1b4-4adc-9057-0bf40635728b
+          description: Web Scan Percentage.
+          props:
+            - name: scan-percentage
+              ns: https://fedramp.gov/ns/oscal
+              value: "75"
+              class: web
+            - name: discrepancies
+              ns: https://fedramp.gov/ns/oscal
+              value: yes
+              class: web
+            - name: discrepancies-reason
+              ns: https://fedramp.gov/ns/oscal
+              value: yes
+              class: web
+              remarks: EXAMPLE - Next Gen Web Application Firewall is blocking requests
+                from scanner.
+            - name: ia-manual-review
+              ns: https://fedramp.gov/ns/oscal
+              value: yes
+              class: web
+          methods:
+            - EXAMINE
+          collected: 2023-05-10T03:00:00Z
+          remarks: >-
+            Describe how comprehensive the scans were by using the FedRAMP
+            \"scan-percentage\", \"discrepancies\", and \"ia-manual-review\"
+            `prop` within the `observation` data item.
+
+
+            If the value of the \"discrepancies\" `prop` is \"yes\", that indicates
+            that there are discrepancies between the inventory and the scanned items.
+            In that case, a \"discrepancies-reason\" `prop` must be provided.
+        - uuid: 21b26801-2e00-4e59-979c-bf2a4ed93920
+          description: "[EXAMPLE]Describe the finding."
+          methods:
+            - TEST
+          types:
+            - finding
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: ca9fca9c-4a8a-4487-8242-0a06d6fbed1f
+              related-tasks:
+                - task-uuid: 8937348c-5ebb-40bd-a8eb-faff99af156e
+          relevant-evidence:
+            - href: "#e552fb72-d662-4c01-b2d7-4dcb2086bb07"
+              description: Penetration Test Report.
+          collected: 2023-05-10T00:00:00Z
+        - uuid: A38F3BBA-5B71-400D-B8F2-D808E1D4627F
+          description: The policy describes a procedure, which could not be found.
+          methods:
+            - EXAMINE
+          types:
+            - ssp-statement-issue
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+          collected: 2023-05-10T00:00:00Z
+          remarks: >-
+            The `type` field designates this observations as an issue with a
+            statement in the SSP. Tools can filter on this field to summarize
+            all SSP issues.
+
+
+            The `origin` identifies the assessor who found the SSP statement issue.
+
+
+            If relevant, evidence can be cited as well using the `relevant-evidence`
+            assembly, such as a screenshot showing a setting is different than stated
+            in the SSP.
+      risks:
+        - uuid: 1689ec06-100a-4fed-9df9-e69f07d3f3c9
+          title: Risk Title
+          description: |-
+            This is a description of the identified risk.
+
+            TCW: Identified Risk.
+
+            Scans: Vulnerability Description.
+
+            Pen Test: Risk Description.
+
+            RET: Description.
+          statement: |-
+            This is a statement about the identified risk.
+
+            TCW: Risk Statement..
+
+            Scans: N/A.
+
+            Pen Risk Statement.
+
+            RET: Risk Statement.
+          status: open
+          characterizations:
+            - origin:
+                actors:
+                  - type: party
+                    actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+              facets:
+                - name: impact
+                  system: https://fedramp.gov
+                  value: high
+                  props:
+                    - name: state
+                      value: initial
+                - name: likelihood
+                  system: https://fedramp.gov
+                  value: moderate
+                  props:
+                    - name: state
+                      value: initial
+          remediations:
+            - uuid: fde4758d-6417-4f35-ba71-278af4f008f8
+              lifecycle: recommendation
+              title: Remediation Title
+              description: >-
+                A description of the recommended remediation.
+
+
+                TCW: Assessor's recommended remediation (lifecycle=\"recommendation\").
+
+
+                Scans: Tool's recommended remediation (lifecycle=\"recommendation\")
+
+
+                Pen Test: Assessor's recommended remediation (lifecycle=\"recommendation\")
+
+
+                RET: Assessor's recommended remediation (lifecycle=\"recommendation\").
+
+
+                POA&M: CSP's intended remediation (no type flag).
+        - uuid: 6038458c-9120-4736-b1c8-78f6c1ad3a48
+          title: Risk Title
+          description: |-
+            This is a description of the identified risk.
+
+            TCW: Identified Risk.
+
+            Scans: Vulnerability Description.
+
+            Pen Test: Risk Description.
+
+            RET: Description.
+          statement: |-
+            This is a statement about the identified risk.
+
+            TCW: Risk Statement..
+
+            Scans: N/A.
+
+            Pen Risk Statement.
+
+            RET: Risk Statement.
+          status: open
+          characterizations:
+            - origin:
+                actors:
+                  - type: party
+                    actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+              facets:
+                - name: impact
+                  system: https://fedramp.gov
+                  value: moderate
+                  props:
+                    - name: state
+                      value: initial
+                - name: likelihood
+                  system: https://fedramp.gov
+                  value: low
+                  props:
+                    - name: state
+                      value: initial
+          remediations:
+            - uuid: 6038458c-9120-4736-b1c8-78f6c1ad3a48
+              lifecycle: recommendation
+              title: ""
+              description: >-
+                A description of the recommended remediation.
+
+
+                TCW: Assessor's recommended remediation (lifecycle=\"recommendation\").
+
+
+                Scans: Tool's recommended remediation (lifecycle=\"recommendation\")
+
+
+                Pen Test: Assessor's recommended remediation (lifecycle=\"recommendation\")
+
+
+                RET: Assessor's recommended remediation (lifecycle=\"recommendation\").
+
+
+                POA&M: CSP's intended remediation (no type flag).
+              origins:
+                - actors:
+                    - type: party
+                      actor-uuid: 49f73135-efab-4275-9a79-003656ad890a
+        - uuid: ae628cc5-b64c-4030-af30-57e6b24a6ae7
+          title: Vulnerability Title
+          description: This is a description of the vulnerability provided by the
+            tool.
+          statement: >-
+            This is a statement about the identified risk as provided by the
+            tool.
+
+
+            This field must be present, but may be blank (or state 'No Risk Statement'
+            if no statement is provided by the tool.
+          props:
+            - name: priority
+              ns: https://fedramp.gov/ns/oscal
+              value: "1"
+            - name: operational-requirement
+              ns: https://fedramp.gov/ns/oscal
+              value: approved
+            - name: false-positive
+              ns: https://fedramp.gov/ns/oscal
+              value: withdrawn
+            - name: risk-adjustment
+              ns: https://fedramp.gov/ns/oscal
+              value: approved
+          status: closed
+          characterizations:
+            - origin:
+                actors:
+                  - type: tool
+                    actor-uuid: 040937c3-2e0e-407a-bb3c-d4e61ac1c460
+              facets:
+                - name: vulnerability-id
+                  system: http://csrc.nist.gov/ns/oscal/unknown
+                  value: VulID-001
+                - name: plugin-id
+                  system: http://csrc.nist.gov/ns/oscal/unknown
+                  value: Plugin-ID
+                - name: iavm-severity
+                  system: https://us-cert.cisa.gov/
+                  value: high
+                - name: cve-id
+                  system: http://cve.mitre.org
+                  value: CVE-2020-00000
+                - name: impact
+                  system: http://csrc.nist.gov/ns/oscal/unknown
+                  value: high
+                - name: attack-vector
+                  system: http://www.first.org/cvss/v3.1
+                  value: network
+                - name: likelihood
+                  system: https://fedramp.gov
+                  value: high
+                  props:
+                    - name: state
+                      value: initial
+                - name: impact
+                  system: https://fedramp.gov
+                  value: high
+                  props:
+                    - name: state
+                      value: initial
+                - name: likelihood
+                  system: https://fedramp.gov
+                  value: moderate
+                  props:
+                    - name: state
+                      value: adjusted
+                - name: impact
+                  system: https://fedramp.gov
+                  value: moderate
+                  props:
+                    - name: state
+                      value: adjusted
+          mitigating-factors:
+            - uuid: 260d3c0a-fc2e-4627-9fb9-a003acdc4b14
+              description: Describe mitigating factor
+            - uuid: fd061039-e9b0-4b4c-a78b-ca024d411174
+              implementation-uuid: 46f4c261-e488-4fb5-84d6-6a61dd30c3d7
+              description: Describe why the cited implementation statement justifies
+                lowering the risk.
+          remediations:
+            - uuid: a3106e23-8b79-4b1b-abf4-74f16c51ad0c
+              lifecycle: recommendation
+              title: Tool's Recommendation
+              description: A description of the recommended remediation as provided
+                by the tool.
+              origins:
+                - actors:
+                    - type: tool
+                      actor-uuid: 040937c3-2e0e-407a-bb3c-d4e61ac1c460
+              remarks: >-
+                Recommended and planned remediation entries should remain when
+                the risk is closed.
+
+
+                Simply add the closure-actions field and change the risk-status to
+                \"closed\".
+            - uuid: 69344d05-937e-40f4-9c3f-9aa8702ad99d
+              lifecycle: recommendation
+              title: Assessor's Recommendation
+              description: A description of the recommended remediation as provided
+                by the assessor.
+              origins:
+                - actors:
+                    - type: party
+                      actor-uuid: 49f73135-efab-4275-9a79-003656ad890a
+              remarks: >-
+                The assessor may add their recommendation in addition to the
+                tool's recommendation, or if no tool recommendation is provided.
+
+
+                The assessor should leave the tool recommendation, even if adding
+                their own.
+
+
+                Recommended and planned remediation entries should remain when the
+                risk is closed.
+
+
+                Simply add the closure-actions field and change the risk-status to
+                \"closed\".
+          risk-log:
+            entries:
+              - uuid: 0b09e341-cf3c-4de7-b728-751c6e88b653
+                title: Closed
+                description: >-
+                  Describe what action(s) the CSP took to close the risk.
+
+
+                  [EXAMPLE]Applied patch. Vulnerability no longer found in subsequent
+                  scan.
+                start: 2020-07-07T00:00:00Z
+                status-change: closed
+        - uuid: e552fb72-d662-4c01-b2d7-4dcb2086bb07
+          title: Risk Title
+          description: This is a description of the issue found by the penetration
+            testing team.
+          statement: This is a statement about the risk identified by penetration
+            testing.
+          props:
+            - name: priority
+              ns: https://fedramp.gov/ns/oscal
+              value: "2"
+          status: open
+          characterizations:
+            - origin:
+                actors:
+                  - type: party
+                    actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+              facets:
+                - name: likelihood
+                  system: https://fedramp.gov
+                  value: high
+                  props:
+                    - name: state
+                      value: initial
+                - name: impact
+                  system: https://fedramp.gov
+                  value: high
+                  props:
+                    - name: state
+                      value: initial
+          remediations:
+            - uuid: 69344d05-937e-40f4-9c3f-9aa8702ad99d
+              lifecycle: recommendation
+              title: Assessor's Recommendation
+              description: A description of the recommended remediation as provided
+                by the assessor.
+              origins:
+                - actors:
+                    - type: party
+                      actor-uuid: 49f73135-efab-4275-9a79-003656ad890a
+              remarks: The assessor may add their recommendation.
+      findings:
+        - uuid: 951325ce-c0ca-4f8f-9b37-11ccf5258f3b
+          title: "[EXAMPLE]TCW Objective AC-1(a)(1)[1] (Examine)"
+          description: An overall statement about the system's satisfaction of this
+            objective.
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+                - type: party
+                  actor-uuid: e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+          target:
+            type: objective-id
+            target-id: ac-1.a.1_obj.1
+            props:
+              - name: implementation-status
+                ns: https://fedramp.gov/ns/oscal
+                value: implemented
+            status:
+              state: satisfied
+          related-observations:
+            - observation-uuid: d02f9117-84e3-4993-af59-c5ce5e8675ab
+          related-risks:
+            - risk-uuid: 1689ec06-100a-4fed-9df9-e69f07d3f3c9
+          remarks: >-
+            There should be at least one `related-observation` for each test
+            method. There may be more than one.
+
+
+            This objective only has one method (Examine), so there should be at least
+            one `related-observation`.
+        - uuid: EF489684-C2E5-46BD-887A-A86A4AA210D9
+          title: "[EXAMPLE]TCW Objective AC-1(a)(1)[2] (Examine)"
+          description: An overall statement about the system's satisfaction of this
+            objective.
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+                - type: party
+                  actor-uuid: e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+          target:
+            type: objective-id
+            target-id: ac-1.a.1_obj.2
+            props:
+              - name: implementation-status
+                ns: https://fedramp.gov/ns/oscal
+                value: implemented
+            status:
+              state: satisfied
+          related-observations:
+            - observation-uuid: d02f9117-84e3-4993-af59-c5ce5e8675ab
+          related-risks:
+            - risk-uuid: 1689ec06-100a-4fed-9df9-e69f07d3f3c9
+          remarks: >-
+            There should be at least one `related-observation` for each test
+            method. There may be more than one.
+
+
+            This objective only has one method (Examine), so there should be at least
+            one `related-observation`.
+        - uuid: 0D3EE91E-8A4E-455B-BC84-EB31C7C3C34B
+          title: "[EXAMPLE]TCW Objective AC-1(a)(1)[3] (Examine and Interview)"
+          description: An overall statement about the system's satisfaction of this
+            objective.
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+                - type: party
+                  actor-uuid: e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+          target:
+            type: objective-id
+            target-id: ac-1.a.1_obj.3
+            props:
+              - name: implementation-status
+                ns: https://fedramp.gov/ns/oscal
+                value: implemented
+            status:
+              state: satisfied
+          related-observations:
+            - observation-uuid: d02f9117-84e3-4993-af59-c5ce5e8675ab
+            - observation-uuid: 29e4ce70-6a17-411d-aa65-ec7cef21e774
+          related-risks:
+            - risk-uuid: 1689ec06-100a-4fed-9df9-e69f07d3f3c9
+          remarks: >-
+            There should be at least one `related-observation` for each test
+            method. There may be more than one.
+
+
+            This objective has two methods (Examine and Interview), so there should
+            be at least two `related-observation`, including at least one observation
+            of each type.
+        - uuid: 33e43825-6fd7-49c6-a610-4c795954a167
+          title: "[EXAMPLE]Issue With AU-1 Statement"
+          description: "[EXAMPLE]There is an issue with an SSP Statement."
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+                - type: party
+                  actor-uuid: e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+          target:
+            type: statement-id
+            target-id: au-1_smt.a
+            status:
+              state: not-satisfied
+          implementation-statement-uuid: 9a2bd937-226e-4aaf-8261-2cf0c2e3aa10
+          related-observations:
+            - observation-uuid: A38F3BBA-5B71-400D-B8F2-D808E1D4627F
+          remarks: >-
+            The `implementation-statement-uuid` contains the UUID of the
+            erroneous statement in the SSP.
+
+
+            The `related-observation` contains the UUID of an observation with details
+            about the issue, including a statement and any relevant evidence.
+        - uuid: d6316907-a5e5-4ad5-871d-f2f29938360e
+          title: Discovery Scan Results
+          description: The results of the discovery scan.
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+                - type: party
+                  actor-uuid: e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+          target:
+            type: statement-id
+            target-id: ra-5_smt.a
+            status:
+              state: not-satisfied
+          related-observations:
+            - observation-uuid: 6841d8eb-a72c-4672-acc2-2fd265d9617d
+          remarks: The UUID for the tool operator must be listed as the party-uuid
+            for the finding. There may be more than one.
+        - uuid: 170dd310-1a92-4fcf-a12b-ebfa03d9e6d8
+          title: "[EXAMPLE]Infrastructure Scan Unique Vulnerability"
+          description: An example set of infrastructure scan findings.
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+                - type: party
+                  actor-uuid: e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+          target:
+            type: statement-id
+            target-id: cm-2.1_smt.c
+            status:
+              state: not-satisfied
+          related-observations:
+            - observation-uuid: 63fd3d97-26c9-4d4c-8d24-9fbc482b7f52
+            - observation-uuid: 9de7cba9-40fc-4c4d-b6af-01bd24f1def6
+            - observation-uuid: 46209140-8263-4e74-b3c9-cead4ffed22c
+            - observation-uuid: 7acee179-1570-4ea0-94dc-01b8c0a29c0a
+          related-risks:
+            - risk-uuid: ae628cc5-b64c-4030-af30-57e6b24a6ae7
+        - uuid: b56edab1-8cdc-45f9-8589-35f1bd7b3348
+          title: "[EXAMPLE]Spear Phishing Results"
+          description: The Results of the spear phishing test.
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+                - type: party
+                  actor-uuid: e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+          target:
+            type: objective-id
+            target-id: at-2.c_obj.2
+            props:
+              - name: implementation-status
+                ns: https://fedramp.gov/ns/oscal
+                value: partial
+            status:
+              state: not-satisfied
+            implementation-status:
+              state: partial
+          related-observations:
+            - observation-uuid: 21b26801-2e00-4e59-979c-bf2a4ed93920
+          remarks: When reporting a result for a test such as the spear phishing activity,
+            a risk assembly is required if the result is to be reported in the Risk
+            Exposure Table.
+        - uuid: b56edab1-8cdc-45f9-8589-35f1bd7b3348
+          title: "[EXAMPLE]Penetration Test Result"
+          description: A finding from penetration testing activities.
+          origins:
+            - actors:
+                - type: party
+                  actor-uuid: f4568fda-c6d2-4640-adec-0012015af7d0
+                - type: party
+                  actor-uuid: e934d8b5-13e5-4f77-b55e-871e6f2df2fe
+          target:
+            type: objective-id
+            target-id: ca-8.1_obj
+            props:
+              - name: implementation-status
+                ns: https://fedramp.gov/ns/oscal
+                value: alternative
+            status:
+              state: not-satisfied
+            implementation-status:
+              state: alternative
+          related-observations:
+            - observation-uuid: 21b26801-2e00-4e59-979c-bf2a4ed93920
+          related-risks:
+            - risk-uuid: e552fb72-d662-4c01-b2d7-4dcb2086bb07
+          remarks: >-
+            If a penetration test result is favorable, such as to say the SOC
+            detected the activities appropriately, no risk is required.
+
+
+            If a penetration test result identifies a vulnerability or deficiency,
+            the risk assembly is required.
+    - uuid: cfa9b157-540e-456b-980d-efa789e50ace
+      title: 2022 Annual Assessment
+      description: Description
+      start: 2022-03-01T00:00:00Z
+      end: 2022-03-12T00:00:00Z
+      reviewed-controls:
+        control-selections:
+          - include-controls:
+              - control-id: ac-1
+              - control-id: ac-2
+            remarks: Other controls omitted from example.
+      attestations:
+        - parts:
+            - name: authorization-statements
+              props:
+                - name: recommend-authorization
+                  ns: https://fedramp.gov/ns/oscal
+                  value: yes
+    - uuid: d755e7fd-346d-40f0-b538-1b1da1aa5821
+      title: Initial (2021) Assessment
+      description: Description
+      start: 2021-03-01T00:00:00Z
+      end: 2021-03-12T00:00:00Z
+      reviewed-controls:
+        control-selections:
+          - include-controls:
+              - control-id: ac-1
+              - control-id: ac-2
+            remarks: Other controls omitted from example.
+      attestations:
+        - parts:
+            - name: authorization-statements
+              props:
+                - name: recommend-authorization
+                  ns: https://fedramp.gov/ns/oscal
+                  value: yes
+  back-matter:
+    resources:
+      - uuid: ace2963d-ecb4-4be5-bdd0-1f6fd7610f41
+        title: Resolution Resource
+        props:
+          - name: dataset
+            value: Special Publication
+            class: collection
+          - name: dataset
+            value: 800-53
+            class: name
+          - name: dataset
+            value: 5.0.2
+            class: version
+          - name: dataset
+            value: gov.nist.csrc
+            class: organization
+        remarks: This \"resolution resource\" is used by FedRAMP as a local, authoritative
+          indicator of what version SAR (rev 4 or rev 5) this OSCAL document is for.
+      - uuid: 5cce2310-8fcc-49f8-8cae-8e31dc8048f1
+        title: "[System Name] [FIPS-199 Level] SAP"
+        props:
+          - name: type
+            ns: https://fedramp.gov/ns/oscal
+            value: security-assessment-plan
+          - name: published
+            value: 2023-06-30T00:00:00Z
+          - name: version
+            value: SAP Version
+        rlinks:
+          - href: ../../sap/yaml/FedRAMP-SAP-OSCAL-Template.yaml
+            media-type: text/yaml
+      - uuid: 985475ee-d4d6-4581-8fdf-d84d3d8caa48
+        title: FedRAMP Applicable Laws and Regulations
+        props:
+          - name: type
+            ns: https://fedramp.gov/ns/oscal
+            value: fedramp-citations
+        rlinks:
+          - href: https://www.fedramp.gov/assets/resources/templates/SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx
+        base64:
+          filename: SSP-A12-FedRAMP-Laws-and-Regulations-Template.xlsx
+          media-type: application/vnd.ms-excel
+          value: "00000000"
+        remarks: Must be present in a FedRAMP SAR.
+      - uuid: 1a23a771-d481-4594-9a1a-71d584fa4123
+        title: FedRAMP Master Acronym and Glossary
+        props:
+          - name: type
+            ns: https://fedramp.gov/ns/oscal
+            value: fedramp-acronyms
+        rlinks:
+          - href: https://www.fedramp.gov/assets/resources/documents/FedRAMP_Master_Acronym_and_Glossary.pdf
+        base64:
+          filename: FedRAMP_Master_Acronym_and_Glossary.pdf
+          media-type: application/pdf
+          value: "00000000"
+        remarks: Must be present in a FedRAMP SAR.
+      - uuid: 3a9ace38-c36a-4478-bd2a-f00961889214
+        description: Signed SAR
+        props:
+          - name: type
+            ns: https://fedramp.gov/ns/oscal
+            value: signature
+        rlinks:
+          - href: ./signed-sar.pdf
+            media-type: application/pdf
+        remarks: >-
+          FedRAMP is formulating guidelines for handling digital/electronic
+          signatures in OSCAL, and welcome feedback on solutions.
+
+
+          For now, FedRAMP recommends one of the following:
+
+
+          * Render the OSCAL SAR content as a PDF that is digitally signed and attached.
+
+          * Render the OSCAL SAR content as printed pages that are physically signed,
+          scanned, and attached.
+
+
+
+          If your organization prefers another approach, please seek prior approval
+          from the FedRAMP PMO.
+      - uuid: 65fb91b1-f7dc-46bf-8b99-bd98f1a5293d
+        title: "[EXAMPLE]Interview Notes"
+        props:
+          - name: type
+            value: evidence
+        rlinks:
+          - href: ./evidence/interview-notes.docx
+            media-type: application/msword
+        base64:
+          filename: interview-notes.docx
+          media-type: application/msword
+          value: "00000000"
+        remarks: >-
+          A tool could use either an rlink or base64 field.
+
+
+          If both are present, FedRAMP tools will give preference to the base64 content.
+
+
+          There may be more than one rlink.
+
+
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
+      - uuid: f32b7ab1-baf1-451a-b3a1-1dfdadbe8dc7
+        title: "[EXAMPLE]AC Policy"
+        props:
+          - name: type
+            value: artifact
+          - name: type
+            value: policy
+          - name: version
+            value: "2.1"
+          - name: published
+            value: 2023-06-01T00:00:00Z
+        rlinks:
+          - href: ./artifacts/AC_Policy.pdf
+            media-type: application/pdf
+        base64:
+          filename: AC_Policy.pdf
+          media-type: application/pdf
+          value: "00000000"
+        remarks: >-
+          A tool could use either an rlink or base64 field.
+
+
+          If both are present, FedRAMP tools will give preference to the base64 content.
+
+
+          There may be more than one rlink.
+
+
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
+      - uuid: 53af7193-b25d-4ed2-a82f-5954d2d0df61
+        title: "[EXAMPLE]Screen Shot"
+        props:
+          - name: type
+            value: evidence
+        rlinks:
+          - href: ./evidence/screen-shot.jpg
+            media-type: image/jpeg
+        base64:
+          filename: screen-shot.jpg
+          media-type: image/jepg
+          value: "00000000"
+        remarks: >-
+          A tool could use either an rlink or base64 field.
+
+
+          If both are present, FedRAMP tools will give preference to the base64 content.
+
+
+          There may be more than one rlink.
+
+
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
+      - uuid: 19a07333-4e87-46dc-abab-adad60e706b9
+        title: "[EXAMPLE]Raw Scan Results - Discovery Scan"
+        description: Raw scan results exported from the scanning tool.
+        props:
+          - name: type
+            value: evidence
+          - name: type
+            value: tool-output
+        rlinks:
+          - href: ./scans/raw_tool_output.csv
+            media-type: text/csv
+        remarks: >-
+          A SAR tool could use either an rlink or base64 field.
+
+
+          If both are present, FedRAMP tools will give preference to the base64 content.
+
+
+          There may be more than one rlink.
+
+
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
+      - uuid: 171b44a2-9b52-4c46-b912-54bd274b2761
+        title: "[EXAMPLE]Raw Scan Results - OS and Inf Scans"
+        description: Raw scan results exported from the scanning tool.
+        props:
+          - name: type
+            value: evidence
+          - name: type
+            value: tool-output
+        rlinks:
+          - href: ./scans/raw_tool_output.csv
+            media-type: text/csv
+        remarks: >-
+          A SAR tool could use either an rlink or base64 field.
+
+
+          If both are present, FedRAMP tools will give preference to the base64 content.
+
+
+          There may be more than one rlink.
+
+
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
+      - uuid: e552fb72-d662-4c01-b2d7-4dcb2086bb07
+        title: Penetration Test Report
+        props:
+          - name: type
+            ns: https://fedramp.gov/ns/oscal
+            value: penetration-test-report
+          - name: type
+            value: report
+        rlinks:
+          - href: ./pen_test_report.pdf
+            media-type: application/pdf
+        remarks: >-
+          A SAR tool could use either an rlink or base64 field.
+
+
+          If both are present, FedRAMP tools will give preference to the base64 content.
+
+
+          There may be more than one rlink.
+
+
+          If there is no base64 field, at lest one of the rlink fields must include
+          a relative path.
+      - uuid: 91d242d0-ccf9-4ff0-996d-e204c19dac52
+        description: 3PAO Logo
+        props:
+          - name: type
+            value: logo
+        rlinks:
+          - href: ./logo.png
+            media-type: image/png
+        base64:
+          value: "00000000"
+      - uuid: 031a32be-f9ef-45a0-994e-20eb58456dee
+        description: FedRAMP Logo
+        props:
+          - name: type
+            value: logo
+        rlinks:
+          - href: https://github.com/GSA/fedramp-automation/raw/master/assets/FedRAMP_LOGO.png

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://github.com/usnistgov/OSCAL/raw/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
+<system-security-plan
+    uuid="8c000726-ba93-480d-a221-8cb60df10c24"
+    xmlns="http://csrc.nist.gov/ns/oscal/1.0" />
