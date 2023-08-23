@@ -10,7 +10,7 @@ The following FedRAMP guides, based on the Open Security Controls Assessment Lan
 
 - **Guide to OSCAL-based FedRAMP Security Assessment Plans (SAP)** ([rev 4](./rev4/Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Plans_(SAP)_rev4.pdf) | [rev 5](./rev5/Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Plans_(SAP)_rev5.pdf))
 
-- **Guide to OSCAL-based FedRAMP Security Assessment Results (SAR)** ([rev 4](./rev4/Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Results_(SAR).pdf) | [rev 5](./rev5/Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Results_(SAR)_rev5.pdf))
+- **Guide to OSCAL-based FedRAMP Security Assessment Results (SAR)** ([rev 4](./rev4/Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Results_(SAR)_rev4.pdf) | [rev 5](./rev5/Guide_to_OSCAL-based_FedRAMP_Security_Assessment_Reports_(SAR)_rev5.pdf))
 
 - **Guide to OSCAL-based FedRAMP Plan of Action and Milestones (POA&M)** ([rev 4](./rev4/Guide_to_OSCAL-based_FedRAMP_Plan_of_Action_and_Milestones_(POAM)_rev4.pdf) | [rev 5](./rev5/Guide_to_OSCAL-based_FedRAMP_Plan_of_Action_and_Milestones_(POAM)_rev5.pdf))
 
