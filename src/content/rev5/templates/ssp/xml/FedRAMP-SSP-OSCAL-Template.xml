@@ -1367,10 +1367,10 @@
                <set-parameter param-id="ac-1_prm_1">
                   <value>organization-defined personnel or roles</value>
                </set-parameter>
-               <set-parameter param-id="ac-1_prm_2">
+               <set-parameter param-id="ac-01_odp.05">
                   <value>at least every 3 years</value>
                </set-parameter>
-               <set-parameter param-id="ac-1_prm_3">
+               <set-parameter param-id="ac-01_odp.07">
                   <value>at least annually</value>
                </set-parameter>
             </by-component>
