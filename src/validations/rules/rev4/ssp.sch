@@ -2313,7 +2313,7 @@
                 test="
                     if (oscal:prop[@name eq 'ipv4-address'])
                     then
-                        (oscal:prop[matches(@value, '0.0.0.0')])
+                        (oscal:prop[matches(@value, '(^[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?$)')])
                     else
                         (false())"><xsl:value-of
                     select="oscal:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv4 value.</sch:assert>
