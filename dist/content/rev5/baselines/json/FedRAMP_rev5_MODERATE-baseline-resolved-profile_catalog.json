@@ -1,10 +1,10 @@
 {
   "catalog": {
-    "uuid": "f75df515-e949-4aed-908b-699ff375264a",
+    "uuid": "8eac3672-46db-4213-9fb8-0977fd733b85",
     "metadata": {
       "title": "FedRAMP Rev 5 Moderate Baseline",
       "published": "2023-06-15T00:00:00Z",
-      "last-modified": "2023-08-25T14:55:49.436221-04:00",
+      "last-modified": "2023-08-25T16:52:06.323589-04:00",
       "version": "fedramp-2.0.0-oscal1.0.4",
       "oscal-version": "1.0.4",
       "links": [
