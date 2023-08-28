@@ -10387,9 +10387,6 @@
                                     param-id="ac-1_prm_1">
                                     <value>organization-defined personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.01">
-                                    <value>personnel or roles</value>
-                                </set-parameter>
                                 <set-parameter param-id="ac-01_odp.02">
                                     <value>personnel or roles</value>
                                 </set-parameter>
