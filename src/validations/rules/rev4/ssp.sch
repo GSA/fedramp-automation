@@ -2310,13 +2310,9 @@
                 feddoc:documentation-reference="OMB Mandate M-21-07"
                 id="ipv4-has-non-placeholder"
                 role="error"
-                test="
-                    if (oscal:prop[@name eq 'ipv4-address'])
-                    then
-                    (oscal:prop[matches(@value, '(^[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?\.[0-9][0-9]?[0-9]?$)')])
-                    else
-                        (false())"><xsl:value-of
-                    select="oscal:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv4 value.</sch:assert>
+                test="oscal:prop[@name eq 'ipv4-address']/@value ne '0.0.0.0'">
+                    <xsl:value-of 
+                        select="oscal:prop[@name = 'asset-id']/@value" /> must have an appropriate IPv4 value.</sch:assert>
             <sch:let
                 name="IPv6-regex"
                 value="

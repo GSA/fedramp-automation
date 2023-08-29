@@ -6249,7 +6249,7 @@
                             xmlns="http://csrc.nist.gov/ns/oscal/1.0">
                             <prop
                                 name="ipv4-address"
-                                value="10.2.2" />
+                                value="0.0.0.0" />
                         </inventory-item>
                     </x:context>
                     <x:expect-assert
