@@ -1442,7 +1442,7 @@
                         <prop name="label" value="Requirement:"/>
                         <p>POA&amp;Ms must be provided at least monthly.</p>
                     </part>
-                    <part id="ca-5_fr_smt.1" name="guidance">
+                    <part id="ca-5_fr_gdn.1" name="guidance">
                         <prop name="label" value="Guidance:"/>
                         <p>Reference FedRAMP-POAM-Template</p>
                     </part>
