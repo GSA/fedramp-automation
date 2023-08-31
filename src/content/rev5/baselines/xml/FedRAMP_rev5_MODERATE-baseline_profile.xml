@@ -2709,7 +2709,7 @@
 					<title>IA-5 Additional FedRAMP Requirements and Guidance</title>
 					<part id="ia-5_fr_smt.1" name="item">
 						<prop name="label" value="Requirement:"/>
-						<p>Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 3. Link https://pages.nist.gov/800-63-3</p>
+						<p>Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines IAL, AAL, FAL level 2. Link https://pages.nist.gov/800-63-3</p>
 					</part>
 					<part id="ia-5_fr_gdn.1" name="guidance">
 						<prop name="label" value="Guidance:"/>
