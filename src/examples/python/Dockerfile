@@ -14,7 +14,7 @@ RUN apt-get update \
 
 # Download, build, and configure the Saxon-HE c-library
 # See here for platform-specific packages: https://www.saxonica.com/download/c.xml
-RUN wget -O /tmp/saxon.zip https://www.saxonica.com/download/libsaxon-HEC-setup64-v11.6.zip \
+RUN wget -O /tmp/saxon.zip https://www.saxonica.com/download/libsaxon-HEC-setup64-v11.3.zip \
   && unzip /tmp/saxon.zip -d /opt/saxonica/ \
   && ln -s /opt/saxonica/libsaxon-HEC-11.3/libsaxonhec.so /usr/lib/libsaxonhec.so \
   && ln -s /opt/saxonica/libsaxon-HEC-11.3/rt /usr/lib/rt
