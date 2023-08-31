@@ -3,8 +3,8 @@
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="71ba09a5-97a8-483f-92bd-3db6358f005d">
     <metadata>
         <title>FedRAMP Rev 5 Low Baseline</title>
-        <published>2023-06-15T00:00:00Z</published>
-        <last-modified>2023-06-15T00:00:00Z</last-modified>
+        <published>2023-08-31T00:00:00Z</published>
+        <last-modified>2023-08-31T00:00:00Z</last-modified>
         <version>fedramp-2.0.0-oscal1.0.4</version>
         <oscal-version>1.0.4</oscal-version>
         <role id="prepared-by">
@@ -216,14 +216,14 @@
         <set-parameter param-id="ac-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="ac-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -286,14 +286,14 @@
         <set-parameter param-id="at-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="at-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -342,14 +342,14 @@
         <set-parameter param-id="au-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="au-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -419,14 +419,14 @@
         <set-parameter param-id="ca-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="ca-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -440,7 +440,7 @@
         <set-parameter param-id="ca-02_odp.01">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -496,7 +496,7 @@
         <set-parameter param-id="cm-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -540,14 +540,14 @@
         <set-parameter param-id="cp-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="cp-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -624,14 +624,14 @@
         <set-parameter param-id="ia-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="ia-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -645,7 +645,7 @@
         <set-parameter param-id="ia-04_odp.01">
             <constraint>
                 <description>
-                    <p>at a minimum, the ISSO (or similar role within the organization) </p>
+                    <p>at a minimum, the ISSO (or similar role within the organization)</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -660,14 +660,14 @@
         <set-parameter param-id="ir-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="ir-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -737,7 +737,7 @@
         <set-parameter param-id="ma-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -751,14 +751,14 @@
         <set-parameter param-id="mp-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="mp-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -779,14 +779,14 @@
         <set-parameter param-id="pe-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="pe-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -828,7 +828,7 @@
         <set-parameter param-id="pe-3_prm_9">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -877,14 +877,14 @@
         <set-parameter param-id="pl-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="pl-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -926,14 +926,14 @@
         <set-parameter param-id="ps-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="ps-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -969,7 +969,7 @@
         <set-parameter param-id="ps-05_odp.02">
             <constraint>
                 <description>
-                    <p>twenty-four (24) hours </p>
+                    <p>twenty-four (24) hours</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1018,14 +1018,14 @@
         <set-parameter param-id="ra-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="ra-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1081,14 +1081,14 @@
         <set-parameter param-id="sa-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="sa-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1123,14 +1123,14 @@
         <set-parameter param-id="sc-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="sc-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1186,14 +1186,14 @@
         <set-parameter param-id="si-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
         <set-parameter param-id="si-01_odp.07">
             <constraint>
                 <description>
-                    <p>at least annually </p>
+                    <p>at least annually</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1330,7 +1330,7 @@
                     <title>AC-8 Additional FedRAMP Requirements and Guidance</title>
                     <part id="ac-8_fr_smt.1" name="item">
                         <prop name="label" value="Requirement:"/>
-                        <p>The service provider shall determine elements of the cloud environment that require the System Use Notification control. The elements of the cloud environment that require System Use Notification are approved and accepted by the JAB/AO. </p>
+                        <p>The service provider shall determine elements of the cloud environment that require the System Use Notification control. The elements of the cloud environment that require System Use Notification are approved and accepted by the JAB/AO.</p>
                     </part>
                     <part id="ac-8_fr_smt.2" name="item">
                         <prop name="label" value="Requirement:"/>
@@ -1948,9 +1948,9 @@
                         </ul>
                         <p> </p>
                         <p>The following applies only when choosing SC-8 (5) in lieu of SC-8 (1).</p>
-                        <p>FedRAMP-Defined Assignment / Selection Parameters </p>
+                        <p>FedRAMP-Defined Assignment / Selection Parameters</p>
                         <p>SC-8 (5)-1 [a hardened or alarmed carrier Protective Distribution System (PDS) when outside of Controlled Access Area (CAA)]</p>
-                        <p>SC-8 (5)-2 [prevent unauthorized disclosure of information AND detect changes to information] </p>
+                        <p>SC-8 (5)-2 [prevent unauthorized disclosure of information AND detect changes to information]</p>
                     </part>
                     <part id="sc-8_fr_gdn.2" name="guidance">
                         <prop name="label" value="Guidance:"/>
@@ -1966,7 +1966,7 @@
                         <p>https://www.dcsa.mil/Portals/91/documents/ctp/nao/CNSSI_7003_PDS_September_2015.pdf</p>
                         <p> </p>
                         <p>DHS Recommended Practice: Improving Industrial Control System Cybersecurity with Defense-in-Depth Strategies can be accessed here:</p>
-                        <p>https://us-cert.cisa.gov/sites/default/files/FactSheets/NCCIC%20ICS_FactSheet_Defense_in_Depth_Strategies_S508C.pdf </p>
+                        <p>https://us-cert.cisa.gov/sites/default/files/FactSheets/NCCIC%20ICS_FactSheet_Defense_in_Depth_Strategies_S508C.pdf</p>
                     </part>
                 </part>
             </add>

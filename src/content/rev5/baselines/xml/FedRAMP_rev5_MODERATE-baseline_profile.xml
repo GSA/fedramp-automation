@@ -2,9 +2,9 @@
 <?xml-model href="https://raw.githubusercontent.com/usnistgov/OSCAL/v1.0.4/xml/schema/oscal_complete_schema.xsd" schematypens="http://www.w3.org/2001/XMLSchema" title="OSCAL complete schema"?>
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="71ba09a5-97a8-483f-92bd-3db6358f005d">
 	<metadata>
-		<title>FedRAMP Rev 5 Moderate Baseline</title>
-		<published>2023-06-15T00:00:00Z</published>
-		<last-modified>2023-06-15T00:00:00Z</last-modified>
+		<title>FedRAMP Rev 5 Moderate Baseline</title>		
+		<published>2023-08-31T00:00:00Z</published>
+		<last-modified>2023-08-31T00:00:00Z</last-modified>
 		<version>fedramp-2.0.0-oscal1.0.4</version>
 		<oscal-version>1.0.4</oscal-version>
 		<role id="prepared-by">
@@ -390,7 +390,7 @@
 		<set-parameter param-id="ac-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -432,7 +432,7 @@
 		<set-parameter param-id="ac-02.02_odp.01">
 			<constraint>
 				<description>
-					<p>Selection: disables </p>
+					<p>Selection: disables</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -548,7 +548,7 @@
 		<set-parameter param-id="at-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -604,7 +604,7 @@
 		<set-parameter param-id="au-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -698,7 +698,7 @@
 		<set-parameter param-id="ca-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -712,7 +712,7 @@
 		<set-parameter param-id="ca-02_odp.01">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -790,7 +790,7 @@
 		<set-parameter param-id="cm-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -889,7 +889,7 @@
 		<set-parameter param-id="cp-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1005,7 +1005,7 @@
 		<set-parameter param-id="ia-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1047,7 +1047,7 @@
 		<set-parameter param-id="ia-04_odp.01">
 			<constraint>
 				<description>
-					<p>at a minimum, the ISSO (or similar role within the organization) </p>
+					<p>at a minimum, the ISSO (or similar role within the organization)</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1076,7 +1076,7 @@
 		<set-parameter param-id="ir-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1161,7 +1161,7 @@
 		<set-parameter param-id="ma-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1203,7 +1203,7 @@
 		<set-parameter param-id="mp-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1252,7 +1252,7 @@
 		<set-parameter param-id="mp-05_odp.01">
 			<constraint>
 				<description>
-					<p>all media with sensitive information </p>
+					<p>all media with sensitive information</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1281,7 +1281,7 @@
 		<set-parameter param-id="pe-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1403,7 +1403,7 @@
 		<set-parameter param-id="pl-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1466,7 +1466,7 @@
 		<set-parameter param-id="ps-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1510,7 +1510,7 @@
 		<set-parameter param-id="ps-05_odp.02">
 			<constraint>
 				<description>
-					<p>twenty-four (24) hours </p>
+					<p>twenty-four (24) hours</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1580,7 +1580,7 @@
 		<set-parameter param-id="ra-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1658,7 +1658,7 @@
 		<set-parameter param-id="sa-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1672,7 +1672,7 @@
 		<set-parameter param-id="sa-04.02_odp.01">
 			<constraint>
 				<description>
-					<p>at a minimum to include security-relevant external system interfaces; high-level design; low-level design; source code or network and data flow diagram; </p>
+					<p>at a minimum to include security-relevant external system interfaces; high-level design; low-level design; source code or network and data flow diagram;</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1745,7 +1745,7 @@
 		<set-parameter param-id="sc-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1885,7 +1885,7 @@
 		<set-parameter param-id="si-01_odp.07">
 			<constraint>
 				<description>
-					<p>at least annually </p>
+					<p>at least annually</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -1906,7 +1906,7 @@
 		<set-parameter param-id="si-02.02_odp.02">
 			<constraint>
 				<description>
-					<p>at least monthly </p>
+					<p>at least monthly</p>
 				</description>
 			</constraint>
 		</set-parameter>
@@ -2183,7 +2183,7 @@
 					</part>
 					<part id="ac-8_fr_gdn.1" name="guidance">
 						<prop name="label" value="Guidance:"/>
-						<p>If performed as part of a Configuration Baseline check, then the % of items requiring setting that are checked and that pass (or fail) check can be provided. </p>
+						<p>If performed as part of a Configuration Baseline check, then the % of items requiring setting that are checked and that pass (or fail) check can be provided.</p>
 					</part>
 				</part>
 			</add>
@@ -2369,7 +2369,7 @@
 					<title>CM-2 Additional FedRAMP Requirements and Guidance</title>
 					<part id="ca-8.2_fr_gdn.1" name="guidance">
 						<prop name="label" value="Guidance:"/>
-						<p>See the FedRAMP Documents page&gt; Penetration Test Guidance </p>
+						<p>See the FedRAMP Documents page&gt; Penetration Test Guidance</p>
 						<p>https://www.FedRAMP.gov/documents/</p>
 					</part>
 				</part>
@@ -3097,9 +3097,9 @@
 						</ul>
 						<p> </p>
 						<p>The following applies only when choosing SC-8 (5) in lieu of SC-8 (1).</p>
-						<p>FedRAMP-Defined Assignment / Selection Parameters </p>
+						<p>FedRAMP-Defined Assignment / Selection Parameters</p>
 						<p>SC-8 (5)-1 [a hardened or alarmed carrier Protective Distribution System (PDS) when outside of Controlled Access Area (CAA)]</p>
-						<p>SC-8 (5)-2 [prevent unauthorized disclosure of information AND detect changes to information] </p>
+						<p>SC-8 (5)-2 [prevent unauthorized disclosure of information AND detect changes to information]</p>
 					</part>
 					<part id="sc-8_fr_gdn.2" name="guidance">
 						<prop name="label" value="Guidance:"/>
@@ -3115,7 +3115,7 @@
 						<p>https://www.dcsa.mil/Portals/91/documents/ctp/nao/CNSSI_7003_PDS_September_2015.pdf</p>
 						<p> </p>
 						<p>DHS Recommended Practice: Improving Industrial Control System Cybersecurity with Defense-in-Depth Strategies can be accessed here:</p>
-						<p>https://us-cert.cisa.gov/sites/default/files/FactSheets/NCCIC%20ICS_FactSheet_Defense_in_Depth_Strategies_S508C.pdf </p>
+						<p>https://us-cert.cisa.gov/sites/default/files/FactSheets/NCCIC%20ICS_FactSheet_Defense_in_Depth_Strategies_S508C.pdf</p>
 					</part>
 				</part>
 			</add>
@@ -3380,7 +3380,7 @@
 					<part id="si-8_fr_gdn.1" name="guidance">
 						<prop name="label" value="Guidance:"/>
 						<p>When CSO sends email on behalf of the government as part of the business offering, Control Description should include implementation of Domain-based Message Authentication, Reporting &amp; Conformance (DMARC) on the sending domain for outgoing messages as described in DHS Binding Operational Directive (BOD) 18-01.</p>
-						<p>https://cyber.dhs.gov/bod/18-01/ </p>
+						<p>https://cyber.dhs.gov/bod/18-01/</p>
 					</part>
 					<part id="si-8_fr_gdn.2" name="guidance">
 						<prop name="label" value="Guidance:"/>
