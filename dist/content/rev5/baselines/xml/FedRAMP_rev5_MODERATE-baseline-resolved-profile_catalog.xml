@@ -57,12 +57,6 @@
          <param id="ac-1_prm_1">
             <label>organization-defined personnel or roles</label>
          </param>
-         <param id="ac-01_odp.01">
-            <label>personnel or roles</label>
-            <guideline>
-               <p>personnel or roles to whom the access control policy is to be disseminated is/are defined;</p>
-            </guideline>
-         </param>
          <param id="ac-01_odp.02">
             <label>personnel or roles</label>
             <guideline>
@@ -103,7 +97,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -3906,7 +3900,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -4708,7 +4702,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -6235,7 +6229,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -6425,7 +6419,7 @@
             <label>assessment frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -7824,7 +7818,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -10849,7 +10843,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -12918,7 +12912,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -15127,7 +15121,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -16777,7 +16771,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -17819,7 +17813,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -18807,7 +18801,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -20667,7 +20661,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -21836,7 +21830,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -22955,7 +22949,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -24184,7 +24178,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -26813,7 +26807,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
@@ -29376,7 +29370,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least annually </p>
+                  <p>at least annually</p>
                </description>
             </constraint>
             <guideline>
