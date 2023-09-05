@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="07ae0c51-9318-429b-a2e0-6417a5edf39c">
+         uuid="e5044cc4-7df9-4f6e-a770-740cf1e6a50d">
    <metadata>
       <title>FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
-      <published>2023-06-15T00:00:00Z</published>
-      <last-modified>2023-08-30T12:33:31.760792-04:00</last-modified>
+      <published>2023-08-31T00:00:00Z</published>
+      <last-modified>2023-09-05T15:31:28.352257-04:00</last-modified>
       <version>fedramp-2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <link rel="resolution-source"
@@ -86,7 +86,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -1139,7 +1139,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -1553,7 +1553,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -2355,7 +2355,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -4084,7 +4084,7 @@
             <title>CM-6(a) Additional FedRAMP Requirements and Guidance</title>
             <part id="cm-6_fr_smt.1" name="item">
                <prop name="label" value="Requirement 1:"/>
-               <p>The service provider shall use the Center for Internet Security guidelines (Level 1) to establish configuration settings or establishes its own configuration settings if USGCB is not available. </p>
+               <p>The service provider shall use the Center for Internet Security guidelines (Level 1) to establish configuration settings or establishes its own configuration settings if USGCB is not available.</p>
             </part>
             <part id="cm-6_fr_smt.2" name="item">
                <prop name="label" value="Requirement 2:"/>
@@ -4467,7 +4467,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -5116,7 +5116,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -5510,7 +5510,7 @@
             <label>personnel or roles</label>
             <constraint>
                <description>
-                  <p>at a minimum, the ISSO (or similar role within the organization) </p>
+                  <p>at a minimum, the ISSO (or similar role within the organization)</p>
                </description>
             </constraint>
             <guideline>
@@ -6096,7 +6096,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -7227,7 +7227,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -7744,7 +7744,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -8990,7 +8990,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -9887,7 +9887,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -10209,7 +10209,7 @@
             <label>time period following the formal transfer action</label>
             <constraint>
                <description>
-                  <p>twenty-four (24) hours </p>
+                  <p>twenty-four (24) hours</p>
                </description>
             </constraint>
             <guideline>
@@ -10507,7 +10507,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -11356,7 +11356,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -12085,7 +12085,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>
@@ -13135,7 +13135,7 @@
             <label>frequency</label>
             <constraint>
                <description>
-                  <p>at least every 3 years </p>
+                  <p>at least every 3 years</p>
                </description>
             </constraint>
             <guideline>

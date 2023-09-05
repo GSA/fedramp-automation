@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="http://csrc.nist.gov/ns/oscal/1.0"
-         uuid="2a054274-0f65-4fd4-aada-3d69c1b20406">
+         uuid="0edfcf01-3b08-4c16-a881-a53de7ce1741">
    <metadata>
       <title>FedRAMP Rev 5 Low Baseline</title>
-      <published>2023-06-15T00:00:00Z</published>
-      <last-modified>2023-08-30T12:33:52.367041-04:00</last-modified>
+      <published>2023-08-31T00:00:00Z</published>
+      <last-modified>2023-09-05T15:31:53.120162-04:00</last-modified>
       <version>fedramp-2.0.0-oscal1.0.4</version>
       <oscal-version>1.0.4</oscal-version>
       <link rel="resolution-source" href="FedRAMP_rev5_LOW-baseline_profile.xml"/>
@@ -4175,7 +4175,7 @@
             </part>
             <part id="ca-5_fr" name="item">
                <title>CA-5 Additional FedRAMP Requirements and Guidance</title>
-               <part id="ca-5_fr_smt.1" name="item">
+               <part id="ca-5_fr_gdn.1" name="item">
                   <prop name="label" value="Requirement:"/>
                   <p>POA&amp;Ms must be provided at least monthly.</p>
                </part>

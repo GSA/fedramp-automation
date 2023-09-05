@@ -3,8 +3,8 @@
 <profile xmlns="http://csrc.nist.gov/ns/oscal/1.0" uuid="2b515da9-8a5e-4b7c-9cce-6451e70ca75d">
     <metadata>
         <title>FedRAMP Rev 5 Tailored Low Impact Software as a Service (LI-SaaS) Baseline</title>
-        <published>2023-06-15T00:00:00Z</published>
-        <last-modified>2023-06-15T00:00:00Z</last-modified>
+        <published>2023-08-31T00:00:00Z</published>
+        <last-modified>2023-08-31T00:00:00Z</last-modified>
         <version>fedramp-2.0.0-oscal1.0.4</version>
         <oscal-version>1.0.4</oscal-version>
         <role id="prepared-by">
@@ -216,7 +216,7 @@
         <set-parameter param-id="ac-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -286,7 +286,7 @@
         <set-parameter param-id="at-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -342,7 +342,7 @@
         <set-parameter param-id="au-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -419,7 +419,7 @@
         <set-parameter param-id="ca-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -540,7 +540,7 @@
         <set-parameter param-id="cp-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -624,7 +624,7 @@
         <set-parameter param-id="ia-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -645,7 +645,7 @@
         <set-parameter param-id="ia-04_odp.01">
             <constraint>
                 <description>
-                    <p>at a minimum, the ISSO (or similar role within the organization) </p>
+                    <p>at a minimum, the ISSO (or similar role within the organization)</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -660,7 +660,7 @@
         <set-parameter param-id="ir-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -751,7 +751,7 @@
         <set-parameter param-id="mp-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -779,7 +779,7 @@
         <set-parameter param-id="pe-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -877,7 +877,7 @@
         <set-parameter param-id="pl-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -926,7 +926,7 @@
         <set-parameter param-id="ps-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -969,7 +969,7 @@
         <set-parameter param-id="ps-05_odp.02">
             <constraint>
                 <description>
-                    <p>twenty-four (24) hours </p>
+                    <p>twenty-four (24) hours</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1018,7 +1018,7 @@
         <set-parameter param-id="ra-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1081,7 +1081,7 @@
         <set-parameter param-id="sa-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1123,7 +1123,7 @@
         <set-parameter param-id="sc-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1186,7 +1186,7 @@
         <set-parameter param-id="si-01_odp.05">
             <constraint>
                 <description>
-                    <p>at least every 3 years </p>
+                    <p>at least every 3 years</p>
                 </description>
             </constraint>
         </set-parameter>
@@ -1755,7 +1755,7 @@
                     <title>CM-6(a) Additional FedRAMP Requirements and Guidance</title>
                     <part id="cm-6_fr_smt.1" name="item">
                         <prop name="label" value="Requirement 1:"/>
-                        <p>The service provider shall use the Center for Internet Security guidelines (Level 1) to establish configuration settings or establishes its own configuration settings if USGCB is not available. </p>
+                        <p>The service provider shall use the Center for Internet Security guidelines (Level 1) to establish configuration settings or establishes its own configuration settings if USGCB is not available.</p>
                     </part>
                     <part id="cm-6_fr_smt.2" name="item">
                         <prop name="label" value="Requirement 2:"/>

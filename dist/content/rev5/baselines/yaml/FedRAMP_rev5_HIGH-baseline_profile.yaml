@@ -3,8 +3,8 @@ profile:
   uuid: 9af0a7d3-252c-4f18-9baf-4f10e82bfac8
   metadata:
     title: FedRAMP Rev 5 High Baseline
-    published: 2023-06-15T00:00:00Z
-    last-modified: 2023-06-15T00:00:00Z
+    published: 2023-08-31T00:00:00Z
+    last-modified: 2023-08-31T00:00:00Z
     version: fedramp-2.0.0-oscal1.0.4
     oscal-version: 1.0.4
     roles:
@@ -480,7 +480,7 @@ profile:
           - description: at least annually
       - param-id: ac-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ac-01_odp.08
         constraints:
           - description: significant changes
@@ -499,7 +499,7 @@ profile:
               non-privileged access
       - param-id: ac-02.02_odp.01
         constraints:
-          - description: "Selection: disables "
+          - description: "Selection: disables"
       - param-id: ac-02.02_odp.02
         constraints:
           - description: no more than 24 hours from last use
@@ -564,10 +564,10 @@ profile:
           - description: at least quarterly
       - param-id: at-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: at-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: at-01_odp.08
         constraints:
           - description: significant changes
@@ -589,10 +589,10 @@ profile:
               training program
       - param-id: au-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: au-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: au-01_odp.08
         constraints:
           - description: significant changes
@@ -675,16 +675,16 @@ profile:
           - description: all network, data storage, and computing devices
       - param-id: ca-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ca-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ca-01_odp.08
         constraints:
           - description: significant changes
       - param-id: ca-02_odp.01
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ca-02_odp.02
         constraints:
           - description: individuals or roles to include FedRAMP PMO
@@ -718,10 +718,10 @@ profile:
           - description: at least annually
       - param-id: cm-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: cm-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: cm-01_odp.08
         constraints:
           - description: significant changes
@@ -738,7 +738,7 @@ profile:
               IS components
       - param-id: cm-03.01_odp.03
         constraints:
-          - description: "organization agreed upon time period "
+          - description: organization agreed upon time period
       - param-id: cm-03.01_odp.04
         constraints:
           - description: organization defined configuration management approval authorities
@@ -783,7 +783,7 @@ profile:
           - description: at least annually
       - param-id: cp-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: cp-01_odp.08
         constraints:
           - description: significant changes
@@ -844,10 +844,10 @@ profile:
               defined in the service provider and organization SLA
       - param-id: ia-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ia-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ia-01_odp.08
         constraints:
           - description: significant changes
@@ -865,7 +865,7 @@ profile:
           - description: privileged accounts; non-privileged accounts
       - param-id: ia-04_odp.01
         constraints:
-          - description: "at a minimum, the ISSO (or similar role within the organization) "
+          - description: at a minimum, the ISSO (or similar role within the organization)
       - param-id: ia-04_odp.02
         constraints:
           - description: at least two (2) years
@@ -878,10 +878,10 @@ profile:
               domains
       - param-id: ir-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ir-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ir-01_odp.08
         constraints:
           - description: significant changes
@@ -923,7 +923,7 @@ profile:
           - description: at least annually
       - param-id: ma-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ma-01_odp.08
         constraints:
           - description: significant changes
@@ -938,10 +938,10 @@ profile:
           - description: a timeframe to support advertised uptime and availability
       - param-id: mp-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: mp-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: mp-01_odp.08
         constraints:
           - description: significant changes
@@ -964,7 +964,7 @@ profile:
           - description: see additional FedRAMP requirements and guidance
       - param-id: mp-05_odp.01
         constraints:
-          - description: "all media with sensitive information "
+          - description: all media with sensitive information
       - param-id: mp-5_prm_2
         constraints:
           - description: "prior to leaving secure/controlled environment: for digital\
@@ -980,10 +980,10 @@ profile:
           - description: at least every six (6) months
       - param-id: pe-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: pe-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: pe-01_odp.08
         constraints:
           - description: significant changes
@@ -1047,10 +1047,10 @@ profile:
               assessment
       - param-id: pl-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: pl-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: pl-01_odp.08
         constraints:
           - description: significant changes
@@ -1075,10 +1075,10 @@ profile:
           - description: at least annually and when a significant change occurs
       - param-id: ps-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ps-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ps-01_odp.08
         constraints:
           - description: significant changes
@@ -1110,7 +1110,7 @@ profile:
               to the system
       - param-id: ps-05_odp.02
         constraints:
-          - description: "twenty-four (24) hours "
+          - description: twenty-four (24) hours
       - param-id: ps-05_odp.03
         constraints:
           - description: including access control personnel responsible for the system
@@ -1140,10 +1140,10 @@ profile:
           - description: 24 hours
       - param-id: ra-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ra-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: ra-01_odp.08
         constraints:
           - description: significant changes
@@ -1182,10 +1182,10 @@ profile:
           - description: all scans
       - param-id: sa-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: sa-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: sa-01_odp.08
         constraints:
           - description: significant changes
@@ -1194,7 +1194,7 @@ profile:
           - description: >-
               at a minimum to include security-relevant external system
               interfaces; high-level design; low-level design; source code or
-              network and data flow diagram; 
+              network and data flow diagram;
 
 
               organization-defined design/implementation information
@@ -1240,10 +1240,10 @@ profile:
           - description: FedRAMP Security Authorization requirements
       - param-id: sc-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: sc-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: sc-01_odp.08
         constraints:
           - description: significant changes
@@ -1307,10 +1307,10 @@ profile:
           - description: any difference
       - param-id: si-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: si-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: si-01_odp.08
         constraints:
           - description: significant changes
@@ -1319,7 +1319,7 @@ profile:
           - description: within thirty (30) days of release of updates
       - param-id: si-02.02_odp.02
         constraints:
-          - description: "at least monthly "
+          - description: at least monthly
       - param-id: si-03_odp.01
         constraints:
           - description: signature based and non-signature based
@@ -1376,10 +1376,10 @@ profile:
               designees
       - param-id: sr-01_odp.05
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: sr-01_odp.07
         constraints:
-          - description: "at least annually "
+          - description: at least annually
       - param-id: sr-01_odp.08
         constraints:
           - description: significant changes
@@ -1591,9 +1591,9 @@ profile:
                     props:
                       - name: label
                         value: "Guidance:"
-                    prose: "If performed as part of a Configuration Baseline check,\
-                      \ then the % of items requiring setting that are checked and\
-                      \ that pass (or fail) check can be provided. "
+                    prose: If performed as part of a Configuration Baseline check,
+                      then the % of items requiring setting that are checked and that
+                      pass (or fail) check can be provided.
       - control-id: ac-20
         adds:
           - position: ending
@@ -1900,7 +1900,7 @@ profile:
                       - name: label
                         value: "Guidance:"
                     prose: |-
-                      See the FedRAMP Documents page> Penetration Test Guidance 
+                      See the FedRAMP Documents page> Penetration Test Guidance
 
                       https://www.FedRAMP.gov/documents/
       - control-id: cm-2
@@ -3086,7 +3086,8 @@ profile:
                       SC-8 (1), physical means as specified in SC-8 (5), or in
                       combination.
 
-                       
+
+
 
                       For clarity, this control applies to all data in transit. Examples
                       include the following data flows:
@@ -3108,13 +3109,14 @@ profile:
                       log collection, scanning, etc.
 
 
-                       
+
+
 
                       The following applies only when choosing SC-8 (5) in lieu of
                       SC-8 (1).
 
 
-                      FedRAMP-Defined Assignment / Selection Parameters 
+                      FedRAMP-Defined Assignment / Selection Parameters
 
 
                       SC-8 (5)-1 [a hardened or alarmed carrier Protective Distribution
@@ -3122,7 +3124,7 @@ profile:
 
 
                       SC-8 (5)-2 [prevent unauthorized disclosure of information AND
-                      detect changes to information] 
+                      detect changes to information]
                   - id: sc-8_fr_gdn.2
                     name: guidance
                     props:
@@ -3135,7 +3137,8 @@ profile:
                       be in either a Controlled Access Area (CAA), or a Hardened
                       or alarmed PDS.
 
-                       
+
+
 
                       Hardened or alarmed PDS: Shall be as defined in SECTION X -
                       CATEGORY 2 PDS INSTALLATION GUIDANCE of CNSSI No.7003, titled
@@ -3143,7 +3146,8 @@ profile:
                       Section VIII, PDS must originate and terminate in a Controlled
                       Access Area (CAA).
 
-                       
+
+
 
                       Controlled Access Area (CAA): Data will be considered physically
                       protected, and in a CAA if it meets Section 2.3 of the DHS’s
@@ -3153,19 +3157,22 @@ profile:
                       of the following controls PE-2 (1), PE-2 (2), PE-2 (3), PE-3
                       (2), PE-3 (3), PE-6 (2), and PE-6 (3).
 
-                       
+
+
 
                       Note: When selecting SC-8 (5), the above SC-8(5), and the above
                       referenced PE controls must be added to the SSP.
 
-                       
+
+
 
                       CNSSI No.7003 can be accessed here:
 
 
                       https://www.dcsa.mil/Portals/91/documents/ctp/nao/CNSSI_7003_PDS_September_2015.pdf
 
-                       
+
+
 
                       DHS Recommended Practice: Improving Industrial Control System
                       Cybersecurity with Defense-in-Depth Strategies can be accessed
@@ -3173,7 +3180,6 @@ profile:
 
 
                       https://us-cert.cisa.gov/sites/default/files/FactSheets/NCCIC%20ICS_FactSheet_Defense_in_Depth_Strategies_S508C.pdf
-                      
       - control-id: sc-8.1
         adds:
           - position: ending
@@ -3282,7 +3288,8 @@ profile:
                       * Protocols such as TLS, SSH, and HTTPS
 
 
-                       
+
+
 
                       The requirement for FIPS 140 validation, as well as timelines
                       for acceptance of FIPS 140-2, and 140-3 can be found at the
@@ -3643,7 +3650,7 @@ profile:
                       Binding Operational Directive (BOD) 18-01.
 
 
-                      https://cyber.dhs.gov/bod/18-01/ 
+                      https://cyber.dhs.gov/bod/18-01/
                   - id: si-8_fr_gdn.2
                     name: guidance
                     props:

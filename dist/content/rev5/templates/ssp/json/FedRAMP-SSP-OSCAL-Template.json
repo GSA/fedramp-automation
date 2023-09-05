@@ -3,8 +3,8 @@
     "uuid": "9809eddf-2cd5-468f-97c5-9769905d0629",
     "metadata": {
       "title": "FedRAMP System Security Plan (SSP)",
-      "published": "2023-07-06T00:00:00Z",
-      "last-modified": "2023-07-06T00:00:00Z",
+      "published": "2023-08-31T00:00:00Z",
+      "last-modified": "2023-08-31T00:00:00Z",
       "version": "fedramp2.0.0-oscal1.0.4",
       "oscal-version": "1.0.4",
       "revisions": [
@@ -2505,13 +2505,13 @@
                       ]
                     },
                     {
-                      "param-id": "ac-1_prm_2",
+                      "param-id": "ac-01_odp.05",
                       "values": [
                         "at least every 3 years"
                       ]
                     },
                     {
-                      "param-id": "ac-1_prm_3",
+                      "param-id": "ac-01_odp.07",
                       "values": [
                         "at least annually"
                       ]
