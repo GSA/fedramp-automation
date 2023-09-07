@@ -4862,7 +4862,7 @@
                             class="identity-assurance"
                             name="identity-assurance-level"
                             ns="https://fedramp.gov/ns/oscal"
-                            value="IAL2" />
+                            value="2" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert
@@ -4897,7 +4897,7 @@
                             class="authenticator-assurance"
                             name="authenticator-assurance-level"
                             ns="https://fedramp.gov/ns/oscal"
-                            value="AAL2" />
+                            value="2" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert
@@ -4932,7 +4932,7 @@
                             class="federation-assurance"
                             name="federation-assurance-level"
                             ns="https://fedramp.gov/ns/oscal"
-                            value="FAL2" />
+                            value="2" />
                     </system-characteristics>
                 </x:context>
                 <x:expect-not-assert
@@ -10387,28 +10387,36 @@
                                     param-id="ac-1_prm_1">
                                     <value>organization-defined personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.01">
+                                <set-parameter 
+                                    param-id="ac-01_odp.01">
                                     <value>personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.02">
+                                <set-parameter 
+                                    param-id="ac-01_odp.02">
                                     <value>personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.03">
+                                <set-parameter 
+                                    param-id="ac-01_odp.03">
                                     <value>organization-level, mission/business process-level, or system-level</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.04">
+                                <set-parameter 
+                                    param-id="ac-01_odp.04">
                                     <value>official</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.05">
+                                <set-parameter 
+                                    param-id="ac-01_odp.05">
                                     <value>frequency</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.06">
+                                <set-parameter 
+                                    param-id="ac-01_odp.06">
                                     <value>events</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.07">
+                                <set-parameter 
+                                    param-id="ac-01_odp.07">
                                     <value>frequency</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.08">
+                                <set-parameter 
+                                    param-id="ac-01_odp.08">
                                     <value>events</value>
                                 </set-parameter>
                             </implemented-requirement>
@@ -10499,25 +10507,32 @@
                                     param-id="ac-1_prm_1">
                                     <value>organization-defined personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.02">
+                                <set-parameter 
+                                    param-id="ac-01_odp.02">
                                     <value>personnel or roles</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.03">
+                                <set-parameter 
+                                    param-id="ac-01_odp.03">
                                     <value>organization-level, mission/business process-level, or system-level</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.04">
+                                <set-parameter 
+                                    param-id="ac-01_odp.04">
                                     <value>official</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.05">
+                                <set-parameter 
+                                    param-id="ac-01_odp.05">
                                     <value>frequency</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.06">
+                                <set-parameter 
+                                    param-id="ac-01_odp.06">
                                     <value>events</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.07">
+                                <set-parameter 
+                                    param-id="ac-01_odp.07">
                                     <value>frequency</value>
                                 </set-parameter>
-                                <set-parameter param-id="ac-01_odp.08">
+                                <set-parameter 
+                                    param-id="ac-01_odp.08">
                                     <value>events</value>
                                 </set-parameter>
                             </implemented-requirement>
@@ -10651,7 +10666,7 @@
                                             </set-parameter>
                                             <set-parameter
                                                 param-id="ac-01_odp.05">
-                                                <value>at least every 3 years </value>
+                                                <value>at least every three (3) years </value>
                                             </set-parameter>
                                             <set-parameter
                                                 param-id="ac-01_odp.07">
@@ -10722,7 +10737,7 @@
                                     </set-parameter>
                                     <set-parameter
                                         param-id="ac-01_odp.05">
-                                        <value>at least every 3 years </value>
+                                        <value>at least every three (3) years </value>
                                     </set-parameter>
                                     <set-parameter
                                         param-id="ac-01_odp.07">
@@ -10786,7 +10801,7 @@
                                 </set-parameter>
                                 <set-parameter
                                     param-id="ac-01_odp.05">
-                                    <value>at least every three 3 years </value>
+                                    <value>at least every three (3) years </value>
                                 </set-parameter>
                                 <set-parameter
                                     param-id="ac-01_odp.07">

@@ -79,14 +79,14 @@
         <allowed-values
             allow-other="no">
             <enum
-                short-label="IAL1"
-                value="IAL1">IAL1</enum>
+                short-label="L"
+                value="1">Low</enum>
             <enum
-                short-label="IAL2"
-                value="IAL2">IAL2</enum>
+                short-label="M"
+                value="2">Moderate</enum>
             <enum
-                short-label="IAL3"
-                value="IAL3">IAL3</enum>
+                short-label="H"
+                value="3">High</enum>
         </allowed-values>
     </value-set>
 
@@ -99,14 +99,14 @@
         <allowed-values
             allow-other="no">
             <enum
-                short-label="AAL1"
-                value="AAL1">AAL1</enum>
+                short-label="L"
+                value="1">Low</enum>
             <enum
-                short-label="AAL2"
-                value="AAL2">AAL2</enum>
+                short-label="M"
+                value="2">Moderate</enum>
             <enum
-                short-label="AAL3"
-                value="AAL3">AAL3</enum>
+                short-label="H"
+                value="3">High</enum>
         </allowed-values>
     </value-set>
 
@@ -119,14 +119,14 @@
         <allowed-values
             allow-other="no">
             <enum
-                short-label="FAL1"
-                value="FAL1">FAL1</enum>
+                short-label="L"
+                value="1">Low</enum>
             <enum
-                short-label="FAL2"
-                value="FAL2">FAL2</enum>
+                short-label="M"
+                value="2">Moderate</enum>
             <enum
-                short-label="FAL3"
-                value="FAL3">FAL3</enum>
+                short-label="H"
+                value="3">High</enum>
         </allowed-values>
     </value-set>
 
